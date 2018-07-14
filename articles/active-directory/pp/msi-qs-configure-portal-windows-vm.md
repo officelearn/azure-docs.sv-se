@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 37710015904c8112e5d2de504ed5b42895ffb809
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 54bb2466a99569c124128ad3e08f276a0bc0262d
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610323"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035273"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Konfigurera en virtuell dator hanterad tjänstidentitet (MSI) med Azure portal
 
@@ -52,7 +52,7 @@ Om du har en virtuell dator som ursprungligen etablerades utan en MSI:
 
 2. Klicka på sidan ”Configuration”, aktivera MSI på den virtuella datorn genom att välja ”Ja” under ”hanterad tjänstidentitet” och sedan på **spara**. Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
 
-   ![Skärmbild av konfiguration av sidan](~/articles/active-directory/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![Skärmbild av konfiguration av sidan](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ## <a name="remove-msi-from-an-azure-vm"></a>Ta bort MSI från en Azure virtuell dator
 
@@ -64,7 +64,7 @@ Om du har en virtuell dator som inte längre behöver en MSI:
 
 3. Klicka på sidan ”Configuration”, ta bort MSI från den virtuella datorn genom att välja ”Nej” under ”hanterad tjänstidentitet” och sedan på **spara**. Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
 
-   ![Skärmbild av konfiguration av sidan](~/articles/active-directory/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
+   ![Skärmbild av konfiguration av sidan](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
 
 ## <a name="related-content"></a>Relaterat innehåll
 

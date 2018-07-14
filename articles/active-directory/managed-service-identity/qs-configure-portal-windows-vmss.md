@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 1ba9f827abeb0c0cf6430089e1fb504288550737
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 8779600f2c85a8bb309f7b2a8874608170de8877
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900471"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035249"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Konfigurera en virtuell dator scale Sets hanterad tjänstidentitet (MSI) med Azure portal
 
@@ -56,7 +56,7 @@ För att aktivera systemtilldelad identitet på en virtuell dator som ursprungli
 
 3. Aktivera systemtilldelad identitet på den virtuella datorn genom att välja ”Ja” under ”hanterad tjänstidentitet” och klicka sedan på **spara**. Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
 
-   [![Skärmbild av konfiguration av sidan](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
+   [![Skärmbild av konfiguration av sidan](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
 ## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Ta bort hanterad tjänstidentitet från en Azure VM-skalningsuppsättning
 
@@ -68,7 +68,7 @@ Om du har en skalningsuppsättning för virtuella datorer som inte längre behö
 
 3. Inaktivera systemtilldelad identitet på den virtuella datorn genom att välja ”Nej” under ”hanterad tjänstidentitet” och sedan på Spara. Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
 
-   ![Skärmbild av konfiguration av sidan](../media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
+   ![Skärmbild av konfiguration av sidan](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
 
 ## <a name="related-content"></a>Relaterat innehåll
 

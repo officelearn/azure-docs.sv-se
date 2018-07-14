@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: liamca
-ms.openlocfilehash: a3baa17906e3bfede8a7fc5f8a0bfbde9d2a57ce
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 24fa427ad67a953020370a16b4d156c82a0a1cf6
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951030"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036674"
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Exempel på Lucene-fråga för att skapa frågor i Azure Search
 När konstruera frågor för Azure Search kan du använda antingen standard [enkla frågesyntaxen](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) eller alternativet [frågeparser (Lucene) i Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Den frågeparser (Lucene) stöder mer komplex fråga konstruktioner som fältbegränsade frågor, fuzzy-sökning, närhetssökning, termförstärkning och sökning med reguljära uttryck.
@@ -69,7 +69,7 @@ Fält som anges i **fieldname:searchterm** måste vara ett sökbart fält. Se [C
 ## <a name="fuzzy-search-example"></a>Fuzzy-sökning-exempel
 En fuzzy-sökning söker efter matchningar i termer som har en liknande konstruktion. Per [Lucene dokumentation](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy sökningar baseras på [Damerau Levenshtein avståndet](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
-Om du vill göra en fuzzy-sökning, lägger du till tilde ”~” symbolen i slutet av ett enstaka ord med en valfri parameter, ett värde mellan 0 och 2, som anger avståndet redigera. Exempelvis ”blå ~” eller ”blå ~ 1” kommer att returnera blå och blues sammanlänkande.
+Om du vill göra en fuzzy-sökning, lägger du till tilde `~` symbolen i slutet av ett enstaka ord med en valfri parameter, ett värde mellan 0 och 2, som anger avståndet redigera. Till exempel `blue~` eller `blue~1` kommer att returnera blå och blues sammanlänkande.
 
 **Exempel 3** --högerklickar du på följande frågeavsnitt. Den här frågan söker efter jobb med termen-koppla (där det är felstavat):
 

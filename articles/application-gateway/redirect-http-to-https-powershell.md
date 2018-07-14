@@ -1,5 +1,5 @@
 ---
-title: Skapa en Programgateway med HTTP till HTTPS - omdirigering av Azure PowerShell | Microsoft Docs
+title: Skapa en Programgateway med HTTP till HTTPS - omdirigering i Azure PowerShell | Microsoft Docs
 description: Lär dig hur du skapar en Programgateway med omdirigerade trafik från HTTP till HTTPS med Azure PowerShell.
 services: application-gateway
 author: vhorne
@@ -9,35 +9,35 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/23/2018
+ms.date: 7/13/2018
 ms.author: victorh
-ms.openlocfilehash: 57e7777923d9f93247b9fc0dee310301cb6d2039
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 372ada504ddfe90b48ace35acfeb934d67fa81a6
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356434"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035436"
 ---
-# <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Skapa en Programgateway med HTTP till HTTPS genom att använda Azure PowerShell
+# <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Skapa en Programgateway med HTTP till HTTPS-omdirigering med Azure PowerShell
 
-Du kan använda Azure PowerShell för att skapa en [Programgateway](overview.md) med ett certifikat för SSL-avslutning. En regel för vidarebefordran används för att dirigera HTTP-trafik till HTTPS-porten i Programgateway. I det här exemplet du också skapa en [virtuella datorns skaluppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för serverdelspoolen för Programgateway som innehåller två virtuella instanser. 
+Du kan använda Azure PowerShell för att skapa en [Programgateway](overview.md) med ett certifikat för SSL-avslutning. En routningsregel används för att omdirigera HTTP-trafik till HTTPS-porten i application gateway. I det här exemplet kan du också skapa en [virtual machine scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för serverdelspoolen för application gateway som innehåller två instanser av virtuella datorer. 
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Skapa ett självsignerat certifikat
-> * Skapa ett nätverk
-> * Skapa en Programgateway med certifikatet
+> * Konfigurera ett nätverk
+> * Skapa en programgateway med certifikatet
 > * Lägga till en lyssnare och omdirigering av regel
-> * Skapa en virtuell dator-skala med serverdelspoolen standard
+> * Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Den här självstudien kräver Azure PowerShell-modul version 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du vill köra kommandon i den här självstudiekursen, du måste också köra `Login-AzureRmAccount` att skapa en anslutning med Azure.
+Den här självstudien kräver Azure PowerShell-modul version 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). För att köra kommandona i den här självstudien, behöver du också köra `Login-AzureRmAccount` att skapa en anslutning till Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
 
-För produktion, ska du importera ett giltigt certifikat som signerats av en betrodd provider. För den här självstudiekursen skapar du ett självsignerat certifikat med hjälp av [ny SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Du kan använda [Export PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) med det tumavtryck som returnerades för att exportera en pfx-fil från certifikatet.
+För produktion bör du importera ett giltigt certifikat som signerats av en betrodd provider. I den här självstudiekursen skapar du ett självsignerat certifikat med [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Du kan använda [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) med det tumavtryck som returnerades och exportera en pfx-fil från certifikatet.
 
 ```powershell
 New-SelfSignedCertificate `
@@ -45,7 +45,7 @@ New-SelfSignedCertificate `
   -dnsname www.contoso.com
 ```
 
-Du bör se något liknande följande resultat:
+Du bör se något som liknar det här resultatet:
 
 ```
 PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
@@ -55,7 +55,7 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Använd tumavtrycket för att skapa pfx-filen:
+Använd tumavtrycket till att skapa pfx-filen:
 
 ```powershell
 $pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
@@ -67,7 +67,7 @@ Export-PfxCertificate `
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Skapa en Azure-resursgrupp med namnet *myResourceGroupAG* med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Skapa en Azure-resursgrupp med namnet *myResourceGroupAG* med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
 
 ```powershell
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
@@ -75,7 +75,7 @@ New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser
 
-Skapa undernät konfigurationer för *myBackendSubnet* och *myAGSubnet* med [ny AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Skapa ett virtuellt nätverk med namnet *myVNet* med [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) med konfigurationer för undernät. Slutligen, skapa offentlig IP-adress med namnet *myAGPublicIPAddress* med [ny AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Dessa resurser används för att ge nätverksanslutning till gateway för programmet och dess associerade resurser.
+Skapa undernätskonfigurationer för *myBackendSubnet* och *myAGSubnet* med [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Skapa ett virtuellt nätverk med namnet *myVNet* med [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) och undernätskonfigurationerna. Skapa slutligen den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). De här resurserna används för att ge nätverksanslutning till programgatewayen och tillhörande resurser.
 
 ```powershell
 $backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
@@ -99,9 +99,9 @@ $pip = New-AzureRmPublicIpAddress `
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-### <a name="create-the-ip-configurations-and-frontend-port"></a>Skapa IP-konfigurationer och klientdelsport
+### <a name="create-the-ip-configurations-and-frontend-port"></a>Skapa IP-konfigurationerna och klientdelsporten
 
-Associera *myAGSubnet* som du skapade tidigare till programmet gateway med [ny AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Tilldela *myAGPublicIPAddress* till programmet gateway med [ny AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig). Och du kan sedan skapa HTTPS-port med [ny AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport).
+Associera *myAGSubnet* som du skapade tidigare till programgatewayen med [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Tilldela *myAGPublicIPAddress* till programgatewayen med [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig). Och du kan sedan skapa HTTPS-porten med [New AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport).
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork `
@@ -119,9 +119,9 @@ $frontendPort = New-AzureRmApplicationGatewayFrontendPort `
   -Port 443
 ```
 
-### <a name="create-the-backend-pool-and-settings"></a>Skapa serverdelspool och inställningar
+### <a name="create-the-backend-pool-and-settings"></a>Skapa serverdelspoolen och tillhörande inställningar
 
-Skapa serverdelspoolen med namnet *appGatewayBackendPool* för programmet gateway med [ny AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Konfigurera inställningar för backend-pool med [ny AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
+Skapa serverdelspoolen med namnet *appGatewayBackendPool* för programgatewayen med [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Konfigurera inställningar för serverdelspoolen med [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
 
 ```powershell
 $defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
@@ -134,11 +134,11 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
   -RequestTimeout 120
 ```
 
-### <a name="create-the-default-listener-and-rule"></a>Skapa standard lyssnare och regel
+### <a name="create-the-default-listener-and-rule"></a>Skapa standardlyssnare och -regel
 
-En lyssnare krävs för att aktivera Programgateway att dirigera trafik korrekt till serverdelspoolen. I det här exemplet skapar du en grundläggande lyssnare som lyssnar efter HTTPS-trafik i rot-URL. 
+Du behöver en lyssnare så att programgatewayen kan dirigera trafiken till serverdelspoolen på rätt sätt. I det här exemplet skapar du en grundläggande lyssnare som lyssnar efter HTTPS-trafik vid rotadressen. 
 
-Skapa ett certifikat för objektet med [ny AzureRmApplicationGatewaySslCertificate](/powershell/module/azurerm.network/new-azurermapplicationgatewaysslcertificate) och sedan skapa en lyssnare med namnet *appGatewayHttpListener* med [ Nya AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) med klientdelens konfiguration, klientdelsport och certifikat som du skapade tidigare. En regel måste anges för lyssnaren att veta vilka serverdelspool som ska användas för inkommande trafik. Skapa en enkel regel med namnet *regel 1* med [ny AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
+Skapa en certifikat-objekt med [New-AzureRmApplicationGatewaySslCertificate](/powershell/module/azurerm.network/new-azurermapplicationgatewaysslcertificate) och sedan skapa en lyssnare med namnet *appGatewayHttpListener* med [ Ny AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) med konfiguration för klientdel, frontend-port och certifikat som du skapade tidigare. Du måste ange en regel för lyssnaren som anger vilken serverdelspool som ska användas för inkommande trafik. Skapa en grundläggande regel med namnet *rule1* med [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
 
 ```powershell
 $pwd = ConvertTo-SecureString `
@@ -165,7 +165,7 @@ $frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
-Nu när du har skapat de nödvändiga stödresurser ange parametrar för Programgateway med namnet *myAppGateway* med [ny AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku), och sedan skapa den med hjälp av [ Nya AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) med certifikatet.
+Nu när du har skapat de nödvändiga stödresurserna ska du ange parametrar för programgatewayen *myAppGateway* med [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku). Skapa sedan gatewayen med [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) och certifikatet.
 
 ```powershell
 $sku = New-AzureRmApplicationGatewaySku `
@@ -189,9 +189,9 @@ $appgw = New-AzureRmApplicationGateway `
 
 ## <a name="add-a-listener-and-redirection-rule"></a>Lägga till en lyssnare och omdirigering av regel
 
-### <a name="add-the-http-port"></a>Lägga till HTTP-porten
+### <a name="add-the-http-port"></a>Lägg till HTTP-porten
 
-Lägga till HTTP-port till den gateway som använder [Lägg till AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/add-azurermapplicationgatewayfrontendport).
+Lägg till HTTP-porten till application gateway med [Lägg till AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/add-azurermapplicationgatewayfrontendport).
 
 ```powershell
 $appgw = Get-AzureRmApplicationGateway `
@@ -203,9 +203,9 @@ Add-AzureRmApplicationGatewayFrontendPort `
   -ApplicationGateway $appgw
 ```
 
-### <a name="add-the-http-listener"></a>Lägga till HTTP-lyssnare
+### <a name="add-the-http-listener"></a>Lägg till HTTP-lyssnare
 
-Lägga till HTTP-lyssnaren med namnet *myListener* till programmet gateway med [Lägg till AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/add-azurermapplicationgatewayhttplistener).
+Lägg till HTTP-lyssnaren med namnet *myListener* i application gateway med hjälp av [Lägg till AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/add-azurermapplicationgatewayhttplistener).
 
 ```powershell
 $fipconfig = Get-AzureRmApplicationGatewayFrontendIPConfig `
@@ -222,9 +222,9 @@ Add-AzureRmApplicationGatewayHttpListener `
   -ApplicationGateway $appgw
 ```
 
-### <a name="add-the-redirection-configuration"></a>Lägg till omdirigering av konfigurationen
+### <a name="add-the-redirection-configuration"></a>Lägga till konfigurationen för omdirigering
 
-Lägga till HTTP till HTTPS omdirigering av konfigurationen till programmet gateway med [Lägg till AzureRmApplicationGatewayRedirectConfiguration](/powershell/module/azurerm.network/add-azurermapplicationgatewayredirectconfiguration).
+Lägg till HTTP till HTTPS-omdirigeringskonfiguration i application gateway med hjälp av [Add-azurermapplicationgatewayredirectconfiguration har till](/powershell/module/azurerm.network/add-azurermapplicationgatewayredirectconfiguration).
 
 ```powershell
 $defaultListener = Get-AzureRmApplicationGatewayHttpListener `
@@ -240,7 +240,7 @@ Add-AzureRmApplicationGatewayRedirectConfiguration -Name httpToHttps `
 
 ### <a name="add-the-routing-rule"></a>Lägg till regel för vidarebefordran
 
-Lägg till routningsregel med omdirigering av konfigurationen i programmet gatewayen med [Lägg till AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/add-azurermapplicationgatewayrequestroutingrule).
+Lägg till en routningsregel med konfigurationen för omdirigering i application gateway med hjälp av [Lägg till AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/add-azurermapplicationgatewayrequestroutingrule).
 
 ```powershell
 $myListener = Get-AzureRmApplicationGatewayHttpListener `
@@ -260,7 +260,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Skapa en VM-skalningsuppsättning
 
-I det här exemplet skapar du en virtuell dator skala in för att tillhandahålla servrar för serverdelspoolen i programgatewayen. Du kan tilldela skaluppsättningen till serverdelspoolen när du konfigurerar IP-inställningar.
+I det här exemplet skapar du en VM-skalningsuppsättning som ska tillhandahålla servrar till serverdelspoolen i programgatewayen. Du tilldelar skalningsuppsättningen till serverdelspoolen när du konfigurerar IP-inställningarna.
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork `
@@ -286,6 +286,7 @@ Set-AzureRmVmssStorageProfile $vmssConfig `
   -ImageReferenceOffer WindowsServer `
   -ImageReferenceSku 2016-Datacenter `
   -ImageReferenceVersion latest
+  -OsDiskCreateOption FromImage
 Set-AzureRmVmssOsProfile $vmssConfig `
   -AdminUsername azureuser `
   -AdminPassword "Azure123456!" `
@@ -321,17 +322,17 @@ Update-AzureRmVmss `
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Du kan använda [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) att hämta den offentliga IP-adressen för programgatewayen. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel, http://52.170.203.149
+Du kan använda [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) till att hämta den offentliga IP-adressen för programgatewayen. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel, http://52.170.203.149
 
 ```powershell
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-![Säker varning](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
+![Säkerhetsvarning](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 
-Om du vill acceptera säkerhetsmeddelande om du använder ett självsignerat certifikat, Välj **information** och sedan **går du vidare till webbsidan**. Din skyddade IIS-webbplats visas sedan som i exemplet nedan:
+Om du använde ett självsignerat certifikat och vill acceptera säkerhetsvarningen väljer du **Information** och sedan **Fortsätt till webbsidan**. Din skyddade IIS-webbplats visas sedan som i exemplet nedan:
 
-![Testa bas-URL i Programgateway](./media/redirect-http-to-https-powershell/application-gateway-iistest.png)
+![Testa basadressen i programgatewayen](./media/redirect-http-to-https-powershell/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -339,7 +340,7 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * Skapa ett självsignerat certifikat
-> * Skapa ett nätverk
-> * Skapa en Programgateway med certifikatet
+> * Konfigurera ett nätverk
+> * Skapa en programgateway med certifikatet
 > * Lägga till en lyssnare och omdirigering av regel
-> * Skapa en virtuell dator-skala med serverdelspoolen standard
+> * Skapa en VM-skalningsuppsättning med serverdelens standardpool

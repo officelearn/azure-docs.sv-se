@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dd436fb431351b41c61af5ef99f11fce470386a8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e2b8b1f63e4c23c0beeaff6fd246fa2ba8afe106
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003604"
+ms.locfileid: "39036759"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Valfria anspråk i Azure AD (förhandsversion)
 
@@ -66,7 +66,7 @@ Uppsättningen med valfria anspråk som är tillgängliga som standard att anvä
 | `enfpolids`                | Tvingande princip-ID: N. En lista över ID: N som har utvärderats för den aktuella användaren.  | JWT |  |  |
 | `vnet`                     | Information om virtuellt nätverk specificerare.    | JWT        |           |      |
 | `fwd`                      | IP-adress.| JWT    |   | Lägger till den ursprungliga IPv4-adressen för den begärande klienten (i ett virtuellt nätverk) |
-| `ctry`                     | Användarens land | JWT |           | |
+| `ctry`                     | Användarens land | JWT |           | Azure AD-returnerar den `ctry` valfria anspråk om den finns och anspråkets värde är en standard två bokstäver landskod, till exempel FR, JP, SZ och så vidare. |
 | `tenant_ctry`              | Resursen klientens land/region | JWT | | |
 | `xms_pdl`          | Önskad Dataplats   | JWT | | För Multi-Geo-innehavare är detta 3 bokstäver koden som visar vilka geografiska region som användaren tillhör.  Mer information finns i den [Azure AD Connect-dokumentationen om önskad Dataplats](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation). <br> Till exempel: `APC` för Asien/Stillahavsområdet. |
 | `xms_pl`                   | Användarens förvalda språk  | JWT ||Användaren prioriterade språk, om ange.  Ursprung sina startklientorganisation i scenarier för gäst-åtkomst.  Formaterad lla kopia (”en-us”). |

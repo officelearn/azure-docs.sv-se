@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ca25aaefee6c9746ff79bdca7668b510df9ac6c3
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 11d96ce0c92916e1975e0cb403aabf057ab8b825
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002049"
+ms.locfileid: "39036837"
 ---
 # <a name="how-to-record-voice-samples-for-a-custom-voice"></a>Hur du registrerar voice-exempel för en anpassad röst
 
@@ -93,7 +93,7 @@ Ett skript för grundläggande format innehåller tre kolumner:
 ![Exempelskript](media/custom-voice/script.png)
 
 > [!NOTE]
-> De flesta studios registrera kortfattat segment, kallas även ”äger” varje ttake ypically som innehåller tio till 24 yttranden. Bara noteras take-nummer är tillräckliga för att hitta en viss uttryck senare. Vissa studios kanske föredrar längre inspelningar. I det här fallet bör du Observera tidsförskjutningen i filen (tid-kod). Studio har en framstående tid visning.
+> De flesta studios registrera kortfattat segment som kallas ”äger” varje tar vanligtvis innehåller tio till 24 yttranden. Bara noteras take-nummer är tillräckliga för att hitta en viss uttryck senare. Vissa studios kanske föredrar att göra längre inspelningar. I det här fallet bör du Observera tidsförskjutningen i filen (tid-kod). Studio har en framstående tid visning.
 
 Lämna tillräckligt med utrymme efter varje rad att skriva anteckningar. Var noga med att inga uttryck delas mellan sidor. Sidorna och Skriv ut ditt skript på ena sidan av dokumentet.
 
@@ -105,7 +105,7 @@ Enligt upphovsrätten, kan en aktör läsning av upphovsrättsskyddade text vara
 
 Som tur är kan går det att undvika de här problemen helt och hållet. Det finns många källor med text som du kan använda utan behörighet eller licens.
 
-|||
+|Text-källa|Beskrivning|
 |-|-|
 |[CMU Arctic Kristi](http://festvox.org/cmu_arctic/)|Om 1100 meningar som valts ut av upphovsrätt som ska användas i tal syntes projekt. En utmärkt utgångspunkt.|
 |Fungerar inte längre<br>upphovsrätten|Vanligtvis publicerade fungerar innan 1923. Engelska erbjuder projekt Gutenberg tiotusentals sådana verk. Du kanske vill fokusera på nyare fungerar som språket är närmare moderna engelska.|
@@ -129,7 +129,7 @@ Använda en högkvalitativ studio kylaren mikrofon (”mic”) är avsedda för 
 
 Du kan också använda en analog mikrofon. Många hyra datahus erbjuder ”vintage” mikrofoner världskänd för sin röst-tecken. Observera att professionella analog gear använder belastningsutjämnade XLR kopplingar i stället för 1/4 ”Anslut används i konsumentutrustning. Om du går analog, måste du också en preamp och ett ljud datorgränssnittet med dessa anslutningar.
 
-Installera mikrofonen på en fristående eller sådär och Använd ett pop filter i frot till mikrofonen för att eliminera brus från ”plosive” låter som ”p” och ”b”. En del mikrofoner levereras med en inaktivering montering som isolerar dem från vibrationer i den fristående, vilket är användbart.
+Installera mikrofonen på en fristående eller sådär och använda ett pop filter framför mikrofonen för att eliminera brus från ”plosive” låter som ”p” och ”b”. En del mikrofoner levereras med en inaktivering montering som isolerar dem från vibrationer i den fristående, vilket är användbart.
 
 Röst-personal måste hålla sig i ett konsekvent avstånd från mikrofonen. Använd bandet på våning för att markera där de ska använda. Om personal föredrar att vara, var särskilt noga med att övervaka mic avståndet och undvika chair bruset.
 
@@ -144,7 +144,7 @@ Lyssna nära på en inspelning av tystnad i din ”monter”, ta reda på där a
 > [!TIP]
 > I vissa fall kan du använda en equalizer eller en bruset minskning programvara plugin-programmet för att ta bort brus från din inspelningar, även om det alltid är bäst att stoppa den vid dess källa när det är möjligt.
 
-Nivåer ska ställas in så att det mesta av digital registrering tillgängliga dynamiska omfång används utan overdriving i förvrängningar. Det innebär att högt, men inte så högt som förvränger ljudet. Nedan visas ett exempel på Wave för en bra inspelning.
+Nivåer ska ställas in så att det mesta av digital registrering tillgängliga dynamiska omfång används utan overdriving. Det innebär att högt, men inte så högt som förvränger ljudet. Nedan visas ett exempel på Wave för en bra inspelning.
 
 ![bra inspelning Wave](media/custom-voice/good-recording.png)
 
@@ -172,13 +172,13 @@ Dirigera personal att uttala orden tydligt. Varje ord i skriptet bör vara marka
 |aldrig kommer för att ge dig|aldrig kommer för att ge dig|
 |Det finns fyra ljus|Det är fyra ljus|
 |Vad är vädret idag|hur är th ”väder idag|
-|Min lite programmet pony|Min lil ”programmet pony|
+|Säg hej till min lite vän|Säg hej till min lil ”vän|
 
 Personal bör *inte* lägga till distinkta pauser mellan ord. Meningen ska fortfarande att flöda naturligt, även under sounding lite formella. Den här bra skillnaden kan ta några idé att ha rätt.
 
 ### <a name="the-recording-session"></a>Spela in sessionen
 
-Skapar en referens spela in, eller *matchar filen* i en typisk uttryck i början av sessionen. Be personal Upprepa den här raden alla sidor eller sidan och en halv och jämför den nya inspelningen referensen. Detta hjälper personal förblir konsekventa i volymen, tempo, centrala försäljningsargument och försäljningsargument högsta och valley. Teknikern kan under tiden kan använda filen matchning som referens för nivåer och konsekventa ljud. 
+Skapar en referens spela in, eller *matchar filen* i en typisk uttryck i början av sessionen. Be personal Upprepa den här raden alla sidor eller sidan och en halv. Varje gång jämför ny inspelning referensen. Den här tekniken kan personal förblir konsekventa i volymen, tempo, försäljningsargument och intonation. Teknikern kan under tiden kan använda filen matchning som referens för nivåer och konsekventa ljud.
 
 Filen matchar är särskilt viktigt när återupptar inspelning efter ett avbrott eller en annan dag. Du vill spela upp den några gånger under personal och de Upprepa det varje gång tills de kommer att matcha bra.
 

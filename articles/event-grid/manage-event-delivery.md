@@ -1,31 +1,31 @@
 ---
-title: Hantera leveransinställningar för händelsen rutnät för Azure-prenumerationer
-description: Beskriver hur du anpassar händelse Leveransalternativ för händelsen rutnät.
+title: Hantera leveransinställningar för Azure Event Grid-prenumerationer
+description: Beskriver hur du anpassar händelse Leveransalternativ för Event Grid.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 07/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 65e79f492e96c418502e096b60992ba992868dd7
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: e91ee640d18e2cf804be33fd130bf48737c9efb1
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036504"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035677"
 ---
-# <a name="manage-event-grid-delivery-settings"></a>Hantera inställningar för leverans av händelse rutnätet
+# <a name="manage-event-grid-delivery-settings"></a>Hantera Event Grid leveransinställningar
 
-När du skapar en händelseprenumeration kan anpassa du inställningarna för leverans av händelsen. Du kan ange hur länge händelse rutnätet försök att leverera meddelandet. Du kan ange ett lagringskonto som ska användas för att lagra händelser som inte levereras till en slutpunkt.
+När du skapar en händelseprenumeration kan anpassa du inställningarna för händelseleverans. Du kan ange hur länge Event Grid försöker att leverera meddelandet. Du kan ange en storage-konto som ska användas för att lagra händelser som inte kan levereras till en slutpunkt.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
-## <a name="set-retry-policy"></a>Ange återförsöksprincip
+## <a name="set-retry-policy"></a>Ange återförsöksprincipen
 
-När du skapar en händelse rutnätet prenumeration kan ange du värden för hur länge händelse rutnätet ska försöka leverera händelsen. Händelsen rutnät som standard försöker under 24 timmar (1440 minuter) och försöker högst 30 gånger. Du kan ange något av värdena för prenumerationen händelse rutnätet.
+När du skapar en Event Grid-prenumeration kan ange du värden för hur länge Event Grid bör försöka leverera händelsen. Event Grid som standard försöker i 24 timmar (1 440 minuter) och försöker upp till 30 gånger. Du kan ange något av dessa värden för event grid-prenumeration.
 
-Om du vill konfigurera händelsen time to live till ett annat värde än 1 440 minuter, använder du:
+För att ange händelsen time-to-live för ett annat värde än 1 440 minuter, använder du:
 
 ```azurecli-interactive
 # if you have not already installed the extension, do it now.
@@ -36,7 +36,7 @@ az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
   --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
+  --endpoint <endpoint_URL> \
   --event-ttl 720
 ```
 
@@ -47,21 +47,21 @@ az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
   --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
+  --endpoint <endpoint_URL> \
   --max-delivery-attempts 18
 ```
 
-Om du anger både `event-ttl` och `max-deliver-attempts`, händelse rutnätet använder först för att gälla för återförsök försöker.
+Om du anger både `event-ttl` och `max-deliver-attempts`, Event Grid använder först att upphöra för att gälla för omförsök.
 
-## <a name="set-dead-letter-location"></a>Ange förlorade plats
+## <a name="set-dead-letter-location"></a>Ange platsen för obeställbara meddelanden
 
-När händelsen rutnätet inte kan skicka en händelse måste skicka den händelsen inte har levererats till ett lagringskonto. Den här processen kallas dead-lettering. Som standard Aktivera inte händelse rutnätet dead-lettering. Du måste ange ett lagringskonto för att lagra felande händelser när du skapar händelseprenumerationen för att aktivera den. Du hämtar händelser från det här lagringskontot för att lösa leveranser.
+När Event Grid inte kan skicka en händelse, kan den skicka händelsen inte har levererats till ett lagringskonto. Den här processen kallas dead-lettering. Som standard Aktivera inte Event Grid dead-lettering. Du måste ange ett lagringskonto för att lagra felande händelser när du skapar händelseprenumerationen för att aktivera den. Du hämtar händelser från det här lagringskontot för att lösa leveranser.
 
-Händelsen rutnätet skickar en händelse till platsen för obeställbara om alla dess nya försök har gjorts eller om den får ett felmeddelande som anger leverans aldrig lyckas. Till exempel om händelsen rutnätet tar emot ett felaktigt format-fel när du levererar en händelse, skickar omedelbart den händelsen till platsen förlorade.
+Event Grid skickar en händelse till förlorade platsen om det har försökt alla dess återförsök, eller om den får ett felmeddelande som anger leverans aldrig lyckas. Till exempel om Event Grid tar emot ett felaktigt format-fel när du ska leverera en händelse, skickar den omedelbart händelsen till förlorade plats.
 
-Innan du anger platsen för obeställbara måste du ha ett lagringskonto med en behållare. Anger du slutpunkten för den här behållaren när du skapar händelseprenumerationen. Slutpunkten är i formatet: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
+Du måste ha ett lagringskonto med en behållare för innan du anger systemkön plats. Du kan ange slutpunkten för den här behållaren när du skapar händelseprenumerationen. Slutpunkten är i formatet: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-Följande skript hämtar resurs-ID för ett befintligt lagringskonto och skapar en händelseprenumeration som använder en behållare i detta lagringskonto för obeställbara slutpunkten.
+Följande skript hämtar resurs-ID för ett befintligt lagringskonto och skapas en händelseprenumeration som använder en behållare i det lagringskontot för förlorade-slutpunkten.
 
 ```azurecli-interactive
 # if you have not already installed the extension, do it now.
@@ -77,14 +77,16 @@ az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
   --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
+  --endpoint <endpoint_URL> \
   --deadletter-endpoint $storageid/blobServices/default/containers/$containername
 ```
 
-Att använda händelsen rutnätet för att svara på händelser som inte har [skapa en händelseprenumerationen](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) för obeställbara blobblagring. Varje gång förlorade blobblagring har tagit emot en felande händelse, meddelar händelse rutnätet din hanterare. Hanteraren svarar med åtgärder som du vill dra för att stämma av felande händelser. 
+Du använder Event Grid för att svara på händelser som inte har [skapa en händelseprenumeration](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) för förlorade blob-lagringen. Varje gång förlorade blobblagringen tar emot en felande händelse Event Grid meddelar din hanterare. Hanteraren svarar med åtgärder som du vill dra för att stämma av händelser som inte har levererats. 
+
+Om du vill inaktivera dead-lettering, kör kommandot för att skapa händelseprenumerationen men inte anger ett värde för `deadletter-endpoint`. Du behöver inte ta bort händelseprenumerationen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om händelsen leverans och omförsök, [händelse rutnätet meddelandeleverans och försök igen](delivery-and-retry.md).
+* Information om händelseleverans och återförsök, [Event Grid meddelandeleverans och försök igen](delivery-and-retry.md).
 * En introduktion till Event Grid finns i [Om Event Grid](overview.md).
-* Om du vill komma igång snabbt med hjälp av händelse rutnätet kan se [skapa och flöde anpassade händelser med Azure händelse rutnätet](custom-event-quickstart.md).
+* Kom igång snabbt med Event Grid, se [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).

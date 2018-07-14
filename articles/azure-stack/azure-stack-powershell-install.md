@@ -14,33 +14,41 @@ ms.topic: article
 ms.date: 07/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: e2785b0beeab042d4b1ad9a9eb5f545dbb58b8b9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 09d5842f349917be0e5d94d919b0e9630347284b
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38487509"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035487"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installera PowerShell för Azure Stack
 
 *Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Azure Stack-kompatibla Azure PowerShell-moduler som krävs för att arbeta med Azure Stack. I den här guiden vägleder vi dig igenom de steg som krävs för att installera PowerShell för Azure Stack.
+Azure Stack-kompatibla Azure PowerShell-moduler som krävs för att arbeta med Azure Stack. I den här guiden vägleder vi dig igenom de steg som krävs för att installera PowerShell för Azure Stack. Följande steg gäller för internet-anslutna miljöer. Bläddra längst ned på sidan för frånkopplade miljöer.
 
 Den här artikeln har detaljerade anvisningar för att installera PowerShell för Azure Stack.
 
 > [!Note]  
-> Följande steg kräver PowerShell 5.0. Du kan kontrollera din version genom att köra $PSVersionTable.PSVersion och jämföra den **större** version.
+> Följande steg kräver minst PowerShell 5.0. Du kan kontrollera din version genom att köra $PSVersionTable.PSVersion och jämföra den **större** version. Om du inte har PowerShell 5.0, följer du de [länk](https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) att uppgradera till PowerShell 5.0.
 
 PowerShell-kommandon för Azure Stack installeras via PowerShell-galleriet. Du kan använda följande procedur för att verifiera om PSGallery registreras som en lagringsplats, öppna en upphöjd PowerShell-session och kör följande kommando:
 
-```PowerShell  
+```PowerShell
+#requires -Version 5
+#requires -RunAsAdministrator
+#requires -Module PowerShellGet
+
+Import-Module -Name PowerShellGet -ErrorAction Stop
+Import-Module -Name PackageManagement -ErrorAction Stop 
+
 Get-PSRepository -Name "PSGallery"
 ```
 
 Om databasen inte är registrerad, öppna en upphöjd PowerShell-session och kör följande kommando:
 
-```PowerShell  
+```PowerShell
+Register-PsRepository -Default
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 > [!Note]  
@@ -97,24 +105,22 @@ I ett scenario med frånkopplade måste du först hämta PowerShell-moduler till
 
 1. Logga in på en dator där du har Internetanslutning och använda följande skript för att ladda ned AzureRM och AzureStack paket på den lokala datorn:
 
-   ```PowerShell  
+   ```PowerShell 
+  #requires -Version 5
+  #requires -RunAsAdministrator
+  #requires -Module PowerShellGet
+  #requires -Module PackageManagement
+  
+  Import-Module -Name PowerShellGet -ErrorAction Stop
+  Import-Module -Name PackageManagement -ErrorAction Stop
+
    $Path = "<Path that is used to save the packages>"
 
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureRM `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.2.11
+   Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 `
+     -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
 
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureStack `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.3.0 
+   Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 `
+     -Name AzureStack -Path $Path -Force -RequiredVersion 1.3.0 
    ```
 
   > [!Important]  
@@ -127,19 +133,19 @@ I ett scenario med frånkopplade måste du först hämta PowerShell-moduler till
 4. Nu måste du registrera den här platsen som standard-databasen och installerar AzureRM- och AzureStack-moduler från den här lagringsplatsen:
 
    ```PowerShell
+   #requires -Version 5
+   #requires -RunAsAdministrator
+   #requires -Module PowerShellGet
+   #requires -Module PackageManagement
+
    $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
    $RepoName = "MyNuGetSource"
 
-   Register-PSRepository `
-     -Name $RepoName `
-     -SourceLocation $SourceLocation `
-     -InstallationPolicy Trusted
+   Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation  -InstallationPolicy Trusted
 
-   Install-Module AzureRM `
-     -Repository $RepoName
+   Install-Module AzureRM -Repository $RepoName
 
-   Install-Module AzureStack `
-     -Repository $RepoName 
+   Install-Module AzureStack -Repository $RepoName 
    ```
 
 ## <a name="configure-powershell-to-use-a-proxy-server"></a>Konfigurera PowerShell för att använda en proxyserver

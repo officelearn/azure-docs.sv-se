@@ -10,11 +10,11 @@ ms.date: 05/01/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 88c01e8e57d4a92478b8b1ca0689ff0f8e499b39
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "33814636"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38739635"
 ---
 När funktioner värden körs lokalt, skriver loggar till följande sökväg:
 
@@ -22,8 +22,8 @@ När funktioner värden körs lokalt, skriver loggar till följande sökväg:
 <DefaultTempDirectory>\LogFiles\Application\Functions
 ```
 
-I Windows, `<DefaultTempDirectory>` är det första värdet som hittades av TMP TEMP USERPROFILE miljövariabler eller Windows-katalogen.
-I MacOS eller Linux `<DefaultTempDirectory>` TMPDIR miljövariabel.
+På Windows, `<DefaultTempDirectory>` är det första värdet som hittats av TMP TEMP, USERPROFILE miljövariabler eller Windows-katalogen.
+På MacOS eller Linux, `<DefaultTempDirectory>` TMPDIR miljövariabel.
 
 > [!NOTE]
-> När värden funktioner startar över den befintliga filstrukturen i katalogen.
+> När funktioner värden startas, skrivs den befintliga filstrukturen i katalogen.

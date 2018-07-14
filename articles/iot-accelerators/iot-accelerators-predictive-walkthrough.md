@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: ed87b3c935fe4032460f8e524f963355fb3157d9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: e7c6c8d017e4371919088ec414d3108939ca4a19
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970309"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036262"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Översikt över lösningsacceleratorn Förutsägande underhåll
 
@@ -35,11 +35,11 @@ De grå objekten representerar komponenter som implementerar funktioner för *en
 
 I Azure Portal navigerar du till resursgruppen med det lösningsnamn som du har valt för att visa dina etablerade resurser.
 
-![][img-resource-group]
+![Accelerator resurser][img-resource-group]
 
-När du etablerar lösningsacceleratorn får du ett e-postmeddelande med en länk till Machine Learning-arbetsytan. Du kan också navigera till Machine Learning-arbetsyta från den [azureiotsolutions.com] [ lnk-azureiotsuite] för din etablerade lösning. En panel är tillgänglig på den här sidan när lösningen har statusen **Redo**.
+När du etablerar lösningsacceleratorn får du ett e-postmeddelande med en länk till Machine Learning-arbetsytan. Du kan också navigera till Machine Learning-arbetsyta från den [Microsoft Azure IoT-Lösningsacceleratorer] [ lnk-azureiotsuite] för din etablerade lösning. En panel är tillgänglig på den här sidan när lösningen har statusen **Redo**.
 
-![][img-machine-learning]
+![Machine learning-modell][img-machine-learning]
 
 ## <a name="simulated-devices"></a>Simulerade enheter
 

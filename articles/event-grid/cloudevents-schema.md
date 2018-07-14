@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 07/13/2018
 ms.author: babanisa
-ms.openlocfilehash: f3541fb3dbca6243f6c10611aa968603745f97a1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 41e7be80eb67deaf7a8189aa0d9f62c48b88799a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38314436"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036245"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Använd CloudEvents-schema med Event Grid
 
@@ -74,8 +74,6 @@ CloudEvents v0.1 har följande egenskaper som är tillgängliga:
 Mer information finns i den [CloudEvents-specifikationen](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
 ## <a name="configure-event-grid-for-cloudevents"></a>Konfigurera Event Grid för CloudEvents
-
-Azure Event Grid har för närvarande, förhandsversion av stöd för CloudEvents JSON-format-indata och utdata i **USA, västra centrala**, **centrala USA**, och **Nordeuropa**.
 
 Du kan använda Event Grid för både indata och utdata av händelser i CloudEvents-schema. Du kan använda CloudEvents för systemhändelser som Blob Storage-händelser och IoT Hub-händelser och anpassade händelser. Det kan också omvandla dessa händelser på kabeln fram och tillbaka.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 9d9c18d576f3975d4c8272efff7161366f3f53fe
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 27ecb00bddb41ae45e790a54702c058ff3f1d24b
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901365"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035949"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Konfigurera en virtuell dator hanterad tjänstidentitet (MSI) med Azure portal
 
@@ -59,7 +59,7 @@ För att aktivera systemtilldelad identitet på en virtuell dator som ursprungli
     > [!NOTE]
     > Att lägga till en Användartilldelad identitet till en virtuell dator stöds inte för närvarande via Azure-portalen.
 
-   ![Skärmbild av konfiguration av sidan](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![Skärmbild av konfiguration av sidan](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ## <a name="remove-managed-service-identity-from-an-azure-vm"></a>Ta bort hanterade tjänstidentiteter från en Azure virtuell dator
 
@@ -74,7 +74,7 @@ Om du har en virtuell dator som inte längre behöver systemtilldelade identitet
     > [!NOTE]
     > Att lägga till en Användartilldelad identitet till en virtuell dator stöds inte för närvarande via Azure-portalen.
 
-   ![Skärmbild av konfiguration av sidan](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
+   ![Skärmbild av konfiguration av sidan](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
 
 ## <a name="related-content"></a>Relaterat innehåll
 

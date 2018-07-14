@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/05/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: abf10177f8ce86309043da92d1f2b690775b6d89
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
-ms.translationtype: HT
+ms.openlocfilehash: f203e056df00fb1a9b1e7e43930955040dfce4aa
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37909934"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39030017"
 ---
 Azure utför med jämna mellanrum uppdateringar för att förbättra värdinfrastrukturens tillförlitlighet, prestanda och säkerhet för virtuella datorer. Dessa uppdateringar omfattar allt från korrigeringar av programvarukomponenter i värdmiljön (som operativsystem, hypervisor-program och olika agenter som distribuerats på värddatorn), uppdateringar av nätverkskomponenter till att ta maskinvara ur drift. Flesta av dessa uppdateringar genomförs utan någon inverkan på de virtuella datorerna. Men finns det fall där uppdateringar påverka:
 
@@ -21,9 +21,9 @@ Azure utför med jämna mellanrum uppdateringar för att förbättra värdinfras
 
 - Om en omstart krävs för underhåll, får du ett meddelande om när det planerade underhållet. I dessa fall kan också får du ett tidsfönster som där du kan starta underhållet själv, samtidigt som passar dig.
 
-Den här sidan beskriver hur Microsoft Azure utför båda typerna av underhåll. Mer information om oplanerade händelser (avbrott) finns i Hantera tillgängligheten för virtuella datorer för [Windows] (.. /articles/virtual-machines/windows/manage-availability.md) eller [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Den här sidan beskriver hur Microsoft Azure utför båda typerna av underhåll. Mer information om oplanerade händelser (avbrott) finns i Hantera tillgängligheten för virtuella datorer för [Windows](../articles/virtual-machines/windows/manage-availability.md) eller [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-Program som körs på en virtuell dator kan samla in information om kommande uppdateringar med hjälp av Azure Metadata Service för [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) eller [Linux] (.. /articles/virtual-machines/linux/instance-metadata-service.md).
+Program som körs på en virtuell dator kan samla in information om kommande uppdateringar med hjälp av Azure Metadata Service för [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) eller [Linux](../articles/virtual-machines/linux/instance-metadata-service.md).
 
 ”” Instruktioner om hur du hanterar planerat underhåll, finns i ”Hantera meddelanden planerat underhåll” för [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) eller [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 

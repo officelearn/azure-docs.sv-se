@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: cbd5a0ea5fbeb7becbfc33bf72af73425630bff6
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a74eab546eefd765b89aae6f12fcff554d9937c4
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970728"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036946"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Uppdatera Windows-operativsystemet i Service Fabric-klustret
 
@@ -148,7 +148,7 @@ Patch orchestration appens beteende kan konfigureras för att uppfylla dina beho
 |**Parametern**        |**Typ**                          | **Detaljer**|
 |:-|-|-|
 |MaxResultsToCache    |Lång                              | Maximalt antal Windows Update-resultat, som ska cachelagras. <br>Standardvärdet är 3000 förutsatt att den: <br> -Antalet noder är 20. <br> -Antalet uppdateringar som sker på en nod per månad är fem. <br> – Antal resultat per åtgärd kan vara 10. <br> -Resultat för de senaste tre månaderna ska lagras. |
-|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy anger den princip som ska användas av Coordinator-tjänsten för att installera Windows-uppdateringar för Service Fabric-klusternoder.<br>                         Tillåtna värden är: <br>                                                           <b>NodeWise</b>. Windows Update är installerade en nod i taget. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update är installerade en uppgraderingsdomän i taget. (På högsta alla noder som tillhör en uppgraderingsdomän kan gå för Windows Update.)
+|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy anger den princip som ska användas av Coordinator-tjänsten för att installera Windows-uppdateringar för Service Fabric-klusternoder.<br>                         Tillåtna värden är: <br>                                                           <b>NodeWise</b>. Windows Update är installerade en nod i taget. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update är installerade en uppgraderingsdomän i taget. (På högsta alla noder som tillhör en uppgraderingsdomän kan gå för Windows Update.)<br> Referera till [vanliga frågor och svar](#frequently-asked-questions) avsnittet om hur du avgör vilket är bäst lämpade princip för klustret.
 |LogsDiskQuotaInMB   |Lång  <br> (Standard: 1024)               |Maximal storlek för patch orchestration app loggar i MB, vilket kan vara kvar lokalt på noderna.
 | WUQuery               | sträng<br>(Standard ”: IsInstalled = 0”)                | Fråga för att hämta Windows-uppdateringar. Mer information finns i [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | Boolesk <br> (standard: SANT)                 | Den här flaggan kan uppdateringarna för Windows-operativsystemet installeras.            |
@@ -304,19 +304,36 @@ FRÅGOR OCH. **Vad kan jag göra om mitt kluster är i feltillstånd och jag beh
 
 A. Patch orchestration appen installeras inte uppdateringar medan klustret är i feltillstånd. Försök att ta med ditt kluster till ett felfritt tillstånd att avblockera patch orchestration app-arbetsflöde.
 
-FRÅGOR OCH. **Varför korrigeringar mellan datorkluster tar så lång tid för att köra?**
+FRÅGOR OCH. **Bör ange i TaskApprovalPolicy som 'NodeWise' eller 'UpgradeDomainWise' för mitt kluster?**
 
-A. Den tid som krävs av patch orchestration appen beror huvudsakligen på följande faktorer:
+A. 'UpgradeDomainWise' gör övergripande klustret korrigeringar snabbare genom att åtgärda alla noder som tillhör en uppgraderingsdomän parallellt. Det innebär att noder som tillhör en hela uppgraderingsdomän skulle vara otillgänglig (i [inaktiverad](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) tillstånd) under korrigeringsprocessen.
 
-- Princip för Coordinator-tjänsten. 
-  - Standardprincipen, `NodeWise`, resulterar i korrigeringar bara en nod i taget. Särskilt om det finns ett större kluster, rekommenderar vi att du använder den `UpgradeDomainWise` att uppnå snabbare uppdatering mellan datorkluster.
-- Antalet uppdateringar som är tillgängliga för hämtning och installation. 
-- Den genomsnittliga tiden som behövs för att ladda ned och installera en uppdatering, vilket får innehålla högst ett par timmar.
-- Prestanda för den virtuella dator och nätverket bandbredden.
+Däremot NodeWise' princip korrigeringar bara en nod åt gången, detta innebär övergripande uppdatering av klustret tar längre tid. Men vid max, endast en nod blir otillgänglig (i [inaktiverad](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) tillstånd) under korrigeringsprocessen.
+
+Om klustret kan tolerera som körs på N-1 antal uppgraderingsdomäner under uppdatering cykel (där N är det totala antalet uppgraderingsdomäner i ditt kluster), kan du ställa in principen som ”UpgradeDomainWise”, annars ange den till ”NodeWise”.
+
+FRÅGOR OCH. **Hur mycket tid gör det gör att korrigera en nod?**
+
+A. Uppdatering av en nod kan ta några minuter (till exempel: [Windows Defenders definitionsuppdateringar](https://www.microsoft.com/wdsi/definitions)) till timmar (till exempel: [Windows kumulativa uppdateringar](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Tid som krävs för att korrigera en nod beror oftast på 
+ - Storleken på uppdateringar
+ - Antal uppdateringar som ska användas i en uppdateringsperiod
+ - Tiden det tar att installera uppdateringarna, starta om noden (vid behov) och slutför installationsstegen utförs efter omstart.
+ - Prestanda för virtuell dator/dator och nätverk.
+
+FRÅGOR OCH. **Hur lång tid tar det för att korrigera ett helt kluster?**
+
+A. Den tid som behövs för att korrigera ett helt kluster beror på följande faktorer:
+
+- Tid som krävs att korrigera en nod.
+- Princip för Coordinator-tjänsten. -Standardprincipen `NodeWise`, resulterar i korrigeringar bara en nod i taget, som är långsammare än `UpgradeDomainWise`. Till exempel: om en nod tar ca 1 timme att korrigera kan gå igenom att korrigera uzel 20 (samma typ av noder) kluster med 5 uppgraderingsdomäner, som innehåller 4 noder.
+    - Det bör ta ~ 20 timmar att korrigera hela klustret, om principen är `NodeWise`
+    - Det bör ta ~ 5 timmar om principen är `UpgradeDomainWise`
+- Klustret Läs in – varje uppdatering åtgärden kräver att flytta arbetsbelastningen kunden till andra tillgängliga noder i klustret. Noden som för tillfället patch stå i [inaktiveras](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) tillstånd under den här tiden. Om klustret körs nära hög belastning, tar Inaktivera processen längre tid. Därför verkar övergripande korrigeringsprocessen vara långsam under under belastning förhållanden.
+- Alla kluster hälsofel under uppdatering - [försämring](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) i [för klustrets hälsotillstånd](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) skulle avbryta korrigeringsprocessen. Detta lägger till i den totala tid som krävs för att korrigera hela klustret.
 
 FRÅGOR OCH. **Varför ser jag vissa uppdateringar i Windows Update resultaten via REST-API, men inte under Windows Update-historiken på datorn?**
 
-A. Vissa produktuppdateringar endast visas i deras respektive uppdateringar/korrigeringar historiken. Till exempel visas uppdateringar för Windows Defender inte i Windows Update-historiken på Windows Server 2016.
+A. Vissa produktuppdateringar endast visas i deras respektive uppdateringar/korrigeringar historiken. Uppdateringar för Windows Defender kan eller inte kan visas i Windows Update-historiken på Windows Server 2016.
 
 FRÅGOR OCH. **Dirigering app användas för att korrigera mitt dev-kluster (kluster med en nod)?**
 

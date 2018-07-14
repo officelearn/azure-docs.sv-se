@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 96ca5a7ec8b0c87984ea2c76af446d7a8b5504a1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 96a0443a66bb826496c6af42fe6479c0a53ac964
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344308"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036092"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Skapa en Windows IoT Edge-enhet som fungerar som en transparent gateway
 
@@ -22,7 +22,7 @@ Den här artikeln innehåller detaljerade anvisningar för att använda en IoT E
 >[!NOTE]
 >För närvarande:
 > * Om gatewayen kopplas bort från IoT Hub kan kan inte underordnade enheter autentisera med gatewayen.
-> * IoT Edge-enheter kan inte ansluta till IoT Edge-gateways.
+> * Edge-aktiverade enheter kan inte ansluta till IoT Edge-gateways. 
 > * Efterföljande enheter kan inte använda filuppladdningen.
 
 Hårda del om hur du skapar en transparent gateway ansluter på ett säkert sätt gatewayen till efterföljande enheter. Azure IoT Edge kan du använda PKI-infrastruktur för att ställa in säkra TLS-anslutningar mellan dessa enheter. I det här fallet vi så att en underordnad enhet att ansluta till en IoT Edge-enhet som fungerar som en transparent gateway.  Om du vill skydda rimliga, bör underordnad enhet bekräftar identiteten hos Edge-enhet eftersom du bara vill att dina enheter som ansluter till din gateway och inte en potentiellt skadliga gateway.

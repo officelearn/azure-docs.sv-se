@@ -1,6 +1,6 @@
 ---
-title: Tillämpa uppdateringar i Azure-stacken | Microsoft Docs
-description: Lär dig hur du importerar och installera Microsoft-uppdateringspaket för ett Azure-stacken integrerat system.
+title: Tillämpa uppdateringar i Azure Stack | Microsoft Docs
+description: Lär dig hur du importerar och installera Microsoft-uppdateringspaket för ett integrerat Azure Stack-system.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,68 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 0f23216c6aced60dc651a0f10179281bc9a29c2c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: da8261d27ae7fad3c5ff30e4e1cce3f1bca2b70a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29802659"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035341"
 ---
-# <a name="apply-updates-in-azure-stack"></a>Tillämpa uppdateringar i Azure-stacken
+# <a name="apply-updates-in-azure-stack"></a>Tillämpa uppdateringar i Azure Stack
 
-*Gäller för: Azure Stack integrerat system*
+*Gäller för: integrerade Azure Stack-system*
 
-Du kan använda Microsoft update-paket för Azure-stacken genom att använda uppdateringen panelen i administratörsportalen som operatör Azure stacken. Du måste ladda ned uppdateringspaketet Microsoft, importera paketfilerna till Azure-stacken och sedan installera uppdateringspaketet. 
+Du kan använda Microsoft som en Azure Stack-operator, eller OEM-uppdateringspaket för Azure Stack med hjälp av Update-panelen i administratörsportalen. Du måste ladda ned uppdateringspaketet, importera paketfilerna till Azure Stack och sedan installera uppdateringspaketet. 
 
 ## <a name="download-the-update-package"></a>Ladda ned uppdateringspaketet
 
-När ett Microsoft-uppdateringspaket för Azure-stacken är tillgänglig kan hämta paketet till en plats som kan nås från Azure-stacken och granska paketinnehållet. Ett uppdateringspaket består normalt av följande filer:
+När ett Microsoft- eller OEM-uppdateringspaket för Azure Stack är tillgänglig, ladda ned paketet till en plats som kan nås från Azure Stack och granska paketinnehållet. Ett uppdateringspaket som vanligtvis består av följande filer:
 
 - En självextraherande *PackageName*.exe-fil. Den här filen innehåller nyttolasten för uppdateringen, till exempel den senaste kumulativa uppdateringen för Windows Server.   
 - Motsvarande *PackageName*.bin-filer. Dessa filer innehåller komprimering för nyttolasten som är associerad med den *PackageName*.exe-fil. 
-- Någon Metadata.xml-fil. Den här filen innehåller viktig information om uppdateringen, till exempel utgivare, namn, nödvändiga, storlek och support-URL-sökväg.
+- Någon Metadata.xml-fil. Den här filen innehåller viktig information om uppdateringen, till exempel utgivare, namn, krav, storlek och support sökväg URL.
 
 ## <a name="import-and-install-updates"></a>Importera och installera uppdateringar
 
 Följande procedur visar hur du importerar och installera uppdateringspaket i administratörsportalen.
 
 > [!IMPORTANT]
-> Vi rekommenderar starkt att du meddela användare om eventuella underhållsåtgärder och att du schemalägger normal underhållsfönster under icke kontorstid så mycket som möjligt. Underhåll kan påverka både användaren arbetsbelastningar och portalen åtgärder.
+> Vi rekommenderar starkt att du meddela användare om eventuella underhållsåtgärder, och att du schemalägger normala underhållsfönster under tider utanför kontorstid så mycket som möjligt. Underhåll kan påverka både användaren arbetsbelastningar och åtgärder.
 
-1. Markera i administratörsportalen, **fler tjänster**. Sedan, under den **Data + lagring** kategori, Välj **lagringskonton**. (Eller i filterrutan börja skriva **lagringskonton**, och markera den.)
+1. I administratörsportalen kan väljer **fler tjänster**. Sedan, under den **Data + lagring** kategori, väljer **lagringskonton**. (Eller börja skriva i filterrutan **lagringskonton**, och välj det.)
 
     ![Visar var du hittar storage-konton i portalen](media/azure-stack-apply-updates/ApplyUpdates1.png)
 
-2. Skriv i filterrutan **uppdatera**, och välj den **updateadminaccount** storage-konto.
+2. Skriv i rutan filtrera **uppdatera**, och välj den **updateadminaccount** storage-konto.
 
     ![Visar hur du söker efter updateadminaccount](media/azure-stack-apply-updates/ApplyUpdates2.png)
 
-3. I lagringen konto information under **Services**väljer **Blobbar**.
+3. I storage-konto information under **Services**väljer **Blobar**.
  
-    ![Visar hur du kommer till BLOB storage-konto](media/azure-stack-apply-updates/ApplyUpdates3.png) 
+    ![Visar hur du kommer till BLOB-objekt för storage-konto](media/azure-stack-apply-updates/ApplyUpdates3.png) 
  
-4. Under **Blob-tjänst**väljer **+ behållare** att skapa en behållare. Ange ett namn (till exempel *uppdatering 1709*), och välj sedan **OK**.
+4. Under **Blobtjänst**väljer **+ behållare** att skapa en behållare. Ange ett namn (till exempel *uppdatering 1709*), och välj sedan **OK**.
  
-     ![Visar hur du lägger till en behållare i storage-konto](media/azure-stack-apply-updates/ApplyUpdates4.png)
+     ![Visar hur du lägger till en behållare i lagringskontot](media/azure-stack-apply-updates/ApplyUpdates4.png)
 
-5. När behållaren har skapats klickar du på behållarnamnet och klicka sedan på **överför** att överföra paketfilerna till behållaren.
+5. När behållaren har skapats klickar du på behållarens namn och klicka sedan på **överför** att ladda upp paketfilerna till behållaren.
  
-    ![Visar hur du överför filerna i paketet](media/azure-stack-apply-updates/ApplyUpdates5.png)
+    ![Visar hur du överför paketfilerna](media/azure-stack-apply-updates/ApplyUpdates5.png)
 
-6. Under **överför blob**, klicka på mappikonen, bläddra till den uppdateringspaketet .exe-fil och klicka sedan på **öppna** filen i Utforskaren.
+6. Under **ladda upp blob**, klicka på mappikonen, bläddra till den uppdateringspaketet .exe-fil och klicka sedan på **öppna** filen i Utforskaren.
   
-7. Under **överför blob**, klickar du på **överför**. 
+7. Under **ladda upp blob**, klickar du på **överför**. 
  
-    ![Visar var du ska överföra varje paketfil](media/azure-stack-apply-updates/ApplyUpdates6.png)
+    ![Visar var du vill ladda upp varje fil för registreringspaketet](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
 8. Upprepa steg 6 och 7 för de *PackageName*.bin och Metadata.xml-filer. Importera inte filen kompletterande Notice.txt om ingår.
-9. När du är klar kan du granska meddelanden (i det övre högra hörnet av portal klockikonen). Meddelanden bör ange att överföringen är klar. 
-10. Gå tillbaka till Update-ikonen på instrumentpanelen. Panelen ska ange att en uppdatering är tillgänglig. Klicka på panelen om du vill granska nyligen tillagda uppdateringspaketet.
-11. Välj det paket som har markerats som om du vill installera uppdateringen **redo** och högerklicka på paketet och välj **Uppdatera nu**, eller klicka på den **Uppdatera nu** åtgärd längst upp .
-12. När du klickar på installera uppdateringspaketet kan du visa status i den **uppdateringskörningen information** område. Härifrån kan du också klicka på **hämta fullständig loggarna** att hämta loggfilerna.
-13. När uppdateringen är klar visas den uppdaterade versionen av Azure-stacken Update-ikonen.
+9. När du är klar kan du granska meddelanden (klockikonen i det övre högra hörnet i portalen). Meddelanden ska indikera att överföringen är klar. 
+10. Gå tillbaka till Update-panelen på instrumentpanelen. Panelen ska indikera att en uppdatering är tillgänglig. Klicka på panelen om du vill granska nyligen tillagda uppdateringspaketet.
+11. Om du vill installera uppdateringen, Välj det paket som har markerats som **redo** och antingen högerklicka på paketet och välj **Uppdatera nu**, eller klicka på den **Uppdatera nu** åtgärd i den övre delen .
+12. När du klickar på installera uppdateringspaketet du kan visa statusen i den **uppdatering körningsinformation** området. Härifrån kan du också klicka på **fullständig Hämtningsloggar** att ladda ned filerna.
+13. När uppdateringen är klar visas panelen Update den uppdaterade versionen av Azure Stack.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hantera uppdateringar i Azure Stack-översikt](azure-stack-updates.md)
-- [Azure-stacken behandling av princip](azure-stack-servicing-policy.md)
+- [Hantera uppdateringar i Azure Stack – översikt](azure-stack-updates.md)
+- [Azure Stack som hanteringsprincip](azure-stack-servicing-policy.md)

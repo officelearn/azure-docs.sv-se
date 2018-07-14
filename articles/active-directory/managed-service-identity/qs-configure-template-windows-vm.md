@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: d8490dcba35cfeabb3da589f3d079571d5e98d3b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 000a8e2a9a4907387db8cb7b0f4416eee66642f8
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969212"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036718"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Konfigurera en virtuell dator hanterad tjänstidentitet med hjälp av en mall
 
@@ -59,7 +59,7 @@ I det här avsnittet ska du aktivera och inaktivera en systemtilldelad identitet
    > Det här exemplet förutsätter variabler som `vmName`, `storageAccountName`, och `nicName` har definierats i mallen.
    >
 
-   ![Skärmbild av mall - Leta upp virtuell dator](../media/msi-qs-configure-template-windows-vm/template-file-before.png) 
+   ![Skärmbild av mall - Leta upp virtuell dator](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
 3. Om du vill aktivera systemtilldelad identitet, lägger du till den `"identity"` egenskapen på samma nivå som den `"type": "Microsoft.Compute/virtualMachines"` egenskapen. Använd följande syntax:
 
@@ -99,7 +99,7 @@ I det här avsnittet ska du aktivera och inaktivera en systemtilldelad identitet
 
 5. När du är klar bör se din mall ut ungefär så här:
 
-   ![Skärmbild av mall efter uppdateringen](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
+   ![Skärmbild av mall efter uppdateringen](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-after.png)
 
 ### <a name="assign-a-role-the-vms-system-assigned-identity"></a>Tilldela en roll till den Virtuella datorns systemtilldelade identiteter
 

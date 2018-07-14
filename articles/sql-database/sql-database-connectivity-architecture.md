@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database connectivity-arkitektur | Microsoft Docs
-description: Det här dokumentet förklarar Azure SQLDB anslutning arkitekturen från Azure eller från utanför Azure.
+description: Det här dokumentet beskriver den Azure-SQLDB anslutningsarkitektur från Azure eller från utanför Azure.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,54 +9,57 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 628d1bd3c38237db1d49826646bba989e158ed99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0ae05456d957c6ebabe0faec7da4175618b191ef
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644444"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036776"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-arkitektur 
 
-Den här artikeln beskriver arkitekturen för Azure SQL Database-anslutningen och förklarar hur de olika komponenterna fungerar för att dirigera trafik till din Azure SQL Database-instans. Dessa Azure SQL Database connectivity komponenter funktion för att dirigera nätverkstrafik till Azure-databas med klienter som ansluter från i Azure och anslutande klienter från utanför Azure. Den här artikeln innehåller även skriptexempel att ändra hur anslutningen sker och överväganden som rör ändra standardinställningar för anslutningen. 
+Den här artikeln beskriver arkitekturen för Azure SQL Database-anslutning och förklarar hur de olika komponenterna fungerar för att dirigera trafik till din Azure SQL Database-instans. Azure SQL Database connectivity komponenter fungerar att dirigera nätverkstrafik till Azure-databasen med klienter som ansluter från i Azure och klienter som ansluter från utanför Azure. Den här artikeln innehåller också skriptexempel för att ändra hur anslutning sker, samt den information som rör ändra standardinställningar för anslutningen. 
 
 ## <a name="connectivity-architecture"></a>Anslutningsarkitektur
 
-Följande diagram ger en översikt över arkitekturen för Azure SQL Database-anslutningen.
+Följande diagram ger en översikt över arkitekturen för Azure SQL Database-anslutning.
 
-![arkitektur, översikt](./media/sql-database-connectivity-architecture/architecture-overview.png)
+![Översikt över arkitekturen](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
 
-Följande steg beskriver hur upprätta en anslutning till en Azure SQL database på Azure SQL Database-programbelastningsutjämnaren (SLB) och Azure SQL Database-gateway.
+Följande steg beskriver hur upprättas en anslutning till en Azure SQL database via Azure SQL Database-belastningsutjämnaren för programvara (SLB) och Azure SQL Database-gateway.
 
-- Klienter i Azure eller utanför Azure ansluter till SLB som har en offentlig IP-adress och lyssnar på port 1433.
+- Klienterna i Azure eller utanför Azure ansluter till SLB, som har en offentlig IP-adress och lyssnar på port 1433.
 - SLB dirigerar trafik till Azure SQL Database-gateway.
-- Gatewayen dirigerar trafik till rätt proxy mellanprogram.
-- Proxy-mellanprogram omdirigerar trafiken till lämplig Azure SQL-databas.
+- Gatewayen dirigerar trafiken till rätt proxy mellanprogram.
+- Proxy-mellanprogram dirigerar trafiken till lämplig Azure SQL-databasen.
 
 > [!IMPORTANT]
-> Var och en av dessa komponenter har distribuerats för tjänsten (DDoS) skydd inbyggda på nätverket och app-lagret.
+> Var och en av dessa komponenter har distribuerats med DOS-(DDoS) skydd inbyggda på nätverket och appnivån.
 >
 
-## <a name="connectivity-from-within-azure"></a>Om du använder i Azure
+## <a name="connectivity-from-within-azure"></a>Anslutningen från i Azure
 
-Om du ansluter från i Azure anslutningarna har en princip för **omdirigera** som standard. En princip av **omdirigera** innebär att anslutningar när TCP-sessionen har upprättats till Azure SQL-databasen klientsessionen sedan omdirigeras till proxy mellanprogram med en ändring av den virtuella mål-IP från för Azure SQL Database-gateway som proxy mellanprogram. Därefter alla efterföljande paket som flödar direkt via proxy mellanprogram, vilket kringgår Azure SQL Database-gateway. Följande diagram illustrerar flödet i nätverkstrafiken.
+Om du ansluter från inom Azure, dina anslutningar har en princip för **omdirigera** som standard. En princip av **omdirigera** innebär att anslutningar när TCP-sessionen har upprättats till Azure SQL-databas klientsessionen sedan omdirigeras till proxy mellanprogram en ändring av den virtuella mål-IP från den för Azure SQL Database-gateway med proxy mellanprogram. Alla efterföljande paket som flödar därefter direkt via proxy-middleware, vilket kringgår Azure SQL Database-gateway. Följande diagram illustrerar det här flödet i nätverkstrafiken.
 
-![arkitektur, översikt](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
+![Översikt över arkitekturen](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
 
 ## <a name="connectivity-from-outside-of-azure"></a>Anslutningen från utanför Azure
 
-Om du ansluter från utanför Azure anslutningarna har en princip för **Proxy** som standard. En princip av **Proxy** betyder att TCP-sessionen har upprättats via Azure SQL Database-gatewayen och alla efterföljande paket flöda via gatewayen. Följande diagram illustrerar flödet i nätverkstrafiken.
+Om du ansluter från platser utanför Azure, dina anslutningar har en princip för **Proxy** som standard. En princip av **Proxy** innebär att TCP-sessionen har upprättats via gatewayen för Azure SQL-databasen och alla efterföljande paket som flödar via gatewayen. Följande diagram illustrerar det här flödet i nätverkstrafiken.
 
-![arkitektur, översikt](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
+![Översikt över arkitekturen](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
+
+> [!IMPORTANT]
+> När du använder Tjänsteslutpunkter med Azure SQL Database principen är **omdirigera** som standard. Om du vill aktivera anslutningen från i det virtuella nätverket måste du därför kan utgående trafik till alla Azure SQL Database-IP-adresser, inte bara gateway IP-adresser. Detta kan göras med hjälp av Tjänsttaggar för NSG (Nätverkssäkerhetsgrupp), om du vill tillåta utgående trafik endast till gateway-IP-adresser ändra inställningen för att **Proxy**.
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database gateway IP-adresser
 
-Om du vill ansluta till en Azure SQL database från lokala resurser, måste du tillåta utgående trafik till Azure SQL Database-gateway för din Azure-region. Anslutningar kan bara gå via gatewayen vid anslutning i proxyläge, vilket är standard när du ansluter från lokala resurser.
+Om du vill ansluta till en Azure SQL database från lokala resurser, som du vill tillåta utgående trafik till Azure SQL Database-gatewayen för din Azure-region. Dina anslutningar kan bara gå via gatewayen när du ansluter i Proxy-läge, vilket är standard när du ansluter från lokala resurser.
 
-I följande tabell visas de primära och sekundära IPs för Azure SQL Database-gateway för alla dataområden. Det finns två IP-adresser för vissa regioner. I dessa regioner primära IP-adressen är den aktuella IP-adressen för gateway och den andra IP-adressen är en IP-adress för redundans. Failover-adressen är den adress som som vi kan flytta servern till att hålla den hög tillgängligheten för tjänst. För dessa regioner rekommenderar vi att du tillåter att utgående båda IP-adresser. Den andra IP-adressen ägs av Microsoft och lyssnar inte på några tjänster förrän den aktiveras av Azure SQL Database för att acceptera anslutningar.
+I följande tabell visas de primära och sekundära IP-adresserna för Azure SQL Database-gateway för alla dataområden. Det finns två IP-adresser för vissa regioner. Den primära IP-adressen är den aktuella IP-adressen till gatewayen i dessa regioner och den andra IP-adressen är en IP-adress för redundans. Redundans-adressen är den adress som vi kan också flytta din server för att hålla hög tjänsternas tillgänglighet. För dessa regioner rekommenderar vi att du tillåter utgående trafik till båda IP-adresserna. Den andra IP-adressen ägs av Microsoft och lyssnar inte på alla tjänster förrän den aktiveras genom Azure SQL Database för att acceptera anslutningar.
 
-| Regionsnamn | Primära IP-adress | Sekundär IP-adress |
+| Regionsnamn | Primär IP-adress | Sekundär IP-adress |
 | --- | --- |--- |
 | Östra Australien | 191.238.66.109 | 13.75.149.87 |
 | Sydöstra Australien | 191.239.192.109 | 13.73.109.251 |
@@ -79,12 +82,12 @@ I följande tabell visas de primära och sekundära IPs för Azure SQL Database-
 | Södra centrala USA | 23.98.162.75 | 13.66.62.124 |
 | Sydostasien | 23.100.117.95 | 104.43.15.0 |
 | Storbritannien, norra | 13.87.97.210 | |
-| Storbritannien, Syd 1 | 51.140.184.11 | |
+| Storbritannien, södra 1 | 51.140.184.11 | |
 | Storbritannien, södra 2 | 13.87.34.7 | |
 | Storbritannien, västra | 51.141.8.11  | |
 | Västra centrala USA | 13.78.145.25 | |
 | Västra Europa | 191.237.232.75 | 40.68.37.158 |
-| USA, västra 1 | 23.99.34.75 | 104.42.238.205 |
+| Västra USA 1 | 23.99.34.75 | 104.42.238.205 |
 | Västra USA 2 | 13.66.226.202  | |
 ||||
 
@@ -92,15 +95,15 @@ I följande tabell visas de primära och sekundära IPs för Azure SQL Database-
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Ändra principen för Azure SQL Database-anslutning
 
-Om du vill ändra principen för Azure SQL Database för en Azure SQL Database-server, använder den [ansluten princip](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) kommando.
+Du kan ändra principen för Azure SQL Database för en Azure SQL Database-server med den [an-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) kommando.
 
-- Om din anslutningsprincip har angetts till **Proxy**, alla nätverksenheter paket flöde via Azure SQL Database-gateway. Du måste tillåta utgående till bara Azure SQL Database gateway IP-Adressen för den här inställningen. Med hjälp av inställningen **Proxy** har flera svarstider än inställningen **omdirigera**.
-- Om din anslutning principinställningen **omdirigera**, alla nätverksenheter paket flödet direkt till mellanprogram proxy. Du måste tillåta utgående till flera IP-adresser för den här inställningen.
+- Om din princip har angetts till **Proxy**, alla nätverksanslutningar paket flow via Azure SQL Database-gateway. Du måste tillåta utgående trafik till endast Azure SQL Database gateway-IP för den här inställningen. Med hjälp av en inställning av **Proxy** har flera svarstider än inställningen **omdirigera**.
+- Om din anslutning principinställningen **omdirigera**, alla nätverksanslutningar paket flow direkt till proxyn mellanprogram. Du måste tillåta utgående trafik till flera IP-adresser för den här inställningen.
 
 ## <a name="script-to-change-connection-settings-via-powershell"></a>Skript för att ändra anslutningsinställningar via PowerShell
 
 > [!IMPORTANT]
-> Skriptet kräver den [Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps).
+> Det här skriptet kräver den [Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps).
 >
 
 Följande PowerShell-skript visar hur du ändrar principen.
@@ -160,10 +163,10 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 ## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Skript för att ändra anslutningsinställningar via Azure CLI 2.0
 
 > [!IMPORTANT]
-> Skriptet kräver den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Det här skriptet kräver den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 >
 
-CLI följande skript visar hur du ändrar principen.
+Följande CLI-skript visar hur du ändrar principen.
 
 <pre>
 # Get SQL Server ID
@@ -182,6 +185,6 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du ändrar principen för Azure SQL Database för en Azure SQL Database-server finns i [ansluten princip](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
-- Mer information om Azure SQL Database-anslutningen för klienter som använder ADO.NET 4.5 eller senare finns [portar utöver 1433 ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
-- Allmänt program development översikt översiktsinformation finns i [SQL Database Development Programöversikt](sql-database-develop-overview.md).
+- Information om hur du ändrar principen för Azure SQL Database för en Azure SQL Database-server finns i [an-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
+- Information om Azure SQL Database-anslutningsbeteendet för klienter som använder ADO.NET 4.5 eller senare finns i [portar utöver 1433 för ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
+- Allmän utveckling översiktlig information finns i [översikt över SQL Database Application Development](sql-database-develop-overview.md).

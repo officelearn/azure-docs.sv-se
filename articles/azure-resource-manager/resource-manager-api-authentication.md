@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory-autentisering och Resource Manager | Microsoft Docs
-description: En utvecklare guide för att autentisering med Azure Resource Manager API och Azure Active Directory för att integrera en app med andra Azure-prenumerationer.
+description: Utvecklarens guide till autentisering med Azure Resource Manager API och Azure Active Directory för att integrera en app med andra Azure-prenumerationer.
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -12,41 +12,41 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2017
+ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: ba2466f58b3af0ef208474adb3e4c7ff184ceccc
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7833147e455d5f43f05d87261287061db4291e45
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018654"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036854"
 ---
-# <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Autentisering-Använd Resource Manager API för åtkomst-prenumerationer
+# <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Använda Resource Manager-autentisering-API för att få åtkomst till prenumerationer
 ## <a name="introduction"></a>Introduktion
-Om du är programutvecklare som behövs för att skapa en app som hanterar Azure-resurser för en kund kan den här artikeln visar hur att autentisera med Azure Resource Manager API: er och få åtkomst till resurser i andra prenumerationer.
+Om du är programutvecklare som vill skapa en app som hanterar en kunds Azure-resurser, den här artikeln visar hur att autentisera med Azure Resource Manager API: er och få åtkomst till resurser i andra prenumerationer.
 
-Appen har åtkomst till Resource Manager-API: er i på två sätt:
+Din app har åtkomst till Resource Manager-API: er i par olika sätt:
 
-1. **Användar- + appåtkomst**: för appar som har åtkomst till resurser för en inloggad användare. Den här metoden fungerar för appar, till exempel webbprogram och kommandoradsverktyg som handlar om endast ”interaktiva management” Azure-resurser.
-2. **Endast App-åtkomst**: för appar som körs daemon tjänster och schemalagda jobb. Appens identitet beviljas direkt åtkomst till resurserna. Den här metoden fungerar för appar som behöver långsiktiga fjärradministrerade (obevakad installation) åtkomst till Azure.
+1. **Användare + appåtkomst**: för appar som får åtkomst till resurser åt en inloggad användare. Den här metoden fungerar för appar, till exempel web apps och kommandoradsverktyg som bry dig om endast ”interaktiva” Azure-resurser.
+2. **Endast appen**: för appar som kör daemon-tjänster och schemalagda jobb. Appens identitet beviljas direkt åtkomst till resurserna. Den här metoden fungerar för appar som behöver långsiktig fjärradministrering (obevakad) åtkomst till Azure.
 
-Den här artikeln innehåller stegvisa instruktioner för att skapa en app som använder båda metoderna auktorisering. Den visar hur du utför varje steg med REST API- eller C#. Fullständig ASP.NET MVC-program finns på [ https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense ](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
+Den här artikeln innehåller stegvisa instruktioner för att skapa en app som använder båda metoderna auktorisering. Den visar hur du utför varje steg med REST API eller C#. Hela ASP.NET MVC-appen är tillgänglig på [ https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense ](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
-## <a name="what-the-web-app-does"></a>Webbprogrammet har
-Webbprogrammet:
+## <a name="what-the-web-app-does"></a>Vad appen gör
+Webbapp:
 
 1. Loggar in en Azure-användare.
-2. Fråga användare för att ge appen Webbåtkomst till Resource Manager.
-3. Hämtar användar- + app åtkomst-token för åtkomst till Resource Manager.
+2. Ombeds användaren att ge web appåtkomst till Resource Manager.
+3. Hämtar användare + app-åtkomsttoken för åtkomst till Resource Manager.
 4. Använder token (från steg 3) för att tilldela en roll i prenumerationen appens tjänstens huvudnamn. Det här steget ger åtkomst till långsiktig appen till prenumerationen.
-5. Hämtar endast app-åtkomst-token.
-6. Använder token (från steg 5) för att hantera resurserna i prenumerationen via Resource Manager.
+5. Hämtar endast appen token.
+6. Använder token (från steg 5) för att hantera resurser i prenumerationen via Resource Manager.
 
 Här är flödet av webbprogrammet.
 
-![Autentiseringsflödet för hanteraren för filserverresurser](./media/resource-manager-api-authentication/Auth-Swim-Lane.png)
+![Autentiseringsflödet för Resource Manager](./media/resource-manager-api-authentication/Auth-Swim-Lane.png)
 
-Som användare kan ange du prenumerations-ID för den prenumeration som du vill använda:
+Som en användare kan ange du prenumerations-ID för den prenumeration som du vill använda:
 
 ![Ange prenumerations-ID](./media/resource-manager-api-authentication/sample-ux-1.png)
 
@@ -64,82 +64,88 @@ Ge appen åtkomst till dina Azure-prenumerationer:
 
 Hantera dina anslutna prenumerationer:
 
-![Ansluta prenumeration](./media/resource-manager-api-authentication/sample-ux-7.png)
+![Anslut prenumeration](./media/resource-manager-api-authentication/sample-ux-7.png)
 
 ## <a name="register-application"></a>Registrera program
-Innan du börjar kodning måste du registrera ditt webbprogram med Azure Active Directory (AD). App-registreringen skapas en central identitet för din app i Azure AD. Den innehåller grundläggande information om programmet som OAuth-klient-ID, svars-URL: er och autentiseringsuppgifter som används för att autentisera och Azure Resource Manager API: er i ditt program. Registreringen av appen även information om de olika delegerade behörigheter som programmet behöver få åtkomst till Microsoft APIs för användarens räkning.
+Innan du börjar skriva kod kan du registrera din webbapp med Azure Active Directory (AD). Appregistreringen skapar en central identitet för din app i Azure AD. Den innehåller grundläggande information om ditt program som OAuth klient-ID, svars-URL och autentiseringsuppgifter som används för att autentisera och få åtkomst till Azure Resource Manager API: er i ditt program. Appregistreringen innehåller också information om olika delegerade behörigheter som programmet behöver vid åtkomst till Microsoft APIs användarens räkning.
 
-Eftersom din app har åtkomst till andra prenumerationer, måste du konfigurera den som ett program med flera innehavare. Ange en domän som är associerade med Azure Active Directory om du vill skicka validering. Logga in på portalen om du vill se de domäner som är associerade med Azure Active Directory.
+Eftersom din app har åtkomst till andra prenumeration, måste du konfigurera det som ett program med flera innehavare. Ange en domän som är associerade med Azure Active Directory om du vill skicka verifieringen. Logga in på portalen om du vill se de domäner som är associerade med Azure Active Directory.
 
 I följande exempel visar hur du registrerar appen med hjälp av Azure PowerShell. Du måste ha den senaste versionen (augusti 2016) av Azure PowerShell för att kommandot ska fungera.
 
-    $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```azurepowershell-interactive
+$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```
 
-Du måste logga in som AD-program, program-ID och lösenord. Om du vill se det program-ID som returnerades från föregående kommando använder du:
+Om du vill logga in som AD-programmet, behöver du program-ID och lösenord. Om du vill se det program-ID som returnerades från föregående kommando använder du:
 
-    $app.ApplicationId
+```azurepowershell-interactive
+$app.ApplicationId
+```
 
 I följande exempel visar hur du registrerar appen med hjälp av Azure CLI.
 
-    azure ad app create --name {app name} --home-page https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available true
+```azurecli-interactive
+az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
+```
 
-AppId som du behöver vid autentisering som programmet inkluderar resultaten.
+Det inkluderar AppId som du behöver vid autentisering som programmet i resultaten.
 
 ### <a name="optional-configuration---certificate-credential"></a>Valfri konfiguration - autentiseringsuppgifter för certifikat
-Azure AD stöder också certifikat autentiseringsuppgifter för program: skapa ett självsignerat certifikat, hålla den privata nyckeln och lägga till den offentliga nyckeln i din Azure AD-appregistrering. Programmet skickar en liten nyttolast till Azure AD som signerats med din privata nyckel för autentisering, och Azure AD verifierar signaturen med offentlig nyckel som du har registrerat.
+Azure AD stöder också autentiseringsuppgifter för certifikat för program: du skapar ett självsignerat certifikat, hålla den privata nyckeln och Lägg till den offentliga nyckeln i din registrering för Azure AD-program. Programmet skickar en liten nyttolast till Azure AD som signerats med din privata nyckel för autentisering och Azure AD verifierar signaturen med hjälp av den offentliga nyckeln som du registrerat.
 
-Information om hur du skapar en AD-app med ett certifikat finns i [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten att komma åt resurser](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) eller [Använd Azure CLI för att skapa ett huvudnamn för tjänsten att komma åt resurser](resource-group-authenticate-service-principal-cli.md) .
+Information om hur du skapar en AD-app med ett certifikat finns i [med Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) eller [används Azure CLI för att skapa ett huvudnamn för tjänsten för resursåtkomst](resource-group-authenticate-service-principal-cli.md) .
 
 ## <a name="get-tenant-id-from-subscription-id"></a>Hämta klient-ID från prenumerations-ID
-Programmet måste veta klient-ID för Azure AD-klient som är värd för Azure-prenumeration om du vill begära en token som kan användas för att anropa Resource Manager. Troligen användarna känner prenumerationen ID: N, men vet de inte klienten ID: N för Azure Active Directory. Be användaren för att hämta användarens klient-ID för prenumerations-ID. Ange den prenumerationen-ID när du skickar en begäran om prenumerationen:
+Programmet måste veta klient-ID för Azure AD-klient som är värd för den Azure-prenumerationen om du vill begära en token som kan användas för att anropa Resource Manager. Mest sannolikt vet användarna sina prenumerations-ID, men de kan inte vet ID: N för klientorganisationen för Azure Active Directory. För att hämta användarens klient-ID, be användaren ange prenumerations-ID. Ange den prenumerationen när du skickar en begäran om prenumerationen med ID:
 
     https://management.azure.com/subscriptions/{subscription-id}?api-version=2015-01-01
 
-Begäran misslyckas eftersom användaren inte har inloggad ännu, men du kan hämta klient-ID från svaret. Hämta klient-ID i det här undantaget från huvudvärde svar för **WWW-autentisera**. Du ser den här implementeringen i den [GetDirectoryForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L20) metod.
+Begäran misslyckas eftersom användaren inte har loggat in ännu, men du kan hämta klient-ID från svaret. I det här undantaget hämta klient-ID från svaret huvudets värde för **WWW-autentisera**. Du ser den här implementeringen i den [GetDirectoryForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L20) metod.
 
-## <a name="get-user--app-access-token"></a>Hämta användar- + app åtkomst-token
-Programmet omdirigeras användaren till Azure AD med en OAuth 2.0 godkänna begäran - att autentisera användarens autentiseringsuppgifter och få tillbaka en auktoriseringskod. Programmet använder Auktoriseringskoden för att hämta ett åtkomsttoken för Resource Manager. Den [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) metoden skapar auktoriseringsbegäran.
+## <a name="get-user--app-access-token"></a>Hämta användare + app åtkomst-token
+Programmet omdirigeras användaren till Azure AD med en OAuth 2.0 godkänna begäran – autentisera användarens autentiseringsuppgifter och få tillbaka en auktoriseringskod. Programmet använder Auktoriseringskoden för att hämta en åtkomsttoken för Resource Manager. Den [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) metoden skapar begäran om godkännande.
 
-Den här artikeln visar REST API-begäranden att autentisera användaren. Du kan också använda helper-bibliotek för att utföra autentisering i koden. Mer information om dessa bibliotek finns [Azure Active Directory-Autentiseringsbibliotek](../active-directory/active-directory-authentication-libraries.md). Anvisningar om att integrera Identitetshantering i ett program finns [Utvecklarhandbok för Azure Active Directory](../active-directory/active-directory-developers-guide.md).
+Den här artikeln visar REST API-begäranden för att autentisera användaren. Du kan också använda helper-bibliotek för att utföra autentisering i din kod. Läs mer om dessa bibliotek [Azure Active Directory Authentication Libraries](../active-directory/active-directory-authentication-libraries.md). Anvisningar för att integrera Identitetshantering i ett program finns i [Utvecklarhandbok för Azure Active Directory](../active-directory/active-directory-developers-guide.md).
 
 ### <a name="auth-request-oauth-20"></a>Auth-begäranden (OAuth 2.0)
-Utfärda en öppna ID Connect/OAuth2.0 godkänna begäran till slutpunkten för auktorisering av Azure AD:
+Göra en öppna ID Connect/OAuth2.0 auktorisera begäran till slutpunkten för auktorisering av Azure AD:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize
 
-Frågan string-parametrar som är tillgängliga för denna begäran beskrivs i den [begär en Auktoriseringskoden](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) artikel.
+Frågesträngparametrarna som är tillgängliga för den här begäran beskrivs i den [begär en auktoriseringskod](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) artikeln.
 
-I följande exempel visas hur du begär OAuth2.0 tillstånd:
+I följande exempel visas hur du begär OAuth2.0 auktorisering:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize?client_id=a0448380-c346-4f9f-b897-c18733de9394&response_mode=query&response_type=code&redirect_uri=http%3a%2f%2fwww.vipswapper.com%2fcloudsense%2fAccount%2fSignIn&resource=https%3a%2f%2fgraph.windows.net%2f&domain_hint=live.com
 
-Azure AD autentiserar användaren och, om det behövs, ombeds användaren att ge behörighet till appen. Den returnerar Auktoriseringskoden till Reply-URL: en för programmet. Beroende på den begärda response_mode Azure AD antingen skickar tillbaka data i frågesträngen eller som postdata.
+Azure AD autentiserar användaren och, om det behövs, uppmanar användaren att bevilja behörighet till appen. Den returnerar Auktoriseringskoden till svars-URL för ditt program. Beroende på den begärda response_mode, Azure AD antingen skickar tillbaka data i frågesträngen eller som postdata.
 
     code=AAABAAAAiL****FDMZBUwZ8eCAA&session_state=2d16bbce-d5d1-443f-acdf-75f6b0ce8850
 
 ### <a name="auth-request-open-id-connect"></a>Auth-begäranden (Öppna ID Connect)
-Om du inte bara vill komma åt Azure Resource Manager för användarens räkning, men även tillåta användaren att logga in på ditt program som använder sina Azure AD-konton, göra en öppna ID Connect auktorisera begäran. Med öppna ID Connect får program också en id_token från Azure AD som din app använder för att logga in användaren.
+Om du inte bara vill komma åt Azure Resource Manager å användarens vägnar, men även tillåta användaren att logga in på ditt program med sina Azure AD-konto, göra en öppna ID Connect auktorisera begäran. Med öppna ID Connect får program också en id_token från Azure AD som din app kan använda för att logga in användaren.
 
-Frågan string-parametrar som är tillgängliga för denna begäran beskrivs i den [skicka begäran om inloggning](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) artikel.
+Frågesträngparametrarna som är tillgängliga för den här begäran beskrivs i den [skicka begäran inloggning](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) artikeln.
 
 En exempel öppna ID Connect-begäran är:
 
      https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize?client_id=a0448380-c346-4f9f-b897-c18733de9394&response_mode=form_post&response_type=code+id_token&redirect_uri=http%3a%2f%2fwww.vipswapper.com%2fcloudsense%2fAccount%2fSignIn&resource=https%3a%2f%2fgraph.windows.net%2f&scope=openid+profile&nonce=63567Dc4MDAw&domain_hint=live.com&state=M_12tMyKaM8
 
-Azure AD autentiserar användaren och, om det behövs, ombeds användaren att ge behörighet till appen. Den returnerar Auktoriseringskoden till Reply-URL: en för programmet. Beroende på den begärda response_mode Azure AD antingen skickar tillbaka data i frågesträngen eller som postdata.
+Azure AD autentiserar användaren och, om det behövs, uppmanar användaren att bevilja behörighet till appen. Den returnerar Auktoriseringskoden till svars-URL för ditt program. Beroende på den begärda response_mode, Azure AD antingen skickar tillbaka data i frågesträngen eller som postdata.
 
-Är ett exempel öppna ID Connect svar:
+Ett exempel öppna ID Connect svar är:
 
     code=AAABAAAAiL*****I4rDWd7zXsH6WUjlkIEQxIAA&id_token=eyJ0eXAiOiJKV1Q*****T3GrzzSFxg&state=M_12tMyKaM8&session_state=2d16bbce-d5d1-443f-acdf-75f6b0ce8850
 
-### <a name="token-request-oauth20-code-grant-flow"></a>Tokenbegäran (OAuth2.0 kod bevilja flöda)
-Nu när ditt program har fått Auktoriseringskoden från Azure AD, är det dags att hämta den åtkomsttoken för Azure Resource Manager.  Efter en OAuth2.0 kod bevilja Token begäran till tokenslutpunkten för Azure AD:
+### <a name="token-request-oauth20-code-grant-flow"></a>Tokenbegäran (OAuth2.0 kod ge Flow)
+Nu när ditt program har tagit emot Auktoriseringskoden från Azure AD, är det dags att hämta den åtkomsttoken för Azure Resource Manager.  Efter en OAuth2.0 kod bevilja Token för begäran till tokenslutpunkten för Azure AD:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-Frågan string-parametrar som är tillgängliga för denna begäran beskrivs i den [använder Auktoriseringskoden](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) artikel.
+Frågesträngparametrarna som är tillgängliga för den här begäran beskrivs i den [använder Auktoriseringskoden](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) artikeln.
 
-I följande exempel visas en begäran om koden bevilja token med lösenord autentiseringsuppgifter:
+I följande exempel visas en begäran om kod bevilja token med autentiseringsuppgifter för lösenord:
 
     POST https://login.microsoftonline.com/7fe877e6-a150-4992-bbfe-f517e304dfa0/oauth2/token HTTP/1.1
 
@@ -148,11 +154,11 @@ I följande exempel visas en begäran om koden bevilja token med lösenord auten
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-När du arbetar med autentiseringsuppgifter för certifikat, skapa en JSON-Webbtoken (JWT) och logga (RSA SHA256) med hjälp av den privata nyckeln för certifikatet autentiseringsuppgifterna för ditt program. Anspråkstyper för token som visas i [JWT-token anspråk](../active-directory/develop/active-directory-protocols-oauth-code.md#jwt-token-claims). Referenser finns i [Active Directory Authentication Library (.NET) kod](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) att signera klienten Assertion JWT-token.
+När du arbetar med autentiseringsuppgifter för certifikat, skapa en JSON Web Token (JWT) och logga (RSA-SHA256) med hjälp av den privata nyckeln för ditt programs certifikat autentiseringsuppgift. Anspråkstyper för token visas i [JWT tokenanspråken](../active-directory/develop/active-directory-protocols-oauth-code.md#jwt-token-claims). Referenser finns i den [Active Directory Authentication Library (.NET) kod](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) logga klienten Assertion JWT-token.
 
-Finns det [öppna ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) information om klientautentisering.
+Se den [öppna ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) mer information om klientautentisering.
 
-I följande exempel visas en begäran om koden bevilja token med autentiseringsuppgifter för certifikat:
+I följande exempel visas en begäran om kod bevilja token med autentiseringsuppgifter för certifikat:
 
     POST https://login.microsoftonline.com/7fe877e6-a150-4992-bbfe-f517e304dfa0/oauth2/token HTTP/1.1
 
@@ -161,14 +167,14 @@ I följande exempel visas en begäran om koden bevilja token med autentiseringsu
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbG*****Y9cYo8nEjMyA
 
-Ett exempelsvar för kod bevilja token:
+Ett exempel på ett svar för kod bevilja token:
 
     HTTP/1.1 200 OK
 
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039858","not_before":"1432035958","resource":"https://management.core.windows.net/","access_token":"eyJ0eXAiOiJKV1Q****M7Cw6JWtfY2lGc5A","refresh_token":"AAABAAAAiL9Kn2Z****55j-sjnyYgAA","scope":"user_impersonation","id_token":"eyJ0eXAiOiJKV*****-drP1J3P-HnHi9Rr46kGZnukEBH4dsg"}
 
-#### <a name="handle-code-grant-token-response"></a>Hantera koden bevilja token svar
-Ett lyckat svar för token innehåller (användare + app) åtkomst-token för Azure Resource Manager. Programmet använder åtkomsttoken att få åtkomst till Resource Manager för användarens räkning. Livslängden för åtkomst-token som utfärdas av Azure AD är en timme. Det är inte troligt att ditt webbprogram måste förnya (användare + app) åtkomst-token. Använd den uppdateringstoken som programmet tar emot den token som svar om den behöver förnya den åtkomst-token. Efter en OAuth2.0 Token begäran till tokenslutpunkten för Azure AD:
+#### <a name="handle-code-grant-token-response"></a>Hantera kod bevilja token svar
+Ett lyckat svar för token innehåller (användare + app) åtkomsttoken för Azure Resource Manager. Programmet använder åtkomsttoken för att få åtkomst till Resource Manager användarens räkning. Livslängden för åtkomsttoken som utfärdas av Azure AD är en timme. Det är inte troligt att ditt webbprogram måste förnya (användare + app) åtkomst-token. Om den behöver förnya åtkomsttoken kan du använda uppdateringstoken som programmet tar emot i token-svaret. Efter en OAuth2.0 Token för begäran till tokenslutpunkten för Azure AD:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
@@ -183,12 +189,12 @@ I följande exempel visas hur du använder uppdateringen token:
 
     grant_type=refresh_token&refresh_token=AAABAAAAiL9Kn2Z****55j-sjnyYgAA&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-Även om uppdaterings-tokens kan användas för att hämta ny åtkomsttoken för Azure Resource Manager, är de inte lämplig för offline-åtkomst av ditt program. Uppdatera token livstid är begränsat och uppdateringstoken som är bundna till användaren. Om användaren lämnar organisationen, förlorat det program som använder uppdateringstoken åtkomst. Den här metoden är inte lämplig för program som används av grupper för att hantera sina Azure-resurser.
+Även om uppdateringstoken kan användas för att hämta nya åtkomsttoken för Azure Resource Manager, är de inte lämpligt för offline-åtkomst av programmet. Uppdatera token-livslängd är begränsat och uppdateringstoken som är kopplade till användaren. Om användaren lämnar organisationen, förlorar åtkomst till programmet med uppdateringstoken. Den här metoden är inte lämpliga för program som används av team för att hantera sina Azure-resurser.
 
-## <a name="check-if-user-can-assign-access-to-subscription"></a>Kontrollera om användaren kan ge behörighet till prenumeration
-Ditt program nu har en token för åtkomst till Azure Resource Manager för användarens räkning. Nästa steg är att ansluta din app till prenumerationen. När du ansluter kan din app kan hantera dessa prenumerationer även när användaren inte finns (långsiktiga offlineåtkomst).
+## <a name="check-if-user-can-assign-access-to-subscription"></a>Kontrollera om användaren kan ge åtkomst till prenumerationen
+Ditt program nu har en token för att få åtkomst till Azure Resource Manager användarens räkning. Nästa steg är att ansluta din app till prenumerationen. När du anslutit din app kan hantera dessa prenumerationer även om användaren inte finns (långsiktig offline-åtkomst).
 
-Varje prenumeration att ansluta anropa den [Resource Manager listbehörigheter](https://docs.microsoft.com/rest/api/authorization/permissions) API för att avgöra om användaren har behörighet för hantering för prenumerationen.
+Varje prenumeration att ansluta kan anropa den [Resource Manager listbehörigheter](https://docs.microsoft.com/rest/api/authorization/permissions) API för att avgöra om användaren har hantering av åtkomsträttigheter för prenumerationen.
 
 Den [UserCanManagerAccessForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L44) metod för ASP.NET MVC-exempelapp implementerar det här anropet.
 
@@ -198,86 +204,86 @@ I följande exempel visas hur du begär en användares behörigheter för en pre
 
     Authorization: Bearer eyJ0eXAiOiJKV1QiLC***lwO1mM7Cw6JWtfY2lGc5A
 
-Det är ett exempel på svaret att hämta användarens behörigheter på prenumeration:
+Ett exempel på svaret att hämta användarens behörigheter i prenumerationen är:
 
     HTTP/1.1 200 OK
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-Behörigheter API returnerar flera behörigheter. Varje behörighet består av tillåtna åtgärder (**åtgärder**) och otillåtna åtgärder (**notactions**). Om en åtgärd i tillåtna åtgärder för vilken behörighet och det finns inte i otillåtna åtgärder för den behörigheten, användaren tillåts att utföra åtgärden. **Microsoft.Authorization/RoleAssignments/Write** är den åtgärd som beviljar åtkomst till rights management. Programmet måste tolka resultatet behörigheter att leta efter en matchning för regex på den här åtgärden strängen i den **åtgärder** och **notactions** för varje behörighet.
+Behörigheterna som API: et returnerar flera behörigheter. Varje behörighet består av tillåtna åtgärder (**åtgärder**) och otillåtna åtgärder (**notactions**). Om en åtgärd är finns i tillåtna åtgärder av vilken behörighet som helst och finns inte i otillåtna åtgärderna för den behörigheten, tillåts användaren att utföra åtgärden. **Microsoft.Authorization/RoleAssignments/Write** är den åtgärd som beviljar åtkomst till rights management. Programmet måste tolka resultatet behörighet att söka efter en regex-matchning på den här åtgärden strängen i den **åtgärder** och **notactions** av varje behörighet.
 
-## <a name="get-app-only-access-token"></a>Hämta endast app-åtkomst-token
-Nu vet du om användaren kan ge behörighet till Azure-prenumerationen. Nästa steg är:
+## <a name="get-app-only-access-token"></a>Hämta app-begränsad åtkomsttoken
+Nu vet du om användaren kan ge åtkomst till Azure-prenumeration. Nästa steg är:
 
-1. Tilldela rollen RBAC till programmets identitet i prenumerationen.
-2. Verifiera åtkomst tilldelningen genom att fråga om programmets tillstånd på prenumerationen eller genom att öppna Resource Manager med endast app-token.
-3. Registrera anslutningen i ditt program ”anslutna prenumerationer” datastruktur - beständighet ID för prenumerationen.
+1. Tilldela lämpliga RBAC-roll till programmets identitet för prenumerationen.
+2. Kontrollera åtkomst tilldelningen genom att fråga om programmets behörighet för den aktuella prenumerationen eller genom att gå till Resource Manager med endast app-token.
+3. Registrera anslutningen i ditt program ”anslutna prenumerationer” datastruktur - spara ID för prenumerationen.
 
-Nu ska vi titta närmare på det första steget. Du måste bestämma om du vill tilldela rollen RBAC till programmets identitet.
+Låt oss titta närmare på det första steget. Om du vill tilldela rollen RBAC programmets identitet, måste du bestämma:
 
-* Objekt-ID för programmets identitet i användarens Azure Active Directory
-* Identifierare för rollen RBAC som krävs för ditt program för prenumerationen
+* Objekt-ID för applikationsidentitet i användarens Azure Active Directory
+* Identifierare för RBAC-rollen som programmet behöver för prenumerationen
 
-När programmet autentiserar en användare från en Azure AD, skapas ett huvudnamn service-objekt för tillämpningsprogrammet i den Azure AD. Azure kan RBAC-roller som ska tilldelas till tjänstens huvudnamn för att ge direktåtkomst till motsvarande program på Azure-resurser. Den här åtgärden är exakt vad du vill göra. Frågan Azure AD Graph API för att identifiera identifierare för tjänstens huvudnamn för programmet i den inloggade användaren har Azure AD.
+När programmet autentiseras en användare från en Azure AD skapar ett huvudnamnsobjekt för tjänsten för ditt program i Azure AD. Azure kan RBAC-roller som ska tilldelas till tjänstens huvudnamn för att ge direktåtkomst till motsvarande program på Azure-resurser. Den här åtgärden är precis vad du vill göra. Frågan Azure AD Graph API för att identifiera ID för tjänstens huvudnamn i ditt program under den inloggade användaren är Azure AD.
 
-Du bara ha en åtkomst-token för Azure Resource Manager - du behöver en ny åtkomsttoken att anropa Azure AD Graph API. Alla program i Azure AD har behörighet att fråga ett eget huvudnamn serviceobjektet, så att endast app-åtkomst-token är tillräckliga.
+Du bara har en åtkomsttoken för Azure Resource Manager - du behöver en ny åtkomsttoken att anropa Azure AD Graph API. Varje program i Azure AD har behörighet att fråga en egen tjänstens huvudnamnsobjekt så att en app-begränsad åtkomsttoken är tillräckliga.
 
 <a id="app-azure-ad-graph" />
 
-### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Hämta endast app-åtkomst-token för Azure AD Graph API
-För att autentisera din app och hämta en token för Azure AD Graph API, utfärda en tokenbegäran av flödet klientens autentiseringsuppgifter bevilja OAuth2.0 till Azure AD-token för slutpunkt (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
+### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Hämta app-begränsad åtkomsttoken för Azure AD Graph API
+För att autentisera din app och hämta en token till Azure AD Graph API, utfärda en Tokenbegäran för klientens autentiseringsuppgifter bevilja OAuth2.0-flöde till Azure AD-token-slutpunkten (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
 
-Den [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) metod i ASP.net MVC-exempelprogram hämtar endast app-åtkomst-token för Graph API med Active Directory-Autentiseringsbibliotek för .NET.
+Den [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) metod i ASP.net MVC-exempelprogrammet hämtar en app-begränsad åtkomst-token för Graph API med Active Directory Authentication Library för .NET.
 
-Frågan string-parametrar som är tillgängliga för denna begäran beskrivs i den [begära en åtkomst-Token](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) artikel.
+Frågesträngparametrarna som är tillgängliga för den här begäran beskrivs i den [begär en åtkomsttoken](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) artikeln.
 
-En exempelbegäran för klientreferensen bevilja token:
+En exempelbegäran om autentiseringsuppgifter för klienten bevilja token:
 
     POST https://login.microsoftonline.com/62e173e9-301e-423e-bcd4-29121ec1aa24/oauth2/token HTTP/1.1
     Content-Type: application/x-www-form-urlencoded
     Content-Length: 187</pre>
     <pre>grant_type=client_credentials&client_id=a0448380-c346-4f9f-b897-c18733de9394&resource=https%3A%2F%2Fgraph.windows.net%2F &client_secret=olna8C*****Og%3D
 
-Ett exempelsvar för klientreferensen bevilja token:
+Ett exempel på ett svar för autentiseringsuppgifter för klienten bevilja token:
 
     HTTP/1.1 200 OK
 
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039862","not_before":"1432035962","resource":"https://graph.windows.net/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRv****G5gUTV-kKorR-pg"}
 
-### <a name="get-objectid-of-application-service-principal-in-user-azure-ad"></a>Hämta ObjectId för programmet tjänstens huvudnamn i användaren Azure AD
-Nu kan använda endast app-åtkomst-token till frågan i [Azure AD Graph tjänstens huvudnamn](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) API för att fastställa objekt-ID för programmets tjänstens huvudnamn i katalogen.
+### <a name="get-objectid-of-application-service-principal-in-user-azure-ad"></a>Hämta ObjectId för programmet tjänstens huvudnamn i användarens Azure AD
+Nu kan använda app-begränsad åtkomsttoken till frågan i [tjänsthuvudnamn i Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) API för att fastställa objekt-ID för programmets tjänstens huvudnamn i katalogen.
 
-Den [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#) metod i ASP.net MVC-exempelprogram implementerar det här anropet.
+Den [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#) metod i ASP.net MVC-exempelprogrammet implementerar det här anropet.
 
-I följande exempel visas hur du begär ett program tjänstens huvudnamn. a0448380-c346-4f9f-b897-c18733de9394 är klient-ID för programmet.
+I följande exempel visas hur du begär ett programs tjänstens huvudnamn. a0448380-c346-4f9f-b897-c18733de9394 är klient-ID för programmet.
 
     GET https://graph.windows.net/62e173e9-301e-423e-bcd4-29121ec1aa24/servicePrincipals?api-version=1.5&$filter=appId%20eq%20'a0448380-c346-4f9f-b897-c18733de9394' HTTP/1.1
 
     Authorization: Bearer eyJ0eXAiOiJK*****-kKorR-pg
 
-I följande exempel visas ett svar på begäran för ett program service principal
+I följande exempel visas ett svar på begäran för ett program tjänsten huvudnamn
 
     HTTP/1.1 200 OK
 
     {"odata.metadata":"https://graph.windows.net/62e173e9-301e-423e-bcd4-29121ec1aa24/$metadata#directoryObjects/Microsoft.DirectoryServices.ServicePrincipal","value":[{"odata.type":"Microsoft.DirectoryServices.ServicePrincipal","objectType":"ServicePrincipal","objectId":"9b5018d4-6951-42ed-8a92-f11ec283ccec","deletionTimestamp":null,"accountEnabled":true,"appDisplayName":"CloudSense","appId":"a0448380-c346-4f9f-b897-c18733de9394","appOwnerTenantId":"62e173e9-301e-423e-bcd4-29121ec1aa24","appRoleAssignmentRequired":false,"appRoles":[],"displayName":"CloudSense","errorUrl":null,"homepage":"http://www.vipswapper.com/cloudsense","keyCredentials":[],"logoutUrl":null,"oauth2Permissions":[{"adminConsentDescription":"Allow the application to access CloudSense on behalf of the signed-in user.","adminConsentDisplayName":"Access CloudSense","id":"b7b7338e-683a-4796-b95e-60c10380de1c","isEnabled":true,"type":"User","userConsentDescription":"Allow the application to access CloudSense on your behalf.","userConsentDisplayName":"Access CloudSense","value":"user_impersonation"}],"passwordCredentials":[],"preferredTokenSigningKeyThumbprint":null,"publisherName":"vipswapper"quot;,"replyUrls":["http://www.vipswapper.com/cloudsense","http://www.vipswapper.com","http://vipswapper.com","http://vipswapper.azurewebsites.net","http://localhost:62080"],"samlMetadataUrl":null,"servicePrincipalNames":["http://www.vipswapper.com/cloudsense","a0448380-c346-4f9f-b897-c18733de9394"],"tags":["WindowsAzureActiveDirectoryIntegratedApp"]}]}
 
-### <a name="get-azure-rbac-role-identifier"></a>Hämta Azure RBAC roll-ID
-Om du vill tilldela rollen RBAC till tjänstens huvudnamn, måste du bestämma identifierare för Azure RBAC-rollen.
+### <a name="get-azure-rbac-role-identifier"></a>Hämta ID för Azure RBAC-roll
+Om du vill tilldela lämpliga RBAC-roll till tjänstens huvudnamn, måste du bestämma identifierare för Azure RBAC-rollen.
 
-Rätt RBAC roll för ditt program:
+Den rätta RBAC-rollen för ditt program:
 
-* Om ditt program övervakar endast prenumerationen, utan ändringar, kräver endast läsare behörigheter i prenumerationen. Tilldela den **Reader** roll.
-* Om ditt program hanterar Azure-prenumeration, skapa/Ändra/ta bort enheter kräver en av deltagare behörigheter.
-  * Om du vill hantera en viss typ av resurs, tilldela deltagare resursspecifika roller (Virtual Machine-deltagare, Virtual Network-deltagare, Storage-konto deltagare, etc.)
-  * För att hantera alla resurstyp, tilldela den **deltagare** roll.
+* Om ditt program bara övervakar prenumerationen, utan ändringar, kräver endast läsare behörigheter i prenumerationen. Tilldela den **läsare** roll.
+* Om ditt program hanterar Azure-prenumeration, skapa/Ändra/ta bort entiteter, kräver en av behörigheterna som deltagare.
+  * För att hantera en viss typ av resurs, tilldela de resursspecifika deltagarroller (Virtual Machine-deltagare, Virtual Network-deltagare, Lagringskontodeltagare osv.)
+  * För att hantera någon resurstyp, tilldela den **deltagare** roll.
 
-Rolltilldelning för ditt program är synliga för användare, så du väljer minst krävs behörighet.
+Rolltilldelning för ditt program är synliga för användare, så Välj krävs för lägsta behörighet.
 
-Anropa den [rolldefinitionen för Resource Manager API](https://docs.microsoft.com/rest/api/authorization/roledefinitions) Rada upp alla Azure RBAC-roller och sök sedan iterera över resultatet till önskade rolldefinitionen Sök efter namn.
+Anropa den [rolldefinition för Resource Manager API](https://docs.microsoft.com/rest/api/authorization/roledefinitions) att lista alla Azure RBAC-roller och sök sedan iterera över resultatet att hitta önskad rolldefinitionen efter namn.
 
 Den [GetRoleId](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L246) metod för ASP.net MVC-exempelapp implementerar det här anropet.
 
-I följande exempel begäran visar hur du hämtar Azure RBAC Rollidentifierare. 09cbd307-aa71-4aca-b346-5f253e6e3ebb är ID för prenumerationen.
+I följande exempel begäran visar hur du hämtar identifierare för Azure RBAC-rollen. 09cbd307-aa71-4aca-b346-5f253e6e3ebb är ID för prenumerationen.
 
     GET https://management.azure.com/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01 HTTP/1.1
 
@@ -289,7 +295,7 @@ Svaret är i följande format:
 
     {"value":[{"properties":{"roleName":"API Management Service Contributor","type":"BuiltInRole","description":"Lets you manage API Management services, but not access to them.","scope":"/","permissions":[{"actions":["Microsoft.ApiManagement/Services/*","Microsoft.Authorization/*/read","Microsoft.Resources/subscriptions/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read","Microsoft.Resources/subscriptions/resourceGroups/resources/read","Microsoft.Resources/subscriptions/resourceGroups/deployments/*","Microsoft.Insights/alertRules/*","Microsoft.Support/*"],"notActions":[]}]},"id":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions/312a565d-c81f-4fd8-895a-4e21e48d571c","type":"Microsoft.Authorization/roleDefinitions","name":"312a565d-c81f-4fd8-895a-4e21e48d571c"},{"properties":{"roleName":"Application Insights Component Contributor","type":"BuiltInRole","description":"Lets you manage Application Insights components, but not access to them.","scope":"/","permissions":[{"actions":["Microsoft.Insights/components/*","Microsoft.Insights/webtests/*","Microsoft.Authorization/*/read","Microsoft.Resources/subscriptions/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read","Microsoft.Resources/subscriptions/resourceGroups/resources/read","Microsoft.Resources/subscriptions/resourceGroups/deployments/*","Microsoft.Insights/alertRules/*","Microsoft.Support/*"],"notActions":[]}]},"id":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions/ae349356-3a1b-4a5e-921d-050484c6347e","type":"Microsoft.Authorization/roleDefinitions","name":"ae349356-3a1b-4a5e-921d-050484c6347e"}]}
 
-Du behöver inte anropa denna API kontinuerligt. När du har bestämt välkända GUID för rolldefinitionen kan du skapa Definitions-ID för rollen som:
+Du behöver inte att anropa detta API med jämna mellanrum. När du har bestämt välkända GUID för rolldefinitionen, kan du skapa rolldefinitions-ID som:
 
     /subscriptions/{subscription_id}/providers/Microsoft.Authorization/roleDefinitions/{well-known-role-guid}
 
@@ -307,12 +313,12 @@ Här följer identifierarna som används ofta inbyggda roller:
 | SQL Server-deltagare |6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
 | SQL DB-deltagare |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
 
-### <a name="assign-rbac-role-to-application"></a>Tilldela RBAC roll till programmet
-Du har allt du behöver för att tilldela rollen RBAC till tjänstens huvudnamn med hjälp av den [Resource Manager skapa rolltilldelning](https://docs.microsoft.com/rest/api/authorization/roleassignments) API.
+### <a name="assign-rbac-role-to-application"></a>Tilldela RBAC-roll till program
+Du har allt du behöver för att tilldela lämpliga RBAC-roll till tjänstens huvudnamn med hjälp av den [Resource Manager skapa rolltilldelning](https://docs.microsoft.com/rest/api/authorization/roleassignments) API.
 
 Den [GrantRoleToServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L170) metod för ASP.net MVC-exempelapp implementerar det här anropet.
 
-En exempelbegäran att tilldela programmet RBAC roll:
+En exempel-begäran för att tilldela RBAC-roll till program:
 
     PUT https://management.azure.com/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/microsoft.authorization/roleassignments/4f87261d-2816-465d-8311-70a27558df4c?api-version=2015-07-01 HTTP/1.1
 
@@ -337,28 +343,28 @@ Svaret är i följande format:
 
     {"properties":{"roleDefinitionId":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7","principalId":"c3097b31-7309-4c59-b4e3-770f8406bad2","scope":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb"},"id":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleAssignments/4f87261d-2816-465d-8311-70a27558df4c","type":"Microsoft.Authorization/roleAssignments","name":"4f87261d-2816-465d-8311-70a27558df4c"}
 
-### <a name="get-app-only-access-token-for-azure-resource-manager"></a>Hämta endast app-åtkomsttoken för Azure Resource Manager
-Om du vill validera appen har önskad åt på prenumerationen, utför en test-aktivitet på prenumerationen med en app-only-token.
+### <a name="get-app-only-access-token-for-azure-resource-manager"></a>Hämta app-begränsad åtkomsttoken för Azure Resource Manager
+Om du vill verifiera appen har önskad öppna för prenumerationen genom att utföra en test-uppgift för prenumerationen med hjälp av en appspecifika-token.
 
-Följ anvisningarna för att få en endast app-åtkomst-token från avsnittet [Hämta endast app-åtkomst-token för Azure AD Graph API](#app-azure-ad-graph), med ett annat värde för resursparametern:
+Om du vill få ett app-begränsad åtkomsttoken, följer du instruktionerna från avsnittet [hämta app-begränsad åtkomsttoken för Azure AD Graph API](#app-azure-ad-graph), med ett annat värde för resursparametern:
 
     https://management.core.windows.net/
 
-Den [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L110) metod för exempelprogrammet ASP.NET MVC hämtar endast app-åtkomst-token för Azure Resource Manager med hjälp av Active Directory-Autentiseringsbibliotek för .net.
+Den [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L110) metod i ASP.NET MVC-exempelprogrammet hämtar en app-begränsad åtkomst-token för Azure Resource Manager med Active Directory Authentication Library för .net.
 
-#### <a name="get-applications-permissions-on-subscription"></a>Hämta programmets behörigheter för prenumerationen
-Om du vill kontrollera att programmet har åtkomst på en Azure-prenumeration kan du också anropa den [Resource Manager behörigheter](https://docs.microsoft.com/rest/api/authorization/permissions) API. Den här metoden liknar hur du bestämma om användaren har behörighet för åtkomsthantering för prenumerationen. Den här tiden kan anropa dock behörigheter API med endast app-åtkomst-token som du fick i föregående steg.
+#### <a name="get-applications-permissions-on-subscription"></a>Få programmets behörighet för prenumeration
+Om du vill kontrollera att ditt program har att lägga till på en Azure-prenumeration kan du även anropa den [Resource Manager-behörigheter](https://docs.microsoft.com/rest/api/authorization/permissions) API. Den här metoden liknar hur du bestämt om användaren har behörighet för åtkomsthantering för prenumerationen. Den här tiden kan anropa dock behörigheter API med app-begränsad åtkomsttoken som du fick i föregående steg.
 
 Den [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L110) metod för ASP.NET MVC-exempelapp implementerar det här anropet.
 
 ## <a name="manage-connected-subscriptions"></a>Hantera anslutna prenumerationer
-När rollen RBAC tilldelas till programmets tjänstens huvudnamn på prenumerationen kan tillämpningsprogrammet hålla övervakning/hantera den med hjälp av endast app-åtkomst-token för Azure Resource Manager.
+När rätt RBAC-roll tilldelas till ditt programs tjänstens huvudnamn för prenumerationen, kan ditt program hålla övervakning/hantera den med hjälp av app-begränsad åtkomsttoken för Azure Resource Manager.
 
-Om en prenumeration ägare tar bort rolltilldelningen i ditt program med hjälp av portalen eller kommandoradsverktyg, ditt program inte längre komma åt den prenumerationen. I så fall bör du meddela användaren om att anslutningen med prenumerationen fjärrdisken bröts från utanför programmet och ge dem en alternativet ”Reparera” anslutningen. ”Reparera” skulle återskapa rolltilldelning som tagits offline.
+Om en prenumerationsägare tar bort rolltilldelning för ditt program med hjälp av portalen eller kommandoradsverktyg, ditt program inte längre komma åt den aktuella prenumerationen. I så fall bör du meddela användaren om att prenumerationen anslutningen bröts från utanför programmet och ge dem ett alternativ för att ”reparera” anslutningen. ”Reparera” skulle återskapa den rolltilldelning som offline har tagits bort.
 
-Precis som du har aktiverat att användaren ska ansluta prenumerationer för ditt program måste du tillåta användare att koppla från prenumerationer för. Koppla från innebär att ta bort rolltilldelningen med programmets tjänstens huvudnamn på prenumerationen från en access management-synvinkel. Du kan också kan några tillstånd i programmet för prenumerationen tas bort för.
-Endast användare med behörighet för hantering på prenumerationen kan du koppla från prenumerationen.
+Precis som du har aktiverat att användaren ska ansluta prenumerationer till ditt program måste du tillåta användare att koppla från prenumerationer för. Koppla från innebär att ta bort den rolltilldelning som programmets tjänstens huvudnamn har i prenumerationen från en access management-synvinkel. Du kan också kan några tillstånd i programmet för prenumerationen tas bort för.
+Endast användare med hantering av åtkomstbehörighet för prenumerationen kan du koppla från prenumerationen.
 
-Den [RevokeRoleFromServicePrincipalOnSubscription metoden](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) för ASP.net MVC exempelapp implementerar det här anropet.
+Den [RevokeRoleFromServicePrincipalOnSubscription metoden](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) av ASP.net MVC-exempelappen implementerar det här anropet.
 
-Det - användare kan nu enkelt ansluta och hantera sina Azure-prenumerationer med ditt program.
+Det var allt – användare kan nu enkelt ansluta och hantera sina Azure-prenumerationer med ditt program.

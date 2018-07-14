@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 0174aa2288bbb95cc5cfc796446893fde00a8964
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 477fa7e10fab0afadb28d7749009f87e82d9b6ba
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344359"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035402"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Installera Azure IoT Edge-körningen på Linux (x64)
 
@@ -56,9 +56,7 @@ sudo apt-get upgrade
 
 ## <a name="install-the-container-runtime"></a>Installera runtime behållare 
 
-Azure IoT Edge förlitar sig på en [OCI-kompatibla] [ lnk-oci] container-körning (t.ex. Docker). Om du redan har Docker CE/EE installerad på din Edge-enhet kan fortsätta du att använda den för utveckling och testning med Azure IoT Edge. 
-
-I produktionsscenarier rekommenderas du använder den [Moby-baserade] [ lnk-moby] motor som anges nedan. Det är den enda behållare motorn officiellt stöds med Azure IoT Edge. Docker CE/EE-behållaravbildningar är helt kompatibla med Moby runtime.
+Azure IoT Edge förlitar sig på en [OCI-kompatibla] [ lnk-oci] behållare runtime. I produktionsscenarier rekommenderas du använder den [Moby-baserade] [ lnk-moby] motor som anges nedan. Det är den enda behållare motorn officiellt stöds med Azure IoT Edge. Docker CE/EE-behållaravbildningar är kompatibla med Moby runtime.
 
 Uppdatera apt-get.
 

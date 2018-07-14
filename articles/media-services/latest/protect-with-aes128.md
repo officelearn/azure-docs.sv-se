@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/12/2018
 ms.author: juliako
-ms.openlocfilehash: da2df60e3111055729bbae2c6684ccbb9671272e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b62c528716d9386b9da6ddee260fd1ec382fb4a5
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007871"
+ms.locfileid: "39036793"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Använda dynamisk kryptering för AES-128 och nyckelleveranstjänst
 
 Du kan använda Media Services för att leverera HTTP Live Streaming (HLS), MPEG-DASH och Smooth Streaming som krypterats med AES med hjälp av 128-bitars krypteringsnycklar. Media Services tillhandahåller också nyckelleveranstjänst som levererar krypteringsnycklar till behöriga användare. Om du vill för Media Services för att kryptera en tillgång kan du associera krypteringsnyckeln med StreamingLocator och även ange innehåll viktiga principen. När en dataströmmen har begärts av en spelare, använder Media Services den angivna nyckeln för att dynamiskt kryptera ditt innehåll med hjälp av AES-kryptering. Om du vill dekryptera dataströmmen begär spelaren nyckeln från nyckelleveranstjänst. Tjänsten utvärderar innehåll viktiga principen som du angav för nyckeln för att avgöra om användaren har behörighet att hämta nyckel.
 
-Den här artikeln är baserad på den [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) exemplet. Exemplet visar hur du skapar en kodning transformeringen som använder en inbyggd förinställning för kodning med anpassningsbar bithastighet och matar in en fil direkt från en [HTTPs Käll-URL](job-input-from-http-how-to.md). Utdatatillgången publiceras sedan med hjälp av AES (ClearKey)-kryptering. Utdata från exemplet är en URL till Azure Media Player, inklusive både manifestet DASH och AES-token som behövs för att spela upp innehållet. Exemplet utgångsdatumet för JWT-token till 1 timme. Du kan öppna en webbläsare och klistra in URL som bildas för att starta Azure Media Player demo-sida med URL: en och token som används för att redan (i följande format: ``` https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.)
+Den här artikeln är baserad på den [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) exemplet. Exemplet visar hur du skapar en kodning transformeringen som använder en inbyggd förinställning för kodning med anpassningsbar bithastighet och matar in en fil direkt från en [HTTPs Käll-URL](job-input-from-http-how-to.md). Utdatatillgången publiceras sedan med hjälp av AES (ClearKey)-kryptering. Utdata från exemplet är en URL till Azure Media Player, inklusive både manifestet DASH och AES-token som behövs för att spela upp innehållet. Exemplet utgångsdatumet för JWT-token till 1 timme. Du kan öppna en webbläsare och klistra in URL som bildas för att starta Azure Media Player demo-sida med URL: en och token som används för att du redan i följande format: ```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.
 
 > [!NOTE]
 > Du kan kryptera varje tillgång med flera krypteringstyper (AES-128, PlayReady, Widevine, FairPlay). Se [Streaming protokoll och krypteringstyper](content-protection-overview.md#streaming-protocols-and-encryption-types), för att se vad är det bra att kombinera.

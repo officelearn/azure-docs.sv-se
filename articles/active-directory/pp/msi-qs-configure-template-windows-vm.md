@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e01e4c397e0d0a19280a32fc1e8341b57b47e4eb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1af9770fa899a03e6e3514c539c511ba26fdced4
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610391"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036388"
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>Konfigurera en Användartilldelad hanterad tjänstidentitet (MSI) för en virtuell dator med hjälp av en Azure-mall
 
@@ -52,7 +52,7 @@ Oavsett vilket alternativ som väljs, är densamma under den första distributio
    > Det här exemplet förutsätter variabler som `vmName`, `storageAccountName`, och `nicName` har definierats i mallen.
    >
 
-   ![Skärmbild av mall - Leta upp virtuell dator](~/articles/active-directory/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
+   ![Skärmbild av mall - Leta upp virtuell dator](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
 3. Lägg till den `"identity"` egenskapen på samma nivå som den `"type": "Microsoft.Compute/virtualMachines"` egenskapen. Använd följande syntax:
 
@@ -92,7 +92,7 @@ Oavsett vilket alternativ som väljs, är densamma under den första distributio
 
 5. När du är klar bör se din mall ut ungefär så här:
 
-   ![Skärmbild av mall efter uppdateringen](~/articles/active-directory/media/msi-qs-configure-template-windows-vm/template-file-after.png) 
+   ![Skärmbild av mall efter uppdateringen](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-after.png) 
 
 ## <a name="remove-msi-from-an-azure-vm"></a>Ta bort MSI från en Azure virtuell dator
 

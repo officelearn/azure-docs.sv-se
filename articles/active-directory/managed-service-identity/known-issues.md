@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 05096050dfc29aebd2859b298eef884dcd9a1111
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: c48d03b6e8a3d850d02d2c36c35915f8214b00e8
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908079"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035820"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Vanliga frågor och kända problem med hanterad tjänstidentitet (MSI) för Azure Active Directory
 
@@ -85,7 +85,7 @@ Där:
 
 När hanterad tjänstidentitet har aktiverats på en virtuell dator, visas följande felmeddelande när du försöker använda funktionen ”automationsskript” för den virtuella datorn eller en resursgrupp:
 
-![MSI automation skriptfel export:](../media/msi-known-issues/automation-script-export-error.png)
+![MSI automation skriptfel export:](../managed-service-identity/media/msi-known-issues/automation-script-export-error.png)
 
 Managed Service Identity VM-tillägget stöder för närvarande inte möjligheten att exportera dess schema till en resursgruppmall. Därför visas inte den genererade mallen konfigurationsparametrar för att aktivera hanterad tjänstidentitet för resursen. Dessa avsnitt kan läggas till manuellt genom att följa exemplen i [konfigurera en virtuell dator hanterad tjänstidentitet med hjälp av en mall](qs-configure-template-windows-vm.md).
 

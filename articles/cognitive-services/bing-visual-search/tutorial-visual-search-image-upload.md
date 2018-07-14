@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: a5ec7142fccb900a7095a0c67623d560d3bc00d7
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 90ea591137b306069c1a5c184aea07375c72ce5c
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009536"
+ms.locfileid: "39036548"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Självstudie: Bryta ned Bing Visual Search uppladdning
 
@@ -24,7 +24,7 @@ Den här självstudien delar upp processen med att ladda upp en avbildning till 
 Den här självstudiekursen har angetts för utvecklare som vill utforska innehållet i Bing-svaret. Det inte gäller all användning och visa kraven (till exempel det ger inte en länk till Microsofts sekretesspolicy). Alla användningskrav finns i [Bing Använd och visa krav](./use-and-display-requirements.md).
 
 
-### <a name="where-to-start"></a>Var du ska börja?
+## <a name="where-to-start"></a>Var du ska börja?
 
 Låt oss börja med en HTML-sida som skickar Bing en bild och får tillbaka insikter och visar dem. I redigeringsprogram du föredrar, skapar du en fil med namnet uploaddemo.html. Lägg till följande grundläggande HTML-strukturen i filen.
 
@@ -50,7 +50,7 @@ Börja genom att vi dela upp sidan i en begäran, där användaren tillhandahål
         <div id="responseSection"></div>
 ```
 
-### <a name="get-the-file-to-upload"></a>Hämta filen som ska överföras
+## <a name="get-the-file-to-upload"></a>Hämta filen som ska överföras
 
 Om du vill att användaren kan välja att överföra avbildningen demonstrationen använder den \<inkommande\> taggen med attributet typen till filen. Användargränssnittet måste göra det Rensa att demon använder Bing för att hämta sökresultaten. 
 
@@ -126,7 +126,7 @@ Nedan visas hanteraren som samlar in den valda avbildningen. Hanteraren innehål
 ```
 
 
-### <a name="what-else-is-needed-before-making-the-call-to-bing"></a>Vad som krävs innan du gör anropet till Bing?
+## <a name="what-else-is-needed-before-making-the-call-to-bing"></a>Vad som krävs innan du gör anropet till Bing?
 
 Demon fortfarande ha en prenumerationsnyckel. Du skulle förmodligen hämta prenumerationsnyckeln från säker lagring i praktiken, men för enkelheten med den här demon, måste du ange den i Användargränssnittet. Lägg till följande \<inkommande\> tagga (med attributet type inställd text) till den \<brödtext\> nedanför filens \<utdata\> taggen.
 
@@ -226,7 +226,7 @@ Demon döljer listor i ett komprimerbart div som styrs av länken fråga. När d
 ```
 
 
-### <a name="making-the-call"></a>Att göra anropet
+## <a name="making-the-call"></a>Att göra anropet
 
 Lägg till följande Get insikter knappen under Alternativ-div i brödtexten. Knappen användaren kan initiera ett samtal. När användaren klickar på knappen markören ändras till att vänta markören och onclick hanteraren kallas.
 
@@ -291,7 +291,7 @@ Funktionen sendRequest formaterar slutpunkts-URL, anger Ocp-Apim-Subscription-Ke
         }
 ```
 
-### <a name="handling-the-response"></a>Hantering av svaret
+## <a name="handling-the-response"></a>Hantering av svaret
 
 Funktionen handleResponse hanterar svar från anropet till Bing Visual Search. Om anropet lyckas, tolkar JSON-svar till enskilda taggar, som innehåller insikterna. Därefter läggs sträng, Bing, internet sökresultaten till sidan om du vill att de vet data ifrån Bing.
 
@@ -676,7 +676,7 @@ Kom ihåg att det finns en minimal mängd data som du måste visa, resten är up
 
 
 
-### <a name="adding-styles-to-make-the-page-display-correctly"></a>Att lägga till format för att göra sidan visas korrekt
+## <a name="adding-styles-to-make-the-page-display-correctly"></a>Att lägga till format för att göra sidan visas korrekt
 
 Lägg till följande \<style\> avsnitt i den \<head\> tagg.
 
@@ -1328,3 +1328,7 @@ Här är det fullständiga exemplet som HTML och JavaScript.
     </body>
 </html>      
 ```
+
+## <a name="next-steps"></a>Nästa steg
+
+Och se hur informationshämtning fungerar med hjälp av och insikter token, se [Bing Visual Search SDK ImageInsightsToken självstudien](.\tutorial-visual-search-insights-token.md).

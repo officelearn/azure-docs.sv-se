@@ -9,96 +9,96 @@ ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 7d7cd8a197a89781a75f47bb4b4e2ec8fe7c3cb4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814789"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940732"
 ---
 # <a name="secure-your-iot-deployment"></a>Skydda distributionen av IoT
 
-Den här artikeln innehåller nästa detaljnivå för att skydda Azure IoT-baserade Sakernas Internet (IoT)-infrastruktur. Den länkar till implementeringsinformation för att konfigurera och distribuera varje komponent. Det ger också jämförelser och val mellan olika konkurrerande metoder.
+Den här artikeln innehåller nästa detaljnivå för att skydda Azure IoT-baserade Internet of Things (IoT)-infrastruktur. Det länkar till nivån implementeringsdetaljer för att konfigurera och distribuera varje komponent. Det ger också jämförelser och val mellan olika konkurrerande metoder.
 
-Säkra Azure IoT-distributionen kan delas in i följande tre områden:
+Skydda Azure-IoT-distributionen kan delas in i följande tre områden:
 
-* **Enheternas säkerhet**: skydda IoT-enhet när den har distribuerats i jokertecken.
-* **Anslutningssäkerhet**: säkerställer att alla data som överförs mellan IoT-enhet och IoT-hubben är konfidentiellt och förfalska.
-* **Cloud Security**: ge möjligheter att säkra data medan den går genom och lagras i molnet.
+* **Enhetssäkerhet**: skydda IoT-enhet när den har distribuerats i naturen.
+* **Anslutningssäkerhet**: att se till att alla data som överförs mellan IoT-enheter och IoT Hub är konfidentiellt och manipuleringssäker.
+* **Cloud Security**: att skapa ett sätt att skydda data medan den går genom och lagras i molnet.
 
 ![Tre säkerhetsområden][img-overview]
 
-## <a name="secure-device-provisioning-and-authentication"></a>Säker enhetsetableringen och autentisering
+## <a name="secure-device-provisioning-and-authentication"></a>Säker enhetsetablering och autentisering
 
-IoT-Lösningsacceleratorer säker IoT-enheter med hjälp av följande två metoder:
+IoT-Lösningsacceleratorer säker IoT-enheter följande två metoder:
 
-* Genom att tillhandahålla en unik identitetsnyckel (säkerhetstoken) för varje enhet som kan användas av enheten kommunicerar med IoT-hubben.
-* Med hjälp av en på enhet [X.509-certifikat] [ lnk-x509] och den privata nyckeln som ett sätt att autentisera enheten till IoT-hubben. Den här autentiseringsmetoden garanterar att den privata nyckeln på enheten inte är känd utanför enheten när som helst, vilket ger en högre säkerhetsnivå.
+* Genom att tillhandahålla en unik identitet nyckel (säkerhetstoken) för varje enhet som kan användas av enheten för att kommunicera med IoT Hub.
+* Med hjälp av en på enhet [X.509-certifikat] [ lnk-x509] och den privata nyckeln som ett sätt att autentisera enheten till IoT Hub. Den här autentiseringsmetoden säkerställer att den privata nyckeln på enheten inte är känd utanför enheten när som helst, vilket ger en högre säkerhetsnivå.
 
-Token säkerhetsmetod ger autentisering för varje anrop som görs av enheten IoT-hubb genom att associera den symmetriska nyckeln till varje anrop. X.509-baserad autentisering tillåter autentisering för en IoT-enhet på det fysiska skiktet som en del av TLS-anslutningen upprättas. Säkerhets-token-baserade-metoden kan användas utan X.509-autentisering, vilket är ett mindre säkert mönster. Valet mellan de två metoderna beror i första hand hur säker enhet autentisering måste vara och tillgänglighet för säker lagring på enheten (för att lagra den privata nyckeln säkert).
+Token säkerhetsmetod ger autentisering för varje anrop som görs av enheten till IoT Hub genom att associera den symmetriska nyckeln för varje anrop. X.509-baserad autentisering möjliggör autentisering av en IoT-enheter på det fysiska skiktet som en del av TLS anslutningen upprättas. Security-tokenbaserad-metoden kan användas utan X.509-autentisering, vilket är ett mindre säkert mönster. Valet mellan de två metoderna beror främst hur säker autentisering enheten måste vara och tillgänglighet för säker lagring på enheten (för att lagra den privata nyckeln på ett säkert sätt).
 
 ## <a name="iot-hub-security-tokens"></a>Säkerhetstoken i IoT Hub
 
-IoT-hubb använder säkerhetstoken för att autentisera enheter och tjänster för att undvika att skicka nycklar i nätverket. Dessutom är säkerhetstoken begränsad giltighetstid och omfång. Azure IoT-SDK: er generera automatiskt token utan någon specialkonfiguration. Vissa scenarier, men användaren att skapa och använda säkerhetstoken direkt. Dessa scenarier som inkluderar direkt användning av de MQTT, AMQP och HTTP- eller implementering av tokentjänsten mönstret.
+IoT Hub använder säkerhetstoken för att autentisera enheter och tjänster för att undvika att skicka nycklar i nätverket. Dessutom begränsas säkerhetstoken i giltighetstid och omfång. Azure IoT SDK: er generera automatiskt token utan någon specialkonfiguration. Vissa scenarier kräver dock användaren att skapa och använda säkerhetstoken direkt. De här scenarierna är direkt användning av MQTT-, AMQP- eller HTTP-ytor eller implementering av mönstret token service.
 
-Mer information om strukturen för säkerhetstoken och användning finns i följande artiklar:
+Mer information om hur säkerhetstoken och dess användning kan hittas i följande artiklar:
 
-* [Säkerhet token struktur][lnk-security-tokens]
+* [Token säkerhetsstruktur][lnk-security-tokens]
 * [Med hjälp av SAS-token som en enhet][lnk-sas-tokens]
 
-Varje IoT-hubben har en [identitetsregistret] [ lnk-identity-registry] som kan användas för att skapa per enhet resurser i tjänsten, till exempel en kö som innehåller relä moln till enhet meddelanden och att tillåta åtkomst till enheten riktade slutpunkter. IoT-hubb identitetsregistret ger säker lagring av enheten identiteter och säkerhetsnycklar för en lösning. En eller flera enheter identiteter kan läggas till en lista över tillåtna eller blockerade webbplatser, aktivera fullständig kontroll över enheten. I följande artiklar innehåller mer information om strukturen i identitetsregistret och de åtgärder som stöds.
+Varje IoT-hubben har en [identitetsregistret] [ lnk-identity-registry] som kan användas för att skapa resurser för varje enhet i tjänsten, till exempel en kö som innehåller relä meddelanden från molnet till enheten, och att tillåta åtkomst till den enhet-slutpunkter. IoT Hub-identitetsregistret tillhandahåller säker lagring av enhetsidentiteter och säkerhetsnycklar för en lösning. En eller flera enhetsidentiteter kan läggas till en lista över tillåtna eller en Blockeringslista aktivera fullständig kontroll över enhetsåtkomsten. I följande artiklar ger mer information om hur identitetsregistret och åtgärder som stöds.
 
-[IoT-hubb stöder till exempel MQTT, AMQP och HTTP-protokoll][lnk-protocols]. Var och en av dessa protokoll använder säkerhetstoken från IoT-enhet till IoT-hubb på olika sätt:
+[IoT-hubb har stöd för protokoll, till exempel MQTT, AMQP och HTTP][lnk-protocols]. Var och en av dessa protokoll använder säkerhetstoken från IoT-enhet till IoT Hub på olika sätt:
 
-* AMQP: SASL vanlig AMQP anspråksbaserad säkerhet och (`{policyName}@sas.root.{iothubName}` med IoT-hubb-nivå token; `{deviceId}` med enheten omfång token).
-* MQTT: Ansluta paket använder `{deviceId}` som den `{ClientId}`, `{IoThubhostname}/{deviceId}` i den **användarnamn** fältet och en SAS-token i den **lösenord** fältet.
+* AMQP: SASL vanlig och AMQP anspråksbaserad säkerhet (`{policyName}@sas.root.{iothubName}` med IoT hub på servernivå tokens. `{deviceId}` med enheten-omfattande token).
+* MQTT: Ansluta paket använder `{deviceId}` som den `{ClientId}`, `{IoThubhostname}/{deviceId}` i den **användarnamn** fält och en SAS-token i den **lösenord** fält.
 * HTTP: Är giltig token i auktoriseringshuvudet för begäran.
 
-IoT-hubb identitetsregistret kan användas för att konfigurera per enhet säkerhetsreferenser och åtkomstkontroll. Men om en IoT-lösningen har redan en betydande investering i en [anpassade identitet registret och/eller autentisering schemat][lnk-custom-auth], kan integreras i en befintlig infrastruktur med IoT-hubben genom att skapa en token tjänst.
+IoT Hub-identitetsregistret kan användas för att konfigurera autentiseringsuppgifter för varje enhet och åtkomstkontroll. Men om en IoT-lösning har redan en betydande investering i en [anpassad enhet identitet registret och/eller autentisering schema][lnk-custom-auth], den kan integreras i en befintlig infrastruktur med IoT Hub genom att skapa en token tjänst.
 
-### <a name="x509-certificate-based-device-authentication"></a>X.509 certifikatbaserad autentisering
+### <a name="x509-certificate-based-device-authentication"></a>X.509-certifikatbaserad autentisering
 
-Användning av en [enhetsbaserad X.509-certifikat] [ lnk-use-x509] och dess associerade privata och offentliga nyckelpar tillåter ytterligare autentisering på det fysiska skiktet. Den privata nyckeln lagras på ett säkert sätt i enheten och är inte kan upptäckas utanför enheten. X.509-certifikat innehåller information om enhet, till exempel enhets-ID och andra organisatoriska information. En signatur för certifikatet skapas med hjälp av den privata nyckeln.
+Användning av en [enhetsbaserad X.509-certifikat] [ lnk-use-x509] och dess associerade privata och offentliga nyckelpar tillåter ytterligare autentisering på det fysiska skiktet. Den privata nyckeln lagras på ett säkert sätt i enheten och är inte synliga utanför enheten. X.509-certifikat innehåller information om enheten, t.ex enhets-ID, och andra organisationens data. En signatur för certifikatet som genereras med hjälp av den privata nyckeln.
 
 Övergripande enheten etablering flöde:
 
-* Associera en identifierare för en fysisk enhet – enhetsidentitet och/eller X.509-certifikat som är kopplade till enheten under enhet tillverkar eller idriftsättning.
-* Skapa en motsvarande identity-transaktion i IoT-hubb – enhetsidentitet och associerade enhetsinformation i IoT-hubb identitetsregistret.
-* Tumavtrycket för X.509-certifikatet lagras säkert i IoT-hubb identitetsregistret.
+* Associera en identifierare för att en fysisk enhet – enhetens identitet och/eller X.509-certifikat som är kopplade till enheten under enhet inom tillverkning eller idriftsättning.
+* Skapa en motsvarande identity-transaktion i IoT Hub-enhetsidentitet och en tillhörande enhetsinformation i IoT Hub-identitetsregistret.
+* På ett säkert sätt lagra X.509-tumavtrycket i IoT Hub-identitetsregistret.
 
 ### <a name="root-certificate-on-device"></a>Rotcertifikatet på enheter
 
-När du upprättar en säker TLS-anslutning med IoT-hubben autentiserar IoT-enhet IoT-hubb med ett rotcertifikat som är en del av enheten SDK. Certifikatet för klientens C SDK finns under mappen ”\\c\\certifikat” under roten av lagringsplatsen. Även om dessa rotcertifikat är långlivade, kan de fortfarande eller upphöra att gälla. Om det inte går att uppdatera certifikatet på enheten, kan enheten inte därefter ansluta till IoT-hubb (eller någon annan molntjänst). Med ett sätt att uppdatera rotcertifikatet när IoT-enhet har distribuerats effektivt minskar risken.
+När du upprättar en säker TLS-anslutning med IoT Hub autentiserar IoT-enhetens IoT Hub med ett rotcertifikat som är en del av enhets-SDK. För C-klient SDK certifikatet finns i mappen ”\\c\\certifikat” under roten för lagringsplatsen. Även om dessa rotcertifikat är långlivade, de fortfarande kan upphöra att gälla eller återkallas. Om det finns inget sätt för att uppdatera certifikatet på enheten, kan enheten inte kan därefter ansluta till IoT Hub (eller någon annan molntjänst). Att ha ett sätt att uppdatera rotcertifikatet när IoT-enheter har distribuerats effektivt minimerar risken.
 
-## <a name="securing-the-connection"></a>Att säkra anslutningen
+## <a name="securing-the-connection"></a>Skyddar anslutningen
 
-Internet-anslutning mellan IoT-enhet och IoT-hubb skyddas med Transport Layer Security (TLS)-standard. Azure IoT stöder [TLS 1.2][lnk-tls12], TLS 1.1 och TLS 1.0 i den här ordningen. Stöd för TLS 1.0 tillhandahålls endast för bakåtkompatibilitet. Använd om möjligt TLS 1.2 eftersom det ger bäst skydd.
+Internet-anslutning mellan IoT-enheter och IoT Hub är skyddad med Transport Layer Security (TLS)-standarden. Azure IoT stöder [TLS 1.2][lnk-tls12], TLS 1.1 och TLS 1.0 i angiven ordning. Stöd för TLS 1.0 tillhandahålls endast för bakåtkompatibilitet. Använd om möjligt TLS 1.2 eftersom det ger bäst skydd.
 
 ## <a name="securing-the-cloud"></a>Skydda molnet
 
-Azure IoT-hubb tillåter definition av [åtkomstprinciper kontrollen] [ lnk-protocols] för varje säkerhetsnyckel. Följande uppsättning behörigheter som används för att bevilja åtkomst till var och en av IoT-hubb slutpunkter. Behörigheter som begränsar åtkomsten till en IoT-hubb som baseras på funktionen.
+Azure IoT Hub kan definitionen av [åtkomst till kontrollprinciper] [ lnk-protocols] för varje säkerhetsnyckel. Den använder följande uppsättning behörigheter för att bevilja åtkomst till var och en av IoT Hub-slutpunkter. Användarbehörigheter begränsar åtkomsten till en IoT-hubb som baseras på funktionen.
 
-* **RegistryRead**. Ger läsbehörighet till identitetsregistret. Mer information finns i [identitetsregistret][lnk-identity-registry].
+* **RegistryRead**. Ger läsåtkomst till identitetsregistret. Mer information finns i [identitetsregistret][lnk-identity-registry].
 * **RegistryReadWrite**. Ger Läs- och skrivåtkomst till identitetsregistret. Mer information finns i [identitetsregistret][lnk-identity-registry].
-* **ServiceConnect**. Ger åtkomst till cloud service-kommunikation och övervakning av slutpunkter. Till exempel ger den behörighet till backend-molntjänster att ta emot meddelanden från enhet till moln, skicka meddelanden moln till enhet och hämta motsvarande leverans bekräftelser.
-* **DeviceConnect**. Ger åtkomst till enheten riktade slutpunkter. Det ger till exempel behörighet att skicka meddelanden från enhet till moln och ta emot meddelanden moln till enhet. Den här behörigheten används av enheter.
+* **ServiceConnect**. Beviljar åtkomst till tjänsten webbservergrupper kommunikation och övervaka slutpunkter i molnet. Det ger till exempel behörighet till backend-molntjänster för att ta emot meddelanden från enheten till molnet, skicka meddelanden från moln till enhet och hämta motsvarande leverans bekräftelser.
+* **DeviceConnect**. Beviljar åtkomst till enheten-slutpunkter. Till exempel ger den behörighet att skicka meddelanden från enheten till molnet och ta emot meddelanden från molnet till enheten. Den här behörigheten används av enheter.
 
-Det finns två sätt att hämta **DeviceConnect** behörigheter med IoT-hubb med [säkerhetstoken][lnk-sas-tokens]: med identitetsnyckel en enhet eller en nyckel för delad åtkomst. Dessutom är det viktigt att Observera att alla funktioner som är tillgängliga från enheter exponeras avsiktligt på slutpunkter med prefixet `/devices/{deviceId}`.
+Det finns två sätt att hämta **DeviceConnect** behörigheter med IoT Hub med [säkerhetstoken][lnk-sas-tokens]: med hjälp av en enhet identity-nyckel eller en delad åtkomstnyckel. Dessutom är det viktigt att Observera att alla funktioner från enheter exponeras avsiktligt på slutpunkter med prefixet `/devices/{deviceId}`.
 
-[Tjänstens komponenter kan bara generera säkerhetstoken] [ lnk-service-tokens] använder delad åtkomstprinciper som beviljar behörighet.
+[Tjänstkomponenter kan bara generera säkerhetstoken] [ lnk-service-tokens] med delade åtkomstprinciper som beviljar behörighet.
 
-Azure IoT-hubb och andra tjänster som kan vara en del av lösningen kan hantering av användare med Azure Active Directory.
+Azure IoT Hub och andra tjänster som kan vara en del av lösningen kan du hanteringen av användare som använder Azure Active Directory.
 
-Data som inhämtas av Azure IoT-hubb kan användas av en mängd olika tjänster, till exempel Azure Stream Analytics och Azure-blobblagring. Dessa tjänster tillåta åtkomst. Läs mer om dessa tjänster och tillgängliga alternativ:
+Data som matas in i Azure IoT Hub kan användas av en mängd olika tjänster, till exempel Azure Stream Analytics och Azure blob storage. Dessa tjänster kan åtkomst. Läs mer om dessa tjänster och de tillgängliga alternativen:
 
-* [Azure Cosmos-DB][lnk-cosmosdb]: en skalbar, -indexerat databastjänst för halvstrukturerade data som hanterar metadata för enheterna som du etablerar, till exempel attribut, konfiguration och egenskaper för säkerhetsbehörighet. Azure Cosmos-DB ger hög prestanda och hög genomströmning bearbetning, schema-oberoende indexering av data och en omfattande SQL-gränssnitt.
-* [Azure Stream Analytics][lnk-asa]: realtid dataströmmen som bearbetas i molnet som gör att du kan snabbt utveckla och distribuera en billig analytics lösning för att upptäcka realtidsinsikter från enheter, sensorer, infrastruktur, och program. Data från den här fullständigt hanterade tjänsten kan skalas till någon volym och ändå upprätthålla högt genomflöde, låg latens och återhämtning.
-* [Azure Apptjänst][lnk-appservices]: en molnplattform för att skapa kraftfulla webb- och mobilappar som ansluter till data var som helst; i molnet eller lokalt. Skapa spännande mobilappar för iOS, Android och Windows. Integrera med programvara som en tjänst (SaaS) och företagsprogram med out box anslutningen till massor av molnbaserade tjänster och företagsprogram. Kod i dina Favoriter språk och IDE (.NET, Node.js, PHP, Python eller Java) att skapa webbprogram och API: er snabbare än någonsin.
-* [Logic Apps][lnk-logicapps]: funktion i Logic Apps i Azure App Service hjälper till att integrera IoT-lösningen till din befintliga line-of-business-system och automatisera arbetsflödesprocesser. Logic Apps kan utvecklare utforma arbetsflöden som startar från en utlösare och sedan exekverar en följd av steg, regler och åtgärder som använder kraftfulla kopplingar för att integrera med dina affärsprocesser. Logic Apps erbjuder out box-anslutning till ett brett spektrum av SaaS, molnbaserade, och lokala program.
-* [Azure-blobblagring][lnk-blob]: tillförlitliga ekonomiska molnlagring för de data som dina enheter skicka till molnet.
+* [Azure Cosmos DB][lnk-cosmosdb]: en skalbar och fullständigt indexerade databastjänst för halvstrukturerade data som hanterar metadata för enheterna som du etablerar, till exempel attribut, konfiguration och säkerhetsegenskaper för. Azure Cosmos DB erbjuder hög prestanda och hög genomströmning bearbetning, schemaoberoende indexering av data och ett omfattande SQL-gränssnitt.
+* [Azure Stream Analytics][lnk-asa]: strömningsbearbetning i molnet som hjälper dig att snabbt utveckla och distribuera en analyslösning med låg kostnad för att hämta information i realtid från enheter, sensorer, infrastruktur, och program. Data från den här fullständigt hanterade tjänsten kan skalas till alla volymer samtidigt som du får hög genomströmning, Låg fördröjning och återhämtning.
+* [Azure App Services][lnk-appservices]: en plattform för att skapa avancerade webb- och mobilappar som ansluter till data överallt; i molnet eller lokalt. Skapa spännande mobilappar för iOS, Android och Windows. Integrera med programvara som en tjänst (SaaS) och företagsprogram med out-of the box anslutningen till massor av molnbaserade tjänster och företagsprogram. Koda på önskat språk och IDE (.NET, Node.js, PHP, Python eller Java) att skapa webbappar och API: er snabbare än någonsin.
+* [Logic Apps][lnk-logicapps]: Logic Apps-funktionen i Azure App Service hjälper dig att integrera din IoT-lösning till dina befintliga line-of-business-system och automatisera arbetsflödesprocesser. Logic Apps kan utvecklare utforma arbetsflöden som startar från en utlösare och sedan köra en serie steg, regler och åtgärder som använder kraftfulla kopplingar för att integrera med dina affärsprocesser. Logic Apps ger ut nyckelfärdig anslutning till ett enormt ekosystem med SaaS, molnbaserade och lokala program.
+* [Azure-bloblagring][lnk-blob]: pålitlig, ekonomisk molnlagring för de data som enheterna skickar till molnet.
 
 ## <a name="conclusion"></a>Sammanfattning
 
-Den här artikeln innehåller översikt över implementering information för att utforma och distribuera en IoT-infrastruktur med hjälp av Azure IoT. Nyckeln i att skydda den övergripande IoT-infrastrukturen är att konfigurera varje komponent säker. Designalternativ som är tillgängliga i Azure IoT tillhandahåller en viss nivå flexibilitet och val. varje alternativ kan dock ha säkerhetsaspekter. Du rekommenderas att var och en av dessa alternativ att utvärderas via en utvärdering av risk/kostnad.
+Den här artikeln innehåller översikt över implementering information för att utforma och distribuera en IoT-infrastruktur med hjälp av Azure IoT. Konfigurera varje komponent säker är nyckeln i skydd av den totala IoT-infrastrukturen. Designalternativ som är tillgängliga i Azure IoT tillhandahåller en viss nivå av flexibilitet och valmöjligheter; varje alternativ kan dock ha säkerhetsriskerna. Du rekommenderas att var och en av dessa alternativ att utvärderas genom en risk/kostnaden för utvärdering.
 
 [img-overview]: media/iot-secure-your-deployment/overview.png
 

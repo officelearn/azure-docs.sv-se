@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/05/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 6b6e4afa7c8b18c8ce9af8c6abd371b4321e3343
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b71e6d41dcdd7efb2d179486f9195c14dae97194
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38756284"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39037646"
 ---
 | Resurs | Övre gräns |Anteckningar|
 | --- | --- |---|
@@ -23,8 +23,9 @@ ms.locfileid: "38756284"
 | Maxstorlek på en modul |100 MB ||
 | Kör jobbtid - kostnadsfri nivå |500 minuter per prenumeration per kalendermånad ||
 | Högsta mängd diskutrymme som tillåts per sandbox**<sup>1</sup>** |1 GB |Gäller för Azure sandboxar|
-| Högsta mängd minne som tilldelas en sandbox**<sup>1</sup>** |400 MB |Gäller för Azure sandboxar|
-| Maxantal nätverk sockets tillåts per sandbox**<sup>1</sup>** |1000 |Gäller för Azure sandboxar|
+| Högsta mängd minne som tilldelas en sandbox  **<sup>1</sup>** |400 MB |Gäller för Azure sandboxar|
+| Maxantal nätverk sockets tillåts per sandbox  **<sup>1</sup>** |1000 |Gäller för Azure sandboxar|
+| Maximala körtid som tillåts per runbook  **<sup>1</sup>** |tre timmar |Gäller för Azure sandboxar|
 | Maxantal Automation-konton i en prenumeration |Obegränsat ||
 |Maximalt antal samtidiga jobb som ska köras på en enda Hybrid Runbook Worker|50 ||
 

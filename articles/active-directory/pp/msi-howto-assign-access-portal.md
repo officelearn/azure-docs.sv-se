@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 83a56793d08632918a75f6580360a9dd148d7316
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2af83762fdcd3302f2af9b08585febab42387d79
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611076"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035990"
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Tilldela en hanterad tjänstidentitet åtkomst till en resurs med hjälp av Azure-portalen
 
@@ -41,11 +41,11 @@ När du har aktiverat MSI på en Azure-resurs [, till exempel en Azure VM](msi-q
 
 3. Välj den **åtkomstkontroll (IAM)** i resursen och välj **+ Lägg till**. Ange sedan den **rollen**, **tilldela åtkomst till virtuell dator**, och ange motsvarande **prenumeration** och **resursgrupp** där resursen finns. Du bör se resursen under området för sökvillkor. Markera resursen och välj **spara**. 
 
-   ![Skärmbild för åtkomst-åtkomstkontroll (IAM)](~/articles/active-directory/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+   ![Skärmbild för åtkomst-åtkomstkontroll (IAM)](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
 
 4. Du kommer tillbaka till huvudfönstret **åtkomstkontroll (IAM)** sidan där du ser en ny post för den resursen MSI. I det här exemplet ”SimpleWinVM” virtuell dator från resursgruppen Demo har **deltagare** åtkomst till lagringskontot.
 
-   ![Skärmbild för åtkomst-åtkomstkontroll (IAM)](~/articles/active-directory/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
+   ![Skärmbild för åtkomst-åtkomstkontroll (IAM)](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
 ## <a name="troubleshooting"></a>Felsökning
 

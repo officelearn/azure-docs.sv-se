@@ -4,7 +4,7 @@
   href: index.yml
 - name: Översikt
   items:
-    - name: Om Azure Maps
+    - name: Vad är Azure Maps?
       href: about-azure-maps.md
 - name: Snabbstarter
   items:
@@ -22,22 +22,10 @@
   items:
     - name: Zoomningsnivåer och rutnät
       href: zoom-levels-and-tile-grid.md
-    - name: Täckning för geokodning
-      href: geocoding-coverage.md
-    - name: Trafiktäckning
-      href: traffic-coverage.md
-    - name: Renderingstäckning
-      href: render-coverage.md
-    - name: Routningstäckning
-      href: routing-coverage.md
     - name: Sökkategorier som stöds
       href: supported-search-categories.md
     - name: Språk som stöds
       href: supported-languages.md
-    - name: Förbrukningsmodell
-      href: consumption-model.md
-    - name: Utöka geoJSON
-      href: extend-geojson.md
 - name: Instruktionsguider
   items:
     - name: Hantera Maps-konton
@@ -76,6 +64,22 @@
           href: map-accessibility.md
 - name: Referens
   items:
+    - name: Tjänstetäckning
+      items:
+        - name: Geokodning
+          href: geocoding-coverage.md
+        - name: Trafik
+          href: traffic-coverage.md
+        - name: Rendering
+          href: render-coverage.md
+        - name: Routning
+          href: routing-coverage.md
+    - name: API- och parametertillägg
+      items:
+        - name: Förbrukningsmodell för fordon
+          href: consumption-model.md
+        - name: Utöka GeoJSON-format
+          href: extend-geojson.md
     - name: REST
       items:
         - name: Renderingstjänst
@@ -139,4 +143,4 @@
     - name: Tekniska fallstudier
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: Videoklipp
-      href: 'https://azure.microsoft.com/documentation/videos'
+      href: 'https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo'

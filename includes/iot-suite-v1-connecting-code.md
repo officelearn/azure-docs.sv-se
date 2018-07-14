@@ -2,7 +2,7 @@
 
 Klientbiblioteket för IoT Hub-serialiseraren använder en modell för att ange formatet på de meddelanden som enheten utbyter med IoT Hub.
 
-1. Lägg till följande variabeldeklarationer efter `#include`-instruktionerna. Ersätta platshållarvärdena [enhets-ID] och [enhetsnyckel] med värdena som du antecknade för din enhet i instrumentpanelen för fjärråtkomst övervakning lösning. Använd värdnamnet för IoT Hub från lösningens instrumentpanel för att ersätta [IoTHub-namn]. Om ditt värdnamn för IoT Hub exempelvis är **contoso.azure-devices.net** ersätter du [IoTHub-namn] med **contoso**:
+1. Lägg till följande variabeldeklarationer efter `#include`-instruktionerna. Ersätt platshållarvärdena [enhets-ID] och [enhetsnyckel] med värdena du antecknade för enheten i den fjärrövervakningslösningens instrumentpanelen. Använd värdnamnet för IoT Hub från lösningens instrumentpanel för att ersätta [IoTHub-namn]. Om ditt värdnamn för IoT Hub exempelvis är **contoso.azure-devices.net** ersätter du [IoTHub-namn] med **contoso**:
    
     ```c
     static const char* deviceId = "[Device Id]";
@@ -11,7 +11,7 @@ Klientbiblioteket för IoT Hub-serialiseraren använder en modell för att ange 
 
 1. Lägg till följande kod för att definiera den modell som aktiverar enheten till att kommunicera med IoT Hub. Modellen anger att enheten kan göra följande:
 
-   - Skicka temperatur, externa temperatur, fuktighet och enhets-ID som telemetri.
+   - Skicka temperatur, extern temperatur, fuktighet och ett enhets-ID som telemetri.
    - Skicka metadata om enheten till IoT Hub. Enheten skickar grundläggande metadata i ett **DeviceInfo**-objekt vid start.
    - Skicka rapporterade egenskaper till enhetstvillingen i IoT Hub. De rapporterade egenskaperna grupperas i konfigurations-, enhets- och systemegenskaper.
    - Ta emot och arbeta med önskade egenskaper som angetts i enhetstvillingen i IoT Hub.

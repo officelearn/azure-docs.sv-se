@@ -1,5 +1,5 @@
-**[Azure AI-galleriet](http://gallery.cortanaintelligence.com)**  är en webbplats för att upptäcka och dela lösningar bygger med Cortana Intelligence Suite.
-Galleriet har olika resurser som du kan använda för att utveckla egna Analyslösningar.
+**[Azure AI-galleriet](http://gallery.cortanaintelligence.com)**  är en community-drivna plats för att upptäcka och dela lösningar som byggts med Cortana Intelligence Suite.
+Galleriet har en mängd olika resurser som du kan använda för att utveckla dina egna Analyslösningar.
 
 <!-- On the new DOCS platform, this is a drop-down list, not tabs, which doesn't work well in this context. So I'm just removing it for now.
 

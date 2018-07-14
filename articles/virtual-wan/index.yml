@@ -1,0 +1,42 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Virtual WAN
+metadata:
+  document_id: 
+  title: Dokumentation om Virtual WAN – Självstudier, API-referenser | Microsoft Docs
+  meta.description: Learn how to configure, create, and manage an Azure Virtual WAN. Build secure global scale branch connectivity.
+  services: virtual-wan
+  author: cherylmc
+  manager: jeconnoc
+  ms.service: virtual-wan
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/06/2018
+  ms.author: cherylmc
+  ms.openlocfilehash: 5d631882f65380c11a34dc67c8554387d6e66c43
+  ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 07/13/2018
+  ms.locfileid: "39010199"
+abstract:
+  description: Lär dig hur du konfigurerar, skapar och hanterar Azure Virtual WAN. Kompilera säker global skalförgreningsanslutning.
+sections:
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: Lär dig hur du konfigurerar, skapar och hanterar en slutpunkt-till-slutpunkt-anslutning med hjälp av Azure Virtual WAN.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://go.microsoft.com/fwlink/p/?linkid=2004900">Skapa och hantera ett Virtual WAN</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://go.microsoft.com/fwlink/p/?linkid=2005000">REST API-referens</a></p>

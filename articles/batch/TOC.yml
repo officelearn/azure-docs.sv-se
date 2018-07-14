@@ -87,8 +87,6 @@
           href: batch-job-prep-release.md
         - name: Samtidiga nodaktiviteter
           href: batch-parallel-node-tasks.md
-        - name: Räkna aktiviteter efter tillstånd
-          href: batch-get-task-counts.md
         - name: Aktivitetsberoenden
           href: batch-task-dependencies.md
         - name: Användarkonton för att köra aktiviteter
@@ -119,7 +117,9 @@
           href: batch-diagnostics.md
         - name: Övervaka med Application Insights
           href: monitor-application-insights.md
-        - name: 'Effektiv lista: frågor'
+        - name: Räkna resurser efter tillstånd
+          href: batch-get-resource-counts.md
+        - name: Fråga resurser effektivt
           href: batch-efficient-list-queries.md
     - name: Använda utvecklarverktyg
       items:

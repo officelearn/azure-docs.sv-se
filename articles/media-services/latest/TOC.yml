@@ -28,7 +28,7 @@
 - name: Exempel
   items:
     - name: Azure-kodexempel
-      href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
     - name: Azure CLI
       href: cli-samples.md
 - name: Begrepp
@@ -95,12 +95,14 @@
       href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: Händelsescheman
       href: media-services-event-schemas.md
-    - name: DRM-licensscheman
+    - name: DRM-licenser
       items:
         - name: PlayReady-licensmall
           href: playready-license-template-overview.md
         - name: Widevine-licensmall
           href: widevine-license-template-overview.md
+        - name: Licenskrav för FairPlay
+          href: fairplay-license-overview.md
 - name: Resurser
   items:
     - name: Azure-översikt

@@ -3,18 +3,18 @@
 
 ## <a name="managing-table-entities"></a>Hantera tabellentiteter
 
-Nu när du har en tabell ska vi titta på hur du hanterar enheter, eller rader i tabellen. 
+Nu när du har en tabell kan vi titta på hur du hanterar enheter, eller rader i tabellen. 
 
-En entitet kan ha upp till 255 egenskaper, inklusive 3 Systemegenskaper: **PartitionKey**, **RowKey**, och **tidsstämpel**. Du ansvarar för att lägga till och uppdatera värdena för **PartitionKey** och **RowKey**. Servern hanterar värde för **tidsstämpel**, som inte ändras. Tillsammans i **PartitionKey** och **RowKey** identifiera varje entitet i en tabell.
+En entitet kan ha upp till 255 egenskaper, inklusive 3 Systemegenskaper: **PartitionKey**, **RowKey**, och **tidsstämpel**. Du ansvarar för infogar och uppdaterar värdena för **PartitionKey** och **RowKey**. Servern hanterar värde för **tidsstämpel**, vilket kan inte ändras. Tillsammans i **PartitionKey** och **RowKey** identifiera varje entitet i en tabell.
 
 * **PartitionKey**: Anger den partition som entiteten lagras i.
-* **RowKey**: identifierar entiteten i partitionen.
+* **RowKey**: identifierar enheten inom partitionen.
 
-Du kan ange upp till 252 anpassade egenskaper för en entitet. 
+Du kan definiera upp till 252 anpassade egenskaper för en entitet. 
 
 ### <a name="add-table-entities"></a>Lägg till tabellentiteter
 
-Lägga till enheter i en tabell med hjälp av **Lägg till StorageTableRow**. De här exemplen använder partitionsnycklar med värden ”partition1” och ”partition2” och raden nycklar som är lika med förkortning. Egenskaperna i varje entitet kan användarnamn och användar-ID. 
+Lägg till entiteter i en tabell med **Lägg till StorageTableRow**. De här exemplen använder partitionsnycklar med värden ”partition1” och ”partition2” och radnycklar lika delstater. Egenskaperna i varje entitet kan användarnamn och användar-ID. 
 
 ```powershell
 $partitionKey1 = "partition1"
@@ -61,7 +61,7 @@ Det här kommandot ger resultat som liknar följande tabell:
 | 1 | Chris | Partition1 | CA |
 | 3 | Christina | Partition1 | WA |
 | 2 | Jessie | Partition2 | NM |
-| 4 | Stefan | Partition2 | TX |
+| 4 | Steven | Partition2 | TX |
 
 #### <a name="retrieve-entities-for-a-specific-partition"></a>Hämta entiteter för en specifik partition
 
@@ -97,9 +97,9 @@ Den här frågan returnerar en post.
 | PartitionKey | Partition1 |
 | RowKey      | CA |
 
-#### <a name="retrieve-entities-using-a-custom-filter"></a>Hämta entiteter med ett anpassat filter 
+#### <a name="retrieve-entities-using-a-custom-filter"></a>Hämta entiteter med hjälp av ett anpassat filter 
 
-Använd för att hämta entiteter med ett anpassat filter, **Get-AzureStorageTableRowByCustomFilter**.
+Använd för att hämta entiteter med hjälp av ett anpassat filter **Get-AzureStorageTableRowByCustomFilter**.
 
 ```powershell
 Get-AzureStorageTableRowByCustomFilter `
@@ -116,11 +116,11 @@ Den här frågan returnerar en post.
 | PartitionKey | Partition1 |
 | RowKey      | CA |
 
-### <a name="updating-entities"></a>Uppdatera entiteter 
+### <a name="updating-entities"></a>Uppdaterar entiteter 
 
-Det finns tre steg för att uppdatera entiteter. Först hämta entiteten att ändra. Därefter kontrollera ändringen. Tredje kan genomföra ändringen med **uppdatering AzureStorageTableRow**.
+Det finns tre steg för att uppdatera entiteter. Först måste du hämta entiteten att ändra. Därefter kontrollera ändringen. Det tredje genomför ändringen med hjälp av **uppdatering AzureStorageTableRow**.
 
-Uppdatera entiteten med användarnamn = 'Jessie' om du vill ha användarnamn = 'Jessie2'. Det här exemplet visar också ett annat sätt att skapa ett anpassat filter med hjälp av .NET-typer. 
+Uppdatera entiteten med användarnamn = ”Jessie” om du vill ha användarnamn = 'Jessie2'. Det här exemplet visar också ett annat sätt att skapa ett anpassat filter med hjälp av .NET-typerna. 
 
 ```powershell
 # Create a filter and get the entity to be updated.
@@ -142,7 +142,7 @@ Get-AzureStorageTableRowByCustomFilter -table $storageTable `
     -customFilter "(username eq 'Jessie2')"
 ```
 
-Resultaten visar Jessie2 posten.
+Jessie2 posten visas i resultaten.
 
 |Fältet|värde|
 |----|----|
@@ -151,13 +151,13 @@ Resultaten visar Jessie2 posten.
 | PartitionKey | Partition2 |
 | RowKey      | NM |
 
-### <a name="deleting-table-entities"></a>Ta bort tabellentiteter
+### <a name="deleting-table-entities"></a>Ta bort tabellenheter
 
 Du kan ta bort en entitet eller alla entiteter i tabellen.
 
-#### <a name="deleting-one-entity"></a>Om du tar bort en entitet
+#### <a name="deleting-one-entity"></a>Tar bort en entitet
 
-Ta bort en enda enhet, hämta en referens till entiteten och skicka det till **ta bort AzureStorageTableRow**.
+Om du vill ta bort en enda enhet, hämta en referens till entiteten och skicka det till **Remove-AzureStorageTableRow**.
 
 ```powershell
 # Set filter.
@@ -177,7 +177,7 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 #### <a name="delete-all-entities-in-the-table"></a>Ta bort alla entiteter i tabellen 
 
-Om du vill ta bort alla entiteter i tabellen, hämta dem och skicka resultatet till cmdleten remove. 
+Om du vill ta bort alla entiteter i tabellen, hämta dem och skicka resultaten till remove-cmdlet. 
 
 ```powershell
 # Get all rows and pipe the result into the remove cmdlet.

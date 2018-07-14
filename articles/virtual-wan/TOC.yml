@@ -1,0 +1,34 @@
+- name: Dokumentation om Virtual WAN
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om Virtual WAN
+      href: virtual-wan-about.md
+- name: Självstudier
+  items:
+    - name: Skapa en plats-till-plats-anslutning
+      href: virtual-wan-site-to-site-portal.md
+- name: Instruktionsguider
+  items:
+    - name: Konfigurera automation – WAN-partner
+      href: virtual-wan-configure-automation-providers.md
+- name: Referens
+  items:
+    - name: REST
+      href: /rest/api/azure
+- name: Resurser
+  items:
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: virtual-wan-faq.md
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blogg
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Prenumerations- och tjänstbegränsningar
+      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/vpn-gateway'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: SLA
+      href: 'https://azure.microsoft.com/support/legal/sla'

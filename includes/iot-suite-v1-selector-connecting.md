@@ -1,3 +1,20 @@
+---
+title: ta med fil
+description: ta med fil
+services: iot-accelerators
+author: dominicbetts
+ms.service: iot-accelerators
+ms.topic: include
+ms.date: 05/30/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 55920b6c147626f68f51b9e0479949330c71a748
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "38756434"
+---
 > [!div class="op_single_selector"]
 > * [C i Windows](../articles/iot-suite/iot-suite-v1-connecting-devices.md)
 > * [C i Linux](../articles/iot-suite/iot-suite-v1-connecting-devices-linux.md)
@@ -16,7 +33,7 @@ För enkelhetens skull genererar koden på enheten exempelvärden men vi rekomme
 
 Enheten kan även svara på metoderna som anropas från lösningens instrumentpanel och de önskade egenskapsvärden som är angivna i lösningens instrumentpanel.
 
-Du behöver ett Azure-konto för att slutföra den här självstudiekursen. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [kostnadsfri utvärderingsversion av Azure][lnk-free-trial].
+Du behöver ett Azure-konto för att slutföra den här självstudiekursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [kostnadsfri utvärderingsversion av Azure][lnk-free-trial].
 
 ## <a name="before-you-start"></a>Innan du börjar
 Innan du kan skriva kod för enheten måste du etablera din förkonfigurerade lösning för fjärrövervakning och etablera en ny anpassad enhet i lösningen.
@@ -24,13 +41,13 @@ Innan du kan skriva kod för enheten måste du etablera din förkonfigurerade l�
 ### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Etablera din förkonfigurerade lösning för fjärrövervakning
 Enheten som du skapar i den här självstudien skickar data till en instans av den förkonfigurerade lösningen för [fjärrövervakning][lnk-remote-monitoring]. Om du inte redan har etablerat den förkonfigurerade lösningen för fjärrövervakning i ditt Azure-konto använder du följande steg:
 
-1. Gå till <https://www.azureiotsuite.com/> och klicka på **+** för att skapa en lösning.
+1. På den <https://www.azureiotsolutions.com/> klickar du på **+** att skapa en lösning.
 2. Klicka på **Välj** på panelen **Fjärrövervakning** för att skapa din lösning.
 3. På sidan **Create Remote monitoring solution** (Skapa fjärrövervakningslösning) anger du ett **Lösningsnamn** och väljer den **Region** du vill distribuera till samt väljer den Azure-prenumerationen som du vill använda. Klicka på **Skapa lösning**.
 4. Vänta tills etableringsprocessen har slutförts.
 
 > [!WARNING]
-> De förkonfigurerade lösningarna använder fakturerbara Azure-tjänster. Se till att ta bort den förkonfigurerade lösningen från prenumerationen när du är färdig med den för att undvika onödiga kostnader. Du kan ta bort en förkonfigurerad lösning helt från din prenumeration genom att besöka sidan <https://www.azureiotsuite.com/>.
+> De förkonfigurerade lösningarna använder fakturerbara Azure-tjänster. Se till att ta bort den förkonfigurerade lösningen från prenumerationen när du är färdig med den för att undvika onödiga kostnader. Du kan helt ta bort en förkonfigurerad lösning från din prenumeration genom att besöka den <https://www.azureiotsolutions.com/> sidan.
 > 
 > 
 

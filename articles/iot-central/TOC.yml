@@ -49,8 +49,8 @@
           href: howto-version-devicetemplate.md
         - name: Skapa regel för telemetri
           href: howto-create-telemetry-rules.md
-        - name: Skapa en händelseregel
-          href: howto-create-event-rules.md
+        - name: Konfigurera startsidan
+          href: howto-configure-homepage.md
         - name: Förbereda och ladda upp bilder
           href: howto-prepare-images.md
     - name: Operator

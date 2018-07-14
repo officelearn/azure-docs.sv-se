@@ -1,0 +1,50 @@
+- name: Dokumentation om Azure Data Box
+  href: /azure/databox/
+- name: Översikt
+  items:
+    - name: Vad är Data Box Disk?
+      href: data-box-disk-overview.md
+- name: Snabbstarter
+  items:
+    - name: Konfiguration – Azure-portalen
+      href: data-box-disk-quickstart-portal.md
+- name: Självstudier
+  items:
+    - name: 1 – Beställ
+      href: data-box-disk-deploy-ordered.md
+    - name: 2 – Konfigurera
+      href: data-box-disk-deploy-set-up.md
+    - name: 3 – Kopiera data
+      href: data-box-disk-deploy-copy-data.md
+    - name: '4 – Returnera, ladda upp, bekräfta'
+      href: data-box-disk-deploy-picked-up.md
+- name: Begrepp
+  items:
+    - name: Granska krav
+      href: data-box-disk-system-requirements.md
+    - name: Förstå begränsningar
+      href: data-box-disk-limits.md
+    - name: Granska säkerhet
+      href: data-box-disk-security.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: data-box-disk-faq.md
+- name: Gör så här för att
+  items:
+    - name: Hantera via Azure Portal
+      href: data-box-portal-ui-admin.md
+    - name: Felsök diskproblem
+      href: data-box-disk-troubleshoot.md
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=storage'
+    - name: Marknadsföring för Azure Data Box
+      href: 'https://azure.microsoft.com/services/storage/databox/'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=databox'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=databox'

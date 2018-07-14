@@ -1,0 +1,70 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om API för textanalys
+metadata:
+  title: Dokumentation om API för textanalys – Självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  description: Lär dig att utföra avancerad och naturlig språkbearbetning på texter med hjälp av API för textanalys. I dessa självstudier visas du hur man skriver kod som använder sig av textanalystjänsten.
+  services: cognitive-services
+  author: HeidiSteen
+  manager: cgronlun
+  layout: LandingPage
+  ms.service: cognitive-services
+  ms.component: text-analytics
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/07/2018
+  ms.author: heidist
+  ms.openlocfilehash: aee5b1c47d3db4f630c528707f03d175e52c2c4f
+  ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 07/11/2018
+  ms.locfileid: "38398641"
+abstract:
+  description: 'API för textanalys är en molnbaserad tjänst som ger avancerad och naturlig språkbearbetning för texter och som innehåller tre huvudfunktioner: attitydanalys, extrahering av diskussionsämne och språkidentifiering. Lär dig hur du analyserar innehåll på olika sätt med våra snabbstarter, självstudier och exempel.'
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: 'Kom igång med API för textanalys genom att identifiera språk, analysera attityd och extrahera diskussionsämnen:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_csharp.svg
+      text: C&#35;
+      href: quickstarts/csharp
+    - image:
+        src: media/index/logo_java.svg
+      text: Java
+      href: quickstarts/java
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: quickstarts/nodejs
+    - image:
+        src: media/index/logo_python.svg
+      text: Python
+      href: quickstarts/python
+    - image:
+        src: media/index/logo_go.svg
+      text: Go
+      href: quickstarts/go
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: 'Lär dig att utveckla program med hjälp av API för textanalys:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="tutorials/tutorial-power-bi-key-phrases.md">Textanalys med Power BI</a>
+    - html: <a href="https://powerapps.microsoft.com/tutorials/cognitive-services-api/">Textanalys i PowerApps</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7">API-referens</a></p>

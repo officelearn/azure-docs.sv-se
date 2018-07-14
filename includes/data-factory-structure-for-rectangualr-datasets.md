@@ -1,16 +1,16 @@
-## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Ange struktur definition för rektangulär datauppsättningar
-Avsnittet strukturen i datauppsättningar JSON är en **valfria** avsnittet för rektangulär tabeller (med rader och kolumner) och innehåller en uppsättning kolumner för tabellen. Du använder avsnittet struktur för antingen tillhandahåller typinformation för typkonverteringar eller göra kolumnmappningarna. I följande avsnitt beskrivs de här funktionerna i detalj. 
+## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Ange strukturdefinition för rektangulära datauppsättningar
+Avsnittet strukturen i datauppsättningar JSON är en **valfritt** för rektangulär tabeller (med rader och kolumner) och innehåller en uppsättning kolumner för tabellen. Du använder avsnittet struktur för antingen givande anger du följande information typkonverteringar eller göra kolumnmappningarna. I följande avsnitt beskrivs de här funktionerna i detalj. 
 
 Varje kolumn innehåller följande egenskaper:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | namn |Namnet på kolumnen. |Ja |
-| typ |Datatypen för kolumnen. Se typen konverteringar avsnittet nedan för mer information om när ska du ange typinformation |Nej |
-| Kultur |.NET baserat kulturen som ska användas när typ har angetts och är .NET typen Datetime eller Datetimeoffset. Standardvärdet är ”en-us”. |Nej |
-| Format |Formatsträng som ska användas när typ har angetts och är .NET typen Datetime eller Datetimeoffset. |Nej |
+| typ |Datatypen för kolumnen. Se typen konverteringar avsnittet nedan finns mer information om när ska du ange typinformation |Nej |
+| kultur |.NET baserade språkmiljö som ska användas när typ har angetts och .NET-typen Datetime eller Datetimeoffset. Standardvärdet är ”en-us”. |Nej |
+| Format |Formatera strängen som ska användas när typ har angetts och är .NET typen Datetime eller Datetimeoffset. |Nej |
 
-I följande exempel visas avsnittet struktur JSON för en tabell som har tre kolumner användar-ID, namn och lastlogindate.
+I följande exempel visas avsnittet struktur JSON för en tabell med tre kolumner användar-ID, namn och lastlogindate.
 
 ```json
 "structure": 
@@ -21,31 +21,31 @@ I följande exempel visas avsnittet struktur JSON för en tabell som har tre kol
 ],
 ```
 
-Använd följande riktlinjer för när du ska inkludera ”struktur” information och vad som ska ingå i den **struktur** avsnitt.
+Använd följande riktlinjer för när med ”strukturera” information och vad som ska ingå i den **struktur** avsnittet.
 
-* **För strukturerade datakällor** att lagra data schema och ange information tillsammans med själva (källor som Azure tabell för SQL Server, Oracle, etc.), bör du ange avsnittet ”struktur” om du vill att informationen göra kolumnmappningen för specifika källa kolumner till specifika kolumner i mottagare och deras namn är inte samma (Mer information finns i kolumnen mappning nedan). 
+* **För strukturerade datakällor** att spara data schema- och typ av information tillsammans med själva (källor som SQL Server, Oracle, Azure-tabell osv), bör du ange avsnittet ”struktur” om du vill att informationen inte kolumnmappning av viss källa kolumner till specifika kolumner i mottagare och deras namn är inte samma (Mer information finns i kolumnen mappning nedan). 
   
-    Som nämnts ovan är är typinformationen valfri i avsnittet ”struktur”. För strukturerade källor typinformation finns redan som en del av definitionen för datamängden i datalagret, så du bör inte inkludera typinformation när du inkluderar avsnittet ”struktur”.
-* **För schemat för skrivskyddade datakällor (specifikt Azure blob)** kan du lagra data utan att spara schemat eller typ information med data. Du bör ta ”struktur” för dessa typer av datakällor i följande fall 2:
-  * Du vill göra kolumnmappningen.
-  * När dataset är en datakälla i en Kopieringsaktivitet kan du kan ange av typinformation i ”struktur” och data factory använder den här typinformation för konvertering till inbyggda typer för sink. Se [flytta data till och från Azure Blob](../articles/data-factory/v1/data-factory-azure-blob-connector.md) artikel för mer information.
+    Som nämnts ovan är är informationen valfri i avsnittet ”struktur”. För strukturerade datakällor typinformation finns redan som en del av definitionen av datauppsättningen i datalagret, så du får inte innehålla anger du följande information när du inkluderar ”struktur”-avsnittet.
+* **För schema vid läsning datakällor (speciellt Azure blob)** kan du lagra data utan att behöva lagra någon schema eller typ information med data. För dessa typer av datakällor ska du inkludera ”struktur” i följande fall 2:
+  * Du vill göra kolumnmappning.
+  * När datauppsättningen är en källa i en Kopieringsaktivitet, du kan ange anger du följande information i ”strukturen” och data factory ska använda den här typinformation för konvertering till inbyggda typer för mottagaren. Se [flytta data till och från Azure Blob](../articles/data-factory/v1/data-factory-azure-blob-connector.md) artikeln för mer information.
 
 ### <a name="supported-net-based-types"></a>Stöd för. NET-baserade typer
-Data factory stöder följande CLS kompatibla .NET baserat typen värden för att ange information i ”struktur” för schemat för skrivskyddade datakällor som Azure blob.
+Data factory stöder följande CLS kompatibla .NET baserat typvärden för att tillhandahålla anger du följande information i ”strukturen” för schemat på läsdata källor som Azure blob.
 
 * Int16
 * Int32 
 * Int64
-* Enskild
-* dubbla
-* Decimal
+* Enkel
+* Double-värde
+* decimaltal
 * byte]
-* bool
+* Bool
 * Sträng 
 * GUID
-* Datum och tid
+* DateTime
 * DateTimeOffset
 * Tidsintervall 
 
-Du kan också ange ”kultur” & ”format” sträng för att underlätta tolkning av din egen Datetime-sträng för Datetime & Datetimeoffset. Se exemplet för typkonvertering nedan.
+Du kan även ange ”kultur” & ”format” sträng för att underlätta tolkning av din anpassade Datetime-sträng för Datetime & Datetimeoffset. Se exempel för typkonvertering nedan.
 

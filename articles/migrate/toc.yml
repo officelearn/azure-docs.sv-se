@@ -22,7 +22,7 @@
       items:
         - name: 1. Contoso-migreringsöversikt
           href: contoso-migration-overview.md
-        - name: 2. Contoso – Konfigurera en Azure-infrastruktur
+        - name: 2. Contoso – Distribuera en Azure-infrastruktur
           href: contoso-migration-infrastructure.md
         - name: 3. Contoso – utvärdera lokala resurser för migrering till Azure
           href: contoso-migration-assessment.md
@@ -30,7 +30,7 @@
           href: contoso-migration-rehost-vm-sql-managed-instance.md
         - name: 5. Contoso – Byta värd för en app på virtuella Azure-datorer
           href: contoso-migration-rehost-vm.md
-        - name: 6. Contoso – Byta värd för en app på virtuella Azure-datorer och Azure SQL AlwaysOn
+        - name: 6. Contoso – Byta värd för en app på virtuella Azure-datorer och AlwaysOn-tillgänglighetsgrupper i Azure SQL Server
           href: contoso-migration-rehost-vm-sql-ag.md
         - name: 7. Contoso – Byta värd för en Linux-app på virtuella Azure-datorer
           href: contoso-migration-rehost-linux-vm.md
@@ -42,7 +42,7 @@
           href: contoso-migration-refactor-linux-app-service-mysql.md
         - name: 11. Contoso – Migrera TFS till VSTS
           href: contoso-migration-tfs-vsts.md
-        - name: 12. Contoso – Omforma en app på Azure Service Fabric och Azure SQL Database
+        - name: 12. Contoso – Omforma en app på Azure Containers och Azure SQL Database
           href: contoso-migration-rearchitect-container-sql.md
         - name: 13. Contoso – Återskapa en app i Azure
           href: contoso-migration-rebuild.md

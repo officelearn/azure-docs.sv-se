@@ -215,6 +215,10 @@
               href: service-fabric-image-store-connection-string.md
         - name: Tjänstresurser
           href: service-fabric-service-manifest-resources.md
+        - name: Regelbunden säkerhetskopiering och återställning
+          items:
+            - name: Förstå konfiguration av regelbunden säkerhetskopiering
+              href: service-fabric-backuprestoreservice-configure-periodic-backup.md
     - name: Kluster
       href: service-fabric-deploy-anywhere.md
       items:

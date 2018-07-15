@@ -1,6 +1,6 @@
 ---
-title: Använda en virtuell Linux-MSI för åtkomst till Azure Storage
-description: En självstudiekurs som vägleder dig genom processen med att använda en Linux VM hanterade tjänsten identitet (MSI) för att få åtkomst till Azure Storage.
+title: Komma åt Azure Storage med en MSI för virtuell Linux-dator
+description: En självstudie som går igenom hur du kommer åt Azure Storage med hjälp av en hanterad tjänstidentitet (MSI) för virtuell Linux-dator.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,30 +9,30 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: be350ad153bfcc51eb1198a97eeba01593ccb34e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: cde1af63fe609170c65bc469fa57573d7bc48490
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594252"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901518"
 ---
-# <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Självstudier: Använd en Linux VM hanteras tjänstidentitet för åtkomst till Azure Storage via snabbtangent
+# <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Självstudier: Komma åt Azure Storage via åtkomstnyckel med en hanterad tjänstidentitet för virtuell Linux-dator
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här kursen visar hur du aktiverar hanterade tjänsten identitet (MSI) för en virtuell Linux-dator och sedan använda identitet för att hämta nycklar för lagringskonto åtkomst. Du kan använda en lagringsåtkomstnyckel som vanligt när gör lagringsåtgärder, till exempel när du använder Storage SDK: N. Den här självstudiekursen kommer vi ladda upp och hämta blobar med hjälp av Azure CLI. Du får lära dig hur du:
+Den här självstudien visar hur du aktiverar hanterad tjänstidentitet (MSI) för en virtuell Linux-dator and sedan hämtar åtkomstnycklar för lagringskonton med hjälp av identiteten. Du kan använda en lagringsåtkomstnyckel som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien laddar vi upp och ned blobbar med hjälp av Azure CLI. Du lär dig att göra följande:
 
 > [!div class="checklist"]
 > * Aktivera MSI på en virtuell Linux-dator 
-> * Ger dina VM tillgång till åtkomstnycklarna för storage-konto i Resource Manager 
-> * Få en åtkomsttoken med hjälp av den Virtuella datorns identitet och använda den för att hämta åtkomstnycklar för lagring från Resource Manager  
+> * Ge din virtuella dator åtkomst till åtkomstnycklar för lagringskonton i Resource Manager 
+> * Få en åtkomsttoken med hjälp av den virtuella datorns identitet, och använda den och hämta lagringsåtkomstnycklarna från Resource Manager  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -44,87 +44,87 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Linux-dator i en ny resursgrupp
 
-Den här självstudiekursen skapar vi en ny Linux VM. Du kan också aktivera MSI på en befintlig virtuell dator.
+I den här självstudien skapar vi en ny virtuell Linux-dator. Du kan även aktivera MSI på en befintlig virtuell dator.
 
-1. Klicka på den **+/ Skapa ny tjänst** knapp hittades i det övre vänstra hörnet i Azure-portalen.
+1. Klicka på knappen **+/Skapa ny tjänst** som finns i övre vänstra hörnet i Azure-portalen.
 2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
-3. Ange informationen för den virtuella datorn. För **autentiseringstyp**väljer **offentliga SSH-nyckeln** eller **lösenord**. Autentiseringsuppgifterna som har skapats kan du logga in på den virtuella datorn.
+3. Ange informationen för den virtuella datorn. Som **Autentiseringstyp** väljer du **Offentlig SSH-nyckel** eller **Lösenord**. Med de skapade autentiseringsuppgifterna kan du logga in på den virtuella datorn.
 
-    ![ALT bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Alternativ bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
-4. Välj en **prenumeration** för den virtuella datorn i listrutan.
-5. Att välja en ny **resursgruppen** du vill att den virtuella datorn ska skapas i, Välj **Skapa nytt**. När du är klar klickar du på **OK**.
-6. Välj storlek för den virtuella datorn. Om du vill se mer storlekar, Välj **visa alla** eller ändra typ-filter stöds disk. Acceptera alla standardvärden på bladet Inställningar och klicka på **OK**.
+4. Välj en **Prenumeration** för den virtuella datorn i listrutan.
+5. Välj en ny **Resursgrupp** som den virtuella datorn ska skapas i genom att klicka på **Skapa ny**. När du är klar klickar du på **OK**.
+6. Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller ändrar filtret för disktyper som stöds. Acceptera alla standardvärden på bladet Inställningar och klicka på **OK**.
 
 ## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn
 
-En virtuell dator MSI kan du få åtkomst-token från Azure AD utan att du behöver publicera autentiseringsuppgifter i koden. Aktivera hanterade tjänstidentiteten på en virtuell dator har två saker: registrerar den virtuella datorn med Azure Active Directory för att skapa hanterade identitet och konfigurerar identiteten på den virtuella datorn.  
+Med en MSI för virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar hanterad tjänstidentitet på en virtuell dator sker två saker: din virtuella dator registreras hos Azure Active Directory och dess hanterade identitet skapas, och identiteten konfigureras på den virtuella datorn.  
 
-1. Gå till resursgruppen för den nya virtuella datorn och välj den virtuella dator som du skapade i föregående steg.
-2. Under den virtuella datorn ”inställningar” till vänster klickar du på **Configuration**.
-3. För att registrera och aktivera MSI-filerna, Välj **Ja**, om du vill inaktivera det, väljer du Nej.
-4. Se till att du klickar på **spara** att spara konfigurationen.
+1. Gå till den nya virtuella datorns resursgrupp och välj den virtuella dator som du skapade i förra steget.
+2. Klicka på **Konfiguration** under inställningarna för den virtuella datorn, till vänster.
+3. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej.
+4. Klicka på **Spara** om du vill spara konfigurationen.
 
-    ![ALT bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alternativ bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 
-Om du inte redan har ett kommer du nu skapa ett lagringskonto.  Du kan också hoppa över detta steg och ger dina VM MSI tillgång till nycklarna i ett befintligt lagringskonto. 
+Nu skapar du ett lagringskonto, om du inte redan har ett.  Du kan även hoppa över det här steget och ge din MSI för virtuell dator åtkomst till nycklarna till ett befintligt lagringskonto. 
 
-1. Klicka på den **+/ Skapa ny tjänst** knapp hittades i det övre vänstra hörnet i Azure-portalen.
-2. Klicka på **lagring**, sedan **Lagringskonto**, och en ny panel ”skapa storage-konto” visas.
-3. Ange en **namn** för storage-konto som du vill använda senare.  
-4. **Distributionsmodell** och **konto kind** respektive ska vara inställd på ”Resource manager” och ”generella”. 
-5. Se till att den **prenumeration** och **resursgruppen** matchar de som du angav när du skapade den virtuella datorn i föregående steg.
+1. Klicka på knappen **+/Skapa ny tjänst** som finns i övre vänstra hörnet i Azure-portalen.
+2. Fönstret Skapa lagringskonto visas om du klickar på **Lagring** och sedan **Lagringskonto**.
+3. Ange ett **Namn** för lagringskonto, som du kommer att använda senare.  
+4. **Distributionsmodell** och **Typ av konto** ska vara inställda på Resurshanterare respektive Generell användning. 
+5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** stämmer överens med den du angav när du skapade den virtuella datorn i förra steget.
 6. Klicka på **Skapa**.
 
-    ![Skapa nytt lagringskonto](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Skapa ett nytt lagringskonto](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
-## <a name="create-a-blob-container-in-the-storage-account"></a>Skapa en blobbbehållare i storage-konto
+## <a name="create-a-blob-container-in-the-storage-account"></a>Skapa en blob-container i lagringskontot
 
-Senare kommer att ladda upp och hämta en fil till det nya lagringskontot. Eftersom filer kräver blob-lagring, som vi behöver skapa en blobbbehållare där filen ska sparas.
+Senare laddar vi upp och ned en fil i det nya lagringskontot. Vi skapar en blob-container att lagra filen i, eftersom filer kräver blob-lagring.
 
-1. Gå tillbaka till det nyligen skapade lagringskontot.
-2. Klicka på den **behållare** länken till vänster under ”Blob-tjänst”.
-3. Klicka på **+ behållare** överst på sidan och en ”ny behållare” panelen bilder ut.
-4. Namnge behållaren, Välj en åtkomstnivå och klicka sedan på **OK**. Det namn du angav används senare under kursen. 
+1. Gå tillbaka till det lagringskonto du nyss skapade.
+2. Klicka på länken **Containers** till vänster, under Blob Service.
+3. När du klickar på **+Container** högst upp på sidan visas fönstret Ny container.
+4. Ge containern ett namn, välj en åtkomstnivå och klicka sedan på **OK**. Namnet du angav används senare i självstudien. 
 
-    ![Skapa lagringsbehållaren](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Skapa lagringscontainer](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>Ge den Virtuella datorns MSI åtkomst för att använda åtkomst lagringskontonycklar
+## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>Ge din virtuella dators MSI åtkomst att använda åtkomstnycklar för lagringskonton
 
-Azure Storage stöder inte Azure AD authentication internt.  Dock kan du använda en MSI för att hämta nycklar för lagringskonto åtkomst från Resource Manager sedan använda en för att få åtkomst till lagring.  I det här steget kan bevilja du din VM MSI tillgång till nycklarna till ditt lagringskonto.   
+Azure Storage har inte inbyggt stöd för Azure Active Directory-autentisering.  Du kan dock använda en MSI och hämta åtkomstnycklar för lagringskonton från Resource Manager, och sedan få åtkomst till lagring med hjälp av en nyckel.  I det här steget ger du din virtuella dators MSI åtkomst till nycklarna till lagringskontot.   
 
-1. Gå tillbaka till det nyligen skapade lagringskontot.
-2. Klicka på den **åtkomstkontroll (IAM)** länken i den vänstra panelen.  
-3. Klicka på **+ Lägg till** på sidan för att lägga till en ny rolltilldelning för den virtuella datorn
-4. Ange **rollen** ”Storage-konto nyckeln operatorn Service roll”, till höger på sidan. 
-5. I nästa listrutan, ange **bevilja åtkomst till** resursen ”virtuell dator”.  
-6. Kontrollera sedan att korrekt prenumeration visas i **prenumeration** och sedan ange **resursgruppen** till ”alla resursgrupper”.  
-7. Slutligen under **Välj** Välj din virtuella Linux-dator i listrutan och klicka sedan på **spara**. 
+1. Gå tillbaka till det lagringskonto du nyss skapade.
+2. Klicka på länken **åtkomstkontroll (IAM)** i vänstra panelen.  
+3. Klicka på **+Lägg till** högst upp på sidan om du vill lägga till en ny rolltilldelning för din virtuella dator
+4. Ställ in Tjänstroll som operatör av lagringskontonyckel som **Roll**, till höger på sidan. 
+5. I nästa listruta väljer du resursen Virtuell dator under **Tilldela behörighet till**.  
+6. Kontrollera sedan att rätt prenumeration är inställd i listrutan **Prenumeration**. Välj Alla resursgrupper under **Resursgrupper**.  
+7. Under **Välj** väljer du sedan din virtuella Linux-dator i listrutan och klickar på **Spara**. 
 
-    ![ALT bildtext](../media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
+    ![Alternativ bildtext](../media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Få en åtkomsttoken med hjälp av den Virtuella datorns identitet och använda den för att anropa Azure Resource Manager
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Skaffa en åtkomsttoken med hjälp av den virtuella datorns identitet, och använd den och anropa Azure Resource Manager
 
-Vi kommer att fungera från den virtuella datorn som vi skapade tidigare under resten av kursen.
+Under resten av självstudien arbetar vi från den virtuella datorn som vi skapade tidigare.
 
-För att slutföra de här stegen behöver du en SSH-klient. Om du använder Windows, kan du använda SSH-klienten i den [Windows undersystem för Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Om du behöver hjälp konfigurerar SSH-klientens nycklar, se [hur du använder SSH-nycklar med Windows på Azure](../../virtual-machines/linux/ssh-from-windows.md), eller [hur du skapar och använder ett SSH offentliga och privata nyckelpar för Linux virtuella datorer i Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Om du vill slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Använda SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [Skapa och använda ett SSH offentligt / privat nyckelpar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. I Azure-portalen går du till **virtuella datorer**, gå till din Linux virtuella dator, sedan från den **översikt** klickar **Anslut** längst upp. Kopiera strängen som ska ansluta till den virtuella datorn. 
-2. Ansluta till den virtuella datorn med hjälp av SSH-klienten.  
-3. Därefter uppmanas du att ange i din **lösenord** du har lagt till när du skapar den **Linux VM**. Du bör sedan vara loggat in.  
-4. Använd CURL för att hämta ett åtkomsttoken för Azure Resource Manager.  
+1. Gå till **Virtuella datorer** i Azure-portalen och sedan till den virtuella Linux-datorn. På sidan **Överblick** klickar du på **Anslut** längst upp. Kopiera strängen om du vill ansluta till din virtuella dator. 
+2. Anslut till den virtuella datorn med hjälp av SSH-klienten.  
+3. Nu uppmanas du att ange **lösenordet** som du lade till när du skapade **den virtuella Linux-datorn**. Därefter bör du loggas in.  
+4. Använd CURL och hämta en åtkomsttoken för Azure Resource Manager.  
 
-    CURL förfrågan och svar för åtkomsttoken understiger:
+    CURL-begäran och -svar för åtkomsttoken visas nedan:
     
     ```bash
     curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true
     ```
     
     > [!NOTE]
-    > Värdet för ”resurser”-parametern måste vara en exakt matchning för vad som förväntas av Azure AD i den tidigare begäranden. När du använder Azure Resource Manager resurs-ID, måste du inkluderar det avslutande snedstrecket på URI.
-    > I följande svaret access_token elementet som kortats planeringsaspekter.
+    > I föregående begäran måste värdet för resource-parametern vara en exakt matchning av vad som förväntas av Azure Active Directory. När du använder resurs-ID:t för Azure Resource Manager måste du ta med det avslutande snedstrecket i URI:n.
+    > I följande svar har access_token-elementet kortats ned.
     
     ```bash
     {"access_token":"eyJ0eXAiOiJ...",
@@ -136,29 +136,29 @@ För att slutföra de här stegen behöver du en SSH-klient. Om du använder Win
     "token_type":"Bearer"} 
      ```
     
-## <a name="get-storage-account-access-keys-from-azure-resource-manager-to-make-storage-calls"></a>Hämta nycklar för lagringskonto åtkomst från Azure Resource Manager för att göra anrop för lagring  
+## <a name="get-storage-account-access-keys-from-azure-resource-manager-to-make-storage-calls"></a>Hämta åtkomstnycklar för lagringskonton från Azure Resource Manager om du vill göra lagringsanrop  
 
-Nu använder CURL för att anropa Resource Manager med den åtkomst-token som vi hämtades i föregående avsnitt, att hämta lagringsåtkomstnyckel. När vi har lagringsåtkomstnyckel kallar vi överför/hämta lagringsåtgärder. Se till att ersätta den `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, och `<STORAGE ACCOUNT NAME>` parametervärden med egna värden. Ersätt den `<ACCESS TOKEN>` värde med den åtkomsttoken som du hämtade tidigare:
+Anropa Resource Manager via CURL med hjälp av den åtkomsttoken som vi hämtade i föregående avsnitt och hämta lagringsåtkomstnyckeln. När vi har fått lagringsåtkomstnyckeln kan vi anropa uppladdnings- och nedladdningsåtgärder för lagring. Ersätt parametervärdena `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` och `<STORAGE ACCOUNT NAME>` med dina egna värden. Ersätt värdet `<ACCESS TOKEN>` med den åtkomsttoken som du hämtade tidigare:
 
 ```bash 
 curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/listKeys?api-version=2016-12-01 --request POST -d "" -H "Authorization: Bearer <ACCESS TOKEN>" 
 ```
 
 > [!NOTE]
-> Texten i den tidigare URL: en är skiftlägeskänsligt, så kontrollera om du använder övre gemena för resursgrupperna återspeglar den därför. Dessutom är det viktigt att du vet att det här är en POST-begäran inte en GET-begäran och se till att du skickar ett värde för att avbilda en längdbegränsningen med -d som kan vara NULL.  
+> Eftersom texten i den tidigare URL:en är skiftlägeskänslig måste du använda samma skiftläge för dina resursgrupper. Dessutom är det viktigt att du är medveten om att det här är en POST-begäran och inte en GET-begäran, samt att du skickar ett värde och registrerar en längdbegränsning med -d, som kan vara NULL.  
 
-Svaret CURL gör att du listan med nycklar:  
+CURL-svaret returnerar listan med nycklar:  
 
 ```bash 
 {"keys":[{"keyName":"key1","permissions":"Full","value":"iqDPNt..."},{"keyName":"key2","permissions":"Full","value":"U+uI0B..."}]} 
 ```
-Skapa en exempelfil blob att överföra till blob storage-behållare. Du kan göra detta med följande kommando på en Linux-VM. 
+Skapa en blob-exempelfil att ladda upp till din bloblagringscontainer. På en virtuell Linux-dator kan du göra detta med hjälp av följande kommando. 
 
 ```bash
 echo "This is a test file." > test.txt
 ```
 
-Därefter autentisera med CLI `az storage` med lagringsåtkomstnyckel och överföra filen till blob-behållaren. För det här steget behöver du [installera den senaste Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) på den virtuella datorn, om du inte redan har gjort.
+Sedan autentiserar du med CLI-kommandot `az storage` med hjälp av lagringsåtkomstnyckeln och laddar upp filen till blobcontainern. För det här steget behöver du [installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) på din virtuella dator, om du inte redan har gjort det.
  
 
 ```azurecli-interactive
@@ -175,7 +175,7 @@ Finished[#############################################################]  100.000
 }
 ```
 
-Dessutom kan du hämta filen med hjälp av Azure CLI och autentisera med lagringsåtkomstnyckel. 
+Du kan dessutom ladda ned filen med hjälp av Azure CLI och autentisera med lagringsåtkomstnyckeln. 
 
 Begäran: 
 
@@ -227,7 +227,7 @@ Svar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får du har lärt dig hur du använder hanterade tjänstidentiteten Linux virtuella datorer för att få åtkomst till Azure Storage med hjälp av en snabbtangent.  Om du vill veta se mer om Azure Storage snabbtangenter:
+I den här självstudien har du lärt dig att använda en hanterad tjänstidentitet för en virtuell Linux-dator och kommit åt Azure Storage med hjälp av en åtkomstnyckel.  Läs mer om Azure Storage-åtkomstnycklar här:
 
 > [!div class="nextstepaction"]
->[Hantera dina åtkomstnycklar för lagring](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
+>[Hantera dina lagringsåtkomstnycklar](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)

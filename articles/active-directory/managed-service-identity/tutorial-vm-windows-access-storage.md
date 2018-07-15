@@ -1,6 +1,6 @@
 ---
-title: Använda en Windows VM hanteras identitet för åtkomst till Azure Storage
-description: En självstudiekurs som vägleder dig genom processen med att använda en Windows hanteras identitet för att få åtkomst till Azure Storage.
+title: Komma åt Azure Storage med en hanterad tjänstidentitet för virtuell Windows-dator
+description: En självstudiekurs som steg för steg beskriver hur du använder en hanterad tjänstidentitet på en virtuell Windows-dator och kommer åt Azure Storage.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,35 +9,35 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: 9ccc94727a18fbcd77f00000531934be57b8e132
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
-ms.translationtype: MT
+ms.openlocfilehash: a9b0ddbd8d0a348d00e57526e6d248e59a8a1e79
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801372"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903969"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-identity-to-access-azure-storage"></a>Självstudier: Använda en Windows VM hanteras identitet för åtkomst till Azure Storage
+# <a name="tutorial-use-a-windows-vm-managed-identity-to-access-azure-storage"></a>Självstudie: Komma åt Azure Storage med en hanterad tjänstidentitet för virtuell Windows-dator
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här kursen visar hur du aktiverar hanteras identitet för en virtuell Windows-dator och använda identitet för åtkomst till Azure Storage.  Lär dig att:
+Den här självstudien visar hur du aktiverar hanterad identitet för en virtuell Windows-dator och sedan använder identiteten och kommer åt Azure Storage.  Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa en virtuell Windows-dator i en ny resursgrupp 
-> * Aktivera hanterade identiteten på en Windows-dator (VM)
-> * Skapa en blobbbehållare i ett lagringskonto
-> * Ge din Windows-VM hanteras identitet åtkomst till ett lagringskonto 
-> * Hämta en tillgång och använda den för att anropa Azure Storage 
+> * Aktivera hanterad identitet på en virtuell Windows-dator (VM)
+> * Skapa en blobcontainer i ett lagringskonto
+> * Ge den virtuella Windows-datorns hanterade identitet åtkomst till ett lagringskonton 
+> * Hämta en åtkomsttoken, och använda den och anropa Azure Storage 
 
 > [!NOTE]
-> Azure Active Directory-autentisering för Azure Storage är tillgänglig som förhandsversion.
+> Azure Active Directory-autentisering för Azure Storage finns i en allmänt tillgänglig förhandsversion.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -49,74 +49,74 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Windows-dator i en ny resursgrupp
 
-I det här avsnittet skapar du en virtuell Windows-dator som en hanterad identitet ges senare.
+I det här avsnittet skapar du en virtuell Windows-dator som sedan beviljas en hanterad identitet.
 
-1.  Klicka på den **+/ Skapa ny tjänst** knapp hittades i det övre vänstra hörnet i Azure-portalen.
+1.  Klicka på knappen **+/Skapa ny tjänst** som finns i övre vänstra hörnet i Azure-portalen.
 2.  Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
-3.  Ange informationen för den virtuella datorn. Den **användarnamn** och **lösenord** skapade här är de autentiseringsuppgifter som du använder för att logga in på den virtuella datorn.
+3.  Ange informationen för den virtuella datorn. **Användarnamnet** och **lösenordet** som skapas här är de autentiseringsuppgifter som du använder när du loggar in på den virtuella datorn.
 4.  Välj rätt **prenumeration** för den virtuella datorn i listrutan.
-5.  Att välja en ny **resursgruppen** du skulle vilja virtuella datorn ska skapas i, Välj **Skapa nytt**. När du är klar klickar du på **OK**.
+5.  Välj en ny **Resursgrupp** som den virtuella datorn ska skapas i genom att klicka på **Skapa ny**. När du är klar klickar du på **OK**.
 6.  Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Acceptera alla standardvärden på bladet Inställningar och klicka på **OK**.
 
-    ![ALT bildtext](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alternativ bildtext](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-managed-identity-on-your-vm"></a>Aktivera hanterade identitet på den virtuella datorn
+## <a name="enable-managed-identity-on-your-vm"></a>Aktivera hanterad identitet på den virtuella datorn
 
-En identitet för virtuell dator hanteras kan du få åtkomst-token från Azure AD utan att behöva placera autentiseringsuppgifter i din kod. Under försättsbladen, aktivera hanteras identiteten på en virtuell dator via Azure portal gör två saker: registrerar den virtuella datorn med Azure AD för att skapa en hanterad identitet och konfigurerar den identiteten på den virtuella datorn. 
+Med en hanterad identitet på en virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar hanterad identitet på en virtuell dator via Azure-portalen sker två saker: din virtuella dator registreras med Azure Active Directory och skapar en hanterad identitet, och identiteten konfigureras på den virtuella datorn. 
 
-1. Gå till resursgruppen för den nya virtuella datorn och välj den virtuella dator som du skapade i föregående steg.
-2. Under den **inställningar** kategori, klickar du på **Configuration**.
-3. Välj för att aktivera hanteras identiteten **Ja**.
-4. Klicka på **spara** att tillämpa konfigurationen. 
+1. Gå till den nya virtuella datorns resursgrupp och välj den virtuella dator som du skapade i förra steget.
+2. Under kategorin **Inställningar** klickar du på **Konfiguration**.
+3. Välj **Ja** om du vill aktivera hanterad identitet.
+4. Klicka på **Spara** och tillämpa konfigurationen. 
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 
 I det här avsnittet skapar du ett lagringskonto. 
 
-1. Klicka på den **+ skapa en resurs** knapp hittades i det övre vänstra hörnet i Azure-portalen.
-2. Klicka på **lagring**, sedan **lagringskonto - blob, fil, tabell, kö**.
-3. Under **namn**, ange ett namn för lagringskontot.  
-4. **Distributionsmodell** och **konto kind** ska anges till **Resource manager** och **lagring (generella v1)**. 
-5. Se till att den **prenumeration** och **resursgruppen** matchar de som du angav när du skapade den virtuella datorn i föregående steg.
+1. Klicka på knappen **+ Skapa en resurs** längst upp till vänster i Azure-portalen.
+2. Klicka på **Lagring** och sedan på **Lagringskonto – blob, fil, tabell, kö**.
+3. Under **Namn** anger du ett namn för lagringskontot.  
+4. **Distributionsmodell** och **Typ av konto** ska vara inställda på **Resurshanterare** respektive **Lagring (generell användning v1)**. 
+5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** stämmer överens med den du angav när du skapade den virtuella datorn i förra steget.
 6. Klicka på **Skapa**.
 
-    ![Skapa nytt lagringskonto](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Skapa ett nytt lagringskonto](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
-## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Skapa en blob-behållare och överföra en fil till lagringskontot
+## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Skapa en blobcontainer och ladda upp en fil till lagringskontot
 
-Filerna kräver blobblagring så måste du skapa en blob-behållare där filen ska sparas. Du kan sedan överföra en fil till blob-behållare i det nya lagringskontot.
+Eftersom filer kräver bloblagring måste du skapa en blobcontainer som du lagrar filen i. Sedan laddar du upp en fil till blobcontainern i det nya lagringskontot.
 
-1. Gå tillbaka till det nyligen skapade lagringskontot.
-2. Under **Blob-tjänsten**, klickar du på **behållare**.
-3. Klicka på **+ behållare** överst på sidan.
-4. Under **ny behållare**, ange ett namn för behållaren och under **offentliga åtkomstnivå** Behåll standardvärdet.
+1. Gå tillbaka till det lagringskonto du nyss skapade.
+2. Under **Blob Service** klickar du på **Containers**.
+3. Klicka på **+ Container** överst på sidan.
+4. Under **Ny container**anger du ett namn för containern och under **Offentlig åtkomstnivå** behåller du standardvärdet.
 
-    ![Skapa lagringsbehållaren](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Skapa lagringscontainer](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-5. Med hjälp av ett redigeringsprogram, skapa en fil som benämns *hello world.txt* på den lokala datorn.  Öppna filen och Lägg till text (utan citattecken) ”Hello world! :) ”och spara den. 
-6. Överföra filen till den nya behållaren genom att klicka på behållarens namn, sedan **överför**
-7. I den **överför blob** rutan under **filer**, klicka på mappikonen och bläddra till filen **hello_world.txt** på den lokala datorn, markera filen och klicka på **Överför**.
-    ![Överför textfil](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+5. Med hjälp av valfritt redigeringsprogram skapar du en fil som heter *hello world.txt* på den lokala datorn.  Öppna filen och lägg till följande text (utan citattecken): ”Hello world! :)”och spara den. 
+6. Ladda upp filen till containern du skapade genom att klicka på containernamnet och sedan på **Ladda upp**
+7. I fönstret **Ladda upp blob**, under **Filer**, klickar du på mappikonen och bläddrar till filen **hello_world.txt** på den lokala datorn. Välj sedan filen och klicka på **Ladda upp**.
+    ![Ladda upp textfil](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Ge dina VM-åtkomst till en Azure Storage-behållare 
+## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Ge din virtuella dator åtkomst till en Azure Storage-container 
 
-Du kan använda hanterade identiteten för den virtuella datorn för att hämta data i Azure storage blob.   
+Du kan använda den virtuella datorns hanterade identitet och hämta data i Azure Storage-bloben.   
 
-1. Gå tillbaka till det nyligen skapade lagringskontot.  
-2. Klicka på den **åtkomstkontroll (IAM)** länken i den vänstra panelen.  
-3. Klicka på **+ Lägg till** på sidan för att lägga till en ny rolltilldelning för den virtuella datorn.
-4. Under **rollen**, i listrutan, Välj **Blob för lagring-dataläsare (förhandsgranskning)**. 
-5. I nästa listrutan under **bevilja åtkomst till**, Välj **virtuella**.  
-6. Kontrollera sedan att korrekt prenumeration visas i **prenumeration** listrutan och ange sedan **resursgruppen** till **alla resursgrupper**.  
-7. Under **Välj**, Välj den virtuella datorn och klicka sedan på **spara**. 
+1. Gå tillbaka till det lagringskonto du nyss skapade.  
+2. Klicka på länken **åtkomstkontroll (IAM)** i vänstra panelen.  
+3. Klicka på **+ Lägg till** högst upp på sidan om du vill lägga till en ny rolltilldelning för din virtuella dator.
+4. I listrutan under **Roll** väljer du **Storage Blob Data-läsare (förhandsgranskning)**. 
+5. I listrutan under **Tilldela behörighet till** väljer du **Virtuell dator**.  
+6. Kontrollera sedan att rätt prenumeration är inställd i listrutan **Prenumeration**. Under **Resursgrupper** väljer du **Alla resursgrupper**.  
+7. Under **Välj** väljer du din virtuella dator och klickar sedan på **Spara**. 
 
     ![Tilldela behörigheter](~/articles/active-directory/managed-service-identity/media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
-## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Hämta en åtkomst-token och använda den för att anropa Azure Storage 
+## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Hämta en åtkomsttoken och använda den när du anropar Azure Storage 
 
-Azure Storage inbyggt stöd för Azure AD-autentisering, så den kan acceptera åtkomsttoken direkt hämtas med hjälp av en hanterad identitet. Detta är en del av Azure Storage-integrering med Azure AD och skiljer sig från att tillhandahålla autentiseringsuppgifter i anslutningssträngen.
+Azure Storage har inbyggt stöd för Azure Active Directory-autentisering, vilket gör att åtkomsttoken som hämtas med en hanterad identitet kan accepteras direkt. Detta är en del av integreringen av Azure Storage med Azure Active Directory, och skiljer sig från att ange autentiseringsuppgifter i anslutningssträngen.
 
-Här är ett .net-kodexempel för att öppna en anslutning till Azure Storage med hjälp av en åtkomst-token och sedan läsa innehållet i filen som du skapade tidigare. Den här koden måste köras på den virtuella datorn för att kunna komma åt den virtuella datorn hanteras identitet slutpunkt. .NET framework 4.6 eller senare krävs för att använda åtkomstmetoden-token. Ersätt värdet för `<URI to blob file>` därefter. Du kan hämta det här värdet genom att navigera till filen som du skapat och överförs till blob-lagring och kopiera den **URL** under **egenskaper** den **översikt** sidan.
+Här är ett .Net-exempel på att öppna en anslutning till Azure Storage med hjälp av en åtkomsttoken, och sedan läsa innehållet i filen du skapade tidigare. Koden måste köras på den virtuella datorn om du vill komma åt slutpunkten för den virtuella datorns hanterade identitet. .Net Framework 4.6 eller senare krävs om du vill använda metoden med åtkomsttoken. Ersätt värdet för `<URI to blob file>` därefter. Du kan hämta värdet genom att gå till filen du skapade och laddade upp till bloblagringen, och kopiera **URL:en** under **Egenskaper** på sidan **Översikt**.
 
 ```csharp
 using System;
@@ -186,13 +186,13 @@ namespace StorageOAuthToken
 }
 ```
 
-Svaret innehåller innehållet i filen:
+Svaret innehåller filens innehåll:
 
 `Hello world! :)`
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får du lärt dig hur aktivera Windows-dator hanterad identitet för åtkomst till Azure Storage.  Om du vill veta mer om Azure Storage, se:
+I den här självstudien har du lärt dig att aktivera en hanterad identitet för virtuell Windows-dator och komma åt Azure Storage.  Läs mer om Azure Storage här:
 
 > [!div class="nextstepaction"]
 > [Azure Storage](/azure/storage/common/storage-introduction)

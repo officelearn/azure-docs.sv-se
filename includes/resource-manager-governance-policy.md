@@ -9,18 +9,18 @@ ms.date: 02/21/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: c04514218c7ed8dfd72b94345d2deb88e663fda1
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29529980"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38740590"
 ---
-[Azure principer](/azure/azure-policy/) hjälper dig att fatta till alla resurser i prenumerationen uppfyller företagets krav. Använda principer för att minska kostnaderna genom att begränsa distributionsalternativen för dessa typer av resurser och SKU: er som är godkända. Du definierar regler och åtgärder för dina resurser och dessa regler tillämpas automatiskt under distributionen. Du kan till exempel styra vilka typer av resurser som har distribuerats. Eller så kan du begränsa godkända platserna för resurser. Vissa principer neka en åtgärd och vissa principer konfigurera granskning av en åtgärd.
+[Azure-principer](/azure/azure-policy/) hjälper dig se till att alla resurser i prenumerationen uppfyller företagets standarder. Använd principer för att minska kostnaderna genom att begränsa distributionsalternativen till endast de resurstyper och SKU:er som är godkända. Du definierar regler och åtgärder för dina resurser, och dessa regler tillämpas automatiskt under distributionen. Du kan till exempel styra vilka typer av resurser som distribueras. Eller så kan du begränsa de godkända platserna för resurser. Vissa principer nekar en åtgärd, och vissa principer konfigurerar granskning av en åtgärd.
 
-Principen är kompletterar rollbaserad åtkomstkontroll (RBAC). RBAC fokuserar på användaråtkomst och är en standard Neka och explicit Tillåt system. Principen fokuserar på resursegenskaper under och efter distributionen. Det är en standard Tillåt och explicit neka system.
+Principen kompletterar rollbaserad åtkomstkontroll (RBAC). RBAC fokuserar på användaråtkomst och är ett system som nekar som standard och tillåter endast uttryckligen. Principer fokuserar på resursegenskaper under och efter distributionen. De tillåter som standard, medan ”neka” måste anges uttryckligen.
 
-Det finns två begrepp att förstå med principer - *principdefinitioner* och *principtilldelningar*. En principdefinition beskrivs management-villkor som du vill tillämpa. En principtilldelning placerar en principdefinition i åtgärden för ett visst område.
+Det finns två begrepp att förstå när det gäller principer – *principdefinitioner* och *principtilldelningar*. Principdefinitioner beskriver hanteringsvillkor som du vill tillämpa. Principtilldelningar verkställer en principdefinition för ett visst omfång.
 
 ![Tilldela principer](./media/resource-manager-governance-policy/policy-concepts.png)
 
-Azure tillhandahåller flera inbyggda principdefinitioner som du kan använda utan ändringar. Du skickar parametervärden för att ange vilka värden som tillåts i omfattningen. Om inbyggda principdefinitionen inte uppfyller dina krav, kan du [skapa definitioner för anpassad princip](../articles/azure-policy/create-manage-policy.md).
+Azure innehåller flera inbyggda principdefinitioner som du kan använda utan ändringar. Du skickar parametervärden för att ange de värden som tillåts i omfånget. Om den inbyggda principdefinition inte uppfyller dina krav kan du [skapa anpassade principdefinitioner](../articles/azure-policy/create-manage-policy.md).

@@ -1,6 +1,6 @@
 ---
-title: Filtrera nätverkstrafik – självstudie – Azure PowerShell | Microsoft Docs
-description: I den här självstudien får du lära dig hur du filtrerar nätverkstrafik till ett undernät, med en nätverkssäkerhetsgrupp, med hjälp av PowerShell.
+title: Filtrera nätverkstrafik – självstudie – Azure-portalen | Microsoft Docs
+description: I den här självstudien får du lära dig hur du filtrerar nätverkstrafik till ett undernät, med en nätverkssäkerhetsgrupp, med hjälp av Azure-portalen.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/30/2018
+ms.date: 06/20/2018
 ms.author: jdial
-ms.custom: mvc
-ms.openlocfilehash: 165bd6770109348bd19ebb4fa1735bedf83004b1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.custom: ''
+ms.openlocfilehash: a731c1e0617fe0ccf9d571dd2b7d0c2ad107bc9e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261325"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901406"
 ---
-# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-powershell"></a>Självstudie: Filtrera nätverkstrafik med en nätverkssäkerhetsgrupp med hjälp av PowerShell
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Självstudie: Filtrera nätverkstrafik med en nätverkssäkerhetsgrupp med hjälp av Azure-portalen
 
-Du kan filtrera inkommande och utgående nätverkstrafik till och från ett undernät i ett virtuellt nätverk med en nätverkssäkerhetsgrupp. Nätverkssäkerhetsgrupper innehåller säkerhetsregler som filtrerar nätverkstrafik efter IP-adress, port och protokoll. Säkerhetsregler tillämpas på resurser som har distribuerats i ett undernät. I den här guiden får du lära dig att:
+Du kan filtrera inkommande och utgående nätverkstrafik till och från ett undernät i ett virtuellt nätverk med en nätverkssäkerhetsgrupp. Nätverkssäkerhetsgrupper innehåller säkerhetsregler som filtrerar nätverkstrafik efter IP-adress, port och protokoll. Säkerhetsregler tillämpas på resurser som har distribuerats i ett undernät. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en nätverkssäkerhetsgrupp och säkerhetsregler
@@ -34,272 +34,191 @@ Du kan filtrera inkommande och utgående nätverkstrafik till och från ett unde
 > * Distribuera virtuella datorer (VM) i ett undernät
 > * Testa trafikfilter
 
-Om du vill kan du slutföra den här självstudien med [Azure CLI](tutorial-filter-network-traffic-cli.md).
+Om du vill kan du slutföra den här självstudien med [Azure CLI](tutorial-filter-network-traffic-cli.md) eller [PowerShell](tutorial-filter-network-traffic-powershell.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien version 5.4.1 eller senare av Azure PowerShell-modulen. Kör ` Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure. 
-
-## <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
-
-En nätverkssäkerhetsgrupp innehåller säkerhetsregler. Säkerhetsregler anger en källa och ett mål. Källor och mål kan vara programsäkerhetsgrupper.
-
-### <a name="create-application-security-groups"></a>Skapa programsäkerhetsgrupper
-
-Skapa först en resursgrupp för alla resurser som skapats i den här självstudien med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I följande exempel skapas en resursgrupp på platsen *eastus*: 
-
-
-```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
-```
-
-Skapa en programsäkerhetsgrupp med [New-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup). En programsäkerhetsgrupp gör att du kan gruppera servrar med liknande portfiltreringskrav. I följande exempel skapas två programsäkerhetsgrupper.
-
-```azurepowershell-interactive
-$webAsg = New-AzureRmApplicationSecurityGroup `
-  -ResourceGroupName myResourceGroup `
-  -Name myAsgWebServers `
-  -Location eastus
-
-$mgmtAsg = New-AzureRmApplicationSecurityGroup `
-  -ResourceGroupName myResourceGroup `
-  -Name myAsgMgmtServers `
-  -Location eastus
-```
-
-### <a name="create-security-rules"></a>Skapa säkerhetsregler
-
-Skapa en säkerhetsregel med [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). I följande exempel skapas en regel som tillåter inkommande trafik från Internet till programsäkerhetsgruppen *myWebServers* via port 80 och 443:
-
-```azurepowershell-interactive
-$webRule = New-AzureRmNetworkSecurityRuleConfig `
-  -Name "Allow-Web-All" `
-  -Access Allow `
-  -Protocol Tcp `
-  -Direction Inbound `
-  -Priority 100 `
-  -SourceAddressPrefix Internet `
-  -SourcePortRange * `
-  -DestinationApplicationSecurityGroupId $webAsg.id `
-  -DestinationPortRange 80,443
-
-The following example creates a rule that allows traffic inbound from the internet to the *myMgmtServers* application security group over port 3389:
-
-$mgmtRule = New-AzureRmNetworkSecurityRuleConfig `
-  -Name "Allow-RDP-All" `
-  -Access Allow `
-  -Protocol Tcp `
-  -Direction Inbound `
-  -Priority 110 `
-  -SourceAddressPrefix Internet `
-  -SourcePortRange * `
-  -DestinationApplicationSecurityGroupId $mgmtAsg.id `
-  -DestinationPortRange 3389
-```
-
-I den här självstudien exponeras RDP (port 3389) mot Internet för den virtuella datorn *myAsgMgmtServers*. För produktionsmiljöer rekommenderas, i stället för att exponera port 3389 mot Internet, att du ansluter till Azure-resurser som du vill hantera med hjälp av en [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)-anslutning eller [privat](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) nätverksanslutning.
-
-### <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
-
-Skapa en nätverkssäkerhetsgrupp med [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNsg*: 
-
-```powershell-interactive
-$nsg = New-AzureRmNetworkSecurityGroup `
-  -ResourceGroupName myResourceGroup `
-  -Location eastus `
-  -Name myNsg `
-  -SecurityRules $webRule,$mgmtRule
-```
+Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Skapa ett virtuellt nätverk med [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). I följande exempel skapas ett virtuellt nätverk med namnet *myVirtualNetwork*:
+1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
+2. Välj **Nätverk** och välj därefter **Virtuellt nätverk**.
+3. Ange eller välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **Skapa**:
 
-```azurepowershell-interactive
-$virtualNetwork = New-AzureRmVirtualNetwork `
-  -ResourceGroupName myResourceGroup `
-  -Location EastUS `
-  -Name myVirtualNetwork `
-  -AddressPrefix 10.0.0.0/16
-```
+    | Inställning                 | Värde                                              |
+    | ---                     | ---                                                |
+    | Namn                    | myVirtualNetwork                                   |
+    | Adressutrymme           | 10.0.0.0/16                                        |
+    | Prenumeration            | Välj din prenumeration.                          |
+    | Resursgrupp          | Välj **Skapa ny** och ange *myResourceGroup*. |
+    | Plats                | Välj **USA, östra**.                                |
+    | Undernät – namn            | mySubnet                                           |
+    | Undernät – adressintervall  | 10.0.0.0/24                                        |
 
-Skapa en undernätskonfiguration med [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) och skriv sedan undernätskonfigurationen till det virtuella nätverket med [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork). I följande exempel läggs ett undernät med namnet *mySubnet* till i det virtuella nätverket och nätverkssäkerhetsgruppen *myNsg* associeras med det:
+## <a name="create-application-security-groups"></a>Skapa programsäkerhetsgrupper
 
-```azurepowershell-interactive
-Add-AzureRmVirtualNetworkSubnetConfig `
-  -Name mySubnet `
-  -VirtualNetwork $virtualNetwork `
-  -AddressPrefix "10.0.2.0/24" `
-  -NetworkSecurityGroup $nsg
-$virtualNetwork | Set-AzureRmVirtualNetwork
-```
+En programsäkerhetsgrupp gör att du kan gruppera ihop servrar med liknande funktioner, till exempel webbservrar.
+
+1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
+2. I rutan **Sök på Marketplace** anger du *Programsäkerhetsgrupp*. När **programsäkerhetsgruppen** visas i sökresultatet väljer du den. Välj sedan **Programsäkerhetsgrupp** igen under **Allt** och välj sedan **Skapa**.
+3. Välj eller ange följande information och välj **Skapa**:
+
+    | Inställning        | Värde                                                         |
+    | ---            | ---                                                           |
+    | Namn           | myAsgWebServers                                               |
+    | Prenumeration   | Välj din prenumeration.                                     |
+    | Resursgrupp | Välj **Använd befintlig** och sedan **myResourceGroup**. |
+    | Plats       | Östra USA                                                       |
+
+4. Slutför steg 3 igen och ange följande värden:
+
+    | Inställning        | Värde                                                         |
+    | ---            | ---                                                           |
+    | Namn           | myAsgMgmtServers                                              |
+    | Prenumeration   | Välj din prenumeration.                                     |
+    | Resursgrupp | Välj **Använd befintlig** och sedan **myResourceGroup**. |
+    | Plats       | Östra USA                                                       |
+
+## <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
+
+1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
+2. Välj **Nätverk** och sedan **Nätverkssäkerhetsgrupp**.
+3. Välj eller ange följande information och välj **Skapa**:
+
+    |Inställning|Värde|
+    |---|---|
+    |Namn|myNsg|
+    |Prenumeration| Välj din prenumeration.|
+    |Resursgrupp | Välj **Använd befintlig** och sedan *myResourceGroup*.|
+    |Plats|Östra USA|
+
+## <a name="associate-network-security-group-to-subnet"></a>Associera nätverkssäkerhetsgrupp till undernät
+
+1. I rutan *Sök efter resurser, tjänster och dokument* högst upp i portalen börjar du skriva *myNsg*. Välj **myNsg** när det visas bland sökresultaten.
+2. Under **INSTÄLLNINGAR** väljer du **Undernät** och väljer sedan **+ Associera** som du ser på följande bild:
+
+    ![Associera NSG till undernät](./media/tutorial-filter-network-traffic/associate-nsg-subnet.png)
+
+3. Under **Koppla undernätverk** väljer du **Virtuellt nätverk** och sedan **myVirtualNetwork**. Välj **Undernät**, välj **mySubnet** och välj sedan **OK**.
+
+## <a name="create-security-rules"></a>Skapa säkerhetsregler
+
+1. Under **INSTÄLLNINGAR** väljer du **Ingående säkerhetsregler** och sedan **+ Lägg till**, så som visas i följande bild:
+
+    ![Lägga till en ingående säkerhetsregel](./media/tutorial-filter-network-traffic/add-inbound-rule.png)
+
+2. Skapa en säkerhetsregel som tillåter portarna 80 och 443 till programsäkerhetsgruppen **myAsgWebServers**. Under **Lägg till ingående säkerhetsregel** anger eller väljer du följande värden, accepterar standardvärdena för resten av inställningarna och väljer sedan **Lägg till**:
+
+    | Inställning                 | Värde                                                                                                           |
+    | ---------               | ---------                                                                                                       |
+    | Mål             | Välj **Programsäkerhetsgrupp** och välj sedan **myAsgWebServers** för **Programsäkerhetsgrupp**.  |
+    | Målportintervall | Ange 80,443                                                                                                    |
+    | Protokoll                | Välj TCP                                                                                                      |
+    | Namn                    | Allow-Web-All                                                                                                   |
+
+3. Slutför steg 2 igen med följande värden:
+
+    | Inställning                 | Värde                                                                                                           |
+    | ---------               | ---------                                                                                                       |
+    | Mål             | Välj **Programsäkerhetsgrupp** och välj sedan **myAsgMgmtServers** för **Programsäkerhetsgrupp**. |
+    | Målportintervall | Ange 3389                                                                                                      |
+    | Protokoll                | Välj TCP                                                                                                      |
+    | Prioritet                | Ange 110                                                                                                       |
+    | Namn                    | Allow-RDP-All                                                                                                   |
+
+    I den här självstudien exponeras RDP (port 3389) till internet för den virtuella dator som är tilldelad till programsäkerhetsgruppen *myAsgMgmtServers*. För produktionsmiljöer rekommenderas att du i stället för att exponera port 3389 mot Internet ansluter till Azure-resurser som du vill hantera med hjälp av en VPN-anslutning eller privat nätverksanslutning.
+
+När du har slutfört steg 1–3 granskar du de regler som du skapat. Din lista bör se ut som listan i följande bild:
+
+![Säkerhetsregler](./media/tutorial-filter-network-traffic/security-rules.png)
 
 ## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-Innan du skapar de virtuella datorerna hämtar du det virtuella nätverksobjektet med undernätet med [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork):
+Skapa två virtuella datorer i det virtuella nätverket.
 
-```powershell-interactive
-$virtualNetwork = Get-AzureRmVirtualNetwork `
- -Name myVirtualNetwork `
- -Resourcegroupname myResourceGroup
-```
-Skapa en offentlig IP-adress för varje virtuell dator med [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
+### <a name="create-the-first-vm"></a>Skapa den första virtuella datorn
 
-```powershell-interactive
-$publicIpWeb = New-AzureRmPublicIpAddress `
-  -AllocationMethod Dynamic `
-  -ResourceGroupName myResourceGroup `
-  -Location eastus `
-  -Name myVmWeb
+1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
+2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**.
+3. Ange eller välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
 
-$publicIpMgmt = New-AzureRmPublicIpAddress `
-  -AllocationMethod Dynamic `
-  -ResourceGroupName myResourceGroup `
-  -Location eastus `
-  -Name myVmMgmt
-```
+    |Inställning|Värde|
+    |---|---|
+    |Namn|myVmWeb|
+    |Användarnamn| Ange ett valfritt användarnamn.|
+    |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Prenumeration| Välj din prenumeration.|
+    |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
+    |Plats| Välj **USA, östra**|
 
-Skapa två nätverksgränssnitt med [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) och tilldela en offentlig IP-adress till nätverksgränssnittet. I följande exempel skapas ett nätverksgränssnitt, den offentliga IP-adressen för *myVmWeb* associeras med det och det görs till medlem i programsäkerhetsgruppen *myAsgWebServers*:
+4. Välj en storlek för den virtuella datorn och sedan **Välj**.
+5. Under **Inställningar** anger eller väljer du följande värden, accepterar standardvärdena för resten av inställningarna och väljer sedan **OK**:
 
-```powershell-interactive
-$webNic = New-AzureRmNetworkInterface `
-  -Location eastus `
-  -Name myVmWeb `
-  -ResourceGroupName myResourceGroup `
-  -SubnetId $virtualNetwork.Subnets[0].Id `
-  -ApplicationSecurityGroupId $webAsg.Id `
-  -PublicIpAddressId $publicIpWeb.Id
-```
+    |Inställning|Värde|
+    |---|---|
+    |Virtuellt nätverk |Välj **myVirtualNetwork**|
+    |Nätverkssäkerhetsgrupp | Välj **Avancerat**.|
+    |Nätverkssäkerhetsgrupp (brandvägg)| Välj **(ny) myVmWeb-nsg** och sedan under **Välj nätverkssäkerhetsgrupp** väljer du **Ingen**. |
 
-I följande exempel skapas ett nätverksgränssnitt, den offentliga IP-adressen för *myVmMgmt* associeras med det och det görs till medlem i programsäkerhetsgruppen *myAsgMgmtServers*:
+6. Under **Skapa** i **sammanfattningen** väljer du **Skapa** för att starta VM-distributionen.
 
-```powershell-interactive
-$mgmtNic = New-AzureRmNetworkInterface `
-  -Location eastus `
-  -Name myVmMgmt `
-  -ResourceGroupName myResourceGroup `
-  -SubnetId $virtualNetwork.Subnets[0].Id `
-  -ApplicationSecurityGroupId $mgmtAsg.Id `
-  -PublicIpAddressId $publicIpMgmt.Id
-```
+### <a name="create-the-second-vm"></a>Skapa den andra virtuella datorn
 
-Skapa två virtuella datorer i det virtuella nätverket så att du kan verifiera trafikfiltrering i ett senare steg. 
+Slutför steg 1–6 igen, men i steg 3 ger du den virtuella datorn namnet *myVmMgmt*. Det tar några minuter att distribuera den virtuella datorn. Fortsätt inte till nästa steg förrän den virtuella datorn har distribuerats.
 
-Skapa en VM-konfiguration med [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) och skapa sedan den virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). I följande exempel skapas en virtuell dator som fungerar som en webbserver. Alternativet `-AsJob` skapar den virtuella datorn i bakgrunden, så att du kan fortsätta till nästa steg: 
+## <a name="associate-network-interfaces-to-an-asg"></a>Koppla nätverksgränssnitt till en ASG
 
-```azurepowershell-interactive
-# Create user object
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+När portalen skapade de virtuella datorerna skapade den ett nätverksgränssnitt för varje virtuell dator och anslöt nätverksgränssnittet till den virtuella datorn. Lägg till nätverksgränssnittet för varje virtuell dator till en av de programsäkerhetsgrupper som du skapade tidigare:
 
-$webVmConfig = New-AzureRmVMConfig `
-  -VMName myVmWeb `
-  -VMSize Standard_DS1_V2 | `
-Set-AzureRmVMOperatingSystem -Windows `
-  -ComputerName myVmWeb `
-  -Credential $cred | `
-Set-AzureRmVMSourceImage `
-  -PublisherName MicrosoftWindowsServer `
-  -Offer WindowsServer `
-  -Skus 2016-Datacenter `
-  -Version latest | `
-Add-AzureRmVMNetworkInterface `
-  -Id $webNic.Id
-New-AzureRmVM `
-  -ResourceGroupName myResourceGroup `
-  -Location eastus `
-  -VM $webVmConfig `
-  -AsJob
-```
+1. I rutan *Sök efter resurser, tjänster och dokument* högst upp i portalen börjar du skriva *myVmWeb*. När den virtuella datorn **myVmWeb** visas i sökrutan väljer du det.
+2. Under **INSTÄLLNINGAR** väljer du **Nätverk**.  Välj **Konfigurera programsäkerhetsgrupperna**, välj **myAsgWebServers** för **Programsäkerhetsgrupper** och välj sedan **Spara** enligt följande bild:
 
-Skapa en virtuell dator som fungerar som en hanteringsserver:
+    ![Associera till ASG](./media/tutorial-filter-network-traffic/associate-to-asg.png)
 
-```azurepowershell-interactive
-# Create user object
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
-
-# Create the web server virtual machine configuration and virtual machine.
-$mgmtVmConfig = New-AzureRmVMConfig `
-  -VMName myVmMgmt `
-  -VMSize Standard_DS1_V2 | `
-Set-AzureRmVMOperatingSystem -Windows `
-  -ComputerName myVmMgmt `
-  -Credential $cred | `
-Set-AzureRmVMSourceImage `
-  -PublisherName MicrosoftWindowsServer `
-  -Offer WindowsServer `
-  -Skus 2016-Datacenter `
-  -Version latest | `
-Add-AzureRmVMNetworkInterface `
-  -Id $mgmtNic.Id
-New-AzureRmVM `
-  -ResourceGroupName myResourceGroup `
-  -Location eastus `
-  -VM $mgmtVmConfig
-```
-
-Det tar några minuter att skapa den virtuella datorn. Fortsätt inte med nästa steg förrän Azure har skapat den virtuella datorn.
+3. Slutför steg 1 och 2 igen. Den här gången söker du efter den virtuella datorn **myVmMgmt** och väljer ASG:n **myAsgMgmtServers**.
 
 ## <a name="test-traffic-filters"></a>Testa trafikfilter
 
-Använd [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) för att returnera den offentliga IP-adressen för en virtuell dator. I följande exempel returneras den offentliga IP-adressen för den virtuella datorn *myVmMgmt*:
+1. Anslut till den virtuella datorn *myVmMgmt*. Ange *myVmMgmt* i sökrutan längst upp i portalen. Välj **myVmMgmt** när det visas bland sökresultaten. Välj knappen **Anslut**.
+2. Välj **Ladda ned RDP-fil**.
+3. Öppna den nedladdade RDP-filen och välj **Anslut**. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
+4. Välj **OK**.
+5. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 
-```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
-  -Name myVmMgmt `
-  -ResourceGroupName myResourceGroup `
-  | Select IpAddress
-```
+    Anslutningen lyckas, eftersom port 3389 tillåts inkommande från Internet till programsäkerhetsgruppen *myAsgMgmtServers* där nätverksgränssnittet som är kopplat till den virtuella datorn *myVmMgmt* ingår.
 
-Använd följande kommando för att skapa en fjärrskrivbordssession med den virtuella datorn *myVmMgmt* från den lokala datorn. Ersätt `<publicIpAddress>` med IP-adressen som returnerades från föregående kommando.
+6. Anslut till den virtuella datorn *myVmWeb* från den virtuella datorn *myVmMgmt* genom att ange följande kommando i en PowerShell-session:
 
-```
-mstsc /v:<publicIpAddress>
-```
+    ``` 
+    mstsc /v:myVmWeb
+    ```
 
-Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det.
+    Du kan ansluta till den virtuella datorn myVmWeb från den virtuella datorn myVmMgmt eftersom virtuella datorer i samma virtuella nätverk kan kommunicera med varandra via alla portar som standard. Det går dock inte att skapa en fjärrskrivbordsanslutning till den virtuella datorn *myVmWeb* från Internet eftersom säkerhetsregeln för *myAsgWebServers* inte tillåter port 3389 inkommande från Internet och inkommande trafik från internet nekas för alla resurser som standard.
 
-Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn (du kanske måste välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn) och välj **OK**. Du kan få en certifikatvarning under inloggningen. Välj **Ja** för att fortsätta med anslutningen. 
-   
-Anslutningen lyckas, eftersom port 3389 tillåts inkommande från Internet till programsäkerhetsgruppen *myAsgMgmtServers* där nätverksgränssnittet som är kopplat till den virtuella datorn *myVmMgmt* ingår.
+7. För att installera Microsoft IIS på den virtuella datorn *myVmWeb* anger du följande kommando från en PowerShell-session på den virtuella datorn *myVmWeb*:
 
-Använd följande kommando för att skapa en fjärrskrivbordsanslutning till den virtuella datorn *myVmWeb*, från den virtuella datorn *myVmMgmt*, med följande kommando, från PowerShell:
+    ```powershell
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    ```
 
-``` 
-mstsc /v:myvmWeb
-```
+8. När IIS-installationen är klar kopplar du från den virtuella datorn *myVmWeb*, vilket lämnar dig i fjärrskrivbordsanslutningen med den virtuella datorn *myVmMgmt*.
+9. Koppla från den virtuella datorn *myVmMgmt*.
+10. I rutan *Sök efter resurser, tjänster och dokument* högst upp i Azure-portalen börjar du skriva *myVmWeb* på datorn. Välj **myVmWeb** när det visas bland sökresultaten. Notera den **offentliga IP-adressen** för den virtuella datorn. Den adress som visas i följande bild är 137.135.84.74, men din adress är annorlunda:
 
-Anslutningen lyckas eftersom en standardsäkerhetsregel i varje nätverkssäkerhetsgrupp tillåter trafik via alla portar mellan alla IP-adresser i ett virtuellt nätverk. Det går inte att skapa en fjärrskrivbordsanslutning till den virtuella datorn *myVmWeb* från Internet eftersom säkerhetsregeln för *myAsgWebServers* inte tillåter port 3389 inkommande från Internet.
-
-Använd följande kommando för att installera Microsoft IIS på den virtuella datorn *myVmWeb* från PowerShell:
-
-```powershell
-Install-WindowsFeature -name Web-Server -IncludeManagementTools
-```
-
-När IIS-installationen är klar kopplar du från den virtuella datorn *myVmWeb*, vilket lämnar dig i fjärrskrivbordsanslutningen med den virtuella datorn *myVmMgmt*. Visa IIS-välkomstskärmen genom att öppna en webbläsare och gå till http://myVmWeb.
-
-Koppla från den virtuella datorn *myVmMgmt*.
-
-På datorn anger du följande kommando från PowerShell för att hämta den offentliga IP-adressen för servern *myVmWeb*:
-
-```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
-  -Name myVmWeb `
-  -ResourceGroupName myResourceGroup `
-  | Select IpAddress
-```
-
-Bekräfta att du har åtkomst till webbservern *myVmWeb* utanför Azure genom att öppna en webbläsare på datorn och gå till `http://<public-ip-address-from-previous-step>`. Anslutningen lyckas, eftersom port 80 tillåts inkommande från Internet till programsäkerhetsgruppen *myAsgWebServers* där nätverksgränssnittet som är kopplat till den virtuella datorn *myVmWeb* ingår.
+    ![Offentlig IP-adress](./media/tutorial-filter-network-traffic/public-ip-address.png)
+  
+11. Bekräfta att du har åtkomst till webbservern *myVmWeb* via internet genom att öppna en webbläsare på datorn och gå till `http://<public-ip-address-from-previous-step>`. ISS-välkomstskärmen visas eftersom port 80 tillåts inkommande från Internet till programsäkerhetsgruppen *myAsgWebServers* där nätverksgränssnittet som är kopplat till den virtuella datorn *myVmWeb* ingår.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan använda [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) för att ta bort resursgruppen och alla resurser den innehåller när de inte längre behövs:
+Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehåller:
 
-```azurepowershell-interactive 
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
-```
+1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
+2. Välj **Ta bort resursgrupp**.
+3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

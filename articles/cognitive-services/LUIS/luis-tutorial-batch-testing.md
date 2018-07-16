@@ -10,18 +10,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 962f33a178048c459e8c6c2948eb17f0e78904ae
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: b695783c6d68876d39482ed5abec24f45087603d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930998"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054870"
 ---
 # <a name="improve-app-with-batch-test"></a>Förbättra app med batch-test
 
 Den här självstudien visar hur du använder batch testning för att hitta uttryck förutsägelse problem.  
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -52,7 +52,7 @@ Krav för att testa batch:
 * Entitetstyper tillåts: enkel och sammansatta.
 
 ## <a name="create-a-batch-file-with-utterances"></a>Skapa en batchfil med yttranden
-1. Skapa `HumanResources-jobs-batch.json` i en textredigerare som [VSCode](https://code.visualstudio.com/). Eller ladda ned [filen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json) från LUIS-Samples Github-lagringsplatsen.
+1. Skapa `HumanResources-jobs-batch.json` i en textredigerare som [VSCode](https://code.visualstudio.com/). 
 
 2. Lägg till yttranden med i JSON-formaterade kommandofilen, den **avsikt** du vill att förväntade i testet. 
 
@@ -189,7 +189,7 @@ För att verifiera att yttranden i batch-testet är korrekt förutse, kör du ba
 Den här appen förutsägelsefunktionen har ökat genom att söka efter fel i batchen och åtgärda modellen genom att lägga till fler exempel yttranden rätt avsikten och utbildning. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. Välj **Mina appar** på menyn längst upp till vänster. Välj ellipsen **...**  till höger om appnamnet i programlistan, Välj **ta bort**. På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+Ta bort LUIS-appen när den inte längre behövs. Välja **My apps** (Mina appar) på menyn längst upp till vänster. Välj ellipsen **...**  till höger om appnamnet i programlistan, Välj **ta bort**. På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 
 ## <a name="next-steps"></a>Nästa steg

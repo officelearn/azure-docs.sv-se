@@ -1,6 +1,6 @@
 ---
-title: Profilen live-webbappar på Azure med Application Insights Profiler | Microsoft Docs
-description: Identifiera hot sökvägen i koden web server med en låg storleken profiler.
+title: Profilera live-webbappar på Azure med Application Insights Profiler | Microsoft Docs
+description: Identifiera den heta sökvägen i serverkoden web med en låg fotavtryck profiler.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -9,315 +9,307 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 02/08/2018
+ms.topic: conceptual
+ms.reviewer: cawa
+ms.date: 07/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: 34824401ec8d21949c5c5036a11197a09e240bd7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e4712b94be94eb6d4cf363fc120b72c74f29f0a2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39059664"
 ---
-# <a name="profile-live-azure-web-apps-with-application-insights"></a>Profilen live Azure-webbappar med Application Insights
+# <a name="profile-live-azure-web-apps-with-application-insights"></a>Profilera live-Azure-webbappar med Application Insights
 
-*Funktionen Azure Application Insights är allmänt tillgänglig för funktionen Web Apps i Azure App Service och är i förhandsvisning för Azure-beräkningsresurser. Information om [lokal användning av profileraren](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).*
+Den här funktionen i Azure Application Insights är allmänt tillgängliga för funktionen Web Apps i Azure App Service och förhandsversion av Azure-beräkningsresurser. Information angående [vid lokal användning av profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
 
-Den här artikeln beskrivs hur lång tid som ägnats åt varje metod live webbprogrammets när du använder [Programinsikter](app-insights-overview.md). Application Insights Profiler visas detaljerad profiler för live-frågor som har hanteras av din app. Profileraren visar den *varm sökvägen* som används mest tid. Begäranden med olika svarstider listan på ett urval. Genom att använda olika metoder kan minimera du kostnader som är kopplad till programmet.
+Den här artikeln beskrivs hur lång tid som går åt för varje metod för ditt webbprogram när du använder [Application Insights](app-insights-overview.md). Application Insights Profiler visas detaljerad profiler för live-frågor som har hanteras av din app. Profiler visar den *heta sökvägen* som använder mest tid. Begäranden med olika svarstider profilerade på basis av sampling. Genom att använda en mängd olika tekniker kan minimera du kostnader som är associerat med programmet.
 
-Profiler fungerar för närvarande för ASP.NET och ASP.NET Core webbprogram som körs på Web Apps. Grundläggande tjänst nivå eller krävs högre för att använda Profiler.
+Profiler fungerar för närvarande för ASP.NET och ASP.NET Core web apps som körs på Web Apps. Grundläggande tjänstenivån eller krävs senare för att använda Profiler.
 
-## <a id="installation"></a> Aktivera Profiler för ditt webbprogram för webbprogram
-Om du redan har programmet publiceras till en webbapp, men inte har gjort något i källkoden för att använda Application Insights, gör du följande:
-1. Gå till den **Apptjänster** rutan i Azure-portalen.
-2. Under **övervakning**väljer **Programinsikter**, och sedan antingen följer du anvisningarna i rutan för att skapa en ny resurs eller välj en befintlig Application Insights-resurs för att övervaka din webbplats App.
+## <a id="installation"></a> Aktivera Profiler för Web Apps
 
-   ![Aktivera App Insights på App Services-portalen][appinsights-in-appservices]
+När du har distribuerat en Webbapp, gör oavsett om du ingår i App Insights SDK i källkoden, du följande:
 
-3. Om du har åtkomst till ditt projekt i källkoden [installera Application Insights](app-insights-asp-net.md).  
-   Om den redan är installerad, kontrollera att du har den senaste versionen. Om du vill söka efter den senaste versionen i Solution Explorer högerklickar du på projektet och välj sedan **hantera NuGet-paket** > **uppdateringar** > **uppdatera alla paket**. Distribuera din app.
+1. Gå till den **Apptjänster** fönstret i Azure-portalen.
+2. Gå till **Inställningar > övervakning** fönstret.
 
-ASP.NET Core program kräver installation av Microsoft.ApplicationInsights.AspNetCore NuGet-paketet 2.1.0-beta6 eller senare för att arbeta med Profiler. Tidigare versioner stöds inte från och med den 27 juni 2017.
+   ![Aktivera App Insights på App Services-portalen](./media/app-insights-profiler/AppInsights-AppServices.png)
 
-1. I [Azure-portalen](https://portal.azure.com), öppna Application Insights-resurs för webbappen. 
-2. Välj **prestanda** > **aktivera Application Insights Profiler**.
+3. Antingen följer du anvisningarna i fönstret för att skapa en ny resurs eller välj en befintlig App Insights-resurs för att övervaka ditt webbprogram. Acceptera alla standardalternativ. **Diagnostik på kodnivå** är aktiverad som standard och gör det möjligt för Profiler.
 
-   ![Välj Aktivera profileraren banderoll][enable-profiler-banner]
+   ![Lägg till App Insights-webbplatstillägg][Enablement UI]
 
-3. Du kan också välja den **Profiler** konfiguration för att visa status och aktivera eller inaktivera Profiler.
+4. Profiler har installerats med App Insights-webbplatstillägg och aktiveras med hjälp av en Appinställning för App Services.
 
-   ![Välj profileraren konfiguration][performance-blade]
+    ![App-inställning för Profiler][profiler-app-setting]
 
-   Webbprogram som är konfigurerade med Application Insights visas i den **Profiler** configuration-fönstret. Om du har följt de föregående stegen ska profileraren agenten installeras. 
+### <a name="enable-profiler-for-azure-compute-resources-preview"></a>Aktivera Profiler för Azure-beräkningsresurser (förhandsversion)
 
-4. I den **Profiler** configuration-fönstret, Välj **aktivera profileraren**.
-
-5. Följ instruktionerna för att installera agenten Profiler. Om inget webbprogram har konfigurerats med Application Insights, Välj **Lägg till länkade appar**.
-
-   ![Konfigurera alternativ för][linked app services]
-
-Till skillnad från webbprogram som är värd via Web Apps planer hanteras program som finns i Azure-beräkningsresurser (till exempel Azure virtuella datorer, virtuella datorer, Azure Service Fabric eller Azure Cloud Services) direkt inte av Azure. I det här fallet finns inga webbprogram för att länka till. I stället för att länka till en app, Välj den **aktivera profileraren** knappen.
-
-### <a name="enable-profiler-for-azure-compute-resources-preview"></a>Aktivera Profiler för Azure-beräkningsresurser (förhandsgranskning)
-
-Mer information finns i [förhandsversionen av Profiler för Azure-beräkningsresurser](https://go.microsoft.com/fwlink/?linkid=848155).
+Mer information finns i den [förhandsversionen av Profiler för Azure-beräkningsresurser](https://go.microsoft.com/fwlink/?linkid=848155).
 
 ## <a name="view-profiler-data"></a>Visa profiler data
 
-Kontrollera att ditt program tar emot trafik. Om du göra ett experiment kan du generera begäranden till din web app med hjälp av [Application Insights prestandatester](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Om du nyligen har aktiverat Profiler, kan du köra ett kort belastningstest under cirka 15 minuter som ska generera profiler-spårningar. Om du har haft profileraren redan aktiverat på ett tag hålla på att profileraren slumpmässigt körs två gånger i timmen och en varaktighet på två minuter varje gång den körs. Vi rekommenderar att du först kör belastningstest för en timme för att kontrollera att du får exempel profiler-spårningar.
+Kontrollera att ditt program tar emot trafik. Om du genomför ett experiment kan du generera begäranden till web app med [prestandatestning för Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Om du nyligen aktiverat Profiler, kan du köra ett kort belastningstest för ungefär 15 minuter, som ska generera profiler-spårningar. Om du har haft Profiler som redan aktiverat på ett tag, håll Tänk på att Profiler körs slumpmässigt två gånger i timmen och under en period på två minuter varje gång det körs. Vi rekommenderar att du först köra belastningstestet för en timme att se till att du får exempel profiler-spårningar.
 
-När programmet tar emot viss trafik, går du till den **prestanda** väljer **vidta åtgärder** att visa profiler-spårningar och välj sedan den **Profiler-spårningar** knappen.
+När ditt program tar emot en del trafik, går du till den **prestanda** väljer **vidta åtgärder** att visa profiler-spårningar och välj sedan den **Profiler-spårningar** knappen.
 
-![Application Insights prestanda rutan Förhandsgranska profileraren spårar][performance-blade-v2-examples]
+![Förhandsversion av Application Insights prestanda fönstret Profiler-spårningar][performance-blade-v2-examples]
 
-Välj ett exempel för att visa en kod på objektnivå uppdelning av tid köra begäran.
+Välj ett exempel för att visa en kod på servernivå uppdelning av tid kör på begäran.
 
-![Application Insights trace explorer][trace-explorer]
+![Application Insights trace-Utforskaren][trace-explorer]
 
-Spåra explorer visar följande information:
+Spårningen explorer visar följande information:
 
-* **Visa varm sökvägen**: öppnas den största löv nod eller Stäng minst något. I de flesta fall är den här noden gränsar till en prestandabegränsning.
-* **Etiketten**: namnet på den funktion eller en händelse. En blandning av koden och händelser som inträffade (till exempel SQL- och HTTP-händelser) visar i trädet. Händelsen översta representerar varaktighet för begäran.
-* **Förfluten tid**: tidsintervallet mellan starten av åtgärden och i slutet av åtgärden.
-* **När**: den tid när funktionen eller händelse kördes i relation till andra funktioner.
+* **Visa frekvent sökväg**: öppnas det största löv noden eller Stäng minst något. I de flesta fall är den här noden bredvid en flaskhals för prestanda.
+* **Etiketten**: namnet på funktionen eller händelse. Trädet visar en blandning av kod och händelser som inträffade (till exempel SQL- och HTTP-händelser). Översta händelsen representerar varaktighet för begäran.
+* **Förfluten tid**: tidsintervallet mellan början av åtgärden och den igen.
+* **När**: den tid när funktionen eller händelse kördes i förhållande till andra funktioner.
 
 ## <a name="how-to-read-performance-data"></a>Läsa prestandadata
 
-Microsoft service profiler använder en kombination av provtagningsmetoder och instrumentation för att analysera prestandan för ditt program. När detaljerad samling pågår prover service profiler instruktion pekare på varje dator CPU varje millisekunder. Varje prov avbildar fullständig anropsstacken för tråden som körs för tillfället. Den ger detaljerad information om vad tråden utfördes, både på en hög nivå och på låg nivå av abstraktion. Tjänsten profileraren samlar även in andra händelser för att spåra aktivitet korrelation och orsakssamband, inklusive vilket sammanhang växla händelser, aktivitet parallella bibliotek (TPL) händelser och tråd pool händelser.
+Profiler för Microsoft-tjänst använder en kombination av sampling metoder och instrumentation för att analysera prestanda för ditt program. När detaljerad samling pågår samplar service profiler instruktion pekare på varje dator CPU varje millisekund. Varje exempel samlar in fullständiga anropsstacken för tråden som körs för tillfället. Det ger detaljerad information om vad den tråden gjorde, både på hög nivå och på en låg nivå Abstraktionslager. Tjänsten profileraren samlar även in andra händelser för att spåra aktivitet korrelation och orsakssamband, inklusive vilket sammanhang växlar händelser, uppgift parallella bibliotek (TPL) händelser och tråd pool händelser.
 
-Anropsstacken som visas i tidslinjevyn är resultatet av provtagning och instrumentation. Eftersom varje prov fångar fullständig anropsstacken trådens, inkluderar den kod från Microsoft .NET Framework och från andra ramverk som du refererar till.
+Anropsstacken som visas i tidslinjevyn är resultatet av sampling och instrumentering. Eftersom varje exempel samlar in fullständiga anropsstacken för tråden, innehåller koden från Microsoft .NET Framework och andra ramverk som du hänvisar till.
 
-### <a id="jitnewobj"></a>Objektet allokering clr! JIT\_nytt eller clr! JIT\_Newarr1)
-**CLR! JIT\_ny** och **clr! JIT\_Newarr1** helper-funktioner i .NET Framework som du allokera minne från en hanterad heap. **CLR! JIT\_ny** anropas när ett objekt har allokerats. **CLR! JIT\_Newarr1** anropas när en objektmatris allokeras. Dessa två funktioner är vanligtvis snabba och ta relativt små mängder tid. Om du ser **clr! JIT\_ny** eller **clr! JIT\_Newarr1** ta en lång tid i tidslinjen, anger det att koden kan fördela många objekt och förbrukar stora mängder minne.
+### <a id="jitnewobj"></a>Objektet allokering (clr! JIT\_New eller clr! JIT\_Newarr1)
 
-### <a id="theprestub"></a>Inläsning av kod clr! ThePreStub)
-**CLR! ThePreStub** är en hjälpfunktion i .NET Framework som förbereder koden ska köras för första gången. Detta vanligtvis inkluderar, men är inte begränsat till just-in-time (JIT) kompilering. För varje C#-metoden **clr! ThePreStub** ska anropas en gång under livslängden för en process.
+**CLR! JIT\_New** och **clr! JIT\_Newarr1** är hjälpfunktioner i .NET Framework som en hanterad heap för att allokera minne. **CLR! JIT\_New** anropas när ett objekt har allokerats. **CLR! JIT\_Newarr1** anropas när en objektmatris som har allokerats. De här två funktionerna är vanligtvis snabba och ta relativt lite tid. Om du ser **clr! JIT\_New** eller **clr! JIT\_Newarr1** ta ganska lång tid din tidslinje, betyder det att koden kan allokera många objekt och förbrukar stora mängder minne.
 
-Om **clr! ThePreStub** tar lång tid en begäran detta anger att begäran är den första som kör den här metoden. Tiden för körningen av .NET Framework att läsa in den första metoden är viktig. Du kan använda en upp process som körs som del av koden innan användarna åtkomst till den eller Överväg att köra Native Image Generator (ngen.exe) på din sammansättningar.
+### <a id="theprestub"></a>Läser in koden (clr! ThePreStub)
 
-### <a id="lockcontention"></a>Låskonkurrens clr! JITutil\_MonContention eller clr! JITutil\_MonEnterWorker)
-**CLR! JITutil\_MonContention** eller **clr! JITutil\_MonEnterWorker** anger att den aktuella tråden väntar på en låsas upp. Den här texten visas vanligen när du kör en C# **Lås** -instruktion, när du anropar den **Monitor.Enter** -metoden eller när du startar en metod med den **MethodImplOptions.Synchronized** attribut. Låskonkurrens inträffar vanligtvis när tråden _A_ hämtar ett lås och tråd _B_ försöker låsa samma innan tråd _A_ frigör den.
+**CLR! ThePreStub** är en hjälpfunktionen i .NET Framework som förbereder koden som körs för första gången. Detta vanligtvis omfattar, men är inte begränsat till just-in-time (JIT) kompilering. För varje C#-metoden **clr! ThePreStub** ska anropas en gång under livslängden för en process.
 
-### <a id="ngencold"></a>Inläsning av kod ([KALLA])
-Om metodnamnet innehåller **[COLD]**, som **mscorlib.ni! [ COLD]system.Reflection.CustomAttribute.IsDefined**, .NET Framework-körningen kör kod för första gången som inte är optimerad av <a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">profil interaktiv optimering</a>. För varje metod ska det visas högst en gång under livslängden för processen.
+Om **clr! ThePreStub** tar lång tid för en begäran, detta anger att begäran är det första som kör den metoden. Tiden för körningen av .NET Framework att läsa in den första metoden är betydande. Du kan använda en värma upp processen som kör den delen av koden innan dina användare åtkomst till den eller Överväg att köra Native Image Generator (ngen.exe) på dina sammansättningar.
 
-Om du läser in koden tar lång tid en begäran, anger att begäran är den första att köra den icke-optimerad delen av metoden. Överväg att använda en upp process som körs som del av koden innan användarna åtkomst till den.
+### <a id="lockcontention"></a>Låskonkurrens (clr! JITutil\_MonContention eller clr! JITutil\_MonEnterWorker)
+
+**CLR! JITutil\_MonContention** eller **clr! JITutil\_MonEnterWorker** anger att den aktuella tråden väntar en låsas upp. Texten visas ofta när du kör ett C# **Lås** -instruktionen, vid den **Monitor.Enter** metod, eller när du startar en metod med det **MethodImplOptions.Synchronized** attribut. Låskonkurrens uppstår vanligen när tråden _A_ skaffar en lock och tråd _B_ försöker hämta samma Lås innan tråd _A_ släpper den.
+
+### <a id="ngencold"></a>Läser in koden ([kall])
+
+Om metodnamnet innehåller **[KALLA]**, till exempel **mscorlib.ni! [ COLD]system.Reflection.CustomAttribute.IsDefined**, .NET Framework-körningen kör kod för första gången som inte har optimerats av <a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">profil guidad optimering</a>. För varje metod ska det visas högst en gång under processen livslängd.
+
+Om du läser in koden tar lång tid för en begäran, indikerar det att begäran är den första mallen för att köra icke-optimerad delen av metoden. Överväg att använda en värma upp processen som kör den delen av koden innan dina användare åtkomst till den.
 
 ### <a id="httpclientsend"></a>Skicka HTTP-begäran
-Metoder som **HttpClient.Send** indikerar att koden väntar på en HTTP-begäran ska slutföras.
+
+Metoder som **HttpClient.Send** tyda på att koden väntar en HTTP-begäran att slutföra.
 
 ### <a id="sqlcommand"></a>Databasåtgärden
-Metoder som **SqlCommand.Execute** indikerar att koden väntar en åtgärd ska slutföras.
+
+Metoder som **SqlCommand.Execute** tyda på att koden väntar en databasåtgärd ska slutföras.
 
 ### <a id="await"></a>Väntar på (AWAIT\_tid)
-**AWAIT\_tid** anger att koden väntar på en annan aktivitet ska slutföras. Detta inträffar vanligtvis med C# **AWAIT** instruktionen. När koden har en C# **AWAIT**tråden unwinds och returnerar kontrollen till trådpoolen och det finns ingen tråd blockeras väntar på att den **AWAIT** ska slutföras. Dock logiskt tråden som gjorde den **AWAIT** ”blockeras”, och väntar på att åtgärden ska slutföras. Den **AWAIT\_tid** instruktionen anger blockerade väntar på att slutföra uppgiften.
+
+**AWAIT\_tid** anger att koden är att en annan aktivitet ska slutföras. Detta inträffar vanligen med C# **AWAIT** instruktionen. När koden har ett C# **AWAIT**tråden unwinds och returnerar kontrollen till trådpoolen och det finns ingen tråd som har blockerats väntar på den **AWAIT** ska slutföras. Dock logiskt tråden som gjorde den **AWAIT** är ”blockerad” och väntar på att åtgärden slutförs. Den **AWAIT\_tid** instruktionen anger blockerade tiden att vänta tills åtgärden har slutförts.
 
 ### <a id="block"></a>Blockerade tid
-**BLOCKED_TIME** anger att koden väntar på en annan resurs ska vara tillgängliga. Det kan till exempel Vänta ett synkroniseringsobjekt, en tråd ska vara tillgängliga eller en begäran om att avsluta.
+
+**BLOCKED_TIME** anger att koden väntar på en annan resurs ska vara tillgängliga. Det kan till exempel vänta för ett synkroniseringsobjekt, för en tråd ska vara tillgängliga eller för att slutföra en begäran.
 
 ### <a id="cpu"></a>CPU-tid
+
 Processorn är upptagen med att köra instruktionerna.
 
 ### <a id="disk"></a>Disktid i procent
+
 Programmet utför diskåtgärder.
 
-### <a id="network"></a>Tid för nätverk
+### <a id="network"></a>Nätverkstid
+
 Programmet utför nätverksåtgärder.
 
 ### <a id="when"></a>När kolumnen
-Den **när** kolumnen är en visualisering av hur INKLUSIVA exemplen som samlas in för en nod variera över tid. Det totala intervallet för begäran är uppdelat i 32 tid buckets. Sammanlagt exemplen för noden ackumuleras i dessa 32 buckets. Varje bucket representeras som en stapel. Höjden på fältet representerar ett skalade värde. För noder som är markerade **CPU_TIME** eller **BLOCKED_TIME**, eller om det finns en tydlig relation som förbrukar en resurs (t.ex, CPU, disk eller tråd), i fältet representerar användningen av en av resurser under perioden som bucket. För de här måtten är det möjligt att hämta ett värde som är större än 100 procent genom att använda flera resurser. Om du använder, i genomsnitt två processorer under ett intervall får till exempel 200 procent.
+
+Den **när** kolumnen är en visualisering av hur INKLUDERANDE exemplen som samlats in för en nod kan variera över tid. Det totala intervallet för begäran är uppdelad i 32 tid buckets. Inkluderande exemplen för noden ackumuleras i dessa 32 buckets. Varje bucket representeras som en stapel. Höjden på fältet representerar ett skalade värde. För noder som är markerade **CPU_TIME** eller **BLOCKED_TIME**, eller där det finns en uppenbar relation som förbrukar en resurs (till exempel CPU, disk eller tråd), i fältet representerar användningen av en av resurser under perioden för bucket. Det är möjligt att hämta ett värde är större än 100 procent av det förbrukande flera resurser för de här måtten. Om du använder, i genomsnitt två processorer under ett intervall får du till exempel 200 procent.
 
 ## <a name="limitations"></a>Begränsningar
 
-Standard-Datalagringsperiod är fem dagar. Den maximala data som inhämtas per dag är 10 GB.
+Standardkvarhållningsperioden för data är fem dagar. Den maximala data som matas in per dag är 10 GB.
 
-Det finns inga avgifter för användning av tjänsten Profiler. Om du vill använda tjänsten profileraren måste ditt webbprogram måste vara finns i den grundläggande nivån för Web Apps.
+Det kostar inget att använda Profiler-tjänsten. Om du vill använda tjänsten Profiler måste din webbapp måste vara finns i Basic-nivån av Web Apps.
 
-## <a name="overhead-and-sampling-algorithm"></a>Kostnader och provtagning algoritm
+## <a name="overhead-and-sampling-algorithm"></a>Omkostnader och samplingsalgoritmen
 
-Profiler körs slumpmässigt två minuter varje timme på varje virtuell dator som är värd för det program som har aktiverat för att samla in spårningar Profiler. När Profiler körs läggs från 5 till 15 procent CPU-belastning på servern.
+Profiler körs slumpmässigt två minuter varje timme på varje virtuell dator som är värd för programmet som har aktiverat för att samla in spårningar Profiler. När Profiler körs läggs från 5 procent till 15 procent processoråtgång till servern.
 
-Flera servrar som är tillgänglig som värd för programmet, mindre påverkan profileraren har på den övergripande prestandan. Det beror på att algoritmen provtagning resulterar i Profiler som körs på endast 5 procent av servrar när som helst. Flera servrar är tillgänglig för att hantera webbegäranden till förskjutning serverbelastningen orsakas genom att köra Profiler.
+Fler servrar som är tillgängliga för att vara värd för programmet, mindre påverkan Profiler har på övergripande prestanda. Det beror på att samplingsalgoritmen resulterar i Profiler som körs på endast 5 procent av servrar när som helst. Flera servrar är tillgängliga för att hantera webbegäranden ska förskjutas serverbelastningen orsakade genom att köra Profiler.
 
 ## <a name="disable-profiler"></a>Inaktivera Profiler
-Stoppa eller starta om Profiler för en enskilda web apps-instans under **Webjobs**, gå till resursen Web Apps. Ta bort Profiler genom att gå till **tillägg**.
 
-![Inaktivera Profiler för ett webb-jobb][disable-profiler-webjob]
+Stoppa eller starta om Profiler för en enskild webbapp-instansen under **Webbjobb**går du till Web Apps-resurs. Ta bort Profiler genom att gå till **tillägg**.
 
-Vi rekommenderar att du har Profiler som är aktiverad på alla dina webbprogram för att identifiera eventuella prestandaproblem så snart som möjligt.
+![Inaktivera Profiler för ett webbjobb][disable-profiler-webjob]
 
-Om du använder WebDeploy för att distribuera ändringarna till ditt webbprogram, kan du kontrollera att du utesluter mappen App_Data tas bort under distributionen. Annars tas tillägget profileraren filer bort nästa gång du distribuera webbappen till Azure.
+Vi rekommenderar att du har Profiler som är aktiverad på alla dina webbprogram för att identifiera några prestandaproblem så tidigt som möjligt.
+
+Om du använder WebDeploy för att distribuera ändringar i ditt webbprogram, kontrollerar du att du undantar mappen App_Data tas bort under distributionen. Annars kan tas tillägget Profiler filer bort nästa gång du distribuerar webbappen till Azure.
 
 
 ## <a id="troubleshooting"></a>Felsökning
 
-### <a name="too-many-active-profiling-sessions"></a>För många aktiva profilering sessioner
+### <a name="too-many-active-profiling-sessions"></a>För många aktiva sessioner för profilering
 
-För närvarande kan du aktivera Profiler på högst fyra Azure-webbappar och distributionsplatser som körs i samma service-plan. Om Profiler web jobbet rapporterar för många aktiva profilering sessioner, flytta vissa webbprogram till en annan serviceplan.
+För närvarande kan du aktivera Profiler på upp till fyra Azure web apps och distributionsplatser som körs i samma service-abonnemang. Om Profiler webbjobb rapporterar för många aktiva profilering sessioner, flytta webbappar till en annan service-planen.
 
-### <a name="how-do-i-determine-whether-application-insights-profiler-is-running"></a>Hur tar jag reda på om Application Insights Profiler körs?
+### <a name="how-do-i-determine-whether-application-insights-profiler-is-running"></a>Hur vet jag om Application Insights Profiler körs?
 
-Profiler körs som en kontinuerlig web-jobb i webbprogrammet. Du kan öppna appen webbresurs i den [Azure-portalen](https://portal.azure.com). I den **WebJobs** rutan kontrollerar du statusen för **ApplicationInsightsProfiler**. Om den inte körs, öppna **loggar** för mer information.
+Profiler körs som ett kontinuerligt webbjobb i webbapp. Du kan öppna webbappresursen som i den [Azure-portalen](https://portal.azure.com). I den **WebJobs** fönstret Kontrollera status för **ApplicationInsightsProfiler**. Om den inte körs öppnar **loggar** vill ha mer information.
 
-### <a name="why-cant-i-find-any-stack-examples-even-though-profiler-is-running"></a>Varför hittar inte någon stack-exempel, trots att profileraren körs?
+### <a name="why-cant-i-find-any-stack-examples-even-though-profiler-is-running"></a>Varför hittar inte alla exempel som stack, även om Profiler körs?
 
 Här följer några saker som du kan kontrollera:
 
-* Kontrollera att web app service-plan är grundläggande nivån eller högre.
-* Kontrollera att ditt webbprogram har Application Insights SDK 2.2 Beta eller senare aktiverad.
-* Kontrollera att ditt webbprogram har den **APPINSIGHTS_INSTRUMENTATIONKEY** inställningar som konfigureras med samma instrumentation nyckel som används av Application Insights SDK.
-* Kontrollera att ditt webbprogram körs på .NET Framework 4.6.
-* Kontrollera om ditt webbprogram är ett program för ASP.NET Core [de nödvändiga beroendena](#aspnetcore).
+* Kontrollera att web app service-planen är nivån Basic eller högre.
+* Kontrollera att webbappen har Application Insights SDK 2.2 Beta eller senare aktiverad.
+* Se till att webbappen har den **APPINSIGHTS_INSTRUMENTATIONKEY** inställningen som konfigurerats med samma instrumenteringsnyckeln som används av Application Insights SDK.
+* Kontrollera att din webbapp körs på .NET Framework 4.6.
+* Om din webbapp är ett ASP.NET Core-program kontrollerar [de nödvändiga beroendena](#aspnetcore).
 
-Finns en kort uppvärmningsperiod då profileraren aktivt samlar in spårningar för flera prestanda när profileraren har startats. Samlar in prestanda spårningar i två minuter varje timme efter det Profiler.
+När Profiler har startat, finns det en kort uppvärmningsperiod då Profiler aktivt samlar in flera prestandaspårningar. Samlar in prestandaspårningar för varje timme med två minuter efter det Profiler.
 
-### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>Jag använde Azure Service profiler. Vad hände med den?
+### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>Jag har använt Azure Service-profiler. Vad hände med det?
 
-När du aktiverar Application Insights profileraren har Azure Service profiler-agenten inaktiverats.
+När du aktiverar Application Insights Profiler, är profiler-agent för Azure-tjänsten inaktiverad.
 
 ### <a id="double-counting"></a>Dubbel inventering i parallella trådar
 
-I vissa fall är total tidsmått i visningsprogrammet för stacken större än varaktigheten för begäran.
+I vissa fall kan är stack visningsprogrammet måttet total tid större än varaktigheten för begäran.
 
-Den här situationen kan inträffa när två eller flera trådar som är associerade med en begäran och de fungerar parallellt. I så fall är den totala tråd tid större än tid som gått. En tråd kan vänta på den andra ska slutföras. Visningsprogrammet försöker identifiera detta och utesluter ointressanta vänta, men den överför kanten av visning av för mycket information istället utelämna vad kan vara viktig information.
+Den här situationen kan uppstå när två eller flera trådar som är associerade med en begäran och de fungerar parallellt. I så fall kan är den totala tråd-tid större än den förflutna tiden. En tråd kan vänta på den andra ska slutföras. Visningsprogrammet försöker identifiera detta och utesluter ointressanta vänta, men den Överför vid sidan av för mycket informationen i stället utelämna vad kan vara viktig information.
 
-När du ser parallella trådar i dina spår avgör vilka trådar som väntar på så att du kan fastställa kritiska för begäran. I de flesta fall är helt enkelt tråden som snabbt försätts i tillståndet vänta väntar på andra trådar. Koncentrera dig på de andra trådarna och ignorera tiden i väntande trådar.
+När du ser parallella trådar i dina spårningar avgör vilka trådar som väntar på, så du kan fastställa den kritiska vägen för begäran. I de flesta fall tråden som snabbt försätts i vänteläge helt enkelt att vänta på de andra trådarna. Koncentrera dig på de andra trådarna och ignorera tiden att vänta på trådar.
 
 ### <a id="issue-loading-trace-in-viewer"></a>Inga profildata
 
 Här följer några saker som du kan kontrollera:
 
-* Om de data som du försöker visa är äldre än några veckor, begränsa tiden filtret och försök igen.
-* Se till att proxy eller brandvägg inte har blockerat åtkomsten till https://gateway.azureserviceprofiler.net.
-* Kontrollera att du använder i appen Application Insights instrumentation nyckeln är samma som Application Insights-resurs som du använde när du aktiverade profilering. Nyckeln är vanligtvis i ApplicationInsights.config-filen, men det kan också vara i filen web.config eller app.config.
+* Om de data som du vill visa är äldre än ett par veckor, försök att begränsa din tidsfiltret och försök igen.
+* Se till att proxyservrar eller en brandvägg inte har blockerat åtkomsten till https://gateway.azureserviceprofiler.net.
+* Kontrollera att Application Insights-instrumenteringsnyckeln som du använder i din app är samma som den Application Insights-resurs som du använde för att aktivera profilering. Nyckeln är vanligtvis i filen ApplicationInsights.config, men det kan också vara i filen web.config eller app.config.
 
 ### <a name="error-report-in-the-profiling-viewer"></a>Felrapport i visningsprogrammet för profilering
 
-Skicka ett supportärende i portalen. Se till att inkludera Korrelations-ID i felmeddelandet.
+Skicka in ett supportärende i portalen. Glöm inte att ta Korrelations-ID från felmeddelandet.
 
-### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Distributionsfel: katalogen är inte tom ”D:\\hem\\plats\\wwwroot\\App_Data\\jobben
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Distributionsfel: katalogen är inte tom ”D:\\home\\plats\\wwwroot\\App_Data\\Jobbens
 
-Om du omdistribuera ditt webbprogram till en resurs i Web Apps med Profiler som är aktiverad, kan du se ett meddelande som liknar följande:
+Om du omdistribuerar din webbapp till en resurs för Web Apps med Profiler som är aktiverad, kan du få ett meddelande som liknar följande:
 
-*Katalogen är inte tom ”D:\\hem\\plats\\wwwroot\\App_Data\\jobben*
+*Katalogen är inte tom ”D:\\home\\plats\\wwwroot\\App_Data\\Jobbens*
 
-Det här felet uppstår om du kör webbdistribution från skript eller från Visual Studio Team Services distribution Pipeline. Lösningen är att lägga till följande ytterligare parametrar Web Deploy-uppgiften:
+Det här felet uppstår om du kör Web Deploy från skript eller Distributionspipeline för Visual Studio Team Services. Lösningen är att lägga till följande parametrar för ytterligare distribution till Web Deploy-uppgift:
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'
 ```
 
-Dessa parametrar bort mappen som används av Application Insights Profiler och avblockera Omdistributionen processen. De påverkar inte Profiler-instans som körs för tillfället.
-
+Dessa parametrar ta bort mappen som används av Application Insights Profiler och avblockera distribuera om processen. De påverkar inte Profiler-instans som körs för tillfället.
 
 ## <a name="manual-installation"></a>Manuell installation
 
-När du konfigurerar profileraren görs uppdateringar till webbappens inställningar. Du kan tillämpa uppdateringarna manuellt om din miljö kräver. Ett exempel kan vara att ditt program körs i en miljö med Web Apps för PowerApps.
+När du konfigurerar Profiler görs uppdateringar till webbappens inställningar. Du kan aktivera uppdateringar manuellt om miljön kräver den. Ett exempel kan vara att ditt program körs i en miljö med Web Apps för PowerApps.
 
-1. I den **App webbkontroll** rutan Öppna **inställningar**.
+1. I den **Web App Control** rutan Öppna **inställningar**.
 2. Ange **.Net Framework-version** till **v4.6**.
-3. Ange **alltid på** till **på**.
-4. Lägg till den **APPINSIGHTS_INSTRUMENTATIONKEY** app inställningen och värdet till samma instrumentation nyckel som används av SDK.
-5. Öppna **avancerade verktyg**.
+3. Ange **Always On** till **på**.
+4. Lägg till den **APPINSIGHTS_INSTRUMENTATIONKEY** app inställning och ange värdet till samma instrumenteringsnyckeln som används av SDK: N.
+5. Öppna **Avancerade analysverktyg**.
 6. Välj **Gå** att öppna Kudu-webbplatsen.
-7. Välj på webbplatsen Kudu **plats tillägg**.
-8. Installera **Programinsikter** från galleriet Azure Web Apps.
-9. Starta om webbprogrammet.
+7. Välj på Kudu-webbplatsen **Platstillägg**.
+8. Installera **Programinsikter** från Azure Web Apps-galleriet.
+9. Starta om webbappen.
 
-## <a id="profileondemand"></a> Utlösa Profiler manuellt
-När vi har utvecklat profileraren vi har lagt till ett kommandoradsgränssnitt så att vi kan testa Profiler på apptjänster. Med hjälp av det här gränssnittet för samma kan användare också anpassa hur Profiler startar. På en hög nivå använder Profiler Web Apps Kudu System för att hantera profilering i bakgrunden. När du installerar Application Insights Extension kan skapa vi ett webbjobb jobb som är värd för Profiler. Vi använder samma tekniken för att skapa ett nytt jobb för webbprogram som du kan anpassa efter dina behov.
+## <a id="profileondemand"></a> Utlös Profiler manuellt
 
-Det här avsnittet beskrivs hur du:
+Profiler kan aktiveras manuellt med ett enda musklick. Anta att du kör ett webbtest för prestanda. Du måste spårningarna för att hjälpa dig att förstå hur ditt webbprogram fungerar under belastning. Det är viktigt att ha kontroll över när spårningssessioner samlas eftersom du vet när belastningstestet ska köras, men slumpmässiga exempelintervallet kan gå miste om den.
+Följande steg illustrerar hur det här scenariot fungerar:
 
-* Skapa ett webb-jobb som kan starta Profiler med en knapp i två minuter.
-* Skapa ett webb-jobb som kan schemalägga Profiler ska köras.
-* Ange argument för Profiler.
+### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>(Valfritt) Steg 1: Skapa trafik till webbappen genom att starta ett webbtest för prestanda
 
+Om din webbapp redan har inkommande trafik, eller om du bara vill generera manuellt trafik, hoppa över det här avsnittet och gå vidare till steg 2.
 
-### <a name="set-up"></a>Konfigurera
-Först bekanta dig med jobbet web instrumentpanelen. Under **inställningar**, Välj den **WebJobs** fliken.
+Gå till Application Insights-portalen **konfigurera > prestandatestning**. Klicka på ny om du vill starta ett nytt prestandatest.
+![Skapa nytt prestandatest][create-performance-test]
 
-![webjobs-bladet](./media/app-insights-profiler/webjobs-blade.png)
+I den **nytt prestandatest** fönstret Konfigurera mål-URL för testning. Acceptera alla standardinställningar och börja köra belastningstestet.
 
-Som du ser visar den här instrumentpanelen alla web-jobb som är installerade på din plats. Du kan se ApplicationInsightsProfiler2 web jobb som har Profiler jobbet körs. Detta är där vi skapa nya webb-jobb för manuell och schemalagd profilering.
+![Konfigurera belastningstest][configure-performance-test]
 
-Hämta binärfiler som du måste göra följande:
+Du kan se det nya testet är först i kön, följt av statusen pågår.
 
-1.  På Kudu-platsen på den **utvecklingsverktyg** väljer den **avancerade verktyg** Kudu-tangenten och välj sedan **Gå**.  
-   En ny plats öppnas och du loggas in automatiskt.
-2.  För att hämta Profiler binärfiler, gå till Utforskaren via **Felsökningskonsolen** > **CMD**, som finns längst upp på sidan.
-3.  Välj **plats** > **wwwroot** > **App_Data** > **jobb**  >   **Kontinuerlig**.  
-   Du bör se en mapp med namnet *ApplicationInsightsProfiler2*. 
-4. Längst till vänster i mappen, Välj den **hämta** ikon.  
-   Den här åtgärden hämtar den *ApplicationInsightsProfiler2.zip* fil. Vi rekommenderar att du skapar en ren katalog om du vill flytta till den här zip-arkivet.
+![Läs in test har skickats och väntar i kö][load-test-queued]
 
-### <a name="setting-up-the-web-job-archive"></a>Konfigurera jobbet webbarkiv
-När du lägger till ett nytt jobb web Azure-webbplatsen du princip för att skapa ett zip-arkiv med en *run.cmd* filen i. Den *run.cmd* filen anger web jobbet vad du ska göra när du kör jobbet för webbprogram.
+![belastningstest körs pågår][load-test-in-progress]
 
-1.  Skapa en ny mapp (till exempel *RunProfiler2Minutes*).
-2.  Kopiera filerna från den extraherade *ApplicationInsightProfiler2* till den här nya mappen.
-3.  Skapa en ny *run.cmd* fil.  
-    Av praktiska skäl kan öppna du arbetsmappen i Visual Studio Code innan du börjar.
-4.  Lägg till kommando i filen `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`. Kommandona beskrivs på följande sätt:
+### <a name="step-2-start-profiler-on-demand"></a>Steg 2: Börja profiler på begäran
 
-    * `start`: Anger Profiler för att starta.  
-    * `--engine-mode immediate`: Anger Profiler ska börja profilering omedelbart.  
-    * `--single`: Anger Profiler för att köra och sedan stoppa automatiskt.  
-    * `--immediate-profiling-duration 120`: Anger Profiler ska köras i 120 sekunder eller 2 minuter.
+När belastningstestet körs kan börja vi profiler för att fånga in spårningar på webbappen medan den tar emot belastningen.
+Gå till fönstret Konfigurera Profiler:
 
-5.  Spara ändringarna.
-6.  Arkivera mappen genom att högerklicka på den och sedan välja **skicka till** > **komprimerad mapp**.  
-   Den här åtgärden skapar en .zip-fil med namnet på mappen för.
+![konfigurera profiler fönstret post][configure-profiler-entry]
 
-![Starta profileraren kommando](./media/app-insights-profiler/start-profiler-command.png)
+På den **konfigurera Profiler fönstret**, det finns en **profil nu** knappen för att utlösa profiler på alla instanser av de länkade web apps. Dessutom kan tillhandahålls du synlighet i när profiler kördes tidigare.
 
-Nu har du skapat ett webbprogram jobbet .zip-filen som du kan använda för att ställa in webjobs på din plats.
+![Profiler på begäran][profiler-on-demand]
 
-### <a name="add-a-new-web-job"></a>Lägg till ett nytt web-jobb
-I det här avsnittet du lägga till ett nytt jobb webbprogram på webbplatsen. I följande exempel visas hur du lägger till ett jobb manuellt utlösta web. När du har lagt till jobbet manuellt utlösta web är processen nästan desamma för ett schemalagda web-jobb.
+Meddelande och status ändras på profiler körningens status visas.
 
-1.  Gå till den **Web jobb** instrumentpanelen.
-2.  I verktygsfältet väljer **Lägg till**.
-3.  Namnge ditt webb-jobb.  
-    För att göra det kan hjälpa att matcha namnet på dina Arkiv och öppna den för en mängd olika versioner av den *run.cmd* fil.
-4.  I den **filuppladdning** område i formuläret väljer den **öppna filen** ikon och söker efter .zip-filen som du skapade i föregående avsnitt.
+### <a name="step-3-view-traces"></a>Steg 3: Visa spår
 
-    a.  I den **typen** väljer **Triggered**.  
-    b.  I den **utlösare** väljer **manuell**.
+Följ anvisningarna på meddelandet för att gå till bladet och visa prestandaspårningar när profiler är klar.
 
-5.  Välj **OK**.
+### <a name="troubleshooting-on-demand-profiler"></a>Felsökning av profiler för på begäran
 
-![Starta profileraren kommando](./media/app-insights-profiler/create-webjob.png)
+Ibland kan du se Profiler timeout-felmeddelande efter en på begäran-session:
 
-### <a name="run-profiler"></a>Kör Profiler
+![Profiler tidsgränsfel][profiler-timeout]
 
-Nu när du har ett nytt jobb för webbprogram som du kan utlösa manuellt kan du försöka köra det genom att följa anvisningarna i det här avsnittet.
+Det kan finnas två orsaker till varför du ser det här felet:
 
-Utformning, du kan bara ha en *ApplicationInsightsProfiler.exe* process som körs på en dator samtidigt. Så, innan du kan inaktivera den *kontinuerlig* web jobbet från den här instrumentpanelen. 
-1. Välj raden med det nya webb-projektet och välj sedan **stoppa**. 
-2. I verktygsfältet väljer **uppdatera**, och bekräfta att status anger att jobbet har stoppats.
-3. Välj raden med det nya webb-projektet och välj sedan **kör**.
-4. Med raden fortfarande markerat i verktygsfältet väljer du den **loggar** kommando.  
-    Den här åtgärden öppnar en instrumentpanel med web jobb för nya webb-jobbet och visar de senaste körs och deras resultat.
-5. Välj instansen av kör som du just har börjat.  
-    Om du har har utlösts nya web jobbet, kan du visa vissa diagnostikloggar kommer från Profiler som bekräftar du att den profilering har startats.
+1. På begäran profiler sessionen är klar men Application Insights tog längre tid att bearbeta insamlade data. Om data inte slutfördes bearbetas på 15 minuter, visas ett timeout-meddelande i portalen. Även om efter ett tag visas Profiler-spårningar. Om detta inträffar kan bara Ignorera felmeddelandet för tillfället. Vi arbetar på att lösa
 
-### <a name="things-to-consider"></a>Saker att tänka på
+2. Webbappen har en äldre version av Profiler-agent som inte har funktionen på begäran. Om du har aktiverat Application Insights-profilen tidigare litar du behöver uppdatera dina Profiler-agent ska starta med hjälp av funktionen på begäran.
+  
+Följ stegen nedan för att kontrollera och installera den senaste Profiler:
 
-Även om den här metoden är relativt enkla, Tänk på följande:
+1. Gå till Appinställningar för App Services och kontrollera om följande inställningar är inställda:
+    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Ersätt med rätt instrumenteringsnyckeln för Application Insights.
+    * **APPINSIGHTS_PORTALINFO**: ASP.NET
+    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0 om någon av dessa inställningar inte ställs in, gå till fönstret Application Insights aktivering att installera den senaste webbplatstillägg.
 
-* Eftersom web-jobb inte hanteras av vår tjänst, har vi inte går att uppdatera agenten binärfiler för web-jobbet. Vi inte har en stabil hämtningssidan för våra binärfilerna, så att det enda sättet att hämta de senaste binärfilerna är genom att uppdatera din anknytning och ta tag det från den *kontinuerlig* mapp som du gjorde i föregående steg.
+2. Gå till Application Insights-fönstret i App Services-portalen.
 
-* Eftersom den här processen använder kommandoradsargument som ursprungligen har utformats för utvecklare i stället för slutanvändare, kan argument ändras i framtiden. Vara medveten om eventuella ändringar när du uppgraderar. Det får inte vara en stor del av ett problem, eftersom du kan lägga till ett webb-jobb, köra den och testa för att säkerställa att den fungerar. Slutligen skapar vi ett gränssnitt för att hantera det utan den manuella processen.
+    ![Aktivera Application Insights från App Services-portalen][enable-app-insights]
 
-* Funktionen Web jobb i Web Apps är unikt. När den körs jobbet web ser till att processen har samma miljövariabler och appinställningar som webbplatsen ska ha. Det innebär att du inte behöver skicka nyckeln instrumentation via kommandoraden till Profiler. Profiler ska hämta nyckeln instrumentation från miljön. Om du vill köra Profiler på dev-rutan eller på en dator utanför Web Apps måste du dock ange en instrumentation nyckel används. Du kan göra det genom att skicka ett argument, `--ikey <instrumentation-key>`. Det här värdet måste matcha instrumentation nyckeln som används av ditt program. Loggutdata från profileraren anger vilka ikey profileraren igång med och om vi har upptäckt aktivitet från instrumentation nyckeln när vi profilering.
+3. Om en ”uppdatera”-knappen på följande sida visas klickar du på den för att uppdatera Application Insights-webbplatstillägg som installerar den senaste versionen Profiler-agenten.
+![Uppdatera webbplatstillägg][update-site-extension]
 
-* Manuellt utlösta web jobb kan aktiveras via webben Hook. Du kan hämta den här URL: en genom att högerklicka web-jobbet på instrumentpanelen och visa egenskaperna. I verktygsfältet, kan du markera **egenskaper** när du har valt web jobbet i tabellen. Den här metoden öppnar oändliga möjligheter som utlöser Profiler från din CI/CD-pipeline (till exempel VSTS) eller liknande Microsoft Flow (https://flow.microsoft.com/en-us/). Slutligen välja beror på hur komplexa som du vill göra din *run.cmd* filen (som kan vara en *run.ps1* filen), men flexibiliteten som det är.
+4. Klicka sedan på **ändra** till att se till att Profiler är på och välj **OK** att spara ändringarna.
+
+    ![Ändra och spara appinsikter][change-and-save-appinsights]
+
+5. Gå tillbaka till **Appinställningar** fliken för den App Service för att kontrollera följande för app-inställningar är inställda:
+    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Ersätt med rätt instrumenteringsnyckeln för application insights.
+    * **APPINSIGHTS_PORTALINFO**: ASP.NET
+    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
+
+    ![appinställningar för profiler][app-settings-for-profiler]
+
+6. Du kan också kontrollera tilläggsversion och se till att ingen uppdatering är tillgänglig.
+
+    ![Sök efter uppdatering av webbappstillägget][check-for-extension-update]
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Arbeta med Application Insights i Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 
 [appinsights-in-appservices]:./media/app-insights-profiler/AppInsights-AppServices.png
+[Enablement UI]: ./media/app-insights-profiler/Enablement_UI.png
+[profiler-app-setting]:./media/app-insights-profiler/profiler-app-setting.png
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
 [performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png
@@ -328,3 +320,15 @@ Utformning, du kan bara ha en *ApplicationInsightsProfiler.exe* process som kör
 [enable-profiler-banner]: ./media/app-insights-profiler/enable-profiler-banner.png
 [disable-profiler-webjob]: ./media/app-insights-profiler/disable-profiler-webjob.png
 [linked app services]: ./media/app-insights-profiler/linked-app-services.png
+[create-performance-test]: ./media/app-insights-profiler/new-performance-test.png
+[configure-performance-test]: ./media/app-insights-profiler/configure-performance-test.png
+[load-test-queued]: ./media/app-insights-profiler/load-test-queued.png
+[load-test-in-progress]: ./media/app-insights-profiler/load-test-inprogress.png
+[profiler-on-demand]: ./media/app-insights-profiler/Profiler-on-demand.png
+[configure-profiler-entry]: ./media/app-insights-profiler/configure-profiler-entry.png
+[enable-app-insights]: ./media/app-insights-profiler/enable-app-insights-blade-01.png
+[update-site-extension]: ./media/app-insights-profiler/update-site-extension-01.png
+[change-and-save-appinsights]: ./media/app-insights-profiler/change-and-save-appinsights-01.png
+[app-settings-for-profiler]: ./media/app-insights-profiler/appsettings-for-profiler-01.png
+[check-for-extension-update]: ./media/app-insights-profiler/check-extension-update-01.png
+[profiler-timeout]: ./media/app-insights-profiler/profiler-timeout.png

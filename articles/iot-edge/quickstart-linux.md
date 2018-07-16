@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 27e5b7fed227248d9d60c8ede460c9ecc65ca52d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 5346467dff40832aa35799ee3d532e99bf14d569
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096282"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38482082"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux x64-enhet
 
@@ -44,6 +44,22 @@ Lägg till Azure IoT-tillägget till Cloud Shell-instansen.
    az extension add --name azure-cli-iot-ext
    ```
 
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+Den här snabbstarten använder en Linux-dator som en IoT Edge-enhet. Om du inte har någon tillgänglig för testning kan du skapa en med hjälp av Azure CLI. 
+
+Skapa en ny resursgrupp. Du kan använda den här resursgruppen för andra Azure-resurser som du skapar i den här snabbstarten för att underlätta hanteringen.  
+
+   ```azurecli-interactive
+   az group create --name IoTEdgeResources --location westus
+   ```
+
+Skapa den virtuella datorn. Du behöver inte en särskilt stor virtuell dator för att testa IoT Edge. En storlek på **B1ms** räcker.
+
+   ```azurecli-interactive
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
+   ```
+
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 Starta snabbstarten genom att skapa din IoT Hub i Azure Portal.
@@ -51,17 +67,19 @@ Starta snabbstarten genom att skapa din IoT Hub i Azure Portal.
 
 Den kostnadsfria nivån för IoT Hub fungerar för den här snabbstarten. Om du har använt IoT Hub tidigare och redan har skapat en kostnadsfri hubb kan du använda den. Varje prenumeration kan bara ha en kostnadsfri IoT Hub. 
 
-1. Skapa en resursgrupp i Azure Cloud Shell. I följande exempel skapas en resursgrupp med namnet **TestResources** i regionen **USA, västra**. Genom att lägga alla resurser för snabbstarten och självstudierna i en grupp kan du hantera dem tillsammans. 
+1. I Azure-molngränssnittet skapar du en resursgrupp om du inte redan gjort det som en del av förutsättningarna. Genom att lägga alla resurser för snabbstarten och självstudierna i en grupp kan du hantera dem tillsammans. 
 
    ```azurecli-interactive
-   az group create --name TestResources --location westus
+   az group create --name IoTEdgeResources --location westus
    ```
 
-1. Skapa en IoT Hub i din nya resursgrupp. Följande kod skapar en kostnadsfri **F1**-hubb i resursgruppen **TestResources**. Ersätt *{hub_name}* med ett unikt namn för din IoT Hub.
+1. Skapa en IoT Hub i din nya resursgrupp. Följande kod skapar en kostnadsfri **F1**-hubb i resursgruppen **IoTEdgeResources**. Ersätt *{hub_name}* med ett unikt namn för din IoT Hub.
 
    ```azurecli-interactive
    az iot hub create --resource-group TestResources --name {hub_name} --sku F1 
    ```
+
+   Om du får ett felmeddelande eftersom det redan finns en kostnadsfri hubb i din prenumeration ändrar du SKU till **S1**. 
 
 ## <a name="register-an-iot-edge-device"></a>Registrera en IoT Edge-enhet
 
@@ -73,7 +91,7 @@ Skapa en enhetsidentitet för den simulerade enheten så att den kan kommunicera
 1. Ange följande kommando i Azure Cloud Shell för att skapa en enhet med namnet **myEdgeDevice** i din hubb.
 
    ```azurecli-interactive
-   az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
+   az iot hub device-identity create --hub-name {hub_name} --device-id myEdgeDevice --edge-enabled
    ```
 
 1. Hämta anslutningssträngen för din enhet som länkar den fysiska enheten med dess identitet i IoT Hub. 
@@ -91,6 +109,8 @@ Installera och starta Azure IoT Edge-körningen på enheten.
 ![Registrera en enhet][5]
 
 IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponenter. **IoT Edge säkerhetsdaemon** startas varje gång en Edge-enhet startar. Enheten startas genom att IoT Edge-agenten startas. **IoT Edge-agenten** underlättar distribution och övervakning av moduler på IoT Edge-enheten, inklusive IoT Edge-hubb. **IoT Edge-hubben** hanterar kommunikationen mellan moduler på IoT Edge-enheten, samt mellan enheten och IoT Hub. 
+
+Utför följande steg i den Linux-dator eller den virtuella dator som du förberedde för den här snabbstarten. 
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Registrera din enhet för att använda programvarudatabasen
 
@@ -122,11 +142,16 @@ Uppdatera **apt-get**.
    sudo apt-get update
    ```
 
-Installera Moby (en körmiljö för behållare) och dess CLI-kommandon. 
+Installera **Moby**, en körmiljö för containrar.
 
    ```bash
    sudo apt-get install moby-engine
-   sudo apt-get install moby-cli   
+   ```
+
+Installera CLI-kommandona för Moby. 
+
+   ```bash
+   sudo apt-get install moby-cli
    ```
 
 ### <a name="install-and-configure-the-iot-edge-security-daemon"></a>Installera och konfigurera IoT Edge säkerhetsdaemon
@@ -146,15 +171,19 @@ Denna säkerhetsdaemon installeras som en systemtjänst så att IoT Edge-körnin
    sudo nano /etc/iotedge/config.yaml
    ```
 
-3. Lägg till anslutningssträngen för IoT Edge-enheten som du kopierade när du registrerade din enhet. Ersätt värdet för variabeln **device_connection_string** som du kopierade tidigare i den här snabbstarten.
+3. Lägg till IoT Edge-enhetens anslutningssträng. Hitta variabeln **device_connection_string** och uppdatera dess värde med den sträng som du kopierade efter att du registrerade enheten.
 
-4. Starta om Edge säkerhetsdaemon:
+4. Spara och stäng filen. 
+
+   `CTRL + X`, `Y`, `Enter`
+
+4. Starta om IoT Edge-säkerhetsdaemon.
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-5. Kontrollera att Edge säkerhetsdaemon körs som en systemtjänst:
+5. Kontrollera att Edge-säkerhetsdaemon körs som en systemtjänst.
 
    ```bash
    sudo systemctl status iotedge
@@ -168,13 +197,14 @@ Denna säkerhetsdaemon installeras som en systemtjänst så att IoT Edge-körnin
    journalctl -u iotedge
    ```
 
-6. Visa de moduler som körs på din enhet: 
+6. Visa de moduler som körs på enheten. 
+
+   >[!TIP]
+   >Du måste använda *sudo* för att köra `iotedge`-kommandon till en början. Logga ut från datorn och logga in igen för att uppdatera behörigheterna. Sedan kan du köra `iotedge`-kommandon utan utökade behörigheter. 
 
    ```bash
    sudo iotedge list
    ```
-
-   Efter en utloggning och inloggning krävs inte *sudo* för kommandot ovan.
 
    ![Visa en modul på din enhet](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -214,7 +244,22 @@ Du kan visa telemetri som enheten skickar med hjälp av [verktyget IoT Hub Explo
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill fortsätta med IoT Edge-självstudierna kan du använda enheten du registrerade och konfigurerade i den här snabbstarten. Om du vill ta bort installationerna från din enhet kan du använda följande kommandon.  
+Om du vill fortsätta med IoT Edge-självstudierna kan du använda enheten du registrerade och konfigurerade i den här snabbstarten. I annat fall kan du ta bort de Azure-resurser som du skapade och ta bort IoT Edge-körningen från enheten. 
+
+### <a name="delete-azure-resources"></a>Ta bort Azure-resurser
+
+Om du skapade den virtuella datorn och IoT-hubben i en ny resursgrupp kan du ta bort den gruppen och alla associerade resurser. Om det finns något i den resursgruppen som du vill behålla tar du bara bort de enskilda resurser som du vill rensa. 
+
+Om du vill ta bort en resursgrupp följer du dessa steg: 
+
+1. Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
+2. I textrutan **Filtrera efter namn ...** , skriver du namnet på resursgruppen som innehåller din IoT Hub. 
+3. Till höger av din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
+4. Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp igen för att bekräfta och klicka sedan på **Ta bort**. Efter en liten stund tas resursgruppen och resurser som finns i den bort.
+
+### <a name="remove-the-iot-edge-runtime"></a>Ta bort IoT Edge-körningen
+
+Om du vill ta bort installationerna från din enhet kan du använda följande kommandon.  
 
 Ta bort IoT Edge-körningen.
 
@@ -222,22 +267,24 @@ Ta bort IoT Edge-körningen.
    sudo apt-get remove --purge iotedge
    ```
 
-Ta bort de behållare som har skapats på enheten. 
+När IoT Edge-körningen tas bort stoppas de containrar som den skapade, men de finns fortfarande kvar på enheten. Visa alla containrar.
 
    ```bash
-   sudo docker rm -f $(sudo docker ps -aq)
+   sudo docker ps -a
+   ```
+
+Ta bort de containrar som skapades på enheten av IoT Edge-körningen. Ändra namnet på containern tempSensor om du kallade den för något annat. 
+
+   ```bash
+   sudo docker rm -f tempSensor
+   sudo docker rm -f edgeHub
+   sudo docker rm -f edgeAgent
    ```
 
 Ta bort körmiljön för behållaren.
 
    ```bash
    sudo apt-get remove --purge moby
-   ```
-
-Du kan använda följande kommando för att ta bort resursgruppen som du skapade och alla resurser som är kopplade till den när du inte längre behöver Azure-resurserna som du skapade:
-
-   ```azurecli-interactive
-   az group delete --name TestResources
    ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Opal | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integration med Opal | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Opal.
 services: active-directory
 documentationCenter: na
@@ -15,48 +15,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f33d6338e00e6041c7b63776882c56566920990
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 00a32d853b0810a484dbd03734c5ef278be36ee5
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214407"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046475"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-opal"></a>Självstudier: Azure Active Directory-integrering med Opal
+# <a name="tutorial-azure-active-directory-integration-with-opal"></a>Självstudier: Azure Active Directory-integration med Opal
 
-I kursen får lära du att integrera Opal med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Opal med Azure Active Directory (AD Azure).
 
 Integrera Opal med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Opal.
-- Du kan aktivera användarna att automatiskt hämta loggat in på Opal (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton i en central plats - Azure-portalen.
+- Du kan aktivera användarna att automatiskt få loggat in på Opal (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton på en central plats – Azure portal.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med Opal, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Opal, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En Opal enkel inloggning aktiverad prenumeration
+- En Opal enkel inloggning aktiverat prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Opal från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-opal-from-the-gallery"></a>Att lägga till Opal från galleriet
-Du måste lägga till Opal från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Opal i Azure AD.
+För att konfigurera integrering av Opal i Azure AD, som du behöver lägga till Opal från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Opal från galleriet:**
 
@@ -66,31 +66,31 @@ Du måste lägga till Opal från galleriet i listan över hanterade SaaS-appar f
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Bladet Enterprise program][2]
+    ![Bladet för Enterprise-program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Opal**väljer **Opal** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **Opal**väljer **Opal** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Opal i resultatlistan](./media/opal-tutorial/tutorial_opal_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Opal baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Opal baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till användaren i Opal motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Opal upprättas.
+För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Opal är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Opal upprättas.
 
-I Opal, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+I Opal, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Opal, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Opal](#create-an-opal-test-user)**  – du har en motsvarighet för Britta Simon i Opal som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Opal](#create-an-opal-test-user)**  – du har en motsvarighet för Britta Simon i Opal som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -98,80 +98,80 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Opal:**
 
-1. I Azure-portalen på den **Opal** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Opal** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning länk][4]
+    ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
-    ![Enkel inloggning dialogrutan](./media/opal-tutorial/tutorial_opal_samlbase.png)
+    ![Enkel inloggning för dialogrutan](./media/opal-tutorial/tutorial_opal_samlbase.png)
 
 3. På den **Opal domän och URL: er** avsnittet, utför följande steg:
 
-    ![URL: er och opal domän med enkel inloggning information](./media/opal-tutorial/tutorial_opal_url.png)
+    ![Opal domän och URL: er med enkel inloggning för information](./media/opal-tutorial/tutorial_opal_url.png)
 
-    a. I den **identifierare** textruta, ange ett värde: `Opal`
+    a. I den **identifierare** textrutan, ange ett värde: `Opal`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.ouropal.com/auth/saml/callback`
+    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.ouropal.com/auth/saml/callback`
 
     > [!NOTE] 
-    > Reply URL-värdet är inte verkliga. Uppdatera värdet med det faktiska Reply-URL. Kontakta [Opal supportteamet](mailto:support@workwithopal.com) värdet hämtas.
+    > Svars-URL-värdet är inte verkliga. Uppdatera värdet med faktiska svars-URL. Kontakta [Opal supportteamet](mailto:support@workwithopal.com) att hämta värdet.
 
-4. Opal program förväntar SAML-intyg i ett specifikt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värden för attributen från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för det här.
+4. Opal program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för detta.
     
     ![Konfigurera enkel inloggning attb](./media/opal-tutorial/tutorial_opal_attribute.png)
     
-5. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden och utför följande steg:
+5. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden och utför följande steg:
     
     | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |    
     | Förnamn           | User.givenName |
     | Efternamn        | User.surname |
 
-    a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
+    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
 
-    ![Konfigurera enkel inloggning Lägg till](./media/opal-tutorial/tutorial_attribute_04.png)
+    ![Konfigurera enkel inloggning för Lägg till](./media/opal-tutorial/tutorial_attribute_04.png)
 
     ![Konfigurera enkel inloggning Addattb](./media/opal-tutorial/tutorial_attribute_05.png)
 
-    b. I den **namn** textruta ange attributets namn visas för den raden.
+    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
 
-    c. Från den **värdet** listan, ange det attributvärde som visas för den raden.
+    c. Från den **värdet** anger attributvärdet som visas för den raden.
 
-    d. Lämna den **Namespace** tomt.
+    d. Lämna den **Namespace** tom.
     
     e. Klicka på **OK**.
  
 6. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
-    ![Länken hämta certifikatet](./media/opal-tutorial/tutorial_opal_certificate.png) 
+    ![Länk för hämtning av certifikat](./media/opal-tutorial/tutorial_opal_certificate.png) 
 
 7. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara](./media/opal-tutorial/tutorial_general_400.png) 
+    ![Konfigurera enkel inloggning spara-knapp](./media/opal-tutorial/tutorial_general_400.png) 
 
-8. Konfigurera enkel inloggning på **Opal** sida, måste du skicka den hämtade **XML-Metadata för** till [Opal supportteamet](mailto:support@workwithopal.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
+8. Att konfigurera enkel inloggning på **Opal** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Opal supportteamet](mailto:support@workwithopal.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-   ![Skapa en testanvändare i Azure AD][100]
+   ![Skapa en Azure AD-testanvändare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
     ![Azure Active Directory-knappen](./media/opal-tutorial/create_aaduser_01.png)
 
 2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-    ![”Användare och grupper” och ”alla användare” länkar](./media/opal-tutorial/create_aaduser_02.png)
+    ![”Användare och grupper” och ”alla användare”-länkar](./media/opal-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/opal-tutorial/create_aaduser_03.png)
 
@@ -181,56 +181,56 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     a. I den **namn** skriver **BrittaSimon**.
 
-    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
 
-    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
+    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
 
     d. Klicka på **Skapa**.
   
-### <a name="create-an-opal-test-user"></a>Skapa en testanvändare Opal
+### <a name="create-an-opal-test-user"></a>Skapa en Opal testanvändare
 
 I det här avsnittet skapar du en användare som kallas Britta Simon i Opal. Arbeta med [Opal supportteamet](mailto:support@workwithopal.com) att lägga till användare i Opal-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Opal.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Opal.
 
 ![Tilldela rollen][200] 
 
-**Om du vill tilldela Opal Britta Simon utför du följande steg:**
+**Om du vill tilldela Britta Simon Opal, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **Opal**.
+2. I listan med program väljer **Opal**.
 
     ![Länken Opal i listan med program](./media/opal-tutorial/tutorial_opal_app.png)  
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Opal på åtkomstpanelen du bör få automatiskt loggat in på ditt Opal program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen Opal i åtkomstpanelen du bör få automatiskt loggat in på ditt Opal program.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

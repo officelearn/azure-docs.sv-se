@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med LinkedIn försäljning Navigator | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integration med LinkedIn Sales Navigator | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och LinkedInSalesNavigator.
 services: active-directory
 documentationCenter: na
@@ -14,50 +14,50 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 2bc4f42b0a22ce804db9290728944575888f9c72
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 1df301e197c90970aa1e73620f94f977ecd34ba0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287454"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046914"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Självstudier: Azure Active Directory-integrering med LinkedIn försäljning Navigator
+# <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Självstudier: Azure Active Directory-integration med LinkedIn Sales Navigator
 
-Lär dig hur du integrerar Navigatören för LinkedIn försäljning med Azure Active Directory (AD Azure) i den här självstudiekursen.
+I den här självstudien får lära du att integrera LinkedIn Sales Navigator med Azure Active Directory (AD Azure).
 
-Integrera LinkedIn försäljning Navigator med Azure AD ger dig följande fördelar:
+Integrera LinkedIn Sales Navigator med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till LinkedIn försäljning Navigator
-- Du kan aktivera användarna att automatiskt hämta loggat in på LinkedIn försäljning Navigator (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan styra i Azure AD som har åtkomst till LinkedIn Sales Navigator
+- Du kan aktivera användarna att automatiskt få loggat in på LinkedIn Sales Navigator (Single Sign-On) med sina Azure AD-konton
+- Du kan hantera dina konton på en central plats – Azure portal
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD Bläddra [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD, Bläddra [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med LinkedIn försäljning Navigator behöver du följande:
+Om du vill konfigurera Azure AD-integrering med LinkedIn Sales Navigator, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En LinkedIn försäljning Navigator enkel inloggning på aktiverade prenumeration
+- En LinkedIn Sales Navigator enkel inloggning aktiverad prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Undvik att använda i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Undvik att använda i produktionsmiljön, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Lägga till LinkedIn försäljning Navigator från galleriet
+1. Att lägga till LinkedIn Sales Navigator från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
-## <a name="adding-linkedin-sales-navigator-from-the-gallery"></a>Lägga till LinkedIn försäljning Navigator från galleriet
-Du måste lägga till LinkedIn försäljning Navigator från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av LinkedIn försäljning Navigator i Azure AD.
+## <a name="adding-linkedin-sales-navigator-from-the-gallery"></a>Att lägga till LinkedIn Sales Navigator från galleriet
+Om du vill konfigurera integreringen av LinkedIn Sales Navigator till Azure AD, som du behöver lägga till LinkedIn Sales Navigator från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till LinkedIn försäljning Navigator från galleriet:**
+**Utför följande steg för att lägga till LinkedIn Sales Navigator från galleriet:**
 
 1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
@@ -71,103 +71,103 @@ Du måste lägga till LinkedIn försäljning Navigator från galleriet i listan 
 
     ![Program][3]
 
-4. I sökrutan skriver **LinkedIn försäljning Navigator**.
+4. I sökrutan skriver **LinkedIn Sales Navigator**.
 
-    ![Skapa en testanvändare i Azure AD](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_search.png)
+    ![Skapa en Azure AD-användare för testning](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_search.png)
 
-5. Välj i resultatpanelen **LinkedIn försäljning Navigator**, och klicka sedan på **Lägg till** för att lägga till programmet.
+5. I resultatpanelen väljer **LinkedIn Sales Navigator**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_addfromgallery.png)
+    ![Skapa en Azure AD-användare för testning](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med LinkedIn försäljning Navigator baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med LinkedIn Sales Navigator baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till användaren i LinkedIn försäljning Navigator motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk mellan en Azure AD-användare och relaterade användaren i LinkedIn försäljning Navigator upprättas.
+För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i LinkedIn Sales Navigator är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i LinkedIn Sales Navigator upprättas.
 
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i LinkedIn försäljning Navigator.
+Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i LinkedIn Sales Navigator.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med LinkedIn försäljning Navigator, måste du utföra följande byggblock:
+Om du vill konfigurera och testa Azure AD enkel inloggning med LinkedIn Sales Navigator, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare LinkedIn försäljning Navigator](#creating-a-linkedin-sales-navigator-test-user)**  – du har en motsvarighet för Britta Simon i LinkedIn försäljning Navigator som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare LinkedIn Sales Navigator](#creating-a-linkedin-sales-navigator-test-user)**  – du har en motsvarighet för Britta Simon i LinkedIn Sales Navigator som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i tillämpningsprogrammet LinkedIn försäljning Navigator.
+I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt LinkedIn Sales Navigator-program.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med LinkedIn försäljning Navigator:**
+**Utför följande steg för att konfigurera Azure AD enkel inloggning med LinkedIn Sales Navigator:**
 
-1. I Azure-portalen på den **LinkedIn försäljning Navigator** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **LinkedIn Sales Navigator** program integration-sidan klickar du på **enkel inloggning**.
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan i **läge** Välj **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan i **läge** Välj **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_samlbase.png)
 
-3. I en annan webbläsarfönster inloggning till din **LinkedIn försäljning Navigator** webbplats som administratör.
+3. I ett annat webbläsarfönster inloggning till din **LinkedIn Sales Navigator** webbplats som administratör.
 
-4. I **Kontocenter**, klickar du på **globala inställningar** under **inställningar**. Markera också **försäljning Navigator** från den nedrullningsbara listan.
+4. I **Kontocenter**, klickar du på **globala inställningar** under **inställningar**. Markera också **Sales Navigator** från den nedrullningsbara listan.
 
     ![Konfigurera enkel inloggning](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
 
-5. Klicka på **eller klicka här om du vill läsa in och kopiera enskilda fält i formuläret** och kopiera **enhets-Id** och **Assertion konsumenten Access (ACS) Url**.
+5. Klicka på **eller klicka här om du vill läsa in och kopiera enskilda fält i formuläret** och kopiera **entitets-Id** och **Assertion konsument Access (ACS) Url**.
 
     ![Konfigurera enkel inloggning](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
 
-6. På Azure-portalen under **URL: er och domänen för LinkedIn förs Navigator** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge.
+6. På Azure-portalen under **LinkedIn Sales Navigator domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge.
 
     ![Konfigurera enkel inloggning](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url1.png)
 
-    a. I den **identifierare** textruta, ange den **enhets-ID** kopieras från LinkedIn-portalen 
+    a. I den **identifierare** textrutan anger du den **entitets-ID** kopieras från LinkedIn-portalen 
 
-    b. I den **Reply URL** textruta ange den **Assertion konsumenten Access (ACS) Url** kopieras från LinkedIn-portalen
+    b. I den **svars-URL** textrutan anger du den **Assertion konsument Access (ACS) Url** kopieras från LinkedIn-portalen
 
-7. Kontrollera **visa avancerade inställningar för URL: en**, om du vill konfigurera programmet i **SP** initierade läge.
+7. Kontrollera **visa avancerade URL-inställningar**, om du vill konfigurera programmet i **SP** initierade läge.
 
     ![Konfigurera enkel inloggning](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url2.png)
 
-    I den **inloggnings-URL** textruta Skriv det värde som använder följande mönster: `https://www.linkedin.com/checkpoint/enterprise/login/<account id>?application=salesNavigator`
+    I den **inloggnings-URL** textrutan skriver du värdet med följande mönster: `https://www.linkedin.com/checkpoint/enterprise/login/<account id>?application=salesNavigator`
 
-8. Din **LinkedIn försäljning Navigator** program förväntar SAML-intyg i ett specifikt format, vilket kräver att du kan lägga till anpassade attributmappning konfigurationen för SAML-token attribut. Följande skärmbild visar ett exempel. Standardvärdet för **användar-ID** är **user.userprincipalname** men LinkedIn försäljning Navigator förväntar att det ska mappas med användarens e-postadress. Du kan använda **user.mail** attribut i listan eller använda rätt attribut-värde baserat på konfigurationen för din organisation. 
+8. Din **LinkedIn Sales Navigator** program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar ett exempel. Standardvärdet för **användaridentifierare** är **user.userprincipalname** men LinkedIn Sales Navigator förväntar sig den mappas med användarens e-postadress. Du kan använda **user.mail** attribut i listan eller Använd rätt attribut-värde baserat på konfigurationen för din organisation. 
 
     ![Konfigurera enkel inloggning](./media/linkedinsalesnavigator-tutorial/updateusermail.png)
     
-9. I **användarattribut** klickar du på **visa och redigera andra användarattribut** och ange attribut. Användaren behöver lägga till fyra anspråk med namnet **e-post**, **avdelning**, **Förnamn**, och **efternamn** och värdet är för att mappa med **user.mail**, **user.department**, **user.givenname**, och **user.surname** respektive
+9. I **användarattribut** klickar du på **visa och redigera alla andra användarattribut** och ange attribut. Användaren behöver för att lägga till fyra anspråk med namnet **e-post**, **avdelning**, **firstname**, och **lastname** och värdet är mappas med **user.mail**, **user.department**, **user.givenname**, och **user.surname** respektive
 
     | Attributnamn | Attributvärde |
     | --- | --- |    
     | e-post| User.Mail |
-    | avdelning| User.Department |
+    | Avdelning| User.Department |
     | Förnamn| User.givenName |
     | Efternamn| User.surname |
     
-    ![Skapa en testanvändare i Azure AD](./media/linkedinsalesnavigator-tutorial/userattribute.png)
+    ![Skapa en Azure AD-användare för testning](./media/linkedinsalesnavigator-tutorial/userattribute.png)
     
     a. Klicka på **lägga till attributet** att öppna dialogrutan attribut.
     
-    ![Skapa en testanvändare i Azure AD](./media/linkedinsalesnavigator-tutorial/tutorial_attribute_04.png)
+    ![Skapa en Azure AD-användare för testning](./media/linkedinsalesnavigator-tutorial/tutorial_attribute_04.png)
     
-    ![Skapa en testanvändare i Azure AD](./media/linkedinsalesnavigator-tutorial/tutorial_attribute_05.png)
+    ![Skapa en Azure AD-användare för testning](./media/linkedinsalesnavigator-tutorial/tutorial_attribute_05.png)
    
-    b. I den **namn** textruta ange attributets namn visas för den raden.
+    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
     
-    c. Från den **värdet** listan, ange det attributvärde som visas för den raden.
+    c. Från den **värdet** anger attributvärdet som visas för den raden.
     
     d. Klicka på **Ok**
 
-10. Utför följande steg på den **namn** attribut -
+10. Utför följande steg på den **namn** attributet -
 
-    a. Klicka på attributet för att öppna den **Redigera attribut** fönster.
+    a. Klicka på attribut så öppnas den **redigera attributet** fönster.
 
     ![Konfigurera enkel inloggning](./media/linkedinsalesnavigator-tutorial/url_update.png)
 
     b. Ta bort URL-värdet från den **namnområde**.
     
-    c. Klicka på **Ok** spara inställningen.
+    c. Klicka på **Ok** att spara inställningen.
 
 11. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara XML-filen på datorn.
 
@@ -177,7 +177,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/linkedinsalesnavigator-tutorial/tutorial_general_400.png)
 
-13. Gå till **LinkedIn admininställningar** avsnitt. Klicka på **överför XML-filen** att överföra Metadata XML-filen som du har hämtat från Azure-portalen.
+13. Gå till **LinkedIn administratörsinställningar** avsnittet. Klicka på **ladda upp XML-filen** att överföra Metadata-XML-filen som du har hämtat från Azure-portalen.
 
     ![Konfigurera enkel inloggning](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
@@ -187,85 +187,85 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 
 > [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+![Skapa en Azure AD-användare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
 
-    ![Skapa en testanvändare i Azure AD](./media/linkedinsalesnavigator-tutorial/create_aaduser_01.png) 
+    ![Skapa en Azure AD-användare för testning](./media/linkedinsalesnavigator-tutorial/create_aaduser_01.png) 
 
-2. Gå till **användare och grupper** och på **alla användare**.
+2. Gå till **användare och grupper** och klicka på **alla användare**.
     
-    ![Skapa en testanvändare i Azure AD](./media/linkedinsalesnavigator-tutorial/create_aaduser_02.png) 
+    ![Skapa en Azure AD-användare för testning](./media/linkedinsalesnavigator-tutorial/create_aaduser_02.png) 
 
-3. Klicka på överst i dialogrutan **Lägg till** att öppna den **användaren** dialogrutan.
+3. Överst i dialogrutan klickar du på **Lägg till** att öppna den **användaren** dialogrutan.
  
-    ![Skapa en testanvändare i Azure AD](./media/linkedinsalesnavigator-tutorial/create_aaduser_03.png) 
+    ![Skapa en Azure AD-användare för testning](./media/linkedinsalesnavigator-tutorial/create_aaduser_03.png) 
 
 4. På den **användaren** dialogrutan utför följande steg:
  
-    ![Skapa en testanvändare i Azure AD](./media/linkedinsalesnavigator-tutorial/create_aaduser_04.png) 
+    ![Skapa en Azure AD-användare för testning](./media/linkedinsalesnavigator-tutorial/create_aaduser_04.png) 
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    a. I den **namn** textrutan typ **BrittaSimon**.
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
  
-### <a name="creating-a-linkedin-sales-navigator-test-user"></a>Skapa en testanvändare LinkedIn försäljning Navigator
+### <a name="creating-a-linkedin-sales-navigator-test-user"></a>Skapa en testanvändare LinkedIn Sales Navigator
 
-Länkade försäljning Navigator programmet stöder bara i tid JIT-användaretablering och authentication-användare skapas automatiskt i programmet. Aktivera **automatiskt tilldela licenser** tilldela en licens till användaren.
+Länkade Sales Navigator programmet stöder bara i tid (JIT) användaretablering och -autentiserade användare skapas automatiskt i programmet. Aktivera **automatiskt tilldela licenser** tilldela en licens till användaren.
    
-   ![Skapa en testanvändare i Azure AD](./media/linkedinsalesnavigator-tutorial/LinkedinUserprovswitch.png)
+   ![Skapa en Azure AD-användare för testning](./media/linkedinsalesnavigator-tutorial/LinkedinUserprovswitch.png)
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till LinkedIn försäljning Navigator.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till LinkedIn Sales Navigator.
 
 ![Tilldela användare][200] 
 
-**Om du vill tilldela LinkedIn försäljning Navigator Britta Simon utför du följande steg:**
+**Om du vill tilldela Britta Simon på LinkedIn Sales Navigator, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **LinkedIn försäljning Navigator**.
+2. I listan med program väljer **LinkedIn Sales Navigator**.
 
     ![Konfigurera enkel inloggning](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_app.png) 
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen LinkedIn försäljning Navigator på åtkomstpanelen bör du omdirigeras till organisationens sida där du måste ange ditt personliga LinkedIn-kontoinformation. Den länkar ditt eget konto med ditt företag LinkedIn-konto. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+När du klickar på LinkedIn Sales Navigator-panelen i åtkomstpanelen, bör du omdirigeras till organisationens sida där du måste ange din personliga LinkedIn-kontoinformation. Den länkar ditt personliga konto med ditt företag LinkedIn-konto. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

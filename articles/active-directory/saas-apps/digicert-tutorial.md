@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med DigiCert | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integration med DigiCert | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och DigiCert.
 services: active-directory
 documentationCenter: na
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 9c8ecac3adc3ac06eed5c87c3e1c92c91ed67d70
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 428878d3b1a8a369b58b045544f034eb4235c74c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227167"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047876"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Självstudier: Azure Active Directory-integrering med DigiCert
+# <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Självstudier: Azure Active Directory-integration med DigiCert
 
-I kursen får lära du att integrera DigiCert med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar DigiCert med Azure Active Directory (AD Azure).
 
 Integrera DigiCert med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till DigiCert
-- Du kan aktivera användarna att automatiskt hämta loggat in på DigiCert (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan aktivera användarna att automatiskt få loggat in på DigiCert (Single Sign-On) med sina Azure AD-konton
+- Du kan hantera dina konton på en central plats – Azure portal
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med DigiCert, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med DigiCert, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En DigiCert enkel inloggning aktiverad prenumeration
+- En DigiCert enkel inloggning aktiverat prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till DigiCert från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-digicert-from-the-gallery"></a>Att lägga till DigiCert från galleriet
-Du måste lägga till DigiCert från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av DigiCert i Azure AD.
+Om du vill konfigurera integreringen av DigiCert till Azure AD, som du behöver lägga till DigiCert från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till DigiCert från galleriet:**
 
@@ -67,32 +67,32 @@ Du måste lägga till DigiCert från galleriet i listan över hanterade SaaS-app
 
     ![Program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
 4. I sökrutan skriver **DigiCert**.
 
-    ![Skapa en testanvändare i Azure AD](./media/digicert-tutorial/tutorial_digicert_search.png)
+    ![Skapa en Azure AD-användare för testning](./media/digicert-tutorial/tutorial_digicert_search.png)
 
-5. Välj i resultatpanelen **DigiCert**, och klicka sedan på **Lägg till** för att lägga till programmet.
+5. I resultatpanelen väljer **DigiCert**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/digicert-tutorial/tutorial_digicert_addfromgallery.png)
+    ![Skapa en Azure AD-användare för testning](./media/digicert-tutorial/tutorial_digicert_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med DigiCert baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med DigiCert baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till användaren i DigiCert motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i DigiCert upprättas.
+För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i DigiCert till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i DigiCert upprättas.
 
-I DigiCert, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+I DigiCert, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med DigiCert, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare DigiCert](#creating-a-digicert-test-user)**  – du har en motsvarighet för Britta Simon i DigiCert som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare DigiCert](#creating-a-digicert-test-user)**  – du har en motsvarighet för Britta Simon i DigiCert som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -100,11 +100,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med DigiCert:**
 
-1. I Azure-portalen på den **DigiCert** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **DigiCert** program integration-sidan klickar du på **enkel inloggning**.
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/digicert-tutorial/tutorial_digicert_samlbase.png)
 
@@ -112,31 +112,31 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/digicert-tutorial/tutorial_digicert_url.png)
     
-    I den **identifierare** textruta anger du URL: `https://www.digicert.com/sso`
+    I den **identifierare** textrutan anger du URL: `https://www.digicert.com/sso`
 
-4. DigiCert program förväntar SAML-intyg i ett specifikt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värden för attributen från den ”**användarattribut**” avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel på den här konfigurationen. 
+4. DigiCert-program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Följande skärmbild visar ett exempel för den här konfigurationen. 
 
     ![Konfigurera enkel inloggning](./media/digicert-tutorial/tutorial_digicert_attributes.png)
     
-5. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden och utför följande steg:
+5. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden och utför följande steg:
     
     | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |    
-    | Företag | < companycode > |
+    | Företagets | < companycode > |
     | digicertrole | CanAccessCertCentral |
 
     > [!Note]
-    > Värdet för **företagets** attributet är inte verkliga. Uppdatera det här värdet med verkligt företagskod. Att hämta värdet för **företagets** attributet Kontakta [DigiCert supportteamet](mailto:support@digicert.com).
+    > Värdet för **företagets** attributet inte är verkliga. Uppdatera det här värdet med faktiska företagskod. Att hämta värdet för **företagets** attributet Kontakta [DigiCert-supportteamet](mailto:support@digicert.com).
 
-    a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
+    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
 
     ![Konfigurera enkel inloggning](./media/digicert-tutorial/tutorial_attribute_04.png)
 
     ![Konfigurera enkel inloggning](./media/digicert-tutorial/tutorial_attribute_05.png)
 
-    b. I den **namn** textruta ange attributets namn visas för den raden.
+    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
 
-    c. Från den **värdet** listan, ange det attributvärde som visas för den raden.
+    c. Från den **värdet** anger attributvärdet som visas för den raden.
     
     d. Klicka på **OK**. 
 
@@ -148,83 +148,83 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/digicert-tutorial/tutorial_general_400.png)
 
-8. Konfigurera enkel inloggning på **DigiCert** sida, måste du skicka den hämtade **XML-Metadata för** till [DigiCert supportteamet](mailto:support@digicert.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
+8. Att konfigurera enkel inloggning på **DigiCert** sida, som du behöver skicka de hämtade **XML-Metadata för** till [DigiCert-supportteamet](mailto:support@digicert.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+![Skapa en Azure AD-användare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
 
-    ![Skapa en testanvändare i Azure AD](./media/digicert-tutorial/create_aaduser_01.png) 
+    ![Skapa en Azure AD-användare för testning](./media/digicert-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
+2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
-    ![Skapa en testanvändare i Azure AD](./media/digicert-tutorial/create_aaduser_02.png) 
+    ![Skapa en Azure AD-användare för testning](./media/digicert-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
-    ![Skapa en testanvändare i Azure AD](./media/digicert-tutorial/create_aaduser_03.png) 
+    ![Skapa en Azure AD-användare för testning](./media/digicert-tutorial/create_aaduser_03.png) 
 
 4. På den **användaren** dialogrutan utför följande steg:
  
-    ![Skapa en testanvändare i Azure AD](./media/digicert-tutorial/create_aaduser_04.png) 
+    ![Skapa en Azure AD-användare för testning](./media/digicert-tutorial/create_aaduser_04.png) 
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    a. I den **namn** textrutan typ **BrittaSimon**.
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
  
-### <a name="creating-a-digicert-test-user"></a>Skapa en testanvändare DigiCert
+### <a name="creating-a-digicert-test-user"></a>Skapa en DigiCert testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i DigiCert. Se tillsammans med [DigiCert supportteamet](mailto:support@digicert.com) att lägga till användare i DigiCert.
+I det här avsnittet skapar du en användare som kallas Britta Simon i DigiCert. Kontakta [DigiCert-supportteamet](mailto:support@digicert.com) att lägga till användare i DigiCert.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till DigiCert.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till DigiCert.
 
 ![Tilldela användare][200] 
 
-**Om du vill tilldela DigiCert Britta Simon utför du följande steg:**
+**Om du vill tilldela Britta Simon DigiCert, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **DigiCert**.
+2. I listan med program väljer **DigiCert**.
 
     ![Konfigurera enkel inloggning](./media/digicert-tutorial/tutorial_digicert_app.png) 
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen DigiCert på åtkomstpanelen du bör få automatiskt loggat in på ditt DeigiCert program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen DigiCert i åtkomstpanelen du bör få automatiskt loggat in på ditt DeigiCert program.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

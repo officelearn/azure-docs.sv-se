@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 71ccae1951020a522fbbdddcdce0bbeeea5f1fb9
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: b085911f760693a774d443ca055944268b20f055
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235798"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869589"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Självstudie: Definiera en ny enhetstyp i Azure IoT Central-programmet
 
@@ -26,8 +26,8 @@ I den här självstudien skapar du enhetsmallen **Ansluten luftkonditioneringsen
 
 * Skickar telemetri såsom temperatur och luftfuktighet.
 * Rapporterar tillstånd, till exempel om den är på eller av.
-* Har egenskaper såsom version av inbyggd programvara och serienummer.
-* Har inställningar såsom måltemperatur och fläkthastighet.
+* Har egenskaper som exempelvis version av inbyggd programvara och serienummer.
+* Har inställningar som exempelvis måltemperatur och fläkthastighet.
 
 I den här guiden får du lära dig hur man:
 
@@ -41,6 +41,7 @@ I den här guiden får du lära dig hur man:
 > * Visa simulerat tillstånd
 > * Använda enhetsegenskaper
 > * Använda enhetsinställningar
+> * Använda kommandon
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -50,23 +51,29 @@ Du behöver ett Azure IoT Central-program för att kunna genomföra den här sj�
 
 2. Ange den e-postadress och det lösenord som du använder för att få åtkomst till din Azure-prenumeration:
 
-   ![Ange ditt organisationskonto](media/tutorial-define-device-type/sign-in.png)
+   ![Ange ditt organisationskonto](./media/tutorial-define-device-type/sign-in.png)
 
 3. Börja skapa ett nytt Azure IoT Central-program genom att välja **Nytt program**:
 
-    ![Sidan Application Manager (Programhanterare) i Azure IoT Central](media/tutorial-define-device-type/iotcentralhome.png)
+    ![Sidan Application Manager (Programhanterare) i Azure IoT Central](./media/tutorial-define-device-type/iotcentralhome.png)
 
 4. Så här skapar du ett nytt Azure IoT Central-program:
 
     * Välj ett eget programnamn som **Contoso luftkonditioneringsenheter**. Du får ett unikt URL-prefix från Azure IoT Central. Du kan ändra det här URL-prefixet till något som är enklare att komma ihåg.
+    
     * Välj en Azure Active Directory och en Azure-prenumeration som ska användas. Mer information om kataloger och prenumerationer finns på sidan om [hur du skapar ett Azure IoT Central-program](howto-create-application.md).
+    
     * Du kan antingen använda en befintlig resursgrupp eller skapa en ny resursgrupp med ett valfritt namn. Exempel: **contoso-rg**.
+    
     * Välj den geografiska region som är närmast dig.
+    
     * Välj programmallen **Anpassat program**.
+    
     * Välj betalningsplanen **Free 30 Day Trial Application** (Kostnadsfritt 30-dagars utvärderingsprogram).
+    
     * Välj **Skapa**.
 
-    ![Sidan Skapa program i Azure IoT Central](media/tutorial-define-device-type/iotcentralcreate.png)
+    ![Sidan Skapa program i Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreate.png)
 
 Mer information finns på sidan för att [skapa ett Azure IoT Central-program](howto-create-application.md).
 
@@ -74,9 +81,9 @@ Mer information finns på sidan för att [skapa ett Azure IoT Central-program](h
 
 Som byggare kan du skapa och redigera enhetsmallar i programmet. När du skapar en enhetsmall genererar Azure IoT Central en simulerad enhet utifrån mallen. Den simulerade enheten genererar telemetri som gör att du kan testa programmets beteende innan du ansluter en fysisk enhet.
 
-Om du vill lägga till en ny enhetsmall för programmet går du till sidan **Programverktyg**. För att göra det väljer du **Programverktyg** på den vänstra navigeringsmenyn:
+Om du vill lägga till en ny enhetsmall för programmet går du till sidan **Programverktyg**. För att göra det väljer du **Programverktyg** på den vänstra navigeringsmenyn.
 
-    ![Application Builder page](media/tutorial-define-device-type/builderhome.png)
+![Sidan Application Builder](./media/tutorial-define-device-type/builderhome.png)
 
 ## <a name="add-a-device-and-define-telemetry"></a>Lägga till en enhet och definiera telemetri
 
@@ -84,37 +91,43 @@ Följande steg visar hur du skapar en ny enhetsmall kallad **Ansluten luftkondit
 
 1. På sidan **Programverktyg** väljer du **Skapa enhetsmall**:
 
-    ![Skapa enhetsmall på sidan Programverktyg](media/tutorial-define-device-type/builderhomedevices.png)
+    ![Skapa enhetsmall på sidan Programverktyg](./media/tutorial-define-device-type/builderhomedevices.png)
 
 2. På sidan **Enhetsmallar** väljer du **Anpassad**. Med en **anpassad** enhetsmall kan du definiera alla egenskaper och beteenden för den anslutna luftkonditioneringsenheten:
 
-    ![Enheter](media/tutorial-define-device-type/builderhomedevicescustom.png)
+    ![Enheter](./media/tutorial-define-device-type/builderhomedevicescustom.png)
 
 3. På sidan för att **skapa en ny enhetsmall** anger du **Ansluten luftkonditioneringsenhet** som namnet på enheten och väljer sedan **Skapa**. Du kan även ladda upp en bild av enheten som är synlig för operatörer i Device Explorer:
 
-    ![Anpassad enhet](media/tutorial-define-device-type/createcustomdevice.png)
+    ![Anpassad enhet](./media/tutorial-define-device-type/createcustomdevice.png)
 
 4. I enhetsmallen **Ansluten luftkonditioneringsenhet** kontrollerar du att du är på sidan **Mått**, där du definierar telemetrin. Varje enhetsmall som du definierar har separata sidor där du kan:
 
     * Ange mått som telemetri, händelse och tillstånd, som skickas av enheten.
+    
     * Definiera de inställningar som används för att styra enheten.
+    
     * Definiera de egenskaper som används för att registrera information om enheten.
+    
     * Definiera de regler som är kopplade till enheten.
+    
     * Anpassa enhetens instrumentpanelen enheten för dina operatörer.
 
-    ![Luftkonditioneringsmått](media/tutorial-define-device-type/airconmeasurements.png)
+    ![Luftkonditioneringsmått](./media/tutorial-define-device-type/airconmeasurements.png)
 
     > [!NOTE]
     > Om du vill ändra namn på enheten eller enhetsmallen klickar du på texten längst upp på sidan.
 
 5. För att lägga till temperaturtelemetrimått väljer du **Nytt mått**. Välj sedan **Telemetri** som måttenhet:
 
-    ![Mått för ansluten luftkonditioneringsenhet](media/tutorial-define-device-type/airconmeasurementsnew.png)
+    ![Mått för ansluten luftkonditioneringsenhet](./media/tutorial-define-device-type/airconmeasurementsnew.png)
 
 6. Varje typ av telemetri som du definierar för en enhetsmall innehåller [konfigurationsalternativ](howto-set-up-template.md) som:
 
     * Visningsalternativ.
+
     * Information om telemetrin.
+
     * Simuleringsparametrar.
 
     För att konfigurera telemetri för **Temperatur** använder du informationen i följande tabell:
@@ -130,15 +143,15 @@ Följande steg visar hur du skapar en ny enhetsmall kallad **Ansluten luftkondit
 
     Du kan även välja en färg för telemetrivisningen. För att spara telemetridefinition väljer du **Spara**:
 
-    ![Konfigurera temperatursimulering](media/tutorial-define-device-type/temperaturesimulation.png)
+    ![Konfigurera temperatursimulering](./media/tutorial-define-device-type/temperaturesimulation.png)
 
 7. Efter en kort stund visar sidan **Mått** ett diagram över temperaturtelemetrin från den simulerade anslutna luftkonditioneringsenheten. Använd kontrollerna för att hantera synlighet eller sammansättning eller redigera telemetridefinitionen:
 
-    ![Visa temperatursimulering](media/tutorial-define-device-type/viewsimulation.png)
+    ![Visa temperatursimulering](./media/tutorial-define-device-type/viewsimulation.png)
 
 8. Du kan även anpassa diagrammet med kontrollerna **Rad**, **Staplad** och **Redigera tidsintervall**:
 
-    ![Anpassa diagrammet](media/tutorial-define-device-type/customizechart.png)
+    ![Anpassa diagrammet](./media/tutorial-define-device-type/customizechart.png)
 
 ## <a name="define-event-measurement"></a>Definiera händelsemätning
 
@@ -146,13 +159,15 @@ Du kan använda händelsen för att definiera tidpunktsdata som skickas av enhet
 
 1. För att lägga till händelsemåttet **Fel på fläktmotor** väljer du **Nytt mått**. Välj sedan **Händelse** som måttyp:
 
-    ![Mått för ansluten luftkonditioneringsenhet](media/tutorial-define-device-type/eventnew.png)
+    ![Mått för ansluten luftkonditioneringsenhet](./media/tutorial-define-device-type/eventnew.png)
 
 2. Varje typ av händelse som du definierar för en enhetsmall innehåller [konfigurationsalternativ](howto-set-up-template.md) som:
 
-    * Visningsnamn.
-    * Fältnamn.
-    * Allvarlighetsgrad.
+   * Visningsnamn.
+
+   * Fältnamn.
+
+   * Allvarlighetsgrad.
 
     För att konfigurera händelsen **Fel på fläktmotor** använder du informationen i följande tabell:
 
@@ -164,15 +179,15 @@ Du kan använda händelsen för att definiera tidpunktsdata som skickas av enhet
 
     Spara händelsedefinitionen genom att välja **Spara**:
 
-    ![Konfigurera händelsemätning](media/tutorial-define-device-type/eventconfiguration.png)
+    ![Konfigurera händelsemätning](./media/tutorial-define-device-type/eventconfiguration.png)
 
 3. Efter en kort stund visar sidan **Mått** ett diagram över de händelser som genereras från den simulerade anslutna luftkonditioneringsenheten. Använd kontrollerna för att hantera synlighet eller redigera händelsedefinitionen:
 
-    ![Visa händelsesimulering](media/tutorial-define-device-type/eventview.png)
+    ![Visa händelsesimulering](./media/tutorial-define-device-type/eventview.png)
 
 1. Klicka på händelsen i diagrammet om du vill se mer information om händelsen:
 
-    ![Visa händelseinformation](media/tutorial-define-device-type/eventviewdetail.png)
+    ![Visa händelseinformation](./media/tutorial-define-device-type/eventviewdetail.png)
 
 ## <a name="define-state-measurement"></a>Definiera tillståndsmätning
 
@@ -180,14 +195,17 @@ Du kan använda Tillstånd för att definiera och visualisera tillståndet för 
 
 1. För att lägga till måttet **Fläktläge** väljer du **Nytt mått**. Välj sedan **Tillstånd** som måttyp:
 
-    ![Tillståndsmått för ansluten luftkonditioneringsenhet](media/tutorial-define-device-type/statenew.png)
+    ![Tillståndsmått för ansluten luftkonditioneringsenhet](./media/tutorial-define-device-type/statenew.png)
 
 2. Varje typ av tillstånd som du definierar för en enhetsmall innehåller [konfigurationsalternativ](howto-set-up-template.md) som:
 
-    * Visningsnamn.
-    * Fältnamn.
-    * Värden med valfria visningsetiketter.
-    * Färg för varje värde
+   * Visningsnamn.
+
+   * Fältnamn.
+
+   * Värden med valfria visningsetiketter.
+
+   * Färg för varje värde.
 
     För att konfigurera tillståndet **Fläktläge** använder du informationen i följande tabell:
 
@@ -202,19 +220,19 @@ Du kan använda Tillstånd för att definiera och visualisera tillståndet för 
 
     För att spara definitionen för tillståndsmått väljer du **Spara**:
 
-    ![Konfigurera tillståndsmått](media/tutorial-define-device-type/stateconfiguration.png)
+    ![Konfigurera tillståndsmått](./media/tutorial-define-device-type/stateconfiguration.png)
 
 3. Efter en kort stund visar sidan **Mått** ett diagram över de tillstånd som genereras från den simulerade anslutna luftkonditioneringsenheten. Använd kontrollerna för att hantera synlighet eller redigera tillståndsdefinitionen:
 
-    ![Visa tillståndssimulering](media/tutorial-define-device-type/stateview.png)
+    ![Visa tillståndssimulering](./media/tutorial-define-device-type/stateview.png)
 
 4. Om det finns för många datapunkter som skickas av enheten på kort tid visas tillståndsmåttet med ett annat utseende enligt exemplet nedan. Om du klickar på diagrammet visas alla datapunkter inom den tidsperioden i kronologisk ordning. Du kan även begränsa tidsintervallet för att se måttkurvan i diagrammet.
 
-    ![Visa tillståndsinformation](media/tutorial-define-device-type/stateviewdetail.png)
+    ![Visa tillståndsinformation](./media/tutorial-define-device-type/stateviewdetail.png)
 
-## <a name="properties-device-properties-and-settings"></a>Egenskaper, enhetsegenskaper och inställningar
+## <a name="settings-properties-and-commands"></a>Inställningar, egenskaper och kommandon
 
-Egenskaper, enhetsegenskaper och inställningar är olika värden som definieras i en enhetsmall och som associeras med varje enskild enhet:
+Inställningar, egenskaper, enhetsegenskaper och kommandon är olika värden som definieras i en enhetsmall och som associeras med varje enskild enhet:
 
 * Du använder _inställningar_ för att skicka konfigurationsdata till en enhet från programmet. Till exempel kan en operatör använda en inställning för att ändra enhetens telemetriintervall från två sekunder till fem sekunder. När en operatör ändrar en inställning markeras inställningen som väntande i användargränssnittet tills enheten bekräftar att den har genomfört inställningsändringen.
 
@@ -222,13 +240,15 @@ Egenskaper, enhetsegenskaper och inställningar är olika värden som definieras
 
 * Du använder _enhetsegenskaper_ för göra så att en enhet kan skicka egenskapsvärden till programmet. De här egenskaperna kan bara ändras av enheten. För operatörer är enhetsegenskaper skrivskyddade.
 
+* Du använder _kommandon_ för att fjärrhantera din enhet från ditt program. Du kan köra kommandon direkt på enheten från molnet för att styra enheterna. En operatör kan exempelvis köra kommandon, t.ex. omstart, för att omedelbart starta om enheten.
+
 ## <a name="use-settings"></a>Använd inställningar
 
 Du använder *inställningar* för att göra så att en operatör kan skicka konfigurationsdata till en enhet. I det här avsnittet lägger du till en inställning i enhetsmallen **Ansluten luftkonditioneringsenhet** som gör att en operatör kan ange måltemperaturen för den anslutna luftkonditioneringsenheten.
 
 1. Gå till sidan **Inställningar** för enhetsmallen **Ansluten luftkonditioneringsenhet**:
 
-    ![Förbereda för att lägga till en inställning](media/tutorial-define-device-type/deviceaddsetting.png)
+    ![Förbereda för att lägga till en inställning](./media/tutorial-define-device-type/deviceaddsetting.png)
 
     Du kan skapa inställningar av olika typer, till exempel nummer eller text.
 
@@ -249,24 +269,24 @@ Du använder *inställningar* för att göra så att en operatör kan skicka kon
 
     Välj sedan **Spara**:
 
-    ![Konfigurera inställningen Ange temperatur](media/tutorial-define-device-type/configuresetting.png)
+    ![Konfigurera inställningen Ange temperatur](./media/tutorial-define-device-type/configuresetting.png)
 
     > [!NOTE]
     > När enheten bekräftar en inställningsändring ändras statusen för inställningen ändras till **synkroniserad**.
 
 4. Du kan anpassa layouten för sidan **Inställningar** genom att flytta och ändra storlek på inställningspanelerna:
 
-    ![Anpassa layout för inställningar](media/tutorial-define-device-type/settingslayout.png)
+    ![Anpassa layout för inställningar](./media/tutorial-define-device-type/settingslayout.png)
 
-## <a name="use-properties"></a>Använda egenskaper
+## <a name="use-properties--device-properties"></a>Använda egenskaper och enhetsegenskaper
 
-Du använder *egenskaper* för att lagra information om enheten i programmet. I det här avsnittet lägger du till egenskaper i enhetsmallen **Ansluten luftkonditioneringsenhet** för att lagra enhetens serienummer och version av inbyggd programvara för varje enhet.
-
+Du använder *egenskaper* för att lagra information om enheten i programmet. I det här avsnittet ska du lägga till enhetsegenskaper i enhetsmallen **Ansluten luftkonditioneringsenhet** för att lagra enhetens serienummer och version av den inbyggda programvaran. Observera att båda dessa är skrivskyddade egenskaper som rapporteras av enheten – du kan inte tilldela värden till dem. Exempel på egenskaper som du kan använda och tilldela värden är enhetens plats, information om ägarskap och enhetens senaste servicedatum/servicetid.
+ 
 1. Gå till sidan **Egenskaper** för enhetsmallen **Ansluten luftkonditioneringsenhet**:
 
-    ![Förbereda för att lägga till en egenskap](media/tutorial-define-device-type/deviceaddproperty.png)
+    ![Förbereda för att lägga till en egenskap](./media/tutorial-define-device-type/deviceaddproperty.png)
 
-    Du kan skapa egenskaper av olika typer, till exempel nummer eller text. Om du vill lägga till en egenskap för serienummer i enhetsmallen väljer du **Text**.
+    Du kan skapa olika typer av enhetsegenskaper, till exempel nummer eller text. Om du vill lägga till en egenskap för serienummer i enhetsmallen väljer du **Text**.
 
 2. För att konfigurera egenskapen serienummer använder du informationen i följande tabell:
 
@@ -279,13 +299,13 @@ Du använder *egenskaper* för att lagra information om enheten i programmet. I 
 
     Låt standardvärdena stå kvar i de andra fälten.
 
-    ![Konfigurera enhetsegenskaperna](media/tutorial-define-device-type/configureproperties.png)
+    ![Konfigurera enhetsegenskaperna](./media/tutorial-define-device-type/configureproperties.png)
 
-    Välja sedan **Spara**.
+    Välj **Spara**.
 
-3. Om du vill lägga till en egenskap för versionen av inbyggd programvara i enhetsmallen väljer du **Text**
+3. Om du vill lägga till en version av den inbyggda programvaran i enhetsegenskaperna för din enhetsmall väljer du **Text**.
 
-4. För att konfigurera egenskapen version av inbyggd programvara använder du informationen i följande tabell:
+4. För att konfigurera enhetsegenskapen för versionen av den inbyggda programvaran använder du informationen i följande tabell:
 
     | Fält                | Värde                   |
     | -------------------- | ----------------------- |
@@ -294,13 +314,44 @@ Du använder *egenskaper* för att lagra information om enheten i programmet. I 
     | Initialt värde        | 0,1                     |
     | Beskrivning          | Enhetens version av inbyggd programvara |
 
-    ![Konfigurera enhetsegenskaperna](media/tutorial-define-device-type/configureproperties2.png)
+    ![Konfigurera enhetsegenskaperna](./media/tutorial-define-device-type/configureproperties2.png)
 
-    Välja sedan **Spara**.
+    Välj **Spara**.
 
 5. Du kan anpassa layouten för sidan **Egenskaper** genom att flytta och ändra storlek på egenskapspanelerna:
 
-    ![Anpassa layout för egenskaper](media/tutorial-define-device-type/propertieslayout.png)
+    ![Anpassa layout för egenskaper](./media/tutorial-define-device-type/propertieslayout.png)
+
+
+## <a name="use-commands"></a>Använda kommandon
+
+Du använder _kommandon_ så att en operatör kan köra kommandon direkt på enheten. I det här avsnittet ska du lägga till ett kommando i enhetsmallen **Ansluten luftkonditioneringsenhet** som gör att en operatör kan skicka ett eko av ett visst meddelande på displayen på den anslutna luftkonditioneringsenheten (detta fungerar med MxChip-exempelkoden).
+
+1. Gå till sidan **Kommandon** för enhetsmallen **Ansluten luftkonditioneringsenhet**:
+
+    ![Förbereda för att lägga till en inställning](media/tutorial-define-device-type/commandsecho.png)
+
+    Du kan skapa olika typer av kommandon beroende på dina krav. 
+
+1. Klicka på **Nytt kommando** för att lägga till ett kommando till enheten.
+
+1. Använd informationen i följande tabell för att konfigurera det nya kommandot:
+
+    | Fält                | Värde           |
+    | -------------------- | -----------     |
+    | Visningsnamn         | Ekokommando    |
+    | Fältnamn           | eko            |
+    | Standardvärde för tidsgräns      | 30              |
+    | Visningsnamn         | Visningstext    |
+    | Visningstyp         | text            |  
+
+Du kan lägga till ytterligare indata till kommandot genom att klicka på **+** för indata.
+
+2. Välj **Spara**.
+
+3. Du kan anpassa layouten för sidan **Kommandon** genom att flytta och ändra storlek på kommandopanelerna:
+
+    ![Anpassa layout för inställningar](media/tutorial-define-device-type/commandstileresize.png)
 
 ## <a name="view-your-simulated-device"></a>Visa din simulerade enhet
 
@@ -308,11 +359,11 @@ Nu när du har definierat enhetsmallen **Ansluten luftkonditioneringsenhet** kan
 
 1. Välj sidan **Instrumentpanel** för enhetsmallen **Ansluten luftkonditioneringsenhet**:
 
-    ![Instrumentpaneler för Ansluten luftkonditioneringsenhet](media/tutorial-define-device-type/aircondashboards.png)
+    ![Instrumentpaneler för Ansluten luftkonditioneringsenhet](./media/tutorial-define-device-type/aircondashboards.png)
 
 2. Välj **Linjediagram** för att lägga till komponenten på **Instrumentpanelen**:
 
-    ![Instrumentpanelskomponenter](media/tutorial-define-device-type/dashboardcomponents1.png)
+    ![Instrumentpanelskomponenter](./media/tutorial-define-device-type/dashboardcomponents1.png)
 
 3. Konfigurera komponenten **Linjediagram** med hjälp av informationen i följande tabell:
 
@@ -322,7 +373,7 @@ Nu när du har definierat enhetsmallen **Ansluten luftkonditioneringsenhet** kan
     | Tidsintervall   | Senaste 30 minuterna |
     | Mått | temperatur (välj **Synlighet** bredvid **temperatur**) |
 
-    ![Inställningar för linjediagram](media/tutorial-define-device-type/linechartsettings.png)
+    ![Inställningar för linjediagram](./media/tutorial-define-device-type/linechartsettings.png)
 
     Välja sedan **Spara**.
 
@@ -334,7 +385,7 @@ Nu när du har definierat enhetsmallen **Ansluten luftkonditioneringsenhet** kan
     | Tidsintervall   | Senaste 30 minuterna |
     | Mått | Fel på fläktmotor (välj **Synlighet** bredvid **Fel på fläktmotor**) |
 
-    ![Inställningar för linjediagram](media/tutorial-define-device-type/dashboardeventchartsetting.png)
+    ![Inställningar för linjediagram](./media/tutorial-define-device-type/dashboardeventchartsetting.png)
 
     Välja sedan **Spara**.
 
@@ -346,13 +397,13 @@ Nu när du har definierat enhetsmallen **Ansluten luftkonditioneringsenhet** kan
     | Tidsintervall   | Senaste 30 minuterna |
     | Mått | Fläktläge (välj **Synlighet** bredvid **Fläktläge**) |
 
-    ![Inställningar för linjediagram](media/tutorial-define-device-type/dashboardstatechartsetting.png)
+    ![Inställningar för linjediagram](./media/tutorial-define-device-type/dashboardstatechartsetting.png)
 
     Välja sedan **Spara**.
 
 6. För att lägga till temperaturinställningen på instrumentpanelen väljer du **Inställningar och egenskaper**:
 
-    ![Instrumentpanelskomponenter](media/tutorial-define-device-type/dashboardcomponents4.png)
+    ![Instrumentpanelskomponenter](./media/tutorial-define-device-type/dashboardcomponents4.png)
 
 7. Konfigurera komponenten **Inställningar och egenskaper** med hjälp av informationen i följande tabell:
 
@@ -361,13 +412,13 @@ Nu när du har definierat enhetsmallen **Ansluten luftkonditioneringsenhet** kan
     | Rubrik                   | Ange måltemperatur |
     | Inställningar och egenskaper | Ange temperatur |
 
-    ![Egenskapsinställningar för serienummer](media/tutorial-define-device-type/propertysettings3.png)
+    ![Egenskapsinställningar för serienummer](./media/tutorial-define-device-type/propertysettings3.png)
 
     Välja sedan **Spara**.
 
 8. För att lägga till enhetens serienummer på instrumentpanelen väljer du **Inställningar och egenskaper**:
 
-    ![Instrumentpanelskomponenter](media/tutorial-define-device-type/dashboardcomponents3.png)
+    ![Instrumentpanelskomponenter](./media/tutorial-define-device-type/dashboardcomponents3.png)
 
 9. Konfigurera komponenten **Inställningar och egenskaper** med hjälp av informationen i följande tabell:
 
@@ -376,13 +427,13 @@ Nu när du har definierat enhetsmallen **Ansluten luftkonditioneringsenhet** kan
     | Rubrik                   | Serienummer |
     | Inställningar och egenskaper | Serienummer |
 
-    ![Egenskapsinställningar för serienummer](media/tutorial-define-device-type/propertysettings1.png)
+    ![Egenskapsinställningar för serienummer](./media/tutorial-define-device-type/propertysettings1.png)
 
     Välja sedan **Spara**.
 
 10. För att lägga till enhetens version av inbyggd programvara på instrumentpanelen väljer du **Inställningar och egenskaper**:
 
-    ![Instrumentpanelskomponenter](media/tutorial-define-device-type/dashboardcomponents4.png)
+    ![Instrumentpanelskomponenter](./media/tutorial-define-device-type/dashboardcomponents4.png)
 
 11. Konfigurera komponenten **Inställningar och egenskaper** med hjälp av informationen i följande tabell:
 
@@ -391,7 +442,7 @@ Nu när du har definierat enhetsmallen **Ansluten luftkonditioneringsenhet** kan
     | Rubrik                   | Version av inbyggd programvara |
     | Inställningar och egenskaper | Version av inbyggd programvara |
 
-    ![Egenskapsinställningar för serienummer](media/tutorial-define-device-type/propertysettings2.png)
+    ![Egenskapsinställningar för serienummer](./media/tutorial-define-device-type/propertysettings2.png)
 
     Välja sedan **Spara**.
 

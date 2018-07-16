@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: a7a4391b436af4ffa303741397f0be7abf0186fb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722855"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importera och publicera ditt första API 
 
@@ -26,7 +27,7 @@ I den här kursen visas hur du importerar en OpenAPI-specifikation för serverde
 
 När serverdels-API:et importeras i API Management (APIM) blir APIM-API:et en fasad för serverdels-API:et. När du importerar serverdels-API:et är käll-API:et och APIM-API:et identiska. Med APIM kan du anpassa fasaden efter dina behov utan att behöva röra serverdels-API:et. Mer information finns i [Transformera och skydda ditt API](transform-api.md). 
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Importera ditt första API
@@ -52,6 +53,8 @@ I det här avsnittet visas hur du importerar och publicerar en OpenAPI-specifika
 
     Du kan konfigurera API-värdena under skapandet eller senare genom att gå till fliken **Inställningar**. Den röda stjärnan bredvid ett fält anger att fältet är obligatoriskt.
 
+    Använd värdena i tabellen nedan för att skapa ditt första API.
+
     |Inställning|Värde|Beskrivning|
     |---|---|---|
     |**OpenAPI-specifikation**|http://conferenceapi.azurewebsites.net?format=json|Refererar till tjänsten som implementerar API:et. API-hanteringen vidarebefordrar begäranden till den här adressen.|
@@ -74,19 +77,21 @@ Du kan anropa åtgärder direkt från Azure Portal, vilket är ett enkelt sätt 
 1. Välj det API som du skapade i föregående steg (från fliken **API:er**).
 2. Tryck på fliken **Test**.  ![Test-API](./media/api-management-get-started/test-api.png)
 3. Klicka på **GetSpeakers**.
-    Sidan visar fälten för frågeparametrar, men i det här fallet har vi inte några. Sidan visar även fält för sidhuvudena. Ett av huvudena är Ocp-Apim-prenumeration-Key, för prenumerationsnyckeln till den produkt som är associerad med det här API:et. Nyckeln fylls i automatiskt.
+    På sidan visas fälten för frågeparametrar (inga i det här fallet) och huvuden. Ett av huvudena är Ocp-Apim-prenumeration-Key, för prenumerationsnyckeln till den produkt som är associerad med det här API:et. Nyckeln fylls i automatiskt.
 4. Tryck på **Skicka**.
 
     Serverdelen svarar med **200 OK** och några data.
 
 ## <a name="call-operation"> </a>Anropa en åtgärd från utvecklarportalen
 
-Åtgärder kan också anropas från **utvecklarportalen** för att testa API:er. 
+Åtgärder kan också anropas från **utvecklarportalen** för att testa API:er.
 
-1. Välj **Demokonferens-API**.
-2. Klicka på **GetSpeakers**.
+1. Gå till **utvecklarportalen**.
+![utvecklarportalen](./media/api-management-get-started/developer-portal.png)
+
+2. Välj **APIS** (API:er), klicka på **Demo Conference API** (Demokonferens-API) och sedan på **GetSpeakers**.
     
-    Sidan visar fälten för frågeparametrar, men i det här fallet har vi inte några. Sidan visar även fält för sidhuvudena. Ett av huvudena är Ocp-Apim-prenumeration-Key, för prenumerationsnyckeln till den produkt som är associerad med det här API:et. Om du skapade APIM-instansen är du redan administratör, vilket innebär att nyckeln fylls i automatiskt.
+    På sidan visas fälten för frågeparametrar (inga i det här fallet) och huvuden. Ett av huvudena är Ocp-Apim-prenumeration-Key, för prenumerationsnyckeln till den produkt som är associerad med det här API:et. Om du skapade APIM-instansen är du redan administratör, vilket innebär att nyckeln fylls i automatiskt.
 3. Tryck på **Testa**.
 4. Tryck på **Skicka**.
     

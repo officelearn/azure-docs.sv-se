@@ -12,15 +12,18 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: 78e164b566194fcfe952e3ad59dd3d228f90d193
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4c34bd10768ab7acf4700b29386d3a71532490db
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674860"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Snabbstart: Skapa ett chattrum med SignalR Service
+
+Tjänsten Microsoft Azure SignalR är för närvarande tillgänglig som en [allmänt tillgänglig förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure SignalR Service är en Azure-tjänst som hjälper utvecklare att enkelt skapa webbappar med realtidsfunktioner. Den här tjänsten baseras på [SignalR för ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
 
@@ -84,18 +87,18 @@ I det här avsnittet lägger du till [verktyget Secret Manager](https://docs.mic
 
 1. Lägg till en referens till NuGet-paketet `Microsoft.Azure.SignalR` genom att köra följande kommando:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview-10007
+        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-*
 
 2. Kör följande kommando för att återställa paket för projektet.
 
         dotnet restore
 
-3. Lägg till en hemlighet med namnet *Azure: SignalR:ConnectionString* till Secret Manager. Den här hemligheten innehåller anslutningssträngen för åtkomst till din SignalR Service-resurs. *Azure: SignalR:ConnectionString* är den konfigurationsnyckel av standardtyp som SignalR letar efter för att upprätta en anslutning. Ersätt värdet i kommandot nedan med anslutningssträngen för din SignalR Service-resurs.
+3. Lägg till en hemlighet med namnet *Azure__SignalR__ConnectionString* i Secret Manager. Den här hemligheten är ett hierarkiskt konfigurationsvärde. Kolon (:) fungerar inte på alla plattformar. Dubbla understreck (__), som används i den här hemligheten, stöds på alla plattformar.  Den här hemligheten innehåller anslutningssträngen för åtkomst till din SignalR Service-resurs. *Azure__SignalR__ConnectionString* är standardkonfigurationsnyckeln som SignalR letar efter för att upprätta en anslutning. Ersätt värdet i kommandot nedan med anslutningssträngen för din SignalR Service-resurs.
 
     Det här kommandot måste köras i samma katalog som *.csproj*-filen.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString Endpoint=<Your endpoint>;AccessKey=<Your access key>;    
+    dotnet user-secrets set Azure__SignalR__ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     Secret Manager används endast för testning av webbappen medan den hanteras lokalt. I senare självstudier kommer du att distribuera chattwebbappen till Azure. När webbappen har distribuerats till Azure, använder du en programsinställning istället för att lagra anslutningssträngen med Secret Manager.
@@ -110,7 +113,7 @@ I det här avsnittet lägger du till [verktyget Secret Manager](https://docs.mic
     }
     ```
 
-    Istället för att skicka en parameter till `AddAzureSignalR()`, använder den här koden konfigurationsnyckeln av standardtyp, *Azure: SignalR:ConnectionString*, för SignalR Service-resursens anslutningssträng.
+    I stället för att skicka en parameter till `AddAzureSignalR()`, använder den här koden standardkonfigurationsnyckeln, *Azure__SignalR__ConnectionString*, för SignalR Service-resursens anslutningssträng.
 
 5. Uppdatera även `Configure`-metoden i *Startup.cs* genom att ersätta anropet till `app.UseStaticFiles()` med följande kod och spara filen.
 
@@ -250,7 +253,7 @@ Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna 
 
 Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
 
-Skriv namnet på din resursgrupp i textrutan **Filter by name...** (Filtrera efter namn...). Anvisningarna för den här snabbstarten använde en resursgrupp med namnet *SignalRTestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
+Skriv namnet på din resursgrupp i textrutan **Filtrera efter namn...**. Anvisningarna för den här snabbstarten använde en resursgrupp med namnet *SignalRTestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
 
    
 ![Ta bort](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)

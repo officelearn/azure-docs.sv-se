@@ -1,7 +1,7 @@
 ---
 title: SQL-frågor för Azure Cosmos DB | Microsoft Docs
-description: Lär dig mer om SQL-syntax, databasbegrepp och SQL-frågor för Azure Cosmos DB. SQL kan användas som en JSON-frågespråket i Azure Cosmos-databasen.
-keywords: SQL-syntax, sql-fråga, sql-frågor, json-frågespråket, databasbegrepp och sql-frågor, mängdfunktioner
+description: Läs mer om SQL-syntax, databasbegrepp och SQL-frågor för Azure Cosmos DB. SQL kan användas som en JSON-frågespråket i Azure Cosmos DB.
+keywords: SQL-syntax, sql-fråga, sql-frågor, frågespråk för json, databasbegrepp och sql-frågor, mängdfunktioner
 services: cosmos-db
 author: LalithaMV
 manager: kfile
@@ -12,42 +12,42 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: f0fd1b57be07eda13655b5a6c0dcb5b412e8a248
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ee804ddc9e8fe9901173bb3d9357a273ea28057d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798329"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056825"
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>SQL-frågor för Azure Cosmos DB
 
-Microsoft Azure Cosmos DB stöder förfrågningar till dokument med SQL (Structured Query Language) som ett JSON-frågespråk på SQL-API-konton. Azure Cosmos-DB är verkligen schemafria. Tack vare dess åtagande att JSON-datamodell direkt i databasmotorn ger automatisk indexering av JSON-dokument utan explicita schema eller att sekundärindex.
+Microsoft Azure Cosmos DB stöder förfrågningar till dokument med hjälp av SQL (Structured Query Language) som en JSON-frågespråket på SQL-API-konton. Azure Cosmos DB är helt schemafria. Tack vare satsa på JSON-datamodell direkt i databasmotorn ger det automatisk indexering av JSON-dokument utan uttryckliga scheman eller att sekundära index.
 
-När du utformar frågespråket för Cosmos DB hade vi två mål i åtanke:
+När du utformar frågespråket för Cosmos DB, hade vi två mål i åtanke:
 
-* I stället för inventing nya JSON frågespråk som vi ville har stöd för SQL. SQL är ett av de mest välkända och populära frågespråk. Cosmos-Databasens SQL är en formell programmeringsmodell för komplexa frågor via JSON-dokument.
-* Vi ville använda Javascripts programmeringsmodell som grund för våra frågespråk som JSON-dokument-databas kan utföra JavaScript direkt i databasmotorn. SQL-API finns i typsystemet i Javascript's, utvärdering av uttryck och funktionsanrop. Detta i sin tur är en fysisk programmeringsmodell för relationella projektioner, hierarkisk navigering i JSON-dokument, self kopplingar, spatial frågor och anrop av användardefinierade funktioner (UDF) helt skrivna i JavaScript, bland andra funktioner. 
+* I stället för inventing ett nytt frågespråk för JSON som vi ville stöd för SQL. SQL är ett av de välbekanta och mest populära frågespråk. Cosmos DB SQL är en formell programmeringsmodell för komplexa frågor via JSON-dokument.
+* Vi ville använda JavaScript-programmeringsmodell som grund för vår frågespråk som en JSON-dokument-databas kan utföra JavaScript direkt i databasmotorn. SQL API grundas på typsystemet i JavaScript-typsystemet, uttrycksutvärdering och funktionsanrop. Den här i sin tur är en naturlig programmeringsmodell för relationella projektioner, hierarkisk navigering i JSON-dokument, självsignerat kopplingar, rumsliga förfrågningar och anrop av användardefinierade funktioner (UDF) helt skrivna i JavaScript, bland annat. 
 
-Vi tror att dessa funktioner är nyckeln till att minska friktionen mellan programmet och databasen och är avgörande för utvecklarproduktivitet.
+Vi tror att de här funktionerna är nyckeln till att minska friktionen mellan programmet och databasen och är mycket viktiga för produktivitet för utvecklare.
 
-Vi rekommenderar att komma igång med att titta på nedanstående video, där Azure Cosmos DB Programhanteraren Andrew Liu visar Azure Cosmos DB frågar funktioner och visar online [Query Playground](http://www.documentdb.com/sql/demo), där du kan prova Azure Cosmos DB och kör SQL-frågor mot vår datauppsättning som visas i videon.
+Vi rekommenderar att du börjar genom att titta på nedanstående video, där Azure Cosmos DB-Programhanteraren Andrew Liu visar förfrågningar till Azure Cosmos DB-funktioner och visar den online [Frågespelplan](http://www.documentdb.com/sql/demo), där du kan prova att använda Azure Cosmos DB och köra SQL-frågor mot vår datauppsättning som visas i videon.
 
 > [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
 >
 >
 
-Mer avancerade frågor metoder visas i den här uppföljning video:
+Mer avancerade teknikerna för förfrågningar till visas i den här uppföljning video:
 
 > [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
 >
 >
 
-Återvänd sedan till den här artikeln, där vi börjar med en SQL-fråga självstudiekurs som vägleder dig igenom några enkla JSON-dokument och SQL-kommandon.
+Återvänd sedan till den här artikeln där vi börjar med en självstudiekurs om SQL-fråga som går igenom några enkla JSON-dokument och SQL-kommandon.
 
 ## <a id="GettingStarted"></a>Komma igång med SQL-kommandon i Cosmos DB
-Om du vill se Cosmos-Databasens SQL på arbetet vi börjar med några enkla JSON-dokument och gå igenom några enkla frågor mot den. Överväg att dessa två JSON-dokument om två serier. Vi behöver inte skapa någon scheman eller sekundärindex explicit med Cosmos DB. Vi behöver bara infoga JSON-dokument till en Cosmos-DB-samling och sedan fråga. Här är ett enkelt JSON-dokumentet för familjen Andersen, överordnade, underordnade (och deras husdjur) adress och registreringsinformation. Dokumentet har strängar, siffror, booleska värden, matriser och kapslade egenskaper. 
+Om du vill se Cosmos DB SQL arbetar vi börjar med några enkla JSON-dokument och gå igenom några enkla frågor mot dem. Överväg att dessa två JSON-dokument om två familjer. Med Cosmos DB behöver vi inte uttryckligen skapa några scheman eller sekundära index. Vi behöver bara infoga JSON-dokument till en Cosmos DB-samling och sedan fråga. Här har vi ett enkelt JSON dokumentera för familjen Andersen, överordnade, barn (och deras husdjur), adress och registreringsinformation. Dokumentet har strängar, tal, booleska värden, matriser och kapslade egenskaper. 
 
-**Dokumentet**  
+**Dokument**  
 
 ```JSON
 {
@@ -71,9 +71,9 @@ Om du vill se Cosmos-Databasens SQL på arbetet vi börjar med några enkla JSON
 }
 ```
 
-Här är ett andra dokument med en skillnaden mellan – `givenName` och `familyName` används i stället för `firstName` och `lastName`.
+Här är ytterligare ett dokument med en skillnad – `givenName` och `familyName` används i stället för `firstName` och `lastName`.
 
-**Dokumentet**  
+**Dokument**  
 
 ```json
 {
@@ -104,7 +104,7 @@ Här är ett andra dokument med en skillnaden mellan – `givenName` och `family
 }
 ```
 
-Nu ska vi prova några frågor mot dessa data för att förstå några viktiga aspekter av Azure Cosmos DB SQL-frågespråket. Följande fråga returnerar exempelvis dokument där fältet id matchar `AndersenFamily`. Eftersom det är en `SELECT *`, utdata från frågan är klar JSON-dokumentet:
+Nu ska vi prova några frågor mot dessa data för att förstå några av de viktigaste aspekterna i Azure Cosmos DB SQL-frågespråket. Exempelvis returnerar följande fråga dokument där id-fältet matchar `AndersenFamily`. Eftersom det är en `SELECT *`, utdata från frågan är komplett JSON-dokument:
 
 **Fråga**
 
@@ -133,7 +133,7 @@ Nu ska vi prova några frågor mot dessa data för att förstå några viktiga a
     }]
 
 
-Nu föreställa dig när vi behöver formatera om JSON-utdata i en annan form. Den här frågan genererar ett nytt JSON-objekt med två valda fält, namn och ort, när den adressen stad har samma namn som tillstånd. I det här fallet matchar ”NY, NY”.
+Tänk dig nu fallet när vi behöver formatera om JSON-utdata i en annan form. Den här frågan genererar ett nytt JSON-objekt med två valda fält, namn och Stad, när den adressen stad har samma namn som tillståndet. I det här fallet matchar ”USA, USA”.
 
 **Fråga**    
 
@@ -151,7 +151,7 @@ Nu föreställa dig när vi behöver formatera om JSON-utdata i en annan form. D
     }]
 
 
-Nästa fråga returnerar alla angivna namnen på underordnade i familjen vars id matchar `WakefieldFamily` sorterade efter ort där du bor.
+Nästa fråga returnerar alla angivna namn på barnen i familjen vars id matchar `WakefieldFamily` sorterade efter stad där.
 
 **Fråga**
 
@@ -169,30 +169,30 @@ Nästa fråga returnerar alla angivna namnen på underordnade i familjen vars id
     ]
 
 
-Vi vill att uppmärksamma några anmärkningsvärda aspekter av Cosmos-DB-frågespråket igenom de exempel som vi har sett:  
+Vi vill uppmärksamma några anmärkningsvärda aspekter av frågespråket igenom de exempel som vi har sett i Cosmos DB:  
 
-* Eftersom SQL API fungerar på JSON-värden, behandlar trädet Formats entiteter i stället för rader och kolumner. Därför språk kan du referera till noder i trädet på varje godtycklig djup som `Node1.Node2.Node3…..Nodem`, liknande relationella SQL hänvisar till två del-referens för `<table>.<column>`.   
-* Structured query language fungerar med schemat mindre data. Typsystemet måste bindas dynamiskt. Samma uttryck kan ge olika typer på olika dokument. Resultatet av en fråga är ett giltigt JSON-värde, men är inte säkert att vara i ett fast schema.  
-* Cosmos DB stöder endast strikt JSON-dokument. Det innebär att typsystemet och uttryck begränsas till endast behandlar JSON-typer. Referera till den [JSON-specifikationen](http://www.json.org/) för mer information.  
-* En Cosmos-DB-samling är en schemafria behållare för JSON-dokument. Relationer i data enheter inom och mellan dokument i en samling fångas implicit av inneslutning och inte av primärnyckel och sekundärnyckel viktiga relationer. Det här är en viktig aspekt värt pekar hänsyn intra-dokument-kopplingar som beskrivs senare i den här artikeln.
+* Eftersom SQL-API fungerar på JSON-värden, behandlar den trädet formade entiteter i stället för rader och kolumner. Därför språk kan du referera till noder i trädet på varje godtyckliga djup som `Node1.Node2.Node3…..Nodem`, vilket liknar relationell SQL som refererar till de två referensen för `<table>.<column>`.   
+* Strukturerade frågespråket fungerar med schemalösa-data. Typsystemet måste bindas dynamiskt. I samma uttryck kan ge olika typer på olika dokument. Resultatet av en fråga är ett giltigt JSON-värde, men är inte säkert att ha ett fast schema.  
+* Cosmos DB stöder endast strikt JSON-dokument. Det innebär att den och uttryck är begränsade till bara handlar om JSON-typer. Referera till den [JSON-specifikationen](http://www.json.org/) för mer information.  
+* En Cosmos DB-samling är en schemafri behållare för JSON-dokument. Relationer mellan dataentiteter inom och mellan dokument i en samling som implicit avbildas av inneslutning, inte av primärnyckel och sekundärnyckel viktiga relationer. Det här är en viktig aspekt vara värd att påpeka hänsyn till intra-dokumentet-kopplingar som beskrivs senare i den här artikeln.
 
-## <a id="Indexing"></a> Cosmos DB indexering
-Innan vi går in SQL-syntaxen är det vara värt att utforska indexering designen i Azure Cosmos-databasen. 
+## <a id="Indexing"></a> Cosmos DB-indexering
+Innan vi går in SQL-syntax som det är värt att utforska indexering designen i Azure Cosmos DB. 
 
-Syftet med-databasindex är att hantera frågor i olika formulär och former med minsta resursförbrukning (t.ex. CPU och in-/ utdata) och ger bra genomflöde och låg latens. Valet av rätt index för att fråga en databas kräver ofta mycket planering och experiment. Den här metoden innebär en utmaning för schemat mindre databaser där data stämmer inte överens med ett strikt schema och utvecklas snabbt samtidigt. 
+Syftet med databasindex är att leverera frågor i olika former och former med minsta resursförbrukning (t.ex. processor och indata/utdata) samtidigt som det ger bra dataflöde och låg fördröjning. Valet av rätt index för att fråga en databas kräver ofta mycket planerings- och experimentering. Den här metoden innebär en utmaning för schemalösa databaser där data stämmer inte överens med en strikt schema och utvecklas snabbt. 
 
-När vi undersystemet Cosmos DB indexering, ange vi därför följande mål:
+När vi utformade undersystemet Cosmos DB för indexering, ange vi därför följande mål:
 
-* Indexera dokument utan schemat: undersystemet indexering inte kräver någon schemainformation eller göra några antaganden om schemat dokument. 
-* Stöd för effektiv och omfattande hierarkiska och relationella: indexet stöder Cosmos-DB-frågespråket effektivt, inklusive stöd för hierarkiska och relationella projektioner.
-* Stöd för konsekvent frågor in face of en varaktig volym av skrivningar: för hög skrivåtgärder genomströmning arbetsbelastningar med konsekvent frågor, indexet uppdateras inkrementellt effektivt och online i händelse av en varaktig volym för skrivningar. Uppdateringen konsekvent index är avgörande för att hantera frågor på nivån konsekvenskontroll där användaren konfigurerade dokumenttjänsten.
-* Stöd för flera innehavare: reservation-baserade modellen för resursen styrning angivna mellan klienter, utförs index uppdateringar budgeten systemresurser (processor, minne och i/o-åtgärder per sekund) fördelas per replik. 
-* Lagringseffektivitet: för kostnadseffektivitet, på disklagring kostnader för indexet är begränsad och förutsägbara. Detta är viktigt eftersom Cosmos DB kan utvecklare kompromissa kostnaden baserad mellan index kostnader i förhållande till prestanda för frågor.  
+* Indexera dokument utan schema: undersystemet indexering inte kräver någon schemainformation eller göra några antaganden om schemat dokument. 
+* Stöd för effektiv och omfattande hierarki- och relationella frågor: indexet har stöd för Cosmos DB-frågespråket effektivt, inklusive stöd för hierarkisk och relationsdata projektioner.
+* Stöd för konsekventa frågor in face of en fast mängd skrivningar: för hög skrivning dataflöde arbetsbelastningar med konsekventa frågor, indexet uppdateras stegvis, effektivt och online om en fast mängd skrivningar. Konsekvent indexuppdatering är avgörande för att leverera frågor på konsekvensnivå som du konfigurerade dokumenttjänsten.
+* Stöd för flera innehavare: den reserverade-baserade modellen för resursstyrning angivna över klienter, indexet uppdateringarna utförs inom budget systemresurser (processor, minne och indata/utdataåtgärder per sekund) allokera per replik. 
+* Lagringseffektivitet: för kostnadseffektivitet, på disklagring arbetet med att indexet är begränsad och förutsägbara. Detta är viktigt eftersom Cosmos DB kan utvecklare göra kostnadsbaserad kompromisser mellan index arbetet i förhållande till frågeprestandan.  
 
-Referera till den [Azure Cosmos DB prover](https://github.com/Azure/azure-documentdb-net) på MSDN efter exempel som visar hur du konfigurerar indexprincip för en samling. Nu är dags detaljer om Azure Cosmos-Databasens SQL-syntax.
+Referera till den [Azure Cosmos DB-exempel](https://github.com/Azure/azure-documentdb-net) på MSDN för exempel som visar hur du konfigurerar indexeringsprincipen för en samling. Nu ska vi du nu få i detaljerna för Azure Cosmos DB SQL-syntax.
 
-## <a id="Basics"></a>Grunderna i Azure Cosmos-Databasens SQL-fråga
-Varje fråga består av en SELECT-satsen och valfria FROM och WHERE-satser per ANSI SQL-standarder. Vanligtvis för varje fråga räknas källan i FROM-satsen upp. Sedan har filter i WHERE-satsen tillämpats på källan för att hämta en delmängd av JSON-dokument. Slutligen används SELECT-satsen för att projicera begärda JSON-värdena i select-listan.
+## <a id="Basics"></a>Grunderna i en Azure Cosmos DB SQL-fråga
+Varje fråga består av en SELECT-satsen och valfria FROM och WHERE-satserna per ANSI SQL-standarder. Vanligtvis för varje fråga räknas källan i FROM-satsen. Sedan tillämpas filtret i WHERE-satsen på källan för att hämta en delmängd av JSON-dokument. Slutligen används SELECT-satsen för att beräkna de begärda JSON-värden i select-listan.
 
     SELECT <select_list> 
     [FROM <from_specification>] 
@@ -201,16 +201,16 @@ Varje fråga består av en SELECT-satsen och valfria FROM och WHERE-satser per A
 
 
 ## <a id="FromClause"></a>FROM-satsen
-Den `FROM <from_specification>` satsen är valfri såvida källan filtreras eller planerat senare i frågan. Syftet med den här satsen är att ange den datakälla som frågan måste fungera. Hela samlingen är ofta källan, men ett kan du ange en delmängd av samlingen i stället. 
+Den `FROM <from_specification>` satsen är valfritt, om inte källan filtreras eller projected senare i frågan. Syftet med den här satsen är att ange den datakälla som frågan måste fungera. På hela samlingen är ofta källan, men en kan ange en delmängd av samlingen i stället. 
 
-En fråga som `SELECT * FROM Families` anger att hela familjer samlingen är källan att räkna upp. En särskild identifierare rot kan användas för att representera samlingen istället för att använda namnet på samlingen. Följande lista innehåller de regler som tillämpas per fråga:
+En fråga som `SELECT * FROM Families` anger att hela familjer samlingen är källan som att räkna upp. En särskild identifierare som rot kan användas för att representera samlingen istället för att använda namnet på samlingen. I följande lista innehåller de regler som tillämpas per fråga:
 
-* Samlingen kan vara ett alias, t.ex `SELECT f.id FROM Families AS f` eller helt enkelt `SELECT f.id FROM Families f`. Här `f` motsvarar `Families`. `AS` är ett valfritt nyckelord för alias identifierare.
-* När ett alias, den ursprungliga källan kan inte bindas. Till exempel `SELECT Families.id FROM Families f` är syntaktiskt felaktig eftersom inte går att matcha identifieraren ”familjer” längre.
-* Alla egenskaper som behöver refereras måste vara fullständigt kvalificerad. Detta gäller i frånvaron av strikt schema för att undvika eventuella tvetydig bindningar. Därför `SELECT id FROM Families f` är syntaktiskt felaktig eftersom egenskapen `id` är inte bunden.
+* Samlingen kan vara ett alias, till exempel `SELECT f.id FROM Families AS f` eller helt enkelt `SELECT f.id FROM Families f`. Här `f` motsvarar `Families`. `AS` är ett valfritt nyckelord för alias identifierare.
+* När ett alias, den ursprungliga källan kan inte bindas. Till exempel `SELECT Families.id FROM Families f` är syntaktiskt felaktig eftersom identifieraren ”familjer” inte kan matchas längre.
+* Alla egenskaper som måste referera till måste vara fullständigt kvalificerade. Om efterlevnad av strikt schema gäller detta för att undvika eventuella tvetydig bindningar. Därför `SELECT id FROM Families f` är syntaktiskt felaktig eftersom egenskapen `id` är inte bunden.
 
 ### <a name="subdocuments"></a>Underdokument
-Källan kan också reduceras till en mindre deluppsättning. Till exempel att räkna upp endast en underkatalog i varje dokument bli på subroot sedan källan, som visas i följande exempel:
+Källan kan också reduceras till en mindre deluppsättning. Till exempel att räkna upp bara ett underträd i varje dokument kan i subroot sedan bli källan, som visas i följande exempel:
 
 **Fråga**
 
@@ -248,7 +248,7 @@ Källan kan också reduceras till en mindre deluppsättning. Till exempel att r�
       ]
     ]
 
-När ovanstående exempel används en matris som källa, ett objekt även ska användas som källa, vilket är vad som visas i följande exempel: någon giltig JSON-värde (inte Odefinierad) som finns i källan betraktas som ska ingå i resultatet av frågan. Om vissa familjer inte har en `address.state` värde, de ingår inte i frågeresultatet.
+Medan exemplet ovan används en matris som källa, ett objekt också skulle kunna användas som källa, vilket är vad som anges i följande exempel: någon giltig JSON-värde (inte odefinierat) som finns i källan betraktas som ska ingå i resultatet av frågan. Om några familjer som inte har en `address.state` värde, de ingår inte i frågeresultatet.
 
 **Fråga**
 
@@ -264,9 +264,9 @@ När ovanstående exempel används en matris som källa, ett objekt även ska an
 
 
 ## <a id="WhereClause"></a>WHERE-satsen
-WHERE-satsen (**`WHERE <filter_condition>`**) är valfritt. Anger de villkor som JSON-dokument som tillhandahålls av källan måste uppfylla för att vara med i resultatet. JSON-dokument måste utvärdera de angivna villkoren på ”true” beaktas för resultatet. WHERE-satsen används av indexet lagret för att fastställa den absoluta minsta delmängden källdokument som kan ingå i resultatet. 
+WHERE-satsen (**`WHERE <filter_condition>`**) är valfritt. Den anger de villkor som JSON-dokument som tillhandahålls av källan måste uppfylla för att vara med i resultatet. Valfritt JSON-dokument måste utvärderas de angivna villkoren ”true” om man ta hänsyn till resultatet. WHERE-satsen används av indexet lagret för att avgöra den absoluta minsta delmängden av källdokument som kan ingå i resultatet. 
 
-Följande fråga begär dokument som innehåller en namnegenskapen vars värde är `AndersenFamily`. Alla dokument som inte har en namnegenskap, eller där värdet inte matchar `AndersenFamily` utesluts. 
+Följande fråga begär dokument som innehåller en namnegenskapen vars värde är `AndersenFamily`. Andra dokument som inte har en namnegenskap, eller där värdet inte motsvarar `AndersenFamily` utesluts. 
 
 **Fråga**
 
@@ -285,9 +285,9 @@ Följande fråga begär dokument som innehåller en namnegenskapen vars värde �
     }]
 
 
-Föregående exempel visade en enkel likheten fråga. SQL-API: et stöder också en mängd skalära uttryck. Det vanligaste är binär och unära uttryck. Egenskapsreferenser från källan JSON-objekt är också giltigt uttryck. 
+Föregående exempel visade en enkel likhet-fråga. SQL-API: et stöder också en mängd olika skalära uttryck. Den mest använda är binär- och unära uttryck. Egenskapen referenser från käll-JSON-objekt är också giltigt uttryck. 
 
-Följande binära operatorer stöds för närvarande och kan användas i frågor som visas i följande exempel:  
+De följande binära operatorerna som stöds för närvarande och kan användas i frågor som visas i följande exempel:  
 
 <table>
 <tr>
@@ -295,8 +295,8 @@ Följande binära operatorer stöds för närvarande och kan användas i frågor
 <td>+,-,*,/,%</td>
 </tr>
 <tr>
-<td>Binärt</td>    
-<td>|, &, ^, <<>>,, >>> (noll fill högerskift)</td>
+<td>Bitvis</td>    
+<td>|, &, ^, <<>>,, >>> (noll fyllning högerskift)</td>
 </tr>
 <tr>
 <td>Logiska</td>
@@ -313,7 +313,7 @@ Följande binära operatorer stöds för närvarande och kan användas i frågor
 </table>  
 
 
-Låt oss ta en titt på några frågor med binära operatorer.
+Låt oss ta en titt på några frågor med de binära operatorerna.
 
     SELECT * 
     FROM Families.children[0] c
@@ -328,7 +328,7 @@ Låt oss ta en titt på några frågor med binära operatorer.
     WHERE c.grade >= 5     -- matching grades == 5
 
 
-Unära operatorer +,-, ~ inte stöds också och kan användas inuti frågor som visas i följande exempel:
+Unära operatorer +,-, ~ inte stöds också och kan användas i frågor som visas i följande exempel:
 
     SELECT *
     FROM Families.children[0] c
@@ -340,10 +340,10 @@ Unära operatorer +,-, ~ inte stöds också och kan användas inuti frågor som 
 
 
 
-Förutom binär och unära operatorer tillåts egenskapsreferenser. Till exempel `SELECT * FROM Families f WHERE f.isRegistered` returnerar JSON-dokument som innehåller egenskapen `isRegistered` där egenskapens värde är lika med JSON `true` värde. Andra värden (FALSKT, null, Odefinierad, `<number>`, `<string>`, `<object>`, `<array>`osv) leder till källdokument som ska uteslutas från resultatet. 
+Förutom binära och unära operatorer men, tillåts egenskapen referenser. Till exempel `SELECT * FROM Families f WHERE f.isRegistered` returnerar JSON-dokument som innehåller egenskapen `isRegistered` där egenskapens värde är lika JSON `true` värde. Alla övriga värden (FALSKT, null, Odefinierad, `<number>`, `<string>`, `<object>`, `<array>`och så vidare) leder till källdokumentet som undantas från resultatet. 
 
-### <a name="equality-and-comparison-operators"></a>Jämförelse av och likhetsfrågor operatörer
-Följande tabell visar resultatet av likheten jämförelser i SQL-API mellan två typer som JSON.
+### <a name="equality-and-comparison-operators"></a>Likhet och jämförelse operatorer
+I följande tabell visar resultatet av likhet jämförelser i SQL-API: et mellan alla två JSON-typer.
 
 <table style = "width:300px">
    <tbody>
@@ -364,13 +364,13 @@ Följande tabell visar resultatet av likheten jämförelser i SQL-API mellan tv�
             <strong>Antal</strong>
          </td>
          <td valign="top">
-            <strong>Sträng</strong>
+            <strong>sträng</strong>
          </td>
          <td valign="top">
-            <strong>Objektet</strong>
+            <strong>Objekt</strong>
          </td>
          <td valign="top">
-            <strong>matris</strong>
+            <strong>Matris</strong>
          </td>
       </tr>
       <tr>
@@ -454,7 +454,7 @@ Odefinierat </td>
       </tr>
       <tr>
          <td valign="top">
-            <strong>Sträng<strong>
+            <strong>sträng<strong>
          </td>
          <td valign="top">
 Odefinierat </td>
@@ -474,7 +474,7 @@ Odefinierat </td>
       </tr>
       <tr>
          <td valign="top">
-            <strong>Objektet<strong>
+            <strong>Objekt<strong>
          </td>
          <td valign="top">
 Odefinierat </td>
@@ -494,7 +494,7 @@ Odefinierat </td>
       </tr>
       <tr>
          <td valign="top">
-            <strong>matris<strong>
+            <strong>Matris<strong>
          </td>
          <td valign="top">
 Odefinierat </td>
@@ -517,15 +517,15 @@ Odefinierat </td>
 
 För andra jämförelseoperatorer som >, > =,! =, < och < =, följande regler gäller:   
 
-* Jämförelse mellan typer resulterar i Undefined.
-* Jämförelse mellan två objekt eller två matriser resulterar i Undefined.   
+* Jämförelse mellan typer resulterar i odefinierad.
+* Jämförelse mellan två objekt eller två matriser resulterar i odefinierad.   
 
-Om resultatet av det skalära uttrycket i filtret är odefinierad, motsvarande dokumentet inte tas med i resultatet, eftersom Undefined inte logiskt del ”true”.
+Om resultatet av det skalära uttrycket i filtret är odefinierad motsvarande dokumentet inte tas med i resultatet, eftersom Undefined logiskt inte motsvarar en ”true”.
 
 ### <a name="between-keyword"></a>MELLAN nyckelord
-Du kan också använda nyckelordet mellan för att uttrycka frågor mot intervall med värden som i ANSI SQL. MELLAN kan användas mot strängar eller siffror.
+Du kan också använda nyckelordet BETWEEN för att uttrycka frågor mot intervall med värden som i ANSI SQL. MELLAN kan användas mot strängar eller siffror.
 
-Den här frågan returnerar till exempel alla family dokument som den första underordnade klass är mellan 1-5 (båda inkluderande). 
+Den här frågan returnerar till exempel alla family dokument där den första underordnade i företagsklass som är mellan 1-5 (båda inkluderande). 
 
     SELECT *
     FROM Families.children[0] c
@@ -536,12 +536,12 @@ Till skillnad från i ANSI-SQL, kan du också använda BETWEEN-satsen i FROM-sat
     SELECT (c.grade BETWEEN 0 AND 10)
     FROM Families.children[0] c
 
-Kom ihåg att skapa en indexprincip som använder en intervallet Indextypen mot alla numeriska egenskaper/sökvägar som är filtrerade i instruktionen BETWEEN för snabbare frågan körningstider. 
+Glöm inte att skapa en indexprincip som använder en intervallet Indextyp mot alla numeriska egenskaper/sökvägar som filtreras i BETWEEN-satsen för snabbare fråga körningstider. 
 
-Den största skillnaden mellan att använda BETWEEN i SQL-API och ANSI SQL är att du kan ange intervallet frågor mot egenskaper för olika typer – du kan till exempel ha ”klass” vara ett tal (5) i vissa dokument och strängar i andra (”grade4”). I dessa fall, som i JavaScript, en jämförelse mellan två olika typer resultaten i ”Odefinierad” och dokumentet kommer att hoppas över.
+Den största skillnaden mellan att använda BETWEEN i SQL-API och ANSI SQL är att du kan uttrycka intervallfrågor mot egenskaper av olika typer – du kan till exempel ha ”klass” vara ett tal (5) i vissa dokument och strängar i andra (”grade4”). I dessa fall, som i JavaScript, en jämförelse mellan två olika typer resulterar i ”Odefinierad” och dokumentet kommer att hoppas över.
 
-### <a name="logical-and-or-and-not-operators"></a>Logisk (AND, OR och inte) operatorer
-Logiska operatorer fungerar med booleska värden. De logiska tabellerna sanningen för de här operatorerna visas i följande tabeller.
+### <a name="logical-and-or-and-not-operators"></a>Logiska (AND, OR och NOT) operatorer
+Logiska operatorer fungerar på booleska värden. De logiska tabellerna sanningen för de här operatorerna visas i följande tabeller.
 
 | ELLER | True | False | Odefinierat |
 | --- | --- | --- | --- |
@@ -568,34 +568,34 @@ IN-nyckelordet kan användas för att kontrollera om ett angivet värde matchar 
     FROM Families 
     WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
 
-Det här exemplet returnerar alla dokument om tillståndet är någon av de angivna värdena.
+Det här exemplet returnerar alla dokument där tillståndet är någon av de angivna värdena.
 
     SELECT *
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-### <a name="ternary--and-coalesce--operators"></a>Ternär (?) och ansvariga för Coalesce (?)
-Ternär och Coalesce operatörer kan användas för att skapa villkorsuttryck liknar populära programmeringsspråk som C# och JavaScript. 
+### <a name="ternary--and-coalesce--operators"></a>Ternär (?) och operatörer av Coalesce (?)
+Ternär och Coalesce operatörer kan användas för att skapa villkorsuttryck, liknar vanliga programmeringsspråk som C# och JavaScript. 
 
-Operatorn Ternär (?) kan vara väldigt användbar när man skapar nya JSON-egenskaper direkt. Till exempel kan nu du skriva frågor för att klassificera klassen nivåer i en mänsklig läsbar form som nybörjare/mellanliggande/Avancerat enligt nedan.
+Operatorn Ternär (?) kan vara väldigt användbar när nya JSON-egenskaper i farten. Exempel: nu kan du skriva frågor för att klassificera klass-nivåer till mänskliga läsbart format som nybörjare/mellanliggande/Avancerat enligt nedan.
 
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel 
      FROM Families.children[0] c
 
-Du kan också kapsla anrop till operatorn som i frågan nedan.
+Du kan också kapsla anrop till operator som i frågan nedan.
 
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
 
-Som med andra frågeoperatorer ingår om refererade egenskaper i villkorsuttrycket saknas i ett dokument, eller om de typer som jämförs är olika, sedan dessa dokument inte i frågeresultatet.
+Som med andra operatorer för fråga ingår om refererade egenskaperna i villkorsuttrycket saknas i alla dokument, eller om de typer som jämförs är olika, sedan dessa dokument inte i frågeresultatet.
 
-Operatorn Coalesce (?) kan användas för att effektivt kontrollera om finns för en egenskap (kallas även har definierats) i ett dokument. Detta är användbart när frågor körs mot halvstrukturerade data av olika typer eller. Den här frågan returnerar till exempel ”efternamn” om den finns, eller ”efternamn” om det inte finns.
+Operatorn Coalesce (?) kan användas för att effektivt söka efter förekomsten av en egenskap (alias) definieras) i ett dokument. Detta är användbart när frågor körs mot halvstrukturerade eller data av olika typer. Den här frågan returnerar till exempel ”efternamn” om tillgänglig, eller ”efternamn” om det inte finns.
 
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-### <a id="EscapingReservedKeywords"></a>Angiven egenskapsaccessor
-Du kan också komma åt egenskaper med hjälp av operatorn inom citattecken egenskapen `[]`. Till exempel `SELECT c.grade` och `SELECT c["grade"]` är likvärdiga. Den här syntaxen är användbart när du vill undanta en egenskap som innehåller blanksteg, specialtecken, eller delar samma namn som en SQL-nyckelord eller reserverat ord som händer.
+### <a id="EscapingReservedKeywords"></a>Citerade Egenskapsåtkomst
+Du kan också komma åt egenskaper med hjälp av operatorn citerade egenskapen `[]`. Till exempel `SELECT c.grade` och `SELECT c["grade"]` är likvärdiga. Den här syntaxen är användbart när du behöver att undvika en egenskap som innehåller blanksteg, specialtecken eller händer att dela samma namn som en SQL-nyckelord eller reserverat ord.
 
     SELECT f["lastName"]
     FROM Families f
@@ -603,7 +603,7 @@ Du kan också komma åt egenskaper med hjälp av operatorn inom citattecken egen
 
 
 ## <a id="SelectClause"></a>SELECT-satsen
-SELECT-satsen (**`SELECT <select_list>`**) är obligatoriskt och anger vilka värden hämtas från frågan, precis som i ANSI SQL. Den delmängd som har filtrerats ovanpå källdokument har skickats till Projektionsfasen, där de angivna JSON-värdena hämtas och ett nytt JSON-objekt har skapats, för varje inmatningen som skickades till den. 
+SELECT-satsen (**`SELECT <select_list>`**) är obligatoriska och anger vilka värden hämtas från frågan, precis som i ANSI-SQL. Den delmängd som har filtrerats på källdokument som skickas till Projektionsfasen, där de angivna JSON-värdena hämtas och ett nytt JSON-objekt skapas, för varje indata som skickades till den. 
 
 I följande exempel visas en typisk urvalsfråga. 
 
@@ -641,7 +641,7 @@ I exemplet nedan vi projicerar två kapslade egenskaper `f.address.state` och `f
     }]
 
 
-Projektion stöder också JSON-uttryck som visas i följande exempel:
+Projektion stöder också JSON-uttryck som du ser i följande exempel:
 
 **Fråga**
 
@@ -660,7 +660,7 @@ Projektion stöder också JSON-uttryck som visas i följande exempel:
     }]
 
 
-Nu ska vi titta på rollen för `$1` här. Den `SELECT` satsen behöver skapa en JSON-objekt och eftersom ingen nyckel tillhandahålls vi använder implicit argumentet variabelnamn som börjar med `$1`. Den här frågan returnerar till exempel två implicit argumentvariabler, etikett `$1` och `$2`.
+Låt oss titta på rollen `$1` här. Den `SELECT` satsen som behövs för att skapa en JSON-objekt och eftersom ingen nyckel har angetts och vi använder implicit argumentet variabelnamn som börjar med `$1`. Den här frågan returnerar exempelvis två argumentvariabler som implicit, märkta `$1` och `$2`.
 
 **Fråga**
 
@@ -683,9 +683,9 @@ Nu ska vi titta på rollen för `$1` här. Den `SELECT` satsen behöver skapa en
 
 
 ### <a name="aliasing"></a>Alias
-Nu ska vi utöka exemplet ovan med explicit alias med värden. Nyckelordet används för alias är. Det är valfritt som visas vid användning av det andra värdet som `NameInfo`. 
+Nu ska vi utöka i exemplet ovan med explicita alias med värden. Så som de är nyckelord som används för alias. Det är valfritt som visas när du projicerar det andra värdet som `NameInfo`. 
 
-Om en fråga har två egenskaper med samma namn, användas alias för att byta namn på en eller båda egenskaperna så att de skiljas åt i planerade resultatet.
+Om en fråga har två egenskaper med samma namn, måste alias användas för att byta namn på en eller båda egenskaperna så att de är skiljas åt i det beräknade resultatet.
 
 **Fråga**
 
@@ -708,8 +708,8 @@ Om en fråga har två egenskaper med samma namn, användas alias för att byta n
     }]
 
 
-### <a name="scalar-expressions"></a>Skalära uttryck
-Förutom egenskapsreferenser till stöder SELECT-satsen också skaläruttryck konstanter, aritmetiska uttryck, logiska uttryck osv. Här är till exempel en enkel ”Hello World”-fråga.
+### <a name="scalar-expressions"></a>Skaläruttryck
+Förutom egenskapen referenser stöder SELECT-satsen också skaläruttryck konstanter, aritmetiska uttryck, logiska uttryck, t.ex. Här är till exempel en enkel ”Hello World”-fråga.
 
 **Fråga**
 
@@ -735,7 +735,7 @@ Här är ett mer avancerat exempel som använder ett skalärt uttryck.
     }]
 
 
-I följande exempel är resultatet av det skalära uttrycket som ett booleskt värde.
+I följande exempel visas är resultatet av det skalära uttrycket ett booleskt värde.
 
 **Fråga**
 
@@ -754,8 +754,8 @@ I följande exempel är resultatet av det skalära uttrycket som ett booleskt v�
     ]
 
 
-### <a name="object-and-array-creation"></a>Skapa en objekt och matris
-En annan nyckelfunktion i SQL-API är array-objekt skapas. Observera att vi har skapat ett nytt JSON-objekt i det förra exemplet. På samma sätt kan kan en också skapa matriser som visas i följande exempel:
+### <a name="object-and-array-creation"></a>Skapa en objekt och matriser
+En annan viktig funktion i SQL-API är matris/objektskapande. Observera att vi har skapat ett nytt JSON-objekt i exemplet ovan. På samma sätt kan kan en också skapa matriser som visas i följande exempel:
 
 **Fråga**
 
@@ -780,7 +780,7 @@ En annan nyckelfunktion i SQL-API är array-objekt skapas. Observera att vi har 
     ]
 
 ### <a id="ValueKeyword"></a>VÄRDET nyckelord
-Den **värdet** nyckelord är ett sätt att returnera JSON-värde. Till exempel returnerar frågan nedan skalären `"Hello World"` i stället för `{$1: "Hello World"}`.
+Den **värdet** nyckelord är ett sätt att returnera värdet på JSON. Exempelvis kan den fråga som visas nedan returnerar skalären `"Hello World"` i stället för `{$1: "Hello World"}`.
 
 **Fråga**
 
@@ -815,7 +815,7 @@ Följande fråga returnerar JSON-värde utan den `"address"` etikett i resultate
       }
     ]
 
-I följande exempel utökar här om du vill visa hur du returnerar JSON primitiva värden (lövnivån av JSON-träd). 
+I följande exempel utökar det för att visa hur du returnerar JSON primitiva värden (lövnivån av JSON-träd). 
 
 **Fråga**
 
@@ -830,8 +830,8 @@ I följande exempel utökar här om du vill visa hur du returnerar JSON primitiv
     ]
 
 
-### <a name="-operator"></a>* Operatorn
-Särskilda operatorn (*) går för att projicera dokumentet-är. När den används, måste det vara det enda beräknade fältet. När en fråga som `SELECT * FROM Families f` är giltigt, `SELECT VALUE * FROM Families f ` och `SELECT *, f.id FROM Families f ` är inte giltiga.
+### <a name="-operator"></a>* Operator
+Särskilda operatorn (*) stöds projicera dokumentet som – är. När den används, måste det vara det enda beräknade fältet. När en fråga av typen `SELECT * FROM Families f` är giltig, `SELECT VALUE * FROM Families f ` och `SELECT *, f.id FROM Families f ` är inte giltiga.
 
 **Fråga**
 
@@ -860,7 +860,7 @@ Särskilda operatorn (*) går för att projicera dokumentet-är. När den använ
     }]
 
 ### <a id="TopKeyword"></a>Operatorn TOP
-Nyckelordet TOP kan användas för att begränsa antalet värden från en fråga. När upp används tillsammans med ORDER BY-satsen är resultatmängden begränsad till första N antalet beställda värden. Annars returneras första N antalet resultat i en odefinierad ordning. Som bästa praxis, i en SELECT-instruktion alltid Använd en ORDER BY-sats med TOP-instruktion. Detta är det enda sättet att förutsägbart indikera vilka rader som påverkas av längst upp. 
+Nyckelordet ÖVERSTA kan användas för att begränsa antalet värden från en fråga. När upp används tillsammans med ORDER BY-satsen, är resultatmängden begränsad till sorterad värden; N första Annars returneras första N antalet resultat i en odefinierad order. Som bästa praxis, i en SELECT-instruktion, Använd alltid en ORDER BY-sats med TOP-satsen. Det här är det enda sättet att förutsägbart indikerar vilka rader som påverkas av längst upp. 
 
 **Fråga**
 
@@ -887,10 +887,10 @@ Nyckelordet TOP kan användas för att begränsa antalet värden från en fråga
         "isRegistered": true
     }]
 
-TOP kan användas med ett konstant värde (som visas ovan) eller med ett variabelvärde med hjälp av frågor med parametrar. Mer information finns i parameterfrågor nedan.
+TOP kan användas med ett konstant värde (som visas ovan) eller med ett variabelvärde använda parameteriserade frågor. Mer information finns i parameterfrågor nedan.
 
 ### <a id="Aggregates"></a>Mängdfunktioner
-Du kan också utföra aggregeringar i den `SELECT` satsen. Mängdfunktioner utför en beräkning på en uppsättning värden och returnera ett enstaka värde. Följande fråga returnerar till exempel antal family dokument i samlingen.
+Du kan också utföra aggregeringar i den `SELECT` satsen. Mängdfunktioner utföra beräkningar på en uppsättning värden och returnera ett enstaka värde. Följande fråga returnerar till exempel antalet family dokument i samlingen.
 
 **Fråga**
 
@@ -903,7 +903,7 @@ Du kan också utföra aggregeringar i den `SELECT` satsen. Mängdfunktioner utf�
         "$1": 2
     }]
 
-Du kan också returnera mängdfunktionen skalära värde med hjälp av den `VALUE` nyckelord. Följande fråga returnerar till exempel antalet värden som ett tal:
+Du kan också returnera skalärvärde för samlingen med hjälp av den `VALUE` nyckelord. Följande fråga returnerar till exempel antalet värden som ett enda tal:
 
 **Fråga**
 
@@ -926,7 +926,7 @@ Du kan också utföra aggregeringar i kombination med filter. Följande fråga r
 
     [ 1 ]
 
-I följande tabell listas stöds mängdfunktioner i SQL-API. `SUM` och `AVG` utförs via numeriska värden, medan `COUNT`, `MIN`, och `MAX` kan utföras via siffror, strängar, booleska värden och null-värden. 
+I följande tabell listas stöds mängdfunktioner i SQL-API: et. `SUM` och `AVG` utförs över numeriska värden, medan `COUNT`, `MIN`, och `MAX` kan utföras via tal, strängar, booleska värden och null-värden. 
 
 | Användning | Beskrivning |
 |-------|-------------|
@@ -939,15 +939,15 @@ I följande tabell listas stöds mängdfunktioner i SQL-API. `SUM` och `AVG` utf
 Aggregeringar kan också utföras via resultatet av en matris iteration. Mer information finns i [matris Iteration i frågor](#Iteration).
 
 > [!NOTE]
-> När du använder Azure portal Data Explorer, Observera att aggregering frågor kan returnera delvis sammanlagda resultat via en fråga sida. SDK: erna producerar en enda ackumulerade värdet på alla sidor. 
+> När du använder Datautforskaren i Azure portal, Observera att mängdfrågor kan returnera de delvis sammansatta resultaten från en sida i fråga. SDK: erna producerar en enda ackumulerade värdet på alla sidor. 
 > 
-> För att kunna utföra aggregering frågor med kod du behöver .NET SDK 1.12.0, .NET Core SDK 1.1.0 eller Java SDK 1.9.5 eller senare.    
+> För att kunna utföra mängdfrågor med hjälp av kod du behöver .NET SDK 1.12.0, .NET Core SDK 1.1.0 eller Java SDK 1.9.5 eller senare.    
 >
 
 ## <a id="OrderByClause"></a>ORDER BY-sats
-Som i ANSI-SQL, kan du använda en valfri Order By-sats samtidigt som frågor körs. Instruktionen kan innehålla ett valfritt ASC/DESC-argument för att ange ordningen som resultat måste hämtas.
+Som du kan inkludera ett valfritt Order By-sats vid fråga till i ANSI-SQL. Instruktionen kan inkludera ett valfritt argument Stig/fall för att ange vilken ordning där resultaten måste hämtas.
 
-Här är till exempel en fråga som hämtar familjer i den ordning de fasta Ortnamn.
+Här är till exempel en fråga som hämtar familjer i den ordning de fasta stadens namn.
 
 **Fråga**
 
@@ -968,7 +968,7 @@ Här är till exempel en fråga som hämtar familjer i den ordning de fasta Ortn
       }
     ]
 
-Och här är en fråga som hämtar familjer efter skapandedatum som lagras som ett tal som representerar epok tid, dvs, förfluten tid sedan den 1 januari 1970 i sekunder.
+Och här är en fråga som hämtar familjer efter skapandedatum, som lagras som ett tal som representerar epok tid, dvs, förfluten tid sedan den 1 januari 1970 i sekunder.
 
 **Fråga**
 
@@ -989,10 +989,10 @@ Och här är en fråga som hämtar familjer efter skapandedatum som lagras som e
       }
     ]
 
-## <a id="Advanced"></a>Avancerade begrepp och SQL-frågor
+## <a id="Advanced"></a>Avancerade databasbegrepp och SQL-frågor
 
-### <a id="Iteration"></a>Upprepning
-En ny konstruktion har lagts till den **IN** nyckelord i SQL-API för att ge stöd för att iterera över JSON-matriser. FRÅN-källa har stöd för iteration. Vi börjar med följande exempel:
+### <a id="Iteration"></a>Iteration
+En ny konstruktion har lagts till den **IN** nyckelord i SQL-API för att tillhandahålla stöd för att iterera över JSON-matriser. FROM-källan har stöd för iteration. Låt oss börja med följande exempel:
 
 **Fråga**
 
@@ -1026,7 +1026,7 @@ En ny konstruktion har lagts till den **IN** nyckelord i SQL-API för att ge st�
       ]
     ]
 
-Nu ska vi titta på en annan fråga som utför iteration över underordnade objekt i samlingen. Observera skillnaden i matrisen utdata. Det här exemplet delar upp `children` och förenklas resultaten till en matris.  
+Nu ska vi titta på en annan fråga som utför iteration underordnade objekt i samlingen. Observera skillnaden i utdata-matris. Det här exemplet delar upp `children` och plattar ut resultatet till en enskild matris.  
 
 **Fråga**
 
@@ -1056,7 +1056,7 @@ Nu ska vi titta på en annan fråga som utför iteration över underordnade obje
       }
     ]
 
-Detta kan ytterligare användas för att filtrera på varje enskild post i matrisen som visas i följande exempel:
+Detta kan ytterligare användas för att filtrera på varje enskild post i listan som visas i följande exempel:
 
 **Fråga**
 
@@ -1070,7 +1070,7 @@ Detta kan ytterligare användas för att filtrera på varje enskild post i matri
       "givenName": "Lisa"
     }]
 
-Du kan också utföra sammanställning över resultatet av matrisen iteration. Till exempel räknar följande fråga antalet underordnade bland alla serier.
+Du kan också utföra aggregering över resultatet av matrisen iteration. Till exempel räknar följande fråga antalet underordnade bland alla serier.
 
 **Fråga**
 
@@ -1086,11 +1086,11 @@ Du kan också utföra sammanställning över resultatet av matrisen iteration. T
     ]
 
 ### <a id="Joins"></a>Kopplingar
-Du behöver ansluta över tabeller är viktigt i en relationsdatabas. Det är den logiska naturlig följd att designa normaliserade scheman. Strider mot det behandlar till SQL API Avnormaliserade datamodellen schemafria dokument. Det här är den logiska motsvarigheten till en ”självkoppling”.
+I en relationsdatabas är behovet av att ansluta över tabeller viktigt. Det är den logiska naturlig följd att utforma normaliserade scheman. Sätt som strider mot detta innehåller SQL API Avnormaliserade datamodellen schemafria dokument. Det här är den logiska motsvarigheten till en ”självkoppling”.
 
-Den syntax som språket stöder är < from_source1 > < from_source2 > Anslut till koppling... Anslut < from_sourceN >. Generellt sett detta returnerar en uppsättning **N**- tupplar (tuppel med **N** värden). Varje tuppel har värden som genereras av alla samling alias iterera över sina respektive uppsättningar. Detta är med andra ord en fullständig kryssprodukten av mängderna deltar i kopplingen.
+Syntax som språket stöder är < from_source1 > JOIN < from_source2 > koppling... Anslut < from_sourceN >. Övergripande detta returnerar en uppsättning **N**- tupplar (tuppel med **N** värden). Varje tuppel har värden som produceras av iterera alla alias för samlingen över sina respektive uppsättningar. Det här är alltså en fullständig kryssprodukten av de mängder som deltar i kopplingen.
 
-I följande exempel visas hur JOIN-satsen fungerar. I följande exempel visas resultatet är tom eftersom kryssprodukten av varje dokument från källan och tomma är tom.
+I följande exempel visas hur kopplingssatsen fungerar. I följande exempel, resultatet är tom eftersom kryssprodukten av varje dokument från källa och en tom uppsättning är tom.
 
 **Fråga**
 
@@ -1104,7 +1104,7 @@ I följande exempel visas hur JOIN-satsen fungerar. I följande exempel visas re
     }]
 
 
-I följande exempel är kopplingen mellan dokumentroten och `children` subroot. Det är en kryssprodukten mellan två JSON-objekt. Att underordnade är en matris är inte giltiga i KOPPLINGEN eftersom vi arbetar med en enda rot som är underordnade matrisen. Därför innehåller resultatet bara två resultat eftersom kryssprodukten av varje dokument med matrisen ger exakt bara ett dokument.
+I följande exempel är kopplingen mellan dokumentroten och `children` subroot. Det är en kryssprodukten mellan två JSON-objekt. Det faktum att underordnade är en matris är inte effektiva i KOPPLINGEN eftersom vi arbetar med en enda rot som är underordnade matrisens. Resultatet innehåller därför bara två resultat, eftersom kryssprodukten av varje dokument med matrisen ger exakt bara ett dokument.
 
 **Fråga**
 
@@ -1148,15 +1148,15 @@ I följande exempel visas en mer konventionella koppling:
 
 
 
-Det första du Observera är att den `from_source` av den **ansluta** -satsen är en iterator. Därför är flödet i det här fallet följande:  
+Det första att notera är att den `from_source` av den **ansluta** -satsen är en Iteratorn. Därför är flödet i det här fallet följande:  
 
-* Expandera varje element i underordnade **c** i matrisen.
-* Tillämpa en kryssprodukten med roten för dokumentet **f** med varje underordnat element **c** som har förenklad i det första steget.
-* Slutligen projektet rotobjektet **f** namnegenskap enbart. 
+* Expandera varje underordnat element **c** i matrisen.
+* Tillämpa en kryssprodukten med rot dokumentets **f** med varje underordnat element **c** som var tillplattad i det första steget.
+* Slutligen projektet rotobjektet **f** namnge egenskapen enbart. 
 
-Det första dokumentet (`AndersenFamily`) innehåller endast ett underordnat element, så resultatet innehåller bara ett enda objekt som motsvarar det här dokumentet. Det andra dokumentet (`WakefieldFamily`) innehåller två underordnade. Därför genererar kryssprodukten ett separat objekt för varje underordnad, vilket ledde till två objekt, en för varje underordnad som motsvarar det här dokumentet. Fälten rot i båda dessa dokument är desamma, precis som du förväntar dig i en kryssprodukten.
+Det första dokumentet (`AndersenFamily`) innehåller endast ett underordnat element, så resultatet innehåller bara ett enda objekt som motsvarar det här dokumentet. Det andra dokumentet (`WakefieldFamily`) innehåller två underordnade. Därför producerar kryssprodukten ett separat objekt för varje underordnad, vilket lett till två objekt, en för varje underordnad som motsvarar det här dokumentet. Fälten rot i båda dessa dokument är likadana, precis som du förväntar dig i en kryssprodukten.
 
-Verktyget verkliga för anslutning till är att formuläret tupplar från kryssprodukten i en form som annars är svår att projektet. Du kan dessutom som visas i exemplet nedan, filtrera på kombinationen av en tuppel som låter: användaren valde ett villkor uppfylls av tuppeln övergripande.
+Verktyget verkliga i kopplingen är att formuläret tupplar från kryssprodukten i en form som annars är svåra att projektet. Du kan dessutom som vi ser i exemplet nedan, filtrera på en kombination av en tuppel att kan användaren har valt ett villkor som uppfyller tuppeln övergripande.
 
 **Fråga**
 
@@ -1191,7 +1191,7 @@ Verktyget verkliga för anslutning till är att formuläret tupplar från kryssp
 
 
 
-Det här exemplet är en naturlig förlängning av föregående exempel och utför en dubbel koppling. Därför kan du visa kryssprodukten som genererat följande kod:
+Det här exemplet är en naturlig förlängning av föregående exempel och skapar en dubbla koppling. Därför kan kryssprodukten visas som följande pseudo kod:
 
     for-each(Family f in Families)
     {    
@@ -1207,9 +1207,9 @@ Det här exemplet är en naturlig förlängning av föregående exempel och utf�
         }
     }
 
-`AndersenFamily` har ett underordnat objekt som har en husdjur. Så här ger en rad i kryssprodukten (1\*1\*1) från den här serien. WakefieldFamily men har två underordnade objekt, men endast ett underordnat objekt ”Jesse” har husdjur. Jesse har två husdjur om. Därför kryssprodukten ger 1\*1\*2 = 2 rader från den här serien.
+`AndersenFamily` har en underordnad som har en husdjur. Därför kryssprodukten ger en rad (1\*1\*1) från den här serien. WakefieldFamily men har två barn, men endast en underordnad ”Jesse” har husdjur. Jesse har två husdjur dock. Därför kryssprodukten ger 1\*1\*2 = 2 rader från den här serien.
 
-I nästa exempel finns ett filter på `pet`. Detta omfattar inte alla tupplar där husdjur namnet inte är ”skuggkopia”. Observera att vi kan skapa tupplar från matriser, filter på något av elementen i tuppeln, och projektet valfri kombination av elementen. 
+I nästa exempel finns ett ytterligare filter på `pet`. Detta omfattar inte alla tupplar där husdjur namnet inte är ”skuggkopia”. Observera att vi kan skapa tupplar från matriser, filter på någon av elementen i tuppeln och projicera olika kombinationer av elementen. 
 
 **Fråga**
 
@@ -1235,17 +1235,17 @@ I nästa exempel finns ett filter på `pet`. Detta omfattar inte alla tupplar d�
 
 
 ## <a id="JavaScriptIntegration"></a>JavaScript-integrering
-Azure Cosmos-DB är en programmeringsmodell för att köra JavaScript-baserade programlogik direkt på samlingar som lagrade procedurer och utlösare. Detta möjliggör både:
+Azure Cosmos DB är en programmeringsmodell för att köra JavaScript-baserade programlogik direkt på samlingarna som lagrade procedurer och utlösare. Detta möjliggör både:
 
-* Möjligheten att utföra CRUD-åtgärder för högpresterande transaktionell och frågor mot dokument i en samling tack vare djupgående integration av JavaScript-körning direkt i databasmotorn. 
-* En fysisk modellering av Kontrollflöde, variabel omfång och tilldelning och integration av undantagshantering primitiver med databastransaktioner. Mer information om Azure DB som Cosmos-stöd för JavaScript-integrering finns i dokumentationen för programmering av serversidan JavaScript.
+* Möjlighet att göra högpresterande transaktionella CRUD-åtgärder och frågor mot dokument i en samling tack vare den djupgående integrationen av JavaScript-körning direkt i databasmotorn. 
+* En naturlig modellering av Kontrollflöde, variabel omfång och tilldelning och integrering av undantagshantering primitiver med databastransaktioner. Mer information om Azure Cosmos DB-stöd för JavaScript-integrering finns i dokumentationen för JavaScript-programmering på serversidan.
 
 ### <a id="UserDefinedFunctions"></a>Användardefinierade funktioner (UDF)
-SQL-API ger stöd för användaren definierat funktioner (UDF) tillsammans med de typer som redan har definierats i den här artikeln. I synnerhet stöds skalära UDF: er där utvecklare kan skicka in noll eller flera argument och returnera ett enda argument resultat tillbaka. Var och en av de här argumenten kontrolleras för att vara giltiga JSON-värdena.  
+SQL-API har stöd för användardefinierade funktioner (UDF, User) tillsammans med de typer som redan har definierats i den här artikeln. I synnerhet stöds skalära UDF: er där utvecklare kan skicka in noll eller flera argument och returnerar ett enda argument resultat tillbaka. Var och en av de här argumenten kontrolleras för att du är juridiska JSON-värden.  
 
-SQL-syntaxen utökas så att den stöder anpassad programlogik med hjälp av dessa användardefinierade funktioner. UDF: er kan registreras med SQL-API och sedan refereras som en del av en SQL-fråga. I praktiken som de UDF: er exquisitely anropas av frågor. Följd att detta val har UDF: er inte åtkomst till context-objektet som har andra JavaScript typer (lagrade procedurer och utlösare). Eftersom frågor körs i skrivskyddat läge kan köras de på primära eller sekundära repliker. Därför är UDF: er avsedd att köras på sekundära repliker till skillnad från andra typer av JavaScript.
+SQL-syntax utökas så att den stöder anpassad programlogik med hjälp av dessa användardefinierade funktioner. UDF: er kan registreras med SQL-API och sedan referera till som en del av en SQL-fråga. De UDF: er är i själva verket exquisitely utformade anropas av frågor. Följd att det här alternativet har UDF: er inte åtkomst till context-objektet som har andra JavaScript typer (lagrade procedurer och utlösare). Eftersom frågorna i skrivskyddat läge, kan de köras på primära eller på sekundära repliker. Därför är UDF: er avsedda att köras på sekundära repliker till skillnad från andra typer av JavaScript.
 
-Nedan visas ett exempel på hur en UDF kan registreras för Cosmos-DB-databasen, speciellt under en dokumentsamling.
+Nedan visas ett exempel på hur en UDF kan registreras för Cosmos DB-databasen, särskilt under en dokumentsamling.
 
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
        {
@@ -1259,12 +1259,12 @@ Nedan visas ett exempel på hur en UDF kan registreras för Cosmos-DB-databasen,
            UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
            regexMatchUdf).Result;  
 
-I föregående exempel skapas en UDF-fil som heter `REGEX_MATCH`. Den accepterar två strängvärden som JSON `input` och `pattern` och kontrollerar om de första matchar mönstret som anges i andra använder Javascript's string.match()-funktionen.
+I föregående exempel skapas en UDF vars namn är `REGEX_MATCH`. Godtas två JSON-strängvärden `input` och `pattern` och kontrollerar om de första matchar mönstret som anges i andra med hjälp av JavaScript-string.match() funktion.
 
 Vi kan nu använda den här UDF i en fråga i en projektion. UDF: er måste vara kvalificerat med skiftlägeskänsliga prefixet ”udf”. När anropas från frågor. 
 
 > [!NOTE]
-> Innan 3/17/2015 stöds Cosmos DB UDF anrop utan ”udf”. prefix som väljer REGEX_MATCH(). Det här anropa mönstret är föråldrad.  
+> Innan du 3/17/2015 stöds Cosmos DB UDF anrop utan ”udf”. prefix som väljer REGEX_MATCH(). Det här anropande mönstret är inaktuell.  
 > 
 > 
 
@@ -1284,7 +1284,7 @@ Vi kan nu använda den här UDF i en fråga i en projektion. UDF: er måste vara
       }
     ]
 
-UDF-filen kan även användas i ett filter som visas i exemplet nedan är också kvalificerad med ”udf”. prefix:
+En användardefinierad funktion kan också användas i ett filter som visas i exemplet nedan, även kvalificerad med ”udf”. prefix för:
 
 **Fråga**
 
@@ -1302,7 +1302,7 @@ UDF-filen kan även användas i ett filter som visas i exemplet nedan är också
 
 I princip UDF: er är giltig skalära uttryck och kan användas i både projektioner och filter. 
 
-För att expandera med UDF: er ska vi titta på ett annat exempel med villkorlig logik:
+Om du vill expandera på kraften i UDF: er, låt oss titta på ett annat exempel med villkorslogik:
 
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
        {
@@ -1325,7 +1325,7 @@ För att expandera med UDF: er ska vi titta på ett annat exempel med villkorlig
                 seaLevelUdf);
 
 
-Nedan visas ett exempel som utnyttjar en användardefinierad funktion.
+Nedan visas ett exempel som utövar UDF-filen.
 
 **Fråga**
 
@@ -1346,29 +1346,29 @@ Nedan visas ett exempel som utnyttjar en användardefinierad funktion.
     ]
 
 
-Som i föregående exempel demonstrerar integrera kraften i JavaScript-språket med SQL-API för att tillhandahålla en omfattande programmerbara gränssnitt för att göra komplex procedurmässig, villkorlig logik med hjälp av inbyggda funktioner för körning av JavaScript UDF: er.
+Som i föregående exempel showcase, integrera UDF: er kraften i JavaScript-språket med SQL-API för att tillhandahålla ett omfattande programmerbart gränssnitt för att göra komplex procedurmässig, villkorsstyrd logik med hjälp av inbyggda funktionerna för JavaScript-körning.
 
-SQL-API ger argumenten till de UDF: er för varje dokument i källan för den aktuella etappen (WHERE-satsen eller SELECT-satsen) bearbetning av en användardefinierad funktion. Resultatet är inbyggda i övergripande körning pipelinen sömlöst. Om egenskaperna som anges av en användardefinierad funktion parametrar finns inte i JSON-värde, parametern anses Odefinierad och därför UDF-anrop är helt hoppas över. På liknande sätt om resultatet av en användardefinierad funktion är odefinierad ingår den inte i resultatet. 
+SQL-API: et tillhandahåller argumenten till de användardefinierade funktioner för varje dokument i källan till det aktuella steget (WHERE-satsen eller SELECT-satsen) i bearbetning av en användardefinierad funktion. Resultatet ingår i den övergripande körning pipelinen sömlöst. Om egenskaperna som anges av en användardefinierad funktion parametrar inte är tillgängliga i JSON-värde, parametern anses inte definierats och kan därför UDF-anrop är helt och hållet hoppas över. På samma sätt om resultatet av en användardefinierad funktion är odefinierad ingår den inte i resultatet. 
 
-Sammanfattningsvis är UDF: er bra verktyg för att göra komplicerad affärslogik som en del av frågan.
+Sammanfattningsvis är UDF: er fantastiska verktyg för att göra komplicerad affärslogik som en del av frågan.
 
 ### <a name="operator-evaluation"></a>Operatorn utvärdering
-Cosmos DB, ritar bredd med JavaScript-operatörer och dess utvärdering semantik miljöpåverkan som JSON-databas. Medan Cosmos DB försöker bevara JavaScript-semantik i JSON-support, avviker åtgärden utvärdering i vissa fall.
+Cosmos DB och ritar parallels med JavaScript-operatorer och dess utvärdering semantik miljöpåverkan för en JSON-databas. Även om Cosmos DB försöker bevara JavaScript-semantik i JSON-stöd, avviker åtgärden utvärderingen i vissa fall.
 
-I SQL-API, är till skillnad från i traditionella SQL typer av värden ofta inte känd tills värdena som hämtas från databasen. För att effektivt köra frågor, har de flesta av operatörerna strikt krav. 
+I SQL-API, är till skillnad från traditionella SQL typer av värden ofta inte kända tills värdena hämtas från databasen. För att effektivt köra frågor, har de flesta av operatörerna strikta krav. 
 
-SQL-API utförs inte implicita konverteringar, till skillnad från JavaScript. Till exempel en fråga som `SELECT * FROM Person p WHERE p.Age = 21` matchar dokument som innehåller en ålder egenskap vars värde är 21. Andra dokument vars ålder-egenskap stämmer med strängen ”21” eller andra eventuellt oändlig variationer som ”021”, ”21.0”, ”0021”, ”00021”, etc. matchas inte. Detta är däremot att JavaScript där strängvärden är implicit omvandlas till siffror (baserat på operator, ex: ==). Det här alternativet är avgörande för effektiv index som matchar i SQL-API. 
+SQL API utföra inte implicit konvertering, till skillnad från JavaScript. Exempelvis kan en fråga som `SELECT * FROM Person p WHERE p.Age = 21` matchar dokument som innehåller en egenskap för ålder vars värde är 21. Andra dokument vars ålder-egenskap stämmer med strängen ”21” eller andra eventuellt oändlig variationer som ”021”, ”21.0”, ”0021”, ”00021”, etc. matchas inte. Detta är däremot att JavaScript där strängvärden är implicit omvandlas till siffror (baserat på operator, t.ex.: ==). Det här alternativet är avgörande för att effektivt index som matchar i SQL-API: et. 
 
 ## <a name="parameterized-sql-queries"></a>Parametriserade SQL-frågor
-Cosmos DB stöder frågor med parametrar som anges med @ notation. Parametriserade SQL ger stabil hantering och undantagstecken användarindata, förhindra oavsiktlig exponering av data via SQL injection. 
+Cosmos DB har stöd för frågor med parametrar som är uttryckt i med vanliga \@ notation. Parametriserad SQL ger stabil hantering av och undantagstecken användarindata, förhindrar oavsiktlig exponering av data via SQL-inmatning. 
 
-Du kan till exempel skriva en fråga som tar efternamn och region som parametrar och sedan exekverar för olika värden för efternamn och adressläge baserat på indata från användaren.
+Du kan till exempel skriva en fråga som tar efternamn och region som parametrar och sedan arbetsuppgifterna för olika värden för efternamn och adressläge baserat på indata från användaren.
 
     SELECT * 
     FROM Families f
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 
-Denna begäran kan sedan skickas till Cosmos-databas som en JSON-fråga som visas nedan.
+Den här förfrågan kan sedan skickas till Cosmos DB som en fråga som innehåller JSON som visas nedan.
 
     {      
         "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",     
@@ -1378,7 +1378,7 @@ Denna begäran kan sedan skickas till Cosmos-databas som en JSON-fråga som visa
         ] 
     }
 
-Argumentet TOP kan anges med frågor med parametrar som visas nedan.
+Argumentet för TOP kan ställas in använda parameteriserade frågor som visas nedan.
 
     {      
         "query": "SELECT TOP @n * FROM Families",     
@@ -1387,52 +1387,52 @@ Argumentet TOP kan anges med frågor med parametrar som visas nedan.
         ] 
     }
 
-Parametervärden kan vara en giltig JSON (strängar, siffror, booleska värden, null, även matriser eller kapslade JSON). Även eftersom Cosmos-DB-schema mindre, valideras parametrar inte mot alla typer.
+Parametervärden kan vara valfri giltig JSON (strängar, tal, booleska värden, null, och med matriser eller kapslad JSON). Också eftersom Cosmos DB utan schema verifieras parametrar inte mot alla typer.
 
 ## <a id="BuiltinFunctions"></a>Inbyggda funktioner
 Cosmos DB stöder också ett antal inbyggda funktioner för vanliga åtgärder som kan användas i frågor som användardefinierade funktioner (UDF).
 
 | Funktionen grupp          | Åtgärder                                                                                                                                          |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Matematiska funktioner  | ABS, TAKET, EXP, VÅNING, LOG, LOG10, POWER, runda, LOGGA, SQRT, ruta, AVKORTA, ARCCOS, ARCSIN, ARCTAN, ATN2, COS, bet, grader, PI, radianer, SIN och TAN |
-| Ange kontrollerar funktioner | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED och IS_PRIMITIVE                                                           |
-| Strängfunktioner        | CONCAT, innehåller, ENDSWITH, INDEX_OF, vänster, längd, nedre, LTRIM, Ersätt, REPLIKERA, OMVÄND, höger, RTRIM, STARTSWITH, DELSTRÄNGEN och övre       |
+| Matematiska funktioner  | ABS, TAKET, EXP, VÅNING, LOG, LOG10, POWER, RESURSALLOKERING, LOGGA, SQRT, SQUARE, AVKORTA, funktionerna ACOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANS, SIN och TAN |
+| Funktioner för typkontroll | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED och IS_PRIMITIVE                                                           |
+| Strängfunktioner        | CONCAT, innehåller, ENDSWITH, INDEX_OF, vänster, längd, lägre, LTRIM, Ersätt, replikering, OMVÄND, höger, RTRIM, STARTSWITH, DELSTRÄNGEN och övre       |
 | Matrisfunktioner         | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH och ARRAY_SLICE                                                                                         |
 | Spatial funktioner       | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID och ST_ISVALIDDETAILED                                                                           | 
 
-Om du använder en användardefinierad funktion (UDF) som en inbyggd funktion är nu tillgänglig, bör du använda motsvarande inbyggd funktion som det ska gå snabbare att köra och mer effektivt. 
+Om du använder en användardefinierad funktion (UDF) som en inbyggd funktion är nu tillgänglig, bör du använda motsvarande inbyggd funktion som den ska gå snabbare att köra och mer effektivt. 
 
 ### <a name="mathematical-functions"></a>Matematiska funktioner
-Matematiska funktioner utför en beräkning, baserat på värden som har angetts som argument och returnerar ett numeriskt värde. Här är en tabell med inbyggda matematiska funktioner som stöds.
+Matematiska funktioner utför en beräkning, baserat på indatavärden som tillhandahålls som argument och returnerar ett numeriskt värde. Här är en tabell med inbyggda matematiska funktioner som stöds.
 
 
 | Användning | Beskrivning |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [[ABS (num_expr)](#bk_abs) | Returnerar det absoluta (positiva) värdet av uttryck. |
+| [[ABS (num_expr)](#bk_abs) | Returnerar det absoluta (positiva) värdet för det angivna numeriskt uttrycket. |
 | [TAKET (num_expr)](#bk_ceiling) | Returnerar det minsta heltalsvärdet större än eller lika med det angivna numeriska uttrycket. |
 | [VÅNING (num_expr)](#bk_floor) | Returnerar det största heltalet mindre än eller lika med det angivna numeriska uttrycket. |
-| [EXP (num_expr)](#bk_exp) | Returnerar e upphöjt till uttryck. |
-| [LOGGEN (num_expr [, base])](#bk_log) | Returnerar den naturliga logaritmen av uttryck eller logaritmen med hjälp av den angivna basen |
-| [Log10 (num_expr)](#bk_log10) | Returnerar 10-logaritmiska värdet för det angivna numeriska uttrycket. |
-| [AVRUNDA (num_expr)](#bk_round) | Returnerar ett tal avrundat till närmaste heltal. |
-| [AVKORTA (num_expr)](#bk_trunc) | Returnerar ett numeriskt värde trunkeras till närmaste heltal. |
-| [SQRT (num_expr)](#bk_sqrt) | Returnerar kvadratroten av uttryck. |
-| [RUTA (num_expr)](#bk_square) | Returnerar kvadratroten av uttryck. |
-| [STRÖMFÖRSÖRJNING (num_expr, num_expr)](#bk_power) | Returnerar kraften i uttryck till det angivna värdet. |
-| [LOGGA (num_expr)](#bk_sign) | Returnerar tecknet värdet (-1, 0, 1) för uttryck. |
-| [ARCCOS (num_expr)](#bk_acos) | Returnerar vinkeln i radianer, vars cosinus är det angivna numeriska uttrycket; kallas även cosinus. |
-| [ARCSIN (num_expr)](#bk_asin) | Returnerar vinkeln i radianer, vars sinus är ett uttryck. Detta kallas också arcsinus. |
-| [ARCTAN (num_expr)](#bk_atan) | Returnerar vinkeln i radianer, vars tangens är ett uttryck. Detta kallas också tangens. |
-| [ATN2 (num_expr)](#bk_atn2) | Returnerar vinkeln i radianer mellan positiva x-axeln och ray från ursprunget till punkt (y, x), där x och y är värdena för två angivna float uttryck. |
-| [COS (num_expr)](#bk_cos) | Returnerar trigonometriska värden cosinus för den angivna vinkeln i radianer i det angivna uttrycket. |
-| [BET (num_expr)](#bk_cot) | Returnerar trigonometriska värden cotangens för den angivna vinkeln i radianer i uttryck. |
-| [GRADER (num_expr)](#bk_degrees) | Returnerar en motsvarande vinkel i grader för en vinkel angiven i radianer. |
-| [PI)](#bk_pi) | Returnerar värdet PI konstant. |
-| [RADIANER (num_expr)](#bk_radians) | Returnerar radianer när ett numeriskt uttryck i grader anges. |
-| [SIN (num_expr)](#bk_sin) | Returnerar trigonometriska värden sinus för den angivna vinkeln i radianer i det angivna uttrycket. |
+| [EXP (num_expr)](#bk_exp) | Returnerar e upphöjt till det angivna numeriska uttrycket. |
+| [LOGG (num_expr [, base])](#bk_log) | Returnerar den naturliga logaritmen för det angivna numeriska uttrycket eller med hjälp av den angivna basen för logaritmen |
+| [Log10 (num_expr)](#bk_log10) | Returnerar det logaritmiska bas-10-värdet för det angivna numeriska uttrycket. |
+| [AVRUNDA (num_expr)](#bk_round) | Returnerar ett numeriskt värde, avrundat till närmaste heltal. |
+| [AVKORTA (num_expr)](#bk_trunc) | Returnerar ett numeriskt värde, trunkeras till närmaste heltal. |
+| [SQRT (num_expr)](#bk_sqrt) | Returnerar kvadratroten för det angivna numeriska uttrycket. |
+| [KVADRAT (num_expr)](#bk_square) | Returnerar i det angivna numeriska uttrycket. |
+| [POWER (num_expr, num_expr)](#bk_power) | Returnerar kraften hos det angivna numeriska uttrycket till det angivna värdet. |
+| [LOGGA (num_expr)](#bk_sign) | Returnerar värdet logga (-1, 0, 1) för det angivna numeriska uttrycket. |
+| [Funktionerna ACOS (num_expr)](#bk_acos) | Returnerar vinkeln i radianer, vars cosinus är det angivna numeriska uttrycket; kallas även arccosinus. |
+| [ASIN (num_expr)](#bk_asin) | Returnerar vinkeln i radianer, vars sinus är det angivna numeriska uttrycket. Detta kallas också arcsinus. |
+| [ATAN (num_expr)](#bk_atan) | Returnerar vinkeln i radianer, vars tangent motsvarar det angivna numeriska uttrycket. Detta kallas också tangens. |
+| [ATN2 (num_expr)](#bk_atn2) | Returnerar vinkeln i radianer mellan positiva x-axeln och ray från ursprunget till tidpunkten (y, x), där x och y är värdena för de två angivna flyttal-uttrycken. |
+| [COS (num_expr)](#bk_cos) | Returnerar trigonometriska cosinus för den angivna vinkeln i radianer i det angivna uttrycket. |
+| [COT (num_expr)](#bk_cot) | Returnerar trigonometriska cotangens för den angivna vinkeln i radianer i det angivna numeriska uttrycket. |
+| [GRADER (num_expr)](#bk_degrees) | Returnerar den motsvarande vinkeln i grader för en vinkel angiven i radianer. |
+| [PI)](#bk_pi) | Returnerar det konstanta värdet för PI. |
+| [RADIANER (num_expr)](#bk_radians) | Returnerar radianer när ett numeriskt uttryck i grader, anges. |
+| [SIN (num_expr)](#bk_sin) | Returnerar trigonometriska sinus för den angivna vinkeln i radianer i det angivna uttrycket. |
 | [TAN (num_expr)](#bk_tan) | Returnerar tangens för input-uttryck i det angivna uttrycket. |
 
-Du kan till exempel nu köra frågor som liknar följande:
+Exempel: du kan nu köra frågor som liknar följande:
 
 **Fråga**
 
@@ -1442,10 +1442,10 @@ Du kan till exempel nu köra frågor som liknar följande:
 
     [4]
 
-Den största skillnaden mellan Cosmos DB funktioner jämfört med ANSI SQL är att de har utformats för att fungera med schemat mindre och blandad schemadata. Till exempel om du har ett dokument där egenskapen Size saknas eller har ett icke-numeriska värde som ”okänt” och sedan dokumentet hoppas över, i stället för att returnera ett fel.
+Den största skillnaden mellan Cosmos DB functions jämfört med ANSI SQL är att de är utformade att fungera väl med schemadata utan schema och blandade. Till exempel om du har ett dokument där egenskapen Size saknas eller har ett icke-numeriska värde som ”okänt” och sedan dokumentet hoppas över, i stället för att returnera ett fel.
 
-### <a name="type-checking-functions"></a>Ange kontrollerar funktioner
-Typen kontrollerar funktioner kan du kontrollera vilken typ av ett uttryck i SQL-frågor. Typen kontrollerar funktioner kan användas för att avgöra vilken typ av egenskaper i dokument direkt när den variabel eller okänd. Här är en tabell med stöds inbyggd typ kontrollerar funktioner.
+### <a name="type-checking-functions"></a>Funktioner för typkontroll
+Typ kontrollerar funktioner kan du kontrollera vilken typ av ett uttryck i SQL-frågor. Typ kontrollerar funktioner kan användas för att fastställa typen av egenskaperna i dokument direkt när den är variabel eller okänd. Här är en tabell med typ som stöds inbyggda kontrollerar funktioner.
 
 <table>
 <tr>
@@ -1482,7 +1482,7 @@ Typen kontrollerar funktioner kan du kontrollera vilken typ av ett uttryck i SQL
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive">IS_PRIMITIVE (uttryck)</a></td>
-  <td>Returnerar ett booleskt värde som anger om värdet är en sträng, siffra, Boolean eller null.</td>
+  <td>Returnerar ett booleskt värde som anger om typ av värde är en sträng, nummer, booleskt värde eller null.</td>
 </tr>
 
 </table>
@@ -1498,7 +1498,7 @@ Med dessa funktioner kan köra du nu frågor som liknar följande:
     [true]
 
 ### <a name="string-functions"></a>Strängfunktioner
-Följande skalärfunktioner utföra en åtgärd på ett inkommande värde och returnerar en sträng, numeriskt eller booleskt värde. Här är en tabell med inbyggda strängfunktioner:
+Följande skalärfunktioner utföra en åtgärd på ett strängvärde för indata och returnerar en sträng, numeriskt eller booleskt värde. Här är en tabell med inbyggda strängfunktioner:
 
 | Användning | Beskrivning |
 | --- | --- |
@@ -1508,18 +1508,18 @@ Följande skalärfunktioner utföra en åtgärd på ett inkommande värde och re
 | [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Returnerar ett booleskt värde som anger om först stränguttryck börjar med andra |
 | [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |Returnerar ett booleskt värde som anger om först stränguttryck slutar med andra |
 | [INNEHÅLLER (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Returnerar ett booleskt värde som anger om först stränguttryck innehåller andra. |
-| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |Returnerar startpositionen för den första förekomsten av andra stränguttryck inom det första uttrycket i strängen, eller -1 om strängen inte hittas. |
-| [VÄNSTER (str_expr num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) |Returnerar en sträng med det angivna antalet tecken vänstra del. |
+| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |Returnerar startpositionen för den första förekomsten av andra stränguttryck i första angivet stränguttryck eller -1 om strängen inte hittas. |
+| [LEFT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) |Returnerar den vänstra delen av en sträng med det angivna antalet tecken. |
 | [RIGHT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) |Returnerar den högra delen av en sträng med det angivna antalet tecken. |
-| [LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) |Returnerar ett stränguttryck när den tar bort inledande blanksteg. |
-| [RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) |Returnerar ett stränguttryck efter trunkering av alla avslutande blanksteg. |
-| [NEDRE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Returnerar ett stränguttryck när versal data har konverterats till gemener. |
-| [ÖVRE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Returnerar ett stränguttryck när gemen data har konverterats till versaler. |
-| [Ersätt (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Ersätter alla förekomster av ett angivet strängvärde med ett annat värde. |
-| [REPLIKERA (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) |Upprepar ett strängvärde till ett angivet antal gånger. |
-| [OMVÄND (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Returnerar ett strängvärde omvänd ordning. |
+| [LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) |Returnerar ett stränguttryck efter att det tar bort inledande blanksteg. |
+| [RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) |Returnerar ett stränguttryck efter trunkera alla avslutande blanksteg. |
+| [LÄGRE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Returnerar ett stränguttryck när versal data har konverterats till gemener. |
+| [ÖVRE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Returnerar ett stränguttryck efter konvertera gemen data till versaler. |
+| [Ersätt (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Ersätter alla förekomster av en angiven sträng-värde med ett annat värde. |
+| [REPLIKERA (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) |Upprepar ett strängvärde ett angivet antal gånger. |
+| [OMVÄND (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Returnerar den omvända ordningen som i ett strängvärde. |
 
-Med dessa funktioner kan köra du nu frågor som liknar följande. Exempelvis returnerar gruppnamnet versaler på följande sätt:
+Med dessa funktioner kan köra du nu frågor som liknar följande. Exempel: du kan återgå gruppnamnet i versaler på följande sätt:
 
 **Fråga**
 
@@ -1533,7 +1533,7 @@ Med dessa funktioner kan köra du nu frågor som liknar följande. Exempelvis re
         "ANDERSENFAMILY"
     ]
 
-Eller sammanfoga strängar som i det här exemplet:
+Eller konkatenera strängar som i det här exemplet:
 
 **Fråga**
 
@@ -1568,13 +1568,13 @@ Strängfunktioner kan också användas i WHERE-satsen för att filtrera resultat
     }]
 
 ### <a name="array-functions"></a>Matrisfunktioner
-Följande skalärfunktioner utföra en åtgärd på en matris indatavärdet och returnera numeriska, Boolean eller matrisen värde. Här är en tabell med inbyggda matrisfunktioner:
+Följande skalärfunktioner utföra en åtgärd på en matris indatavärdet och returnera numeriska, matrisen eller booleskt värde. Här är en tabell med inbyggda matrisfunktioner:
 
 | Användning | Beskrivning |
 | --- | --- |
-| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Returnerar antal element i matrisen uttrycket. |
-| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Returnerar en matris som är resultatet av sammanfogar två eller flera matrisvärden. |
-| [ARRAY_CONTAINS (arr_expr uttryck [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Returnerar ett booleskt värde som anger om matrisen innehåller det angivna värdet. Ange om matchningen är fullständigt eller partiellt. |
+| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Returnerar antalet element i matrisen-uttryck. |
+| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Returnerar en matris som är resultatet av att sammanfoga två eller flera matrisvärden. |
+| [ARRAY_CONTAINS (arr_expr, uttryck [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Returnerar ett booleskt värde som anger om matrisen innehåller det angivna värdet. Ange om matchningen är fullständigt eller partiellt. |
 | [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |Returnerar en del av ett matrisuttryck. |
 
 Matrisfunktioner kan användas för att manipulera matriser i JSON. Här är till exempel en fråga som returnerar alla dokument där en av överordnade är ”Robin Wakefield”. 
@@ -1591,7 +1591,7 @@ Matrisfunktioner kan användas för att manipulera matriser i JSON. Här är til
       "id": "WakefieldFamily"
     }]
 
-Du kan ange ett partiellt fragment för motsvarande element i matrisen. Följande fråga returnerar alla överordnade med den `givenName` av `Robin`.
+Du kan ange en partiell fragment för att matcha element i matrisen. Följande fråga söker efter alla överordnade med den `givenName` av `Robin`.
 
 **Fråga**
 
@@ -1606,7 +1606,7 @@ Du kan ange ett partiellt fragment för motsvarande element i matrisen. Följand
     }]
 
 
-Här är ett annat exempel som använder ARRAY_LENGTH för att få antalet underordnade per familj.
+Här är ett annat exempel där ARRAY_LENGTH används för att hämta antalet underordnade per familj.
 
 **Fråga**
 
@@ -1625,7 +1625,7 @@ Här är ett annat exempel som använder ARRAY_LENGTH för att få antalet under
     }]
 
 ### <a name="spatial-functions"></a>Spatial funktioner
-Cosmos DB stöder följande öppna geospatiala Consortium (OGC) inbyggda funktioner för geospatial frågor. 
+Cosmos DB stöder följande öppna geospatiala Consortium (OGC) inbyggda funktioner för geospatiala frågor. 
 
 <table>
 <tr>
@@ -1638,23 +1638,23 @@ Cosmos DB stöder följande öppna geospatiala Consortium (OGC) inbyggda funktio
 </tr>
 <tr>
   <td>ST_WITHIN (point_expr, polygon_expr)</td>
-  <td>Returnerar ett booleskt uttryck som anger om det första GeoJSON-objektet (Point, LineString eller Polygon) är i andra GeoJSON-objektet (Point, LineString eller Polygon).</td>
+  <td>Returnerar ett booleskt uttryck som anger om det första GeoJSON-objektet (punkt, Polygon eller LineString) är i det andra GeoJSON-objektet (punkt, Polygon eller LineString).</td>
 </tr>
 <tr>
   <td>ST_INTERSECTS (spatial_expr, spatial_expr)</td>
-  <td>Returnerar ett booleskt uttryck som anger om de två angivna GeoJSON-objekt (Point, LineString eller Polygon) intersect.</td>
+  <td>Returnerar ett booleskt uttryck som anger om de två angivna GeoJSON-objekt (punkt, Polygon eller LineString) överlappar varandra.</td>
 </tr>
 <tr>
   <td>ST_ISVALID</td>
-  <td>Returnerar ett booleskt värde som anger om det angivna uttrycket GeoJSON punkt, Polygon eller LineString är giltig.</td>
+  <td>Returnerar ett booleskt värde som anger om det angivna GeoJSON punkt, Polygon eller LineString-uttrycket är ogiltigt.</td>
 </tr>
 <tr>
   <td>ST_ISVALIDDETAILED</td>
-  <td>Returnerar ett JSON-värde som innehåller ett booleskt värde värdet om det angivna uttrycket för GeoJSON punkt, Polygon eller LineString är giltiga och ogiltiga, dessutom orsak som ett strängvärde.</td>
+  <td>Returnerar ett JSON-värde som innehåller ett booleskt värde värdet om det angivna GeoJSON punkt, Polygon eller LineString-uttrycket är giltig och om det är ogiltig, dessutom orsak som ett strängvärde.</td>
 </tr>
 </table>
 
-Spatial funktioner kan användas för att utföra närhet frågor mot spatialdata. Här är till exempel en fråga som returnerar alla family dokument som ligger inom 30 km för den angivna platsen med hjälp av funktionen ST_DISTANCE inbyggda. 
+Spatial funktioner kan användas för att utföra närhetsförfrågningar mot spatialdata. Här är till exempel en fråga som returnerar alla family dokument som ligger inom 30 km för den angivna platsen med hjälp av den inbyggda funktionen ST_DISTANCE. 
 
 **Fråga**
 
@@ -1668,17 +1668,17 @@ Spatial funktioner kan användas för att utföra närhet frågor mot spatialdat
       "id": "WakefieldFamily"
     }]
 
-Mer information om geospatiala stöds i Cosmos-databasen finns [arbeta med geospatiala data i Azure Cosmos DB](geospatial.md). Som packar upp spatial funktioner och SQL-syntaxen för Cosmos DB. Nu ska vi ta en titt på hur LINQ-frågor fungerar och hur den interagerar med syntaxen vi sett hittills.
+Mer information om geospatialt stöd i Cosmos DB finns i [arbeta med geospatiala data i Azure Cosmos DB](geospatial.md). Avrundar spatial funktioner och SQL-syntax för Cosmos DB. Nu ska vi ta en titt på hur LINQ-frågor till fungerar och hur det interagerar med syntaxen vi har sett hittills.
 
-## <a id="Linq"></a>LINQ till SQL API
-LINQ är en programmeringsmodell för .NET som representerar beräkning som frågor för dataströmmar med objekt. Cosmos DB innehåller ett klientsidan bibliotek gränssnittet med LINQ genom att underlätta konvertering mellan JSON och .NET-objekt och mappning från en delmängd av LINQ-frågor till Cosmos-DB-frågor. 
+## <a id="Linq"></a>LINQ till SQL-API
+LINQ är en .NET-programmeringsmodell som uttrycker beräkning som frågor på strömmar av objekt. Cosmos DB innehåller ett bibliotek för klientsidan gränssnittet med LINQ genom att underlätta konvertering mellan JSON och .NET-objekt och mappning från en delmängd av LINQ-frågor till Cosmos DB-frågor. 
 
-Bilden nedan visar arkitekturen för LINQ-frågor med Cosmos DB.  Med Cosmos-DB-klient kan utvecklare skapa ett **IQueryable** objekt som frågar direkt Cosmos DB frågan provider, som sedan översätter LINQ-fråga till en Cosmos-DB-fråga. Frågan skickas sedan till Cosmos-DB-servern för att hämta en uppsättning resultat i JSON-format. Returnerade resultat avserialiseras till en dataström med .NET-objekt på klientsidan.
+Bilden nedan visar arkitekturen för stöd för LINQ-frågor med Cosmos DB.  Med Cosmos DB-klienten kan utvecklare skapa en **IQueryable** objekt som frågor direkt mot Cosmos DB-frågeprovider, som sedan översätter LINQ-frågan till en Cosmos DB-fråga. Frågan skickas sedan till Cosmos DB-servern för att hämta en uppsättning resultat i JSON-format. De returnerade resultaten deserialisera till en dataström med .NET-objekt på klientsidan.
 
-![Arkitektur för LINQ-frågor med SQL-API - SQL-syntaxen, JSON-frågespråket, databasbegrepp och SQL-frågor][1]
+![Arkitektur för stöd för LINQ-frågor med hjälp av SQL-API - SQL-syntax, frågespråk för JSON, databasbegrepp och SQL-frågor][1]
 
 ### <a name="net-and-json-mapping"></a>.NET och JSON-mappning
-Mappningen mellan .NET-objekt och JSON-dokument är naturlig - varje medlemsfält har mappats till ett JSON-objekt, där fältnamnet är mappad till den ”key”-delen av objektet och ”värde”-delen är rekursivt mappas till värdedelen för objektet. Exempel: I familjen-objekt som skapas är mappad till JSON-dokumentet som visas nedan. Och vice versa JSON-dokumentet är mappad till en .NET-objekt.
+Mappningen mellan .NET-objekt och JSON-dokument är naturlig - varje medlemsfält har mappats till ett JSON-objekt, där fältnamnet är mappad till ”nyckeln” en del av objektet och den ”value”-delen är rekursivt som mappats till värdedelen för objektet. Exempel: The familj objekt som skapas är mappad till JSON-dokumentet som visas nedan. Och omvänt, JSON-dokumentet är mappad till en .NET-objekt.
 
 **C#-klass**
 
@@ -1760,49 +1760,49 @@ Mappningen mellan .NET-objekt och JSON-dokument är naturlig - varje medlemsfäl
 
 
 ### <a name="linq-to-sql-translation"></a>LINQ till SQL-översättning
-Fråga Cosmos-DB-provider utför en bästa prestanda-mappning från en LINQ-fråga till en Cosmos-Databasens SQL-fråga. I följande beskrivning förutsätter vi att läsaren har en grundläggande kunskaper inom LINQ.
+Cosmos DB-frågeprovider utför en bästa arbete-mappning från en LINQ-fråga till en Cosmos DB SQL-fråga. I följande beskrivning förutsätter vi att läsaren har en grundläggande kunskaper om av LINQ.
 
-Vi kan först stöder alla JSON primitiva typer – numeriska typer, boolean, sträng eller null för typsystemet. Endast typerna JSON stöds. Följande skalära uttryck stöds.
+Först för typsystemet stöder vi alla JSON primitiva typer – numeriska typer, booleskt värde, sträng eller null. Endast de här JSON-typer stöds. Följande skalära uttryck stöds.
 
-* Konstanta värden – dessa inkluderar konstanta värden för primitiva datatyper när frågan ska utvärderas.
-* Egenskapen/matrisen indexuttryck – dessa uttryck finns i egenskapen för ett objekt eller ett matriselement.
+* Konstanta värden – däribland konstanta värden för de primitiva datatyperna när frågan ska utvärderas.
+* Egenskapen/matris indexuttryck – dessa uttryck referera till egenskapen för ett objekt eller ett matriselement.
   
      familj. ID;    Family.children[0].familyName;    Family.children[0].grade;    Family.children[n].grade; n är en int-variabel
-* Aritmetiska uttryck - dessa inkluderar vanliga aritmetiska uttryck på numeriska och booleska värden. För en fullständig lista finns i SQL-specifikationen.
+* Aritmetiska uttryck – däribland vanliga matematiska uttryck på numeriska och booleska värden. För en fullständig lista finns i SQL-specifikationen.
   
      2 * family.children[0].grade;    x + y;
-* Jämförelse av stränguttryck - dessa inkluderar jämför ett strängvärde till vissa konstant värde.  
+* Jämförelse av stränguttryck – däribland jämför ett strängvärde till vissa konstant strängvärde.  
   
-     mother.familyName == ”Smith”;    child.givenName == s. s är en string-variabel
-* / Objektmatris skapa uttryck - uttrycken returnerade ett objekt av sammansatta värde eller en anonym typ eller en matris med sådana objekt. Dessa värden kan vara kapslade.
+     mother.familyName == ”Smith”;    child.givenName == s; s är en strängvariabel
+* / Objektmatris skapande uttryck - dessa uttryck som returnerar ett objekt av typ sammansatt värde eller anonym typ eller en matris med sådana objekt. Dessa värden kan kapslas.
   
-     ny överordnad {familyName = ”Smith”, givenName = ”Johan”}; nya {först = 1, andra = 2}; en anonym typ med två fält              
-     nya int [] {3, child.grade, 5};
+     ny överordnad {familyName = ”Smith”, givenName = ”Johan”}; nytt {först = 1, andra = 2}; en anonym typ med två fält              
+     ny int [] {3, child.grade, 5};
 
-### <a id="SupportedLinqOperators"></a>Lista över stöds LINQ-operatorer
-Här är en lista över stöds LINQ operatorer i LINQ-providern ingår i SQL .NET SDK.
+### <a id="SupportedLinqOperators"></a>Lista över LINQ-operatorer som stöds
+Här är en lista över LINQ-operatorer som stöds i LINQ-provider som ingår i SQL .NET SDK.
 
-* **Välj**: projektioner översätta till SQL SELECT inklusive objektkonstruktion
-* **Där**: filter översätta till SQL WHERE och stöd för översättningen mellan & &, || och! för SQL-operatorerna
-* **SelectMany**: tillåter återgång av matriser för att ansluta till SQL-satsen. Kan användas för att kedjan/kapsla uttryck för att filtrera på matriselement
+* **Välj**: projektioner översätts till SQL SELECT inklusive objektkonstruktion
+* **Där**: filter översätter till SQL WHERE och stöd mellan & &, || och! till SQL-operatorer
+* **SelectMany**: tillåter återgång av matriser till att ansluta till SQL-satsen. Kan användas till att kedjan/kapslade uttryck för att filtrera på matriselement
 * **OrderBy och OrderByDescending**: översätts till ORDER BY stigande/fallande
-* **Antal**, **summan**, **Min**, **Max**, och **genomsnittlig** operatorer för aggregering och motsvarigheterna asynkrona **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, och **AverageAsync**.
-* **CompareTo**: översätts till intervallet jämförelser. Används vanligtvis för strängar eftersom de inte jämförbar i .NET
-* **Ta**: översätter SQL längst upp för att begränsa resultaten av en fråga
-* **Matematiska funktioner**: har stöd för översättning av. NET'S Abs ARCCOS, ARCSIN ARCTAN, taket, Cos, Exp, våning, Log, Log10, Pow, Round, signera, Sin, Sqrt, Tan, Truncate till motsvarande SQL inbyggda funktioner.
-* **Sträng funktioner**: har stöd för översättning av. NET'S Concat innehåller EndsWith, IndexOf, Count, ToLower, TrimStart, Ersätt, omvänd, TrimEnd, StartsWith, delsträngen, ToUpper till motsvarande SQL inbyggda funktioner.
-* **Matrisen funktioner**: har stöd för översättning av. NET'S Concat innehåller och antal till motsvarande SQL inbyggda funktioner.
-* **Tilläggsfunktioner geospatiala**: har stöd för översättning av stub-metoder avståndet i IsValid och IsValidDetailed till motsvarande SQL inbyggda funktioner.
-* **Användardefinierade funktionen tilläggsfunktionen**: har stöd för översättning av stub-metoden UserDefinedFunctionProvider.Invoke till motsvarande användardefinierad funktion.
+* **Antal**, **summan**, **Min**, **Max**, och **genomsnittlig** operatörer för aggregering och deras async-motsvarigheter **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, och **AverageAsync**.
+* **CompareTo**: översätts till intervallet jämförelser. Ofta används för strängar eftersom de inte är jämförbar i .NET
+* **Ta**: översätts till SQL-upp för att begränsa resultaten av en fråga
+* **Matematikfunktioner**: har stöd för översättning från. NET'S Abs, funktionerna Acos, Asin, Atan, taket, Cos, Exp, våning, Log, Log10, Pow, resursallokering, logga, Sin, Sqrt, Tan, Truncate till motsvarande SQL inbyggda funktioner.
+* **Sträng funktioner**: har stöd för översättning från. NET'S Concat, innehåller, EndsWith, IndexOf, antal, ToLower, TrimStart, Ersätt, omvänd, TrimEnd, StartsWith, delsträngen, ToUpper till motsvarande SQL inbyggda funktioner.
+* **Matrisen funktioner**: har stöd för översättning från. NET'S Concat innehåller och antalet till motsvarande SQL inbyggda funktioner.
+* **Geospatiala funktioner för tillägget**: har stöd för översättning av stub-metoder avståndet i IsValid och IsValidDetailed till motsvarande SQL inbyggda funktioner.
+* **En användardefinierad funktion tilläggsfunktion**: har stöd för översättning av metoden stub-UserDefinedFunctionProvider.Invoke till motsvarande användardefinierad funktion.
 * **Diverse**: har stöd för översättning av coalesce och villkorlig operatörer. Kan översätta innehåller strängen innehåller, ARRAY_CONTAINS eller SQL-IN beroende på kontext.
 
 ### <a name="sql-query-operators"></a>SQL-frågeoperatorer
-Här följer några exempel som visar hur vissa standard LINQ-frågeoperatorer översätts till Cosmos-DB-frågor.
+Här följer några exempel som illustrerar hur några av standard LINQ-frågeoperatorer översätts till Cosmos DB-frågor.
 
 #### <a name="select-operator"></a>Välj Operator
 Syntaxen är `input.Select(x => f(x))`, där `f` är ett skalärt uttryck.
 
-**LINQ lambda-uttryck**
+**LINQ lambda-uttrycket**
 
     input.Select(family => family.parents[0].familyName);
 
@@ -1813,7 +1813,7 @@ Syntaxen är `input.Select(x => f(x))`, där `f` är ett skalärt uttryck.
 
 
 
-**LINQ lambda-uttryck**
+**LINQ lambda-uttrycket**
 
     input.Select(family => family.children[0].grade + c); // c is an int variable
 
@@ -1825,7 +1825,7 @@ Syntaxen är `input.Select(x => f(x))`, där `f` är ett skalärt uttryck.
 
 
 
-**LINQ lambda-uttryck**
+**LINQ lambda-uttrycket**
 
     input.Select(family => new
     {
@@ -1843,9 +1843,9 @@ Syntaxen är `input.Select(x => f(x))`, där `f` är ett skalärt uttryck.
 
 
 #### <a name="selectmany-operator"></a>SelectMany operator
-Syntaxen är `input.SelectMany(x => f(x))`, där `f` är ett skalärt uttryck som returnerar en Mängdtyp.
+Syntaxen är `input.SelectMany(x => f(x))`, där `f` är ett skalärt uttryck som returnerar en samlingstyp.
 
-**LINQ lambda-uttryck**
+**LINQ lambda-uttrycket**
 
     input.SelectMany(family => family.children);
 
@@ -1859,7 +1859,7 @@ Syntaxen är `input.SelectMany(x => f(x))`, där `f` är ett skalärt uttryck so
 #### <a name="where-operator"></a>Där operator
 Syntaxen är `input.Where(x => f(x))`, där `f` är ett skalärt uttryck som returnerar ett booleskt värde.
 
-**LINQ lambda-uttryck**
+**LINQ lambda-uttrycket**
 
     input.Where(family=> family.parents[0].familyName == "Smith");
 
@@ -1871,7 +1871,7 @@ Syntaxen är `input.Where(x => f(x))`, där `f` är ett skalärt uttryck som ret
 
 
 
-**LINQ lambda-uttryck**
+**LINQ lambda-uttrycket**
 
     input.Where(
         family => family.parents[0].familyName == "Smith" && 
@@ -1886,12 +1886,12 @@ Syntaxen är `input.Where(x => f(x))`, där `f` är ett skalärt uttryck som ret
 
 
 ### <a name="composite-sql-queries"></a>Sammansatta SQL-frågor
-Ovanstående operatörer kan bestå för att bilda mer kraftfulla frågor. Eftersom Cosmos DB stöder kapslade samlingar, kan sammansättning vara antingen sammanfogas eller kapslade.
+Ovanstående operatörer kan ha för att skapa mer kraftfulla frågor. Eftersom Cosmos DB stöder kapslade samlingar, kan sammansättningen antingen sammanfogas eller kapslade.
 
 #### <a name="concatenation"></a>Sammanfogning
-Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammanfogad fråga kan börja med en valfri `SelectMany` frågan följt av flera `Select` eller `Where` operatörer.
+Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammansatt fråga kan börja med en valfri `SelectMany` fråga följt av flera `Select` eller `Where` operatörer.
 
-**LINQ lambda-uttryck**
+**LINQ lambda-uttrycket**
 
     input.Select(family=>family.parents[0])
         .Where(familyName == "Smith");
@@ -1904,7 +1904,7 @@ Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammanfogad fråg
 
 
 
-**LINQ lambda-uttryck**
+**LINQ lambda-uttrycket**
 
     input.Where(family => family.children[0].grade > 3)
         .Select(family => family.parents[0].familyName);
@@ -1917,7 +1917,7 @@ Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammanfogad fråg
 
 
 
-**LINQ lambda-uttryck**
+**LINQ lambda-uttrycket**
 
     input.Select(family => new { grade=family.children[0].grade}).
         Where(anon=> anon.grade < 3);
@@ -1930,7 +1930,7 @@ Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammanfogad fråg
 
 
 
-**LINQ lambda-uttryck**
+**LINQ lambda-uttrycket**
 
     input.SelectMany(family => family.parents)
         .Where(parent => parents.familyName == "Smith");
@@ -1943,12 +1943,12 @@ Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammanfogad fråg
 
 
 
-#### <a name="nesting"></a>För många kapslade
-Syntaxen är `input.SelectMany(x=>x.Q())` där Q är en `Select`, `SelectMany`, eller `Where` operator.
+#### <a name="nesting"></a>Kapsling
+Syntaxen är `input.SelectMany(x=>x.Q())` där frågor och är en `Select`, `SelectMany`, eller `Where` operator.
 
-I en kapslad fråga används den inre frågan till varje element i samlingen yttre. En viktig funktion är att den inre frågan kan referera till fält element i samlingen yttre som Självkopplingar.
+I en kapslad fråga tillämpas den inre frågan på varje element i samlingen yttre. En viktig funktion är att den inre frågan kan referera till fält i element i samlingen yttre som Självkopplingar.
 
-**LINQ lambda-uttryck**
+**LINQ lambda-uttrycket**
 
     input.SelectMany(family=> 
         family.parents.Select(p => p.familyName));
@@ -1960,7 +1960,7 @@ I en kapslad fråga används den inre frågan till varje element i samlingen ytt
     JOIN p IN f.parents
 
 
-**LINQ lambda-uttryck**
+**LINQ lambda-uttrycket**
 
     input.SelectMany(family => 
         family.children.Where(child => child.familyName == "Jeff"));
@@ -1974,7 +1974,7 @@ I en kapslad fråga används den inre frågan till varje element i samlingen ytt
 
 
 
-**LINQ lambda-uttryck**
+**LINQ lambda-uttrycket**
 
     input.SelectMany(family => family.children.Where(
         child => child.familyName == family.parents[0].familyName));
@@ -1988,16 +1988,16 @@ I en kapslad fråga används den inre frågan till varje element i samlingen ytt
 
 
 ## <a id="ExecutingSqlQueries"></a>Kör SQL-frågor
-Cosmos DB visar resurser via ett REST-API som kan anropas med valfritt språk som kan göra HTTP/HTTPS-förfrågningar. Dessutom erbjuder Cosmos DB programmeringsbibliotek för flera populära språk som .NET, Node.js, JavaScript och Python. REST-API och de olika biblioteken alla stöd för frågor via SQL. .NET SDK stöder LINQ frågar utöver SQL.
+Cosmos DB exponerar resurser via ett REST-API som kan anropas av alla språk som stöder HTTP/HTTPS-förfrågningar. Cosmos DB erbjuder också programmeringsbibliotek för flera populära språk som .NET, Node.js, JavaScript och Python. REST API och de olika bibliotek alla stöd för frågor via SQL. .NET SDK stöder LINQ fråga utöver SQL.
 
-Följande exempel visar hur du skapar en fråga och skicka den mot en Cosmos-DB-databaskonto.
+I följande exempel visas hur du skapar en fråga och skickar det mot ett Cosmos DB-databaskonto.
 
 ### <a id="RestAPI"></a>REST-API
-Cosmos DB erbjuder en öppen RESTful-programmeringsmiljö via HTTP. Databasen konton kan etableras med hjälp av en Azure-prenumeration. Resursmodell Cosmos DB består av en uppsättning resurser under ett databaskonto som är adresserbara via en logisk och stabil URI. En uppsättning resurser kallas för en feed i det här dokumentet. Ett databaskonto består av en uppsättning databaser som alla innehåller flera samlingar, var och en av vilka i sin tur innehåller dokument, UDF: er och andra typer av resurser.
+Cosmos DB erbjuder en öppen RESTful-programmeringsmiljö via HTTP. Databaskonton kan etableras med hjälp av en Azure-prenumeration. Cosmos DB-resursmodell består av en uppsättning resurser under ett databaskonto som är adresserbara via en logisk och stabil URI. En uppsättning resurser kallas för ett flöde i det här dokumentet. Ett databaskonto består av en uppsättning databaser, som innehåller flera samlingar, som var och en av vilka i sin tur innehåller dokument, UDF: er och andra typer av resurser.
 
-Modellen grundläggande interaktion med dessa resurser är via HTTP-verb som GET, PUT, POST och DELETE med sina standard tolkning. Verbet POST används för att skapa en ny resurs, för att köra en lagrad procedur eller för att utfärda en Cosmos-DB-fråga. Frågor är alltid skrivskyddade åtgärder med inga sidoeffekter.
+Grundläggande interaction modellen med dessa resurser är via HTTP-verb som GET, PUT, POST och ta bort med sina standard tolkning. Verbet POST används för att skapa en ny resurs, för att köra en lagrad procedur eller för att utfärda en Cosmos DB-fråga. Frågorna är alltid skrivskyddade åtgärder med inga sidoeffekter.
 
-I följande exempel visas en POST för en SQL-API-fråga som görs mot en samling som innehåller två exempeldokument vi har granskat hittills. Frågan har ett enkelt filter på namnegenskapen JSON. Observera användningen av den `x-ms-documentdb-isquery` och Content-Type: `application/query+json` rubriker för att ange att åtgärden en fråga.
+I följande exempel visas en POST för en SQL API-fråga som görs mot en samling som innehåller två exempeldokument vi har granskat hittills. Frågan har ett enkelt filter på namnegenskapen JSON. Observera användningen av den `x-ms-documentdb-isquery` och Content-Type: `application/query+json` rubriker för att ange att åtgärden en fråga.
 
 **Förfrågan**
 
@@ -2119,16 +2119,16 @@ Det andra exemplet visar en mer komplex fråga som returnerar flera resultat fr�
     }
 
 
-Om en frågas resultat får inte plats i en enskild sida med resultat REST-API och returnerar sedan en fortsättningstoken via den `x-ms-continuation-token` Svarsrubrik. Klienter kan sidbryta resultat genom att inkludera rubriken i efterföljande resultat. Antalet resultat per sida kan också kontrolleras via den `x-ms-max-item-count` nummer sidhuvud. Om den angivna frågan har en Aggregeringsfunktion som `COUNT`, och sedan sidan frågan kan returnera en delvis insamlat värde över sidan av resultaten. Klienterna måste utföra en andra nivå sammanställning över dessa resultat för att skapa de slutliga resultaten, till exempel, sum över räknas som returneras i enskilda sidor för att returnera det totala antalet.
+Om en frågas resultat kan inte ryms inom en enda resultatsida REST-API: et och returnerar sedan ett fortsättningstoken via den `x-ms-continuation-token` svarshuvudet. Klienter kan sidbryta resultat genom att inkludera rubriken i efterföljande resultat. Antalet resultat per sida kan också styras via den `x-ms-max-item-count` nummer rubrik. Om den angivna frågan har en Aggregeringsfunktion som `COUNT`, och sedan sidan kan returnera en delvis aggregerat värde resultatsidan. Klienterna måste utföra en andra nivån aggregering över dessa resultat för att skapa de slutliga resultaten, till exempel, summera över antal returneras i de enskilda sidorna att returnera det totala antalet.
 
-Använd för att hantera data konsekvent princip för frågor i `x-ms-consistency-level` huvud som alla REST API-begäranden. För sessionskonsekvens, behöver också echo senast `x-ms-session-token` Cookie-huvud i frågebegäran. Samlingen efterfrågade indexprincip kan även påverka konsekvenskontroll av frågeresultatet. Med standardvärdet indexering principinställningar, för samlingar indexet är alltid aktuell med innehållet i dokumentet och frågeresultaten matchar konsekvenskontrollen valt för data. Om indexprincip är möjligt att Lazy kan frågor returnera inaktuella resultat. Mer information finns i [Azure Cosmos DB Konsekvensnivåer][consistency-levels].
+Hantera Datapolicy för konsekvens för frågor med den `x-ms-consistency-level` rubrik som alla REST API-begäranden. För sessionskonsekvens, du behöver också skapa ett eko av senast `x-ms-session-token` Cookie-huvud i query-fråga. Den efterfrågade samlingens indexeringsprincip kan också påverka konsekvens i frågeresultaten. Med standardvärdet indexering principinställningar, för samlingar indexet är alltid uppdaterad med innehållet i dokumentet och frågeresultat matcha konsekvens som valts för data. Om indexprincip restriktiva till Lazy, kan frågor returnera inaktuella resultat. Mer information finns i [Azure Cosmos DB-Konsekvensnivåer][consistency-levels].
 
-Om den konfigurerade indexprincip på samlingen inte stöder den angivna frågan, returnerar servern Azure Cosmos DB 400 ”Felaktig begäran”. Returneras för intervallet frågor mot sökvägar som konfigurerats för sökningar hash (likhetsfrågor) och för sökvägar som uttryckligen är undantagen från indexering. Den `x-ms-documentdb-query-enable-scan` huvudet kan anges för att tillåta frågan för att utföra en genomsökning när ett index inte är tillgänglig.
+Om den konfigurera indexprincip på samlingen inte stöder den angivna frågan, returnerar 400 ”Felaktig begäran” i Azure Cosmos DB-servern. Detta returneras för intervallfrågor mot sökvägar som konfigurerats för hash (likhet) sökningar och för sökvägar som uttryckligen är undantagen från indexering. Den `x-ms-documentdb-query-enable-scan` huvudet kan anges för att tillåta frågan för att utföra en genomsökning när ett index inte är tillgänglig.
 
-Du kan få detaljerad mått på Frågekörningen genom att ange `x-ms-documentdb-populatequerymetrics` sidhuvud till `True`. Mer information finns i [SQL-frågan mätvärden för Azure Cosmos DB](sql-api-sql-query-metrics.md).
+Du kan få detaljerade mätvärden om frågekörning genom att ange `x-ms-documentdb-populatequerymetrics` sidhuvud till `True`. Mer information finns i [SQL-fråga mått för Azure Cosmos DB](sql-api-sql-query-metrics.md).
 
-### <a id="DotNetSdk"></a>C# (.NET) SDK
-.NET SDK stöder både LINQ och SQL frågor. I följande exempel visas hur du utför enkelt filter-frågan som introduceras tidigare i det här dokumentet.
+### <a id="DotNetSdk"></a>SDK FÖR C# (.NET)
+.NET SDK stöder både LINQ och SQL fråga. I följande exempel visas hur du utför enkla filterfrågan introducerade tidigare i det här dokumentet.
 
     foreach (var family in client.CreateDocumentQuery(collectionLink, 
         "SELECT * FROM Families f WHERE f.id = \"AndersenFamily\""))
@@ -2161,7 +2161,7 @@ Du kan få detaljerad mått på Frågekörningen genom att ange `x-ms-documentdb
     }
 
 
-Det här exemplet jämför två egenskaper för likhetsfrågor inom varje dokument och använder anonym projektioner. 
+Det här exemplet jämför två egenskaper sinsemellan i varje dokument och använder anonym projektioner. 
 
     foreach (var family in client.CreateDocumentQuery(collectionLink,
         @"SELECT {""Name"": f.id, ""City"":f.address.city} AS Family 
@@ -2188,7 +2188,7 @@ Det här exemplet jämför två egenskaper för likhetsfrågor inom varje dokume
     }
 
 
-I nästa exempel visas kopplingar, uttryckt genom SelectMany för LINQ.
+I nästa exempel visas kopplingar, uttryckt genom LINQ SelectMany.
 
     foreach (var pet in client.CreateDocumentQuery(collectionLink,
           @"SELECT p
@@ -2212,16 +2212,16 @@ I nästa exempel visas kopplingar, uttryckt genom SelectMany för LINQ.
 
 
 
-.NET-klienten går automatiskt igenom alla sidor i resultatet av frågan i foreach-block som ovan. Frågealternativen introducerades i avsnittet REST API är också tillgängliga i .NET SDK med hjälp av `FeedOptions` och `FeedResponse` klasser i metoden CreateDocumentQuery. Antalet sidor som kan kontrolleras med hjälp av den `MaxItemCount` inställningen. 
+.NET-klienten går automatiskt igenom alla sidor i frågeresultaten i foreach-block som ovan. Frågealternativ som presenteras i REST API-avsnitt är också tillgängliga i .NET SDK med hjälp av den `FeedOptions` och `FeedResponse` klasser i metoden CreateDocumentQuery. Antalet sidor kan kontrolleras med hjälp av den `MaxItemCount` inställningen. 
 
-Du kan också explicit styra sidindelning genom att skapa `IDocumentQueryable` med hjälp av den `IQueryable` objekt sedan genom att läsa den` ResponseContinuationToken` värden och skicka dem tillbaka som `RequestContinuationToken` i `FeedOptions`. `EnableScanInQuery` kan ställas in för att aktivera genomsökningar när frågan inte stöds av den konfigurerade indexprincip. För partitionerade samlingar kan du använda `PartitionKey` frågan ska köras mot en enskild partition (även om Cosmos DB extraherar det automatiskt från frågetexten) och `EnableCrossPartitionQuery` köra frågor som kan behöva köras mot flera partitioner. 
+Du kan också uttryckligen styra sidindelning genom att skapa `IDocumentQueryable` med hjälp av den `IQueryable` objekt sedan genom att läsa den` ResponseContinuationToken` värden och skicka dem tillbaka som `RequestContinuationToken` i `FeedOptions`. `EnableScanInQuery` kan ställas in för att aktivera genomsökningar när frågan inte stöds av den konfigurera indexprincip. Partitionerade samlingar kan du använda `PartitionKey` att köra frågan mot en enda partition (även om Cosmos DB automatiskt extrahera detta från frågetexten) och `EnableCrossPartitionQuery` att köra frågor som behöver köras mot flera partitioner. 
 
-Referera till [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-documentdb-net) för flera sampel som innehåller frågor. 
+Referera till [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-documentdb-net) för fler exempel som innehåller frågor. 
 
 ### <a id="JavaScriptServerSideApi"></a>JavaScript API för serversidan
-Cosmos DB är en programmeringsmodell för att köra JavaScript-baserade programlogik direkt på samlingar med lagrade procedurer och utlösare. JavaScript-logik som registrerats på en samlingsnivå kan sedan utfärda databasåtgärder i åtgärder på dokument i den angivna samlingen. Dessa åtgärder är kapslas in i omgivande ACID-transaktioner.
+Cosmos DB är en programmeringsmodell för att köra JavaScript-baserade programlogik direkt på samlingar med lagrade procedurer och utlösare. JavaScript-logik som registrerats på en samlingsnivå kan sedan utfärda databasåtgärder i åtgärderna på dokumenten i den givna samlingen. De här åtgärderna är omslutna i omgivande ACID-transaktioner.
 
-I följande exempel visas hur du använder den Frågedokument i JavaScript-server API för att göra förfrågningar från innanför lagrade procedurer och utlösare.
+I följande exempel visas hur du använder den queryDocuments i JavaScript-server API för att göra förfrågningar från insidan lagrade procedurer och utlösare.
 
     function businessLogic(name, author) {
         var context = getContext();
@@ -2255,18 +2255,18 @@ I följande exempel visas hur du använder den Frågedokument i JavaScript-serve
 
 ## <a id="References"></a>Referenser
 1. [Introduktion till Azure Cosmos DB][introduction]
-2. [Azure Cosmos-Databasens SQL-specifikationen](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+2. [Azure Cosmos DB SQL-specifikation](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-documentdb-net)
-4. [Konsekvensnivåer för Azure Cosmos DB][consistency-levels]
+4. [Azure Cosmos DB-Konsekvensnivåer][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [http://json.org/](http://json.org/)
-7. JavaScript-specifikationen [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+7. JavaScript-specifikation [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
 9. Utvärdering av frågetekniker för stora databaser [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10. Bearbetning av frågor i parallella relationsdatabassystem, IEEE datorn Society Press, 1994
-11. Lu Ooi, Tan, bearbetning av frågor i parallella relationsdatabassystem, IEEE datorn Society Press, 1994.
-12. Kitts Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Report Anders Tomkins: Pig Latin: en inte så främmande språk för databehandling, SIGMOD 2008.
-13. G. Graefe. Kaskadspridas ramverk för optimering av frågan. IEEE Data Eng. Bull., 18.3: 1995.
+11. Lu, Ooi, Tan, bearbetning av frågor i parallella relationsdatabassystem, IEEE datorn Society Press, 1994.
+12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: en inte så främmande språk för databehandling, SIGMOD 2008.
+13. G. Graefe. Kaskadspridas ramverk för Frågeoptimeringen. IEEE Data Eng. Bull., 18.3: 1995.
 
 [1]: ./media/sql-api-sql-query/sql-query1.png
 [introduction]: introduction.md

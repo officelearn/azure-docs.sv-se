@@ -1,6 +1,6 @@
 ---
-title: Använda en Windows VM-MSI för åtkomst till Azure SQL
-description: En självstudiekurs som vägleder dig genom processen med att använda en Windows VM hanterade tjänsten identitet (MSI) för att få åtkomst till Azure SQL.
+title: Använda en MSI på en virtuell Windows-dator för att få åtkomst till Azure SQL
+description: En självstudiekurs som steg för steg beskriver hur du använder en hanterad tjänstidentitet (MSI) på en virtuell Windows-dator för att komma åt Azure SQL.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,30 +9,30 @@ editor: bryanla
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 5805dbc0a4831f14a4f9a98943a7611fa49961eb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: c2c93b8f6b4f8c4d888f7105f09e96dd9df7b574
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594959"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902630"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Självstudier: Använda en Windows VM hanterade tjänsten identitet (MSI) för att komma åt Azure SQL
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Självstudie: Använda en hanterad tjänstidentitet (MSI) på en virtuell Windows-dator och komma åt Azure SQL
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här kursen visar hur du använder en hanterad tjänst identitet (MSI) för en Windows-dator (VM) åtkomst till en Azure SQL-servern. Hanterade Tjänsteidentiteter hanteras automatiskt av Azure och gör att du kan autentisera tjänster som stöder Azure AD-autentisering utan att behöva infoga autentiseringsuppgifter i din kod. Lär dig att:
+Den här självstudien beskriver steg för steg hur du använder en MSI (hanterad tjänstidentitet) för en virtuell Windows-dator (VM) för att komma åt en Azure SQL-server. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. Lär dig att:
 
 > [!div class="checklist"]
-> * Aktivera MSI på en Windows VM 
-> * Ge dina VM-åtkomst till en Azure SQL-server
-> * Hämta en åtkomst-token med VM-identitet och använda den för att fråga en Azure SQL-server
+> * Aktivera MSI på en virtuell Windows-dator 
+> * Ge din virtuella dator åtkomst till en Azure SQL-server
+> * Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använda den för att köra frågor mot en Azure SQL-server
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -44,51 +44,51 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Windows-dator i en ny resursgrupp
 
-Den här självstudiekursen skapar vi en ny Windows virtuell dator.  Du kan också aktivera MSI på en befintlig virtuell dator.
+I den här självstudien ska vi skapa en ny virtuell Windows-dator.  Du kan även aktivera MSI på en befintlig virtuell dator.
 
 1.  Klicka på knappen **Skapa en resurs** längst upp till vänster i Azure Portal.
 2.  Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
-3.  Ange informationen för den virtuella datorn. Den **användarnamn** och **lösenord** skapade här är de autentiseringsuppgifter som du använder för att logga in på den virtuella datorn.
-4.  Välj rätt **prenumeration** för den virtuella datorn i listrutan.
-5.  Att välja en ny **resursgruppen** som du vill skapa den virtuella datorn, Välj **Skapa nytt**. När du är klar klickar du på **OK**.
-6.  Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Behåll standardinställningarna på sidan Inställningar och klickar på **OK**.
+3.  Ange informationen för den virtuella datorn. **Användarnamnet** och **lösenordet** som skapas här är de autentiseringsuppgifter som du använder när du loggar in på den virtuella datorn.
+4.  Välj lämplig **prenumeration** för den virtuella datorn i listrutan.
+5.  Du väljer en ny **Resursgrupp** där du skapar din virtuella dator genom att välja **Skapa ny**. När du är klar klickar du på **OK**.
+6.  Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Acceptera alla standardvärden på inställningssidan och klicka på **OK**.
 
-    ![ALT bildtext](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alternativ bildtext](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn 
 
-En VM MSI kan du få åtkomst-token från Azure AD utan att du behöver publicera autentiseringsuppgifter i koden. Aktivera MSI visar Azure för att skapa en hanterad identitet för den virtuella datorn. Under försättsbladen, aktivera MSI gör två saker: registrerar den virtuella datorn med Azure Active Directory för att skapa hanterade identitet och konfigurerar identiteten på den virtuella datorn.
+Med hanterade tjänstidentiteter (MSI) för virtuella datorer kan du hämta åtkomsttoken från Azure AD utan att du behöver bädda in autentiseringsuppgifter i din kod. När du aktiverar MSI skapar Azure en hanterad tjänstidentitet för den virtuella datorn. När du aktiverar MSI sker två saker i bakgrunden: den virtuella datorn registreras med Azure Active Directory för att skapa dess hanterade identitet och identiteten konfigureras på den virtuella datorn.
 
-1.  Välj den **virtuella** som du vill aktivera MSI på.  
-2.  Klicka på det vänstra navigeringsfältet **Configuration**. 
-3.  Du ser **hanterade tjänstidentiteten**. För att registrera och aktivera MSI-filerna, Välj **Ja**, om du vill inaktivera det, väljer du Nej. 
-4.  Se till att du klickar på **spara** att spara konfigurationen.  
-    ![ALT bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+1.  Välj den **virtuella dator** som du vill aktivera MSI på.  
+2.  Klicka på **Konfiguration** i det vänstra navigeringsfältet. 
+3.  **Hanterad tjänstidentitet** visas. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej. 
+4.  Klicka på **Spara** för att spara konfigurationen.  
+    ![Alternativ bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Ge din VM-åtkomst till en databas i en Azure SQL-server
+## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Ge din virtuella dator åtkomst till en databas i en Azure SQL-server
 
-Nu kan du ge din VM-åtkomst till en databas i en Azure SQL-server.  Du kan använda en befintlig SQLServer eller skapa en ny för det här steget.  Om du vill skapa en ny server och databas med Azure-portalen, följer du detta [SQL Azure quickstart](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Det finns också Snabbstart som använder Azure CLI och Azure PowerShell i den [dokumentationen till SQL Azure](https://docs.microsoft.com/azure/sql-database/).
+Nu kan du ge din virtuella dator åtkomst till en databas i en Azure SQL-server.  Du kan använda en befintlig SQL-server eller skapa en ny för det här steget.  Om du vill skapa en ny server och en databas med hjälp av Azure-portalen följer du den här [Azure SQL-snabbstarten](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Det finns även snabbstarter som använder Azure CLI och Azure PowerShell i [Azure SQL-dokumentationen](https://docs.microsoft.com/azure/sql-database/).
 
-Det finns tre steg för att ge dina VM-åtkomst till en databas:
-1.  Skapa en grupp i Azure AD och göra VM MSI medlem i gruppen.
-2.  Aktivera Azure AD-autentisering för SQLServer.
-3.  Skapa en **innesluten användare** i databasen som representerar Azure AD-grupp.
+Det finns tre steg för att ge den virtuella datorn åtkomst till en databas:
+1.  Skapa en grupp i Azure AD och göra den virtuella datorns MSI medlem i gruppen.
+2.  Aktivera Azure AD-autentisering för SQL-servern.
+3.  Skapa en **innesluten användare** i databasen som representerar Azure AD-gruppen.
 
 > [!NOTE]
-> Normalt skapar du en innesluten användare som mappar direkt till den virtuella datorn MSI.  Azure SQL tillåter för närvarande inte Azure AD tjänstens huvudnamn som representerar VM MSI mappas till en innesluten användare.  Som en lösning som stöds du gör VM MSI medlem av en Azure AD-grupp och sedan skapa en innesluten användare i databasen som representerar gruppen.
+> Normalt skapar du en innesluten användare som mappar direkt till den virtuella datorns MSI.  För närvarande tillåter inte Azure SQL att det Azure AD-tjänsthuvudnamn som representerar den virtuella datorns MSI mappas till en innesluten användare.  Som en tillfällig lösning kan du göra den virtuella datorns MSI till medlem i en Azure AD-grupp och sedan skapa en innesluten användare i databasen som representerar gruppen.
 
 
-### <a name="create-a-group-in-azure-ad-and-make-the-vm-msi-a-member-of-the-group"></a>Skapa en grupp i Azure AD och göra VM MSI medlem i gruppen
+### <a name="create-a-group-in-azure-ad-and-make-the-vm-msi-a-member-of-the-group"></a>Skapa en grupp i Azure AD och göra den virtuella datorns MSI medlem i gruppen
 
 Du kan använda en befintlig Azure AD-grupp eller skapa en ny med hjälp av Azure AD PowerShell.  
 
-Installera först den [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) modul. Logga sedan in med `Connect-AzureAD`, och kör följande kommando för att skapa gruppen och spara det i en variabel:
+Först installerar du [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2)-modulen. Logga sedan in med `Connect-AzureAD` och kör följande kommando för att skapa gruppen. Spara den sedan i en variabel:
 
 ```powershell
 $Group = New-AzureADGroup -DisplayName "VM MSI access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
 ```
 
-Det ser ut som följande, vilket också undersöker värdet för variabeln utdata:
+Utdata ser ut som följande, vilket också undersöker värdet för variabeln:
 
 ```powershell
 $Group = New-AzureADGroup -DisplayName "VM MSI access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
@@ -98,10 +98,10 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Lägg sedan till den virtuella datorn MSI i gruppen.  Du måste MSI- **ObjectId**, som du kan hämta med hjälp av Azure PowerShell.  Hämta först [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Logga sedan in med `Connect-AzureRmAccount`, och kör följande kommandon:
-- Kontrollera din sessionskontexten är den önskade Azure-prenumerationen om du har flera.
-- Visa en lista med de tillgängliga resurserna i din Azure-prenumeration, kontrollera i rätt resursgrupp och VM-namn.
-- Hämta VM MSI-egenskaper, med lämpliga värden för `<RESOURCE-GROUP>` och `<VM-NAME>`.
+Lägg sedan till den virtuella datorns MSI i gruppen.  Du behöver **ObjectId** för MSI, vilket du kan få med Azure PowerShell.  Ladda först ned [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Logga sedan in med `Connect-AzureRmAccount` och kör följande kommandon för att:
+- Se till att din sessionskontext är inställd på önskad Azure-prenumeration om du har flera.
+- Lista tillgängliga resurser i Azure-prenumerationen och verifiera rätt resursgrupp och namn på virtuella datorer.
+- Hämta egenskaper för den virtuella datorns MSI med hjälp av lämpliga värden för `<RESOURCE-GROUP>` och `<VM-NAME>`.
 
 ```powershell
 Set-AzureRMContext -subscription "bdc79274-6bb9-48a8-bfd8-00c140fxxxx"
@@ -109,19 +109,19 @@ Get-AzureRmResource
 $VM = Get-AzureRmVm -ResourceGroup <RESOURCE-GROUP> -Name <VM-NAME>
 ```
 
-Det ser ut som följande, vilket också undersöker service principal objekt-ID för den virtuella datorn MSI utdata:
+Utdata ser ut som följande, vilket också undersöker tjänstens huvudnamns objekt-ID för den virtuella datorns MSI:
 ```powershell
 $VM = Get-AzureRmVm -ResourceGroup DevTestGroup -Name DevTestWinVM
 $VM.Identity.PrincipalId
 b83305de-f496-49ca-9427-e77512f6cc64
 ```
 
-Lägga till VM MSI i gruppen.  Du kan bara lägga till ett huvudnamn för tjänsten i en grupp med Azure AD PowerShell.  Kör följande kommando:
+Lägg till den virtuella datorns MSI i gruppen.  Du kan bara lägga till ett tjänsthuvudnamn till en grupp med hjälp av Azure AD PowerShell.  Kör följande kommando:
 ```powershell
 Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId $VM.Identity.PrincipalId
 ```
 
-Om du även undersöka gruppmedlemskap efteråt, ut utdata på följande sätt:
+Om du även undersöker gruppmedlemskapet efteråt ser utdata ut så här:
 
 ```powershell
 Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId $VM.Identity.PrincipalId
@@ -132,55 +132,55 @@ ObjectId                             AppId                                Displa
 b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTestWinVM
 ```
 
-### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Aktivera Azure AD-autentisering för SQLServer
+### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Aktivera Azure AD-autentisering för SQL-servern
 
-Nu när du har skapat gruppen och lägga till VM MSI medlemskap, kan du [konfigurera Azure AD-autentisering för SQLServer](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) med följande steg:
+Nu när du har skapat gruppen och lagt till den virtuella datorns MSI i medlemskapet kan du [konfigurera Azure AD-autentisering för SQL-servern](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) med följande steg:
 
-1.  Välj i Azure-portalen **SQL-servrar** från det vänstra navigeringsfönstret.
-2.  Klicka på SQLServer måste vara aktiverat för Azure AD-autentisering.
-3.  I den **inställningar** avsnitt i bladet, klickar du på **Active Directory-administratör**.
-4.  I kommandofältet klickar du på **ange admin**.
-5.  Markera ett användarkonto i Azure AD att göras en administratör på servern och klicka på **Välj.**
-6.  I kommandofältet klickar du på **spara.**
+1.  I Azure-portalen väljer du **SQL-servrar** från det vänstra navigeringsfältet.
+2.  Klicka på den SQL server som ska aktiveras för Azure AD-autentisering.
+3.  I avsnittet **Inställningar** avsnittet på bladet klickar du på **Active Directory-administratör**.
+4.  I kommandofältet klickar du på **Konfigurera administratör**.
+5.  Välj ett Azure AD-användarkonto som ska bli administratör för servern och klicka på **Välj**.
+6.  I kommandofältet klickar du på **Spara**.
 
-### <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Skapa en innesluten användare i databasen som representerar Azure AD-grupp
+### <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Skapa en innesluten användare i databasen som representerar Azure AD-gruppen
 
-För den här nästa steg behöver du [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Innan du börjar kan det också vara bra att granska följande artiklar för bakgrunden på Azure AD-integrering:
+För nästa steg behöver du [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Innan du börjar kan det också vara bra att granska följande artiklar för att få bakgrundsinformation om Azure AD-integrering:
 
-- [Universal autentisering med SQL Database och SQL Data Warehouse (SSMS stöd för MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication.md)
+- [Universell autentisering med SQL Database och SQL Data Warehouse (SSMS-stöd för MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication.md)
 - [Konfigurera och hantera Azure Active Directory-autentisering med SQL Database eller SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure.md)
 
 1.  Starta SQL Server Management Studio.
-2.  I den **Anslut till Server** dialogrutan, ange din SQLServer-namnet i den **servernamn** fältet.
-3.  I den **autentisering** väljer **Active Directory - Universal med stöd för MFA**.
-4.  I den **användarnamn** , ange namnet på Azure AD-kontot som du anger som serveradministratören, t.ex. helen@woodgroveonline.com
+2.  I dialogrutan **Anslut till server** anger du SQL-servernamnet i fältet **Servernamn**.
+3.  I fältet **Autentisering** väljer du **Active Directory – Universell med stöd för MFA**.
+4.  I fältet **Användarnamn** anger du namnet på det Azure AD-konto som du anger som serveradministratör, till exempel helen@woodgroveonline.com
 5.  Klicka på **Alternativ**.
-6.  I den **Anslut till databas** , ange namnet på databasen för icke-system som du vill konfigurera.
-7.  Klicka på **Anslut**.  Slutföra inloggningen.
-8.  I den **Object Explorer**, expandera den **databaser** mapp.
-9.  Högerklicka på en användardatabas och på **ny fråga**.
-10.  Ange följande rad i frågefönstret och klicka på **Execute** i verktygsfältet:
+6.  I fältet **Anslut till databas** anger du namnet på den icke-systembaserade databas som du vill konfigurera.
+7.  Klicka på **Anslut**.  Slutför inloggningsprocessen.
+8.  I **Object Explorer** expanderar du mappen **Databaser**.
+9.  Högerklicka på en användardatabas och klicka på **Ny fråga**.
+10.  I frågefönstret anger du följande rad och klickar på **Kör** i verktygsfältet:
     
      ```
      CREATE USER [VM MSI access to SQL] FROM EXTERNAL PROVIDER
      ```
     
-     Kommandot ska slutföras, skapa innesluten användare för gruppen.
-11.  Rensa frågefönstret, ange följande rad och på **Execute** i verktygsfältet:
+     Kommandot bör slutföras utan problem och skapa den inneslutna användaren för gruppen.
+11.  Rensa frågefönstret, ange följande rad och klicka på **Kör** i verktygsfältet:
      
      ```
      ALTER ROLE db_datareader ADD MEMBER [VM MSI access to SQL]
      ```
 
-     Kommandot ska slutföras, bevilja innesluten användare möjlighet att läsa hela databasen.
+     Kommandot bör slutföras utan problem och bevilja den inneslutna användaren möjligheten att läsa hela databasen.
 
-Kod som körs i den virtuella datorn kan nu hämta en token från MSI och använda token för autentisering till SQLServer.
+Kod som körs i den virtuella datorn kan nu få en token från MSI och använda token för att autentisera till SQL-servern.
 
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-sql"></a>Hämta en åtkomst-token med VM-identitet och använda den för att anropa Azure SQL 
+## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-sql"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använda den för att anropa Azure SQL 
 
-Azure SQL inbyggt stöd för Azure AD-autentisering, så den kan acceptera åtkomsttoken direkt hämtas med hjälp av MSI.  Du använder den **åtkomsttoken** metod för att skapa en anslutning till SQL.  Detta är en del av Azure SQL-integrering med Azure AD och skiljer sig från att tillhandahålla autentiseringsuppgifter i anslutningssträngen.
+Azure SQL har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas med MSI kan accepteras direkt.  Du använder metoden med **åtkomsttoken** för att skapa en anslutning till SQL.  Detta är en del av integreringen av Azure SQL med Azure AD, och skiljer sig från att ange autentiseringsuppgifter i anslutningssträngen.
 
-Här är ett .net-kodexempel för att öppna en anslutning till SQL med hjälp av en åtkomst-token.  Den här koden måste köras på den virtuella datorn för att kunna komma åt VM MSI-slutpunkten.  **.NET framework 4.6** eller högre krävs för att använda åtkomstmetoden-token.  Ersätt värdena för AZURE-SQL-servernamn och databasen i enlighet med detta.  Observera resurs-ID för Azure SQL är ”https://database.windows.net/”.
+Här är ett kodexempel med .Net för att öppna en anslutning till SQL med hjälp av en åtkomsttoken.  Koden måste köras på den virtuella datorn om du vill komma åt slutpunkten för den virtuella datorns MSI.  **.Net Framework 4.6** eller senare krävs om du vill använda metoden med åtkomsttoken.  Ersätt värdena för AZURE-SQL-SERVERNAME och DATABASE i enlighet med detta.  Observera at resurs-ID för Azure SQL är ”https://database.windows.net/”.
 
 ```csharp
 using System.Net;
@@ -224,30 +224,30 @@ if (accessToken != null) {
 }
 ```
 
-Du kan också ett snabbt sätt att testa slutpunkt till slutpunkt-installationsprogrammet utan att behöva skriva och distribuera en app på den virtuella datorn med PowerShell.
+Du kan snabbt testa konfigurationen av slutpunkt till slutpunkt utan att behöva skriva och distribuera en app på den virtuella datorn med hjälp av PowerShell.
 
-1.  I portalen, går du till **virtuella datorer** och gå till din Windows-dator och i den **översikt**, klickar du på **Anslut**. 
-2.  Ange i din **användarnamn** och **lösenord** för som du har lagt till när du skapade den virtuella Windows-datorn. 
-3.  Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn, öppna **PowerShell** i fjärrsessionen. 
-4.  Med hjälp av Powershell's `Invoke-WebRequest`, gör en begäran till den lokala MSI-slutpunkten för att hämta en åtkomst-token för Azure SQL.
+1.  I portalen går du till **Virtuella datorer** och sedan till den virtuella Windows-datorn. Under **Översikt** klickar du på **Anslut**. 
+2.  Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn. 
+3.  Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn öppnar du **PowerShell** i fjärrsessionen. 
+4.  Använd PowerShells `Invoke-WebRequest` och skicka en begäran till den lokala MSI-slutpunkten för att hämta en åtkomsttoken för Azure SQL.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
-    Konvertera svaret från ett JSON-objekt till en PowerShell-objektet. 
+    Konvertera svaret från ett JSON-objekt till ett PowerShell-objekt. 
     
     ```powershell
     $content = $response.Content | ConvertFrom-Json
     ```
 
-    Extrahera den åtkomst-token från svaret.
+    Extrahera åtkomsttoken från svaret.
     
     ```powershell
     $AccessToken = $content.access_token
     ```
 
-5.  Öppna en anslutning till SQLServer. Kom ihåg att ersätta värdena för AZURE-SQL-servernamn och databasen.
+5.  Öppna en anslutning till SQL-servern. Kom ihåg att ersätta värdena för AZURE-SQL-SERVERNAME och DATABASE.
     
     ```powershell
     $SqlConnection = New-Object System.Data.SqlClient.SqlConnection
@@ -256,7 +256,7 @@ Du kan också ett snabbt sätt att testa slutpunkt till slutpunkt-installationsp
     $SqlConnection.Open()
     ```
 
-    Sedan skapa och skicka en fråga till servern.  Kom ihåg att ersätta värdet för tabellen.
+    Sedan skapar du och skickar en fråga till servern.  Kom ihåg att ersätta värdet för TABLE.
 
     ```powershell
     $SqlCmd = New-Object System.Data.SqlClient.SqlCommand
@@ -268,11 +268,11 @@ Du kan också ett snabbt sätt att testa slutpunkt till slutpunkt-installationsp
     $SqlAdapter.Fill($DataSet)
     ```
 
-Kontrollera värdet på `$DataSet.Tables[0]` att visa resultatet av frågan.  Grattis, du har efterfrågas i databasen med en VM MSI och utan att behöva ange autentiseringsuppgifter!
+Kontrollera värdet på `$DataSet.Tables[0]` för att visa resultatet av frågan.  Grattis! Du har frågat databasen med hjälp av en virtuell datorns MSI utan att behöva ange autentiseringsuppgifter.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får du har lärt dig hur du skapar en tjänstidentitet hanteras för att komma åt Azure SQL-server.  Om du vill veta mer om Azure SQL Server, se:
+I den här självstudien har du lärt dig att skapa en hanterad tjänstidentitet och komma åt en Azure SQL-server.  Läs mer om Azure SQL Server här:
 
 > [!div class="nextstepaction"]
 >[Azure SQL Database-tjänsten](/azure/sql-database/sql-database-technical-overview)

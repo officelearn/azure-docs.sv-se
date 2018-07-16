@@ -15,48 +15,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 4d3e6d2a884a677a3a7368fc83bb639067df5ea0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 71f1f81ccc4885d1dc023c776497fab486e3d7e2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212782"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041066"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Självstudier: Azure Active Directory-integrering med Springer länk
 
-I kursen får lära du att integrera Springer länken med Azure Active Directory (AD Azure).
+Lär dig hur du integrerar Springer länken med Azure Active Directory (AD Azure) i den här självstudien.
 
 Integrera Springer länken med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Springer länk.
-- Du kan aktivera användarna att automatiskt hämta loggat in på Springer länk (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton i en central plats - Azure-portalen.
+- Du kan aktivera användarna att automatiskt få loggat in på Springer länk (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton på en central plats – Azure portal.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med Springer länk, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Springer länk, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En länk Springer enkel inloggning aktiverad prenumeration
+- En länk för Springer enkel inloggning aktiverat prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Ny Springer länk från galleriet
+1. Att lägga till Springer länk från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
-## <a name="adding-springer-link-from-the-gallery"></a>Ny Springer länk från galleriet
-Du måste lägga till Springer länk från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Springer länken i Azure AD.
+## <a name="adding-springer-link-from-the-gallery"></a>Att lägga till Springer länk från galleriet
+Om du vill konfigurera integreringen av Springer länken till Azure AD, som du behöver lägga till Springer länk från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Springer länk från galleriet:**
 
@@ -66,86 +66,86 @@ Du måste lägga till Springer länk från galleriet i listan över hanterade Sa
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Bladet Enterprise program][2]
+    ![Bladet för Enterprise-program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Springer länken**väljer **Springer länken** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **Springer länken**väljer **Springer länken** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Springer länken i resultatlistan](./media/springerlink-tutorial/tutorial_springerlink_addfromgallery.png)
+    ![Springer länk i listan med resultat](./media/springerlink-tutorial/tutorial_springerlink_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
 I det här avsnittet, konfigurera och testa Azure AD enkel inloggning med Springer länk baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till motsvarande användaren i Springer länk till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Springer länken upprättas.
+För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Springer länken är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Springer länk upprättas.
 
-I Springer länken, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+I Springer länken, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Springer länk, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-4. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+4. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i tillämpningsprogrammet Springer länk.
+I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för Springer länk.
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Springer länk:**
 
-1. I Azure-portalen på den **Springer länken** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Springer länken** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning länk][4]
+    ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
-    ![Enkel inloggning dialogrutan](./media/springerlink-tutorial/tutorial_springerlink_samlbase.png)
+    ![Enkel inloggning för dialogrutan](./media/springerlink-tutorial/tutorial_springerlink_samlbase.png)
 
-3. På den **Springer länken domän och URL: er** om du vill konfigurera programmet i **IDP** initierade läge:
+3. På den **Springer länk domän och URL: er** om du vill konfigurera programmet i **IDP** initierade läge:
 
-    ![URL: er och springer länken domän med enkel inloggning information](./media/springerlink-tutorial/tutorial_springerlink_url1.png)
+    ![Springer länk domän och URL: er med enkel inloggning för information](./media/springerlink-tutorial/tutorial_springerlink_url1.png)
 
-    a. I den **identifierare** textruta anger du URL: `https://fsso.springer.com`
+    a. I den **identifierare** textrutan anger du URL: `https://fsso.springer.com`
 
-    b. I den **Reply URL** textruta anger du URL: `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
+    b. I den **svars-URL** textrutan anger du URL: `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
 
-4. Kontrollera **visa avancerade inställningar för URL: en**. Om du vill konfigurera programmet i **SP** initierade läge:
+4. Kontrollera **visa avancerade URL-inställningar**. Om du vill konfigurera programmet i **SP** initierade läge:
 
-    ![URL: er och springer länken domän med enkel inloggning information](./media/springerlink-tutorial/tutorial_springerlink_url.png)
+    ![Springer länk domän och URL: er med enkel inloggning för information](./media/springerlink-tutorial/tutorial_springerlink_url.png)
 
-    I den **inloggnings-URL** textruta anger du URL: `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
+    I den **inloggnings-URL** textrutan anger du URL: `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
 
-5. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar. 
+5. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar. 
 
-    ![Länken hämta certifikatet](./media/springerlink-tutorial/tutorial_springerlink_certificate.png)    
+    ![Länk för hämtning av certifikat](./media/springerlink-tutorial/tutorial_springerlink_certificate.png)    
 
 6. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara](./media/springerlink-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning spara-knapp](./media/springerlink-tutorial/tutorial_general_400.png)
 
-7. Konfigurera enkel inloggning på **Springer länken** sida, måste du skicka den **webbadress Federation Metadata** till [Springer länken supportteamet](mailto:identity@springernature.com).
+7. Att konfigurera enkel inloggning på **Springer länken** sida, som du behöver skicka den **Appfederationsmetadata** till [Springer länk supportteamet](mailto:identity@springernature.com).
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-   ![Skapa en testanvändare i Azure AD][100]
+   ![Skapa en Azure AD-testanvändare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
     ![Azure Active Directory-knappen](./media/springerlink-tutorial/create_aaduser_01.png)
 
 2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-    ![”Användare och grupper” och ”alla användare” länkar](./media/springerlink-tutorial/create_aaduser_02.png)
+    ![”Användare och grupper” och ”alla användare”-länkar](./media/springerlink-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/springerlink-tutorial/create_aaduser_03.png)
 
@@ -155,52 +155,52 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     a. I den **namn** skriver **BrittaSimon**.
 
-    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
 
-    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
+    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
 
     d. Klicka på **Skapa**.
  
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Springer länk.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Springer länk.
 
 ![Tilldela rollen][200] 
 
-**Om du vill tilldela Springer länken Britta Simon utför du följande steg:**
+**Om du vill tilldela Britta Simon Springer länk, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **Springer länk**.
+2. I listan med program väljer **Springer länk**.
 
-    ![Länken Springer länken i listan med program](./media/springerlink-tutorial/tutorial_springerlink_app.png)  
+    ![Länken Springer länk i listan med program](./media/springerlink-tutorial/tutorial_springerlink_app.png)  
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Springer länk på åtkomstpanelen du ska hämta automatiskt loggat in i tillämpningsprogrammet Springer länk.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
+När du klickar på panelen Springer länken i åtkomstpanelen du bör få automatiskt loggat in på programmets Springer länk.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

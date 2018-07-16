@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ffcce12800fae3a4d9e4930c918fcafb919b96ed
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 6a113169cb3f8fea1012643efcb56e5cf6c7e908
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737212"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915977"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Förbereda Azure-resurser för replikering av lokala datorer
 
@@ -54,11 +54,12 @@ Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-da
 1. I [Azure-portalen](https://portal.azure.com) väljer du **Skapa en resurs** > **Storage** > **Storage Account – blob, file, table, queue**.
 2. I **Skapa lagringskonto** anger du ett namn för kontot. I de här självstudierna använder vi namnet **contosovmsacct1910171607**. Namnet måste vara unikt i Azure och vara mellan 3 och 24 tecken långt. Det får endast bestå av siffror och gemener.
 3. För **Distributionsmodell** väljer du **Resource Manager**.
-4. I **Typ av konto** väljer du **Minne (generell användning v1)**. Välj inte blobblagring. I **Prestanda** väljer du **Standard**. 
+4. I **Typ av konto** väljer du **Minne (generell användning v1)**. Välj inte blobblagring.
 5. I **Replikering** väljer du standardinställningen **Read-access geo-redundant storage** för lagringsredundans. Vi låter **Säker överföring krävs** vara **Inaktiverat**.
-6. I **Prenumeration** väljer du den prenumeration som du vill skapa det nya lagringskontot i. 
-2. Ange ett nytt namn på resursgruppen i **Resursgrupp**. En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. I de här självstudierna använder vi namnet **ContosoRG**.
-3. Välj den geografiska platsen för ditt lagringskonto för **Plats**. 
+6. I **Prestanda** väljer du **Standard** och i **Åtkomstnivå** väljer du standardalternativet **Frekvent**.
+7. I **Prenumeration** väljer du den prenumeration som du vill skapa det nya lagringskontot i.
+8. Ange ett nytt namn på resursgruppen i **Resursgrupp**. En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. I de här självstudierna använder vi namnet **ContosoRG**.
+9. Välj den geografiska platsen för ditt lagringskonto för **Plats**. 
 
    ![skapar ett lagringskonto](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -98,7 +99,7 @@ När de virtuella Azure-datorerna har skapats från minnet efter redundansen, ä
 
 - [Lär dig om](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) Azure-nätverk.
 - [Lär dig om](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts) typer av Azure-lagring.
-- - [Lär dig om](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) lagringsredundans och [säker överföring](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) för lagring.
+- [Lär dig om](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) lagringsredundans och [säker överföring](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) för lagring.
 
 
 

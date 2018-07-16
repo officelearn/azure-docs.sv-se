@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Wingspan eTMF | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integration med Wingspan eTMF | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Wingspan eTMF.
 services: active-directory
 documentationCenter: na
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: ee9c1494cb2bca4193bfe8b16b72ba5d317f9f3e
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cbfb35df529a8caef59c459729225051a45a8ab1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295478"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041796"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Självstudier: Azure Active Directory-integrering med Wingspan eTMF
+# <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Självstudier: Azure Active Directory-integration med Wingspan eTMF
 
-I kursen får lära du att integrera Wingspan eTMF med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Wingspan eTMF med Azure Active Directory (AD Azure).
 
 Integrera Wingspan eTMF med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Wingspan eTMF
-- Du kan aktivera användarna att automatiskt hämta loggat in på Wingspan eTMF (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan aktivera användarna att automatiskt få loggat in på Wingspan eTMF (Single Sign-On) med sina Azure AD-konton
+- Du kan hantera dina konton på en central plats – Azure portal
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med Wingspan eTMF, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Wingspan eTMF, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En Wingspan eTMF enkel inloggning på aktiverade prenumeration
+- En Wingspan eTMF enkel inloggning aktiverad prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Wingspan eTMF från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-wingspan-etmf-from-the-gallery"></a>Att lägga till Wingspan eTMF från galleriet
-Du måste lägga till Wingspan eTMF från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Wingspan eTMF i Azure AD.
+För att konfigurera integrering av Wingspan eTMF i Azure AD, som du behöver lägga till Wingspan eTMF från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Wingspan eTMF från galleriet:**
 
@@ -67,32 +67,32 @@ Du måste lägga till Wingspan eTMF från galleriet i listan över hanterade Saa
 
     ![Program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
 4. I sökrutan skriver **Wingspan eTMF**.
 
-    ![Skapa en testanvändare i Azure AD](./media/wingspanetmf-tutorial/tutorial_wingspanetmf_search.png)
+    ![Skapa en Azure AD-användare för testning](./media/wingspanetmf-tutorial/tutorial_wingspanetmf_search.png)
 
-5. Välj i resultatpanelen **Wingspan eTMF**, och klicka sedan på **Lägg till** för att lägga till programmet.
+5. I resultatpanelen väljer **Wingspan eTMF**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/wingspanetmf-tutorial/tutorial_wingspanetmf_addfromgallery.png)
+    ![Skapa en Azure AD-användare för testning](./media/wingspanetmf-tutorial/tutorial_wingspanetmf_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Wingspan eTMF baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Wingspan eTMF baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till användaren i Wingspan eTMF motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Wingspan eTMF upprättas.
+För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Wingspan eTMF är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Wingspan eTMF upprättas.
 
 Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i Wingspan eTMF.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Wingspan eTMF, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare för Wingspan eTMF](#creating-a-wingspan-etmf-test-user)**  – du har en motsvarighet för Britta Simon i Wingspan eTMF som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare för Wingspan eTMF](#creating-a-wingspan-etmf-test-user)**  – du har en motsvarighet för Britta Simon i Wingspan eTMF som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -100,11 +100,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Wingspan eTMF:**
 
-1. I Azure-portalen på den **Wingspan eTMF** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Wingspan eTMF** program integration-sidan klickar du på **enkel inloggning**.
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/wingspanetmf-tutorial/tutorial_wingspanetmf_samlbase.png)
 
@@ -112,14 +112,14 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/wingspanetmf-tutorial/tutorial_wingspanetmf_url11.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<customer name>.<instance name>.mywingspan.com/saml`
+    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<customer name>.<instance name>.mywingspan.com/saml`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster: `http://saml.<instance name>.wingspan.com/shibboleth`
+    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `http://saml.<instance name>.wingspan.com/shibboleth`
 
-    c. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<customer name>.<instance name>.mywingspan.com/`
+    c. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<customer name>.<instance name>.mywingspan.com/`
      
     > [!NOTE] 
-    > Dessa värden är inte verkligt. Uppdatera dessa värden med faktiska inloggnings-URL, identifierare och Reply URL inklusive faktiska kund- och instansnamn. Kontakta [Wingspan eTMF klienten supportteamet](http://www.wingspan.com/contact-us/) att hämta dessa värden. 
+    > Dessa värden är inte verkligt. Uppdatera dessa värden med faktiska inloggnings-URL, identifierare och svars-URL, inklusive faktiska kund- och instansnamn. Kontakta [Wingspan eTMF klienten supportteamet](http://www.wingspan.com/contact-us/) att hämta dessa värden. 
 
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -129,86 +129,86 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/wingspanetmf-tutorial/tutorial_general_400.png)
 
-6. Konfigurera enkel inloggning på **Wingspan eTMF** sida, måste du skicka den hämtade **XML-Metadata för** till [Wingspan eTMF support](http://www.wingspan.com/contact-us/). De ställa in för att ha SAML SSO anslutningen korrekt på båda sidor.
+6. Att konfigurera enkel inloggning på **Wingspan eTMF** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Wingspan eTMF support](http://www.wingspan.com/contact-us/). De har konfigurerat detta för att ha SAML SSO-anslutning som är korrekt inställda på båda sidorna.
 
 > [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
  
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+![Skapa en Azure AD-användare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
 
-    ![Skapa en testanvändare i Azure AD](./media/wingspanetmf-tutorial/create_aaduser_01.png) 
+    ![Skapa en Azure AD-användare för testning](./media/wingspanetmf-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
+2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
-    ![Skapa en testanvändare i Azure AD](./media/wingspanetmf-tutorial/create_aaduser_02.png) 
+    ![Skapa en Azure AD-användare för testning](./media/wingspanetmf-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
-    ![Skapa en testanvändare i Azure AD](./media/wingspanetmf-tutorial/create_aaduser_03.png) 
+    ![Skapa en Azure AD-användare för testning](./media/wingspanetmf-tutorial/create_aaduser_03.png) 
 
 4. På den **användaren** dialogrutan utför följande steg:
  
-    ![Skapa en testanvändare i Azure AD](./media/wingspanetmf-tutorial/create_aaduser_04.png) 
+    ![Skapa en Azure AD-användare för testning](./media/wingspanetmf-tutorial/create_aaduser_04.png) 
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    a. I den **namn** textrutan typ **BrittaSimon**.
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
  
 ### <a name="creating-a-wingspan-etmf-test-user"></a>Skapa en Wingspan eTMF testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Wingspan eTMF. Arbeta med [Wingspan eTMF stöd](http://www.wingspan.com/contact-us/) att lägga till användare i Wingspan eTMF program. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i Wingspan eTMF. Arbeta med [Wingspan eTMF support](http://www.wingspan.com/contact-us/) att lägga till användare i Wingspan eTMF programmet. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Wingspan eTMF.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Wingspan eTMF.
 
 ![Tilldela användare][200] 
 
-**Om du vill tilldela Wingspan eTMF Britta Simon utför du följande steg:**
+**Om du vill tilldela Britta Simon Wingspan eTMF, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **Wingspan eTMF**.
+2. I listan med program väljer **Wingspan eTMF**.
 
     ![Konfigurera enkel inloggning](./media/wingspanetmf-tutorial/tutorial_wingspanetmf_app.png) 
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst. 
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen. 
 
-Klicka på panelen Wingspan eTMF på åtkomstpanelen, du omdirigeras till organisation inloggning på sidan. Efter genomförd inloggning du kommer att loggat in på ditt Wingspan eTMF program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
+Klicka på panelen Wingspan eTMF i åtkomstpanelen, omdirigeras du till organisation logga på sidan. Efter genomförd inloggning du kommer att loggat in på ditt Wingspan eTMF program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

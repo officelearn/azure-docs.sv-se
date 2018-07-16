@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 51ed7dbead7f9085de563d2fb20c4e4a08f90bb2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 951ce8947d113eaad2ea0e3b5df5e9714aa33dd8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723195"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Självstudie: Använd Azure Machine Learning Workbench för avancerad dataförberedelse (BikeShare-data)
 Azure Machine Learning (förhandsversion) är en integrerad analyslösning från slutpunkt till slutpunkt som dataforskare kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -253,7 +255,7 @@ Du behöver inte längre kolumnen __REPORTTYPE__. Högerklicka på kolumnrubrike
    ![Alternativet Ta bort kolumn](media/tutorial-bikeshare-dataprep/weatherremovereporttype.png)
 
 ## <a name="change-datatypes-and-remove-errors"></a>Ändra datatyper och ta bort fel
-1. Välj Ctrl (kommandot ⌘ på Mac) medan du väljer kolumnrubriker för att markera flera kolumner på samma gång. Använd denna metod när du väljer följande kolumnrubriker:
+1. Välj Ctrl (Cmd ⌘ på Mac) när du väljer kolumnrubriker om du vill välja flera kolumner på samma gång. Använd denna metod när du väljer följande kolumnrubriker:
 
    * **HOURLYDRYBULBTEMPF**
 
@@ -452,7 +454,7 @@ Vid dataförberedelse finns användbara visualiseringar, s.k. kontrollanter, til
 1. Välj både kolumnen **latitud för startstation** och **longitud för startstation**. Högerklicka på en av kolumnerna och välj sedan **Karta**.
 
     > [!TIP]
-    > Om du vill aktivera flerval håller du ned Ctrl-tangenten (kommandot ⌘ på Mac) och väljer rubriken för varje kolumn.
+    > Om du vill markera flera samtidigt håller du ned Ctrl-tangenten (Cmd ⌘ på Mac) och markerar rubriken för varje kolumn.
 
     ![Kartvisualisering](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
@@ -635,7 +637,7 @@ Använd följande steg för att slå ihop väderdata med resedata:
 
     ![Periodkolumn](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. Ta bort kolumnerna **Datum Timintervall** och **r_Date Timintervall** genom att välja Ctrl (kommandot ⌘ på Mac) och markera varje kolumnrubrik. Högerklicka och välj **Ta bort kolumn**.
+3. Om du vill ta bort kolumnerna **Datum Timintervall** och **r_Datum Timintervall** väljer du Ctrl (Cmd ⌘ på Mac) och markerar varje kolumnrubrik. Högerklicka och välj **Ta bort kolumn**.
 
 ## <a name="read-data-from-python"></a>Läs data från Python
 

@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: amsriva
-ms.openlocfilehash: b1b6cec8cfeee2253ccd62f764ce4da4cb1b459d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1c94bc7fb97902c9d44392d2eb9bf4ee29f72af6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160536"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949755"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Översikt över slutpunkt-till-slutpunkt-SSL på Application Gateway
 
@@ -42,7 +42,7 @@ Application Gateway kommunicerar bara med kända serverdelsinstanser som har vit
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du läst om slutpunkt-till-slutpunkts-SSL kan du gå till [Aktivera slutpunkt-till-slutpunkts-SSL på Application Gateway](tutorial-ssl-powershell.md) om du vill skapa en Application Gateway med hjälp av slutpunkt-till-slutpunkts-SSL.
+När du läst om slutpunkt-till-slutpunkts-SSL kan du gå till [Konfigurera en programgateway med SSL-avslutning med hjälp av Azure-portalen](create-ssl-portal.md) om du vill skapa en programgateway med hjälp av slutpunkt-till-slutpunkts-SSL.
 
 <!--Image references-->
 

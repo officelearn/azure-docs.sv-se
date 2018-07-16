@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d866a6b068e9f6b8a46e53d60653d55e35a2ffd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f56ac74c62334ef64fca45a6430a539e3c4c372c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594031"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38442544"
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrerar dina lokala kataloger med Azure Active Directory
 Azure AD Connect integrerar dina lokala kataloger med Azure Active Directory. På så sätt kan du erbjuda en gemensam identitet för dina användare för Office 365- och Azure SaaS-program som är integrerade med Azure AD. I det här avsnittet beskrivs planerings-, distributions- och användningsstegen. Det är en samling länkar till avsnitt relaterade till det här området.
@@ -33,8 +33,9 @@ Azure AD Connect integrerar dina lokala kataloger med Azure Active Directory. P�
 
 > 
 > - Att synkronisera användare med Microsoft Azure Active Directory är en **kostnadsfri funktion** och kräver inte att kunderna har någon betald prenumeration.
->- Synkroniserade användare **beviljas inte automatiskt** *någon* licens. Administratörer har fortfarande fullständig kontroll över licenstilldelningen. 
+> - Synkroniserade användare **beviljas inte automatiskt** *någon* licens. Administratörer har fortfarande fullständig kontroll över licenstilldelningen. 
 > - Microsofts rekommendation är att IT-administratörerna synkroniserar alla sina användare. Detta avblockerar inte bara användarnas åtkomst till integrerade Microsoft Azure Active Directory-resurser, utan ger dessutom IT-administratörerna en mycket bredare vy så att de kan se vilka program som användarna använder. 
+> - Microsoft rekommenderar starkt att du inte synkroniserar användare med administratörsroller i AAD.
 
 ![Vad är Azure AD Connect?](media/active-directory-aadconnect/arch.png)
 

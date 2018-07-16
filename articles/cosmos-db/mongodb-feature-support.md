@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 9202e8eb328f098f7ab68a18f4629a95ecc10991
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2c86cbe2ac9a0611873aca35480af92304abe5b5
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796363"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928700"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Stöd för MongoDB-API för MongoDB-funktioner och -syntax
 
@@ -23,14 +23,19 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 Med hjälp av Azure Cosmos DB MongoDB API:t kan du dra nytta av fördelarna av de MongoDB API:er som du är van vid och alla enterprise-funktioner som Azure Cosmos DB erbjuder: [global distribution](distribute-data-globally.md), [automatisk horisontell positionering](partition-data.md), garantier avseende tillgänglighet och svarstid, automatisk indexering av varje fält, kryptering i vila, säkerhetskopior och mycket mer.
 
+## <a name="mongodb-protocol-support"></a>Protokollstöd för MongoDB
+
+Azure Cosmos DB MongoDB-API:et är kompatibelt med MongoDB Server version **3.2** som standard. De operatorer som stöds och eventuella begränsningar eller undantag anges nedan. Funktioner eller frågeoperatorer som lagts till i MongoDB version **3.4** är för närvarande tillgängliga som en förhandsversion. Klientdrivrutiner som förstår dessa protokoll bör kunna ansluta till Cosmos DB med MongoDB-API:et.
+
+Även [MongoDB-sammansättningspipeline](#aggregation-pipeline) är för närvarande tillgänglig som en separat förhandsgranskningsfunktion.
+
 ## <a name="mongodb-query-language-support"></a>Stöd för MongoDB-frågespråk
 
 Azure Cosmos DB MongoDB API:t erbjuder omfattande stöd för MongoDB-frågespråkskonstruktioner. Nedan hittar du en detaljerad lista över de åtgärder som för närvarande stöds, operatorer, steg, kommandon och alternativ.
 
-
 ## <a name="database-commands"></a>Databaskommandon
 
-Azure Cosmos DB stöder följande databaskommandon på alla MongoDB API-konton. 
+Azure Cosmos DB stöder följande databaskommandon på alla MongoDB API-konton.
 
 ### <a name="query-and-write-operation-commands"></a>Fråga och skriv-åtgärdskommandon
 - delete
@@ -287,7 +292,11 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | Stöds ej. Använd $regex istället 
+$text |  | Stöds ej. Använd $regex i stället.
+
+## <a name="unsupported-operators"></a>Operatorer som inte stöds
+
+Operatorerna ```$where``` och ```$eval``` stöds inte av Azure Cosmos DB.
 
 ### <a name="methods"></a>Metoder
 
@@ -316,6 +325,10 @@ Azure Cosmos DB stöder ännu inte användare och roller. Azure Cosmos DB stöde
 ## <a name="replication"></a>Replikering
 
 Azure Cosmos DB stöder automatisk, inbyggd replikering på de understa lagren. Denna logik utökas för att även uppnå global replikering med låga svarstider. Azure Cosmos DB stöder inte manuella replikeringskommandon.
+
+## <a name="write-concern"></a>Skrivanmärkningar
+
+Med vissa MongoDB-API:er kan du ange en [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/) (skrivanmärkning) som anger antalet svar som krävs vid en skrivåtgärd. På grund av hur Cosmos DB hanterar replikering i bakgrunden är alla skrivningar automatiskt kvorumskrivningar som standard. Skrivanmärkningar som anges av klientkoden ignoreras. Läs mer om hur du [maximerar tillgänglighet och prestanda med hjälp av konsekvensnivåer](consistency-levels.md).
 
 ## <a name="sharding"></a>Horisontell partitionering
 

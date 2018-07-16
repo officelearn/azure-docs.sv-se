@@ -11,37 +11,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: b06f53b0169e3afd140be81d9d633844a5876c09
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f53b1e08da1cb2d0dc02381bf47c27e8f84cb1d0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38487655"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044840"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Distribuera SQL Server-resursprovider i Azure Stack
-
 Använda Azure Stack SQL Server-resursprovidern för att visa SQL-databaser som en tjänst för Azure Stack. SQL-resursprovider körs som en tjänst på en Windows Server 2016 Server Core-dator (VM).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Det finns flera förutsättningar som måste vara uppfyllda innan du kan distribuera Azure Stack SQL-resursprovider. Utför följande steg på en dator som har åtkomst till privilegierad slutpunkt VM för att uppfylla dessa krav:
 
-- Om du inte redan gjort det, [registrera Azure Stack](.\azure-stack-registration.md) med Azure så att du kan ladda ned Azure marketplace-objekt.
-- Du måste installera Azure- och Azure Stack PowerShell-moduler system att kommer du kör installationen. Systemet måste vara en Windows 10 eller Windows Server 2016-avbildning med den senaste versionen av .NET-runtime. Se [installera PowerShell för Azure Stack](.\azure-stack-powershell-install.md).
+- Om du inte redan gjort det, [registrera Azure Stack](azure-stack-registration.md) med Azure så att du kan ladda ned Azure marketplace-objekt.
+- Du måste installera Azure- och Azure Stack PowerShell-moduler på systemet där du kör installationen. Systemet måste vara en Windows 10 eller Windows Server 2016-avbildning med den senaste versionen av .NET-runtime. Se [installera PowerShell för Azure Stack](.\azure-stack-powershell-install.md).
 - Lägg till nödvändiga Windows Server core VM på Azure Stack Marketplace genom att ladda ned den **Windows Server 2016 Datacenter - Server Core** bild. 
-
-  >[!NOTE]
-  >Om du vill installera en uppdatering kan du placera ett enda MSU-paket i lokala beroendesökvägen. Om fler än en MSU-fil hittas, misslyckas providerinstallationen för SQL-resurs.
-
-- Ladda ned den SQL-resursprovidern binära och kör sedan Self-Extractor för att extrahera innehållet till en tillfällig katalog. Resursprovidern har en minsta motsvarande Azure Stack skapa. Kontrollera att du har hämtat rätt binärfilen för versionen av Azure Stack som du kör.
+- Ladda ned den SQL-resursprovidern binära och kör sedan Self-Extractor för att extrahera innehållet till en tillfällig katalog. Resursprovidern har en minsta motsvarande Azure Stack skapa. Kontrollera att du har hämtat rätt binärfilen för versionen av Azure Stack som du kör:
 
     |Azure Stack-versionen|SQL RP-version|
     |-----|-----|
     |Version 1804 (1.0.180513.1)|[SQL RP version 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
     |Version 1802 (1.0.180302.1)|[SQL RP version 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
+    |     |     |
+
+- Kontrollera att datacenter integration krav är uppfyllda:
+
+    |Krav|Referens|
+    |-----|-----|
+    |Villkorlig vidarebefordran av DNS är korrekt.|[Integrering med Azure Stack datacenter - DNS](azure-stack-integrate-dns.md)|
+    |Ingående portar för resursprovider är öppna.|[Azure Stack datacenter-integrering – publicera slutpunkter](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |PKI-certifikatämne och alternativt namn har angetts korrekt.|[Azure Stack obligatoriska PKI kraven för distribution](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure PaaS certifikat distributionskrav Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |     |     |
 
 ### <a name="certificates"></a>Certifikat
 
@@ -51,7 +56,7 @@ _För integrerade system installationer endast_. Du måste ange SQL PaaS PKI-cer
 
 När du har allt som krävs installerat kan köra den **DeploySqlProvider.ps1** skript för att distribuera SQL-resursprovider. Skriptet DeploySqlProvider.ps1 extraheras som en del av SQL resource provider binärfilen som du hämtade för din version av Azure Stack.
 
-Om du vill distribuera SQL-resursprovider, öppna en **nya** upphöjd PowerShell konsolfönstret och ändra till den katalog där du extraherade de binära filerna för SQL resource provider. Vi rekommenderar att du använder ett nytt PowerShell-fönster för att undvika potentiella problem som orsakas av PowerShell-moduler som redan har lästs in.
+Om du vill distribuera SQL-resursprovider, öppna en **nya** upphöjd PowerShell-fönster (inte PowerShell ISE) och ändra till katalogen där du extraherade de binära filerna för SQL resource provider. Vi rekommenderar att du använder ett nytt PowerShell-fönster för att undvika potentiella problem som orsakas av PowerShell-moduler som redan har lästs in.
 
 Kör skriptet DeploySqlProvider.ps1 som utför följande uppgifter:
 
@@ -60,8 +65,7 @@ Kör skriptet DeploySqlProvider.ps1 som utför följande uppgifter:
 - Publicerar ett gallery-paket för distribution av värdservrar.
 - Distribuerar en virtuell dator med Windows Server 2016 core avbildningen du hämtade och installerar sedan SQL-resursprovider.
 - Registrerar en lokal DNS-post som mappar till dina VM-resursprovidern.
-- Registrerar din resursprovidern med den lokala Azure Resource Manager för operatorn och användarkonton.
-- Du kan också installerar en enskild uppdatering för Windows Server under providerinstallationen för resursen.
+- Registrerar din resursprovidern med den lokala Azure Resource Manager för operatorn-konto.
 
 > [!NOTE]
 > När SQL resource provider distributionen startar, **system.local.sqladapter** resursgruppen har skapats. Det kan ta upp till 75 minuter att slutföra nödvändiga distributioner till den här resursgruppen.

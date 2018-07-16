@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: b8f20bc9e3a46901c88648f89e5b69fda62d8c8f
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 4e9bdfab3abf9545218e80bf79d1b9b5df0cf2ff
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990082"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042018"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Referens för Azure Cosmos DB SQL-syntax
 
@@ -460,7 +460,7 @@ ORDER BY <sort_specification>
   
 -   `parameter_name`  
   
-     Representerar ett värde för det angivna parameternamnet. Parameternamn måste ha en enda @ som det första tecknet.  
+     Representerar ett värde för det angivna parameternamnet. Parameternamn måste ha en enda \@ som det första tecknet.  
   
  **Kommentarer**  
   

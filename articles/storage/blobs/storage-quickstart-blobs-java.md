@@ -1,5 +1,5 @@
 ---
-title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av Java | Microsoft Docs
+title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av Java Storage SDK V7 | Microsoft Docs
 description: I den här snabbstarten skapar du ett lagringskonto och en behållare i objektlagring (Blob). Sedan använder du lagringsklientbiblioteket för Java och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
 services: storage
 author: roygara
@@ -9,14 +9,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 197777971b92ad9cd53e91602b88858a371ce1d8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 30d31a7f4b77864549dcb9e27030ba19c4fd84fe
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192017"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38606617"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Java
+# <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Java SDK V7
 
 I den här snabbstarten får du lära dig att använda Java för att ladda upp, hämta och lista blockblobbar i Azure Blob-lagring.
 
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 
-[Exempelprogrammet](https://github.com/Azure-Samples/storage-blobs-java-quickstart) som används i den här snabbstarten är ett grundläggande konsolprogram. 
+[Exempelprogrammet](https://github.com/Azure-Samples/storage-blobs-java-quickstart) som används i den här snabbstarten är ett grundläggande konsolprogram.  
 
 Använd [git](https://git-scm.com/) för att hämta en kopia av programmet till utvecklingsmiljön. 
 
@@ -48,7 +48,7 @@ Det här kommandot klonar lagret till den lokala git-mappen. Öppna projektet ge
 
 När projektet har importerats öppnar du **AzureApp.java** (finns i **blobQuickstart.blobAzureApp** inuti **src/main/java**) och ersätter `accountname` och `accountkey` inuti strängen `storageConnectionString`. Kör sedan programmet.
 
-[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]   
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]    
 
 ## <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
     
@@ -65,9 +65,7 @@ public static final String storageConnectionString =
 
 Det här exemplet skapar en testfil i din standardkatalog (Mina dokument för Windows-användare), överför den till blobblagringen, listar blobbarna i behållaren och hämtar sedan filen med ett nytt namn så att du kan jämföra de gamla och nya filerna. 
 
-Kör exemplet genom att trycka på **Ctrl + F11** i Eclipse.
-
-Om du vill köra exemplet med Maven på kommandoraden kan du öppna ett gränssnitt och gå till **blobAzureApp** i den klonade katalogen. Ange sedan `mvn compile exec:java`.
+Köra exemplet med hjälp av Maven på kommandoraden. Öppna ett gränssnitt och gå till **blobAzureApp** i den klonade katalogen. Ange sedan `mvn compile exec:java`. 
 
 Följande är ett exempel på utdata om du kör programmet i Windows.
 
@@ -84,9 +82,9 @@ Deleting the container
 Deleting the source, and downloaded files
 ```
 
- Kontrollera att de två filerna finns i standardkatalogen (Mina dokument för Windows-användare) innan du fortsätter. Du kan öppna dem och se att de är identiska. Kopiera URL:en för blobben från konsolfönstret och klistra in den i en webbläsare om du vill se innehållet i filen i blobblagringen. När du trycker på Retur-tangenten för att fortsätta tas lagringsbehållaren och filerna bort.
+Kontrollera att de två filerna finns i standardkatalogen (Mina dokument för Windows-användare) innan du fortsätter. Du kan öppna dem och se att de är identiska. Kopiera URL:en för blobben från konsolfönstret och klistra in den i en webbläsare om du vill se innehållet i filen i blobblagringen. När du trycker på Retur-tangenten för att fortsätta tas lagringsbehållaren och filerna bort. 
 
-Du kan också använda ett verktyg som [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att visa filerna i blobblagringen. Azure Storage Explorer är ett kostnadsfritt verktyg för flera plattformar som gör det möjligt att komma åt information på lagringskontot. 
+Du kan också använda ett verktyg som [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att visa filerna i blobblagringen. Azure Storage Explorer är ett kostnadsfritt verktyg för flera plattformar som gör det möjligt att komma åt information på lagringskontot.
 
 När du har kontrollerat filerna trycker du på Retur-tangenten för att avsluta demonstrationen och ta bort testfilerna. Nu när du vet vad exemplet gör kan du öppna filen **AzureApp.java** och titta på koden. 
 
@@ -113,7 +111,7 @@ Det första du ska göra är att skapa referenser till objekten som används fö
 > [!IMPORTANT]
 > Behållarnamn måste använda gemener. Mer information om behållare och blobnamn finns i [Namngivning och referens av behållare, blobar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-### <a name="create-a-container"></a>Skapa en behållare 
+### <a name="create-a-container"></a>Skapa en behållare
 
 I det här avsnittet skapar du en instans av objekt, skapar en ny behållare och anger sedan behörigheter för behållaren så att blobarna är offentliga och går att komma åt med bara en URL. Behållaren heter **quickstartblobs**. 
 
@@ -205,26 +203,13 @@ if(sourceFile != null)
 sourceFile.deleteOnExit();
 ```
 
-## <a name="resources-for-developing-java-applications-with-blobs"></a>Resurser för utveckling av Java-program med blobbar
-
-Se följande ytterligare resurser för Java-utveckling med blobblagring:
-
-### <a name="binaries-and-source-code"></a>Binärfiler och källkod
-
-- Visa och ladda ned [Java-klientbibliotekets källkod](https://github.com/Azure/azure-storage-java) för Azure Storage på GitHub.
-
-### <a name="client-library-reference-and-samples"></a>Referens och exempel för klientbiblioteket
-
-- Mer information om Java-klientbiblioteket finns i [API-referens för Java](https://docs.microsoft.com/java/api/overview/azure/storage).
-- Utforska [Blobblagringsexempel](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob) som skrivits med Java-klientbiblioteket.
-
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage med Java. Om du vill veta mer om att arbeta med Blob Storage kan du fortsätta till anvisningarna om Blob Storage.
+I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage med Java. För att få mer information om hur du arbetar med Java fortsätter du till vår lagringsplats för GitHub-källkod.
 
 > [!div class="nextstepaction"]
-> [Anvisningar för Blob Storage-åtgärder](storage-java-how-to-use-blob-storage.md)
+> [Azure Storage SDK för Java](https://github.com/azure/azure-storage-java) 
+> [API-referens](https://docs.microsoft.com/en-us/java/api/storage/client?view=azure-java-stable)
+> [Kodexempel för Java](../common/storage-samples-java.md)
 
-Mer information om Storage Explorer och blobar finns i [Hantera Azure Blob Storage-resurser med Storage Explorer ](../../vs-azure-tools-storage-explorer-blobs.md).
-
-Flera Java-exempel finns [Azure Storage-exempel som använder Java](../common/storage-samples-java.md).
+* Mer information om Storage Explorer och blobar finns i [Hantera Azure Blob Storage-resurser med Storage Explorer ](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a13057769bad7fcad5f95e49102adac234ebcdb4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: bbb17d1b47c5409d15a15a7461da981fa5e09f7e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868947"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056842"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Ansluta datorer utan Internetåtkomst med OMS-gatewayen
 Det här dokumentet beskriver hur du konfigurerar kommunikationen med Azure Automation och Log Analytics med hjälp av OMS-Gateway när det är direkt ansluten eller Operations Manager övervakade datorer har inte Internetåtkomst.  OMS-gatewayen, som är en vanlig HTTP-proxy som har stöd för HTTP-tunnel med hjälp av kommandot HTTP ansluta, kan samla in data och skicka den till Azure Automation och Log Analytics för deras räkning.  
@@ -89,8 +89,8 @@ Följande tabell visar det tillåtna antalet agenter som kommunicerar med en gat
 
 |Gateway |Ungefärligt antal agenter som stöds|  
 |--------|----------------------------------|  
-|-CPU: Intel XEON CPU E5 2660 v3 @ 2,6 GHz 2 kärnor<br> -Minne: 4 GB<br> -Nätverksbandbredd: 1 Gbit/s| 600|  
-|-CPU: Intel XEON CPU E5 2660 v3 @ 2,6 GHz 4 kärnor<br> -Minne: 8 GB<br> -Nätverksbandbredd: 1 Gbit/s| 1000|  
+|-CPU: Intel XEON v3 CPU E5 2660 \@ 2,6 GHz 2 kärnor<br> -Minne: 4 GB<br> -Nätverksbandbredd: 1 Gbit/s| 600|  
+|-CPU: Intel XEON v3 CPU E5 2660 \@ 2,6 GHz 4 kärnor<br> -Minne: 8 GB<br> -Nätverksbandbredd: 1 Gbit/s| 1 000|  
 
 ## <a name="download-the-oms-gateway"></a>Ladda ned OMS-gatewayen
 
@@ -210,13 +210,13 @@ Använd följande tabeller för att identifiera URL: en för varje plats:
 | **Plats** | **URL** |
 | --- | --- |
 | Norra centrala USA |ncus-jobruntimedata-prod-su1.azure-automation.net |
-| Västra Europa |we-jobruntimedata-prod-su1.azure-automation.net |
+| Västeuropa |we-jobruntimedata-prod-su1.azure-automation.net |
 | Södra centrala USA |scus-jobruntimedata-prod-su1.azure-automation.net |
 | Östra USA 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
 | Centrala Kanada |cc-jobruntimedata-prod-su1.azure-automation.net |
-| Norra Europa |ne-jobruntimedata-prod-su1.azure-automation.net |
+| Nordeuropa |ne-jobruntimedata-prod-su1.azure-automation.net |
 | Sydostasien |sea-jobruntimedata-prod-su1.azure-automation.net |
-| Indien, centrala |cid-jobruntimedata-prod-su1.azure-automation.net |
+| Centrala Indien |cid-jobruntimedata-prod-su1.azure-automation.net |
 | Japan |jpe-jobruntimedata-prod-su1.azure-automation.net |
 | Australien |ase-jobruntimedata-prod-su1.azure-automation.net |
 
@@ -225,13 +225,13 @@ Använd följande tabeller för att identifiera URL: en för varje plats:
 | **Plats** | **URL** |
 | --- | --- |
 | Norra centrala USA |ncus-agentservice-prod-1.azure-automation.net |
-| Västra Europa |we-agentservice-prod-1.azure-automation.net |
+| Västeuropa |we-agentservice-prod-1.azure-automation.net |
 | Södra centrala USA |scus-agentservice-prod-1.azure-automation.net |
 | Östra USA 2 |eus2-agentservice-prod-1.azure-automation.net |
 | Centrala Kanada |cc-agentservice-prod-1.azure-automation.net |
-| Norra Europa |ne-agentservice-prod-1.azure-automation.net |
+| Nordeuropa |ne-agentservice-prod-1.azure-automation.net |
 | Sydostasien |sea-agentservice-prod-1.azure-automation.net |
-| Indien, centrala |cid-agentservice-prod-1.azure-automation.net |
+| Centrala Indien |cid-agentservice-prod-1.azure-automation.net |
 | Japan |jpe-agentservice-prod-1.azure-automation.net |
 | Australien |ase-agentservice-prod-1.azure-automation.net |
 
@@ -271,7 +271,7 @@ Om du får ett felmeddelande i steg 3 importerades inte modulen. Felet kan intr�
 | `Remove-OMSGatewayAllowedClientCertificate` |Ämne (krävs) |Tar bort klienten certifikatets ämne från listan över tillåtna |`Remove-OMSGatewayAllowed` <br> `ClientCertificate` <br> `-Subject mycert` |  
 | `Get-OMSGatewayAllowedClientCertificate` | |Hämtar för närvarande tillåtna klienten certifikatämnen (endast lokalt konfigurerade tillåtna ämnen, inkluderas inte automatiskt hämtade tillåtna ämnen) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 Du måste också ha OMS-agenten installerad för att samla in händelser som loggats av gateway.<br><br> ![Loggboken – OMS Gateway-loggar](./media/log-analytics-oms-gateway/event-viewer.png)
 
 **Händelse-ID för OMS-Gateway och beskrivningar**
@@ -311,7 +311,7 @@ I följande tabell visas de tillgängliga prestandaräknarna för OMS-gatewayen.
 När du har loggat in på Azure Portal, skapar du en begäran för att få hjälp med OMS-gatewayen eller andra Azure-tjänst eller funktion i en tjänst.
 Be om hjälp, klicka på frågetecknet symbolen i det övre högra hörnet i portalen och klicka sedan på **ny supportbegäran**. Slutför formuläret för begäran av nytt stöd.
 
-![Ny supportbegäran](./media/log-analytics-oms-gateway/support.png)
+![Ny supportförfrågan](./media/log-analytics-oms-gateway/support.png)
 
 ## <a name="next-steps"></a>Nästa steg
 [Lägg till datakällor](log-analytics-data-sources.md) att samla in data från dina anslutna källor och lagra den i Log Analytics-arbetsytan.

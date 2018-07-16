@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: 25e922e211304774462c747ea6a003e47fb38736
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e4e783d131c4ceee9315b3442ee504e662157d8c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797778"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856815"
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Importera data för användning med Azure Cosmos DB Table-API:et
 
@@ -30,7 +30,7 @@ Den här självstudien omfattar följande uppgifter:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Öka dataflödet: Hur lång tid datamigreringen tar beror på hur stort dataflöde du anger för en enskild samling eller en uppsättning samlingar. Vi rekommenderar att du ökar dataflödet för större datamigreringar. När du har slutfört migreringen minskar du dataflödet för att spara kostnader. Mer information om hur du ökar dataflödet på Azure Portal finns i avsnittet om prestandanivåer och prisnivåer i Azure Cosmos DB.
+* Öka dataflödet: Hur lång tid datamigreringen tar beror på hur stort dataflöde du anger för en enskild container eller en uppsättning containrar. Du bör öka dataflödet för större datamigreringar. När du har slutfört migreringen kan du minska dataflödet för att sänka kostnaderna. Mer information om hur du ökar dataflödet på Azure Portal finns i avsnittet om prestandanivåer och prisnivåer i Azure Cosmos DB.
 
 ## <a name="data-migration-tool"></a>Datamigreringsverktyget
 

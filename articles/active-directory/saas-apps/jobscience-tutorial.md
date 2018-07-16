@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Jobscience | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integration med Jobscience | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Jobscience.
 services: active-directory
 documentationCenter: na
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 12dbf4483e3f049948df6b825b0e0937a79ad826
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0d717c9a70d078300b59a4e3fd6df08e971e8075
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211904"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042970"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Självstudier: Azure Active Directory-integrering med Jobscience
+# <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Självstudier: Azure Active Directory-integration med Jobscience
 
-I kursen får lära du att integrera Jobscience med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Jobscience med Azure Active Directory (AD Azure).
 
 Integrera Jobscience med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Jobscience
-- Du kan aktivera användarna att automatiskt hämta loggat in på Jobscience (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan aktivera användarna att automatiskt få loggat in på Jobscience (Single Sign-On) med sina Azure AD-konton
+- Du kan hantera dina konton på en central plats – Azure portal
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med Jobscience, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Jobscience, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En Jobscience enkel inloggning aktiverad prenumeration
+- En Jobscience enkel inloggning aktiverat prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad här: [utvärderingsversion erbjudande](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du kan få en månads utvärdering här: [– prova](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Jobscience från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-jobscience-from-the-gallery"></a>Att lägga till Jobscience från galleriet
-Du måste lägga till Jobscience från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Jobscience i Azure AD.
+För att konfigurera integrering av Jobscience i Azure AD, som du behöver lägga till Jobscience från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Jobscience från galleriet:**
 
@@ -67,32 +67,32 @@ Du måste lägga till Jobscience från galleriet i listan över hanterade SaaS-a
 
     ![Program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
 4. I sökrutan skriver **Jobscience**.
 
-    ![Skapa en testanvändare i Azure AD](./media/jobscience-tutorial/tutorial_jobscience_search.png)
+    ![Skapa en Azure AD-användare för testning](./media/jobscience-tutorial/tutorial_jobscience_search.png)
 
-5. Välj i resultatpanelen **Jobscience**, och klicka sedan på **Lägg till** för att lägga till programmet.
+5. I resultatpanelen väljer **Jobscience**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
+    ![Skapa en Azure AD-användare för testning](./media/jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Jobscience baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Jobscience baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till användaren i Jobscience motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Jobscience upprättas.
+För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Jobscience är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Jobscience upprättas.
 
-I Jobscience, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+I Jobscience, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Jobscience, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Jobscience](#creating-a-jobscience-test-user)**  – du har en motsvarighet för Britta Simon i Jobscience som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Jobscience](#creating-a-jobscience-test-user)**  – du har en motsvarighet för Britta Simon i Jobscience som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -100,11 +100,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Jobscience:**
 
-1. I Azure-portalen på den **Jobscience** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Jobscience** program integration-sidan klickar du på **enkel inloggning**.
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/jobscience-tutorial/tutorial_jobscience_samlbase.png)
 
@@ -112,10 +112,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/jobscience-tutorial/tutorial_jobscience_url.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:  `http://<company name>.my.salesforce.com`
+    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster:  `http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera det här värdet med det faktiska inloggnings-URL. Hämta det här värdet genom att [Jobscience klienten supportteamet](https://www.jobscience.com/support) eller från SSO-profil skapas som beskrivs senare i självstudierna. 
+    > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Få ut värde [Jobscience klienten supportteamet](https://www.jobscience.com/support) eller från SSO-profil skapas som beskrivs senare i självstudien. 
  
 4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
@@ -125,7 +125,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/jobscience-tutorial/tutorial_general_400.png)
 
-6. På den **Jobscience Configuration** klickar du på **konfigurera Jobscience** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+6. På den **Jobscience Configuration** klickar du på **konfigurera Jobscience** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Konfigurera enkel inloggning](./media/jobscience-tutorial/tutorial_jobscience_configure.png) 
 
@@ -135,112 +135,112 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
    
    ![Installationsprogrammet](./media/jobscience-tutorial/IC784358.png "installationen")
 
-9. I det vänstra navigeringsfönstret i den **administrera** klickar du på **domänhantering** Expandera avsnittet relaterade och klicka sedan på **min domän** att öppna den **min domän** sidan. 
+9. I det vänstra navigeringsfönstret i den **administrera** klickar du på **domänhantering** Expandera avsnittet relaterade och klicka sedan på **min domän** att öppna **Min domän** sidan. 
    
    ![Min domän](./media/jobscience-tutorial/ic767825.png "min domän")
 
-10. Om du vill verifiera att din domän har ställts in korrekt, se till att den är i ”**steg 4 distribueras till användarna**” och granska din ”**Mina Domäninställningar**”.
+10. För att verifiera att din domän har ställts in korrekt, se till att den är i ”**steg 4 distribueras till användarna**” och granska din ”**Mina Domäninställningar**”.
 
-    ![Domänen som distribuerats till användaren](./media/jobscience-tutorial/ic784377.png "domän som har distribuerats till användaren")
+    ![Domän som har distribuerats till användaren](./media/jobscience-tutorial/ic784377.png "domän som har distribuerats till användare")
 
-11. Klicka på webbplatsen Jobscience företagets **säkerhetsåtgärder**, och klicka sedan på **inställningar för enkel inloggning**.
+11. Klicka på webbplatsen Jobscience företagets **säkerhetskontroller**, och klicka sedan på **inställningar för enkel inloggning**.
     
-    ![Säkerhetsåtgärder](./media/jobscience-tutorial/ic784364.png "säkerhetsåtgärder")
+    ![Säkerhetskontroller](./media/jobscience-tutorial/ic784364.png "säkerhetskontroller")
 
 12. I den **inställningar för enkel inloggning** avsnittet, utför följande steg:
     
-    ![Enkel inloggning inställningar](./media/jobscience-tutorial/ic781026.png "enkel inloggning inställningar")
+    ![Enkel inloggning inställningar](./media/jobscience-tutorial/ic781026.png "enkel inloggnings-inställningar")
     
     a. Välj **SAML aktiverat**.
 
     b. Klicka på **Ny**.
 
-13. På den **SAML enkel inloggning inställningen redigera** dialogrutan, utför följande steg:
+13. På den **SAML enkel inloggning inställningen redigera** dialogrutan utför följande steg:
     
-    ![SAML enkel inloggning inställningen](./media/jobscience-tutorial/ic784365.png "SAML enkel inloggning inställningen")
+    ![SAML enkel inloggning inställningen](./media/jobscience-tutorial/ic784365.png "SAML enkel inloggning för inställningen")
     
-    a. I den **namn** textruta, ange ett namn för din konfiguration.
+    a. I den **namn** textrutan anger du ett namn för din konfiguration.
 
-    b. I **utfärdaren** textruta klistra in värdet för **SAML enhets-ID**, som du har kopierat från Azure-portalen.
+    b. I **utfärdare** textrutan klistra in värdet för **SAML entitets-ID**, som du har kopierat från Azure-portalen.
 
-    c. I den **enhets-Id** textruta typ `https://salesforce-jobscience.com`
+    c. I den **entitets-Id** textrutan typ `https://salesforce-jobscience.com`
 
-    d. Klicka på **Bläddra** att ladda upp din Azure AD-certifikatet.
+    d. Klicka på **Bläddra** att överföra din Azure AD-certifikatet.
 
-    e. Som **SAML identitetstyp**väljer **Assertion innehåller Federation-ID från användarobjektet**.
+    e. Som **SAML identitetstypen**väljer **Assertion innehåller Federation-ID från användarobjektet**.
 
-    f. Som **SAML identitet plats**väljer **identitet är i elementet NameIdentfier i instruktionen ämne**.
+    f. Som **SAML identitet plats**väljer **identitet är i NameIdentfier-elementet i instruktionen ämne**.
 
-    g. I **identitet providern inloggnings-URL** textruta klistra in värdet för **SAML inloggning tjänst-URL för enkel**, som du har kopierat från Azure-portalen.
+    g. I **inloggnings-URL för identitetsprovider** textrutan klistra in värdet för **SAML enkel inloggning för tjänst-URL**, som du har kopierat från Azure-portalen.
 
-    h. I **identitet providern logga ut URL** textruta klistra in värdet för **Sign-Out URL**, som du har kopierat från Azure-portalen.
+    h. I **utloggnings-URL för identitetsprovider** textrutan klistra in värdet för **URL: en för utloggning**, som du har kopierat från Azure-portalen.
 
     i. Klicka på **Spara**.
 
-14. I det vänstra navigeringsfönstret i den **administrera** klickar du på **domänhantering** Expandera avsnittet relaterade och klicka sedan på **min domän** att öppna den **min domän** sidan. 
+14. I det vänstra navigeringsfönstret i den **administrera** klickar du på **domänhantering** Expandera avsnittet relaterade och klicka sedan på **min domän** att öppna **Min domän** sidan. 
     
     ![Min domän](./media/jobscience-tutorial/ic767825.png "min domän")
 
-15. På den **min domän** sidan den **inloggningen sidan anpassning** klickar du på **redigera**.
+15. På den **min domän** sidan den **inloggning anpassningen** klickar du på **redigera**.
     
-    ![Inloggningssidan anpassning](./media/jobscience-tutorial/ic767826.png "inloggningssidan anpassning")
+    ![Inloggningssidan anpassning](./media/jobscience-tutorial/ic767826.png "inloggningssidan för anpassning")
 
-16. På den **inloggningen sidan anpassning** sidan den **Autentiseringstjänsten** avsnitt, namnet på din **SAML SSO inställningar** visas. Markera den och klicka sedan på **spara**.
+16. På den **inloggning anpassningen** sidan den **autentiseringstjänst** avsnittet, namnet på din **SAML SSO-inställningar** visas. Markera den och klicka sedan på **spara**.
     
-    ![Inloggningssidan anpassning](./media/jobscience-tutorial/ic784366.png "inloggningssidan anpassning")
+    ![Inloggningssidan anpassning](./media/jobscience-tutorial/ic784366.png "inloggningssidan för anpassning")
 
-17. Få en SP initieras för enkel inloggning på inloggnings-URL, klicka på den **inställningar för enkel inloggning** i den **säkerhetsåtgärder** menyn avsnitt.
+17. Att hämta SP initiera enkelinloggning för inloggnings-URL-Klicka på den **Single Sign On inställningar** i den **säkerhetskontroller** menyn avsnittet.
 
-    ![Säkerhetsåtgärder](./media/jobscience-tutorial/ic784368.png "säkerhetsåtgärder")
+    ![Säkerhetskontroller](./media/jobscience-tutorial/ic784368.png "säkerhetskontroller")
     
-    Klicka på SSO-profilen som du har skapat i steget ovan. Den här sidan visas för enkel inloggning på URL: en för ditt företag (till exempel [ https://companyname.my.salesforce.com?so=companyid ](https://companyname.my.salesforce.com?so=companyid).    
+    Klicka på SSO-profilen som du har skapat i ovanstående steg. Den här sidan visar enkelinloggning på URL: en för ditt företag (till exempel [ https://companyname.my.salesforce.com?so=companyid ](https://companyname.my.salesforce.com?so=companyid).    
 
 > [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+![Skapa en Azure AD-användare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
 
-    ![Skapa en testanvändare i Azure AD](./media/jobscience-tutorial/create_aaduser_01.png) 
+    ![Skapa en Azure AD-användare för testning](./media/jobscience-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
+2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
-    ![Skapa en testanvändare i Azure AD](./media/jobscience-tutorial/create_aaduser_02.png) 
+    ![Skapa en Azure AD-användare för testning](./media/jobscience-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
-    ![Skapa en testanvändare i Azure AD](./media/jobscience-tutorial/create_aaduser_03.png) 
+    ![Skapa en Azure AD-användare för testning](./media/jobscience-tutorial/create_aaduser_03.png) 
 
 4. På den **användaren** dialogrutan utför följande steg:
  
-    ![Skapa en testanvändare i Azure AD](./media/jobscience-tutorial/create_aaduser_04.png) 
+    ![Skapa en Azure AD-användare för testning](./media/jobscience-tutorial/create_aaduser_04.png) 
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    a. I den **namn** textrutan typ **BrittaSimon**.
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
  
-### <a name="creating-a-jobscience-test-user"></a>Skapa en testanvändare Jobscience
+### <a name="creating-a-jobscience-test-user"></a>Skapa en Jobscience testanvändare
 
-För att aktivera Azure AD-användare kan logga in på Jobscience etableras de i Jobscience. När det gäller Jobscience är etablering en manuell aktivitet.
+För att aktivera Azure AD-användare att logga in på Jobscience, måste de etableras i Jobscience. När det gäller Jobscience är etablering en manuell aktivitet.
 
 >[!NOTE]
->Du kan använda något annat Jobscience användarens konto skapas verktyg eller API: er som tillhandahålls av Jobscience för att etablera Azure Active Directory användarkonton.
+>Du kan använda alla andra Jobscience användare konto verktyg för att skapa eller API: er som tillhandahålls av Jobscience för att etablera Azure Active Directory användarkonton.
 >  
         
 **Utför följande steg för att konfigurera användaretablering:**
 
-1. Logga in på ditt **Jobscience** företagets webbplats som administratör.
+1. Logga in på din **Jobscience** företagets plats som administratör.
 
 2. Gå till installationsprogrammet.
    
@@ -251,68 +251,68 @@ För att aktivera Azure AD-användare kan logga in på Jobscience etableras de i
 4. Klicka på **ny användare**.
    
    ![Alla användare](./media/jobscience-tutorial/ic784370.png "alla användare")
-5. På den **Redigera användare** dialogrutan, utför följande steg:
+5. På den **Redigera användare** dialogrutan utför följande steg:
    
    ![Redigera användare](./media/jobscience-tutorial/ic784371.png "Redigera användare")
    
-   a. I den **Förnamn** textruta, ange ett förnamn för användaren som Britta.
+   a. I den **Förnamn** textrutan anger du ett första namn för användaren som Britta.
    
-   b. I den **efternamn** textruta anger efternamn för användaren som Simon.
+   b. I den **efternamn** textrutan skriver du ett efternamn för användaren som Simon.
    
-   c. I den **Alias** textruta skriver ett aliasnamn för användaren som brittas.
+   c. I den **Alias** textrutan skriver du ett aliasnamn för användaren som brittas.
 
-   d. I den **e-post** textruta typen e-postadressen för användaren som Brittasimon@contoso.com.
+   d. I den **e-post** textrutan typ e-postadressen för användaren som Brittasimon@contoso.com.
 
-   e. I den **användarnamn** textruta, Skriv ett användarnamn för användaren som Brittasimon@contoso.com.
+   e. I den **användarnamn** textrutan, skriver du in ett användarnamn för användaren som Brittasimon@contoso.com.
 
-   f. I den **smeknamn** textruta typnamn nick för användaren som Simon.
+   f. I den **smeknamn** textrutan skriver en nick namnet på användaren som Simon.
 
    g. Klicka på **Spara**.
 
     
 > [!NOTE]
-> Azure Active Directory kontoinnehavaren får ett e-postmeddelande och följer en länk för att bekräfta sina konton innan den aktiveras.
+> Azure Active Directory-kontoinnehavare tar emot ett e-postmeddelande och följer en länk för att bekräfta sina konton innan den blir aktiv.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Jobscience.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Jobscience.
 
 ![Tilldela användare][200] 
 
-**Om du vill tilldela Jobscience Britta Simon utför du följande steg:**
+**Om du vill tilldela Britta Simon Jobscience, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **Jobscience**.
+2. I listan med program väljer **Jobscience**.
 
     ![Konfigurera enkel inloggning](./media/jobscience-tutorial/tutorial_jobscience_app.png) 
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Jobscience på åtkomstpanelen du bör få automatiskt loggat in på ditt Jobscience program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
+När du klickar på panelen Jobscience i åtkomstpanelen du bör få automatiskt loggat in på ditt Jobscience program.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

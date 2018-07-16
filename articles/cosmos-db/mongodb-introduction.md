@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
 ms.author: sngun
-ms.openlocfilehash: c10f1fdc7e373633298b083d1317f17cff3aa2b8
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 214dfe3e676d3b07cf688fa0f7dcaf11462edfe8
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796639"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930893"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Introduktion till Azure Cosmos DB: MongoDB API
 
@@ -26,7 +26,7 @@ ms.locfileid: "34796639"
 
 Azure DB Cosmos-databaser kan användas som datalager för appar som skrivits för [MongoDB](https://docs.mongodb.com/manual/introduction/). Funktionen innebär att ditt program nu kan kommunicera med Azure Cosmos DB och använda Azure Cosmos DB-databaser istället för MongoDB-databaser genom att använda befintliga [drivrutiner](https://docs.mongodb.org/ecosystem/drivers/) för MongoDB-databaser. I många fall kan du växla från att använda MongoDB till DocumentDB genom att bara ändra en anslutningssträng. Med den här funktionen kan du enkelt skapa och köra MongoDB:s globalt distribuerade databasprogram i Azure-moln med Azure Cosmos DB och dess [omfattande branschledande serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db), medan du använder bekanta kunskaper och verktyg för MongoDB.
 
-**MongoDB kompatibilitet**: du kan använda dina befintliga kunskaper, programkod och verktygsuppsättningar för MongoDB eftersom Azure Cosmos DB implementerar protokollet MongoDB 3.4 (version 5) under överföring och stöder [MongoDB-aggregationspipeline](mongodb-feature-support.md#aggregation-pipeline). Du kan utveckla program som använder MongoDB och distribuera dem till produktionsmiljön med helt den hanterade och globalt distribuerade Azure Cosmos DB-tjänsten.
+**MongoDB-kompatibilitet**: Du kan dra nytta av dina befintliga MongoDB-kunskaper, -programkod och -verktyg eftersom Azure Cosmos DB implementerar MongoDB-kabelprotokollet. Du kan utveckla program som använder MongoDB och distribuera dem till produktionsmiljön med helt den hanterade och globalt distribuerade Azure Cosmos DB-tjänsten. Mer information om versioner som stöds finns i [Protokollstöd för MongoDB](mongodb-feature-support.md#mongodb-protocol-support).
 
 ## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>Vad är fördelen med att använda Azure Cosmos DB för MongoDB-program?
 
@@ -34,9 +34,9 @@ Azure DB Cosmos-databaser kan användas som datalager för appar som skrivits f�
 
 **Replikering mellan flera regioner:** Azure Cosmos DB replikerar data transparent till alla regioner som du har associerat med ditt Mongo DB-konto, så att du kan utveckla program som kräver global åtkomst till data med rätt balans mellan konsekvens, tillgänglighet och prestanda – allt med motsvarande garantier. Azure Cosmos DB tillhandahåller transparent regional redundans med flera API:er, och möjligheten att elastiskt skala dataflöde och lagring i hela världen. Läs mer i [Distribuera data globalt](distribute-data-globally.md).
 
-**Ingen serverhantering**: du behöver inte hantera och skala MongoDB-databaser. Azure Cosmos-DB är en helt hanterad tjänst, vilket innebär att du inte behöver hantera någon infrastruktur eller de virtuella datorerna själv. Azure Cosmos DB är tillgängligt i över 30 [Azure-regioner](https://azure.microsoft.com/regions/services/).
+**Ingen serverhantering**: du behöver inte hantera och skala MongoDB-databaser. Azure Cosmos-DB är en helt hanterad tjänst, vilket innebär att du inte behöver hantera någon infrastruktur eller de virtuella datorerna själv. Azure Cosmos DB finns tillgängligt i över 30 [Azure-regioner](https://azure.microsoft.com/regions/services/).
 
-**Justerbara konsekvensnivåer:** Azure Cosmos DB implementerar MongoDB version 3.4, som har två konsekvenskontrollinställningar, stark och eventuell. Eftersom Azure Cosmos DB är multi-api, tillämpas konsekvensinställningarna på kontonivå och verkställandet av konsekvenskontrollen styrs av varje API. Tills MongoDB 3.6 existerade inte begreppet sessionskonsekvens, så om du anger ett MongoDB API-konto för att använda sessionskonsekvens nedgraderas konsekvenskontrollen till eventuell när du använder MongoDB APIs. Om du behöver en garanti för läsa-egen-kod för ett MongoDB API-konto måste standardkonsekvensnivån för kontot vara stark eller begränsad föråldring. Läs mer om hur du [maximerar tillgänglighet och prestanda med hjälp av konsekvensnivåer](consistency-levels.md).
+**Justerbara konsekvensnivåer:** Eftersom Azure Cosmos DB har stöd för API:er med flera modeller kan konsekvensinställningarna tillämpas på kontonivå och styras av varje API. Tills MongoDB 3.6 existerade inte begreppet sessionskonsekvens, så om du anger ett MongoDB API-konto för att använda sessionskonsekvens nedgraderas konsekvenskontrollen till eventuell när du använder MongoDB APIs. Om du behöver en garanti för läsa-egen-kod för ett MongoDB API-konto måste standardkonsekvensnivån för kontot vara stark eller begränsad föråldring. Läs mer om hur du [maximerar tillgänglighet och prestanda med hjälp av konsekvensnivåer](consistency-levels.md).
 
 | Se konsekvensnivåer i Azure Cosmos DB |   Mongo API (3.4) |
 |---|---|

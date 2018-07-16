@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Learning klient LMS | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Learning klient LMS.
+title: 'Självstudier: Azure Active Directory-integration med LMS-Learning plats | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och LMS-Learning plats.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,50 +14,50 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 96608c491fe4d62b6b4bdb48ee5386c9a72212cf
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d1a15617830f7b517210c7e86146a88d38ae8343
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286253"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046830"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Självstudier: Azure Active Directory-integrering med Learning klient LMS
+# <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Självstudier: Azure Active Directory-integration med LMS-Learning plats
 
-I kursen får lära du Learning klient LMS integrera med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar LMS-Learning plats med Azure Active Directory (AD Azure).
 
-Integrera Learning klient LMS med Azure AD ger dig följande fördelar:
+Integrera LMS-Learning plats med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Learning klient LMS
-- Du kan aktivera användarna att automatiskt hämta loggat in på Learning klient LMS (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan styra i Azure AD som har åtkomst till LMS-Learning plats
+- Du kan aktivera användarna att automatiskt få loggat in på LMS-Learning plats (Single Sign-On) med sina Azure AD-konton
+- Du kan hantera dina konton på en central plats – Azure portal
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns i. [Vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i. [Vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med Learning klient LMS behöver du följande:
+Om du vill konfigurera Azure AD-integrering med LMS-Learning plats behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En Learning klient LMS enkel inloggning på aktiverade prenumeration
+- Ett LMS-Learning plats enkel inloggning aktiverad prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Learning klient LMS från galleriet
+1. Att lägga till LMS-Learning plats från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
-## <a name="adding-learning-seat-lms-from-the-gallery"></a>Att lägga till Learning klient LMS från galleriet
-Du måste lägga till Learning klient LMS från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Learning klient LMS i Azure AD.
+## <a name="adding-learning-seat-lms-from-the-gallery"></a>Att lägga till LMS-Learning plats från galleriet
+Om du vill konfigurera integreringen av LMS-Learning plats till Azure AD, som du behöver lägga till LMS-Learning plats från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Learning klient LMS från galleriet:**
+**Utför följande steg för att lägga till LMS-Learning plats från galleriet:**
 
 1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
@@ -67,62 +67,62 @@ Du måste lägga till Learning klient LMS från galleriet i listan över hantera
 
     ![Program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **Learning klient LMS**.
+4. I sökrutan skriver **LMS-Learning plats**.
 
-    ![Skapa en testanvändare i Azure AD](./media/learningseatlms-tutorial/tutorial_learnconnect_search.png)
+    ![Skapa en Azure AD-användare för testning](./media/learningseatlms-tutorial/tutorial_learnconnect_search.png)
 
-5. Välj i resultatpanelen **Learning klient LMS**, och klicka sedan på **Lägg till** för att lägga till programmet.
+5. I resultatpanelen väljer **LMS-Learning plats**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Learning klient LMS baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med LMS-Learning plats baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till användaren i Learning klient LMS motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Learning klient LMS upprättas.
+För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i LMS-Learning plats till en användare i Azure AD. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i LMS-Learning plats upprättas.
 
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i Learning klient LMS.
+Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i LMS-Learning plats.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Learning klient LMS, måste du utföra följande byggblock:
+Om du vill konfigurera och testa Azure AD enkel inloggning med LMS-Learning plats, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Learning klient LMS](#creating-a-learnconnect-test-user)**  – du har en motsvarighet för Britta Simon i Learning klient LMS som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare LMS-Learning plats](#creating-a-learnconnect-test-user)**  – du har en motsvarighet för Britta Simon i LMS-Learning plats som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i tillämpningsprogrammet Learning klient LMS.
+I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Learning plats LMS-program.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Learning klient LMS:**
+**Utför följande steg för att konfigurera Azure AD enkel inloggning med LMS-Learning plats:**
 
-1. I Azure-portalen på den **Learning klient LMS** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **LMS-Learning plats** program integration-sidan klickar du på **enkel inloggning**.
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/learningseatlms-tutorial/tutorial_learnconnect_samlbase.png)
 
-3. På den **Learning klient LMS domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+3. På den **Learning plats LMS-domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/learningseatlms-tutorial/tutorial_learnconnect_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<subdomain>.learningseatlms.com`
+    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.learningseatlms.com`
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`
+    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`
 
-4. Kontrollera **visa avancerade inställningar för URL: en**, om du vill konfigurera programmet i **SP** initierade läge:
+4. Kontrollera **visa avancerade URL-inställningar**, om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/learningseatlms-tutorial/tutorial_learnconnect_url2.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.learningseatlms.com`
+    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.learningseatlms.com`
      
     > [!NOTE] 
-    > Dessa värden är inte de verkliga värden. Uppdatera dessa värden med faktiska identifierare, Reply URL och inloggnings-URL. Kontakta [Learning klient supportteamet](http://help.learningseatlms.com/help) att hämta dessa värden. 
+    > Dessa värden är inte det verkliga värdet. Uppdatera dessa värden med faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [Learning-klient supportteamet](http://help.learningseatlms.com/help) att hämta dessa värden. 
 
 5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -132,86 +132,86 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/learningseatlms-tutorial/tutorial_general_400.png)
 
-7. Konfigurera enkel inloggning på **Learning klient LMS** sida, måste du skicka den hämtade **XML-Metadata för** till [Learning klient supportteamet](http://help.learningseatlms.com/help).
+7. Att konfigurera enkel inloggning på **LMS-Learning plats** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Learning-klient supportteamet](http://help.learningseatlms.com/help).
 
 > [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD](https://go.microsoft.com/fwlink/?linkid=845985)
+> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation](https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+![Skapa en Azure AD-användare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
 
-    ![Skapa en testanvändare i Azure AD](./media/learningseatlms-tutorial/create_aaduser_01.png) 
+    ![Skapa en Azure AD-användare för testning](./media/learningseatlms-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
+2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
-    ![Skapa en testanvändare i Azure AD](./media/learningseatlms-tutorial/create_aaduser_02.png) 
+    ![Skapa en Azure AD-användare för testning](./media/learningseatlms-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
-    ![Skapa en testanvändare i Azure AD](./media/learningseatlms-tutorial/create_aaduser_03.png) 
+    ![Skapa en Azure AD-användare för testning](./media/learningseatlms-tutorial/create_aaduser_03.png) 
 
 4. På den **användaren** dialogrutan utför följande steg:
  
-    ![Skapa en testanvändare i Azure AD](./media/learningseatlms-tutorial/create_aaduser_04.png) 
+    ![Skapa en Azure AD-användare för testning](./media/learningseatlms-tutorial/create_aaduser_04.png) 
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    a. I den **namn** textrutan typ **BrittaSimon**.
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
  
-### <a name="creating-a-learning-seat-lms-test-user"></a>Skapa en Learning klient LMS testanvändare
+### <a name="creating-a-learning-seat-lms-test-user"></a>Skapa en testanvändare LMS-Learning plats
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Learning klient LMS. Kontakta [Learning klient supportteamet](http://help.learningseatlms.com/help) med all användarinformation att lägga till användare i Learning klient LMS-programmet.
+I det här avsnittet skapar du en användare som kallas Britta Simon i LMS-Learning plats. Kontakta [Learning-klient supportteamet](http://help.learningseatlms.com/help) med all användarinformation att lägga till användare i Learning plats LMS-programmet.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Learning klient LMS.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till LMS-Learning plats.
 
 ![Tilldela användare][200] 
 
-**Om du vill tilldela Learning klient LMS Britta Simon utför du följande steg:**
+**Om du vill tilldela Britta Simon LMS-Learning plats, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **Learning klient LMS**.
+2. I listan med program väljer **LMS-Learning plats**.
 
     ![Konfigurera enkel inloggning](./media/learningseatlms-tutorial/tutorial_learnconnect_app.png) 
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst. 
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen. 
 
-Klicka på panelen Learning klient LMS på åtkomstpanelen, du kommer att automatiskt loggat in på ditt Learning klient LMS-program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
+Klicka på panelen LMS-Learning plats i åtkomstpanelen, du kommer att automatiskt loggat in på ditt Learning plats LMS-program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

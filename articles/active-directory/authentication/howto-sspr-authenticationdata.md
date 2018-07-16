@@ -1,6 +1,6 @@
 ---
-title: Krav för Azure AD SSPR data | Microsoft Docs
-description: Uppgifter som krävs för Azure AD-lösenordet för självbetjäning återställning och hur du uppfylla dem.
+title: Azure AD SSPR-datakrav | Microsoft Docs
+description: Uppgifter som krävs för Azure AD-lösenord via Självbetjäning för återställning och hur du uppfyller dem
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,65 +10,65 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5409bf198d0e3f6537619ef4698d9f2e31bd27c5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: ea6bf503eeba9e904c492a858139490b523a10cc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257596"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044183"
 ---
-# <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuera utan slutanvändarregistrering för återställning av lösenord
+# <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuera lösenordsåterställning utan registrerad slutanvändare
 
-Autentiseringsdata måste finnas för att distribuera Azure Active Directory (AD Azure) lösenordsåterställning via självbetjäning (SSPR). Vissa organisationer har användarna ange sina autentiseringsdata sig själva. Men många organisationer föredrar att synkronisera med data som redan finns i Active Directory. Synkroniserade data görs tillgänglig för Azure AD och SSPR utan interaktion från användaren, om du:
+Autentiseringsdata måste finnas för att distribuera lösenordsåterställning för Azure Active Directory (Azure AD) via självbetjäning (SSPR). Vissa organisationer har användarna ange sina autentiseringsdata själva. Men många organisationer vill synkronisera med data som redan finns i Active Directory. Synkroniserade data görs tillgänglig för Azure AD och SSPR utan användaråtgärder om du:
    * Korrekt formatera data i din lokala katalog.
-   * Konfigurera [Azure AD Connect med hjälp av inställningarna för snabb](./../connect/active-directory-aadconnect-get-started-express.md).
+   * Konfigurera [Azure AD Connect genom att använda standardinställningarna](./../connect/active-directory-aadconnect-get-started-express.md).
 
 För att fungera korrekt telefonnummer måste vara i formatet *+ CountryCode PhoneNumber*, till exempel + 1 4255551234.
 
 > [!NOTE]
-> Det måste finnas blanksteg mellan landskoden och telefonnumret.
+> Det måste finnas ett blanksteg mellan landskoden och telefonnumret.
 >
-> Återställning av lösenord stöder inte telefonanknytningar. Även i formatet + 1 4255551234 X 12345 tas tillägg bort innan anropet görs.
+> Återställning av lösenord har inte stöd för anknytningsnummer. Även i formatet + 1 4255551234 X 12345 tas tillägg bort innan de görs.
 
 ## <a name="fields-populated"></a>Fält
 
-Om du använder standardinställningarna i Azure AD Connect, görs följande avbildningar:
+Om du använder standardinställningarna i Azure AD Connect, görs följande mappningar:
 
 | Lokalt Active Directory | Azure AD |
 | --- | --- |
 | telephoneNumber | Arbetstelefon |
 | mobila | Mobiltelefon |
 
-När en användare verifierar sin mobiltelefonnummer, fylls även fältet Phone under autentisering kontaktinformation i Azure AD med det numret.
+När en användare har verifierat sitt mobiltelefonnummer, fylls också fältet Phone under autentiseringskontakt i Azure AD med det numret.
 
 ## <a name="authentication-contact-info"></a>Information om autentiseringskontakt
 
-En Global administratör kan ange manuellt kontaktinformation för autentisering för en användare som visas i följande skärmbild.
+En Global administratör kan manuellt ange kontaktinformation för autentisering för en användare som visas i följande skärmbild.
 
 ![Kontakta][Contact]
 
-Om fylls fältet Phone mobiltelefon är aktiverat i principen för SSPR och ser användaren att numret på registreringssidan för återställning av lösenord och under lösenordet återställning av arbetsflöde. 
+Om fältet Phone fylls och mobiltelefon är aktiverat i SSPR-principen, kan användaren ser att antalet på registreringssidan för återställning av lösenord och under lösenordet återställning av arbetsflöde. 
 
-Fältet alternativt telefonnummer används inte för återställning av lösenord.
+Alternativ telefon fältet används inte för återställning av lösenord.
 
-Om fylls fältet för e-post och e-post är aktiverat i SSPR-principen, visas som e-post på registreringssidan för återställning av lösenord och under lösenordet återställning av arbetsflöde.
+Om fylls fältet för e-post och e-post är aktiverat i SSPR-principen, ser användaren att e-post på registreringssidan för återställning av lösenord och under lösenordet återställning av arbetsflöde.
 
-Om fylls fältet alternativa e-post och e-post är aktiverat i SSPR-princip, kommer användaren **inte** finns att e-post på lösenordet återställa registreringssidan, men de kommer att se den under lösenordet återställning av arbetsflöde. 
+Om fylls fältet alternativ e-post och e-post är aktiverat i SSPR-princip, kommer användaren **inte** se att registreringssidan för återställning av e-post på lösenordet, men visas den under lösenordet återställning av arbetsflöde. 
 
 
 ## <a name="security-questions-and-answers"></a>Säkerhetsfrågor och svar
 
-Säkerhetsfrågor och svar lagras på ett säkert sätt i Azure AD-klienten och är bara tillgänglig för användare via den [SSPR-registreringsportalen](https://aka.ms/ssprsetup). Administratörer kan inte se eller ändra innehållet i en annan användare frågor och svar.
+Säkerhetsfrågor och svar lagras på ett säkert sätt i Azure AD-klienten och är endast tillgängliga för användare via den [SSPR-registreringsportalen](https://aka.ms/ssprsetup). Administratörer kan inte visa eller ändra innehållet i en annan användare frågor och svar.
 
-### <a name="what-happens-when-a-user-registers"></a>Vad händer när en användare som registrerar
+### <a name="what-happens-when-a-user-registers"></a>Vad händer när en användare registrerar
 
-När en användare som registrerar anger registreringssidan följande fält:
+När en användare registrerar, anger registreringssidan följande fält:
 
 * **Telefon för autentisering**
 * **E-post för autentisering**
 * **Säkerhetsfrågor och svar**
 
-Om du har angett ett värde för **mobiltelefon** eller **alternativ e-postadress**, omedelbart fjärranvändning av dessa värden kan återställa sina lösenord, även om de inte har registrerats för tjänsten. Dessutom kan se användare dessa värden när de registrerar för första gången, och de kan ändra dem om de vill. När de registrerar har dessa värden kommer att sparas i den **telefon för autentisering** och **autentisering e-post** respektive fält.
+Om du har angett ett värde för **mobiltelefon** eller **alternativ e-postadress**, omedelbart fjärranvändning av dessa värden kan återställa sina lösenord, även om de inte har registrerat dig för tjänsten. Dessutom kan se användare dessa värden när de registrerar sig för första gången, och de kan ändra dem om de vill. När de registrerar sig har dessa värden kommer att sparas i den **Autentiseringstelefon** och **e-post för autentisering** respektive fält.
 
 ## <a name="set-and-read-the-authentication-data-through-powershell"></a>Ange och läsa autentiseringsdata via PowerShell
 
@@ -78,11 +78,11 @@ Följande fält kan ställas in via PowerShell:
 * **Mobiltelefon**
 * **Arbetstelefon**: kan bara anges om du inte synkroniserar med en lokal katalog
 
-### <a name="use-powershell-version-1"></a>Använd PowerShell version 1
+### <a name="use-powershell-version-1"></a>Använda PowerShell version 1
 
-Om du vill komma igång behöver du [ladda ned och installera Azure AD PowerShell-modulen](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). När du har installerats kan använda du de steg som följer för att konfigurera varje fält.
+Om du vill komma igång kan du behöva [ladda ned och installera Azure AD PowerShell-modulen](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). När du har installerat kan använda du stegen nedan för att konfigurera varje fält.
 
-#### <a name="set-the-authentication-data-with-powershell-version-1"></a>Ange autentiseringsdata med PowerShell version 1
+#### <a name="set-the-authentication-data-with-powershell-version-1"></a>Ange autentisering med PowerShell version 1
 
 ```
 Connect-MsolService
@@ -94,7 +94,7 @@ Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com") -MobilePhone "+1 1234567890" -PhoneNumber "+1 1234567890"
 ```
 
-#### <a name="read-the-authentication-data-with-powershell-version-1"></a>Läsa autentiseringsdata med PowerShell version 1
+#### <a name="read-the-authentication-data-with-powershell-version-1"></a>Läsa in autentiseringsdata med PowerShell-version 1
 
 ```
 Connect-MsolService
@@ -106,9 +106,9 @@ Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
 Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,MobilePhone,PhoneNumber | Format-Table
 ```
 
-#### <a name="read-the-authentication-phone-and-authentication-email-options"></a>Läsa alternativen telefon för autentisering och autentisering e-post
+#### <a name="read-the-authentication-phone-and-authentication-email-options"></a>Läsa Alternativ telefon för autentisering och autentisering e-post
 
-Att läsa den **telefon för autentisering** och **autentisering e-post** när du använder PowerShell version 1, Använd följande kommandon:
+Att läsa den **Autentiseringstelefon** och **e-post för autentisering** när du använder PowerShell version 1 kan du använda följande kommandon:
 
 ```
 Connect-MsolService
@@ -116,11 +116,11 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
 ```
 
-### <a name="use-powershell-version-2"></a>Använd PowerShell version 2
+### <a name="use-powershell-version-2"></a>Använda PowerShell version 2
 
-Om du vill komma igång behöver du [ladda ned och installera PowerShell-modulen för Azure AD version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0). När du har installerats kan använda du de steg som följer för att konfigurera varje fält.
+Om du vill komma igång kan du behöva [ladda ned och installera Azure AD-modul version 2 PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0). När du har installerat kan använda du stegen nedan för att konfigurera varje fält.
 
-Kör följande kommandon för att snabbt vill installera från senare versioner av PowerShell som stöder installera modulen. (Den första raden kontrollerar om modulen är installerad.)
+Kör följande kommandon för att snabbt vill installera från de senaste versionerna av PowerShell som har stöd för Install-Module. (Den första raden kontrollerar om modulen har installerats.)
 
 ```
 Get-Module AzureADPreview
@@ -128,7 +128,7 @@ Install-Module AzureADPreview
 Connect-AzureAD
 ```
 
-#### <a name="set-the-authentication-data-with-powershell-version-2"></a>Ange autentiseringsdata med PowerShell version 2
+#### <a name="set-the-authentication-data-with-powershell-version-2"></a>Ange autentisering med PowerShell version 2
 
 ```
 Connect-AzureAD
@@ -140,7 +140,7 @@ Set-AzureADUser -ObjectId user@domain.com -TelephoneNumber "+1 1234567890"
 Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mobile "+1 1234567890" -TelephoneNumber "+1 1234567890"
 ```
 
-#### <a name="read-the-authentication-data-with-powershell-version-2"></a>Läsa autentiseringsdata med PowerShell version 2
+#### <a name="read-the-authentication-data-with-powershell-version-2"></a>Läs autentiseringsdata med PowerShell version 2
 
 ```
 Connect-AzureAD
@@ -155,8 +155,8 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 ## <a name="next-steps"></a>Nästa steg
 
 * [Hur gör jag för att slutföra en lyckad distribution av SSPR?](howto-sspr-deployment.md)
-* [Återställ eller ändra ditt lösenord](../active-directory-passwords-update-your-own-password.md)
-* [Registrera för återställning av lösenord för självbetjäning](../active-directory-passwords-reset-register.md)
+* [Återställ eller ändra ditt lösenord](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registrera för återställning av lösenord för självbetjäning](../user-help/active-directory-passwords-reset-register.md)
 * [Har du en fråga om licensiering?](concept-sspr-licensing.md)
 * [Vilka autentiseringsmetoder är tillgängliga för användarna?](concept-sspr-howitworks.md#authentication-methods)
 * [Vilka principalternativ finns för SSPR?](concept-sspr-policy.md)
@@ -166,4 +166,4 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [Jag tror att något har gått sönder. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
 * [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)
 
-[Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Globala administratörer kan ändra en användares kontaktinformation för autentisering"
+[Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Globala administratörer kan ändra en användares information"

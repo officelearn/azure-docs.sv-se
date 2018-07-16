@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 76430fa5652e98cba86c41433f376e27dbb1639a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5c6a4ac68694c74f9a7ed99a2d7b4939b84dc33f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446868"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054887"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Artikelindex för programhantering i Azure Active Directory
 Den här sidan innehåller en fullständig lista över alla dokument som skrivits om de olika programrelaterade funktionerna i Azure Active Directory (AD Azure).
@@ -112,7 +112,7 @@ När du konfigurerar enkel inloggning till dina appar och resurser kan skydda du
 | Hur du aktiverar villkorlig åtkomst för följande typer av resurser |[Villkorlig åtkomst för SaaS-appar](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Villkorlig åtkomst för Office 365-tjänster](active-directory-conditional-access-device-policies.md)<br /><br />[Villkorlig åtkomst för lokala program](active-directory-conditional-access-azure-portal.md)<br /><br />[Villkorlig åtkomst för lokala program publiceras via Azure AD App Proxy](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Hur du registrerar enheter med Azure Active Directory för att aktivera principer för enhetsbaserad villkorlig åtkomst |[Översikt över Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Så här aktiverar du automatisk Enhetsregistrering för domänanslutna Windows-enheter](active-directory-conditional-access-automatic-device-registration.md)<br />– [Steg för Windows 8.1-enheter](active-directory-conditional-access-automatic-device-registration-setup.md)<br />– [Steg för Windows 7-enheter](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
-| Hur du använder appen Microsoft Authenticator för tvåstegsverifiering | [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
+| Hur du använder appen Microsoft Authenticator för tvåstegsverifiering | [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
 
 Villkorlig åtkomst är en [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) funktionen.
 
@@ -180,7 +180,7 @@ Azure AD-åtkomstpanelen är där slutanvändare kan starta sina appar och komma
 | Artikeln Guide |  |
 |:---:| --- |
 | En jämförelse av de olika alternativ som är tillgängliga för att distribuera appar för enkel inloggning för användare |[Distribuera Azure AD-integrerade program till användare](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) |
-| En översikt över åtkomstpanelen och dess mobila motsvarande MyApps |[Introduktion till åtkomstpanelen och MyApps](active-directory-saas-access-panel-introduction.md)<br />– [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />– [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
+| En översikt över åtkomstpanelen och dess mobila motsvarande MyApps |[Introduktion till åtkomstpanelen och MyApps](user-help/active-directory-saas-access-panel-introduction.md)<br />– [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />– [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Hur du kommer åt Azure AD-appar från Office 365-webbplats |[Med hjälp av Office 365-Appstartaren](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Hur du kommer åt Azure AD-appar från den mobila appen Intune Managed Browser |[Intune Managed Browser](https://technet.microsoft.com/library/dn878029.aspx)<br />– [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />– [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | Hur du kommer åt Azure AD-appar med djuplänkar för att initiera enkel inloggning |[Hämta inloggning Direktlänkar till dina appar](manage-apps/what-is-single-sign-on.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |

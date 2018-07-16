@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 42be14569215af7ee98a540c2a86cef2b2a028e4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 808cfd1f4d47f49be60c3f45278d2334ba720c49
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034085"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865190"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -103,7 +103,7 @@ Du använder önskade egenskaper för att skicka statusinformation från ett ser
 
 Om du vill visa den simulerade enhetens exempelkod som tar emot egenskaper, navigera till mappen **iot-hubb/Tutorials/DeviceTwins** i exempelprojektet för Node.js som du hämtat. Öppna SimulatedDevice.js i en valfri textredigerare.
 
-I följande avsnitt beskrivs den kod som körs på den simulerade enheten som svarar på ändringar för önskade egenskaper som skickas från serverdelprogrammet:
+I följande avsnitt beskrivs koden som körs på den simulerade enheten som svarar på önskade egenskapsändringar som skickas från serverdelsprogrammet:
 
 ### <a name="retrieve-the-device-twin-object"></a>Hämta enhetens tvillingobjekt
 

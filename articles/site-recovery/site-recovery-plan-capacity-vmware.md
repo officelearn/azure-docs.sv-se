@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 905798acd5836c31953714d7984cfb19f16cecab
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b615ffa3571730ef9607893882f509b2fa490f35
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920805"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056349"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planera kapacitet och skalning för VMware-replikering med Azure Site Recovery
 
@@ -34,9 +34,9 @@ Samla in information om replikeringsmiljön genom att köra den [Azure Site Reco
 
 **CPU** | **Minne** | **Cachestorleken för disk** | **Dataändringshastigheten** | **Skyddade datorer**
 --- | --- | --- | --- | ---
-8 virtuella processorer (2 platser * 4 kärnor @ 2,5 gigahertz (GHz)) | 16 GB | 300 GB | 500 GB eller mindre | Replikera färre än 100 virtuella datorer.
-12 virtuella processorer (2 platser * @ 2,5 GHz-6 kärnor) | 18 GB | 600 GB | 500 GB till 1 TB | Replikera mellan 100-150 datorer.
-16 virtuella processorer (2 platser * 8 kärnor @ 2,5 GHz) | 32 GB | 1 TB | 1 TB till 2 TB | Replikera mellan 150 – 200 datorer.
+8 virtuella processorer (2 platser * 4 kärnor \@ 2,5 gigahertz (GHz)) | 16 GB | 300 GB | 500 GB eller mindre | Replikera färre än 100 virtuella datorer.
+12 virtuella processorer (2 platser * 6 kärnor \@ 2,5 GHz) | 18 GB | 600 GB | 500 GB till 1 TB | Replikera mellan 100-150 datorer.
+16 virtuella processorer (2 platser * 8 kärnor \@ 2,5 GHz) | 32 GB | 1 TB | 1 TB till 2 TB | Replikera mellan 150 – 200 datorer.
 Distribuera en annan processerver | | | &GT; 2 TB | Distribuera ytterligare processervrar om du replikerar mer än 200 datorer eller ändrar den dagliga datavolymen överskrider 2 TB.
 
 Där:
@@ -60,9 +60,9 @@ I följande tabell beskrivs ett scenario där:
 
 **Konfigurationsserver** | **Kompletterande processervern** | **Cachestorleken för disk** | **Dataändringshastigheten** | **Skyddade datorer**
 --- | --- | --- | --- | ---
-8 virtuella processorer (2 platser * 4 kärnor @ 2,5 GHz), 16 GB minne | 4 virtuella processorer (2 platser * 2 kärnor @ 2,5 GHz), 8 GB minne | 300 GB | 250 GB eller mindre | Replikera 85 eller färre datorer.
-8 virtuella processorer (2 platser * 4 kärnor @ 2,5 GHz), 16 GB minne | 8 virtuella processorer (2 platser * 4 kärnor @ 2,5 GHz), 12 GB minne | 600 GB | 250 GB till 1 TB | Replikera mellan 85 150 datorer.
-12 virtuella processorer (2 platser * @ 2,5 GHz-6 kärnor), 18 GB minne | 12 virtuella processorer (2 platser * @ 2,5 GHz-6 kärnor) 24 GB minne | 1 TB | 1 TB till 2 TB | Replikera mellan 150 225 datorer.
+8 virtuella processorer (2 platser * 4 kärnor \@ 2,5 GHz), 16 GB minne | 4 virtuella processorer (2 platser * 2 kärnor \@ 2,5 GHz), 8 GB minne | 300 GB | 250 GB eller mindre | Replikera 85 eller färre datorer.
+8 virtuella processorer (2 platser * 4 kärnor \@ 2,5 GHz), 16 GB minne | 8 virtuella processorer (2 platser * 4 kärnor \@ 2,5 GHz), 12 GB minne | 600 GB | 250 GB till 1 TB | Replikera mellan 85 150 datorer.
+12 virtuella processorer (2 platser * 6 kärnor \@ 2,5 GHz), 18 GB minne | 12 virtuella processorer (2 platser * 6 kärnor \@ 2,5 GHz) 24 GB minne | 1 TB | 1 TB till 2 TB | Replikera mellan 150 225 datorer.
 
 Hur där du skalar dina servrar beror på dina inställningar för en modell med skala upp eller skala ut.  Du skala upp genom att distribuera ett par avancerade konfigurationen och processervrar eller skala ut genom att distribuera fler servrar med färre resurser. Till exempel om du vill skydda 220 datorer kan göra du något av följande:
 

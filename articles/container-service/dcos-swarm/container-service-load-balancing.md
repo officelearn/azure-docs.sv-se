@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 62967636a4d80f72f731a666947d5d4d5e47f7e5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7e71b279d6681696b8666846cfbd27007f464679
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163052"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37864867"
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Belastningsutjämna behållare i ett Azure Container Service DC/OS-kluster
 
-I den här artikeln visar vi hur du skapar en intern belastningsutjämnare i en DC/OS-hanterad Azure Container Service med Marathon-LB. Med den här konfigurationen kan du skala program vågrätt. Du kan också använda offentliga och privata agentkluster genom att placera en belastningsutjämnare på det offentliga klustret och dina programbehållare på det privata klustret. I den här kursen ska du:
+I den här artikeln visar vi hur du skapar en intern belastningsutjämnare i en DC/OS-hanterad Azure Container Service med Marathon-LB. Med den här konfigurationen kan du skala program vågrätt. Du kan också använda offentliga och privata agentkluster genom att placera en belastningsutjämnare på det offentliga klustret och dina programbehållare på det privata klustret. I den här kursen har du:
 
 > [!div class="checklist"]
 > * Konfigurera en Marathon-belastningsutjämnare

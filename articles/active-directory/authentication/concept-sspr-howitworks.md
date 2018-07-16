@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: f2d0b009c4451a4108222ac7aa7954ba6dd86699
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 04a446f43bd39ef7bfca590af67289813eab4032
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869015"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048887"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Lösenord för självbetjäning i Azure AD djupdykning
 
@@ -248,8 +248,8 @@ Om du vill testa det här scenariot, går du till http://passwordreset.microsoft
 Följande artiklar ger ytterligare information om lösenordsåterställning via Azure AD:
 
 * [Hur gör jag för att slutföra en lyckad distribution av SSPR?](howto-sspr-deployment.md)
-* [Återställ eller ändra ditt lösenord](../active-directory-passwords-update-your-own-password.md)
-* [Registrera för återställning av lösenord för självbetjäning](../active-directory-passwords-reset-register.md)
+* [Återställ eller ändra ditt lösenord](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registrera för återställning av lösenord för självbetjäning](../user-help/active-directory-passwords-reset-register.md)
 * [Har du en fråga om licensiering?](concept-sspr-licensing.md)
 * [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](howto-sspr-authenticationdata.md)
 * [Vilka autentiseringsmetoder är tillgängliga för användarna?](concept-sspr-howitworks.md#authentication-methods)

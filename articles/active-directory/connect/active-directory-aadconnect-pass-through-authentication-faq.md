@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e62117ee98b1d47600141249dcd3b17ec58a9654
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6d5cd79a6336b2e5c4b3c5c6f5765d92cd602552
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918163"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048976"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory-direktautentisering: Vanliga frågor och svar
 
@@ -60,7 +60,7 @@ För den här funktionen ska fungera måste version 1.1.486.0 eller senare för 
 
 ## <a name="what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication"></a>Vad händer om min användarens lösenord har upphört att gälla och de försöker logga in med hjälp av direktautentisering?
 
-Om du har konfigurerat [tillbakaskrivning av lösenord](../active-directory-passwords-update-your-own-password.md) för en viss användare, och om användaren loggar in med hjälp av direktautentisering, de kan ändra eller återställa sina lösenord. Lösenorden som skrivs tillbaka till den lokala Active Directory som förväntat.
+Om du har konfigurerat [tillbakaskrivning av lösenord](../user-help/active-directory-passwords-update-your-own-password.md) för en viss användare, och om användaren loggar in med hjälp av direktautentisering, de kan ändra eller återställa sina lösenord. Lösenorden som skrivs tillbaka till den lokala Active Directory som förväntat.
 
 Om du inte har konfigurerat tillbakaskrivning av lösenord för en viss användare eller om användaren inte har en giltig Azure AD-licens, användaren kan inte uppdatera sina lösenord i molnet. De kan inte uppdatera sina lösenord, även om deras lösenord har upphört att gälla. I stället ser användaren det här meddelandet: ”din organisation tillåter inte att du ändrar ditt lösenord på den här platsen. Uppdatera den enligt den metod som din organisation rekommenderar eller be din administratör om du behöver hjälp ”. Användaren eller administratören måste återställa sina lösenord i den lokala Active Directory.
 

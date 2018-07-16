@@ -4,15 +4,15 @@ description: Beskriver hur du identifierar och utvärderar lokala virtuella VMwa
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/19/2018
+ms.date: 07/09/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 71d4bc0aa1ea2658c4cd40834a769eaaac649bc3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0b1070e29c8dc9f088297622d16fb816a10a55c0
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228381"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970793"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Utforska och utvärdera lokala virtuella VMware-datorer för migrering till Azure
 
@@ -33,10 +33,6 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - **VMware**: De virtuella datorer som du planerar att migrera måste hanteras av vCenter Server som kör version 5.5, 6.0 eller 6.5. Du måste dessutom ha en ESXi-värd som kör version 5.0 eller senare för att kunna distribuera den virtuella insamlardatorn.
-
-> [!NOTE]
-> Stöd för Hyper-V planeras och kommer att aktiveras inom kort.
-
 - **vCenter Server-konto**: Du behöver ett skrivskyddat konto för att få åtkomst till vCenter Server. Azure Migrate använder kontot till att identifiera de lokala virtuella datorerna.
 - **Behörigheter**: På vCenter Server måste du ha behörighet för att kunna skapa en virtuell dator genom att importera en fil i .OVA-format.
 - **Statistikinställningar**: Statistikinställningarna för vCenter Server ska vara inställda på nivå 3 innan du startar distributionen. Om det är lägre än nivå 3 kommer utvärderingen att fungera, men prestandadata för lagring och nätverk samlas inte in. Storleksrekommendationerna i det här fallet kommer att göras baserat på prestandadata för CPU och minne, samt konfigurationsdata för disk och nätverkskort.
@@ -49,6 +45,7 @@ Azure Migrate måste ha åtkomst till VMware-servrar för att automatiskt kunna 
 - Behörigheter: Datacenter-objekt –> Sprid till underordnat objekt, roll = skrivskyddad
 - Information: Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.
 - Om du vill begränsa åtkomsten tilldelar du rollen Ingen åtkomst med Sprid till underordnat objekt till underordnade objekt (vSphere-värdar, datalager, virtuella datorer och nätverk).
+
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
@@ -85,6 +82,14 @@ Kontrollera att .OVA-filen är säker innan du distribuerar den.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Den genererade hashen måste matcha nedanstående inställningar.
+
+  För OVA-version 1.0.9.12
+
+    **Algoritm** | **Hash-värde**
+    --- | ---
+    MD5 | d0363e5d1b377a8eb08843cf034ac28a
+    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
   För OVA-version 1.0.9.8
 
@@ -143,7 +148,7 @@ Importera den nedladdade filen till vCenter Server.
 5. I Azure Migrate Collector öppnar du **Set up prerequisites** (Ange förutsättningar).
     - Acceptera licensvillkoren och läs informationen från tredje part.
     - Insamlaren kontrollerar att den virtuella datorn har Internetåtkomst.
-    - Om den virtuella datorn har åtkomst till Internet via en proxy, klickar du på **Proxyinställningar** där du anger proxyadress och lyssningsport. Ange autentiseringsuppgifter om proxyn kräver autentisering. [Lär dig mer](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#internet-connectivity) om Internetanslutningskraven och URL-listan som insamlaren använder.
+    - Om den virtuella datorn har åtkomst till Internet via en proxy, klickar du på **Proxyinställningar** där du anger proxyadress och lyssningsport. Ange autentiseringsuppgifter om proxyn kräver autentisering. [Lär dig mer](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) om Internetanslutningskraven och URL-listan som insamlaren använder.
 
     > [!NOTE]
     > Proxyadressen måste anges i formatet http://ProxyIPAddress eller http://ProxyFQDN. Endast HTTP-proxy stöds.
@@ -157,10 +162,12 @@ Importera den nedladdade filen till vCenter Server.
     - I **Samlingens omfattning** väljer du en omfattning för identifieringen av virtuella datorer. Insamlaren kan bara identifiera virtuella datorer i angivet omfång. Omfånget kan anges till en viss mapp, ett datacenter eller ett kluster. Det får inte innehålla fler än 1 500 virtuella datorer. [Lär dig mer](how-to-scale-assessment.md) om hur du kan identifiera en större miljö.
 
 7. I **Specify migration project** (Ange migreringsprojekt) anger du det projekt-ID och den nyckel för Azure Migrate som du kopierade från portalen. Om du inte kopierade dem öppnar du Azure Portal från den virtuella insamlardatorn. På projektsidan **Översikt** klickar du på **Identifiera datorer** och kopierar värdena.  
-8. I **View collection progress** (Visa insamlingsförlopp) övervakar du identifieringen och kontrollerar att de metadata som samlas in från virtuella datorer finns i ett omfång. Insamlaren visar en ungefärlig identifieringstid. [Lär dig mer](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected) om vilka data som samlas in av Azure Migrate-insamlaren.
+8. I **View collection progress** (Visa insamlingsförlopp) övervakar du identifieringen och kontrollerar att de metadata som samlas in från virtuella datorer finns i ett omfång. Insamlaren visar en ungefärlig identifieringstid. [Lär dig mer](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) om vilka data som samlas in av Azure Migrate-insamlaren.
 
 > [!NOTE]
-> Insamlaren har endast stöd för ”Engelska (USA)” som operativsystemspråk och gränssnittsspråk i insamlaren. Stöd för fler språk kommer snart.
+> Insamlaren har endast stöd för ”Engelska (USA)” som operativsystemspråk och gränssnittsspråk i insamlaren.
+> Om du ändrar inställningarna på en dator som du vill utvärdera kör du en identifiering igen innan du kör utvärderingen. Det gör du genom att använda alternativet **Starta insamlingen igen** i insamlaren. När insamlingen är klar väljer du alternativet **Beräkna om** för utvärderingen på portalen för att hämta uppdaterade utvärderingsresultat.
+
 
 
 ### <a name="verify-vms-in-the-portal"></a>Verifiera virtuella datorer i portalen

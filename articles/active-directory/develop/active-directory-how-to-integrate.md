@@ -1,6 +1,6 @@
 ---
-title: Integrera med Azure Active Directory | Microsoft Docs
-description: En guide till fördelarna och resurser för integrering med Azure Active Directory.
+title: Hur du integrerar med Azure Active Directory | Microsoft Docs
+description: En guide till fördelarna med och resurser för integrering med Azure Active Directory.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -17,68 +17,68 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b6de3094e903c3584aa4a57e7792e4b07711f74a
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 79721c2ad0ae83e3c8bd103aee94916f1e2995aa
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937146"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054645"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrera med Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure Active Directory kan organisationer företagsklass Identitetshantering för molnprogram. Azure AD-integrering och ger användarna en effektiviserad upplevelse inloggning och hjälper ditt program som överensstämmer med IT-princip.
+Azure Active Directory kan organisationer företagsklass Identitetshantering för molnprogram. Azure AD-integrering ger användarna en smidig inloggningsupplevelse och bidrar till att dina program som överensstämmer med IT-princip.
 
-## <a name="how-to-integrate"></a>Hur du integrerar
-Det finns flera sätt för programmet att integrera med Azure AD. Dra nytta av så många eller som fåtal av dessa scenarier som är lämpligt för ditt program.
+## <a name="how-to-integrate"></a>Så här integrerar du
+Det finns flera sätt för ditt program att integrera med Azure AD. Dra nytta av så många eller så lite av dessa scenarier som passar ditt program.
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Stöd för Azure AD som ett sätt att logga In på ditt program
-**Minska inloggning friktion och minska kostnaderna för support.** Genom att använda Azure AD för att logga in på ditt program kan användarna inte har ett mer namn och lösenord. Som en utvecklare har du en mindre lösenord för att lagra och skydda. Inte behöver hantera glömt lösenord kanske enbart betydande besparingar. Azure AD används logga in för några av världens mest populära molnprogram, inklusive Office 365 och Microsoft Azure. Med flera hundra miljoner användare från miljontals organisationer risken kan dina användare är redan inloggad i Azure AD. Lär dig mer om [lägger till stöd för Azure AD inloggning](active-directory-authentication-scenarios.md).
+**Minska friktionen inloggning och minska kostnaderna för support.** Genom att använda Azure AD för att logga in på ditt program kan användarna inte har ett mer namn och lösenord för att komma ihåg. Som utvecklare har du en mindre lösenord för att lagra och skydda. Inte behöver hantera glömda lösenordsåterställning kan vara en fristående avsevärda besparingar. Azure AD Driver logga in för några av världens mest populära molnprogram, inklusive Office 365 och Microsoft Azure. Med hundratals miljoner användare från miljontals organisationer risken är användaren redan har loggat in till Azure AD. Läs mer om [lägger till stöd för Azure AD-inloggningen](active-directory-authentication-scenarios.md).
 
-**Förenkla logga in för ditt program.**  När du registrerar dig för programmet kan Azure AD skicka viktig information om en användare så att du före fylla din registrering formulär eller ta bort den helt. Användare kan registrera dig för ditt program med hjälp av sina Azure AD-kontot via en bekant medgivande upplevelse liknar de som finns i sociala media och mobila program. Alla användare kan logga och logga in till ett program som är integrerad med Azure AD utan inblandning av IT. Lär dig mer om [registrerat dig ditt program för Azure AD-kontot inloggningen](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+**Förenkla logga in för ditt program.**  När du registrerar dig för ditt program, kan Azure AD skicka viktig information om en användare så att du redan fylla din registrering formuläret eller eliminera den helt. Användare kan registrera sig för ditt program med sina Azure AD-konto via en bekant medgivande upplevelse som liknar dem som finns i sociala medier och mobilprogram. Alla användare kan registrera dig och logga in till ett program som är integrerad med Azure AD utan att IT-utrustning. Läs mer om [registrera dig ditt program för Azure AD-kontoinloggning](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
-### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Bläddra efter användare, hantera Användaretablering och styra åtkomsten till ditt program
-**Sök efter användare i katalogen.**  Använd Graph API för att hjälpa användarna att söka och leta efter andra personer i organisationen när bjuda in andra eller bevilja åtkomst, i stället för att begära att ange e-post-adresser. Användare kan bläddra i en bekant adress book style-gränssnittet, inklusive visar information om organisationens hierarki. Lär dig mer om den [Graph API](active-directory-graph-api.md).
+### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Bläddra efter användare, hantera etableringen av användare och styra åtkomsten till ditt program
+**Sök efter användare i katalogen.**  Använd Graph API för att hjälpa användare att söka och bläddra till andra personer i organisationen när du bjuder in andra eller beviljar åtkomst, i stället för att behöva ange e-post-adresser. Användare kan bläddra med hjälp av ett bekant adressboken style gränssnitt, inklusive visar information om organisationens hierarki. Läs mer om den [Graph API](active-directory-graph-api.md).
 
-**Använd Active Directory-grupper och distributionslistor kunden redan hanterar igen.**  Azure AD innehåller de grupper som kunden redan använder för e-distribution och hantering av åtkomst. Med Graph API kan återanvända dessa grupper i stället för att kunden ska skapa och hantera en separat uppsättning grupper i ditt program. Information om grupp kan också skickas till ditt program i inloggning token. Lär dig mer om den [Graph API](active-directory-graph-api.md).
+**Återanvända Active Directory-grupper och distributionslistor kunden redan hanterar.**  Azure AD innehåller de grupper som kunden redan använder för e-distribution och hantering av åtkomst. Med Graph API, återanvända dessa grupper i stället för att dina kunder för att skapa och hantera en separat uppsättning grupper i ditt program. Gruppinformation kan även skickas till ditt program i inloggning token. Läs mer om den [Graph API](active-directory-graph-api.md).
 
-**Använda Azure AD för att styra vem som har åtkomst till ditt program.**  Administratörer och ägare i Azure AD kan ge behörighet till program till användare och grupper. Med Graph API kan du läsa den här listan och använda den för att styra etablering och avetablering av resurser och åtkomst till i ditt program.
+**Använda Azure AD för att kontrollera vem som har åtkomst till programmet.**  Administratörer och programägare i Azure AD kan ge åtkomst till program till specifika användare och grupper. Med Graph API kan du läsa den här listan och använda den för att styra aktivering och inaktivering av resurser och få åtkomst till i ditt program.
 
-**Använda Azure AD för roller-baserad åtkomstkontroll.**  Administratörer och ägare kan tilldela användare och grupper roller som du definierar när du registrerar ditt program i Azure AD. Rollen informationen skickas till ditt program i inloggning token och kan också läsa med Graph API. Lär dig mer om [med hjälp av Azure AD för auktorisering](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
+**Använd Azure AD för roller-baserad åtkomstkontroll.**  Administratörer och programägare kan tilldela användare och grupper till roller som du definierar när du registrerar ditt program i Azure AD. Rollinformation skickas till ditt program i inloggning token och kan också läsa med Graph API. Läs mer om [med hjälp av Azure AD för auktorisering](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Få åtkomst till användarens profil, kalender, e-post, kontakter, filer och mer
-**Azure AD är auktoriserings-servern för Office 365 och andra Microsoft-företagstjänster.**  Om du stöder Azure AD för inloggning till programmet eller länka dina aktuella användarkonton till Azure AD-användarkonton med OAuth 2.0-stöd, kan du begära Läs- och skrivbehörighet till en användares profil, kalender, e-post, kontakter, filer och annan information. Du kan sömlöst skriva händelser till användarens kalender och läsa eller skriva filer till sina OneDrive. Lär dig mer om [åtkomst till Office 365-API: er](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).
+**Azure AD är auktoriseringsservern för Office 365 och andra Microsoft-företagstjänster.**  Om du stöder Azure AD för att logga in på ditt program eller länka dina aktuella användarkonton till Azure AD-användarkonton med hjälp av OAuth 2.0-stöd, kan du begära Läs- och skrivbehörighet till en användares profil, kalender, e-post, kontakter, filer och annan information. Du kan smidigt skriva händelser till användares kalender, och läsa eller skriva filer till OneDrive. Läs mer om [åtkomst till Office 365 API: er](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).
 
-### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Uppgradera ditt program i Azure och Office 365 marknadsplatser
-**Uppgradera ditt program till miljontals organisationer som redan använder Azure AD.**  Användare söka och bläddra dessa marknadsplatser använder redan en eller flera molntjänster, gör dem kvalificerade kunder för tjänst i molnet. Mer information om att uppgradera ditt program i [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
+### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Marknadsför ditt program i Azure och Office 365 marknadsplatser
+**Marknadsför ditt program till miljontals organisationer som redan använder Azure AD.**  Användare som Sök och bläddra bland dessa marknadsplatser använder redan en eller flera molntjänster, vilket gör dem kvalificerade kunder för tjänst i molnet. Mer information om att uppgradera ditt program i [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
-**När användare loggar för ditt program, visas den i Azure AD-åtkomstpanelen och Office 365 app starta.**  Användare kommer att kunna snabbt och enkelt återgå till ditt program senare kan förbättra användaren engagement. Lär dig mer om den [Azure AD-åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
+**När användarna registrerar sig för ditt program, visas den i sina Azure AD-åtkomstpanelen och Office 365-appstartaren.**  Användare kommer att kunna snabbt och enkelt gå tillbaka till ditt program senare kan förbättra användarnas engagemang. Läs mer om den [Azure AD-åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
-### <a name="secure-device-to-service-and-service-to-service-communication"></a>Säker kommunikation för enhet-till-tjänst och tjänster
-**Använda Azure AD för Identitetshantering av enheter och tjänster minskar du behöver skriva koden och för möjliggör för IT för att hantera åtkomst.**  Tjänster och enheter kan hämta token från Azure AD med hjälp av OAuth och använda dessa token för åtkomst till webb-API: er. Använda Azure AD kan du undvika skriva Autentiseringskod för sammansatt. Eftersom identiteten för tjänster och enheter lagras i Azure AD kan IT kan hantera nycklar och återkallade certifikat på en plats i stället för att du gör detta separat i ditt program.
+### <a name="secure-device-to-service-and-service-to-service-communication"></a>Säker kommunikation för enhet-till-tjänst och tjänst-till-tjänst
+**Med hjälp av Azure AD för Identitetshantering av tjänster och enheter minskar den kod som du behöver skriva och gör att IT-om du vill hantera åtkomsten.**  Tjänster och enheter kan hämta token från Azure AD med hjälp av OAuth och använda dessa tokens för att få åtkomst till webb-API: er. Använda Azure AD kan du undvika skriva komplex autentiseringslogik kod. Eftersom identiteten för de tjänster och enheter lagras i Azure AD kan IT kan hantera nycklar och återkallade certifikat på en plats i stället för att göra detta separat i ditt program.
 
-## <a name="benefits-of-integration"></a>Fördelar med integrering
-Integrering med Azure AD ingår fördelar som inte kräver att skriva ytterligare kod.
+## <a name="benefits-of-integration"></a>Fördelarna med integrering
+Integrering med Azure AD levereras med fördelar som inte behöver du skriva ytterligare kod.
 
-### <a name="integration-with-enterprise-identity-management"></a>Integrering med Enterprise Identity Management
-**Hjälpa ditt program som överensstämmer med IT-principer.**  Organisationer integrera sina företagssystem identity management med Azure AD, så när en person lämnar organisationen, de automatiskt förlorar åtkomsten till programmet utan att behöva vidta ytterligare åtgärder för IT. IT kan hantera vem som kan komma åt programmet och ta reda på vilka principer för åtkomst krävs – för exempel Multi-Factor authentication - minskar behovet av att skriva kod för att följa komplexa företagets principer. Azure AD ger administratörer en detaljerad granskningsloggen för som loggat in på ditt program så IT kan spåra användning.
+### <a name="integration-with-enterprise-identity-management"></a>Integrering med Enterprise-Identitetshantering
+**Hjälpa programmet att uppfylla IT-principer.**  Organisationer integrera hanteringssystem för identitet sina företag med Azure AD, så när en person lämnar en organisation, de automatiskt förlorar åtkomst till ditt program utan att behöva vidta ytterligare åtgärder för IT. IT kan hantera vem som kan komma åt ditt program och ta reda på vilka principer för åtkomst krävs – för exempel Multi-Factor authentication - minskar behovet av att skriva kod för att uppfylla komplexa företagets principer. Azure AD ger administratörer en detaljerad granskningsloggen för som loggat in på ditt program så IT kan spåra användning.
 
-**Azure AD utökar Active Directory till molnet så att programmet kan integreras med AD.**  Många organisationer över hela världen använder Active Directory UPN-inloggning och identity management-systemet och kräva sina program för att arbeta med AD. Appen integrerar med Azure AD kan integreras med Active Directory.
+**Azure AD utökar Active Directory till molnet så att ditt program kan integreras med AD.**  Många organisationer över hela världen använder Active Directory huvudsaklig inloggning och identitetshanteringssystem och kräver sina program ska fungera med AD. Integrera med Azure AD är din app med Active Directory.
 
-### <a name="advanced-security-features"></a>Funktioner för avancerad säkerhet
-**Multifaktorautentisering.**  Azure AD innehåller interna multifaktorautentisering. IT-administratörer kan kräva multifaktorautentisering åtkomst till ditt program så att du inte behöver code detta stöd själv. Lär dig mer om [Multifaktorautentisering](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+### <a name="advanced-security-features"></a>Avancerade säkerhetsfunktioner
+**Multifaktorautentisering.**  Azure AD tillhandahåller inbyggd multifaktorautentisering. IT-administratörer kan kräva multifaktorautentisering åtkomst till ditt program så att du inte behöver koda det själv. Läs mer om [Multifaktorautentisering](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
-**Avvikande inloggning identifiering.**  Azure AD bearbetar fler än en miljard inloggningar per dag när maskininlärningsalgoritmer för att identifiera misstänkt aktivitet och meddela IT-administratörer för möjliga problem. Programmet hämtar fördelen med det här skyddet genom att stödja Azure AD-inloggning. Lär dig mer om [Visa rapport för Azure Active Directory-åtkomst](../active-directory-view-access-usage-reports.md).
+**Avvikande inloggning identifiering.**  Azure AD bearbetar fler än en miljard inloggningar per dag, när machine learning-algoritmer för att identifiera misstänkt aktivitet och meddela IT-administratörer för möjliga problem. Eftersom det finns stöd för Azure AD-inloggningen, hämtar programmet fördelen med det här skyddet. Läs mer om [visa Azure Active Directory access-rapport](../active-directory-view-access-usage-reports.md).
 
-**Villkorlig åtkomst.**  Förutom multifaktorautentisering, Administratörer kan kräva att vissa villkor vara uppfyllda innan användarna kan logga in på ditt program. Villkoren som du kan ange omfattar IP-adressintervall klientenheter, medlemskap i angivna grupperna och tillståndet för den enhet som används för åtkomst. Lär dig mer om [villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+**Villkorlig åtkomst.**  Förutom multifaktorautentisering, Administratörer kan kräva särskilda villkor vara uppfyllda innan användarna kan logga in på ditt program. Villkor som kan ställas in omfattar IP-adressintervallet för klientenheter, medlemskap i angivna grupperna och tillståndet för enheten som används för åtkomst. Läs mer om [villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
 ### <a name="easy-development"></a>Enkel utveckling
-**Standardprotokollen.**  Microsoft strävar efter att stödja branschstandarder. Azure AD stöder SAML 2.0, OpenID Connect 1.0, OAuth 2.0 och WS-Federation 1.2-autentiseringsprotokoll. Graph API är OData 4.0-kompatibel. Om programmet redan har stöd för SAML 2.0- eller OpenID Connect 1.0-protokoll för federerad inloggning, kan det vara enkelt att lägga till stöd för Azure AD. Lär dig mer om [autentiseringsprotokoll som stöds av Azure AD](active-directory-authentication-protocols.md).
+**Branschens standardprotokoll.**  Microsoft strävar efter att ge stöd branschstandarder. Azure AD stöder SAML 2.0, OpenID Connect 1.0, OAuth 2.0 och WS-Federation 1.2-autentiseringsprotokoll. Graph API är kompatibel med OData 4.0. Om programmet redan har stöd för SAML 2.0 eller OpenID Connect 1.0-protokoll för federerad inloggning, kan det vara enkelt att lägga till stöd för Azure AD. Läs mer om [autentiseringsprotokoll som stöds av Azure AD](active-directory-authentication-protocols.md).
 
-**Bibliotek med öppen källkod.**  Microsoft tillhandahåller bibliotek med öppen källkod för fullt stöd för populära språk och plattformar som ska gå fortare. Källkoden är licensierad under Apache 2.0 och du kan duplicera och bidra till projekt. Lär dig mer om [Azure AD-autentiseringsbibliotek](active-directory-authentication-libraries.md).
+**Bibliotek med öppen källkod.**  Microsoft tillhandahåller bibliotek med helt öppen källkod för populära språk och plattformar för att snabba upp utvecklingen. Källkoden är licensierad under Apache 2.0 och du kan välja att Förgrena och bidra till projekten. Läs mer om [Azure AD-autentiseringsbibliotek](active-directory-authentication-libraries.md).
 
-### <a name="worldwide-presence-and-high-availability"></a>Världen och hög tillgänglighet
-**Azure AD har distribuerats i datacenter runtom i världen och hanteras och övervakas dygnet runt.**  Azure AD är identity management-systemet för Microsoft Azure och Office 365 och har distribuerats i 28 Datacenter runtom i världen. Katalogdata är säkert att replikeras till minst tre datacenter. Globala belastningsutjämnare och kontrollera åtkomst för användare närmaste kopia av Azure AD som innehåller data och omdirigera automatiskt begäranden till andra Datacenter om ett problem har upptäckts.
+### <a name="worldwide-presence-and-high-availability"></a>Närvaro i hela världen och hög tillgänglighet
+**Azure AD har distribuerats i datacenter runtom i världen och hanteras och övervakas dygnet runt.**  Azure AD är identitetshanteringssystem för Microsoft Azure och Office 365 och distribueras i 28 Datacenter runtom i världen. Katalogdata är säkert att replikeras till minst tre datacenter. Global belastningsutjämnare och kontrollera användare åtkomst den närmaste kopian av Azure AD som innehåller sina data och omdirigera automatiskt begäranden till andra Datacenter om ett problem har identifierats.
 
 ## <a name="next-steps"></a>Nästa steg
 [Börja skriva kod](active-directory-developers-guide.md#get-started).

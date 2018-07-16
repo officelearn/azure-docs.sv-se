@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: f75671e2e5511054f3db550a8c24e62d031492c3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4c537b06c4ff50d90d9fd5a847b378038f252790
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776720"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972282"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Självstudier: Skicka meddelanden till Xamarin.Android-appar med Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -58,7 +58,7 @@ I den här självstudien gör du följande:
 
 Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutningssträngar för att registrera din app för att både ta emot meddelanden och skicka push-meddelanden.
 
-## <a name="create-xamainandroid-app-and-connect-it-to-notification-hub"></a>Skapa en Xamain.Android-app och anslut den till meddelandehubben
+## <a name="create-xamarinandroid-app-and-connect-it-to-notification-hub"></a>Skapa en Xamarin.Android-app och anslut den till meddelandehubben
 
 ### <a name="create-visual-studio-project-and-add-nuget-packages"></a>Skapa Visual Studio-projekt och lägg till NuGet-paket
 1. Peka på **Arkiv** i Visual Studio, välj **Nytt** och sedan **Projekt**. 
@@ -142,6 +142,7 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
 8. Lägg till följande using-satser till **MyFirebaseIIDService.cs**:
    
     ```csharp
+    using Android.App;
     using Android.Util;
     using WindowsAzure.Messaging;
     using Firebase.Iid;
@@ -183,6 +184,7 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
 12. Lägg till följande using-satser till **MyFirebaseMessagingService.cs**.
     
     ```csharp
+        using Android.App;
         using Android.Util;
         using Firebase.Messaging;
     ```

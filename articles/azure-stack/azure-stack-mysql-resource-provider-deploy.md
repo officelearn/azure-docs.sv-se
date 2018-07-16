@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e4af3dc8aa7a656fd0020285c3f73ce414ba039c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 645fa89bede1311215f1d67c64a2388e4de5c1b1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38305904"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044891"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Distribuera MySQL-resursprovider i Azure Stack
 
@@ -30,23 +30,30 @@ Använda resursprovidern MySQL-Server för att visa MySQL-databaser som en tjän
 Det finns flera förutsättningar som måste vara uppfyllda innan du kan distribuera Azure Stack MySQL-resursprovider. Slutför stegen i den här artikeln på en dator som har åtkomst till privilegierad slutpunkt virtuell dator som uppfyller dina krav.
 
 * Om du inte redan gjort det, [registrera Azure Stack](.\azure-stack-registration.md) med Azure så att du kan ladda ned Azure marketplace-objekt.
-* Du måste installera Azure- och Azure Stack PowerShell-moduler system att kommer du kör installationen. Systemet måste vara en Windows 10 eller Windows Server 2016-avbildning med den senaste versionen av .NET-runtime. Se [installera PowerShell för Azure Stack](.\azure-stack-powershell-install.md).
+* Du måste installera Azure- och Azure Stack PowerShell-moduler på systemet där du kör installationen. Systemet måste vara en Windows 10 eller Windows Server 2016-avbildning med den senaste versionen av .NET-runtime. Se [installera PowerShell för Azure Stack](.\azure-stack-powershell-install.md).
 * Lägg till nödvändiga Windows Server core VM på Azure Stack Marketplace genom att ladda ned den **Windows Server 2016 Datacenter - Server Core** bild.
-
-  >[!NOTE]
-  >Om du behöver installera en Windows-uppdatering kan placera du en enda. MSU-paketet i lokala beroendesökvägen. Om mer än en. MSU-fil hittas, MySQL resource providerinstallationen misslyckas.
 
 * Ladda ned MySQL-resursprovidern binära och kör sedan Self-Extractor för att extrahera innehållet till en tillfällig katalog.
 
   >[!NOTE]
   >Om du vill distribuera MySQL-providern på ett system som inte har tillgång till Internet, kopiera den [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) filen till en lokal sökväg. Ange en sökväg namn med hjälp av den **DependencyFilesLocalPath** parametern.
 
-* Resursprovidern har en minsta motsvarande Azure Stack skapa. Kontrollera att du har hämtat rätt binärfilen för versionen av Azure Stack som du kör.
+* Resursprovidern har en minsta motsvarande Azure Stack skapa. Kontrollera att du har hämtat rätt binärfilen för versionen av Azure Stack som du kör:
 
     | Azure Stack-versionen | MySQL RP-version|
     | --- | --- |
     | Version 1804 (1.0.180513.1)|[MySQL RP version 1.1.24.0](https://aka.ms/azurestackmysqlrp1804) |
-    | Version 1802 (1.0.180302.1) | [MySQL RP version 1.1.18.0](https://aka.ms/azurestackmysqlrp1802) |
+    | Version 1802 (1.0.180302.1) | [MySQL RP version 1.1.18.0](https://aka.ms/azurestackmysqlrp1802)|
+    |     |     |
+
+- Kontrollera att datacenter integration krav är uppfyllda:
+
+    |Krav|Referens|
+    |-----|-----|
+    |Villkorlig vidarebefordran av DNS är korrekt.|[Integrering med Azure Stack datacenter - DNS](azure-stack-integrate-dns.md)|
+    |Ingående portar för resursprovider är öppna.|[Azure Stack datacenter-integrering – publicera slutpunkter](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |PKI-certifikatämne och alternativt namn har angetts korrekt.|[Azure Stack obligatoriska PKI kraven för distribution](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure PaaS certifikat distributionskrav Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |     |     |
 
 ### <a name="certificates"></a>Certifikat
 
@@ -56,7 +63,7 @@ _För integrerade system installationer endast_. Du måste ange SQL PaaS PKI-cer
 
 När du har allt som krävs installerat kan köra den **DeployMySqlProvider.ps1** skript för att distribuera MYSQL-resursprovider. Skriptet DeployMySqlProvider.ps1 extraheras som en del av MySQL resource provider binärfilen som du hämtade för din version av Azure Stack.
 
-Öppna en ny förhöjd PowerShell-konsolfönster och ändra till den katalog där du extraherade de binära filerna för MySQL resource provider för att distribuera MySQL-resursprovider. Vi rekommenderar att du använder ett nytt PowerShell-fönster för att undvika potentiella problem som orsakas av PowerShell-moduler som redan har lästs in.
+Öppna en ny upphöjd PowerShell-fönster (inte PowerShell ISE) för att distribuera MySQL-resursprovidern, och ändra till den katalog där du extraherade de binära filerna för MySQL resource provider. Vi rekommenderar att du använder ett nytt PowerShell-fönster för att undvika potentiella problem som orsakas av PowerShell-moduler som redan har lästs in.
 
 Kör den **DeployMySqlProvider.ps1** skript som utför följande aktiviteter:
 
@@ -65,8 +72,7 @@ Kör den **DeployMySqlProvider.ps1** skript som utför följande aktiviteter:
 * Publicerar ett gallery-paket för distribution av värdservrar.
 * Distribuerar en virtuell dator med Windows Server 2016 core avbildningen du hämtade och installerar sedan MySQL-resursprovider.
 * Registrerar en lokal DNS-post som mappar till dina VM-resursprovidern.
-* Registrerar din resursprovidern med den lokala Azure Resource Manager för operatorn och användarkonton.
-* Du kan också installerar en enskild uppdatering för Windows Server under providerinstallationen för resursen.
+* Registrerar din resursprovidern med den lokala Azure Resource Manager för operatorn-konto.
 
 > [!NOTE]
 > När MySQL resource provider distributionen startar, **system.local.mysqladapter** resursgruppen har skapats. Det kan ta upp till 75 minuter att slutföra de distributioner som krävs för att den här resursgruppen.

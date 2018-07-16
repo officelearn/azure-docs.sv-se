@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 88d5eb22186248024a356610addab0d43f68a961
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: dd5bea791fed0c16195eadca03ba2f9a8c11da1b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887138"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044959"
 ---
 # <a name="prediction-score"></a>Förutsägelseresultat
 En förutsägelse poäng indikerar grad av säkerhet som LUIS har för förutsägelser. 
@@ -57,6 +57,9 @@ Förutsägelse poäng kan använda exponent notation *visas* ovan 0 – 1 interv
 När du tränar samma i en annan app, och de är inte det här samma, beror det på att det är en del av slumpmässighet i utbildningen. För det andra innebär någon överlappning av ett uttryck till mer än en avsikt främsta syftet för samma uttryck kan ändras baserat på utbildning.
 
 Om din chattrobot kräver specifika LUIS poäng att ange förtroende för en avsikt, bör du istället använda poäng skillnaden mellan de två översta avsikterna. Detta ger flexibilitet för utbildning. 
+
+## <a name="punctuation"></a>Skiljetecken
+Skiljetecken är en separat token i LUIS. Ett uttryck som innehåller en punkt i slutet jämfört med ett uttryck som inte är två separata yttranden och kan få två olika förutsägelser. Kontrollera att modellen hanterar skiljetecken antingen i den [exempel yttranden](luis-concept-utterance.md) (med och inte har något skiljetecken) eller i den [patterns}(luis-concept-patterns.md) där det är enklare att Ignorera skiljetecken med särskild syntax: `I am applying for the {Job} position[.]`
 
 ## <a name="next-steps"></a>Nästa steg
 

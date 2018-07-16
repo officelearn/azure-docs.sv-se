@@ -3,18 +3,18 @@ title: Introduktion till Azure IoT Hub | Microsoft Docs
 description: Läs mer om Azure IoT Hub. Den här IoT-tjänsten har utformats för skalbar datapåfyllning, enhetshantering och säkerhet.
 author: nberdy
 ms.author: nberdy
-ms.date: 04/27/2018
+ms.date: 07/04/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
 manager: briz
-ms.openlocfilehash: 1d3df8f1f65d02502c11c6d6ef431292efea64e9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0e54c48eb63c5b70626e72f83de6d3676710d4c4
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632364"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860164"
 ---
 # <a name="what-is-azure-iot-hub"></a>Vad är Azure IoT Hub?
 
@@ -42,7 +42,7 @@ IoT Hub ger dig en säker kommunikationskanal genom vilken dina enheter kan skic
 
 ## <a name="route-device-data"></a>Vägenhetsdata
 
-Den inbyggda funktionen för meddelanderoutning ger dig flexibla möjligheter att konfigurera automatisk regelbaserad meddelandeförgrening:
+Den inbyggda funktionen för meddelandedirigering ger dig flexibla möjligheter att konfigurera automatisk regelbaserad meddelandeförgrening:
 
 * Använd meddelanderoutning när du vill kontrollera vart din hubb skickar enhetstelemetri.
 * Det innebär inte någon extra kostnad att skicka meddelanden till flera slutpunkter.
@@ -108,4 +108,4 @@ Varje Azure-prenumeration har standardkvotgränser för att förhindra missbruk 
 
 Om du vill testa en IoT-lösning för slutpunkt-till-slutpunkt så ta en titt på snabbstarterna för IoT Hub:
 
-* [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](iot-hub-get-started.md)
+* [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-node.md)

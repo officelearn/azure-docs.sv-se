@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med arbetsplats av Facebook | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integration med arbetsplats av Facebook | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och arbetsplats med Facebook.
 services: active-directory
 documentationCenter: na
@@ -14,51 +14,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 4fb4a01e10baf835a1e967e9c865241d07b6639d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fe876db13cc5fb97f827a80a328003a7d2585adc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212231"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042001"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Självstudier: Azure Active Directory-integrering med arbetsplats av Facebook
+# <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Självstudier: Azure Active Directory-integration med arbetsplats med Facebook
 
-I kursen får lära du att integrera arbetsplats av Facebook med Azure Active Directory (AD Azure).
+Lär dig hur du integrerar arbetsplats av Facebook med Azure Active Directory (AD Azure) i den här självstudien.
 
 Integrera arbetsplats av Facebook med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till arbetsplats med Facebook
-- Du kan aktivera användarna att automatiskt hämta loggat in på arbetsplatsen av Facebook (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan aktivera användarna att automatiskt få loggat in på arbetsplatsen av Facebook (Single Sign-On) med sina Azure AD-konton
+- Du kan hantera dina konton på en central plats – Azure portal
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med arbetsplats av Facebook, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med arbetsplats med Facebook, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En arbetsplats av Facebook enkel inloggning aktiverad prenumeration
+- En arbetsplats av Facebook enkel inloggning aktiverat prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
 
 > [!NOTE]
-> Facebook har två produkter, arbetsplats Standard (gratis) och arbetsplats bidraget (). Alla arbetsplats Premium-klientorganisation kan konfigurera SCIM och SSO-integrering med inga andra konsekvenser kostnaden eller licenser som krävs. Enkel inloggning och SCIM är inte tillgänglig i Standard arbetsplats instanser.
+> Facebook har två produkter, arbetsplats Standard (kostnadsfri) och arbetsplats Premium (betalas). Alla arbetsplats Premium-klientorganisation kan konfigurera SCIM- och SSO-integrering med inga andra effekter kostnaden eller licenser som krävs. Enkel inloggning och SCIM är inte tillgängliga i arbetsplats standardinstanser.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till arbetsplatsen av Facebook från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>Att lägga till arbetsplatsen av Facebook från galleriet
-Du måste lägga till arbetsplatsen av Facebook från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av arbetsplatsen av Facebook i Azure AD.
+Om du vill konfigurera integreringen av arbetsplats av Facebook till Azure AD, som du behöver lägga till arbetsplatsen av Facebook från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till arbetsplatsen av Facebook från galleriet:**
 
@@ -70,58 +70,58 @@ Du måste lägga till arbetsplatsen av Facebook från galleriet i listan över h
 
     ![Program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
 4. I sökrutan skriver **arbetsplats av Facebook**.
 
-    ![Skapa en testanvändare i Azure AD](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_search.png)
+    ![Skapa en Azure AD-användare för testning](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_search.png)
 
-5. Välj i resultatpanelen **arbetsplats av Facebook**, och klicka sedan på **Lägg till** för att lägga till programmet.
+5. I resultatpanelen väljer **arbetsplats av Facebook**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_addfromgallery.png)
+    ![Skapa en Azure AD-användare för testning](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning till arbetsplats av Facebook baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med arbetsplats av Facebook baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till motsvarande användaren i arbetsplats av Facebook till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i arbetsplats av Facebook upprättas.
+För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i arbetsplats av Facebook till en användare i Azure AD. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i arbetsplats av Facebook upprättas.
 
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** arbetsplatsen av Facebook.
+Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** på arbetsplats med Facebook.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning till arbetsplats av Facebook, måste du utföra följande byggblock:
+Om du vill konfigurera och testa Azure AD enkel inloggning med arbetsplats med Facebook, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Konfigurera omautentisering frekvens](#configuring-reauthentication-frequency)**  - om du vill konfigurera arbetsplats för att fråga efter en SAML-kontroll.
-3. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Skapa en arbetsplats av Facebook testanvändare](#creating-a-workplace-by-facebook-test-user)**  – du har en motsvarighet för Britta Simon arbetsplatsen av Facebook som är kopplad till Azure AD-representation av användaren.
-5. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-6. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Konfigurera omautentisering frekvens](#configuring-reauthentication-frequency)**  – om du vill konfigurera arbetsplats att begära en SAML-kontroll.
+3. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+4. **[Skapa en arbetsplats av Facebook testanvändare](#creating-a-workplace-by-facebook-test-user)**  – du har en motsvarighet för Britta Simon i arbetsplats av Facebook som är länkad till en Azure AD-representation av användaren.
+5. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+6. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-I det här avsnittet kan du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning på din arbetsplats genom Facebook-programmet.
+I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i din arbetsplats med Facebook-programmet.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning till arbetsplats av Facebook:**
+**Om du vill konfigurera Azure AD enkel inloggning med arbetsplats med Facebook, utför du följande steg:**
 
-1. I Azure-portalen på den **arbetsplats av Facebook** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **arbetsplats av Facebook** program integration-sidan klickar du på **enkel inloggning**.
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_samlbase.png)
 
-3. På den **arbetsplats Facebook-domänen och URL: er** avsnittet, utför följande steg:
+3. På den **arbetsplats med Facebook-domän och URL: er** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<instancename>.facebook.com`
+    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<instancename>.facebook.com`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://www.facebook.com/company/<instanceID>`
+    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://www.facebook.com/company/<instanceID>`
 
     > [!NOTE] 
-    > Dessa värden är inte verkligt. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Visas på sidan autentisering på arbetsplatsen företagets instrumentpanelen för korrekta värden för din arbetsplats. 
+    > Dessa värden är inte verkligt. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Visa autentiseringssidan på arbetsplatsen företagets instrumentpanelen för rätt värden för din arbetsplats-community. 
 
 4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
@@ -131,129 +131,129 @@ I det här avsnittet kan du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning](./media/workplacebyfacebook-tutorial/tutorial_general_400.png)
 
-6. På den **arbetsplats Facebook konfigurationen** klickar du på **konfigurera arbetsplats av Facebook** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+6. På den **arbetsplats av Facebook-konfigurationen** klickar du på **konfigurera arbetsplats av Facebook** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Konfigurera enkel inloggning](./media/workplacebyfacebook-tutorial/config.png) 
 
-7. I en annan webbläsarfönstret, inloggning till arbetsplatsen av Facebook företagets plats som administratör.
+7. I ett annat webbläsarfönster, logga in på din arbetsplats av Facebook företagets plats som administratör.
   
    > [!NOTE] 
-   > Som en del av processen för SAML-autentisering, kan arbetsplatsen använda frågesträngar upp till 2,5 kilobyte i storlek för att kunna skicka parametrar till Azure AD.
+   > Som en del av SAML-autentiseringsprocessen utnyttjar arbetsplats frågesträngar för upp till 2,5 kB i storlek för att skicka parametrar till Azure AD.
 
-8. I den **företagets instrumentpanelen**, gå till den **autentisering** fliken.
+8. I den **företagets instrumentpanelen**går du till den **autentisering** fliken.
 
 9. Under **SAML-autentisering**väljer **SSO endast** från den nedrullningsbara listan.
 
-10. Ange värden som kopieras från **arbetsplats Facebook konfigurationen** på Azure portal till motsvarande fält:
+10. Indatavärden kopieras från **arbetsplats av Facebook-konfigurationen** på Azure portal till motsvarande fält:
 
-    *   I **SAML URL** textruta klistra in värdet för **inloggning tjänst-URL för enkel**, som du har kopierat från Azure-portalen.
-    *   I **utfärdar-URL för SAML-textrutan**, klistra in värdet för **SAML enhets-ID**, som du har kopierat från Azure-portalen.
-    *   I **SAML logga ut omdirigera** (valfritt), klistra in värdet för **Sign-Out URL**, som du har kopierat från Azure-portalen.
-    *   Öppna din **Base64-kodat certifikat** i anteckningar som hämtas från Azure-portalen, kopiera innehållet i den till Urklipp och klistra in den till den **SAML certifikat** textruta.
+    *   I **URL för SAML** textrutan klistra in värdet för **enkel inloggnings-URL för**, som du har kopierat från Azure-portalen.
+    *   I **SAML utfärdar-URL-textrutan**, klistra in värdet för **SAML entitets-ID**, som du har kopierat från Azure-portalen.
+    *   I **SAML-utloggning omdirigera** (valfritt), klistra in värdet för **URL: en för utloggning**, som du har kopierat från Azure-portalen.
+    *   Öppna din **Base64-kodade certifikat** i anteckningar som hämtats från Azure-portalen, kopierar du innehållet i den till Urklipp och klistra in den till den **SAML-certifikatet** textrutan.
 
-11. Du kan behöva målgruppen webbadressen till mottagaren URL och ACS (Assertion konsumenten Service)-URL som visas under den **SAML-konfiguration** avsnitt.
+11. Du kan behöva ange publik URL, mottagaren URL: en, och URL: en för ACS (Konsumenttjänst för försäkran) visas under den **SAML-konfiguration** avsnittet.
 
-12. Bläddra längst ned i avsnittet och klicka på den **Test SSO** knappen. Detta resulterar i ett popup-fönster som visas med Azure AD-inloggningssidan visas. Ange dina autentiseringsuppgifter i som vanligt för att autentisera. 
+12. Rulla till slutet av avsnittet och klicka på den **Test SSO** knappen. Detta resulterar i ett popup-fönster visas med Azure AD-inloggningssidan visas. Ange dina autentiseringsuppgifter i som vanligt för att autentisera. 
 
-    **Felsöka:** kontrollera e-postadressen som returneras tillbaka från Azure AD är samma som arbetsplatskontot som du är inloggad med.
+    **Felsökning:** kontrollera e-postadressen som returneras tillbaka från Azure AD är samma som arbetsplatskontot som du har loggat in med.
 
-13. När testet har slutförts, bläddra till längst ned på sidan och klicka på den **spara** knappen.
+13. När testet har slutförts, bläddra längst ned på sidan och klicka på den **spara** knappen.
 
 14. Alla användare som använder arbetsplats visas nu med Azure AD-inloggningssidan för autentisering.
 
-15. **SAML logga ut omdirigera (valfritt)** - 
+15. **SAML utloggning omdirigera (valfritt)** - 
 
-    Kan du också konfigurera en SAML logga ut Url som kan användas för att peka på sidan för Azure AD logga ut. När den här inställningen är aktiverad och konfigurerad, kommer användaren inte längre dirigeras till sidan Arbetsyta logga ut. I stället omdirigeras användaren till den url som har lagts till i inställningen för att dirigera om SAML logga ut.
+    Du kan välja att du kan också konfigurera en SAML utloggnings-Url, som kan användas för att den pekar på sidan för Azure AD logga ut. När den här inställningen är aktiverad och konfigurerad, kommer inte längre användaren omdirigeras till sidan Arbetsyta utloggning. I stället omdirigeras användaren till den url som har lagts till i SAML-utloggning omdirigerings-inställningen.
 
 ### <a name="configuring-reauthentication-frequency"></a>Konfigurera omautentisering frekvens
 
 Du kan konfigurera arbetsplats för att fråga efter en SAML-kontroll varje dag, tre dagar, vecka, vecka, månad eller aldrig.
 
 > [!NOTE] 
->Minsta värde för SAML-kontroll av mobila program anges till en vecka.
+>Minimivärdet för SAML-kontrollen på mobilprogram anges till en vecka.
 
-Du kan också tvinga en återställning för alla användare med hjälp av knappen SAML: kräver SAML-autentisering för alla användare nu.
+Du kan också tvinga en SAML för alla användare med hjälp av knappen Återställ: kräver SAML-autentisering för alla användare nu.
 
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+![Skapa en Azure AD-användare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
 
-    ![Skapa en testanvändare i Azure AD](./media/workplacebyfacebook-tutorial/create_aaduser_01.png) 
+    ![Skapa en Azure AD-användare för testning](./media/workplacebyfacebook-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
+2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
-    ![Skapa en testanvändare i Azure AD](./media/workplacebyfacebook-tutorial/create_aaduser_02.png) 
+    ![Skapa en Azure AD-användare för testning](./media/workplacebyfacebook-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
-    ![Skapa en testanvändare i Azure AD](./media/workplacebyfacebook-tutorial/create_aaduser_03.png) 
+    ![Skapa en Azure AD-användare för testning](./media/workplacebyfacebook-tutorial/create_aaduser_03.png) 
 
 4. På den **användaren** dialogrutan utför följande steg:
  
-    ![Skapa en testanvändare i Azure AD](./media/workplacebyfacebook-tutorial/create_aaduser_04.png) 
+    ![Skapa en Azure AD-användare för testning](./media/workplacebyfacebook-tutorial/create_aaduser_04.png) 
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    a. I den **namn** textrutan typ **BrittaSimon**.
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
  
 ### <a name="creating-a-workplace-by-facebook-test-user"></a>Skapa en arbetsplats av Facebook testanvändare
 
-I det här avsnittet skapas en användare som kallas Britta Simon i arbetsplats med Facebook. Arbetsplats av Facebook stöder just-in-time-allokering som är aktiverad som standard.
+I det här avsnittet skapas en användare som kallas Britta Simon i arbetsplats med Facebook. Arbetsplats av Facebook stöder just-in-time-etablering, som är aktiverat som standard.
 
-Det finns inga åtgärder i det här avsnittet. Om en användare inte finns i arbetsplats av Facebook, skapas en ny när du försöker komma åt arbetsplatsen av Facebook.
+Det finns inga åtgärder åt dig i det här avsnittet. Om en användare inte finns i arbetsplats med Facebook, skapas en ny när du försöker få åtkomst till arbetsplats med Facebook.
 
 >[!Note]
->Om du behöver skapa en användare manuellt, kontakta [arbetsplats av Facebook klienten supportteamet](https://workplace.fb.com/faq/)
+>Om du vill skapa en användare manuellt, kontakta [arbetsplats med Facebook-klientens support-teamet](https://workplace.fb.com/faq/)
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till arbetsplats med Facebook.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till arbetsplats med Facebook.
 
 ![Tilldela användare][200] 
 
-**Om du vill tilldela arbetsplats av Facebook Britta Simon utför du följande steg:**
+**Om du vill tilldela Britta Simon arbetsplats med Facebook, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **arbetsplats av Facebook**.
+2. I listan med program väljer **arbetsplats av Facebook**.
 
     ![Konfigurera enkel inloggning](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_app.png) 
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
-Om du vill testa dina inställningar för enkel inloggning, öppna åtkomstpanelen.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
+Öppna panelen om du vill testa dina inställningar för enkel inloggning.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera Användaretablering](workplacebyfacebook-provisioning-tutorial.md)
 

@@ -11,12 +11,12 @@ ms.topic: article
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: fdf195d96bb455334cb4e898e560813ee8709a50
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 4dee39b56cf0f6494f6e79c70b85bbf711d33d65
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035660"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044602"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -49,6 +49,19 @@ Felet innebär att azds.exe inte är i miljövariabeln PATH som visas i VS Code.
 ### <a name="try"></a>Prova:
 
 Starta VS Code från en kommandotolk där PATH-miljövariabeln är korrekt.
+
+## <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>Fel 'azds' identifieras inte som ett internt eller externt kommando, ett körbart program eller en batchfil
+ 
+Du kan se det här felet om azds.exe inte är installerat eller korrekt konfigurerat.
+
+### <a name="try"></a>Prova:
+
+1. Kontrollera plats-%ProgramFiles%/Microsoft SDKs\Azure\Azure Dev blanksteg CLI (förhandsversion) för azds.exe. Om det är det lägger du till den platsen att miljövariabeln PATH.
+2. Om azds.exe inte är installerad, kör du följande kommando:
+
+    ```cmd
+    az aks use-dev-spaces -n <cluster-name> -g <resource-group>
+    ```
 
 ## <a name="error-upstream-connect-error-or-disconnectreset-before-headers"></a>Fel ”uppströms anslutningsfel eller koppla från/reset innan rubriker”
 Du kan se det här felet när du försöker komma åt tjänsten. Till exempel när du går till tjänstens URL i en webbläsare. 

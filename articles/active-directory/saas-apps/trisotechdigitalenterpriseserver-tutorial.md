@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Trisotech digitala Enterprise Server | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Trisotech digitala Enterprise Server.
+title: 'Självstudier: Azure Active Directory-integration med Trisotech digitala Enterprise Server | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Trisotech digitala Enterprise-Server.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,48 +15,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 75a5713af0f5c6bbfca95bca2a345509cc154f4c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f579f914496427febdf60c3a8d3dc368ef265a9d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224964"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045333"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Självstudier: Azure Active Directory-integrering med Trisotech digitala Enterprise Server
+# <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Självstudier: Azure Active Directory-integration med Trisotech digitala Enterprise Server
 
-I kursen får lära du att integrera Trisotech digitala Enterprise Server med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Trisotech digitala Enterprise Server med Azure Active Directory (AD Azure).
 
 Integrera Trisotech digitala Enterprise Server med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Trisotech digitala Enterprise Server.
-- Du kan aktivera användarna att automatiskt hämta loggat in på Trisotech digitala Enterprise Server (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton i en central plats - Azure-portalen.
+- Du kan styra i Azure AD som har åtkomst till Trisotech digitala Enterprise-Server.
+- Du kan aktivera användarna att automatiskt få loggat in på Trisotech digitala Enterprise Server (enkel inloggning) med sina Azure AD-konton.
+- Du kan hantera dina konton på en central plats – Azure portal.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med Trisotech digitala Enterprise Server behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Trisotech digitala Enterprise Server behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En Trisotech digitala företagsserver enkel inloggning aktiverad prenumeration
+- En Trisotech digitala Enterprise Server enkel inloggning aktiverat prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Trisotech digitala Enterprise Server från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-trisotech-digital-enterprise-server-from-the-gallery"></a>Att lägga till Trisotech digitala Enterprise Server från galleriet
-Du måste lägga till Trisotech digitala Enterprise Server från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Trisotech digitala Enterprise Server i Azure AD.
+För att konfigurera integrering av Trisotech digitala Enterprise Server i Azure AD, som du behöver lägga till Trisotech digitala Enterprise Server från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Trisotech digitala Enterprise Server från galleriet:**
 
@@ -66,29 +66,29 @@ Du måste lägga till Trisotech digitala Enterprise Server från galleriet i lis
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Bladet Enterprise program][2]
+    ![Bladet för Enterprise-program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Trisotech digitala Enterprise Server**väljer **Trisotech digitala Enterprise Server** resultatet-panelen klickar **Lägg till** för att lägga till den programmet.
+4. I sökrutan skriver **Trisotech digitala Enterprise Server**väljer **Trisotech digitala Enterprise Server** resultatet panelen klickar **Lägg till** för att lägga till den programmet.
 
-    ![Trisotech digitala Enterprise Server i resultatlistan över](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_addfromgallery.png)
+    ![Trisotech digitala Enterprise-Server i listan med resultat](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Trisotech digitala Enterprise Server baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Trisotech digitala Enterprise Server baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till motsvarande användaren i Trisotech digitala Enterprise Server till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Trisotech digitala företagsserver upprättas.
+För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i Trisotech digitala Enterprise Server till en användare i Azure AD. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Trisotech digitala Enterprise Server upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Trisotech digitala Enterprise Server, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Trisotech digitala företagsserver](#create-a-trisotech-digital-enterprise-server-test-user)**  – du har en motsvarighet för Britta Simon i Trisotech digitala Enterprise Server som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Trisotech digitala Enterprise Server](#create-a-trisotech-digital-enterprise-server-test-user)**  – du har en motsvarighet för Britta Simon i Trisotech digitala företagsservern som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -96,36 +96,36 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Trisotech digitala Enterprise Server:**
 
-1. I Azure-portalen på den **Trisotech digitala Enterprise Server** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Trisotech digitala Enterprise Server** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning länk][4]
+    ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
-    ![Enkel inloggning dialogrutan](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_samlbase.png)
+    ![Enkel inloggning för dialogrutan](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_samlbase.png)
 
-3. På den **Trisotech digitala Enterprise-domän och URL: er** avsnittet, utför följande steg:
+3. På den **Trisotech digitala Enterprise Server-domän och URL: er** avsnittet, utför följande steg:
 
-    ![URL: er och Trisotech digitala Enterprise-domän med enkel inloggning information](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_url.png)
+    ![Trisotech digitala Enterprise Server-domän och URL: er med enkel inloggning för information](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<companyname>.trisotech.com`
+    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname>.trisotech.com`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<companyname>.trisotech.com`
+    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname>.trisotech.com`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Trisotech digitala Enterprise Server Client supportteamet](mailto:support@trisotech.com) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Trisotech digitala Enterprise Server Client supportteamet](mailto:support@trisotech.com) att hämta dessa värden.
 
-4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar. 
+4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar. 
 
-    ![Länken hämta certifikatet](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_certificate.png)
+    ![Länk för hämtning av certifikat](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_certificate.png)
 
 5. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning spara-knapp](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_general_400.png)
 
-6. I en annan webbläsarfönster loggar du in på webbplatsen Trisotech digitala Enterprise-serverkonfigurationen företag som administratör.
+6. I ett annat webbläsarfönster logga du in på webbplatsen Trisotech digitala Enterprise-serverkonfiguration företagets som administratör.
 
-7. Klicka på den **menyn ikonen** och välj sedan **Administration**.
+7. Klicka på den **menyikonen** och välj sedan **Administration**.
 
     ![Konfigurera enkel inloggning](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
 
@@ -137,35 +137,35 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
 
-    a. Välj **skyddas Assertion Markup Language 2.2 SAML** i listrutan i den **autentiseringsmetod**.
+    a. Välj **skyddas Assertion Markup Language 2.2 SAML** i listrutan i det **autentiseringsmetod**.
 
-    b. I den **URL för tjänstmetadata** textruta klistra in den **webbadress Federation Metadata** -värde som du har kopierat formuläret Azure-portalen.
+    b. I den **Metadata_url** textrutan klistra in den **Appfederationsmetadata** värde, som du har kopierat utgör Azure-portalen.
 
-    c. I den **program-ID** textruta ange URL-Adressen med följande mönster: `https://<companyname>.trisotech.com`.
+    c. I den **program-ID** textrutan anger du URL: en med hjälp av följande mönster: `https://<companyname>.trisotech.com`.
 
     d. Klicka på **Spara**
 
-    e. Ange domännamnet i den **tillåtna domäner (empty innebär alla)** textruta tilldelas den automatiskt licenser för användare som matchar de tillåtna domäner
+    e. Ange domännamnet i den **tillåtna domäner (empty innebär alla)** textrutan automatiskt tilldelar licenser för användare som matchar de domäner som tillåts
 
     f. Klicka på **Spara**
 
- ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+ ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-   ![Skapa en testanvändare i Azure AD][100]
+   ![Skapa en Azure AD-testanvändare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
     ![Azure Active Directory-knappen](./media/trisotechdigitalenterpriseserver-tutorial/create_aaduser_01.png)
 
 2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-    ![”Användare och grupper” och ”alla användare” länkar](./media/trisotechdigitalenterpriseserver-tutorial/create_aaduser_02.png)
+    ![”Användare och grupper” och ”alla användare”-länkar](./media/trisotechdigitalenterpriseserver-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/trisotechdigitalenterpriseserver-tutorial/create_aaduser_03.png)
 
@@ -175,58 +175,58 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     a. I den **namn** skriver **BrittaSimon**.
 
-    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
 
-    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
+    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
 
     d. Klicka på **Skapa**.
  
 ### <a name="create-a-trisotech-digital-enterprise-server-test-user"></a>Skapa en testanvändare Trisotech digitala Enterprise Server
 
-Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i Trisotech digitala Enterprise Server. Trisotech digitala Enterprise Server stöder just-in-time-etablering, vilket är aktiverat som standard. Det finns ingen åtgärd objekt i det här avsnittet. En ny användare skapas under ett försök att komma åt Trisotech digitala Enterprise Server om den inte finns.
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Trisotech digitala Enterprise-Server. Trisotech digitala Enterprise Server stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Trisotech digitala Enterprise Server om den inte finns.
 >[!Note]
->Om du behöver skapa en användare manuellt Kontakta [Trisotech digitala företagsserver supportteamet](mailto:support@trisotech.com).
+>Om du vill skapa en användare manuellt kan du kontakta [Trisotech digitala Enterprise Server-supportteamet](mailto:support@trisotech.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Trisotech digitala Enterprise Server.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Trisotech digitala Enterprise-Server.
 
 ![Tilldela rollen][200] 
 
 **Om du vill tilldela Britta Simon Trisotech digitala Enterprise Server, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **Trisotech digitala Enterprise Server**.
+2. I listan med program väljer **Trisotech digitala Enterprise Server**.
 
-    ![Länken Trisotech digitala Enterprise Server i listan med program](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_app.png)  
+    ![Länken Trisotech digitala Enterprise-Server i listan med program](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_app.png)  
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Trisotech digitala Enterprise Server på åtkomstpanelen du bör få automatiskt loggat in på Trisotech digitala Enterprise Server-programmet.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen Trisotech digitala Enterprise Server i åtkomstpanelen du bör få automatiskt loggat in på ditt Trisotech digitala Enterprise Server-program.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

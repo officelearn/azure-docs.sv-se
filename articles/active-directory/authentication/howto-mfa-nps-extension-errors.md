@@ -1,5 +1,5 @@
 ---
-title: Felsök felkoder för Azure MFA NPS-tillägg | Microsoft Docs
+title: Felsök felkoder för Azure MFA NPS-tillägget | Microsoft Docs
 description: Få hjälp med att lösa problem med NPS-tillägget för Azure Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
@@ -10,81 +10,81 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 5f25213d8d1fbc95aa419c86ca5b780f345952ed
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: fcfabde7236f0fd6ef7b965b816bc5b79a96d503
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130207"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044646"
 ---
-# <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Lösa felmeddelanden från NPS-tillägg för Azure Multi-Factor Authentication
+# <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Åtgärda felmeddelanden från NPS-tillägget för Azure Multi-Factor Authentication
 
-Om det uppstår problem med NPS-tillägget för Azure Multi-Factor Authentication, kan du använda den här artikeln för att nå en lösning snabbare. 
+Om det uppstår fel med NPS-tillägget för Azure Multi-Factor Authentication, kan du använda den här artikeln för att nå en lösning snabbare. 
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Felsökning av vanliga fel
 
-| Felkod | Felsökningsanvisningar |
+| Felkod | Felsökningssteg |
 | ---------- | --------------------- |
-| **CONTACT_SUPPORT** | [Kontakta supporten](#contact-microsoft-support), och nämnt lista över steg för att samla in loggar. Ange så mycket information som du kan om vad som hänt innan felet, inklusive klient-id och användarens huvudnamn (UPN). |
-| **CLIENT_CERT_INSTALL_ERROR** | Det kan finnas ett problem med hur klientcertifikatet installerades eller som är associerade med din klient. Följ instruktionerna i [felsökning MFA NPS-tillägget](howto-mfa-nps-extension.md#troubleshooting) att undersöka problem med klient-certifikat. |
-| **ESTS_TOKEN_ERROR** | Följ instruktionerna i [felsökning MFA NPS-tillägget](howto-mfa-nps-extension.md#troubleshooting) för att undersöka klienten cert och ADAL token problem. |
-| **HTTPS_COMMUNICATION_ERROR** | NPS-servern kan inte ta emot svar från Azure MFA. Kontrollera att dina brandväggar är öppet åt två håll för trafik till och från https://adnotifications.windowsazure.com |
-| **HTTP_CONNECT_ERROR** | Kontrollera att du kan nå på den server som kör NPS-tillägget https://adnotifications.windowsazure.com och https://login.microsoftonline.com/. Om dessa platser inte ladda, felsöka anslutning på den servern. |
+| **CONTACT_SUPPORT** | [Kontakta supporten](#contact-microsoft-support), och nämner lista över steg för att samla in loggar. Ange så mycket information som du kan om vad som hände före felet, inklusive klient-id och användarens huvudnamn (UPN). |
+| **CLIENT_CERT_INSTALL_ERROR** | Det kan finnas ett problem med hur klientcertifikatet installerades eller som är associerade med din klient. Följ instruktionerna i [felsökning MFA NPS-tillägget](howto-mfa-nps-extension.md#troubleshooting) att undersöka problem med certifikat-klienten. |
+| **ESTS_TOKEN_ERROR** | Följ instruktionerna i [felsökning MFA NPS-tillägget](howto-mfa-nps-extension.md#troubleshooting) för att undersöka klientcertifikatet och ADAL token problem. |
+| **HTTPS_COMMUNICATION_ERROR** | NPS-servern kan inte ta emot svar från Azure MFA. Kontrollera att dina brandväggar är öppen i två riktningar för trafik till och från https://adnotifications.windowsazure.com |
+| **HTTP_CONNECT_ERROR** | På den server som kör NPS-tillägget, kontrollerar du att du kan nå https://adnotifications.windowsazure.com och https://login.microsoftonline.com/. Om dessa platser inte läsa in, felsöka anslutning på den servern. |
 | **REGISTRY_CONFIG_ERROR** | En nyckel saknas i registret för programmet, vilket kan bero på att den [PowerShell-skript](howto-mfa-nps-extension.md#install-the-nps-extension) inte kör efter installationen. Felmeddelandet ska innehålla nyckeln som saknas. Kontrollera att du har nyckeln under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
-| **REQUEST_FORMAT_ERROR** <br> RADIUS-begäran saknar det obligatoriska attributet för Radius-userName\Identifier. Kontrollera att NPS får RADIUS-begäranden | Det här felet visar vanligtvis ett installationsproblem. NPS-tillägget måste vara installerad i NPS-servrar som kan ta emot RADIUS-begäranden. NPS-servrar som är installerade som beroenden för tjänster som Fjärrskrivbordsgateway och RRAS inte ta emot radius-begäranden. NPS-tillägg fungerar inte när du installerar över sådana installationer och fel eftersom det inte går att läsa information från autentiseringsbegäran. |
-| **REQUEST_MISSING_CODE** | Kontrollera att lösenordet krypteringsprotokollet mellan NPS- och NAS stöder sekundära autentiseringsmetoden som du använder. **PAP** stöder alla autentiseringsmetoder i Azure MFA i molnet: telefonsamtal, enkelriktade SMS, mobilappavisering och Verifieringskod för mobila appar. **CHAPv2** och **EAP** stöd för telefonsamtal och mobilappavisering. |
-| **USERNAME_CANONICALIZATION_ERROR** | Kontrollera att användaren är tillgänglig i din lokala Active Directory-instans och att NPS-tjänsten har behörighet att få åtkomst till katalogen. Om du använder förtroenden mellan skogar, [supporten](#contact-microsoft-support) för ytterligare hjälp. |
+| **REQUEST_FORMAT_ERROR** <br> RADIUS-begäran saknar det obligatoriska attributet för Radius-userName\Identifier. Kontrollera att NPS tar emot RADIUS-begäranden | Det här felet återspeglar vanligtvis ett installationsproblem. NPS-tillägget måste installeras i NPS-servrar som kan ta emot RADIUS-förfrågningar. NPS-servrar som är installerade som beroenden för tjänster som RDG och RRAS inte ta emot radius-förfrågningar. NPS-tillägget fungerar inte när du installerar över sådana installationer och fel ut eftersom det inte går att läsa information från autentiseringsbegäran. |
+| **REQUEST_MISSING_CODE** | Kontrollera att lösenordet krypteringsprotokollet mellan NPS- och NAS-servrarna har stöd för den sekundära autentiseringsmetoden som du använder. **PAP** har stöd för alla autentiseringsmetoder av Azure MFA i molnet: telefonsamtal, enkelriktad SMS, mobilapp och mobilapp-Verifieringskod. **CHAPv2** och **EAP** stöd för telefonsamtal och mobilapp. |
+| **USERNAME_CANONICALIZATION_ERROR** | Kontrollera att användaren finns i din lokala Active Directory-instans och att NPS-tjänsten har behörighet att komma åt katalogen. Om du använder förtroenderelationer mellan skogar, [supporten](#contact-microsoft-support) för ytterligare hjälp. |
 
 
    
 
-### <a name="alternate-login-id-errors"></a>Alternativt inloggnings-ID-fel
+### <a name="alternate-login-id-errors"></a>Alternativa inloggnings-ID fel
 
-| Felkod | Felmeddelande | Felsökningsanvisningar |
+| Felkod | Felmeddelande | Felsökningssteg |
 | ---------- | ------------- | --------------------- |
-| **ALTERNATE_LOGIN_ID_ERROR** | Fel: userObjectSid sökning misslyckades | Kontrollera att användaren finns i din lokala Active Directory-instans. Om du använder förtroenden mellan skogar, [supporten](#contact-microsoft-support) för ytterligare hjälp. |
-| **ALTERNATE_LOGIN_ID_ERROR** | Fel: Det gick inte att alternativa LoginId sökning | Kontrollera att LDAP_ALTERNATE_LOGINID_ATTRIBUTE är en [giltigt active directory-attributet](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Om LDAP_FORCE_GLOBAL_CATALOG har angetts till True, eller LDAP_LOOKUP_FORESTS har konfigurerats med ett tomt värde, kontrollera att du har konfigurerat en Global katalog och att attributet AlternateLoginId har lagts till den. <br><br> Om LDAP_LOOKUP_FORESTS är konfigurerad med ett tomt värde, kan du kontrollera att värdet är korrekt. Om det finns fler än en skogsnamnet, måste namnen vara avgränsade med semikolon, inte blanksteg. <br><br> Om stegen inte löser problemet, [supporten](#contact-microsoft-support) mer hjälp. |
-| **ALTERNATE_LOGIN_ID_ERROR** | Fel: Alternativ LoginId värdet är tomt | Kontrollera att attributet AlternateLoginId har konfigurerats för användaren. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Fel: userObjectSid sökningen misslyckades | Kontrollera att användaren finns i din lokala Active Directory-instans. Om du använder förtroenderelationer mellan skogar, [supporten](#contact-microsoft-support) för ytterligare hjälp. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Fel: Det gick inte att alternativa LoginId sökning | Kontrollera att LDAP_ALTERNATE_LOGINID_ATTRIBUTE har angetts till en [giltigt active directory-attributet](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Om LDAP_FORCE_GLOBAL_CATALOG har angetts till True, eller LDAP_LOOKUP_FORESTS har konfigurerats med en icke-tomma värden, kontrollera att du har konfigurerat en Global katalog och att attributet AlternateLoginId har lagts till den. <br><br> Om LDAP_LOOKUP_FORESTS konfigureras med en icke-tomma värden, kontrollerar du att värdet är korrekt. Om det finns fler än en skogsnamn, måste namnen avgränsade med semikolon, inte blanksteg. <br><br> Om de här stegen inte löser problemet, [supporten](#contact-microsoft-support) för mer hjälp. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Fel: Alternativa LoginId värdet är tomt | Kontrollera att attributet AlternateLoginId har konfigurerats för användaren. |
 
 
 ## <a name="errors-your-users-may-encounter"></a>Fel kan uppstå när dina användare
 
-| Felkod | Felmeddelande | Felsökningsanvisningar |
+| Felkod | Felmeddelande | Felsökningssteg |
 | ---------- | ------------- | --------------------- |
-| **AccessDenied** | Anroparen klienten har inte behörighet att utföra autentiseringen för användaren | Kontrollera om klientdomänen och domänen för användarens huvudnamn (UPN) är samma. Till exempel se till att user@contoso.com försöker autentisera till Contoso-klienten. UPN representerar en giltig användare för klienten i Azure. |
-| **AuthenticationMethodNotConfigured** | Angiven autentiseringsmetod har inte konfigurerats för användaren | Behörighet att lägga till eller verifiera sina verifieringsmetoderna enligt anvisningarna i [hantera inställningar för tvåstegsverifiering](end-user/current/multi-factor-authentication-end-user-manage-settings.md). |
-| **AuthenticationMethodNotSupported** | Angiven autentiseringsmetod stöds inte. | Samla in alla loggfiler som innehåller det här felet och [supporten](#contact-microsoft-support). Ange användarnamnet och det sekundära verifieringsmetod som utlöste felet när du kontaktar supporten. |
-| **BecAccessDenied** | MSODS Bec-anropet returnerade åtkomst nekad, förmodligen användarnamnet har inte definierats i klienten | Användaren finns i Active Directory lokalt men har synkroniserats inte till Azure AD med AD Connect. Eller användaren saknas för klienten. Lägga till användaren i Azure AD och ha dem lägga till sina verifieringsmetoderna enligt anvisningarna i [hantera inställningar för tvåstegsverifiering](end-user/current/multi-factor-authentication-end-user-manage-settings.md). |
-| **InvalidFormat** eller **StrongAuthenticationServiceInvalidParameter** | Telefonnumret är i ett okänt format | Låt användaren korrigera deras telefonnummer för verifiering. |
-| **InvalidSession** | Den angivna sessionen är ogiltig eller har gått ut | Sessionen har trätt i mer än tre minuter att slutföra. Kontrollera att användaren att ange verifieringskoden eller svara på appmeddelande inom tre minuter för inledande autentiseringsförfrågan. Om detta inte löser problemet, kontrollerar du att det inte finns några nätverksfördröjningar mellan klienten, NAS-Server, NPS-Server och Azure MFA-slutpunkten.  |
-| **NoDefaultAuthenticationMethodIsConfigured** | Ingen standardautentiseringsmetod har konfigurerats för användaren | Behörighet att lägga till eller verifiera sina verifieringsmetoderna enligt anvisningarna i [hantera inställningar för tvåstegsverifiering](end-user/current/multi-factor-authentication-end-user-manage-settings.md). Kontrollera att användaren har valt en standardmetoden för autentisering och konfigurerats som metod för sitt konto. |
-| **OathCodePinIncorrect** | Fel kod och angiven PIN-kod. | Det här felet förväntas inte i NPS-tillägget. Om användaren påträffar, [supporten](#contact-microsoft-support) för hjälp med felsökning. |
-| **ProofDataNotFound** | Bevis data har inte konfigurerats för den angivna autentiseringsmetoden. | Låt användaren prova ett annat verifieringsmetod eller Lägg till en ny verifieringsmetoderna enligt anvisningarna i [hantera inställningar för tvåstegsverifiering](end-user/current/multi-factor-authentication-end-user-manage-settings.md). Om användaren fortfarande att se det här felet när du har bekräftat att deras verifieringsmetod är korrekt konfigurerade, [supporten](#contact-microsoft-support). |
-| **SMSAuthFailedWrongCodePinEntered** | Fel kod och angiven PIN-kod. (OneWaySMS) | Det här felet förväntas inte i NPS-tillägget. Om användaren påträffar, [supporten](#contact-microsoft-support) för hjälp med felsökning. |
-| **TenantIsBlocked** | Klienten är blockerad | [Kontakta supporten](#contact-microsoft-support) med katalog-ID från Azure AD-egenskapssidan i Azure-portalen. |
-| **UserNotFound** | Det gick inte att hitta den angivna användaren | Klienten inte längre visas som aktiv i Azure AD. Kontrollera att din prenumeration är aktiv och att du har de nödvändiga första part appar. Kontrollera också att klienten i certifikatets ämne är som förväntat och cert fortfarande är giltig och registrerad under tjänstens huvudnamn. |
+| **AccessDenied** | Anroparen klienten har inte behörighet att utföra autentisering för användaren | Kontrollera om klientdomänen och domänen för användarens huvudnamn (UPN) är lika. Till exempel se till att user@contoso.com försöker autentisera till Contoso-klienten. UPN-namnet representerar en giltig användare för klienten i Azure. |
+| **AuthenticationMethodNotConfigured** | Den angivna autentiseringsmetoden har inte konfigurerats för användaren | Få användaren att lägga till eller verifiera sina verifieringsmetoder enligt anvisningarna i [hantera dina inställningar för tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-manage-settings.md). |
+| **AuthenticationMethodNotSupported** | Angivna autentiseringsmetod stöds inte. | Samla in alla loggar som innehåller det här felet och [supporten](#contact-microsoft-support). När du kontaktar supporten, anger du användarnamnet och den sekundära autentiseringsmetoden som utlöste felet. |
+| **BecAccessDenied** | MSODS Bec anropet returnerade åtkomst nekad, förmodligen användarnamnet har inte definierats i klienten | Användaren finns i Active Directory lokalt men har synkroniserats inte till Azure AD genom att AD Connect. Eller användaren saknas för klienten. Lägga till användaren i Azure AD och ber dem lägga till sina verifieringsmetoder enligt anvisningarna i [hantera dina inställningar för tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-manage-settings.md). |
+| **InvalidFormat** eller **StrongAuthenticationServiceInvalidParameter** | Telefonnumret är i ett okänt format | Få användaren att korrigera sina telefonnummer för verifiering. |
+| **InvalidSession** | Den angivna sessionen är ogiltig eller har gått ut | Sessionen har tagit mer än tre minuter att slutföra. Kontrollera att användaren att ange verifieringskoden eller svara på appmeddelande inom tre minuter med att starta autentiseringsbegäran. Om detta inte löser problemet, kontrollerar du att det finns inga nätverksfördröjningar mellan klienten, NAS-Server, NPS-Server och Azure MFA-slutpunkten.  |
+| **NoDefaultAuthenticationMethodIsConfigured** | Inga standardmetoden för autentisering har konfigurerats för användaren | Få användaren att lägga till eller verifiera sina verifieringsmetoder enligt anvisningarna i [hantera dina inställningar för tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-manage-settings.md). Kontrollera att användaren har valt en standardmetoden för autentisering och konfigurerat den metoden för sitt konto. |
+| **OathCodePinIncorrect** | Fel kod och angiven PIN-kod. | Det här felet är inte förväntas i NPS-tillägget. Om dina användare påträffar det [supporten](#contact-microsoft-support) för hjälp med felsökning. |
+| **ProofDataNotFound** | Funktionstest data har inte angetts för den angivna autentiseringsmetoden. | Låt användaren prova en annan verifieringsmetod eller lägga till en ny verifieringsmetoder enligt anvisningarna i [hantera dina inställningar för tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-manage-settings.md). Om användaren fortfarande ser det här felet när du har bekräftat att deras verifieringsmetod är korrekt konfigurerad, [supporten](#contact-microsoft-support). |
+| **SMSAuthFailedWrongCodePinEntered** | Fel kod och angiven PIN-kod. (OneWaySMS) | Det här felet är inte förväntas i NPS-tillägget. Om dina användare påträffar det [supporten](#contact-microsoft-support) för hjälp med felsökning. |
+| **TenantIsBlocked** | Klienten är blockerad | [Kontakta supporten](#contact-microsoft-support) med katalog-ID från Azure AD-sidan för egenskaper i Azure-portalen. |
+| **UserNotFound** | Det gick inte att hitta den angivna användaren | Klienten är inte längre visas som aktiv i Azure AD. Kontrollera att din prenumeration är aktiv och att du har de nödvändiga första parts appar. Kontrollera också att innehavaren i certifikatets ämne är som förväntat och certifikatet fortfarande är giltig och registrerad under tjänstens huvudnamn. |
 
-## <a name="messages-your-users-may-encounter-that-arent-errors"></a>Meddelandena som användarna kan stöta på som inte fel
+## <a name="messages-your-users-may-encounter-that-arent-errors"></a>Meddelanden som användarna kan stöta på som inte är fel
 
-Ibland kan kan användarna få meddelanden från Multi-Factor Authentication eftersom deras autentiseringsbegäran misslyckades. Dessa är inte fel i produkten av konfigurationen, men är avsiktlig varningar som förklarar varför begäran om autentisering nekades.
+Ibland kan kan dina användare få meddelanden från Multi-Factor Authentication eftersom deras autentiseringsbegäran misslyckades. De är inte fel i produkten av konfigurationen, men är avsiktlig varningar förklarar varför en autentiseringsbegäran nekades.
 
 | Felkod | Felmeddelande | Rekommenderade åtgärder | 
 | ---------- | ------------- | ----------------- |
-| **OathCodeIncorrect** | Fel kod entered\OATH kod felaktig | Användaren har angett fel kod inte ett fel. | Användaren angav fel kod. Låt användaren prova igen genom att begära en ny kod eller logga in igen. | 
-| **SMSAuthFailedMaxAllowedCodeRetryReached** | Högsta tillåtna kod försök nå | Användaren inte verifiering utmaning för många gånger. Beroende på dina inställningar, kan de behöva avblockerad av en administratör nu.  |
-| **SMSAuthFailedWrongCodeEntered** | Fel kod anges/Text meddelandet OTP felaktigt | Användaren angav fel kod. Låt användaren prova igen genom att begära en ny kod eller logga in igen. |
+| **OathCodeIncorrect** | Fel kod entered\OATH felaktig kod | Användaren har inte ett fel har angett fel kod. | Användaren angav fel kod. Låt användaren prova igen genom att begära en ny kod eller logga in igen. | 
+| **SMSAuthFailedMaxAllowedCodeRetryReached** | Högsta tillåtna kod försök har nåtts | Användaren inte verifieringen utmaningen för många gånger. Beroende på dina inställningar kan behöva de vara avblockerad av en administratör nu.  |
+| **SMSAuthFailedWrongCodeEntered** | Fel kod har angett/Text Message OTP felaktigt | Användaren angav fel kod. Låt användaren prova igen genom att begära en ny kod eller logga in igen. |
 
 ## <a name="errors-that-require-support"></a>Fel som kräver stöd
 
-Om det uppstår något av dessa fel, rekommenderar vi att du [supporten](#contact-microsoft-support) diagnostiska hjälp. Det finns ingen standarduppsättning steg som kan åtgärda dessa fel. När du kontaktar supporten, se till att ta så mycket information som möjligt om de steg som ledde till ett fel och klient-information.
+Om det uppstår något av dessa fel, rekommenderar vi att du [supporten](#contact-microsoft-support) diagnostiska hjälp. Det finns ingen standarduppsättning steg som kan lösa de här felen. När du kontaktar supporten, se till att inkludera som mycket information som möjligt om de steg som ledde till ett fel och klientorganisationens information.
 
 | Felkod | Felmeddelande |
 | ---------- | ------------- |
 | **InvalidParameter** | Begäran får inte vara null |
-| **InvalidParameter** | ObjectId får inte vara null eller tomt för ReplicationScope:{0} |
-| **InvalidParameter** | Längden på CompanyName \{0} \ är längre än den tillåtna maxlängden {1} |
+| **InvalidParameter** | Objekt-ID får inte vara null eller tom för ReplicationScope:{0} |
+| **InvalidParameter** | Längden på CompanyName \{0} \ är längre än maxlängden {1} |
 | **InvalidParameter** | UserPrincipalName får inte vara null eller tomt |
-| **InvalidParameter** | Den angivna TenantId har inte rätt format |
+| **InvalidParameter** | Den angivna TenantId är inte i rätt format |
 | **InvalidParameter** | Sessions-ID får inte vara null eller tomt |
 | **InvalidParameter** | Det gick inte att matcha alla ProofData från begäran eller Msods. ProofData är okänd |
 | **InternalError** |  |
@@ -96,13 +96,13 @@ Om det uppstår något av dessa fel, rekommenderar vi att du [supporten](#contac
 
 ### <a name="troubleshoot-user-accounts"></a>Felsöka användarkonton
 
-Om användarna är [har problem med tvåstegsverifiering](end-user/current/multi-factor-authentication-end-user-troubleshoot.md), hjälpa dem själv diagnosticera problem. 
+Om dina användare finns [har du problem med tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-troubleshoot.md), hjälpa dem själv diagnostisera problem. 
 
 ### <a name="contact-microsoft-support"></a>Kontakta Microsoft-supporten
 
-Om du behöver ytterligare hjälp kan du kontakta supportpersonalen via [stöd för Azure Multi-Factor Authentication-servern](https://support.microsoft.com/oas/default.aspx?prid=14947). När du kontaktar oss är det bra om du kan ange så mycket information om problemet som möjligt. Information som du kan ange innehåller sidan där du såg fel, den specifika felkoden specifika sessions-ID, ID för den användare som såg felet, loggar och felsökningsloggar.
+Om du behöver ytterligare hjälp kan du kontakta en supporttekniker via [support för Azure Multi-Factor Authentication Server](https://support.microsoft.com/oas/default.aspx?prid=14947). När du kontaktar oss, är det bra om du kan inkludera så mycket information om problemet som möjligt. Information som du kan ange innehåller sidan där du såg felet, den specifika felkoden specifika sessions-ID, ID för den användare som såg felet, loggar och felsökningsloggar.
 
-Använd följande steg på NPS-servern för att samla in felsökningsloggar för stöd för diagnostik:
+Använd följande steg för att samla in felsökningsloggar support diagnostik på NPS-servern:
 
 1. Öppna Registereditorn och gå till HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa set **VERBOSE_LOG** till **SANT**
 2. Öppna en administratörskommandotolk och kör följande kommandon:
@@ -129,6 +129,6 @@ Använd följande steg på NPS-servern för att samla in felsökningsloggar för
    ```
 
 5. Öppna Registereditorn och gå till HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa set **VERBOSE_LOG** till **FALSKT**
-6. ZIP-innehållet i mappen C:\NPS och bifoga den komprimerade filen i supportärende.
+6. ZIP-innehållet i mappen C:\NPS och bifoga den komprimerade filen till support-ärende.
 
 

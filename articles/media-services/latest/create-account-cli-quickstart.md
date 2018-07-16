@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – Skapa ett Azure Media Services-konto med CLI 2.0 | Microsoft Docs
+title: Snabbstart – Skapa ett Azure Media Services-konto med Azure CLI | Microsoft Docs
 description: Följ stegen i den här snabbstarten för att skapa ett Azure Media Services-konto.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: f7e5cb28f90466e9366c0a32e2a333e6823b9396
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9168a66c3afcd8dd0b05de15f5833c516ddb2250
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33779726"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767110"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Snabbstart: Skapa ett Azure Media Services-konto
 
@@ -26,7 +26,7 @@ ms.locfileid: "33779726"
 
 Oavsett om du är utvecklare eller innehållsskapare, behöver du ett Media Services-konto för att lagra, kryptera, koda, hantera och strömma medieinnehåll i Azure. När du skapar ett Media Services-konto, måste du ange ID:t för en Azure Storage-kontoresurs. Det angivna lagringskontot kopplas till ditt Media Services-konto. Lagringskontoresursen måste finnas i samma geografiska område som Media Services-kontot.  
 
-Denna snabbstart beskriver stegen för att skapa ett nytt Azure Media Services-konto med hjälp av CLI 2.0.  
+Denna snabbstart beskriver stegen för att skapa ett nytt Azure Media Services-konto med hjälp av Azure CLI.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,7 +36,7 @@ Logga in i [Azure Portal](http://portal.azure.com) och starta **CloudShell** fö
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du ha Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du ha Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## <a name="set-the-azure-subscription"></a>Ange Azure-prenumeration
 

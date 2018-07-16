@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 45dedd8c4d6ae2f9b54873d87f82c2e605a8c2aa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fa399e3644e1050a4f264890583a388f7abd84ed
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38451707"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049477"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept strategibok: komponenter
 
@@ -157,7 +157,7 @@ Ungefärlig tid att Slutför: 60 minuter
 | Följ anvisningarna för att konfigurera ServiceNow |  |
 | Aktivera ”automatisk” etablering i ”etablering”-bladet på ServiceNow-App | [Hantera konto etablering för företagsappar i nya Azure portal](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Vänta några minuter medan etableringen har slutförts.  Under tiden kan kan du kontrollera etableringsrapporterna |  |
-| Logga in på https://myapps.microsoft.com/ som en användare som har åtkomst | [Vad är åtkomstpanelen?](active-directory-saas-access-panel-introduction.md) |
+| Logga in på https://myapps.microsoft.com/ som en användare som har åtkomst | [Vad är åtkomstpanelen?](user-help/active-directory-saas-access-panel-introduction.md) |
 | Klicka på ikonen för programmet som nyss skapades. Bekräfta åtkomst |  |
 | Alternativt kan du kontrollera användningsrapporter för programmet. Observera att det finns vissa svarstid, så du behöver vänta en stund att se att trafiken i rapporterna. | [Logga in aktivitetsrapporter i Azure Active Directory-portalen: användning av hanterade program](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Kvarhållningsprinciper för rapporter i Azure Active Directory](active-directory-reporting-retention.md) |
 
@@ -188,8 +188,8 @@ Ungefärlig tid att Slutför: 15 minuter
 | Konfigurera enkel inloggning med lösenord | [Hantera enkel inloggning för företagsappar i nya Azure portal: lösenordsbaserad inloggning](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
 | Tilldela appen till den grupp som definieras i förutsättningarna | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Logga in på https://myapps.microsoft.com/ som en användare som har åtkomst |  |
-| Klicka på ikonen för programmet som nyss skapades. | [Vad är åtkomstpanelen?: lösenordsbaserad SSO utan att behöva etablera identitet](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
-| Ange autentiseringsuppgifter för programmet | [Vad är åtkomstpanelen?: lösenordsbaserad SSO utan att behöva etablera identitet](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| Klicka på ikonen för programmet som nyss skapades. | [Vad är åtkomstpanelen?: lösenordsbaserad SSO utan att behöva etablera identitet](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| Ange autentiseringsuppgifter för programmet | [Vad är åtkomstpanelen?: lösenordsbaserad SSO utan att behöva etablera identitet](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Stäng webbläsaren och upprepa inloggningen. Den här gången ska användaren få sömlös åtkomst till programmet. |  |
 | Alternativt kan du kontrollera användningsrapporter för programmet. Observera att det finns vissa svarstid, så du behöver vänta en stund att se att trafiken i rapporterna. | [Logga in aktivitetsrapporter i Azure Active Directory-portalen: användning av hanterade program](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Kvarhållningsprinciper för rapporter i Azure Active Directory](active-directory-reporting-retention.md) |
 
@@ -308,7 +308,7 @@ Ungefärlig tid att Slutför: 10 minuter
 | SaaS-program (federerad enkel inloggning eller lösenord för enkel inloggning) har redan konfigurerats | Byggblock: [SaaS federerad SSO-konfiguration](#saas-federated-sso-configuration) |
 | Cloud-grupp som har tilldelats åtkomst till programmet i #1 identifieras | Byggblock: [SaaS federerad SSO-konfiguration](#saas-federated-sso-configuration) <br/>[Skapa en grupp och Lägg till medlemmar i Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Autentiseringsuppgifter för gruppägare är tillgängliga | [Hantera åtkomst till resurser med Azure Active Directory-grupper](fundamentals/active-directory-manage-groups.md) |
-| Autentiseringsuppgifter för personer som arbetar med åtkomst till apparna som har identifierats | [Vad är åtkomstpanelen?](active-directory-saas-access-panel-introduction.md) |
+| Autentiseringsuppgifter för personer som arbetar med åtkomst till apparna som har identifierats | [Vad är åtkomstpanelen?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>Steg
@@ -318,7 +318,7 @@ Ungefärlig tid att Slutför: 10 minuter
 | Identifiera den grupp som har beviljats åtkomst till programmet och konfigurera ägaren av en viss grupp| [Hantera inställningar för en grupp i Azure Active Directory ](fundamentals/active-directory-groups-settings-azure-portal.md) |
 | Logga in som gruppägare till, finns i medlemskap i grupper-fliken i åtkomstpanelen | [Azure Active Directory-grupper Management-sidan](https://account.activedirectory.windowsazure.com/r#/groups) |
 | Lägg till informationsanställda som du vill testa |  |
-| Logga in som informationsanställda, bekräfta panelen är tillgänglig | [Vad är åtkomstpanelen?](active-directory-saas-access-panel-introduction.md) |
+| Logga in som informationsanställda, bekräfta panelen är tillgänglig | [Vad är åtkomstpanelen?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 ### <a name="considerations"></a>Överväganden
 
@@ -332,7 +332,7 @@ Om programmet har etablering aktiverad, kan du behöva vänta några minuter fö
 | --- | --- |
 | SaaS-program (federerad enkel inloggning eller lösenord för enkel inloggning) har redan konfigurerats | Byggblock: [SaaS federerad SSO-konfiguration](#saas-federated-sso-configuration) |
 | Cloud-grupp som har tilldelats åtkomst till programmet i #1 identifieras | Byggblock: [SaaS federerad SSO-konfiguration](#saas-federated-sso-configuration) <br/>[Skapa en grupp och Lägg till medlemmar i Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
-| Autentiseringsuppgifter för personer som arbetar med åtkomst till apparna som har identifierats | [Vad är åtkomstpanelen?](active-directory-saas-access-panel-introduction.md) |
+| Autentiseringsuppgifter för personer som arbetar med åtkomst till apparna som har identifierats | [Vad är åtkomstpanelen?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>Steg
@@ -380,7 +380,7 @@ Ungefärlig tid att Slutför: 15 minuter
 
 | Förhandskrav | Resurser |
 | --- | --- |
-| Aktivera hantering av lösenord för självbetjäning i din klient. | [Azure Active Directory-lösenordsåterställning för IT-administratörer](active-directory-passwords-update-your-own-password.md) |
+| Aktivera hantering av lösenord för självbetjäning i din klient. | [Azure Active Directory-lösenordsåterställning för IT-administratörer](user-help/active-directory-passwords-update-your-own-password.md) |
 | Aktivera tillbakaskrivning av lösenord att hantera lösenord från en lokal plats. Obs detta kräver viss Azure AD Connect versioner | [Krav för tillbakaskrivning av lösenord](authentication/howto-sspr-writeback.md) |
 | Identifiera de PoC-användare som kommer att använda den här funktionen och kontrollera att de är medlemmar i en säkerhetsgrupp. Användarna måste vara icke-administratörer att fullständigt demonstrera funktionen | [Anpassa: Azure AD-lösenordshantering: begränsa åtkomst till återställning av lösenord](authentication/howto-sspr-writeback.md) |
 
@@ -395,7 +395,7 @@ Ungefärlig tid att Slutför: 15 minuter
 | Ange informationen som självbetjäningsportalen för lösenordsåterställning som du konfigurerade per steg 2 | https://aka.ms/ssprsetup |
 | Stäng webbläsaren |  |
 | Starta om inloggningen som informationsarbetare som du använde i steg 4 |  |
-| Återställa lösenordet | [Uppdatera ditt eget lösenord: återställa mitt lösenord](active-directory-passwords-update-your-own-password.md) |
+| Återställa lösenordet | [Uppdatera ditt eget lösenord: återställa mitt lösenord](user-help/active-directory-passwords-update-your-own-password.md) |
 | Försök logga in med ditt nya lösenord till Azure AD samt att lokala resurser |  |
 
 ### <a name="considerations"></a>Överväganden
@@ -428,7 +428,7 @@ Ungefärlig tid att Slutför: 10 minuter
 ### <a name="considerations"></a>Överväganden
 
 1. PoC-stegen i den här byggblock som uttryckligen ställa in MFA för en användare på alla inloggningar. Det finns andra verktyg, till exempel villkorlig åtkomst och identitetsskydd som engagerar MFA på fler vissa typer av situationer. Det här är något att tänka på när du flyttar från POC till produktion.
-2. PoC-stegen i den här byggblock använder uttryckligen telefonsamtal som den MFA-metoden för expedience. Eftersom du övergår från POC till produktion, rekommenderar vi att använda program som de [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) som din andra faktor när det är möjligt.
+2. PoC-stegen i den här byggblock använder uttryckligen telefonsamtal som den MFA-metoden för expedience. Eftersom du övergår från POC till produktion, rekommenderar vi att använda program som de [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) som din andra faktor när det är möjligt.
 Läs mer: [DRAFT NIST Special Publication 800 63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>MFA villkorlig åtkomst för SaaS-program
@@ -553,7 +553,7 @@ Ungefärlig tid att slutföra: 20 minuter
 | --- | --- |
 | Enhet med användarcertifikat etablerats (Windows, iOS eller Android) från Företags-PKI | [Distribuera användarcertifikat](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Azure AD-domän som är federerad med AD FS | [Azure AD Connect och federation](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Översikt över Active Directory Certificate Services](https://technet.microsoft.com/library/hh831740.aspx)|
-| För iOS-enheter har installerat Microsoft Authenticator-appen | [Kom igång med Microsoft Authenticator-appen](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
+| För iOS-enheter har installerat Microsoft Authenticator-appen | [Kom igång med Microsoft Authenticator-appen](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Steg
 

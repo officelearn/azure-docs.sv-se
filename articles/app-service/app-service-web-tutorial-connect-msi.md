@@ -14,11 +14,12 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1b51638754287d3359eaea7bd5da3f71bf15cc89
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f1388843f2c5d3ea607b876ece288db1370329a2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461545"
 ---
 # <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>Självstudie: Säkra SQL Database-anslutningar med hanterade tjänstidentiteter
 
@@ -31,6 +32,9 @@ Du lär dig att:
 > * Ge SQL Database åtkomst till tjänstidentiteten
 > * Konfigurera programkoden för autentisering med SQL Database med hjälp av Azure Active Directory-autentisering
 > * Ge lägsta möjliga behörighetsnivå till tjänstidentiteten i SQL Database
+
+> [!NOTE]
+> Azure Active Directory-autentisering är _annorlunda_ jämfört med [integrerad Windows-autentisering](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) i lokal Active Directory (AD DS). AD DS och Azure Active Directory använder helt olika autentiseringsprotokoll. Mer information finns i [Skillnaden mellan Windows Server AD DS och AD Azure](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -64,7 +68,7 @@ Här är ett exempel på utdata när identiteten har skapats i Azure Active Dire
 Du använder värdet för `principalId` i nästa steg. Om du vill se information om den nya identiteten i Azure Active Directory kör du följande kommando med värdet för `principalId`:
 
 ```azurecli-interactive
-az ad sp show --id <principalid>`
+az ad sp show --id <principalid>
 ```
 
 ## <a name="grant-database-access-to-identity"></a>Bevilja databasåtkomst till identiteten
@@ -156,7 +160,7 @@ I de föregående stegen har du antagligen lagt märke till att din hanterade tj
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
 msiobjectid=$(az webapp identity show --resource-group <group_name> --name <app_name> --query principalId --output tsv)
-az ad group member add --group $groupid --member-id $msiid
+az ad group member add --group $groupid --member-id $msiobjectid
 az ad group member list -g $groupid
 ```
 

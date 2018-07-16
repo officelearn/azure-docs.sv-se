@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Sansan | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integration med Sansan | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Sansan.
 services: active-directory
 documentationCenter: na
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: c8b5a84c853a974ede77e716b77f0a5007775ef7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: cc070f7c4cb201e68c93b0b1337982325df74663
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231220"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051269"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Självstudier: Azure Active Directory-integrering med Sansan
+# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Självstudier: Azure Active Directory-integration med Sansan
 
-I kursen får lära du att integrera Sansan med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Sansan med Azure Active Directory (AD Azure).
 
 Integrera Sansan med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Sansan
-- Du kan aktivera användarna att automatiskt hämta loggat in på Sansan (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan aktivera användarna att automatiskt få loggat in på Sansan (Single Sign-On) med sina Azure AD-konton
+- Du kan hantera dina konton på en central plats – Azure portal
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med Sansan, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Sansan, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En Sansan enkel inloggning aktiverad prenumeration
+- En Sansan enkel inloggning aktiverat prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Sansan från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-sansan-from-the-gallery"></a>Att lägga till Sansan från galleriet
-Du måste lägga till Sansan från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Sansan i Azure AD.
+För att konfigurera integrering av Sansan i Azure AD, som du behöver lägga till Sansan från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Sansan från galleriet:**
 
@@ -67,32 +67,32 @@ Du måste lägga till Sansan från galleriet i listan över hanterade SaaS-appar
 
     ![Program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
 4. I sökrutan skriver **Sansan**.
 
-    ![Skapa en testanvändare i Azure AD](./media/sansan-tutorial/tutorial_sansan_search.png)
+    ![Skapa en Azure AD-användare för testning](./media/sansan-tutorial/tutorial_sansan_search.png)
 
-5. Välj i resultatpanelen **Sansan**, och klicka sedan på **Lägg till** för att lägga till programmet.
+5. I resultatpanelen väljer **Sansan**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/sansan-tutorial/tutorial_sansan_addfromgallery.png)
+    ![Skapa en Azure AD-användare för testning](./media/sansan-tutorial/tutorial_sansan_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Sansan baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Sansan baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till användaren i Sansan motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Sansan upprättas.
+För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Sansan är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Sansan upprättas.
 
-I Sansan, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+I Sansan, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Sansan, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Sansan](#creating-a-sansan-test-user)**  – du har en motsvarighet för Britta Simon i Sansan som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Sansan](#creating-a-sansan-test-user)**  – du har en motsvarighet för Britta Simon i Sansan som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -100,11 +100,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Sansan:**
 
-1. I Azure-portalen på den **Sansan** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Sansan** program integration-sidan klickar du på **enkel inloggning**.
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/sansan-tutorial/tutorial_sansan_samlbase.png)
 
@@ -112,12 +112,12 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/sansan-tutorial/tutorial_sansan_url.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: 
+    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: 
     
-    | Miljö | URL |
+    | Miljö | Webbadress |
     |:--- |:--- |
     | Dator |`https://ap.sansan.com/v/saml2/<company name>/acs` |
-    | Inbyggda mobila appen |`https://internal.api.sansan.com/saml2/<company name>/acs` |
+    | Inbyggda mobilappar |`https://internal.api.sansan.com/saml2/<company name>/acs` |
     | Inställningar för mobila webbläsare |`https://ap.sansan.com/s/saml2/<company name>/acs` |  
 
     > [!NOTE] 
@@ -131,20 +131,20 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/sansan-tutorial/tutorial_general_400.png)
 
-6. Sansan program förväntar sig flera **identifierare** och **Reply URL: er** att stödja flera miljöer (dator, interna mobilapp, inställningar för mobila webbläsare), som kan konfigureras med hjälp av PowerShell skript. Detaljerade anvisningar beskrivs nedan.
+6. Sansan program som förväntar få flera **identifierare** och **Svarswebbadresser** att stödja flera miljöer (PC webb, inbyggda mobilappar, inställningar för mobila webbläsare), som kan konfigureras med hjälp av PowerShell skript. Detaljerade anvisningar beskrivs nedan.
 
-7. Konfigurera flera **identifierare** och **Reply URL: er** för Sansan program med hjälp av PowerShell-skript, gör du följande:
+7. Konfigurera flera **identifierare** och **Svarswebbadresser** för Sansan program med hjälp av PowerShell-skript, gör du följande:
 
     ![Konfigurera enkel inloggning obj](./media/sansan-tutorial/tutorial_sansan_objid.png)  
 
-    a. Gå till den **egenskaper** sidan **Sansan** programmet och kopierar den **objekt-ID** med **kopiera** knappen och klistra in den i anteckningar.
+    a. Gå till den **egenskaper** sidan **Sansan** programmet och kopierar den **objekt-ID** med **kopia** knappen och klistra in den i anteckningar.
 
-    b. Den **objekt-ID**, som du har kopierat från Azure-portalen kommer att användas som **ServicePrincipalObjectId** i PowerShell-skript används senare under kursen. 
+    b. Den **objekt-ID**, som du har kopierat från Azure-portalen kommer att användas som **ServicePrincipalObjectId** i PowerShell-skript som används senare under kursen. 
 
-    c. Öppna en kommandotolk i Windows PowerShell.
+    c. Nu ska du öppna en upphöjd Windows PowerShell-kommandotolk.
     
     >[!NOTE] 
-    > Du måste installera modulen AzureAD (Använd kommandot `Install-Module -Name AzureAD`). Om du uppmanas att installera en NuGet-modul eller den nya Azure Active Directory PowerShell V2-modulen, Skriv Y och tryck på RETUR.
+    > Du måste installera AzureAD-modulen (Använd kommandot `Install-Module -Name AzureAD`). Om du uppmanas att installera en NuGet-modul eller den nya Azure Active Directory PowerShell V2-modulen, Y och tryck på RETUR.
 
     d. Kör `Connect-AzureAD` och logga in med ett användarkonto för Global administratör.
 
@@ -186,99 +186,99 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     }
     ```
 
-8. Resultatet av skriptet kommer att så här enligt nedan efter slutförande av PowerShell-skript och URL-värden uppdateras men inte hämta visas i Azure-portalen. 
+8. När installationen har slutförts på PowerShell-skript, resultatet av skriptet blir så här enligt nedan och URL-värden uppdateras men de kommer inte få visas i Azure portal. 
 
-    ![Konfigurera enkel inloggning skript](./media/sansan-tutorial/tutorial_sansan_powershell.png)
+    ![Konfigurera enkel inloggning för skript](./media/sansan-tutorial/tutorial_sansan_powershell.png)
 
 
-9. På den **Sansan Configuration** klickar du på **konfigurera Sansan** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+9. På den **Sansan Configuration** klickar du på **konfigurera Sansan** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Konfigurera enkel inloggning](./media/sansan-tutorial/tutorial_sansan_configure.png) 
 
-10. Konfigurera enkel inloggning på **Sansan** sida, måste du skicka den hämtade **certifikat**, **Sign-Out URL**, **SAML enhets-ID**, och **SAML enkel inloggning Tjänstwebbadress** till [Sansan supportteamet](https://www.sansan.com/form/contact). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
+10. Att konfigurera enkel inloggning på **Sansan** sida, som du behöver skicka de hämtade **certifikat**, **URL: en för utloggning**, **SAML entitets-ID**, och **SAML enkel inloggning för tjänst-URL** till [Sansan supportteamet](https://www.sansan.com/form/contact). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 >[!NOTE]
->PC webbläsarinställningen fungerar även för mobila appar och mobila webbläsare tillsammans med dator. 
+>PC webbläsarinställningen fungerar även för mobilappen och mobila webbläsare tillsammans med dator. 
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+![Skapa en Azure AD-användare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
 
-    ![Skapa en testanvändare i Azure AD](./media/sansan-tutorial/create_aaduser_01.png) 
+    ![Skapa en Azure AD-användare för testning](./media/sansan-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
+2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
-    ![Skapa en testanvändare i Azure AD](./media/sansan-tutorial/create_aaduser_02.png) 
+    ![Skapa en Azure AD-användare för testning](./media/sansan-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
-    ![Skapa en testanvändare i Azure AD](./media/sansan-tutorial/create_aaduser_03.png) 
+    ![Skapa en Azure AD-användare för testning](./media/sansan-tutorial/create_aaduser_03.png) 
 
 4. På den **användaren** dialogrutan utför följande steg:
  
-    ![Skapa en testanvändare i Azure AD](./media/sansan-tutorial/create_aaduser_04.png) 
+    ![Skapa en Azure AD-användare för testning](./media/sansan-tutorial/create_aaduser_04.png) 
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    a. I den **namn** textrutan typ **BrittaSimon**.
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
  
-### <a name="creating-a-sansan-test-user"></a>Skapa en testanvändare Sansan
+### <a name="creating-a-sansan-test-user"></a>Skapa en Sansan testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Sansan. Sansan programmet måste användaren som ska etableras i programmet innan du utför enkel inloggning. 
+I det här avsnittet skapar du en användare som kallas Britta Simon i Sansan. Sansan programmet måste användaren som ska etableras i programmet innan du gör SSO. 
 
 >[!NOTE]
->Om du behöver skapa en användare manuellt eller batch-användare, måste du kontakta den [Sansan supportteamet](https://www.sansan.com/form/contact). 
+>Om du vill skapa en användare manuellt eller batch-användare, måste du kontakta den [Sansan supportteamet](https://www.sansan.com/form/contact). 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Sansan.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Sansan.
 
 ![Tilldela användare][200] 
 
-**Om du vill tilldela Sansan Britta Simon utför du följande steg:**
+**Om du vill tilldela Britta Simon Sansan, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **Sansan**.
+2. I listan med program väljer **Sansan**.
 
     ![Konfigurera enkel inloggning](./media/sansan-tutorial/tutorial_sansan_app.png) 
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Sansan på åtkomstpanelen du bör få automatiskt loggat in på ditt Sansan program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
+När du klickar på panelen Sansan i åtkomstpanelen du bör få automatiskt loggat in på ditt Sansan program.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

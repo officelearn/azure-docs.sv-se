@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: c1277484d8f8b3073ac15534110b01903c265318
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: bbe60fb6a6371551f588d5472ac304148a4a1aa7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795891"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38453424"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Skapa ett .NET Framwork- eller Core-program med Graph API
 
@@ -86,7 +86,7 @@ Följande kodfragment är alla hämtade från filen Program.cs.
     private static int port = 443;
     private static string authKey = "your-authentication-key";
     private static string database = "your-database";
-    private static string collection = "your-collection-or-graph";
+    private static string collection = "your-graph-container";
     ```
 
 * Gremlin-kommandona som ska köras finns i en ordlista (rad 26):
@@ -175,7 +175,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
     `private static string database = "your-database";`
 
-5. På samma sätt, med informationen från samlingen som skapades ovan, klistrar du in samlingen (som även är grafnamnet) i variabeln `collection` på rad 23. 
+5. På samma sätt använder du informationen från den container som skapades ovan och klistrar in samlingen (som även är grafnamnet) i variabeln `collection` på rad 23. 
 
     `private static string collection = "your-collection-or-graph";`
 
@@ -193,7 +193,7 @@ Tryck på Ctrl + F5 för att köra programmet. Programmet skriver ut både Greml
 
 Nu kan du gå tillbaka till datautforskaren i Azure Portal och bläddra bland och ställa frågor mot dina nya grafdata.
 
-1. Den nya databasen visas i fönstret Graphs (Diagram) i Datautforskaren. Expandera databasen och samlingsnoderna och klicka på **Diagram**.
+1. Den nya databasen visas i fönstret Graphs (Diagram) i Datautforskaren. Expandera databasen och containernoderna och klicka sedan på **Diagram**.
 
 2. Klicka på knappen **Använd filter** för att använda standardfrågan och visa alla hörn i diagrammet. Data som genereras av den här exempelappen visas i fönstret Graphs (Grafer).
 

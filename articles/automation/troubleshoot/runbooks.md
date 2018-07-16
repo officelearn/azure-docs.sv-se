@@ -4,16 +4,16 @@ description: Lär dig att felsöka problem med Azure Automation-runbooks
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b96d723f6c7ca423343c0586f59770abb55ada9f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 286a777e16dea72e38b316e86ba57e1811888eec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929357"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044874"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -34,7 +34,7 @@ Unknown_user_type: Unknown User Type
 
 Det här felet uppstår om Tillgångsnamn autentiseringsuppgifter inte är giltigt eller om användarnamnet och lösenordet som användes för att konfigurera Automation-autentiseringsuppgiftstillgång inte är giltiga.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 För att avgöra vad som är fel, gör du följande:  
 
@@ -65,7 +65,7 @@ The subscription named <subscription name> cannot be found.
 
 Det här felet uppstår om prenumerationens namn inte är giltigt eller om den Azure Active Directory-användare som försöker hämta information om prenumerationen inte har konfigurerats som en administratör för prenumerationen.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 För att avgöra om du har autentiserat korrekt till Azure och har åtkomst till den prenumeration som du försöker markera, gör du följande:  
 
@@ -89,11 +89,36 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 Om du har multifaktorautentisering på din Azure-konto kan använda du inte en Azure Active Directory-användare för att autentisera till Azure. Du måste i stället använda ett certifikat eller ett huvudnamn för tjänsten för att autentisera till Azure.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Om du vill använda ett certifikat med cmdlet: ar för klassiska Azure-modellen måste referera till [skapa och lägga till ett certifikat för att hantera Azure-tjänster.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Om du vill använda ett huvudnamn för tjänsten med Azure Resource Manager-cmdletar, som avser [skapar tjänstens huvudnamn med hjälp av Azure portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md) och [autentisera tjänstens huvudnamn med Azure Resource Manager.](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Vanliga fel när du arbetar med runbooks
+
+### <a name="not-recognized-as-cmdlet"></a>Scenario: Runbook misslyckas på grund av en cmdlet som saknas
+
+#### <a name="issue"></a>Problem
+
+Din runbook misslyckas med ett fel som liknar följande exempel:
+
+```
+The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här felet kan orsakas av följande orsaker:
+
+1. Modulen som innehåller cmdlet: en har inte importerats till automation-konto
+2. Modulen containg cmdleten har importerats men är inaktuell
+
+#### <a name="resolution"></a>Upplösning
+
+Det här felet kan lösas genom att fylla i en av följande uppgifter:
+
+Om modulen är en Azure-modulen, se [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](../automation-update-azure-modules.md) att lära dig hur du uppdaterar dina moduler i ditt automation-konto.
+
+Om det är en separat modul, se till att modulen i importerade i ditt Automation-konto.
 
 ### <a name="job-attempted-3-times"></a>Scenario: Runbook-jobbstart gjordes tre gånger, men det gick inte att starta varje gång
 
@@ -113,7 +138,7 @@ Det här felet kan orsakas av följande orsaker:
 
 2. Modulen inkompatibel. Detta kan inträffa om modulberoenden inte är rätt och om inte din runbook vanligtvis returnerar ett ”kommando inte hittas” eller ”det går inte att binda parametern” meddelande.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Någon av följande lösningar problemet på:
 
@@ -137,7 +162,7 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 Om din runbook är ett PowerShell-arbetsflöde, lagrar komplexa objekt i ett avserialiserat format för att bevara din runbook tillstånd om arbetsflödet pausas.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Något av följande tre lösningar åtgärda problemet:
 
@@ -159,7 +184,7 @@ The quota for the monthly total job run time has been reached for this subscript
 
 Det här felet uppstår när jobbkörningen överskrider den lediga kvoten 500 minuters för ditt konto. Den här kvoten gäller för alla typer av körningen jobbuppgifter som testar ett jobb, startar ett jobb från portalen, köra ett jobb med hjälp av webhooks och schemalägga ett jobb ska köras med hjälp av Azure portal eller i ditt datacenter. Läs mer om priser för Automation i [Automation-prissättning](https://azure.microsoft.com/pricing/details/automation/).
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Om du vill använda mer än 500 minuter bearbetningen per månad, måste du ändra din prenumeration från kostnadsfritt nivån till Basic-nivån. Du kan uppgradera till Basic-nivån genom att utföra följande steg:  
 
@@ -182,7 +207,7 @@ Runbook-jobb misslyckas med felet:
 
 Det här felet beror på när PowerShell-motorn inte kan hitta den cmdlet som du använder i din runbook. Detta kan bero på att modulen som innehåller cmdleten saknas i kontot, det finns en namnkonflikt med en runbook-namn eller cmdlet: en finns också i en annan modul och Automation kan inte matcha namnet.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Någon av följande lösningar problemet på:  
 
@@ -201,7 +226,7 @@ Det här beteendet är avsiktligt på grund av ”rättmätiga del” övervakni
 
 En runbook kan stängas av för ett antal orsaker. Pausar inträffar oftast på grund av fel. Till exempel ett undantagsfel i en runbook, ett nätverksfel eller en krasch på den Runbook Worker som kör runbook orsak runbook att pausa och starta från den senaste kontrollpunkten när återupptas.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Den dokumenterade lösningen för att undvika det här problemet är att använda kontrollpunkter i ett arbetsflöde. Mer information, referera till [Learning PowerShell-arbetsflöden](../automation-powershell-workflow.md#checkpoints). En mer omfattande beskrivning av ”rättmätiga del” och kontrollpunkt kan hittas i den här bloggen artikeln [med hjälp av kontrollpunkter i Runbooks](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
 
@@ -215,7 +240,7 @@ Det här beteendet är avsiktligt i Azure sandboxar på grund av ”rättmätiga
 
 Runbook kördes över 3 timme gränsen som tillåts av rättmätiga del i en Azure-Sandbox
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Den rekommenderade lösningen är att köra runbook på en [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Worker-arbeten begränsas inte av den [rättmätiga del](../automation-runbook-execution.md#fair-share) 3 timme runbook gränsen som Azure sandbox-miljöer.
 
@@ -236,7 +261,7 @@ Några vanliga orsaker som en modul inte kan importera till Azure Automation är
 * Modulen saknar dess beroenden i mappen.
 * Den `New-AzureRmAutomationModule` cmdlet som används för att ladda upp modulen, och du inte har gett den fullständiga lagringssökväg eller har inte att läsa in modulen med hjälp av en offentligt tillgänglig URL.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Någon av följande lösningar problemet på:
 

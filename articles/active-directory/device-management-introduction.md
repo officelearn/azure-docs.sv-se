@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5d5ddd83a2335e7a08bac587aa627f1dcae9738c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 1a2b32e7e0e86608f879941485395ebe379a5c1e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970908"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048869"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introduktion till hantering av enheter i Azure Active Directory
 
@@ -181,8 +181,8 @@ Som en regel för en använder du:
 - Läs mer om enhetsbaserad villkorlig åtkomst i [konfigurera principer för Azure Active Directory-enhetsbaserad villkorlig åtkomst](active-directory-conditional-access-policy-connected-applications.md).
 
 - Att konfigurera:
-    - Azure Active Directory-registrerade Windows 10-enheter, se [så här konfigurerar du Azure Active Directory-registrerade Windows 10-enheter](device-management-azuread-registered-devices-windows10-setup.md)
-    - Azure Active Directory-anslutna enheter, se [så här konfigurerar du Azure Active Directory-anslutna enheter](device-management-azuread-joined-devices-setup.md)
+    - Azure Active Directory-registrerade Windows 10-enheter, se [så här konfigurerar du Azure Active Directory-registrerade Windows 10-enheter](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+    - Azure Active Directory-anslutna enheter, se [så här konfigurerar du Azure Active Directory-anslutna enheter](user-help/device-management-azuread-joined-devices-setup.md)
     - Hybrid Azure AD-anslutna enheter, se [hur du konfigurerar hybrid Azure Active Directory-anslutna enheter](device-management-hybrid-azuread-joined-devices-setup.md).
 
 

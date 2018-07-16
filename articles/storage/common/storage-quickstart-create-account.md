@@ -3,18 +3,18 @@ title: Azure-snabbstart – Skapa ett lagringskonto | Microsoft Docs
 description: Lär dig snabbt att skapa ett nytt lagringskonto med hjälp av Azure Portal, Azure PowerShell eller Azure CLI.
 services: storage
 author: tamram
-manager: jeconnoc
+manager: twooley
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/19/2018
+ms.date: 07/03/2018
 ms.author: tamram
-ms.openlocfilehash: 7f6357c5b0be12c18797e82b73bd05af42888aa0
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 92215c759cd51ce429708ec54b17722c486b7ca6
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752341"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856536"
 ---
 # <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
@@ -165,7 +165,7 @@ Följ de här stegen för att skapa ett GPv2-konto för generell användning i A
 1. I Azure-portalen expanderar du menyn på vänster sida för att öppna tjänstemenyn och välja **Alla tjänster**. Rulla ned till **lagring** och välj **lagringskonton**. På fönstret **lagringskonton** som visas, väljer du **lägg till**.
 2. Ange ett namn för lagringskontot.
 3. Sätt fältet **Typ av konto** till **StorageV2 (generell användning v2)**.
-4. Låt fältet **Replikering** stå som **Lokalt redundant lagring (LRS)**. Alternativt kan du välja **Zonredundant lagring (ZRS) (förhandsversion)**, **Geo-redundant lagring (GRS)** eller **Read-Access Geo-Redundant Storage (RA-GRS)**.
+4. Låt fältet **Replikering** stå som **Lokalt redundant lagring (LRS)**. Alternativt kan du välja **zonredundant lagring (ZRS)**, **geo-redundant lagring (GRS)** eller **geo-redundant lagring med läsåtkomst (RA-GRS)**.
 5. Behåll standardvärdena för dessa fält: **Distributionsmodell**, **Prestanda**, **Säker överföring krävs**.
 6. Välj den prenumeration där du vill skapa lagringskontot.
 7. I avsnittet **Resursgrupp** väljer du **Använd befintlig** och väljer sedan den resursgrupp du skapade i föregående avsnitt.

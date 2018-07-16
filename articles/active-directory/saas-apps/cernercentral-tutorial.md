@@ -14,50 +14,50 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: e14a9fc822fa42ec12390d1ed4540b246802a990
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 77cd9f90de1d50e91061a6a7222d01c72aadf3f3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226382"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Självstudier: Azure Active Directory-integrering med Cerner Central
 
-I kursen får lära du att integrera Cerner Central med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Cerner centrala med Azure Active Directory (AD Azure).
 
-Integrera Cerner Central med Azure AD ger dig följande fördelar:
+Integrera Cerner centrala med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Cerner Central
-- Du kan aktivera användarna att automatiskt hämta loggat in på Cerner Central (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan aktivera användarna att automatiskt få loggat in på Cerner centrala (Single Sign-On) med sina Azure AD-konton
+- Du kan hantera dina konton på en central plats – Azure portal
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med Cerner Central behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Cerner Central, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En godkänd Cerner centrala System-kontot
+- Ett godkända Cerner centrala System-konto
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Cerner Central från galleriet
+1. Att lägga till Cerner centrala från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
-## <a name="adding-cerner-central-from-the-gallery"></a>Att lägga till Cerner Central från galleriet
-Du måste lägga till Cerner Central från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Cerner Central i Azure AD.
+## <a name="adding-cerner-central-from-the-gallery"></a>Att lägga till Cerner centrala från galleriet
+För att konfigurera integrering av Cerner centrala i Azure AD, som du behöver lägga till Cerner centrala från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Cerner Central från galleriet:**
+**Utför följande steg för att lägga till Cerner centrala från galleriet:**
 
 1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
@@ -67,42 +67,42 @@ Du måste lägga till Cerner Central från galleriet i listan över hanterade Sa
 
     ![Program][2]
 
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen ovanpå dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen ovanpå dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **Cerner Central**.
+4. I sökrutan skriver **Cerner centrala**.
 
-    ![Skapa en testanvändare i Azure AD](./media/cernercentral-tutorial/tutorial_cernercentral_search.png)
+    ![Skapa en Azure AD-användare för testning](./media/cernercentral-tutorial/tutorial_cernercentral_search.png)
 
-5. Välj i resultatpanelen **Cerner Central**, och klicka sedan på **Lägg till** för att lägga till programmet.
+5. I resultatpanelen väljer **Cerner centrala**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/cernercentral-tutorial/tutorial_cernercentral_addfromgallery.png)
+    ![Skapa en Azure AD-användare för testning](./media/cernercentral-tutorial/tutorial_cernercentral_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Cerner Central baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Cerner Central baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till användaren i Cerner Central motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Cerner Central upprättas.
+För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarande Indien, centrala Cerner är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren Indien, centrala Cerner upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Cerner Central, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Cerner Central](#creating-a-cerner-central-test-user)**  – har en motsvarighet för Britta Simon Cerner Central som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Cerner centrala](#creating-a-cerner-central-test-user)**  – du har en motsvarighet för Britta Simon Indien, centrala Cerner som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i tillämpningsprogrammet Cerner Central.
+I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för Cerner Central.
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Cerner Central:**
 
-1. I Azure-portalen på den **Cerner Central** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Cerner centrala** program integration-sidan klickar du på **enkel inloggning**.
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
     ![Konfigurera enkel inloggning](./media/cernercentral-tutorial/tutorial_cernercentral_samlbase.png)
 
@@ -110,23 +110,23 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/cernercentral-tutorial/tutorial_cernercentral_url.png)
 
-    a. I den **identifierare** textruta Skriv det värde som använder följande mönster:
+    a. I den **identifierare** textrutan skriver du värdet med följande mönster:
 
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
     
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:
+    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster:
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso` |
 
     > [!NOTE]
-    > Dessa värden är inte verkligt. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Kontakta [Cerner Central supportteamet](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations) att hämta dessa värden.
+    > Dessa värden är inte verkligt. Uppdatera dessa värden med de faktiska identifierare och svars-URL. Kontakta [Cerner centrala supportteamet](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations) att hämta dessa värden.
 
-4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar.
+4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
 
     ![Konfigurera enkel inloggning](./media/cernercentral-tutorial/tutorial_metadataurl.png)
 
@@ -134,82 +134,82 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/cernercentral-tutorial/tutorial_general_400.png)
 
-6. Konfigurera enkel inloggning på **Cerner Central** sida, måste du skicka den **webbadress Federation Metadata** till [Cerner Central support](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). De Konfigurera SSO längs program för att slutföra integrationen.
+6. Att konfigurera enkel inloggning på **Cerner centrala** sida, som du behöver skicka den **Appfederationsmetadata** till [Cerner centrala support](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). De kan konfigurera SSO längs program för att slutföra integrationen.
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+![Skapa en Azure AD-användare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
 
-    ![Skapa en testanvändare i Azure AD](./media/cernercentral-tutorial/create_aaduser_01.png) 
+    ![Skapa en Azure AD-användare för testning](./media/cernercentral-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
+2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
 
-    ![Skapa en testanvändare i Azure AD](./media/cernercentral-tutorial/create_aaduser_02.png) 
+    ![Skapa en Azure AD-användare för testning](./media/cernercentral-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till**.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till**.
 
-    ![Skapa en testanvändare i Azure AD](./media/cernercentral-tutorial/create_aaduser_03.png) 
+    ![Skapa en Azure AD-användare för testning](./media/cernercentral-tutorial/create_aaduser_03.png) 
 
 4. På den **användaren** dialogrutan utför följande steg:
 
-    ![Skapa en testanvändare i Azure AD](./media/cernercentral-tutorial/create_aaduser_04.png) 
+    ![Skapa en Azure AD-användare för testning](./media/cernercentral-tutorial/create_aaduser_04.png) 
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    a. I den **namn** textrutan typ **BrittaSimon**.
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av Britta Simon.
+    b. I den **användarnamn** textrutan skriver den **e-postadress** för Britta Simon.
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
 
 ### <a name="creating-a-cerner-central-test-user"></a>Skapa en testanvändare Cerner Central
 
-**Cerner Central** programmet tillåter autentisering från valfri provider som federerad identitet. Om en användare kan logga in på programmets startsida, de har federerad och har inte behov av manuell etablering. Du hittar mer information [här](cernercentral-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
+**Cerner Central** programmet tillåter autentisering från valfri extern identitetsprovider. Om en användare kan logga in med programmets startsida, de är externa och har inte behov av manuell etablering. Du hittar mer information om [här](cernercentral-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Cerner Central.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till Cerner Central.
 
 ![Tilldela användare][200]
 
-**Om du vill tilldela Cerner Central Britta Simon utför du följande steg:**
+**Om du vill tilldela Cerner centrala Britta Simon utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201]
 
-2. Välj i listan med program **Cerner Central**.
+2. I listan med program väljer **Cerner centrala**.
 
     ![Konfigurera enkel inloggning](./media/cernercentral-tutorial/tutorial_cernercentral_app.png)
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
 
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Cerner Central på åtkomstpanelen du ska hämta automatiskt loggat in på ditt Cerner Central program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
+När du klickar på panelen Cerner centrala i åtkomstpanelen du bör få automatiskt loggat in på ditt Cerner Central-program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera Användaretablering](cernercentral-provisioning-tutorial.md)
 

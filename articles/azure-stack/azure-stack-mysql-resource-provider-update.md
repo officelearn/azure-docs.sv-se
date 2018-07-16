@@ -1,6 +1,6 @@
 ---
-title: Med hjälp av databaser som tillhandahålls av MySQL kortet RP på AzureStack | Microsoft Docs
-description: Hur du skapar och hanterar MySQL-databaser som etablerats med hjälp av Resursprovidern för MySQL-kort
+title: Uppdaterar Azure Stack MySQL-resursprovider | Microsoft Docs
+description: Lär dig hur du kan uppdatera Azure Stack MySQL-resursprovider.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,59 +11,100 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 0a900d75315fd0015633c036877faef84c48d65b
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 4e894eaee6bb151b480204905d0a98324f5c353b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031848"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049603"
 ---
-# <a name="create-mysql-databases"></a>Skapa MySQL-databaser
+# <a name="update-the-mysql-resource-provider"></a>Uppdatera MySQL-resursprovider 
 
-Du kan skapa och hantera självbetjäning databaser i användarportalen. En Azure-stacken användare behöver en prenumeration med ett erbjudande som inkluderar MySQL-databas.
+*Gäller för: integrerade Azure Stack-system.*
 
-## <a name="test-your-deployment-by-creating-a-mysql-database"></a>Testa distributionen genom att skapa en MySQL-databas
+En ny SQL-resursprovideradaptern kan frigöras när Azure Stack-versioner har uppdaterats. Befintliga kortet fortsätter att fungera, rekommenderar vi uppdaterar till den senaste versionen så snart som möjligt. 
 
-1. Logga in på användarportalen Azure stacken.
-2. Välj **+ ny** > **Data + lagring** > **MySQL-databas** > **lägga till**.
-3. Under **skapa MySQL-databas**, ange namnet på databasen och konfigurera andra inställningar som krävs för din miljö.
+>[!IMPORTANT]
+>Du måste installera uppdateringar i den ordning de ges ut. Du kan inte hoppa över versioner. Se listan över versioner i [distribuera resource provider krav](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-    ![Skapa en test MySQL-databas](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
+## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>Uppdatera MySQL-resursprovideradaptern (endast integrerade system)
+En ny SQL-resursprovideradaptern kan frigöras när Azure Stack-versioner har uppdaterats. Befintliga kortet fortsätter att fungera, rekommenderar vi uppdaterar till den senaste versionen så snart som möjligt.  
+ 
+Uppdatering av resursprovidern som du använder den **UpdateMySQLProvider.ps1** skript. Processen påminner om en process som används för att installera en resursleverantör, enligt beskrivningen i den [distribuerar resursprovidern](#deploy-the-resource-provider) i den här artikeln. Skriptet ingår hämtning av resursprovidern. 
 
-4. Under **Create Database**väljer **SKU**. Under **väljer en MySQL-SKU**, Välj SKU för din databas.
+Den **UpdateMySQLProvider.ps1** skriptet skapar en ny virtuell dator med den senaste resource provider koden och migrerar inställningarna från den gamla virtuella datorn till den nya virtuella datorn. De inställningar som migreras inkluderar databasen och som är värd för serverinformation nödvändiga DNS-posten. 
 
-    ![Välj en MySQL-SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png)
+>[!NOTE]
+>Vi rekommenderar att du hämtar den senaste Windows Server 2016 Core-avbildningen från Marketplace-hantering. Om du vill installera en uppdatering kan du placera en **enda** MSU-paketet i lokala beroendesökvägen. Skriptet misslyckas om det finns fler än en MSU-fil i den här platsen.
 
-    >[!Note]
-    >De är tilldelade en SKU när värdservrar läggs till Azure-stacken. Du skapa databaser i poolen med värd-servrar i en SKU.
+Skriptet måste använda samma argument som beskrivs för DeployMySqlProvider.ps1-skriptet. Ange certifikat här också.  
 
-5. Under **inloggning**väljer ***konfigurera nödvändiga inställningar***.
-6. Under **väljer en inloggning**, kan du välja en befintlig inloggning eller välja **+ skapa en ny inloggning** att ställa in en ny inloggning.  Ange en **databasinloggningen** namn och **lösenord**, och välj sedan **OK**.
+Följande är ett exempel på den *UpdateMySQLProvider.ps1* skript som du kan köra från PowerShell-prompten. Tänk på att ändra kontoinformation och lösenord efter behov:  
 
-    ![Skapa en ny databasinloggning](./media/azure-stack-mysql-rp-deploy/create-new-login.png)
+> [!NOTE] 
+> Uppdateringen gäller endast för integrerade system. 
 
-    >[!NOTE]
-    >Längden på inloggningen Databasnamnet får inte överstiga 32 tecken i MySQL 5.7. Det får inte överstiga 16 tecken i tidigare versioner.
+```powershell 
+# Install the AzureRM.Bootstrapper module and set the profile. 
+Install-Module -Name AzureRm.BootStrapper -Force 
+Use-AzureRmProfile -Profile 2017-03-09-profile 
 
-7. Välj **skapa** för att konfigurera databasen.
+# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time. 
+$domain = "AzureStack" 
 
-När databasen har distribuerats, notera den **anslutningssträngen** under **Essentials**. Du kan använda den här strängen i alla program som behöver åtkomst till MySQL-databas.
+# For integrated systems, use the IP address of one of the ERCS virtual machines 
+$privilegedEndpoint = "AzS-ERCS01" 
 
-![Hämta anslutningssträngen för MySQL-databas](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
+# Point to the directory where the resource provider installation files were extracted. 
+$tempDir = 'C:\TEMP\MYSQLRP' 
 
-## <a name="update-the-administrative-password"></a>Uppdatera lösenordet för administratörer
+# The service admin account (can be Azure Active Directory or Active Directory Federation Services). 
+$serviceAdmin = "admin@mydomain.onmicrosoft.com" 
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass) 
+ 
+# Set credentials for the new resource provider VM. 
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass) 
+ 
+# And the cloudadmin credential required for privileged endpoint access. 
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass) 
 
-Du kan ändra lösenordet genom att ändra på MySQL server-instansen.
+# Change the following as appropriate. 
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+ 
+# Change directory to the folder where you extracted the installation files. 
+# Then adjust the endpoints. 
+$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds ` 
+-VMLocalCredential $vmLocalAdminCreds ` 
+-CloudAdminCredential $cloudAdminCreds ` 
+-PrivilegedEndpoint $privilegedEndpoint ` 
+-DefaultSSLCertificatePassword $PfxPass ` 
+-DependencyFilesLocalPath $tempDir\cert ` 
+-AcceptLicense 
+``` 
+ 
+### <a name="updatemysqlproviderps1-parameters"></a>UpdateMySQLProvider.ps1 parametrar 
+Du kan ange dessa parametrar på kommandoraden. Om du inte, eller om någon parameter-valideringen misslyckas, uppmanas du att ange de obligatoriska parametrarna. 
 
-1. Välj **administrativa resurser** > **MySQL som värd för servrar**. Välj servern som värd.
-2. Under **inställningar**väljer **lösenord**.
-3. Under **lösenord**, ange det nya lösenordet och välj sedan **spara**.
-
-![Uppdatera administratörslösenordet](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
+| Parameternamn | Beskrivning | Kommentar eller standardvärde | 
+| --- | --- | --- | 
+| **CloudAdminCredential** | Autentiseringsuppgifter för molnadministratören behövs för att komma åt den privilegierade slutpunkten. | _Krävs_ | 
+| **AzCredential** | Autentiseringsuppgifter för Azure Stack-tjänstadministratörskonto. Använda samma autentiseringsuppgifter som du använde för att distribuera Azure Stack. | _Krävs_ | 
+| **VMLocalCredential** |Autentiseringsuppgifterna för det lokala administratörskontot för SQL-resursprovider VM. | _Krävs_ | 
+| **PrivilegedEndpoint** | IP-adressen eller DNS-namnet på den privilegierade slutpunkten. |  _Krävs_ | 
+| **DependencyFilesLocalPath** | Din .pfx-certifikatfil måste placeras i den här katalogen samt. | _Valfritt_ (_obligatoriska_ för flera noder) | 
+| **DefaultSSLCertificatePassword** | Lösenordet för PFX-certifikat. | _Krävs_ | 
+| **MaxRetryCount** | Antal gånger som du vill försöka utföra varje åtgärd om det uppstår ett fel.| 2 | 
+| **RetryDuration** | Timeout-intervall mellan försök i sekunder. | 120 | 
+| **Avinstallera** | Ta bort resursprovidern och alla associerade resurser (se nedan). | Nej | 
+| **DebugMode** | Förhindrar automatisk rensning vid fel. | Nej | 
+| **AcceptLicense** | Hoppar över uppmaningen om att acceptera licensen GPL.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
+ 
 
 ## <a name="next-steps"></a>Nästa steg
-
-[Underhåll MySQL-resursprovidern](azure-stack-mysql-resource-provider-maintain.md)
+[Underhålla MySQL-resursprovider](azure-stack-mysql-resource-provider-maintain.md)

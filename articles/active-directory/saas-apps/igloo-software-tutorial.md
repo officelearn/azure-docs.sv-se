@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Azure Active Directory-integrering med Igloo programvara | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Igloo programvaran och Azure Active Directory.
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Igloo programvara.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: cea66f48d3ec1ab99b2b1e3dc40ab559e0ca55a5
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: acec9379661226dc53607aa9fd12197a193166e0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229166"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042428"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Självstudier: Azure Active Directory-integrering med Igloo programvara
 
-I kursen får lära du att integrera Igloo programvara med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Igloo programvara med Azure Active Directory (AD Azure).
 
 Integrera Igloo programvara med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Igloo programvara
-- Du kan aktivera användarna att automatiskt hämta loggat in på Igloo programvara (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan aktivera användarna att automatiskt få loggat in på Igloo programvara (Single Sign-On) med sina Azure AD-konton
+- Du kan hantera dina konton på en central plats – Azure portal
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med Igloo programvara, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Igloo programvara, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En Igloo programvara enkel inloggning aktiverad prenumeration
+- En Igloo programvara enkel inloggning aktiverat prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Lägga till Igloo programvara från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-igloo-software-from-the-gallery"></a>Lägga till Igloo programvara från galleriet
-Du måste lägga till Igloo programvara från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Igloo programvara i Azure AD.
+För att konfigurera integrering av Igloo programvara i Azure AD, som du behöver lägga till Igloo programvara från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Igloo programvara från galleriet:**
 
@@ -67,32 +67,32 @@ Du måste lägga till Igloo programvara från galleriet i listan över hanterade
 
     ![Program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
 4. I sökrutan skriver **Igloo programvara**.
 
-    ![Skapa en testanvändare i Azure AD](./media/igloo-software-tutorial/tutorial_igloosoftware_search.png)
+    ![Skapa en Azure AD-användare för testning](./media/igloo-software-tutorial/tutorial_igloosoftware_search.png)
 
-5. Välj i resultatpanelen **Igloo programvara**, och klicka sedan på **Lägg till** för att lägga till programmet.
+5. I resultatpanelen väljer **Igloo programvara**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/igloo-software-tutorial/tutorial_igloosoftware_addfromgallery.png)
+    ![Skapa en Azure AD-användare för testning](./media/igloo-software-tutorial/tutorial_igloosoftware_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Igloo programvara baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Igloo programvara baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till motsvarande användaren i Igloo programvara till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Igloo programvara upprättas.
+För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i Igloo programvara till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Igloo programvara upprättas.
 
-I Igloo programvara, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+I Igloo programvara, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Igloo programvara, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Igloo programvara](#creating-an-igloo-software-test-user)**  – du har en motsvarighet för Britta Simon Igloo programvara som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Igloo programvara](#creating-an-igloo-software-test-user)**  – du har en motsvarighet för Britta Simon Igloo programvara som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -100,11 +100,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Igloo programvara:**
 
-1. I Azure-portalen på den **Igloo programvara** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Igloo programvara** program integration-sidan klickar du på **enkel inloggning**.
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/igloo-software-tutorial/tutorial_igloosoftware_samlbase.png)
 
@@ -112,14 +112,14 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/igloo-software-tutorial/tutorial_igloosoftware_url.png)
     
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<company name>.igloocommmunities.com`
+    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<company name>.igloocommmunities.com`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<company name>.igloocommmunities.com/saml.digest`
+    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<company name>.igloocommmunities.com/saml.digest`
 
-    c. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<company name>.igloocommmunities.com/saml.digest`
+    c. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<company name>.igloocommmunities.com/saml.digest`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Kontakta [Igloo Programvaruklienten supportteamet](https://www.igloosoftware.com/services/support) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [Igloo klientprogrammet supportteamet](https://www.igloosoftware.com/services/support) att hämta dessa värden. 
 
 4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
@@ -129,21 +129,21 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/igloo-software-tutorial/tutorial_general_400.png)
     
-6. På den **Igloo programvarukonfiguration** klickar du på **konfigurera Igloo programvara** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out Webbadressen och SAML enkel inloggning Service** från den **Snabbreferens avsnitt.**
+6. På den **Igloo programvarukonfiguration** klickar du på **konfigurera Igloo programvara** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Konfigurera enkel inloggning](./media/igloo-software-tutorial/tutorial_igloosoftware_configure.png) 
 
-7. I en annan webbläsarfönster loggar du in på webbplatsen för företagets Igloo programvara som en administratör.
+7. I ett annat webbläsarfönster logga du in på webbplatsen för företagets Igloo programvara som en administratör.
 
 8. Gå till den **Kontrollpanelen**.
    
      ![Kontrollpanelen](./media/igloo-software-tutorial/ic799949.png "Kontrollpanelen")
 
-9. I den **medlemskap** klickar du på **logga inställningarna**.
+9. I den **medlemskap** fliken **logga i inställningar**.
    
-    ![Logga in inställningar](./media/igloo-software-tutorial/ic783968.png "logga in inställningarna")
+    ![Inloggningsinställningar](./media/igloo-software-tutorial/ic783968.png "inloggningsinställningar")
 
-10. Klicka på i konfigurationsavsnittet SAML **konfigurera SAML-autentisering**.
+10. I avsnittet SAML-konfiguration klickar du på **konfigurera SAML-autentisering**.
    
     ![SAML-konfiguration](./media/igloo-software-tutorial/ic783969.png "SAML-konfiguration")
    
@@ -151,120 +151,120 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
    
     ![Allmän konfiguration](./media/igloo-software-tutorial/ic783970.png "Allmän konfiguration")
 
-    a. I den **anslutningsnamn** textruta skriver du ett eget namn för din konfiguration.
+    a. I den **anslutningsnamn** textrutan skriver du ett eget namn för din konfiguration.
    
-    b. I den **IdP inloggnings-URL** textruta klistra in värdet för **SAML inloggning tjänst-URL för enkel** som du har kopierat från Azure-portalen.
+    b. I den **inloggnings-URL för IDP: N** textrutan klistra in värdet för **SAML inloggnings-tjänst-URL för enkel** som du har kopierat från Azure-portalen.
    
-    c. I den **IdP logga ut URL** textruta klistra in värdet för **Sign-Out URL** som du har kopierat från Azure-portalen.
+    c. I den **utloggnings-URL för IDP: N** textrutan klistra in värdet för **URL: en för utloggning** som du har kopierat från Azure-portalen.
     
-    d. Välj **logga ut svar och typ av begäran HTTP** som **efter**.
+    d. Välj **utloggning svar och typ av begäran HTTP** som **POST**.
    
-    e. Öppna din **Base64-** kodade certifikatet i anteckningar hämtas från Azure-portalen, kopiera innehållet i den till Urklipp och klistra in den till den **certifikat med offentlig** textruta.
+    e. Öppna din **Base64-** kodade certifikatet i anteckningar som hämtats från Azure-portalen, kopiera innehållet i den till Urklipp och klistra in den till den **offentligt certifikat** textrutan.
     
 12. I den **svar och Autentiseringskonfiguration**, utför följande steg:
     
-    ![Svar och Autentiseringskonfiguration](./media/igloo-software-tutorial/IC783971.png "svar och Autentiseringskonfiguration")
+    ![Svar och Autentiseringskonfiguration](./media/igloo-software-tutorial/IC783971.png "svar och konfiguration av autentisering")
   
-      a. Som **identitetsleverantör**väljer **Microsoft ADFS**.
+      a. Som **identitetsprovidern**väljer **Microsoft ADFS**.
       
-      b. Som **Ämnesidentifierarens typ**väljer **e-postadress**. 
+      b. Som **typ av identifierare**väljer **e-postadress**. 
 
-      c. I den **e-attributet** textruta typen **e-postadress**.
+      c. I den **e-attributet** textrutan typ **e-postadress**.
 
-      d. I den **förnamn attributet** textruta typen **givenname**.
+      d. I den **förnamn attributet** textrutan typ **givenname**.
 
-      e. I den **senaste namnattributet** textruta typen **efternamn**.
+      e. I den **senaste namnattributet** textrutan typ **efternamn**.
 
 13. Utför följande steg för att slutföra konfigurationen:
     
-    ![Skapa användare på inloggning](./media/igloo-software-tutorial/IC783972.png "skapa användare på Logga in") 
+    ![Skapa användare på inloggningen](./media/igloo-software-tutorial/IC783972.png "skapa användare på Logga in") 
 
-     a. Som **skapa användare på inloggning**väljer **skapa en ny användare på din plats när de loggar in**.
+     a. Som **skapa användare på inloggningen**väljer **skapa en ny användare på din plats när de loggar in**.
 
-     b. Som **inloggning inställningar**väljer **Använd SAML-knappen ”Logga in” skärmen**.
+     b. Som **inloggningsinställningar**väljer **Använd SAML-knappen ”Logga in” skärmen**.
 
      c. Klicka på **Spara**.
 
 > [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+![Skapa en Azure AD-användare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
 
-    ![Skapa en testanvändare i Azure AD](./media/igloo-software-tutorial/create_aaduser_01.png) 
+    ![Skapa en Azure AD-användare för testning](./media/igloo-software-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
+2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
-    ![Skapa en testanvändare i Azure AD](./media/igloo-software-tutorial/create_aaduser_02.png) 
+    ![Skapa en Azure AD-användare för testning](./media/igloo-software-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
-    ![Skapa en testanvändare i Azure AD](./media/igloo-software-tutorial/create_aaduser_03.png) 
+    ![Skapa en Azure AD-användare för testning](./media/igloo-software-tutorial/create_aaduser_03.png) 
 
 4. På den **användaren** dialogrutan utför följande steg:
  
-    ![Skapa en testanvändare i Azure AD](./media/igloo-software-tutorial/create_aaduser_04.png) 
+    ![Skapa en Azure AD-användare för testning](./media/igloo-software-tutorial/create_aaduser_04.png) 
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    a. I den **namn** textrutan typ **BrittaSimon**.
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
  
 ### <a name="creating-an-igloo-software-test-user"></a>Skapa en testanvändare Igloo programvara
 
-Det finns inga uppgiften att konfigurera användaretablering Igloo programvara.  
+Det finns inga uppgift att konfigurera användaretablering till Igloo programvara.  
 
-När en tilldelad användare försöker logga in på Igloo programvara med hjälp av åtkomstpanelen kontrollerar Igloo programvara om användaren finns.  Om det finns inget användarkonto ännu, skapas den automatiskt med Igloo program.
+När en tilldelad användare försöker logga in på Igloo programvara med hjälp av åtkomstpanelen, kontrollerar Igloo programvara om användaren finns.  Om det finns inget konto ännu, skapas den automatiskt med Igloo program.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Igloo programvara.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Igloo programvara.
 
 ![Tilldela användare][200] 
 
-**Om du vill tilldela Igloo programvara Britta Simon utför du följande steg:**
+**Om du vill tilldela Britta Simon Igloo programvara, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **Igloo programvara**.
+2. I listan med program väljer **Igloo programvara**.
 
     ![Konfigurera enkel inloggning](./media/igloo-software-tutorial/tutorial_igloosoftware_app.png) 
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Igloo programvara på åtkomstpanelen du bör få automatiskt loggat in på Igloo programmet.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen Igloo programvara i åtkomstpanelen du bör få automatiskt loggat in på programmets Igloo programvara.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

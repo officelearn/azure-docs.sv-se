@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Coupa | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integration med Coupa | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Coupa.
 services: active-directory
 documentationCenter: na
@@ -15,48 +15,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 36c7bfeece12fe2bb2738e50de03ba2c8fc07bfa
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: adad60611f1447b78173368ed137205f077cb8b7
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111954"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047818"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Självstudier: Azure Active Directory-integrering med Coupa
+# <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Självstudier: Azure Active Directory-integration med Coupa
 
-I kursen får lära du att integrera Coupa med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Coupa med Azure Active Directory (AD Azure).
 
 Integrera Coupa med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Coupa.
-- Du kan aktivera användarna att automatiskt hämta loggat in på Coupa (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton i en central plats - Azure-portalen.
+- Du kan aktivera användarna att automatiskt få loggat in på Coupa (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton på en central plats – Azure portal.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med Coupa, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Coupa, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En Coupa enkel inloggning aktiverad prenumeration
+- En Coupa enkel inloggning aktiverat prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Coupa från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-coupa-from-the-gallery"></a>Att lägga till Coupa från galleriet
-Du måste lägga till Coupa från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Coupa i Azure AD.
+För att konfigurera integrering av Coupa i Azure AD, som du behöver lägga till Coupa från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Coupa från galleriet:**
 
@@ -66,31 +66,31 @@ Du måste lägga till Coupa från galleriet i listan över hanterade SaaS-appar 
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Bladet Enterprise program][2]
+    ![Bladet för Enterprise-program][2]
 
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Coupa**väljer **Coupa** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **Coupa**väljer **Coupa** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Coupa i resultatlistan](./media/coupa-tutorial/tutorial_coupa_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Coupa baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Coupa baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till användaren i Coupa motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Coupa upprättas.
+För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Coupa är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Coupa upprättas.
 
-I Coupa, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+I Coupa, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Coupa, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Coupa](#create-a-coupa-test-user)**  – du har en motsvarighet för Britta Simon i Coupa som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Coupa](#create-a-coupa-test-user)**  – du har en motsvarighet för Britta Simon i Coupa som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -98,34 +98,34 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Coupa:**
 
-1. I Azure-portalen på den **Coupa** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Coupa** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning länk][4]
+    ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
-    ![Enkel inloggning dialogrutan](./media/coupa-tutorial/tutorial_coupa_samlbase.png)
+    ![Enkel inloggning för dialogrutan](./media/coupa-tutorial/tutorial_coupa_samlbase.png)
 
 3. På den **Coupa domän och URL: er** avsnittet, utför följande steg:
 
-    ![URL: er och Coupa domän med enkel inloggning information](./media/coupa-tutorial/tutorial_coupa_url.png)
+    ![Coupa domän och URL: er med enkel inloggning för information](./media/coupa-tutorial/tutorial_coupa_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<companyname>.coupahost.com`
+    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname>.coupahost.com`
 
     > [!NOTE]
-    > Inloggnings-URL-värdet är inte verkliga. Uppdatera det här värdet med det faktiska inloggnings-URL. Kontakta [Coupa klienten supportteamet](https://success.coupa.com/Support/Contact_Us?) att hämta det här värdet.
+    > Inloggnings-URL-värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Coupa klienten supportteamet](https://success.coupa.com/Support/Contact_Us?) att hämta det här värdet.
 
-    b. I den **identifierare** textruta anger du URL:
+    b. I den **identifierare** textrutan anger du URL:
 
-    | Miljö  | URL |
+    | Miljö  | Webbadress |
     |:-------------|----|
     | Begränsat läge | `devsso35.coupahost.com`|
     | Produktion | `prdsso40.coupahost.com`|
     | | |
 
-    c. I den **Reply URL** textruta anger du URL:
+    c. I den **svars-URL** textrutan anger du URL:
 
-    | Miljö | URL |
+    | Miljö | Webbadress |
     |------------- |----|
     | Begränsat läge | `https://devsso35.coupahost.com/sp/ACS.saml2`|
     | Produktion | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
@@ -133,45 +133,45 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
-    ![Länken hämta certifikatet](./media/coupa-tutorial/tutorial_coupa_certificate.png) 
+    ![Länk för hämtning av certifikat](./media/coupa-tutorial/tutorial_coupa_certificate.png) 
 
 5. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara](./media/coupa-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning spara-knapp](./media/coupa-tutorial/tutorial_general_400.png)
 
 6. Logga in på webbplatsen Coupa företag som administratör.
 
 7. Gå till **installationsprogrammet \> säkerhetskontroll**.
 
-   ![Säkerhetsåtgärder](./media/coupa-tutorial/ic791900.png "säkerhetsåtgärder")
+   ![Säkerhetskontroller](./media/coupa-tutorial/ic791900.png "säkerhetskontroller")
 
-8. I den **logga in med autentiseringsuppgifterna för Coupa** avsnittet, utför följande steg:
+8. I den **logga in med autentiseringsuppgifter för Coupa** avsnittet, utför följande steg:
 
     ![Coupa SP metadata](./media/coupa-tutorial/ic791901.png "Coupa SP metadata")
 
-    a. Välj **logga in med SAML**.
+    a. Välj **logga in med hjälp av SAML**.
 
-    b. Klicka på **Bläddra** att överföra metadata hämtas från Azure-portalen.
+    b. Klicka på **Bläddra** att ladda upp de metadata som hämtats från Azure-portalen.
 
     c. Klicka på **Spara**.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-   ![Skapa en testanvändare i Azure AD][100]
+   ![Skapa en Azure AD-testanvändare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
     ![Azure Active Directory-knappen](./media/coupa-tutorial/create_aaduser_01.png)
 
 2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-    ![”Användare och grupper” och ”alla användare” länkar](./media/coupa-tutorial/create_aaduser_02.png)
+    ![”Användare och grupper” och ”alla användare”-länkar](./media/coupa-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/coupa-tutorial/create_aaduser_03.png)
 
@@ -181,23 +181,23 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     a. I den **namn** skriver **BrittaSimon**.
 
-    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
 
-    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
+    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
 
     d. Klicka på **Skapa**.
 
-### <a name="create-a-coupa-test-user"></a>Skapa en testanvändare Coupa
+### <a name="create-a-coupa-test-user"></a>Skapa en Coupa testanvändare
 
-För att aktivera Azure AD-användare att logga in på Coupa etableras de i Coupa.  
+För att aktivera Azure AD-användare att logga in på Coupa, måste de etableras i Coupa.  
 
 * När det gäller Coupa är etablering en manuell aktivitet.
 
 **Utför följande steg för att konfigurera användaretablering:**
 
-1. Logga in på ditt **Coupa** företagets webbplats som administratör.
+1. Logga in på din **Coupa** företagets plats som administratör.
 
-2. Klicka på menyn högst upp **installationsprogrammet**, och klicka sedan på **användare**.
+2. Klicka på menyn längst upp **installationsprogrammet**, och klicka sedan på **användare**.
 
    ![Användare](./media/coupa-tutorial/ic791908.png "användare")
 
@@ -205,61 +205,61 @@ För att aktivera Azure AD-användare att logga in på Coupa etableras de i Coup
 
    ![Skapa användare](./media/coupa-tutorial/ic791909.png "skapa användare")
 
-4. I den **användare skapa** avsnittet, utför följande steg:
+4. I den **användaren skapa** avsnittet, utför följande steg:
 
-   ![Användarinformation](./media/coupa-tutorial/ic791910.png "användarinformation")
+   ![Information om användare](./media/coupa-tutorial/ic791910.png "användarinformation")
 
-   a. Typ av **inloggning**, **Förnamn**, **efternamn**, **ID för enkel inloggning**, **e-post** attribut för en giltigt Azure Active Directory-konto som du vill etablera i relaterade textrutor.
+   a. Skriv den **inloggning**, **Förnamn**, **efternamn**, **enkel inloggnings-ID**, **e-post** attribut för en giltigt Azure Active Directory-konto som du vill etablera till relaterade textrutor.
 
    b. Klicka på **Skapa**.
 
    >[!NOTE]
-   >Azure Active Directory kontoinnehavaren får ett e-postmeddelande med en länk till bekräfta kontot innan den aktiveras.
+   >Azure Active Directory-kontoinnehavare får ett e-postmeddelande med en länk för att bekräfta kontot innan det blir aktiv.
    >
 
 >[!NOTE]
->Du kan använda något annat Coupa användarens konto skapas verktyg eller API: er som tillhandahålls av Coupa att etablera AAD-användarkonton.
+>Du kan använda alla andra Coupa användare konto verktyg för att skapa eller API: er som tillhandahålls av Coupa att etablera AAD-användarkonton.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Coupa.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Coupa.
 
 ![Tilldela rollen][200]
 
-**Om du vill tilldela Coupa Britta Simon utför du följande steg:**
+**Om du vill tilldela Britta Simon Coupa, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201]
 
-2. Välj i listan med program **Coupa**.
+2. I listan med program väljer **Coupa**.
 
     ![Länken Coupa i listan med program](./media/coupa-tutorial/tutorial_coupa_app.png)  
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Coupa på åtkomstpanelen du bör få automatiskt loggat in på ditt Coupa program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
+När du klickar på panelen Coupa i åtkomstpanelen du bör få automatiskt loggat in på ditt Coupa program.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

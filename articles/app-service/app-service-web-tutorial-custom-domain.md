@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/23/2017
+ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a9f1e66a4c55d866d9f174528eb4912c3b9391c0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 5c0aa042f97e10f90787b1cdf8e03cd6d849441e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714523"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461647"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Självstudie: Mappa ett befintligt anpassat DNS-namn till Azure Web Apps
 
@@ -35,12 +35,8 @@ I den här guiden får du lära dig hur man:
 > * Mappa en underdomän (till exempel `www.contoso.com`) med hjälp av en CNAME-post
 > * Mappa en rotdomän (till exempel `contoso.com`) med hjälp av en A-post
 > * Mappa en domän med jokertecken (till exempel `*.contoso.com`) med hjälp av en CNAME-post
+> * Omdirigera standard-URL:en till en anpassad katalog
 > * Automatisera domänmappning med skript
-
-Du kan mappa ett anpassat DNS-namn till App Service med antingen en **CNAME-post** eller en **A-post**. 
-
-> [!NOTE]
-> Vi rekommenderar att du använder en CNAME-post för alla anpassade DNS-namn utom en rotdomän (till exempel `contoso.com`).
 
 Om du vill migrera en live-webbplats och dess DNS-domännamn till App Service kan du läsa [Migrera ett aktivt DNS-namn till Azure App Service](app-service-custom-domain-name-migrate.md).
 
@@ -104,13 +100,26 @@ När du ser följande meddelande har skalningsåtgärden slutförts.
 
 <a name="cname"></a>
 
-## <a name="map-a-cname-record"></a>Mappa en CNAME-post
+## <a name="map-your-domain"></a>Mappa din domän
+
+Du kan mappa ett anpassat DNS-namn till App Service med antingen en **CNAME-post** eller en **A-post**. Följ respektive steg:
+
+- [Mappa en CNAME-post](#map-a-cname-record)
+- [Mappa en A-post](#map-an-a-record)
+- [Mappa en domän med jokertecken (med en CNAME-post)](#map-a-wildcard-domain)
+
+> [!NOTE]
+> Du bör använda CNAME-poster för alla anpassade DNS-namn förutom rotdomäner (till exempel `contoso.com`). För rotdomäner använder du A-poster.
+
+### <a name="map-a-cname-record"></a>Mappa en CNAME-post
 
 I kursexemplet lägger du till en CNAME-post för `www`-underdomänen (till exempel `www.contoso.com`).
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### <a name="access-dns-records-with-domain-provider"></a>Använda DNS-poster med domänleverantör
 
-### <a name="create-the-cname-record"></a>Skapa CNAME-posten
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
+
+#### <a name="create-the-cname-record"></a>Skapa CNAME-posten
 
 Lägg till en CNAME-post för att mappa en underdomän till appens standardvärdnamn (`<app_name>.azurewebsites.net`, där `<app_name>` är namnet på appen).
 
@@ -120,7 +129,7 @@ När du har lagt till CNAME ser sidan med DNS-poster ut så här:
 
 ![Portalnavigering till Azure-app](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
-### <a name="enable-the-cname-record-mapping-in-azure"></a>Aktivera CNAME-postmappning i Azure
+#### <a name="enable-the-cname-record-mapping-in-azure"></a>Aktivera CNAME-postmappning i Azure
 
 Välj **Anpassade domäner** i det vänstra navigeringsfönstret på appsidan i Azure Portal. 
 
@@ -136,7 +145,7 @@ Skriv det fullständigt kvalificerade domännamnet som du lade till en CNAME-pos
 
 Välj **Verifiera**.
 
-Knappen **Lägg till värddatornamn** aktiveras. 
+Sidan **Lägg till värddatornamn** visas. 
 
 Se till att **Posttyp för värddatornamn** har värdet **CNAME (www.example.com eller en underdomän)**.
 
@@ -148,19 +157,22 @@ Det kan ta en stund innan det nya värdnamnet återspeglas på sidan **Anpassade
 
 ![CNAME-posten har lagts till](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
+> [!NOTE]
+> Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure Web Apps](app-service-web-tutorial-custom-ssl.md).
+
 Om du har missat något steg eller stavat fel på något ord visas ett verifieringsfel längst ned på sidan.
 
 ![Verifieringsfel](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
 <a name="a"></a>
 
-## <a name="map-an-a-record"></a>Mappa en A-post
+### <a name="map-an-a-record"></a>Mappa en A-post
 
 I kursexemplet lägger du till en A-post för rotdomänen (till exempel `contoso.com`). 
 
 <a name="info"></a>
 
-### <a name="copy-the-apps-ip-address"></a>Kopiera appens IP-adress
+#### <a name="copy-the-apps-ip-address"></a>Kopiera appens IP-adress
 
 För att kunna mappa A-posten behöver du appens externa IP-adress. Du hittar IP-adressen på sidan **Anpassade domäner** för appen i Azure Portal.
 
@@ -172,9 +184,11 @@ På sidan **Anpassade domäner** kopierar du appens IP-adress.
 
 ![Portalnavigering till Azure-app](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### <a name="access-dns-records-with-domain-provider"></a>Använda DNS-poster med domänleverantör
 
-### <a name="create-the-a-record"></a>Skapa en A-post
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
+
+#### <a name="create-the-a-record"></a>Skapa en A-post
 
 När du mappar en A-post till en app i App Service behöver du **två** DNS-poster:
 
@@ -194,7 +208,7 @@ När posterna har lagts till ser sidan för DNS-poster ut som i följande exempe
 
 <a name="enable-a"></a>
 
-### <a name="enable-the-a-record-mapping-in-the-app"></a>Aktivera A-postmappning i appen
+#### <a name="enable-the-a-record-mapping-in-the-app"></a>Aktivera A-postmappning i appen
 
 Gå till sidan **Anpassade domäner** för appen i Azure Portal, lägg till det fullständigt kvalificerade DNS-namnet (till exempel `contoso.com`) i listan.
 
@@ -206,7 +220,7 @@ Skriv det fullständigt kvalificerade domännamnet som du konfigurerade A-posten
 
 Välj **Verifiera**.
 
-Knappen **Lägg till värddatornamn** aktiveras. 
+Sidan **Lägg till värddatornamn** visas. 
 
 Se till att **Posttyp för värddatornamn** har värdet **A-post (example.com)**.
 
@@ -218,19 +232,24 @@ Det kan ta en stund innan det nya värdnamnet återspeglas på sidan **Anpassade
 
 ![A-posten har lagts till](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
+> [!NOTE]
+> Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure Web Apps](app-service-web-tutorial-custom-ssl.md).
+
 Om du har missat något steg eller stavat fel på något ord visas ett verifieringsfel längst ned på sidan.
 
 ![Verifieringsfel](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
 <a name="wildcard"></a>
 
-## <a name="map-a-wildcard-domain"></a>Mappa en domän med jokertecken
+### <a name="map-a-wildcard-domain"></a>Mappa en domän med jokertecken
 
 I kursexemplet mappar du ett [DNS-namn med jokertecken](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (till exempel `*.contoso.com`) till App Service-appen genom att lägga till en CNAME-post. 
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### <a name="access-dns-records-with-domain-provider"></a>Använda DNS-poster med domänleverantör
 
-### <a name="create-the-cname-record"></a>Skapa CNAME-posten
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
+
+#### <a name="create-the-cname-record"></a>Skapa CNAME-posten
 
 Lägg till en CNAME-post för att mappa ett jokernamn till appens standardvärdnamn (`<app_name>.azurewebsites.net`).
 
@@ -240,7 +259,7 @@ När CNAME har lagts till ser sidan för DNS-poster ut som i följande exempel:
 
 ![Portalnavigering till Azure-app](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
 
-### <a name="enable-the-cname-record-mapping-in-the-app"></a>Aktivera CNAME-postmappning i appen
+#### <a name="enable-the-cname-record-mapping-in-the-app"></a>Aktivera CNAME-postmappning i appen
 
 Nu kan du lägga till valfri underdomän som matchar jokernamnet i appen ( `sub1.contoso.com` och `sub2.contoso.com` matchar till exempel `*.contoso.com`). 
 
@@ -268,13 +287,16 @@ Välj ikonen **+** igen för att lägga till ytterligare ett värdnamn som match
 
 ![CNAME-posten har lagts till](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
+> [!NOTE]
+> Information om hur du lägger till en SSL-bindning finns i [Binda ett befintligt anpassat SSL-certifikat till Azure Web Apps](app-service-web-tutorial-custom-ssl.md).
+
 ## <a name="test-in-browser"></a>Testa i webbläsaren
 
 Bläddra till DNS-namnet (eller namnen) som du konfigurerade tidigare (till exempel `contoso.com`,  `www.contoso.com`, `sub1.contoso.com` och `sub2.contoso.com`).
 
 ![Portalnavigering till Azure-app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-## <a name="resolve-404-error-web-site-not-found"></a>Åtgärda 404-felet ”Det gick inte att hitta webbplatsen”
+## <a name="resolve-404-not-found"></a>Lösa 404 ”Not Found” (hittades inte)
 
 Om du får ett HTTP 404-fel (Hittades inte) när du går till URL:en för den anpassade domänen, kontrollerar du att domänen matchar appens IP-adress med hjälp av <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Om inte, kan det bero på något av följande:
 
@@ -283,7 +305,7 @@ Om du får ett HTTP 404-fel (Hittades inte) när du går till URL:en för den an
 
 <a name="virtualdir"></a>
 
-## <a name="direct-default-url-to-a-custom-directory"></a>Dirigera standard-URL:en till en anpassad katalog
+## <a name="redirect-to-a-custom-directory"></a>Omdirigera till en anpassad katalog
 
 Som standard dirigerar App Service webbegäranden till rotkatalogen för din appkod. Men vissa webbramverk startar inte i rotkatalogen. [Laravel](https://laravel.com/) startar till exempel i underkatalogen `public`. Om du fortsatte med `contoso.com`-DNS-exemplet skulle en sådan app vara tillgänglig på `http://contoso.com/public`, men det vore att föredra att dirigera `http://contoso.com` till katalogen `public` i stället. Det här steget innefattar anpassning av den virtuella katalogen, inte DNS-matchning.
 
@@ -333,6 +355,7 @@ I den här självstudiekursen lärde du dig att:
 > * Mappa en underdomän med hjälp av en CNAME-post
 > * Mappa en rotdomän med hjälp av en A-post
 > * Mappa en domän med jokertecken med hjälp av en CNAME-post
+> * Omdirigera standard-URL:en till en anpassad katalog
 > * Automatisera domänmappning med skript
 
 Gå vidare till nästa självstudiekurs där du får lära dig att binda ett anpassat SSL-certifikat till en webbapp.

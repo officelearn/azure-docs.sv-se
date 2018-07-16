@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Sprinklr | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integration med Sprinklr | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Sprinklr.
 services: active-directory
 documentationCenter: na
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 68437cd1fe7d6aa82ff36a139a70b208a4b0abde
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ece3509743bc3712d144a3547c5ff91f9ea101e7
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217290"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050750"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Självstudier: Azure Active Directory-integrering med Sprinklr
+# <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Självstudier: Azure Active Directory-integration med Sprinklr
 
-I kursen får lära du att integrera Sprinklr med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Sprinklr med Azure Active Directory (AD Azure).
 
 Integrera Sprinklr med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Sprinklr
-- Du kan aktivera användarna att automatiskt hämta loggat in på Sprinklr (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan aktivera användarna att automatiskt få loggat in på Sprinklr (Single Sign-On) med sina Azure AD-konton
+- Du kan hantera dina konton på en central plats – Azure portal
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med Sprinklr, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Sprinklr, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En Sprinklr enkel inloggning på aktiverade prenumeration
+- En Sprinklr enkel inloggning aktiverad prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Sprinklr från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-sprinklr-from-the-gallery"></a>Att lägga till Sprinklr från galleriet
-Du måste lägga till Sprinklr från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Sprinklr i Azure AD.
+För att konfigurera integrering av Sprinklr i Azure AD, som du behöver lägga till Sprinklr från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Sprinklr från galleriet:**
 
@@ -67,32 +67,32 @@ Du måste lägga till Sprinklr från galleriet i listan över hanterade SaaS-app
 
     ![Program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
 4. I sökrutan skriver **Sprinklr**.
 
-    ![Skapa en testanvändare i Azure AD](./media/sprinklr-tutorial/tutorial_sprinklr_search.png)
+    ![Skapa en Azure AD-användare för testning](./media/sprinklr-tutorial/tutorial_sprinklr_search.png)
 
-5. Välj i resultatpanelen **Sprinklr**, och klicka sedan på **Lägg till** för att lägga till programmet.
+5. I resultatpanelen väljer **Sprinklr**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/sprinklr-tutorial/tutorial_sprinklr_addfromgallery.png)
+    ![Skapa en Azure AD-användare för testning](./media/sprinklr-tutorial/tutorial_sprinklr_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Sprinklr baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Sprinklr baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till användaren i Sprinklr motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Sprinklr upprättas.
+För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Sprinklr är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Sprinklr upprättas.
 
-I Sprinklr, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+I Sprinklr, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Sprinklr, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Sprinklr](#creating-a-sprinklr-test-user)**  – du har en motsvarighet för Britta Simon i Sprinklr som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Sprinklr](#creating-a-sprinklr-test-user)**  – du har en motsvarighet för Britta Simon i Sprinklr som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -100,11 +100,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Sprinklr:**
 
-1. I Azure-portalen på den **Sprinklr** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Sprinklr** program integration-sidan klickar du på **enkel inloggning**.
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/sprinklr-tutorial/tutorial_sprinklr_samlbase.png)
 
@@ -112,12 +112,12 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/sprinklr-tutorial/tutorial_sprinklr_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<subdomain>.sprinklr.com`
+    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.sprinklr.com`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<subdomain>.sprinklr.com`
+    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.sprinklr.com`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera värdet med det faktiska inloggnings-URL och identifierare. Kontakta [Sprinklr klienten supportteamet](https://www.sprinklr.com/contact-us/) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera värdet med faktiska inloggnings-URL och identifierare. Kontakta [Sprinklr klienten supportteamet](https://www.sprinklr.com/contact-us/) att hämta dessa värden. 
  
 4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
@@ -127,83 +127,83 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/sprinklr-tutorial/tutorial_general_400.png)
 
-6. På den **Sprinklr Configuration** klickar du på **konfigurera Sprinklr** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+6. På den **Sprinklr Configuration** klickar du på **konfigurera Sprinklr** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
-7. I en annan webbläsarfönster loggar du in på webbplatsen Sprinklr företag som administratör.
+7. I ett annat webbläsarfönster logga du in på webbplatsen Sprinklr företag som administratör.
 
 8. Gå till **Administration \> inställningar**.
    
     ![Administration](./media/sprinklr-tutorial/ic782907.png "Administration")
 
-9. Gå till **hantera Partner \> för enkel inloggning** på i den vänstra rutan.
+9. Gå till **hantera Partner \> enkelinloggning** på den vänstra rutan.
    
     ![Hantera Partner](./media/sprinklr-tutorial/ic782908.png "hantera Partner")
 
-10. Klicka på **+ Lägg till en enda inloggningar**.
+10. Klicka på **+ Lägg till enkel inloggning Ons**.
    
-    ![Enkel inloggning](./media/sprinklr-tutorial/ic782909.png "enkel inloggning")
+    ![Enkel inloggningar](./media/sprinklr-tutorial/ic782909.png "enkel inloggningar")
 
 11. På den **för enkelinloggning** utför följande steg:
    
-    ![Enkel inloggning](./media/sprinklr-tutorial/ic782910.png "enkel inloggning")
+    ![Enkel inloggningar](./media/sprinklr-tutorial/ic782910.png "enkel inloggningar")
 
-    a. I den **namn** textruta, ange ett namn för konfigurationen (till exempel: *WAADSSOTest*).
+    a. I den **namn** textrutan anger du ett namn för din konfiguration (till exempel: *WAADSSOTest*).
 
     b. Välj **aktiverat**.
 
-    c. Välj **nya SSO certifikatet**.
+    c. Välj **använder nya SSO-certifikat**.
              
-    e. Öppna din Base64-kodade certifikatet i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **providern identitetscertifikat** textruta.
+    e. Öppna din Base64-kodat certifikat i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **providern identitetscertifikat** textrutan.
 
-    f. Klistra in den **SAML enhets-ID** värde som du har kopierat från Azure Portal till den **enhets-Id** textruta.
+    f. Klistra in den **SAML entitets-ID** värde som du har kopierat från Azure-portalen till den **entitets-Id** textrutan.
 
-    g. Klistra in den **SAML enkel inloggning Tjänstwebbadress** värde som du har kopierat från Azure Portal till den **identitet providern inloggnings-URL** textruta.
+    g. Klistra in den **SAML enkel inloggning för tjänst-URL** värde som du har kopierat från Azure-portalen till den **inloggnings-URL för identitetsprovider** textrutan.
 
-    h. Klistra in den **Sign-Out URL** värde som du har kopierat från Azure Portal till den **identitet providern logga ut URL** textruta.
+    h. Klistra in den **URL: en för utloggning** värde som du har kopierat från Azure-portalen till den **utloggnings-URL för identitetsprovider** textrutan.
      
-    i. Som **SAML-ID typ**väljer **Assertion innehåller användare ”s sprinklr.com användarnamn**.
+    i. Som **SAML-ID användartyp**väljer **Assertion innehåller användare ”s sprinklr.com användarnamn**.
 
-    j. Som **SAML Användarplats ID**väljer **användar-ID är i elementet namnidentifierare i instruktionen ämne**.
+    j. Som **SAML-ID Användarplats**väljer **användar-ID är i namnidentifierare elementet i instruktionen ämne**.
 
     k. Klicka på **Spara**.
        
     ![SAML](./media/sprinklr-tutorial/ic782911.png "SAML")
 
 > [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+![Skapa en Azure AD-användare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
 
-    ![Skapa en testanvändare i Azure AD](./media/sprinklr-tutorial/create_aaduser_01.png) 
+    ![Skapa en Azure AD-användare för testning](./media/sprinklr-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
+2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
-    ![Skapa en testanvändare i Azure AD](./media/sprinklr-tutorial/create_aaduser_02.png) 
+    ![Skapa en Azure AD-användare för testning](./media/sprinklr-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
-    ![Skapa en testanvändare i Azure AD](./media/sprinklr-tutorial/create_aaduser_03.png) 
+    ![Skapa en Azure AD-användare för testning](./media/sprinklr-tutorial/create_aaduser_03.png) 
 
 4. På den **användaren** dialogrutan utför följande steg:
  
-    ![Skapa en testanvändare i Azure AD](./media/sprinklr-tutorial/create_aaduser_04.png) 
+    ![Skapa en Azure AD-användare för testning](./media/sprinklr-tutorial/create_aaduser_04.png) 
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    a. I den **namn** textrutan typ **BrittaSimon**.
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
  
-### <a name="creating-a-sprinklr-test-user"></a>Skapa en testanvändare Sprinklr
+### <a name="creating-a-sprinklr-test-user"></a>Skapa en Sprinklr testanvändare
 
 1. Logga in på webbplatsen Sprinklr företag som administratör.
 
@@ -219,13 +219,13 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
    
     ![Inställningar för](./media/sprinklr-tutorial/ic782915.png "inställningar")
 
-5. På den **Redigera användare** dialogrutan, utför följande steg:
+5. På den **Redigera användare** dialogrutan utför följande steg:
    
     ![Redigera användare](./media/sprinklr-tutorial/ic782916.png "Redigera användare") 
 
-    a. I den **e-post**, **Förnamn** och **efternamn** textrutor, ange information för en Azure AD-användarkonto som du vill etablera.
+    a. I den **e-post**, **Förnamn** och **efternamn** textrutor, skriver du informationen för en Azure AD-användarkonto som du vill etablera.
 
-    b. Välj **lösenord inaktiveras**.
+    b. Välj **lösenord inaktiverad**.
 
     c. Välj **språk**.
 
@@ -234,58 +234,58 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
     e. Klicka på **uppdatering**.
    
      >[!IMPORTANT]
-     >**Lösenord inaktiveras** måste väljas för att aktivera en användare loggar in via en identitetsleverantör. 
+     >**Lösenord inaktiveras** måste väljas för att aktivera en användare att logga in via en identitetsleverantör. 
      
-6. Gå till **rollen**, och utför sedan följande steg:
+6. Gå till **rollen**, och utför följande steg:
    
-    ![Samarbeta roller](./media/sprinklr-tutorial/ic782917.png "Partner roller")
+    ![Partner roller](./media/sprinklr-tutorial/ic782917.png "Partner roller")
 
     a. Från den **Global** väljer **alla\_behörigheter**.  
 
     b. Klicka på **uppdatering**.
 
 >[!NOTE]
->Du kan använda något annat Sprinklr användarens konto skapas verktyg eller API: er som tillhandahålls av Sprinklr att etablera Azure AD-användarkonton. 
+>Du kan använda alla andra Sprinklr användare konto verktyg för att skapa eller API: er som tillhandahålls av Sprinklr att etablera användarkonton i Azure AD. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Sprinklr.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Sprinklr.
 
 ![Tilldela användare][200] 
 
-**Om du vill tilldela Sprinklr Britta Simon utför du följande steg:**
+**Om du vill tilldela Britta Simon Sprinklr, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **Sprinklr**.
+2. I listan med program väljer **Sprinklr**.
 
     ![Konfigurera enkel inloggning](./media/sprinklr-tutorial/tutorial_sprinklr_app.png) 
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Sprinklr på åtkomstpanelen du bör få automatiskt loggat in på ditt program Sprinklr för mer information om panelen åtkomst finns [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen Sprinklr i åtkomstpanelen du bör få automatiskt loggat in på programmets Sprinklr för mer information om åtkomstpanelen, se [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

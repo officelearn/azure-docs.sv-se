@@ -15,12 +15,12 @@ ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: 9350d2556ff4b178ec15f4213c89ee46d4f604d5
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 6b25712d660c26f2e7206b361c443b8f97aad361
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128429"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867621"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Visa eller analysera data som samlats in med Log Analytics-loggsökning
 
@@ -85,7 +85,7 @@ Du kan ställa in samma filter genom att välja **Filter** på egenskapsmenyn f�
 
 Du ser bara alternativet **Filter** för egenskaper med namnet i blått när du hovrar över dem.  Dessa är *sökbara* fält som indexeras för sökvillkor.  Fält i grått är *fritextsökbara* fält som endast har alternativet **Visa referenser**.  Det här alternativet returnerar poster som har det värdet i en egenskap.
 
-Du kan gruppera resultatet för en enda egenskap genom att välja alternativet **Gruppera efter** på postmenyn.  Då läggs en [sammanfattningsoperator](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) till för frågan som visar resultatet i ett diagram.  Du kan gruppera efter mer än en egenskap, men då måste du redigera frågan direkt.  Välj postmenyn bredvid egenskapen **Dator** och välj **Gruppera efter "dator"**.  
+Du kan gruppera resultatet för en enda egenskap genom att välja alternativet **Gruppera efter** på postmenyn.  Då läggs en [sammanfattningsoperator](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) till för frågan som visar resultatet i ett diagram.  Du kan gruppera efter mer än en egenskap, men då måste du redigera frågan direkt.  Välj postmenyn bredvid egenskapen **Dator** och välj **Gruppera efter ”dator”**.  
 
 ![Gruppera efter dator](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-04.png)
 

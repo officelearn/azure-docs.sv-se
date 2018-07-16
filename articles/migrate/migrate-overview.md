@@ -4,15 +4,15 @@ description: Ger en översikt över tjänsten Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6c78554b78468329819726bfd95671a34f51b231
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 753a21638745870941ac77e340b5e6aa713c7ffe
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285805"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920730"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -30,7 +30,11 @@ Med Azure Migrate får du hjälp med att:
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
 - För närvarande kan du endast utvärdera lokala virtuella VMware-datorer (VM) för migrering till virtuella Azure-datorer. De virtuella VMware-datorerna måste hanteras av en vCenter Server (version 5.5, 6.0 eller 6.5).
-- Stöd för Hyper-V finns i vår översikt. Under tiden kan rekommendera att du planerar att migrera Hyper-V-arbetsbelastningar med [Distributionshanteraren för Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc).
+
+> [!NOTE]
+> Stöd för Hyper-V och fysiska servrar finns i vår översikt. Under tiden rekommenderar vi att du använder [distributionshanteraren för Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) för att planera migreringen av Hyper-V-arbetsbelastningar och våra [partnerverktyg](https://azure.microsoft.com/migration/partners/) för att planera migreringen av fysiska arbetsbelastningar.
+
+
 - Du kan identifiera upp till 1 500 virtuella datorer i en enda identifiering och upp till 1 500 virtuella datorer i ett enda projekt. Dessutom kan du utvärdera upp till 1 500 virtuella datorer i en enda utvärdering. Om du vill identifiera en större miljö kan du dela identifieringen och skapa flera projekt. Läs [mer](how-to-scale-assessment.md). Azure Migrate stöder upp till 20 projekt per prenumeration.
 - Du kan endast skapa ett Azure Migrate-projekt i regionen USA, västra eller USA, östra. Men detta påverkar inte din möjlighet att planera migrering för en annan Azure-plats. Platsen för ett migreringsprojekt används endast för att lagra metadata som identifieras från den lokala miljön.
 - Azure Migrate stöder endast hanterade diskar för migreringsutvärdering.

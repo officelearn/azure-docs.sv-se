@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: df46a4de32482f9da46b81e6b0fbc55c2cc1af35
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: e2c4c59e52f277358027f5d228fdf43822822992
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37444250"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044536"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Alternativ för Azure AD-lösenordshantering
 
@@ -49,7 +49,7 @@ Vi har förbättrat sättet du kan visa återställning av lösenord och löseno
 1. Bläddra till den [Azure-portalen](https://portal.azure.com).
 2. Välj **alla tjänster** i den vänstra rutan.
 3. Sök efter **Azure Active Directory** i listan över tjänster och markera den.
-4. Välj **användare och grupper**.
+4. Välj **Användare och grupper**.
 5. Välj **granskningsloggar** från den **användare och grupper** menyn. Detta visar alla granskningshändelser som gjorts mot alla användare i din katalog. Du kan filtrera den här vyn om du vill se alla lösenord-relaterade händelser.
 6. Om du vill filtrera den här vyn om du vill visa endast de lösenord-återställning-relaterade händelserna, Välj den **Filter** längst upp i fönstret.
 7. Från den **Filter** menyn och välj den **kategori** nedrullningsbara listan och ändra det till den **Self-service lösenordshantering** kategorityp.
@@ -173,8 +173,8 @@ I följande lista beskrivs den här aktiviteten i detalj:
 ## <a name="next-steps"></a>Nästa steg
 
 * [Hur gör jag för att slutföra en lyckad distribution av SSPR?](howto-sspr-deployment.md)
-* [Återställ eller ändra ditt lösenord](../active-directory-passwords-update-your-own-password.md).
-* [Registrera för återställning av lösenord för självbetjäning](../active-directory-passwords-reset-register.md).
+* [Återställ eller ändra ditt lösenord](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Registrera för återställning av lösenord för självbetjäning](../user-help/active-directory-passwords-reset-register.md).
 * [Har du en fråga om licensiering?](concept-sspr-licensing.md)
 * [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](howto-sspr-authenticationdata.md)
 * [Vilka autentiseringsmetoder är tillgängliga för användarna?](concept-sspr-howitworks.md#authentication-methods)

@@ -37,10 +37,12 @@
   items:
     - name: Administratör
       items:
-        - name: Skapa ett program
-          href: howto-create-application.md
+        - name: Skapa och hantera ett program som molnlösningsleverantör
+          href: howto-create-and-manage-applications-as-CSP.md
         - name: Administrera ditt program
           href: howto-administer.md
+        - name: Exportera dina data
+          href: howto-export-data.md
     - name: Builder
       items:
         - name: Konfigurera enhetsmallen
@@ -49,6 +51,10 @@
           href: howto-version-devicetemplate.md
         - name: Skapa regel för telemetri
           href: howto-create-telemetry-rules.md
+        - name: Skapa en händelseregel
+          href: howto-create-event-rules.md
+        - name: Bygga arbetsflöden i Microsoft Flow
+          href: howto-add-microsoft-flow.md
         - name: Konfigurera startsidan
           href: howto-configure-homepage.md
         - name: Förbereda och ladda upp bilder

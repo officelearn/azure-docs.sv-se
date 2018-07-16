@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 47d52fa412adf3f8e7f0c3c4d4afaf9009b4783e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dc857760cf0d3fa2e146f22196b7bc36d119df5f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651597"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869590"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Självstudier: Använda en simulerad enhet för att testa anslutningen till din IoT-hubb
 
@@ -49,7 +49,7 @@ Du kan kontrollera den aktuella versionen av Node.js på utvecklingsdatorn med f
 node --version
 ```
 
-Ladda ned exempelprojektet för Node.js från https://github.com/Azure-Samples/iot-hub-tutorials-node/archive/master.zip och extrahera ZIP-arkivet.
+Ladda ned exempelprojektet för Node.js från https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip och extrahera ZIP-arkivet.
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -123,6 +123,9 @@ Den här gången ser du ett autentiseringsfel när programmet försöker ansluta
 Om enheten använder en av SDK:erna för IoT Hub-enheten, genererar SDK-bibliotekskoden en SAS-token som används för att autentisera mot hubben. En SAS-token skapas från namnet på din hubb, namnet på din enhet och enhetsnyckeln.
 
 I vissa scenarier, till exempel en molnprotokollgateway eller en del av ett anpassat autentiseringsschema, kan du behöva skapa en SAS-token själv. När du felsöker problem med din SAS-kod är det användbart att kunna skapa en fungerande SAS-token som kan användas vid test.
+
+> [!NOTE]
+> SimulatedDevice-2.js-exemplet innehåller exempel på hur du genererar en SAS-token både med och utan SDK.
 
 Om du vill skapa en fungerande SAS-token med hjälp av CLI kör du följande kommando:
 

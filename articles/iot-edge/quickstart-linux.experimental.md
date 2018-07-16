@@ -4,17 +4,17 @@ description: I den här snabbstarten lär du dig hur du fjärrdistribuerar färd
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 07/02/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0e0d22b3363b00c81be5091fd12773f9e486c09e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8ee43a1e3b448faae79a7e3086e2e1d639c341f2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099193"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611935"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux x64-enhet
 
@@ -31,7 +31,14 @@ I den här snabbstarten lär du dig att:
 
 Denna snabbstart gör din Linux-dator eller virtuella dator till en IoT Edge-enhet. Du kan sedan distribuera en modul från Azure Portal till din enhet. Modulen som du distribuerar i den här snabbstarten är en simulerad sensor som genererar temperatur-, fuktighets- och lufttrycksdata. De andra självstudierna i Azure IoT Edge bygger vidare på det arbete som du gör här, genom att distribuera moduler som analyserar simulerade data för verksamhetsinsyn. 
 
-Om du inte har en aktiv Azure-prenumeration kan du skapa ett [kostnadsfritt konto][Ink-konto] innan du börjar.
+Om du inte har en aktiv Azure-prenumeration kan du skapa ett [kostnadsfritt konto][lnk-account] innan du börjar.
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+Den här snabbstarten använder en Linux-dator som en IoT Edge-enhet. Om du inte har en som är tillgänglig för testning följer du instruktionerna i [Skapa en virtuell Linux-dator i Azure-portalen](../virtual-machines/linux/quick-create-portal.md). 
+* Du behöver inte följa stegen för att installera och köra webbservern. När du ansluter till den virtuella datorn kan du avbryta där.  
+* Skapa den virtuella datorn i en ny resursgrupp som du kan använda när du skapar resten av Azure-resurserna för den här snabbstarten. Ger den ett igenkännbart namn, till exempel *IoTEdgeResources*. 
+* Du behöver inte en särskilt stor virtuell dator för att testa IoT Edge. En storlek på **B1ms** räcker. 
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -54,6 +61,8 @@ Installera och starta Azure IoT Edge-körningen på enheten.
 ![Registrera en enhet][5]
 
 IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponenter. **IoT Edge säkerhetsdaemon** startas varje gång en Edge-enhet startar. Enheten startas genom att IoT Edge-agenten startas. **IoT Edge-agenten** underlättar distribution och övervakning av moduler på IoT Edge-enheten, inklusive IoT Edge-hubb. **IoT Edge-hubben** hanterar kommunikationen mellan moduler på IoT Edge-enheten, samt mellan enheten och IoT Hub. 
+
+Utför följande steg i den Linux-dator eller den virtuella dator som du förberedde för den här snabbstarten. 
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Registrera din enhet för att använda programvarudatabasen
 
@@ -85,11 +94,16 @@ Uppdatera **apt-get**.
    sudo apt-get update
    ```
 
-Installera Moby (en körmiljö för behållare) och dess CLI-kommandon. 
+Installera **Moby**, en körmiljö för containrar.
 
    ```bash
    sudo apt-get install moby-engine
-   sudo apt-get install moby-cli   
+   ```
+
+Installera CLI-kommandona för Moby. 
+
+   ```bash
+   sudo apt-get install moby-cli
    ```
 
 ### <a name="install-and-configure-the-iot-edge-security-daemon"></a>Installera och konfigurera IoT Edge säkerhetsdaemon
@@ -109,15 +123,19 @@ Denna säkerhetsdaemon installeras som en systemtjänst så att IoT Edge-körnin
    sudo nano /etc/iotedge/config.yaml
    ```
 
-3. Lägg till anslutningssträngen för IoT Edge-enheten som du kopierade när du registrerade din enhet. Ersätt värdet för variabeln **device_connection_string** som du kopierade tidigare i den här snabbstarten.
+3. Lägg till IoT Edge-enhetens anslutningssträng. Hitta variabeln **device_connection_string** och uppdatera dess värde med den sträng som du kopierade efter att du registrerade enheten.
 
-4. Starta om Edge säkerhetsdaemon:
+4. Spara och stäng filen. 
+
+   `CTRL + X`, `Y`, `Enter`
+
+4. Starta om IoT Edge-säkerhetsdaemon.
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-5. Kontrollera att Edge säkerhetsdaemon körs som en systemtjänst:
+5. Kontrollera att Edge-säkerhetsdaemon körs som en systemtjänst.
 
    ```bash
    sudo systemctl status iotedge
@@ -131,12 +149,14 @@ Denna säkerhetsdaemon installeras som en systemtjänst så att IoT Edge-körnin
    journalctl -u iotedge
    ```
 
-6. Visa de moduler som körs på din enhet: 
+6. Visa de moduler som körs på enheten. 
+
+   >[!TIP]
+   >Du måste använda *sudo* för att köra `iotedge`-kommandon till en början. Logga ut från datorn och logga in igen för att uppdatera behörigheterna. Sedan kan du köra `iotedge`-kommandon utan utökade behörigheter. 
 
    ```bash
    sudo iotedge list
    ```
-Efter en utloggning och inloggning krävs inte *sudo* för kommandot ovan.
 
    ![Visa en modul på din enhet](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -157,7 +177,6 @@ I den här snabbstarten skapade du en ny IoT Edge-enhet och installerade IoT Edg
    ```bash
    sudo iotedge list
    ```
-Efter en utloggning och inloggning krävs inte *sudo* för kommandot ovan.
 
    ![Visa tre moduler på enheten](./media/quickstart-linux/iotedge-list-2.png)
 
@@ -177,7 +196,22 @@ Du kan visa telemetri som enheten skickar med hjälp av [verktyget IoT Hub Explo
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill fortsätta med IoT Edge-självstudierna kan du använda enheten du registrerade och konfigurerade i den här snabbstarten. Om du vill ta bort installationerna från din enhet kan du använda följande kommandon.  
+Om du vill fortsätta med IoT Edge-självstudierna kan du använda enheten du registrerade och konfigurerade i den här snabbstarten. I annat fall kan du ta bort de Azure-resurser som du skapade och ta bort IoT Edge-körningen från enheten. 
+
+### <a name="delete-azure-resources"></a>Ta bort Azure-resurser
+
+Om du skapade den virtuella datorn och IoT-hubben i en ny resursgrupp kan du ta bort den gruppen och alla associerade resurser. Om det finns något i den resursgruppen som du vill behålla tar du bara bort de enskilda resurser som du vill rensa. 
+
+Om du vill ta bort en resursgrupp följer du dessa steg: 
+
+1. Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
+2. I textrutan **Filtrera efter namn ...** , skriver du namnet på resursgruppen som innehåller din IoT Hub. 
+3. Till höger av din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
+4. Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp igen för att bekräfta och klicka sedan på **Ta bort**. Efter en liten stund tas resursgruppen och resurser som finns i den bort.
+
+### <a name="remove-the-iot-edge-runtime"></a>Ta bort IoT Edge-körningen
+
+Om du vill ta bort installationerna från din enhet kan du använda följande kommandon.  
 
 Ta bort IoT Edge-körningen.
 
@@ -185,10 +219,18 @@ Ta bort IoT Edge-körningen.
    sudo apt-get remove --purge iotedge
    ```
 
-Ta bort de behållare som har skapats på enheten. 
+När IoT Edge-körningen tas bort stoppas de containrar som den skapade, men de finns fortfarande kvar på enheten. Visa alla containrar.
 
    ```bash
-   sudo docker rm -f $(sudo docker ps -aq)
+   sudo docker ps -a
+   ```
+
+Ta bort de containrar som skapades på enheten av IoT Edge-körningen. Ändra namnet på containern tempSensor om du kallade den för något annat. 
+
+   ```bash
+   sudo docker rm -f tempSensor
+   sudo docker rm -f edgeHub
+   sudo docker rm -f edgeAgent
    ```
 
 Ta bort körmiljön för behållaren.
@@ -196,8 +238,6 @@ Ta bort körmiljön för behållaren.
    ```bash
    sudo apt-get remove --purge moby
    ```
-
-När du inte längre behöver den Azure IoT Hub- eller IoT Edge-enhet du skapade i den här snabbstarten, kan du ta bort dem i Azure Portal. Gå till översiktssidan för din IoT Hub och välj **Ta bort**. 
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -221,5 +261,6 @@ Den här snabbstarten är en förutsättning för alla andra IoT Edge-självstud
 [9]: ./media/tutorial-simulate-device-linux/sensor-data.png
 
 <!-- Links -->
+[lnk-account]: https://azure.microsoft.com/free
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3b767da394f6337a1110ad171f19ad789fa044d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867501"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972989"
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Azure AD-lösenordsåterställning från inloggningsskärmen
 
@@ -28,7 +28,7 @@ För att användare ska kunna återställa sitt Azure AD-lösenord från Windows
 * April 2018-uppdatering för Windows 10 eller en nyare klient som är [Azure AD-ansluten](../device-management-azure-portal.md) eller [Hybrid Azure AD-ansluten](../device-management-hybrid-azuread-joined-devices-setup.md).
 * Återställning av lösenord för självbetjäning i Azure AD måste vara aktiverat.
 * Konfigurera och distribuera inställningen för att aktivera länken för återställning av lösenord via någon av följande metoder:
-   * [Konfigurationsprofil för Intune-enhet](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
+   * [Konfigurationsprofil för Intune-enhet](tutorial-sspr-windows.md#configure-reset-password-link-using-intune). Den här metoden kräver Intune-registrering av enheten.
    * [Registernyckel](tutorial-sspr-windows.md#configure-reset-password-link-using-the-registry)
 
 ## <a name="configure-reset-password-link-using-intune"></a>Konfigurera länken Återställ lösenord med Intune
@@ -66,7 +66,7 @@ För att användare ska kunna återställa sitt Azure AD-lösenord från Windows
    * Klicka på **Välj**
 4. Klicka på **Skapa**
 
-Mer information om att skapa grupper finns i artikeln [Hantera åtkomst till resurser med Azure Active Directory-grupper](../active-directory-manage-groups.md).
+Mer information om att skapa grupper finns i artikeln [Hantera åtkomst till resurser med Azure Active Directory-grupper](../fundamentals/active-directory-manage-groups.md).
 
 #### <a name="assign-device-configuration-policy-to-device-group"></a>Tilldela enhetskonfigurationsprincip till enhetsgrupp
 

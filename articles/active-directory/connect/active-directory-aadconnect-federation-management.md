@@ -17,17 +17,17 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5597d75da50853e85d6e94f1a5c7b5114068f671
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4bba72e0761553c81acda7609898c1b032bdf28a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917004"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044427"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Hantera och anpassa Active Directory Federation Services med hjälp av Azure AD Connect
 Den här artikeln beskriver hur du hanterar och anpassa Active Directory Federation Services (AD FS) med hjälp av Azure Active Directory (Azure AD) Connect. Den innehåller också andra vanliga aktiviteter för AD FS som du kan behöva göra en fullständig konfiguration av AD FS-servergrupp.
 
-| Avsnitt | Den behandlar |
+| Ämne | Den behandlar |
 |:--- |:--- |
 | **Hantera AD FS** | |
 | [Reparera förtroendet](#repairthetrust) |Så här att reparera federationsförtroende med Office 365. |
@@ -189,7 +189,7 @@ Följande avsnitt innehåller information om några av de vanliga uppgifter som 
 Ändra logotypen på företaget som visas på den **inloggning** kan du använda följande Windows PowerShell-cmdlet och syntax.
 
 > [!NOTE]
-> De rekommenderade måtten på logotypen är 260 x 35 96 dpi, samt med en filstorlek som är större än 10 KB.
+> De rekommenderade måtten på logotypen är 260 x 35 \@ 96 dpi, samt med en filstorlek som är större än 10 KB.
 
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 

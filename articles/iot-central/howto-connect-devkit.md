@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c2a7278f4ee6861a1e47610c06fdc6ffcec52247
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 99d69c7e49179a7849e274c830d539833da33786
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931090"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049460"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Anslut en enhet för MXChip IoT DevKit till programmet Azure IoT Central
 
@@ -32,14 +32,14 @@ Ett program som skapats från den **exempel Devkits** programmall innehåller en
 
 #### <a name="telemetry"></a>Telemetri 
 
-| Fältnamn     | Enheter  | Minimum | Maximal | Antal decimaler |
+| Fältnamn     | Enheter  | Minimal | Maximal | Antal decimaler |
 | -------------- | ------ | ------- | ------- | -------------- |
-| fuktighet       | %      | 0       | 100     | 0              |
+| luftfuktighet       | %      | 0       | 100     | 0              |
 | Temp           | ° C     | -40     | 120     | 0              |
 | tryck       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | där-1 000   | 1000    | 0              |
-| magnetometerY  | mgauss | där-1 000   | 1000    | 0              |
-| magnetometerZ  | mgauss | där-1 000   | 1000    | 0              |
+| magnetometerX  | mgauss | där-1 000   | 1 000    | 0              |
+| magnetometerY  | mgauss | där-1 000   | 1 000    | 0              |
+| magnetometerZ  | mgauss | där-1 000   | 1 000    | 0              |
 | accelerometerX | mg     | -2000   | 2000    | 0              |
 | accelerometerY | mg     | -2000   | 2000    | 0              |
 | accelerometerZ | mg     | -2000   | 2000    | 0              |
@@ -53,7 +53,7 @@ Ett program som skapats från den **exempel Devkits** programmall innehåller en
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Enhetens tillstånd   | Grön  | Orange  | Röd    | 
 
-#### <a name="events"></a>Händelser 
+#### <a name="events"></a>Events 
 
 | Namn             | Visningsnamn      | 
 | ---------------- | ----------------- | 
@@ -65,24 +65,24 @@ Ett program som skapats från den **exempel Devkits** programmall innehåller en
 
 Numeriska inställningar
 
-| Visningsnamn | Fältnamn | Enheter | Antal decimaler | Minimum | Maximal | Inledande |
+| Visningsnamn | Fältnamn | Enheter | Antal decimaler | Minimal | Maximal | Inledande |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Spänning      | setVoltage | V | 0              | 0       | 240     | 0       |
 | Aktuell      | setCurrent | A  | 0              | 0       | 100     | 0       |
-| Fläkthastighet    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+| Fläkthastighet    | fanSpeed   | RPM   | 0              | 0       | 1 000    | 0       |
 
 Visa/Dölj inställningar
 
 | Visningsnamn | Fältnamn | Text | Av text | Inledande |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ON      | AV      | Av     |
+| IR           | activateIR | PÅ      | AV      | Av     |
 
 ### <a name="properties"></a>Egenskaper
 
 | Typ            | Visningsnamn | Fältnamn | Datatyp |
 | --------------- | ------------ | ---------- | --------- |
 | Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
-| Enhetsegenskap | Enhetsplats   | location  | location    |
+| Enhetsegenskap | Enhetsplats   | plats  | plats    |
 | Text            | Tillverkas på     | manufacturedIn   | Gäller inte       |
 
 
@@ -128,7 +128,7 @@ Förbereda enheten DevKit:
     - lösenordet för Wi-Fi-nätverk 
     - PIN-koden som visas på enheten LCD 
     - anslutningssträngen för din enhet. 
-      Du hittar anslutningssträngen @ `https://apps.iotcentral.com`  ->  `Device Explorer`  ->  `Device`  ->  `Select or Create a new Real Device`  ->  `Connect this device` (på upp till höger) 
+      Du hittar anslutningssträngen \@ `https://apps.iotcentral.com`  ->  `Device Explorer`  ->  `Device`  ->  `Select or Create a new Real Device`  ->  `Connect this device` (på upp till höger) 
     - Välj all tillgänglig telemetri mätningar! 
 
 1. När du har valt **– konfigurera enhet**, visas den här sidan:
@@ -191,7 +191,7 @@ Föregående kommando hämtar källkoden till en mapp med namnet `iot-central-fi
 
 Använd Visual Studio Code, som installerades när du har förberett din utvecklingsmiljö för att öppna den `AZ3166` mapp i den `iot-central-firmware` mapp: 
 
-![Visual Studio-koden](media/howto-connect-devkit/vscodeview.png)
+![Visual Studio-kod](media/howto-connect-devkit/vscodeview.png)
 
 Om du vill se hur telemetri som skickas till programmet Azure IoT Central, öppna den **main_telemetry.cpp** filen i källmappen.
 

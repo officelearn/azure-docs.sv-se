@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: 4d08c4c7a76d7ed16ec57590ee0fd4ee978e5258
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263158"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918279"
 ---
 # <a name="archive-azure-monitoring-data"></a>Arkivera Azure-övervakningsdata
 
@@ -136,6 +136,11 @@ Nu flödar övervakningsdata från resursen till lagringskontot.
 Nu flödar övervakningsdata från de virtuella datorerna till lagringskontot.
 
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>Visa övervakningsdata i lagringskontot
+
+> [!WARNING]
+> Formatet för loggdata i lagringskontot ändras till JSON Lines den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 Om du har följt föregående steg har data börjat flöda till lagringskontot.
 

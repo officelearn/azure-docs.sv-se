@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med xMatters OnDemand | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integration med xMatters OnDemand | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och xMatters OnDemand.
 services: active-directory
 documentationCenter: na
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 9a3555f9efa34a5da2e6fa624da0f80d52dab077
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 60991f2780de86f0b15f64def6b1776316f974d4
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211643"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055631"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Självstudier: Azure Active Directory-integrering med xMatters OnDemand
+# <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Självstudier: Azure Active Directory-integration med xMatters OnDemand
 
-I kursen får lära du att integrera xMatters OnDemand med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar xMatters OnDemand med Azure Active Directory (AD Azure).
 
 Integrera xMatters OnDemand med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till xMatters OnDemand
-- Du kan aktivera användarna att automatiskt hämta loggat in på xMatters OnDemand (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan aktivera användarna att automatiskt få loggat in på xMatters OnDemand (Single Sign-On) med sina Azure AD-konton
+- Du kan hantera dina konton på en central plats – Azure portal
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med xMatters OnDemand, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med xMatters OnDemand, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En xMatters OnDemand enkel inloggning aktiverad prenumeration
+- En xMatters OnDemand enkel inloggning aktiverat prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till xMatters OnDemand från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-xmatters-ondemand-from-the-gallery"></a>Att lägga till xMatters OnDemand från galleriet
-Du måste lägga till xMatters OnDemand från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av xMatters OnDemand i Azure AD.
+För att konfigurera integrering av xMatters OnDemand i Azure AD, som du behöver lägga till xMatters OnDemand från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till xMatters OnDemand från galleriet:**
 
@@ -67,32 +67,32 @@ Du måste lägga till xMatters OnDemand från galleriet i listan över hanterade
 
     ![Program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
 4. I sökrutan skriver **xMatters OnDemand**.
 
-    ![Skapa en testanvändare i Azure AD](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_search.png)
+    ![Skapa en Azure AD-användare för testning](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_search.png)
 
-5. Välj i resultatpanelen **xMatters OnDemand**, och klicka sedan på **Lägg till** för att lägga till programmet.
+5. I resultatpanelen väljer **xMatters OnDemand**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_addfromgallery.png)
+    ![Skapa en Azure AD-användare för testning](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med xMatters OnDemand baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med xMatters OnDemand baserat på en testanvändare som kallas ”Britta Simon”.
 
-För enkel inloggning ska fungera, Azure AD som behöver veta vilka motsvarande användaren i xMatters OnDemand är att en användare i Azure AD. Med andra ord en länk förhållandet mellan en Azure AD-användare och relaterade användaren i xMatters OnDemand måste upprättas.
+För enkel inloggning att fungera, behöver Azure AD du veta vilka motsvarande användaren i xMatters OnDemand är att en användare i Azure AD. Med andra ord en länk relationen mellan en Azure AD-användare och relaterade användaren i xMatters OnDemand måste upprättas.
 
-I xMatters OnDemand, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+I xMatters OnDemand, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med xMatters OnDemand, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare för xMatters OnDemand](#creating-a-xmatters-ondemand-test-user)**  – du har en motsvarighet för Britta Simon i xMatters OnDemand som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare för xMatters OnDemand](#creating-a-xmatters-ondemand-test-user)**  – du har en motsvarighet för Britta Simon i xMatters OnDemand som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -100,11 +100,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med xMatters OnDemand:**
 
-1. I Azure-portalen på den **xMatters OnDemand** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **xMatters OnDemand** program integration-sidan klickar du på **enkel inloggning**.
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
     ![Konfigurera enkel inloggning](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_samlbase.png)
 
@@ -112,7 +112,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
     
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:
+    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au/`|
@@ -121,7 +121,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://www.xmatters.com`|
     | `https://<companyname>.xmatters.com.au/`|
 
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster:
+    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster:
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au`|
@@ -130,28 +130,28 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://<companyname>.au1.xmatters.com.au/<instancename>`|
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Kontakta [xMatters OnDemand supportteam](https://www.xmatters.com/company/contact-us/) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare och svars-URL. Kontakta [xMatters OnDemand supportteam](https://www.xmatters.com/company/contact-us/) att hämta dessa värden.
 
 4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen lokalt som **c:\\XMatters OnDemand.cer**.
 
     ![Konfigurera enkel inloggning](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_certificate.png)
 
     > [!IMPORTANT]
-    > Du behöver att vidarebefordra certifikatet som den [xMatters OnDemand supportteam](https://www.xmatters.com/company/contact-us/). Certifikatet måste överföras av supportteamet xMatters innan du kan slutföra konfigurationen för enkel inloggning. 
+    > Behöver du vidarebefordra certifikatet som den [xMatters OnDemand supportteam](https://www.xmatters.com/company/contact-us/). Certifikatet måste överföras av supportteamet xMatters innan du kan slutföra konfigurationen för enkel inloggning. 
 
 5. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/xmatters-ondemand-tutorial/tutorial_general_400.png)
 
-6. På den **xMatters OnDemand Configuration** klickar du på **konfigurera xMatters OnDemand** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+6. På den **xMatters OnDemand Configuration** klickar du på **konfigurera xMatters OnDemand** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Konfigurera enkel inloggning](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_configure.png) 
 
-7. I en annan webbläsarfönster loggar du in på webbplatsen XMatters OnDemand företag som administratör.
+7. I ett annat webbläsarfönster logga du in på webbplatsen XMatters OnDemand företag som administratör.
 
-8. Klicka på i verktygsfältet högst upp **Admin**, och klicka sedan på **företagsinformation** i navigeringsfältet till vänster.
+8. I verktygsfältet högst upp, klickar du på **Admin**, och klicka sedan på **Company Details** i navigeringsfältet till vänster.
 
-    ![Admin](./media/xmatters-ondemand-tutorial/IC776795.png "Admin")
+    ![Administratören](./media/xmatters-ondemand-tutorial/IC776795.png "Admin")
 
 9. På den **SAML-konfiguration** utför följande steg:
 
@@ -159,54 +159,54 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. Välj **aktivera SAML**.
 
-    b. I den **identitet Provider-ID** textruta klistra in **SAML enhets-ID** värde som du har kopierat från Azure-portalen.
+    b. I den **identitet Provider-ID** textrutan klistra in **SAML entitets-ID** värde som du har kopierat från Azure-portalen.
 
-    c. I den **enkel inloggning på URL: en** textruta klistra in **SAML inloggning tjänst-URL för enkel** värde som du har kopierat från Azure-portalen.
+    c. I den **inloggning på URL för enkel** textrutan klistra in **SAML enkel inloggning för tjänst-URL** värde som du har kopierat från Azure-portalen.
 
-    d. I den **URL för enkel logga ut** textruta klistra in **Sign-Out URL**, som du har kopierat från Azure-portalen.
+    d. I den **URL för enkel utloggning** textrutan klistra in **URL: en för utloggning**, som du har kopierat från Azure-portalen.
 
-    e. På sidan företagsinformation överst **spara ändringar**.
+    e. På sidan Company Details överst, **spara ändringar**.
 
     ![Företagets information](./media/xmatters-ondemand-tutorial/IC776797.png "företagets information")
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+![Skapa en Azure AD-användare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
 
-    ![Skapa en testanvändare i Azure AD](./media/xmatters-ondemand-tutorial/create_aaduser_01.png) 
+    ![Skapa en Azure AD-användare för testning](./media/xmatters-ondemand-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
+2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
 
-    ![Skapa en testanvändare i Azure AD](./media/xmatters-ondemand-tutorial/create_aaduser_02.png) 
+    ![Skapa en Azure AD-användare för testning](./media/xmatters-ondemand-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
 
-    ![Skapa en testanvändare i Azure AD](./media/xmatters-ondemand-tutorial/create_aaduser_03.png) 
+    ![Skapa en Azure AD-användare för testning](./media/xmatters-ondemand-tutorial/create_aaduser_03.png) 
 
 4. På den **användaren** dialogrutan utför följande steg:
 
-    ![Skapa en testanvändare i Azure AD](./media/xmatters-ondemand-tutorial/create_aaduser_04.png) 
+    ![Skapa en Azure AD-användare för testning](./media/xmatters-ondemand-tutorial/create_aaduser_04.png) 
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    a. I den **namn** textrutan typ **BrittaSimon**.
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
 
 ### <a name="creating-a-xmatters-ondemand-test-user"></a>Skapa en xMatters OnDemand testanvändare
 
-Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i xMatters OnDemand. xMatters OnDemand stöder automatisk användaretablering, vilket är aktiverat som standard. Du hittar mer information [här](xmatters-ondemand-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i xMatters OnDemand. xMatters OnDemand stöder automatisk användaretablering, vilket är som standard aktiverat. Du hittar mer information om [här](xmatters-ondemand-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
 
-**Om du behöver skapa användare manuellt gör du följande:**
+**Om du vill skapa användare manuellt kan du utföra följande steg:**
 
-1. Logga in på ditt **XMatters OnDemand** klient.
+1. Logga in på din **XMatters OnDemand** klient.
 
 2.  Klicka på **användare** fliken och klicka sedan på **Lägg till användare**.
 
@@ -218,56 +218,56 @@ Syftet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
     a. Välj **Active**.
 
-    b. I den **användar-ID** textruta ange användar-id för användare som Brittasimon@contoso.com.
+    b. I den **användar-ID** textrutan typ användar-id för användaren som Brittasimon@contoso.com.
 
-    c. I den **Förnamn** textruta första typnamnet för användaren som Britta.
+    c. I den **Förnamn** textrutan Ange först namnet på användaren som Britta.
 
-    d. I den **efternamn** textruta Skriv Efternamn för användaren som Simon.
+    d. I den **efternamn** textrutan Skriv Efternamn för användaren som Simon.
 
-    e. I den **plats** textruta RETUR giltig plats för ett giltigt Azure AD-kontot som du vill etablera.
+    e. I den **plats** textrutan, ange den giltiga platsen i en giltig Azure AD-konto som du vill etablera.
 
     f. Klicka på **Spara**.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till xMatters OnDemand.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till xMatters OnDemand.
 
 ![Tilldela användare][200] 
 
-**Om du vill tilldela xMatters OnDemand Britta Simon utför du följande steg:**
+**Om du vill tilldela Britta Simon xMatters OnDemand, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **xMatters OnDemand**.
+2. I listan med program väljer **xMatters OnDemand**.
 
     ![Konfigurera enkel inloggning](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_app.png) 
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på xMatters OnDemand-panelen på åtkomstpanelen du bör få automatiskt loggat in på ditt xMatters OnDemand-programmet.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
+När du klickar på xMatters OnDemand-panelen i åtkomstpanelen du bör få automatiskt loggat in på ditt xMatters OnDemand-programmet.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera Användaretablering](xmatters-ondemand-provisioning-tutorial.md)
 

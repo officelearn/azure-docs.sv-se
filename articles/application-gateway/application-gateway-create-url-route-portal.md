@@ -1,6 +1,6 @@
 ---
-title: Skapa en Programgateway med URL-sökväg-baserade regler för routning - Azure-portalen
-description: Lär dig mer om att skapa URL-sökväg-baserade routningsregler för en Programgateway och skaluppsättningen för virtuell dator med hjälp av Azure portal.
+title: Skapa en Programgateway med URL-sökvägsbaserad routning regler - Azure-portalen
+description: Lär dig mer om att skapa URL-baserad routningsregler för en application gateway och en skalningsuppsättning för virtuell dator med Azure portal.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -10,25 +10,25 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 3fcbcbe5d5f8dab956f40cde112f3536e1ae668c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 5bec7be5f7ad744960d2602aaf24fec51d869267
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264000"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056257"
 ---
-# <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Skapa en Programgateway med sökväg-baserade regler för routning med Azure-portalen
+# <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Skapa en Programgateway med sökvägsbaserad routning regler med hjälp av Azure portal
 
-Du kan använda Azure-portalen för att konfigurera [URL-sökväg-baserade regler för routning](application-gateway-url-route-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här självstudiekursen skapar du serverdelspooler med hjälp av virtuella datorer. Sedan kan du skapa regler för routning som kontrollerar Internet-trafik anländer till rätt servrar i poolerna.
+Du kan använda Azure-portalen för att konfigurera [URL-baserad routningsregler](application-gateway-url-route-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här självstudien skapar du serverdelspooler med hjälp av virtuella datorer. Du kan sedan skapa routningsregler som gör att Internet-trafik anländer till rätt servrar i poolerna.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Skapa en programgateway
+> * Skapa en Application Gateway
 > * Skapa virtuella datorer för backend-servrar
 > * Skapa serverdelspooler med backend-servrar
 > * Skapa en backend-lyssnare
-> * Skapa en sökväg-baserade regel
+> * Skapa en sökvägsbaserad regel
 
 ![URL-routningsexempel](./media/application-gateway-create-url-route-portal/scenario.png)
 
@@ -38,11 +38,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com)
 
-## <a name="create-an-application-gateway"></a>Skapa en programgateway
+## <a name="create-an-application-gateway"></a>Skapa en Application Gateway
 
-Ett virtuellt nätverk behövs för kommunikation mellan resurser som du skapar. I det här exemplet skapas två undernät: ett för programgatewayen och ett annat för serverdelen. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen.
+Ett virtuellt nätverk krävs för kommunikation mellan de resurser som du skapar. I det här exemplet skapas två undernät: ett för programgatewayen och ett annat för serverdelen. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen.
 
-1. Klicka på **ny** hittades på det övre vänstra hörnet i Azure-portalen.
+1. Klicka på **New** hittades på det övre vänstra hörnet i Azure-portalen.
 2. Välj **Nätverk** och sedan **Application Gateway** i listan Aktuella.
 3. Ange följande värden för programgatewayen:
 
@@ -52,19 +52,19 @@ Ett virtuellt nätverk behövs för kommunikation mellan resurser som du skapar.
     ![Skapa en ny programgateway](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
 4. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
-5. Klicka på **Välj ett virtuellt nätverk**, klickar du på **Skapa nytt**, och ange sedan värdena för det virtuella nätverket:
+5. Klicka på **Välj ett virtuellt nätverk**, klickar du på **Skapa nytt**, och ange följande värden för det virtuella nätverket:
 
     - *myVnet* – Det virtuella nätverkets namn.
     - *10.0.0.0/16* – Det virtuella nätverkets adressutrymme.
     - *myBackendSubnet* – Undernätsnamnet.
     - *10.0.0.0/24* – Undernätets adressutrymme.
 
-    ![Skapa det virtuella nätverket](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
+    ![Skapa virtuellt nätverk](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
 6. Klicka på **OK** för att skapa det virtuella nätverket och undernätet.
-7. Klicka på **Välj en offentlig IP-adress**, klickar du på **Skapa nytt**, och ange sedan namnet på den offentliga IP-adressen. I det här exemplet heter den offentliga IP-adressen *myAGPublicIPAddress*. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
-8. Godkänn standardvärdena för Lyssnarkonfigurationen lämna inaktiverad Brandvägg för webbaserade program och klicka sedan på **OK**.
-9. Granska inställningarna på sidan Sammanfattning och klicka sedan på **OK** skapa nätverksresurser och programgatewayen. Det kan ta flera minuter för Programgateway skapas, vänta tills distributionen har slutförts innan du går vidare till nästa avsnitt.
+7. Klicka på **välja en offentlig IP-adress**, klickar du på **Skapa nytt**, och ange sedan namnet på den offentliga IP-adressen. I det här exemplet heter den offentliga IP-adressen *myAGPublicIPAddress*. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
+8. Godkänn standardvärdena för Lyssnarkonfigurationen, lämna inaktiverad brandväggen för webbaserade program och sedan på **OK**.
+9. Granska inställningarna på sidan Sammanfattning och klicka sedan på **OK** att skapa nätverksresurser och application gateway. Det kan ta flera minuter för application gateway kan skapas, vänta tills distributionen har slutförts innan du går vidare till nästa avsnitt.
 
 ### <a name="add-a-subnet"></a>Lägga till ett undernät
 
@@ -77,7 +77,7 @@ Ett virtuellt nätverk behövs för kommunikation mellan resurser som du skapar.
 
 ## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-I det här exemplet kan du skapa tre virtuella datorer som ska användas som backend-servrar för programgatewayen. Du installerar även IIS på de virtuella datorerna för att verifiera att programgatewayen har skapats.
+I det här exemplet skapar du tre virtuella datorer som ska användas som serverdelsservrar för application gateway. Du installerar även IIS på de virtuella datorerna för att verifiera att programgatewayen har skapats.
 
 1. Klicka på **Ny**.
 2. Klicka på **Compute** och välj sedan **Windows Server 2016 Datacenter** i listan över aktuella.
@@ -103,7 +103,7 @@ I det här exemplet kan du skapa tre virtuella datorer som ska användas som bac
 2. Kör följande kommando för att installera IIS på den virtuella datorn: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -115,7 +115,7 @@ I det här exemplet kan du skapa tre virtuella datorer som ska användas som bac
       -Settings $publicSettings
     ```
 
-3. Skapa två fler virtuella datorer och installera IIS med hjälp av stegen som du just har avslutats. Ange namnen på *myVM2* och *myVM3* för namnen och värdena för VMName i Set-AzureRmVMExtension.
+3. Skapa två fler virtuella datorer och installera IIS med hjälp av de steg som du är klar. Ange namnen på *myVM2* och *myVM3* för namnen och värdena för VMName i Set-AzureRmVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Skapa backend-pooler med virtuella datorer
 
@@ -127,24 +127,24 @@ I det här exemplet kan du skapa tre virtuella datorer som ska användas som bac
 
 4. Klicka på **Spara**.
 5. Klicka på **serverdelspooler** och klicka sedan på **Lägg till**.
-6. Ange ett namn med *imagesBackendPool* och Lägg till *myVM2* med **Lägg till mål**.
+6. Ange ett namn för *imagesBackendPool* och Lägg till *myVM2* med **Lägg till mål**.
 7. Klicka på **OK**.
 8. Klicka på **Lägg till** igen för att lägga till en annan serverdelspool med namnet *videoBackendPool* och Lägg till *myVM3* till den.
 
 ## <a name="create-a-backend-listener"></a>Skapa en backend-lyssnare
 
 1. Klicka på **lyssnare** och klicka på **grundläggande**.
-2. Ange *myBackendListener* för namn, *myFrontendPort* för frontend-porten och sedan *8080* som port för lyssnaren.
+2. Ange *myBackendListener* efter namn, *myFrontendPort* för namnet på den frontend-porten, och sedan *8080* som port för lyssnaren.
 3. Klicka på **OK**.
 
-## <a name="create-a-path-based-routing-rule"></a>Skapa en sökväg-baserade regel
+## <a name="create-a-path-based-routing-rule"></a>Skapa en sökvägsbaserad regel
 
-1. Klicka på **regler** och klicka sedan på **sökväg-baserade**.
-2. Ange *regel 2* för namnet.
-3. Ange *bilder* för namnet på den första sökvägen. Ange */images/* \* för sökvägen. Välj **imagesBackendPool** för serverdelspoolen.
+1. Klicka på **regler** och klicka sedan på **sökvägsbaserad**.
+2. Ange *2* för namnet.
+3. Ange *avbildningar* för namnet på den första sökvägen. Ange */images/* \* för sökvägen. Välj **imagesBackendPool** för serverdelspoolen.
 4. Ange *Video* för namnet på den andra sökvägen. Ange */video/* \* för sökvägen. Välj **videoBackendPool** för serverdelspoolen.
 
-    ![Skapa en regel som sökväg-baserade](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
+    ![Skapa en sökvägsbaserad regel](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
 
 5. Klicka på **OK**.
 
@@ -158,23 +158,23 @@ I det här exemplet kan du skapa tre virtuella datorer som ska användas som bac
 
     ![Testa basadressen i programgatewayen](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
-3. Ändra Webbadressen till http://&lt;ip-adress&gt;: 8080/images/test.htm, ersätter &lt;ip-adress&gt; med IP-adress, och du bör se något som liknar följande exempel:
+3. Ändra Webbadressen till http://&lt;ip-adress&gt;: 8080/images/test.htm, Ersätt &lt;ip-adress&gt; med din IP-adress, och du bör se ut ungefär som i följande exempel:
 
     ![Testa bildadressen i programgatewayen](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
-4. Ändra Webbadressen till http://&lt;ip-adress&gt;: 8080/video/test.htm, ersätter &lt;ip-adress&gt; med IP-adress, och du bör se något som liknar följande exempel:
+4. Ändra Webbadressen till http://&lt;ip-adress&gt;: 8080/video/test.htm, Ersätt &lt;ip-adress&gt; med din IP-adress, och du bör se ut ungefär som i följande exempel:
 
     ![Testa videoadressen i programgatewayen](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln får du lära dig hur du
+I den här artikeln har du lärt dig hur du
 
 > [!div class="checklist"]
-> * Skapa en programgateway
+> * Skapa en Application Gateway
 > * Skapa virtuella datorer för backend-servrar
 > * Skapa serverdelspooler med backend-servrar
 > * Skapa en backend-lyssnare
-> * Skapa en sökväg-baserade regel
+> * Skapa en sökvägsbaserad regel
 
-Mer information om programgatewayer och deras associerade resurser fortsätter du att artiklarna.
+Om du vill veta mer om application gateway och deras associerade resurser kan du fortsätta i instruktionsartiklarna.

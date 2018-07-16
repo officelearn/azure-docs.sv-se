@@ -6,14 +6,14 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 11/07/2017
+ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 1837fc6511ac734766c55bd1c2a2a7a40219c31a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0c7f9807605236a8250d75623d0885730c9945a0
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793029"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950690"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Skapa en Azure Search-tjänst i portalen
 
@@ -29,8 +29,8 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 
 ## <a name="find-azure-search"></a>Hitta Azure Search
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Klicka på plustecknet (”+”) i det övre vänstra hörnet.
-3. Välj **Webb och mobilt** > **Azure Search**.
+2. Klicka på plustecknet (”+ Skapa resurs”) i det övre vänstra hörnet.
+3. Välj **Webb** > **Azure Search**.
 
 ![](./media/search-create-service-portal/find-search3.png)
 
@@ -77,12 +77,14 @@ Med ***Partitioner*** kan tjänsten lagra och söka igenom fler dokument.
 
 Med ***Repliker*** kan tjänsten hantera en högre belastning av sökfrågor.
 
+Om du lägger till resurser blir din månatliga faktura större. [Priskalkylatorn](https://azure.microsoft.com/pricing/calculator/) kan hjälpa dig att förstå hur fakturering påverkas när du lägger till resurser. Kom ihåg att du kan ändra resurser baserat på belastning. Du kan till exempel öka resurserna för att skapa den fullständiga initiala indexeringen och sedan minska resurserna till en nivå som är mer lämplig för inkrementell indexering.
+
 > [!Important]
 > En tjänst måste ha [2 repliker för skrivskyddad SLA och 3 repliker för läs-/skriv-SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Gå till söktjänstsidan i Azure-portalen.
 2. Välj **Inställningar** > **Skala** i det vänstra navigeringsfönstret.
-3. Använd reglaget om du vill lägga till repliker eller partitioner.
+3. Använd reglaget om du vill lägga till resurser av endera typ.
 
 ![](./media/search-create-service-portal/settings-scale.png)
 

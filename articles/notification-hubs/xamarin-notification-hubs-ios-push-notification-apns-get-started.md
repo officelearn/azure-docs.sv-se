@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: babd6bff3cec38318cacc0d55394a7563f8e69a4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cebb73fedffe3b5f0a11c919ff39d1d2acd462d3
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776880"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969535"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Självstudier: Skicka meddelanden till Xamarin.iOS-appar med hjälp av Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -84,34 +84,46 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNS och du har ans
 
     ![Visual Studio – iOS-appkonfiguration][32]
 
-4. Lägg till Azure Messaging-paketet. I vyn Solution (Lösning) högerklickar du på projektet och väljer **Add** (Lägg till)  > **Add NuGet Packages** (Lägg till NuGet-paket). Sök efter **Xamarin.Azure.NotificationHubs.iOS** och lägg till paketet i projektet.
+4. Dubbelklicka på *Entitlements.plist* från lösningsvyn och kontrollera att ”Aktivera push-meddelanden” är markerat.
 
-5. Lägg till en ny fil i klassen, ge den namnet **Constants.cs** och lägg till följande variabler och ersätt stränglitteralplatshållarna med *hubbnamnet* och *DefaultListenSharedAccessSignature* som noterats tidigare.
+    ![Visual Studio – konfigurera iOS-berättiganden][33]
+
+5. Lägg till Azure Messaging-paketet. I vyn Solution (Lösning) högerklickar du på projektet och väljer **Add** (Lägg till)  > **Add NuGet Packages** (Lägg till NuGet-paket). Sök efter **Xamarin.Azure.NotificationHubs.iOS** och lägg till paketet i projektet.
+
+6. Lägg till en ny fil i klassen, ge den namnet **Constants.cs** och lägg till följande variabler och ersätt stränglitteralplatshållarna med *hubbnamnet* och *DefaultListenSharedAccessSignature* som noterats tidigare.
    
     ```csharp
         // Azure app-specific connection string and hub path
-        public const string ConnectionString = "<Azure connection string>";
-        public const string NotificationHubPath = "<Azure hub path>";
+        public const string ListenConnectionString = "<Azure connection string>";
+        public const string NotificationHubName = "<Azure hub path>";
     ```
 
-6. Lägg till följande using-instruktion i **AppDelegate.cs**:
+7. Lägg till följande using-instruktion i **AppDelegate.cs**:
    
     ```csharp
         using WindowsAzure.Messaging;
     ```
 
-7. Deklarera en instans av **SBNotificationHub**:
+8. Deklarera en instans av **SBNotificationHub**:
    
     ```csharp
         private SBNotificationHub Hub { get; set; }
     ```
 
-8. I **AppDelegate.cs** uppdaterar du **FinishedLaunching()** så att det matchar följande kod:
-   
+9.  I **AppDelegate.cs** uppdaterar du **FinishedLaunching()** så att det matchar följande kod:
+  
     ```csharp
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+            if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
+            {
+                UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
+                                                                      (granted, error) =>
+                {
+                    if (granted)
+                        InvokeOnMainThread(UIApplication.SharedApplication.RegisterForRemoteNotifications);
+                });
+            } else if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
                 var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
                        UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
                        new NSSet ());
@@ -127,12 +139,12 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNS och du har ans
         }
     ```
 
-9. Åsidosätt metoden **RegisteredForRemoteNotifications()** i **AppDelegate.cs**:
+10. Åsidosätt metoden **RegisteredForRemoteNotifications()** i **AppDelegate.cs**:
    
     ```csharp
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
-            Hub = new SBNotificationHub(Constants.ConnectionString, Constants.NotificationHubPath);
+            Hub = new SBNotificationHub(Constants.ListenConnectionString, Constants.NotificationHubName);
    
             Hub.UnregisterAllAsync (deviceToken, (error) => {
                 if (error != null)
@@ -150,7 +162,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNS och du har ans
         }
     ```
 
-10. Åsidosätt metoden **ReceivedRemoteNotification()** i **AppDelegate.cs**:
+11. Åsidosätt metoden **ReceivedRemoteNotification()** i **AppDelegate.cs**:
    
     ```csharp
         public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
@@ -159,7 +171,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNS och du har ans
         }
     ```
 
-11. Skapa följande **ProcessNotification()**-metod i **AppDelegate.cs**:
+12. Skapa följande **ProcessNotification()**-metod i **AppDelegate.cs**:
    
     ```csharp
         void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
@@ -200,7 +212,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNS och du har ans
    > Du kan välja att åsidosätta **FailedToRegisterForRemoteNotifications()** för att hantera vissa situationer, till exempel om det inte finns någon nätverksanslutning. Detta är särskilt viktigt om användaren kan starta appen i offline-läge (t.ex. flygplansläge) och du vill hantera scenarier för push-meddelanden som är specifika för din app.
   
 
-12. Kör appen på enheten.
+13. Kör appen på enheten.
 
 ## <a name="send-test-push-notifications"></a>Skicka test-push-meddelanden
 Du kan testa att ta emot meddelanden i appen med alternativet *Skicka test* i [Azure Portal]. Den skickar ett test-push-meddelande till enheten.
@@ -226,6 +238,7 @@ I de här självstudierna har du skickat meddelanden till alla iOS-enheter som �
 [30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 [31]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-ios-app.png
 [32]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-app-settings.png
+[33]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-entitlements-settings.png
 
 
 

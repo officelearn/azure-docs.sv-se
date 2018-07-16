@@ -1,6 +1,6 @@
 ---
-title: Azure innehåll kontrollant - måttlig text med hjälp av .NET | Microsoft Docs
-description: Så här måttlig text med hjälp av Azure innehåll kontrollant SDK för .NET
+title: Azure Content Moderator – måttlig text med hjälp av .NET | Microsoft Docs
+description: Så här moderera text med Azure Content Moderator-SDK för .NET
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,37 +9,37 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 238d086e87b0e52f0887af5c4db58e8f72796b49
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7320286e186d7e6ba4041d3ed52f19e573b4d7e3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352692"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049889"
 ---
-# <a name="moderate-text-using-net"></a>Måttlig text med hjälp av .NET
+# <a name="moderate-text-using-net"></a>Moderera text med hjälp av .NET
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med innehåll kontrollant SDK för .NET för att:
-- Identifiera potentiella svordomar i text med termen-baserade filtrering
-- Använd machine-learning-baserade modeller till [klassificera texten](text-moderation-api.md#classification) i tre kategorier.
+Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med Content Moderator-SDK för .NET för att:
+- Identifiera potentiellt olämpligt språk i texten med termen-baserad filtrering
+- Använd machine-learning-baserade modeller för att [klassificera texten](text-moderation-api.md#classification) i tre kategorier.
 - Identifiera personligt identifierbar information (PII), till exempel USA och Storbritannien telefonnummer, e-postadresser och USA e-postadresser.
 - Normalisera text och Autokorrigering skrivfel
 
 Den här artikeln förutsätter att du redan är bekant med Visual Studio och C#.
 
-## <a name="sign-up-for-content-moderator-services"></a>Registrera dig för innehåll kontrollant services
+## <a name="sign-up-for-content-moderator-services"></a>Registrera dig för Content Moderator-tjänster
 
-Innan du kan använda innehåll kontrollant tjänster via REST API eller SDK behöver du en prenumeration för.
-Referera till den [Quickstart](quick-start.md) att lära dig hur du kan hämta nyckeln.
+Innan du kan använda Content Moderator-tjänster via REST-API: et eller SDK: N, måste en prenumerationsnyckel.
+Referera till den [snabbstarten](quick-start.md) att lära dig hur du kan hämta nyckeln.
 
 ## <a name="create-your-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
-1. Lägg till en ny **konsolapp (.NET Framework)** projekt i lösningen.
+1. Lägga till en ny **konsolapp (.NET Framework)** projekt i lösningen.
 
-   Namnge projektet i koden, **TextModeration**.
+   Namnge projektet i exempelkoden **TextModeration**.
 
-1. Välj det här projektet som Startprojekt enda för lösningen.
+1. Välj det här projektet som enda Startprojekt för lösningen.
 
-1. Lägg till en referens till den **ModeratorHelper** projektet sammansättningen som du skapade i den [innehåll kontrollant klienten helper quickstart](content-moderator-helper-quickstart-dotnet.md).
+1. Lägg till en referens till den **ModeratorHelper** projektet sammansättning som du skapade i den [Content Moderator klienten helper Snabbstart](content-moderator-helper-quickstart-dotnet.md).
 
 ### <a name="install-required-packages"></a>Installera de paket som krävs
 
@@ -49,9 +49,9 @@ Installera följande NuGet-paket:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Uppdatera programmet använder instruktioner
+### <a name="update-the-programs-using-statements"></a>Uppdatera programmet använder uttryck
 
-Ändra programmet använder instruktioner.
+Ändra programmet är med hjälp av uttryck.
 
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
@@ -65,7 +65,7 @@ Installera följande NuGet-paket:
 
 ### <a name="initialize-application-specific-settings"></a>Initiera programspecifika inställningar
 
-Lägg till följande statiska fält till den **programmet** klassen i Program.cs.
+Lägg till följande statiska fält i den **programmet** klassen i Program.cs.
 
     /// <summary>
     /// The name of the file that contains the text to evaluate.
@@ -80,10 +80,10 @@ Lägg till följande statiska fält till den **programmet** klassen i Program.cs
     /// <remarks>Relative paths are ralative the execution directory.</remarks>
     private static string OutputFile = "TextModerationOutput.txt";
 
-Vi använde följande text för att generera utdata för denna Snabbstart:
+Vi använde följande text för att generera utdata för den här snabbstarten:
 
 > [!NOTE]
-> Ogiltig personnummer i följande exempel är avsiktlig. Syftet är att förmedla Exempelindata och utdata format.
+> Ogiltig e-postadress i följande exempel är avsiktligt. Syftet är att förmedla Exempelindata och utdata format.
 
     Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
     These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 
@@ -91,7 +91,7 @@ Vi använde följande text för att generera utdata för denna Snabbstart:
 
 ## <a name="add-code-to-load-and-evaluate-the-input-text"></a>Lägg till kod för att läsa in och utvärdera indatatexten
 
-Lägg till följande kod i den **Main** metod.
+Lägg till följande kod till den **Main** metod.
 
     // Load the input text.
     string text = File.ReadAllText(TextFile);
@@ -117,13 +117,13 @@ Lägg till följande kod i den **Main** metod.
     }
 
 > [!NOTE]
-> Nyckeln för tjänsten för ditt innehåll kontrollant har en begäranden per hastighetsbegränsning för andra (RPS) och om du överskrider gränsen SDK utlöser ett undantag med en 429 felkod.
+> Din nyckel för Content Moderator-tjänsten har en begäranden per sekund (RPS) hastighetsbegränsning, och om du överskrider gränsen SDK: N genereras ett undantag med en 429 felkod.
 >
-> En kostnadsfri nivå-nyckel har en gräns för överföringshastigheten en RPS.
+> När du använder en kostnadsfri nivå-nyckel, är antalet begäranden som begränsad till ett anrop per sekund.
 
-## <a name="run-the-program-and-review-the-output"></a>Kör programmet och granska utdata
+## <a name="run-the-program-and-review-the-output"></a>Kör programmet och granska resultatet
 
-Exemplet utdata för programmet, som skrivs till loggfilen är:
+I exemplet som utdata för programmet, som skrivs till loggfilen är:
 
     Autocorrect typos, check for matching terms, PII, and classify.
     {
@@ -211,4 +211,4 @@ Exemplet utdata för programmet, som skrivs till loggfilen är:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Hämta Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för denna och andra innehåll kontrollant Snabbstart för .NET, och komma igång med din integrering.
+[Ladda ned Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för denna och andra Content Moderator-Snabbstart för .NET, och kom igång med din integrering.

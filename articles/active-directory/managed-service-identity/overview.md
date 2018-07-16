@@ -1,5 +1,5 @@
 ---
-title: Beskrivning av Hanterad tjänstidentitet (MSI) för Azure-resurser
+title: Beskrivning av Hanterad tjänstidentitet för Azure-resurser
 description: En översikt över Hanterad tjänstidentitet för Azure-resurser.
 services: active-directory
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 851f788adee46436bd4286c803427f49ce0ed89a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3d6df04df8ceac1f868e64f0e8fbc7eb0fa317e3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724106"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38547981"
 ---
-#  <a name="what-is-managed-service-identity-msi-for-azure-resources"></a>Vad är Hanterad tjänstidentitet (MSI) för Azure-resurser?
+#  <a name="what-is-managed-service-identity-for-azure-resources"></a>Vad är Hanterad tjänstidentitet för Azure-resurser?
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-En vanligt utmaning när man skapar molnprogram är hur man hanterar de autentiseringsuppgifter som måste finnas i koden för att kunna autentisera till molntjänster. Att skydda dessa autentiseringsuppgifter är en viktig uppgift. Vi rekommenderar att de aldrig visas på utvecklarnas arbetsstationer eller att de checkas in i källkodskontrollen. Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. Hanterad tjänstidentitet (MSI) löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
+En vanligt utmaning när man skapar molnprogram är hur man hanterar de autentiseringsuppgifter som måste finnas i koden för att kunna autentisera till molntjänster. Att skydda dessa autentiseringsuppgifter är en viktig uppgift. Vi rekommenderar att de aldrig visas på utvecklarnas arbetsstationer eller att de checkas in i källkodskontrollen. Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. Hanterad tjänstidentitet löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
 
 Hanterad tjänstidentitet är en kostnadsfri del av Azure Active Directory, vilket är standard för Azure-prenumerationer. Det finns ingen ytterligare kostnad för Hanterad tjänstidentitet.
 
@@ -40,32 +40,32 @@ Koden kan därför antingen använda en systemtilldelad eller användartilldelad
 
 Här är ett exempel på hur systemtilldelade identiteter fungerar i Azure Virtual Machines:
 
-![MSI-exempel för virtuell dator](overview/msi-vm-vmextension-imds-example.png)
+![Exempel med Hanterad identitet för virtuell dator](overview/msi-vm-vmextension-imds-example.png)
 
 1. Azure Resource Manager tar emot en begäran om att aktivera den systemtilldelade identiteten på en virtuell dator.
 2. Azure Resource Manager skapar ett huvudnamn för tjänsten i Azure AD som representerar identiteten för den virtuella datorn. Tjänstens huvudnamn skapas i den Azure AD-klientorganisation som är betrodd av prenumerationen.
 3. Azure Resource Manager konfigurerar identiteten på den virtuella datorn:
     - Azure Instance Metadata Service-identitetens slutpunkt uppdateras med klient-ID och certifikat för tjänstens huvudnamn.
-    - MSI VM-tillägget etableras och klient-ID och certifikat läggs till för tjänstens huvudnamn. (kommer att bli inaktuell)
+    - Etablerar tillägget för den virtuella datorn och lägger till klient-ID och certifikat för tjänstens huvudnamn. (kommer att bli inaktuell)
 4. Nu när den virtuella datorn har en identitet, använder vi informationen om tjänstens huvudnamn för ge åtkomst till Azure-resursernas virtuella dator. Om din kod exempelvis måste anropa Azure Resource Manager, tilldelar du tjänstens huvudnamn för den virtuella datorn lämplig roll med hjälp av rollbaserad åtkomstkontroll (RBAC) i Azure AD. Om din kod måste anropa Key Vault, ger du din kod åtkomst till den specifika hemligheten eller nyckeln i Key Vault.
 5. Din kod som körs på den virtuella datorn kan begära en token från två slutpunkter som endast är tillgängliga inifrån den virtuella datorn:
 
     - Azure Instance Metadata Service (IMDS) identitetsslutpunkt: http://169.254.169.254/metadata/identity/oauth2/token (rekommenderas)
         - Resursparametern anger vilken tjänst som denna token ska skickas till. Om du exempelvis vill att din kod ska autentisera till Azure Resource Manager, använder du resource=https://management.azure.com/.
         - API-versionsparametern anger IMDS-versionen, använd api-version=2018-02-01 eller högre.
-    - Slutpunkt för MSI VM-tillägget: http://localhost:50342/oauth2/token (kommer att bli inaktuell)
+    - Slutpunkt för tillägget för den virtuella datorn: http://localhost:50342/oauth2/token (kommer att bli inaktuell)
         - Resursparametern anger vilken tjänst som denna token ska skickas till. Om du exempelvis vill att din kod ska autentisera till Azure Resource Manager, använder du resource=https://management.azure.com/.
 
 6. Anrop görs till Azure AD och begär en åtkomsttoken enligt steg 5 med det klient-ID och certifikat som konfigurerades i steg 3. Azure AD returnerar en åtkomsttoken för JSON Web Token (JWT).
 7. Koden skickar åtkomsttoken vid ett anrop till en tjänst som stöder Azure AD-autentisering.
 
-Med hjälp av samma diagram är här ett exempel på hur en användartilldelad MSI fungerar med Azure Virtual Machines.
+Med hjälp av samma diagram är här ett exempel på hur en användartilldelad fungerar med Azure Virtual Machines.
 
 1. Azure Resource Manager tar emot en begäran om att skapa en användartilldelad identitet.
 2. Azure Resource Manager skapar ett huvudnamn för tjänsten i Azure AD som representerar den användartilldelade identiteten. Tjänstens huvudnamn skapas i den Azure AD-klientorganisation som är betrodd av prenumerationen.
 3. Azure Resource Manager tar emot en begäran om att konfigurera den användartilldelade identiteten på en virtuell dator:
     - Azure Instance Metadata Service-identitetens slutpunkt uppdateras med klient-ID och certifikat för tjänstens huvudnamn i den användartilldelade identiteten.
-    - MSI VM-tillägget etableras och klient-ID och certifikat för tjänstens huvudnamn i den användartilldelade identiteten läggs till (kommer att bli inaktuell).
+    - Tillägget för den virtuella datorn etableras, och klient-ID och certifikat för tjänstens huvudnamn i den användartilldelade identiteten läggs till (kommer att bli inaktuell).
 4. Nu när den användartilldelade identiteten har skapats, använder vi informationen om tjänstens huvudnamn för ge åtkomst till Azure-resurser. Om din kod exempelvis måste anropa Azure Resource Manager, tilldelar du tjänstens huvudnamn för den användartilldelade identiteten lämplig roll med hjälp av rollbaserad åtkomstkontroll (RBAC) i Azure AD. Om din kod måste anropa Key Vault, ger du din kod åtkomst till den specifika hemligheten eller nyckeln i Key Vault. Obs: Även det här steget kan utföras innan steg 3.
 5. Din kod som körs på den virtuella datorn kan begära en token från två slutpunkter som endast är tillgängliga inifrån den virtuella datorn:
 
@@ -74,7 +74,7 @@ Med hjälp av samma diagram är här ett exempel på hur en användartilldelad M
         - Klient-ID:ts parameter anger den identitet som token har begärt. Detta krävs för att undvika konflikter när mer än en tilldelad användaridentitet finns på en enda virtuell dator.
         - API-versionsparametern anger IMDS-versionen, använd api-version=2018-02-01 eller högre.
 
-    - Slutpunkt för MSI VM-tillägget: http://localhost:50342/oauth2/token (kommer att bli inaktuell)
+    - Slutpunkt för tillägget för den virtuella datorn: http://localhost:50342/oauth2/token (kommer att bli inaktuell)
         - Resursparametern anger vilken tjänst som denna token ska skickas till. Om du exempelvis vill att din kod ska autentisera till Azure Resource Manager, använder du resource=https://management.azure.com/.
         - Klient-ID:ts parameter anger den identitet som token har begärt. Detta krävs för att undvika konflikter när mer än en tilldelad användaridentitet finns på en enda virtuell dator.
 6. Anrop görs till Azure AD och begär en åtkomsttoken enligt steg 5 med det klient-ID och certifikat som konfigurerades i steg 3. Azure AD returnerar en åtkomsttoken för JSON Web Token (JWT).
@@ -84,7 +84,7 @@ Med hjälp av samma diagram är här ett exempel på hur en användartilldelad M
 
 Testa självstudien Hanterad tjänstidentitet för att lära dig scenarier från slutpunkt till slutpunkt där du får åtkomst till olika Azure-resurser:
 <br><br>
-| Från en MSI-aktiverad resurs | Lär dig att |
+| Från resurser som är aktiverade för hanterad identitet | Lär dig att |
 | ------- | -------- |
 | Azure VM (Windows) | [Åtkomst till Azure Data Lake Store med en hanterad tjänstidentitet i en virtuell Windows-dator](tutorial-windows-vm-access-datalake.md) |
 |                    | [Åtkomst till Azure Resource Manager med en hanterad tjänstidentitet i en virtuell Windows-dator](tutorial-windows-vm-access-arm.md) |
@@ -111,5 +111,5 @@ Hanterade identiteter kan användas för att autentisera till tjänster som stö
 
 Kom igång med Hanterad tjänstidentitet i Azure med följande snabbstarter:
 
-* [Använda Hanterad tjänstidentitet (MSI) i en virtuell Windows-dator för att få åtkomst till Azure Resource Manager – Virtuell Windows-dator](tutorial-windows-vm-access-arm.md)
-* [Använda Hanterad tjänstidentitet (MSI) i en virtuell Linux-dator för att få åtkomst till Azure Resource Manager – Virtuell Linux-dator](tutorial-linux-vm-access-arm.md)
+* [Använda Hanterad tjänstidentitet i en virtuell Windows-dator för att få åtkomst till Azure Resource Manager – Virtuell Windows-dator](tutorial-windows-vm-access-arm.md)
+* [Använda Hanterad tjänstidentitet i en virtuell Linux-dator för att få åtkomst till Azure Resource Manager – Virtuell Linux-dator](tutorial-linux-vm-access-arm.md)

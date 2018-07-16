@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: bebfabfa2c9012fa55bfc6964dc0b638cb7ab3f1
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b94f6ad4c7c6f3b5e93cdb890e053a3d1678e161
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722957"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformera och skydda ditt API 
 
@@ -26,7 +27,7 @@ I kursen visas hur du kan transformera ditt API så att det inte avslöjar någo
 
 Den här självstudiekursen beskriver också hur du enkelt kan skydda ditt serverdels-API genom att konfigurera frekvensbegränsningar med Azure API Management. Du vill kanske t.ex. begränsa det antal gånger som API:et anropas, så att det inte överutnyttjas av utvecklarna. Mer information finns i [API Management-principer](api-management-policies.md)
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Omvandla ett API och ta bort svarshuvuden
@@ -54,7 +55,7 @@ Det här avsnittet visar hur du kan dölja HTTP-huvuden som du inte vill visa f�
 
 Visa det ursprungliga svaret:
 
-1. Välj fliken **API**.
+1. I din APIM-tjänstinstans väljer du **APIs** (API:er) under **API MANAGEMENT** (API-HANTERING).
 2. Klicka på **Demo Conference API** i API-listan.
 3. Välj åtgärden **GetSpeakers**.
 4. Klicka på fliken **Test** överst på skärmen.
@@ -66,24 +67,24 @@ Visa det ursprungliga svaret:
 
 ### <a name="set-the-transformation-policy"></a>Ange en transformationsprincip
 
-1. Bläddra till APIM-instansen.
-2. Välj fliken **API**.
-3. Klicka på **Demo Conference API** i API-listan.
-4. Välj **Alla åtgärder**.
-5. Överst på skärmen väljer du fliken **Design**.
-6. Klicka på triangeln (bredvid blyertspennan) i fönstret **Utgående bearbetning**.
-7. Välj **Kodredigeraren**.
-    
+1. Välj **Demokonferens-API**.
+2. Överst på skärmen väljer du fliken **Design**.
+3. Välj **Alla åtgärder**.
+4. Klicka på triangeln (bredvid blyertspennan) i fönstret **Utgående bearbetning** och välj **Code editor** (Kodredigeraren).
      ![Redigera princip](./media/set-edit-policies/set-edit-policies01.png)
-9. Placera markören i elementet **&lt;utgående&gt;**.
-10. Klicka på **+ Konfigurera HTTP-huvud** två gånger under **Transformationsprinciper** i det högra fönstret (så infogas två principkodavsnitt).
+5. Placera markören i elementet **&lt;utgående&gt;**.
+6. Klicka på **+ Konfigurera HTTP-huvud** två gånger under **Transformationsprinciper** i det högra fönstret (så infogas två principkodavsnitt).
 
     ![Principer](./media/transform-api/transform-api.png)
-11. Ändra din **<outbound>**-kod så att den ser ut så här:
+7. Ändra din **<outbound>**-kod så att den ser ut så här:
 
         <set-header name="X-Powered-By" exists-action="delete" />
         <set-header name="X-AspNet-Version" exists-action="delete" />
-                
+
+    ![Principer](./media/transform-api/set-policy.png)
+8. Klicka på knappen **Spara**.
+
+
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>Ersätt ursprungliga URL:er i API-svarets brödtext med URL:er för APIM-gatewayen
 
 I det här avsnittet visas hur du kan dölja de ursprungliga URL:er som visas i brödtexten i API:ets HTTP-svar och istället omdirigera dem till APIM-gatewayen.
@@ -92,11 +93,10 @@ I det här avsnittet visas hur du kan dölja de ursprungliga URL:er som visas i 
 
 Visa det ursprungliga svaret:
 
-1. Välj fliken **API**.
-2. Klicka på **Demo Conference API** i API-listan.
-3. Välj åtgärden **GetSpeakers**.
-4. Klicka på fliken **Test** överst på skärmen.
-5. Klicka på knappen **Skicka** längst ned på skärmen. 
+1. Välj **Demokonferens-API**.
+2. Välj åtgärden **GetSpeakers**.
+3. Klicka på fliken **Test** överst på skärmen.
+4. Klicka på knappen **Skicka** längst ned på skärmen. 
 
     Som du kan se så ser det ursprungliga svaret ut så här:
 
@@ -104,16 +104,13 @@ Visa det ursprungliga svaret:
 
 ### <a name="set-the-transformation-policy"></a>Ange en transformationsprincip
 
-1. Bläddra till APIM-instansen.
-2. Välj fliken **API**.
-3. Klicka på **Demo Conference API** i API-listan.
-4. Välj **Alla åtgärder**.
-5. Överst på skärmen väljer du fliken **Design**.
-6. Klicka på triangeln (bredvid blyertspennan) i fönstret **Utgående bearbetning**.
-7. Välj **Kodredigeraren**.
-8. Placera markören i elementet **&lt;utgående&gt;**.
-9. Klicka på **+ Sök och ersätt sträng i brödtext** under **Transformationsprinciper** i det högra fönstret.
-10. Ersätt URL:en så att den matchar APIM-gatewayen genom att ändra din **<find-and-replace**-kod (i **<outbound>**-elementet). Till exempel:
+1. Välj **Demokonferens-API**.
+2. Välj **Alla åtgärder**.
+3. Överst på skärmen väljer du fliken **Design**.
+4. Klicka på triangeln (bredvid blyertspennan) i fönstret **Utgående bearbetning** och välj **Code editor** (Kodredigeraren).
+5. Placera markören i elementet **&lt;utgående&gt;**.
+6. Klicka på **+ Sök och ersätt sträng i brödtext** under **Transformationsprinciper** i det högra fönstret.
+7. Ersätt URL:en så att den matchar APIM-gatewayen genom att ändra din **find-and-replace**-kod (i **\<outbound\>**-elementet). Till exempel:
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -121,22 +118,19 @@ Visa det ursprungliga svaret:
 
 I det här avsnittet visas hur du lägger till skydd för ditt serverdels-API genom att konfigurera frekvensbegränsningar. Du vill kanske t.ex. begränsa det antal gånger som API:et anropas, så att det inte överutnyttjas av utvecklarna. I det här exemplet anges gränsen till 3 anrop per 15 sekunder för varje prenumerations-ID. Efter 15 sekunder kan en utvecklare försöka att anropa API:et igen.
 
-1. Bläddra till APIM-instansen.
-2. Välj fliken **API**.
-3. Klicka på **Demo Conference API** i API-listan.
-4. Välj **Alla åtgärder**.
-5. Överst på skärmen väljer du fliken **Design**.
-6. I fönstret **Inkommande bearbetning** klickar du på triangeln (bredvid blyertspennan).
-7. Välj **Kodredigeraren**.
-8. Placera markören i elementet **&lt;inkommande&gt;**.
-9. Klicka på **+ Begränsa anropsfrekvens per nyckel** under **Principer för åtkomstbegränsning** i det högra fönstret.
-10. Ändra din **<rate-limit-by-key**-kod (i **<inbound>**-elementet) till följande kod:
+1. Välj **Demokonferens-API**.
+2. Välj **Alla åtgärder**.
+3. Överst på skärmen väljer du fliken **Design**.
+4. Klicka på triangeln (bredvid blyertspennan) i fönstret **Inkommande bearbetning** och välj **Code editor** (Kodredigeraren).
+5. Placera markören i elementet **&lt;inkommande&gt;**.
+6. Klicka på **+ Begränsa anropsfrekvens per nyckel** under **Principer för åtkomstbegränsning** i det högra fönstret.
+7. Ändra din **rate-limit-by-key**-kod (i **\<inbound\>**-elementet) till följande kod:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
 ## <a name="test-the-transformations"></a>Testa omvandlingarna
         
-Nu ska din principkod se ut så här:
+Nu ser dina principer ut så här i kodredigeraren:
 
     <policies>
         <inbound>
@@ -161,12 +155,10 @@ I resten av det här avsnittet testas principtransformationer som du anger i den
 
 ### <a name="test-the-stripped-response-headers"></a>Testa borttagna svarshuvuden
 
-1. Bläddra till APIM-instansen.
-2. Välj fliken **API**.
-3. Klicka på **Demo Conference API** i API-listan.
-4. Klicka på åtgärden **GetSpeakers**.
-5. Välj fliken **Test**.
-6. Tryck på **Skicka**.
+1. Välj **Demokonferens-API**.
+2. Klicka på åtgärden **GetSpeakers**.
+3. Välj fliken **Test**.
+4. Tryck på **Skicka**.
 
     Som du ser så har rubrikerna tagits bort:
 
@@ -174,12 +166,10 @@ I resten av det här avsnittet testas principtransformationer som du anger i den
 
 ### <a name="test-the-replaced-url"></a>Testa den ersatta URL:en
 
-1. Bläddra till APIM-instansen.
-2. Välj fliken **API**.
-3. Klicka på **Demo Conference API** i API-listan.
-4. Klicka på åtgärden **GetSpeakers**.
-5. Välj fliken **Test**.
-6. Tryck på **Skicka**.
+1. Välj **Demokonferens-API**.
+2. Klicka på åtgärden **GetSpeakers**.
+3. Välj fliken **Test**.
+4. Tryck på **Skicka**.
 
     Som du ser har URL:en ersatts.
 
@@ -187,15 +177,13 @@ I resten av det här avsnittet testas principtransformationer som du anger i den
 
 ### <a name="test-the-rate-limit-throttling"></a>Testa frekvensgränsen (begränsningen)
 
-1. Bläddra till APIM-instansen.
-2. Välj fliken **API**.
-3. Klicka på **Demo Conference API** i API-listan.
-4. Klicka på åtgärden **GetSpeakers**.
-5. Välj fliken **Test**.
-6. Tryck på **Skicka** tre gånger i rad.
+1. Välj **Demokonferens-API**.
+2. Klicka på åtgärden **GetSpeakers**.
+3. Välj fliken **Test**.
+4. Tryck på **Skicka** tre gånger i rad.
 
     När du har skickat förfrågan 3 gånger får du svaret **429 För många förfrågningar**.
-7. Vänta 15 sekunder eller så och tryck på **Skicka** igen. Den här gången bör få svaret **200 OK**.
+5. Vänta 15 sekunder eller så och tryck på **Skicka** igen. Den här gången bör få svaret **200 OK**.
 
     ![Begränsning](./media/transform-api/test-throttling.png)
 

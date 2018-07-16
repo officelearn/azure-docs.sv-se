@@ -1,6 +1,6 @@
 ---
-title: Använd en Användartilldelad Linux VM-MSI för åtkomst till Azure Resource Manager
-description: En självstudiekurs som vägleder dig genom processen att använda en User-Assigned hanteras Service identitet (MSI) på en Linux-VM för att komma åt Azure Resource Manager.
+title: Använda en användartilldelade MSI på en virtuell Linux-dator för att få åtkomst till Azure Resource Manager
+description: En självstudiekurs som beskriver steg för steg hur du använder en användartilldelad hanterad tjänstidentitet (MSI) på en virtuell Linux-dator för att få åtkomst till Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,40 +9,40 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: arluca
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 542b2e434767711a6947a87c6995343d27e6dddd
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: MT
+ms.openlocfilehash: 1195161a0c4045620447439bf9361b7c4c0189ae
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699123"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904398"
 ---
-# <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Självstudier: Använda en tilldelad användaridentitet på en Linux-VM för att komma åt Azure Resource Manager
+# <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Självstudier: Använda en användartilldelad identitet på en virtuell Linux-dator för att få åtkomst till Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Den här självstudiekursen beskrivs hur du skapar en användare som tilldelats identitet, tilldela den en Linux virtuella dator (VM) och sedan använda identitet för åtkomst till Azure Resource Manager API. Hanterade Tjänsteidentiteter hanteras automatiskt av Azure. De aktivera autentisering för tjänster som stöder Azure AD-autentisering utan att behöva bädda in autentiseringsuppgifter i din kod. 
+Den här självstudien beskriver hur du skapar en användartilldelad identitet, hur du tilldelar den till en virtuell Linux-dator (VM) och hur du sedan använder identiteten för att få åtkomst till Azure Resource Manager-API:et. Hanterade tjänstidentiteter hanteras automatiskt av Azure. Det gör det möjligt att autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver bädda in autentiseringsuppgifter i din kod. 
 
-Hanterade Tjänsteidentiteter hanteras automatiskt av Azure. De aktivera autentisering för tjänster som stöder Azure AD-autentisering utan att behöva bädda in autentiseringsuppgifter i din kod.
+Hanterade tjänstidentiteter hanteras automatiskt av Azure. Det gör det möjligt att autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver bädda in autentiseringsuppgifter i din kod.
 
 Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en användare som tilldelats identitet
-> * Tilldela användaren som har tilldelats identitet till en Linux-VM 
-> * Ge åtkomst för användaren som har tilldelats identitet till en resursgrupp i Azure Resource Manager 
-> * Få en åtkomsttoken med hjälp av användaren som har tilldelats identitet och använda den för att anropa Azure Resource Manager 
+> * Skapa en användartilldelad identitet
+> * Tilldela den användartilldelade identiteten till en virtuell Linux-dator 
+> * Ge den användartilldelade identiteten åtkomst till en resursgrupp i Azure Resource Manager 
+> * Hämta en åtkomsttoken med hjälp av den användartilldelade identiteten och använd den för att anropa Azure Resource Manager 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- Om din är bekant med hanterade tjänstidentiteten checka ut den [översikt](overview.md) avsnitt. **Se till att granska den [skillnaderna mellan system- och tilldelade identiteter](overview.md#how-does-it-work)**.
-- Om du inte redan har ett Azure-konto [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
-- Skapa en nödvändig resurs och rollen hanteringsåtgärder utföra i den här självstudiekursen, måste ditt konto ”ägare” behörighet för definitionsområdet lämpliga (arbetsgruppen prenumerationen eller resursen). Om du behöver hjälp med rolltilldelningen finns [Use Role-Based behörighet att hantera åtkomst till resurserna i Azure-prenumeration](/azure/role-based-access-control/role-assignments-portal).
+- Om du inte har arbetat med hanterade tjänstidentiteter tidigare rekommenderar vi att du läser den här [översikten](overview.md). **Gå också igenom [skillnaderna mellan system- och användartilldelade identiteter](overview.md#how-does-it-work)**.
+- Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
+- Ditt konto måste ha behörigheten ”Ägare” och lämpligt omfång (din prenumeration eller resursgrupp) för att du ska kunna utföra stegen i den här självstudien som beskriver hur du skapar resurser och hanterar roller. Information om hur du tilldelar roller finns i [Använda rollbaserad åtkomstkontroll för att hantera åtkomsten till dina Azure-prenumerationsresurser](/azure/role-based-access-control/role-assignments-portal).
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
@@ -52,27 +52,27 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Linux-dator i en ny resursgrupp
 
-Den här självstudiekursen kommer skapa du först en ny Linux VM. Du kan också välja för att använda en befintlig virtuell dator.
+I den här självstudien börjar du med att skapa en ny virtuell Linux-dator. Du kan också välja att använda en befintlig virtuell dator.
 
-1. Klicka på **skapar du en resurs** på det övre vänstra hörnet i Azure-portalen.
+1. Klicka på **Skapa en resurs** längst upp till vänster på Azure Portal.
 2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
-3. Ange informationen för den virtuella datorn. För **autentiseringstyp**väljer **offentliga SSH-nyckeln** eller **lösenord**. Autentiseringsuppgifterna som har skapats kan du logga in på den virtuella datorn.
+3. Ange informationen för den virtuella datorn. Som **Autentiseringstyp** väljer du **Offentlig SSH-nyckel** eller **Lösenord**. Med autentiseringsuppgifterna som skapats kan du logga in på den virtuella datorn.
 
-    ![Skapa virtuell Linux-dator](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Skapa en virtuell Linux-dator](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Välj en **prenumeration** för den virtuella datorn i listrutan.
-5. Att välja en ny **resursgruppen** du vill att den virtuella datorn ska skapas i, Välj **Skapa nytt**. När du är klar klickar du på **OK**.
-6. Välj storlek för den virtuella datorn. Om du vill se mer storlekar, Välj **visa alla** eller ändra typ-filter stöds disk. Acceptera alla standardvärden på bladet Inställningar och klicka på **OK**.
+5. Välj en ny **resursgrupp** som den virtuella datorn ska skapas i genom att klicka på **Skapa ny**. När du är klar klickar du på **OK**.
+6. Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller ändrar filtret för disktyper som stöds. Acceptera alla standardvärden på bladet Inställningar och klicka på **OK**.
 
-## <a name="create-a-user-assigned-identity"></a>Skapa en användare som tilldelats identitet
+## <a name="create-a-user-assigned-identity"></a>Skapa en användartilldelad identitet
 
-1. Om du använder CLI-konsolen (i stället för en Azure-molnet Shell-session), starta genom att logga in till Azure. Använd ett konto som är associerade med Azure-prenumeration som du vill skapa den nya användaren som tilldelats identitet:
+1. Om du använder CLI-konsolen (i stället för en Azure Cloud Shell-session) börjar du med att logga in i Azure. Använd ett konto som är associerat med den Azure-prenumeration som du vill skapa den nya användartilldelade identiteten i:
 
     ```azurecli
     az login
     ```
 
-2. Skapa en Användartilldelad identitet med hjälp av [az identitet skapa](/cli/azure/identity#az_identity_create). Den `-g` parametern anger resursgruppen där MSI skapas och `-n` parametern anger dess namn. Se till att ersätta den `<RESOURCE GROUP>` och `<MSI NAME>` parametervärden med egna värden:
+2. Skapa en användartilldelad identitet med hjälp av [az identity create](/cli/azure/identity#az_identity_create). Parametern `-g` anger resursgruppen där MSI skapas, och parametern `-n` anger dess namn. Ersätt parametervärdena `<RESOURCE GROUP>` och `<MSI NAME>` med dina egna värden:
     
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -81,7 +81,7 @@ Den här självstudiekursen kommer skapa du först en ny Linux VM. Du kan också
 az identity create -g <RESOURCE GROUP> -n <MSI NAME>
 ```
 
-Svaret innehåller information om användaren som har tilldelats identitet skapas, liknande exemplet nedan. Observera den `id` värdet för användaren som har tilldelats-identitet som den ska användas i nästa steg:
+Svaret innehåller information om den användartilldelade identiteten som skapats, liknande den i följande exempel. Notera `id`-värdet för den användartilldelade identiteten. Du behöver det i nästa steg:
 
 ```json
 {
@@ -98,27 +98,27 @@ Svaret innehåller information om användaren som har tilldelats identitet skapa
 }
 ```
 
-## <a name="assign-a-user-assigned-identity-to-your-linux-vm"></a>Tilldela en användare som tilldelats identitet för Linux-VM
+## <a name="assign-a-user-assigned-identity-to-your-linux-vm"></a>Tilldela en användartilldelad identitet till din virtuella Linux-dator
 
-En användare som tilldelats identitet kan användas av klienter på Azure-resurser. Använd följande kommandon för att tilldela användaridentitet tilldelad till en enda virtuell dator. Använd den `Id` egenskapen returneras i föregående steg för den `-IdentityID` parameter.
+En användartilldelad identitet kan användas av klienter på flera Azure-resurser. Använd följande kommandon för att tilldela den användartilldelade identiteten till en enskild virtuell dator. Använd egenskapen `Id` som returnerades i föregående steg för `-IdentityID`-parametern.
 
-Tilldela din Linux VM som använder Användartilldelad MSI [az tilldela-identitet för](/cli/azure/vm#az_vm_assign_identity). Se till att ersätta den `<RESOURCE GROUP>` och `<VM NAME>` parametervärden med egna värden. Använd den `id` egenskapen returneras i föregående steg för den `--identities` parametervärdet.
+Tilldela den användartilldelade MSI-identiteten till din virtuella Linux-dator med hjälp av [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Ersätt parametervärdena `<RESOURCE GROUP>` och `<VM NAME>` med dina egna värden. Använd egenskapen `id` som returnerades i föregående steg för `--identities`-parametervärdet.
 
 ```azurecli-interactive
 az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
 ```
 
-## <a name="grant-your-user-assigned-identity-access-to-a-resource-group-in-azure-resource-manager"></a>Ge din identitet åtkomst för användaren som har tilldelats till en resursgrupp i Azure Resource Manager 
+## <a name="grant-your-user-assigned-identity-access-to-a-resource-group-in-azure-resource-manager"></a>Ge den användartilldelade identiteten åtkomst till en resursgrupp i Azure Resource Manager 
 
-Hanterad Service identitet (MSI) ger identiteter som din kod kan använda för att begära åtkomst-token för att autentisera till resurs-API: er som stöder Azure AD-autentisering. I den här självstudiekursen kommer koden åtkomst till Azure Resource Manager API.  
+Hanterade tjänstidentiteter (MSI) tillhandahåller identiteter som din kod kan använda för att begära åtkomsttoken för autentisering mot resurs-API:er som stöder Azure AD-autentisering. I den här självstudiekursen använder koden Azure Resource Manager-API:et.  
 
-Innan din kod kan komma åt API: et, måste du bevilja åtkomst till en resurs i Azure Resource Manager identitet. I det här fallet resursgruppen där den virtuella datorn finns. Uppdatera värdet för `<SUBSCRIPTION ID>` och `<RESOURCE GROUP>` som passar din miljö. Dessutom ersätta `<MSI PRINCIPALID>` med den `principalId` egenskap som returneras av den `az identity create` i [skapa en Användartilldelad MSI](#create-a-user-assigned-msi):
+Innan koden kan komma åt API:et måste du ge identiteten åtkomst till en resurs i Azure Resource Manager. I detta fall den resursgrupp som den virtuella datorn finns i. Uppdatera värdet för `<SUBSCRIPTION ID>` och `<RESOURCE GROUP>` baserat på din miljö. Ersätt även `<MSI PRINCIPALID>` med `principalId`-egenskapen som returnerades av kommandot `az identity create` i [Skapa en användartilldelad MSI](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
 az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
-Svaret innehåller information om rolltilldelning skapas, liknande exemplet nedan:
+Svaret innehåller information om rolltilldelningen som skapats, liknande den i följande exempel:
 
 ```json
 {
@@ -135,29 +135,29 @@ Svaret innehåller information om rolltilldelning skapas, liknande exemplet neda
 
 ```
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>Få en åtkomsttoken med hjälp av den Virtuella datorns identitet och använda den för att anropa Resource Manager 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använd den för att anropa Resource Manager 
 
-Vi kommer att fungera från den virtuella datorn som vi skapade tidigare under resten av kursen.
+Under resten av självstudiekursen arbetar vi från den virtuella datorn som vi skapade tidigare.
 
-Du behöver en SSH-klient för att slutföra de här stegen. Om du använder Windows, kan du använda SSH-klienten i den [Windows undersystem för Linux](https://msdn.microsoft.com/commandline/wsl/about). 
+För att slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). 
 
-1. Logga in på Azure [portal](https://portal.azure.com).
-2. I portalen, går du till **virtuella datorer** och gå till den virtuella Linux-datorn och i den **översikt**, klickar du på **Anslut**. Kopiera strängen som ska ansluta till den virtuella datorn.
-3. Ansluta till den virtuella datorn med SSH-klient av önskat slag. Om du använder Windows, kan du använda SSH-klienten i den [Windows undersystem för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp konfigurerar SSH-klientens nycklar, se [hur du använder SSH-nycklar med Windows på Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), eller [hur du skapar och använder ett SSH offentliga och privata nyckelpar för Linux virtuella datorer i Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
-4. I fönstret terminal med CURL, gör en begäran till slutpunkten Azure instans Metadata Service (IMDS) identitet att hämta ett åtkomsttoken för Azure Resource Manager.  
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Gå till **Virtuella datorer** på portalen, gå till den virtuella Linux-datorn och klicka sedan på **Anslut** under **Översikt**. Kopiera strängen för anslutning till din virtuella dator.
+3. Anslut till den virtuella datorn med valfri SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp med att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
+4. Gör ett anrop i terminalfönstret med hjälp av CURL till IMDS-identitetsslutpunkten (Azure Instance Metadata Service) för att hämta en åtkomsttoken för Azure Resource Manager.  
 
-   CURL begäran om att få en åtkomsttoken som visas i följande exempel. Se till att ersätta `<CLIENT ID>` med den `clientId` egenskap som returneras av den `az identity create` i [skapar du en Användartilldelad identitet](#create-a-user-assigned-msi): 
+   CURL-begäran om att hämta en åtkomsttoken visas i följande exempel. Ersätt `<CLIENT ID>` med `clientId`-egenskapen som returnerades av kommandot `az identity create` i [Skapa en användartilldelad identitet](#create-a-user-assigned-msi): 
     
    ```bash
    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>"   
    ```
     
     > [!NOTE]
-    > Värdet för den `resource` parametern måste vara en exakt matchning för vad som förväntas av Azure AD. När du använder Resource Manager resurs-ID, måste du inkluderar det avslutande snedstrecket på URI. 
+    > Värdet för parametern `resource` måste vara en exakt matchning av vad som förväntas av Azure AD. När du använder Resource Manager-resurs-ID:t måste du ta med det avslutande snedstrecket i URI:n. 
     
-    Svaret innehåller den åtkomst-token som du behöver åtkomst till Azure Resource Manager. 
+    Svaret innehåller den åtkomsttoken som du behöver för att komma åt Azure Resource Manager. 
     
-    Svaret exempel:  
+    Svarsexempel:  
 
     ```bash
     {
@@ -171,16 +171,16 @@ Du behöver en SSH-klient för att slutföra de här stegen. Om du använder Win
     } 
     ```
 
-5. Använda åtkomst-token för åtkomst till Azure Resource Manager och läsa egenskaper för resursgruppen som du tidigare åtkomst din användartilldelade identitet. Se till att ersätta `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` med de värden du angav tidigare, och `<ACCESS TOKEN>` med den token som returneras i föregående steg.
+5. Använd din åtkomsttoken för att komma åt Azure Resource Manager, och läs egenskaperna för den resursgrupp som du tidigare gav den användartilldelade identiteten åtkomst till. Ersätt `<SUBSCRIPTION ID>` och `<RESOURCE GROUP>` med de värden som du angav tidigare, och `<ACCESS TOKEN>` med den token som returnerades i föregående steg.
 
     > [!NOTE]
-    > URL: en är skiftlägeskänsligt, så du används på exakt samma sätt som du använde tidigare när du namnet på resursgruppen och versaler ”G” i `resourceGroups`.  
+    > Eftersom URL:en är skiftlägeskänslig måste du använda exakt samma skiftläge som du använde tidigare när du namngav resursgruppen, samt versalt ”G” i `resourceGroups`.  
 
     ```bash 
     curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
 
-    Svaret innehåller den specifika resursgruppen informationen liknar följande exempel: 
+    Svaret innehåller information om den specifika resursgruppen, liknande den i följande exempel: 
 
     ```bash
     {
@@ -193,7 +193,7 @@ Du behöver en SSH-klient för att slutföra de här stegen. Om du använder Win
     
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får du har lärt dig hur du skapar en användare som tilldelats identitet och koppla den till en virtuell Linux-dator åtkomst till Azure Resource Manager API.  Om du vill veta mer om Azure Resource Manager, se:
+I den här självstudien har du lärt dig hur du skapar en användartilldelad identitet och kopplar den till en virtuell Linux-dator för att komma åt Azure Resource Manager-API:et.  Mer information om Azure Resource Manager finns här:
 
 > [!div class="nextstepaction"]
 >[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

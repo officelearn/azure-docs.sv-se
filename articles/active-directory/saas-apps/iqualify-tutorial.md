@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med iQualify LMS | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integration med iQualify LMS | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och iQualify LMS.
 services: active-directory
 documentationCenter: na
@@ -15,48 +15,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 166dfa8c5b3456de59055e5f62a566064540db31
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3ff5a833da5bbe99c5c6d1576b9775051b3ce07b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225032"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048097"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Självstudier: Azure Active Directory-integrering med iQualify LMS
+# <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Självstudier: Azure Active Directory-integration med iQualify LMS
 
-I kursen får lära du att integrera iQualify LMS med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar iQualify LMS med Azure Active Directory (AD Azure).
 
 Integrera iQualify LMS med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till iQualify LMS.
-- Du kan aktivera användarna att automatiskt hämta loggat in på iQualify LMS (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton i en central plats - Azure-portalen.
+- Du kan aktivera användarna att automatiskt få loggat in på iQualify LMS (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton på en central plats – Azure portal.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med iQualify LMS behöver du följande:
+Om du vill konfigurera Azure AD-integrering med iQualify LMS, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En iQualify LMS enkel inloggning aktiverad prenumeration
+- En iQualify LMS-enkel inloggning aktiverat prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till iQualify LMS från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-iqualify-lms-from-the-gallery"></a>Att lägga till iQualify LMS från galleriet
-Du måste lägga till iQualify LMS från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av iQualify LMS i Azure AD.
+För att konfigurera integrering av iQualify LMS i Azure AD, som du behöver lägga till iQualify LMS från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till iQualify LMS från galleriet:**
 
@@ -66,80 +66,80 @@ Du måste lägga till iQualify LMS från galleriet i listan över hanterade SaaS
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Bladet Enterprise program][2]
+    ![Bladet för Enterprise-program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **iQualify LMS**väljer **iQualify LMS** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **iQualify LMS**väljer **iQualify LMS** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![iQualify LMS i resultatlistan](./media/iqualify-tutorial/tutorial_iqualify_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med iQualify LMS baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med iQualify LMS baserat på en testanvändare som kallas ”Britta Simon”.
 
-För enkel inloggning ska fungera, Azure AD som behöver veta vilka motsvarande användaren i iQualify LMS är att en användare i Azure AD. Med andra ord en länk förhållandet mellan en Azure AD-användare och relaterade användaren i iQualify LMS måste upprättas.
+För enkel inloggning att fungera, behöver Azure AD du veta vilka motsvarande användaren i iQualify LMS är att en användare i Azure AD. Med andra ord en länk relationen mellan en Azure AD-användare och relaterade användaren i iQualify LMS måste upprättas.
 
-I iQualify LMS, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+I iQualify LMS, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med iQualify LMS, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare för iQualify LMS](#create-an-iqualify-lms-test-user)**  – du har en motsvarighet för Britta Simon i iQualify LMS som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare för iQualify LMS](#create-an-iqualify-lms-test-user)**  – du har en motsvarighet för Britta Simon i iQualify LMS som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt iQualify LMS program.
+I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt iQualify LMS-program.
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med iQualify LMS:**
 
-1. I Azure-portalen på den **iQualify LMS** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **iQualify LMS** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning länk][4]
+    ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
-    ![Enkel inloggning dialogrutan](./media/iqualify-tutorial/tutorial_iqualify_samlbase.png)
+    ![Enkel inloggning för dialogrutan](./media/iqualify-tutorial/tutorial_iqualify_samlbase.png)
 
-3. På den **iQualify LMS domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i IDP initierade läge:
+3. På den **iQualify LMS-domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i IDP-initierad läge:
 
-    ![information om iQualify LMS domän URL: er och enkel inloggning](./media/iqualify-tutorial/tutorial_iqualify_url.png)
+    ![information om iQualify LMS-domän och URL: er enkel inloggning](./media/iqualify-tutorial/tutorial_iqualify_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster: 
+    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: 
     | |
     |--|--|
     | Produktionsmiljö: `https://<yourorg>.iqualify.com/`|
-    | Testmiljö: `https://<yourorg>.iqualify.io`|
+    | Test-miljö: `https://<yourorg>.iqualify.io`|
     
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster: 
+    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: 
     | |
     |--|--|
     | Produktionsmiljö: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
-    | Testmiljö: `https://<yourorg>.iqualify.io/auth/saml2/callback` |
+    | Test-miljö: `https://<yourorg>.iqualify.io/auth/saml2/callback` |
 
-4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
+4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
-    ![information om iQualify LMS domän URL: er och enkel inloggning](./media/iqualify-tutorial/tutorial_iqualify_url1.png)
+    ![information om iQualify LMS-domän och URL: er enkel inloggning](./media/iqualify-tutorial/tutorial_iqualify_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:
+    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster:
     | |
     |--|--|
     | Produktionsmiljö: `https://<yourorg>.iqualify.com/login` |
-    | Testmiljö: `https://<yourorg>.iqualify.io/login` |
+    | Test-miljö: `https://<yourorg>.iqualify.io/login` |
      
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare Reply URL och inloggnings-URL. Kontakta [iQualify LMS klienten supportteamet](https://www.iqualify.com) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [iQualify LMS-klienten supportteamet](https://www.iqualify.com) att hämta dessa värden. 
 
-5. Programmet iQualify LMS förväntar Security Assertion Markup Language (SAML) intyg som ska visas i ett specifikt format. Konfigurera anspråk och hantera värden för attributen i den **användarattribut** avsnitt i iQualify program integration sidan som visas i följande skärmbild:
+5. IQualify LMS-programmet förväntar sig Security Assertion Markup Language (SAML) intyg som ska visas i ett visst format. Konfigurera anspråk och hantera värden för attributen i den **användarattribut** på iQualify application integrationssidan, enligt följande skärmbild:
     
     ![Konfigurera enkel inloggning](./media/iqualify-tutorial/atb.png)
 
-6. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan utför följande steg för varje rad som visas i tabellen nedan:
+6. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan utför följande steg för varje rad som visas i tabellen nedan:
     
     | Attributnamn | Attributvärde |
     | --- | --- |    
@@ -148,45 +148,45 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | Efternamn | User.surname |
     | person_id | ”din attributet” | 
 
-    a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
+    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
 
     ![Konfigurera enkel inloggning](./media/iqualify-tutorial/atb2.png)
 
     ![Konfigurera enkel inloggning](./media/iqualify-tutorial/atb3.png)
     
-    b. I den **namn** textruta ange attributets namn visas för den raden.
+    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
     
-    c. Från den **värdet** listan, ange det attributvärde som visas för den raden.
+    c. Från den **värdet** anger attributvärdet som visas för den raden.
     
     d. Klicka på **Ok**
 
     e. Upprepa steg ”a” till ”d” för nästa tabellraderna. 
 
     > [!Note]
-    > Upprepa steg ”a” till ”d” för den **person_id** attributet **valfritt**
+    > Upprepa stegen ”a” till ”d” för den **person_id** attributet är **valfritt**
 
-7. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base 64)** och spara certifikatfilen på datorn.
+7. På den **SAML-signeringscertifikat** klickar du på **certifikat (base64)** och spara certifikatfilen på datorn.
 
-    ![Länken hämta certifikatet](./media/iqualify-tutorial/tutorial_iqualify_certificate.png) 
+    ![Länk för hämtning av certifikat](./media/iqualify-tutorial/tutorial_iqualify_certificate.png) 
 
 8. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara](./media/iqualify-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning spara-knapp](./media/iqualify-tutorial/tutorial_general_400.png)
     
-9. På den **iQualify LMS Configuration** klickar du på **konfigurera iQualify LMS** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+9. På den **iQualify LMS Configuration** klickar du på **konfigurera iQualify LMS** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
-    ![iQualify LMS konfiguration](./media/iqualify-tutorial/tutorial_iqualify_configure.png) 
+    ![iQualify LMS-konfiguration](./media/iqualify-tutorial/tutorial_iqualify_configure.png) 
 
-10.  Öppna ett nytt webbläsarfönster och sedan logga in på din iQualify miljö som administratör.
+10.  Öppna ett nytt webbläsarfönster och logga sedan in på din iQualify miljö som administratör.
 
-11. När du är inloggad på din avatar längst upp till höger Klicka på **”kontoinställningar”.**
+11. När du är inloggad, klicka på din avatar längst upp till höger och sedan klicka på **”kontoinställningar”.**
 
     ![Kontoinställningar](./media/iqualify-tutorial/setting1.png) 
-12. Klicka på menyn till vänster i menyfliksområdet i området konto inställningar och klickar på **”INTEGRERINGAR”.**
+12. I området konto inställningar klickar du på menyfliksområdet-menyn till vänster och klicka på **”INTEGRERINGAR”.**
     
     ![INTEGRERINGAR](./media/iqualify-tutorial/setting2.png)
 
-13. Under INTEGRERINGAR, klicka på den **SAML** ikon.
+13. Under INTEGRERINGAR, klickar du på den **SAML** ikon.
 
     ![SAML-ikon](./media/iqualify-tutorial/setting3.png)
 
@@ -194,38 +194,38 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Inställningar för SAML-autentisering](./media/iqualify-tutorial/setting4.png)
 
-    a. I den **SAML SIGN-ON SERVICE-URL för enkel** klistra in den **SAML Sign‑On tjänst-URL för enkel** värde kopieras från Azure AD-konfigurationsfönstret.
+    a. I den **URL för SAML enkel inloggnings-tjänsten** rutan, klistra in den **URL för SAML enkel Sign‑On Service** värdet kopieras från konfigurationsfönstret för Azure AD-program.
     
-    b. I den **SAML logga ut URL** klistra in den **Sign‑Out URL** värde kopieras från Azure AD-konfigurationsfönstret.
+    b. I den **URL för SAML-UTLOGGNING** rutan, klistra in den **Sign‑Out URL** värdet kopieras från konfigurationsfönstret för Azure AD-program.
     
-    c. Öppna filen för hämtat certifikat i anteckningar, kopiera innehållet och klistra in den i den **certifikat med offentlig** rutan.
+    c. Öppna filen nedladdade certifikatet i anteckningar, kopiera innehållet och klistra in den i den **OFFENTLIGT certifikat** box.
     
-    d. I **etikett för inloggningen** anger du namnet för knappen ska visas på inloggningssidan.
+    d. I **etikett för inloggning** anger du namnet för knappen som ska visas på inloggningssidan.
     
     e. Klicka på **SPARA**.
 
     f. Klicka på **uppdatering**.
 
 > [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-   ![Skapa en testanvändare i Azure AD][100]
+   ![Skapa en Azure AD-testanvändare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
     ![Azure Active Directory-knappen](./media/iqualify-tutorial/create_aaduser_01.png)
 
 2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-    ![”Användare och grupper” och ”alla användare” länkar](./media/iqualify-tutorial/create_aaduser_02.png)
+    ![”Användare och grupper” och ”alla användare”-länkar](./media/iqualify-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/iqualify-tutorial/create_aaduser_03.png)
 
@@ -235,63 +235,63 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     a. I den **namn** skriver **BrittaSimon**.
 
-    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
 
-    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
+    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
 
     d. Klicka på **Skapa**.
  
-### <a name="create-an-iqualify-lms-test-user"></a>Skapa en iQualify LMS testanvändare
+### <a name="create-an-iqualify-lms-test-user"></a>Skapa en iQualify LMS-testanvändare
 
-I det här avsnittet skapas en användare som kallas Britta Simon i iQualify. iQualify LMS stöder just‑in‑time användaretablering, som är aktiverad som standard.
+I det här avsnittet skapas en användare som kallas Britta Simon i iQualify. iQualify LMS stöder just‑in‑time etableringen av användare, som är aktiverat som standard.
 
-Det finns ingen åtgärd objekt i det här avsnittet. Om en användare inte redan finns i iQualify, skapas en ny när du försöker komma åt iQualify LMS.
+Det finns inga uppgift åt dig i det här avsnittet. Om en användare inte redan finns i iQualify, skapas en ny när du försöker komma åt iQualify LMS.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till iQualify LMS.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till iQualify LMS.
 
 ![Tilldela rollen][200] 
 
 **Om du vill tilldela iQualify LMS Britta Simon utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **iQualify LMS**.
+2. I listan med program väljer **iQualify LMS**.
 
-    ![Länken iQualify LMS i listan med program](./media/iqualify-tutorial/tutorial_iqualify_app.png)  
+    ![IQualify LMS-länken i listan med program](./media/iqualify-tutorial/tutorial_iqualify_app.png)  
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-Du bör få inloggningssidan för iQualify LMS programmet när du klickar på iQualify LMS panelen på åtkomstpanelen. 
+När du klickar på iQualify LMS-panelen i åtkomstpanelen, bör du få inloggningssidan programmets iQualify LMS. 
 
    ![inloggningssidan](./media/iqualify-tutorial/login.png) 
 
-Klicka på **logga in med Azure AD** knappen och du bör få automatiskt loggat in på ditt iQualify LMS program.
+Klicka på **inloggning med Azure AD** du bör få automatiskt loggat in på ditt iQualify LMS-program.
 
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

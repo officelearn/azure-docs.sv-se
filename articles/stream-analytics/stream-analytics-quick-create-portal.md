@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 1059a401382820b4e5d3fd4b010d400bb6113926
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 830b3d4226440a68c7de62170d2ffc28082315c2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031438"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902912"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen
 
@@ -48,7 +48,7 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som har k
 
 4. Från sidan **Alla resurser** letar du rätt på lagringskontot som du skapade i föregående steg. Öppna sidan **Översikt** och öppna sedan panelen **Blobar**.  
 
-5. Från sidan **Blob-tjänst** väljer du **Behållare**, anger ett **Namn** för behållaren, t.ex. *container1*, och ändrar **Offentlig åtkomstnivå** till Blob (anonym läsbehörighet endast för blobar) > välj **OK**.  
+5. Från sidan **Blob-tjänst** väljer du **Container**, anger ett **Namn** för containern, t.ex. *container1*, och ändrar **Offentlig åtkomstnivå** till Privat (ingen anonym åtkomst) > välj **OK**.  
 
    ![Skapa en behållare](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 

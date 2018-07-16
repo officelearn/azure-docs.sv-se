@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 07/13/2018
 ms.author: babanisa
-ms.openlocfilehash: 41e7be80eb67deaf7a8189aa0d9f62c48b88799a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 4f1f0e95ae74ef41ed91be55f4c964671e8f723b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036245"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044557"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Använd CloudEvents-schema med Event Grid
 
@@ -64,7 +64,7 @@ CloudEvents v0.1 har följande egenskaper som är tillgängliga:
 | eventTypeVersion   | Sträng   | ”1.0”                            | Versionen av händelsetyp (valfritt)                            | dataVersion
 | cloudEventsVersion | Sträng   | ”0.1”                            | Versionen av CloudEvents-specifikationen händelsen använder        | *skickas via*
 | källa             | URI      | ”/ mycontext”                     | Beskriver producenten händelse                                       | avsnittet #subject
-| händelse-ID            | Sträng   | ”1234-1234-1234”                 | ID för händelsen                                                    | id
+| händelse-ID            | Sträng   | ”1234-1234-1234”                 | ID för händelsen                                                    | ID
 | eventTime          | Tidsstämpel| ”2018-04-05T17:31:00Z”           | Tidsstämpel för när händelsen som inträffade (valfritt)                    | eventTime
 | schemaURL          | URI      | "https://myschema.com"           | En länk till det schema som dataattributet följer (valfritt) | *används inte*
 | contentType        | Sträng   | ”application/json”               | Beskriv data Kodningsformatet (valfritt)                       | *används inte*
@@ -72,6 +72,8 @@ CloudEvents v0.1 har följande egenskaper som är tillgängliga:
 | data               | Objekt   | {”objA”: ”vA”, ”objB”, ”vB”}  | Händelsenyttolast (valfritt)                                       | data
 
 Mer information finns i den [CloudEvents-specifikationen](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
+
+Värdena för händelser som levereras i CloudEvents-schema och Event Grid-schemat är likadana, med undantag för `content-type`. Det huvud-värdet är för CloudEvents-schema `"content-type":"application/cloudevents+json; charset=utf-8"`. Det huvud-värdet är för Event Grid-schema, `"content-type":"application/json; charset=utf-8"`.
 
 ## <a name="configure-event-grid-for-cloudevents"></a>Konfigurera Event Grid för CloudEvents
 
@@ -89,7 +91,7 @@ För alla Händelsescheman kräver Event Grid-verifiering vid publicering till e
 
 ### <a name="input-schema"></a>Inmatningsschemat
 
-Om du vill ställa in inmatningsschemat på ett anpassat ämne att CloudEvents, använder du följande parameter i Azure CLI när du skapar ditt ämne `--input-schema cloudeventv01schema`. Det anpassade ämnet förväntar nu inkommande händelser i CloudEvents v0.1 format.
+Om du vill ställa in inmatningsschemat på ett anpassat ämne att CloudEvents, använder du följande parameter i Azure CLI när du skapar ditt anpassade ämne `--input-schema cloudeventv01schema`. Det anpassade ämnet förväntar nu inkommande händelser i CloudEvents v0.1 format.
 
 Om du vill skapa en event grid-ämne, använder du:
 

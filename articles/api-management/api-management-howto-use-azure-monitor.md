@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 658588b29e65c9b1cd2f9d82c1c4528929875b2f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b4c885758f572851f058edb6e7851d650faed9f9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935583"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38973006"
 ---
 # <a name="monitor-published-apis"></a>Övervaka publicerade API:er
 
 Med Azure Monitor kan du visualisera, fråga, vidarebefordra, aktivera och vidta åtgärder för mått eller loggar från resurser i Azure.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Visa aktivitetsloggar
@@ -58,10 +58,14 @@ API Management sänder ut mätvärden varje minut, vilket ger dig en insyn i rea
 Så här får du åtkomst till mått:
 
 1. Välj **Mått** på menyn långt ned på sidan.
-2. Från listrutan väljer du mått som du är intresserad av (du kan lägga till flera mått). 
 
+    ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+
+2. Från listrutan väljer du mått som du är intresserad av (du kan lägga till flera mått).  
     Välj till exempel **Totalt antal gatewaybegäranden** **Misslyckade gatewaybegäranden** på listan över tillgängliga mått.
-3. Diagrammet visar det totala antalet API-anrop. Det visar även antalet API-anrop som misslyckades. 
+3. Diagrammet visar det totala antalet API-anrop. Det visar även antalet API-anrop som misslyckades.
+
+    ![måttdiagram](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Konfigurera en aviseringsregel för obehörig begäran
 
@@ -73,7 +77,10 @@ Du kan konfigurera för att ta emot varningar baserat på mått och aktivitet. M
 
 Så här konfigurerar du varningar:
 
-1. Välj **Aviseringsregler** på menyraden långt ned på sidan.
+1. Välj **Aviseringar (klassisk)** på menyraden långt ned på sidan.
+
+    ![aviseringar](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+
 2. Välj **Lägg till metrisk varning**.
 3. Ange ett **namn** på varningen.
 4. Välj **Ej auktoriserad begäran** som mått som ska övervakas.
@@ -100,6 +107,12 @@ Så här visar du aktivitetsloggar:
 1. Välj din APIM-tjänstinstans.
 2. Klicka på **Aktivitetslogg**.
 
+    ![aktivitetslogg](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+
+3. Välj önskat filtreringsomfång och klicka på **Använd**.
+
+    ![aktivitetsloggar](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
 Diagnostikloggar innehåller omfattande information om åtgärder och fel som är viktiga för granskning, samt i felsökningssyfte. Diagnostikloggar skiljer sig från aktivitetsloggar. Aktivitetsloggar ger insikt i de åtgärder som vidtogs för dina Azure-resurser. Diagnostikloggar ger information om åtgärder som din resurs har vidtagit.
@@ -107,7 +120,10 @@ Diagnostikloggar innehåller omfattande information om åtgärder och fel som ä
 Så här konfigurerar du diagnostikloggar:
 
 1. Välj din APIM-tjänstinstans.
-2. Klicka på **Diagnostiklogg**.
+2. Klicka på **Diagnostikloggar**.
+
+    ![diagnostikloggar](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+
 3. Klicka på **Slå på diagnostik**. Du kan arkivera diagnostikloggar tillsammans med mått i ett lagringskonto, strömma dem till en Event Hub eller skicka dem till Log Analytics. 
 
 API Management tillhandahåller för närvarande diagnostikloggar (i batchar varje timme) om enskilda API-begäran där varje inmatning har följande schema:

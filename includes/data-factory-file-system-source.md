@@ -1,6 +1,6 @@
-I en Kopieringsaktivitet när datakällan är av typen **FileSystemSource**, följande egenskaper finns i avsnittet typeProperties:
+I Kopieringsaktiviteten när källan är av typen **FileSystemSource**, följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Krävs |
+| Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| Rekursiva |Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. |SANT, FALSKT (standard) |Nej |
+| rekursiv |Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. |SANT, FALSKT (standard) |Nej |
 

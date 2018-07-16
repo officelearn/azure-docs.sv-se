@@ -1,6 +1,6 @@
 ---
-title: Söka på flera resurser med Azure Log Analytics | Microsoft Docs
-description: Den här artikeln beskriver hur du kan fråga mot resurser från flera arbetsytor och App Insights app i din prenumeration.
+title: Sök i resurser med Azure Log Analytics | Microsoft Docs
+description: Den här artikeln beskrivs hur du kan fråga mot resurser från flera arbetsytor och App Insights i din prenumeration.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,81 +15,92 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a8d5465a2a9aaf9cf686a8e135a1f537cc60c6b5
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e7ca3bcb3c3322c0eba12d7f9eb2ee2bc7b7600c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129259"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049855"
 ---
-# <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Cross-resurs loggen sökning i logganalys  
+# <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Utföra mellan resurser loggsökningar i Log Analytics  
 
-Tidigare med Azure logganalys du kan endast analysera data från inom den aktuella arbetsytan och det begränsade möjligheten att fråga över flera arbetsytor som definierats i din prenumeration.  Dessutom kan du bara söka telemetri objekt som samlas in från ditt webbaserade program med Application Insights direkt i Application Insights eller från Visual Studio.  Detta också gjort det en utmaning att internt analysera operativa och programdata tillsammans.   
+Tidigare med Azure Log Analytics kunde du endast analysera data inifrån den aktuella arbetsytan och det begränsade möjligheten att fråga över flera arbetsytor som definierats i din prenumeration.  Dessutom kan du bara söka efter objekt för telemetri som samlas in från dina webbaserade program med Application Insights direkt i Application Insights eller från Visual Studio.  Detta också gjort det en utmaning att internt analysera operativa och programdata tillsammans.   
 
-Nu kan du fråga inte bara över flera logganalys arbetsytor, utan också data från en viss Application Insights-app i samma resursgrupp, en annan resursgrupp eller en annan prenumeration. Detta ger dig en systemomfattande vy över dina data.  Du kan bara utföra dessa typer av frågorna i den [avancerade portal](log-analytics-log-search-portals.md#advanced-analytics-portal), inte i Azure-portalen. Antalet resurser (logganalys arbetsytor och Application Insights-app) som ska inkluderas i en enskild fråga är begränsad till 100. 
+Nu kan du fråga inte bara över flera Log Analytics-arbetsytor, utan också data från en viss Application Insights-app i samma resursgrupp, en annan resursgrupp eller en annan prenumeration. Det ger en systemomfattande överblick över dina data.  Du kan bara utföra dessa typer av frågor i den [avancerad portal](log-analytics-log-search-portals.md#advanced-analytics-portal), inte i Azure-portalen. Antalet resurser (Log Analytics-arbetsytor och Application Insights-app) som ska inkluderas i en enskild fråga är begränsad till 100. 
 
-## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Fråga efter över logganalys arbetsytor och från Application Insights
-Om du vill referera till en annan arbetsyta i frågan, Använd den [ *arbetsytan* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) identifierare, och en app från Application Insights använder den [ *app* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app())identifierare.  
+## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Fråga över Log Analytics-arbetsytor och från Application Insights
+Om du vill referera till en annan arbetsyta i frågan, använda den [ *arbetsytan* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) identifierare, och för en app från Application Insights, använder du den [ *app* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app())identifierare.  
 
-### <a name="identifying-workspace-resources"></a>Identifiera resurser i arbetsytan
-Följande exempel visar frågor över logganalys arbetsytor att returnera sammanfattade antal uppdateringar från tabellen uppdatering på en arbetsyta med namnet *contosoretail it*. 
+### <a name="identifying-workspace-resources"></a>Identifiera resurser för arbetsyta
+Följande exempel visar frågor i Log Analytics-arbetsytor att returnera sammanfattande antal loggar från tabellen uppdatering på en arbetsyta med namnet *contosoretail it*. 
 
-Identifiera en arbetsyta kan vara utfört en av flera olika sätt:
+Identifiera en arbetsyta kan vara på flera olika sätt:
 
-* Resurs - är ett läsbart namn på arbetsytan, kallas ibland *komponentnamnet*. 
+* Resursnamnet - är ett läsbart namn på arbetsytan, kallas ibland *komponentnamn*. 
 
     `workspace("contosoretail").Update | count`
  
     >[!NOTE]
-    >Identifierar en arbetsyta med namnet förutsätter unikhet över alla tillgängliga prenumerationer. Om du har flera program med det angivna namnet kan misslyckas på grund av tvetydighet. I det här fallet måste du använda en av de andra identifierarna.
+    >Identifierar en arbetsyta med namnet förutsätter unikhet för alla tillgängliga prenumerationer. Om du har flera program med det angivna namnet kan misslyckas på grund av tvetydighet. I det här fallet måste du använda en av de andra identifierarna.
 
-* Kvalificerat namn - heter ”full” arbetsytan består av prenumerationen, resursgruppen och Komponentnamn i det här formatet: *komponentnamn-subscriptionName/resourceGroup*. 
+* Kvalificerade namn – är ”fullständiga namn” på arbetsytan, består av prenumeration, resursgrupp och Komponentnamn i följande format: *subscriptionName/resourceGroup/componentName*. 
 
-    `workspace('contoso/contosoretail/development').requests | count `
+    `workspace('contoso/contosoretail/contosoretail-it').Update | count `
 
     >[!NOTE]
-    >Eftersom Azure-prenumerationsnamn inte är unika kan identifieraren vara tvetydig. 
+    >Eftersom Azure-prenumerationsnamn inte är unikt, kan den här identifieraren vara tvetydiga. 
     >
 
-* Arbetsyte-ID - arbetsyte-ID är unikt, ändras, identifierare som tilldelas varje arbetsyta som visas i form av en globalt unik identifierare (GUID).
+* Arbetsyte-ID - arbetsyte-ID är unikt, inte kan ändras, identifieraren som tilldelats varje arbetsyta som representeras som en globalt unik identifierare (GUID).
 
     `workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update | count`
 
-* Azure resurs-ID – Azure-definierade unik identitet i arbetsytan. Du använder resurs-ID när resursnamnet är tvetydig.  För arbetsytor, formatet är: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft. Komponentnamn-OperationalInsights/arbetsytor*.  
+* Azure resurs-ID – Azure-definierade unika identiteten för arbetsytan. Du använder resurs-ID när resursnamnet är tvetydig.  Formatet för arbetsytor, är: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft. ComponentName-OperationalInsights/arbetsytor*.  
 
     Exempel:
     ``` 
-    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
+    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Update | count
     ```
 
 ### <a name="identifying-an-application"></a>Identifiera ett program
-I följande exempel returneras en sammanfattande antal begäranden som görs mot en app med namnet *fabrikamapp* i Application Insights. 
+I följande exempel returneras ett sammanfattande antal förfrågningar mot en app med namnet *fabrikamapp* i Application Insights. 
 
 Identifiera ett program i Application Insights kan åstadkommas med den *app(Identifier)* uttryck.  Den *identifierare* argumentet anger appen med något av följande:
 
-* Resursnamnet - är en mänsklig läsbart namn på appen, som ibland kallas den *komponentnamnet*.  
+* Resursnamnet - är en mänsklig läsbart namn på appen, kallas ibland den *komponentnamn*.  
 
     `app("fabrikamapp")`
 
-* Kvalificerat namn - heter ”full” appen, som består av prenumerationen, resursgruppen och Komponentnamn i det här formatet: *komponentnamn-subscriptionName/resourceGroup*. 
+* Kvalificerade namnet - heter ”fullständig” appen, består av prenumeration, resursgrupp och Komponentnamn i följande format: *subscriptionName/resourceGroup/componentName*. 
 
     `app("AI-Prototype/Fabrikam/fabrikamapp").requests | count`
 
      >[!NOTE]
-    >Eftersom Azure-prenumerationsnamn inte är unika kan identifieraren vara tvetydig. 
+    >Eftersom Azure-prenumerationsnamn inte är unikt, kan den här identifieraren vara tvetydiga. 
     >
 
 * ID - appens GUID för programmet.
 
     `app("b459b4f6-912x-46d5-9cb1-b43069212ab4").requests | count`
 
-* Azure resurs-ID - Azure-definierade unika identitet appen. Du använder resurs-ID när resursnamnet är tvetydig. Formatet är: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft. Komponentnamn-OperationalInsights/komponenter*.  
+* Azure resurs-ID - Azure-definierade unika identiteten för appen. Du använder resurs-ID när resursnamnet är tvetydig. Formatet är: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft. ComponentName-OperationalInsights/komponenter*.  
 
     Exempel:
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```
 
+### <a name="performing-a-query-across-multiple-resources"></a>Utför en fråga över flera resurser
+Du kan fråga flera resurser från någon av resursinstanserna, det kan vara arbetsytor och appar kombineras.
+    
+Exempel för fråga över två arbetsytor:    
+    ```
+    union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
+    | where TimeGenerated >= ago(1h)
+    | where UpdateState == "Needed"
+    | summarize dcount(Computer) by Classification
+    ```
+
 ## <a name="next-steps"></a>Nästa steg
 
-Granska de [logganalys logga Sök referens](https://docs.loganalytics.io/docs/Language-Reference) att visa alla frågan syntax alternativen i logganalys.    
+Granska den [Log Analytics logga sökreferens](https://docs.loganalytics.io/docs/Language-Reference) att visa alla fråga Syntaxalternativ som är tillgängliga i Log Analytics.    

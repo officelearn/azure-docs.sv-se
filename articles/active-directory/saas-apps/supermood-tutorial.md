@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Supermood | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integration med Supermood | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Supermood.
 services: active-directory
 documentationCenter: na
@@ -15,48 +15,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 9cd6a373f23c69f920d0e46bad368f17c8d21035
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ebd8e28e8adc357f0e6a0582f422085ddf50749f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215008"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041032"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-supermood"></a>Självstudier: Azure Active Directory-integrering med Supermood
+# <a name="tutorial-azure-active-directory-integration-with-supermood"></a>Självstudier: Azure Active Directory-integration med Supermood
 
-I kursen får lära du att integrera Supermood med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Supermood med Azure Active Directory (AD Azure).
 
 Integrera Supermood med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Supermood.
-- Du kan aktivera användarna att automatiskt hämta loggat in på Supermood (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton i en central plats - Azure-portalen.
+- Du kan aktivera användarna att automatiskt få loggat in på Supermood (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton på en central plats – Azure portal.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med Supermood, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Supermood, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En Supermood enkel inloggning aktiverad prenumeration
+- En Supermood enkel inloggning aktiverat prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Supermood från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-supermood-from-the-gallery"></a>Att lägga till Supermood från galleriet
-Du måste lägga till Supermood från galleriet i listan över hanterade SaaS-appar för att konfigurera Supermood till Azure AD-integrering.
+Om du vill konfigurera integreringen av Supermood i Azure AD, som du behöver lägga till Supermood från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Supermood från galleriet:**
 
@@ -66,29 +66,29 @@ Du måste lägga till Supermood från galleriet i listan över hanterade SaaS-ap
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Bladet Enterprise program][2]
+    ![Bladet för Enterprise-program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Supermood**väljer **Supermood** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **Supermood**väljer **Supermood** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Supermood i resultatlistan](./media/supermood-tutorial/tutorial_supermood_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Supermood baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Supermood baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till användaren i Supermood motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Supermood upprättas.
+För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Supermood är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Supermood upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Supermood, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Supermood](#create-a-supermood-test-user)**  – du har en motsvarighet för Britta Simon i Supermood som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Supermood](#create-a-supermood-test-user)**  – du har en motsvarighet för Britta Simon i Supermood som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -96,93 +96,93 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Supermood:**
 
-1. I Azure-portalen på den **Supermood** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Supermood** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning länk][4]
+    ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
-    ![Enkel inloggning dialogrutan](./media/supermood-tutorial/tutorial_supermood_samlbase.png)
+    ![Enkel inloggning för dialogrutan](./media/supermood-tutorial/tutorial_supermood_samlbase.png)
 
 3. På den **Supermood domän och URL: er** avsnittet, utför följande steg:
 
-    ![URL: er och supermood domän med enkel inloggning information](./media/supermood-tutorial/tutorial_supermood_url.png)
+    ![Supermood domän och URL: er med enkel inloggning för information](./media/supermood-tutorial/tutorial_supermood_url.png)
 
-    a. Kontrollera **visa avancerade inställningar för URL: en**.
+    a. Kontrollera **visa avancerade URL-inställningar**.
 
-    b. Om du vill konfigurera programmet i **IDP** har initierat läge, den **Relay tillstånd** textruta, ange ett URL-Adressen: `https://supermood.co/auth/sso/saml20`
+    b. Om du vill konfigurera programmet i **IDP** har initierat läge, den **Vidarebefordransstatus** textrutan anger du ett URL: `https://supermood.co/auth/sso/saml20`
 
-    c. Om du vill konfigurera programmet i **SP** initierade läge i den **inloggnings-URL** textruta, ange ett URL-Adressen: `https://supermood.co/app/#!/loginv2`
+    c. Om du vill konfigurera programmet i **SP** har initierat läge, den **inloggnings-URL** textrutan anger du ett URL: `https://supermood.co/app/#!/loginv2`
 
-4. Supermood program förväntar SAML-intyg i ett specifikt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värden för attributen från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för det här.
+4. Supermood program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för detta.
     
     ![Konfigurera enkel inloggning](./media/supermood-tutorial/tutorial_supermood_attribute.png)
 
-5. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden ovan och utför följande steg:
+5. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
     
     | Attributnamn | Attributvärde |
     | ---------------| --------------- |    
     | Förnamn | User.givenName |
     | Efternamn | User.surname |
 
-    a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
+    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
 
     ![Konfigurera enkel inloggning](./media/supermood-tutorial/tutorial_attribute_04.png)
 
     ![Konfigurera enkel inloggning](./media/supermood-tutorial/tutorial_attribute_05.png)
     
-    b. I den **namn** textruta ange attributets namn visas för den raden.
+    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
     
-    c. Från den **värdet** listan, ange det attributvärde som visas för den raden.
+    c. Från den **värdet** anger attributvärdet som visas för den raden.
 
-    d. Lämna den **Namespace** tomt.
+    d. Lämna den **Namespace** tom.
     
     d. Klicka på **Ok**
 
-6. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **webbadress Federation Metadata** och klistra in den i anteckningar.
+6. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
 
-    ![Länken hämta certifikatet](./media/supermood-tutorial/tutorial_supermood_certificate.png) 
+    ![Länk för hämtning av certifikat](./media/supermood-tutorial/tutorial_supermood_certificate.png) 
 
 7. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara](./media/supermood-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning spara-knapp](./media/supermood-tutorial/tutorial_general_400.png)
 
-8. Gå till din Supermood.co admin panel som säkerhetsadministratör.
+8. Gå till din Supermood.co administrationspanel som säkerhetsadministratör.
 
-9. Klicka på **mitt konto** (längst ned vänster) och **enkel inloggning (SSO)**.
+9. Klicka på **mitt konto** (längst ned till vänster) och **enkel inloggning (SSO)**.
 
     ![Det enda certifikatet](./media/supermood-tutorial/tutorial_supermood_single.png)
-10. På **din SAML 2.0 konfigurationer**, klickar du på **lägga till en SAML 2.0-konfiguration för en e-postdomän**.
+10. På **Your SAML 2.0-konfigurationer**, klickar du på **lägga till en SAML 2.0-konfiguration för en e-postdomän**.
 
     ![Lägga till certifikatet](./media/supermood-tutorial/tutorial_supermood_add.png)
 
 11. På **lägga till en SAML 2.0-konfiguration för en e-postdomän**. avsnittet, utför följande steg:
 
-    ![Certifikatet saml](./media/supermood-tutorial/tutorial_supermood_saml.png)
+    ![Certifikat-saml](./media/supermood-tutorial/tutorial_supermood_saml.png)
 
-    a. I den **e-postdomän för den här identitetsleverantör** textruta Skriv din domän.
+    a. I den **e-postdomän för den här identitetsprovidern** textrutan skriver din domän.
 
-    b. I den **använder en URL för tjänstmetadata** textruta klistra in den **webbadress Federation Metadata** som du har kopierat från Azure-portalen.
+    b. I den **använder en URL för metadata** textrutan klistra in den **Appfederationsmetadata** som du har kopierat från Azure-portalen.
 
     c. Klicka på **Lägg till**.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-   ![Skapa en testanvändare i Azure AD][100]
+   ![Skapa en Azure AD-testanvändare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
     ![Azure Active Directory-knappen](./media/supermood-tutorial/create_aaduser_01.png)
 
 2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-    ![”Användare och grupper” och ”alla användare” länkar](./media/supermood-tutorial/create_aaduser_02.png)
+    ![”Användare och grupper” och ”alla användare”-länkar](./media/supermood-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/supermood-tutorial/create_aaduser_03.png)
 
@@ -192,60 +192,60 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     a. I den **namn** skriver **BrittaSimon**.
 
-    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
 
-    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
+    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
 
     d. Klicka på **Skapa**.
  
-### <a name="create-a-supermood-test-user"></a>Skapa en testanvändare Supermood
+### <a name="create-a-supermood-test-user"></a>Skapa en Supermood testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Supermood. Supermood stöder just-in-time-etablering, vilket är aktiverat för användare vars e-postmeddelanden som hör till de domäner som har lagts till under konfigurationen Supermood slutet som standard. Det finns ingen åtgärd objekt i det här avsnittet. En ny användare skapas under ett försök att komma åt Supermood om den inte finns.
+I det här avsnittet skapar du en användare som kallas Britta Simon i Supermood. Supermood stöder just-in-time-etablering, vilket är som standard aktiverad för användare vars e-postmeddelanden som hör till de domäner som har lagts till under konfigurationen Supermood slutet. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Supermood om det inte finns ännu.
 
 >[!Note]
->Om du behöver skapa en användare manuellt Kontakta [Supermood supportteamet](mailto:hello@supermood.fr).
+>Om du vill skapa en användare manuellt kan du kontakta [Supermood supportteamet](mailto:hello@supermood.fr).
 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Supermood.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Supermood.
 
 ![Tilldela rollen][200] 
 
-**Om du vill tilldela Supermood Britta Simon utför du följande steg:**
+**Om du vill tilldela Britta Simon Supermood, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **Supermood**.
+2. I listan med program väljer **Supermood**.
 
     ![Länken Supermood i listan med program](./media/supermood-tutorial/tutorial_supermood_app.png)  
 
-3. Klicka på menyn till vänster **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Supermood på åtkomstpanelen du bör få automatiskt loggat in på ditt Supermood program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen Supermood i åtkomstpanelen du bör få automatiskt loggat in på ditt Supermood program.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

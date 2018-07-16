@@ -1,0 +1,21 @@
+# [Dokumentation om Azure Active Directory](../index.md#authentication)
+
+# Översikt
+
+## [Vad är tvåstegsverifiering?](multi-factor-authentication-end-user.md)
+## [Hur påverkar det mig?](multi-factor-authentication-end-user-signin.md)
+
+# Kom igång
+
+## [Konfigurera ditt konto](multi-factor-authentication-end-user-first-time.md)
+
+# Gör så här för att
+
+## [Hantera inställningar](multi-factor-authentication-end-user-manage-settings.md)
+## [Felsöka](multi-factor-authentication-end-user-troubleshoot.md)
+## [Konfigurera applösenord](multi-factor-authentication-end-user-app-passwords.md)
+## Använd Microsoft Authenticator-appen
+### [Kom igång med appen](microsoft-authenticator-app-how-to.md)
+### [Logga in med telefonen](microsoft-authenticator-app-phone-signin-faq.md)
+### [Säkerhetskopiera och återställa kontoautentiseringsuppgifter](microsoft-authenticator-app-backup-and-recovery.md)
+### [Vanliga frågor och svar](microsoft-authenticator-app-faq.md)

@@ -56,7 +56,7 @@
 ## [Rapportering](../active-directory/authentication/howto-mfa-reporting.md)
 ### [Datainsamling](../active-directory/authentication/howto-mfa-reporting-datacollection.md)
 
-## [Användarhandbok för MFA](../active-directory/authentication/end-user/current/multi-factor-authentication-end-user.md)
+## [Användarhandbok för MFA](../active-directory/user-help/multi-factor-authentication-end-user.md)
 
 ## Felsöka
 ### [Vanliga frågor och svar](../active-directory/authentication/multi-factor-authentication-faq.md)

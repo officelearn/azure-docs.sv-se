@@ -6,12 +6,12 @@ description: Lär dig att skapa och hantera kraftfulla program med Microsoft Azu
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 69741fb139d2225ce827f4c158603a0ffacbfa76
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d0553a1b8e4e6db63724991a1cdfdb277afbefd6
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004219"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050424"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -176,7 +176,8 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">Funktioner utan server</a></li>
-                                                    <li><a class="barLink" href="/azure/containers/">Behållare</a></li>
+                                                    <li>
+  <a class="barLink" href="/azure/containers/">Containrar</a></li>
                                                     <li><a class="barLink" href="/azure/aks/">Mikrotjänster med Kubernetes</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Mikrotjänster med Service Fabric</a></li>
                                                 </ul>
@@ -452,7 +453,7 @@ Lär dig om DevOps med Azure </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Behållare</h3>
+                                    <h3>Containrar</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/app-service/">
@@ -659,7 +660,7 @@ Lär dig om DevOps med Azure </a>
                                         <li>
                                             <a href="/azure/load-balancer/">
                                                 <img src="media/index/LoadBalancer.svg" alt="" />
-                                                <p>Load Balancer</p>
+                                                <p>Lastbalanserare</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1780,7 +1781,7 @@ s" alt="" />
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Container Instances</h3>
-                                                    <p>Kör behållare enkelt med ett enda kommando</p>
+                                                    <p>Kör containrar enkelt med ett enda kommando</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1818,7 +1819,7 @@ s" alt="" />
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Utveckla mikrotjänster och styr behållare i Windows eller Linux</p>
+                                                    <p>Utveckla mikrotjänster och styr containrar i Windows eller Linux</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2050,7 +2051,7 @@ s" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Load Balancer</h3>
+                                                    <h3>Lastbalanserare</h3>
                                                     <p>Leverera hög tillgänglighet och nätverksprestanda till dina program</p>
                                                 </div>
                                             </div>
@@ -2147,6 +2148,25 @@ s" alt="" />
                                                 <div class="cardText">
                                                     <h3>Azure Firewall</h3>
                                                     <p>Högtillgänglig och skalbar molnbaserad tjänst för nätverkssäkerhet</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-wan/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/WAN.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Virtuellt WAN</h3>
+                                                    <p>Kompilera säker global skalförgreningsanslutning</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2627,7 +2647,8 @@ s" alt="" />
                         </ul>
                     </li>
                     <li>
-                        <a href="#containers">Behållare</a>
+  
+                        <a href="#containers">Containrar</a>
                         <ul id="containers" class="cardsA">
                             <li>
                                 <a href="/azure/app-service/">
@@ -2679,7 +2700,7 @@ s" alt="" />
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Registry</h3>
-                                                    <p>Lagra och hantera behållaravbildningar för alla typer av Azure-distributioner</p>
+                                                    <p>Lagra och hantera containeravbildningar för alla typer av Azure-distributioner</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2698,7 +2719,7 @@ s" alt="" />
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Container Instances</h3>
-                                                    <p>Kör behållare enkelt med ett enda kommando</p>
+                                                    <p>Kör containrar enkelt med ett enda kommando</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2717,7 +2738,7 @@ s" alt="" />
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Utveckla mikrotjänster och styr behållare i Windows eller Linux</p>
+                                                    <p>Utveckla mikrotjänster och styr containrar i Windows eller Linux</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2755,7 +2776,7 @@ s" alt="" />
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Web App for Containers</h3>
-                                                    <p>Distribuera och kör enkelt behållarbaserade webbappar som kan skalas med företaget</p>
+                                                    <p>Distribuera och kör enkelt containerbaserade webbappar som kan skalas med företaget</p>
                                                 </div>
                                             </div>
                                         </div>

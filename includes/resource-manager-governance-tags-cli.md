@@ -9,25 +9,25 @@ ms.date: 02/20/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: b9484336add0719749e9f0af56bdd70fa3906ef5
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29532347"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38752667"
 ---
-Om du vill lägga till två taggar i en resursgrupp, Använd den [az grupp uppdatering](/cli/azure/group#az_group_update) kommando:
+Om du vill lägga till två taggar till en resursgrupp använder du kommandot [az-gruppuppdatering](/cli/azure/group#az_group_update):
 
 ```azurecli-interactive
 az group update -n myResourceGroup --set tags.Environment=Test tags.Dept=IT
 ```
 
-Anta att du vill lägga till en tredje tagg. Kör kommandot igen med den nya taggen. Den läggs till i befintliga taggar.
+Vi utgår från att du vill lägga till en tredje tagg. Kör kommandot igen med den nya taggen. Den läggs till de befintliga taggarna.
 
 ```azurecli-interactive
 az group update -n myResourceGroup --set tags.Project=Documentation
 ```
 
-Resurser som ärver inte taggar från resursgruppen. För närvarande resursgruppen har tre taggar, men resurserna som inte har några taggar. Om du vill lägga till alla taggar från en resursgrupp för dess resurser och behålla befintliga taggar på resurser, använder du följande skript:
+Resurser ärver inte taggar från resursgruppen. För närvarande har resursgruppen tre taggar, men resurserna har inte några taggar. Om du vill tillämpa alla taggar från en resursgrupp på dess resurser, och behålla någon av de befintliga taggarna för resurserna, kan du använda följande skript:
 
 ```azurecli-interactive
 # Get the tags for the resource group
@@ -53,7 +53,7 @@ do
 done
 ```
 
-Du kan också använda taggar från resursgruppen i resurser utan att behålla befintliga taggar:
+Du kan även tillämpa taggar från resursgruppen till resurser utan att behålla befintliga taggar:
 
 ```azurecli-interactive
 # Get the tags for the resource group
@@ -73,13 +73,13 @@ do
 done
 ```
 
-Om du vill kombinera flera värden i en enskild tagg, använder du en JSON-sträng.
+Om du vill kombinera flera värden i en enda tagg använder du en JSON-sträng.
 
 ```azurecli-interactive
 az group update -n myResourceGroup --set tags.CostCenter='{"Dept":"IT","Environment":"Test"}'
 ```
 
-Ta bort alla taggar på en resursgrupp med:
+Om du vill ta bort alla taggar från en resursgrupp använder du:
 
 ```azurecli-interactive
 az group update -n myResourceGroup --remove tags

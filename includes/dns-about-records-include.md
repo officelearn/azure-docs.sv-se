@@ -2,7 +2,7 @@
 
 DNS-poster i Azure anges med relativa namn. Ett *fullständigt kvalificerat* domännamn (FQDN), inkluderar zonnamnet, medan ett *relativt* namn inte gör det. Det relativa postnamnet ”www” i zonen ”contoso.com” skapar till exempel det fullständigt kvalificerade postnamnet ”www.contoso.com”.
 
-En *topp*post är en DNS-post vid roten (eller *toppen*) av en DNS-zon. I till exempel DNS-zonen "contoso.com" har en toppost också det fullständigt kvalificerade namnet "contoso.com" (kallas ibland en *naken* domän).  Enligt konventionen används det relativa namnet '@' för att representera topposter.
+En *topp*post är en DNS-post vid roten (eller *toppen*) av en DNS-zon. I till exempel DNS-zonen "contoso.com" har en toppost också det fullständigt kvalificerade namnet "contoso.com" (kallas ibland en *naken* domän).  Enligt konventionen används det relativa namnet ”\@” används för att representera topposter.
 
 ### <a name="record-types"></a>Typer av poster
 

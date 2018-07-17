@@ -1,6 +1,6 @@
 ---
-title: Definine och hantera tillstånd i Azure mikrotjänster | Microsoft Docs
-description: Definiera och hantera i Service Fabric-tjänstens tillstånd
+title: Hantera tillstånd i Azure Service Fabric-mikrotjänster | Microsoft Docs
+description: Hur du definierar och hantera tjänstestatus i Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,31 +14,31 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 46d2e27b9cdcb03213648982c7e9a0576838bc92
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: eaa38e864da2525b640fa101ecc807f89de8eeaf
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213103"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072205"
 ---
 # <a name="service-state"></a>Tjänsttillstånd
-**Tjänsten tillstånd** refererar till det i minnet eller på disk som en tjänst kräver att fungera. Det innehåller till exempel datastrukturer och medlemsvariabler som tjänsten läser och skriver till fungerar. Beroende på hur tjänsten är konstruerad, kan den också innehålla filer eller andra resurser som är lagrade på disken. Till exempel filerna en-databas skulle använda att lagra data och transaktionsloggarna.
+**Tjänsten tillstånd** refererar till det i minnet eller på disk som en tjänst kräver att fungera. Det omfattar till exempel datastrukturer och medlemsvariabler som tjänsten läser och skriver till fungerar. Beroende på hur tjänsten har byggts, kan den även innehålla filer eller andra resurser som är lagrade på disken. Till exempel filerna en databas använder att lagra data och transaktionsloggar.
 
-Nu ska vi titta Kalkylatorn som en exempel-tjänst. En enkel kalkylator tjänst tar två tal och returnerar sina summan. Utför den här beräkningen innebär att inga Medlemsvariabler eller annan information.
+Nu ska vi titta en kalkylator som en exempel-tjänst. En enkel kalkylator-tjänst tar två tal och returnerar deras summa. Utför den här beräkningen omfattar inga Medlemsvariabler eller annan information.
 
-Tänk dig samma Kalkylatorn nu, men det har beräknats med ytterligare en metod för att lagra och returnera den sista summan. Den här tjänsten är nu tillståndskänsliga. Stateful innebär att den innehåller vissa tillstånd som skrivs till när den beräknar en ny summa och läser från när du begär att den returnerar senaste beräknade summan.
+Tänk dig samma Kalkylatorn nu, men med ytterligare en metod för att lagra och returnera den sista summan det har en beräknad. Den här tjänsten är nu tillståndskänsliga. Tillståndskänslig innebär att den innehåller vissa tillstånd som den skriver till när den beräknar en ny summa och läser från när du ber den att returnera den sista beräknade summan.
 
-I Azure Service Fabric kallas den första tjänsten tillståndslösa tjänsten. Den andra tjänsten kallas en tillståndskänslig service.
+I Azure Service Fabric kallas den första tjänsten en tillståndslös tjänst. Den andra tjänsten kallas en tillståndskänslig tjänst.
 
-## <a name="storing-service-state"></a>Spara tjänstens tillstånd
-Tillstånd kan antingen externalized eller samordnad med kod som ändra tillståndet. Externalization i tillståndet normalt görs med hjälp av en extern databas eller ett datalager som körs på olika datorer via nätverket eller utanför processen på samma dator. I vårt exempel Kalkylatorn kan datalagret vara en SQL-databas eller en instans av Azure Table Store. Varje begäran att beräkna summan utför en uppdatering på dessa data och förfrågningar till tjänsten för att returnera värdet resultat i det aktuella värdet som hämtas från arkivet. 
+## <a name="storing-service-state"></a>Lagra tjänsttillstånd
+Tillstånd kan vara antingen externalized eller samordnad med kod som manipulera tillståndet. Externalization av tillståndet görs normalt med hjälp av en extern databas eller annat datalager som körs på olika datorer över nätverket eller processer på samma dator. I vårt exempel Kalkylatorn kan datalagringen vara en SQL-databas eller en instans av Azure Table Store. Varje begäran att beräkna summan utför en uppdatering på dessa data och förfrågningar till tjänsten att returnera värdet resultatet i det aktuella värdet som hämtas från store. 
 
-Tillståndet kan också vara samordnad med kod som hanterar tillståndet. Tillståndskänsliga tjänster i Service Fabric skapas vanligtvis med hjälp av den här modellen. Service Fabric innehåller en infrastruktur för att säkerställa att det här tillståndet har hög tillgänglighet, konsekvent och varaktig och att tjänsterna skapat det här sättet kan enkelt skala.
+Tillståndet kan också vara samordnad med kod som hanterar tillstånd. Tillståndskänsliga tjänster i Service Fabric skapas vanligtvis med den här modellen. Service Fabric tillhandahåller infrastruktur för att se till att det här tillståndet har hög tillgänglighet, konsekventa och hållbar och att tjänsterna bygger på så sätt kan enkelt skala.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Service Fabric-begrepp finns i följande artiklar:
 
-* [Tillgänglighet för Service Fabric-tjänster](service-fabric-availability-services.md)
-* [Skalbarheten för Service Fabric-tjänster](service-fabric-concepts-scalability.md)
-* [Partitionering Service Fabric-tjänster](service-fabric-concepts-partitioning.md)
+* [Tillgängligheten för Service Fabric-tjänster](service-fabric-availability-services.md)
+* [Skalbarhet för Service Fabric-tjänster](service-fabric-concepts-scalability.md)
+* [Partitionera Service Fabric-tjänster](service-fabric-concepts-partitioning.md)
 * [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md)

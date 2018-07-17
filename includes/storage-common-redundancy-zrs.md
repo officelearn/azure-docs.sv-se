@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/03/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 056007ba9d28280a6055ca3312e2aa53e635d1d3
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: a88588497919d6cce17ced6d94de3bcbbb6a3019
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859800"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069638"
 ---
 Zonredundant lagring (ZRS) replikerar dina data synkront i tre lagringskluster i en enda region. Varje lagringskluster är fysiskt avgränsade från de andra och ligger i sin egen tillgänglighetszon (AZ). Varje tillgänglighetszon och ZRS-klustret i denna är autonoma med olika verktyg och nätverksfunktioner.
 
@@ -24,7 +24,7 @@ Lagra data i ett ZRS-konto säkerställer att du kan få åtkomst till och hante
 Läs mer om tillgänglighetszoner [Tillgänglighetszoner översikt](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 ## <a name="support-coverage-and-regional-availability"></a>Supporttäckning och regional tillgänglighet
-ZRS stöder för närvarande standard [generell användning v2 (GPv2)](../articles/storage/common/storage-account-options.md#general-purpose-v2) kontotyper. ZRS är tillgänglig för blockblob-objekt, sidblob-disk, filer, tabeller och köer. Dessutom alla dina [Lagringsanalys](../articles/storage/common/storage-analytics.md) loggar och [Lagringsmått](../articles/storage/common/storage-enable-and-view-metrics.md)
+ZRS stöder för närvarande standard [generell användning v2 (GPv2)](../articles/storage/common/storage-account-options.md#general-purpose-v2-accounts) kontotyper. ZRS är tillgänglig för blockblob-objekt, sidblob-disk, filer, tabeller och köer. Dessutom alla dina [Lagringsanalys](../articles/storage/common/storage-analytics.md) loggar och [Lagringsmått](../articles/storage/common/storage-enable-and-view-metrics.md)
 
 ZRS är allmänt tillgängligt i följande regioner:
 
@@ -85,7 +85,7 @@ Supporttekniker kommer sedan att vi kontaktar dig. Den personen kommer att kunna
 >[!NOTE]
 > När ZRS är [allmänt tillgänglig](#support-coverage-and-regional-availability) i en region, kommer du inte längre att kunna skapa ett ZRS Classic-konto från portalen i den samma regionen. Men kan du fortfarande skapa en på annat sätt som Microsoft PowerShell och Azure CLI, det vill säga tills ZRS Classic är inaktuell.
 
-ZRS Classic replikerar data asynkront mellan datacenter i en eller två regioner. En replik kanske inte är tillgänglig om inte Microsoft initierar sekundär redundans. ZRS Classic är endast tillgänglig för **blockblobbar** i [general-purpose V1 (GPv1)](../articles/storage/common/storage-account-options.md#general-purpose-v1) storage-konton. Ett ZRS Classic-konto går inte att konvertera till eller från LRS eller GRS, och har inte kapacitet för mått eller loggning.
+ZRS Classic replikerar data asynkront mellan datacenter i en eller två regioner. En replik kanske inte är tillgänglig om inte Microsoft initierar sekundär redundans. ZRS Classic är endast tillgänglig för **blockblobbar** i [general-purpose V1 (GPv1)](../articles/storage/common/storage-account-options.md#general-purpose-v1-accounts) storage-konton. Ett ZRS Classic-konto går inte att konvertera till eller från LRS eller GRS, och har inte kapacitet för mått eller loggning.
 
 ZRS Classic-konton kan inte konverteras till eller från LRS, GRS eller RA-GRS. ZRS Classic-konton stöder inte heller mått eller loggning.
 

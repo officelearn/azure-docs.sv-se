@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 69991a0b805b5502fc96fab4ce902b3d8bc77baf
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 741b32f394ca2ce447826f7207f7fd9cbede9c51
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056366"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070892"
 ---
 # <a name="understand-load-balancer-probes"></a>Förstå avsökningar av belastningsutjämnare
 
@@ -28,7 +28,7 @@ Azure Load Balancer använder hälsoavsökningar för att avgöra vilka serverde
 
 Hälsoavsökningar styr huruvida nya flöden upprättas till Felfri backend-instanser. När en hälsoavsökning inte slutar belastningsutjämnaren att skicka nya flöden till respektive feltillstånd instansen.  Etablerad TCP-anslutningar fortsätter efter uteblivna för avsökning.  Befintliga UDP flöden kommer att flytta den från den felaktiga instansen till en annan instans i serverdelspoolen.
 
-Om alla avsökningar för en serverdelspool misslyckas avslutas grundläggande belastningsutjämnare alla befintliga TCP-flöden till serverdelspoolen, medan Standard Load balancer tillåter etablerad TCP-flöden för att fortsätta; Inga nya flöden kommer att skickas till i serverdelspoolen.
+Om alla avsökningar för en serverdelspool misslyckas avslutas grundläggande belastningsutjämnare alla befintliga TCP-flöden till serverdelspoolen, medan Standard Load balancer tillåter etablerad TCP-flöden för att fortsätta; Inga nya flöden kommer att skickas till i serverdelspoolen.  Alla befintliga UDP flöden kommer att upphöra för Basic och Standard belastningsutjämnare när alla avsökningar för en backend-poolen misslyckas.
 
 Molntjänstroller (arbetarroller och webbroller) använda en gästagenten för avsökning övervakning. TCP eller HTTP anpassade hälsoavsökningar måste konfigureras när du använder Cloud Services med virtuella IaaS-datorer bakom belastningsutjämnaren.
 

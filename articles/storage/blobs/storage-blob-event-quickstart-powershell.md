@@ -8,12 +8,12 @@ ms.author: dastanfo
 ms.date: 07/05/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 2c61c58398b8c095002db4bc59afed1c95e3550f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: c2db67738dddbc9e20eb8fe9d2a30c7a26bf07cd
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865428"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068928"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Dirigera Blob storage-händelser till en anpassad webbslutpunkt med PowerShell
 
@@ -38,7 +38,7 @@ Connect-AzureRmAccount
 ```
 
 > [!NOTE]
-> Tillgänglighet för Storage-händelser är knuten till Event Grid [tillgänglighet](../../event-grid/overview.md) och blir tillgängliga i andra regioner som Event Grid.
+> Lagringshändelsernas tillgänglighet är kopplad till Event Grid-tjänstens [tillgänglighet](../../event-grid/overview.md) och blir tillgängliga i andra regioner i takt med att Event Grid blir det.
 
 Det här exemplet används **westus2** och lagrar markeringen i en variabel som ska användas i hela.
 
@@ -61,7 +61,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Om du vill använda Blob Storage-händelser behöver du antingen ett [Blob Storage-konto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) eller ett [GPv2-konto (General Purpose v2)](../common/storage-account-options.md#general-purpose-v2). **GPv2-konton (General Purpose v2)** är lagringskonton som stöder alla funktionerna för alla lagringstjänster, som blobbar, filer, köer och tabeller. Ett **Blob Storage-konto** är ett specialiserat lagringskonto för lagring av ostrukturerade data som blobbar (objekt) i Azure Storage. Blob Storage-konton liknar allmänna lagringskonton och har samma höga hållbarhet, tillgänglighet, skalbarhet och prestanda som du använder idag, inklusive 100 % API-konsekvens för blockblobbar och tilläggsblobbar. För program som bara behöver lagring av block- eller tilläggsblobbar, rekommenderar vi att du använder Blob-lagringskonton.  
+Om du vill använda Blob Storage-händelser behöver du antingen ett [Blob Storage-konto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) eller ett [GPv2-konto (General Purpose v2)](../common/storage-account-options.md#general-purpose-v2-accounts). **GPv2-konton (General Purpose v2)** är lagringskonton som stöder alla funktionerna för alla lagringstjänster, som blobbar, filer, köer och tabeller. Ett **Blob Storage-konto** är ett specialiserat lagringskonto för lagring av ostrukturerade data som blobbar (objekt) i Azure Storage. Blob Storage-konton liknar allmänna lagringskonton och har samma höga hållbarhet, tillgänglighet, skalbarhet och prestanda som du använder idag, inklusive 100 % API-konsekvens för blockblobbar och tilläggsblobbar. För program som bara behöver lagring av block- eller tilläggsblobbar, rekommenderar vi att du använder Blob-lagringskonton.  
 
 Skapa ett Blob storage-konto med LRS replikering med hjälp av [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), hämta lagringskontokontexten som definierar lagringskontot som ska användas. När du arbetar med lagringskonton refererar du till kontexten i stället för att ange autentiseringsuppgifterna flera gånger. Det här exemplet skapar ett lagringskonto med namnet **gridstorage** med lokalt redundant lagring (LRS). 
 
@@ -104,7 +104,7 @@ Webbplatsen bör visas utan några meddelanden.
 
 ## <a name="subscribe-to-your-storage-account"></a>Prenumerera på ditt lagringskonto
 
-Du prenumererar på ett ämne för att ange för Event Grid vilka händelser du vill följa. I följande exempel prenumererar vi på det lagringskonto du skapade, och URL: en från din webbapp som slutpunkt för händelseavisering. Slutpunkten för ditt webbprogram måste innehålla suffixet `/api/updates/`.
+Du prenumererar på ett ämne för att ange för Event Grid vilka händelser du vill följa. I följande exempel ska vi prenumerera på det lagringskonto du nyss skapat och skicka URL:en från din webbapp som slutpunkten för händelseavisering. Slutpunkten för ditt webbprogram måste innehålla suffixet `/api/updates/`.
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id

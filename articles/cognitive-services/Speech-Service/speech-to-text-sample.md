@@ -1,5 +1,5 @@
 ---
-title: Exempel för tal-till-Text | Microsoft Docs
+title: Exempel för tal till Text | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
 description: Här är ett exempel för tal till text.
 services: cognitive-services
@@ -10,72 +10,60 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 2a1850e6a4f3c8eebd1b947aabe1374bdaab3fc8
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5740586eca902fa63ca7b8590b07f4b276d21e4d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030258"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071376"
 ---
 # <a name="sample-for-speech-to-text"></a>Exempel för tal till Text
 
-> [!NOTE]
-> Anvisningar att hämta det här exemplet och andra finns [prover för tal SDK](samples.md).
+[!include[Get a Subscription Key](../../../includes/cognitive-services-speech-service-get-subscription-key.md)]
 
-[!include[Get a Subscription Key](includes/get-subscription-key.md)]
+## <a name="top-level-declarations"></a>Översta deklarationer
 
-> [!NOTE]
-> För alla exemplen nedan, ska följande översta förklaringar finnas:
->
-> [!code-csharp[](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#toplevel)]
->
-> [!code-cpp[](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#toplevel)]
->
-> - - -
+I följande översta deklarationerna bör finnas på plats för alla exemplen nedan:
 
-## <a name="speech-recognition-using-the-microphone"></a>Taligenkänning med mikrofonens
+[!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#toplevel)]
 
-Kodfragmentet nedan visar hur du identifierar talindata från mikrofon på standardspråket (`en-US`).
+[!code-cpp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#toplevel)]
 
-[!code-csharp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionWithMicrophone)]
+[!code-java[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#toplevel)]
 
-[!code-cpp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechRecognitionWithMicrophone)]
+## <a name="speech-recognition-using-the-microphone"></a>Taligenkänning med mikrofonen
 
-- - -
+Kodfragmentet nedan visar hur du känna igen talindata från mikrofonen i standardspråket (`en-US`).
 
-## <a name="speech-recognition-from-a-file"></a>Taligenkänning från en fil
+[!code-csharp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#recognitionWithMicrophone)]
 
-Följande kodavsnitt identifierar talindata från en ljudfil på standardspråket (`en-US`), formatet som stöds är en kanal (mono) WAV / PCM med en samplingsfrekvensen 16 kHz.
+[!code-cpp[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#SpeechRecognitionWithMicrophone)]
+
+[!code-java[Speech Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#recognitionWithMicrophone)]
+
+## <a name="speech-recognition-using-a-customized-model"></a>Taligenkänning med en anpassad modell
+
+Den [Custom Speech Service (CRIS)](https://www.cris.ai/) tillåter anpassning av Microsofts tal till text-motor för ditt program. Kodfragmentet nedan visar hur du känna igen tal från en mikrofon med CRIS modellen; Fyll i din prenumerationsnyckel för CRIS och din egen distribution identifiering innan den körs.
+
+[!code-csharp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#recognitionCustomized)]
+
+[!code-cpp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#SpeechRecognitionUsingCustomizedModel)]
+
+[!code-java[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#recognitionCustomized)]
+
+## <a name="continuous-speech-recognition-from-a-file"></a>Kontinuerlig taligenkänning från en fil
+
+Följande kodavsnitt kontinuerligt kan identifiera talindata från en ljudfil på standardspråket (`en-US`), format är en kanal (mono) WAV / PCM med en samplingsfrekvensen 16 kHz.
 
 [!include[Sample Audio](includes/sample-audio.md)]
 
-[!code-csharp[Speech Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs?name=recognitionFromFile)]
+[!code-csharp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#recognitionContinuousWithFile)]
 
-[!code-cpp[Speech Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp?name=SpeechRecognitionWithFile)]
+[!code-cpp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#SpeechContinuousRecognitionWithFile)]
 
-- - -
+[!code-java[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#recognitionContinuousWithFile)]
 
-## <a name="speech-recognition-using-a-customized-model"></a>Taligenkänning med hjälp av en anpassad mall
-
-Den [anpassade tal Service (CRI)](https://www.cris.ai/) tillåter anpassning av Microsofts till text till tal-motorn för ditt program. Kodfragmentet nedan visar hur du identifierar tal från en mikrofon med din CRI-modellen. Fyll i din prenumeration CRI-nyckel och din egen distribution identifiering innan den körs.
-
-[!code-csharp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionCustomized)]
-
-[!code-cpp[Speech Recognition Using a Customized Model](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechRecognitionUsingCustomizedModel)]
-
-- - -
-
-## <a name="continuous-speech-recognition"></a>Kontinuerlig taligenkänning
-
-[!code-csharp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/speech_recognition_samples.cs#recognitionContinuous)]
-
-[!code-cpp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/speech_recognition_samples.cpp#SpeechContinuousRecognitionUsingEvents)]
-
-- - -
-
-## <a name="sample-source-code"></a>Exempelkod för källa
-
-Den senaste versionen av prover och mer avancerade exempel finns i ett dedikerat [GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

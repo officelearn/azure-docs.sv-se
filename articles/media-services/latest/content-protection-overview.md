@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: juliako
-ms.openlocfilehash: 5ed98bb4c4f40b23988a4f73778e715bfbea2505
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fb8730e9074624ba1b0f0162ebf9156b758b59c2
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004952"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068792"
 ---
 # <a name="content-protection-overview"></a>Content protection-översikt
 
@@ -54,9 +54,9 @@ För att slutföra utformningen ”content protection” system/program, måste 
   
     Du kan skapa en spelare med hjälp av den [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/). Använd den [Azure Media Player ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) att ange vilka DRM-teknik för att använda på olika DRM-plattformar.
 
-    För testning AES eller CENC (Widevine + PlayReady) krypterat innehåll, du kan använda [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Kontrollera att du klickar på ”Avancerat” och kontrollera AES och ange token.
+    För testning AES eller CENC (Widevine och/eller PlayReady) krypterat innehåll, du kan använda [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Kontrollera att du klickar på ”Avancerat” och kontrollera dina alternativ för kryptering.
 
-    Om du vill testa FairPlay krypterat innehåll, använda [det här testet player](http://aka.ms/amtest). Media player stöder Widevine, PlayReady, och FairPlay DRM: er samt AES-128 Rensa nyckelkryptering. Du måste välja rätt webbläsaren om du vill testa olika DRM: er: Chrome/Opera/Firefox för Widevine, MS Edge/IE11 för PlayReady, Safari på maOS för FairPlay.
+    Om du vill testa FairPlay krypterat innehåll, använda [det här testet player](http://aka.ms/amtest). Media player stöder Widevine, PlayReady, och FairPlay DRM: er samt AES-128 Rensa nyckelkryptering. Du måste välja rätt webbläsaren om du vill testa olika DRM: er: Chrome/Opera/Firefox för Widevine, MS Edge/IE11 för PlayReady, Safari på macOS för FairPlay.
 
 3. Skydda säkerhetstokentjänst (STS), som utfärdar JSON Web Token (JWT) som åtkomsttoken för åtkomst till serverdelen. Du kan använda AMS-licensleveranstjänster som backend-resurs. En STS har du definiera följande:
 
@@ -122,18 +122,6 @@ Med en tokenbegränsade innehåll viktiga princip skickas innehållsnyckeln enda
 
 När du konfigurerar den tokenbegränsade principen måste du ange primär verifieringsnyckel, utfärdare och målgrupp parametrar. Den primära Verifieringsnyckeln innehåller den nyckel som token signerats med. Utfärdaren är den säkra tokentjänst som utfärdar en token. Publik, vilket ibland kallas omfattning, beskriver syftet med denna token eller resursen token auktoriserar åtkomst till. Media Services-nyckelleveranstjänst verifierar att dessa värden i token matchar värden i mallen.
 
-## <a name="streaming-urls"></a>Direktuppspelnings-URL:er
-
-Om din tillgång har krypterats med mer än en DRM måste använda en tagg för kryptering i strömnings-URL: (format = 'm3u8-aapl' kryptering = ”xxx”).
-
-Följande gäller:
-
-* Krypteringstyp behöver inte anges i URL: en om det bara en kryptering har tillämpats på tillgången.
-* Krypteringstyp är skiftlägeskänsligt.
-* Du kan ange följande krypteringstyper av:
-  * **cenc**: för PlayReady eller Widevine (common encryption)
-  * **cbcs aapl**: för FairPlay (AES-CBC kryptering)
-  * **CBC**: för AES-kryptering för kuvert
 
 ## <a name="next-steps"></a>Nästa steg
 

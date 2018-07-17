@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 07/13/2018
 ms.author: marsma
-ms.openlocfilehash: ff94a250ca40aa546ebb07faa96563f49dea974a
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: d8ac5850a61c1dec9daa508236ef56836876c3fe
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887699"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072083"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Använd Azure Container Instances som en Jenkins skapa agenten
 
@@ -92,31 +92,21 @@ Jenkins har nu konfigurerats och är redo att skapa och distribuera kod. I det h
 
 ## <a name="create-a-build-job"></a>Skapa ett build-jobb
 
-När du använder en behållaravbildning som en Jenkins skapa mål, måste du ange en avbildning som innehåller alla verktyg som behövs för en version. Så här anger bilden:
+Nu skapas en Jenkins-byggjobb för att demonstrera Jenkins bygger på ett Azure container-instans.
 
-1. Välj **hantera Jenkins** > **konfigurera System** och bläddra ned till den **molnet** avsnittet. I det här exemplet uppdaterar du värdet för Docker-avbildning till **microsoft/java-på-azure-jenkins-slave**.
-
-   När du är klar väljer du **spara** att återgå till Jenkins-instrumentpanelen.
-
-   ![Molnkonfigurationen för Jenkins](./media/container-instances-jenkins/jenkins-aci-image.png)
-
-2. Nu ska du skapa en Jenkins-byggjobb. Välj **nytt objekt**, ge build-projektet ett namn som **aci-java-demo**väljer **Freestyle-projekt**, och välj **OK**.
+1. Välj **nytt objekt**, ge build-projektet ett namn som **aci-demo**väljer **Freestyle-projekt**, och välj **OK**.
 
    ![Fält för namnet på den skapandejobb och listan över projekttyper](./media/container-instances-jenkins/jenkins-new-job.png)
 
-3. Under **Allmänt**, se till att **begränsa där du kan köra det här projektet** har valts. Ange **linux** för etikettuttrycket. Den här konfigurationen garanterar att den här build-jobb körs på ACI-molnet.
+2. Under **Allmänt**, se till att **begränsa där du kan köra det här projektet** har valts. Ange **linux** för etikettuttrycket. Den här konfigurationen garanterar att den här build-jobb körs på ACI-molnet.
 
    ![På fliken ”Allmänt” med information om konfiguration](./media/container-instances-jenkins/jenkins-job-01.png)
 
-4. Under **Source Code Management**väljer **Git** och ange **https://github.com/spring-projects/spring-petclinic.git** för URL för databasen. Den här GitHub-lagringsplatsen innehåller exempelkod för programmet.
+3. Under **skapa**väljer **Lägg till byggsteg** och välj **köra Shell**. Ange `echo "aci-demo"` som kommandot.
 
-   ![”Källkodshantering” fliken med information om källa](./media/container-instances-jenkins/jenkins-job-02.png)
+   ![”Skapa” fliken med val för ett byggsteg](./media/container-instances-jenkins/jenkins-job-02.png)
 
-5. Under **skapa**väljer **Lägg till byggsteg** och välj **anropa översta Maven mål**. Ange **paketet** som mål för build-steget.
-
-   ![”Skapa” fliken med val för ett byggsteg](./media/container-instances-jenkins/jenkins-job-03.png)
-
-6. Välj **Spara**.
+5. Välj **Spara**.
 
 ## <a name="run-the-build-job"></a>Kör jobbet för att skapa
 

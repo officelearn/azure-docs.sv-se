@@ -1,7 +1,7 @@
 ---
-title: JavaScript-Snabbstart för Bing Visual sökning API | Microsoft Docs
+title: JavaScript-Snabbstart för API för Bing Visual Search | Microsoft Docs
 titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Visar hur du överför en bild till Bing Visual Sök-API och få tillbaka insikter om bilden.
+description: Visar hur du överför en bild till Bing Visual Search-API och få tillbaka insikter om avbildningen.
 services: cognitive-services
 author: swhite-msft
 manager: rosh
@@ -10,18 +10,18 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: dd28c829d8d24980a746244dc6aca880d2d69224
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 60b1dc9b8ea9eda258e9776b8967df38c97d964e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355092"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071711"
 ---
-# <a name="your-first-bing-visual-search-query-in-javascript"></a>Första Bing Visual sökfrågan i JavaScript
+# <a name="your-first-bing-visual-search-query-in-javascript"></a>Din första Bing Visual Search-fråga i JavaScript
 
-Bing Visual Sök API returnerar information om en avbildning som du anger. Du kan ange avbildningen med hjälp av URL-Adressen till bilden, en insikter token, eller genom att ladda upp en bild. Information om dessa alternativ finns [vad är Bing Visual Sök API?](../overview.md) Den här artikeln visar ladda upp en bild. Ladda upp en bild kan vara användbart i mobila scenarier där du kan ta en bild av en välkänd Landmärke och få tillbaka information om den. Insikter kan exempelvis omfatta kunskap om Landmärke. 
+Bing Visual Search API returnerar information om en avbildning som du anger. Du kan ange avbildningen med hjälp av URL till bild, ett insights token, eller genom att överföra en avbildning. Information om alternativen finns i [vad är Bing Visual Search API?](../overview.md) Den här artikeln visar att ladda upp en avbildning. Ladda upp en avbildning kan vara användbart i mobila scenarier där du kan ta en bild av en välkänd landmärken och få tillbaka information om den. Insikterna kan exempelvis omfatta kunskap om landmärken. 
 
-Om du överför en lokal image visas nedan formulärdata måste du inkludera i brödtexten i INLÄGGET. Formulärdata måste innehålla rubriken Content-Disposition. Dess `name` parametern måste anges till ”bild” och `filename` parameter kan anges till en sträng. Innehållet i formuläret är binär för bilden. Du kan ladda upp maximala bildstorleken är 1 MB. 
+Om du laddar upp en lokal avbildning visas nedan formulärdata måste du inkludera i brödtexten i INLÄGGET. Formulärdata måste innehålla Content-Disposition-huvudet. Dess `name` parametern måste anges till ”bild” och `filename` parameter kan anges till valfri sträng. Innehållet i formuläret är den binära filen på avbildningen. Maximal avbildningens storlek kan du överföra är 1 MB. 
 
 ```
 --boundary_1234-abcd
@@ -32,13 +32,13 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-Den här artikeln innehåller ett enkelt konsolprogram som skickar en begäran i Bing Visual Sök-API och visar sökresultatet JSON. När det här programmet är skriven i JavaScript, är API: et en RESTful webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
+Den här artikeln innehåller ett enkelt konsolprogram som skickar en begäran om Bing Visual Search-API och visar JSON-sökresultat. Det här programmet är skriven i JavaScript är API: et en RESTful-webb-tjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver [Node.js 6](https://nodejs.org/en/download/) att köra den här koden.
 
-Du kan använda för Snabbstart, en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) prenumeration nyckeln eller en betald prenumeration nyckel.
+Den här snabbstarten kan du använda en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) prenumerationsnyckel eller en betald prenumeration-nyckel.
 
 ## <a name="running-the-application"></a>Köra programmet
 
@@ -46,19 +46,19 @@ Nedan visas hur du skickar meddelandet med FormData i Node.js.
 
 Följ dessa steg om du vill köra det här programmet:
 
-1. Skapa en mapp för ditt projekt (eller Använd din favorit IDE eller redigeraren).
-2. Navigera till mappen som du skapade från en kommandotolk eller terminal.
+1. Skapa en mapp för ditt projekt (eller Använd din favorit-IDE eller redigerare).
+2. Navigera till mappen som du nyss skapade från en kommandotolk eller terminal.
 3. Installera modulerna för begäran:  
   ```  
   npm install request  
   ```  
-3. Installera formulärdata modulerna:  
+3. Installera modulerna formulärdata:  
   ```  
   npm install form-data  
   ```  
 4. Skapa en fil med namnet GetVisualInsights.js och Lägg till följande kod.
-5. Ersätt den `subscriptionKey` värdet med din prenumeration nyckel.
-6. Ersätt den `imagePath` värdet med sökvägen till bilden som ska överföras.
+5. Ersätt den `subscriptionKey` värdet med din prenumerationsnyckel.
+6. Ersätt den `imagePath` värdet med sökvägen för att ladda upp avbildningen.
 7. Kör programmet.  
   ```
   node GetVisualInsights.js
@@ -94,9 +94,10 @@ function requestCallback(err, res, body) {
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Få insikter om en avbildning med hjälp av en insights-token](../use-insights-token.md)  
-[Bing Visual Sök sida app självstudiekursen](../tutorial-bing-visual-search-single-page-app.md)  
-[Översikt över Bing Visual sökning](../overview.md)  
+[Få insyn om en avbildning med hjälp av en token för insikter](../use-insights-token.md)  
+[Bing Visual Search bild uppladdning självstudien](../tutorial-visual-search-image-upload.md)
+[Bing Visual Search-självstudiekursen som ensidesapp](../tutorial-bing-visual-search-single-page-app.md)  
+[Bing Visual Search-översikt](../overview.md)  
 [Prova](https://aka.ms/bingvisualsearchtryforfree)  
-[Hämta en kostnadsfri utvärderingsversion snabbtangent](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing Visual Sök API-referens](https://aka.ms/bingvisualsearchreferencedoc)
+[Hämta en kostnadsfri utvärderingsversion åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Bing Visual Search API-referens](https://aka.ms/bingvisualsearchreferencedoc)

@@ -1,7 +1,7 @@
 ---
-title: C# Snabbstart för Bing Visual sökning API | Microsoft Docs
+title: C#-Snabbstart för API för Bing Visual Search | Microsoft Docs
 titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Visar hur du överför en bild till Bing Visual Sök-API och få tillbaka insikter om bilden.
+description: Visar hur du överför en bild till Bing Visual Search-API och få tillbaka insikter om avbildningen.
 services: cognitive-services
 author: swhite-msft
 manager: rosh
@@ -10,18 +10,18 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: dd7531004759cdaeb59f4706dc2650d0db3c0cdb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 930a89e3b1996c44f12bd3773565eda40e93ca9c
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355128"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070934"
 ---
-# <a name="your-first-bing-visual-search-query-in-c"></a>Första Bing Visual sökfrågan i C#
+# <a name="your-first-bing-visual-search-query-in-c"></a>Din första Bing Visual Search-fråga i C#
 
-Bing Visual Sök API returnerar information om en avbildning som du anger. Du kan ange avbildningen med hjälp av URL-Adressen till bilden, en insikter token, eller genom att ladda upp en bild. Information om dessa alternativ finns [vad är Bing Visual Sök API?](../overview.md) Den här artikeln visar ladda upp en bild. Ladda upp en bild kan vara användbart i mobila scenarier där du kan ta en bild av en välkänd Landmärke och få tillbaka information om den. Insikter kan exempelvis omfatta kunskap om Landmärke. 
+Bing Visual Search API returnerar information om en avbildning som du anger. Du kan ange avbildningen med hjälp av URL till bild, ett insights token, eller genom att överföra en avbildning. Information om alternativen finns i [vad är Bing Visual Search API?](../overview.md) Den här artikeln visar att ladda upp en avbildning. Ladda upp en avbildning kan vara användbart i mobila scenarier där du kan ta en bild av en välkänd landmärken och få tillbaka information om den. Insikterna kan exempelvis omfatta kunskap om landmärken. 
 
-Om du överför en lokal image visas nedan formulärdata måste du inkludera i brödtexten i INLÄGGET. Formulärdata måste innehålla rubriken Content-Disposition. Dess `name` parametern måste anges till ”bild” och `filename` parameter kan anges till en sträng. Innehållet i formuläret är binär för bilden. Du kan ladda upp maximala bildstorleken är 1 MB. 
+Om du laddar upp en lokal avbildning visas nedan formulärdata måste du inkludera i brödtexten i INLÄGGET. Formulärdata måste innehålla Content-Disposition-huvudet. Dess `name` parametern måste anges till ”bild” och `filename` parameter kan anges till valfri sträng. Innehållet i formuläret är den binära filen på avbildningen. Maximal avbildningens storlek kan du överföra är 1 MB. 
 
 ```
 --boundary_1234-abcd
@@ -32,27 +32,27 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-Den här artikeln innehåller ett enkelt konsolprogram som skickar en begäran i Bing Visual Sök-API och visar sökresultatet JSON. När det här programmet är skrivna i C#, är API: et en RESTful webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
+Den här artikeln innehåller ett enkelt konsolprogram som skickar en begäran om Bing Visual Search-API och visar JSON-sökresultat. Det här programmet är skriven i C# är API: et en RESTful-webb-tjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
 
-Exempel används .NET Core-klasser och körs på Windows med hjälp av .NET CLR eller i Linux eller macOS med [Mono](http://www.mono-project.com/).
+Exemplet används .NET Core-klasser och körs på Windows med hjälp av .NET CLR eller på Linux eller macOS med hjälp av [Mono](http://www.mono-project.com/).
 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) ska skicka koden körs på Windows. (Ledigt Community Edition fungerar).
+Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) att hämta den här koden som körs på Windows. (Den kostnadsfria versionen av communityn fungerar).
 
-Du kan använda för Snabbstart, en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) prenumeration nyckeln eller en betald prenumeration nyckel.
+Den här snabbstarten kan du använda en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) prenumerationsnyckel eller en betald prenumeration-nyckel.
 
 ## <a name="running-the-application"></a>Köra programmet
 
-Nedan visas hur du skickar meddelandet med HttpWebRequest. Ett exempel som använder HttpClient och HttpRequestMessage MultipartFormDataContent finns [med HttpClient](#using-httpclient).
+Nedan visas hur du skickar meddelandet med i HttpWebRequest. Ett exempel som använder HttpClient, HttpRequestMessage och MultipartFormDataContent, finns i [med hjälp av HttpClient](#using-httpclient).
 
 Följ dessa steg om du vill köra det här programmet:
 
-1. Skapa en ny konsol lösning i Visual Studio.
+1. Skapa en ny konsol-lösning i Visual Studio.
 1. Ersätt innehållet i `Program.cs` med koden som visas i den här snabbstarten.
-2. Ersätt den `accessKey` värdet med din prenumeration nyckel.
-2. Ersätt den `imagePath` värdet med sökvägen till bilden som ska överföras.
+2. Ersätt den `accessKey` värdet med din prenumerationsnyckel.
+2. Ersätt den `imagePath` värdet med sökvägen för att ladda upp avbildningen.
 3. Kör programmet.
 
 
@@ -305,7 +305,7 @@ namespace VisualSearchUpload
 
 ## <a name="using-httpclient"></a>Med hjälp av HttpClient
 
-Om du använder HttpClient kan använda du MultipartFormDataContent för att skapa formulärdata. Använda bara följande delar av kod för att ersätta samma namngivna metoder i föregående exempel.
+Om du använder HttpClient kan använda du MultipartFormDataContent för att skapa formuläret. Använd bara följande delar av kod ska ersättas samma namngivna metoder i föregående exempel.
 
 Ersätt Main-metoden med den här koden:
 
@@ -386,9 +386,10 @@ Ersätt metoden BingImageSearch med den här koden:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Få insikter om en avbildning med hjälp av en insights-token](../use-insights-token.md)  
-[Bing Visual Sök sida app kursen](../tutorial-bing-visual-search-single-page-app.md)
-[Visual Sök i Bing-översikt](../overview.md)  
+[Få insyn om en avbildning med hjälp av en token för insikter](../use-insights-token.md)  
+[Bing Visual Search bild uppladdning självstudien](../tutorial-visual-search-image-upload.md)
+[Bing Visual Search-självstudiekursen som ensidesapp](../tutorial-bing-visual-search-single-page-app.md)
+[Bing Visual Search-översikt](../overview.md)  
 [Prova](https://aka.ms/bingvisualsearchtryforfree)  
-[Hämta en kostnadsfri utvärderingsversion snabbtangent](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing Visual Sök API-referens](https://aka.ms/bingvisualsearchreferencedoc)
+[Hämta en kostnadsfri utvärderingsversion åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Bing Visual Search API-referens](https://aka.ms/bingvisualsearchreferencedoc)

@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: mabrigg
-ms.openlocfilehash: e80c114b06390a72dcdcc614dffaa97b9761381e
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 43ec962c91b354d8f07f1be8885b89424d00e452
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988916"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069867"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Hantera uppdateringar i Azure Stack – översikt
 
 *Gäller för: integrerade Azure Stack-system*
 
-Ny uppdateringspaket släpp för Azure Stack-integrerat system vanligtvis runt den fjärde tisdagen varje månad. Fråga OEM-tillverkaren om deras specifika meddelande registreringsprocessen så att meddelanden om uppdateringar nå din organisation. Du kan också kontrollera i det här dokumentationsbiblioteket under under **översikt** > **viktig** information om versioner som är aktiva support. 
+Microsoft update-paket släpp för Azure Stack-integrerat system vanligtvis runt den fjärde tisdagen varje månad. Fråga OEM-tillverkaren om deras specifika meddelande registreringsprocessen så att meddelanden om uppdateringar nå din organisation. Du kan också kontrollera i det här dokumentationsbiblioteket under under **översikt** > **viktig** information om versioner som är aktiva support. 
 
 Varje version av Microsoft-programuppdateringar tillsammans i en enda uppdateringspaketet. Du kan importera som en Azure Stack-operator, installation och övervaka installationsförloppet för dessa uppdateringspaket från administratörsportalen. 
 
-Maskinvaruleverantören OEM-tillverkare (original equipment manufacturer) kommer också att släppa uppdateringar, t.ex drivrutinen och firmware-uppdateringar. Dessa uppdateringar levereras som separata paket av maskinvaruleverantören OEM och hanteras separat från Microsoft Update.
+Maskinvaruleverantören OEM-tillverkare (original equipment manufacturer) kommer också att släppa uppdateringar, t.ex drivrutinen och firmware-uppdateringar. Även om de här uppdateringarna levereras som separata paket av maskinvaruleverantören OEM, de importeras, installeras och hanteras på samma sätt uppdateringspaket från Microsoft uppdateringspaket importeras, installeras och hanteras.
 
 Du måste hålla Azure Stack uppdateras till en specifik version-nivå för att hålla datorn under support. Se till att du läser igenom den [Azure Stack hanteringsprincip](azure-stack-servicing-policy.md).
 

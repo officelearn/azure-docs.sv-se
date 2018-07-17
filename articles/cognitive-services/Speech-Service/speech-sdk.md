@@ -1,6 +1,6 @@
 ---
-title: Om kognitiva Services tal SDK | Microsoft Docs
-description: 'En översikt över SDK: er för tjänsten tal.'
+title: Om Cognitive Services tal SDK | Microsoft Docs
+description: 'En översikt över SDK: er tillgängliga för Speech-tjänsten.'
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -8,36 +8,30 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: b9b7b8af5ce3d75788fd2c4f5e0309b5ca561a8f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bf37ffa9b5a185845c8eeafa7e00d352486fdce2
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355647"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069472"
 ---
-# <a name="about-the-cognitive-services-speech-sdk"></a>Om kognitiva Services tal SDK
+# <a name="about-the-cognitive-services-speech-sdk"></a>Om Cognitive Services tal SDK
 
-I kognitiva Services tal Software Development Kit (SDK) ger dina program inbyggd åtkomst till funktionerna i tjänsten tal, vilket gör det enklare att utveckla programvara. För närvarande SDK ger åtkomst till **tal till Text**, **tal översättning**, och **avsikt Recognition**.
+Den Cognitive Services tal Software Development Kit (SDK) ger dina program inbyggd åtkomst till funktioner i tjänsten tal, vilket gör det enklare att utveckla programvara. För närvarande SDK ger åtkomst till **tal till Text**, **Talöversättning**, och **avsikt erkännande**.
 
-Tabellen innehåller programmeringsspråk som stöds för närvarande och operativsystem.
+[!include[Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
-|Operativsystem som stöds|Programmeringsspråk|
-|-|-|
-|Windows|C/C++, C#|
-|Linux|C/C++|
-|Enheter|Java\*|
-
-\* *Java SDK är en del av den [tal enheter SDK](speech-devices-sdk.md).*
+[!include[License Notice](includes/license-notice.md)]
 
 ## <a name="get-the-windows-sdk"></a>Hämta Windows SDK
 
-Windows-versionen av tal SDK innehåller 32-bitars och 64-bitars C/C++-klientbibliotek samt hanterad (.NET)-bibliotek för användning med C#. SDK kan installeras i Visual Studio med hjälp av NuGet; Sök bara efter `Microsoft.CognitiveServices.Speech`.
+Windows-versionen av tal SDK innehåller 32-bitars och 64-bitars C/C++-klientbibliotek som hanterade (.NET)-bibliotek för användning med C#. SDK: N kan installeras i Visual Studio med hjälp av NuGet; Sök bara efter `Microsoft.CognitiveServices.Speech`.
 
-## <a name="get-the-linux-sdk"></a>Hämta Linux-SDK
+## <a name="get-the-linux-sdk"></a>Hämta SDK för Linux
 
-Kontrollera att du har nödvändiga kompilator och bibliotek genom att köra följande shell-kommandon:
+Kontrollera att du har de nödvändiga kompilatorn och bibliotek genom att köra följande shell-kommandon:
 
 ```sh
 sudo apt-get update
@@ -45,25 +39,36 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 ```
 
 > [!NOTE]
-> Dessa instruktioner förutsätter att du kör Ubuntu 16.04 på en dator (x86 eller x64). På en annan Ubuntu-version och en annan distributionsplats för Linux och anpassa stegen för din miljö.
+> Dessa instruktioner förutsätter att du kör Ubuntu 16.04 på en dator (x86 eller x64). Anpassa stegen i din miljö på en annan Ubuntu-version eller en annan Linux-distribution.
 
-Sedan [ladda ned SDK](https://aka.ms/csspeech/linuxbinary) och packa upp filer i i en katalog som du väljer. Den här tabellen visar mappstrukturen SDK.
+Sedan [ladda ned SDK](https://aka.ms/csspeech/linuxbinary) och packa upp filerna i en katalog som du önskar. Den här tabellen visar strukturen för SDK-mappen.
 
 |Sökväg|Beskrivning|
 |-|-|
 |`license.md`|Licens|
 |`third-party-notices.md`|Meddelanden från tredje part|
-|`include`|Rubrikfiler för C och C++|
-|`lib/x64`|Intern x64 bibliotek för att länka med ditt program|
-|`lib/x86`|Intern x86 bibliotek för att länka med ditt program|
+|`include`|Header-filer för C och C++|
+|`lib/x64`|Interna x64 bibliotek för att länka med ditt program|
+|`lib/x86`|Interna x86 bibliotek för att länka med ditt program|
 
-För att skapa ett program, kopiera eller flytta nödvändiga binärfiler (och bibliotek) i din utvecklingsmiljö och lägga till dem som krävs i build-processen.
+Om du vill skapa ett program, kopiera eller flytta nödvändiga binärfiler (och bibliotek) i din utvecklingsmiljö och lägga till dem som krävs i utvecklingsprocessen.
 
 ## <a name="get-the-java-sdk"></a>Hämta Java SDK
 
-Java SDK är en del av den [tal enheter SDK](speech-devices-sdk.md).
+Java SDK för Android kommer som ett [AAR (Android-biblioteket)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek samt Android behörigheter som krävs för att använda den.
+Den finns i ett Maven-centrallager på `https://csspeechstorage.blob.core.windows.net/maven/` som paket `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`.
+
+* Lägg till i Android Studio-projekt
+
+  ```text
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.5.0'
+  ```
+
+  i den `dependencies` avsnitt i din modul-nivå `build.gradle` fil.
+
+Java SDK är också en del av den [tal Devices SDK](speech-devices-sdk.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta din utvärderingsprenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
-* [Se hur du identifierar tal i C#](quickstart-csharp-windows.md)
+* [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
+* [Se hur du kan känna igen tal i C#](quickstart-csharp-dotnet-windows.md)

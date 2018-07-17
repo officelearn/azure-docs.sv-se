@@ -1,6 +1,6 @@
 ---
-title: Tal sammanfattande Markup Language | Microsoft Docs
-description: Använda tal sammanfattande Markup language för att styra uttal och prosody i text till tal.
+title: Tal syntes Markup Language | Microsoft Docs
+description: Använder tal syntes märkspråk för att styra uttal och prosody i text till tal.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -10,20 +10,20 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d955e7fd7805688ba103897c0d900c44f16514f8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4074ba91f5029d6c132982d1d81a4888a5e42721
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354459"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071223"
 ---
-# <a name="speech-synthesis-markup-language"></a>Tal sammanfattande Markup Language
+# <a name="speech-synthesis-markup-language"></a>Tal syntes Markup Language
 
-Tal sammanfattande Markup Language (SSML) är en XML-baserade markup language som kan användas för att styra uttal och *prosody* av text till tal. (Prosody refererar till den takt och stämma av tal, dess musik, om du ska). Du kan ange ord fonetiskt, ge tips för att tolka siffror, infoga pausar, kontroll breddsteg, volym, och hastighet och mycket mer.
+Tal syntes Markup Language (SSML) är en XML-baserade märkspråk som gör det möjligt att styra uttal och *prosody* av text till tal. (Prosody refererar till om du vill och försäljningsargument tal – dess musik, om du vill). Du kan ange ord fonetiskt, ge tips för att tolka siffror, infoga pauser, kontroll försäljningsargument, volym, och priset med mera.
 
-Mer information finns i [tal sammanfattande Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) på W3C.
+Mer information finns i [tal syntes Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) på W3C.
 
-Följande exempel visar hur du använder SSML för vanliga tal sammanfattande behov.
+I följande exempel visas hur du använder SSML för vanliga tal syntes behov.
 
 ## <a name="add-a-break"></a>Lägga till en paus
 ```xml
@@ -33,7 +33,7 @@ Följande exempel visar hur du använder SSML för vanliga tal sammanfattande be
 </voice> </speak>
 ```
 
-## <a name="change-speaking-rate"></a>Sett förändringstakten
+## <a name="change-speaking-rate"></a>Engelsktalande förändringstakten
 ```xml
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
@@ -42,7 +42,7 @@ Följande exempel visar hur du använder SSML för vanliga tal sammanfattande be
 </prosody></voice> </speak>
 ```
 
-## <a name="pronunciation"></a>Uttal
+## <a name="pronunciation"></a>Uttal av
 ```xml
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)'>
@@ -59,7 +59,7 @@ Följande exempel visar hur du använder SSML för vanliga tal sammanfattande be
 </prosody></voice> </speak>
 ```
 
-## <a name="change-pitch"></a>Ändra breddsteg
+## <a name="change-pitch"></a>Ändra försäljningsargument
 ```xml
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
     <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
@@ -67,7 +67,7 @@ Följande exempel visar hur du använder SSML för vanliga tal sammanfattande be
 </voice> </speak>
 ```
 
-## <a name="change-pitch-contour"></a>Ändra breddsteg profil
+## <a name="change-pitch-contour"></a>Ändra försäljningsargument profil
 ```xml
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
@@ -78,5 +78,5 @@ Följande exempel visar hur du använder SSML för vanliga tal sammanfattande be
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta din utvärderingsprenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
-* [Se hur du identifierar tal i C#](quickstart-csharp-windows.md)
+* [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
+* [Se hur du kan känna igen tal i C#](quickstart-csharp-dotnet-windows.md)

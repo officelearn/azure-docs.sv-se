@@ -1,6 +1,6 @@
 ---
 title: AudioInputStream begrepp | Microsoft Docs
-description: En översikt över funktionerna i AudioInputStream-API.
+description: 'En översikt över funktionerna i AudioInputStream API: et.'
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: fmegen
@@ -10,72 +10,72 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: fmegen
-ms.openlocfilehash: 528356473c4221a815fa68cbec3426866c4cbd23
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 0eafa7e88df5d00a67646ca7f82ca027602a40b3
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35356294"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071454"
 ---
-# <a name="about-the-audio-input-stream-api"></a>Om ljudinsignal strömma API
+# <a name="about-the-audio-input-stream-api"></a>Om ljudet indata stream API: er
 
-Den **indata ljudström** API är ett sätt att strömma ljudströmmar till identifierare i stället för mikrofonen eller indatafilen API: er.
+Den **ljud indata Stream** API gör det möjligt att strömma ljudströmmar till identifierarna istället för att använda mikrofonen eller indatafilen API: er.
 
 ## <a name="api-overview"></a>API-översikt
 
-API: N använder två komponenter, den `AudioInputStream` (ljud rådata) och `AudioInputStreamFormat`.
+API: et använder två komponenter, den `AudioInputStream` (ljud rådata) och `AudioInputStreamFormat`.
 
-Den `AudioInputStreamFormat` definierar formatet för ljud data. Det kan jämföras med vanlig `WAVEFORMAT` struktur för filer i Windows.
+Den `AudioInputStreamFormat` definierar formatet på ljuddata. Det kan jämföras med standarden `WAVEFORMAT` struktur för wave filer på Windows.
 
   - `FormatTag`
 
-    Formatet för ljud. Tal SDK stöder för närvarande endast `format 1` (PCM - little endian).
+    Formatet på ljudet. Tal-SDK stöder för närvarande endast `format 1` (PCM - little endian).
 
   - `Channels`
 
-    Antal kanaler. Den aktuella tal tjänsten stöder bara en kanal (monoljud) ljud material.
+    Antal kanaler. Den aktuella taltjänsten stöder bara en kanal (mono) ljud material.
 
   - `SamplesPerSec`
 
-    Samplingsfrekvens. En typisk mikrofon registrering har 16000 prover per sekund.
+    Samplingsfrekvensen. En typisk mikrofoninspelning har 16000 exempel per sekund.
 
   - `AvgBytesPerSec`
 
-    Genomsnittligt antal byte per sekund, beräknat som `SamplesPerSec * Channels * ceil(BitsPerSample, 8)`. Genomsnittligt antal byte per sekund kan vara olika för ljudströmmar som använder variabeln bithastighet.
+    Genomsnittligt antal byte per sekund, beräknad som `SamplesPerSec * Channels * ceil(BitsPerSample, 8)`. Genomsnittligt antal byte per sekund kan vara olika för ljudströmmar som använder variabeln bithastighet.
 
   - `BlockAlign`
 
-    Storleken på en enda ram beräknas som `Channels * ceil(wBitsPerSample, 8)`. På grund av utfyllnad, kan det faktiska värdet vara högre än det här värdet.
+    Storleken på en enda bildruta beräknas som `Channels * ceil(wBitsPerSample, 8)`. På grund av utfyllnad, kan det faktiska värdet vara högre än det här värdet.
 
   - `BitsPerSample`
 
     Bitar per sampling. En typisk ljudström använder 16 bitar per sampling (CD kvalitet).
 
-Den `AudioInputStream` basklass åsidosätts av din anpassade dataströmadapter. Det här kortet har du implementerar dessa funktioner:
+Den `AudioInputStream` basklass kommer att åsidosättas av din anpassade stream-kort. Det här kortet har att implementera dessa funktioner:
 
    - `GetFormat()`
 
-     Den här funktionen kallas för att få ljudströmmen format. Hämtar en pekare till AudioInputStreamFormat buffert.
+     Den här funktionen anropas för att hämta formatet för ljudströmmen. Hämtar en pekare till AudioInputStreamFormat-bufferten.
 
    - `Read()`
 
-     Den här funktionen anropas för att hämta data från ljudströmmen. En parameter är en pekare till att kopiera ljud data i bufferten. Den andra parametern är storleken på bufferten. Funktionen returnerar antalet byte som kopieras till bufferten. Returvärdet för `0` anger slutet på dataströmmen.
+     Den här funktionen anropas för att hämta data från ljudströmmen. En parameter är en pekare till bufferten att kopiera data till ljud. Den andra parametern är storleken på bufferten. Funktionen returnerar antalet byte som kopieras till bufferten. Returvärdet `0` anger slutet av dataströmmen.
 
    - `Close()`
 
-     Den här funktionen kallas för att stänga.
+     Den här funktionen anropas för att stänga.
 
 ## <a name="usage-examples"></a>Exempel på användning
 
-Följande steg ingår i allmänhet när du använder inkommande ljudströmmar:
+I allmänhet ingår följande steg när du använder inkommande ljudströmmar:
 
-  - Identifiera format för ljudströmmen. Formatet måste stödjas av SDK och tjänsten tal. För närvarande stöds följande konfiguration:
+  - Identifiera formatet för ljudströmmen. Formatet måste stödjas av SDK och speech-tjänsten. För närvarande stöds följande konfiguration:
 
-    En ljudformatet taggen (PCM), en kanal, 16000 prover per sekund, 32000 byte per sekund, två block justera (16-bitars inklusive utfyllnaden för ett exempel), 16 bitar per prov
+    En ljudformatet taggen (PCM), en kanal, 16000 exempel per sekund, 32000 byte per sekund, två block justera (16-bitars inklusive utfyllnad för ett exempel), 16 bitar per exempel
 
-  - Kontrollera att din kod kan ge ljud rådata om specifikationer som anges ovan. Om dina ljud källdata inte matchar format som stöds, vara ljuduppspelningen kodas till formatet som krävs.
+  - Kontrollera att din kod kan ge ljud rådata om specifikationer som anges ovan. Om dina ljud källdata inte matchar format som stöds, måste ljudet ska kodas i formatet som krävs.
 
-  - Härledd din anpassade ljud Indataströmmen klass från `AudioInputStream`. Implementera den `GetFormat()`, `Read()`, och `Close()` igen. Den exakta funktionssignaturen är språkberoende men koden ser ut ungefär som detta kodexempel::
+  - Härleda anpassade ljud Indataströmmen klassen från `AudioInputStream`. Implementera de `GetFormat()`, `Read()`, och `Close()` igen. Den exakta funktionssignaturen är språkberoende, men koden ser ut ungefär som detta kodexempel::
 
     ```
      public class ContosoAudioStream : AudioInputStream {
@@ -102,7 +102,7 @@ Följande steg ingår i allmänhet när du använder inkommande ljudströmmar:
      };
     ```
 
-  - Använd din ljud Indataströmmen:
+  - Använd dina ljud Indataströmmen:
 
     ```
     var contosoStream = new ContosoAudioStream(contosoConfig);
@@ -119,7 +119,7 @@ Följande steg ingår i allmänhet när du använder inkommande ljudströmmar:
     // delete contosoStream;
     ```
 
-  - På vissa språk kan den `contosoStream` måste tas bort explicit när den är klar. Du kan inte frigöra AudioStream innan fullständig indata är skrivskyddat. I ett scenario med `StopContinuousRecognitionAsync` och `StopContinuousRecognitionAsync` kräver ett begrepp som visas i det här exemplet:
+  - På vissa språk kan den `contosoStream` måste tas bort explicit när erkännande är klar. Du kan inte släppa AudioStream innan fullständig indata läses. I ett scenario med `StopContinuousRecognitionAsync` och `StopContinuousRecognitionAsync` krävs ett begrepp som illustreras i det här exemplet:
 
     ```
     var contosoStream = new ContosoAudioStream(contosoConfig);
@@ -141,5 +141,5 @@ Följande steg ingår i allmänhet när du använder inkommande ljudströmmar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta din utvärderingsprenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
-* [Se hur du identifierar tal i C#](quickstart-csharp-windows.md)
+* [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
+* [Se hur du kan känna igen tal i C#](quickstart-csharp-dotnet-windows.md)

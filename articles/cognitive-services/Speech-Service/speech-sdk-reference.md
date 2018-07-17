@@ -1,5 +1,5 @@
 ---
-title: Tal SDK referens | Microsoft Docs
+title: SDK-referens för taligenkänning | Microsoft Docs
 description: Referenser för tal SDK.
 services: cognitive-services
 titleSuffix: Microsoft Cognitive Services
@@ -10,28 +10,21 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7e0037cc8701c88325c3d55f6b3ab0eccf2fbd28
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9ee7cc2db7ad6e2914d3916ad1aa578a9746e287
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354084"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072239"
 ---
-# <a name="speech-sdk-reference"></a>Tal SDK referens
+# <a name="speech-sdk-reference"></a>Tal SDK-referens
 
-Tal Software Development Kit (SDK) ger ditt program åtkomst till funktioner för tal, vilket gör det enklare att utveckla tal-aktiverade program. För närvarande SDK: erna ger åtkomst till **tal till Text** och **tal översättning**. Text till tal använder [RESTEN] (https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) efter anrop över HTTP.
+Tal Software Development Kit (SDK) ger ditt program åtkomst till funktioner i tjänsten tal, vilket gör det enklare att utveckla talbaserade programvara. För närvarande SDK: erna ger åtkomst till **tal till Text**, **Talöversättning**, och **avsikt erkännande**.
 
-I tabellen nedan beskrivs programmeringsspråk som stöds för närvarande och operativsystem.
-
-|Programmeringsspråk|Plattform|API-referens|
-|-|-|-|
-|C#|Windows|[Bläddra](https://aka.ms/csspeech/csharpref)
-|C/C++|Windows, Linux|[Bläddra](https://aka.ms/csspeech/cppref)
-|Java\*|Enheter|[Bläddra](https://aka.ms/csspeech/javaref)
-
-\* *Java SDK är en del av den [tal enheter SDK](speech-devices-sdk.md).*
+[!include[Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta din utvärderingsprenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
-* [Se hur du identifierar tal i C#](quickstart-csharp-windows.md)
+* [Prova Speech-tjänsten utan kostnad](get-started.md)
+* [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
+* [Se hur du kan känna igen tal i C#](quickstart-csharp-dotnet-windows.md)

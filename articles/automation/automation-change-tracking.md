@@ -10,18 +10,37 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 717cf6b2abfb529313699836b790bd3f07844a67
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 891206e88173d72a0bacf6694a331c4ad8cc9acc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867961"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069455"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i miljön med lösningen ändringsspårning
 
 Den här artikeln hjälper dig att använda ändringsspårning-lösning lätt kan identifiera ändringar i miljön. Lösningen spårar ändringar i Windows och Linux, Windows och Linux-filer, registernycklar för Windows, Windows-tjänster och Linux-daemon. Identifiera konfigurationsändringar kan hjälpa dig att precisera Driftproblem.
 
 Ändringar av installerad programvara, tjänster för Windows, Windows-registret och filer och Linux-Daemon på de övervakade servrarna skickas till Log Analytics-tjänsten i molnet för bearbetning. Logiken tillämpas på den mottagna data och Molntjänsten innehåller data. Du kan enkelt se ändringar som gjorts i din serverinfrastruktur med hjälp av informationen på instrumentpanelen för ändringsspårning.
+
+## <a name="supported-windows-operating-systems"></a>Windows-operativsystem som stöds
+
+Följande versioner av Windows-operativsystemet stöds officiellt för Windows-agenten:
+
+* Windows Server 2008 Service Pack 1 (SP1) eller senare
+* Windows 7 SP1 och senare.
+
+## <a name="supported-linux-operating-systems"></a>Linux-operativsystem som stöds
+
+Följande Linux-distributioner stöds officiellt. Linux-agenten kan också köra på andra distributioner som inte visas. Om inget annat anges stöds alla mindre versioner för varje större version i listan.  
+
+* Amazon Linux 2012.09 till 2015.09 (x86/x64)
+* CentOS Linux 5, 6 och 7 (x86/x64)  
+* Oracle Linux 5, 6 och 7 (x86/x64)
+* Red Hat Enterprise Linux Server 5, 6 och 7 (x86/x64)
+* Debian GNU/Linux 6, 7 och 8 (x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
+* SUSE Linux Enterprise Server 11 och 12 (x86/x64)
 
 ## <a name="enable-change-tracking-and-inventory"></a>Aktivera Ändringsspårning och inventering
 
@@ -57,7 +76,7 @@ Använd följande steg för att konfigurera filspårning på Linux-datorer:
 |Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
 |Använda Sudo     | Den här inställningen styr om sudo ska användas vid sökningen efter objektet.         |
 |Länkar     | Den här inställningen styr hur symboliska länkar ska hanteras när de passerar kataloger.<br> **Ignorera** – ignorerar symboliska länkar och inkluderar inte refererade filer/kataloger.<br>**Följ** – följer de symboliska länkarna under rekursion och dessutom ingår refererade filer/kataloger.<br>**Hantera** – följer de symboliska länkarna och tillåter ändring av returnerat innehåll.     |
-|Ladda upp innehåll för alla inställningar| Aktiverar eller inaktivera filen innehållsuppladdning på spårade ändringar. Tillgängliga alternativ: **SANT** eller **FALSKT**.|
+|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **True** eller **False**.|
 
 > [!NOTE]
 > Länkalternativet ”Hantera” rekommenderas inte. Hämtning av filinnehåll stöds inte.
@@ -76,7 +95,7 @@ Använd följande steg för att konfigurera filer spårning på Windows-datorer:
 |Objektnamn     | Eget namn på filen som ska spåras.        |
 |Grupp     | Ett gruppnamn för att gruppera filer logiskt.        |
 |Ange sökväg     | Sökvägen för att söka efter filen Till exempel: ”c:\temp\myfile.txt”       |
-|Ladda upp innehåll för alla inställningar| Aktiverar eller inaktivera filen innehållsuppladdning på spårade ändringar. Tillgängliga alternativ: **SANT** eller **FALSKT**.|
+|Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **True** eller **False**.|
 
 ## <a name="configure-file-content-tracking"></a>Konfigurera filinnehåll spårning
 

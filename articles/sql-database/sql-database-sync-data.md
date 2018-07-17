@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
-ms.date: 07/01/2018
+ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 56117953c6cd11b952a312e15cd4515895021e10
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 81616522f479175dc58188bd6acc4db4f9007756
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342665"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069394"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synkronisera data i flera moln och lokala databaser med SQL Data Sync
 
@@ -24,6 +24,16 @@ SQL Data Sync är en tjänst som bygger på Azure SQL Database som gör att du s
 ## <a name="architecture-of-sql-data-sync"></a>Arkitekturen för SQL Data Sync
 
 Datasynkronisering baseras kring begreppet en Synkroniseringsgrupp. En Synkroniseringsgrupp är en grupp med databaser som du vill synkronisera.
+
+Datasynkronisering använder en topologi med nav och ekrar för att synkronisera data. Du definierar en av databaserna i synkroniseringsgruppen som Hubbdatabasen. Resten av databaserna är databaser som medlem. Synkronisera sker bara mellan Hub och enskilda medlemmarna.
+-   Den **Hubbdatabasen** måste vara en Azure SQL Database.
+-   Den **medlem databaser** kan vara antingen SQL-databaser, en lokal SQL Server-databaser eller SQL Server-instanser på Azure virtual machines.
+-   Den **Synkroniseringsdatabasen** innehåller metadata och loggfiler för datasynkronisering. Sync-databasen måste vara en Azure SQL Database finns i samma region som Hubbdatabasen. Sync-databasen är kund som har skapats och kundägda.
+
+> [!NOTE]
+> Om du använder en på plats-databas som en medlemsdatabas kan du behöva [installera och konfigurera en lokal synkroniseringsagenten](sql-database-get-started-sql-data-sync.md#add-on-prem).
+
+![Synkronisera data mellan databaser](media/sql-database-sync-data/sync-data-overview.png)
 
 En Synkroniseringsgrupp har följande egenskaper:
 
@@ -35,16 +45,6 @@ En Synkroniseringsgrupp har följande egenskaper:
 
 -   Den **principen för konfliktlösning** är en säkerhetsnivå för gruppen, som kan vara *Hub wins* eller *medlem wins*.
 
-Datasynkronisering använder en topologi med nav och ekrar för att synkronisera data. Du definierar en av databaserna i gruppen som Hubbdatabasen. Resten av databaserna är databaser som medlem. Synkronisera sker bara mellan Hub och enskilda medlemmarna.
--   Den **Hubbdatabasen** måste vara en Azure SQL Database.
--   Den **medlem databaser** kan vara antingen SQL-databaser, en lokal SQL Server-databaser eller SQL Server-instanser på Azure virtual machines.
--   Den **Synkroniseringsdatabasen** innehåller metadata och loggfiler för datasynkronisering. Sync-databasen måste vara en Azure SQL Database finns i samma region som Hubbdatabasen. Sync-databasen är kund som har skapats och kundägda.
-
-> [!NOTE]
-> Om du använder en på plats-databas som en medlemsdatabas kan du behöva [installera och konfigurera en lokal synkroniseringsagenten](sql-database-get-started-sql-data-sync.md#add-on-prem).
-
-![Synkronisera data mellan databaser](media/sql-database-sync-data/sync-data-overview.png)
-
 ## <a name="when-to-use-data-sync"></a>När du ska använda datasynkronisering
 
 Datasynkronisering är användbart i fall där data ska hållas uppdaterad över flera Azure SQL-databaser eller SQL Server-databaser. Här är huvudsakliga användningsområden för Data Sync:
@@ -55,7 +55,7 @@ Datasynkronisering är användbart i fall där data ska hållas uppdaterad över
 
 -   **Globalt distribuerade program:** många företag sträcker sig över flera regioner och även flera länder. För att minimera Nätverksfördröjningen, är det bäst att ha dina data i en region nära dig. Du kan enkelt behålla databaser i regioner runtom i världen som synkroniseras med Data Sync.
 
-Datasynkronisering är inte den bästa lösningen för följande scenarier:
+Datasynkronisering är inte det en bättre lösningen för följande scenarier:
 
 | Scenario | Några av de rekommenderade lösningar |
 |----------|----------------------------|

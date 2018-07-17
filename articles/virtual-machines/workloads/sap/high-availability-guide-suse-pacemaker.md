@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 07/13/2018
 ms.author: sedusch
-ms.openlocfilehash: cac2f91a25907be824e3fd3517736d921c3fde64
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1fa69cc09772b9f90e6de05820c823f0409d926e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921509"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070355"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -38,6 +38,11 @@ Uppstår enheten kräver en ytterligare virtuell dator som fungerar som en iSCSI
 Om du inte vill investera i en ytterligare virtuell dator, kan du också använda Azure avgränsningstecken agenten. Nackdelen är att en redundansväxling kan ta mellan 10 till 15 minuter om det inte går att stoppa en resurs eller noderna i klustret inte kan kommunicera som varandra längre.
 
 ![Pacemaker på SLES-översikt](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
+
+>[!IMPORTANT]
+> Använder en uppstår för Pacemaker klustret, det är viktigt för övergripande tillförlitligheten i hela klustret som routning mellan de virtuella datorerna som ingår och de virtuella datorer som är värd för uppstår enhet(er) inte passerar genom andra enheter som [Nva](https://azure.microsoft.com/solutions/network-appliances/). Annars kan problem med NVA ha en negativ inverkan på stabilitet och tillförlitlighet för övergripande klusterkonfigurationen. Undersöka routningsregler med nva: er för att undvika sådana hinder och [användaren definierats routningsregler](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) när du planerar och distribuerar uppstår enheter.
+>
+
 
 ## <a name="sbd-fencing"></a>Att hägna in uppstår
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 840e961e753a15219ae41b8df55dfd95cc7ec774
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 543c30b4d2c960f3c7453369162a62dc4606d06e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990260"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068635"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Hantera meddelanden planerat underhåll för virtuella Linux-datorer
 
@@ -160,7 +160,7 @@ Mer information om hög tillgänglighet finns i [regioner och tillgänglighet f�
 
 **F: Vad är händer med Virtual Machine Scale Sets?**
 
-**S:** planerat underhåll är nu tillgänglig för Virtual Machine Scale Sets. Instruktioner för hur du startar självbetjäningsunderhållet ”så här till -> Hantera -> planerat underhåll” avsnittet i Virtual Machine Scale Sets docs.
+**S:** planerat underhåll är nu tillgänglig för Virtual Machine Scale Sets. Instruktioner för hur du startar självbetjäningsunderhållet [planerat underhåll för VMSS](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) dokumentet.
 
 **F: Vad är händer med Cloud Services (Web/Worker-roll) och Service Fabric?**
 

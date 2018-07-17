@@ -1,6 +1,6 @@
 ---
-title: Använda tal till Text | Microsoft Docs
-description: Lär dig hur du använder tal till Text i tjänsten tal
+title: Använd tal till Text | Microsoft Docs
+description: Lär dig hur du använder tal till Text i Speech-tjänsten
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -8,61 +8,62 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 878a31992415b1f8688afcfb186fcd94ce2567b4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 26cecedfc3ad2d472b9686e25054fe08253cee77
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35356230"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068530"
 ---
-# <a name="use-speech-to-text-in-the-speech-service"></a>Använd ”tal texten” i tjänsten tal
+# <a name="use-speech-to-text-in-the-speech-service"></a>Använd ”tal till Text” i Speech-tjänsten
 
 Du kan använda **tal till Text** i dina program på två olika sätt.
 
 | Metod | Beskrivning |
 |-|-|
-| [SDK](speech-sdk.md) | Enklaste sättet för utvecklare för C/C++, C# och Java * |
-| [REST](rest-apis.md) | Identifiera kort utterances med en HTTP POST-begäran | 
-
-\* *Java SDK är en del av den [tal enheter SDK](speech-devices-sdk.md).*
+| [SDK](speech-sdk.md) | Enklaste metoden för C/C++, C# och Java-utvecklare |
+| [REST](rest-apis.md) | Identifiera kort yttranden med hjälp av en HTTP POST-begäran | 
 
 ## <a name="using-the-sdk"></a>Med SDK
 
 Den [tal SDK](speech-sdk.md) ger det enklaste sättet att använda **tal till Text** i ditt program med full funktionalitet.
 
-1. Skapa en tal fabrik som tillhandahåller en prenumeration tjänstnyckeln tal eller en autentiseringstoken. Du kan också konfigurera alternativ, till exempel recognition språk eller en anpassad slutpunkt för egna recognition modeller tal nu.
+1. Skapa en tal-fabrik, vilket ger en prenumerationsnyckel för tal-tjänst och [region](regions.md) eller en autentiseringstoken. Du kan också konfigurera alternativ, till exempel språket eller en anpassad slutpunkt för din egen talmodeller taligenkänning, nu.
 
-2. Hämta en identifierare från fabriken. Det finns tre olika typer av identifierare. Varje typ av tolken kan använda din enhet standard mikrofon, ljudström eller ljud från en fil.
+2. Få en identifierare från fabriken. Det finns tre olika typer av identifierare. Varje typ av identifierare kan använda din enhets standard mikrofon, en ljudström eller ljud från en fil.
 
-    Tolken | Funktion
+    Igenkännande | Funktion
     -|-
-    Taligenkänningen|Innehåller text utskrift av tal
-    Avsiktshantering tolken|Härleds talare avsikt via [THOMAS](https://docs.microsoft.com/azure/cognitive-services/luis/) efter igenkänning\*
-    Översättning tolken|Översätter transcribed texten till ett annat språk (se [tal översättning](how-to-translate-speech.md))
+    Taligenkänningens|Innehåller text avskrift tal
+    Avsiktshantering Igenkännande|Härleds talare avsikt via [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) efter taligenkänning\*
+    Översättning Igenkännande|Omvandlar den transkriberade texten till ett annat språk (se [Talöversättning](how-to-translate-speech.md))
 
-    \* *Du måste använda en separat THOMAS prenumeration nyckel när du skapar en tal fabrik för avsiktshantering tolken för avsiktshantering igenkänning.*
+    \* *Du måste använda en separat LUIS-prenumerationsnyckel när du skapar en tal-fabrik för avsiktlig Igenkännande för taligenkänning.*
     
-4. Sysselsätta händelser för asynkron åtgärd om så önskas. Tolken anropar sedan din händelsehanterare när den har tillfälligt och slutliga resultaten. Annars tillämpningsprogrammet kommer att få ett slutligt skrivfel resultat.
+4. Koppla in händelser för asynkron åtgärd om du vill. Identifieraren anropar sedan din händelsehanterare när den har tillfälliga och slutliga resultaten. Annars kan får ditt program en slutlig avskrift resultatet.
 
-5. Starta igenkänning.
+5. Starta taligenkänning.
+   Inleveransen erkännande som kommando eller en fråga erkännande, använda `RecognizeAsync()`, vilket returnerar den första uttryck som känns igen.
+   Igenkänning av tidskrävande, som taltranskription, använda `StartContinuousRecognitionAsync()` och foga samman på händelser för asynkron igenkänningsresultat.
 
 ### <a name="sdk-samples"></a>SDK-exempel
 
-Senaste uppsättning exempel, finns det [kognitiva Services tal SDK exempel GitHub-lagringsplatsen](https://aka.ms/csspeech/samples).
+Den senaste uppsättningen exempel, finns det [Cognitive Services tal SDK exempel GitHub-lagringsplatsen](https://aka.ms/csspeech/samples).
 
 ## <a name="using-the-rest-api"></a>Med hjälp av REST-API
 
-REST API är det enklaste sättet att känna igen röst om du inte använder ett språk som stöds av SDK. Du gör en HTTP POST-begäran till tjänstslutpunkten, skickar hela utterance i brödtexten i begäran. Du får ett svar som innehåller den tolkade texten.
+REST API är det enklaste sättet att känna igen tal om du inte använder ett språk som stöds av SDK: N. Du gör en HTTP POST-begäran till tjänstslutpunkten, skicka hela uttryck i brödtexten i begäran. Du får ett svar som innehåller den tolkade texten.
 
 > [!NOTE]
-> Utterances är begränsade till 15 sekunder eller mindre när du använder REST API.
+> Yttranden är begränsade till 15 sekunder eller mindre när du använder REST-API.
 
-
-Mer information om den **tal till Text** REST-API: et, se [REST API: er](rest-apis.md#speech-to-text). Om du vill se det i praktiken, hämta den [REST API samples](https://github.com/Azure-Samples/SpeechToText-REST) från GitHub.
+Mer information om den **tal till Text** REST API, se [REST API: er](rest-apis.md#speech-to-text). Om du vill se hur det fungerar i praktiken kan du ladda ned den [REST API-exempel](https://github.com/Azure-Samples/SpeechToText-REST) från GitHub.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hämta din utvärderingsprenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
-- [Hur du identifierar tal i C#](quickstart-csharp-windows.md)
+- [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
+- [Hur du känna igen tal i C++](quickstart-cpp-windows.md)
+- [Så identifierar du tal i C#](quickstart-csharp-dotnet-windows.md)
+- [Hur du känna igen tal i Java](quickstart-java-android.md)

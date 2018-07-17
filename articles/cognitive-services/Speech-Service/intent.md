@@ -1,74 +1,67 @@
 ---
-title: Exempel för Avsiktshantering Recognition | Microsoft Docs
+title: Exempel för taligenkänning | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
-description: Här är ett exempel på avsiktshantering redovisning.
+description: Här är ett exempel för taligenkänning.
 services: cognitive-services
 author: wolfma61
 manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 1c9c1e2d54ccb200ef009be3566f6da9ced01175
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 4cf3bbfa24e102c544b0e3215a20b73d323f15df
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111175"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070968"
 ---
-# <a name="sample-for-intent-recognition"></a>Exempel på avsiktshantering redovisning
+# <a name="sample-for-intent-recognition"></a>Exempel för taligenkänning
 
-> [!NOTE]
-> Anvisningar att hämta det här exemplet och andra finns [prover för tal SDK](samples.md).
+Skaffa en prenumerationsnyckel först. Till skillnad från andra tjänster som stöds av Cognitive Service tal SDK avsikt igenkänning av tjänsterna kräver en viss prenumeration-nyckel. [Här](https://www.luis.ai) du hittar mer information om teknik för taligenkänning, samt information om hur du skaffa en prenumerationsnyckel. Ersätt dina egna prenumerationsnyckel för Language Understanding den [regionen för din prenumeration](regions.md), och AppId för din avsikt modell i lämpliga platser i exemplen.
 
-> [!NOTE]
-> Skaffa en prenumeration för först. Till skillnad från andra tjänster som stöds av kognitiva Service tal SDK avsikt Recognition tjänster kräver en viss prenumeration nyckel. [Här](https://www.luis.ai) hittar du mer information om avsiktshantering recognition tekniken, samt information om hur du skaffar en prenumeration nyckel. Ersätt din egen prenumeration nyckel i [regionen för din prenumeration](regions.md), och AppId av avsiktshantering modellen på lämpliga platser i exemplen.
+## <a name="top-level-declarations"></a>Översta deklarationer
 
-> [!NOTE]
-> Följande översta förklaringar bör vara på plats för alla prover nedan:
->
-> [!code-cpp[](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#toplevel)]
->
-> - - -
+I följande översta deklarationerna bör finnas på plats för alla exemplen nedan:
 
-## <a name="intent-recognition-using-microphone"></a>Avsiktshantering bokföring med hjälp av mikrofon
+[!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-Kodfragmentet nedan visar hur du identifierar avsikt från mikrofon indata på standardspråket (`en-US`).
+[!code-cpp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/intent_recognition_samples.cpp#toplevel)]
 
-[!code-cpp[Intent Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithMicrophone)]
+[!code-java[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/IntentRecognitionSamples.java#toplevel)]
 
-- - -
+## <a name="intent-recognition-using-microphone"></a>Taligenkänning med mikrofon
 
-## <a name="intent-recognition-using-microphone-in-a-specified-language"></a>Avsiktshantering bokföring med hjälp av mikrofon angivet språk
+Kodfragmentet nedan visar hur avsiktsigenkänning från mikrofonen indata på standardspråket (`en-US`).
 
-Kodfragmentet nedan visar hur du identifierar avsikt från mikrofon indata i ett angivet språk i det här fallet på tyska (`de-de`).
+[!code-csharp[Intent Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentRecognitionWithMicrophone)]
 
-[!code-cpp[Intent Recognition Using Microphone In A Specified Language](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithLanguage)]
+[!code-cpp[Intent Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/intent_recognition_samples.cpp#IntentRecognitionWithMicrophone)]
 
-- - -
+[!code-java[Intent Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/IntentRecognitionSamples.java#IntentRecognitionWithMicrophone)]
 
-## <a name="intent-recognition-from-a-file"></a>Avsiktshantering recognition från en fil
+## <a name="intent-recognition-using-microphone-in-a-specified-language"></a>Taligenkänning med mikrofon i ett angivet språk
 
-Följande kodavsnitt identifierar avsikt från en ljudfil på standardspråket (`en-US`), formatet som stöds är en kanal (mono) WAV / PCM med en samplingsfrekvensen 16 kHz.
+Kodfragmentet nedan visar hur avsiktsigenkänning från mikrofonen indata i ett angivet språk i det här fallet på tyska (`de-de`).
 
-[!include[Sample Audio](includes/sample-audio.md)]
+[!code-csharp[Intent Recognition Using Microphone In A Specified Language](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentRecognitionWithLanguage)]
 
-[!code-cpp[Intent Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithFile)]
+[!code-cpp[Intent Recognition Using Microphone In A Specified Language](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/intent_recognition_samples.cpp#IntentRecognitionWithLanguage)]
 
-- - -
+[!code-java[Intent Recognition Using Microphone In A Specified Language](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/IntentRecognitionSamples.java#IntentRecognitionWithLanguage)]
 
-## <a name="intent-recognition-using-events"></a>Avsiktshantering bokföring med hjälp av händelser
+## <a name="intent-recognition-from-a-file-using-events"></a>Taligenkänning från en fil med hjälp av händelser
 
-Kodfragmentet visar hur att identifiera syftet i ett kontinuerligt sätt. Den här koden ger tillgång till ytterligare information, t.ex. mellanresultat. 
+Kodfragmentet visar hur avsiktsigenkänning på standardspråket (`en-US`) på en kontinuerlig sätt. Den här koden ger tillgång till ytterligare information, t.ex mellanresultat. Indata hämtas från från en ljudfil, format är en kanal (mono) WAV / PCM med en samplingsfrekvensen 16 kHz.
 
-[!code-cpp[Intent Recognition Using Events](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentContinuousRecognitionUsingEvents)]
+[!code-csharp[Intent Recognition Using Events From a File](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 
-- - -
+[!code-cpp[Intent Recognition Using Events From a File](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/intent_recognition_samples.cpp#IntentContinuousRecognitionWithFile)]
 
-## <a name="sample-source-code"></a>Exempelkod för källa
+[!code-java[Intent Recognition Using Events From a File](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/IntentRecognitionSamples.java#IntentContinuousRecognitionWithFile)]
 
-Senaste uppsättning exempel, finns det [kognitiva Services tal SDK exempel GitHub-lagringsplatsen](https://aka.ms/csspeech/samples).
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

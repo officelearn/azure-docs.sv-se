@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d7ec8648a8428558264c9bfd4d923523b90cce07
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 227fae2f38189a5b8ed5b6eff359e09bedc8e628
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855948"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071138"
 ---
 # <a name="about-the-text-to-speech-api"></a>Om Text till tal-API
 
@@ -41,5 +41,5 @@ Om du vill ha en unik röst för ditt program, kan du skapa [anpassade rösttype
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Få en kostnadsfri prenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
-* [Se hur du kan känna igen tal i C#](quickstart-csharp-windows.md)
+* [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
+* [Se hur du kan känna igen tal i C#](quickstart-csharp-dotnet-windows.md)

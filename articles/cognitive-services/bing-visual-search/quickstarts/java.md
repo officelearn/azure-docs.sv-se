@@ -1,7 +1,7 @@
 ---
-title: Java-Snabbstart för Bing Visual sökning API | Microsoft Docs
+title: Snabbstart för Java för API för Bing Visual Search | Microsoft Docs
 titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Visar hur du överför en bild till Bing Visual Sök-API och få tillbaka insikter om bilden.
+description: Visar hur du överför en bild till Bing Visual Search-API och få tillbaka insikter om avbildningen.
 services: cognitive-services
 author: swhite-msft
 manager: rosh
@@ -10,18 +10,18 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 8160302faa373d69b65afe6b68a8efb44442850d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 41e0855b126ca6e54d0a487a88fe59a0be6f72f6
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355134"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072003"
 ---
-# <a name="your-first-bing-visual-search-query-in-java"></a>Första Bing Visual sökfrågan i Java
+# <a name="your-first-bing-visual-search-query-in-java"></a>Din första fråga Bing Visual Search i Java
 
-Bing Visual Sök API returnerar information om en avbildning som du anger. Du kan ange avbildningen med hjälp av URL-Adressen till bilden, en insikter token, eller genom att ladda upp en bild. Information om dessa alternativ finns [vad är Bing Visual Sök API?](../overview.md) Den här artikeln visar ladda upp en bild. Ladda upp en bild kan vara användbart i mobila scenarier där du kan ta en bild av en välkänd Landmärke och få tillbaka information om den. Insikter kan exempelvis omfatta kunskap om Landmärke. 
+Bing Visual Search API returnerar information om en avbildning som du anger. Du kan ange avbildningen med hjälp av URL till bild, ett insights token, eller genom att överföra en avbildning. Information om alternativen finns i [vad är Bing Visual Search API?](../overview.md) Den här artikeln visar att ladda upp en avbildning. Ladda upp en avbildning kan vara användbart i mobila scenarier där du kan ta en bild av en välkänd landmärken och få tillbaka information om den. Insikterna kan exempelvis omfatta kunskap om landmärken. 
 
-Om du överför en lokal image visas nedan formulärdata måste du inkludera i brödtexten i INLÄGGET. Formulärdata måste innehålla rubriken Content-Disposition. Dess `name` parametern måste anges till ”bild” och `filename` parameter kan anges till en sträng. Innehållet i formuläret är binär för bilden. Du kan ladda upp maximala bildstorleken är 1 MB. 
+Om du laddar upp en lokal avbildning visas nedan formulärdata måste du inkludera i brödtexten i INLÄGGET. Formulärdata måste innehålla Content-Disposition-huvudet. Dess `name` parametern måste anges till ”bild” och `filename` parameter kan anges till valfri sträng. Innehållet i formuläret är den binära filen på avbildningen. Maximal avbildningens storlek kan du överföra är 1 MB. 
 
 ```
 --boundary_1234-abcd
@@ -32,14 +32,14 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-Den här artikeln innehåller ett enkelt konsolprogram som skickar en begäran i Bing Visual Sök-API och visar sökresultatet JSON. När det här programmet är skriven i Java är API: et en RESTful webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
+Den här artikeln innehåller ett enkelt konsolprogram som skickar en begäran om Bing Visual Search-API och visar JSON-sökresultat. Även om det här programmet är skriven i Java, är API: et en RESTful-webb-tjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver [JDK 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) att kompilera och köra den här koden. Du kan använda en Java-IDE om du har en favorit, men det räcker en textredigerare.
+Du behöver [JDK 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) att kompilera och köra den här koden. Du kan använda en Java-IDE om du har en favorit, men en textredigerare räcker.
 
-Du kan använda för Snabbstart, en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) prenumeration nyckeln eller en betald prenumeration nyckel.
+Den här snabbstarten kan du använda en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) prenumerationsnyckel eller en betald prenumeration-nyckel.
 
 ## <a name="running-the-application"></a>Köra programmet
 
@@ -47,11 +47,11 @@ Nedan visas hur du laddar upp avbildningen med hjälp av MultipartEntityBuilder 
 
 Följ dessa steg om du vill köra det här programmet:
 
-1. Hämtar eller installerar den [gson biblioteket](https://github.com/google/gson). Du kan även hämta den via Maven.
-2. Skapa ett nytt Java-projekt i din favorit IDE eller -redigeraren.
-3. Lägg till den angivna kod i en fil med namnet `VisualSearch.java`.
-4. Ersätt den `subscriptionKey` värdet med din prenumeration nyckel.
-4. Ersätt den `imagePath` värdet med sökvägen till bilden som ska överföras.
+1. Hämta eller installera den [gson biblioteket](https://github.com/google/gson). Du kan också hämta den via Maven.
+2. Skapa ett nytt Java-projekt i din favorit-IDE eller redigerare.
+3. Lägg till den angivna koden i en fil med namnet `VisualSearch.java`.
+4. Ersätt den `subscriptionKey` värdet med din prenumerationsnyckel.
+4. Ersätt den `imagePath` värdet med sökvägen för att ladda upp avbildningen.
 5. Kör programmet.
 
 
@@ -146,10 +146,11 @@ public class UploadImage2 {
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Få insikter om en avbildning med hjälp av en insights-token](../use-insights-token.md)  
-[Bing Visual Sök sida app självstudiekursen](../tutorial-bing-visual-search-single-page-app.md)  
-[Översikt över Bing Visual sökning](../overview.md)  
+[Få insyn om en avbildning med hjälp av en token för insikter](../use-insights-token.md)  
+[Bing Visual Search bild uppladdning självstudien](../tutorial-visual-search-image-upload.md)
+[Bing Visual Search-självstudiekursen som ensidesapp](../tutorial-bing-visual-search-single-page-app.md)  
+[Bing Visual Search-översikt](../overview.md)  
 [Prova](https://aka.ms/bingvisualsearchtryforfree)  
-[Hämta en kostnadsfri utvärderingsversion snabbtangent](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing Visual Sök API-referens](https://aka.ms/bingvisualsearchreferencedoc)
+[Hämta en kostnadsfri utvärderingsversion åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Bing Visual Search API-referens](https://aka.ms/bingvisualsearchreferencedoc)
 

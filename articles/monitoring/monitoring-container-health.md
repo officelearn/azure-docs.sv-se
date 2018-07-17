@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/08/2018
+ms.date: 07/16/2018
 ms.author: magoedte
-ms.openlocfilehash: a94f7289c75a4f4d466542c608d81cf5b954f4b1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 1fd5ac0f9994a4dbf4365c21ac4f31ba0eccbb15
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37917357"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069159"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Övervaka hälsotillstånd för behållare i Azure Kubernetes Service (AKS) (förhandsversion)
 
-Den här artikeln beskriver hur du konfigurerar och använder hälsotillstånd för behållare i Azure Monitor för att övervaka prestanda för dina arbetsbelastningar som distribueras till Kubernetes-miljöer finns på Azure Kubernetes Service (AKS).  Det är viktigt att du övervakar Kubernetes-behållarna och behållarna, särskilt när du kör ett produktionskluster i skala med flera program.
+Den här artikeln beskriver hur du konfigurerar och använder hälsotillstånd för behållare i Azure Monitor för att övervaka prestanda för dina arbetsbelastningar som distribueras till Kubernetes-miljöer finns på Azure Kubernetes Service (AKS).  Det är viktigt att du övervakar Kubernetes-klustret och containrarna, särskilt när du kör ett produktionskluster i skala med flera program.
 
 Hälsotillstånd för behållare ger dig möjligheten genom att samla in minne och processor mått från domänkontrollanter, noder och behållare som är tillgängliga i Kubernetes via mått-API för prestandaövervakning.  När du har aktiverat hälsotillstånd för behållare, är de här måtten automatiskt samlas in för dig med en behållare version av OMS-agenten för Linux och lagras i din [Log Analytics](../log-analytics/log-analytics-overview.md) arbetsyta.  De fördefinierade vyer som ingår visas som förvaras behållararbetsbelastningar och vad påverkar prestanda hälsotillståndet för Kubernetes-klustret så att du kan förstå:  
 
@@ -50,7 +50,7 @@ Den här funktionen är beroende av en behållare OMS-agenten för Linux för at
 >Om du redan har distribuerat ett AKS-kluster kan aktivera du övervakning med hjälp av en angiven Azure Resource Manager-mall som visas längre fram i den här artikeln. Du kan inte använda `kubectl` om du vill uppgradera, ta bort, omdistribuera eller distribuera agenten.  
 >
 
-## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
+## <a name="sign-in-to-azure-portal"></a>Logga in på Azure Portal
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Aktivera övervakning av behållare hälsotillstånd för ett nytt kluster
@@ -290,21 +290,41 @@ omsagent   2         2         2         2            2           beta.kubernete
 ```  
 
 ## <a name="view-performance-utilization"></a>Visa prestanda användning
-När du öppnar hälsotillstånd för behållare, anger sidan omedelbart prestanda utnyttjande av klusternoderna.  Visa information om AKS-klustret är uppdelad i tre perspektiv:
+När du öppnar hälsotillstånd för behållare, anger sidan omedelbart prestanda utnyttjande av hela klustret.  Visa information om AKS-klustret är uppdelad i fyra perspektiv:
 
+- Kluster
 - Noder 
 - Kontrollanter  
-- Behållare
+- Containrar
 
-Rad hierarkin följer Kubernetes-objektmodell som börjar med en nod i klustret.  Expandera noden och du ser en eller flera poddar som körs på noden och om det finns flera behållare grupperade en pod, de visas som den sista raden i hierarkin.<br><br> ![Exempel Kubernetes Node-hierarkin i prestandavyn](./media/monitoring-container-health/container-performance-and-health-view-03.png)
+Gå till klustret och visar prestanda linjediagram nyckelprestandamått på klustret.  
 
-Du kan välja domänkontrollanter eller behållare högst upp på sidan och granska status och Resursanvändning för dessa objekt.  Använda rutorna listrutan överst på skärmen för att filtrera efter namnområde, tjänst och nod. Om istället du vill granska minnesanvändningen, från den **mått** listrutan Välj **minne RSS** eller **arbetsminne**.  **Minne RSS** har endast stöd för Kubernetes version 1.8 och senare. Annars ser du värdena för **Genomsnittlig %** dyker som *NaN %*, vilket är ett värde för typ av numeriska data som representerar en odefinierad eller inte går att representera värdet. 
+![Prestandadiagram för exempel på fliken kluster](./media/monitoring-container-health/container-health-cluster-perfview.png)
 
-![Behållaren prestandavy noder prestanda](./media/monitoring-container-health/container-performance-and-health-view-04.png)
+Följande är en uppdelning av prestandamått som visas:
 
-Som standard prestandadata baseras på de senaste sex timmarna men du kan ändra i fönstret med den **tidsintervall** nedrullningsbara lista finns i det övre högra hörnet på sidan. För tillfället sidan inte automatisk uppdatering, så du måste manuellt uppdatera den. 
+- Noden CPU-utnyttjande i % – det här diagrammet representerar en aggregerade perspektiv CPU-belastningen för hela klustret.  Du kan filtrera resultaten för tidsintervallet genom att välja *genomsnittlig*, *Min*, *Max*, *50*, *90*, och *95: e* från percentiler Väljaren ovanför diagrammet, antingen separat eller kombinerat. 
+- Noden minne utnyttjande i % – det här diagrammet representerar en aggregerade perspektiv av minnesanvändningen för hela klustret.  Du kan filtrera resultaten för tidsintervallet genom att välja *genomsnittlig*, *Min*, *Max*, *50*, *90*, och *95: e* från percentiler Väljaren ovanför diagrammet, antingen separat eller kombinerat. 
+- Antal noder – det här diagrammet representerar antalet noder och status från Kubernetes.  Status för noderna i klustret som representeras är *alla*, *redo*, och *inte klara* och kan filtreras individuellt eller det kombinerade antalet från Väljaren ovanför diagrammet.    
+- Aktiviteten pod antal – det här diagrammet representerar pod antal och status från Kubernetes.  Status poddarna representeras är *alla*, *väntande*, *kör*, och *okänd* och kan filtreras individuellt eller det kombinerade antalet från den väljare ovanför diagrammet.  
 
-I följande exempel du ser för noden *aks-agentpool-3402399-0*, värdet för **behållare** är 10, vilket är en sammanslagning av det totala antalet behållare som distribueras.<br><br> ![Sammanslagning av behållare per nod-exempel](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> Det kan du snabbt kan identifiera om du inte har en rätt balans mellan behållare mellan noderna i klustret.  
+Växla till fliken noder följer rad hierarkin Kubernetes-objektmodell som börjar med en nod i klustret.  Expandera noden och du ser en eller flera poddar som körs på noden och om det finns flera behållare grupperade en pod, de visas som den sista raden i hierarkin. Du kan också se hur många icke-pod relaterade arbetsbelastningar körs på värden om värden har processor eller minne.
+
+![Exempel Kubernetes Node-hierarkin i prestandavyn](./media/monitoring-container-health/container-health-nodes-view.png)
+
+Du kan välja domänkontrollanter eller behållare högst upp på sidan och granska status och Resursanvändning för dessa objekt.  Använda rutorna listrutan överst på skärmen för att filtrera efter namnområde, tjänst och nod. Om istället du vill granska minnesanvändningen, från den **mått** listrutan Välj **minne RSS** eller **arbetsminne**.  **Minne RSS** har endast stöd för Kubernetes version 1.8 och senare. Annars ser du värdena för **MIN %** dyker som *NaN %*, vilket är ett värde för typ av numeriska data som representerar en odefinierad eller inte går att representera värdet. 
+
+![Behållaren noder prestandavy](./media/monitoring-container-health/container-health-node-metric-dropdown.png)
+
+Som standard prestandadata baseras på de senaste sex timmarna men du kan ändra i fönstret med den **tidsintervall** nedrullningsbara lista finns i det övre högra hörnet på sidan. För tillfället sidan inte automatisk uppdatering, så du måste manuellt uppdatera den. Du kan också filtrera resultaten inom tidsintervallet genom att välja *genomsnittlig*, *Min*, *Max*, *50*, *90*, och *95: e* från Väljaren: e percentilen. 
+
+![: E percentilen val för filtrering av data](./media/monitoring-container-health/container-health-metric-percentile-filter.png)
+
+I följande exempel du ser för noden *aks-nodepool-3977305*, värdet för **behållare** är 5, vilket är en sammanslagning av det totala antalet behållare som distribueras.
+
+![Sammanslagning av behållare per nod-exempel](./media/monitoring-container-health/container-health-nodes-containerstotal.png)
+
+Det kan du snabbt kan identifiera om du inte har en rätt balans mellan behållare mellan noderna i klustret.  
 
 I följande tabell beskrivs den information som visas när du visar noder.
 
@@ -312,54 +332,80 @@ I följande tabell beskrivs den information som visas när du visar noder.
 |--------|-------------|
 | Namn | Namnet på värden |
 | Status | Kubernetes vy av nod-status |
-| % GENOMSN. | Genomsnittlig nod procent baserat på valda mått för den valda perioden. |
-| GENOMSNITT | Genomsnittlig noder faktiskt värde baserat på valda mått för den valda perioden.  Medelvärdet mäts från processor/minne gränsen för en nod. Det är genomsn värdet som rapporteras av värden för poddar och behållare. |
-| Behållare | Antal behållare. |
+| GENOMSNITTLIG %, % FÖR MIN, MAX %, 50%, 90% | Genomsnittlig nod procent baserat på: e percentilen under den tidslängd som valts. |
+| GENOMSN, MIN, MAX, 50, 90 | Genomsnittlig noder faktiskt värde baserat på: e percentilen under den tidslängd som valts.  Medelvärdet mäts från processor/minne gränsen för en nod. Det är genomsn värdet som rapporteras av värden för poddar och behållare. |
+| Containrar | Antal behållare. |
 | Drifttid | Representerar tid eftersom en nod startas eller startades om. |
-| Pod | Endast för behållare. Den visar vilket pods den som finns. |
 | Kontrollanter | Endast för behållare och poddar. Den visar vilken domänkontrollant som den är bosatt. Inte alla poddar ska finnas i en domänkontrollant så att vissa kan indikera att saknas. | 
-| Trend Genomsnittlig % | Stapeldiagram trend baserat på behållare och noden genomsnittlig mått %. |
+| Trend Genomsnittlig %, % för MIN, MAX %, 50%, 90% | Stapeldiagram trend presentera: e percentilen mått % för kontrollenheten. |
 
 
-Väljaren, Välj **styrenheter**.<br><br> ![Välj domänkontrollanter vy](./media/monitoring-container-health/container-performance-and-health-view-08.png)
+Väljaren, Välj **styrenheter**.
 
-Här kan du se hälsotillståndet för prestanda för dina domänkontrollanter.<br><br> ![< namn > domänkontrollanter prestandavy](./media/monitoring-container-health/container-performance-and-health-view-05.png)
+![Välj domänkontrollanter vy](./media/monitoring-container-health/container-health-controllers-tab.png)
 
-En rad hierarki börjar med en domänkontrollant och utökas kontrollanten så ser du en eller flera poddar eller en eller flera behållare.  Expandera en pod och den sista raden visa behållaren som grupperats till din pod.  
+Här kan du se hälsotillståndet för prestanda för dina domänkontrollanter.
+
+![< namn > domänkontrollanter prestandavy](./media/monitoring-container-health/container-health-controllers-view.png)
+
+En rad hierarki börjar med en domänkontrollant och utökas kontrollanten så ser du en eller en eller flera behållare.  Expandera en pod och den sista raden visa behållaren som grupperats till din pod.  
 
 I följande tabell beskrivs den information som visas när du visar domänkontrollanter.
 
 | Kolumn | Beskrivning | 
 |--------|-------------|
 | Namn | Namnet på kontrollanten|
-| Status | Status för behållarna när den har slutförts kör med status, till exempel *Uppsagd*, *misslyckades* *stoppad*, eller *pausad*. Om behållaren körs, men status har inte korrekt visas eller hämtades inte av agenten och har inte svarat mer än 30 minuter, kommer status bli *okänd*. |
-| % GENOMSN. | Rulla upp medelvärdet för varje entitet för det valda måttet medel-%. |
-| GENOMSNITT | Samlar in den genomsnittliga CPU millicore eller minne prestanda för behållaren.  Medelvärdet mäts från processor/minne gränsen för en pod. |
-| Behållare | Totalt antal behållare för domänkontrollant eller pod. |
+| Status | Insamling av status för behållarna när den har slutförts kör med status, till exempel *OK*, *Uppsagd*, *misslyckades* *stoppad*, eller  *Pausad*. Om behållaren körs, men status har inte korrekt visas eller hämtades inte av agenten och har inte svarat mer än 30 minuter, statusen är *okänd*. Ytterligare information om statusikonen finns i tabellen nedan.|
+| GENOMSNITTLIG %, % FÖR MIN, MAX %, 50%, 90% | Rulla upp medelvärdet för varje entitet för valda mått och percentil medel-%. |
+| GENOMSN, MIN, MAX, 50, 90  | Samlar in den genomsnittliga CPU millicore eller minne över prestanda behållaren för den valda: e percentilen.  Medelvärdet mäts från processor/minne gränsen för en pod. |
+| Containrar | Totalt antal behållare för domänkontrollant eller pod. |
 | Startar om | Summera för omstart räkningen från behållare. |
 | Drifttid | Representerar tid efter att en behållare startades. |
-| Pod | Endast för behållare. Den visar vilket pods den som finns. |
 | Node | Endast för behållare och poddar. Den visar vilken domänkontrollant som den är bosatt. | 
-| Trend Genomsnittlig % | Stapeldiagram trend presentera genomsnittlig mått % av behållaren. |
+| Trend Genomsnittlig %, % för MIN, MAX %, 50%, 90%| Stapeldiagram trend som representerar: e percentilen mått för kontrollenheten. |
 
-Väljaren, Välj **behållare**.<br><br> ![Välj behållare vy](./media/monitoring-container-health/container-performance-and-health-view-09.png)
+Ikonerna i statusfältet onlinestatus behållare:
+ 
+| Ikon | Status | 
+|--------|-------------|
+| ![Klar körs statusikon](./media/monitoring-container-health/container-health-ready-icon.png) | Kör (klar)|
+| ![Väntar på eller pausat statusikon](./media/monitoring-container-health/container-health-waiting-icon.png) | Väntar på eller pausats|
+| ![Senast rapporterat kör statusikon](./media/monitoring-container-health/container-health-grey-icon.png) | Senast rapporterat körs men har inte svarat mer än 30 minuter|
+| ![Avslutade statusikon](./media/monitoring-container-health/container-health-green-icon.png) | Har stoppats eller gick inte att stoppa|
 
-Här kan vi se prestandatillståndet för dina behållare.<br><br> ![< namn > domänkontrollanter prestandavy](./media/monitoring-container-health/container-performance-and-health-view-06.png)
+Statusikonen visar antalet baserat på din pod tillhandahåller. Den visar sämre två tillstånd och när du hovrar över statusen visar en sammanställd in status från alla poddar i behållaren.  Om det inte finns ett färdigt tillstånd, statusvärdet visas en **(0)**.  
+
+Väljaren, Välj **behållare**.
+
+![Välj behållare vy](./media/monitoring-container-health/container-health-containers-tab.png)
+
+Här kan vi se prestandatillståndet för dina behållare.
+
+![< namn > domänkontrollanter prestandavy](./media/monitoring-container-health/container-health-containers-view.png)
 
 I följande tabell beskrivs den information som visas när du visar behållare.
 
 | Kolumn | Beskrivning | 
 |--------|-------------|
 | Namn | Namnet på kontrollanten|
-| Status | Samlar in statusen för behållare, om sådana. |
-| % GENOMSN. | Rulla upp medelvärdet för varje entitet för det valda måttet medel-%. |
-| GENOMSNITT | Samlar in den genomsnittliga CPU millicore eller minne prestanda för behållaren. Medelvärdet mäts från processor/minne gränsen för en pod. |
-| Behållare | Totalt antal behållare för styrenheten.|
+| Status | Status för behållare, om sådana. Ytterligare information om statusikonen finns i tabellen nedan.|
+| GENOMSNITTLIG %, % FÖR MIN, MAX %, 50%, 90% | Rulla upp medelvärdet för varje entitet för valda mått och percentil medel-%. |
+| GENOMSN, MIN, MAX, 50, 90  | Samlar in den genomsnittliga CPU millicore eller minne över prestanda behållaren för den valda: e percentilen.  Medelvärdet mäts från processor/minne gränsen för en pod. |
+| Pod | Behållaren där poden finns.| 
+| Node |  Noden där behållaren finns. | 
 | Startar om | Representerar tid efter att en behållare startades. |
 | Drifttid | Representerar tid eftersom en behållare startades eller startas om. |
-| Pod | Pod information var den finns. |
-| Node |  Noden där behållaren finns.  | 
-| Trend Genomsnittlig % | Stapeldiagram trend presentera genomsnittlig mått % av behållaren. |
+| Trend Genomsnittlig %, % för MIN, MAX %, 50%, 90% | Stapeldiagram trend som representerar genomsnittliga mått % av behållaren. |
+
+Ikonerna i statusfältet onlinestatus av poddarna:
+ 
+| Ikon | Status | 
+|--------|-------------|
+| ![Klar körs statusikon](./media/monitoring-container-health/container-health-ready-icon.png) | Kör (klar)|
+| ![Väntar på eller pausat statusikon](./media/monitoring-container-health/container-health-waiting-icon.png) | Väntar på eller pausats|
+| ![Senast rapporterat kör statusikon](./media/monitoring-container-health/container-health-grey-icon.png) | Senast rapporterat körs men har inte svarat mer än 30 minuter|
+| ![Avslutade statusikon](./media/monitoring-container-health/container-health-terminated-icon.png) | Har stoppats eller gick inte att stoppa|
+| ![Misslyckade statusikon](./media/monitoring-container-health/container-health-failed-icon.png) | Felaktigt tillstånd |
 
 ## <a name="container-data-collection-details"></a>Samling data-behållarinformation
 Hälsotillstånd för behållare samlar in olika mått och loggfiler prestandadata från behållare-värdar och behållare. Data som samlas in var tredje minut.
@@ -387,7 +433,9 @@ I följande tabell visas exempel på poster som samlas in av hälsotillstånd f�
 ## <a name="search-logs-to-analyze-data"></a>Sök i loggar att analysera data
 Log Analytics kan hjälpa dig att söka trender, diagnostisera flaskhalsar, prognoser och korrelera data som kan hjälpa dig att avgöra om den aktuella klusterkonfigurationen presterar optimalt.  Fördefinierade loggsökningar tillhandahålls till omedelbart börja använda eller anpassa för att returnera information som du vill. 
 
-Du kan utföra interaktiva analyser av data på arbetsytan genom att välja den **Visa logg** alternativet är tillgängligt längst till höger när du expanderar en behållare.  **Loggsöknings-** visas rätt ovan sidan du var på i portalen.<br><br> ![Analysera data i Log Analytics](./media/monitoring-container-health/container-performance-and-health-view-logs-01.png)   
+Du kan utföra interaktiva analyser av data på arbetsytan genom att välja den **Visa logg** alternativet är tillgängligt längst till höger när du expanderar en domänkontrollant eller behållare.  **Loggsöknings-** visas rätt ovan sidan du var på i portalen.
+
+![Analysera data i Log Analytics](./media/monitoring-container-health/container-health-view-logs.png)   
 
 Behållaren loggar utdata vidarebefordras till logganalys är STDOUT- och STDERR. Eftersom behållare health övervakar Azure hanterade Kubernetes (AKS), samlas Kube system inte in idag på grund av den stora mängden data som genereras.     
 
@@ -470,7 +518,9 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
     }
     ```
 
-4. Redigera värdet för **aksResourceId** och **aksResourceLocation** med värdena för AKS-kluster som finns på den **egenskaper** sidan för det markerade klustret.<br><br> ![Egenskapssidan för behållare](./media/monitoring-container-health/container-properties-page.png)<br>
+4. Redigera värdet för **aksResourceId** och **aksResourceLocation** med värdena för AKS-kluster som finns på den **egenskaper** sidan för det markerade klustret.
+
+    ![Egenskapssidan för behållare](./media/monitoring-container-health/container-properties-page.png)
 
     När du är på den **egenskaper** kan också kopiera den **Arbetssyteresurs-ID**.  Det här värdet krävs om du vill ta bort Log Analytics-arbetsytan senare, vilket inte utförs som en del av den här processen.  
 
@@ -549,7 +599,8 @@ Om hälsotillstånd för behållare som har aktiverats och konfigurerats men du 
     omsagent-fkq7g                      1/1       Running   0          1d 
     ```
 
-4. Loggarna för agenten. När behållare agenten distribueras, kör en snabb kontroll genom att köra OMI kommandon och visar vilken version av agenten och Docker-providern. Om du vill se att agenten har integrerats har, kör du följande kommando: `kubectl logs omsagent-484hw --namespace=kube-system`
+4. Loggarna för agenten. När behållare agenten distribueras, körs den en snabb kontroll genom att köra OMI kommandon och visar vilken version av agenten och 
+5.  providern. Om du vill se att agenten har integrerats har, kör du följande kommando: `kubectl logs omsagent-484hw --namespace=kube-system`
 
     Statusen bör likna följande:
 

@@ -6,14 +6,14 @@ author: MichaelHauss
 manager: vamshik
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/15/2018
 ms.author: mihauss
-ms.openlocfilehash: fa933000ee08f16774c821e40d9a3c6fe5dbf353
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: a1c07350859d70b3ce6260b336419ddb2bd4aa66
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "35648843"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069360"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Mjuk borttagning för Azure Storage-blobbar
 Azure Storage erbjuder nu mjuk borttagning för blob-objekt så att du kan enkelt återställa dina data när den är felaktigt ändras eller tas bort av ett program eller en annan användare för storage-konto.
@@ -71,7 +71,7 @@ I följande tabell beskrivs förväntat beteende när mjuk borttagning är aktiv
 | REST API-åtgärd | Resurstyp | Beskrivning | Ändra i beteende |
 |--------------------|---------------|-------------|--------------------|
 | [Ta bort](/rest/api/storagerp/StorageAccounts/Delete) | Konto | Tar bort lagringskontot, inklusive alla behållare och blobbar som den innehåller.                           | Ingen ändring. Behållare och blobbar i Borttaget konto går inte att återställa. |
-| [Ta bort behållare](/rest/api/storageservices/delete-container) | Behållare | Tar bort behållaren, inklusive alla blobbar som den innehåller. | Ingen ändring. Det går inte att återställa blobar i behållaren har tagits bort. |
+| [Ta bort behållare](/rest/api/storageservices/delete-container) | Container | Tar bort behållaren, inklusive alla blobbar som den innehåller. | Ingen ändring. Det går inte att återställa blobar i behållaren har tagits bort. |
 | [Placera Blob](/rest/api/storageservices/put-blob) | Block, lägga till och Sidblob-objekt | Skapar en ny blob eller ersätter en befintlig blob i en behållare | Om används för att ersätta en befintlig blob, skapas automatiskt en ögonblicksbild av blobens tillstånd innan anropet. Detta gäller även för en tidigare ej permanent borttagna blob endast om den har ersatts av en blob-av samma typ (Block, Lägg till eller sida). Om den har ersatts av en blob-av en annan typ kan förfaller alla befintliga mjukt borttagna data permanent. |
 | [Ta bort Blob](/rest/api/storageservices/delete-blob) | Block, lägga till och Sidblob-objekt | Markerar en blob eller blobögonblicksbild för borttagning. Blob eller ögonblicksbild tas senare bort under skräpinsamling | Om används för att bort ta bort en blob-ögonblicksbild, den ögonblicksbilden har markerats som ej permanent. Om du vill ta bort en blob, som har markerats som ej permanent bort. |
 | [Kopiera Blob](/rest/api/storageservices/copy-blob) | Block, lägga till och Sidblob-objekt | Kopierar en källblob till en mål-blob i samma lagringskonto eller i ett annat lagringskonto. | Om används för att ersätta en befintlig blob, skapas automatiskt en ögonblicksbild av blobens tillstånd innan anropet. Detta gäller även för en tidigare ej permanent borttagna blob endast om den har ersatts av en blob-av samma typ (Block, Lägg till eller sida). Om den har ersatts av en blob-av en annan typ kan förfaller alla befintliga mjukt borttagna data permanent. |
@@ -176,6 +176,11 @@ Uppdatera egenskaper för en blob-klient för att aktivera mjuk borttagning. I f
 Set-AzureRmContext -Subscription "<subscription-name>"
 $MatchingAccounts = Get-AzureRMStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
 $MatchingAccounts | Enable-AzureStorageDeleteRetentionPolicy -RetentionDays 7
+```
+Du kan verifiera den mjuk borttagning har varit påslagen med hjälp av följande kommando:
+
+```powershell
+$MatchingAccounts | Get-AzureStorageServiceProperty -ServiceType Blob
 ```
 
 Om du vill återställa blobbar som tagits bort av misstag, anropar du ångrar borttagningen av dessa blobar. Kom ihåg att anropa **ångra borttagning av Blob**, både på aktiva och ej permanent borttagna blobar, återställs alla associerade ej permanent borttagna ögonblicksbilder som aktiv. I följande exempel anropar ångra borttagning på alla ej permanent borttagna och aktiva blobarna i en behållare:

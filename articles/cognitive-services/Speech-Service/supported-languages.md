@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 17d84718c6adab8b2bd4f130f380edc12498102b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 06350decd9d9f15db7226b6f2c3580feb49a59d1
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346050"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069582"
 ---
 # <a name="supported-languages-for-speech-service"></a>Språk som stöds för Speech service
 
@@ -222,5 +222,5 @@ Du kan hämta listan över språk som antingen via programmering eller med hjäl
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Få en kostnadsfri prenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
-* [Se hur du kan känna igen tal i C#](quickstart-csharp-windows.md)
+* [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
+* [Se hur du kan känna igen tal i C#](quickstart-csharp-dotnet-windows.md)

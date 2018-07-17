@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 76b2b1983cc5a6cedfcff204871e0b0f985fef95
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 897681cda31b2f187fca64e77621b7dc5ed4dfae
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900792"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072117"
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Kompilera konfigurationer i Azure Automation DSC
 
@@ -235,7 +235,7 @@ Referenser för tillgången är desamma i Azure Automation DSC-konfigurationer o
 
 ### <a name="credential-assets"></a>Inloggningstillgångar
 
-När DSC-konfigurationer i Azure Automation kan referera till inloggningstillgångar med **Get-AutomationPSCredential**, inloggningstillgångar kan också skickas via parametrar, om så önskas. Om en konfiguration som tar en parameter av **PSCredential** skriver, måste du skicka sträng namnet på en Azure Automation-autentiseringsuppgiftstillgång som den parametervärdet i stället för ett PSCredential-objekt. I bakgrunden är Azure Automation-autentiseringsuppgiftstillgång med det namnet hämtas och skickas till konfigurationen.
+DSC-konfigurationer i Azure Automation kan referera till inloggningstillgångar i Automation med hjälp av `Get-AutomationPSCredential`. Om en konfiguration har en parameter som har en **PSCredential** skriver, kan du använda den `Get-AutomationPSCredential` cmdlet genom att skicka sträng namnet på en Azure Automation-autentiseringsuppgiftstillgång till cmdlet för att hämta autentiseringsuppgifterna. Du kan sedan använda sedan använda objektet för parametern att kräva den **PSCredential** objekt. I bakgrunden är Azure Automation-autentiseringsuppgiftstillgång med det namnet hämtas och skickas till konfigurationen. Exemplet nedan visar detta fungerar i praktiken.
 
 Att hålla autentiseringsuppgifter kräver säker nodkonfigurationer (MOF configuration dokument) kryptering av autentiseringsuppgifter i noden configuration MOF-filen. Men tala för närvarande du om för PowerShell DSC det är okej om autentiseringsuppgifter för att vara för utdata i klartext under noden configuration MOF-generering, eftersom PowerShell DSC inte vet att Azure Automation kommer att kryptera hela MOF-filen efter dess generering via en Kompileringsjobb.
 

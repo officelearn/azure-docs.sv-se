@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: db57e0bd0f7afcfa836ef6446cdfd74e5d61c440
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: ad4b31fa7b4f4b062f01935c34f7cacf82f99106
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345268"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072134"
 ---
 # <a name="custom-speech-service-frequently-asked-questions"></a>Vanliga och frågor svar om Custom Speech Service
 
@@ -57,7 +57,7 @@ När bearbetningen är klar, ska status vara ”lyckades”.
 
 De gamla och nya uppgifter som måste kombineras i en enda ZIP (om det är akustiska data) eller en txt-fil om den är språk-data. En gång anpassning görs nya uppdaterade modellen måste vara ta bort distribuerade att hämta en ny slutpunkt
 
-**Fråga**: Vad händer om jag behöver högre samtidighet för min deloyed modell än vad som är tillgängligt i portalen. 
+**Fråga**: Vad händer om jag behöver högre samtidighet för min distribuerad modell än vad som är tillgängligt i portalen. 
 
 **Svar**: du kan skala upp din modell i steg om 20 samtidiga begäranden. 
 
@@ -90,7 +90,7 @@ Om det stora flertalet yttranden i en språkdata eller språk data (till exempel
 
 **Fråga**: hur mycket akustiska data behöver jag?
 
-**Svar**: Vi rekommenderar att du börjar med 30 minuter att en timmes akustiska data
+**Svar**: Vi rekommenderar att du börjar med 30 minuter att en timmes akustiska data.
 
 **Fråga**: vilka data bör jag samla in?
 
@@ -116,18 +116,18 @@ Du kan också skapa en version av programmet som loggar ljuddata och används de
 
 **Svar**: Ja, markera bara anpassad akustisk modell i den nedrullningsbara menyn när du ställer in offline testet.
 
-**Fråga**: Vad är ordet Felfrekvens och hur beräknas den?
+**Fråga**: Vad är priset för Word-fel (WER) och hur beräknas den?
 
-**Svar**: Word Felfrekvens är utvärderingen mått för taligenkänning. Räknas den som det totala antalet fel, vilket innefattar tillägg, borttagningar och ersättningar, dividerat med det totala antalet ord i referens avskrift. Information om läge [här](https://en.wikipedia.org/wiki/Word_error_rate)
+**Svar**: Word fel hastighet (WER) är utvärderingen mått för taligenkänning. Räknas den som det totala antalet fel, vilket innefattar tillägg, borttagningar och ersättningar, dividerat med det totala antalet ord i referens avskrift. Mer information finns [här](https://en.wikipedia.org/wiki/Word_error_rate).
 
 **Fråga**: hur tar jag reda på om resultatet av ett test av Precision är bra?
 
 **Svar**: resultatet visar en jämförelse mellan baslinje och de som du anpassat.
-Du bör syfta till att Microsoft baslinje-modellen för att göra anpassningen lönar
+Du bör syfta till beat baslinje-modellen för att göra anpassningen någonsin bortkastade pengar.
 
-**Fråga**: hur jag ta reda på WER av de grundläggande modellerna så att jag kan se om det var improvement? 
+**Fråga**: hur jag ta reda på ordet Felfrekvens av de grundläggande modellerna så att jag kan se om det var improvement? 
 
-**Svar**: offline testresultaten visa riktighet baslinje riktighet anpassade modellen och förbättring över baslinje
+**Svar**: offline testresultaten visa riktighet baslinje riktighet anpassade modellen och förbättring över baslinje.
 
 ## <a name="creating-lm"></a>Skapa LM
 

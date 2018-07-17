@@ -10,18 +10,18 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 90ea591137b306069c1a5c184aea07375c72ce5c
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 1352ccbcda35c693c5ac0b36156af199ae46bee9
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036548"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068676"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Självstudie: Bryta ned Bing Visual Search uppladdning
 
 Den här självstudien delar upp processen med att ladda upp en avbildning till Bing och få tillbaka insikter. Den visar även hur att komma åt och visa insikter i JSON-svar. Det fullständiga exemplet HTML och JavaScript, se [slutföra kod](#complete-code).
 
-Den här självstudiekursen har angetts för utvecklare som vill utforska innehållet i Bing-svaret. Det inte gäller all användning och visa kraven (till exempel det ger inte en länk till Microsofts sekretesspolicy). Alla användningskrav finns i [Bing Använd och visa krav](./use-and-display-requirements.md).
+Den här självstudiekursen har angetts för utvecklare som vill utforska innehållet i Bing Visual Search-svaret. Det inte gäller all användning och visa kraven (till exempel det ger inte en länk till Microsofts sekretesspolicy). Alla användningskrav finns i [Bing Använd och visa krav](./use-and-display-requirements.md).
 
 
 ## <a name="where-to-start"></a>Var du ska börja?

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
-ms.date: 05/07/2018
-ms.openlocfilehash: 44093dfde926b92d1617b85d27e362a8e40e5c56
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.date: 07/13/2018
+ms.openlocfilehash: 60eecf134f067d68326fc23ade8ed2a5a7ae7ac4
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888678"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070354"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Skapa och distribuera prognosmodellen modeller med Azure Machine Learning
 
@@ -36,7 +36,7 @@ Läs den [paketera referensdokumentation](https://aka.ms/aml-packages/forecastin
    - Ett konto i Azure Machine Learning-modellhantering
    - Azure Machine Learning Workbench installerat 
 
-    Om dessa tre är ännu inte skapats eller installerats följer den [installationen av Azure Machine Learning-Quickstart och Workbench](../service/quickstart-installation.md) artikeln.
+ Om dessa tre är ännu inte skapats eller installerats följer den [installationen av Azure Machine Learning-Quickstart och Workbench](../service/quickstart-installation.md) artikeln.
 
 1. Azure Machine Learning-paket för prognostisering måste installeras. Lär dig hur du [installera det här paketet här](https://aka.ms/aml-packages/forecasting).
 
@@ -77,6 +77,7 @@ import pkg_resources
 from datetime import timedelta
 import matplotlib
 matplotlib.use('agg')
+%matplotlib inline
 from matplotlib import pyplot as plt
 
 from sklearn.linear_model import Lasso, ElasticNet
@@ -84,12 +85,12 @@ from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.neighbors import KNeighborsRegressor
 
 from ftk import TimeSeriesDataFrame, ForecastDataFrame, AzureMLForecastPipeline
-from ftk.tsutils import last_n_periods_split
+from ftk.ts_utils import last_n_periods_split
 
 from ftk.transforms import TimeSeriesImputer, TimeIndexFeaturizer, DropColumns
 from ftk.transforms.grain_index_featurizer import GrainIndexFeaturizer
-from ftk.models import Arima, SeasonalNaive, Naive, RegressionForecaster, ETS
-from ftk.models.forecasterunion import ForecasterUnion
+from ftk.models import Arima, SeasonalNaive, Naive, RegressionForecaster, ETS, BestOfForecaster
+from ftk.models.forecaster_union import ForecasterUnion
 from ftk.model_selection import TSGridSearchCV, RollingOriginValidator
 
 from azuremltkbase.deployment import AMLSettings
@@ -502,12 +503,11 @@ Den [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/
 
 
 ```python
-%matplotlib inline
 whole_tsdf.ts_report()
 ```
 
     --------------------------------  Data Overview  ---------------------------------
-    <class 'ftk.dataframets.TimeSeriesDataFrame'>
+    <class 'ftk.time_series_data_frame.TimeSeriesDataFrame'>
     MultiIndex: 28947 entries, (1990-06-20 23:59:59, 2, dominicks) to (1992-10-07 23:59:59, 137, tropicana)
     Data columns (total 17 columns):
     week            28947 non-null int64
@@ -662,12 +662,6 @@ whole_tsdf.ts_report()
 
 
 ![PNG](./media/how-to-build-deploy-forecast-models/output_15_6.png)
-
-![PNG](./media/how-to-build-deploy-forecast-models/output_59_0.png)
-![png](./media/how-to-build-deploy-forecast-models/output_61_0.png)
-![png](./media/how-to-build-deploy-forecast-models/output_63_0.png)
-![png](./media/how-to-build-deploy-forecast-models/output_63_1.png)
- 
 
 
 ## <a name="integrate-with-external-data"></a>Integrera med externa data
@@ -892,7 +886,7 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>Förbearbeta data och sedan imputera värden som saknas
 
-Börja med att dela data i träningsmängden och en testning med den [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) verktygsfunktionen. Den resulterande testning set innehåller de senast 40 observationerna för varje tidsserie. 
+Börja med att dela data i träningsmängden och en testning med den [last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) verktygsfunktionen. Den resulterande testning set innehåller de senast 40 observationerna för varje tidsserie. 
 
 
 ```python
@@ -974,7 +968,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-Du kan se att de flesta av serien (213 av 249) är oregelbunden. En [uppräkning transformeringen](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest) krävs för att fylla i saknade värden och antal. Det finns många alternativ för uppräkning, använder följande exempelkod linjär interpolation.
+Du kan se att de flesta av serien (213 av 249) är oregelbunden. En [uppräkning transformeringen](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest) krävs för att fylla i saknade värden och antal. Det finns många alternativ för uppräkning, använder följande exempelkod linjär interpolation.
 
 
 ```python
@@ -1040,7 +1034,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Kombinera flera modeller
 
-Den [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) estimator kan du kombinera flera estimators och anpassa/förutsäga på dem med hjälp av en rad med kod.
+Den [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) estimator kan du kombinera flera estimators och anpassa/förutsäga på dem med hjälp av en rad med kod.
 
 
 ```python
@@ -1205,10 +1199,10 @@ test_feature_tsdf = pipeline_ml.transform(test_tsdf)
 print(train_feature_tsdf.head())
 ```
 
-    F1 2018-05-04 11:00:54,308 INFO azureml.timeseries - pipeline fit_transform started. 
-    F1 2018-05-04 11:01:02,545 INFO azureml.timeseries - pipeline fit_transform finished. Time elapsed 0:00:08.237301
-    F1 2018-05-04 11:01:02,576 INFO azureml.timeseries - pipeline transforms started. 
-    F1 2018-05-04 11:01:19,048 INFO azureml.timeseries - pipeline transforms finished. Time elapsed 0:00:16.471961
+    F1 2018-06-14 23:10:03,472 INFO azureml.timeseries - pipeline fit_transform started. 
+    F1 2018-06-14 23:10:07,317 INFO azureml.timeseries - pipeline fit_transform finished. Time elapsed 0:00:03.845078
+    F1 2018-06-14 23:10:07,317 INFO azureml.timeseries - pipeline transforms started. 
+    F1 2018-06-14 23:10:16,499 INFO azureml.timeseries - pipeline transforms finished. Time elapsed 0:00:09.182314
                                            feat  price  AGE60  EDUC  ETHNIC  \
     WeekLastDay         store brand                                           
     1990-06-20 23:59:59 2     dominicks    1.00   1.59   0.23  0.25    0.11   
@@ -1370,13 +1364,16 @@ all_errors.sort_values('MedianAPE')
 
 Vissa maskininlärningsmodeller kunde dra nytta av nya funktioner och likheter mellan serien för att få bättre prognosens noggrannhet.
 
-**Korsvalidering och parametern oinskränkt**    
+### <a name="cross-validation-parameter-and-model-sweeping"></a>Korsvalidering, parametern och modell av oinskränkt    
 
-Paketet anpassas efter vissa traditionella machine learning-funktioner för ett program med prognostisering.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator) har korsvalidering tillfälligt, följer vad skulle och skulle inte känd i ett ramverk för prognostisering. 
+Paketet anpassas efter vissa traditionella machine learning-funktioner för ett program med prognostisering.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator?view=azure-ml-py-latest) har korsvalidering tillfälligt, följer vad skulle och skulle inte känd i ett ramverk för prognostisering. 
 
 I figuren nedan visas representerar varje ruta data från en tidpunkt. Blå rutor representerar utbildning och orange rutor representerar testar i varje vikningsantalet. Testdata måste komma från tidpunkter när du har den största utbildning tidpunkten. I annat fall läckts framtida data i träningsdata som orsakar modellen utvärderingen ska bli ogiltig. 
-
 ![PNG](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
+
+**Parametern oinskränkt**  
+Den [TSGridSearchCV](https://docs.microsoft.com/en-us/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) klassen söker efter angivna parametervärden omfattande och använder `RollingOriginValidator` att utvärdera prestanda för parametern för att hitta de lämpligaste parametrarna.
+
 
 ```python
 # Set up the `RollingOriginValidator` to do 2 folds of rolling origin cross-validation
@@ -1395,6 +1392,102 @@ print('Best paramter: {}'.format(randomforest_cv_fitted.best_params_))
 
     Best paramter: {'estimator__n_estimators': 100}
     
+
+**Modellen oinskränkt**  
+Den `BestOfForecaster` klass väljer modellen med bäst prestanda från en lista över beroende modeller. Liknar `TSGridSearchCV`, används också RollingOriginValidator för mellan verifiering och prestanda utvärdering.  
+Här skickar vi en lista med två modeller för att demonstrera användningen av `BestOfForecaster`
+
+
+```python
+best_of_forecaster = BestOfForecaster(forecaster_list=[('naive', naive_model), 
+                                                       ('random_forest', random_forest_model)])
+best_of_forecaster_fitted = best_of_forecaster.fit(train_feature_tsdf,
+                                                   validator=RollingOriginValidator(n_step=20, max_horizon=40))
+best_of_forecaster_prediction = best_of_forecaster_fitted.predict(test_feature_tsdf)
+best_of_forecaster_prediction.head()
+```
+
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>PointForecast</th>
+      <th>DistributionForecast</th>
+      <th>Antal</th>
+    </tr>
+    <tr>
+      <th>WeekLastDay</th>
+      <th>lagra</th>
+      <th>varumärke</th>
+      <th>ForecastOriginTime</th>
+      <th>%{ModelName/</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1992-01-08 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01 23:59:59</th>
+      <th>random_forest</th>
+      <td>9299.20</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>11712.00</td>
+    </tr>
+    <tr>
+      <th>1992-01-15 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01 23:59:59</th>
+      <th>random_forest</th>
+      <td>10259.20</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>4032.00</td>
+    </tr>
+    <tr>
+      <th>1992-01-22 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01 23:59:59</th>
+      <th>random_forest</th>
+      <td>6828.80</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>6336.00</td>
+    </tr>
+    <tr>
+      <th>1992-01-29 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01 23:59:59</th>
+      <th>random_forest</th>
+      <td>16633.60</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>13632.00</td>
+    </tr>
+    <tr>
+      <th>1992-02-05 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01 23:59:59</th>
+      <th>random_forest</th>
+      <td>12774.40</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>45120.00</td>
+    </tr>
+  </tbody>
+</table>
+
+
 
 **Skapa den slutgiltiga pipelinen**   
 Nu när du har identifierat den bästa modellen kan du skapa och anpassa din slutliga pipeline med alla transformatorer och modellen med bäst. 
@@ -1416,9 +1509,62 @@ print('Median of APE of final pipeline: {0}'.format(final_median_ape))
     Median of APE of final pipeline: 42.54336821266968
     
 
-## <a name="operationalization-deploy-and-consume"></a>Driftsättning: distribuera och använda
+## <a name="visualization"></a>Visualisering
+Den `ForecastDataFrame` klassen innehåller ritområdet funktioner för att visualisera och analysera prognosmodellen resultat. Använd vanliga diagram med dina data. Anteckningsboken exemplet nedan finns om ritområdet funktioner för alla funktioner som är tillgängliga. 
 
-I det här avsnittet ska du distribuera en pipeline som Azure Machine Learning-webbtjänst och använda för träning och bedömning. Bedömning av den distribuerade webbtjänsten retrains modellen och genererar prognoser för nya data.
+Den `show_error` funktionen ritar prestandamått aggregeras efter valfri kolumn. Som standard den `show_error` -funktionen sammanställer endast genom de `grain_colnames` av den `ForecastDataFrame`. Det är ofta bra att identifiera kärnor/grupper med bästa eller sämst prestanda, särskilt när du har ett stort antal tidsserier. Den `performance_percent` argumentet för `show_error` kan du ange ett intervall för prestanda och rita felet av en delmängd av kärnor/grupper.
+
+Rita kärnor med längst ned 5% prestanda, d.v.s. de främsta 5% MedianAPE
+
+
+```python
+fig, ax = best_of_forecaster_prediction.show_error(err_name='MedianAPE', err_fun=calc_median_ape, performance_percent=(0.95, 1))
+```
+
+![PNG](./media/how-to-build-deploy-forecast-models/output_59_0.png)
+
+
+Rita kärnor med de översta 5% av prestanda, d.v.s. nederkant 5% MedianAPE.
+
+
+```python
+fig, ax = best_of_forecaster_prediction.show_error(err_name='MedianAPE', err_fun=calc_median_ape, performance_percent=(0, 0.05))
+```
+
+
+![PNG](./media/how-to-build-deploy-forecast-models/output_61_0.png)
+
+
+När du har en uppfattning om den övergripande prestandan kan du utforska enskilda kärnor, särskilt de som utförs felaktigt. Den `plot_forecast_by_grain` metoden ritar prognosen jämfört med faktiska angivna kärnor. Här kan vi Rita grain med bästa prestanda och grain med sämst prestanda som identifieras i den `show_error` diagram.
+
+
+```python
+fig_ax = best_of_forecaster_prediction.plot_forecast_by_grain(grains=[(33, 'tropicana'), (128, 'minute.maid')])
+```
+
+
+![PNG](./media/how-to-build-deploy-forecast-models/output_63_0.png)
+
+
+
+![PNG](./media/how-to-build-deploy-forecast-models/output_63_1.png)
+
+
+
+## <a name="additional-notebooks"></a>Ytterligare anteckningsböcker
+En djupdykning i de viktigaste funktionerna i AMLPF finns följande-anteckningsböcker med mer information och exempel på varje funktion:  
+[Notebook på TimeSeriesDataFrame](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Introduction_to_TimeSeriesDataFrames.ipynb)  
+[Notebook på Datatransformering](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Data_Wrangling_Sample.ipynb)  
+[Notebook på transformatorer](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Forecast_Package_Transforms.ipynb)  
+[Notebook på modeller](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/AMLPF_models_sample_notebook.ipynb)  
+[Notebook på mellan verifiering](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Time_Series_Cross_Validation.ipynb)  
+[Notebook på Lag omvandlare och OriginTime](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Constructing_Lags_and_Explaining_Origin_Times.ipynb)  
+[Notebook på ritning funktioner](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Plotting_Functions_in_AMLPF.ipynb)
+
+## <a name="operationalization"></a>Driftsättning
+
+I det här avsnittet ska du distribuera en pipeline som Azure Machine Learning-webbtjänst och använda för träning och bedömning.
+För närvarande det enda pipelines monteras inte stöds för distribution. Bedömning av den distribuerade webbtjänsten retrains modellen och genererar prognoser för nya data.
 
 ### <a name="set-model-deployment-parameters"></a>Ställa in parametrar för distribution av modellen
 
@@ -1485,7 +1631,7 @@ aml_deployment = ForecastWebserviceFactory(deployment_name=deployment_name,
                                            aml_settings=aml_settings, 
                                            pipeline=pipeline_deploy,
                                            deployment_working_directory=deployment_working_directory,
-                                           ftk_wheel_loc='https://azuremlpackages.blob.core.windows.net/forecasting/azuremlftk-0.1.18055.3a1-py3-none-any.whl')
+                                           ftk_wheel_loc='https://azuremlftkrelease.blob.core.windows.net/dailyrelease/azuremlftk-0.1.18165.29a1-py3-none-any.whl')
 ```
 
 ### <a name="create-the-web-service"></a>Skapa webbtjänsten

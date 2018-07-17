@@ -1,6 +1,6 @@
 ---
-title: Vad du ska göra om ett avbrott i Azure Storage | Microsoft Docs
-description: Vad du ska göra om ett avbrott i Azure Storage
+title: Vad du gör i händelse av ett avbrott i Azure Storage | Microsoft Docs
+description: Vad du gör i händelse av ett avbrott i Azure Storage
 services: storage
 documentationcenter: .net
 author: tamram
@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/19/2017
+ms.date: 07/15/2018
 ms.author: tamram
-ms.openlocfilehash: 3c313025917bba06675d3b2d844a6740fab89fbc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 160fe756458e067125b9d696fd0cdb929774446e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323159"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072043"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Vad du gör om ett avbrott i Azure Storage inträffar?
-På Microsoft är arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga. Ibland tvingar utöver våra styr hur oss på ett sätt som kan leda till oplanerade driftstopp i en eller flera regioner. För att hantera dessa sällsynta förekomster ska ger vi följande övergripande riktlinjer för Azure Storage-tjänster.
+På Microsoft arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga. Ibland tvingar utöver vårt styr hur oss på ett sätt som kan leda till oplanerade driftstopp i en eller flera regioner. För att hjälpa dig att hantera dessa sällsynta förekomster, tillhandahåller vi följande övergripande riktlinjer för Azure Storage-tjänster.
 
 ## <a name="how-to-prepare"></a>Så här förbereder du
-Det är viktigt för varje kund att förbereda en plan för haveriberedskap. För att återställa från ett avbrott för lagring vanligtvis omfattar både operations personal och automatiserade procedurer för att återaktivera ditt program med fungerande tillstånd. Hittar du i Azure-dokumentationen nedan för att skapa en egen plan för katastrofåterställning:
+Det är viktigt för varje kund att förbereda en plan för haveriberedskap. Att återställa från driftstörningar vanligtvis omfattar både anställda och automatiserade procedurer för att återaktivera dina program i ett fungerande tillstånd. Finns i Azure-dokumentationen nedan om du vill skapa en egen plan för katastrofåterställning:
 
 * [Tillgänglighetschecklista](https://docs.microsoft.com/azure/architecture/checklist/availability)
 * [Utforma återhämtningsprogram för Azure](https://docs.microsoft.com/azure/architecture/resiliency/)
@@ -33,41 +33,40 @@ Det är viktigt för varje kund att förbereda en plan för haveriberedskap. Fö
 * [Azure Storage-replikering](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 * [Azure Backup-tjänsten](https://azure.microsoft.com/services/backup/)
 
-## <a name="how-to-detect"></a>Hur du identifierar
-Det rekommenderade sättet att avgöra status för Azure-tjänsten är att prenumerera på den [Azure Hälsoinstrumentpanelen](https://azure.microsoft.com/status/).
+## <a name="how-to-detect"></a>Hur identifieras
+Det rekommenderade sättet att bestämma status för Azure-tjänsten är att prenumerera på den [Hälsoinstrumentpanelen för Azure](https://azure.microsoft.com/status/).
 
-## <a name="what-to-do-if-a-storage-outage-occurs"></a>Vad du ska göra om ett lagringsutrymme strömavbrott uppstår
-Om en eller flera lagringstjänster är otillgängliga just nu på en eller flera regioner, finns det två alternativ för att du bör tänka på. Överväg alternativ 2 om du vill ha direkt tillgång till dina data.
+## <a name="what-to-do-if-a-storage-outage-occurs"></a>Vad du gör om ett lagringsutrymmesavbrott inträffar
+Om en eller flera Storage-tjänster är inte tillgänglig för tillfället på en eller flera regioner, finns det två alternativ för dig att tänka på. Om du vill ha omedelbar åtkomst till dina data Överväg att alternativ 2.
 
 ### <a name="option-1-wait-for-recovery"></a>Alternativ 1: Vänta tills återställningen
-I så fall krävs ingen åtgärd. Vi arbetar ordentligt om du vill återställa Azure tjänsternas tillgänglighet. Du kan övervaka status för tjänsten på den [Azure Hälsoinstrumentpanelen](https://azure.microsoft.com/status/).
+I så fall krävs ingen åtgärd från din sida. Vi arbetar hårt för att återställa Azure-tjänst-anslutningen. Du kan övervaka status för tjänsten på den [Hälsoinstrumentpanelen för Azure](https://azure.microsoft.com/status/).
 
 ### <a name="option-2-copy-data-from-secondary"></a>Alternativ 2: Kopiera data från sekundär
-Om du väljer [geo-redundant lagring med läsbehörighet (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (rekommenderas) för dina lagringskonton, du har läsbehörighet till dina data från den sekundära regionen. Du kan använda verktyg som [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), och [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) att kopiera data från den sekundära regionen till ett annat lagringskonto i en unimpacted region och peka på dina program till att lagringskontot för både läsa och skriva tillgänglighet.
+Om du har valt [Read-access geo-redundant lagring (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (rekommenderas) för dina lagringskonton, du har läsbehörighet till dina data från den sekundära regionen. Du kan använda verktyg som [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), och [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) kopiera data från den sekundära regionen till ett annat lagringskonto i en unimpacted region, och peka sedan dina program till den storage-konto för både läsa och skriva tillgänglighet.
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Vad som händer om det uppstår redundans lagring
-Om du väljer [Geo-redundant lagring (GRS)](storage-redundancy-grs.md) eller [geo-redundant lagring med läsbehörighet (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (rekommenderas), Azure Storage kommer att hålla dina data beständig i två regioner (primär eller sekundär). I båda regioner underhåller Azure Storage ständigt flera kopior av dina data.
+Om du har valt [Geo-redundant lagring (GRS)](storage-redundancy-grs.md) eller [Read-access geo-redundant lagring (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (rekommenderas), Azure Storage håller dina data varaktiga i två regioner (primär eller sekundär). I båda regionerna underhåller Azure Storage ständigt flera kopior av dina data.
 
-När en regional katastrof påverkar din primära region, kommer vi först försöker återställa tjänsten i den regionen. Beroende av haveriet och dess påverkan, i vissa sällsynta fall vi kanske inte kan återställa den primära regionen. Vi kommer då att utföra en geo-redundans. Cross-region datareplikering är en asynkron åtgärd som kan medföra en fördröjning, så det är möjligt att ändringar som ännu inte har replikerats till den sekundära regionen kan gå förlorade. Du kan fråga efter den [”tidpunkt för senaste synkronisering” för ditt lagringskonto](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) att hämta information om replikeringsstatus.
+När ett regionalt haveri påverkar den primära regionen, försöker vi först återställa tjänsten i den regionen. Beroende på typen av katastrofen och dess påverkan, i vissa sällsynta fall visar vi kanske inte kan återställa den primära regionen. Då ska vi köra en geo-redundansväxling. Interregionala datareplikering är en asynkron process som kan omfatta en fördröjning, så det är möjligt att ändringar som ännu inte har replikerats till den sekundära regionen kan gå förlorade. Du kan fråga den [”senaste synkroniseringstid” som för ditt lagringskonto](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) att få information om replikeringsstatus.
 
-Ett antal punkter för geo-redundans-upplevelse lagring:
+Ett antal punkter angående lagring geo-redundansväxling upplevelse:
 
-* Lagring geo-redundans kommer endast att utlösas av Azure Storage-teamet – kund åtgärd ingen krävs.
-* Din befintliga lagring slutpunkter för blobbar, tabeller, köer och filer förblir detsamma efter växling vid fel; från Microsoft DNS-posten måste uppdateras om du vill växla från den primära regionen till den sekundära regionen.  Microsoft kommer att utföra den här uppdateringen automatiskt som en del av processen geo-redundans.
-* Före och under geo-redundans du har inte skrivbehörighet till ditt lagringskonto på grund av effekten av haveriet men du fortfarande kan läsa från sekundärt om ditt lagringskonto har konfigurerats som RA-GRS.
-* När geo-redundans har slutförts och sprids DNS-ändringarna, återupptas Läs- och skrivåtkomst till ditt lagringskonto. Detta datapunkter som användes för att vara din sekundära slutpunkt. 
+* Storage geo-redundansväxling aktiveras endast av Azure Storage-teamet – det finns ingen kundåtgärd krävs.
+* Din befintliga lagring Tjänsteslutpunkter för blobbar, tabeller, köer och filer förblir detsamma efter redundansen; från Microsoft DNS-posten måste uppdateras om du vill växla från den primära regionen till den sekundära regionen.  Microsoft utför den här uppdateringen automatiskt som en del av geo-redundansväxling.
+* Före och under geo-redundansväxling du har inte skrivbehörighet till storage-kontot på grund av effekten av katastrofen, men du kan ändå läsa från sekundärt om ditt lagringskonto har konfigurerats som RA-GRS.
+* När geo-redundansväxling har slutförts och DNS-ändringarna spridits, kommer Läs- och skrivåtkomst till ditt storage-konto att återupptas; Detta pekar på det som brukade vara din sekundära slutpunkten. 
 * Observera att du har skrivbehörighet om du har GRS eller RA-GRS som konfigurerats för lagringskontot. 
-* Du kan fråga [”Geo redundans senast” för ditt lagringskonto](https://msdn.microsoft.com/library/azure/ee460802.aspx) att få mer information.
-* Efter växling vid fel, storage-konto kommer att fungera helt och hållet, men en status som ”degraderad” som faktiskt finns i en fristående region med ingen geo-replikering möjligt. För att minska denna risk, kommer återställa den ursprungliga primära regionen och gör sedan ett geo-återställning efter fel om du vill återställa det ursprungliga tillståndet. Om den ursprungliga primära regionen är ett oåterkalleligt allokerar vi en annan sekundär region.
-  Mer information om infrastrukturen för Azure Storage geo-replikering finns i artikeln på Storage-teamets blogg om [alternativ för redundans och RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+* Du kan fråga [”Geo redundans senast” på ditt lagringskonto](https://msdn.microsoft.com/library/azure/ee460802.aspx) att få mer information.
+* Efter redundansen kan ditt storage-konto kommer att fungera helt och hållet, men i ett ”försämrat” status, som det faktiskt finns i en fristående region med ingen geo-replikering möjligt. För att minska denna risk avslöjar vi återställer den ursprungliga primära regionen och gör sedan en geo-återställning efter fel för att återställa det ursprungliga tillståndet. Om den ursprungliga primära regionen är ett oåterkalleligt, kommer vi tilldela en annan sekundär region.
+  Mer information om infrastrukturen i Azure Storage geo-replikering finns i artikeln om Storage-teamets blogg om [alternativ för dataredundans och RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ## <a name="best-practices-for-protecting-your-data"></a>Metodtips för att skydda dina data
-Det finns några rekommenderade metoder för säkerhetskopiering av storage-data regelbundet.
+Det finns några rekommenderade metoder för att säkerhetskopiera dina storage-data med jämna mellanrum.
 
-* Virtuella diskar – Använd den [Azure Backup-tjänsten](https://azure.microsoft.com/services/backup/) för säkerhetskopiering av VM-diskar som används av Azure virtuella datorer.
-* Block-blobbar – skapa en [ögonblicksbild](https://msdn.microsoft.com/library/azure/hh488361.aspx) för var och en blockblobb eller kopierar blobar till ett annat lagringskonto i en annan region med [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), eller [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
-* – Använder [AzCopy](storage-use-azcopy.md) att exportera informationen till ett annat lagringskonto i en annan region.
+* VM-diskar – Använd den [Azure Backup-tjänsten](https://azure.microsoft.com/services/backup/) för säkerhetskopiering av VM-diskar som används av virtuella datorer i Azure.
+* Blockblob-objekt – aktivera [mjuk borttagning](../blobs/storage-blob-soft-delete.md) att skydda mot på objektnivå borttagningar och skriver över eller kopierar blobar till ett annat lagringskonto i en annan region med [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), eller [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+* Använd tabeller – [AzCopy](storage-use-azcopy.md) att exportera data till ett annat lagringskonto i en annan region.
 * Filer – använda [AzCopy](storage-use-azcopy.md) eller [Azure PowerShell](storage-powershell-guide-full.md) att kopiera filer till ett annat lagringskonto i en annan region.
 
-Information om hur du skapar program som dra full nytta av funktionen RA-GRS checka ut [skapar hög tillgängliga program använder RA-GRS-lagring](../storage-designing-ha-apps-with-ragrs.md)
-
+Information om hur du skapar program som dra full nytta av funktionen för RA-GRS, Kolla in [utforma högtillgängliga program med hjälp av RA-GRS-lagring](../storage-designing-ha-apps-with-ragrs.md)

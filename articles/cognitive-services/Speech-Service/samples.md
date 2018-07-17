@@ -1,6 +1,6 @@
 ---
-title: Kognitiva Services tal SDK-kodexempel | Microsoft Docs
-description: Kodexempel för att använda tjänsten Microsoft Speech
+title: Cognitive Services tal SDK-exempelkoden | Microsoft Docs
+description: Kodexempel för att använda Microsoft Speech-tjänsten
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -10,25 +10,25 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d4b14d27f692272d29c5f2e3552ad386f3154cf2
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 59516f9ee1de0acb8d0ab66adfaae249b44de9c9
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35356281"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070781"
 ---
-# <a name="samples-for-the-cognitive-services-speech-sdk"></a>Exempel för kognitiva Services tal SDK
+# <a name="samples-for-the-cognitive-services-speech-sdk"></a>Exempel för Cognitive Services tal SDK
 
-Senaste uppsättning exempel, finns det [kognitiva Services tal SDK exempel GitHub-lagringsplatsen](https://aka.ms/csspeech/samples).
+Senaste uppsättning exempel för tal-SDK, finns det [Cognitive Services tal SDK exempel GitHub-lagringsplatsen](https://aka.ms/csspeech/samples).
 
-- [Hämta exempel för Android (endast för tal enheter SDK)](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
+Hämta ett exempel för Android SDK: N för tal enheter [här](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-Alla prover tillhandahålls under MIT-licensen.
+Alla exempel tillhandahålls under MIT-licensen.
 
-- [Registrera dig för tal enheter SDK](get-speech-devices-sdk.md)
+- [Registrera dig för tal Devices SDK](get-speech-devices-sdk.md)
 
 # <a name="next-steps"></a>Nästa steg
 
-* [Hämta din utvärderingsprenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
-* [Se hur du identifierar tal i C#](quickstart-csharp-windows.md)
+* [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
+* [Se hur du kan känna igen tal i C#](quickstart-csharp-dotnet-windows.md)
 

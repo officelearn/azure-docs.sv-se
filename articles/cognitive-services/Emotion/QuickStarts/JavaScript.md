@@ -1,6 +1,6 @@
 ---
-title: Känslo-API JavaScript Snabbstart | Microsoft Docs
-description: Hämta information och exempel på kod för att snabbt komma igång med Känslo-API med JavaScript i kognitiva Services.
+title: 'Känslo-API: et JavaScript-Snabbstart | Microsoft Docs'
+description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med Känslo-API med JavaScript i Cognitive Services.
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
@@ -9,34 +9,34 @@ ms.component: emotion-api
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 2578b0212f9b4a6483402074d7c9eff73e51ca6b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fb9cc2335582c4ec75ec45635e519346d65d7e08
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352401"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072100"
 ---
-# <a name="emotion-api-javascript-quick-start"></a>Känslo-API JavaScript Snabbstart
+# <a name="emotion-api-javascript-quick-start"></a>Känslo-API: et JavaScript-Snabbstart
 
 > [!IMPORTANT]
-> Förhandsgranskning av video API avslutas på 30 oktober 2017. Prova den nya [Video indexeraren API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) enkelt extrahera insikter från videor och förbättra innehållsidentifiering upplevelser, till exempel sökresultat med hjälp av tal, ytor, tecken och känslor. [Läs mer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Förhandsversionen av video API avslutas den 30 oktober 2017. Prova den nya [förhandsversionen av Video Indexer API](https://azure.microsoft.com/services/cognitive-services/video-indexer/) att enkelt lyfta ut kunskaper från videor och förbättra innehållsidentifiering, till exempel sökresultaten genom att identifiera talade ord, ansikten, tecken och känslor. [Läs mer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med den [Känslo-API känner igen metoden](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) med JavaScript för att identifiera emotikoner uttryckt genom en eller flera personer i en bild.
+Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med den [Känslo-API: et känner igen metoden](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) med JavaScript för att identifiera känslor uttryckt genom en eller flera personer i en bild.
 
 ## <a name="prerequisite"></a>Krav
-* Hämta din kostnadsfria prenumerationen nyckel [här](https://azure.microsoft.com/try/cognitive-services/), eller om du har en Azure-prenumeration skapa en resurs för Känslo-API och dit din prenumeration nyckel och en slutpunkt.
+* Få din kostnadsfria Prenumerationsnyckel [här](https://azure.microsoft.com/try/cognitive-services/), eller om du har en Azure-prenumeration skapar en Känslo-API-resurs och dit din Prenumerationsnyckel och slutpunkt.
 
-![Skapa resurs för Känslo-API](../Images/create-resource.png)
+![Skapa Känslo-API-resursen](../Images/create-resource.png)
 
-## <a name="recognize-emotions-javascript-example-request"></a>Identifiera emotikoner JavaScript Exempelbegäran
+## <a name="recognize-emotions-javascript-example-request"></a>Identifiera känslor JavaScript Exempelbegäran
 
-Kopiera följande och spara den till en fil som `test.html`. Ändra begäran `url` att använda den plats där du har köpt din prenumeration nycklar och Ersätt ”Ocp-Apim-prenumeration-Key”-värdet med giltig prenumeration-nyckel. Dessa finns i Azure-portalen i avsnitten översikt och nycklar för din Känslo-API-resurs respektive. 
+Kopiera följande och spara den till en fil som `test.html`. Ändra begäran `url` att använda den plats där du har fått din prenumerationsnycklar och Ersätt ”Ocp-Apim-Subscription-Key”-värdet med giltig prenumeration-nyckel. Dessa finns i Azure-portalen i avsnitten översikt och nycklar för din Känslo-API-resurs respektive. 
 
 ![API-slutpunkt](../Images/api-url.png)
 
-![API-nyckel för prenumeration](../Images/keys.png)
+![API-Prenumerationsnyckel](../Images/keys.png)
 
-och ändra begärandetexten till platsen för en bild som du vill använda. Att köra det här exemplet dra och släpp filen i webbläsaren.
+Ändra frågans brödtext till platsen för en avbildning som du vill använda. Att köra det här exemplet dra och släpp filen i webbläsaren.
 
 ```html
 <!DOCTYPE html>
@@ -105,10 +105,10 @@ och ändra begärandetexten till platsen för en bild som du vill använda. Att 
 </html>
 ```
 
-## <a name="recognize-emotions-sample-response"></a>Identifiera emotikoner Exempelsvar
-Lyckade anrop returnerar en matris av framsidan poster och deras associerade känslo poäng rangordnas efter ansikte rektangel storlek i fallande ordning. Ett tomt svar anger att ingen ytor upptäcktes. Känslo-posten innehåller följande fält:
-* faceRectangle - placering av ansikte i avbildningen.
-* resultat - Place poängen för varje yta i bilden. 
+## <a name="recognize-emotions-sample-response"></a>Identifiera känslor Exempelsvar
+Ett genomfört anrop returnerar en matris med ansikts-poster och deras associerade känslo-resultat, rankade efter ansikte rektangel storlek i fallande ordning. Ett tomt svar anger att ingen ansikten har identifierats. En känslo-post innehåller följande fält:
+* faceRectangle - placering av ansikte i bilden.
+* resultat – Känslo-resultaten för varje ansikte i bilden. 
 
 ```json
 application/json 

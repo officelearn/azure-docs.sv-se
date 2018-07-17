@@ -1,6 +1,6 @@
 ---
-title: Stöd för resurstyper via Azure Resource Health | Microsoft Docs
-description: Resurstyper som stöds via Azure Resource health
+title: Stöd för resurstyper genom Azure Resource Health | Microsoft Docs
+description: Stöds resurstyper genom Azure Resource health
 services: Resource health
 documentationcenter: ''
 author: BernardoAMunoz
@@ -14,129 +14,129 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 4e1f6cb8a383569b80386e090b15c59988510d0f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 633501b03a362fbd07e14e308e18488f03af5af5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112851"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069218"
 ---
-# <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Hälsa och resurstyper kontrollerar i Azure resurshälsa
-Nedan visas en fullständig lista över alla kontroller via resurshälsa av resurstyper.
+# <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resurstyper och hälsokontroller i Azure resource health
+Nedan visas en fullständig lista över alla kontroller som utförs genom resource health av resurstyper.
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Är servern igång?</li><li>Har servern slut på minne?</li><li>Servern startas?</li><li>Servern återställer?</li></ul>|
+|<ul><li>Är servern igång?</li><li>Har servern slut på minne?</li><li>Servern startas?</li><li>Återställs servern?</li></ul>|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Api Management-tjänsten är igång och körs?</li></ul>|
+|<ul><li>Api Management-tjänsten är igång och köra?</li></ul>|
 
 ## <a name="microsoftcacheredisredis"></a>Microsoft.CacheRedis/Redis
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Är alla cachenoderna igång?</li><li>Cachen når från inom datacentret?</li><li>Cachen har nått det maximala antalet anslutningar?</li><li> Cachen har förbrukat det tillgängliga minnet? </li><li>Cachen har uppstått ett stort antal sidfel?</li><li>Cacheminnet är hårt belastad?</li></ul>|
+|<ul><li>Är alla cachenoderna igång?</li><li>Cachen når från inom datacentret?</li><li>Cachen har nått det maximala antalet anslutningar?</li><li> Cachen har utförts dess tillgängligt minne? </li><li>Cachen upplever ett stort antal sidfel?</li><li>Är cachen vid hög belastning?</li></ul>|
 
 ## <a name="microsoftcdnprofile"></a>Microsoft.CDN/profile
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul> <li>Har någon av slutpunkterna stoppats, borttagna eller felkonfigurerad?</li><li>Är den kompletterande portalen tillgänglig för CDN konfigurationsåtgärder?</li><li>Finns det pågående leverans problem med CDN-slutpunkter?</li><li>Användare kan ändra konfigurationen av sina CDN-resurser?</li><li>Sprider konfigurationsändringar på den förväntade hastigheten?</li><li>Användarna kan hantera CDN-konfigurationen med Azure-portalen, PowerShell eller API: et?</li> </ul>|
+|<ul> <li>Är den kompletterande portalen för CDN konfigurationsåtgärder?</li><li>Finns det problem med kontinuerlig leverans med CDN-slutpunkter?</li><li>Användare kan ändra konfigurationen av sina CDN-resurser?</li><li>Är konfigurationsändringar sprider priset som förväntat?</li><li>Användarna kan hantera CDN-konfigurationen med hjälp av Azure portal, PowerShell eller API: et?</li> </ul>|
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.classiccompute/virtualmachines
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Är värdservern igång?</li><li>Värd-OS startar slutfördes?</li><li>Behållare för virtuell dator etablerats och aktiverades?</li><li>Det finns en nätverksanslutning mellan värden och storage-konto?</li><li>Start av gästoperativsystemet slutfördes?</li><li>Finns det pågående planerat underhåll?</li></ul>|
+|<ul><li>Är värdservern igång?</li><li>Har värd-OS startar slutförts?</li><li>Den virtuella behållaren etablerats och påslagen?</li><li>Det finns en nätverksanslutning mellan värden och storage-konto?</li><li>Start av gästoperativsystemet slutfördes?</li><li>Finns det pågående planerat underhåll?</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/Accounts
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Kontot når från inom datacentret?</li><li>Finns kognitiva Services Resursprovidern?</li><li>Är tjänsten kognitiva i rätt region?</li><li>Kan läsa åtgärder utföras på lagringskontot hålla resursmetadata?</li><li>Uppnått kvoten för API-anrop?</li><li>Har den API-anrop Läs-gränsen?</li></ul>|
+|<ul><li>Kontot når från inom datacentret?</li><li>Är Cognitive Services-Resursprovidern tillgängligt?</li><li>Är Cognitive Service tillgänglig i aktuell region?</li><li>Kan läsa åtgärder utföras på det lagringskonto som innehåller resursmetadata?</li><li>Har API-anrop kvot uppnåtts?</li><li>Har API-anrop Läs-gräns har nåtts?</li></ul>|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualmachines
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Servern är är värd för den här virtuella datorn in och kör?</li><li>Värd-OS startar slutfördes?</li><li>Behållare för virtuell dator etablerats och aktiverades?</li><li>Det finns en nätverksanslutning mellan värden och storage-konto?</li><li>Start av gästoperativsystemet slutfördes?</li><li>Finns det pågående planerat underhåll?</li></ul>|
+|<ul><li>Är servern som är värd för den här virtuella datorn upp och körs?</li><li>Har värd-OS startar slutförts?</li><li>Den virtuella behållaren etablerats och påslagen?</li><li>Det finns en nätverksanslutning mellan värden och storage-konto?</li><li>Start av gästoperativsystemet slutfördes?</li><li>Finns det pågående planerat underhåll?</li></ul>|
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/Accounts
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Har användare erfarna problem med att skicka eller visa en lista över sina Data Lake Analytics-jobb?</li><li>Är Data Lake Analytics-jobb gick inte att slutföra system fel?</li></ul>|
+|<ul><li>Har användarna råkat ut för problem att skicka eller lista över sina Data Lake Analytics-jobb?</li><li>Är Data Lake Analytics-jobb inte slutföra system fel?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/Accounts
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Användare har haft problem med att överföra data till Data Lake Store?</li><li>Användare har haft problem som hämtar data från Data Lake Store?</li></ul>|
+|<ul><li>Användare ha uppstått problem med att överföra data till Data Lake Store?</li><li>Användare ha uppstått problem som hämtar data från Data Lake Store?</li></ul>|
 
-## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/iothubs
+## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices /
 
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Är IoT-hubben igång?</li></ul>|
+|<ul><li>Är IoT hub igång?</li></ul>|
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Det har förekommit några databas eller en samling förfrågningar som inte hanteras på grund av en Azure DB som Cosmos-tjänsten inte finns?</li><li>Det har förekommit alla begäranden för dokument som inte hanteras på grund av en Azure DB som Cosmos-tjänsten inte finns?</li></ul>|
+|<ul><li>Det har förekommit några databasen eller samling förfrågningar som inte visas på grund av ett Azure Cosmos DB-tjänsten otillgänglighet?</li><li>Det har förekommit alla begäranden om dokument visas inte på grund av ett Azure Cosmos DB-tjänsten otillgänglighet?</li></ul>|
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Begäranden till nyckelvalvet misslyckas på grund av problem med Azure KeyVault-plattformen?</li><li>Begäranden till nyckelvalvet som har begränsats på grund av för många förfrågningar som kunden har gjort?</li></ul>|
+|<ul><li>Begäranden till nyckelvalvet misslyckas på grund av problem med Azure KeyVault-plattformen?</li><li>Är begäranden till nyckelvalvet begränsas på grund av för många förfrågningar som kunden har gjort?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Ansluts VPN-tunnel</li><li>Är anslutningen konfigurationskonflikterna?</li><li>I förväg delade nycklar konfigureras korrekt?</li><li>Nås lokala VPN-enhet?</li><li>Finns det avvikelser i säkerhetsprincipen IPSec/IKE?</li><li>Är S2S VPN-anslutningen korrekt etablerade eller i ett felaktigt tillstånd?</li><li>Är VNET-till-VNET-anslutningen korrekt etablerade eller i ett felaktigt tillstånd?</li></ul>|
+|<ul><li>Är den VPN-tunneln ansluten?</li><li>Är anslutningen konfigurationskonflikter?</li><li>I förväg delade nycklar konfigureras korrekt?</li><li>Nås den lokala VPN-enheten?</li><li>Finns det matchningsfel i säkerhetsprincipen IPSec/IKE?</li><li>Är S2S VPN-anslutningen korrekt etablerade eller i ett felaktigt tillstånd?</li><li>Är VNET-till-VNET-anslutningen korrekt etablerade eller i ett felaktigt tillstånd?</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Är den VPN-gatewayen kan nås från internet?</li><li>Är den VPN-Gateway i vänteläge?</li><li>Körs tjänsten VPN på gatewayen?</li></ul>|
+|<ul><li>Är den VPN-gatewayen kan nås från internet?</li><li>Är den VPN-Gateway i vänteläge?</li><li>Är den VPN-tjänsten som körs på gatewayen?</li></ul>|
 
 ## <a name="microsoftnotificationhubsnamespace"></a>Microsoft.NotificationHubs/namespace
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li> Kan runtime åtgärder som registrering, installation eller skicka utföras på namnområdet?</li></ul>|
+|<ul><li> Runtime-åtgärder som registrering, installation eller skicka utföras i namnområdet?</li></ul>|
 
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Är värd-OS igång?</li><li>Är workspaceCollection kan nås från utanför datacentret?</li><li>Är Resursprovidern PowerBI tillgängligt?</li><li>Är PowerBI Service i rätt region?</li></ul>|
+|<ul><li>Är värdens operativsystem igång?</li><li>Är workspaceCollection kan nås från utanför datacentret?</li><li>Finns Power BI-Resursprovidern?</li><li>Är PowerBI Service tillgänglig i aktuell region?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Kan diagnostik åtgärder utföras på klustret?</li></ul>|
+|<ul><li>Diagnostik åtgärder utföras i klustret?</li></ul>|
 
 ## <a name="microsoftsqlserverdatabase"></a>Microsoft.SQL/Server/database
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li> Har det inloggning på databasen?</li></ul>|
+|<ul><li> Har det varit inloggning på databasen?</li></ul>|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Begäranden om att läsa data från lagringskontot misslyckas på grund av problem med Azure Storage-plattformen?</li><li>Begäranden att skriva data till lagringskontot misslyckas på grund av problem med Azure Storage-plattformen?</li><li>Är lagringsklustret där lagringskontot finns tillgängligt?</li></ul>|
+|<ul><li>Begäranden om att läsa data från Storage-kontot misslyckas på grund av problem med Azure Storage-plattformen?</li><li>Begäranden om att skriva data till lagringskontot misslyckas på grund av problem med Azure Storage-plattformen?</li><li>Är lagringsklustret där lagringskontot finns inte tillgänglig?</li></ul>|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Är alla värdar där jobbet körs in och kör?</li><li>Inte jobbet starta?</li><li>Finns det pågående runtime uppgraderingar?</li><li>Jobb i ett förväntat tillstånd (t ex igång eller stoppad av kund)?</li><li>Jobbet uppstod ut av minne undantag?</li><li>Finns det pågående schemalagda beräkning uppdateringar?</li><li>Finns Körhanteraren (plan för åtkomstkontroll)?</li></ul>|
+|<ul><li>Är alla värdar där jobbet körs upp och köra?</li><li>Var jobbet kunde inte starta?</li><li>Finns det pågående körning uppgraderingar?</li><li>Är en uppgift i ett förväntat tillstånd (till exempel igång eller stoppad av kunden)?</li><li>Jobbet påträffade ut av minne undantag?</li><li>Finns det pågående schemalagda beräkning uppdateringar?</li><li>Finns Körhanteraren (kontrollplan)?</li></ul>|
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.web/serverFarms
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Är värdservern igång?</li><li>Körs Internet Information Services</li><li>Körs belastningsutjämnaren?</li><li>Kan den Apptjänstplan nås från inom datacentret?</li><li>Storage-konto som är värd för innehållet för serverFarm tillgängliga platser?</li></ul>|
+|<ul><li>Är värdservern igång?</li><li>Körs Internet Information Services?</li><li>Belastningsutjämnaren kör?</li><li>App Service-planen når från inom datacentret?</li><li>Storage-konto som är värd för webbplatser innehållet för serverklustret tillgängliga rubrikrad?</li></ul>|
 
 ## <a name="microsoftwebsites"></a>Microsoft.web/sites
-|Kontroller som utförs|
+|Utförda kontroller|
 |---|
-|<ul><li>Är värdservern igång?</li><li>Internet Information server kör?</li><li>Körs belastningsutjämnaren?</li><li>Webbprogrammet når från inom datacentret?</li><li>Storage-konto som är värd för webbplatsens innehåll tillgängligt?</li></ul>|
+|<ul><li>Är värdservern igång?</li><li>Internet Information server kör?</li><li>Belastningsutjämnaren kör?</li><li>Kan nås Webbappen från inom datacentret?</li><li>Storage-konto som är värd för webbplatsens innehåll tillgängligt?</li></ul>|
 
 # <a name="next-steps"></a>Nästa steg
--  Se [introduktion till Azure Service hälsoinstrumentpanel](service-health-overview.md) och [introduktion till Azure Resource Health](resource-health-overview.md) vill veta mer om dem. 
+-  Se [introduktion till Azure Service Health-instrumentpanelen](service-health-overview.md) och [introduktion till Azure Resource Health](resource-health-overview.md) vill veta mer om dem. 
 -  [Vanliga frågor och svar om Azure Resource Health](resource-health-faq.md)
-- Ställa in aviseringar så meddelas du om hälsotillstånd. Mer information finns i [konfigurera aviseringar för hälsotillstånd händelser](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+- Ställa in aviseringar så att du blir informerad om problem med hälsotillstånd. Mer information finns i [konfigurera aviseringar för service health-händelser](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 

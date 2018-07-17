@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 55b083ac5384e749098338d2f3b7b24bfe16fe8f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fd13dc94e0199aac04ae86aaf003ea9a70fa50d5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696573"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070563"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure Blob storage och Visual Studio-anslutna tjänster (ASP.NET)
 
@@ -87,7 +87,7 @@ Följande steg skapar du en metod för att ansluta till lagringskontot med hjäl
 > [!NOTE]
 > Även om *test blobbehållare* inte finns ännu, den här koden skapar en referens till den. Detta är så att du kan skapa behållaren med den `CreateIfNotExists` metoden som visas i nästa steg.
 
-## <a name="create-a-blob-container"></a>Skapa en blobbehållare
+## <a name="create-a-blob-container"></a>Skapa en blobcontainer
 
 Följande steg illustrerar hur du skapar en blob-behållare:
 
@@ -135,11 +135,11 @@ Följande steg illustrerar hur du skapar en blob-behållare:
 
 1. I **Solution Explorer**, högerklicka på den **vyer** mapp.
 
-2. På snabbmenyn väljer **Lägg till** > **ny mapp**. Namnge den nya mappen *Blobar*. 
+1. Om det inte finns en **Blobar** mapp, skapa en. På snabbmenyn väljer **Lägg till** > **ny mapp**. Namnge den nya mappen *Blobar*. 
  
 1. I **Solution Explorer**, expandera den **vyer** mappen och högerklicka på **Blobar**.
 
-4. På snabbmenyn väljer **Lägg till** > **visa**.
+1. På snabbmenyn väljer **Lägg till** > **visa**.
 
 1. I den **Lägg till vy** dialogrutan anger **CreateBlobContainer** för namn och välj **Lägg till**.
 

@@ -1,47 +1,48 @@
 ---
-title: Snabbstart för tal-SDK för C++- och Linux | Microsoft Docs
+title: 'Snabbstart: Känna igen tal i C++ på Linux med hjälp av Cognitive Services tal SDK | Microsoft Docs'
 titleSuffix: Microsoft Cognitive Services
-description: Hämta information och exempel på kod för att snabbt komma igång med tal-SDK med Linux- och C++ i kognitiva Services.
+description: Lär dig att känna igen tal i C++ på Linux med hjälp av Cognitive Services tal SDK
 services: cognitive-services
 author: wolfma61
 manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: e5ea74f92eb91ff89f013a4ee9ef7cbe0f001db0
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 2c919040233226818505dbafc260d56d4d0e3c9e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111158"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070740"
 ---
-# <a name="quickstart-for-c-and-linux"></a>Snabbstart för C++- och Linux
+# <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C++ i Linux med hjälp av tal-SDK
 
-Den aktuella versionen av kognitiva Services tal SDK är `0.4.0`.
-
-Kognitiva Services tal SDK för Linux är tillgängligt för skapande av 64-bitars och 32-bitars program. Filerna som krävs kan hämtas som tar-filen från https://aka.ms/csspeech/linuxbinary.
-
-> [!NOTE]
-> Om du letar efter en Snabbstart för C++ och Windows, gå [här](quickstart-cpp-windows.md).
-> Om du letar efter en Snabbstart för C# och Windows, gå [här](quickstart-csharp-windows.md).
-
-[!include[Get a Subscription Key](includes/get-subscription-key.md)]
-
-> [!NOTE]
-> Dessa instruktioner förutsätter att du kör på Ubuntu 16.04 på en dator (x86 eller x64).
-> På en annan Ubuntu-version, eller en annan Linux-distributionsplats behöver du anpassa de nödvändiga stegen.
+I den här artikeln lär du dig att skapa ett C++-konsolprogram i Linux (Ubuntu 16.04) med hjälp av Cognitive Services tal SDK för att transkribera tal till text.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-[!include[Ubuntu Prerequisites](includes/ubuntu1604-prerequisites.md)]
+* En prenumerationsnyckel för Speech-tjänsten. Se [prova speech-tjänsten utan kostnad](get-started.md).
+* En Ubuntu 16.04 dator med en fungerande mikrofon.
+* Om du vill installera kör paket som behövs för att skapa och köra det här exemplet du följande:
 
-## <a name="getting-the-binary-package"></a>Hämta binära paketet
+  ```sh
+  sudo apt-get update
+  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+  ```
+
+## <a name="get-the-speech-sdk"></a>Hämta tal SDK
 
 [!include[License Notice](includes/license-notice.md)]
 
-1. Välj en katalog (absolut sökväg) där du vill placera tal SDK binärfiler och rubriker.
+Den aktuella versionen av Cognitive Services tal SDK är `0.5.0`.
+
+Cognitive Services tal SDK för Linux är tillgänglig för att bygga för 64-bitars och 32-bitars program.
+De nödvändiga filerna kan hämtas som tar-filen från https://aka.ms/csspeech/linuxbinary.
+Hämta och installera SDK: N på följande sätt:
+
+1. Välj en katalog (absolut sökväg) där du vill placera tal SDK-binärfilerna och rubriker.
    Välj till exempel sökvägen `speechsdk` under arbetskatalogen:
 
    ```sh
@@ -54,84 +55,82 @@ Kognitiva Services tal SDK för Linux är tillgängligt för skapande av 64-bita
    mkdir -p "$SPEECHSDK_ROOT"
    ```
 
-1. Ladda ned och extrahera den `.tar.gz` Arkiv med binärfilerna för tal-SDK:
+1. Ladda ned och extrahera den `.tar.gz` Arkiv med tal SDK-binärfilerna:
 
    ```sh
    wget -O SpeechSDK-Linux.tar.gz https://aka.ms/csspeech/linuxbinary
    tar --strip 1 -xzf SpeechSDK-Linux.tar.gz -C "$SPEECHSDK_ROOT"
    ```
 
-1. Validera innehållet i den översta katalogen i extraherade paketet:
+1. Validera innehållet i katalogen på den högsta nivån av extraherade paketet:
 
    ```sh
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   Den ska visa ett meddelande från tredje part och licensfiler, samt en `include` katalogen för rubriker och en `lib` katalogen för bibliotek.
+   Du bör se meddelande från tredje part och licensfiler, såväl som `include` katalog för rubriker och en `lib` katalogen för bibliotek.
 
    [!include[Linux Binary Archive Content](includes/linuxbinary-content.md)]
 
-## <a name="sample-code"></a>Exempelkod
+## <a name="add-the-sample-code"></a>Lägg till exempelkoden
 
-Följande kod identifierar engelska tal från din mikrofon.
-Placera den i en fil med namnet `quickstart-linux.cpp`:
+1. Lägg till följande kod i en fil med namnet `helloworld.cpp`:
 
-[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Linux/quickstart-linux/quickstart-linux.cpp#code)]
+  [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
 
-> [!IMPORTANT]
-> Ersätt nyckeln prenumerationen med det som du har köpt. <br>
-> Ersätt den [region](regions.md) med den som är associerade med prenumerationen, till exempel ersätta med `westus` för den kostnadsfria utvärderingsversionen.
+1. Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel.
+
+1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerade med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
 ## <a name="building"></a>Skapar
 
 > [!NOTE]
-> Se till att kopiera och klistra in build-kommandona nedan som en _enskild rad_.
+> Se till att kopiera och klistra in build-kommandot nedan som en _enskild rad_.
 
-* Kör följande kommando för att skapa programmet på en x64 datorn:
-
-  ```sh
-  g++ quickstart-linux.cpp -o quickstart-linux -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
-  ```
-
-* Kör följande kommando för att skapa programmet på en x86 datorn:
+* På en **x64** dator, kör följande kommando för att skapa programmet:
 
   ```sh
-  g++ quickstart-linux.cpp -o quickstart-linux -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
   ```
 
-## <a name="running"></a>Körs
-
-Om du vill köra programmet, behöver du konfigurera den inläsaren bibliotekssökväg peka tal SDK-biblioteket.
-
-* På en x64 dator som kör:
+* På en **x86** dator, kör följande kommando för att skapa programmet:
 
   ```sh
-  export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x64"
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
   ```
 
-* På en x86 dator som kör:
+## <a name="run-the-sample"></a>Kör exemplet
 
-  ```sh
-  export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
-  ```
+1. Konfigurera konfigurera inläsarens bibliotekssökväg så att den pekar till tal SDK-biblioteket.
 
-Kör programmet på följande sätt:
+   * På en **x64** dator, kör:
 
-```sh
-./quickstart-linux
-```
+     ```sh
+     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x64"
+     ```
 
-Om allt går bra bör du se utdata som liknar detta:
+   * På en **x86** dator, kör:
 
-```text
-Say something...
-We recognized: What's the weather
-```
+     ```sh
+     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
+     ```
 
-## <a name="downloading-the-sample"></a>Hämta exemplet
+1. Kör programmet på följande sätt:
 
-Senaste uppsättning exempel, finns det [kognitiva Services tal SDK exempel GitHub-lagringsplatsen](https://aka.ms/csspeech/samples).
+   ```sh
+   ./helloworld
+   ```
+
+1. Du bör se utdata som liknar detta:
+
+   ```text
+   Say something...
+   We recognized: What's the weather
+   ```
+
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Leta efter det här exemplet i den `quickstart/cpp-linux` mapp.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Besök den [-exempel](samples.md) ytterligare exempel.
+* Gå till den [sidan med kodexempel](samples.md) ytterligare exempel.

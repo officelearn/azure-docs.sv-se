@@ -1,6 +1,6 @@
 ---
-title: Kognitiva Services tal SDK-dokumentationen | Microsoft Docs
-description: Viktig information - ändringar i de senaste versionerna
+title: Cognitive Services tal SDK-dokumentation | Microsoft Docs
+description: Viktig information – vad som har ändrats i de senaste versionerna
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
@@ -8,53 +8,83 @@ manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 0b1559d288380cf3d0c180a225278cc13d22a5d0
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 71a5edfbe388f2d4bfb48255b901cb0037665252
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35356302"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069438"
 ---
 # <a name="release-notes"></a>Viktig information
 
-## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Kognitiva Services tal SDK 0.4.0: 2018-juniversionen för
+## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Cognitive Services tal SDK 0.5.0: 2018-juliversionen
 
-**Funktionsändringar**
+**Nya funktioner**
+
+* Stöd för Android-plattformen (API-23: Android 6.0 Marshmallow eller senare).
+  Kolla in den [Android Snabbstart](quickstart-java-android.md).
+* Stöd för .NET Standard 2.0 på Windows.
+  Kolla in den [Snabbstart för .NET Core](quickstart-csharp-dotnetcore-windows.md).
+* Experimentella: Stöd för UWP på Windows (version 1709 eller senare)
+  * Kolla in våra [UWP snabbstarten](quickstart-csharp-uwp.md).
+  * Obs: UWP-appar som skapats med SDK: N för tal inte ännu skickar Windows App Certification Kit (WACK).
+* Stöd för tidskrävande erkännande med automatisk återanslutning.
+
+**Funktionella ändringar**
+
+* `StartContinuousRecognitionAsync()` har stöd för tidskrävande taligenkänning
+* Att igenkänningsresultatet innehåller fler fält: förskjutning från ljud början och varaktigheten (både i ticken) för den tolkade texten ytterligare värden som representerar igenkänning av status, t.ex. `InitialSilenceTimeout`, `InitialBabbleTimeout`.
+* Stöd AuthorizationToken för att skapa factory-instanser.
+
+**Större ändringar**
+
+* Igenkänning av händelser: NoMatch händelsetyp sammanfogas i felhändelsen.
+* SpeechOutputFormat i C# har bytt namn till OutputFormat att hålla justerade med C++.
+
+**Felkorrigeringar**
+
+* Fast felaktig returvärden i resultatet när `RecognizeAsync()` når sin tidsgräns.
+* Media foundation-bibliotek på Windows-beroendet tas bort. SDK: N använder Core ljud API: er.
+* Dokumentationskorrigering: lagt till en region sida för att beskriva vad är regionerna som stöds.
+
+## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services tal SDK 0.4.0: 2018-juniversionen för
+
+**Funktionella ändringar**
 
 - AudioInputStream
 
-  En identifierare kan nu använda en dataström som ljud källa. Detaljerad information finns i den relaterade [instruktioner](how-to-use-audio-input-streams.md).
+  En identifierare kan nu använda en dataström som ljudkälla. Detaljerad information finns i de relaterade [instruktionsguide](how-to-use-audio-input-streams.md).
 
 - Detaljerad utdataformat
 
-  När du skapar en `SpeechRecognizer`, kan du begära `Detailed` eller `Simple` utdataformat. Den `DetailedSpeechRecognitionResult` innehåller ett förtroende poäng, tolkade texten, raw lexikala formuläret, normaliserade form och normaliserade form med maskerade svordomar.
+  När du skapar en `SpeechRecognizer`, kan du begära `Detailed` eller `Simple` utdataformat. Den `DetailedSpeechRecognitionResult` innehåller en förtroendepoäng, tolkade texten, råa lexikal format, normaliserade form och normaliserade formuläret med maskerade svordomar.
 
-**Att ändra**
+**Icke-bakåtkompatibel ändring**
 
 - Ändra till `SpeechRecognitionResult.Text` från `SpeechRecognitionResult.RecognizedText` i C#.
 
 **Felkorrigeringar**
 
-- Åtgärda ett återanrop för möjliga problem i USP lager vid avstängningen.
+- Åtgärda ett problem med möjliga återanrop i USP layer under avstängning.
 
 - Om en identifierare används en inkommande ljudfil, den håller att filreferens som är längre än nödvändigt.
 
-- Ta bort flera deadlocks mellan meddelandet pump och tolken.
+- Ta bort flera låsningar mellan meddelande pump och Igenkännande.
 
-- Startar en `NoMatch` när tidsgränsen har nåtts för svaret från tjänsten.
+- Startar en `NoMatch` uppnås när tidsgränsen har nåtts för svaret från tjänsten.
 
-- Media foundation-bibliotek i Windows är lästes in. Det här biblioteket är bara krävs för mikrofon indata.
+- Media foundation-bibliotek på Windows är lästes in. Det här biblioteket är endast krävs för mikrofon indata.
 
-- Överför hastighet för ljuddata är begränsad till två gånger det med ursprungliga ljud hastigheten.
+- Ladda upp hastigheten för ljuddata är begränsad till om två gånger den ursprungliga ljud hastigheten.
 
-- I Windows, C# .NET-sammansättningar är nu starkt krypterat namn.
+- På Windows, C# .NET-sammansättningar är nu starkt krypterat namn.
 
-- Dokumentationen korrigering: `Region` är nödvändig information för att skapa en identifierare.
+- Dokumentationskorrigering: `Region` är nödvändig information för att skapa en identifierare.
 
-Flera exempel har lagts till och uppdateras kontinuerligt. Senaste uppsättning exempel, finns det [tal SDK exempel GitHub-lagringsplatsen](https://aka.ms/csspeech/samples).
+Fler exempel har lagts till och uppdateras kontinuerligt. Den senaste uppsättningen exempel, finns det [tal SDK exempel GitHub-lagringsplatsen](https://aka.ms/csspeech/samples).
 
-## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Kognitiva Services tal SDK 0.2.12733: 2018 kan versionen
+## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Cognitive Services tal SDK 0.2.12733: maj 2018 versionen
 
-Första offentliga förhandsversionen av kognitiva Services tal SDK.
+Den första offentliga förhandsversionen av Cognitive Services tal SDK.

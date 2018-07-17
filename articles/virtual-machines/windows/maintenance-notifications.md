@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 32d61367790a2b0b43e92c427a366f58e3c12ae9
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 609a688ba2915e57916a6e5e9ea0cbdc66ccdd6a
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888991"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069564"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Hantera meddelanden planerat underhåll för Windows-datorer
 
-Azure utför regelbundet uppdateringar för att förbättra tillförlitligheten, prestanda och säkerheten för infrastrukturen för värd för virtuella datorer. Uppdateringarna är ändringar som uppdatering värdmiljön eller uppgradera och inaktivering av maskinvara. En majoritet av dessa uppdateringar genomförs utan någon inverkan på de virtuella datorerna. Men finns det fall där uppdateringar påverka:
+Azure utför med jämna mellanrum uppdateringar för att förbättra värdinfrastrukturens tillförlitlighet, prestanda och säkerhet för virtuella datorer. Uppdateringarna är ändringar som uppdatering värdmiljön eller uppgradera och inaktivering av maskinvara. En majoritet av dessa uppdateringar genomförs utan någon inverkan på de virtuella datorerna. Men finns det fall där uppdateringar påverka:
 
 - Om underhållet inte kräver en omstart, använder Azure migrering på plats för att pausa den virtuella datorn när värden har uppdaterats. Dessa icke rebootful underhållsåtgärder är tillämpad feldomän av feldomän och förloppet stoppas om någon varning hälsotillstånd signaler tas emot. 
 
@@ -187,7 +187,7 @@ Mer information om hög tillgänglighet finns i [regioner och tillgänglighet f�
 
 **F: Vad är händer med Virtual Machine Scale Sets?**
 
-**S:** planerat underhåll är nu tillgängligt för VM-skalningsuppsättningar. Instruktioner för hur du startar självbetjäningsunderhållet ”så här till -> Hantera -> planerat underhåll” avsnittet i VM scale set docs.
+**S:** planerat underhåll är nu tillgänglig för Virtual Machine Scale Sets. Instruktioner för hur du startar självbetjäningsunderhållet [planerat underhåll för VMSS](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) dokumentet.
 
 **F: Vad är händer med Cloud Services (Web/Worker-roll) och Service Fabric?**
 

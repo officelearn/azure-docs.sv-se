@@ -143,9 +143,9 @@
 ## Hantera lösenord
 ### [Lösenordsöversikt](authentication/active-directory-passwords-overview.md)
 ### Användardokument
-#### [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md)
+#### [Återställ eller ändra ditt lösenord](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Metodtips för lösenord](active-directory-secure-passwords.md)
-#### [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md)
+#### [Registrera för återställning av lösenord för självbetjäning](user-help/active-directory-passwords-reset-register.md)
 ### [SSPR – så här fungerar det](authentication/concept-sspr-howitworks.md)
 ### [SSPR-distributionsguide](authentication/howto-sspr-deployment.md)
 ### [SSPR och Windows 10](authentication/tutorial-sspr-windows.md)
@@ -174,8 +174,8 @@
 ### [Planera Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Vanliga frågor och svar](device-management-faq.md)
 ### Uppgifter
-#### [Konfigurera Azure AD-registrerade Windows 10-enheter](device-management-azuread-registered-devices-windows10-setup.md)
-#### [Konfigurera Azure AD-anslutna enheter](device-management-azuread-joined-devices-setup.md)
+#### [Konfigurera Azure AD-registrerade Windows 10-enheter](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+#### [Konfigurera Azure AD-anslutna enheter](user-help/device-management-azuread-joined-devices-setup.md)
 #### [Konfigurera Azure AD-anslutna hybrid-enheter](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Distribuera lokalt](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD-anslutning under första körningen av Windows 10](device-management-azuread-joined-devices-frx.md)

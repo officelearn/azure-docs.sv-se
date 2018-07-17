@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: ee6e3adc3300178164b83ee1f8dc2ab307eec45b
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 333bb4074ac741e854ff56c7c397b0e3be247f1b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081220"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857158"
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introduktion till Azure Cosmos DB: Graph API
 
@@ -99,7 +99,7 @@ Azure Cosmos DB erbjuder följande differentierade funktioner jämfört med andr
 
  Välj mellan fem väldefinierade konsekvensnivåer för bästa möjliga balans mellan konsekvens och prestanda. Azure Cosmos DB erbjuder fem olika konsekvensnivåer för frågor och läsåtgärder: stark, bunden utgång, session, enhetligt prefix och slutlig. Med de här detaljerade, väldefinierade konsekvensnivåerna kan du själv avgöra balansen mellan konsekvens, tillgänglighet och svarstid. Läs mer i [Justerbara datakonsekvensnivåer i Azure Cosmos DB](consistency-levels.md).
 
-Azure Cosmos DB kan också använda flera modeller som dokument och diagram i samma behållare/databaser. Du kan använda en dokumentsamling för att lagra diagramdata sida vid sida med dokument. Du kan använda både SQL-frågor via JSON och Gremlin-frågor för att fråga efter samma data som ett diagram.
+Azure Cosmos DB kan också använda flera modeller som dokument och diagram i samma behållare/databaser. Du kan använda en dokumentcontainer och lagra diagramdata sida vid sida med dokument. Du kan använda både SQL-frågor via JSON och Gremlin-frågor för att fråga efter samma data som ett diagram.
 
 ## <a name="get-started"></a>Kom igång
 Du kan använda Azure-kommandoradsgränssnittet (CLI), Azure PowerShell eller Azure-portalen med stöd för Graph API för att skapa Azure Cosmos DB-konton. När du har skapat konton, erbjuder Azure-portalen en tjänstslutpunkt som `https://<youraccount>.gremlin.cosmosdb.azure.com`, vilket erbjuder en WebSocket-klientdel för Gremlin. Du kan konfigurera dina TinkerPop-kompatibla verktyg som [Gremlin konsolen](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), för att ansluta till den här slutpunkten och skapa program i Java, Node.js och Gremlin-klientdrivrutiner.

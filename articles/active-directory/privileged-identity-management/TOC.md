@@ -42,9 +42,9 @@
 ### [Starta en åtkomstgranskning](pim-resource-roles-start-access-review.md)
 ### [Slutför en åtkomstgranskning](pim-resource-roles-complete-access-review.md)
 
-# Vanliga frågor och svar
-## PIM för resursroller
-### [Tilldelningstyper](pim-resource-roles-eligible-visibility.md)
+# Begrepp
+## [Tilldelningstyper](pim-resource-roles-eligible-visibility.md)
+## [E-postmeddelanden](pim-email-notifications.md)
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=active-directory)

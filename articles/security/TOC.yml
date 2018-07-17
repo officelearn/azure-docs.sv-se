@@ -218,11 +218,10 @@
           href: ./blueprints/uknhs-iaaswa-overview.md
         - name: PaaS-webbprogram
           href: ./blueprints/uknhs-paaswa-overview.md
-    - name: UK-OFFICIAL
-      href: ./blueprints/uk-official-three-tier-applications-overview.md
+    - name: OFFICIELLT FÖR STORBRITANNIEN
       items:
-        - name: Översikt över principer
-          href: ./blueprints/uk-official-three-tier-applications-principles-overview.md
+        - name: IaaS-webbprogram
+          href: ./blueprints/ukofficial-iaaswa-overview.md
     - name: HIPAA/HITRUST – hälsodata och AI
       href: ./blueprints/azure-health.md
 - name: White paper-faktablad

@@ -1,6 +1,6 @@
 ---
-title: Hantera Azure-stacken lagringskapacitet | Microsoft Docs
-description: Övervaka och hantera tillgängligt lagringsutrymme för Azure-stacken.
+title: Hantera kapacitet i Azure Stack | Microsoft Docs
+description: Övervaka och hantera tillgängligt lagringsutrymme för Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,126 +15,126 @@ ms.topic: get-started-article
 ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: da6bb00d7538c1a26e1ed4be29d3c882aa378e9e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: cdfdaf9195f14e3cbe3db2a4507bd91a3133a26e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077419"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071393"
 ---
-# <a name="manage-storage-capacity-for-azure-stack"></a>Hantera lagringskapacitet för Azure-stacken
+# <a name="manage-storage-capacity-for-azure-stack"></a>Hantera lagringskapacitet för Azure Stack
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Informationen i den här artikeln hjälper Azure Stack molnet operatorn övervakaren och hantera lagringskapaciteten för deras Azure Stack-distribution. Azure-stacken lagringsinfrastruktur allokerar en delmängd av lagringskapacitet på Azure Stack-distribution som ska användas för **lagringstjänster**. Storage-tjänster lagra data för en klient på resurser på volymer som motsvarar noderna i distributionen.
+Informationen i den här artikeln hjälper operatorn Övervakare för Azure Stack-molnet och hantera lagringskapaciteten för deras Azure Stack-distribution. Azure Stack-lagringsinfrastruktur allokerar en delmängd av den totala lagringskapaciteten på Azure Stack-distributioner som ska användas för **lagringstjänster**. Lagringstjänsterna lagra data för en klient på resurser på volymer som motsvarar noderna i distributionen.
 
-Du har en begränsad mängd lagringsutrymme för att arbeta med som en moln-operator. Mängden lagringsutrymme som definieras av du implementerar lösningen. Din lösning tillhandahålls av leverantören OEM när du använder en lösning med flera noder eller av den maskinvara som du installerar Azure Stack Development Kit.
+Som en cloud-operator har du en begränsad mängd lagringsutrymme du arbetar med. Mängden lagringsutrymme som definieras av du implementerar lösningen. Din lösning tillhandahålls genom din OEM-leverantör när du använder en lösning för flera noder eller genom att maskinvaran som du installerar Azure Stack Development Kit.
 
-Eftersom Azure stacken inte stöder expandering av lagringskapacitet, är det viktigt att [övervakaren](#monitor-shares) lagringsutrymme för att säkerställa effektiv operations bevaras.  
+Eftersom Azure Stack inte har stöd för utökning av lagringskapacitet, är det viktigt att [övervakaren](#monitor-shares) det tillgängliga lagringsutrymmet till att säkerställa effektiv drift bevaras.  
 
-När en resurs återstående ledigt kapacitet blir begränsad, planerar att [hantera utrymmet](#manage-available-space) att förhindra att resurserna kapaciteten tar slut.
+När den återstående kapaciteten för en resurs blir begränsad, planerar att [hantera utrymmet](#manage-available-space) att förhindra att resurserna körs utanför kapacitet.
 
 Alternativ för att hantera kapacitet är:
 - Frigöra kapacitet
 - Migrera en behållare
 
-När en resurs är 100% används, lagring-tjänsten inte längre funktioner för resursen. Kontakta Microsoft support om du behöver hjälp med att återställa åtgärder för resursen.
+När en resurs är 100% optimeras lagringen tjänsten inte längre funktioner för resursen. Kontakta Microsoft support om du vill ha hjälp med att återställa åtgärder för resursen.
 
 ## <a name="understand-volumes-and-shares-containers-and-disks"></a>Förstå volymer och resurser, behållare och diskar
 ### <a name="volumes-and-shares"></a>Volymer och resurser
-Den *lagringstjänsten* partitionerar tillgängligt lagringsutrymme i separata och lika volymer som har allokerats för att lagra klientdata. Antalet volymer är lika med antalet noder i Azure Stack-distributionen:
+Den *lagringstjänst* partitionerar tillgängligt lagringsutrymme i separat och lika med volymer som har allokerats för att lagra data för klientorganisationen. Antalet volymer är lika med antalet noder i Azure Stack-distributionen:
 
-- Det finns fyra volymer på en distribution med fyra noder. Varje volym har en enda resurs. På en distribution med flera noder minskas inte antalet resurser som en nod har tagits bort eller inte fungerar korrekt.
-- Om du använder Azure Stack Developer Kit, finns det en enda volym med en enda resurs.
+- Det finns fyra volymer på en distribution med fyra noder. Varje volym har en enda resurs. På en distribution med flera noder minskas antal resurser inte om en nod har tagits bort eller inte fungerar korrekt.
+- Om du använder Azure Stack Development Kit, finns det en enskild volym med en enda resurs.
 
-Eftersom storage service-resurser för exklusiv användning av storage-tjänster måste du inte direkt ändra, lägga till eller ta bort filer för resurserna. Storage-tjänster bör arbeta med filer som lagras i dessa volymer.
+Eftersom storage service-resurser är för exklusiv användning av storage-tjänster, måste du inte direkt ändra, lägga till eller ta bort filer på filresurser. Storage-tjänster bör arbeta med filer som lagras i dessa volymer.
 
-Resurser på volymer som innehåller klientdata. Klientdata innehåller sidblobar, blockblobbar, Lägg till blobbar, tabeller, köer, databaser och relaterade metadata lagras. Eftersom lagringsobjekt (blobbar osv) finns individuellt inom en enskild resurs, får inte den maximala storleken för varje objekt överskrida storleken på en resurs. Den maximala storleken för nya objekt är beroende av den kapacitet som finns kvar på en resurs som outnyttjat utrymme när det nya objektet skapas.
+Resurser på volymer håller klientdata. Klientdata innehåller sidblobar, blockblobbar, lägga till blobbar, tabeller, köer, databaser och relaterade metadatalagring. Eftersom storage-objekt (BLOB-objekt, osv.) finns individuellt inom en enda resurs, får inte den maximala storleken för varje objekt överskrida storleken på en resurs. Den maximala storleken för nya objekt är beroende av den kapacitet som finns kvar i en resurs som outnyttjat utrymme när det nya objektet skapas.
 
-När en resurs börjar ta slut på ledigt utrymme och åtgärder för att [Frigör](#reclaim-capacity) utrymme inte lyckades eller tillgängliga, operatorn Azure Stack molnet kan [migrera](#migrate-a-container-between) blob-behållare från en resurs till en annan.
+När en resurs har för lite ledigt utrymme och åtgärder för att [frigöra](#reclaim-capacity) utrymme är inte lyckades eller tillgänglig, operatorn Azure Stack-molnet kan [migrera](#migrate-a-container-between) blob-behållare från en resurs till en annan.
 
-- Mer information om behållare och blobbar finns [Blob storage](azure-stack-key-features.md#blob-storage) i nyckeln funktioner och koncept i Azure-stacken.
-- Information om hur klienten användare arbeta med blob storage i Azure-stacken finns [Azure Stack lagringstjänster](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
+- Mer information om behållare och blobbar finns i [Blob-lagring](azure-stack-key-features.md#blob-storage) i nyckel-funktioner och koncept i Azure Stack.
+- Information om hur klientanvändare fungerar med blob storage i Azure Stack finns i [Azure Stack-lagringstjänster](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
 
-### <a name="containers"></a>Behållare
-Klient användare skapa behållare som sedan används för att lagra blob-data. När en användare väljer i vilken behållare att placera BLOB storage-tjänsten använder en algoritm att ta reda på vilken volym att placera behållaren. Algoritmen väljer vanligtvis volymen med mest tillgängligt utrymme.  
+### <a name="containers"></a>Containrar
+Klientanvändare skapa behållare som sedan används för att lagra blob-data. När användaren väljer i vilken behållare att placera BLOB storage-tjänsten använder en algoritm för att fastställa på vilken volym att placera behållaren. Algoritmen väljer vanligtvis volymen med mest tillgängligt utrymme.  
 
-När en blob placeras i en behållare, kan att blob växa till mer utrymme. När du lägger till nya blobbar och befintliga växer blobbar, det tillgängliga utrymmet på volymen som innehåller behållaren krymper.  
+När en blob placeras i en behållare, kan som växa mer utrymme. När du lägger till nya blobbar och befintliga växer blobar, det tillgängliga utrymmet på volymen som innehåller den behållaren krymper.  
 
-Behållare är inte begränsade till en enda resurs. När den kombinerade blob-data i en behållare växer Använd 80% eller mer av det tillgängliga utrymmet behållaren anges *spill* läge. I spill läge tilldelas alla nya blobbar som skapas i behållaren till en annan volym som har tillräckligt med utrymme. Med tiden kan en behållare i spill läge ha blobbar som är fördelade på flera volymer.
+Behållare är inte begränsad till en enda resurs. När den kombinerade blob-data i en behållare växer Använd 80% eller mer av det tillgängliga utrymmet, försätts i behållaren *spill* läge. I spill läge allokeras alla nya blobbar som skapas i den behållaren till en annan volym som har tillräckligt med utrymme. Framöver kommer kan en behållare i spill läge ha blobbar som är fördelade på flera volymer.
 
-När du använder 80% och 90% av det tillgängliga utrymmet på en volym, genererar systemet aviseringar i Azure Stack-administratörsportalen. Molnoperatörer bör granska tillgängliga lagringskapaciteten och planera att balansera innehållet. Lagringstjänsten slutar fungera när en disk är 100% används, och inga ytterligare aviseringar aktiveras.
+När 80% och 90% av det tillgängliga utrymmet på en volym används, genererar systemet aviseringar i Azure Stack-administratörsportalen. Molnoperatörer bör granska tillgängliga lagringskapaciteten och Kom ihåg att balansera om innehållet. Storage-tjänsten slutar att arbete när en disk är 100% används och inga fler aviseringar aktiveras.
 
 ### <a name="disks"></a>Diskar
-Virtuella diskar har lagts till i behållare av klienter och inkluderar en operativsystemdisk. Virtuella datorer kan också ha en eller flera datadiskar. Båda typerna av diskar lagras som sidblobar. Vägledning för att klienter är att placera varje disk i en separat behållare för att förbättra prestanda för den virtuella datorn.
-- Varje behållare som innehåller en disk (sidblob) från en virtuell dator betraktas som en bifogad behållare till den virtuella datorn som äger disken.
+VM-diskar läggs till behållare av klienter, inklusive en operativsystemdisk. Virtuella datorer kan också ha en eller flera datadiskar. Båda typerna av diskar lagras som sidblobar. För att klienter är att placera varje disk i en separat behållare för att förbättra prestanda för den virtuella datorn.
+- Varje behållare som innehåller en disk (sidblob) från en virtuell dator betraktas som en behållare som är anslutna till den virtuella datorn som äger disken.
 - En behållare som inte innehåller en disk från en virtuell dator betraktas som en kostnadsfri behållare.
 
-Alternativ för att frigöra utrymme på en behållare för anslutna [begränsas](#move-vm-disks).
+Alternativ för att frigöra utrymme på en ansluten behållare [begränsas](#move-vm-disks).
 > [!TIP]  
-> Molnoperatörer hanterar inte diskar som är kopplade till virtuella datorer (VM) som klienter kan lägga till en behållare. När du planerar att hantera utrymmet på storage-resurser, kan det vara Använd för att förstå hur diskar relaterar till behållare och resurser.
+> Molnoperatörer hanterar inte diskar som är kopplade till virtuella datorer (VM) som klienter kan lägga till en behållare. När du planerar att hantera utrymmet på storage-resurser, kan det vara för att förstå hur diskar som är relaterade till behållare och filresurser.
 
-## <a name="monitor-shares"></a>Övervakare för resurser
-Använd PowerShell eller administrationsportal för att övervaka resurser så att du är medveten om när utrymmet är begränsat. När du använder portalen kan få du aviseringar om resurser som har ont om utrymme.    
+## <a name="monitor-shares"></a>Övervaka resurser
+Använd PowerShell eller admin portal för att övervaka resurser så att du kan förstå när utrymmet är begränsad. När du använder portalen kan få du aviseringar om resurser som är ont om utrymme.    
 
 ### <a name="use-powershell"></a>Använd PowerShell
-Du kan övervaka lagringskapaciteten för en resurs med hjälp av PowerShell som en moln-operator **Get-AzsStorageShare** cmdlet. Get-AzsStorageShare cmdlet returnerar totala allokerade och ledigt utrymme i byte på var och en av resurserna.   
+Som en cloud-operatör kan du övervaka lagringskapaciteten för en resurs med PowerShell **Get-AzsStorageShare** cmdlet. Cmdleten Get-AzsStorageShare returnerar det totala allokerade och ledigt utrymmet i byte på var och en av resurserna.   
 ![Exempel: Returnera ledigt utrymme för resurser](media/azure-stack-manage-storage-shares/free-space.png)
 
-- **Total kapacitet** är det totala utrymmet i byte som är tillgängliga på resursen. Detta utrymme används för data och metadata som underhålls av lagringstjänsterna.
-- **Används kapacitet** är mängden data i byte som används av de alla omfattningar från filer som lagrar klientdata och associerade metadata.
+- **Total kapacitet** är det totala utrymmet i byte som är tillgängliga för resursen. Här används för data och metadata som underhålls av storage-tjänster.
+- **Kapacitet som används av** är mängden data i byte som används av de alla utrymmena de filer som lagrar data för klientorganisationen och tillhörande metadata.
 
-### <a name="use-the-administrator-portal"></a>Använd administratörsportalen
-Du kan använda på administrationsportalen för att visa lagringskapaciteten för alla resurser som en moln-operator. **Gå till lagring** > **filresurser** att öppna listan resurs där du kan visa information om syntax.
+### <a name="use-the-administrator-portal"></a>Använda administratörsportalen
+Du kan använda administrationsportalen visa lagringskapaciteten för alla resurser som en cloud-operator. **Gå till Storage** > **filresurser** att öppna fillistan för resurs där du kan visa information om syntax.
 ![Exempel: Lagringsfilresurser](media/azure-stack-manage-storage-shares/storage-file-shares.png)
-- **Totalt antal** är det totala utrymmet i byte som är tillgängliga på resursen. Detta utrymme används för data och metadata som underhålls av lagringstjänsterna.
-- **ANVÄNDS** är mängden data i byte som används av de alla omfattningar från filer som lagrar klientdata och associerade metadata.
+- **Totalt antal** är det totala utrymmet i byte som är tillgängliga för resursen. Här används för data och metadata som underhålls av storage-tjänster.
+- **ANVÄNDS** är mängden data i byte som används av de alla utrymmena de filer som lagrar data för klientorganisationen och tillhörande metadata.
 
-### <a name="storage-space-alerts"></a>Lagring utrymme aviseringar
-När du använder administrationsportal, får du aviseringar om resurser som har ont om utrymme.
+### <a name="storage-space-alerts"></a>Storage utrymme aviseringar
+När du använder admin portal kan få du aviseringar om resurser som är ont om utrymme.
 
 > [!IMPORTANT]
-> Behåll resurser från att nå fullständig användning som en moln-operator. När en resurs är 100% används, lagring-tjänsten inte längre funktioner för resursen. Om du vill återställa ledigt utrymme och återställning på en resurs som är 100% används, måste du kontakta Microsoft support.
+> Behåll resurser från att nå fullständig användning som en cloud-operator. När en resurs är 100% optimeras lagringen tjänsten inte längre funktioner för resursen. Om du vill återställa ledigt utrymme och återställning på en resurs som är 100% används, måste du kontakta Microsoft support.
 
-**Varning**: när en filresurs är över 80% används, visas en *varning* avisering i administrationsportal: ![exempel: varning](media/azure-stack-manage-storage-shares/alert-warning.png)
-
-
-**Kritiska**: när en filresurs är över 90% används, visas en *kritiska* avisering i administrationsportal: ![exempel: varning](media/azure-stack-manage-storage-shares/alert-critical.png)
-
-**Visa information**: du kan öppna information för en avisering om du vill visa alternativ för minskning i administrationsportal: ![exempel: Visa aviseringsinformation](media/azure-stack-manage-storage-shares/alert-details.png)
+**Varning**: när en filresurs är över 80% används, får du en *varning* avisering i admin portal: ![exempel: varning](media/azure-stack-manage-storage-shares/alert-warning.png)
 
 
-## <a name="manage-available-space"></a>Hantera diskutrymme
-När det är nödvändigt att ledigt utrymme på en resurs kan du använda metoderna minst inkräktande först. Till exempel försök att frigöra utrymme innan du väljer att migrera en behållare.  
+**Kritiska**: när en filresurs är över 90% används, får du en *kritiska* avisering i admin portal: ![exempel: kritisk avisering](media/azure-stack-manage-storage-shares/alert-critical.png)
+
+**Visa information om**: I admin portal öppnar du informationen för en avisering för att visa alternativ för minskning: ![exempel: Visa aviseringsinformation](media/azure-stack-manage-storage-shares/alert-details.png)
+
+
+## <a name="manage-available-space"></a>Hantera tillgängligt utrymme
+När det är nödvändigt att ledigt utrymme på en resurs kan du använda metoderna minst inkräktande först. Prova till exempel att frigöra utrymme innan du väljer att migrera en behållare.  
 
 ### <a name="reclaim-capacity"></a>Frigöra kapacitet
-*Det här alternativet gäller både flernodiga distributioner och i Azure-stacken Development Kit.*
+*Det här alternativet gäller både flernodiga distributioner och Azure Stack Development Kit.*
 
-Du kan frigöra kapacitet som används av innehavarens konton som har tagits bort. Denna förmåga är automatiskt frigöras när data [kvarhållningsperioden](azure-stack-manage-storage-accounts.md#set-the-retention-period) har uppnåtts eller du kan vidta åtgärder för att frigöra det. omedelbart.
+Du kan frigöra kapacitet som används av innehavarens konton som har tagits bort. Den här kapaciteten är automatiskt frigöras när data [kvarhållningsperioden](azure-stack-manage-storage-accounts.md#set-the-retention-period) uppnås, eller du kan utföra åtgärder för att frigöra det. omedelbart.
 
 Mer information finns i [frigöra kapacitet](azure-stack-manage-storage-accounts.md#reclaim) i hantera lagringsresurser.
 
 ### <a name="migrate-a-container-between-volumes"></a>Migrera en behållare mellan volymer
 *Det här alternativet gäller endast för distributioner med flera noder.*
 
-På grund av klient användningsmönster använder några resurser på klienten mer utrymme än andra. Resultatet kan vara en resurs som börjar ta slut på utrymme före andra resurser som är relativt oanvända.
+På grund av klient användningsmönster använda några klient resurser mer utrymme än andra. Resultatet kan vara en resurs som börjar ta slut på utrymme innan andra resurser som är relativt oanvända.
 
-Du kan försöka att frigöra utrymme på en överansträngda resurs manuellt migrera vissa blobbbehållare till en annan resurs. Du kan migrera flera mindre behållare till en enda resurs som har kapacitet att behålla dem alla. Du kan använda migrering för att flytta *ledigt* behållare. Ledigt behållare är behållare som inte innehåller en disk för en virtuell dator.   
+Du kan försöka att frigöra utrymme på en överansträngda resurs genom att migrera manuellt vissa blob-behållare till en annan resurs. Du kan migrera flera mindre behållare till en enda resurs som har kapacitet att innehålla alla. Du kan använda migrering för att flytta *kostnadsfria* behållare. Kostnadsfria behållare är behållare som inte innehåller en disk för en virtuell dator.   
 
-Migrering konsoliderar alla behållare blob på den nya resursen.
+Migrering konsoliderar alla en behållare blob på den nya resursen.
 
-- Om en behållare har angetts spill läge och har placerats blobbar på ytterligare volymer, måste den nya resursen ha tillräckligt med kapacitet för att rymma alla blobbar för den behållare som du migrerar. Detta inkluderar blobbar som finns på ytterligare resurser.
+- Om en behållare har försatts i spill läge och har placerats blobar på ytterligare volymer, kommer den nya resursen måste ha tillräckligt med kapacitet att innehålla alla blobar för den behållare som du migrerar. Detta omfattar de blobar som finns i ytterligare resurser.
 
-- PowerShell-cmdleten *Get-AzsStorageContainer* identifierar utrymmen som används i den ursprungliga volymen för en behållare. Cmdleten identifierar inte utrymme som används av blobbar spärra ytterligare volymer. Maximal storlek för en behållare kan därför inte klart. Det går att slå samman en behållare på en ny resurs kan skicka den nya resursen i ett spilltillstånd där placeras data till ytterligare resurser. Därför kan behöva du balansera om resurser.
+- PowerShell-cmdleten *Get-AzsStorageContainer* identifierar bara utrymme som används i den ursprungliga volymen för en behållare. Cmdleten identifierar inte utrymme som används av blobar på ytterligare volymer. I full storlek i en behållare kan därför inte tydligt. Det går att slå samman en behållare på en ny resurs kan skicka den nya resursen till ett spill villkor där data till ytterligare resurser placeras. Därför kan behöva du balansera om resurser igen.
 
-- Om du saknar behörighet till en resursgrupp och det går inte att använda PowerShell för att efterfråga ytterligare volymer för spill data kan du arbeta med ägaren av dessa resursgrupper och behållare att förstå den totala storleken på data att migrera innan du migrerar data.  
+- Om du saknar behörighet till en resursgrupp och det går inte att använda PowerShell för att fråga efter ytterligare volymer för spill data, tillsammans med ägaren av dessa resursgrupper och behållare att förstå den totala storleken på data att migrera innan du migrerar data.  
 
 > [!IMPORTANT]
-> Migrering av BLOB för en behållare är en offline-åtgärd som kräver att PowerShell. Tills migreringen är klar alla BLOB för den behållare som du migrerar vara offline och kan inte användas. Du bör undvika att uppgradera Azure Stack tills alla pågående migreringen är klar.
+> Migrering av BLOB-objekt för en behållare är en offline-åtgärd som kräver användning av PowerShell. Tills migreringen är klar, alla blobar för den behållare som du migrerar vara offline och kan inte användas. Du bör också undvika att uppgradera Azure Stack tills alla pågående migreringen är klar.
 
 #### <a name="to-migrate-containers-using-powershell"></a>Att migrera behållare med hjälp av PowerShell
-1. Bekräfta att du har [Azure PowerShell installeras och konfigureras](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Mer information finns i [Använda Azure PowerShell med Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767).
+1. Bekräfta att du har [Azure PowerShell installerad och konfigurerad](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Mer information finns i [Använda Azure PowerShell med Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767).
 2.  Granska behållare för att förstå vilka data som finns på den resurs som du planerar att migrera. Använd för att identifiera de bästa kandidat behållarna för migrering i en volym på **Get-AzsStorageContainer** cmdlet:
 
     ````PowerShell  
@@ -150,7 +150,7 @@ Migrering konsoliderar alla behållare blob på den nya resursen.
 
     ![Exempel: $Containers](media/azure-stack-manage-storage-shares/containers.png)
 
-3.  Identifiera de bästa mål resurserna för att rymma den behållare som du migrerar:
+3.  Identifiera de bästa mål-resurserna för att lagra den behållare som du migrerar:
 
     ````PowerShell
     $destinationshares = Get-AzsStorageShare -SourceShareName
@@ -159,12 +159,13 @@ Migrering konsoliderar alla behållare blob på den nya resursen.
 
     Granska $destinationshares:
 
-    '''PowerShell $destinationshares
+    ````PowerShell 
+    $destinationshares
     ````
 
-    ![Example: $destination shares](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
+    ![Exempel: $destination resurser](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
 
-4. Start migration for a container. Migration is asynchronous. If you start migration of additional containers before the first migration completes, use the job id to track the status of each.
+4. Starta migreringen för en behållare. Migreringen är asynkrona. Om du startar migreringen av ytterligare behållare innan den första migreringen är klar, kan du använda jobb-id för att spåra status för var och en.
 
   ````PowerShell
   $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
@@ -177,7 +178,7 @@ Migrering konsoliderar alla behållare blob på den nya resursen.
   d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
   ````
 
-5. Du kan använda jobb-id för att kontrollera status för migreringen. När behållaren migreringen är klar, **MigrationStatus** är inställd på **Slutför**.
+5. Du kan använda jobb-id för att kontrollera statusen för migreringsjobbet. När behållaren migreringen är klar, **MigrationStatus** är inställd på **Slutför**.
 
   ````PowerShell 
   Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
@@ -185,7 +186,7 @@ Migrering konsoliderar alla behållare blob på den nya resursen.
 
   ![Exempel: Migreringsstatus](media/azure-stack-manage-storage-shares/migration-status1.png)
 
-6.  Du kan avbryta ett pågående migreringsjobb. Avbryta jobb bearbetas asynkront migrering. Du kan spåra cancellation med hjälp av $jobid:
+6.  Du kan avbryta ett pågående migreringsjobb. Har avbrutits migrering som jobb ska bearbetas asynkront. Du kan spåra uppsägningen av prenumerationen med hjälp av $jobid:
 
   ````PowerShell
   Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
@@ -193,14 +194,14 @@ Migrering konsoliderar alla behållare blob på den nya resursen.
 
   ![Exempel: Återställningsstatus](media/azure-stack-manage-storage-shares/rollback.png)
 
-7. Du kan köra en kommandot tillsammans i steg 6 igen förrän statusen bekräftar migreringsjobbet är **avbruten**:  
+7. Du kan köra en kommandot tillsammans från steg 6 igen, tills status bekräftar migreringsjobbet är **avbruten**:  
 
     ![Exempel: Avbruten status](media/azure-stack-manage-storage-shares/cancelled.png)
 
-### <a name="move-vm-disks"></a>Flytta Virtuella diskar
+### <a name="move-vm-disks"></a>Flytta VM-diskar
 *Det här alternativet gäller endast för distributioner med flera noder.*
 
-Extrema metoden att hantera utrymmet innebär flytt av virtuella diskar. Eftersom flytta en bifogade behållare (en som innehåller en virtuell disk) är komplexa, kontakta Microsoft Support om du vill utföra den här åtgärden.
+Extrema metoden att hantera adressutrymmen innebär flytt av virtuella diskar. Eftersom det är komplicerat att flytta en anslutna behållare (en som innehåller en VM-disk), kan du kontakta Microsoft Support om du vill utföra den här åtgärden.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om [erbjudande virtuella datorer för att användare](azure-stack-tutorial-tenant-vm.md).
+Läs mer om [erbjuder virtuella datorer till användare](azure-stack-tutorial-tenant-vm.md).

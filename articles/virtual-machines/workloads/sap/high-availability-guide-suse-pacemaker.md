@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: sedusch
-ms.openlocfilehash: 1fa69cc09772b9f90e6de05820c823f0409d926e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9ce95bcf15d0186c1baea3df407d0fc0c4200f45
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070355"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115484"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -40,7 +40,7 @@ Om du inte vill investera i en ytterligare virtuell dator, kan du också använd
 ![Pacemaker på SLES-översikt](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> Använder en uppstår för Pacemaker klustret, det är viktigt för övergripande tillförlitligheten i hela klustret som routning mellan de virtuella datorerna som ingår och de virtuella datorer som är värd för uppstår enhet(er) inte passerar genom andra enheter som [Nva](https://azure.microsoft.com/solutions/network-appliances/). Annars kan problem med NVA ha en negativ inverkan på stabilitet och tillförlitlighet för övergripande klusterkonfigurationen. Undersöka routningsregler med nva: er för att undvika sådana hinder och [användaren definierats routningsregler](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) när du planerar och distribuerar uppstår enheter.
+> När du planerar och distribuerar Linux Pacemaker klustrade noder och uppstår enheter, är det viktigt för den fullständiga klusterkonfigurationen som routning mellan de virtuella datorerna som ingår och de virtuella datorer som är värd för uppstår enhet(er) passerar inte genom övergripande tillförlitlighet alla andra enheter som [Nva](https://azure.microsoft.com/solutions/network-appliances/). I annat fall kan problem och underhållshändelser med NVA ha en negativ inverkan på stabilitet och tillförlitlighet för övergripande klusterkonfigurationen. För att undvika sådana hinder inte definiera regler för routning med nva: er eller [användaren definierats routningsregler](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) att vidarebefordra trafik mellan klustrade noder och uppstår enheter via nva: er och liknande enheter när du planerar och distribuerar Linux Pacemaker klustrade noder och uppstår enheter. 
 >
 
 

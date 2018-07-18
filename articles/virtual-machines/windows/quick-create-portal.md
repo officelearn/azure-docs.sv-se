@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d5f44c634b953194ad4f112722d82f282d8c8f1a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f5a92d421bbf7bfe485252c148d5f64ae2fb8e23
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444619"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916123"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator i Azure Portal
 
@@ -67,7 +67,7 @@ Skapa en fjärrskrivbordsanslutning till den virtuella datorn. Dessa instruktion
 
 2. Öppna den hämtade RDP-filen och klicka på **Anslut** när du tillfrågas. 
 
-3. I fönstret **Windows-säkerhet** väljer du **fler alternativ** och sedan **använd ett annat konto**. Ange *vmname*\* som användarnamn* och det lösenord som du skapade för den virtuella datorn och klicka sedan på **OK**.
+3. I fönstret **Windows-säkerhet** väljer du **fler alternativ** och sedan **använd ett annat konto**. Ange *vmname*\\ som *användarnamn* och det lösenord som du skapade för den virtuella datorn och klicka sedan på **OK**.
 
 4. Du kan få en certifikatvarning under inloggningen. Klicka på **Ja** eller **Fortsätt** för att skapa anslutningen.
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 191f8973e85186590a2ba840e473f8fff57a9d94
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 6c96cf220e34f1509375e5314e0b54e175575834
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37053056"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114216"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON-skript referens
 > [!NOTE]
@@ -221,7 +221,7 @@ I följande exempel på pipeline finns det en aktivitet av typen **HDInsightHive
 Observera följande punkter: 
 
 * I activities-avsnittet finns det bara en aktivitet vars **typ** anges till **HDInsightHive**.
-* Hive-skriptfilen **partitionweblogs.hql** lagras i Azure-lagringskontot (anges med scriptLinkedService, kallas **AzureStorageLinkedService**), och i mappen **skript** i behållaren **adfgetstarted**.
+* Hive-skriptfilen **partitionweblogs.hql** lagras i Azure-lagringskontot (anges med scriptLinkedService, kallas **AzureStorageLinkedService**), och i mappen **skript** i containern **adfgetstarted**.
 * Den **definierar** används för att ange körningsinställningar som skickas till hive-skriptet som Hive-konfigurationsvärden (t.ex `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
 Se [DATATRANSFORMERINGSAKTIVITETER](#data-transformation-activities) i den här artikeln för JSON-exempel som definierar transformeringsaktiviteter i en pipeline.
@@ -300,7 +300,7 @@ Varje kolumn i den **struktur** avsnittet innehåller följande egenskaper:
 | namn |Namnet på kolumnen. |Ja |
 | typ |Datatypen för kolumnen.  |Nej |
 | kultur |.NET-baserade språkmiljö som ska användas när typ har angetts och .NET-typ `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. |Nej |
-| format |Formatera strängen som ska användas när typ har angetts och .NET-typ `Datetime` eller `Datetimeoffset`. |Nej |
+| Format |Formatera strängen som ska användas när typ har angetts och .NET-typ `Datetime` eller `Datetimeoffset`. |Nej |
 
 I följande exempel har tre kolumner i datauppsättningen `slicetimestamp`, `projectname`, och `pageviews` och de är av typen: String, String och Decimal respektive.
 
@@ -461,8 +461,8 @@ För att definiera en Azure Blob-datauppsättning, ange den **typ** på dataupps
 | folderPath |Sökvägen till behållaren och mappen i blob storage. Exempel: myblobcontainer\myblobfolder\ |Ja |
 | fileName |Namnet på bloben. Filnamnet är valfria och skiftlägeskänsliga.<br/><br/>Om du anger ett filename fungerar aktiviteten (inklusive kopia) på den specifika blobben.<br/><br/>Om filnamnet inte anges innehåller kopiera alla Blobbar i folderPath för datauppsättningen för indata.<br/><br/>När filnamn har angetts för en utdatauppsättning, namnet på den genererade filen vara i följande följande format: Data. <Guid>.txt (exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nej |
 | partitionedBy |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och ett filnamn för time series-data. Till exempel kan folderPath parameteriseras för varje timme som data. |Nej |
-| format | Följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
-| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| Format | Följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
+| Komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 #### <a name="example"></a>Exempel
 
@@ -644,8 +644,8 @@ För att definiera en Azure Data Lake Store-datauppsättning, ange den **typ** p
 | folderPath |Sökvägen till behållaren och mappen i Azure Data Lake store. |Ja |
 | fileName |Namnet på filen i Azure Data Lake store. Filnamnet är valfria och skiftlägeskänsliga. <br/><br/>Om du anger ett filename fungerar aktiviteten (inklusive kopia) på den specifika filen.<br/><br/>Om filnamnet inte anges innehåller kopiera alla filer i folderPath för datauppsättningen för indata.<br/><br/>När filnamn har angetts för en utdatauppsättning, namnet på den genererade filen vara i följande följande format: Data. <Guid>.txt (exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nej |
 | partitionedBy |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och ett filnamn för time series-data. Till exempel kan folderPath parameteriseras för varje timme som data. |Nej |
-| format | Följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
-| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| Format | Följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
+| Komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 #### <a name="example"></a>Exempel
 ```json
@@ -885,8 +885,8 @@ Om du kopierar data till Azure Cosmos DB, ange den **mottagare typ** av kopierin
 | **Egenskap** | **Beskrivning** | **Tillåtna värden** | **Krävs** |
 | --- | --- | --- | --- |
 | nestingSeparator |Specialtecken i källkolumnsnamnet som visar det kapslade dokumentet krävs. <br/><br/>Till exempel ovan: `Name.First` i utdata tabell ger följande JSON-strukturen i Cosmos DB-dokument:<br/><br/>”Name”: {<br/>    ”Första”: ”John”<br/>}, |Tecken som används för att avgränsa kapslingsnivåer.<br/><br/>Standardvärdet är `.` (punkt). |Tecken som används för att avgränsa kapslingsnivåer. <br/><br/>Standardvärdet är `.` (punkt). |
-| writeBatchSize |Antalet parallella begäranden till Azure Cosmos DB-tjänsten för att skapa dokument.<br/><br/>Du kan finjustera prestanda när du kopierar data till och från Azure Cosmos DB med hjälp av den här egenskapen. Du kan förvänta dig en bättre prestanda om du ökar writeBatchSize eftersom flera parallella förfrågningar till Azure Cosmos DB skickas. Men du måste undvika begränsning som kan genereras ett felmeddelande: ”begär frekvensen är stora”.<br/><br/>Begränsning avgörs av ett antal faktorer, bland annat dokument, antalet villkoren i dokument storlek, indexeringspolicy målsamlingen osv. För kopieringsåtgärder, du kan använda en bättre samling (t.ex, S3) ha de dataflöden som är tillgängliga (2 500 begäran begärandeenheter/sekund). |Integer |Nej (standard: 5) |
-| writeBatchTimeout |Vänta tills åtgärden har slutförts innan tidsgränsen uppnås. |tidsintervall<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Nej |
+| WriteBatchSize |Antalet parallella begäranden till Azure Cosmos DB-tjänsten för att skapa dokument.<br/><br/>Du kan finjustera prestanda när du kopierar data till och från Azure Cosmos DB med hjälp av den här egenskapen. Du kan förvänta dig en bättre prestanda om du ökar writeBatchSize eftersom flera parallella förfrågningar till Azure Cosmos DB skickas. Men du måste undvika begränsning som kan genereras ett felmeddelande: ”begär frekvensen är stora”.<br/><br/>Begränsning avgörs av ett antal faktorer, bland annat dokument, antalet villkoren i dokument storlek, indexeringspolicy målsamlingen osv. För kopieringsåtgärder, du kan använda en bättre samling (t.ex, S3) ha de dataflöden som är tillgängliga (2 500 begäran begärandeenheter/sekund). |Integer |Nej (standard: 5) |
+| writeBatchTimeout |Vänta tills åtgärden har slutförts innan tidsgränsen uppnås. |Tidsintervall<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Nej |
 
 #### <a name="example"></a>Exempel
 
@@ -1048,8 +1048,8 @@ Om du kopierar data till Azure SQL Database, ange den **mottagare typ** av kopie
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. |tidsintervall<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Nej |
-| writeBatchSize |Infogar data i SQL-tabell när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 10000) |
+| writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. |Tidsintervall<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Nej |
+| WriteBatchSize |Infogar data i SQL-tabell när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 10000) |
 | sqlWriterCleanupScript |Ange en fråga för Kopieringsaktiviteten till att köra så att data för en viss sektor rensas. |Ett frågeuttryck. |Nej |
 | sliceIdentifierColumnName |Ange ett kolumnnamn för Kopieringsaktiviteten vill fylla med automatiskt genererad sektorn identifierare som används för att rensa data för en viss sektor när köras på nytt. |Kolumnnamnet på en kolumn med datatypen för binary(32). |Nej |
 | sqlWriterStoredProcedureName |Namnet på den lagrade proceduren som upsertar (uppdateringar/infogningar) data i måltabellen. |Namnet på den lagrade proceduren. |Nej |
@@ -1231,8 +1231,8 @@ Om du kopierar data till Azure SQL Data Warehouse, anger du den **mottagare typ*
 | rejectType |Anger om alternativet rejectValue anges som ett exakt värde eller en procentandel. |Värde (standard), procent |Nej |
 | rejectSampleValue |Anger antalet rader som ska hämtas innan PolyBase beräknar om procentandelen avvisade raden. |1, 2, … |Ja, om **rejectType** är **procent** |
 | useTypeDefault |Anger hur du hanterar värden som saknas i avgränsade textfiler när PolyBase hämtar data från textfilen.<br/><br/>Mer information om den här egenskapen från avsnittet argument i [skapa externt FILFORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |SANT, FALSKT (standard) |Nej |
-| writeBatchSize |Infogar data i SQL-tabell när buffertstorleken når writeBatchSize |Heltal (antal rader) |Nej (standard: 10000) |
-| writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. |tidsintervall<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Nej |
+| WriteBatchSize |Infogar data i SQL-tabell när buffertstorleken når writeBatchSize |Heltal (antal rader) |Nej (standard: 10000) |
+| writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. |Tidsintervall<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Nej |
 
 #### <a name="example"></a>Exempel
 
@@ -1538,8 +1538,8 @@ Om du kopierar data till Azure Table Storage, ange den **mottagare typ** av kopi
 | azureTablePartitionKeyName |Ange namnet på kolumnen vars värden används som partitionsnycklar. Om den inte anges används AzureTableDefaultPartitionKeyValue som partitionsnyckel. |Ett kolumnnamn. |Nej |
 | azureTableRowKeyName |Ange namnet på den kolumn vars kolumnvärdena används som radnyckel. Om inte anges kan du använda ett GUID för varje rad. |Ett kolumnnamn. |Nej |
 | azureTableInsertType |Läget för att infoga data i Azure-tabell.<br/><br/>Den här egenskapen styr om befintliga rader i utdatatabellen med matchande partition och radnycklar har sina värden ersättas eller samman. <br/><br/>Läs om hur dessa inställningar (merge och Ersätt) fungerar i [Insert- eller Merge-entitet](https://msdn.microsoft.com/library/azure/hh452241.aspx) och [infoga eller ersätta entitet](https://msdn.microsoft.com/library/azure/hh452242.aspx) ämnen. <br/><br> Den här inställningen gäller på radnivå, inte på tabellnivå, och varken alternativet tar bort rader i utdatatabellen som inte finns i aktuella indata. |sammanfoga (standard)<br/>Ersätt |Nej |
-| writeBatchSize |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout uppnås. |Heltal (antal rader) |Nej (standard: 10000) |
-| writeBatchTimeout |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout namn |tidsintervall<br/><br/>Exempel ”: 00: 20:00” (20 minuter) |Nej (standard storage klienten standardvärdet för timeout-värdet 90 sek) |
+| WriteBatchSize |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout uppnås. |Heltal (antal rader) |Nej (standard: 10000) |
+| writeBatchTimeout |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout namn |Tidsintervall<br/><br/>Exempel ”: 00: 20:00” (20 minuter) |Nej (standard storage klienten standardvärdet för timeout-värdet 90 sek) |
 
 #### <a name="example"></a>Exempel
 
@@ -2058,8 +2058,8 @@ Om du kopierar data till am Oracle-databas, anger du den **mottagare typ** av ko
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. |tidsintervall<br/><br/> Exempel: 00:30:00 (30 minuter). |Nej |
-| writeBatchSize |Infogar data i SQL-tabell när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 100) |
+| writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. |Tidsintervall<br/><br/> Exempel: 00:30:00 (30 minuter). |Nej |
+| WriteBatchSize |Infogar data i SQL-tabell när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 100) |
 | sqlWriterCleanupScript |Ange en fråga för Kopieringsaktiviteten till att köra så att data för en viss sektor rensas. |Ett frågeuttryck. |Nej |
 | sliceIdentifierColumnName |Ange kolumnnamnet för Kopieringsaktivitet för att fylla med automatiskt genererad sektorn identifierare som används för att rensa data för en viss sektor när köras på nytt. |Kolumnnamnet på en kolumn med datatypen för binary(32). |Nej |
 
@@ -2609,8 +2609,8 @@ Om du kopierar data till en SQL Server-databas, anger du den **mottagare typ** a
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. |tidsintervall<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Nej |
-| writeBatchSize |Infogar data i SQL-tabell när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 10000) |
+| writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. |Tidsintervall<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Nej |
+| WriteBatchSize |Infogar data i SQL-tabell när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 10000) |
 | sqlWriterCleanupScript |Ange fråga för Kopieringsaktiviteten till att köra så att data för en viss sektor rensas. Mer information finns i [repeterbarhet](#repeatability-during-copy) avsnittet. |Ett frågeuttryck. |Nej |
 | sliceIdentifierColumnName |Ange kolumnnamnet för Kopieringsaktivitet för att fylla med automatiskt genererad sektorn identifierare som används för att rensa data för en viss sektor när köras på nytt. Mer information finns i [repeterbarhet](#repeatability-during-copy) avsnittet. |Kolumnnamnet på en kolumn med datatypen för binary(32). |Nej |
 | sqlWriterStoredProcedureName |Namnet på den lagrade proceduren som upsertar (uppdateringar/infogningar) data i måltabellen. |Namnet på den lagrade proceduren. |Nej |
@@ -3180,8 +3180,8 @@ För att definiera en Amazon S3-datamängd, ange den **typ** på datauppsättnin
 | key |Objektnyckel S3. |Sträng |Nej |
 | prefix |Prefix för Objektnyckel S3. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när nyckeln är tom. |Sträng |Nej |
 | version |Versionen av S3-objekt om S3 versionshantering är aktiverad. |Sträng |Nej |
-| format | Följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej | |
-| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåerna som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej | |
+| Format | Följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej | |
+| Komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåerna som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej | |
 
 
 > [!NOTE]
@@ -3374,8 +3374,8 @@ För att definiera en datauppsättning för filsystem, ange den **typ** på data
 | fileName |Ange namnet på filen i den **folderPath** om du vill att tabellen för att referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen, tabellen pekar på alla filer i mappen.<br/><br/>När filnamn har angetts för en utdatauppsättning, är namnet på den genererade filen i följande format: <br/><br/>`Data.<Guid>.txt` (Exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.) |Nej |
 | fileFilter |Ange ett filter som används för att välja en delmängd av filer i folderPath i stället för alla filer. <br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (tecken).<br/><br/>Exempel 1: ”fileFilter” ”: * .log”<br/>Exempel 2: ”fileFilter”: 2016 - 1-?. txt ”<br/><br/>Observera att fileFilter gäller för en indatauppsättning filresursen. |Nej |
 | partitionedBy |Du kan använda partitionedBy för att ange en dynamisk folderPath/fileName för time series-data. Ett exempel är folderPath som innehåller parametrar för varje timme som data. |Nej |
-| format | Följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
-| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**; och nivåer som stöds är: **Optimal** och **snabbaste**. Se [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| Format | Följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
+| Komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**; och nivåer som stöds är: **Optimal** och **snabbaste**. Se [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 > [!NOTE]
 > Du kan inte använda filnamn och fileFilter samtidigt.
@@ -3639,8 +3639,8 @@ För att definiera en FTP-datauppsättning, ange den **typ** på datauppsättnin
 | fileName |Ange namnet på filen i den **folderPath** om du vill att tabellen för att referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen, tabellen pekar på alla filer i mappen.<br/><br/>När filnamn har angetts för en utdatauppsättning, namnet på den genererade filen vara i följande det här formatet: <br/><br/>Data. <Guid>.txt (exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nej |
 | fileFilter |Ange ett filter som används för att välja en delmängd av filer i folderPath i stället för alla filer.<br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (tecken).<br/><br/>Exempel 1: `"fileFilter": "*.log"`<br/>Exempel 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter gäller för en indatauppsättning filresursen. Den här egenskapen stöds inte med HDFS. |Nej |
 | partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath filnamn för time series-data. Till exempel folderPath som innehåller parametrar för varje timme som data. |Nej |
-| format | Följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
-| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**; och nivåer som stöds är: **Optimal** och **snabbaste**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| Format | Följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
+| Komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**; och nivåer som stöds är: **Optimal** och **snabbaste**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 | useBinaryTransfer |Ange om använda binär överföringsläge. Gäller för binärt läge och FALSKT ASCII. Standardvärde: True. Den här egenskapen kan bara användas när tillhörande länkade tjänsttypen är av typen: FtpServer. |Nej |
 
 > [!NOTE]
@@ -3780,8 +3780,8 @@ För att definiera en HDFS-datauppsättning, ange den **typ** på datauppsättni
 | folderPath |Sökvägen till mappen. Exempel: `myfolder`<br/><br/>Använd escape-tecknet ”\” för specialtecken i strängen. Till exempel: Ange mapp för folder\subfolder,\\\\undermapp och d:\samplefolder, ange d:\\\\Exempelmapp.<br/><br/>Du kan kombinera den här egenskapen med **partitionBy** ha mappen sökvägarna baserat på sektorn start/slut datum / tid. |Ja |
 | fileName |Ange namnet på filen i den **folderPath** om du vill att tabellen för att referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen, tabellen pekar på alla filer i mappen.<br/><br/>När filnamn har angetts för en utdatauppsättning, namnet på den genererade filen vara i följande det här formatet: <br/><br/>Data. <Guid>.txt (exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nej |
 | partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath filnamn för time series-data. Exempel: folderPath innehåller parametrar för varje timme som data. |Nej |
-| format | Följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
-| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| Format | Följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
+| Komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 > [!NOTE]
 > filnamn och fileFilter kan inte användas samtidigt.
@@ -3981,8 +3981,8 @@ För att definiera en SFTP-datauppsättning, ange den **typ** på datauppsättni
 | fileName |Ange namnet på filen i den **folderPath** om du vill att tabellen för att referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen, tabellen pekar på alla filer i mappen.<br/><br/>När filnamn har angetts för en utdatauppsättning, namnet på den genererade filen vara i följande det här formatet: <br/><br/>Data. <Guid>.txt (exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nej |
 | fileFilter |Ange ett filter som används för att välja en delmängd av filer i folderPath i stället för alla filer.<br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (tecken).<br/><br/>Exempel 1: `"fileFilter": "*.log"`<br/>Exempel 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter gäller för en indatauppsättning filresursen. Den här egenskapen stöds inte med HDFS. |Nej |
 | partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath filnamn för time series-data. Till exempel folderPath som innehåller parametrar för varje timme som data. |Nej |
-| format | Följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
-| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| Format | Följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
+| Komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 | useBinaryTransfer |Ange om använda binär överföringsläge. Gäller för binärt läge och FALSKT ASCII. Standardvärde: True. Den här egenskapen kan bara användas när tillhörande länkade tjänsttypen är av typen: FtpServer. |Nej |
 
 > [!NOTE]
@@ -4162,8 +4162,8 @@ För att definiera en HTTP-datauppsättning, ange den **typ** på datauppsättni
 | requestMethod | HTTP-metoden. Tillåtna värden är **hämta** eller **POST**. | Nej. Standardvärdet är `GET`. |
 | additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
 | RequestBody | Brödtexten för HTTP-begäran. | Nej |
-| format | Om du vill bara **hämta data från HTTP-slutpunkt som – är** utan att parsa den hoppar du över det här formatinställningar. <br><br> Om du vill parsa HTTP-svarsinnehåll vid kopiering av följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. |Nej |
-| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| Format | Om du vill bara **hämta data från HTTP-slutpunkt som – är** utan att parsa den hoppar du över det här formatinställningar. <br><br> Om du vill parsa HTTP-svarsinnehåll vid kopiering av följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. |Nej |
+| Komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 #### <a name="example-using-the-get-default-method"></a>Exempel: med hjälp av metoden GET (standard)
 
@@ -4821,14 +4821,14 @@ I följande tabell visas de beräkningsmiljöer som stöds av Data Factory och t
 
 | Compute-miljö | Aktiviteter |
 | --- | --- |
-| [HDInsight-kluster på begäran](#on-demand-azure-hdinsight-cluster) eller [ett eget HDInsight-kluster](#existing-azure-hdinsight-cluster) |[.NET-anpassad aktivitet](#net-custom-activity), [Hive-aktivitet](#hdinsight-hive-activity), [Apache Pig-aktivitet] (#hdinsight pig-aktivitet, [MapReduce-aktivitet](#hdinsight-mapreduce-activity), [Hadoop-strömmande aktivitet](#hdinsight-streaming-activityd), [ Spark-aktivitet](#hdinsight-spark-activity) |
+| [HDInsight-kluster på begäran](#on-demand-azure-hdinsight-cluster) eller [ett eget HDInsight-kluster](#existing-azure-hdinsight-cluster) |[.NET-anpassad aktivitet](#net-custom-activity), [Hive-aktivitet](#hdinsight-hive-activity), [Apache Pig-aktivitet](#hdinsight-pig-activity), [MapReduce-aktivitet](#hdinsight-mapreduce-activity), [Hadoop-strömmande aktivitet](#hdinsight-streaming-activityd), [Spark-aktivitet](#hdinsight-spark-activity) |
 | [Azure Batch](#azure-batch) |[.NET-anpassad aktivitet](#net-custom-activity) |
 | [Azure Machine Learning](#azure-machine-learning) | [Machine Learning-Batchkörningsaktivitet](#machine-learning-batch-execution-activity), [Machine Learning-Uppdateringsresursaktivitet](#machine-learning-update-resource-activity) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |
 | [Azure SQL Database](#azure-sql-database-1), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-1), [SQLServer](#sql-server-1) |[Lagrad procedur](#stored-procedure-activity) |
 
 ## <a name="on-demand-azure-hdinsight-cluster"></a>Azure HDInsight-kluster på begäran
-Azure Data Factory-tjänsten kan automatiskt skapa en Windows/Linux-baserat HDInsight-kluster på begäran att bearbeta data. Klustret skapas i samma region som lagringskontot (linkedServiceName-egenskapen i JSON) som är associerade med klustret. Du kan köra följande transformeringsaktiviteter på den här länkade tjänsten: [.NET-anpassad aktivitet](#net-custom-activity), [Hive-aktivitet](#hdinsight-hive-activity), [Apache Pig-aktivitet] (#hdinsight pig-aktivitet, [MapReduce-aktivitet ](#hdinsight-mapreduce-activity), [Hadoop-strömmande aktivitet](#hdinsight-streaming-activityd), [Spark-aktivitet](#hdinsight-spark-activity). 
+Azure Data Factory-tjänsten kan automatiskt skapa en Windows/Linux-baserat HDInsight-kluster på begäran att bearbeta data. Klustret skapas i samma region som lagringskontot (linkedServiceName-egenskapen i JSON) som är associerade med klustret. Du kan köra följande transformeringsaktiviteter på den här länkade tjänsten: [.NET-anpassad aktivitet](#net-custom-activity), [Hive-aktivitet](#hdinsight-hive-activity), [Apache Pig-aktivitet](#hdinsight-pig-activity), [MapReduce aktiviteten](#hdinsight-mapreduce-activity), [Hadoop-strömmande aktivitet](#hdinsight-streaming-activityd), [Spark-aktivitet](#hdinsight-spark-activity). 
 
 ### <a name="linked-service"></a>Länkad tjänst 
 Följande tabell innehåller beskrivningar av de egenskaper som används i Azure JSON-definition för en på begäran länkad HDInsight-tjänst.
@@ -4866,7 +4866,7 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight-länkad tjän
 Mer information finns i [länkade tjänster för Compute](data-factory-compute-linked-services.md) artikeln. 
 
 ## <a name="existing-azure-hdinsight-cluster"></a>Befintligt Azure HDInsight-kluster
-Du kan skapa en Azure HDInsight-länkad tjänst för att registrera ett eget HDInsight-kluster med Data Factory. Du kan köra följande datatransformeringsaktiviteter på den här länkade tjänsten: [.NET-anpassad aktivitet](#net-custom-activity), [Hive-aktivitet](#hdinsight-hive-activity), [Apache Pig-aktivitet] (#hdinsight pig-aktivitet, [MapReduce aktiviteten](#hdinsight-mapreduce-activity), [Hadoop-strömmande aktivitet](#hdinsight-streaming-activityd), [Spark-aktivitet](#hdinsight-spark-activity). 
+Du kan skapa en Azure HDInsight-länkad tjänst för att registrera ett eget HDInsight-kluster med Data Factory. Du kan köra följande datatransformeringsaktiviteter på den här länkade tjänsten: [.NET-anpassad aktivitet](#net-custom-activity), [Hive-aktivitet](#hdinsight-hive-activity), [Apache Pig-aktivitet](#hdinsight-pig-activity), [ MapReduce-aktivitet](#hdinsight-mapreduce-activity), [Hadoop-strömmande aktivitet](#hdinsight-streaming-activityd), [Spark-aktivitet](#hdinsight-spark-activity). 
 
 ### <a name="linked-service"></a>Länkad tjänst
 Följande tabell innehåller beskrivningar av de egenskaper som används i Azure JSON-definition för en Azure HDInsight-länkad tjänst.
@@ -4940,7 +4940,7 @@ Följande tabell innehåller beskrivningar av de egenskaper som används i Azure
 | --- | --- | --- |
 | Typ |Type-egenskapen ska anges till: **AzureML**. |Ja |
 | mlEndpoint |Batchbedömnings-URL: en. |Ja |
-| apiKey |Den publicerade arbetsytemodellens API. |Ja |
+| ApiKey |Den publicerade arbetsytemodellens API. |Ja |
 
 #### <a name="json-example"></a>JSON-exempel
 

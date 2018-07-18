@@ -11,25 +11,26 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: douglasl
-ms.openlocfilehash: ca5caa8c8d0e64fb3a63a1c49d08b949b0c9cf36
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 4a4ec63d41f013ebfef8a78eddc88a6131a960fc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903776"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070050"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 Den här artikeln beskrivs olika beräkningsmiljöer som du kan använda för att bearbeta och omvandla data. Den innehåller också information om olika konfigurationer (på begäran och ta med din egen) som stöds av Data Factory när du konfigurerar länkade tjänster länkar dessa compute-miljöer i en Azure-datafabrik.
 
 Följande tabell innehåller en lista över de beräkningsmiljöer som stöds av Data Factory och de aktiviteter som kan köras på dem. 
 
-| Compute-miljö                      | activities                               |
-| ---------------------------------------- | ---------------------------------------- |
+| Compute-miljö                                          | activities                                                   |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [HDInsight-kluster på begäran](#azure-hdinsight-on-demand-linked-service) eller [ett eget HDInsight-kluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
-| [Azure Batch](#azure-batch-linked-service) | [Anpassad](transform-data-using-dotnet-custom-activity.md) |
+| [Azure Batch](#azure-batch-linked-service)                   | [Anpassad](transform-data-using-dotnet-custom-activity.md)     |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning-aktiviteter: batchkörning och resursuppdatering](transform-data-using-machine-learning.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQLServer](#sql-server-linked-service) | [Lagrad procedur](transform-data-using-stored-procedure.md) |
+| [Azure Databricks](#azure-databricks-linked-service)         | [Anteckningsboken](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 
 >  
 
@@ -92,9 +93,9 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight-länkad tjän
 ```
 
 > [!IMPORTANT]
-> HDInsight-klustret skapar en **standardbehållare** i den blobblagring som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här behållaren när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor behöver bearbetas, såvida det inte finns ett befintligt livekluster (**timeToLive**). Det raderas när bearbetningen är klar. 
+> HDInsight-klustret skapar en **standardcontainer** i den bloblagring som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här containern när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor behöver bearbetas, såvida det inte finns ett befintligt livekluster (**timeToLive**). Det raderas när bearbetningen är klar. 
 >
-> Allteftersom mer aktivitet körs kan se du många behållare i Azure blob storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här behållarna följer ett mönster: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Använd verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) till att ta bort behållare i din Azure Blob-lagring.
+> Allteftersom mer aktivitet körs kan se du många behållare i Azure blob storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här containrarna följer ett mönster: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Använd verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) till att ta bort containrar i din Azure bloblagring.
 >
 > 
 

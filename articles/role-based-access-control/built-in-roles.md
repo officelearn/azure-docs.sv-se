@@ -1,6 +1,6 @@
 ---
 title: Inbyggda roller i Azure | Microsoft Docs
-description: Beskriver de inbyggda rollerna för rollbaserad åtkomstkontroll (RBAC) i Azure. Visar en lista över åtgärder, notActions, dataActions och notDataActions.
+description: Beskriver de inbyggda rollerna för rollbaserad åtkomstkontroll (RBAC) i Azure. Visar en lista över åtgärder, NotActions, DataActions och NotDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,20 +15,20 @@ ms.date: 06/28/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c5624de13d5d31320beb85aff67c61addaffcbea
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 8152a9934d6a280abfc75fdc74e0864053d82f45
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437934"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116086"
 ---
 # <a name="built-in-roles-in-azure"></a>Inbyggda roller i Azure
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela till användare, grupper och tjänstens huvudnamn. Rolltilldelningar är det sätt som du styr åtkomst till resurser i Azure. Om de inbyggda rollerna inte uppfyller de specifika behoven i din organisation kan du skapa dina egna [anpassade roller](custom-roles.md).
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela till användare, grupper och tjänstens huvudnamn. Rolltilldelningar är det sätt som du styr åtkomst till resurser i Azure. Om de inbyggda rollerna inte uppfyller organisationens specifika krav kan du skapa egna, [anpassade roller](custom-roles.md).
 
 De inbyggda rollerna är alltid under utveckling. Hämta de senaste rolldefinitionerna för [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) eller [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ## <a name="built-in-role-descriptions"></a>Inbyggd rollbeskrivningar
-I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klicka på namnet på rollen för att se en lista över `actions`, `notActions`, `dataActions`, och `notDataActions` för varje roll.
+I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klicka på namnet på rollen för att se en lista över `Actions`, `NotActions`, `DataActions`, och `NotDataActions` för varje roll.
 
 
 | Inbyggd roll | Beskrivning |
@@ -1419,9 +1419,9 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Beskrivning** | Tillåter läs-, skriv- och borttagningsåtkomst till Azure Storage Blob-containers och data |
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **Åtgärder** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returnerar resultatet av att ta bort en behållare |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnerar en behållare eller behållarlista |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returnerar resultatet av att placera eller låna blobbehållare |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returnerar resultatet av att ta bort en container |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnerar en container eller containerlista |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returnerar resultatet av att placera eller låna blobcontainer |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returnerar resultatet av att ta bort en blob |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en blob eller bloblista |
@@ -1434,7 +1434,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Beskrivning** | Tillåter läsåtkomst till Azure Storage Blob-containers och data |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Åtgärder** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnerar en behållare eller behållarlista |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnerar en container eller containerlista |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en blob eller bloblista |
 

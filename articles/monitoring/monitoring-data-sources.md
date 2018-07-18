@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: bwren
-ms.openlocfilehash: 19a38473f1ce23b5a21ef5a29b3f3dc817b92dfd
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 262099bbe45e483efd269445aa8042b30668ebe3
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991516"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036531"
 ---
 # <a name="sources-of-monitoring-data-in-azure"></a>Källor för övervakningsdata i Azure
 Den här artikeln beskriver data som kan övervaka hälsotillstånd och prestanda för dina Azure-resurser och program som körs på dem.  Samla in och analysera dessa data med verktygen som beskrivs i [samla in övervakningsdata i Azure](monitoring-data-collection.md)
@@ -28,21 +28,21 @@ Den här artikeln beskriver data som kan övervaka hälsotillstånd och prestand
 
 
 ## <a name="azure-platform"></a>Azure-plattformen
-Telemetrirelaterade hälsa och åtgärden Azure själva omfattar information om driften och hanteringen av din Azure-prenumeration eller -klient. Det innehåller datalagret för service health i Azure-aktivitetsloggen och granskningsloggar från Azure Active Directory.
+Telemetrirelaterade hälsa och åtgärden Azure själva omfattar information om driften och hanteringen av din Azure-prenumeration eller -klient. Den innehåller service health-data som lagras i Azure-aktivitetsloggen och granskningsloggar från Azure Active Directory.
 
 ![Azure-samling](media/monitoring-data-sources/azure-collection.png)
 
 ### <a name="azure-service-health"></a>Azure Service Health
 [Azure Service Health](../monitoring-and-diagnostics/monitoring-service-notifications.md) innehåller information om hälsotillståndet för Azure-tjänster i din prenumeration som ditt program och resurser som förlitar sig på. Du kan skapa aviseringar för att aviseras om aktuella och förväntade allvarliga problem som kan påverka ditt program. Tjänstehälsa poster lagras i den [Azure-aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), så du kan visa dem i aktiviteten Log Utforskaren och kopiera dem till Log Analytics.
 
-### <a name="azure-activity-log"></a>Azure-aktivitetslogg
+### <a name="azure-activity-log"></a>Azure-aktivitetsloggen
 Den [Azure-aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) innehåller tjänsten hälsojournaler tillsammans med poster på några konfigurationsändringar som gjorts i dina Azure-resurser. Aktivitetsloggen är tillgängligt för alla Azure-resurser och visar sina _externa_ vy. Vissa typer av poster i aktivitetsloggen beskrivs i [Azure-aktivitetsloggen Händelseschema](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
 
 Du kan visa aktivitetsloggen för en viss resurs på en sida i Azure portal eller visa loggarna från flera resurser i den [aktivitet Log Explorer](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Det är särskilt användbart för att kopiera loggposterna till Log Analytics för att kombinera det med andra övervakningsdata. Du kan även skicka dem till andra platser med hjälp av [Händelsehubbar](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md).
 
 
 ### <a name="azure-active-directory-audit-logs"></a>Azure Active Directory med granskningsloggar
-[Azure Active Directory-rapportering](../active-directory/active-directory-reporting-azure-portal.md) innehåller historik över inloggning aktivitet och granska spårning av ändringar som gjorts i en viss klient. Du kan inte för närvarande kombinera Azure Active Directory-granskningsdata med med andra övervakningsdata eftersom den är tillgänglig via Azure Active Directory och [Azure Active Directory reporting API](../active-directory/active-directory-reporting-api-getting-started-azure-portal.md).
+[Azure Active Directory-rapportering](../active-directory/active-directory-reporting-azure-portal.md) innehåller historik över inloggning aktivitet och granska spårning av ändringar som gjorts i en viss klient. Du kan inte för närvarande kombinera Azure Active Directory-granskningsdata med andra övervakningsdata som det är bara tillgängligt via Azure Active Directory och [Azure Active Directory reporting API](../active-directory/active-directory-reporting-api-getting-started-azure-portal.md).
 
 
 ## <a name="azure-services"></a>Azure-tjänster
@@ -69,11 +69,11 @@ Utöver den telemetri som genereras av alla Azure-tjänster, har beräkningsresu
 ![Azure-beräkning resurssamling](media/monitoring-data-sources/compute-resource-collection.png)
 
 ### <a name="diagnostic-extension"></a>Diagnostiktillägget
-Med [Azure Diagnostics-tillägget](../monitoring-and-diagnostics/azure-diagnostics.md), du kan samla in loggar och prestandadata från klientens operativsystem i Azure-beräkningsresurser. Lagras både mått och loggar som samlats in från klienter i ett Azure storage-konto som du kan [konfigurera Log Analytics för att importera](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).  Metrics Explorer förstår hur du läser från storage-konto och ska inkludera mätvärden för klienten med andra insamlade mätvärdena.
+Med den [Azure Diagnostics-tillägget](../monitoring-and-diagnostics/azure-diagnostics.md), du kan samla in loggar och prestandadata från klientens operativsystem i Azure-beräkningsresurser. Lagras både mått och loggar som samlats in från klienter i ett Azure storage-konto som du kan [konfigurera Log Analytics för att importera från](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).  Metrics Explorer förstår hur du läser från storage-konto och ska inkludera mätvärden för klienten med andra insamlade mätvärdena.
 
 
 ### <a name="log-analytics-agent"></a>Log Analytics-agenten
-Du kan installera Log Analytics-agenten på alla Windows- eller Linux-dator eller fysisk dator. Den virtuella datorn kan köras i Azure, en annan molnet eller lokalt.  Agenten ansluter till Log Analytics antingen direkt eller via en [ansluten System Center Operations Manager-hanteringsgrupp](../log-analytics/log-analytics-om-agents.md) och kan du samla in data från [datakällor](../log-analytics/log-analytics-data-sources.md) som du konfigurerar eller från [hanteringslösningar](../monitoring/monitoring-solutions.md) som ger ytterligare insikter om program som körs på agenten.
+Du kan installera Log Analytics-agenten på alla Windows- eller Linux-dator eller fysisk dator. Den virtuella datorn kan köras i Azure, en annan molnet eller lokalt.  Agenten ansluter till Log Analytics antingen direkt eller via en [ansluten System Center Operations Manager-hanteringsgrupp](../log-analytics/log-analytics-om-agents.md) och kan du samla in data från [datakällor](../log-analytics/log-analytics-data-sources.md) som du konfigurerar eller från [hanteringslösningar](../monitoring/monitoring-solutions.md) som ger ytterligare insikter om program som körs på den virtuella datorn.
 
 ### <a name="service-map"></a>Tjänstkarta
 [Tjänstkarta](../operations-management-suite/operations-management-suite-service-map.md) kräver en Beroendeagenten för Windows och Linux-datorer. Detta fungerar med Log Analytics som agenten samlar in information om processer som körs på den virtuella datorn och beroenden på externa processer. Den lagrar dessa data i Log Analytics och innehåller en konsol som visuellt visar data som samlas in utöver andra data som lagras i Log Analytics.
@@ -93,7 +93,7 @@ Du kan också använda Application Insights till [skapa ett anpassat mått](../a
 Om du vill övervaka olika logiska åtgärder för ett program, måste du [samla in telemetri från flera komponenter](../application-insights/app-insights-transaction-diagnostics.md). Application Insights har stöd [distribuerade telemetrikorrelation](../application-insights/application-insights-correlation.md) som identifierar beroenden mellan komponenter så att du kan analysera dem tillsammans.
 
 #### <a name="availability-tests"></a>Tillgänglighetstester
-[Tillgänglighetstestet](../application-insights/app-insights-monitor-web-app-availability.md) i Application Insights kan du testa tillgängligheten och svarstiden för programmet från olika platser på Internet. Du kan göra en enklare ping-test för att verifiera att programmet är aktiv eller skapa ett webbtest som simulerar ett Användarscenario med Visual Studio.  Tillgänglighetstester kräver inte någon instrumentation i programmet.
+[Tillgänglighetstester](../application-insights/app-insights-monitor-web-app-availability.md) i Application Insights kan du testa tillgängligheten och svarstiden för programmet från olika platser på Internet. Du kan göra en enklare ping-test för att verifiera att programmet är aktiv eller skapa ett webbtest som simulerar ett Användarscenario med Visual Studio.  Tillgänglighetstester kräver inte någon instrumentation i programmet.
 
 ## <a name="next-steps"></a>Nästa steg
 

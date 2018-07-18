@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/16/2018
 ms.author: jeedes
-ms.openlocfilehash: f0ad879bb084a8d3a50a0934557eae64621c0160
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 68613b8613a2e5a9139b83eb23e66884659efc47
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054269"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114942"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Självstudier: Azure Active Directory-integration med Atlassians molnet
 
@@ -39,7 +39,7 @@ Mer information om programvara som en tjänst (SaaS) app-integrering med Azure A
 Om du vill konfigurera Azure AD-integrering med Atlassians molnet, behöver du följande objekt:
 
 - En Azure AD-prenumeration.
-- Om du vill aktivera Security Assertion Markup Language (SAML) enkel inloggning för Atlassians molnprodukter, måste du konfigurera Identity Manager. Läs mer om [Identity Manager]( https://www.atlassian.com/enterprise/cloud/identity-manager).
+- Om du vill aktivera Security Assertion Markup Language (SAML) enkel inloggning för Atlassians molnprodukter, måste du konfigurera Atlassians åtkomst. Läs mer om [Atlassians åtkomst]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
 > [!NOTE]
 > När du testar stegen i den här självstudien, rekommenderar vi att du inte använder en produktionsmiljö.
@@ -99,22 +99,27 @@ Om du vill konfigurera Azure AD enkel inloggning med Atlassians molnet, gör du 
 
     ![Fönstret för enkel inloggning](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_samlbase.png)
 
-3. Konfigurera programmet i IDP-initierad läge under **Atlassians molnet domän och URL: er**, gör du följande:
+3. Konfigurera programmet i **IDP-initierad** läge under **Atlassians molnet domän och URL: er**, gör du följande:
 
     ![Atlassians molnet domän och URL: er med enkel inloggning för information](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url.png)
     
-    a. I den **identifierare** skriver **`https://auth.atlassian.com/saml/<unique ID>`**.
+    a. I den **identifierare** skriver du en URL med följande mönster: `https://auth.atlassian.com/saml/<unique ID>`.
     
-    b. I den **svars-URL** skriver **`https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`**.
+    b. I den **svars-URL** skriver du en URL med följande mönster: `https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`.
 
-    c. I den **Vidarebefordransstatus** skriver du en URL med följande syntax: **`https://<instancename>.atlassian.net`**.
+    c. Kontrollera **visa avancerade URL-inställningar**.
 
-4. För att konfigurera programmet i SP-initierat läge, Välj den **visa avancerade URL-inställningar** och klicka sedan på **inloggnings-URL** skriver du en URL med följande syntax: **`https://<instancename>.atlassian.net`** .
+    d. I den **Vidarebefordransstatus** skriver du en URL med följande mönster: `https://<instancename>.atlassian.net`.
+
+    > [!NOTE]
+    > Föregående värden är inte verkliga. Uppdatera dessa värden med det faktiska ID: t och svars-URL. Du får dessa verkliga värden från skärmen Atlassians Cloud SAML-konfiguration som beskrivs senare i självstudien.
+
+4. För att konfigurera programmet i SP-initierat läge, Välj den **visa avancerade URL-inställningar** och klicka sedan på **inloggnings-URL** skriver du en URL med följande mönster: `https://<instancename>.atlassian.net`.
 
     ![Atlassians molnet domän och URL: er med enkel inloggning för information](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url1.png)
 
     > [!NOTE]
-    > Föregående värden är inte verkliga. Uppdatera dem med de faktiska identifierare, svars-URL och inloggnings-URL-värden. Du kan hämta verkliga värden från skärmen Atlassians Cloud SAML-konfiguration. Vi förklarar värdena senare i självstudien.
+    > Föregående inloggnings-URL-värdet är inte verkliga. Uppdatera värdet med det faktiska URL: en för inloggning. Kontakta [Atlassians Cloud klienten supportteamet](https://support.atlassian.com/) att hämta det här värdet.
 
 5. Under **SAML-signeringscertifikat**väljer **Certificate(Base64)**, och sedan spara certifikatfilen på datorn.
 

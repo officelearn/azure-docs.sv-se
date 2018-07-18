@@ -9,12 +9,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 6ea55f5d329a037ef35984cb9276b27a532824ec
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1488f95296bcc11a55a45aff56cee83b7708a789
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347454"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072222"
 ---
 # <a name="speech-scenarios"></a>Tal-scenarier
 
@@ -32,11 +32,11 @@ Många användare vill aktivera röstinmatning på sina program. Röstinmatning 
 
 ### <a name="voice-triggered-apps-with-baseline-models"></a>Röst utlöses appar med basmodeller
 
-Om din app kommer att användas av allmänheten i miljöer där bakgrundsljud inte är orimlig, det enklaste och snabbaste sättet att göra detta på att bara hämta våra [tal SDK](speech-sdk.md) och följer relevant [ Exempel](quickstart-csharp-windows.md). SDK: N som drivs av din [Azure prenumerationsnyckel](https://azure.microsoft.com/try/cognitive-services/) gör att utvecklare kan ladda upp ljud till baslinje talmodeller för taligenkänning som driver Cortana och Skype. Mdoels är avancerade och som används av de tidigare nämnda produkterna. Du kan vara igång på några minuter.
+Om din app kommer att användas av allmänheten i miljöer där bakgrundsljud inte är orimlig, det enklaste och snabbaste sättet att göra detta på att bara hämta våra [tal SDK](speech-sdk.md) och följer relevant [ Exempel](quickstart-csharp-dotnet-windows.md). SDK: N som drivs av din [Azure prenumerationsnyckel](https://azure.microsoft.com/try/cognitive-services/) gör att utvecklare kan ladda upp ljud till baslinje talmodeller för taligenkänning som driver Cortana och Skype. Mdoels är avancerade och som används av de tidigare nämnda produkterna. Du kan vara igång på några minuter.
 
 ### <a name="voice-triggered-apps-with-custom-models"></a>Röst utlöses appar med anpassade modeller
 
-Om din app adresser en specifik domän, (say kemi, biologi eller särskilda intaget via behov) så kan du överväga för att anpassa en [språkmodellen](how-to-customize-language-model.md). Anpassning av en språkmodell Lär avkodaren om de vanligaste fraser och ord som används av din app. Kodaren kommer att kunna mer exakt transkribera röstindata för med en anpassad språkmodell för en viss domän i stället för baslinje. På samma sätt om bakgrundsljud var din app ska användas är framträdande kan du anpassa en akustisk modell. Utforska dokumentationen för andra fall där [språk anpassning](how-to-customize-language-model.md) och [akustisk anpassning](how-to-customize-acoustic-models.md) ange värde och gå till vår [anpassning portal](https://customspeech.ai) kick angivande upplevelse för modellen när du skapar. Liknar basmodeller, anpassade modeller anropas vår [tal SDK](speech-sdk.md) och följer relevant [exempel](quickstart-csharp-windows.md).
+Om din app adresser en specifik domän, (say kemi, biologi eller särskilda intaget via behov) så kan du överväga för att anpassa en [språkmodellen](how-to-customize-language-model.md). Anpassning av en språkmodell Lär avkodaren om de vanligaste fraser och ord som används av din app. Kodaren kommer att kunna mer exakt transkribera röstindata för med en anpassad språkmodell för en viss domän i stället för baslinje. På samma sätt om bakgrundsljud var din app ska användas är framträdande kan du anpassa en akustisk modell. Utforska dokumentationen för andra fall där [språk anpassning](how-to-customize-language-model.md) och [akustisk anpassning](how-to-customize-acoustic-models.md) ange värde och gå till vår [anpassning portal](https://customspeech.ai) kick angivande upplevelse för modellen när du skapar. Liknar basmodeller, anpassade modeller anropas vår [tal SDK](speech-sdk.md) och följer relevant [exempel](quickstart-csharp-dotnet-windows.md).
 
 ## <a name="transcribe-call-center-audio-calls"></a>Transkribera anrop center ljud anrop
 
@@ -62,5 +62,5 @@ Dessutom för användare som vill lägga till fler personlighet och unikhet till
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Få en kostnadsfri prenumeration tal](https://azure.microsoft.com/try/cognitive-services/)
+* [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
 * [Börja med tal SDK](speech-sdk.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 7488bfbabaf2ce12d2f7315f5142ffea93f584c2
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 43a3458ba0f08d73931b5ecddf6a2c7b1ae259f4
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001641"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044823"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurera ett anpassat domännamn för en Azure cloud Services
 När du skapar en tjänst i molnet, Azure tilldelar den till en underdomän till **cloudapp.net**. Exempel: om din molntjänst heter ”contoso”, användarna kommer att kunna komma åt ditt program på en URL liknande http://contoso.cloudapp.net. Azure tilldelar också en virtuell IP-adress.
@@ -124,7 +124,7 @@ Till exempel en post vidarebefordrar all trafik från följande **contoso.com** 
 
 | Värden namn/underdomän | IP-adress |
 | --- | --- |
-| @ |137.135.70.239 |
+| \@ |137.135.70.239 |
 
 Det här exemplet visar hur du skapar en A-post för rotdomänen. Om du vill skapa en post för jokertecken för att täcka alla underordnade domäner, anger du ”***” som underdomänen.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: cd9b8eaf84ac4c1227c521628fd4156eec4506bf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3c5746d0fd2c471f767bac4891178c63e21f0418
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38746275"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39094328"
 ---
 # <a name="enable-write-accelerator"></a>Aktiverar du Write Accelerator
 
@@ -67,7 +67,7 @@ Följande krav gäller för användningen av Write Accelerator vid denna tidpunk
 - De diskar som du vill använda Azure Write Accelerator mot måste vara [Azure hanterade diskar](https://azure.microsoft.com/services/managed-disks/) på Premium Storage.
 - Du måste använda en virtuell dator i M-serien
 
-### <a name="enabling-azure-write-accelerator-using-azure-powershell"></a>Aktivera Azure Write Accelerator med Azure PowerShell
+## <a name="enabling-azure-write-accelerator-using-azure-powershell"></a>Aktivera Azure Write Accelerator med Azure PowerShell
 
 Azure Power Shell-modul från version 5.5.0 innefattar ändringar i de relevanta cmdletar för att aktivera eller inaktivera Write Accelerator för specifika Azure Premium Storage-diskar.
 För att aktivera eller distribuera diskar som stöds av Write Accelerator, har följande Power Shell-kommandon ändrats och utökas för att acceptera en parameter för Write Accelerator.
@@ -108,7 +108,7 @@ Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
 
 Två huvudscenarier kan skriptas som visas i följande avsnitt.
 
-#### <a name="adding-a-new-disk-supported-by-write-accelerator-using-powershell"></a>Att lägga till en ny disk som stöds av Write Accelerator med hjälp av PowerShell
+### <a name="adding-a-new-disk-supported-by-write-accelerator-using-powershell"></a>Att lägga till en ny disk som stöds av Write Accelerator med hjälp av PowerShell
 
 Du kan använda det här skriptet för att lägga till en ny disk till den virtuella datorn. Disken som skapats med det här skriptet använder Write Accelerator.
 
@@ -133,9 +133,9 @@ Add-AzureRmVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$dat
 Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
 ```
 
-#### <a name="enabling-write-accelerator-on-an-existing-azure-disk-using-powershell"></a>Att aktivera Write Accelerator på en befintlig Azure-disk med hjälp av PowerShell
+### <a name="enabling-write-accelerator-on-an-existing-azure-disk-using-powershell"></a>Att aktivera Write Accelerator på en befintlig Azure-disk med hjälp av PowerShell
 
-Du kan använda det här skriptet för att aktivera Write Accelerator på en befintlig disk. Ersätt `myVM`, `myWAVMs`, och `test-log001` med värden som är lämpliga för din specifika distribution. Skriptet lägger till Write Accelerator till en befintlig disk där värdet för $newstatus anges till ”$true”. Med hjälp av värdet '$false' inaktiverar Write Accelerator på en angiven disk.
+Du kan använda det här skriptet för att aktivera Write Accelerator på en befintlig disk. Ersätt `myVM`, `myWAVMs`, och `test-log001` med värden som är lämpliga för din specifika distribution. Skriptet lägger till Write Accelerator till en befintlig disk där värdet för **$newstatus** är inställd på '$true'. Med hjälp av värdet '$false' inaktiverar Write Accelerator på en angiven disk.
 
 ```PowerShell
 #Specify your VM Name
@@ -157,15 +157,15 @@ Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
 > [!Note]
 > Kör skriptet ovan ska koppla från disken som angetts, aktivera Write Accelerator mot disken och sedan koppla disken igen
 
-### <a name="enabling-write-accelerator-using-the-azure-portal"></a>Aktivera Write Accelerator med Azure portal
+## <a name="enabling-write-accelerator-using-the-azure-portal"></a>Aktivera Write Accelerator med Azure portal
 
-Du kan aktivera Write Accelerator via portalen där du anger din diskcachelagringstypen inställningar: 
+Du kan aktivera Write Accelerator via portalen där du anger din diskcachelagringstypen inställningar:
 
 ![Write Accelerator på Azure portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
-### <a name="enabling-write-accelerator-using-the-azure-cli"></a>Aktivera Write Accelerator med Azure CLI
+## <a name="enabling-write-accelerator-using-the-azure-cli"></a>Aktivera Write Accelerator med Azure CLI
 
-Du kan använda den [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) så här aktiverar du Write Accelerator. 
+Du kan använda den [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) så här aktiverar du Write Accelerator.
 
 Om du vill aktivera Write Accelerator på en befintlig disk, Använd [az vm update](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), du kan använda följande exempel om du ersätter den diskName och VMName ResourceGroup med dina egna värden: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
 
@@ -173,11 +173,11 @@ Att ansluta en disk med Write Accelerator aktiverat Använd [az vm disk attach](
 
 Om du vill inaktivera Write Accelerator använda [az vm update](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), ange egenskaperna till false: `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
-### <a name="enabling-through-rest-apis"></a>Aktivera via Rest API: er
+## <a name="enabling-write-accelerator-using-rest-apis"></a>Aktivera Write Accelerator med hjälp av Rest API: er
 
 Du måste installera Azure armclient om du vill distribuera via Azure Rest-API.
 
-#### <a name="install-armclient"></a>Installera armclient
+### <a name="install-armclient"></a>Installera armclient
 
 Du måste installera den via Chocolatey för att köra armclient. Du kan installera det via cmd.exe eller powershell. Använd utökade rättigheter för dessa kommandon (”Kör som administratör”).
 
@@ -187,7 +187,7 @@ Med Power Shell, kör du följande kommando: `Set-ExecutionPolicy Bypass -Scope 
 
 Nu kan du installera armclient med hjälp av följande kommando i cmd.exe eller PowerShell `choco install armclient`
 
-#### <a name="getting-your-current-vm-configuration"></a>Hämta din nuvarande konfiguration av virtuell dator
+### <a name="getting-your-current-vm-configuration"></a>Hämta din nuvarande konfiguration av virtuell dator
 
 Om du vill ändra attribut för diskkonfigurationen måste du först hämta den aktuella konfigurationen i en JSON-fil. Du kan hämta den aktuella konfigurationen genom att köra följande kommando: `armclient GET /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 > <<filename.json>>`
 

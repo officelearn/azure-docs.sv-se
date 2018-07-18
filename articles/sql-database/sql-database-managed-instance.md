@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database hanteras instans översikt | Microsoft Docs
-description: Det här avsnittet beskriver en Azure SQL Database hanteras och förklarar hur det fungerar och hur den skiljer sig från en enskild databas i Azure SQL Database.
+title: Azure SQL Database Managed Instance översikt | Microsoft Docs
+description: Det här avsnittet beskrivs en Azure SQL Database Managed Instance och hur det fungerar och hur den skiljer sig från en enskild databas i Azure SQL Database.
 services: sql-database
 author: bonova
 ms.reviewer: carlrab
@@ -8,220 +8,268 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/16/2018
 ms.author: bonova
-ms.openlocfilehash: 1dec40871b8842cb5e41d48c759d1f4fa85d7b66
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
-ms.translationtype: MT
+ms.openlocfilehash: 698b02e1bad7da3f793a35184d634eaf5c948988
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082513"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071585"
 ---
-# <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad-instans (förhandsgranskning)?
+# <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad instans (förhandsversion)?
 
-Azure SQL-hanterade databasinstans (förhandsversion) är en ny funktion i Azure SQL Database tillhandahåller nästan 100% kompatibilitet med SQL Server lokalt (Enterprise Edition), vilket ger ett ursprungligt [virtuella nätverk (VNet)](../virtual-network/virtual-networks-overview.md) implementering som tar upp vanliga säkerhetsfrågor, och en [affärsmodell](https://azure.microsoft.com/pricing/details/sql-database/) fördelaktig för lokala SQL Server-kunder. Hanterade instansen tillåter befintliga SQL Server-kunder att lyfta och flytta sina lokala program till molnet med minimala ändringar för programmet och databasen. På samma gång bevarar hanteras instans alla PaaS funktioner (automatiska uppdateringar för uppdatering och version, säkerhetskopiering, hög tillgänglighet), som minskar drastiskt hanteringskostnader och TCO.
+Azure SQL Database Managed Instance (förhandsversion) är en ny funktion i Azure SQL Database, vilket ger nästan 100% kompatibilitet med SQL Server lokalt (Enterprise Edition), vilket ger ett ursprungligt [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md) implementeringen som åtgärdar vanliga säkerhetsproblem och en [affärsmodell](https://azure.microsoft.com/pricing/details/sql-database/) fördelaktig för en lokal SQL Server-kunder. Hanterad instans tillåter att befintliga SQL Server-kunder att flytta över sina lokala program till molnet med minimala ändringar för programmet och databasen. Managed Instance bevarar alla PaaS-funktioner (automatiska uppdateringar för uppdatering och version, säkerhetskopiering, hög tillgänglighet), som drastiskt minskar hanteringskostnader och TCO på samma gång.
 
 > [!IMPORTANT]
 > En lista över regioner där hanterade instanser är tillgängliga finns i [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Migrera dina databaser till en helt hanterad tjänst med Azure SQL Database Managed Instance).
  
-Följande diagram ger en översikt över viktiga funktioner i den hanterade instans:
+Följande diagram illustrerar viktiga funktioner i den hanterade instansen:
 
 ![viktiga funktioner](./media/sql-database-managed-instance/key-features.png)
 
-Hanterade instans envisioned som önskade plattform för följande scenarier: 
+Hanterad instans envisioned som önskad plattform för följande scenarier: 
 
-- SQLServer lokalt / IaaS-kunder som planerar för att migrera sina program till en helt hanterad tjänst med minimal utforma ändringar.
-- ISV: er att förlita sig på SQL-databaser som du vill aktivera sina kunder att migrera till molnet och därmed få betydande konkurrensfördel eller globala marknaden nå. 
+- Lokal SQLServer- / IaaS-kunder som vill migrera sina program till en helt hanterad tjänst med minimal utforma ändringar.
+- ISV: er som förlitar sig på SQL-databaser, som vill aktivera sina kunder att migrera till molnet och därmed få stor Konkurrensmässig fördel eller globala marknaden nå. 
 
-Efter allmän tillgänglighet hanteras instans syftet är att leverera nära ytan 100% kompatibilitet med den senaste lokala SQL Server-versionen via en mellanlagrad version plan. 
+Vid allmän tillgänglighet syftar Managed Instance till att leverera nära 100% ytan kompatibilitet med den senaste lokala SQL Server-versionen via en mellanlagrad version-plan. 
 
-Följande tabell beskrivs nyckeln skillnader och envisioned Användningsscenarier mellan SQL IaaS, Azure SQL Database och SQL-hanterade databasinstans:
+Följande tabell beskrivs viktiga skillnader och envisioned Användningsscenarier mellan SQL IaaS, Azure SQL Database och SQL Database Managed Instance:
 
-| | Användningsscenariot | 
+| | Faktisk användning | 
 | --- | --- | 
-|SQL Database Managed Instance |För kunder som planerar för att migrera ett stort antal appar från lokala eller IaaS, automatisk inbyggd eller ISV finns med som ansträngning låg migrering som möjligt, föreslå hanteras instans. Med hjälp av helt automatiserad [Data migrering Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) i Azure, kan kunder lyfta och flytta sina lokala SQL Server till en hanterad instans som är kompatibel med SQL Server lokalt och fullständig isolering av kunden instanser med inbyggt stöd för virtuella nätverk.  Med Software Assurance, kan du byta sina befintliga licenser för rabatterade priser på en SQL-hanterade databasinstans med hjälp av den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL-hanterade databasinstans är den bästa mål för migrering i molnet för SQL Server-instanser som kräver hög säkerhet och en omfattande programmering yta. |
-|Azure SQL Database (enkel eller pool) |**Elastiska pooler**: för kunder att utveckla nya SaaS flera program eller avsiktligt omvandla sina befintliga lokala appar i en multitenant SaaS-app, föreslå elastiska pooler. Fördelarna med den här modellen är: <br><ul><li>Konvertering av modellen verksamhet från sälja licenser för att sälja prenumerationer (för ISV: er)</li></ul><ul><li>Enkel och punkt bevis klientisolering</li></ul><ul><li>En förenklad databasen till Central programmeringsmodell</li></ul><ul><li>Möjlighet att skala ut utan att en hård gräns</li></ul>**Enkel databaser**: för kunder att utveckla nya appar än SaaS flera innehavare, vars arbetsbelastning är stabila och förutsägbara, föreslå enskilda databaser. Fördelarna med den här modellen är:<ul><li>En förenklad databasen till Central programmeringsmodell</li></ul>  <ul><li>Förutsägbar prestanda för varje databas</li></ul>|
-|Virtuell SQL IaaS-dator|För kunder som behöver anpassa operativsystemet eller den databasserver, samt kunder som har specifika krav som kör appar från tredje part vid sida med SQL Server (i samma VM), föreslå SQL virtuella datorer / IaaS som den bästa lösningen|
+|SQL Database Managed Instance |För kunder som vill migrera ett stort antal appar från lokala eller IaaS, själv skapat eller ISV anges med som låg migrering arbete som möjligt, föreslå Managed Instance. Med hjälp av den helt automatiserade [Data Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) i Azure, kunderna kan flytta över sina lokala SQL Server till en hanterad instans som är kompatibel med SQL Server lokalt och över kundinstanser med inbyggt stöd för virtuellt nätverk.  Med Software Assurance kan du byta sina befintliga licenser för rabatterade priser på en SQL Database Managed Instance med hjälp av den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance är den bästa mål för migrering i molnet för SQL Server-instanser som kräver hög säkerhet och en omfattande programmerbarheten för angrepp. |
+|Azure SQL Database (enkel eller pool) |**Elastiska pooler**: för kunder som utvecklar program för flera innehavare för nya SaaS eller avsiktligt omvandla sin nuvarande lokala appar i en multitenant SaaS-app, föreslå elastiska pooler. Fördelarna med den här modellen är: <br><ul><li>Konvertera affärsmodellen från sälja licenser för att sälja prenumerationer (för ISV: er)</li></ul><ul><li>Enkelt och punkt bevis klientisolering</li></ul><ul><li>En förenklad databas-centric programmeringsmodell</li></ul><ul><li>Möjligheter att skala ut utan att ett hårda tak</li></ul>**Enkla databaser**: för kunder som utvecklar nya appar än SaaS flera innehavare, vars arbetsbelastning är stabila och förutsägbara, föreslå enskilda databaser. Fördelarna med den här modellen är:<ul><li>En förenklad databas-centric programmeringsmodell</li></ul>  <ul><li>Förutsägbara prestanda för varje databas</li></ul>|
+|SQL IaaS-dator|För kunder inte längre behöver anpassa operativsystemet eller den databasserver, samt kunder som har särskilda krav gällande kör appar från tredje part vid sida med SQL Server (på samma virtuella dator), föreslå SQL VM: ar / IaaS till den bästa lösningen|
 |||
 
-## <a name="how-to-programmatically-identify-a-managed-instance"></a>Så här identifierar du en instans som hanteras via programmering
+## <a name="how-to-programmatically-identify-a-managed-instance"></a>Hur du programmässigt identifierar en hanterad instans
 
-I följande tabell visas flera egenskaper, tillgängligt via Transact SQL som du kan använda för att identifiera att programmet fungerar med hanterade instans och hämta viktiga egenskaper.
+I följande tabell visar flera egenskaper som är tillgängliga via Transact-SQL, att du kan använda för att identifiera att programmet fungerar med Managed Instance och hämta viktiga egenskaper.
 
 |Egenskap |Värde|Kommentar|
 |---|---|---|
-|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) Microsoft Corporation som 2018.|Det här värdet är densamma som SQL-databasen.|
-|`SERVERPROPERTY ('Edition')`|SQL Azure|Det här värdet är densamma som SQL-databasen.|
-|`SERVERPROPERTY('EngineEdition')`|8|Det här värdet identifierar hanteras instans.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Fullständig DNS-instansnamn i följande format:<instanceName>.<dnsPrefix>. Database.Windows.NET, där <instanceName> är namn som tillhandahålls av kunden, medan <dnsPrefix> tillhör automatiskt genererade namnet garanterar globala unikhet för DNS-namn (”wcus17662feb9ce98”, till exempel)|Exempel: min-hanterad-instance.wcus17662feb9ce98.database.windows.net|
+|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Det här värdet är samma som i SQL-databas.|
+|`SERVERPROPERTY ('Edition')`|SQL Azure|Det här värdet är samma som i SQL-databas.|
+|`SERVERPROPERTY('EngineEdition')`|8|Det här värdet identifierar Managed Instance.|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Komplett instans DNS-namn i följande format:<instanceName>.<dnsPrefix>. Database.Windows.NET, där <instanceName> är namn som tillhandahålls av kunden, medan <dnsPrefix> är automatiskt genererade del av namnet, vilket ger global unikhet för DNS-namn (”wcus17662feb9ce98”, till exempel)|Exempel: min-managed-instance.wcus17662feb9ce98.database.windows.net|
 
-## <a name="key-features-and-capabilities-of-a-managed-instance"></a>Viktiga funktioner och funktioner på en instans av hanterade 
+## <a name="key-features-and-capabilities-of-a-managed-instance"></a>Viktiga funktioner och egenskaper i en hanterad instans 
 
 > [!IMPORTANT]
-> En hanterad instans körs med alla funktioner i den senaste versionen av SQL Server, inklusive online operations, automatisk plan korrigeringar och andra företag prestandaförbättringar. 
+> En hanterad instans körs med alla funktioner i den senaste versionen av SQL Server, inklusive online åtgärder, plan för automatisk korrigeringar och andra enterprise prestandaförbättringar. 
 
-| **PaaS fördelar** | **Verksamhetskontinuitet** |
+| **PaaS-fördelar** | **Verksamhetskontinuitet** |
 | --- | --- |
-|Ingen maskinvara inköp och hantering <br>Ingen hantering omkostnader för att hantera underliggande infrastruktur <br>Snabb etablering och skalning för tjänsten <br>Automatisk uppdatering och version uppgradering <br>Integrering med andra tjänster för PaaS-data |99,99% drifttid SERVICENIVÅAVTAL  <br>Inbyggd hög tillgänglighet <br>Data som skyddas med automatisk säkerhetskopiering <br>Kunden kan konfigureras säkerhetskopiering kvarhållningsperiod (fast till 7 dagar i förhandsversion) <br>Användarinitierad säkerhetskopieringar <br>Punkt i tiden databasen återställa kapaciteten |
+|Ingen maskinvara att köpa och hantering <br>Ingen hantering av fasta kostnader för att hantera underliggande infrastruktur <br>Snabb etablering och skalning av tjänst <br>Automatisk uppdatering och version uppgradering <br>Integrering med andra data PaaS-tjänster |99,99% drifttid  <br>Inbyggd hög tillgänglighet <br>Data som skyddas till automatiska säkerhetskopior <br>Kunden kan konfigureras kvarhållningsperiod (fast till 7 dagar i offentlig förhandsversion) <br>Användarinitierad säkerhetskopior <br>Punkt i tiden databasen återställningsfunktioner |
 |**Säkerhet och efterlevnad** | **Hantering**|
-|Isolerad miljö (VNet integration, stöd för en innehavare service, dedikerad beräkning och lagring <br>Kryptering av data under överföring <br>Azure AD-autentisering, stöd för enkel inloggning <br>Följer efterlevnadsstandarder samma som Azure SQL-databas <br>SQL-granskning <br>Hotidentifiering |Azure Resource Manager API för att automatisera service etablering och skalning <br>Azure portal funktioner för manuell tjänst för etablering och skalning <br>Migrering datatjänst 
+|Isolerad miljö (VNet-integrering, enskild klient-tjänsten, dedikerad beräkning och lagring) <br>Transparent datakryptering<br>Azure AD-autentisering, stöd för enkel inloggning <br>Följer efterlevnadsstandarder samma som Azure SQL-databas <br>SQL-granskning <br>Hotidentifiering |Azure Resource Manager-API för att automatisera service etablering och skalning <br>Azure-portalen funktioner för manuell tjänsten etablering och skalning <br>Data Migration Service 
 
-![enkel inloggning](./media/sql-database-managed-instance/sso.png) 
+![Enkel inloggning](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model-preview"></a>vCore-baserade inköpsmodell (förhandsgranskning)
+## <a name="vcore-based-purchasing-model-preview"></a>vCore-baserad inköpsmodell (förhandsversion)
 
-VCore-baserade inköpsmodell (förhandsversion) ger ditt flexibilitet, kontroll, genomskinlighet och ett enkelt sätt att översätta krav på lokal arbetsbelastning till molnet. Den här modellen kan du skala beräknings-, minnes- och storage baserat på deras behov av arbetsbelastning. Modellen vCore också är berättigad till upp till 30 procent besparingarna med den [Azure Hybrid Använd förmån för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+Den vCore-baserade inköpsmodellen (förhandsversion) får du flexibilitet, kontroll, transparens, och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Den här modellen kan du skala beräkning, minne och lagring utifrån deras arbetsbelastningsbehov. VCore-modellen är också berättigade till upp till 30 procent med den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
-En virtuell kärna representerar logiska Processorn erbjuds med möjlighet att välja mellan generationer av maskinvara.
+En virtuell kärna representerar en logisk CPU med möjligheten att välja mellan av maskinvara.
 - Logiska generation 4-CPU:er baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer.
-- Gen 5 logiska processorer är baserade på Intel E5-2673 v4 (Broadwell) 2.3 GHz-processorer.
+- Gen 5 logiska CPU baseras på Intel E5-2673 v4-processorn (Broadwell) 2,3 GHz-processorer.
 
-Tabellen nedan hjälper dig att förstå hur du väljer den bästa konfigurationen för beräkning, minne, lagring och i/o-resurserna.
+I följande tabell beskriver vi hur du väljer den bästa konfigurationen av din beräkning, minne, lagring och i/o-resurser.
 
 ||Generation 4|Generation 5|
 |----|------|-----|
-|Maskinvara|Intel E5-2673 v3 (Haswell) 2,4 GHz processorer kopplade SSD vCore = 1 PP (fysiska kärnor)|Intel E5-2673 v4 (Broadwell) 2.3 GHz-processorer snabb eNVM SSD vCore = 1 LP (hyper-tråd)|
-|Prestandanivåer|8, 16, 24 vCores|8, 16, 24, 32, 40 vCores|
-|Minne|7GB per vCore|5.5GB per vCore|
+|Maskinvara|Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, anslutna SSD vCore = 1 PP (fysiska kärnor)|Intel E5-2673 v4 (Broadwell) 2,3 GHz-processorer för snabb eNVM SSD, vCore = 1 LP (hyper-tråd)|
+|Prestandanivåer|8, 16, 24 virtuella kärnor|8, 16, 24, 32, 40, 64, 80 virtuella kärnor|
+|Minne|7 GB per vCore|5.5 GB per vCore|
 ||||
 
-## <a name="managed-instance-service-tier"></a>Hanterade instans tjänstnivå
+## <a name="managed-instance-service-tiers"></a>Hanterad instans-tjänstnivåer
 
-Hanterade instansen är är tillgängliga i en enda tjänstnivå - generella - som är avsedd för program med vanliga tillgänglighet och gemensamma krav för i/o-svarstid.
-
-I följande lista beskrivs viktiga egenskap för tjänstnivån generella: 
-
-- Design för flesta affärsprogram typiska prestanda och hög tillgänglighet krav 
-- Högpresterande Azure Premium-lagring (8 TB) 
-- 100 databaser / instans 
-
-I det här skiktet du oberoende Välj lagring och beräkna kapacitet. 
-
-I följande diagram illustreras active beräknings- och redundanta noder i den här tjänstnivån.
+Hanterad instans finns i två tjänstnivåer:
+- **Generella**: avsedd för tillämpningar med vanliga tillgänglighet och vanliga krav för i/o-svarstider.
+- **Alternativet affärskritisk**: avsedd för tillämpningar med hög tillgänglighet och låg i/o-svarstidskrav.
  
-![Tjänstnivån för allmänna ändamål](./media/sql-database-managed-instance/general-purpose-service-tier.png) 
+> [!IMPORTANT]
+> Ändra din tjänstenivå från generell användning till affärskritiska eller vice versa stöds inte i offentlig förhandsversion. Om du vill migrera dina databaser till en instans i olika tjänstnivå du skapa en ny instans, återställa databaser med återställning till tidpunkt från den ursprungliga instansen och sedan släppa ursprunglig instans om det inte behövs längre. 
 
-Följande beskriver viktiga funktioner i tjänstnivån generella:
+### <a name="general-purpose-service-tier"></a>Tjänstnivå för allmänt syfte
+
+I följande lista beskrivs nyckelegenskap för tjänstnivån generell användning: 
+
+- Designa för flesta affärsprogram med vanliga prestanda och hög tillgänglighet krav 
+- Azure Premium storage med höga prestanda (8 TB) 
+- 100 databaserna / instans 
+
+I den här nivån kan du oberoende Välj lagring och beräkningskapacitet. 
+
+I följande diagram illustreras active beräknings- och redundanta noder i den här.
+ 
+![Tjänstnivå för allmänt syfte](./media/sql-database-managed-instance/general-purpose-service-tier.png) 
+
+I följande lista beskrivs de främsta egenskaperna för tjänstnivån generell användning:
 
 |Funktion | Beskrivning|
 |---|---|
-| Antal vCores * | 8, 16, 24 (gen 4)<br>8, 16, 24, 32, 40 (Gen5)|
+| Antal virtuella kärnor * | 8, 16, 24 (gen 4)<br>8, 16, 24, 32, 40, 64, 80 (5: e generationen)|
 | SQL Server-version / skapa | SQL Server senaste (tillgänglig) |
-| Min lagringsstorlek | 32 GB |
+| Minimistorlek för lagring | 32 GB |
 | Maxstorlek för lagring | 8 TB |
-| Maximalt lagringsutrymme per databas | 8 TB |
-| Förväntade lagring IOPS | 500-7500 IOPS per fil (beroende på datafilen). Se [Premium-lagring](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
+| Maximalt lagringsutrymme per databas | Bestäms av den maximala lagringsstorleken per instans |
+| Förväntade storage IOPS | 500-7500 IOPS per fil (beror på datafilen). Se [Premium Storage](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Antalet datafiler (rader) per databasen | Flera | 
 | Antal loggfiler (loggning) per databas | 1 | 
-| Hanterade automatisk säkerhetskopiering | Ja |
+| Hanterade automatiska säkerhetskopieringar | Ja |
 | HÖG TILLGÄNGLIGHET | Baserat på Fjärrlagring och [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
-| Inbyggda instans och databas övervakning och mått | Ja |
-| Automatisk programuppdatering | Ja |
-| VNet - Azure Resource Manager-distribution | Ja |
-| VNet - klassiska distributionsmodellen | Nej |
-| Stöd för Portal | Ja|
+| Inbyggd instans och databasövervakning och mått | Ja |
+| Automatisk uppdatering av programvaror | Ja |
+| Virtuellt nätverk – Azure Resource Manager-distribution | Ja |
+| Virtuellt nätverk – klassiska distributionsmodellen | Nej |
+| Portal-support | Ja|
 |||
 
-\* En virtuell kärna representerar logiska Processorn erbjuds med möjlighet att välja mellan generationer av maskinvara. Gen 4 logiska processorer är baserade på Intel E5-2673 v3 (Haswell) 2,4 GHz processorer och Gen 5 logiska processorer är baserade på Intel E5-2673 v4 (Broadwell) 2.3 GHz-processorer. 
+\* En virtuell kärna representerar en logisk CPU med möjligheten att välja mellan av maskinvara. Gen 4 logiska CPU baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer och Gen 5 logiska processorer är baserade på Intel E5-2673 v4-processorn (Broadwell) 2,3 GHz-processorer. 
+
+### <a name="business-critical-service-tier"></a>Kritiska-affärsnivå
+
+Kritiska-affärsnivå har utformats för program med höga i/o-krav. Det erbjuder högsta återhämtning till fel med flera isolerade Always On-repliker. Följande diagram illustrerar underliggande arkitekturen i den här:
+
+![Kritiska-affärsnivå](./media/sql-database-managed-instance/business-critical-service-tier.png)  
+
+I följande lista beskrivs de främsta egenskaperna för nivån affärskritisk service: 
+-   Utformad för affärsprogram med högsta prestanda och hög tillgänglighet krav 
+-   Medföljer Supersnabb SSD-lagring (upp till 1 TB på Gen 4 och upp till 4 TB på Gen 5)-har stöd för upp till 100 databaser per instans 
+
+|Funktion | Beskrivning|
+|---|---|
+| Antal virtuella kärnor * | 8, 16, 24 (gen 4)<br>8, 16, 24, 32, 40, 64, 80 (5: e generationen)|
+| SQL Server-version / skapa | SQL Server senaste (tillgänglig) |
+| Ytterligare funktioner | [Minnesintern OLTP](sql-database-in-memory.md)<br> 1 ytterligare skrivskyddad replik ([Lässkalning](sql-database-read-scale-out.md))
+| Minimistorlek för lagring | 32 GB |
+| Maxstorlek för lagring | Gen 4: 1 TB (alla vCore storlekar<br> 5: e generationen:<ul><li>1 TB för 8, 16 virtuella kärnor</li><li>2 TB för 24 virtuella kärnor</li><li>4 TB för 40, 60, 80 virtuella kärnor</ul>|
+| Maximalt lagringsutrymme per databas | Bestäms av den maximala lagringsstorleken per instans |
+| Antalet datafiler (rader) per databasen | Flera | 
+| Antal loggfiler (loggning) per databas | 1 | 
+| Hanterade automatiska säkerhetskopieringar | Ja |
+| HÖG TILLGÄNGLIGHET | Baserat på [alltid på Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) och [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| Inbyggd instans och databasövervakning och mått | Ja |
+| Automatisk uppdatering av programvaror | Ja |
+| Virtuellt nätverk – Azure Resource Manager-distribution | Ja |
+| Virtuellt nätverk – klassiska distributionsmodellen | Nej |
+| Portal-support | Ja|
+|||
 
 ## <a name="advanced-security-and-compliance"></a>Avancerad säkerhet och efterlevnad 
 
-### <a name="managed-instance-security-isolation"></a>Hanterade instans säkerhetsisolering 
+### <a name="managed-instance-security-isolation"></a>Hanterad instans-säkerhetsisolering 
 
-Hanterade instans isolera ytterligare säkerhet från andra klienter i Azure-molnet. Säkerhetsisolering innehåller: 
+Hanterad instans ger ytterligare säkerhetsisolering från andra klienter i Azure-molnet. Säkerhetsisolering innehåller: 
 
 - [Intern implementering](sql-database-managed-instance-vnet-configuration.md) och vara ansluten till din lokala miljö med hjälp av Azure Express Route eller VPN-Gateway 
 - SQL-slutpunkten exponeras endast via en privat IP-adress som tillåter säker anslutning från privata Azure eller hybrid-nätverk
-- Stöd för en innehavare med dedikerad underliggande infrastruktur (beräkning, lagring)
+- Enda klient med dedikerad underliggande infrastruktur (beräkning, lagring)
 
-Följande diagram ger en översikt över isolering design: 
+Följande diagram illustrerar olika anslutningsalternativ för dina program: 
 
-![Hög tillgänglighet](./media/sql-database-managed-instance/application-deployment-topologies.png)  
+![hög tillgänglighet](./media/sql-database-managed-instance/application-deployment-topologies.png)  
+
+Läs mer om VNet-integrering och nätverk princip enforcements på undernätverksnivån i [konfigurera ett virtuellt nätverk för Azure SQL Database Managed Instance](sql-database-managed-instance-vnet-configuration.md) och [Anslut ditt program till Azure SQL Database Hanterad instans](sql-database-managed-instance-connect-app.md). 
+
+> [!IMPORTANT]
+> Placera flera hanterade instanser i samma undernät, var som tillåts av din säkerhetskrav, eftersom som ger dig ytterligare förmåner. Collocating instanser i samma undernät kan avsevärt förenkla nätverk infrastrukturunderhåll och minska instans etableringstid eftersom länge etablering varaktighet är associerat med kostnaden för att distribuera första hanterad instans i ett undernät.
+
 
 ### <a name="auditing-for-compliance-and-security"></a>Granskning för efterlevnad och säkerhet 
 
-[Hanterade instans granskning](sql-database-managed-instance-auditing.md) spårar databashändelser och skriver dem till en granskningslogg logga i Azure storage-konto-databas. Granskning kan det hjälpa att upprätthålla regelefterlevnad, Förstå Databasaktivitet och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser. 
+[Hanterad instans granskning](sql-database-managed-instance-auditing.md) spårar databasen händelser och skriver dem till en granskningslogg i ditt Azure storage-konto. Granskning kan upprätthålla regelefterlevnad, Förstå Databasaktivitet och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser. 
 
 ### <a name="data-encryption-in-motion"></a>Datakryptering i rörelse 
 
-Hanterade instans skyddar dina data genom att tillhandahålla kryptering för data i rörelse med Transport Layer Security.
+Hanterad instans skyddar dina data genom att tillhandahålla kryptering för data i rörelse med hjälp av Transport Layer Security.
 
-Utöver transport layer security hanteras SQL-databasinstans erbjuder skydd för känsliga data som rör sig i vila och under frågebearbetning med [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted är först i branschen med att erbjuda oslagbar datasäkerhet mot överträdelser, inklusive stöld av viktiga data. Till exempel med Always Encrypted lagras kreditkortsnummer krypterade i databasen alltid, även under frågan bearbetning, att tillåta dekryptering vid användning av behöriga personer eller program som behöver bearbeta dessa data. 
+Förutom transport layer security SQL Database Managed Instance ger skydd av känsliga data i rörelse, i vila och under frågebearbetning med [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted är först i branschen med att erbjuda oslagbar datasäkerhet mot överträdelser, inklusive stöld av viktiga data. Till exempel med Always Encrypted lagras kreditkortsnummer krypterade i databasen alltid, även under frågebearbetning, vilket möjliggör dekryptering vid användning av behörig personal eller program som behöver bearbeta datan. 
+
+### <a name="data-encryption-at-rest"></a>Datakryptering i vila 
+[Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) krypterar Azure SQL Managed Instance-datafiler, kallas även kryptera vilande data. TDE utför i realtid i/o-kryptering och dekryptering av de data och loggfiler. Krypteringen använder en databaskrypteringsnyckel (DEK), som lagras i boot databaspost för tillgänglighet under återställningen. Du kan skydda alla dina databaser i Managed Instance med transparent datakryptering. TDE är en SQL-beprövad kryptering i vila-teknik som krävs av många efterlevnadsstandarder för att skydda mot stöld av lagringsmedier. Allmänt tillgängliga förhandsversionen stöds automatisk nyckelhantering-modellen (utförs av PaaS-plattform). 
+
+Migrering av en krypterad databas till SQL Managed Instance stöds via Azure Database Migration Service (DMS) eller intern återställning. Om du planerar att migrera krypterade databasen med hjälp av inbyggda återställning är ett obligatoriskt steg i migreringen av befintliga TDE-certifikat från SQL Server på plats eller SQL Server-VM till hanterad instans. Mer information om migreringsalternativ finns i [migrering av SQL Server-instans till Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
 ### <a name="dynamic-data-masking"></a>Dynamisk datamaskning 
 
-SQL-databas [dynamisk datamaskning](/sql/relational-databases/security/dynamic-data-masking) begränsar exponering av känsliga data genom att maskera till obehöriga användare. Dynamisk datamaskning förhindrar obehörig åtkomst till känsliga data genom att du kan ange hur mycket av känsliga data för att avslöja med minimal påverkan på programnivån. Det är en principbaserad säkerhetsfunktion som fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad. 
+SQL Database [dynamisk datamaskning](/sql/relational-databases/security/dynamic-data-masking) begränsar exponering av känsliga data genom att maskera den för replikdata användare. Dynamisk datamaskning förhindrar obehörig åtkomst till känsliga data genom att ange hur mycket av känsliga data som avslöja med minimal påverkan på programnivån. Det är en principbaserad säkerhetsfunktion som fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad. 
 
 ### <a name="row-level-security"></a>Säkerhet på radnivå 
 
-[Radnivå säkerhet](/sql/relational-databases/security/row-level-security) låter dig att styra åtkomst till rader i en databastabell baserat på egenskaperna för den användare som kör en fråga (t.ex med gruppen medlemskap eller köra context). Säkerheten på radnivå (RLS) förenklar design och kodning av säkerheten i ditt program. RLS låter dig implementera begränsningar för dataåtkomst för raden. Till exempel så att anställda har åtkomst till de datarader som är relevanta för deras avdelning eller begränsa en dataåtkomst till relevanta data. 
+[Säkerhet på radnivå](/sql/relational-databases/security/row-level-security) gör det möjligt att styra åtkomst till rader i en databastabell baserat på egenskaperna för användaren som kör en fråga (till exempel av grupmedlemskap eller körning). Säkerheten på radnivå (RLS) förenklar design och kodning av säkerheten i ditt program. RLS låter dig implementera begränsningar för dataåtkomst för raden. Till exempel så att anställda har åtkomst till de datarader som är relevanta för deras avdelning eller att begränsa en data-åtkomsten till endast de relevanta data. 
 
 ### <a name="threat-detection"></a>Hotidentifiering 
 
-[Hanterade instans Hotidentifiering](sql-database-managed-instance-threat-detection.md) kompletterar [hanteras instans granskning](sql-database-managed-instance-auditing.md) genom att tillhandahålla ett extra lager av säkerhet för tillgångsinformation är inbyggda i tjänsten som identifierar onormal och potentiellt skadliga försök att komma åt eller utnyttja databaser. Du meddelas om misstänkta aktiviteter, potentiella säkerhetsproblem och SQL injection attacker samt avvikande databasen åtkomstmönster. Hotidentifieringsaviseringar kan visas från [Azure Security Center](https://azure.microsoft.com/services/security-center/) och ange information om misstänkt aktivitet och rekommenderar åtgärd att undersöka och minska risken.  
+[Hanterad instans-Hotidentifiering](sql-database-managed-instance-threat-detection.md) kompletterar [Managed Instance granskning](sql-database-managed-instance-auditing.md) genom att tillhandahålla ett extra lager säkerhetsintelligens som är inbyggd i tjänsten som identifierar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser. Du aviseras om misstänkta aktiviteter, potentiella svagheter, och SQL-inmatning attacker och avvikande mönster i databasåtkomst. Hotidentifieringsaviseringar kan visas från [Azure Security Center](https://azure.microsoft.com/services/security-center/) och ger information om misstänkt aktivitet och rekommenderar åtgärder att undersöka och åtgärda hot.  
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory-integrering och multifaktorautentisering 
 
 Med SQL Database kan du centralt hantera identiteter för databasanvändare och andra Microsoft-tjänster med [Azure Active Directory-integrering](sql-database-aad-authentication.md). Den här funktionen förenklar hanteringen av behörighet och ger ökad säkerhet. Azure Active Directory stöder [multifaktorautentisering](sql-database-ssms-mfa-authentication-configure.md) (MFA) för att öka säkerheten för data och program med stöd för en process med enkel inloggning. 
 
 ### <a name="authentication"></a>Autentisering 
-SQL-autentisering för databasen syftar på hur användare bevisa sin identitet vid anslutning till databasen. SQL Database stöder två typer av autentisering:  
+SQL-Databasautentisering refererar till hur användarna bekräfta sin identitet vid anslutning till databasen. SQL Database stöder två typer av autentisering:  
 
 - SQL-autentisering, som använder ett användarnamn och lösenord.
-- Azure Active Directory-autentisering, som använder identiteter som hanteras av Azure Active Directory och stöds för hanterade och integrerad domäner. 
+- Azure Active Directory-autentisering, som använder identiteter som hanteras av Azure Active Directory och har stöd för hanterade och integrerade domäner. 
 
 ### <a name="authorization"></a>Auktorisering
 
-Auktorisering refererar till vilka en användare kan utföra i en Azure SQL Database och styrs av ditt användarkonto databasen rollmedlemskap och behörigheter på objektnivå. Hanterade instansen har samma funktioner för auktorisering som SQL Server 2017. 
+Auktorisering hänvisar till vad en användare kan göra inom en Azure SQL Database och styrs av ditt användarkontos databas rollmedlemskap och behörigheter på objektnivå. Hanterad instans har samma funktioner för auktorisering som SQL Server 2017. 
 
 ## <a name="database-migration"></a>Databasmigrering 
 
-Hanterade instans mål användarscenarier masslagring databasen migreringen från lokala eller IaaS databasen implementeringar. Hanterade instans stöder flera alternativ för migrering av databasen: 
+Hanterade instans mål användarscenarier med drivrutiner för masslagring Databasmigrering från lokala eller IaaS databasen implementeringar. Hanterad instans stöder flera alternativ för databas-migrering: 
 
-### <a name="data-migration-service"></a>Migrering datatjänst
+### <a name="data-migration-service"></a>Data Migration Service
 
-Tjänsten Azure Database migrering är en helt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure Data plattformar med minimal avbrottstid. Den här tjänsten förenklar uppgifter som krävs för att flytta befintliga tredjeparts- och SQL Server-databaser till Azure. Distributionsalternativ inkluderar Azure SQL Database, hanteras instans och SQL Server i Azure VM i Public Preview. Se [hur du migrerar lokala databasen till hanterade instans med DMS](https://aka.ms/migratetoMIusingDMS). 
+Azure Database Migration Service är en fullständigt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure-Dataplattformar med minimal avbrottstid. Den här tjänsten effektiviserar uppgifter som krävs för att flytta befintliga från tredje part och SQL Server-databaser till Azure. Distributionsalternativ inkluderar Azure SQL Database Managed Instance och SQL Server i virtuella Azure-datorer i den offentliga förhandsversionen. Se [migrera din lokala databas till Managed Instance med DMS](https://aka.ms/migratetoMIusingDMS). 
 
 ### <a name="backup-and-restore"></a>Säkerhetskopiering och återställning  
 
-Metod för migrering utnyttjar SQL-säkerhetskopiering till Azure blob storage. Säkerhetskopior som lagras i Azure storage blob kan återställas direkt till hanterade instans. Om du vill återställa en befintlig SQL-databas till en hanterad instans kan du:
+Förhållningssätt till Databasmigrering utnyttjar SQL-säkerhetskopior till Azure blob storage. Säkerhetskopior som lagras i Azure storage blob kan återställas direkt till hanterade instansen. Om du vill återställa en befintlig SQL-databas till en hanterad instans, kan du:
 
-- Använd [Data migrering Service (DMS)](../dms/dms-overview.md). En självstudiekurs finns [migrera till en hanterad instans med Azure databas migrering Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) att återställa från en säkerhetskopia av databasen
+- Använd [Data Migration Service (DMS)](../dms/dms-overview.md). En självstudiekurs finns i [migrera till en hanterad instans med Azure Database Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) att återställa från en säkerhetskopia av databasen
 - Använd den [T-SQL RESTORE-kommandot](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
-  - En självstudiekurs visar hur du återställer Wide World Importers - standarddatabasen säkerhetskopian finns [återställer en säkerhetskopia till en hanterad instans](sql-database-managed-instance-restore-from-backup-tutorial.md). Den här kursen visar du måste överföra en säkerhetskopia till Azure blogg lagring och skydda den med hjälp av en signatur (SAS) för delade åtkomstnyckeln.
-  - Information om återställning från URL finns [interna ÅTERSTÄLLA från URL: en](sql-database-managed-instance-migrate.md#native-restore-from-url).
+  - Se en självstudie som visar hur du återställer Wide World Importers – Standard databassäkerhetskopia, [återställa en säkerhetskopia till en hanterad instans](sql-database-managed-instance-restore-from-backup-tutorial.md). Den här kursen visar du behöver ladda upp en säkerhetskopia till Azure BLOB-lagring och skydda den med en signatur för delad åtkomstnyckel.
+  - Information om återställning från URL: en finns i [interna ÅTERSTÄLLA från URL: en](sql-database-managed-instance-migrate.md#native-restore-from-url).
 
 ## <a name="sql-features-supported"></a>SQL-funktioner som stöds 
 
-Hanterade instans syftet är att leverera nära ytan 100% kompatibilitet med lokal SQL Server kommer i steg tills tjänsten Allmän tillgänglighet. För en funktioner och jämförelse lista, se [SQL vanliga funktioner](sql-database-features.md).
+Hanterade instans syftet är att leverera nära 100% ytan kompatibilitet med en lokal SQL Server kommer i steg tills tjänsten allmänt tillgängliga. För en funktioner och jämförelse lista, se [SQL vanliga funktioner](sql-database-features.md).
  
-Hanterade instans stöder bakåtkompatibilitet till SQL 2008-databaser. Direkt migrering från SQL 2005 databasservrar stöds, kompatibilitetsnivå för migrerade SQL 2005-databaserna har uppdaterats till SQL 2008. 
+Hanterad instans stöder bakåtkompatibilitet till SQL 2008-databaser. Direct migrering från SQL 2005 databasservrar stöds, kompatibilitetsnivå för migrerade SQL 2005-databaserna har uppdaterats till SQL 2008. 
  
-Följande diagram ger en översikt över ytan kompatibilitet i hanterade instans:  
+Följande diagram illustrerar ytan kompatibilitet i hanterade instanser:  
 
 ![Migrering](./media/sql-database-managed-instance/migration.png) 
 
-### <a name="key-differences-between-sql-server-on-premises-and-managed-instance"></a>Viktiga skillnader mellan SQL Server lokalt och hanteras instans 
+### <a name="key-differences-between-sql-server-on-premises-and-managed-instance"></a>Viktiga skillnader mellan SQL Server lokalt och hanterad instans 
 
-Hanterade instans fördelar från att alltid upp-hittills i molnet, vilket innebär att vissa funktioner i lokal SQL Server kan vara antingen föråldrade avyttras eller har alternativ. Det finns särskilda fall när verktygen behöver känner igen att en viss funktion fungerar på ett något annorlunda sätt eller att tjänsten inte körs i en miljö som du inte helt styra: 
+Hanterad instans fördelar från att alltid upp-hittills i molnet, vilket innebär att vissa funktioner i en lokal SQL Server kan vara antingen föråldrade dragits tillbaka eller har alternativ. Det finns vissa fall när verktyg måste du identifiera att en viss funktion fungerar på ett något annorlunda sätt eller att tjänsten inte körs i en miljö som du inte helt styra: 
 
-- Hög tillgänglighet är inbyggd och förkonfigurerade. Funktioner med hög tillgänglighet alltid på exponeras inte på samma sätt som i SQL-IaaS-implementeringar 
-- Automatisk säkerhetskopiering och punkt tidpunkt för återställning. Kunden kan initiera `copy-only` säkerhetskopieringar som inte stör automatisk säkerhetskopiering kedjan. 
-- Hanterade instansen tillåter inte att ange fullständiga fysiska sökvägar så alla motsvarande scenarier stöds inte på samma sätt: ÅTERSTÄLLA DB stöder inte WITH MOVE, skapa DB tillåter inte fysiska sökvägar, BULK INSERT fungerar med Azure BLOB endast osv. 
-- Hanterade instans stöder [Azure AD authentication](sql-database-aad-authentication.md) moln alternativ till Windows-autentisering. 
-- Hanterade instans hanterar automatiskt XTP-filgruppen och filer som innehåller objekt i minnet OLTP-databaser
-- Hanterade instans stöder SQL Server Integration Services (SSIS) och kan värden SSIS-katalog (SSISDB) som lagrar SSIS-paket, men de körs på en hanterad Azure SSIS Integration Runtime (IR) i Azure Data Factory (ADM), se [skapa Azure-SSIS-IR i ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). Om du vill jämföra SSIS-funktioner i SQL-databasen och hanteras instansen finns [jämför SQL-databasen och hanteras instansen (förhandsgranskning)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
+- Hög tillgänglighet är inbyggda och redan har konfigurerats. Always On funktioner med hög tillgänglighet är inte tillgängliga på samma sätt som i SQL IaaS-implementeringar 
+- Automatiserade säkerhetskopieringar och tidpunkt för återställning till tidpunkt. Kunden kan initiera `copy-only` säkerhetskopieringar som inte stör automatisk loggsäkerhetskopieringssekvensen. 
+- Hanterad instans tillåter inte att ange fullständig fysiska sökvägar så att alla motsvarande scenarier behöver stödjas på olika sätt: ÅTERSTÄLLA DB stöder inte WITH MOVE, skapa DB inte tillåter fysiska sökvägar, BULK INSERT fungerar med Azure Blobs endast osv. 
+- Hanterad instans stöder [Azure AD-autentisering](sql-database-aad-authentication.md) som molnet alternativ till Windows-autentisering. 
+- Hanterad instans hanterar automatiskt XTP-filgruppen och filer för databaser som innehåller In-Memory OLTP-objekt
+- Hanterad instans har stöd för SQL Server Integration Services (SSIS) och kan värden SSIS-katalogen (SSISDB) som lagrar SSIS-paket, men de körs på en hanterad Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF), se [skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). Jämförelse mellan SSIS-funktioner i SQL Database och Managed Instance finns [jämför SQL Database och hanterad instans (förhandsversion)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
 
-### <a name="managed-instance-administration-features"></a>Hanterade instans-funktioner för administration  
+### <a name="managed-instance-administration-features"></a>Hanterad instans-funktioner för administration  
 
-Hanterade instans aktivera systemadministratören att fokusera på vad gäller de flesta för företag. Många system administratör/DBA aktiviteter krävs inte eller så är enkel. Till exempel OS / RDBMS installationen och korrigering, dynamiska instans storleksändring och konfiguration, säkerhetskopiering, databasreplikering (inklusive systemdatabaser), konfiguration för hög tillgänglighet och konfigurationen av hälsotillstånd och prestanda övervakningsdata dataströmmar. 
+Hanterade instans aktivera systemadministratören att fokusera på vad som är viktigast för företag. Många system administratör/DBA aktiviteter krävs inte eller är enkel. Till exempel OS / RDBMS installation och korrigeringar, dynamisk instans storleksändring och konfiguration, säkerhetskopieringar, databasreplikering (inklusive systemdatabaser), konfiguration för hög tillgänglighet och konfigurationen av hälsotillstånd och prestanda som övervakning av data strömmar. 
 
 > [!IMPORTANT]
-> En lista över funktioner som stöds, delvis stöds och som inte stöds, se [SQL databasfunktioner](sql-database-features.md). En lista över T-SQL-skillnader i hanterade instanser jämfört med SQL Server finns [hanteras instans T-SQL-skillnader från SQL Server](sql-database-managed-instance-transact-sql-information.md)
+> En lista över funktioner stöds, delvis stöds och som inte stöds finns i [SQL Database-funktioner](sql-database-features.md). En lista över T-SQL skillnader i hanterade instanser jämfört med SQL Server finns i [hanterad instans T-SQL-skillnader från SQL Server](sql-database-managed-instance-transact-sql-information.md)
  
 ## <a name="next-steps"></a>Nästa steg
 
 - För en funktioner och jämförelse lista, se [SQL vanliga funktioner](sql-database-features.md).
 - Mer information om konfiguration av virtuella nätverk finns i avsnittet om [konfiguration av virtuella nätverk för hanterade instanser](sql-database-managed-instance-vnet-configuration.md).
-- En självstudiekurs som skapar en instans som hanteras och återställer en databas från en säkerhetskopia finns [skapa en instans för hanterade](sql-database-managed-instance-create-tutorial-portal.md).
+- Se en självstudie som skapar en hanterad instans och återställer en databas från en säkerhetskopia, [skapar en hanterad instans](sql-database-managed-instance-create-tutorial-portal.md).
 - En självstudie om hur du använder Azure Database Migration Service (DMS) för migrering finns i avsnittet om [migrering av hanterade instanser med DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+- Information om priser finns i [priser för SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

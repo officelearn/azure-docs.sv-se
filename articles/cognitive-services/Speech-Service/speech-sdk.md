@@ -8,14 +8,14 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: bf37ffa9b5a185845c8eeafa7e00d352486fdce2
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: ed523493f456e65f7aa5d3ad33914e3e52cd7044
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069472"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113400"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>Om Cognitive Services tal SDK
 
@@ -23,7 +23,7 @@ Den Cognitive Services tal Software Development Kit (SDK) ger dina program inbyg
 
 [!include[Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
-[!include[License Notice](includes/license-notice.md)]
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 ## <a name="get-the-windows-sdk"></a>Hämta Windows SDK
 
@@ -57,14 +57,19 @@ Om du vill skapa ett program, kopiera eller flytta nödvändiga binärfiler (och
 
 Java SDK för Android kommer som ett [AAR (Android-biblioteket)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek samt Android behörigheter som krävs för att använda den.
 Den finns i ett Maven-centrallager på `https://csspeechstorage.blob.core.windows.net/maven/` som paket `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`.
+Förbruka paketet från Android Studio-projekt gör följande ändringar:
 
-* Lägg till i Android Studio-projekt
+* I projektet servernivå `build.gradle` Lägg till följande till den `repository` avsnittet:
+
+  ```text
+  maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
+  ```
+
+* I modul servernivå `build.gradle` Lägg till följande till den `dependencies` avsnittet:
 
   ```text
   implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.5.0'
   ```
-
-  i den `dependencies` avsnitt i din modul-nivå `build.gradle` fil.
 
 Java SDK är också en del av den [tal Devices SDK](speech-devices-sdk.md).
 

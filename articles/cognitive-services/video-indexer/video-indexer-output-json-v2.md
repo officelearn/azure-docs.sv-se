@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: juliako
-ms.openlocfilehash: 9e66bffe1a547e72143201f4afb8e5ae99065df9
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
-ms.translationtype: MT
+ms.openlocfilehash: be94a508a10fdbbed194fb71e28fd7c3b72a080c
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341706"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989486"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Granska Video Indexer-utdata som genereras av v2 API
 
@@ -42,7 +42,7 @@ Den här artikeln undersöker JSON-innehåll som returneras av den **hämta Vide
 |accountId|Till spellistan VI konto-ID.|
 |id|Till spellistan-ID.|
 |namn|Till spellistan namn.|
-|description|Till spellistan beskrivning.|
+|beskrivning|Till spellistan beskrivning.|
 |Användarnamn|Namnet på användaren som skapade listan.|
 |skapad|Skapandetid för till spellistan.|
 |privacyMode|Till spellistan sekretess-läge (privata/offentliga).|
@@ -126,6 +126,7 @@ Det här avsnittet visas en sammanfattning av insikterna.
 |indexingPreset|Den förinställning som används för att indexera videon.|
 |streamingPreset|Den förinställning som används för att publicera videon.|
 |linguisticModelId|CRIS modellen används för att transkribera videon.|
+|statistik | Mer information finns i [statistik](#statistics).|
 
 ```json
 {
@@ -347,7 +348,7 @@ Exempel:
 |id|Ansikts-ID.|
 |namn|Ansikts-namnet. Det kan vara ”okänt #0”, en identifierade kändisar eller en kund utbildad person.|
 |förtroende|Face ID förtroende.|
-|description|En beskrivning av kändisar. |
+|beskrivning|En beskrivning av kändisar. |
 |thumbnalId|ID för miniatyrbilden för den sida.|
 |knownPersonId|Om det är en känd person, dess interna ID.|
 |Tjänsten|Om det är en Bing kändisar, dess Bing-ID.|
@@ -511,7 +512,7 @@ Företag och produkten namn har identifierats i tal till textavskrift och/eller 
 |namn|Namnet varumärken.|
 |Tjänsten | Suffix för varumärke wikipedias url. Till exempel ”Target_Corporation” är suffixet för [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
 |referenceUrl | Varumärket är Wikipedias url, om det finns. Till exempel [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|description|Varumärken beskrivning.|
+|beskrivning|Varumärken beskrivning.|
 |tags|En lista över fördefinierade taggar som är kopplade till den här varumärke.|
 |förtroende|Förtroende-värdet för Video Indexer varumärke detektor (0-1).|
 |instanser|En lista över tidsintervall för den här varumärke. Varje instans har en brandType som anger om den här varumärke visades i avskriften eller OCR.|

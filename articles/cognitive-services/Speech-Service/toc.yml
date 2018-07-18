@@ -11,12 +11,18 @@
   items:
     - name: Prova Speech Service kostnadsfritt
       href: get-started.md
-    - name: 'Identifiera tal i C#'
-      href: quickstart-csharp-windows.md
+    - name: 'Identifiera tal i C# (.NET på Windows)'
+      href: quickstart-csharp-dotnet-windows.md
+    - name: 'Identifiera tal i C# (.NET Core på Windows)'
+      href: quickstart-csharp-dotnetcore-windows.md
+    - name: Identifiera tal i en UWP-app
+      href: quickstart-csharp-uwp.md
     - name: Identifiera tal i C++ för Windows
       href: quickstart-cpp-windows.md
     - name: Identifiera tal i C++ för Linux
       href: quickstart-cpp-linux.md
+    - name: Identifiera tal i Java för Android
+      href: quickstart-java-android.md
     - name: Komma igång med Speech Devices SDK
       href: speech-devices-sdk-qsg.md
 - name: Instruktionsguider

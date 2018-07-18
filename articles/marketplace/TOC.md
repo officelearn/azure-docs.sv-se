@@ -8,12 +8,8 @@
 ### Publicera på Marketplace  
 #### [Bestäm listtyp för lösningen](./determine-your-listing-type.md)  
 #### [Börja publicera på marknadsplatsen](./become-publisher.md)  
-#### [Krav efter listtyp](./listing-type-requirements.md) 
-#### Checklistor för företagsverifiering  
-##### [Riktlinjer](./guidelines.md)  
-##### [Registrera i Dev Center](./register-dev-center.md)  
-##### [Lägg till bank- och skatteinformation](./add-bank-tax-info.md)  
-##### [Aktivera utvärderingsversionen med Azure AD](./enable-trial-using-azure-ad.md)  
+##### [Skapa ett Microsoft-konto](./guidelines.md)
+##### [Registrera i Dev Center](./register-dev-center.md) 
 ##### [Faktureringsalternativ för Azure Marketplace](./billing-options-azure-marketplace.md)  
 
 ### Publiceringsguide utifrån typ av erbjudande 
@@ -21,15 +17,25 @@
 #### [Azure-appar: lösningsmallar](./marketplace-solution-templates.md)
 #### [Azure-appar: Managed Applications](./marketplace-managed-apps.md)
 #### [Publiceringsguide för SaaS-app](./marketplace-saas-applications-technical-publishing-guide.md) 
-#### [Containrar](./marketplace-containers.md)
+#### 
+  [Containrar](./marketplace-containers.md)
 #### [Konsulttjänst](./consulting-services.md)  
 #### [AppSource-appar](./appsource-offer-publishing-guide.md)
+#### [Aktivera din utvärderingsversion av Marketplace med Azure Active Directory](./enable-trial-using-azure-ad.md)
 
 ### [Låt din verksamhet växa genom marknadsplatsen](./grow-your-business-with-azure-marketplace.md)  
 #### [Önskade lösningar](./preferred-solutions.md) 
 
 ### Support  
 #### [Support för Azure Marketplace och AppSource](./support-azure-marketplace.md)  
+
+### Publiceringsguider  
+#### [Azure Marketplace-konsulttjänst](consulting-services.md)  
+#### [Teknisk publiceringsguide om Azure Marketplace SaaS-appar](marketplace-saas-applications-technical-publishing-guide.md) 
+#### [Aktivera din utvärderingsversion av Marketplace med Azure Active Directory](./enable-trial-using-azure-ad.md)  
+
+### [Låt din verksamhet växa genom marknadsplatsen](./grow-your-business-with-azure-marketplace.md)  
+#### [Önskade lösningar](./preferred-solutions.md) 
 
 ## [Partnerportalen i molnet](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  
 

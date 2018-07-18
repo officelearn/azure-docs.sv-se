@@ -10,6 +10,8 @@
   items:
     - name: Distribuera en fjärrövervakningslösning
       href: quickstart-remote-monitoring-deploy.md
+    - name: Distribuera en ansluten fabrikslösning
+      href: quickstart-connected-factory-deploy.md
     - name: Distribuera en förutsägande underhållslösning
       href: quickstart-predictive-maintenance-deploy.md
     - name: Distribuera en enhetssimuleringslösning
@@ -141,8 +143,8 @@
           href: iot-accelerators-predictive-overview.md
     - name: Ansluten fabrik
       items:
-        - name: Distribuera en lösningsaccelerator
-          href: iot-accelerators-connected-factory-overview.md
+        - name: Använd instrumentpanelen
+          href: iot-accelerators-connected-factory-dashboard.md
         - name: Distribuera en gateway
           href: iot-accelerators-connected-factory-gateway-deployment.md
         - name: Använd OPC-utgivaren

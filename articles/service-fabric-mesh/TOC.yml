@@ -1,0 +1,63 @@
+- name: Dokumentation om Service Fabric Mesh
+  href: index.yml
+- name: Översikt
+  expanded: true
+  items:
+    - name: Om Service Fabric Mesh
+      href: service-fabric-mesh-overview.md
+- name: Snabbstarter
+  items:
+    - name: Distribuera Hello World
+      href: service-fabric-mesh-quickstart-deploy-container.md
+    - name: Skapa och distribuera en webbapp
+      href: service-fabric-mesh-quickstart-dotnet-core.md
+- name: Självstudier
+  items:
+    - name: Skapa och distribuera en webbapp för flera tjänster
+      items:
+        - name: 1– Skapa ett ASP.NET Core-program
+          href: service-fabric-mesh-tutorial-create-dotnetcore.md
+        - name: 2– Felsök programmet
+          href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
+        - name: 3 – Distribuera programmet
+          href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
+- name: Begrepp
+  items:
+    - name: Terminologi
+      href: service-fabric-mesh-terminology.md
+    - name: Service Fabric-resurser
+      href: service-fabric-mesh-service-fabric-resources.md
+    - name: Övervakning och diagnostik
+      href: service-fabric-mesh-monitoring-diagnostics.md
+    - name: Lagringstillstånd
+      href: service-fabric-mesh-storing-state.md
+- name: Instruktionsguider
+  items:
+    - name: Ställ in din utvecklingsmiljö
+      href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
+    - name: Konfigurera Service Fabric Mesh CLI
+      href: service-fabric-mesh-howto-setup-cli.md
+    - name: Distribuera en .NET Core-app för mikrotjänster
+      href: service-fabric-mesh-howto-deploy-app-template.md
+    - name: Distribuera en app från ett privat register
+      href: service-fabric-mesh-howto-deploy-app-private-registry.md
+    - name: Lagringstillstånd med Azure Files-volym
+      href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
+    - name: Oberoende skalning av mikrotjänster i en app
+      href: service-fabric-mesh-howto-app-scale-out.md
+- name: Resurser
+  items:
+    - name: Vanliga frågor
+      href: service-fabric-mesh-faq.md
+    - name: Exempelprogram
+      href: 'https://github.com/Azure-Samples/service-fabric-mesh'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=service-fabric-mesh'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=service-fabric-mesh'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric-mesh'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=service-fabric-mesh'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'

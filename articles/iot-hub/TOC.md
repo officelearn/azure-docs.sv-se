@@ -16,24 +16,10 @@
 ## [Kontrollera en enhet (Python)](quickstart-control-device-python.md)
 
 # Självstudier
-
-<!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [Meddelanderoutning](tutorial-routing.md)
 ## [Konfigurera dina enheter](tutorial-device-twins.md)
 ## [Hantera uppdateringar av inbyggd programvara](tutorial-firmware-update.md)
 ## [Testa enhetsanslutning](tutorial-connectivity.md)
-## Skicka meddelanden från moln till enhet
-### [.NET](iot-hub-csharp-csharp-c2d.md)
-### [Java](iot-hub-java-java-c2d.md)
-### [Node.js](iot-hub-node-node-c2d.md)
-### [Python](iot-hub-python-python-c2d.md)
-## Komma igång med enhetshantering
-### [Node.js](iot-hub-node-node-device-management-get-started.md)
-### [.NET](iot-hub-csharp-csharp-device-management-get-started.md)
-### [Java](iot-hub-java-java-device-management-getstarted.md)
-### [Python](iot-hub-python-python-device-management-get-started.md)
-
-### [Masshantera IoT-enheter](iot-hub-bulk-identity-mgmt.md)
 
 # Begrepp
 ## [Översikt över enhetshantering](iot-hub-device-management-overview.md)
@@ -42,6 +28,7 @@
 ## [Hög tillgänglighet och haveriberedskap](iot-hub-ha-dr.md)
 ## [Stöd för ytterligare protokoll](iot-hub-protocol-gateway.md)
 ## [Jämföra meddelande- och händelsedirigering](iot-hub-event-grid-routing-comparison.md)
+## [Regelverk för enhetskonfiguration](iot-hub-configuration-best-practices.md)
 
 ## [Utvecklarguide](iot-hub-devguide.md)
 ### [Funktionsguide enheten till molnet](iot-hub-devguide-d2c-guidance.md)
@@ -58,6 +45,7 @@
 ### [Hantera enhetsidentiteter](iot-hub-devguide-identity-registry.md)
 ### [Styra åtkomst till IoT Hub](iot-hub-devguide-security.md)
 ### [Förstå enhetstvillingar](iot-hub-devguide-device-twins.md)
+### [Förstå modultvillingar](iot-hub-devguide-module-twins.md)
 ### [Anropa direktmetoder på en enhet](iot-hub-devguide-direct-methods.md)
 ### [Schemalägga jobb på flera enheter](iot-hub-devguide-jobs.md)
 ### [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md)
@@ -65,89 +53,29 @@
 ### [Kvoter och begränsningar](iot-hub-devguide-quotas-throttling.md)
 ### [Prissättningsexempel](iot-hub-devguide-pricing.md)
 ### [SDK:er för tjänst och enhet](iot-hub-devguide-sdks.md)
-### [Utveckla för begränsade enheter](iot-hub-devguide-develop-for-constrained-devices.md)
-### [Utveckla för mobila enheter](iot-hub-how-to-develop-for-mobile-devices.md)
 ### [MQTT-support](iot-hub-mqtt-support.md)
 ### [Ordlista](iot-hub-devguide-glossary.md)
 
-## Konfigurera enheten
-### [Simulera en enhet på datorn](iot-hub-get-started-simulated.md)
-#### [.NET](iot-hub-csharp-csharp-getstarted.md)
-#### [Java](iot-hub-java-java-getstarted.md)
-#### [Node.js](iot-hub-node-node-getstarted.md)
-#### [Python](iot-hub-python-getstarted.md)
-## [Använd SDK för IoT-enhet för C](iot-hub-device-sdk-c-intro.md)
-### [Använda IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-### [Använda serialiseraren](iot-hub-device-sdk-c-serializer.md)
+## Säkerhet
+### [Säkerhet från grunden](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc)
+### [Metodtips för säkerhet](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc)
+### [Säkerhetsarkitektur](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc)
+### [Skydda distributionen av IoT](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc)
 
-## [Säkerhet från grunden](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc)
-## [Metodtips för säkerhet](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc)
-## [Säkerhetsarkitektur](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc)
-## [Skydda distributionen av IoT](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc)
 ## Skydda med X.509 CA-certifikat
 ### [Översikt över certifikatsäkerhet med X.509 CA](iot-hub-x509ca-overview.md)
-#### [Koncept för certifikatsäkerhet med X.509 CA](iot-hub-x509ca-concept.md)
-### [Kom igång med certifikatsäkerhet med X.509 CA](iot-hub-security-x509-get-started.md)
-#### [Skapa certifikat – PowerShell](iot-hub-security-x509-create-certificates.md)
-
-
-### Utökade IoT-scenarier
-#### [Hantera meddelanden mellan enheter och molnet med iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-#### [Spara IoT Hub-meddelanden i Azure Blob Storage](iot-hub-store-data-in-azure-table-storage.md)
-#### [Datavisualisering i Power BI](iot-hub-live-data-visualization-in-power-bi.md)
-#### [Datavisualisering med Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
-#### [Väderprognoser med hjälp av Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
-#### [Enhetshantering med IoT Hub-utforskaren](iot-hub-device-management-iothub-explorer.md)
-#### [Enhetshantering med IoT-tillägg för Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
-#### [Fjärrövervakning och aviseringar med Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
-
-### Använda MXChip IoT DevKit
-#### [Översätta röstmeddelanden med Azure Cognitive Services](iot-hub-arduino-iot-devkit-az3166-translator.md)
-#### [Hämta ett Twitter-meddelande med Azure Functions](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
-#### [Skicka meddelanden till en MQTT-server med Eclipse Paho-API:er](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
-#### [Övervaka den magnetiska sensorn och skicka e-postaviseringar med Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
-
-## [Regelverk för enhetskonfiguration](iot-hub-configuration-best-practices.md)
+### [Koncept för certifikatsäkerhet med X.509 CA](iot-hub-x509ca-concept.md)
 
 # Instruktionsguider
-## Planera
-### [Jämföra IoT Hub och Event Hubs](iot-hub-compare-event-hubs.md)
-### [Välj den rätta nivån](iot-hub-scaling.md)
-### [Hög tillgänglighet och haveriberedskap](iot-hub-ha-dr.md)
-### [Stöd för ytterligare protokoll](iot-hub-protocol-gateway.md)
-### [Jämföra meddelande- och händelsedirigering](iot-hub-event-grid-routing-comparison.md)
-## [Utveckla](iot-hub-how-to.md)
-### [Utvecklarguide](iot-hub-devguide.md)
-#### [Funktionsguide enheten till molnet](iot-hub-devguide-d2c-guidance.md)
-#### [Funktionsguide molnet till enheten](iot-hub-devguide-c2d-guidance.md)
-#### [Skicka och ta emot meddelanden](iot-hub-devguide-messaging.md)
-##### [Skicka meddelanden från enhet till moln till IoT Hub](iot-hub-devguide-messages-d2c.md)
-##### [Läsa meddelanden från enhet till moln från den inbyggda slutpunkten](iot-hub-devguide-messages-read-builtin.md)
-##### [Reagera på IoT Hub-händelser](iot-hub-event-grid.md)
-##### [Använda anpassade slutpunkter och routningsregler för meddelanden från enhet till moln](iot-hub-devguide-messages-read-custom.md)
-##### [Skicka meddelanden från moln till enhet från IoT Hub](iot-hub-devguide-messages-c2d.md)
-##### [Skapa och läsa IoT Hub-meddelanden](iot-hub-devguide-messages-construct.md)
-##### [Välja ett kommunikationsprotokoll](iot-hub-devguide-protocols.md)
-#### [Ladda upp filer från en enhet](iot-hub-devguide-file-upload.md)
-#### [Hantera enhetsidentiteter](iot-hub-devguide-identity-registry.md)
-#### [Styra åtkomst till IoT Hub](iot-hub-devguide-security.md)
-#### [Förstå enhetstvillingar](iot-hub-devguide-device-twins.md)
-#### [Förstå modultvillingar](iot-hub-devguide-module-twins.md)
-#### [Anropa direktmetoder på en enhet](iot-hub-devguide-direct-methods.md)
-#### [Schemalägga jobb på flera enheter](iot-hub-devguide-jobs.md)
-#### [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md)
-#### [Frågespråk](iot-hub-devguide-query-language.md)
-#### [Kvoter och begränsningar](iot-hub-devguide-quotas-throttling.md)
-#### [Prissättningsexempel](iot-hub-devguide-pricing.md)
-#### [SDK:er för tjänst och enhet](iot-hub-devguide-sdks.md)
-#### [MQTT-support](iot-hub-mqtt-support.md)
-#### [Ordlista](iot-hub-devguide-glossary.md)
+
+## Utveckla
 ### [Använd SDK för IoT-enhet för C](iot-hub-device-sdk-c-intro.md)
 #### [Använda IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 #### [Använda serialiseraren](iot-hub-device-sdk-c-serializer.md)
 ### [Utveckla för begränsade enheter](iot-hub-devguide-develop-for-constrained-devices.md)
 ### [Utveckla för mobila enheter](iot-hub-how-to-develop-for-mobile-devices.md)
 ### [Fråga Avro-data från en hubbväg](iot-hub-query-avro-data.md)
+
 ### Skicka meddelanden från moln till enhet
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
@@ -170,39 +98,49 @@
 #### [Python](iot-hub-python-python-module-twin-getstarted.md)
 #### [C](iot-hub-c-c-module-twin-getstarted.md)
 #### [Node](iot-hub-node-node-module-twin-getstarted.md)
-### Använda direkta metoder
-#### [Node.js](iot-hub-node-node-direct-methods.md)
-#### [.NET](iot-hub-csharp-csharp-direct-methods.md)
-#### [Java](iot-hub-java-java-direct-methods.md)
-#### [Python](iot-hub-python-python-direct-methods.md)
+### Komma igång med enhetshantering
+#### [Node.js](iot-hub-node-node-device-management-get-started.md)
+#### [.NET](iot-hub-csharp-csharp-device-management-get-started.md)
+#### [Java](iot-hub-java-java-device-management-getstarted.md)
+#### [Python](iot-hub-python-python-device-management-get-started.md)
 ### Schemalägga och sända jobb
 #### [Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [.NET](iot-hub-csharp-csharp-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 #### [Python](iot-hub-python-python-schedule-jobs.md)
-## Ladda upp filer från enheter
-### [.NET](iot-hub-csharp-csharp-file-upload.md)
-### [Java](iot-hub-java-java-file-upload.md)
-### [Node.js](iot-hub-node-node-file-upload.md)
-### [Python](iot-hub-python-python-file-upload.md)
+### Använda MXChip IoT DevKit
+#### [Översätta röstmeddelanden med Azure Cognitive Services](iot-hub-arduino-iot-devkit-az3166-translator.md)
+#### [Hämta ett Twitter-meddelande med Azure Functions](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
+#### [Skicka meddelanden till en MQTT-server med Eclipse Paho-API:er](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
+#### [Övervaka den magnetiska sensorn och skicka e-postaviseringar med Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
-## Skapa en IoT Hub 
-### [Använda Azure Portal](iot-hub-create-through-portal.md)
-### [Använda Azure PowerShell](iot-hub-create-using-powershell.md)
-### [Använda Azure CLI](iot-hub-create-using-cli.md)
-### [Använda CLI](iot-hub-create-using-cli-nodejs.md)
-### [Använda REST-API](iot-hub-rm-rest.md)
-### [Använda en mall från Azure PowerShell](iot-hub-rm-template-powershell.md)
-### [Använda en mall från .NET](iot-hub-rm-template.md)
-## Konfigurera filuppladdning
-### [Använda Azure Portal](iot-hub-configure-file-upload.md)
-### [Använda Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
-### [Använda Azure CLI](iot-hub-configure-file-upload-cli.md)
-## [Övervaka med diagnostik](iot-hub-monitor-resource-health.md)
-### [Migrera till diagnostikinställningar](iot-hub-migrate-to-diagnostics-settings.md)
-### [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
+## Hantera
+### Skapa en IoT Hub 
+#### [Använda Azure Portal](iot-hub-create-through-portal.md)
+#### [Använda Azure PowerShell](iot-hub-create-using-powershell.md)
+#### [Använda Azure CLI](iot-hub-create-using-cli.md)
+#### [Använda CLI](iot-hub-create-using-cli-nodejs.md)
+#### [Använda REST-API](iot-hub-rm-rest.md)
+#### [Använda en mall från Azure PowerShell](iot-hub-rm-template-powershell.md)
+#### [Använda en mall från .NET](iot-hub-rm-template.md)
+### Konfigurera filuppladdning
+#### [Använda Azure Portal](iot-hub-configure-file-upload.md)
+#### [Använda Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Använda Azure CLI](iot-hub-configure-file-upload-cli.md)
+### [Övervaka med diagnostik](iot-hub-monitor-resource-health.md)
+#### [Migrera till diagnostikinställningar](iot-hub-migrate-to-diagnostics-settings.md)
+#### [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
+### [Skydda din hubb med ett X.509-certifikat](iot-hub-security-x509-get-started.md)
+### [Uppgradera en IoT-hubb](iot-hub-upgrade.md)
+### [Användningsstatistik](iot-hub-metrics.md)
+### [Konfigurera IP-filtrering](iot-hub-ip-filtering.md)
+### Konfigurera enheter i skala
+#### [Använda Azure Portal](iot-hub-auto-device-config.md)
+#### [Använda Azure CLI](iot-hub-auto-device-config-cli.md)
+### [Masshantera IoT-enheter](iot-hub-bulk-identity-mgmt.md)
+
 ## Använda riktiga enheter
-### [Kom igång](iot-hub-get-started.md)
+### [Komma igång](iot-hub-get-started.md)
 ### [Använda en onlinesimulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 ### [Använda en fysisk enhet](iot-hub-get-started-physical.md)
 #### [Raspberry Pi med Python](iot-hub-raspberry-pi-kit-python-get-started.md)
@@ -214,15 +152,17 @@
 #### [Adafruit Feather HUZZAH ESP8266 med Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)
 #### [Sparkfun ESP8266 Thing Dev med Arduino](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Adafruit Feather M0 med Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
-## [Uppgradera en IoT-hubb](iot-hub-upgrade.md)
-## [Användningsstatistik](iot-hub-metrics.md)
-## [Konfigurera IP-filtrering](iot-hub-ip-filtering.md)
-## Konfigurera enheter i skala
-### [Använda Azure Portal](iot-hub-auto-device-config.md)
-### [Använda Azure CLI](iot-hub-auto-device-config-cli.md)
+### Utökade IoT-scenarier
+#### [Hantera meddelanden mellan enheter och molnet med iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+#### [Spara IoT Hub-meddelanden i Azure Blob Storage](iot-hub-store-data-in-azure-table-storage.md)
+#### [Datavisualisering i Power BI](iot-hub-live-data-visualization-in-power-bi.md)
+#### [Datavisualisering med Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
+#### [Väderprognoser med hjälp av Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+#### [Enhetshantering med IoT Hub-utforskaren](iot-hub-device-management-iothub-explorer.md)
+#### [Enhetshantering med IoT-tillägg för Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
+#### [Fjärrövervakning och aviseringar med Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # Referens
-## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=iot-hub)
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET (tjänst)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (enheter)](/dotnet/api/microsoft.azure.devices.client)
@@ -232,15 +172,14 @@
 ## [Node.js (tjänst)](https://docs.microsoft.com/javascript/api/azure-iothub/)
 ## [C-enhets-SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
-## [REST (resursprovider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
-## [REST (enhetsidentiteter)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
-## [REST (enhetstvillingar)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)
-## [REST (enhetsmeddelanden)](https://docs.microsoft.com/rest/api/iothub/httpruntime)
-## [REST (jobb)](https://docs.microsoft.com/rest/api/iothub/jobapi)
+## [REST (enhet)](https://docs.microsoft.com/rest/api/iothub/device)
+## [REST (tjänst)](https://docs.microsoft.com/rest/api/iothub/service)
+## [REST (IoT Hub-resurs)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
+## [REST (certifikat)](https://docs.microsoft.com/rest/api/iothub/certificates)
 
 # Relaterat
 ## Lösningar 
-### [IoT-lösningsacceleratorer](/azure/iot-suite) 
+### [IoT-lösningsacceleratorer](/azure/iot-accelerators) 
 ### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
 ## Plattformstjänster 
 ### [IoT Hub](/azure/iot-hub) 

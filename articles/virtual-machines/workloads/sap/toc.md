@@ -48,8 +48,19 @@
 ### SAP – flera säkerhetsidentifierare
 #### [Windows med delad disk för (A)SCS-instans](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
 #### [Windows med SOFS-filresurs för (A)SCS-instans](sap-ascs-ha-multi-sid-wsfc-file-share.md)
-## [Distributionsguide](deployment-guide.md)
-## [Distributionsguide för DBMS](dbms-guide.md)
+## [Distributionsguide för SAP NetWeaver](deployment-guide.md)
+## DBMS-distributionsguider för SAP-arbetsbelastning
+### [DBMS-distribution för SAP-arbetsbelastning på vanliga Azure Virtual Machines](dbms_guide_general.md)
+### [DBMS-distribution för SAP-arbetsbelastning för SQL Server på Azure Virtual Machines](dbms_guide_sqlserver.md)
+### [DBMS-distribution för SAP-arbetsbelastning för Oracle på Azure Virtual Machines](dbms_guide_oracle.md)
+### [DBMS-distribution för SAP-arbetsbelastning för IBM DB2 på Azure Virtual Machines](dbms_guide_ibm.md)
+### [DBMS-distribution för SAP-arbetsbelastning för SAP ASE på Azure Virtual Machines](dbms_guide_sapase.md)
+### [Distribution av SAP MaxDB, liveCache och innehållsserver på Azure](dbms_guide_maxdb.md)
+### [Användarguide för SAP HANA på Azure](hana-vm-operations.md)
+#### SAP HANA-tillgänglighet i Azure Virtual Machines
+##### [Tillgänglighetsöversikt för SAP HANA på Azure](sap-hana-availability-overview.md)
+##### [Tillgänglighet för SAP HANA på Azure inom en Azure-region](sap-hana-availability-one-region.md)
+##### [Tillgänglighet för SAP HANA på Azure i flera Azure-regioner](sap-hana-availability-across-regions.md)
 ## [Haveriberedskap för Azure Site Recovery för SAP](../../../site-recovery/site-recovery-workload.md#protect-sap)
 # AAD SAP-identitetsintegrering och enkel inloggning
 ## [Integrering med SAP-moln](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)

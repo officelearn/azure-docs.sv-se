@@ -164,6 +164,16 @@
           href: azure-operational-security-checklist.md
 - name: Styrning och efterlevnad
   items:
+    - name: FedRAMP
+      items:
+        - name: Datanalys
+          href: ./blueprints/fedramp-analytics-overview.md
+        - name: Informationslager
+          href: ./blueprints/fedramp-datawarehouse-overview.md
+        - name: IaaS-webbprogram
+          href: ./blueprints/fedramp-iaaswa-overview.md
+        - name: PaaS-webbprogram
+          href: ./blueprints/fedramp-paaswa-overview.md
     - name: FFIEC
       items:
         - name: Datanalys
@@ -184,20 +194,10 @@
           href: ./blueprints/gdpr-iaaswa-overview.md
         - name: PaaS-webbprogram
           href: ./blueprints/gdpr-paaswa-overview.md
-    - name: FedRAMP
+    - name: HIPAA/HITRUST
       items:
-        - name: Datanalys
-          href: ./blueprints/fedramp-analytics-overview.md
-        - name: Informationslager
-          href: ./blueprints/fedramp-datawarehouse-overview.md
-        - name: IaaS-webbprogram
-          href: ./blueprints/fedramp-iaaswa-overview.md
-        - name: PaaS-webbprogram
-          href: ./blueprints/fedramp-paaswa-overview.md
-    - name: Betrodd Internetanslutning
-      items:
-        - name: Betrodd Internetanslutning med Azure
-          href: ./compliance/compliance-tic.md
+        - name: Hälsodata och AI
+          href: ./blueprints/azure-health.md
     - name: PCI DSS
       items:
         - name: Datanalys
@@ -208,6 +208,10 @@
           href: ./blueprints/pcidss-iaaswa-overview.md
         - name: PaaS-webbprogram
           href: ./blueprints/pcidss-paaswa-overview.md
+    - name: Betrodd Internetanslutning
+      items:
+        - name: Betrodd Internetanslutning med Azure
+          href: ./compliance/compliance-tic.md
     - name: UK NHS
       items:
         - name: Datanalys
@@ -222,8 +226,6 @@
       items:
         - name: IaaS-webbprogram
           href: ./blueprints/ukofficial-iaaswa-overview.md
-    - name: HIPAA/HITRUST – hälsodata och AI
-      href: ./blueprints/azure-health.md
 - name: White paper-faktablad
   href: security-white-papers.md
 - name: Säkerhetstjänster i Azure

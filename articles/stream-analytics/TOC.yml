@@ -20,6 +20,8 @@
       href: stream-analytics-with-azure-functions.md
     - name: 3 – Köra Javascript UDF
       href: stream-analytics-javascript-user-defined-functions.md
+    - name: 4 – Distribuera med CI/CD i VSTS
+      href: stream-analytics-tools-visual-studio-cicd-vsts.md
 - name: Exempel
   items:
     - name: Kodexempel

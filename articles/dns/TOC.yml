@@ -5,12 +5,13 @@
     - name: Vad är Azure DNS?
       href: dns-overview.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Namnmatchning – portalen
       href: dns-getstarted-portal.md
-    - name: Skapa DNS-zon och -post – PowerShell
+    - name: Namnmatchning – PowerShell
       href: dns-getstarted-powershell.md
-    - name: Skapa DNS-zon och -post – CLI
+    - name: Namnmatchning – CLI
       href: dns-getstarted-cli.md
 - name: Självstudier
   items:
@@ -110,7 +111,7 @@
       href: /azure/virtual-network/
     - name: Virtuell dator
       href: /azure/virtual-machines/
-    - name: Belastningsutjämnare
+    - name: Lastbalanserare
       href: /azure/load-balancer/
     - name: Traffic Manager
       href: /azure/traffic-manager/

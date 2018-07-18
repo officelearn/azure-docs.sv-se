@@ -28,7 +28,7 @@
       href: visual-search-sdk-python.md
 - name: Självstudier
   items:
-    - name: Avbildningsöverföring med Visual Image
+    - name: Webbapp för bilduppladdning
       href: tutorial-visual-search-image-upload.md
     - name: Enkelsidig webbapp
       href: tutorial-bing-visual-search-single-page-app.md

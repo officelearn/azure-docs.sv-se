@@ -9,9 +9,9 @@
   items:
     - name: Skapa ett .NET-program
       href: service-fabric-quickstart-dotnet.md
-    - name: Distribuera ett program för Linux-behållare
+    - name: Distribuera ett program för Linux-container
       href: service-fabric-quickstart-containers-linux.md
-    - name: Distribuera ett program för Windows-behållare
+    - name: Distribuera ett program för Windows-container
       href: service-fabric-quickstart-containers.md
     - name: Java-snabbstarter
       items:
@@ -45,17 +45,17 @@
           href: service-fabric-tutorial-java-elk.md
         - name: 5 – Konfigurera CI/CD
           href: service-fabric-tutorial-java-jenkins.md
-    - name: Använd en befintlig .NET-app i behållare
+    - name: Använd en befintlig .NET-app i container
       items:
         - name: 1- Distribuera en .NET-app med hjälp av Docker Compose
           href: service-fabric-host-app-in-a-container.md
-        - name: 2- Övervaka din behållare
+        - name: 2- Övervaka din container
           href: service-fabric-tutorial-monitoring-wincontainers.md
-    - name: Skapa en app för Linux-behållare
+    - name: Skapa en app för Linux-container
       items:
-        - name: 1- Skapa behållaravbildningar
+        - name: 1- Skapa containeravbildningar
           href: service-fabric-tutorial-create-container-images.md
-        - name: 2- Paketera och distribuera behållare
+        - name: 2- Paketera och distribuera containrar
           href: service-fabric-tutorial-package-containers.md
         - name: 3- Redundans och skalning
           href: service-fabric-tutorial-containers-failover.md
@@ -108,7 +108,7 @@
     - name: Bygga program
       href: service-fabric-choose-framework.md
       items:
-        - name: Behållare
+        - name: Containrar
           href: service-fabric-containers-overview.md
           items:
             - name: Docker Compose (förhandsversion)
@@ -316,9 +316,9 @@
       items:
         - name: 'C#-programmet i Visual Studio'
           href: service-fabric-create-your-first-application-in-visual-studio.md
-        - name: Windows-behållarprogrammet
+        - name: Windows-containerprogrammet
           href: service-fabric-get-started-containers.md
-        - name: Linux-behållarprogrammet
+        - name: Linux-containerprogrammet
           href: service-fabric-get-started-containers-linux.md
         - name: 'C# Reliable Services-programmet på Windows'
           href: service-fabric-reliable-services-quick-start.md
@@ -342,19 +342,19 @@
               href: service-fabric-deploy-existing-app.md
             - name: Distribuera flera körbara gäster
               href: service-fabric-deploy-multiple-apps.md
-        - name: Skapa en behållartjänst
+        - name: Skapa en containertjänst
           items:
             - name: Docker Compose (förhandsversion)
               href: service-fabric-docker-compose.md
-            - name: Resursstyrning för behållare och tjänster
+            - name: Resursstyrning för container och tjänster
               href: service-fabric-resource-governance.md
             - name: Drivrutiner för volym och loggning
               href: service-fabric-containers-volume-logging-drivers.md
-            - name: Visa behållarloggar
+            - name: Visa containerloggar
               href: service-fabric-containers-view-logs.md
-            - name: Tjänster i behållare
+            - name: Tjänster i containrar
               href: service-fabric-services-inside-containers.md
-            - name: Nätverkslägen för behållare
+            - name: Nätverkslägen för containrar
               href: service-fabric-networking-modes.md
         - name: Skapa en Reliable Service-tjänst
           items:
@@ -410,7 +410,7 @@
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
         - name: Skapa en ASP.NET Core-tjänst
           href: service-fabric-add-a-web-frontend.md
-        - name: Skapa en Apache Tomcat-tjänstbehållare på Linux
+        - name: Skapa en Apache Tomcat-tjänstcontainer på Linux
           href: service-fabric-get-started-tomcat.md
         - name: Konfigurera säkerhet
           items:
@@ -428,9 +428,9 @@
               href: service-fabric-run-service-as-ad-user-or-group.md
             - name: Köra tjänster som grupphanterade tjänstkonton
               href: service-fabric-run-service-as-gmsa.md
-            - name: Använda certifikat i behållare
+            - name: Använda certifikat i en container
               href: service-fabric-securing-containers.md
-            - name: Konfigurera gMSA för Windows-behållare
+            - name: Konfigurera gMSA för Windows-containrar
               href: service-fabric-setup-gmsa-for-windows-containers.md
             - name: Konfigurera certifikat på Linux
               href: service-fabric-configure-certificates-linux.md
@@ -448,7 +448,7 @@
           href: service-fabric-visualstudio-configure-secure-connections.md
         - name: Felsöka en .NET-tjänst i VS
           href: service-fabric-debugging-your-application.md
-        - name: Felsöka Windows-behållare med Service Fabric och VS
+        - name: Felsöka Windows-containrar med Service Fabric och VS
           href: service-fabric-how-to-debug-windows-containers.md
         - name: Vanliga fel och undantag
           href: service-fabric-errors-and-exceptions.md
@@ -551,13 +551,13 @@
                   href: service-fabric-cluster-scale-up-down.md
                 - name: Skala ut programmässigt
                   href: service-fabric-cluster-programmatic-scaling.md
-                - name: Skala upp virtuella datorer med primär nodtyp
+                - name: Skala upp eller uppgradera virtuella datorer med primär nodtyp
                   href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
             - name: Uppgradera
               href: service-fabric-cluster-upgrade.md
             - name: Ange åtkomstkontroll
               href: service-fabric-cluster-security-roles.md
-            - name: Öppna en port i belastningsutjämnaren
+            - name: Öppna en port i lastbalanseraren
               href: create-load-balancer-rule.md
             - name: Ändra klustercertifikat till unika namn
               href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
@@ -569,8 +569,6 @@
               href: service-fabric-cluster-delete.md
             - name: Fjärransluta till klusternod för virtuell dator
               href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-            - name: Uppgradera/migrera SKU för VMSS
-              href: service-fabric-update-vmss-sku.md
         - name: Fristående kluster
           items:
             - name: Skapa
@@ -609,7 +607,7 @@
               href: service-fabric-how-to-diagnostics-log.md
             - name: Sammanfatta händelser med EventFlow
               href: service-fabric-diagnostics-event-aggregation-eventflow.md
-            - name: Övervaka behållare
+            - name: Övervaka containrar
               href: service-fabric-diagnostics-oms-containers.md
         - name: Övervaka kluster
           items:

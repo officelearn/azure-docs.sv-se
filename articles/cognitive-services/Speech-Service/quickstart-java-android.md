@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: 6ee54f1405d94235784831d63e1abe87a495953b
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: HT
+ms.openlocfilehash: fb52bc3fa398cbe5ba4cbea7c1908ee1fece876e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072598"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114710"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Java på Android med hjälp av tal-SDK
 
@@ -60,7 +60,7 @@ Efter att ha kört ett tag, bör det nyskapade projektet i Android Studio kommer
 
 ## <a name="configure-your-project-for-the-speech-sdk"></a>Konfigurera ditt projekt för tal-SDK
 
-[!include[License Notice](includes/license-notice.md)]
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 Den aktuella versionen av Cognitive Services tal SDK är `0.5.0`.
 

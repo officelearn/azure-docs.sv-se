@@ -402,6 +402,8 @@
           href: sql-database-cloud-migrate.md
         - name: Migrera till Managed Instance
           href: sql-database-managed-instance-migrate.md
+        - name: Migrera TDE-cert till hanterad instans
+          href: sql-database-managed-instance-migrate-tde-certificate.md
         - name: Hantera SQL Database efter migrering
           href: sql-database-manage-after-migration.md
     - name: Läs in och flytta data

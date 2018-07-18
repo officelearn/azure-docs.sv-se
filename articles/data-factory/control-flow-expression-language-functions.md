@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: d862cd0223609d80c511362edbcc0ed6dd512b1f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5cdaba2a280221fa5fa9274ebfa6cafa18e7690c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859155"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055023"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Uttryck och funktioner i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,14 +41,14 @@ JSON-värden i definitionen kan vara literal eller uttryck som utvärderas vid k
 ```
 
 ## <a name="expressions"></a>Uttryck  
-Uttryck kan någonstans i ett JSON-strängvärde och alltid resultera i ett annat JSON-värde. Om ett JSON-värde är ett uttryck, brödtexten i uttrycket ska extraheras genom att ta bort @-tecknet (\@). Om en teckensträng behövs som börjar med @, den måste undantas genom att använda@. I följande exempel visas hur uttryck utvärderas.  
+Uttryck kan någonstans i ett JSON-strängvärde och alltid resultera i ett annat JSON-värde. Om ett JSON-värde är ett uttryck, brödtexten i uttrycket ska extraheras genom att ta bort @-tecknet (\@). Om en teckensträng behövs som börjar med \@, den måste undantas med hjälp av \@ \@. I följande exempel visas hur uttryck utvärderas.  
   
 |JSON-värde|Resultat|  
 |----------------|------------|  
 |”parametrar”|Tecknen ”parameters” returneras.|  
 |”Parametrar [1]”|Tecknen ”parameters [1]” returneras.|  
-|"\@@"|En 1 tecken lång sträng som innehåller ”@” returneras.|  
-|" \@"|En 2 tecken lång sträng som innehåller ”@” returneras.|  
+|"\@\@"|En 1 tecken lång sträng som innehåller ”\@” returneras.|  
+|" \@"|En 2 tecken lång sträng som innehåller ” \@” returneras.|  
   
  Uttryck kan även visas i strängar, med hjälp av en funktion som kallas *string interpolation* där uttryck är omslutna i `@{ ... }`. Exempel: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -62,7 +62,7 @@ Uttryck kan någonstans i ett JSON-strängvärde och alltid resultera i ett anna
 |”\@{pipeline ()-.parameters.myNumber}”| Returnerar `42` som en *sträng*.|  
 |”Svaret är: @{pipeline ()-.parameters.myNumber}”| Returnerar strängen `Answer is: 42`.|  
 |”\@concat (' svaret är: ', string(pipeline().parameters.myNumber))”| Returnerar strängen `Answer is: 42`|  
-|”Svaret är: \@@{pipeline ()-.parameters.myNumber}”| Returnerar strängen `Answer is: @{pipeline().parameters.myNumber}`.|  
+|”Svaret är: \@ \@{pipeline ()-.parameters.myNumber}”| Returnerar strängen `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ### <a name="examples"></a>Exempel
 
@@ -141,7 +141,7 @@ I följande exempel pipelinen har **inputPath** och **outputPath** parametrar. D
 }
 ```
   
-## <a name="functions"></a>Functions  
+## <a name="functions"></a>Funktioner  
  Du kan anropa funktioner i uttryck. Följande avsnitt innehåller information om de funktioner som kan användas i ett uttryck.  
 
 ## <a name="string-functions"></a>Strängfunktioner  
@@ -168,7 +168,7 @@ I följande exempel pipelinen har **inputPath** och **outputPath** parametrar. D
 |Funktionsnamn|Beskrivning|  
 |-------------------|-----------------|  
 |innehåller|Returnerar SANT om ordlista innehåller en nyckel, lista innehåller värdet eller strängen innehåller delsträngen. Följande uttryck returnerar exempelvis `true:``contains('abacaba','aca')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namn på**: I samling<br /><br /> **Beskrivning av**: krävs. Söka i samlingen.<br /><br /> **Parameternummer**: 2<br /><br /> **Namn på**: hitta objektet<br /><br /> **Beskrivning av**: krävs. Det objekt som ska sökas efter i **inom samlingen**.|  
-|längd|Returnerar antalet element i en matris eller sträng. Följande uttryck returnerar exempelvis `3`:  `length('abc')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namn på**: samling<br /><br /> **Beskrivning av**: krävs. Samlingen som ska hämta längden för.|  
+|Längd|Returnerar antalet element i en matris eller sträng. Följande uttryck returnerar exempelvis `3`:  `length('abc')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namn på**: samling<br /><br /> **Beskrivning av**: krävs. Samlingen som ska hämta längden för.|  
 |tom|Returnerar true om objektet, matrisen eller strängen är tom. Följande uttryck returnerar exempelvis `true`:<br /><br /> `empty('')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namn på**: samling<br /><br /> **Beskrivning av**: krävs. Samlingen som ska kontrollera om den är tom.|  
 |skärningspunkten|Returnerar en enskild matris eller ett objekt med de vanliga element matriser eller objekt som överförs till den. Den här funktionen returnerar exempelvis `[1, 2]`:<br /><br /> `intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])`<br /><br /> Funktionens parametrar kan antingen vara en uppsättning objekt eller en uppsättning matriser (inte en blandning av båda). Om det finns två objekt med samma namn, visas det sista objektet med det namnet i det slutliga objektet.<br /><br /> **Parameternummer**: 1... *n*<br /><br /> **Namnet**: samlingen *n*<br /><br /> **Beskrivning av**: krävs. Samlingar som ska utvärderas. Ett objekt måste finnas i alla samlingar som skickas och tas med i resultatet.|  
 |Union|Returnerar en enskild matris eller ett objekt med alla de element som finns i den matris eller det objekt som överförs till den. Den här funktionen returnerar exempelvis `[1, 2, 3, 10, 101]:`<br /><br /> :  `union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> Funktionens parametrar kan antingen vara en uppsättning objekt eller en uppsättning matriser (inte en blandning av båda). Om det finns två objekt med samma namn i utdata, visas det sista objektet med det namnet i det slutliga objektet.<br /><br /> **Parameternummer**: 1... *n*<br /><br /> **Namnet**: samlingen *n*<br /><br /> **Beskrivning av**: krävs. Samlingar som ska utvärderas. Ett objekt som visas i någon av samlingarna visas i resultatet.|  
@@ -213,7 +213,7 @@ I följande exempel pipelinen har **inputPath** och **outputPath** parametrar. D
 |sträng|Konvertera parametern till en sträng. Följande uttryck returnerar exempelvis `'10'`: `string(10)` du kan också konvertera ett objekt till en sträng, till exempel om den **foo** parametern är ett objekt med en egenskap `bar : baz`, och sedan följande skulle Gå tillbaka `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Parameternummer**: 1<br /><br /> **Namn på**: värde<br /><br /> **Beskrivning av**: krävs. Det värde som konverteras till en sträng.|  
 |JSON|Konvertera parametern till ett värde för typ av JSON. Det är motsatsen till string(). Följande uttryck returnerar exempelvis `[1,2,3]` som en matris i stället för en sträng:<br /><br /> `json('[1,2,3]')`<br /><br /> På samma sätt kan du konvertera en sträng till ett objekt. Till exempel `json('{"bar" : "baz"}')` returnerar:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Parameternummer**: 1<br /><br /> **Namn på**: sträng<br /><br /> **Beskrivning av**: krävs. Den sträng som konverteras till ett värde av ursprunglig typ.<br /><br /> Json-funktionen stöder även xml-indata. Exempelvis parametervärdet för:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> omvandlas till följande json:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |flyt|Konvertera Parameterargumentet till ett Flyttalsnummer. Följande uttryck returnerar exempelvis `10.333`:  `float('10.333')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namn på**: värde<br /><br /> **Beskrivning av**: krävs. Det värde som konverteras till ett Flyttalsnummer.|  
-|bool|Konvertera parametern till ett booleskt värde. Följande uttryck returnerar exempelvis `false`:  `bool(0)`<br /><br /> **Parameternummer**: 1<br /><br /> **Namn på**: värde<br /><br /> **Beskrivning av**: krävs. Det värde som konverteras till ett booleskt värde.|  
+|Bool|Konvertera parametern till ett booleskt värde. Följande uttryck returnerar exempelvis `false`:  `bool(0)`<br /><br /> **Parameternummer**: 1<br /><br /> **Namn på**: värde<br /><br /> **Beskrivning av**: krävs. Det värde som konverteras till ett booleskt värde.|  
 |Slå samman|Returnerar det första icke-null-objektet i argument som skickas. Obs: en tom sträng är inte null. Till exempel om parametrar 1 och 2 inte har definierats, det här returnerar `fallback`:  `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Parameternummer**: 1... *n*<br /><br /> **Namnet**: objektet*n*<br /><br /> **Beskrivning av**: krävs. Objekt att söka efter `null`.|  
 |Base64|Returnerar en base64-representation av den inmatade strängen. Följande uttryck returnerar exempelvis `c29tZSBzdHJpbmc=`:  `base64('some string')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namn på**: String 1<br /><br /> **Beskrivning av**: krävs. Strängen som ska kodas i base64-representation.|  
 |base64ToBinary|Returnerar en binär representation av en base64-kodad sträng. Till exempel följande uttryck returnerar en binär representation av en sträng: `base64ToBinary('c29tZSBzdHJpbmc=')`.<br /><br /> **Parameternummer**: 1<br /><br /> **Namn på**: sträng<br /><br /> **Beskrivning av**: krävs. Base64-kodad sträng.|  
@@ -246,7 +246,7 @@ I följande exempel pipelinen har **inputPath** och **outputPath** parametrar. D
 |MOD|Returnerar resultatet av resten efter att divisionen av de två talen (modulo). Följande uttryck returnerar exempelvis `2`:<br /><br /> `mod(10,4)`<br /><br /> **Parameternummer**: 1<br /><br /> **Namn på**: täljaren<br /><br /> **Beskrivning av**: krävs. Talet att dela med de **divisorn**.<br /><br /> **Parameternummer**: 2<br /><br /> **Namn på**: divisorn<br /><br /> **Beskrivning av**: krävs. Talet att dela den **täljaren** av. Efter divisionen tas resten.|  
 |min.|Det finns två olika mönster för att anropa den här funktionen: `min([0,1,2])` här min tar en matris. Det här uttrycket returnerar `0`. Den här funktionen kan också ta en kommaavgränsad lista med värden: `min(0,1,2)` den här funktionen returnerar också 0. Observera att alla värden måste vara siffror, så om parametern är en matris har endast ha det siffror.<br /><br /> **Parameternummer**: 1<br /><br /> **Namn på**: samling eller -värde<br /><br /> **Beskrivning av**: krävs. Det kan antingen vara en matris med värden för att hitta det minsta värdet eller det första värdet i en uppsättning.<br /><br /> **Parameternummer**: 2... *n*<br /><br /> **Namnet**: värdet *n*<br /><br /> **Beskrivning av**: valfritt. Om den första parametern är ett värde, du kan sedan skicka ytterligare värden och minimum för alla överförda värden returneras.|  
 |max|Det finns två olika mönster för att anropa den här funktionen:  `max([0,1,2])`<br /><br /> Här tar max en matris. Det här uttrycket returnerar `2`. Den här funktionen kan också ta en kommaavgränsad lista med värden: `max(0,1,2)` den här funktionen returnerar 2. Observera att alla värden måste vara siffror, så om parametern är en matris har endast ha det siffror.<br /><br /> **Parameternummer**: 1<br /><br /> **Namn på**: samling eller -värde<br /><br /> **Beskrivning av**: krävs. Det kan antingen vara en matris med värden för att hitta det största värdet eller det första värdet i en uppsättning.<br /><br /> **Parameternummer**: 2... *n*<br /><br /> **Namnet**: värdet *n*<br /><br /> **Beskrivning av**: valfritt. Om den första parametern är ett värde, du kan sedan skicka ytterligare värden och maxvärdet för alla överförda värden returneras.|  
-|adressintervall| Genererar en matris med heltal med början från ett visst tal, och du definierar längden på den returnerade matrisen. Den här funktionen returnerar exempelvis `[3,4,5,6]`:<br /><br /> `range(3,4)`<br /><br /> **Parameternummer**: 1<br /><br /> **Namn på**: startIndex<br /><br /> **Beskrivning av**: krävs. Det är det första heltalet i matrisen.<br /><br /> **Parameternummer**: 2<br /><br /> **Namn på**: antal<br /><br /> **Beskrivning av**: krävs. Antal heltal som är i matrisen.|  
+|Adressintervall| Genererar en matris med heltal med början från ett visst tal, och du definierar längden på den returnerade matrisen. Den här funktionen returnerar exempelvis `[3,4,5,6]`:<br /><br /> `range(3,4)`<br /><br /> **Parameternummer**: 1<br /><br /> **Namn på**: startIndex<br /><br /> **Beskrivning av**: krävs. Det är det första heltalet i matrisen.<br /><br /> **Parameternummer**: 2<br /><br /> **Namn på**: antal<br /><br /> **Beskrivning av**: krävs. Antal heltal som är i matrisen.|  
 |rand| Genererar ett slumpvist heltal inom det angivna intervallet (inkluderande båda ändarna. Detta kan till exempel returnera `42`:<br /><br /> `rand(-1000,1000)`<br /><br /> **Parameternummer**: 1<br /><br /> **Namn på**: minsta<br /><br /> **Beskrivning av**: krävs. Det lägsta heltalet som kan returneras.<br /><br /> **Parameternummer**: 2<br /><br /> **Namn på**: högsta<br /><br /> **Beskrivning av**: krävs. Det högsta heltal som kan returneras.|  
   
 ## <a name="date-functions"></a>Datumfunktioner  

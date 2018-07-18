@@ -13,14 +13,14 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/01/2018
+  ms.date: 07/16/2018
   ms.author: nolachar
-  ms.openlocfilehash: 21f67f7fcce505e18792a3be830524d64dd8045e
-  ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+  ms.openlocfilehash: 2b82b50972c2c61c9dda5d1b1862c0c4cc8a9052
+  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/27/2018
-  ms.locfileid: "37045311"
+  ms.lasthandoff: 07/17/2018
+  ms.locfileid: "39070118"
 abstract:
   description: Microsoft Speech Service ger utvecklare ett enkelt sätt att lägga till kraftfulla talbaserade funktioner i sina program, till exempel röstkontroll, transkription, diktering och översättning med hjälp av <a href="rest-apis">REST API</a> eller SDK för <a href="speech-sdk">C#, C++ eller Java</a>.<p>Med Speech Service kan du anpassa modeller för <a href="how-to-customize-speech-models">Tal till text</a> för att hantera specialvokabulär, miljöstörningar och olika sätt att tala. Det finns även anpassade funktioner för <a href="https://cris.ai/Home/customvoice">Text till tal</a> och <a href="https://www.microsoft.com/translator/customization.aspx">Talöversättning</a>.<p>Mer information finns i <a href="overview">Vad är Speech Service?</a>
 sections:
@@ -32,27 +32,63 @@ sections:
     style: dataMatrix
     columns:
     - image:
+        src: media/index/uwp.jpg
+    - image:
         src: media/index/logo_csharp.svg
     - image:
         src: media/index/logo_cplusplus.svg
     - image:
-        src: media/index/logo_java.jpg
+        src: media/index/logo_netcore.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_rest_sr.svg
+    - image:
+        src: media/index/logo_rest_tts.svg
     rows:
     - title: Windows
       values:
+      - href: quickstart-csharp-uwp
       - href: quickstart-csharp-windows
       - href: quickstart-cpp-windows
+      - href: quickstart-csharp-dotnetcore-windows
+      - href: 
+      - href: 
       - href: 
     - title: Linux
       values:
       - href: 
+      - href: 
       - href: quickstart-cpp-linux
       - href: 
-    - title: Devices SDK (Android)
+      - href: 
+    - title: Android SDK
       values:
       - href: 
       - href: 
-      - href: https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk
+      - href: 
+      - href: 
+      - href: quickstart-java-android
+      - href: 
+      - href: 
+    - title: SDK för enheter
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: speech-devices-sdk
+      - href: 
+      - href: 
+    - title: Webb
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: rest-apis
+      - href: rest-apis
 - title: Exempel och referenser
   items:
   - type: list
@@ -62,10 +98,8 @@ sections:
     - title: Exempel
       html: <ul><li><a href="speech-to-text-sample.md">Taligenkänning</a></li><li><a href="intent.md">Avsiktsigenkänning</a></li><li><a href="translation.md">Översättning</a></li></ul>
     - title: API-referens
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java-API (Speech Devices SDK)</a></li></ul>
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C#-API (inklusive UWP och .NET Standard)</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java-API</a> för SDK för Speech<br>och SDK för Speech-enheter</li></ul>
 - title: Speech Devices SDK
   items:
   - type: paragraph
-    text: 'Efter introduktionen av den enhetliga tjänsten Speech Service erbjuder Microsoft och dess partner nu en integrerad plattform för maskin-och programvara som är optimerad för att utveckla talbaserade enheter: <b>Speech Devices SDK</b>. Detta SDK lämpar sig för utveckling av smarta talenheter för alla typer av program.'
-  - type: paragraph
-    text: Med <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk">Speech Devices SDK</a> kan du skapa dina egna ambienta enheter med ett anpassat väckningsord som är unikt för ditt varumärke och som utlöser ljudinspelning. Det ger också överlägsen ljudbearbetning från källor med flera kanaler för bättre taligenkänning, inklusive bullerdämpning, långdistansidentifiering och beamforming.
+    text: "Efter introduktionen av den enhetliga tjänsten Speech Service erbjuder Microsoft och dess partner nu en integrerad plattform för maskin-och programvara som är optimerad för att utveckla talbaserade enheter: <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Speech Devices SDK</a>. Detta SDK passar för utveckling av ambient-enheter för alla typer av program och gör det möjligt att definiera ett anpassat <I>nyckelord (wake word)</I>, unikt för ditt varumärke. Maskinvaran tillhandahåller överlägsen ljudbearbetning från källor med flera kanaler för bättre taligenkänning, inklusive bullerdämpning, långdistansidentifiering och beamforming."

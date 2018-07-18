@@ -319,6 +319,10 @@
           href: transform-data-using-data-lake-analytics.md
         - name: Databricks-anteckningsboksaktivitet
           href: transform-data-databricks-notebook.md
+        - name: Databricks Jar-aktivitet
+          href: transform-data-databricks-jar.md
+        - name: Databricks Python-aktivitet
+          href: transform-data-databricks-python.md
         - name: Anpassad aktivitet
           href: transform-data-using-dotnet-custom-activity.md
         - name: Länkade tjänster för Compute

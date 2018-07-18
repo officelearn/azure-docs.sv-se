@@ -1,6 +1,6 @@
 ---
-title: Använd en Windows VM-MSI för att komma åt Azure Cosmos DB
-description: En självstudiekurs som vägleder dig genom processen att använda en System-Assigned hanteras Service identitet (MSI) på en Windows-VM för att komma åt Azure Cosmos DB.
+title: Använda en MSI på en virtuell Windows-dator för att få åtkomst till Azure Cosmos DB
+description: En självstudiekurs som beskriver steg för steg hur du använder en systemtilldelad hanterad tjänstidentitet (MSI) på en virtuell Windows-dator för att få åtkomst till Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,32 +9,32 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
-ms.author: arluca
-ms.openlocfilehash: ed225206e512ff64835d4d90b35bd44800e0a559
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: ed1aff411ae5446688fe717ddc4570ea756c4c1e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595384"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904279"
 ---
-# <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Självstudier: Använda en Windows VM-MSI för att komma åt Azure Cosmos DB
+# <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Självstudie: Använda en MSI på en virtuell Windows-dator för att få åtkomst till Azure Cosmos DB
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här kursen visar hur du skapar och använder en Windows VM-MSI för åtkomst till Cosmos DB. Lär dig att:
+Den här självstudiekursen beskriver hur du skapar och använder en MSI på en virtuell Windows-dator för att få åtkomst till Cosmos DB. Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en MSI aktiverat Windows VM 
+> * Skapa en MSI-aktiverad virtuell Windows-dator 
 > * Skapa ett Cosmos DB-konto
-> * Bevilja Windows VM MSI tillgång till åtkomstnycklarna för Cosmos-DB-konto
-> * Få en åtkomsttoken med hjälp av Windows-VM MSI för att anropa Azure Resource Manager
-> * Hämta åtkomstnycklar från Azure Resource Manager för att ringa Cosmos DB
+> * Ge den virtuella Windows-datorns MSI åtkomst till åtkomstnycklarna för Cosmos DB-kontot
+> * Hämta en åtkomsttoken med hjälp av den virtuella Windows-datorns MSI och anropa Azure Resource Manager
+> * Hämta åtkomstnycklar från Azure Resource Manager för att göra Cosmos DB-anrop
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -47,108 +47,108 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Windows-dator i en ny resursgrupp
 
-Den här självstudiekursen skapar vi en ny Windows virtuell dator.  Du kan också aktivera MSI på en befintlig virtuell dator.
+I den här självstudiekursen skapar vi en ny virtuell Windows-dator.  Du kan även aktivera MSI på en befintlig virtuell dator.
 
 1. Klicka på knappen **Skapa en resurs** längst upp till vänster i Azure Portal.
 2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
-3. Ange informationen för den virtuella datorn. Den **användarnamn** och **lösenord** skapade här är de autentiseringsuppgifter som du använder för att logga in på den virtuella datorn.
+3. Ange informationen för den virtuella datorn. **Användarnamnet** och **lösenordet** som skapas här är de autentiseringsuppgifter som du använder för att logga in på den virtuella datorn.
 4. Välj rätt **prenumeration** för den virtuella datorn i listrutan.
-5. Att välja en ny **resursgruppen** som du vill skapa den virtuella datorn, Välj **Skapa nytt**. När du är klar klickar du på **OK**.
-6. Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Behåll standardinställningarna på sidan Inställningar och klickar på **OK**.
+5. Välj **Skapa ny** för att välja en ny **resursgrupp** som den virtuella datorn ska skapas i. När du är klar klickar du på **OK**.
+6. Välj storlek på den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Acceptera alla standardvärden på inställningssidan och klicka på **OK**.
 
-   ![ALT bildtext](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+   ![Alternativ bildtext](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn 
 
-En virtuell dator MSI kan du få åtkomst-token från Azure AD utan att behöva placera autentiseringsuppgifter i din kod. Under försättsbladen, aktivera MSI på en virtuell dator via Azure portal gör två saker: registrerar den virtuella datorn med Azure AD för att skapa en hanterad identitet och konfigurerar den identiteten på den virtuella datorn.
+Med en MSI för virtuell dator kan du få åtkomsttoken från Azure AD utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar MSI på en virtuell dator via Azure-portalen händer två saker: din virtuella dator registreras med Azure AD för att skapa en hanterad identitet och identiteten i den virtuella datorn konfigureras.
 
-1. Välj den **virtuella** som du vill aktivera MSI på.  
-2. Klicka på det vänstra navigeringsfältet **Configuration**. 
-3. Du ser **hanterade tjänstidentiteten**. För att registrera och aktivera MSI-filerna, Välj **Ja**, om du vill inaktivera det, väljer du Nej. 
-4. Se till att du klickar på **spara** att spara konfigurationen.  
-   ![ALT bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+1. Välj den **virtuella dator** som du vill aktivera MSI på.  
+2. I det vänstra navigeringsfältet klickar du på **Konfiguration**. 
+3. Du ser **Hanterad tjänstidentitet**. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej. 
+4. Klicka på **Spara** om du vill spara konfigurationen.  
+   ![Alternativ bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-cosmos-db-account"></a>Skapa ett Cosmos DB-konto 
 
-Om du inte redan har ett, skapa ett Cosmos-DB-konto. Du kan hoppa över detta steg och Använd ett befintligt Cosmos-DB-konto. 
+Om du inte redan har ett skapar du ett Cosmos DB-konto. Du kan hoppa över det här steget och använda ett befintligt Cosmos DB-konto. 
 
-1. Klicka på den **+/ Skapa ny tjänst** knapp hittades i det övre vänstra hörnet i Azure-portalen.
-2. Klicka på **databaser**, sedan **Azure Cosmos DB**, och ett nytt ”nya konto” panelen visar.
-3. Ange en **ID** för Cosmos-DB-konto som du använder senare.  
-4. **API** ska vara inställd på ”SQL”. Den metod som beskrivs i den här kursen kan användas med andra tillgängliga typer API, men stegen i den här kursen är för SQL-API.
-5. Se till att den **prenumeration** och **resursgruppen** matchar de som du angav när du skapade den virtuella datorn i föregående steg.  Välj en **plats** där Cosmos DB är tillgänglig.
+1. Klicka på knappen **+/Skapa ny tjänst** som finns i övre vänstra hörnet på Microsoft Azure-portalen.
+2. Klicka på **Databaser** och sedan på **Azure Cosmos DB**. Panelen ”Nytt konto” visas.
+3. Ange ett **ID** för Cosmos DB-kontot som du ska använda senare.  
+4. **API** bör ha värdet ”SQL”. Metoden som beskrivs i den här självstudien kan användas med de andra tillgängliga API-typerna, men stegen i den här självstudien gäller för SQL-API:et.
+5. Se till att informationen under **Prenumeration** och **Resursgrupp** stämmer överens med den du angav när du skapade den virtuella datorn i förra steget.  Välj en **plats** där Cosmos DB är tillgängligt.
 6. Klicka på **Skapa**.
 
-## <a name="create-a-collection-in-the-cosmos-db-account"></a>Skapa en samling i Cosmos-DB-konto
+## <a name="create-a-collection-in-the-cosmos-db-account"></a>Skapa en samling i Cosmos DB-kontot
 
-Lägg till en datainsamling på Cosmos-DB-kontot som du kan fråga i senare steg.
+Lägg till en datasamling till Cosmos DB-kontot som du kan skicka frågor mot i senare steg.
 
-1. Navigera till ditt nyligen skapade Cosmos-DB-konto.
-2. På den **översikt** klickar du på den **+/ lägga till samlingen** knapp och en ”Lägg till samling” panelen bilder ut.
-3. Ge samlingen ett databas-ID, Samlings-ID, Välj lagringskapacitet, ange en partitionsnyckel, ange ett värde för genomflöde och sedan på **OK**.  Den här kursen räcker att använda ”Test” som databas-ID och Samlings-ID, Välj en fast lagringskapacitet och lägsta dataflöde (400 RU/s).  
+1. Gå till Cosmos DB-kontot som du precis skapat.
+2. Klicka på knappen **+/Lägg till samling** på fliken **Översikt**. Panelen ”Lägg till samling” visas.
+3. Tilldela samlingen ett databas-ID och ett samlings-ID, välj en lagringskapacitet, ange en partitionsnyckel, ange ett värde för dataflöde och klicka sedan på **OK**.  I den här självstudien kan du använda ”Test” som databas-ID och samlings-ID, välja en fast lagringskapacitet och det lägsta dataflöde (400 RU/s).  
 
-## <a name="grant-windows-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>Bevilja Windows VM MSI tillgång till åtkomstnycklarna för Cosmos-DB-konto
+## <a name="grant-windows-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>Ge den virtuella Windows-datorns MSI åtkomst till åtkomstnycklarna för Cosmos DB-kontot
 
-Cosmos DB stöder inte Azure AD authentication internt. Du kan dock använda en MSI för att hämta en Cosmos-DB åtkomstnyckel från Resource Manager och använder för att komma åt Cosmos DB. I det här steget kan du ge din MSI tillgång till nycklarna på Cosmos-DB-kontot.
+Cosmos DB har inte inbyggt stöd för Azure AD-autentisering. Du kan emellertid använda en MSI för att hämta en åtkomstnyckel för Cosmos DB från Resource Manager och sedan använda nyckeln för att komma åt Cosmos DB. I det här steget ger du MSI-identiteten åtkomst till nycklarna till Cosmos DB-kontot.
 
-Om du vill ge MSI identitet åtkomst till Cosmos-DB-konto i Azure Resource Manager med hjälp av PowerShell uppdatera värdena för `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, och `<COSMOS DB ACCOUNT NAME>` för din miljö. Ersätt `<MSI PRINCIPALID>` med den `principalId` egenskap som returneras av den `az resource show` i [hämta principalID Linux VM MSI](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB stöder två detaljnivåer när du använder åtkomstnycklar: full åtkomst till kontot och skrivskyddad åtkomst till kontot.  Tilldela den `DocumentDB Account Contributor` roll om du vill hämta läsning och skrivning nycklar för kontot eller tilldela den `Cosmos DB Account Reader Role` roll om du vill ha skrivskyddad nycklar för kontot:
+Om du ska ge MSI-identiteten åtkomst till Cosmos DB-kontot i Azure Resource Manager med hjälp av PowerShell uppdaterar du värdet för `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` och `<COSMOS DB ACCOUNT NAME>` för din miljö. Ersätt `<MSI PRINCIPALID>` med `principalId`-egenskapen som returnerades av kommandot `az resource show` i [Hämta principalID för den virtuella Linux-datorns MSI](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB stöder två detaljnivåer när åtkomstnycklar används: läs- och skrivåtkomst till kontot samt skrivskyddad åtkomst till kontot.  Tilldela rollen `DocumentDB Account Contributor` om du vill använda läs-/skrivnycklar för kontot, eller rollen `Cosmos DB Account Reader Role` om du vill använda skrivskyddade nycklar för kontot:
 
 ```azurepowershell
 $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
 New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
 ```
 
-## <a name="get-an-access-token-using-the-windows-vms-msi-to-call-azure-resource-manager"></a>Få en åtkomsttoken med hjälp av Windows-VM MSI för att anropa Azure Resource Manager
+## <a name="get-an-access-token-using-the-windows-vms-msi-to-call-azure-resource-manager"></a>Hämta en åtkomsttoken med hjälp av den virtuella Windows-datorns MSI och anropa Azure Resource Manager
 
-Vi kommer att fungera från den virtuella datorn som vi skapade tidigare under resten av kursen. 
+Under resten av självstudien arbetar vi från den virtuella datorn som vi skapade tidigare. 
 
-Du behöver använda Azure Resource Manager PowerShell-cmdlets i den här delen.  Om du inte har installerats, [hämta den senaste versionen](https://docs.microsoft.com/powershell/azure/overview) innan du fortsätter.
+Du måste använda Azure Resource Manager PowerShell-cmdletar i den här delen.  Om du inte har installerat det [hämtar du den senaste versionen](https://docs.microsoft.com/powershell/azure/overview) innan du fortsätter.
 
-Du måste också installera den senaste versionen av [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) på din Windows-VM.
+Du måste även installera den senaste versionen av [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) på din virtuella Windows-dator.
 
-1. I Azure-portalen går du till **virtuella datorer**, gå till din Windows-dator, sedan från den **översikt** klickar **Anslut** längst upp. 
-2. Ange i din **användarnamn** och **lösenord** för som du har lagt till när du skapade den virtuella Windows-datorn. 
+1. Gå till **Virtuella datorer** i Microsoft Azure-portalen, gå till den virtuella Windows-datorn och klicka sedan på **Anslut** under **Översikt** längst upp. 
+2. Ange i ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn. 
 3. Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn öppnar du PowerShell i fjärrsessionen.
-4. Använder PowerShells Invoke-WebRequest, gör en begäran till den lokala MSI-slutpunkten för att hämta ett åtkomsttoken för Azure Resource Manager.
+4. Använd PowerShells Invoke-WebRequest och skicka en förfrågan till den lokala MSI-slutpunkten för att hämta en åtkomsttoken för Azure Resource Manager.
 
     ```powershell
         $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
     ```
 
     > [!NOTE]
-    > Värdet för ”resurser”-parametern måste vara en exakt matchning för vad som förväntas av Azure AD. När du använder Azure Resource Manager resurs-ID, måste du inkluderar det avslutande snedstrecket på URI.
+    > Värdet för parametern ”resource” måste vara en exakt matchning av vad som förväntas av Azure AD. När du använder Azure Resource Manager-resurs-ID:t måste du ta med det avslutande snedstrecket i URI:n.
     
-    Extrahera sedan elementet ”innehåll”, som lagras som en JavaScript Object Notation (JSON) formaterad sträng i $response-objektet. 
+    Extrahera sedan elementet ”Content”, som lagras som en JSON-formaterad sträng (JavaScript Object Notation) i $response-objektet. 
     
     ```powershell
     $content = $response.Content | ConvertFrom-Json
     ```
-    Extrahera sedan den åtkomst-token från svaret.
+    Extrahera sedan åtkomsttoken från svaret.
     
     ```powershell
     $ArmToken = $content.access_token
     ```
 
-## <a name="get-access-keys-from-azure-resource-manager-to-make-cosmos-db-calls"></a>Hämta åtkomstnycklar från Azure Resource Manager för att ringa Cosmos DB
+## <a name="get-access-keys-from-azure-resource-manager-to-make-cosmos-db-calls"></a>Hämta åtkomstnycklar från Azure Resource Manager för att göra Cosmos DB-anrop
 
-Nu använda PowerShell för att anropa Resource Manager med den åtkomst-token som hämtades i föregående avsnitt för att hämta Cosmos DB åtkomstnyckel. När vi har snabbtangent fråga vi Cosmos DB. Se till att ersätta den `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, och `<COSMOS DB ACCOUNT NAME>` parametervärden med egna värden. Ersätt den `<ACCESS TOKEN>` värde med den åtkomsttoken som du hämtade tidigare.  Om du vill hämta nycklar för läsning och skrivning använda viktiga åtgärdstypen `listKeys`.  Om du vill hämta skrivskyddade nycklar använder typ av nyckel åtgärd `readonlykeys`:
+Nu använder du PowerShell för att anropa Resource Manager med hjälp av den åtkomsttoken som du fick i föregående avsnitt för att hämta åtkomstnyckeln för Cosmos DB-kontot. När vi väl har åtkomstnyckeln kan vi skicka frågor mot Cosmos DB. Ersätt parametervärdena `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` och `<COSMOS DB ACCOUNT NAME>` med dina egna värden. Ersätt värdet `<ACCESS TOKEN>` med den åtkomsttoken som du hämtade tidigare.  Om du vill hämta läs- och skrivnycklar använder du nyckelåtgärdstypen `listKeys`.  Om du vill hämta skrivskyddade nycklar använder du nyckelåtgärdstypen `readonlykeys`:
 
 ```powershell
 Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>/listKeys/?api-version=2016-12-01 -Method POST -Headers @{Authorization="Bearer $ARMToken"}
 ```
-Svaret ger listan med nycklar.  Till exempel om du får skrivskyddade nycklar:
+Svaret returnerar listan med nycklar.  Om du till exempel hämtar de skrivskyddade nycklarna:
 
 ```powershell
 {"primaryReadonlyMasterKey":"bWpDxS...dzQ==",
 "secondaryReadonlyMasterKey":"38v5ns...7bA=="}
 ```
-Nu när du har åtkomstnyckeln för kontot Cosmos DB du skickar den till en Cosmos DB SDK och gör anrop för att komma åt kontot.  Du kan överföra snabbtangenten för ett enkelt exempel till Azure CLI.  Du kan hämta den <COSMOS DB CONNECTION URL> från den **översikt** fliken på bladet Cosmos-DB-konto i Azure-portalen.  Ersätt den <ACCESS KEY> med värdet som du fick ovan:
+Nu när du har åtkomstnyckeln för Cosmos DB-kontot kan du skicka den till en Cosmos DB-SDK och göra anrop för att komma åt kontot.  Som ett snabbt exempel kan du skicka åtkomstnyckeln till Azure CLI.  Du kan hämta <COSMOS DB CONNECTION URL> från fliken **Översikt** på bladet för Cosmos DB-kontot på Microsoft Azure-portalen.  Ersätt <ACCESS KEY> med värdet som returnerades ovan:
 
 ```bash
 az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>
 ```
 
-Det här kommandot CLI returnerar information om samlingen:
+Det här CLI-kommandot returnerar information om samlingen:
 
 ```bash
 {
@@ -210,7 +210,7 @@ Det här kommandot CLI returnerar information om samlingen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får du har lärt dig hur du skapar en Windows hanterade tjänstidentiteten för att komma åt Cosmos DB.  Om du vill veta se mer om Cosmos DB:
+I den här självstudien har du lärt dig hur du skapar en hanterad tjänstidentitet för Windows för att få åtkomst till Cosmos DB.  Mer information om Cosmos DB finns här:
 
 > [!div class="nextstepaction"]
 >[Översikt över Azure Cosmos DB](/azure/cosmos-db/introduction)

@@ -1,6 +1,6 @@
 ---
-title: Använda hanterade tjänstidentiteten för en Linux-VM för att komma åt Azure Data Lake Store
-description: En självstudiekurs som visar hur du använder hanteras Service identitet (MSI) för en Linux-VM för åtkomst till Azure Data Lake Store.
+title: Använda en hanterad tjänstidentitet för en virtuell Linux-dator för att få åtkomst till Azure Data Lake Store
+description: En självstudie som visar hur du använder en hanterad tjänstidentitet (MSI) för en virtuell Linux-dator för att få åtkomst till Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,32 +9,32 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
-ms.openlocfilehash: 4489f194329727160d770ab72d9cd36115f2e64d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: 92bd7190832da6ee9da7d1679b9f27b66a15e3a4
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594765"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904313"
 ---
-# <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Självstudier: Använd hanterade tjänstidentiteten för en Linux-VM för att få åtkomst till Azure Data Lake Store
+# <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Självstudie: Använda en hanterad tjänstidentitet för en virtuell Linux-dator för att få åtkomst till Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här kursen visar hur du använder hanterade tjänstidentiteten Linux virtuella datorer (VM) för att få åtkomst till Azure Data Lake Store. Azure hanterar automatiskt identiteter som du skapar via MSI. Du kan använda MSI för att autentisera till tjänster som stöder Azure Active Directory (AD Azure) autentisering utan att behöva infoga autentiseringsuppgifter i din kod. 
+I den här självstudien lär du dig använda en hanterad tjänstidentitet för en virtuell Linux-dator för att få åtkomst till Azure Data Lake Store. Azure hanterar automatiskt identiteter som du skapar via MSI. Du kan använda hanterad tjänstidentiteter för att autentisera mot tjänster som stöder Azure Active Directory-autentisering (Azure AD), utan att du behöver skriva in autentiseringsuppgifter i koden. 
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Aktivera MSI på en virtuell Linux-dator. 
-> * Ge dina VM-åtkomst till Azure Data Lake Store.
-> * Hämta en åtkomsttoken med hjälp av VM-identitet och använda den för att få åtkomst till Azure Data Lake Store.
+> * Aktivera hanterade tjänstidentiteter på en virtuell Linux-dator. 
+> * Bevilja din virtuella dator åtkomst till Azure Data Lake Store.
+> * Hämta en åtkomsttoken med hjälp av en identitet för en virtuell dator och använd den för att få åtkomst till Azure Data Lake Store.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -46,68 +46,68 @@ Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Linux-dator i en ny resursgrupp
 
-Den här självstudiekursen skapar vi en ny Linux VM. Du kan också aktivera MSI på en befintlig virtuell dator.
+I den här självstudien skapar vi en ny virtuell Linux-dator. Du kan även aktivera MSI på en befintlig virtuell dator.
 
-1. Välj den **ny** i det övre vänstra hörnet på Azure-portalen.
+1. Klicka på knappen **Nytt** i det övre vänstra hörnet i Azure-portalen.
 2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
-3. Ange informationen för den virtuella datorn. För **autentiseringstyp**väljer **offentliga SSH-nyckeln** eller **lösenord**. Autentiseringsuppgifterna som har skapats kan du logga in på den virtuella datorn.
+3. Ange informationen för den virtuella datorn. För **Autentiseringstyp** väljer du **Offentlig SSH-nyckel** eller **Lösenord**. Med de skapade autentiseringsuppgifterna kan du logga in på den virtuella datorn.
 
-   ![”Grunderna”-rutan för att skapa en virtuell dator](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![Fönstret ”Grundinställningar” för att skapa en virtuell dator](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
-4. I den **prenumeration** väljer du en prenumeration för den virtuella datorn.
-5. Om du vill välja en ny resursgrupp som du vill att den virtuella datorn skapas i **resursgruppen** > **Skapa nytt**. När du är klar väljer **OK**.
-6. Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. I inställningsfönstret behålla standardinställningarna och välj **OK**.
+4. I listan **Prenumeration** väljer du en prenumeration för den virtuella datorn.
+5. Du väljer en ny resursgrupp som du vill att den virtuella datorn ska skapas i genom att välja **Resursgrupp** > **Skapa ny**. Välj **OK** när du är klar.
+6. Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Behåll alla standardvärden på inställningssidan och välj **OK**.
 
 ## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn
 
-En VM MSI kan du få åtkomst-token från Azure AD utan att du behöver publicera autentiseringsuppgifter i koden. Aktivera hanterade tjänstidentiteten på en virtuell dator har två saker: registrerar den virtuella datorn med Azure Active Directory för att skapa hanterade identitet och konfigurerar identiteten på den virtuella datorn.
+Med hanterade tjänstidentiteter för virtuella datorer kan du få åtkomsttoken från Azure AD utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar en hanterad tjänstidentitet på en virtuell dator händer två saker: din virtuella dator registreras hos Azure Active Directory och dess hanterade tjänstidentitet skapas, och identiteten konfigureras på den virtuella datorn.
 
-1. För **virtuella**, Välj den virtuella dator som du vill aktivera MSI på.
-2. I den vänstra rutan, Välj **Configuration**.
-3. Du ser **hanterade tjänstidentiteten**. För att registrera och aktivera MSI, Välj **Ja**. Välj om du vill inaktivera den **nr**.
-   ![Val av ”registrera med Azure Active Directory”](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+1. För **Virtuell dator** väljer du den virtuella dator du vill aktivera den hanterade tjänstidentiteten på.
+2. Välj **Konfiguration** i det vänstra fönstret.
+3. Du ser **Hanterad tjänstidentitet**. Om du vill registrera och aktivera hanterade tjänstidentiteter, välj **Ja**. Om du vill inaktivera det, väljer du **Nej**.
+   ![Markeringen Registrera dig på Azure Active Directory](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. Välj **Spara**.
 
-## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Ge dina VM-åtkomst till Azure Data Lake Store
+## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Bevilja din virtuella dator åtkomst till Azure Data Lake Store
 
-Nu kan du ge din VM-åtkomst till filer och mappar i Azure Data Lake Store. Du kan använda en befintlig Data Lake Store-instans eller skapa en ny för det här steget. Så här skapar du en instans av Data Lake Store med hjälp av Azure portal på [Azure Data Lake Store quickstart](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Det finns också Snabbstart som använder Azure CLI och Azure PowerShell i den [dokumentation för Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
+Nu kan du ge din VM-åtkomst till filer och mappar i Azure Data Lake Store. Du kan använda en befintlig Data Lake Store-instans eller skapa en ny för det här steget. Så här skapar du en Data Lake Store-instans med hjälp av Azure-portalen i [snabbstarten för Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Det finns även snabbstarter som använder Azure CLI och Azure PowerShell i [dokumentationen om Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
-Skapa en ny mapp i Data Lake Store och bevilja MSI behörighet att läsa, skriva och köra filer i mappen:
+Skapa en ny mapp i Data Lake Store och ge den hanterade tjänstidentiteten behörighet att läsa, skriva och köra filer i mappen:
 
-1. Välj i Azure-portalen **Datasjölager** i den vänstra rutan.
-2. Välj Data Lake Store-instans som du vill använda.
-3. Välj **Data Explorer** i kommandofältet.
-4. Rotmapp för Data Lake Store-instansen har valts. Välj **åtkomst** i kommandofältet.
-5. Välj **Lägg till**.  I den **Välj** ange namnet på den virtuella datorn – t.ex, **DevTestVM**. Välj den virtuella datorn i sökresultatet och klicka sedan på **Välj**.
-6. Klicka på **Välj behörigheter**.  Välj **Läs** och **kör**, lägga till i **mappen**, och lägger till som **behörigheten endast**. Välj **Ok**.  Behörigheten bör vara har lagts till.
-7. Stäng den **åtkomst** fönstret.
-8. Skapa en ny mapp för den här självstudiekursen. Välj **ny mapp** i kommandofältet och ge den nya mappen ett namn, till exempel **TestFolder**.  Välj **Ok**.
-9. Välj den mapp som du skapade och välj sedan **åtkomst** i kommandofältet.
-10. Liknande steg 5, Välj **Lägg till**. I den **Välj** ange namnet på den virtuella datorn. Välj den virtuella datorn i sökresultatet och klicka sedan på **Välj**.
-11. Liknande steg 6 väljer **Välj behörigheter**. Välj **Läs**, **skriva**, och **kör**, lägga till i **mappen**, och lägger till som **behörighetspost en åtkomst- och standard behörighetspost**. Välj **Ok**.  Behörigheten bör vara har lagts till.
+1. I Azure-portalen väljer du **Data Lake Store** i den vänstra rutan.
+2. Välj den Data Lake Store-instans som du vill använda.
+3. Klicka på **Datautforskaren** i kommandofältet.
+4. Rotmappen för Data Lake Store-instansen har valts. Välj **Åtkomst** i kommandofältet.
+5. Välj **Lägg till**.  I rutan **Välj** anger du namnet på den virtuella datorn – till exempel **DevTestVM**. Välj den virtuella datorn från sökresultatet och klicka sedan på **Välj**.
+6. Klicka på **Välj behörigheter**.  Välj **Läs** och **Kör**, lägg till **den här mappen**, och lägg till den med **endast åtkomstbehörighet**. Välj **OK**.  Behörigheten bör nu har lagts till.
+7. Stäng den fönstret **Åtkomst**.
+8. Skapa en ny mapp för den här självstudien. Välj **Ny mapp** i kommandofältet och ge den nya mappen ett namn, till exempel **TestFolder**.  Välj **OK**.
+9. Välj den mapp du skapade och välj sedan **Åtkomst** i kommandofältet.
+10. Välj **Lägg till**, som i steg 5. I rutan **Välj** anger du namnet på den virtuella datorn. Välj den virtuella datorn från sökresultatet och klicka sedan på **Välj**.
+11. Välj **Välj behörigheter**, som i steg 6. Välj **Läs**, **Skriv** och **Kör**, lägga till **den här mappen** och lägg till den som **åtkomstbehörighetsinlägg och standardbehörighetsinlägg**. Välj **OK**.  Behörigheten bör nu har lagts till.
 
-MSI kan nu utföra alla åtgärder på filer i mappen som du skapade. Mer information om hur du hanterar åtkomst till Data Lake Store finns [åtkomstkontroll i Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+Den hanterade tjänstidentiteten kan nu utföra alla åtgärder på filer i mappen som du skapade. Mer information om hur du hanterar åtkomst till Data Lake Store finns i [Åtkomstkontroll i Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
-## <a name="get-an-access-token-and-call-the-data-lake-store-file-system"></a>Hämta en åtkomst-token och anropa Data Lake Store-filsystem
+## <a name="get-an-access-token-and-call-the-data-lake-store-file-system"></a>Få en åtkomsttoken och anropa Data Lake Store-filsystemet
 
-Azure Data Lake Store inbyggt stöd för Azure AD-autentisering, så den kan acceptera åtkomsttoken direkt hämta via MSI. Om du vill autentisera till Data Lake Store-filsystem, kan du skicka en åtkomst-token som utfärdas av Azure AD till din Data Lake Store filen system slutpunkt. Åtkomsttoken är i ett authorization-huvud i formatet ”ägar \<ACCESS_TOKEN_VALUE\>”.  Mer information om Data Lake Store-stöd för Azure AD authentication finns [autentisering med Data Lake Store med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
+Azure Data Lake Store har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas med hanterade tjänsteidentiteter kan accepteras direkt. För att autentisera till Data Lake Store-filsystemet skickar du en åtkomsttoken som utfärdats av Azure AD till slutpunkten för ditt Data Lake Store-filsystem. Åtkomsttoken finns i auktoriseringsrubriken i formatet ”Ägartoken \<ACCESS_TOKEN_VALUE\>”.  Mer information om Data Lake Store-stöd för Azure AD-autentisering finns avsnittet om [autentisering med Data Lake Store med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
 
-I kursen får autentisera du REST-API: et för Data Lake Store-filsystem med cURL och göra REST-begäranden.
+I den här självstudien autentiserar du REST-API:et för Data Lake Store-filsystemet med hjälp av CURL för att göra REST-begäranden.
 
 > [!NOTE]
-> Klient-SDK för Data Lake Store-filsystem stöder inte hanterade tjänstidentiteten ännu.
+> Klient-SDK:er för Data Lake Store-filsystemet stöder inte hanterade tjänstidentiteter ännu.
 
-Du behöver en SSH-klient för att slutföra de här stegen. Om du använder Windows, kan du använda SSH-klienten i den [Windows undersystem för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp konfigurerar SSH-klientens nycklar, se [hur du använder SSH-nycklar med Windows på Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [hur du skapar och använder ett SSH offentliga och privata nyckelpar för Linux virtuella datorer i Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+För att slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så använder du SSH-nycklar med Windows på Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [Så här skapar du säkert ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. Bläddra till din Linux VM i portalen. I **översikt**väljer **Anslut**.  
-2. Ansluta till den virtuella datorn med hjälp av SSH-klient av önskat slag. 
-3. I fönstret terminal med cURL, gör en begäran till den lokala MSI-slutpunkten för att få en åtkomsttoken för Data Lake Store-filsystem. Resurs-ID för Data Lake Store är ”https://datalake.azure.net/”.  Det är viktigt att du inkluderar det avslutande snedstrecket i resursidentifieraren.
+1. Bläddra till din virtuella Linux-dator i portalen. I **Översikt** väljer du **Anslut**.  
+2. Anslut till den virtuella datorn med valfri SSH-klient. 
+3. I terminalfönstret, med hjälp av CURL, skickar du en begäran till den lokala slutpunkten för hanterad tjänsteidentitet för att hämta en åtkomsttoken för Data Lake Store-filsystemet. Resurs-ID för Data Lake Store är ”https://datalake.azure.net/”.  Det är viktigt att inkludera avslutande snedstreck i resurs-ID.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   
    ```
     
-   Ett lyckat svar returnerar den åtkomst-token som används för att autentisera till Data Lake Store:
+   Ett lyckat svar returnerar den åtkomsttoken som du använder för att autentisera till Data Lake Store:
 
    ```bash
    {"access_token":"eyJ0eXAiOiJ...",
@@ -119,31 +119,31 @@ Du behöver en SSH-klient för att slutföra de här stegen. Om du använder Win
     "token_type":"Bearer"}
    ```
 
-4. Med hjälp av cURL gör en förfrågan till ditt Data Lake Store filsystemet REST-slutpunkt för att lista mappar i rotmappen. Detta är ett enkelt sätt att kontrollera att allt är korrekt konfigurerade. Kopiera värdet för den åtkomst-token från föregående steg. Det är viktigt att strängen ”ägar” i Authorization-huvud har en versal ”b” Du hittar namnet på din Data Lake Store-instans i den **översikt** avsnitt i den **Data Lake Store** rutan i Azure-portalen.
+4. Med hjälp av CURL kan du skicka en förfrågan till REST-slutpunkten för ditt Data Lake Store-filsystem för att lista mappar i rotmappen. Det här är ett enkelt sätt att kontrollera att allt är korrekt konfigurerat. Kopiera värdet för åtkomsttoken från föregående steg. Det är viktigt att strängen ”Bearer” (ägartoken) i auktoriseringsrubriken har versalt ”B.” Du hittar namnet på din Data Lake Store-instans i **översikten** av **Data Lake Store**-fönstret i Azure-portalen.
 
    ```bash
    curl https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS -H "Authorization: Bearer <ACCESS_TOKEN>"
    ```
     
-   Ett lyckat svar ser ut så här:
+   Ett lyckat svar ut så här:
 
    ```bash
    {"FileStatuses":{"FileStatus":[{"length":0,"pathSuffix":"TestFolder","type":"DIRECTORY","blockSize":0,"accessTime":1507934941392,"modificationTime":1508105430590,"replication":0,"permission":"770","owner":"bd0e76d8-ad45-4fe1-8941-04a7bf27f071","group":"bd0e76d8-ad45-4fe1-8941-04a7bf27f071"}]}}
    ```
 
-5. Nu kan du överföra en fil till Data Lake Store-instans. Först skapar du en fil som ska överföras.
+5. Nu kan du ladda upp en fil till din Data Lake Store-instans. Skapa först en fil som ska laddas upp.
 
    ```bash
    echo "Test file." > Test1.txt
    ```
 
-6. Med hjälp av cURL gör en förfrågan till ditt Data Lake Store filsystemet REST-slutpunkt för att överföra filen till mappen som du skapade tidigare. Överföringen innebär en omdirigering och cURL följer omdirigeringen automatiskt. 
+6. Med hjälp av CURL kan du skicka en förfrågan till REST-slutpunkten för ditt Data Lake Store-filsystem för att ladda upp filen till mappen du skapade innan. Överföringen innebär en omdirigering och CURL följer omdirigeringen automatiskt. 
 
    ```bash
    curl -i -X PUT -L -T Test1.txt -H "Authorization: Bearer <ACCESS_TOKEN>" 'https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/<FOLDER_NAME>/Test1.txt?op=CREATE' 
    ```
 
-    Ett lyckat svar ser ut så här:
+    Ett lyckat svar ut så här:
 
    ```bash
    HTTP/1.1 100 Continue
@@ -178,13 +178,13 @@ Du behöver en SSH-klient för att slutföra de här stegen. Om du använder Win
    Content-Length: 0
    ```
 
-Du kan lägga till att filer och hämta filer med hjälp av andra API: er för Data Lake Store-filsystem.
+Du kan lägga till i filer, ladda ned filer med mera med hjälp av API:er för Data Lake Store-filsystemet.
 
-Grattis! Du har autentiserats för filsystemet Data Lake Store med hjälp av MSI för en Linux-VM.
+Grattis! Du har autentiserats med Data Lake Store-filsystemet med hjälp av den hanterade tjänstidentiteten för en virtuell Linux-dator.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får du har lärt dig hur du använder hanterade tjänstidentiteten Linux virtuella datorer för att få åtkomst till ett Azure Data Lake Store. Om du vill veta mer om Azure Data Lake Store, se:
+I den här självstudien har du lärt dig att använda en hanterad tjänstidentitet för en virtuell Linux-dator för att få åtkomst till Data Lake Store. Läs mer om Azure Data Lake Store:
 
 > [!div class="nextstepaction"]
 >[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)

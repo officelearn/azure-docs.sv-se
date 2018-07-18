@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 6869698f2e6dca321d371bb22ded316f32cdeb51
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 368caa063ea0487923af8a29f67aa73cae7ed75e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824102"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952900"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Använda Azure Cosmos DB-emulatorn för lokal utveckling och testning
 
@@ -59,9 +59,10 @@ Vi rekommenderar att du kommer igång genom att titta på nedanstående video, d
 > 
 
 ## <a name="how-the-emulator-works"></a>Så här fungerar emulatorn
+
 Azure Cosmos DB-emulatorn erbjuder mycket tillförlitlig emulering av Azure Cosmos DB-tjänsten. Den stöder identiska funktioner som Azure Cosmos DB, inklusive stöd för att skapa och fråga JSON-dokument, etablera och skala samlingar och köra lagrade procedurer och utlösare. Du kan utveckla och testa program med Azure Cosmos DB-emulatorn och driftsätta dem till Azure i global skala genom att bara göra en enda konfigurationsändring i anslutningens slutpunkt för Azure Cosmos DB.
 
-Vi skapade en tillförlitlig lokal emulering av den faktiska Azure Cosmos DB-tjänsten, men implementeringen av Azure Cosmos DB-emulatorn är annorlunda än för den tjänsten. Till exempel använder Azure Cosmos DB-emulatorn OS-standardkomponenter som det lokala filsystemet för beständighet och HTTP-protokollstack för anslutning. Det innebär att vissa funktioner som förlitar sig på Azure-infrastruktur som global replikering, latensvärden på enstaka millisekunder för läsning/skrivning och justerade konsekvensnivåer inte är tillgängliga via Azure Cosmos DB-emulatorn.
+Emulering av Azure Cosmos DB-tjänsten är verklighetstrogen, men implementering av emulatorn skiljer sig från tjänsten. Till exempel använder emulatorn standardkomponenter i operativsystemet som det lokala filsystemet för beständighet och HTTP-protokollstack för anslutning. Funktioner som förlitar sig på Azure-infrastruktur som global replikering, latensvärden på enstaka millisekunder för läsning/skrivning och justerade konsekvensnivåer inte är tillgängliga.
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Skillnader mellan emulatorn och tjänsten 
 Eftersom Azure Cosmos DB-emulatorn tillhandahåller en emulerad miljö som körs på en lokal utvecklararbetsstation finns det några skillnader mellan emulatorn och ett Azure Cosmos DB-konto i molnet:
@@ -72,7 +73,7 @@ Eftersom Azure Cosmos DB-emulatorn tillhandahåller en emulerad miljö som körs
 * Azure Cosmos DB-emulatorn kan inte simulera olika [Azure Cosmos DB-konsekvensnivåer](consistency-levels.md).
 * Azure Cosmos DB-emulatorn simulerar inte [replikering över flera regioner](distribute-data-globally.md).
 * Azure Cosmos DB-emulatorn stöder inte åsidosättning av tjänstkvoter som är tillgänglig i Azure Cosmos DB-tjänsten (exempelvis begränsningar för dokumentstorlekar, ökad lagring av partitionerad samling).
-* Eftersom ditt exemplar av Azure Cosmos DB-emulatorn eventuellt inte är uppdaterat med de senaste ändringarna av Azure Cosmos DB-tjänsten bör du använda [Azure Cosmos DB capacity planner](https://www.documentdb.com/capacityplanner) för att uppskatta behovet av produktionsdataflöde (RU:er) för programmet.
+* Eftersom ditt exemplar av Azure Cosmos DB-emulatorn eventuellt inte är uppdaterat med de senaste ändringarna av Azure Cosmos DB-tjänsten bör du använda [Azure Cosmos DB Capacity Planner](https://www.documentdb.com/capacityplanner) för att uppskatta behovet av produktionsdataflöden (RU:er) för programmet.
 
 ## <a name="system-requirements"></a>Systemkrav
 Azure Cosmos DB-emulatorn har följande krav på maskin- och programvara:
@@ -99,7 +100,7 @@ När emulatorn körs visas en ikon i aktivitetsfältets meddelandefält i Window
 
 Azure Cosmos-DB-emulatorn körs som standard på den lokala datorn (”localhost”) som lyssnar på port 8081.
 
-Azure Cosmos DB-emulatorn är installerad som standard i katalogen `C:\Program Files\Azure Cosmos DB Emulator`. Du kan också starta och stoppa emulatorn från kommandoraden. Se [kommandoradsverktygsreferensen](#command-line) för mer information.
+Azure Cosmos DB-emulatorn är installerad som standard i `C:\Program Files\Azure Cosmos DB Emulator`. Du kan också starta och stoppa emulatorn från kommandoraden. För mer information, se [kommandoradsverktygsreferensen](#command-line).
 
 ## <a name="start-data-explorer"></a>Starta Datautforskaren
 
@@ -125,7 +126,7 @@ Precis som när du använder Azure Cosmos DB i molnet måste varje begäran du g
 > [!NOTE] 
 > Om du har startat emulatorn med /-tangentalternativet använder du den genererade nyckeln istället för ”C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==”
 
-Och precis som Azure Cosmos DB-tjänsten stöder Azure Cosmos DB-emulator endast säker kommunikation via SSL.
+Precis som Azure Cosmos DB-tjänsten stöder Azure Cosmos DB-emulator endast säker kommunikation via SSL.
 
 ## <a name="running-on-a-local-network"></a>Köra på ett lokalt nätverk
 
@@ -395,13 +396,13 @@ Starta avbildningen genom att köra följande kommandon.
 Från kommandoraden:
 ```cmd 
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 Från PowerShell:
 ```powershell
 md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
-docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 Svaret ser ut ungefär så här:

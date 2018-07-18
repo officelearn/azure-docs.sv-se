@@ -4,14 +4,14 @@ description: Lär dig mer om hur du kör ett programåterställningstest från l
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/03/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: fa66e47715940584259e5cf555f3f6cd6f07e267
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: af8062fc0134975542c8a5ec420c790f33996154
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437220"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920179"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Köra ett programåterställningstest till Azure
 
@@ -20,10 +20,10 @@ I den här självstudien visar vi hur du kör ett programåterställningstest f�
 Den här är den fjärde kursen i en serie som illustrerar hur du ställer in haveriberedskap i Azure för lokala virtuella VMware-datorer eller virtuella Hyper-V-datorer.
 
 Den här kursen förutsätter att du har slutfört de första tre självstudierna: 
-    - I den [första självstudien](tutorial-prepare-azure.md) [förberedde vi Azure-komponenter](tutorial-prepare-azure.md) för katastrofåterställning för VMware eller Hyper-V.
-    - I den andra självstudien förberedde vi lokala komponenter för katastrofåterställning för [VMware](vmware-azure-tutorial-prepare-on-premises.md) eller [Hyper-V](hyper-v-prepare-on-premises-tutorial.md).
-    - I den tredje självstudien konfigurerade och aktiverade vi replikering för våra lokala [virtuella VMware-datorer](vmware-azure-tutorial.md), [virtuella Hyper-V-datorer med System Center VMM](hyper-v-vmm-azure-tutorial.md) eller [virtuella Hyper-V-datorer utan VMM](hyper-v-azure-tutorial.md).
-- Självstudierna är utformade för att visa den enklaste distributionsvägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Alla kurserna ställer in webbplatsåterställning med de enklaste inställningarna med standardinställningar där det är lämpligt. Om du vill veta mer om redundansteststegen kan du läsa [Anvisningsguiden](site-recovery-test-failover-to-azure.md).
+    - I den [första självstudien](tutorial-prepare-azure.md), konfigurerade vi Azure komponenter som krävs för katastrofåterställning för VMware.
+    - I den [andra kursen](vmware-azure-tutorial-prepare-on-premises.md) förberedde vi lokala komponenter för katastrofåterställning och granskade förutsättningarna.
+    - I den [tredje kursen](vmware-azure-tutorial.md) ställde vi in och aktiverade replikering för våra lokala VMware VM.
+    - Självstudierna är utformade för att visa den **enklaste distributionsvägen för ett scenario**. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Om du vill veta mer om redundansteststegen kan du läsa [Anvisningsguiden](site-recovery-test-failover-to-azure.md).
 
 I den här självstudiekursen får du lära du dig att:
 
@@ -49,7 +49,7 @@ Kontrollera den virtuella datorns egenskaper innan du kör ett redundanstest, oc
 När du kör ett redundanstest händer följande:
 
 1. En kravkontroll körs för att säkerställa att alla de villkor som krävs för redundans är på plats.
-2. Redundansprocessen bearbetar data så att du kan skapa en virtuell Azure-dator. Om du väljer den senaste återställningspunkten skapas en återställningspunkt utifrån tillgängliga data.
+2. Redundansprocessen bearbetar data så att du kan skapa en virtuell Azure-dator. Om du väljer den senaste återställningspunkten, skapas en återställningspunkt från data.
 3. En virtuell Azure-dator skapas med hjälp av de data som behandlas i föregående steg.
 
 Kör redundanstestet på följande sätt:

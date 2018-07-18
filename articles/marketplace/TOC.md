@@ -21,8 +21,7 @@
 #### [Azure-appar: lösningsmallar](./marketplace-solution-templates.md)
 #### [Azure-appar: Managed Applications](./marketplace-managed-apps.md)
 #### [Publiceringsguide för SaaS-app](./marketplace-saas-applications-technical-publishing-guide.md) 
-#### 
-  [Containrar](./marketplace-containers.md)
+#### [Containrar](./marketplace-containers.md)
 #### [Konsulttjänst](./consulting-services.md)  
 #### [AppSource-appar](./appsource-offer-publishing-guide.md)
 

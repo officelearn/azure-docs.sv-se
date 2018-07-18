@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 826dcf13a6e29fd4631e1078dd2ac0fa65b14e14
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e1964b7f46259e54c65aeb46aa795713922c3504
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001692"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114620"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager-mallar
 Den här artikeln beskriver strukturen för en Azure Resource Manager-mall. Den anger de olika avsnitten i en mall och egenskaperna som är tillgängliga i dessa avsnitt. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution. En stegvis självstudiekurs om hur du skapar en mall finns i [skapa din första Azure Resource Manager-mall](resource-manager-create-first-template.md).
@@ -313,4 +313,4 @@ Du kan överskrida vissa begränsningar för mallen med hjälp av en kapslad mal
 * Om du vill visa kompletta mallar för många olika typer av lösningar kan du se [Azure-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/).
 * Mer information om de funktioner du kan använda från inom en mall finns i [Azure Resource Manager-Mallfunktioner](resource-group-template-functions.md).
 * Om du vill kombinera flera mallar under distributionen, se [med länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
-* Du kan behöva använda resurser som finns i en annan resursgrupp. Det här scenariot är vanligt när du arbetar med lagringskonton eller virtuella nätverk som delas mellan flera resursgrupper. Mer information finns i den [resourceId funktionen](resource-group-template-functions-resource.md#resourceid).
+* Rekommendationer om hur du skapar Resource Manager-mallar som du kan använda global Azure, Azure suveräna moln och Azure Stack finns i [utveckla Azure Resource Manager-mallar för molnet konsekvens](templates-cloud-consistency.md).

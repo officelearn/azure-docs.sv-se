@@ -1,6 +1,6 @@
 ---
-title: Hantera Nätverkssäkerhetsgruppen flöde loggar med Azure Nätverksbevakaren - REST API | Microsoft Docs
-description: Den här sidan förklarar hur du hanterar Nätverkssäkerhetsgruppen flöde loggar i Azure Nätverksbevakaren med REST API
+title: Hantera Nätverkssäkerhetsgrupp flödesloggar med Azure Network Watcher - REST API | Microsoft Docs
+description: Den här sidan förklarar hur du hanterar flödesloggar för Nätverkssäkerhetsgruppen i Azure Network Watcher med REST API
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,42 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 4444e83adecdc1afa170a184705b9be3be67c026
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 003335aad0452e7a2dbfff49ed29a6b99b5d54d2
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "26774379"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089637"
 ---
-# <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Konfigurera Nätverkssäkerhetsgruppen flöde loggar med hjälp av REST API
+# <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Konfigurera någon Nätverkssäkerhetsgrupp flödesloggar med REST API
 
 > [!div class="op_single_selector"]
-> - [Azure-portalen](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
+> - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
-Nätverkssäkerhetsgruppen flöde loggarna är en funktion i Nätverksbevakaren där du kan visa information om ingående och utgående IP-trafik via en Nätverkssäkerhetsgrupp. Loggarna flödet skrivs i json-format och visa utgående och inkommande flöden på grundval av per regel, NIC flödet gäller för 5-tuppel information om flödet (källan/målet IP-källan/målet Port Protocol), och om trafiken tillåts eller nekas.
+Flödesloggar för Nätverkssäkerhetsgruppen är en funktion i Network Watcher där du kan visa information om ingående och utgående IP-trafik via en Nätverkssäkerhetsgrupp. Dessa flödesloggar skrivs i json-format och visa utgående och inkommande flöden på basis av per regel, nätverkskortet flödet gäller för 5-tuppel information om flödet (källa/mål-IP, källa/mål-Port, Protocol), och om trafik tillåts eller nekas.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 ARMclient används för att anropa REST-API med hjälp av PowerShell. ARMClient hittas på chocolatey på [ARMClient på Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-Det här scenariot förutsätter att du redan har följt stegen i [skapa en Nätverksbevakaren](network-watcher-create.md) att skapa en Nätverksbevakaren.
+Det här scenariot förutsätter att du redan har följt stegen i [skapa en Network Watcher](network-watcher-create.md) att skapa en Network Watcher.
 
 > [!Important]
-> För nätverket Watcher REST API-anrop som resursgruppens namn i URI-begäran är resursgruppen som innehåller Nätverksbevakaren, inte resurserna du utför de diagnostiska åtgärderna på.
+> För Network Watcher REST-API-anrop som resursgruppens namn i begärande-URI är resursgruppen som innehåller Network Watcher, inte resurserna du utför åtgärderna som diagnostiska på.
 
 ## <a name="scenario"></a>Scenario
 
-Det scenario som beskrivs i den här artikeln visar hur du aktivera, inaktivera och fråga flödet loggar med hjälp av REST-API. Läs mer om Nätverkssäkerhetsgrupp flöde loggings [Nätverkssäkerhetsgruppen flöde loggning - översikt över](network-watcher-nsg-flow-logging-overview.md).
+Det scenario som beskrivs i den här artikeln visar hur du aktivera, inaktivera och fråga efter flödesloggar med hjälp av REST-API. Läs mer om Nätverkssäkerhetsgruppen flow loggings [flödesloggar för Nätverkssäkerhetsgruppen - översikt](network-watcher-nsg-flow-logging-overview.md).
 
 I det här scenariot kommer du att:
 
-* Aktivera flödet loggar
-* Inaktivera flödet loggar
-* Fråga flödet loggar status
+* Aktivera flödesloggar
+* Inaktivera flödesloggar
+* Frågestatus flow loggar
 
 ## <a name="log-in-with-armclient"></a>Logga in med ARMClient
 
@@ -59,18 +58,18 @@ Logga in på armclient med dina autentiseringsuppgifter för Azure.
 armclient login
 ```
 
-## <a name="register-insights-provider"></a>Registrera providern insikter
+## <a name="register-insights-provider"></a>Registrera Insights-providern
 
-För att flöda loggning för att fungera korrekt, den **Microsoft.Insights** provider måste vara registrerad. Om du inte är säker på om den **Microsoft.Insights** provider är registrerad, kör följande skript.
+För flow loggning för att fungera korrekt, den **Microsoft.Insights** providern måste vara registrerad. Om du inte är säker på att om den **Microsoft.Insights** providern är registrerad, kör följande skript.
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
 armclient post "https://management.azure.com//subscriptions/${subscriptionId}/providers/Microsoft.Insights/register?api-version=2016-09-01"
 ```
 
-## <a name="enable-network-security-group-flow-logs"></a>Aktivera Nätverkssäkerhetsgruppen flöde loggar
+## <a name="enable-network-security-group-flow-logs"></a>Aktivera Nätverkssäkerhetsgrupp flödesloggar
 
-Kommandot för att aktivera flödet loggarna visas i följande exempel:
+Kommando för att aktivera flödesloggar visas i följande exempel:
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -111,9 +110,9 @@ Svaret som returnerades från föregående exempel är följande:
 }
 ```
 
-## <a name="disable-network-security-group-flow-logs"></a>Inaktivera Nätverkssäkerhetsgruppen flöde loggar
+## <a name="disable-network-security-group-flow-logs"></a>Inaktivera Nätverkssäkerhetsgrupp flödesloggar
 
-Använd följande exempel för att inaktivera flödet loggar. Anropet är detsamma som att aktivera flödet loggar, utom **FALSKT** har angetts för egenskapen enabled.
+Använd följande exempel för att inaktivera flödesloggar. Anropet är detsamma som att aktivera flödesloggar utom **FALSKT** har angetts för egenskapen aktiverad.
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -154,9 +153,9 @@ Svaret som returnerades från föregående exempel är följande:
 }
 ```
 
-## <a name="query-flow-logs"></a>Frågan flödet loggar
+## <a name="query-flow-logs"></a>Flödesloggar för fråga
 
-Följande frågor för REST-anrop status för flöde loggar på en Nätverkssäkerhetsgrupp.
+Följande frågor för REST-anrop status för flödet loggar in på en Nätverkssäkerhetsgrupp.
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -188,11 +187,11 @@ Följande är ett exempel på svaret som returnerades:
 }
 ```
 
-## <a name="download-a-flow-log"></a>Hämta en logg flöde
+## <a name="download-a-flow-log"></a>Ladda ned en flow-log
 
-Lagringsplatsen för en flödet logg definieras på Skapa. Ett enkelt verktyg för att komma åt dessa flödet loggar som sparats i ett lagringskonto är Microsoft Azure Lagringsutforskaren, som kan hämtas här: http://storageexplorer.com/
+Lagringsplatsen för en flow-log definieras när du skapar. Ett praktiskt verktyg för att komma åt dessa flödesloggar som sparats i ett lagringskonto är Microsoft Azure Storage Explorer, som kan hämtas här:  http://storageexplorer.com/
 
-Om ett storage-konto anges sparas paket avbilda filer till ett lagringskonto på följande plats:
+Om ett lagringskonto anges sparas packet capture filer till ett lagringskonto på följande plats:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
@@ -200,6 +199,6 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [visualisera dina NSG flödet loggar med PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Lär dig hur du [visualisera din NSG-flödesloggar med Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
-Lär dig hur du [visualisera dina NSG flödet loggar med öppen källkod verktyg](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+Lär dig hur du [visualisera din NSG-flödesloggar med verktyg för öppen källkod](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)

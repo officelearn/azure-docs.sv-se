@@ -1,5 +1,5 @@
 ---
-title: Vad är nyheter om verktyget Azure Active Directory för villkorlig åtkomst?
+title: Vad är vad om-verktyget i Azure Active Directory villkorlig åtkomst?
 description: Lär dig hur du kan förstå effekten av principer för villkorlig åtkomst på din miljö.
 services: active-directory
 keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
@@ -14,49 +14,53 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 897f1b96f0861fb13ba0e6c2427b621ea6a12a06
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 34f6efaac00f4aa17ea6a53ab51da69b84591e35
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750090"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113037"
 ---
-# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Vad är nyheter om verktyget Azure Active Directory för villkorlig åtkomst?
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Vad är vad om-verktyget i Azure Active Directory villkorlig åtkomst?
 
-[Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md) är en funktion av Azure Active Directory (AD Azure) som gör det möjligt att styra hur behöriga användare har åtkomst till dina molnappar. Hur vet du vad som händer formuläret principerna för villkorlig åtkomst i din miljö? Du kan använda för att besvara frågan i **villkorlig åtkomst om verktyget**.
+[Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md) är en funktion i Azure Active Directory (Azure AD) som ger dig möjlighet att styra hur behöriga användare har åtkomst till dina appar i molnet. Hur vet du vad som händer formuläret principerna för villkorlig åtkomst i din miljö? Du kan använda för att besvara den här frågan i **villkorlig åtkomst är konsekvensverktyg**.
 
-Den här artikeln förklarar hur du kan använda det här verktyget för att testa din principer för villkorlig åtkomst.
+Den här artikeln förklarar hur du kan använda det här verktyget för att testa principer för villkorlig åtkomst.
 
 ## <a name="what-it-is"></a>Vad det är
 
-Den **villkorlig åtkomst till vilka om principen verktyget** tillåter dig att förstå effekten av dina principer för villkorlig åtkomst på din miljö. I stället för att testa köra dina principer genom att utföra flera inloggningar manuellt, kan det här verktyget du utvärdera en simulerad inloggning för en användare. Simuleringen beräknar effekt detta inloggning har på dina principer och genererar en simuleringsrapport. Rapporten inte bara innehåller den tillämpa villkorliga åtkomstprinciper utan även [klassiska principer](active-directory-conditional-access-migration.md#classic-policies) om de finns.    
+Den **what-if för villkorlig åtkomst princip verktyget** tillåter dig att förstå effekten av principer för villkorlig åtkomst på din miljö. I stället för test Driver dina principer genom att utföra flera inloggningar manuellt, kan du utvärdera en simulerad inloggning för en användare med det här verktyget. Simuleringen beräknar inverkan detta inloggning har på dina principer och genererar en simuleringsrapport. Rapporten inte bara innehåller det tillämpade villkorliga åtkomstprinciper utan även [klassiska principer](active-directory-conditional-access-migration.md#classic-policies) om de finns.    
 
-Nyheter avgöra om verktyg ger också ett sätt att snabbt principer som gäller för en viss användare. Du kan använda informationen, till exempel om du behöver felsöka problem.  
+Vad avgöra om verktygen innehåller också ett sätt att snabbt de principer som gäller för en viss användare. Du kan använda informationen, till exempel om du behöver felsöka ett problem.  
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-I den **villkorlig åtkomst om verktyget**, måste du först konfigurera inställningarna för inloggningen scenario som du vill simulera. Inställningarna omfattar:
+I den **villkorlig åtkomst är konsekvensverktyg**, måste du först konfigurera inställningarna för inloggning scenario som du vill simulera. Inställningarna omfattar:
 
-- Användaren som du vill testa 
+- Den användare du vill testa 
 
-- Molnappar som användaren försöker komma åt
+- Moln-appar som användaren försöker få åtkomst till
 
-- Villkor under vilka åtkomst till den konfigurerar moln appar utförs
+- Villkor under vilka åtkomst till den konfigurerar molnet appar utförs
      
-Som ett nästa steg kan du initiera en simulering kör som utvärderar dina inställningar. Principer som är aktiverade är en del av en utvärdering körs.
+I nästa steg, kan du initiera en simulering kör som utvärderar dina inställningar. Principer som är aktiverade är en del av en utvärdering körs.
 
 
-När utvärderingen har slutförts, skapas en rapport över berörda principer.
+När utvärderingen har slutförts, genererar verktyget en rapport över de berörda principerna.
+
+
+> [!NOTE]
+> För närvarande vad om verktyget inte stöder kapslade grupper. Om en användare finns i en grupp och gruppen är medlem i någon annan grupp som används i en princip för villkorlig åtkomst kommer vad händer om verktyget korrekt visas inte effekten av principen för användaren. 
 
 
 ## <a name="running-the-tool"></a>Kör verktyget
 
-Du hittar den **vad händer om** verktyget på den **[villkorlig åtkomst - principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** sida i Azure-portalen.
+Du hittar den **vad händer om** verktyget på den **[villkorlig åtkomst – principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** i Azure-portalen.
 
-Starta verktyget i verktygsfältet på listan med principer, klicka på **vad händer om**.
+Starta verktyget, i verktygsfältet på listan med principer, klicka på **vad händer om**.
 
 ![Tänk om](./media/active-directory-conditional-access-whatif/01.png)
 
@@ -64,65 +68,65 @@ Innan du kan köra en utvärdering, måste du konfigurera inställningarna.
 
 ## <a name="settings"></a>Inställningar
 
-Det här avsnittet ger information om inställningarna för simuleringen kör.
+Det här avsnittet innehåller information om inställningarna för simuleringen kör.
 
 ![Tänk om](./media/active-directory-conditional-access-whatif/02.png)
 
 
 ### <a name="user"></a>Användare
 
-Du kan bara välja en användare. Detta är bara obligatoriskt fält.
+Du kan bara välja en användare. Det här är det enda obligatoriska fältet.
 
 ### <a name="cloud-apps"></a>Molnappar
 
-Standardvärdet för den här inställningen är **alla molnappar**. Standardinställningen utför en utvärdering av alla tillgängliga principer i din miljö. Du kan begränsa omfånget till principer som påverkar specifika molnappar.
+Standardvärdet för den här inställningen är **alla molnappar**. Standardinställningen utför en utvärdering av alla tillgängliga principer i din miljö. Du kan begränsa omfattningen för principer som påverkar specifika molnappar.
 
 
 ### <a name="ip-address"></a>IP-adress
 
-IP-adressen är en enskild IPv4-adress för att efterlikna den [plats villkoret](active-directory-conditional-access-locations.md). Adressen representerar Internetuppkopplad adressen till enheten som används av dina användare för att logga in. Du kan verifiera IP-adressen för en enhet med, till exempel Gå till [vad är IP-adressen](https://whatismyipaddress.com).    
+IP-adressen är en enskild IPv4-adress för att efterlikna de [platsvillkoret](active-directory-conditional-access-locations.md). Adressen representerar adressen till enheten som används av användaren för att logga in som riktas mot Internet. Du kan kontrollera IP-adressen för en enhet av, till exempel Gå till [vad är Min IP-adress](https://whatismyipaddress.com).    
 
 ### <a name="device-platforms"></a>Enhetsplattformar
 
-Den här inställningen efterliknar den [enheten plattformar villkoret](active-directory-conditional-access-conditions.md#device-platforms) och representerar motsvarigheten **alla plattformar (inklusive stöds inte)**. 
+Den här inställningen imiterar den [enheten plattformar villkor](active-directory-conditional-access-conditions.md#device-platforms) och representerar motsvarigheten **alla plattformar (inklusive stöds inte)**. 
 ### <a name="client-apps"></a>Klientappar
 
-Den här inställningen efterliknar den [klienten appar villkoret](active-directory-conditional-access-conditions.md#client-apps).
-Som standard, vilket medför en utvärdering av alla principer med **webbläsare** eller **mobilappar och skrivbordsklienter** antingen individuellt eller båda markerad. Dessutom upptäcks principer som framtvinga **Exchange ActiveSync (EAS)**. Du kan begränsa den här inställningen genom att välja:
+Den här inställningen imiterar den [klient apps villkor](active-directory-conditional-access-conditions.md#client-apps).
+Som standard den här inställningen gör en utvärdering av alla principer som har **webbläsare** eller **mobilappar och skrivbordsklienter** antingen individuellt eller båda har valt. Dessutom upptäcks principer som framtvinga **Exchange ActiveSync (EAS)**. Du kan begränsa den här inställningen genom att välja:
 
-- **Webbläsaren** att utvärdera alla principer med minst **webbläsare** valda. 
+- **Webbläsaren** att utvärdera alla principer som har minst **webbläsare** valda. 
 
-- **Mobilappar och skrivbordsklienter** att utvärdera alla principer med minst **mobilappar och skrivbordsklienter** valda. 
+- **Mobilappar och skrivbordsklienter** att utvärdera alla principer som har minst **mobilappar och skrivbordsklienter** valda. 
 
 
 ### <a name="sign-in-risk"></a>Inloggningsrisk
 
-Den här inställningen efterliknar den [inloggning risk villkoret](active-directory-conditional-access-conditions.md#sign-in-risk).   
+Den här inställningen imiterar den [inloggningsrisk villkor](active-directory-conditional-access-conditions.md#sign-in-risk).   
 
 
 ## <a name="evaluation"></a>Utvärdering 
 
-Du kan starta en utvärdering genom att klicka på **vad händer om**. Utvärderingsresultat av den ger dig en rapport som består av: 
+Du startar en utvärdering genom att klicka på **vad händer om**. Utvärderingsresultat av den ger dig en rapport som består av: 
 
 ![Tänk om](./media/active-directory-conditional-access-whatif/03.png)
 
-- En indikator om klassiska principer finns i din miljö
-- Principer som gäller för din användare
-- Principer som inte gäller för din användare
+- Indikerar om klassiska principer finns i din miljö
+- Principer som gäller för dina användare
+- Principer som inte gäller för användaren
 
 
-Om [klassiska principer](active-directory-conditional-access-migration.md#classic-policies) finns för de valda molnapparna, visas en indikator för dig. Genom att klicka på indikatorn, omdirigeras till sidan klassiska principer. På sidan klassiska principer kan du migrera en princip för klassiska eller bara inaktivera den. Du kan återgå till din utvärderingsresultat genom att stänga den här sidan.
+Om [klassiska principer](active-directory-conditional-access-migration.md#classic-policies) finns för de valda molnapparna, visas en indikator för dig. Genom att klicka på indikatorn, omdirigeras du till sidan klassiska principer. På sidan klassiska principer kan du migrera den klassiska principen eller bara inaktivera den. Du kan gå tillbaka till din utvärderingsresultat genom att stänga den här sidan.
 
-I listan över principer som gäller för din valda användare, du kan också hitta en lista över [bevilja kontroller](active-directory-conditional-access-controls.md#grant-controls) och [session](active-directory-conditional-access-controls.md#session-controls) kontroller som användarna måste uppfylla.
+På listan över principer som gäller för din valda användare, kan du också hitta en lista över [bevilja kontroller](active-directory-conditional-access-controls.md#grant-controls) och [session](active-directory-conditional-access-controls.md#session-controls) kontroller som användaren måste uppfylla.
 
-I listan över principer som inte gäller för din användare kan och också hitta skälen varför inte gäller dessa principer. För varje listad princip representerar orsaken till det första villkoret som inte uppfylldes. En möjlig orsak till en princip som inte tillämpas är en inaktiverad princip, eftersom de ytterligare inte utvärderas.   
+I listan med principer som inte gäller för dina användare kan och också hitta orsaker varför dessa principer inte gäller. För varje listad princip representerar orsaken till det första villkoret som inte uppfylldes. En möjlig orsak till en princip som inte tillämpas är en inaktiverad princip, eftersom de ytterligare inte utvärderas.   
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst finns [kräver MFA för specifika appar med Azure Active Directory för villkorlig åtkomst](active-directory-conditional-access-app-based-mfa.md).
+- Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
-- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö finns i [bästa praxis för villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa den [bästa praxis för villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-best-practices.md). 
 
-- Om du vill migrera klassiska principer [migrera klassiska principer i Azure-portalen](active-directory-conditional-access-migration.md)  
+- Om du vill migrera klassiska principer finns i [migrera klassiska principer i Azure portal](active-directory-conditional-access-migration.md)  

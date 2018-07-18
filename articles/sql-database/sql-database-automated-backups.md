@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: Active
-ms.date: 05/25/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 558480d0e58a92277a0c56d0f197ee3b5c1c3f60
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: fcc860daddbaa0b3275116027136bcde9dbcf256
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "35648861"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092035"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Mer information om automatisk SQL Database-säkerhetskopior
 
@@ -42,7 +42,7 @@ Du kan använda dessa säkerhetskopior till:
 > 
 
 ## <a name="how-long-are-backups-kept"></a>Hur lång tid hålls säkerhetskopior?
-Varje SQL Database-säkerhetskopia har en standardkvarhållningsperioden som är baserad på tjänstenivå för databasen och skiljer sig mellan den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserad inköpsmodell (förhandsversion)](sql-database-service-tiers-vcore.md). Du kan uppdatera kvarhållningsperioden för säkerhetskopior för en databas. Se [ändra kvarhållningsperiod](#how-to-change-backup-retention-period) för mer information.
+Varje SQL Database-säkerhetskopia har en standardkvarhållningsperioden som är baserad på tjänstenivå för databasen och skiljer sig mellan den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). Du kan uppdatera kvarhållningsperioden för säkerhetskopior för en databas. Se [ändra kvarhållningsperiod](#how-to-change-backup-retention-period) för mer information.
 
 Om du tar bort en databas, behåller SQL Database säkerhetskopiorna på samma sätt som den skulle ha gjort för en online-databas. Om du tar bort en Basic-databas som har en kvarhållningsperiod på sju dagar, till exempel sparas en säkerhetskopia som är fyra dagar gamla i tre dagar.
 
@@ -61,11 +61,6 @@ Standardkvarhållningsperioden för en databas som skapats med den DTU-baserade 
 Om du minskar den aktuella kvarhållningsperioden för PITR längre alla befintliga säkerhetskopior som är äldre än den nya kvarhållningsperioden inte tillgängliga. 
 
 Om du ökar den aktuella PITR kvarhållningsperioden, behåller SQL Database befintliga säkerhetskopior tills den längre kvarhållningsperioden har uppnåtts.
-
-### <a name="pitr-retention-for-the-vcore-based-service-tiers-preview"></a>PITR kvarhållning för vCore-baserade tjänstnivåer (förhandsversion)
-
-I förhandsversionen har PITR kvarhållningsperioden för databaser som skapats med den vCore-baserade inköpsmodellen angetts till 7 dagar. Den associerade lagringen ingår kostnadsfritt.    
-
 
 ## <a name="how-often-do-backups-happen"></a>Hur ofta händer säkerhetskopior?
 ### <a name="backups-for-point-in-time-restore"></a>Säkerhetskopieringar för point-in-time-återställning

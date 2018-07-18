@@ -1,6 +1,6 @@
 ---
-title: Sök i Bing Video sida webbapp (källkod) | Microsoft Docs
-description: Källkoden för kursen visar hur du använder Bing Video Sök API i en enda sida webbprogram.
+title: Videosökning i Bing Web ensidesapp (källkoden) | Microsoft Docs
+description: Källkoden för genomgång som visar hur du använder den Videosökning i Bing i ett enkelsidigt program.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -9,18 +9,18 @@ ms.component: bing-video-search
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: v-gedod
-ms.openlocfilehash: c0842e53cbc297c1980a9d08733d838def073835
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bed17c1df2b7c8dff9f874e43be8d67900fd7836
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351675"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112468"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Självstudier: Single-page Video Sök app
+# <a name="tutorial-single-page-video-search-app"></a>Självstudie: Single-page Videosökning app
 
-Detta är klar källkoden som beskrivs i den [sida app kursen](tutorial-bing-video-search-single-page-app.md) för Bing Video sökning. Kör appen genom att kopiera källkoden i anteckningar eller något annat textredigeringsprogram och spara den som `bing.html`. Öppna sedan den sparade filen i Microsoft Edge eller en annan populära webbläsare.
+Det här är den fullständiga källkoden som beskrivs i den [ensidesapp självstudien](tutorial-bing-video-search-single-page-app.md) för Videosökning i Bing. Kör appen genom att kopiera källkoden i anteckningar eller något annat textredigeringsprogram och spara den som `bing.html`. Öppna den sparade filen i Microsoft Edge eller en annan populära webbläsare.
 
-````html
+```html
 <!DOCTYPE html>
 <!-- saved from url=(0014)about:internet -->
 <!-- the above Mark of the Web lets IE run this page in the Internet security zone,
@@ -615,3 +615,4 @@ function doPrevSearchPage() {
 
 </body>
 </html>
+```

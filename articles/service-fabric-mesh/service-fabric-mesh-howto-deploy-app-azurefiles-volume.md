@@ -1,7 +1,7 @@
 ---
-title: Distribuera en Service Fabric-nät app som använder Azure Files volym | Microsoft Docs
-description: Lär dig hur du distribuerar ett program som använder Azure Files-volymen för att Service Fabric nät med hjälp av Azure CLI.
-services: service-fabric
+title: Store tillstånd genom att montera Azure Files baserat volym inuti behållare i Service Fabric-nät program | Microsoft Docs
+description: Lär dig hur du lagrar tillstånd genom att montera Azure Files baserat volym inuti behållare i Service Fabric-nät program med hjälp av Azure CLI.
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: timlt
@@ -15,84 +15,82 @@ ms.workload: NA
 ms.date: 06/26/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fb9740efaa9a1033d6602180f5750f6fb550c048
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 94a4e17e6285893520a2f6482b32a69b1229e2fa
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076496"
+ms.locfileid: "39090640"
 ---
-# <a name="deploy-a-service-fabric-mesh-application-that-uses-the-azure-files-volume"></a>Distribuera ett Service Fabric-nät program som använder Azure Files-volym
-Det här exemplet visar användningen av lagringsvolymer i en behållare i Azure Service Fabric-nät. Som en del av det här exemplet:
+# <a name="store-state-by-mounting-azure-files-based-volume-in-service-fabric-mesh-application"></a>Store genom att montera Azure Files statusbaserad volym i Service Fabric-nät program
 
-- Skapa en filresurs med [Azure Files](/azure/storage/files/storage-files-introduction) 
-- Referens som delar som en volym för en behållarinstans som vi kommer att distribuera
-  - När behållaren börjar monterar den den resursen som en specifik plats i behållaren
-- Den kod som körs i behållaren skriver en textfil till den platsen
-- Kontrollera att filen har skrivits korrekt i resursen som säkerhetskopierar volymen
+Den här artikeln visar hur du lagrar tillstånd i Azure Files genom att montera en volym inuti behållaren i ett Service Fabric-nät program. I det här exemplet har räknaren program en ASP.NET Core-tjänst med en webbsida som visar räknarvärde i en webbläsare. 
 
-## <a name="example-json-templates"></a>Exempel-JSON-mallar
+Den `counterService` perodically läser ett värde för prestandaräknaren från en fil, ökar den och skriva tillbaka till filen. Filen lagras i en mapp som är monterad på den volym som backas upp av Azure Files-resurs. 
 
-Linux: [https://seabreezequickstart.blob.core.windows.net/templates/azurefiles-volume/sbz_rp.linux.json](https://seabreezequickstart.blob.core.windows.net/templates/azurefiles-volume/sbz_rp.linux.json)
+## <a name="set-up-service-fabric-mesh-cli"></a>Konfigurera Service Fabric nät CLI 
+Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra den här uppgiften. Installera Azure Service Fabric nät CLI-tillägg-modulen genom att följa dessa [instruktioner](service-fabric-mesh-howto-setup-cli.md).
 
-Windows: [https://seabreezequickstart.blob.core.windows.net/templates/azurefiles-volume/sbz_rp.windows.json](https://seabreezequickstart.blob.core.windows.net/templates/azurefiles-volume/sbz_rp.windows.json)
-
-## <a name="create-the-azure-files-file-share"></a>Skapa en filresurs i Azure Files
-
-Följ instruktionerna i den [dokumentation för Azure Files](/azure/storage/files/storage-how-to-create-file-share) att skapa en filresurs för att programmet ska använda.
-
-## <a name="set-up-service-fabric-mesh-cli"></a>Konfigurera Service Fabric nät CLI
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
-
-Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra dessa steg. Om du väljer att installera och använda CLI lokalt måste du installera Azure CLI version 2.0.35 eller senare. Kör `az --version` för att hitta versionen. Om du vill installera eller uppgradera till den senaste versionen av CLI, se [installera Azure CLI 2.0] [azure-cli-installationen].
-
-Installera modulen för Azure Service Fabric nät CLI-tillägg. För förhandsversionen av skrivs Azure Service Fabric nät CLI som ett tillägg till Azure CLI.
-
-```azurecli-interactive
-az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
-```
-
-## <a name="log-in-to-azure"></a>Logga in på Azure
-Logga in på Azure och Ställ in din prenumeration.
+## <a name="sign-in-to-azure"></a>Logga in på Azure
+Logga in på Azure och ange din prenumeration.
 
 ```azurecli-interactive
 az login
-az account set --subscription "<subscriptionName>"
+az account set --subscription "<subscriptionID>"
 ```
 
+## <a name="create-file-share"></a>Skapa en filresurs 
+Skapa en Azure-filresurs genom att följa de här [instruktioner](/azure/storage/files/storage-how-to-create-file-share). Lagringskontonamn, din lagringskontonyckel och namn på filresurs är refereras till som `<storageAccountName>`, `<storageAccountKey>`, och `<fileShareName>` i följande anvisningar.
+
 ## <a name="create-resource-group"></a>Skapa resursgrupp
-Skapa en resursgrupp (RG) för att distribuera det här exemplet eller du kan använda en befintlig resursgrupp och hoppa över detta steg. Förhandsgranskningen är endast tillgängliga i `eastus` plats.
+Skapa en resursgrupp för att distribuera programmet till. Du kan använda en befintlig resursgrupp och hoppa över detta steg. 
 
 ```azurecli-interactive
-az group create --name <resourceGroupName> --location eastus
+az group create --name myResourceGroup --location eastus 
 ```
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
-Skapa program och relaterade resurser med hjälp av något av följande kommandon.
 
-För Linux:
+Skapa program och relaterade resurser med följande kommando och ange värden för `storageAccountName`, `storageAccountKey` och `fileShareName` från föregående steg.
 
-```azurecli-interactive
-az mesh deployment create --resource-group <resourceGroupName> --template-uri https://seabreezequickstart.blob.core.windows.net/templates/azurefiles-volume/sbz_rp.linux.json
-```
-
-För Windows:
+Den `storageAccountKey` parametern i mallen är en `securestring`. Den visas inte i distributionens status och `az mesh service show` kommandon. Se till att den har angetts korrekt i följande kommando.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group <resourceGroupName> --template-uri https://seabreezequickstart.blob.core.windows.net/templates/azurefiles-volume/sbz_rp.windows.json
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
 ```
 
-Följ anvisningarna för att ange namn på filresurs, kontonamnet och kontonyckeln för Azure-filresursen som innehåller volymen. I en minut eller så vill returnera med `"provisioningState": "Succeeded"`.
+Föregående kommando distribuerar en Linux-program med [mesh_rp.linux.json mallen](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json). Om du vill distribuera ett Windows-program kan använda [mesh_rp.windows.json mallen](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.windows.json). Windows-behållaravbildningar är större än Linux-behållaravbildningar och kan ta längre tid att distribuera.
 
-Parametern password i mallen är av `string` typ för enkel användning. Det ska visas på skärmen i klartext och distributionens status.
+Om några minuter bör kommandot returnerar med:
+
+`counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>` 
+
+## <a name="open-the-application"></a>Öppna programmet
+När programmet har distribuerats hämta den offentliga IP-adressen för tjänsteslutpunkt och öppna den i en webbläsare. Den visar en webbsida med räknarvärdet håller på att uppdateras varje sekund.
+
+Distributionskommandot returnerar den offentliga IP-adressen för tjänsteslutpunkt. Du kan också kan du också fråga nätverksresurs för att hitta den offentliga IP-adressen till tjänstens slutpunkt. 
+ 
+Resursnamnet nätverk för det här programmet är `counterAppNetwork`, hämta information om den med hjälp av följande kommando. 
+
+```azurecli-interactive
+az mesh network show --resource-group myResourceGroup --name counterAppNetwork
+```
 
 ## <a name="verify-that-the-application-is-able-to-use-the-volume"></a>Kontrollera att programmet ska kunna använda volym
-Programmet skapar en fil med namnet _data.txt_ i filresursen (om den inte redan finns). Innehållet i den här filen är ett tal som ökas med 30 sekunders mellanrum av programmet. Kontrollera att exemplet fungerar genom att öppna den _data.txt_ med jämna mellanrum och kontrollera att antalet håller på att uppdateras.
+Programmet skapar en fil med namnet `counter.txt` i filen dela inuti `counter/counterService` mapp. Innehållet i den här filen är räknarvärdet som visas på sidan.
 
 Filen laddas ned med ett verktyg som gör att en filresurs i Azure Files-surfning. Den [Microsoft Azure Lagringsutforskaren](https://azure.microsoft.com/features/storage-explorer/) är ett exempel på sådant verktyg.
 
+## <a name="delete-the-resources"></a>Ta bort resurser
+
+Om du vill spara de begränsade resurser som tilldelats för förhandsversionen kan du ta bort resurserna ofta. Ta bort resurser relaterade till det här exemplet genom att ta bort resursgruppen som de har distribuerats.
+
+```azurecli-interactive
+az group delete --resource-group myResourceGroup 
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
-- Visa Azure Files volym exempelprogrammet på [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/azurefiles-volume).
+- Visa Azure Files volym exempelprogrammet på [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter).
 - Läs mer om Service Fabric-Resursmodell i [nät Resursmodell i Service Fabric](service-fabric-mesh-service-fabric-resources.md).
 - Om du vill veta mer om Service Fabric-nät kan läsa den [Service Fabric-nät översikt](service-fabric-mesh-overview.md).

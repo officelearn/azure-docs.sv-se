@@ -1,43 +1,44 @@
-
-<!--
-includes/sql-database-include-ip-address-22-v12portal.md
-
-Latest Freshness check:  2016-03-21 , daleche.
-
-As of circa 2015-09-04, the following topics might include this include:
-articles/sql-database/sql-database-configure-firewall-settings.md
-articles/sql-database/sql-database-connect-query.md
-
-
-## Server-level firewall rules
-
-### Add a server-level firewall rule through the new Azure portal
--->
-
-
+---
+title: Brandväggsregler på servernivå
+description: Brandväggsregler på servernivå
+keywords: SQL-anslutning, anslutningssträng
+services: sql-database
+author: dalechen
+manager: craigg
+ms.service: sql-database
+ms.custom: develop apps
+ms.topic: include
+ms.date: 07/13/2018
+ms.author: ninarn
+ms.openlocfilehash: 07bbba28b7e1b048ef3a4e1afa4db255967dc093
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39117281"
+---
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-2. Välj i listan till vänster **alla tjänster**. 
+2. I listan till vänster, Välj **alla tjänster**.
 
-3. Bläddra och välj **SQL-servrar**. 
-   
+3. Bläddra och välj **SQL-servrar**.
+
     ![Hitta din Azure SQL Database-server i portalen][b21-FindServerInPortal]
-5. Börja skriva namnet på servern i filter-textrutan. Raden visas.
+5. Börja skriva namnet på servern i textrutan filter. Raden visas.
 
-6. Välj raden för servern. Ett blad för servern visas.
+6. Välj raden för din server. Ett blad för servern visas.
 
-7. På din server-bladet välj **inställningar**. 
+7. På din serverbladet och välj **inställningar**.
 
-8. Välj **brandväggen**. 
-   
-    ![Välj Inställningar > brandväggen][b31-SettingsFirewallNavig]
-9. Välj **Lägg till klient IP**. Ange ett namn för din nya regel i den första textrutan.
+8. Välj **brandväggen**.
 
-10. Ange de lägsta och högsta IP-adressvärdena för intervallet som du vill aktivera.
-    
-    * Det kan vara praktiskt att ha lågt värde för end med **.0** och högt värde avslutas med **.255**.
-    
-    ![Lägg till ett IP-adressintervall för att tillåta][b41-AddRange]
+    ![Välj Inställningar > brandvägg][b31-SettingsFirewallNavig]
+9. Välj **Lägg till klient IP**. Skriv ett namn för din nya regel i den första textrutan.
+
+10. Ange de låga och höga IP-adressvärdena för intervallet som du vill aktivera.
+
+    * Det kan vara praktiskt att ha lågt värde slutet med **.0** och sluta med hög värdet **.255**.
+
 11. Välj **Spara**.
 
 <!-- Image references. -->

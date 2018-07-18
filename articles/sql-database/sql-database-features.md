@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 4c7487957e6dc354c2b8aa1beb8a9ca1e9651c97
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 0901abe6f973d525220c948f8c32c0b4f342b11a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346128"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092094"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Funktionsjämförelse: Azure SQL Database jämfört med SQL Server 
 
@@ -64,7 +64,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Datatyper](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql) | Ja |Ja |
 | [DBCC-uttryck](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) | De flesta – se enskilda uttryck | Ja – Se [DBCC skillnader](sql-database-managed-instance-transact-sql-information.md#dbcc) |
 | [DDL-instruktionerna](https://docs.microsoft.com/sql/t-sql/statements/statements) | De flesta – se enskilda uttryck | Ja – Se [T-SQL-skillnader](sql-database-managed-instance-transact-sql-information.md) |
-| [DDL-utlösare](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | Detta eliminerar behovet av att utveckla och underhålla två olika versioner av samma program för olika plattformar händelse av katastrof. |  Ja |
+| [DDL-utlösare](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | Endast databas |  Ja |
 | [Distribuerade partition vyer](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql#partitioned-views) | Nej | Ja |
 | [Distribuerade transaktioner - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | Nej, se [elastiska transaktioner](sql-database-elastic-transactions-overview.md) |  Nej, se [elastiska transaktioner](sql-database-elastic-transactions-overview.md) |
 | [DML-instruktioner](https://docs.microsoft.com/sql/t-sql/queries/queries) | Ja | Ja |
@@ -125,7 +125,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Ja | Ja |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ja | Ja |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Nej, se [utökade händelser](sql-database-xevent-db-diff-from-svr.md) | Ja |
-| [SQL Server-replikering](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Prenumerant för transaktions-och ögonblicksbildsreplikering endast](sql-database-cloud-migrate.md) | [Prenumerant för transaktions-och ögonblicksbildsreplikering endast](sql-database-cloud-migrate.md) |
+| [SQL Server-replikering](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Prenumerant för transaktions-och ögonblicksbildsreplikering endast](sql-database-cloud-migrate.md) | Ja – [replikering med SQL Database Managed Instance (förhandsversion)](http://review.docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
 | [SQLServer Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Nej, [Se Power BI](https://docs.microsoft.com/power-bi/) | Nej, [Se Power BI](https://docs.microsoft.com/power-bi/) |
 | [Lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Ja | Ja |
 | [Systemlagrade funktioner](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | De flesta – se enskilda funktioner | Ja – Se [lagrade procedurer, funktioner, utlöser skillnader](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |

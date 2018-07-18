@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: fc978c6ad9776271c790796f26912c63f9edcf74
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a1ff4364e394b3807cf767722ee934ae024399b0
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009387"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114352"
 ---
 # <a name="configure-virtual-wan-automation---for-virtual-wan-partners-preview"></a>Konfigurera virtuellt WAN-nätverk automation - för partner virtuellt WAN-nätverk (förhandsversion)
 
-Den här artikeln beskriver vi hur du ställer in automation envorionment att ansluta och konfigurera en gren-enhet (en kund lokala VPN-enhet eller SDWAN) för Azure virtuellt WAN-nätverk. Om du är en leverantör som tillhandahåller gren-enheter som kan hantera VPN-anslutning via IPsec/IKEv2, är den här artikeln för dig.
+Den här artikeln beskriver vi hur du ställer in automatiseringsmiljö för att ansluta och konfigurera en gren-enhet (en kund lokala VPN-enhet eller SDWAN) för Azure virtuellt WAN-nätverk. Om du är en leverantör som tillhandahåller gren-enheter som kan hantera VPN-anslutning via IPsec/IKEv2, är den här artikeln för dig.
 
 Programvarudefinierad anslutning lösningarna använder vanligtvis en domänkontrollant eller en device provisioning-center för att hantera deras gren-enheter. Kontrollanten kan använda Azure API: er för att automatisera anslutningen till Azure virtuellt WAN-nätverk. Den här typen av anslutning kräver en SDWAN eller VPN-enheten på plats som har en externt riktad mot offentliga IP-adress tilldelad till den.
 

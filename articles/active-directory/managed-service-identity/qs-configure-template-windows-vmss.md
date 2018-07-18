@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: cc7bfebd24da0d69e4b42b1a3afd7a640016dd35
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ab3982c85cfb008bde08495f8cb8aa86d066d8c0
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39052099"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114862"
 ---
 # <a name="configure-a-vmss-managed-service-identity-by-using-a-template"></a>Konfigurera en VMSS hanterad tjänstidentitet med hjälp av en mall
 
@@ -34,7 +34,7 @@ I den här artikeln får du lära dig hur du utför följande åtgärder för ha
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Om du är bekant med hanterad tjänstidentitet kan ta en titt på [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en systemtilldelad och Användartilldelad identitet](overview.md#how-does-it-work)**.
-- Om du inte redan har ett Azure-konto, [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
+- Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
@@ -113,6 +113,9 @@ I det här avsnittet ska tilldela du en Användartilldelad identitet till en Azu
 
 1. Under den `resources` element, Lägg till följande post för att tilldela en Användartilldelad identitet till din VMSS.  Se till att ersätta `<USERASSIGNEDIDENTITY>` med namnet på Användartilldelad identitet som du skapade.
 
+   > [!Important]
+   > Den `<USERASSIGNEDIDENTITYNAME>` värdet som visas i följande exempel måste lagras i en variabel.  Dessutom måste stöds för närvarande implementeringen av tilldelas en virtuell dator i en Resource Manager-mall användartilldelade identiteter, api-versionen överens med versionen i följande exempel. 
+
     ```json
     {
         "name": "[variables('vmssName')]",
@@ -121,7 +124,7 @@ I det här avsnittet ska tilldela du en Användartilldelad identitet till en Azu
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITY>)']"
+                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITY>'))]"
             ]
         }
 

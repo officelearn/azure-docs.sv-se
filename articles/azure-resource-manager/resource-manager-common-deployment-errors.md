@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7313ea1ff26d9c732d04b02f8b88f14e2aa4dd2f
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 562e8e49d769f15ba0b965bfb03c0d56076c78f1
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072059"
+ms.locfileid: "39091330"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga Azure-distributionsfel med Azure Resource Manager
 
@@ -104,7 +104,21 @@ Välj meddelandet för mer information. I följande bild, ser du en **InvalidTem
 
 ### <a name="deployment-errors"></a>Distributionsfel
 
-När åtgärden godkänns vid, men inte fungerar under distributionen, visas fel i meddelanden. Välj meddelandet.
+När åtgärden godkänns vid, men inte fungerar under distributionen, kan du få ett distributionsfel.
+
+Om du vill se distribution felkoder och meddelanden med PowerShell, använder du:
+
+```azurepowershell-interactive
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+```
+
+Om du vill se distribution felkoder och meddelanden med Azure CLI, använder du:
+
+```azurecli-interactive
+az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+```
+
+Markera meddelandet i portalen.
 
 ![Aviseringsfel](./media/resource-manager-common-deployment-errors/notification.png)
 

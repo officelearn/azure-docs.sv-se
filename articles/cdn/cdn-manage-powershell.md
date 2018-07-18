@@ -12,28 +12,28 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2018
 ms.author: mazha
-ms.openlocfilehash: 5634ecdec04f023d9eb901c4ad0fb21b13bcfdc1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 15feb7b1d2873bc3f088eaad78079df2e063d73b
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31592444"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114080"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Hantera Azure CDN med PowerShell
-PowerShell innehåller något av de mest flexibla metoderna för att hantera dina Azure CDN-profiler och slutpunkter.  Du kan använda PowerShell interaktivt eller genom att skriva skript för att automatisera hanteringsuppgifter.  Den här självstudiekursen visas flera av de vanligaste uppgifterna som du kan utföra med PowerShell för att hantera dina Azure CDN-profiler och slutpunkter.
+PowerShell får du en av de mest flexibla metoderna för att hantera dina Azure CDN-profiler och slutpunkter.  Du kan använda PowerShell interaktivt eller genom att skriva skript för att automatisera hanteringsuppgifter.  Den här kursen visar flera av de vanligaste uppgifterna som du kan utföra med PowerShell för att hantera dina Azure CDN-profiler och slutpunkter.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Om du vill använda PowerShell för att hantera dina Azure CDN-profiler och slutpunkter, måste du ha installerat Azure PowerShell-modulen.  Mer information om hur du installerar Azure PowerShell och ansluta till Azure med hjälp av `Connect-AzureRmAccount` cmdlet, finns [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+Om du vill hantera dina Azure CDN-profiler och slutpunkter med hjälp av PowerShell, måste du ha Azure PowerShell-modulen installerad.  Lär dig hur du installerar Azure PowerShell och Anslut till Azure med hjälp av den `Connect-AzureRmAccount` cmdlet, se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
 > [!IMPORTANT]
 > Du måste logga in med `Connect-AzureRmAccount` innan du kan köra Azure PowerShell-cmdlets.
 > 
 > 
 
-## <a name="listing-the-azure-cdn-cmdlets"></a>Visar en lista över Azure CDN-cmdlets
-Lista alla Azure CDN cmdlet: ar med den `Get-Command` cmdlet.
+## <a name="listing-the-azure-cdn-cmdlets"></a>Visa en lista över Azure CDN-cmdletar
+Du kan lista alla Azure CDN-cmdletar med den `Get-Command` cmdlet.
 
 ```text
 PS C:\> Get-Command -Module AzureRM.Cdn
@@ -94,35 +94,35 @@ REMARKS
 ```
 
 ## <a name="listing-existing-azure-cdn-profiles"></a>Lista över befintliga Azure CDN-profiler
-Den `Get-AzureRmCdnProfile` cmdlet utan några parametrar hämtar alla dina befintliga CDN-profiler.
+Den `Get-AzureRmCdnProfile` cmdlet: en utan några parametrar hämtar alla dina befintliga CDN-profiler.
 
 ```powershell
 Get-AzureRmCdnProfile
 ```
 
-Den här utdatan kan skickas till cmdletar för uppräkningen.
+Dessa utdata kan skickas till cmdlets för uppräkningen.
 
 ```powershell
 # Output the name of all profiles on this subscription.
 Get-AzureRmCdnProfile | ForEach-Object { Write-Host $_.Name }
 
 # Return only **Azure CDN from Verizon** profiles.
-Get-AzureRmCdnProfile | Where-Object { $_.Sku.Name -eq "StandardVerizon" }
+Get-AzureRmCdnProfile | Where-Object { $_.Sku.Name -eq "Standard_Verizon" }
 ```
 
-Du kan också returnera en enskild profil genom att ange namn och resursen profilgruppen.
+Du kan också returnera en enskild profil genom att ange namn och resursgrupp profilgrupp.
 
 ```powershell
 Get-AzureRmCdnProfile -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 ```
 
 > [!TIP]
-> Det är möjligt att ha flera CDN-profiler med samma namn, så länge de är i olika resursgrupper.  Om du utesluter den `ResourceGroupName` parametern returnerar alla profiler med ett matchande namn.
+> Det är möjligt att ha flera CDN-profiler med samma namn, så länge som de är i olika resursgrupper.  Om du utesluter den `ResourceGroupName` parametern returnerar alla profiler med ett matchande namn.
 > 
 > 
 
 ## <a name="listing-existing-cdn-endpoints"></a>Lista över befintliga CDN-slutpunkter
-`Get-AzureRmCdnEndpoint` Hämta en enskild slutpunkt eller alla slutpunkter för en profil.  
+`Get-AzureRmCdnEndpoint` Hämta en enskild slutpunkt eller alla slutpunkter i en profil.  
 
 ```powershell
 # Get a single endpoint.
@@ -139,22 +139,30 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState
 ```
 
 ## <a name="creating-cdn-profiles-and-endpoints"></a>Skapa CDN-profiler och slutpunkter
-`New-AzureRmCdnProfile` och `New-AzureRmCdnEndpoint` används för att skapa CDN-profiler och slutpunkter.
+`New-AzureRmCdnProfile` och `New-AzureRmCdnEndpoint` används för att skapa CDN-profiler och slutpunkter. Följande SKU: er stöds:
+- Standard_Verizon
+- Premium_Verizon
+- Custom_Verizon
+- Standard_Akamai
+- Standard_ChinaCdn
+
+> [!NOTE]
+> Standard_Microsoft SKU stöds inte när den är i förhandsversion.
 
 ```powershell
 # Create a new profile
-New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku StandardAkamai -Location "Central US"
+New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku Standard_Akamai -Location "Central US"
 
 # Create a new endpoint
 New-AzureRmCdnEndpoint -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Location "Central US" -EndpointName cdnposhdoc -OriginName "Contoso" -OriginHostName "www.contoso.com"
 
 # Create a new profile and endpoint (same as above) in one line
-New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku StandardAkamai -Location "Central US" | New-AzureRmCdnEndpoint -EndpointName cdnposhdoc -OriginName "Contoso" -OriginHostName "www.contoso.com"
+New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku Standard_Akamai -Location "Central US" | New-AzureRmCdnEndpoint -EndpointName cdnposhdoc -OriginName "Contoso" -OriginHostName "www.contoso.com"
 
 ```
 
-## <a name="checking-endpoint-name-availability"></a>Kontrollera tillgänglighet för slutpunkt-namn
-`Get-AzureRmCdnEndpointNameAvailability` Returnerar ett objekt som anger om det finns en namnet på slutpunkten.
+## <a name="checking-endpoint-name-availability"></a>Kontroll av namntillgänglighet för slutpunkt
+`Get-AzureRmCdnEndpointNameAvailability` Returnerar ett objekt som visar om slutpunktsnamnet är tillgänglig.
 
 ```powershell
 # Retrieve availability
@@ -165,11 +173,11 @@ If($availability.NameAvailable) { Write-Host "Yes, that endpoint name is availab
 Else { Write-Host "No, that endpoint name is not available." }
 ```
 
-## <a name="adding-a-custom-domain"></a>Lägga till en anpassad domän
-`New-AzureRmCdnCustomDomain` lägger till ett anpassat domännamn i en befintlig slutpunkt.
+## <a name="adding-a-custom-domain"></a>Att lägga till en anpassad domän
+`New-AzureRmCdnCustomDomain` lägger till ett anpassat domännamn till en befintlig slutpunkt.
 
 > [!IMPORTANT]
-> Du måste ställa in CNAME hos din DNS-leverantör som beskrivs i [hur du mappar en anpassad domän till innehåll innehållsleveransnätverk (CDN) slutpunkt](cdn-map-content-to-custom-domain.md).  Du kan testa mappningen innan du ändrar slutpunkten med `Test-AzureRmCdnCustomDomain`.
+> Du måste konfigurera CNAME med din DNS-leverantör som beskrivs i [så här mappar du anpassade domäner till Content Delivery Network (CDN) slutpunkt](cdn-map-content-to-custom-domain.md).  Du kan testa mappningen innan du ändrar din slutpunkt med hjälp av `Test-AzureRmCdnCustomDomain`.
 > 
 > 
 
@@ -199,8 +207,8 @@ $endpoint.ContentTypesToCompress = "text/javascript","text/css","application/jso
 Set-AzureRmCdnEndpoint -CdnEndpoint $endpoint
 ```
 
-## <a name="purgingpre-loading-cdn-assets"></a>Rensa/Förproduktion-loading CDN tillgångar
-`Unpublish-AzureRmCdnEndpointContent` återställningspunkter cachelagras tillgångar, medan `Publish-AzureRmCdnEndpointContent` före läser in tillgångar på slutpunkter som stöds.
+## <a name="purgingpre-loading-cdn-assets"></a>Rensa/Förproduktions-loading CDN tillgångar
+`Unpublish-AzureRmCdnEndpointContent` återställningspunkter cachelagrade tillgångar, medan `Publish-AzureRmCdnEndpointContent` förväg läser in tillgångar för slutpunkter som stöds.
 
 ```powershell
 # Purge some assets.
@@ -244,5 +252,5 @@ Remove-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur man automatiserar Azure CDN med [.NET](cdn-app-dev-net.md) eller [Node.js](cdn-app-dev-node.md).
 
-Läs om CDN funktioner i [CDN-översikt](cdn-overview.md).
+Läs om CDN-funktioner i [översikt över CDN](cdn-overview.md).
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 237f0d2b25230528c64bd47edd10ebae62750a0c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: d12ce7b3416fac5de5cba9543f3bed5bcedf2012
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345390"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115681"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -209,7 +209,7 @@ Välj den **distributioner av uppdateringar** fliken för att visa listan över 
 
 ## <a name="create-or-edit-an-update-deployment"></a>Skapa eller redigera en uppdateringsdistribution
 
-Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemauppdatering**. Den **ny Uppdateringsdistribution** öppnas fönstret. Ange värden för de egenskaper som beskrivs i följande tabell:
+Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemauppdatering**. Den **ny Uppdateringsdistribution** öppnas fönstret. Ange värden för de egenskaper som beskrivs i följande tabell och klicka sedan på **skapa**:
 
 | Egenskap  | Beskrivning |
 | --- | --- |

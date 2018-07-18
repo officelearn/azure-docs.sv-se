@@ -1,6 +1,6 @@
 ---
-title: Filtrering och förbearbetning i Azure Application Insights SDK | Microsoft Docs
-description: Skriva telemetri processorer och telemetri initierare för SDK för att filtrera eller lägga till egenskaper i data innan telemetrin skickas till Application Insights-portalen.
+title: Filtrera och Förbearbeta i Azure Application Insights SDK | Microsoft Docs
+description: Skriva telemetri processorer och telemetri-initierare för SDK om du vill filtrera eller lägga till egenskaper i data innan telemetri som skickas till Application Insights-portalen.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -13,22 +13,22 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: a8905f4f14b5f4f78e9f3113ec5a655b12599609
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d46ff5563df1423e3c01ba945b328b748b5979b4
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294107"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091579"
 ---
-# <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrering och förbearbetning telemetri i Application Insights SDK
+# <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrera och Förbearbeta telemetri i Application Insights SDK
 
 
-Du kan skriva och konfigurera plugin-program för Application Insights SDK att anpassa hur telemetri fångas och bearbetas innan den skickas till Application Insights-tjänsten.
+Du kan skriva och konfigurera plugin-program för Application Insights SDK att anpassa hur telemetri samlas in och bearbetas innan det skickas till Application Insights-tjänsten.
 
-* [Provtagning](app-insights-sampling.md) minskar mängden telemetri utan att påverka din statistik. Den bevarar tillsammans relaterade datapunkter så att du kan navigera mellan dem när de undersöker ett problem. I portalen, totalt antal multipliceras med för att kompensera för provtagning.
-* Filtrering med telemetri processorer [för ASP.NET](#filtering) eller [Java](app-insights-java-filter-telemetry.md) kan du välja eller ändra telemetri i SDK innan den skickas till servern. Exempelvis kan du minska mängden telemetri exkluderar begäranden från robotar. Men filtrering är en enklare metod för att minska trafik än samplingsfrekvensen. Det gör att du mer kontroll över vad som överförs, men du måste vara medveten om att den påverkar din statistik – till exempel om du filtrerar ut alla lyckade begäranden.
-* [Telemetri initierare lägga till egenskaper](#add-properties) till alla telemetri som skickas från din app, inklusive telemetri från modulerna som standard. Exempelvis kan du lägga till beräknade värden. eller versionsnummer som du vill filtrera data i portalen.
-* [SDK-API](app-insights-api-custom-events-metrics.md) används för att skicka anpassade händelser och mått.
+* [Sampling](app-insights-sampling.md) minskar mängden telemetri utan att påverka din statistik. Den bevarar tillsammans relaterade datapunkter så att du kan navigera mellan dem vid diagnostisering av ett problem. I portalen är de totala antalet multipliceras för att kompensera för provtagning.
+* Filtrering med telemetri processorer [för ASP.NET](#filtering) eller [Java](app-insights-java-filter-telemetry.md) du kan välja eller ändra telemetri i SDK: N innan den skickas till servern. Exempelvis kan minska du mängden telemetri genom att exkludera begäranden från robotar. Men filtrering är en enklare metod för att minska trafiken än sampling. Den låter dig större kontroll över vad skickas, men du måste vara medveten om att det påverkar din statistik – till exempel om du filtrerar ut alla lyckade begäranden.
+* [Telemetri-initierare Lägg till egenskaper](#add-properties) till någon telemetri som skickas från din app, inklusive telemetri från standard-moduler. Exempelvis kan du lägga till beräknade värden. eller versionsnummer som du vill filtrera data i portalen.
+* [SDK-API: et](app-insights-api-custom-events-metrics.md) används för att skicka anpassade händelser och mått.
 
 Innan du börjar:
 
@@ -37,24 +37,24 @@ Innan du börjar:
 <a name="filtering"></a>
 
 ## <a name="filtering-itelemetryprocessor"></a>Filtrering: ITelemetryProcessor
-Den här metoden ger mer kontroll över vad inkluderas eller uteslutas från telemetri dataströmmen. Du kan använda tillsammans med provtagning, eller separat.
+Den här metoden ger mer kontroll över vad är inkluderas eller uteslutas från telemetriströmmen. Du kan använda den tillsammans med Sampling, eller separat.
 
-Om du vill filtrera telemetri skriva en telemetri processor och registrera den med SDK. All telemetri passerar processorn och du kan välja att ta bort den från dataströmmen eller lägga till egenskaper. Detta inkluderar telemetri från standard moduler, till exempel http-begäran insamlaren och beroende insamlaren samt telemetri som du har skrivit själv. Du kan till exempel filtrera ut telemetri om förfrågningar från robotar eller lyckade beroendeanrop.
+Om du vill filtrera telemetri, Skriv en telemetri-processor och registrera den med SDK: N. All telemetri går igenom din processor och du kan välja att ta bort den från dataströmmen eller Lägg till egenskaper. Detta inkluderar telemetri från standard moduler, till exempel http-begäran insamlaren och beroende insamlaren, samt telemetri som du har skrivit själv. Du kan till exempel filtrera ut telemetri om förfrågningar från robotar eller lyckade beroendeanrop.
 
 > [!WARNING]
-> Filtrering telemetri som skickas från SDK kan-processorer ge skeva statistik som visas i portalen och gör det svårt att följa relaterade objekt.
+> Filtrera telemetri som skickas från SDK kan med hjälp av processorer förskjuta den statistikinformation som visas i portalen och gör det svårt att följa relaterade objekt.
 >
-> I stället använda [provtagning](app-insights-sampling.md).
+> I stället använda [sampling](app-insights-sampling.md).
 >
 >
 
 ### <a name="create-a-telemetry-processor-c"></a>Skapa en telemetri-processor (C#)
-1. Kontrollera att Application Insights SDK i projektet är version 2.0.0 eller senare. Högerklicka på projektet i Visual Studio Solution Explorer och välja hantera NuGet-paket. Kontrollera Microsoft.ApplicationInsights.Web i NuGet-Pakethanteraren.
-2. Implementera ITelemetryProcessor om du vill skapa ett filter. Det här är en annan utökningspunkt som telemetri modul, telemetri initieraren och telemetri kanal.
+1. Kontrollera att Application Insights SDK i ditt projekt är version 2.0.0 eller senare. Högerklicka på projektet i Visual Studio Solution Explorer och välj Hantera NuGet-paket. Kontrollera Microsoft.ApplicationInsights.Web i NuGet-Pakethanteraren.
+2. Implementera ITelemetryProcessor för att skapa ett filter. Det här är en annan aspekt för utökningsbarhet som telemetri-modulen, telemetri-initierare och telemetri kanal.
 
-    Observera att telemetri processorer konstruera en kedja av bearbetning. När du initierar en telemetri processor, skicka en länk till nästa processorn i kedjan. När en datapunkt telemetri skickas till metoden processen arbetar och anropar sedan nästa telemetri processorn i kedjan.
+    Observera att telemetri processorer konstruera en kedja av bearbetning. När du skapa en instans av en telemetri-processor, kan du skicka en länk till nästa processorn i kedjan. När en datapunkt för telemetri skickas till metoden processen, arbetar och anropar sedan nästa telemetri processorn i kedjan.
 
-    ``` C#
+    ```csharp
 
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
@@ -99,9 +99,9 @@ Om du vill filtrera telemetri skriva en telemetri processor och registrera den m
     }
 
     ```
-1. Infoga det i ApplicationInsights.config:
+1. Infoga detta i ApplicationInsights.config:
 
-```XML
+```xml
 
     <TelemetryProcessors>
       <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
@@ -112,16 +112,16 @@ Om du vill filtrera telemetri skriva en telemetri processor och registrera den m
 
 ```
 
-(Detta är samma avsnitt där du vill initiera ett filter för provtagning.)
+(Detta är samma avsnitt där du kan initiera ett filter för sampling.)
 
-Du kan överföra strängvärden från .config-filen genom att tillhandahålla offentliga namngivna egenskaper i klassen.
+Du kan skicka strängvärden från .config-filen genom att tillhandahålla offentliga namngivna egenskaper i klassen.
 
 > [!WARNING]
-> Se till att matcha namnet på och eventuella egenskapsnamn i .config-filen till klassen och egenskapen namn i koden. Om .config-filen refererar till en obefintlig eller egenskapen, misslyckas tyst SDK att skicka alla telemetri.
+> Var noga med för att matcha namnet på och alla egenskapsnamn i .config-filen till klassen och egenskapen namn i koden. Om .config-filen refererar till en obefintlig eller egenskapen, kan SDK: N tyst inte skickar någon telemetri.
 >
 >
 
-**Du kan också** du kan initiera filter i koden. I en lämplig initieringen Infoga klassen – till exempel AppStart i Global.asax.cs - processorn i kedjan:
+**Du kan också** du kan initiera filtret i kod. Infoga processorn i kedjan i en lämplig initieringen – till exempel AppStart i Global.asax.cs:
 
 ```csharp
 
@@ -135,13 +135,13 @@ Du kan överföra strängvärden från .config-filen genom att tillhandahålla o
 
 ```
 
-TelemetryClients som skapats efter den här punkten kommer att använda din processorer.
+TelemetryClients som skapats efter den här punkten kommer att använda processorerna.
 
-### <a name="example-filters"></a>Exempel filter
-#### <a name="synthetic-requests"></a>Syntetiska begäranden
-Filtrera ut robotar och web tester. Även om Metrics Explorer ger dig möjlighet att filtrera ut syntetiska källor, minskar det här alternativet trafik genom att filtrera dem på SDK.
+### <a name="example-filters"></a>Exempel-filter
+#### <a name="synthetic-requests"></a>Syntetiska förfrågningar
+Filtrera ut robotar och web tester. Även om Metrics Explorer ger dig möjlighet att filtrera bort syntetiska källor, minskar det här alternativet trafik genom att filtrera dem på SDK.
 
-``` C#
+```csharp
 
     public void Process(ITelemetry item)
     {
@@ -153,8 +153,8 @@ Filtrera ut robotar och web tester. Även om Metrics Explorer ger dig möjlighet
 
 ```
 
-#### <a name="failed-authentication"></a>Misslyckad verifiering
-Filtrera ut begäranden med svaret ”401”.
+#### <a name="failed-authentication"></a>Misslyckade autentiseringar
+Filtrera ut begäranden med ett ”401”-svar.
 
 ```csharp
 
@@ -174,15 +174,15 @@ public void Process(ITelemetry item)
 
 ```
 
-#### <a name="filter-out-fast-remote-dependency-calls"></a>Filtrera bort snabb remote beroendeanrop
-Om du bara vill diagnosticera anrop som är långsamma filtrera bort de fast som.
+#### <a name="filter-out-fast-remote-dependency-calls"></a>Filtrera bort snabbt remote beroendeanrop
+Om du bara vill att diagnostisera anrop som är långsam, filtrera bort de fast.
 
 > [!NOTE]
-> Detta kan ge skeva statistik som visas på portalen. Beroende diagrammet ser ut som om beroendeanrop är alla fel.
+> Detta kommer ge skeva statistik som visas på portalen. Beroende diagrammet ser ut som om beroendeanrop finns alla fel.
 >
 >
 
-``` C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -198,17 +198,17 @@ public void Process(ITelemetry item)
 ```
 
 #### <a name="diagnose-dependency-issues"></a>Diagnostisera beroendeproblem
-[Den här bloggen](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) beskriver ett projekt för att diagnostisera beroende problem genom att automatiskt skicka regelbunden ping till beroenden.
+[Den här bloggen](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) beskriver ett projekt för att diagnostisera beroendeproblem genom att automatiskt skicka regelbundna ping till beroenden.
 
 
 <a name="add-properties"></a>
 
-## <a name="add-properties-itelemetryinitializer"></a>Lägga till egenskaper: ITelemetryInitializer
-Använd telemetri initierare för att definiera globala egenskaper som skickas med all telemetri; och åsidosätta valda beteendet för modulerna som standard telemetri.
+## <a name="add-properties-itelemetryinitializer"></a>Lägg till egenskaper: ITelemetryInitializer
+Använda telemetri-initierare för att definiera globala egenskaper som skickas med all telemetri; och för att åsidosätta valda beteende standardmoduler moduler.
 
-Till exempel Programinsikter för webbpaketet samlar in telemetri om HTTP-förfrågningar. Som standard flaggor som misslyckad varje begäran med en svarskoden > = 400. Men om du vill behandla 400 som lyckas, kan du ange en telemetri initieraren som anger egenskapen lyckades.
+Till exempel Application Insights för webbpaket samlar in telemetri om HTTP-förfrågningar. Som standard flaggar som misslyckad alla förfrågningar med svarskoden > = 400. Men om du vill hantera 400 som lyckas, kan du ange en telemetri-initierare som anger egenskapen lyckades.
 
-Om du anger en telemetri initieraren kallas när någon av metoderna Track*() anropas. Detta inkluderar metoder kallas moduler som standard telemetri. Dessa moduler ange konventionen är inte en egenskap som redan har ställts in av en initierare.
+Om du anger en telemetri-initierare kan anropas när någon av metoderna Track*() anropas. Detta inkluderar metoder som anropas av standardmoduler-moduler. Enligt konventionen används anger dessa moduler inte en egenskap som redan har gjorts av en initierare.
 
 **Definiera din initieraren**
 
@@ -255,6 +255,7 @@ Om du anger en telemetri initieraren kallas när någon av metoderna Track*() an
 
 I ApplicationInsights.config:
 
+```xml
     <ApplicationInsights>
       <TelemetryInitializers>
         <!-- Fully qualified type name, assembly name: -->
@@ -262,8 +263,9 @@ I ApplicationInsights.config:
         ...
       </TelemetryInitializers>
     </ApplicationInsights>
+```
 
-*Du kan också* du kan initiera initierare i koden, till exempel i Global.aspx.cs:
+*Du kan också* du kan skapa en instans av initierare i kod, till exempel i Global.aspx.cs:
 
 ```csharp
     protected void Application_Start()
@@ -279,10 +281,10 @@ I ApplicationInsights.config:
 
 <a name="js-initializer"></a>
 
-### <a name="javascript-telemetry-initializers"></a>JavaScript telemetri initierare
+### <a name="javascript-telemetry-initializers"></a>JavaScript telemetri-initierare
 *JavaScript*
 
-Infoga en telemetri initieraren omedelbart efter initiering som du har fått från portalen:
+Infoga en telemetri-initierare omedelbart efter initieringskoden som du fick från portalen:
 
 ```JS
 
@@ -329,27 +331,27 @@ En sammanfattning av icke-anpassade egenskaper som är tillgängliga på telemet
 Du kan lägga till så många initierare som du vill.
 
 ## <a name="itelemetryprocessor-and-itelemetryinitializer"></a>ITelemetryProcessor och ITelemetryInitializer
-Vad är skillnaden mellan telemetri processorer och telemetri initierare?
+Vad är skillnaden mellan telemetri processorer och telemetri-initierare?
 
-* Det finns vissa överlappningar i vad du kan göra med dem: båda kan användas för att lägga till egenskaper till telemetri.
+* Det finns vissa överlappningar i vad du kan göra med dem: båda kan användas för att lägga till egenskaper i telemetri.
 * TelemetryInitializers körs alltid innan TelemetryProcessors.
-* TelemetryProcessors kan du ersätta eller ta bort ett objekt telemetri helt.
-* TelemetryProcessors bearbeta inte prestandaräknaren telemetri.
+* TelemetryProcessors kan du att fullständigt ersätta eller ta bort en telemetri-objektet.
+* TelemetryProcessors bearbeta inte prestandatelemetri för räknaren.
 
-## <a name="troubleshooting-applicationinsightsconfig"></a>Felsökning av ApplicationInsights.config
-* Bekräfta att det fullständigt kvalificerade namnet och sammansättningsnamnet är korrekta.
-* Bekräfta att filen applicationinsights.config i utdatakatalogen och innehåller alla ändringar.
+## <a name="troubleshooting-applicationinsightsconfig"></a>Felsöka ApplicationInsights.config
+* Bekräfta att det fullständigt kvalificerade typnamnet och sammansättningsnamnet är korrekta.
+* Bekräfta att filen applicationinsights.config i utdatakatalogen och innehåller alla de senaste ändringarna.
 
 ## <a name="reference-docs"></a>Referensdokument
 * [API-översikt](app-insights-api-custom-events-metrics.md)
 * [ASP.NET-referens](https://msdn.microsoft.com/library/dn817570.aspx)
 
-## <a name="sdk-code"></a>SDK-kod
+## <a name="sdk-code"></a>SDK-koden
 * [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
-* [SDK FÖR ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Nästa steg
-* [Sök händelser och loggar](app-insights-diagnostic-search.md)
+* [Sökhändelser och loggar](app-insights-diagnostic-search.md)
 * [Sampling](app-insights-sampling.md)
 * [Felsökning](app-insights-troubleshoot-faq.md)

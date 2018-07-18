@@ -6,14 +6,14 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: fe9292459134972b44037a58235cdd817030a956
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eea7e2779a169fa9a64cc7a5695e91999f219277
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968940"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112839"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Blob Storage
 
@@ -24,12 +24,20 @@ Den här artikeln innehåller stegvisa instruktioner om hur du använder Azure I
 Innan du skapar ett importjobb för att överföra data till Azure Blob Storage måste du noggrant granska och slutför följande lista över kraven för den här tjänsten. Måste du:
 
 - Ha en aktiv Azure-prenumeration som kan användas för Import/Export-tjänsten.
-- Har minst en Azure Storage-konto med en lagringsbehållare. Se en lista över [storage-konton och lagringstyper stöds för tjänsten Import/Export](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-create-storage-account.md#create-a-storage-account). För information om storage-behållare, går du till [skapa en lagringsbehållare](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
+- Har minst en Azure Storage-konto med en lagringsbehållare. Se en lista över [storage-konton och lagringstyper stöds för tjänsten Import/Export](storage-import-export-requirements.md). 
+    - Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-create-storage-account.md#create-a-storage-account). 
+    - För information om storage-behållare, går du till [skapa en lagringsbehållare](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Ha tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks). 
 - Har ett Windows-system som kör en [stöd för OS-version](storage-import-export-requirements.md#supported-operating-systems). 
 - Aktivera BitLocker på Windows-system. Se [hur du aktiverar BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 - [Ladda ned WAImportExport version 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) på Windows-system. Packa upp i standardmappen `waimportexportv1`. Till exempel `C:\WaImportExportV1`.
-
+- Ha ett FedEx/DHL-konto.  
+    - Kontot måste vara giltig, bör ha saldo och måste ha returfrakt funktioner.
+    - Generera en spårningsnummer för export-jobbet.
+    - Alla jobb bör ha en separat spårningsnummer. Flera jobb med samma Spårningsnumret stöds inte.
+    - Om du inte har en transportföretagskonto går du till:
+        - [Skapa ett konto för FedEX](https://www.fedex.com/en-us/create-account.html), eller 
+        - [Skapa ett konto för DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-prepare-the-drives"></a>Steg 1: Förbered enheterna
 
@@ -107,7 +115,10 @@ Utför följande steg för att skapa ett importjobb i Azure-portalen.
 
     - Välj vilken operatör i listrutan.
     - Ange en giltig transportföretagets kontonummer som du har skapat med den operatör. Microsoft använder kontot för att leverera enheter till dig när importjobbet har slutförts. Om du inte har ett kontonummer, skapar du en [FedEx](http://www.fedex.com/us/oadr/) eller [DHL](http://www.dhl.com/) transportföretagskonto.
-    - Ange en fullständig och giltig kontaktperson, telefon, e-post, gatuadress, ort, zip, region och land/region.
+    - Ange en fullständig och giltig kontaktperson, telefon, e-post, gatuadress, ort, zip, region och land/region. 
+        
+        > [!TIP] 
+        > Ange en gruppens e-post istället för att ange en e-postadress för en enskild användare. Detta säkerställer att du får meddelanden även om en administratör lämnar företaget.
 
     ![Skapa importjobb – steg3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
@@ -116,7 +127,7 @@ Utför följande steg för att skapa ett importjobb i Azure-portalen.
     - Granska Jobbinformationen i sammanfattningen. Anteckna Jobbnamnet på och Azure-datacentret leveransadress för att skicka tillbaka diskarna till Azure. Den här informationen används senare på adressetikett.
     - Klicka på **OK** skapa importjobbet.
 
-    ![Skapa importjobb – steg 4](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+    ![Skapa importjobb – steg 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
 ## <a name="step-3-ship-the-drives"></a>Steg 3: Skicka enheterna 
 
@@ -127,6 +138,9 @@ Utför följande steg för att skapa ett importjobb i Azure-portalen.
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
+## <a name="step-5-verify-data-upload-to-azure"></a>Steg 5: Kontrollera ladda upp data till Azure
+
+Spåra jobbet kan slutföras. När jobbet har slutförts, kan du kontrollera att dina data har överförts till Azure. Ta bort lokalt data endast när du har kontrollerat att överföringen har slutförts.
 
 ## <a name="next-steps"></a>Nästa steg
 

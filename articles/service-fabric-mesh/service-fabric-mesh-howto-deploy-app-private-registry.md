@@ -1,7 +1,7 @@
 ---
 title: Distribuera appen från ett privat register till Azure Service Fabric nät | Microsoft Docs
 description: Lär dig hur du distribuerar en app som använder ett privat behållarregister till Service Fabric nät med hjälp av Azure CLI.
-services: service-fabric
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: jeconnoc
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/16/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0a70cd1bd8cd7df099250ca59b3f00b1cab29e5c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: af92d3c6ea881d00ec687a5560bf4db35aa431c5
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076547"
+ms.locfileid: "39089494"
 ---
 # <a name="deploy-a-service-fabric-mesh-app-from-a-private-container-image-registry"></a>Distribuera en Service Fabric-nät-app från ett privat behållarregister för avbildning
 
@@ -39,7 +39,7 @@ Installera Docker för att stödja de container Service Fabric-appar som använd
 
 Ladda ned och installera den senaste versionen av [Docker Community Edition för Windows][download-docker]. 
 
-Under installationen, Välj **Använd Windows-behållare i stället för Linux-behållare** när du tillfrågas. Du måste sedan logga ut och logga in igen. När du har loggat in igen om du inte tidigare har aktiverat Hyper-V, kan du uppmanas att aktivera Hyper-V. Du måste aktivera Hyper-V och starta sedan om datorn.
+Under installationen, Välj **Använd Windows-behållare i stället för Linux-behållare** när du tillfrågas. Du måste sedan logga ut och logga in igen. När du har loggat in igen om du inte tidigare har aktiverat Hyper-V, kan du uppmanas att aktivera Hyper-V. Aktivera Hyper-V och starta sedan om datorn.
 
 När datorn har startats om, Docker uppmanas du att aktivera den **behållare** funktion, aktivera den och starta om datorn.
 
@@ -116,8 +116,7 @@ Result
 --------
 1.1-alpine
 ```
-
-Detta visar att `azure-mesh-helloworld:1.1-alpine` avbildning finns i det privata behållarregistret.
+Föregående resultatet bekräftar förekomsten av `azure-mesh-helloworld:1.1-alpine` i privata behållarregister.
 
 ## <a name="retrieve-credentials-for-the-registry"></a>Hämta autentiseringsuppgifter för registret
 
@@ -135,7 +134,8 @@ az acr credential show --name <acrName> --query username
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-De värden som anges av föregående kommandon refereras som `<acrLoginServer>`, `<acrUserName>`, och `<acrPassword>` i följande kommando.
+De värden som anges av föregående kommandon refereras till som `<acrLoginServer>`, `<acrUserName>`, och `<acrPassword>` i följande kommando.
+
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -144,7 +144,7 @@ Skapa program och relaterade resurser med följande kommando och ange autentiser
 Den `registry-password` parametern i mallen är en `securestring`. Den visas inte i distributionens status och `az mesh service show` kommandon. Se till att den har angetts korrekt i följande kommando.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.private_registry.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}, \"registry-server\": {\"value\": \"<acrLoginServer>\"}, \"registry-username\": {\"value\": \"<acrUserName>\"}, \"registry-password\": {\"value\": \"<acrPassword>\"}}"
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.private_registry.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}, \"registry-server\": {\"value\": \"<acrLoginServer>\"}, \"registry-username\": {\"value\": \"<acrUserName>\"}, \"registry-password\": {\"value\": \"<acrPassword>\"}}" 
 ```
 
 Om några minuter bör kommandot returnerar med:
@@ -152,9 +152,9 @@ Om några minuter bör kommandot returnerar med:
 `helloWorldPrivateRegistryApp has been deployed successfully on helloWorldPrivateRegistryNetwork with public ip address <IP Address>` 
 
 ## <a name="open-the-application"></a>Öppna programmet
-När programmet har distribuerats hämta den offentliga IP-adressen för tjänsteslutpunkt och öppna den i en webbläsare. En webbsida med Service Fabric-nät logotypen bör visas.
+När programmet har distribuerats hämta den offentliga IP-adressen för tjänsteslutpunkt och öppna den i en webbläsare. Den visar en webbsida med Service Fabric-nät-logotypen.
 
-Distributionskommandot returnerar den offentliga IP-adressen för tjänsteslutpunkt. Du kan också fråga nätverksresurs för att hitta den offentliga IP-adressen till tjänstens slutpunkt.
+Distributionskommandot returnerar den offentliga IP-adressen för tjänsteslutpunkt. Du kan också kan du också fråga nätverksresurs för att hitta den offentliga IP-adressen till tjänstens slutpunkt. 
  
 Resursnamnet nätverk för det här programmet är `helloWorldPrivateRegistryNetwork`, hämta information om den med hjälp av följande kommando. 
 

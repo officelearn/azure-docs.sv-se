@@ -8,20 +8,20 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 44d68d69a7034e80846fb44f3ae26c0d73c61f28
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dc04a9334b63656719a7633a8dd7154ed6cd6993
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648317"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092587"
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Övervaka databasprestanda i Azure SQL Database
-Prestandaövervakning för en SQL-databas i Azure startar med att övervaka resursutnyttjandet i förhållande till nivån på databasprestanda som du valt. Övervakning hjälper dig att avgöra om din databas har överflödig kapacitet eller har problem med eftersom resurserna är överutnyttjade ut och sedan avgöra om det är dags att justera prestandanivån och tjänstnivåer för din databas i den [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md). Du kan övervaka din databas med grafiska verktyg i [Azure-portalen](https://portal.azure.com) eller med SQL [dynamiska hanteringsvyer](https://msdn.microsoft.com/library/ms188754.aspx).
+Prestandaövervakning för en SQL-databas i Azure startar med att övervaka resursutnyttjandet i förhållande till nivån på databasprestanda som du valt. Övervakning hjälper dig att avgöra om din databas har överflödig kapacitet eller har problem med eftersom resurserna är överutnyttjade ut och sedan bestämmer om det är dags att justera prestandanivån och tjänstnivåer för din databas i den [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). Du kan övervaka din databas med grafiska verktyg i [Azure-portalen](https://portal.azure.com) eller med SQL [dynamiska hanteringsvyer](https://msdn.microsoft.com/library/ms188754.aspx).
 
 > [!TIP]
-> Använd [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) för automatisk övervakning av databasens prestanda. När ett prestandaproblem har identifierats genereras en diagnostiska logg med information och rot-orsaken analys (RCA) till problemet. Prestanda förbättras rekommendation tillhandahålls när det är möjligt.
+> Använd [smarta insikter för Azure SQL](sql-database-intelligent-insights.md) för automatisk övervakning av databasens prestanda. När ett prestandaproblem har identifierats genereras en diagnostiklogg med information om och rot orsak Analysis (RCA) av problemet. Rekommendation för förbättring av prestanda tillhandahålls när det är möjligt.
 >
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Övervaka databaser med Azure-portalen
@@ -32,7 +32,7 @@ I [Azure-portalen](https://portal.azure.com/), kan du övervaka en enskild datab
 * Data IO-procent
 * Databasstorlek i procent
 
-När du har lagt till de här måtten, du kan fortsätta att visa dem i den **övervakning** diagrammet med mer information om den **mått** fönster. Alla fyra mätvärdena visar ett snittvärde för utnyttjandeprocent i förhållande till din databas **DTU:er**. Finns det [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md) artiklar för mer information om tjänstnivåer.  
+När du har lagt till de här måtten, kan du fortsätta att visa dem i den **övervakning** diagram med mer information på den **mått** fönster. Alla fyra mätvärdena visar ett snittvärde för utnyttjandeprocent i förhållande till din databas **DTU:er**. Se den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) artiklar för mer information om tjänstnivåer.  
 
 ![Tjänstnivå-övervakning av databasprestanda.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 
@@ -52,17 +52,17 @@ Samma mått som exponeras i portalen, går också att få fram i systemvyer: [sy
 
 ### <a name="monitor-resource-use"></a>Övervaka Resursanvändning
 
-Du kan övervaka resurs användning med [SQL Database Query Performance Insight](sql-database-query-performance.md) och [Frågearkivet](https://msdn.microsoft.com/library/dn817826.aspx).
+Du kan övervaka resource användning med [SQL Database Query Performance Insight](sql-database-query-performance.md) och [Query Store](https://msdn.microsoft.com/library/dn817826.aspx).
 
-Du kan också övervaka användningen med hjälp av dessa två vyer:
+Du kan också övervaka användning med hjälp av dessa två vyer:
 
 * [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 * [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
 #### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
-Du kan använda den [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) vyn i varje SQL-databas. Den **sys.dm_db_resource_stats** vyn visar de senaste Använd resursdata i förhållande till tjänstnivån. Genomsnittlig procent för processor, data-i/o, skrivs loggen och minne registreras var 15: e sekund och bevaras i timmen.
+Du kan använda den [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) vyn i varje SQL-databas. Den **sys.dm_db_resource_stats** vyn visar de senaste användning resursdata i förhållande till tjänstnivån. Genomsnittlig procent för processor, data-i/o, skrivs loggen och minne registreras var 15: e sekund och bevaras i timmen.
 
-Eftersom den här vyn innehåller en mer detaljerad titt på Resursanvändning, använda **sys.dm_db_resource_stats** första för alla aktuella tillstånd analys eller felsökning. Den här frågan visar till exempel genomsnittliga och högsta resursanvändningen för den aktuella databasen under den senaste timmen:
+Eftersom den här vyn ger en mer detaljerad titt på Resursanvändning, använda **sys.dm_db_resource_stats** första för alla aktuella tillstånd analys eller felsökning. Den här frågan visar till exempel den genomsnittliga och högsta resursanvändningen för den aktuella databasen under den senaste timman:
 
     SELECT  
         AVG(avg_cpu_percent) AS 'Average CPU use in percent',
@@ -78,17 +78,17 @@ Eftersom den här vyn innehåller en mer detaljerad titt på Resursanvändning, 
 Andra frågor finns i exemplen i [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
 #### <a name="sysresourcestats"></a>sys.resource_stats
-Den [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) visa i den **master** databasen innehåller ytterligare information som kan hjälpa dig att övervaka prestanda för SQL-databasen på den specifika tjänstnivå och prestandanivå nivån. Data samlas in var femte minut och upprätthålls för ungefär 14 dagar. Den här vyn är användbar för en långsiktiga historiska analys av hur SQL-databasen använder resurser.
+Den [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) visa i den **master** databasen finns ytterligare information som hjälper dig att övervaka prestanda för din SQL-databas på dess specifika tjänstnivå och prestandanivå servicenivå. Data samlas in var femte minut och bibehålls för ungefär 14 dagar. Den här vyn är användbar för en mer långsiktiga historisk analys av hur din SQL-databas använder resurser.
 
-Följande diagram visar CPU resursanvändningen för en Premium-databas med P2 prestandanivå för varje timme under en vecka. Det här diagrammet startar på en måndag, visar 5 arbetsdagar och sedan visas en helger, när mycket mindre sker på programmet.
+I följande diagram visar CPU Resursanvändning för en Premium-databas med prestandanivå P2 för varje timme i en vecka. Det här diagrammet startas på en måndag visar 5 arbetsdagar och sedan visas en helg när mycket mindre sker på programmet.
 
-![Resursanvändning för SQL-databas](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
+![SQL database-Resursanvändning](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
 
-Från data, har den här databasen för närvarande en CPU-belastning bara över 50% CPU-användning i förhållande till P2 prestandanivå (mitt på dagen tisdagen). Om Processorn är företag faktor i programprofilen resurs, kan du välja att P2 är rätt prestandanivån uppdateras till att garantera att arbetsbelastningen alltid får plats. Om du förväntar dig ett program kan växa med tiden är det bra att ha en buffert som extra resurs så att programmet inte någonsin nå prestandanivå gränsen. Om du ökar prestanda, kan du hjälpa att undvika kunden visas fel som kan uppstå när en databas inte har tillräckligt med ström för att bearbeta begäranden effektivt, särskilt i miljöer med känslig för fördröjningar. Ett exempel är en databas som har stöd för ett program som återger webbsidor baserat på resultatet av databasanrop.
+Från data, den här databasen har en högsta CPU-belastningen på strax över 50 procent CPU-användning i förhållande till prestandanivå P2 (kl tisdagen). Om Processorn är den dominerande faktorn i programprofilen resurs, kan du välja att P2 är rätt prestandanivån till garanterar att det alltid passar arbetsbelastningen. Om du förväntar dig ett program att växa med tiden är det en bra idé att ha en buffert extraresursen så att programmet inte någonsin uppnår sin gräns för prestandanivå. Om du ökar prestandanivån du undvika kunden visas fel som kan uppstå när en databas inte har tillräckligt med kraften att bearbeta begäranden effektivt, särskilt i miljöer för känslig. Ett exempel är en databas som har stöd för ett program som ritar webbsidor baserat på resultatet av databasanrop.
 
-Andra programtyper av kan tolka samma diagram på olika sätt. Till exempel om ett program försöker bearbeta löneuppgifter data varje dag och har samma diagram, kan den här typen av ”batchjobb” modell göra att vid prestandanivå P1. Prestandanivå P1 har 100 Dtu jämfört med 200 dtu: er på nivån P2 prestanda. Prestandanivå P1 ger halva prestanda för prestandanivåerna P2. Därför är 50 procent av CPU-användning i P2 lika med 100 procent CPU-användning i P1. Om programmet inte har tidsgränser kan det ingen roll om ett jobb tar 2 timmar eller 2,5 timmar att slutföra, om den hämtar gjort idag. Ett program i den här kategorin kan förmodligen använda prestandanivå P1. Du kan dra nytta av det faktum att tidsperioder under dagen när Resursanvändning är lägre, så att alla ”stor belastning” kan hamnar i en av tvättställ senare under dagen. Prestandanivå P1 kan vara bra för den typen av program, och spara pengar, förutsatt att jobben kan avslutas i tid varje dag.
+Andra programtyper kan tolka i samma diagram på olika sätt. Till exempel om ett program försöker bearbeta löneuppgifter data varje dag och har samma diagram, kan den här typen av ”batchjobb”-modellen göra bra vid prestandanivå P1. Prestandanivå P1 har 100 dtu: er jämfört med 200 dtu: er på prestandanivå P2. Prestandanivå P1 ger halva prestanda för prestandanivå P2. Därför är 50 procent av CPU-användning i P2 lika med 100 procent CPU-användning i P1. Om programmet inte har tidsgränser kan det ingen roll om ett jobb tar två timmar eller 2,5 timmar att slutföra, om det går idag. Ett program i den här kategorin kan förmodligen använda prestandanivå P1. Du kan dra nytta av det faktum att det är tidsperioder under dagen när Resursanvändning är lägre, så att alla ”big högsta” kan hamnar i någon av de fördjupningar försedda senare under dagen. Prestandanivå P1 kan vara bra för den typen av program och spara pengar, förutsatt att jobben kan slutföras på tid på dagen.
 
-Azure SQL Database visar förbrukas resursinformation för varje aktiv databas i den **sys.resource_stats** vy av den **master** databasen i varje server. Data i tabellen sammanställs för 5 minuters mellanrum. Data kan ta mer än 5 minuter att visas i tabellen, så att dessa data är mer användbar för historisk analys i stället för nära realtid analys med tjänstnivåerna Basic, Standard och Premium. Frågan i **sys.resource_stats** visa om du vill visa den senaste historiken för en databas och för att verifiera om reservationen du valde levereras önskad prestanda när det behövs.
+Azure SQL Database visar förbrukas resursinformation för varje aktiv databas i den **sys.resource_stats** vy av den **master** databasen i varje server. Data i tabellen sammanställs för 5 minuters intervall. Data kan ta mer än 5 minuter innan den visas i tabellen, så att dessa data är mer användbar för historisk analys i stället för analys i nära realtid med tjänstnivåer Basic, Standard och Premium. Fråga den **sys.resource_stats** visas för att se den senaste historiken för en databas och validera om reservationen du valde levereras önskad prestanda när det behövs.
 
 > [!NOTE]
 > Du måste vara ansluten till den **master** databasen för din logiska SQL database-server till frågan **sys.resource_stats** i följande exempel.
@@ -102,18 +102,18 @@ Det här exemplet visar hur data i den här vyn visas:
     WHERE database_name = 'resource1'
     ORDER BY start_time DESC
 
-![Katalogvyn sys.resource_stats](./media/sql-database-performance-guidance/sys_resource_stats.png)
+![Katalogvy sys.resource_stats](./media/sql-database-performance-guidance/sys_resource_stats.png)
 
-I nästa exempel visas olika sätt som du kan använda den **sys.resource_stats** vyn för att hämta information om hur SQL-databasen använder resurser katalog:
+I nästa exempel visar olika sätt som du kan använda den **sys.resource_stats** katalogvy att hämta information om hur SQL-databasen använder resurser:
 
-1. Titta på den senaste veckan resurs för databasen userdb1, kan du köra den här frågan:
+1. Att titta på den senaste veckan resource använder för databas-userdb1 kan du köra den här frågan:
    
         SELECT *
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND
               start_time > DATEADD(day, -7, GETDATE())
         ORDER BY start_time DESC;
-2. För att utvärdera hur väl som passar din arbetsbelastning prestandanivå du behöver detaljnivån i varje aspekt av resursen mått: processor, läsningar, skrivningar, antalet arbetare och antalet sessioner. Här är en reviderade fråga med **sys.resource_stats** att rapportera genomsnittliga och högsta värden för de här måtten för resursen:
+2. För att utvärdera hur väl prestandanivå som passar din arbetsbelastning kan du behöva granska nedåt i varje aspekt av mätvärden för resurs: CPU, läsningar, skrivningar, antal arbetare och antalet sessioner. Här är en reviderad ställa frågor med **sys.resource_stats** att rapportera genomsnittliga och högsta värden för de här måtten för resursen:
    
         SELECT
             avg(avg_cpu_percent) AS 'Average CPU use in percent',
@@ -128,11 +128,11 @@ I nästa exempel visas olika sätt som du kan använda den **sys.resource_stats*
             max(max_worker_percent) AS 'Maximum % of workers'
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-3. Med den här informationen om de genomsnittliga och högsta värdena för varje resurs mått bedöma du hur bra din arbetsbelastning passar in i prestandanivå du valt. Vanligtvis medelvärden från **sys.resource_stats** ger dig en bra baslinje att använda mot målstorleken. Det bör vara primär mätning-minne. Exempelvis kan du använda Standard-tjänstnivå med S2 prestandanivå. Medelvärdet använder procent för processor- och -i/o-läsningar och skrivningar är lägre än 40 procent, det genomsnittliga antalet anställda understiger 50 och det genomsnittliga antalet sessioner är under 200. Din arbetsbelastning kan passar in i S1-prestandanivå. Det är enkelt att se om databasen passar in i worker och session-gränser. Om du vill se om en databas som passar in i en lägre prestandanivå med avseende på CPU, läser och skrivningar, dividera antalet lägre prestandanivå med din nuvarande prestandanivå DTU antalet DTU och multiplicera resultatet med 100:
+3. Med den här informationen om de genomsnittliga och högsta värdena för varje Resursmått, kan du utvärdera hur väl din arbetsbelastning passar in i den prestandanivå som du har valt. Vanligtvis medelvärden från **sys.resource_stats** ger dig en god baslinje att använda mot målstorleken. Det bör vara primära mätning-minne. Exempelvis kanske du använder Standard-tjänstnivå med S2 prestandanivå. Medelvärdet använda procentandelar för processor- och i/o-läsningar och skrivningar är lägre än 40 procent, det genomsnittliga antalet arbetare är under 50 och det genomsnittliga antalet sessioner är under 200. Din arbetsbelastning kan passar in i S1-prestandanivå. Det är enkelt att se om din databas passar in i worker och sessionen gränserna. Om du vill se om en databas passar in i en lägre prestandanivå för processor, läser och skrivningar, delar DTU antalet lägre prestandanivå av DTU antalet din aktuella prestandanivå och sedan multiplicera resultatet med 100:
    
     **S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
    
-    Resultatet är den relativa prestandaskillnaden mellan två prestandanivåer i procent. Om din Resursanvändning inte överskrider den här mängden, kanske passar din arbetsbelastning i lägre prestandanivå. Men behöver du titta på alla intervall med värden för användning av resursen och bestämma i procent hur ofta arbetsbelastningen databasen passar in i lägre prestandanivå. Följande fråga matar ut anpassa procent per resursdimension, baserat på tröskelvärdet på 40 procent som vi har beräknats i det här exemplet:
+    Resultatet är den relativa prestandaskillnaden mellan två prestandanivåer i procent. Om din Resursanvändning inte överstiger den mängden, kan arbetsbelastningen passar i lägre prestandanivå. Men behöver du titta på alla intervall för resursen Använd värden och procent avgör hur ofta din databas-arbetsbelastning skulle passa lägre prestandanivå. Följande fråga visar anpassa procentandelen per resursdimension, baserat på tröskelvärdet på 40 procent som vi har beräknats i det här exemplet:
    
         SELECT
             (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
@@ -141,15 +141,15 @@ I nästa exempel visas olika sätt som du kan använda den **sys.resource_stats*
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
    
-    Baserat på din databas servicenivåmål (SLO), kan du bestämma om din arbetsbelastning passar in i lägre prestandanivå. Om din databas arbetsbelastning Servicenivåmål är 99,9 procent och den föregående frågan returnerar värden som är större än 99,9 procent för alla tre resursdimensioner, din arbetsbelastning som sannolikt passar in i lägre prestandanivå.
+    Baserat på din databas servicenivåmål (SLO) kan bestämma du om din arbetsbelastning passar in i lägre prestandanivå. Om din databas-arbetsbelastning Servicenivåmål är 99,9% och den föregående frågan returnerar värden som är större än 99,9 procent för alla tre resource dimensioner, passar din arbetsbelastning som sannolikt in lägre prestandanivå.
    
-    Titta på Anpassa procentandelen ger dig även insikt om bör du flytta till nästa högre prestandanivå att uppfylla dina Servicenivåmål. Userdb1 visar till exempel följande CPU-användning under den gångna veckan:
+    Titta på Anpassa procentandelen får också inblick i om du ska flytta till nästa högre prestandanivå som uppfyller dina Servicenivåmål. Userdb1 visar till exempel följande CPU-användning för den senaste veckan:
    
    | Genomsnittlig CPU-procent | Högsta CPU-procent |
    | --- | --- |
    | 24.5 |100.00 |
    
-    Genomsnittlig CPU handlar om ett kvartal av gränsen på nivån prestanda skulle passar in i databasen prestandanivå. Men det högsta värdet visar att databasen når gränsen för prestandanivå. Behöver du flyttar till nästa högre prestandanivå? Titta på hur många gånger din arbetsbelastning når 100 procent och jämför den med din databas arbetsbelastning Servicenivåmål.
+    Den genomsnittliga CPU handlar om en fjärdedel av gränsen på den prestandanivå som skulle passar in i prestandanivå för databasen. Men det högsta värdet visar att databasen når gränsen på prestandanivån. Behöver du flytta till nästa högre prestandanivå? Titta på hur många gånger din arbetsbelastning når 100 procent och jämför den med din databas-arbetsbelastning Servicenivåmål.
    
         SELECT
         (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
@@ -158,8 +158,8 @@ I nästa exempel visas olika sätt som du kan använda den **sys.resource_stats*
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
    
-    Om den här frågan returnerar ett värde antingen flytta till nästa högre prestandanivå minst 99,9% för någon av tre resurs dimensionerna eller använda programmet mottagningsfönster metoder för att minska belastningen på SQL-databasen.
-4. Den här övningen även tas hänsyn till dina planerade arbetsbelastning ökning i framtiden.
+    Om den här frågan returnerar ett värde mindre än 99,9 procent av något av tre resursdimensioner bör du antingen flytta till nästa högre prestandanivå eller använda programmet justering teknik för att minska belastningen på SQL-databasen.
+4. Den här övningen tar också hänsyn planerade arbetsbelastning-ökning i framtiden.
 
 För elastiska pooler kan du övervaka individuella databaser i poolen med de tekniker som beskrivs i det här avsnittet. Men du kan också övervaka poolen som helhet. Mer information finns i [Övervaka och hantera en elastisk pool](sql-database-elastic-pool-manage-portal.md).
 
@@ -170,32 +170,32 @@ Om du vill se hur många samtidiga begäranden, kör du den här Transact-SQL-fr
     SELECT COUNT(*) AS [Concurrent_Requests]
     FROM sys.dm_exec_requests R
 
-Ändra frågan för att filtrera på en viss databas som du vill analysera för att analysera arbetsbelastningen på en lokal SQL Server-databas. Till exempel om du har en lokal databas med namnet mindatabas returnerar den här Transact-SQL-frågan antalet samtidiga begäranden i databasen:
+Ändra den här frågan att filtrera på en viss databas som du vill analysera för att analysera arbetsbelastningen på en lokal SQL Server-databas. Till exempel om du har en lokal databas med namnet MyDatabase kan returnerar den här Transact-SQL-frågan antalet samtidiga begäranden i databasen:
 
     SELECT COUNT(*) AS [Concurrent_Requests]
     FROM sys.dm_exec_requests R
     INNER JOIN sys.databases D ON D.database_id = R.database_id
     AND D.name = 'MyDatabase'
 
-Detta är bara en ögonblicksbild på ett ställe i tid. För att få en bättre förståelse för din arbetsbelastning och krav för antal samtidiga begäranden, behöver du samla in många prover över tid.
+Detta är bara en ögonblicksbild på ett ställe i tid. För att få en bättre förståelse för din arbetsbelastning och samtidig begäran krav, måste du samla in många exempel över tid.
 
 ### <a name="maximum-concurrent-logins"></a>Maximal samtidiga inloggningar
-Du kan analysera dina användar- och mönster för att få en uppfattning om frekvensen för inloggningar. Du kan också köra verkliga belastningar i en testmiljö och kontrollera att du inte träffa detta eller andra begränsningar diskuterar vi i den här artikeln. Det finns inte en enskild fråga eller dynamisk hanteringsvy (DMV) som kan du visa samtidiga inloggningen räknar eller tidigare.
+Du kan analysera dina användar- och mönster för att få en uppfattning om frekvensen för inloggningar. Du kan också köra verkliga belastningar i en testmiljö för att se till att du inte får det här eller andra begränsningar som beskrivs i den här artikeln. Det finns inte en enskild fråga eller dynamisk hanteringsvy (DMV) som kan visa samtidiga inloggningen räknar eller historik.
 
-Om flera klienter använder samma anslutningssträng, autentiserar tjänsten för varje inloggning. Om 10 användare samtidigt ansluta till en databas med samma användarnamn och lösenord, är det 10 samtidiga inloggningar. Den här gränsen gäller enbart för varaktighet för inloggning och autentisering. Om samma 10 användare ansluta till databasen sekventiellt är antal samtidiga inloggningar aldrig större än 1.
+Om flera klienter använder samma anslutningssträng, autentiserar tjänsten varje inloggning. Om 10 användare samtidigt ansluta till en databas med samma användarnamn och lösenord, skulle det vara 10 samtidiga inloggningar. Den här gränsen gäller enbart för varaktigheten för inloggning och autentisering. Om samma 10 användare ansluta till databasen sekventiellt, blir antalet samtidiga inloggningar aldrig större än 1.
 
 > [!NOTE]
-> Den här gränsen gäller för närvarande inte för databaser i elastiska pooler.
+> Den här begränsningen gäller för närvarande inte för databaser i elastiska pooler.
 > 
 > 
 
 ### <a name="maximum-sessions"></a>Maximalt antal sessioner
-Kör den här Transact-SQL-frågan om du vill se antalet aktuella aktiva sessioner på SQL-databasen:
+Om du vill se antalet aktuella aktiva sessioner, kör du den här Transact-SQL-frågan på din SQL-databas:
 
     SELECT COUNT(*) AS [Sessions]
     FROM sys.dm_exec_connections
 
-Ändra frågan för att fokusera på en viss databas om du analyserar en lokal SQL Server-arbetsbelastning. Den här frågan hjälper dig att fastställa en session måste för databasen om du funderar på att flytta den till Azure SQL Database.
+Om du analyserar en lokal SQL Server-arbetsbelastning kan du ändra frågan för att fokusera på en viss databas. Den här frågan hjälper dig att avgöra en session behov för databasen om du ska flytta den till Azure SQL Database.
 
     SELECT COUNT(*)  AS [Sessions]
     FROM sys.dm_exec_connections C
@@ -203,11 +203,11 @@ Kör den här Transact-SQL-frågan om du vill se antalet aktuella aktiva session
     INNER JOIN sys.databases D ON (D.database_id = S.database_id)
     WHERE D.name = 'MyDatabase'
 
-De här frågorna returnera igen, en tidpunkt i antal. Om du samlar in flera insamlingar över tid, har du den bästa förståelsen för din session använder.
+De här frågorna returnerar igen, point-in-time-värdet. Om du samlar in flera insamlingar över tid, får du bäst förståelse för din session använder.
 
-SQL Database-analys, du kan få historiska statistik på sessioner genom att fråga den [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) visa och granska den **active_session_count** kolumn. 
+För SQL Database-analys, kan du få historiska statistik på sessioner genom att fråga den [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) vy och granska de **active_session_count** kolumn. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Automatiskt finjustera-databasindex och fråga planer för körning med hjälp av [Azure SQL Database automatisk justering](sql-database-automatic-tuning.md).
-- Övervaka databasprestanda automatiskt med hjälp av [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md). Den här funktionen innehåller diagnostikinformation och rotorsak analys av prestandaproblem.
+- Automatiskt finjustera databasindex och fråga med hjälp av körningsplaner [automatisk justering i Azure SQL Database](sql-database-automatic-tuning.md).
+- Övervaka databasprestanda automatiskt med [smarta insikter för Azure SQL](sql-database-intelligent-insights.md). Den här funktionen innehåller diagnostikinformation och rotorsak analys av prestandaproblem.

@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/17/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: f7125a18aa2496ebe8367443a67502a7a7dbac02
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 24d453dc705eb2d0ee7cb77f2ec247845247d0a8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969195"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113639"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Hantera Azure SQL Database långsiktig kvarhållning av säkerhetskopior
 
 Du kan konfigurera Azure SQL-databas med en [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md) princip (LTR) för att automatiskt behålla säkerhetskopior i Azure blob storage för upp till 10 år. Du kan sedan återställa en databas med hjälp av dessa säkerhetskopior med hjälp av Azure portal eller PowerShell.
-
-> [!NOTE]
-> Som en del av den första versionen av förhandsversionen av den här funktionen i oktober 2016 lagrades säkerhetskopieringar i Azure-tjänster Recovery Service-valv. Uppdateringen tar bort det här beroendet, men den ursprungliga API stöds för bakåtkompatibilitet till den 31 maj 2018. Om du vill interagera med säkerhetskopior i Azure-tjänster Recovery-valvet kan se [långsiktig kvarhållning av säkerhetskopior med hjälp av Azure-tjänster Recovery Service-valv](sql-database-long-term-backup-retention-configure-vault.md). 
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Använda Azure portal för att konfigurera principer för långsiktig kvarhållning och återställa säkerhetskopior
 
@@ -32,29 +29,21 @@ I följande avsnitt visas hur du använder Azure-portalen för att konfigurera l
 
 Du kan konfigurera SQL-databas till [automatiska säkerhetskopieringar bevaras](sql-database-long-term-retention.md) under längre tid än kvarhållningsperioden för din tjänstnivå. 
 
-1. Välj din SQL-server i Azure-portalen och klicka sedan på **långsiktig kvarhållning av säkerhetskopior**.
+1. Välj din SQL-server i Azure-portalen och klicka sedan på **hantera säkerhetskopior**. På den **konfigurera principer för** väljer du en databas som du vill ange eller ändra principer för långsiktig kvarhållning av säkerhetskopior.
 
-   ![länk till långsiktig kvarhållning av säkerhetskopior](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
+   ![hantera säkerhetskopior länk](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
-2. På den **konfigurera principer för** väljer du en databas som du vill ange eller ändra principer för långsiktig kvarhållning av säkerhetskopior.
-
-   ![Välj databas](./media/sql-database-long-term-retention/ltr-configure-select-database.png)
-
-3. I den **konfigurera principer för** fönstret, Välj om vill behålla säkerhetskopior per månad eller år i varje vecka, och ange kvarhållningsperioden för var och en. 
+2. I den **konfigurera principer för** fönstret, Välj om vill behålla säkerhetskopior per månad eller år i varje vecka, och ange kvarhållningsperioden för var och en. 
 
    ![Konfigurera principer](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
-4. När du är klar klickar du på **tillämpa**.
+3. När du är klar klickar du på **tillämpa**.
 
 ### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Visa säkerhetskopior och återställa från en säkerhetskopia med hjälp av Azure portal
 
 Visa säkerhetskopior som finns kvar för en viss databas med LTR-princip och återställning från dessa säkerhetskopior. 
 
-1. Välj din SQL-server i Azure-portalen och klicka sedan på **långsiktig kvarhållning av säkerhetskopior**.
-
-   ![länk till långsiktig kvarhållning av säkerhetskopior](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
-
-2. På den **tillgängliga säkerhetskopior** väljer du en databas som du vill se tillgängliga säkerhetskopior.
+1. Välj din SQL-server i Azure-portalen och klicka sedan på **hantera säkerhetskopior**. På den **tillgängliga säkerhetskopior** väljer du en databas som du vill se tillgängliga säkerhetskopior.
 
    ![Välj databas](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
 

@@ -1,40 +1,40 @@
 ---
-title: Övervakning och prestandajustering - Azure SQL Database | Microsoft Docs
-description: Tips för prestandajustering i Azure SQL Database via utvärdera och förbättra.
+title: Övervakning och prestandajustering – Azure SQL Database | Microsoft Docs
+description: Tips för justering i Azure SQL Database via utvärdera och förbättra prestanda.
 services: sql-database
 author: v-shysun
 manager: craigg
 editor: ''
-keywords: prestandajustering för SQL, prestandajustering för databasen, sql prestandajustering tips, prestandajustering för sql-databas
+keywords: prestandajustering för SQL, prestandajustering för databas, sql prestandajustering tips, prestandajustering för sql-databas
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: v-shysun
-ms.openlocfilehash: a20d198c64bfc6aeaa42f310ee533626c2b1409c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 79f41ab133cba539e5f855b3ab8fa21723694acb
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649626"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092570"
 ---
-# <a name="monitoring-and-performance-tuning"></a>Övervaka och justera prestanda
+# <a name="monitoring-and-performance-tuning"></a>Övervakning och prestandajustering
 
-Azure SQL Database hanteras automatiskt och flexibel datatjänst där du kan lätt övervaka användningen, lägga till eller ta bort resurser (processor, minne, i/o), hitta rekommendationer som kan förbättra prestandan för din databas eller låt databasen anpassa din arbetsbelastning och automatiskt optimera prestanda.
+Azure SQL Database hanteras automatiskt och flexibla datatjänst där du kan enkelt övervaka användning, lägga till eller ta bort resurser (processor, minne, i/o), hitta rekommendationer som kan förbättra databasens prestanda eller låt databasen som anpassas efter din arbetsbelastning och automatiskt optimera prestanda.
 
-Den här artikeln innehåller en översikt över övervakning och prestandajustering alternativ som är tillgängliga i Azure SQL Database.
+Den här artikeln innehåller en översikt över övervaknings- och prestandajusteringsalternativ som är tillgängliga i Azure SQL Database.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="monitoring-and-troubleshooting-database-performance"></a>Övervakning och felsökning databasprestanda
 
-Azure SQL-databas kan du lätt övervaka din databasanvändningen och identifiera frågor som kan orsaka prestandaproblem. Du kan övervaka databasprestanda med hjälp av Azure portal eller system vyer. Du har följande alternativ för övervakning och felsökning databasens prestanda:
+Azure SQL Database kan du enkelt övervaka din databasanvändning av och identifiera frågor som kan orsaka problem med prestanda. Du kan övervaka databasprestanda med Azure portal eller system vyer. Du har följande alternativ för övervakning och felsökning databasprestanda:
 
-1. I den [Azure-portalen](https://portal.azure.com), klickar du på **SQL-databaser**databasen och välj sedan använda övervakning diagrammet för att söka efter resurser som närmar sig sin högsta. DTU-förbrukning visas som standard. Klicka på **redigera** ändra tidsintervall och värden som visas.
-2. Använd [Query Performance Insight](sql-database-query-performance.md) att identifiera de frågor som tillbringar det mesta av resurser.
-3. Du kan använda dynamiska hanteringsvyer (av DMV: er), Extended Events (`XEvents`), och Frågearkivet i SSMS att hämta prestandaparametrar i realtid.
+1. I den [Azure-portalen](https://portal.azure.com), klickar du på **SQL-databaser**, väljer du databasen och sedan använda övervakning diagrammet för att söka efter resurser som närmar sig sin maximala. DTU-användning visas som standard. Klicka på **redigera** att ändra tidsintervall och värden som visas.
+2. Använd [Query Performance Insight](sql-database-query-performance.md) att identifiera de frågor som lägger ut det mesta av resurser.
+3. Du kan använda dynamiska hanteringsvyer (DMV) Extended Events (`XEvents`), och Query Store i SSMS för att få prestandaparametrar i realtid.
 
-Finns det [prestanda vägledning avsnittet](sql-database-performance-guidance.md) att hitta tekniker som du kan använda för att förbättra prestanda i Azure SQL Database om du identifierar vissa problem med att använda dessa rapporter eller vyer.
+Se den [prestanda vägledning avsnittet](sql-database-performance-guidance.md) att hitta tekniker som du kan använda för att förbättra prestanda i Azure SQL Database om du har identifierat några problem med hjälp av dessa rapporter eller vyer.
 
 > [!IMPORTANT] 
 > Det rekommenderas att du alltid använder den senaste versionen av Management Studio för att förbli synkroniserad med uppdateringar av Microsoft Azure och SQL Database. [Uppdatera SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -42,25 +42,25 @@ Finns det [prestanda vägledning avsnittet](sql-database-performance-guidance.md
 
 ## <a name="optimize-database-to-improve-performance"></a>Optimera databasen för att förbättra prestanda
 
-Azure SQL-databas kan du identifiera möjligheterna till att förbättra och optimera frågeprestanda utan att ändra resurser genom att granska [rekommendationer för prestandajustering](sql-database-advisor.md). Index som saknas och dåligt optimerade frågor är vanliga orsaker till dåliga databasprestanda. Du kan använda dessa prestandajustering rekommendationer för att förbättra prestandan för din arbetsbelastning.
-Du kan också låta Azure SQL database [automatiskt optimera prestanda för dina frågor](sql-database-automatic-tuning.md) genom att använda alla identifierade rekommendationer och verifiering av att de förbättras databasens prestanda. Du kan använda följande alternativ för att förbättra prestanda för databasen:
+Azure SQL Database hjälper dig att identifiera möjligheter att förbättra och optimera frågeprestanda utan att ändra resurser genom att granska [rekommendationer för prestandajustering](sql-database-advisor.md). Index som saknas och dåligt optimerade frågor är vanliga orsaker till dåliga databasprestanda. Du kan använda de här justeringsrekommendationerna att förbättra prestanda för din arbetsbelastning.
+Du kan också låta Azure SQL database till [automatiskt optimera prestandan för dina frågor](sql-database-automatic-tuning.md) genom att tillämpa alla identifierade rekommendationer och verifiera att de förbättras databasens prestanda. Du kan använda följande alternativ för att förbättra databasens prestanda:
 
-1. Använd [SQL Database Advisor](sql-database-advisor-portal.md) att visa rekommendationer för att skapa och släppa index, Parameterisera frågor och åtgärda problem med schemat.
-2. [Aktivera automatisk justering](sql-database-automatic-tuning-enable.md) och låta Azure SQL-databasen automatiskt korrigera identifieras prestandaproblem.
+1. Använd [SQL Database Advisor](sql-database-advisor-portal.md) att visa rekommendationer för att skapa och släppa index, Parameterisera frågorna och åtgärda problem med databasscheman.
+2. [Aktivera automatisk justering](sql-database-automatic-tuning-enable.md) och låta Azure SQL-databasen automatiskt korrigering identifieras prestandaproblem.
 
-## <a name="improving-database-performance-with-more-resources"></a>Förbättrad databasprestanda med mer resurser
+## <a name="improving-database-performance-with-more-resources"></a>Förbättra databasens prestanda med fler resurser
 
-Slutligen om det finns ingen tillämplig objekt som kan förbättra prestandan för din databas kan ändra du mängden tillgängliga resurser i Azure SQL Database. Du kan tilldela fler resurser genom att ändra den [DTU tjänstnivån](sql-database-service-tiers-dtu.md) för en fristående databas eller öka edtu: er för en elastisk pool när som helst. Alternativt, om du använder den [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md), kan du ändra antingen tjänstnivån eller öka resurserna för din databas. 
-1. För fristående databaser, kan du [ändra tjänstnivå](sql-database-service-tiers-dtu.md) eller [beräkningsresurser](sql-database-service-tiers-vcore.md)på begäran för att förbättra prestanda för databasen.
+Slutligen, om det finns inga användbara objekt som kan förbättra databasens prestanda kan du ändra mängden resurser som är tillgängliga i Azure SQL Database. Du kan tilldela mer resurser genom att ändra den [DTU tjänstnivå](sql-database-service-tiers-dtu.md) för en fristående databas eller öka edtu: er för en elastisk pool när som helst. Du kan också om du använder den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md), du kan ändra antingen tjänstnivå eller öka resurserna för din databas. 
+1. För fristående databaser kan du [ändra tjänstnivåer](sql-database-service-tiers-dtu.md) eller [beräkningsresurser](sql-database-service-tiers-vcore.md)på begäran för att förbättra databasprestanda.
 2. Överväg att använda för flera databaser [elastiska pooler](sql-database-elastic-pool-guidance.md) att skala resurser automatiskt.
 
-## <a name="tune-and-refactor-application-or-database-code"></a>Finjustera och flytta program eller databas
+## <a name="tune-and-refactor-application-or-database-code"></a>Justera och omstrukturera program eller databasen
 
-Du kan ändra programkoden mer optimalt använda databasen, ändra index, tvinga planer eller använda tips för att manuellt anpassa databasen till din arbetsbelastning. Hitta vissa råd och tips för manuell justering och skriva om koden i den [prestanda vägledning avsnittet](sql-database-performance-guidance.md) artikel.
+Du kan ändra koden för att använda databasen, ändra index, tvinga planer på eller använda tips att manuellt anpassa databasen till din arbetsbelastning mer optimalt. Hitta vissa vägledning och tips för manuell justering och skriva om koden i den [prestanda vägledning avsnittet](sql-database-performance-guidance.md) artikeln.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill aktivera automatisk justering i Azure SQL Database och låta automatisk justering funktionen för att hantera din arbetsbelastning, se [aktivera automatisk justering](sql-database-automatic-tuning-enable.md).
-- Om du vill använda manuell inställning, kan du granska [justera rekommendationerna i Azure-portalen](sql-database-advisor-portal.md) och tillämpa manuellt med de som förbättrar prestandan för dina frågor.
-- Ändra resurser som är tillgängliga i databasen genom att ändra [Azure SQL Database servicenivåer](sql-database-performance-guidance.md)
+- Om du vill aktivera automatisk justering i Azure SQL Database och att funktionen för automatisk justering helt hantera din arbetsbelastning kan se [aktivera automatisk justering](sql-database-automatic-tuning-enable.md).
+- För att använda manuell inställning, kan du granska [Justeringsrekommendationer i Azure-portalen](sql-database-advisor-portal.md) och tillämpa manuellt de som förbättrar prestandan för dina frågor.
+- Ändra resurser som är tillgängliga i din databas genom att ändra [Azure SQL Database-tjänstnivåer](sql-database-performance-guidance.md)

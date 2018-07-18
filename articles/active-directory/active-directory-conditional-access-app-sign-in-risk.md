@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/03/2018
+ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 98e2f88c85d21cde2ecc7196f93d531a80b14d13
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f1a6a11f827248d098c018390e9ae5557d9c22d1
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450384"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113387"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Snabbstart: Blockera åtkomst när en risk för session har identifierats med villkorlig åtkomst i Azure Active Directory  
 
@@ -62,7 +62,7 @@ Målet med det här steget är att se till att ditt testkonto har åtkomst till 
 
 ## <a name="create-your-conditional-access-policy"></a>Skapa principer för villkorlig åtkomst 
 
-Scenariot i den här snabbstarten använder en inloggning från en Tor Browser för att generera en identifierad **inloggningar från anonyma IP-adresser** riskhändelsen. Risknivån för den här riskhändelsen är medium.   
+Scenariot i den här snabbstarten använder en inloggning från en Tor Browser för att generera en identifierad **inloggningar från anonyma IP-adresser** riskhändelsen. Risknivån för den här riskhändelsen är medium. Om du vill svara på den här riskhändelsen kan ange du inloggningsrisk villkoret medium. I en produktionsmiljö bör du ange villkoret inloggningsrisk till hög eller medelhög och hög.     
 
 Det här avsnittet visar hur du skapar principen för villkorlig åtkomst som krävs. Ange i din princip:
 
@@ -70,10 +70,11 @@ Det här avsnittet visar hur du skapar principen för villkorlig åtkomst som kr
 |---     | --- |
 | Användare och grupper | Alain Charon  |
 | Molnappar | Alla molnappar |
+| Inloggningsrisk | Medel |
 | Bevilja | Blockera åtkomst |
  
 
-![Skapa princip](./media/active-directory-conditional-access-app-sign-in-risk/115.png)
+![Skapa princip](./media/active-directory-conditional-access-app-sign-in-risk/130.png)
 
  
 
@@ -125,6 +126,26 @@ Det här avsnittet visar hur du skapar principen för villkorlig åtkomst som kr
     a. Klicka på **alla molnappar**.
 
     b. Klicka på **Klar**.
+
+10. Klicka på **villkor**. 
+
+    ![Åtkomstkontroller](./media/active-directory-conditional-access-app-sign-in-risk/19.png)
+
+11. På den **villkor** sidan:
+
+    ![Risknivå för inloggning](./media/active-directory-conditional-access-app-sign-in-risk/21.png)
+
+    a. Klicka på **inloggningsrisk**.
+ 
+    b. Som **konfigurera**, klickar du på **Ja**.
+
+    c. Logga in risknivå väljer **medel**.
+
+    d. Klicka på **Välj**.
+
+    e. På den **villkor** klickar du på **klar**.
+
+
 
 10. I den **åtkomstkontroller** klickar du på **bevilja**.
 

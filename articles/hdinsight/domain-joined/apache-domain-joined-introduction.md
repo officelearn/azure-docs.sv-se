@@ -1,6 +1,6 @@
 ---
-title: HDInsight - domänanslutna HDInsight-kluster – Azure
-description: Läs mer ...
+title: En introduktion till Hadoop-säkerhet med domänanslutna Azure HDInsight-kluster
+description: Lär dig hur domänansluten Azure HDInsight-kluster stöder fyra grundläggande faktorer för företagssäkerhet.
 services: hdinsight
 author: omidm1
 manager: jhubbard
@@ -12,44 +12,59 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: omidm
-ms.openlocfilehash: 3fd3a4b8982fe2170726df03bdc884e658d0b0c2
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 6f2c41aff8aaa389a8f2288cbb445e1ba2e7fd14
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019496"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112544"
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>En introduktion till Hadoop-säkerhet med domänanslutna HDInsight-kluster
 
-Fram till idag hade Azure HDInsight endast stöd för en enda lokal administratörsanvändare. Det har fungerat bra för mindre programteam eller avdelningar. Stöd för flera användare och rollbaserad åtkomstkontroll blev allt viktigare som Hadoop-baserade arbetsbelastningar med flera popularitet inom företaget, behovet av att funktioner för enterprise-klass som active directory-baserad autentisering. Genom att använda domänanslutna HDInsight-kluster kan du skapa ett HDInsight-kluster som är anslutet till en Active Directory-domän, konfigurera en lista över anställda från företaget som kan autentisera via Azure Active Directory och logga in på HDInsight-kluster. Person utanför företaget kan inte logga in eller få åtkomst till HDInsight-klustret. Enterprise-administratören kan konfigurera rollbaserad åtkomstkontroll för Hive säkerhet med [Apache Ranger](http://hortonworks.com/apache/ranger/), därför att begränsa åtkomsten till data så att endast så mycket som behövs. Slutligen kan administratören granska anställdas dataåtkomst, och eventuella ändringar som görs av principerna för åtkomstkontroll, vilket ger en hög styrningsgrad över företagets resurser.
+Tidigare Azure HDInsight stöds endast en enskild användare: lokal administratör. Det har fungerat bra för mindre programteam eller avdelningar. Eftersom Hadoop-baserade arbetsbelastningar fått populärare inom företagssektorn behovet för stöd för funktioner i företagsklass som Active Directory-baserad autentisering, flera användare och rollbaserad åtkomstkontroll blev allt viktigare. 
+
+Du kan skapa ett HDInsight-kluster som är ansluten till en Active Directory-domän. Du kan sedan konfigurera en lista över anställda från företaget som kan autentisera via Azure Active Directory för att logga in på HDInsight-klustret. Person utanför företaget kan inte logga in eller få åtkomst till HDInsight-klustret. 
+
+Enterprise-administratör kan konfigurera rollbaserad åtkomstkontroll (RBAC) för Hive-säkerhet med hjälp av [Apache Ranger](http://hortonworks.com/apache/ranger/). Konfigurera RBAC begränsar dataåtkomsten till bara vad som behövs. Slutligen kan administratören granska dataåtkomst för anställda och eventuella ändringar som görs till principer för åtkomstkontroll. Administratören kan sedan få en hög styrningsgrad över företagets resurser.
 
 > [!NOTE]
-> De nya funktionerna som beskrivs i den här artikeln är tillgängliga i förhandsversionen endast för följande typer av klustret: Hadoop, Spark och interaktiva frågor. Oozie har nu aktiverats på domänanslutna kluster. För att komma åt Oozie web UI-användare bör aktivera [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md)
+> De nya funktionerna som beskrivs i den här artikeln finns i förhandsversionerna endast på följande klustertyper: Hadoop, Spark och interaktiva frågor. Oozie är nu aktiverad på domänanslutna kluster. För att komma åt webbgränssnittet för Oozie användare bör aktivera [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
 
-## <a name="benefits"></a>Fördelar
-Företagssäkerhet innehåller fyra huvudsakliga pelare – säkerhet, autentisering, auktorisering och kryptering.
+Enterprise security består av fyra större pelare: perimetersäkerhet, autentisering, auktorisering och kryptering.
 
-![Domänanslutna HDInsight-kluster gynnar de viktiga delarna](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png).
+![Fördelarna med domänanslutna HDInsight-kluster i fyra grundläggande faktorer för företagssäkerhet](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png).
 
-### <a name="perimeter-security"></a>Perimetersäkerhet
-Perimetersäkerhet i HDInsight uppnås med hjälp av virtuella nätverk och Gateway-tjänsten. Idag är en företagsadministratör skapar ett HDInsight-kluster i ett virtuellt nätverk och använda Nätverkssäkerhetsgrupper (brandväggsregler) för att begränsa åtkomsten till det virtuella nätverket. Endast de IP-adresser som definieras i de ingående brandväggsreglerna kan kommunicera med HDInsight-kluster, vilket ger perimetersäkerhet. En annan nivå av perimetersäkerhet uppnås med hjälp av Gateway-tjänsten. Gatewayen är den tjänst som agerar som första försvarslinje för varje inkommande begäran till HDInsight-klustret. Den tar emot begäran, validerar den och skickar först därefter vidare begäran till andra noder i klustret, vilket ger andra namn- och datanoder i klustret perimetersäkerhet.
+## <a name="perimeter-security"></a>Perimetersäkerhet
+Perimetersäkerhet i HDInsight uppnås genom virtuella nätverk och Azure VPN Gateway-tjänsten. En företagsadministratör skapa ett HDInsight-kluster i ett virtuellt nätverk och använda nätverkssäkerhetsgrupper (brandväggsregler) för att begränsa åtkomsten till det virtuella nätverket. Endast de IP-adresser som definieras i de ingående brandväggsreglerna kommer att kunna kommunicera med HDInsight-klustret. Den här konfigurationen ger perimetersäkerhet.
 
-### <a name="authentication"></a>Autentisering
-En enterprise-administratör kan skapa en domänansluten HDInsight-kluster i en [virtuellt nätverk](https://azure.microsoft.com/services/virtual-network/). Noderna i HDInsight-klustret ansluts till den domän som hanteras av företaget. Detta uppnås med hjälp av [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). Alla noder i klustret är anslutna till en domän som hanteras av företaget. Med den här konfigurationen kan företagets anställda logga in på klusternoderna med hjälp av domänautentiseringsuppgifterna. De kan också använda sina domänautentiseringsuppgifter för att autentisera med andra godkända slutpunkter som Ambari-vyer, ODBC, JDBC, PowerShell och REST API: er att interagera med klustret. Administratören har full kontroll över begränsningen av antalet användare som interagerar med klustret via dessa slutpunkter.
+En annan nivå av perimetersäkerhet uppnås genom VPN-Gateway-tjänsten. Gatewayen fungerar som första försvarslinje för varje inkommande begäran till HDInsight-kluster. Den tar emot begäran, validerar den och först därefter vidare begäran skickas till de andra noderna i klustret. På så sätt kan tillhandahåller gatewayen andra namn- och datanoder i klustret perimetersäkerhet.
 
-### <a name="authorization"></a>Auktorisering
-En bra metod som de flesta företag följer är att alla medarbetare inte har åtkomst till alla företagsresurser. Med den här versionen kan på samma sätt kan administratören definiera rollbaserad principer för åtkomstkontroll för klusterresurserna. Administratören kan till exempel konfigurera [Apache Ranger](http://hortonworks.com/apache/ranger/) för att ange åtkomstkontrollprinciper för Hive. Den här funktionen gör att anställda bara kommer åt just så mycket information som de behöver för att utföra sitt arbete. SSH-åtkomst till klustret är också enbart begränsad till administratören.
+## <a name="authentication"></a>Autentisering
+En enterprise-administratören kan skapa ett domänanslutet HDInsight-kluster i en [virtuellt nätverk](https://azure.microsoft.com/services/virtual-network/). Alla noder i HDInsight-klustret är anslutna till den domän som hanteras av företaget. Detta uppnås med [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
 
-### <a name="auditing"></a>Granskning
-För att kunna spåra obehörig eller oavsiktlig åtkomst till resurser är det, förutom att skydda HDInsight-klusterresurserna från obehöriga användare, också nödvändigt att skydda data och granska all åtkomst till klusterresurserna och data. Administratören kan visa och rapportera all åtkomst till HDInsight-kluster-resurser och data. Administratören kan också visa och rapportera alla ändringar av åtkomstkontrollprinciperna i slutpunkter som stöds av Apache Ranger. Ett domänanslutet HDInsight-klustret använder det välkända Apache Ranger-användargränssnittet för att söka igenom granskningsloggar. På serversidan använder Ranger [Apache Solr](http://hortonworks.com/apache/solr/) för att lagra och söka igenom loggar.
+Med den här konfigurationen kan kan företagets anställda logga in på noderna i klustret med hjälp av sina domänautentiseringsuppgifter. De kan också använda sina domänautentiseringsuppgifter för att autentisera med andra godkända slutpunkter som Ambari Views, ODBC, JDBC, PowerShell och REST API: er att interagera med klustret. Administratören har full kontroll över begränsningen av antalet användare som interagerar med klustret via dessa slutpunkter.
 
-### <a name="encryption"></a>Kryptering
-Att skydda data är viktigt för att uppfylla organisationers säkerhets- och efterlevnadskrav, och i kombination med att begränsa åtkomst till data från obehöriga anställda, bör data också skyddas genom kryptering. Såväl datalagren för HDInsight-kluster som Azure Storage Blob och Azure Data Lake Storage har stöd för transparent [serverdelskryptering av vilande data](../../storage/common/storage-service-encryption.md). Säker HDInsight-kluster fungerar sömlöst med den här servern kryptering av data på rest-funktionen.
+## <a name="authorization"></a>Auktorisering
+Bästa praxis som de flesta företag följer att se till att alla medarbetare inte har åtkomst till alla företagsresurser. På samma sätt kan kan administratören definiera rollbaserad principer för åtkomstkontroll för klusterresurserna. 
+
+Administratören kan till exempel konfigurera [Apache Ranger](http://hortonworks.com/apache/ranger/) för att ange åtkomstkontrollprinciper för Hive. Den här funktionen gör att anställda kan komma åt bara så mycket information som de behöver för att utföra sitt arbete. SSH-åtkomst till klustret är också begränsad till endast administratören.
+
+## <a name="auditing"></a>Granskning
+Granska all åtkomst till klusterresurserna och data, krävs för att spåra obehörig eller oavsiktlig åtkomst av resurser. Det är lika viktigt som att skydda HDInsight-klusterresurserna från obehöriga användare och skydda data. 
+
+Administratören kan visa och rapportera all åtkomst till HDInsight-klusterresurser och data. Administratören kan också visa och rapportera alla ändringar åtkomstkontrollprinciper som skapats i stöds av Apache Ranger-slutpunkter. 
+
+Ett domänanslutet HDInsight-kluster använder det välbekanta Apache Ranger-Användargränssnittet för att söka igenom granskningsloggar. På backend-servern använder Ranger [Apache Solr](http://hortonworks.com/apache/solr/) för att lagra och söka igenom loggar.
+
+## <a name="encryption"></a>Kryptering
+Skydda data är viktigt för att uppfylla organisationens säkerhets- och krav. Tillsammans med att begränsa åtkomsten till data från obehöriga anställda, bör du krypterar den. 
+
+Båda datalagren för HDInsight-kluster – Azure Blob storage och Azure Data Lake Storage Gen1 – stöd för transparent serversidan [kryptering av data](../../storage/common/storage-service-encryption.md) i vila. Skydda HDInsight-kluster fungerar sömlöst med den här funktionen för serversidan kryptering av data i vila.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Planera för domänanslutna HDInsight-kluster](apache-domain-joined-architecture.md).
-* [Konfigurera domänanslutna HDInsight-kluster](apache-domain-joined-configure.md).
-* [Hantera domänanslutna HDInsight-kluster](apache-domain-joined-manage.md).
-* [Konfigurera Hive principer för domänanslutna HDInsight-kluster](apache-domain-joined-run-hive.md).
-* [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* [Planera för domänanslutna HDInsight-kluster](apache-domain-joined-architecture.md)
+* [Konfigurera domänanslutna HDInsight-kluster](apache-domain-joined-configure.md)
+* [Hantera domänanslutna HDInsight-kluster](apache-domain-joined-manage.md)
+* [Konfigurera Hive-principer för domänanslutna HDInsight-kluster](apache-domain-joined-run-hive.md)
+* [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: juliako
-ms.openlocfilehash: fb8730e9074624ba1b0f0162ebf9156b758b59c2
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 1568ea3431f18b7a7a020d34d803f883904e18b4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068792"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115238"
 ---
 # <a name="content-protection-overview"></a>Content protection-översikt
 
@@ -45,8 +45,11 @@ För att slutföra utformningen ”content protection” system/program, måste 
   > [!NOTE]
   > Du kan kryptera varje tillgång med flera krypteringstyper (AES-128, PlayReady, Widevine, FairPlay). Se [Streaming protokoll och krypteringstyper](#streaming-protocols-and-encryption-types), för att se vad är det bra att kombinera.
   
-  I följande artikel Visar stegen för att kryptera innehåll med AES: [skydda med AES-kryptering](protect-with-aes128.md)
- 
+  Följande artiklar visar stegen för att kryptera innehåll med AES och/eller DRM: 
+  
+  * [Skydda med AES-kryptering](protect-with-aes128.md)
+  * [Skydda med DRM](protect-with-drm.md)
+
 2. Spelare med AES eller DRM-klienten. En videospelare app baserat på en spelare SDK (intern eller webbläsarbaserade) måste uppfylla följande krav:
   * Player SDK stöder de nödvändiga DRM-klienterna
   * Player SDK stöder de nödvändiga protokollen med direktuppspelning: Smooth, DASH eller HLS
@@ -125,7 +128,10 @@ När du konfigurerar den tokenbegränsade principen måste du ange primär verif
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skydda med AES-kryptering i Media Services v3](protect-with-aes128.md)
+Ta en titt i följande artiklar:
+
+  * [Skydda med AES-kryptering](protect-with-aes128.md)
+  * [Skydda med DRM](protect-with-drm.md)
 
 Mer information finns i [DRM referera utformning och implementering](../previous/media-services-cenc-with-multidrm-access-control.md)
 

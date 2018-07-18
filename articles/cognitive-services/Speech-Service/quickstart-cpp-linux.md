@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 2c919040233226818505dbafc260d56d4d0e3c9e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: b5f5cdbe202b406c724a9f4f5787e566b432a66c
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070740"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116154"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C++ i Linux med hjälp av tal-SDK
 
@@ -34,7 +34,7 @@ I den här artikeln lär du dig att skapa ett C++-konsolprogram i Linux (Ubuntu 
 
 ## <a name="get-the-speech-sdk"></a>Hämta tal SDK
 
-[!include[License Notice](includes/license-notice.md)]
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 Den aktuella versionen av Cognitive Services tal SDK är `0.5.0`.
 
@@ -70,7 +70,7 @@ Hämta och installera SDK: N på följande sätt:
 
    Du bör se meddelande från tredje part och licensfiler, såväl som `include` katalog för rubriker och en `lib` katalogen för bibliotek.
 
-   [!include[Linux Binary Archive Content](includes/linuxbinary-content.md)]
+   [!include[Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
 ## <a name="add-the-sample-code"></a>Lägg till exempelkoden
 

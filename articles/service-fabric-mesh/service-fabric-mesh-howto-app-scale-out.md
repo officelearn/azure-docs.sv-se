@@ -1,7 +1,7 @@
 ---
 title: Skala tjänster i ett Azure Service Fabric nät program | Microsoft Docs
 description: Lär dig hur du oberoende skala tjänster i ett program som körs på Service Fabric nät med hjälp av Azure CLI.
-services: service-fabric
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: timlt
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/26/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c0350b767b65aee0c4611bb8fa6f635a651d33dc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a4260fd808643971036ad87c01bd2fdec299ccc6
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076552"
+ms.locfileid: "39089751"
 ---
 # <a name="scale-services-within-an-application-running-on-service-fabric-mesh"></a>Skala tjänster i ett program som körs på Service Fabric-nät
 
@@ -55,16 +55,16 @@ Skapa ditt program i en resurs-grupp med den `deployment create` kommando.
 az mesh deployment create --resource-group <resourceGroupName> --template-uri https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
   
 ```
-Föregående kommando distribuerar en Linux med hjälp av [mesh_rp.base.linux.json mallen](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.linux.json). Om du vill distribuera ett Windows-program kan använda [mesh_rp.base.windows.json mallen](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.windows.json). Windows-behållaravbildningar är större än Linux-behållaravbildningar och kan ta längre tid att distribuera.
+Föregående kommando distribuerar en Linux-program med [mesh_rp.base.linux.json mallen](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.linux.json). Om du vill distribuera ett Windows-program kan använda [mesh_rp.base.windows.json mallen](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.windows.json). Windows-behållaravbildningar är större än Linux-behållaravbildningar och kan ta längre tid att distribuera.
 
 Om några minuter bör kommandot returnerar med:
 
 `visualObjectsApp has been deployed successfully on visualObjectsNetwork with public ip address <IP Address>` 
 
 ## <a name="open-the-application"></a>Öppna programmet
-När programmet har distribuerats hämta den offentliga IP-adressen för tjänsteslutpunkt och öppna den i en webbläsare. En webbsida visas med en triangel flytta via utrymmet.
+När programmet har distribuerats hämta den offentliga IP-adressen för tjänsteslutpunkt och öppna den i en webbläsare. Den visar en webbsida med en triangel flytta via utrymmet.
 
-Distributionskommandot returnerar den offentliga IP-adressen för tjänsteslutpunkt. Du kan också fråga nätverksresurs för att hitta den offentliga IP-adressen till tjänstens slutpunkt.
+Distributionskommandot returnerar den offentliga IP-adressen för tjänsteslutpunkt. Du kan också kan du också fråga nätverksresurs för att hitta den offentliga IP-adressen till tjänstens slutpunkt. 
  
 Resursnamnet nätverk för det här programmet är `visualObjectsNetwork`, hämta information om den med hjälp av följande kommando. 
 

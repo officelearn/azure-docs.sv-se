@@ -2,18 +2,18 @@
 title: Använda Azure Import/Export för att exportera data från Azure Blobs | Microsoft Docs
 description: Lär dig hur du skapar export-jobb i Azure portal för att överföra data från Azure Blobs.
 author: alkohli
-manager: jeconnoc
+manager: twooley
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: eb41708c7446b3139758678c9247ffbb11da8b40
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eb714086a0142d9780bd018d77dc880a430f240e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969273"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113766"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att exportera data från Azure Blob storage
 Den här artikeln innehåller stegvisa instruktioner om hur du använder Azure Import/Export-tjänsten för att exportera stora mängder data på ett säkert sätt från Azure Blob storage. Tjänsten kräver att du kan leverera tomma enheter till Azure-datacentret. Tjänsten exporterar data från ditt lagringskonto till enheterna och sedan levereras enheter tillbaka.
@@ -25,6 +25,13 @@ Innan du skapar en export-jobbet för att överföra data från Azure Blob Stora
 - Ha en aktiv Azure-prenumeration som kan användas för Import/Export-tjänsten.
 - Har minst en Azure Storage-konto. Se en lista över [storage-konton och lagringstyper stöds för tjänsten Import/Export](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-create-storage-account.md#create-a-storage-account).
 - Ha tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks).
+- Ha ett FedEx/DHL-konto.  
+    - Kontot måste vara giltig, bör ha saldo och måste ha returfrakt funktioner.
+    - Generera en spårningsnummer för export-jobbet.
+    - Alla jobb bör ha en separat spårningsnummer. Flera jobb med samma Spårningsnumret stöds inte. 
+    - Om du inte har en transportföretagskonto går du till:
+        - [Skapa ett konto för FedEX](https://www.fedex.com/en-us/create-account.html), eller 
+        - [Skapa ett konto för DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>Steg 1: Skapa ett exportjobb
 
@@ -52,7 +59,7 @@ Utför följande steg för att skapa ett exportjobb i Azure-portalen.
     
 3. I **Jobbdetaljer**:
 
-    - Välj det lagringskonto där det finns data som ska exporteras. 
+    - Välj det lagringskonto där det finns data som ska exporteras. Använd ett lagringskonto nära där du befinner dig.
     - Samlingsplats fylls i automatiskt baserat på regionen som det valda lagringskontot. 
     - Ange blob-data som du vill exportera från ditt lagringskonto till din tom eller enheter. 
     - Välja att **exportera alla** blobdata i lagringskontot.
@@ -78,11 +85,18 @@ Utför följande steg för att skapa ett exportjobb i Azure-portalen.
     - Välj vilken operatör i listrutan.
     - Ange en giltig transportföretagets kontonummer som du har skapat med den operatör. Microsoft använder kontot för att leverera enheter till dig när importjobbet har slutförts. 
     - Ange en fullständig och giltig kontaktperson, telefon, e-post, gatuadress, ort, zip, region och land/region.
+
+        > [!TIP] 
+        > Ange en gruppens e-post istället för att ange en e-postadress för en enskild användare. Detta säkerställer att du får meddelanden även om en administratör lämnar företaget.
    
 5. I **sammanfattning**:
 
     - Granska information om jobbet.
-    - Observera leveransadressen jobbet namn och angivna Azure-datacenter för att skicka diskar till Azure. 
+    - Anteckna Jobbnamnet och angivna Azure-datacenter som leveransadress för att skicka diskar till Azure. 
+
+        > [!NOTE] 
+        > Skicka alltid diskarna i datacentret som anges i Azure-portalen. Om hårddiskarna skickas till fel datacentret, kommer jobbet inte att bearbetas.
+
     - Klicka på **OK** för att skapa för export-jobbet.
 
 ## <a name="step-2-ship-the-drives"></a>Steg 2: Skicka enheterna

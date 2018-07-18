@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: db7a89ffa4ff1a2eb271869c93b7beb088fd13b3
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 672e27bf53679c52dab8d42a52378aa90eba33cb
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076560"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114318"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric-nät terminologi
 
@@ -57,14 +57,14 @@ Service Fabric är en teknik för öppen plattform som flera olika tjänster och
 ## <a name="environment-framework-and-deployment-model-support-matrix"></a>Supportmatris för miljön, ramverk och distributionsmodellen
 Olika miljöer har olika stöd för ramverk och distributionsmodeller. I följande tabell beskrivs stöds framework och distribution av modellen kombinationer.
 
-|Frameworks\Deployment modell |Resursmodell |Manifest modell | Compose|
+|Frameworks\Deployment modell |Resursmodell |Inbyggda datamodellen | Compose|
 |---|---|---|---|
 |Reliable Actors och Reliable Services |Stöds inte |Stöds |Stöds inte |
 |Alla andra ramverk och språk |Stöds i behållare |Stöds som processer och i behållare |Stöds i behållare |
 
 I följande tabell beskrivs den miljö som stöds och distribution av modellen kombinationer.
 
-|Environment\Deployment modell |Resursmodell |Manifest modell |Compose |
+|Environment\Deployment modell |Resursmodell |Inbyggda datamodellen |Compose |
 |---|---|---|---|
 |Azure Service Fabric-nät |Stöds |Stöds inte|Stöds inte |
 |Alla andra miljöer |Stöds (vissa resurser har krav för att arbeta i en miljö) |Stöds |Begränsat stöd |

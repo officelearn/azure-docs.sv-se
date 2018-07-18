@@ -1,6 +1,6 @@
 ---
-title: Azure Integration Services-Referensarkitektur
-description: Referensarkitektur visar hur du implementerar ett mönster med enterprise-integrering med Logic Apps, API Management, Service Bus och Event Grid
+title: Azure Integration Services enterprise integration-Referensarkitektur
+description: Beskriver referensarkitekturen som visar hur du implementerar ett mönster för enterprise-integrering med Logic Apps, API Management, Service Bus och Event Grid.
 author: mattfarm
 manager: jonfan
 editor: ''
@@ -14,118 +14,119 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 7d14bbd587b5086348026c41f6551b10809b939a
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: a86c4c4227795a712dd51ace1fbefe9d2b96518a
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859650"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116120"
 ---
-# <a name="enterprise-integration-with-queues-and-events-reference-architecture"></a>Enterprise-integration med köer och händelser: Referensarkitektur
+# <a name="reference-architecture-enterprise-integration-with-queues-and-events"></a>Referensarkitektur: Enterprise-integration med köer och händelser
 
-## <a name="overview"></a>Översikt
+Följande Referensarkitektur visas en uppsättning beprövade metoder som du kan använda för ett integration-program som använder Azure Integration Services. Arkitekturen kan fungera som bas för många olika mönster som kräver HTTP APIs, arbetsflöde och samordning.
 
-Denna Referensarkitektur visas en uppsättning beprövade metoder för ett integration-program som använder Azure Integration Services. Den här arkitekturen kan fungera som den här grunden för många olika mönster som kräver HTTP APIs, arbetsflöde och dirigering.
+![Arkitekturdiagram - Enterprise-integration med köer och händelser](media/logic-apps-architectures-enterprise-integration-with-queues-events/integr_queues_events_arch_diagram.png)
 
-*Det finns många möjliga program av integreringsteknik, från ett enkelt att punkt till punkt-program till en fullständig enterprise service bus. Den här arkitekturen-serien innehåller återanvändbara komponenter som kan vara relevanta för att skapa ett allmänt integration-program – arkitekter bör tänka på vilka specifika kompontener som de behöver du implementera för sina program och infrastruktur.*
-
-![Arkitekturdiagram - enterprise-integration med köer och händelser](media/logic-apps-architectures-enterprise-integration-with-queues-events/integr_queues_events_arch_diagram.png)
+*Det finns många möjliga program för integreringsteknik. De röra sig om en enkel point-to-point programmet till en fullständig enterprise Azure Service Bus-programmet. Arkitektur-serien beskriver återanvändbara komponenter som kan användas för att skapa ett allmänt integration-program. Arkitekter bör överväga vilka komponenter som de behöver för att implementera för sina program och infrastruktur.*
 
 ## <a name="architecture"></a>Arkitektur
 
-Den här arkitekturen **bygger på** den [enkel enterprise-integration](logic-apps-architectures-simple-enterprise-integration.md) arkitektur. Den [enkel enterprise arkitektur rekommendationer](logic-apps-architectures-simple-enterprise-integration.md#recommendations) också gäller här, men har tagits bort från den [rekommendationer](#recommendations) i det här dokumentet av utrymmesskäl. Den har följande komponenter:
+Arkitekturen *bygger på* den [enkel enterprise-integration](logic-apps-architectures-simple-enterprise-integration.md) arkitektur. [Rekommendationer för enkel företagsarkitektur](logic-apps-architectures-simple-enterprise-integration.md#recommendations) gäller här. De har utelämnats från den [rekommendationer](#recommendations) i den här artikeln av utrymmesskäl. 
 
-- Resursgrupp. En [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) är en logisk behållare för Azure-resurser.
-- Azure API Management. [Azure API Management](https://docs.microsoft.com/azure/api-management/) är en fullständigt hanterad plattform för att publicera, skydda och omvandla HTTP APIs.
-- Utvecklarportalen i Azure API Management. Varje instans av Azure API Management som levereras med en [Utvecklarportalen](https://docs.microsoft.com/azure/api-management/api-management-customize-styles), vilket ger åtkomst till dokumentation, kodexempel och möjlighet att testa ett API.
-- Azure Logic Apps. [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) är en plattform utan server för att skapa enterprise arbetsflödet och integrationskontot.
-- Kopplingar. [Kopplingar](https://docs.microsoft.com/azure/connectors/apis-list) används av Logic Apps för att ansluta till tjänster som ofta används. Logic Apps har redan hundratals olika anslutningar, men de kan även skapas med hjälp av en anpassad anslutningsapp.
-- Azure Service Bus. [Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) erbjuder säker och tillförlitlig meddelandehantering. Meddelanden kan användas för att ta bort koppla program från varandra och integrera med andra meddelande-baserade system.
-- Azure Event Grid. [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) är en plattform utan server för att publicera och leverans av programhändelser.
-- IP-adress. Azure API Management-tjänsten har en fast offentlig [IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) och ett domännamn. Domännamnet är en underdomän till azure-api.net, till exempel contoso.azure-api.net. Logic Apps och Service Bus också ha en offentlig IP-adress; i den här arkitekturen kan vi dock begränsa åtkomsten för att anropa Logic apps slutpunkter till endast de IP-adress för API Management (för säkerhet). Anrop till Service Bus skyddas av en signatur för delad åtkomst.
-- Azure DNS. [Azure DNS](https://docs.microsoft.com/azure/dns/) är en värdtjänst för DNS-domäner som ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster. Skapa DNS-poster som mappar det anpassade domännamnet till IP-adressen om du vill använda ett anpassat domännamn (t.ex contoso.com). Mer information finns i Konfigurera ett anpassat domännamn i Azure API Management.
-- Azure Active Directory (AD Azure). Använd [Azure AD](https://docs.microsoft.com/azure/active-directory/) eller en annan identitetsleverantör för autentisering. Azure AD tillhandahåller autentisering för att komma åt API-slutpunkter (genom att skicka en [JSON Web Token för API Management](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) att verifiera) och kan skydda åtkomst till Utvecklarportalen för API Management (endast Standard och Premium-nivåer).
+Arkitekturen har följande komponenter:
 
-Den här arkitekturen har vissa grundläggande mönster i dess drift:
+- **Resursgrupp**. En [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) är en logisk container för Azure-resurser.
+- **Azure API Management**. [API Management](https://docs.microsoft.com/azure/api-management/) är en fullständigt hanterad plattform som används för att publicera, skydda och transformera HTTP APIs.
+- **Azure API Management-utvecklarportalen**. Varje instans av Azure API Management som levereras med åtkomst till den [utvecklarportalen](https://docs.microsoft.com/azure/api-management/api-management-customize-styles). API Management Developer-portalen får du tillgång till exempel dokumentation och kodexempel. Du kan testa API: er i Developer-portalen.
+- **Azure Logic Apps**. [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) är en plattform utan server som används för att skapa enterprise arbetsflödet och integrationskontot.
+- **Kopplingar**. Logic Apps använder [kopplingar](https://docs.microsoft.com/azure/connectors/apis-list) att ansluta till ofta används för tjänster. Logic Apps har redan hundratals olika anslutningar, men du kan också skapa en anpassad anslutningsapp.
+- **Azure Service Bus**. [Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) erbjuder säker och tillförlitlig meddelandehantering. Meddelanden kan användas för att frikoppla program och integrera med andra meddelande-baserade system.
+- **Azure Event Grid**. [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) är en plattform utan server som används för att publicera och leverera programhändelser.
+- **IP-adress**. Azure API Management-tjänsten har en fast offentlig [IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) och ett domännamn. Domännamnet är en underdomän till azure-api.net, till exempel contoso.azure-api.net. Logic Apps och Service Bus även ha en offentlig IP-adress. I den här arkitekturen kan vi dock begränsa åtkomsten för att anropa Logic Apps-slutpunkter som endast IP-adressen för API Management (för säkerhet). Anrop till Service Bus skyddas av en signatur för delad åtkomst (SAS).
+- **Azure DNS**. [Azure DNS](https://docs.microsoft.com/azure/dns/) är en värdtjänst för DNS-domäner. Azure DNS ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Du kan hantera dina DNS-poster genom att använda samma autentiseringsuppgifter, API: er, verktyg och fakturering att du använder för dina andra Azure-tjänster genom som värd för domäner i Azure. Skapa DNS-poster som mappar det anpassade domännamnet till IP-adressen om du vill använda ett anpassat domännamn (t.ex. contoso.com). Mer information finns i [konfigurera ett anpassat domännamn i API Management](https://docs.microsoft.com/en-us/azure/api-management/configure-custom-domain).
+- **Azure Active Directory (Azure AD)**. Använd [Azure AD](https://docs.microsoft.com/azure/active-directory/) eller en annan identitetsleverantör för autentisering. Azure AD tillhandahåller autentisering för att komma åt API-slutpunkter genom att skicka en [JSON Web Token för API Management](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) att verifiera. Azure AD kan skydda åtkomst till API Management Developer-portalen (endast Standard och Premium-nivåer).
 
-1. Befintlig serverdel HTTP APIs publiceras via API Management Developer-portalen, vilket gör att utvecklare (antingen interna för din organisation, externt eller båda) att integrera anrop till dessa API: er i program.
-2. Sammansatta API: er skapas med hjälp av Logic Apps; samordna anrop till SAAS-system, Azure-tjänster och alla API: er som publiceras till API Management. Den [Logic Apps publiceras även](https://docs.microsoft.com/azure/api-management/import-logic-app-as-api) via Utvecklarportalen för API Management.
-3. Program [skaffa ett OAuth 2.0-säkerhetstoken](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) krävs för att få åtkomst till ett API med Azure Active Directory.
-4. Azure API Management [verifierar säkerhetstoken](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad), och skickar begäran till API/Logic App-serverdelen.
-5. Service Bus-köer är vana vid [frikoppla](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) programaktivitet och [jämna ut toppar i belastningen](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling). Meddelanden läggs till köer av Logic Apps, 3 partsprogram, eller (visas inte) genom att publicera kö som ett HTTP-API via API Management.
-6. När meddelanden läggs till i en Service Bus-kö, utlöser en händelse. En Logikapp som utlöses av den här händelsen och bearbetar meddelandet.
-7. På samma sätt kan publicera andra Azure-tjänster (t.ex. Blob Storage, Event Hub) även händelser till Event Grid. Dessa utlösa Logikappar för att ta emot händelsen och utföra efterföljande åtgärder.
+Arkitekturen har vissa mönster som är grundläggande för dess drift:
+
+* Befintliga backend-publiceras HTTP-API: er via API Management Developer-portalen. I portalen, utvecklare (antingen interna för din organisation eller den externa) kan integrera anrop till dessa API: er i program.
+* Sammansatta API: er skapas med hjälp av logikappar och genom att samordna anrop till programvara som en tjänst (SaaS)-system, Azure-tjänster och alla API: er som publiceras till API Management. [Logikappar publiceras även](https://docs.microsoft.com/azure/api-management/import-logic-app-as-api) via API Management Developer-portalen.
+- Program använder Azure AD för att [skaffa ett OAuth 2.0-säkerhetstoken](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) som krävs för att få åtkomst till ett API.
+- API Management [verifierar säkerhetstoken](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) och skickar begäran till backend-API: et eller logic app.
+- Service Bus-köer är vana vid [frikoppla](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) programaktivitet och [jämna ut toppar i belastningen](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling). Meddelanden läggs till köer av logic apps, program från tredje part, eller (visas inte) genom att publicera kö som ett HTTP-API via API Management.
+- När meddelanden läggs till i en Service Bus-kö, utlöser en händelse. En logikapp utlöses av händelsen. Logikappen bearbetar sedan meddelandet.
+- Andra Azure-tjänster (till exempel Azure Blob storage och Azure Event Hubs) kan du även publicera händelser till Event Grid. De här tjänsterna utlösa logikappar för att ta emot händelsen och sedan utföra efterföljande åtgärder.
 
 ## <a name="recommendations"></a>Rekommendationer
 
-Dina specifika krav kan skilja sig från den allmänna arkitektur som beskrivs här. Använd rekommendationerna i det här avsnittet som en utgångspunkt.
+Dina specifika krav kan skilja sig från den allmänna arkitekturen som beskrivs i den här artikeln. Använd rekommendationerna i det här avsnittet som en utgångspunkt.
 
 ### <a name="service-bus-tier"></a>Service Bus-nivå
 
-Använda Service Bus premium-nivån som fungerar med event grid-meddelanden för närvarande (support oavsett nivå förväntas). Se [priser för Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
+Använd Service Bus Premium-nivån. Premier nivå har stöd för Event Grid-meddelanden. Mer information finns i [priser för Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ### <a name="event-grid-pricing"></a>Priser för Event Grid
 
-Event Grid fungerar med hjälp av en serverlös modell – debiteringen beräknas baserat på antalet åtgärder (händelsekörningen). Se [priser för Event Grid](https://azure.microsoft.com/pricing/details/event-grid/) för mer information. Det finns inga nivån överväganden för Event Grid.
+Event Grid använder en serverlös modell. Fakturering beräknas baserat på antalet åtgärder (händelsekörningen). Mer information finns i [priser för Event Grid](https://azure.microsoft.com/pricing/details/event-grid/). Det finns för närvarande inga nivån överväganden för Event Grid.
 
-### <a name="use-peeklock-when-consuming-service-bus-messages"></a>Använd PeekLock när Service Bus-meddelanden
+### <a name="use-peeklock-to-consume-service-bus-messages"></a>Använda PeekLock för att använda Service Bus-meddelanden
 
-När du skapar Logikappar för att använda Service Bus-meddelanden använder [PeekLock](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#queues) i Logikappen att få åtkomst till en grupp med meddelanden. Logikappen kan sedan utföra stegen för att verifiera varje meddelande innan slutföra eller lämna. Den här metoden skyddar mot oavsiktlig meddelandet går förlorade.
+När du skapar en logikapp för att använda Service Bus-meddelanden, använda [PeekLock](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#queues) i logikapp för att få åtkomst till en grupp med meddelanden. När du använder PeekLock kan logikappen utföra stegen för att verifiera varje meddelande innan du har slutfört eller lämna meddelandet. Den här metoden skyddar mot oavsiktlig meddelandet går förlorade.
 
 ### <a name="check-for-multiple-objects-when-an-event-grid-trigger-fires"></a>Sök efter flera objekt när en Event Grid-utlösaren utlöses
 
-Event Grid-utlösare aktiveringen bara innebär det att ”minst 1 detta hände”. Till exempel när Event Grid utlöser en logikapp på ett meddelande som visas i en Service Bus-kö, logikappen bör utgå alltid från att det kan finnas ett eller flera meddelanden som är tillgängliga för att bearbeta.
+När en Event Grid-utlösaren utlöses innebär helt enkelt att ”minst en av dessa saker har hänt”. När Event Grid utlöser en logikapp på ett meddelande som visas i en Service Bus-kö, bör logikappen alltid anta att det kan finnas ett eller flera meddelanden som är tillgängliga för att bearbeta.
 
 ### <a name="region"></a>Region
 
-Etablera API Management, Logic Apps och Service Bus i samma region för att minimera nätverkssvarstiden. Du väljer normalt den region som är närmast dina användare.
+Etablera API Management, Logic Apps och Service Bus i samma region för att minimera nätverkssvarstiden. I allmänhet väljer du regionen som är närmast dina användare.
 
-Resursgruppen har också en region som anger var metadata för distribution lagras, och där distributionsmallen körs från. Placera resursgruppen och dess resurser i samma region. Detta kan förbättra tillgängligheten under distributionen.
+Resursgruppen har också en region. Regionen anger var metadata för distribution lagras och där distributionsmallen kör från. Placera resursgruppen och dess resurser i samma region för att förbättra tillgängligheten under distributionen.
 
-## <a name="scalability-considerations"></a>Skalbarhetsöverväganden
+## <a name="scalability"></a>Skalbarhet
 
-Azure Service Bus premium-nivån kan skala ut antalet meddelandefunktionsenheter att uppnå högre skalbarhet. Premium kan ha 1, 2 eller 4 meddelandefunktionsenheter. Ytterligare vägledning om att skala Azure Service Bus finns i [Metodtips för prestandaförbättringar med hjälp av Service Bus-meddelanden](../service-bus-messaging/service-bus-performance-improvements.md).
+Service Bus Premium-nivån kan skala ut antalet meddelandefunktionsenheter att uppnå högre skalbarhet. Konfigurationer för Premium-nivån kan ha en, två eller fyra meddelandefunktionsenheter. Mer information om skalning av Service Bus finns i [Metodtips för prestandaförbättringar med hjälp av Service Bus-meddelanden](../service-bus-messaging/service-bus-performance-improvements.md).
 
-## <a name="availability-considerations"></a>Överväganden för tillgänglighet
+## <a name="availability"></a>Tillgänglighet
 
-I det här dokumentet skrivs är serviceavtalet (SLA) för Azure API Management 99,9% för nivåerna Basic, Standard och Premium. Premium-nivån konfigurationer med distribution av minst en enhet i två eller fler regioner har inget eget serviceavtal på 99,95%.
+Serviceavtal (SLA) för Azure API Management är för närvarande 99,9% för nivåerna Basic, Standard och Premium. Premium-nivån konfigurationer med distribution av minst en enhet i två eller fler regioner har inget eget serviceavtal på 99,95%.
 
-I det här dokumentet skrivs är serviceavtalet (SLA) för Azure Logic Apps 99,9%.
+SERVICEAVTALET för Azure Logic Apps är för närvarande 99,9%.
 
 ### <a name="disaster-recovery"></a>Haveriberedskap
 
-Överväg att implementera Geo-haveriberedskap i Service Bus premium för att aktivera redundans vid ett allvarligt strömavbrott. Läs mer om [Azure Service Bus geohaveriberedskap](../service-bus-messaging/service-bus-geo-dr.md).
+Överväg att implementera geo-haveriberedskap i Service Bus Premium för att aktivera redundans om ett allvarligt strömavbrott uppstår. Mer information finns i [Azure Service Bus-geohaveriberedskap](../service-bus-messaging/service-bus-geo-dr.md).
 
-## <a name="manageability-considerations"></a>Överväganden för hantering
+## <a name="manageability"></a>Hanterbarhet
 
-Skapa separata resursgrupper för produktion, utveckling och testmiljöer. Det här gör det enklare att hantera distributioner, ta bort testdistributioner och tilldela åtkomsträttigheter.
-Tänk på följande när du tilldelar resurser till resursgrupper:
+Skapa separata resursgrupper för produktion, utveckling och testmiljöer. Separata resursgrupper gör det enklare att hantera distributioner, ta bort testdistributioner och tilldela åtkomsträttigheter.
 
-- Livscykel. I allmänhet ska du placera resurser med samma livscykel i samma resursgrupp.
-- Åtkomst. Du kan använda [Role-Based Access Control](../role-based-access-control/overview.md) (RBAC) för att tillämpa principer för åtkomst till resurser i en grupp.
-- Fakturering. Du kan visa de samlade kostnaderna för resursgruppen.
-- Prisnivå för API Management – vi rekommenderar att du använder Developer-nivån för utvecklings- och testmiljöer. För Förproduktion rekommenderar vi distribuerar en replik av produktionsmiljön, kör tester och stänger sedan för att minimera kostnader.
+Tänk på följande faktorer när du tilldelar resurser till resursgrupper:
 
-Mer information finns i [resursgrupp](../azure-resource-manager/resource-group-overview.md) Översikt.
+- **Livscykel**. I allmänhet Lägg till resurser som har samma livscykel i samma resursgrupp.
+- **Åtkomst**. Du kan använda [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) (RBAC) för att tillämpa principer för åtkomst till resurser i en grupp.
+- **Fakturering**. Du kan visa samlade kostnaderna för resursgruppen.
+- **Prisnivå för API Management**. Vi rekommenderar att du använder Developer-nivån för utveckling och testmiljöer. För Förproduktion rekommenderar vi distribuerar en replik av produktionsmiljön, kör tester och stänger sedan för att minimera kostnader.
+
+Mer information finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### <a name="deployment"></a>Distribution
 
-Vi rekommenderar att du använder [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) att distribuera Azure API Management, Logic Apps, Event Grid och Service Bus. Mallar gör det enklare att automatisera distribution via PowerShell eller kommandoradsgränssnittet (CLI).
+Vi rekommenderar att du använder [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) att distribuera API Management, Logic Apps, Event Grid och Service Bus. Mallar gör det enklare att automatisera distribution via PowerShell eller Azure CLI.
 
-Vi rekommenderar dig Azure API Management, alla enskilda Logic Apps, Event Grid-ämnen och Service Bus-namnområden i sina egna separata Resource Manager-mallar. Detta gör att lagra dem i källkontrollsystem. Dessa mallar kan sedan distribueras tillsammans eller separat som en del av en process för kontinuerlig integrering/kontinuerlig (CI/CD).
+Vi rekommenderar att placera API Management, enskilda logikappar, Event Grid-ämnen och Service Bus-namnområden i sina egna, separata Resource Manager-mallar. När du använder separata mallar kan du lagra resurser i källkontrollsystem. Du kan sedan distribuera dessa mallar tillsammans eller separat som en del av en kontinuerlig integrering/kontinuerlig distribution (CI/CD).
 
 ### <a name="diagnostics-and-monitoring"></a>Diagnostik och övervakning
 
-Service Bus, som API Management och Logikappar kan övervakas med hjälp av Azure Monitor. Azure Monitor är aktiverat som standard och ger information baserat på de olika mått som konfigurerats för varje tjänst.
+Du kan övervaka Service Bus med hjälp av Azure Monitor som API Management och Logikappar. Azure Monitor innehåller information baserat på mått som är konfigurerade för varje tjänst. Azure Monitor är aktiverat som standard.
 
-## <a name="security-considerations"></a>Säkerhetsöverväganden
+## <a name="security"></a>Säkerhet
 
-Skydda Service Bus med hjälp av en signatur för delad åtkomst. [SAS-autentisering](../service-bus-messaging/service-bus-sas.md) gör det möjligt att ge en användaråtkomst till Service Bus-resurser med specifika rättigheter. Läs mer om [Service Bus, autentisering och auktorisering](../service-bus-messaging/service-bus-authentication-and-authorization.md).
+Skydda Service Bus med hjälp av en SAS. Du kan använda [SAS-autentisering](../service-bus-messaging/service-bus-sas.md) att ge en användaråtkomst till Service Bus-resurser med specifika rättigheter. Mer information finns i [Service Bus, autentisering och auktorisering](../service-bus-messaging/service-bus-authentication-and-authorization.md).
 
-Dessutom bör en Service Bus-kö måste visas som en HTTP-slutpunkt (så att publicera nya meddelanden), API Management bör användas för att skydda den med fronting slutpunkten. Detta kan sedan skyddas med certifikat eller OAuth efter behov. Det enklaste sättet att göra det använder en Logikapp med en HTTP-begäran/svar-utlösare som en mellanhand.
+Om en Service Bus-kö måste visas som en HTTP-slutpunkt (för att publicera nya meddelanden), bör du använda API Management för att skydda den av fronting slutpunkten. Slutpunkten kan sedan skyddas med certifikat eller OAuth efter behov. Det enklaste sättet att skydda en slutpunkt är med hjälp av en logikapp med en HTTP-begäran/svar-utlösare som en mellanhand.
 
-Event Grid skyddar händelseleverans via en kod för verifiering. Om du använder LogicApps förbruka händelsen utförs detta automatiskt. Läs mer om [Event Grid säkerhet och autentisering](../event-grid/security-authentication.md).
+Event Grid skyddar händelseleverans via en kod för verifiering. Om du använder Logic Apps för att använda händelsen utförs verifieringen automatiskt. Mer information finns i [Event Grid säkerhet och autentisering](../event-grid/security-authentication.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Enkel Enterprise-Integration](logic-apps-architectures-simple-enterprise-integration.md)
+- Lär dig mer om [enkel enterprise-integration](logic-apps-architectures-simple-enterprise-integration.md).

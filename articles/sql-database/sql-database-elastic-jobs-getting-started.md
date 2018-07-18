@@ -1,46 +1,51 @@
 ---
-title: Komma igång med elastisk databas jobb | Microsoft Docs
-description: Använd elastisk databas jobb för att köra T-SQL-skript som sträcker sig över flera databaser.
+title: Komma igång med elastic database-jobb | Microsoft Docs
+description: Använd elastic database-jobb för att köra T-SQL-skript som sträcker sig över flera databaser.
 services: sql-database
 manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: sstein
-ms.openlocfilehash: 4f12c3353ca4949b3c1c031420ec5a0b8fdb2dbf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 8b03d228464978995a7a97e2f245b629b52ed812
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649160"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093169"
 ---
-# <a name="getting-started-with-elastic-database-jobs"></a>Komma igång med jobb för elastisk databas
-Elastiska databasen jobb (förhandsversion) för Azure SQL Database kan du köra T-SQL-skript som sträcker sig över flera databaser när du försöker och ge garantier för eventuell slutförande automatiskt på ett tillförlitligt sätt. Mer information om funktionen för elastisk databas jobb finns [elastiska jobb](sql-database-elastic-jobs-overview.md).
+# <a name="getting-started-with-elastic-database-jobs"></a>Komma igång med Elastic Database-jobb
 
-Den här artikeln utökar exemplet hittades i [komma igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md). När du är klar, lär du dig att skapa och hantera jobb som hanterar en grupp av relaterade databaser. Du behöver inte använda verktygen elastisk skalbarhet för att kunna dra nytta av fördelarna med elastiska jobb.
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
+Elastic Database-jobb (förhandsversion) för Azure SQL Database kan du tillförlitligt köra T-SQL-skript som sträcker sig över flera databaser samtidigt som du försöker igen och ge garantier för slutlig slutförande automatiskt. Mer information om funktionen för Elastic Database-jobb finns i [elastiska jobb](sql-database-elastic-jobs-overview.md).
+
+Den här artikeln utökar exemplet finns i [komma igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md). När du är klar kan du se hur du skapar och hanterar jobb som hanterar en grupp med relaterade databaser. Du behöver inte använda verktyg för elastisk skalning för att kunna dra nytta av fördelarna med elastiska jobb.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Hämta och kör den [komma igång med elastisk databas verktyg exempel](sql-database-elastic-scale-get-started.md).
+Ladda ned och kör den [komma igång med Elastic Database-verktyg exempel](sql-database-elastic-scale-get-started.md).
 
-## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Skapa en Fragmentera kartan manager med sample-appen
-Här skapar du en mappning Fragmentera manager tillsammans med flera delar, följt av infogning av data till shards. Om du redan har shards med shardade data i dem kan du hoppa över följande steg och flytta till nästa avsnitt.
+## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Skapa en shard kartan manager med hjälp av exempelappen
+Här skapa du en skärvkarta manager tillsammans med flera shards, följt av inmatningen av data i shards. Om du redan har shards som konfigurerats med shardade data i dem kan du hoppa över följande steg och flytta till nästa avsnitt.
 
 1. Skapa och köra den **komma igång med elastiska Databasverktyg** exempelprogrammet. Följ stegen tills steg 7 i avsnittet [ladda ned och kör exempelappen](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). I slutet av steg 7 Se följande kommandotolk:
 
    ![kommandotolk](./media/sql-database-elastic-query-getting-started/cmd-prompt.png)
 
-2. I Kommandotolken, Skriv ”1” och tryck på **RETUR**. Detta skapar Fragmentera kartan manager och lägger till två delar i server. Sedan skriver ”3” och tryck på **RETUR**; Upprepa åtgärden fyra gånger. Detta infogar exempel datarader i din shards.
-3. Den [Azure-portalen](https://portal.azure.com) tre nya databaser som ska visas:
+2. Skriv ”1” i kommandofönstret och tryck på **RETUR**. Detta skapar fragmentet kartan manager och lägger till två fragment till servern. Skriv ”3” och tryck på sedan **RETUR**; och upprepa åtgärden fyra gånger. Detta infogar rader med exempel data i din fragment.
+3. Den [Azure-portalen](https://portal.azure.com) ska visa tre nya databaser:
 
    ![Visual Studio-bekräftelse](./media/sql-database-elastic-query-getting-started/portal.png)
 
-   Nu skapar vi en anpassad databas-samling som visar alla databaser i kartan Fragmentera. Detta gör att vi kan skapa och köra ett jobb som lägger till en ny tabell över shards.
+   Nu kan skapa vi en anpassad databas-samling som visar alla databaser i fragmentkartan. På så sätt kan vi skapa och köra ett jobb som lägger till en ny tabell över shards.
 
-Här kan vi skulle vanligtvis skapa en karta Fragmentera mål med hjälp av den **ny AzureSqlJobTarget** cmdlet. Fragmentera kartan manager-databasen måste anges som ett mål för databasen och sedan kartan specifika Fragmentera har angetts som mål. I stället det dags att räkna upp alla databaser på servern och lägga till databaserna till den nya anpassa samlingen med undantag för master-databasen.
+Här vi vanligtvis skulle skapa en skärvkarta mål med hjälp av den **New AzureSqlJobTarget** cmdlet. Databasen måste anges som ett mål för databasen och sedan specifika fragmentkartan har angetts som mål. I stället det dags att räkna upp alla databaser på servern och lägga till databaserna till den nya anpassa samlingen med undantag för master-databasen.
 
-## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Skapar en anpassad samling och lägger till alla databaser på servern till målet med undantag för master anpassad samling.
+## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Skapar en anpassad samling och lägger till alla databaser på servern till målet för anpassad insamling med undantag för master.
    ```
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
@@ -124,7 +129,7 @@ Här kan vi skulle vanligtvis skapa en karta Fragmentera mål med hjälp av den 
     Write-Output $script
    ```
 
-## <a name="create-the-job-to-execute-a-script-across-the-custom-group-of-databases"></a>Skapa jobb för att köra ett skript på den anpassade gruppen av databaser
+## <a name="create-the-job-to-execute-a-script-across-the-custom-group-of-databases"></a>Skapa jobb för att köra ett skript för anpassad grupp med databaser
 
    ```
     $jobName = "create on server dbs"
@@ -139,7 +144,7 @@ Här kan vi skulle vanligtvis skapa en karta Fragmentera mål med hjälp av den 
 ## <a name="execute-the-job"></a>Kör jobbet
 Följande PowerShell-skript kan användas för att köra ett befintligt jobb:
 
-Uppdatera följande variabel för att återspegla önskade Jobbnamnet som har köras:
+Uppdatera följande variabel för att återspegla det önskade Jobbnamnet för att har genomfört:
 
    ```
     $jobName = "create on server dbs"
@@ -147,8 +152,8 @@ Uppdatera följande variabel för att återspegla önskade Jobbnamnet som har k�
     Write-Output $jobExecution
    ```
 
-## <a name="retrieve-the-state-of-a-single-job-execution"></a>Hämta tillståndet för en enskild jobbkörningen
-Använda samma **Get-AzureSqlJobExecution** med den **IncludeChildren** parametern för att visa status för underordnade jobbet körningar, nämligen ett visst tillstånd för varje jobbkörningen mot varje databas som mål för jobbet.
+## <a name="retrieve-the-state-of-a-single-job-execution"></a>Hämta tillståndet för en enskild jobbkörning
+Använd samma **Get-AzureSqlJobExecution** cmdlet med den **IncludeChildren** parameter för att visa status för underordnade jobbkörningar, nämligen ett visst tillstånd för varje jobbkörning mot varje databas mål för jobbet.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -156,29 +161,29 @@ Använda samma **Get-AzureSqlJobExecution** med den **IncludeChildren** paramete
     Write-Output $jobExecutions
    ```
 
-## <a name="view-the-state-across-multiple-job-executions"></a>Visa status över flera jobb körningar
-Den **Get-AzureSqlJobExecution** cmdlet har flera valfria parametrar som kan användas för att visa flera jobb körningar, filtreras via de angivna parametrarna. Följande visar några av de möjliga sätt att använda Get-AzureSqlJobExecution:
+## <a name="view-the-state-across-multiple-job-executions"></a>Visa status över flera jobbkörningar
+Den **Get-AzureSqlJobExecution** cmdlet har flera valfria parametrar som kan användas för att visa flera jobbkörningar filtreras via de angivna parametrarna. Nedan visas några av de möjliga sätten att använda Get-AzureSqlJobExecution:
 
-Hämta alla aktiva översta jobbet körningar:
+Hämta alla aktiva översta jobbkörningar:
 
    ```
     Get-AzureSqlJobExecution
    ```
 
-Hämta alla översta jobbet körningar, inklusive inaktiva jobb körningar:
+Hämta alla översta jobbkörningar, inklusive inaktiva jobbkörningar:
 
    ```
     Get-AzureSqlJobExecution -IncludeInactive
    ```
 
-Hämta alla underordnade jobbet körningar av en tillhandahållna jobbet körnings-ID, inklusive inaktiva jobb körningar:
+Hämta alla underordnade jobbkörningar av en tillhandahållna jobbet körnings-ID, inklusive inaktiva jobbkörningar:
 
    ```
     $parentJobExecutionId = "{Job Execution Id}"
     Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId -IncludeInactive -IncludeChildren
    ```
 
-Hämta alla jobb körningar som skapats med hjälp av ett schema / jobb tillsammans med inaktiva jobb:
+Hämta alla jobbkörningar som skapats med hjälp av ett schema / jobb tillsammans med inaktiva jobb:
 
    ```
     $jobName = "{Job Name}"
@@ -186,7 +191,7 @@ Hämta alla jobb körningar som skapats med hjälp av ett schema / jobb tillsamm
     Get-AzureSqlJobExecution -JobName $jobName -ScheduleName $scheduleName -IncludeInactive
    ```
 
-Hämta alla jobb som mål för en angiven Fragmentera karta, inklusive inaktiva jobb:
+Hämta alla jobb som riktar in sig på en angiven fragmentkartan, inklusive inaktiva jobb:
 
    ```
     $shardMapServerName = "{Shard Map Server Name}"
@@ -196,7 +201,7 @@ Hämta alla jobb som mål för en angiven Fragmentera karta, inklusive inaktiva 
     Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
    ```
 
-Hämta alla jobb som mål för en angiven anpassad samling, inklusive inaktiva jobb:
+Hämta alla jobb som riktar in sig på en angiven anpassade samling, inklusive inaktiva jobb:
 
    ```
     $customCollectionName = "{Custom Collection Name}"
@@ -204,7 +209,7 @@ Hämta alla jobb som mål för en angiven anpassad samling, inklusive inaktiva j
     Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
    ```
 
-Hämta listan över jobb uppgiften körningar inom en specifik jobbkörningen:
+Hämta listan över uppgiften jobbkörningar i en specifik jobbkörningen:
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -212,17 +217,17 @@ Hämta listan över jobb uppgiften körningar inom en specifik jobbkörningen:
     Write-Output $jobTaskExecutions
    ```
 
-Hämta jobb aktivitetsinformation körning:
+Hämta information om jobbkörningar uppgift:
 
-Följande PowerShell-skript kan användas för att visa information om ett jobb för körning av aktiviteten, vilket är särskilt användbart när körningen felsökningsändamål.
+Följande PowerShell-skript kan användas för att visa information om jobbaktiviteter, vilket är särskilt användbart när du felsöker fel vid körning.
    ```
     $jobTaskExecutionId = "{Job Task Execution Id}"
     $jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
     Write-Output $jobTaskExecution
    ```
 
-## <a name="retrieve-failures-within-job-task-executions"></a>Hämta fel i jobb uppgiften körningar
-Objektet JobTaskExecution innehåller en egenskap för livscykeln för uppgiften tillsammans med en meddelandeegenskap. Om ett jobb för körning av aktiviteten misslyckades livscykel-egenskapen anges till *misslyckades* och meddelandeegenskapen är inställd på resulterande Undantagsmeddelandet och dess stacken. Om ett jobb misslyckades, är det viktigt att visa information om jobbuppgifter som misslyckades för ett visst jobb.
+## <a name="retrieve-failures-within-job-task-executions"></a>Hämta programfel i jobbkörningar för uppgift
+Objektet JobTaskExecution innehåller en egenskap för livscykeln för uppgiften tillsammans med en meddelandeegenskap. Om ett jobb för körning av aktiviteten misslyckades livscykel-egenskapen är inställd *misslyckades* och meddelandeegenskapen är inställt på det resulterande Undantagsmeddelandet och dess stack. Om ett jobb inte lyckades, är det viktigt att visa information om jobbuppgifter som misslyckades för ett visst jobb.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -236,8 +241,8 @@ Objektet JobTaskExecution innehåller en egenskap för livscykeln för uppgiften
         }
    ```
 
-## <a name="waiting-for-a-job-execution-to-complete"></a>Väntar på att ett jobbkörning ska slutföras
-Följande PowerShell-skript kan användas för att vänta på en projektaktivitet att slutföra:
+## <a name="waiting-for-a-job-execution-to-complete"></a>Väntar på en jobbkörningen ska slutföras
+Följande PowerShell-skript kan användas för att vänta tills åtgärden ett jobb har slutförts:
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -245,24 +250,24 @@ Följande PowerShell-skript kan användas för att vänta på en projektaktivite
    ```
 
 ## <a name="create-a-custom-execution-policy"></a>Skapa en princip för anpassad körning
-Den elastiska databasen jobb kan du skapa anpassade körningsprinciper som kan användas när du startar jobb.
+Elastic Database-jobb kan du skapa anpassade körningsprinciper som kan användas när du startar jobb.
 
-Körningsprinciper tillåter för närvarande för att definiera:
+För närvarande tillåter körningsprinciper för att definiera:
 
 * Namn: Identifierare för körningsprincipen.
-* Tidsgräns för jobb: Total tid innan ett jobb har avbrutits av elastiska databasen jobb.
-* Inledande återförsöksintervall: Intervall ska vänta innan nytt försök görs.
-* Maximal återförsöksintervall: Locket återförsöksintervall ska användas.
-* Försök intervall Backoff värde: Värde används för att beräkna nästa intervall mellan försök.  Följande formel används: (första försök intervall) * Math.pow ((intervall Backoff värde) (antal nya försök) - 2).
-* Maximalt antal försök: Maximalt antal försök försöker utföra inom ett jobb.
+* Tidsgräns för jobb: Total tid innan ett jobb har avbrutits av Elastic Database-jobb.
+* Inledande återförsöksintervallet: Intervall ska gå innan nytt försök görs.
+* Maximalt återförsöksintervall: Tak för återförsöksintervall att använda.
+* Gör om intervallet Backoff koefficienten: Koefficienten som används för att beräkna nästa intervall mellan försök.  Följande formel används: (inledande återförsöksintervallet) * Math.pow ((intervall Backoff koefficienten) (antal nya försök) – 2).
+* Maximalt antal försök: Det maximala antalet återförsök försöker utföra i ett jobb.
 
-Standard-körningsprincipen används följande värden:
+RemoteSigned använder följande värden:
 
-* Namn: Standardprincipen för körning
+* Namn: RemoteSigned
 * Tidsgräns för jobb: 1 vecka
-* Inledande återförsöksintervall: 100 millisekunder
-* Maximal återförsöksintervall: 30 minuter
-* Försök intervall värde: 2
+* Inledande återförsöksintervallet: 100 millisekunder
+* Maximalt återförsöksintervall: 30 minuter
+* Försök intervall koefficienten: 2
 * Maximalt antal försök: 2 147 483 647
 
 Skapa önskade körningsprincipen:
@@ -278,7 +283,7 @@ Skapa önskade körningsprincipen:
     Write-Output $executionPolicy
    ```
 
-### <a name="update-a-custom-execution-policy"></a>Uppdatera en anpassad körningsprincip
+### <a name="update-a-custom-execution-policy"></a>Uppdatera en anpassad körningsprincipen
 Uppdatera önskade körningsprincipen att uppdatera:
 
    ```
@@ -293,38 +298,38 @@ Uppdatera önskade körningsprincipen att uppdatera:
    ```
 
 ## <a name="cancel-a-job"></a>Avbryta ett jobb
-Den elastiska databasen jobb stöder jobb annullering begäranden.  Om den elastiska databasen jobb upptäcker en begäran om att avbryta ett jobb som körs, försöker stoppa jobbet.
+Elastic Database-jobb har stöd för begäranden för annullering av jobb.  Om elastiska Databasjobb upptäcker en avbrottsbegäran för ett jobb som körs, försöker stoppa jobbet.
 
-Det finns två olika sätt att elastiska databasen jobb kan utföra en annullering:
+Det finns två olika sätt att Elastic Database-jobb kan utföra en uppsägning:
 
-1. Avbryta pågående aktiviteter: om en annullering identifieras när en aktivitet körs för närvarande en annullering prövas inom körs aspekt av aktiviteten.  Exempel: om det finns en tidskrävande fråga som för närvarande utförs när en annullering görs, det finns ett försök att avbryta frågan.
-2. Annullering återförsök för aktiviteten: Om en annullering identifieras av kontrollen tråd innan en uppgift startas för körning av kontrollen tråden undviker starta uppgiften och deklarera begäran som avbruten.
+1. Avbryta pågående aktiviteter: om ett avbrott identifieras när en aktivitet körs för närvarande en uppsägning prövas inom körs för närvarande aspekt av aktiviteten.  Till exempel: om det finns en tidskrävande fråga som för närvarande utförs när en uppsägning görs, det är ett försök att avbryta frågan.
+2. Annullerad omförsök: Om ett avbrott identifieras av kontroll tråden innan en aktivitet startas för körning, kontroll tråden undviker starta uppgiften och deklarera begäran som har avbrutits.
 
-Om det krävs en annullering av jobbet för överordnade jobb är begäran om att avbryta funktion för överordnade jobb och alla dess underordnade jobb.
+Om ett jobb avbrott har begärts för ett överordnat jobb, är på avbrottsbegäran användas för det överordnade jobbet och alla dess underordnade jobb.
 
-För att skicka en begäran om att avbryta, Använd den **stoppa AzureSqlJobExecution** cmdlet och ange den **JobExecutionId** parameter.
+För att skicka en begäran om annullering, använda den **Stop-AzureSqlJobExecution** cmdleten och ange den **JobExecutionId** parametern.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
-## <a name="delete-a-job-by-name-and-the-jobs-history"></a>Ta bort ett jobb efter namn och den jobbhistorik
-Den elastiska databasen jobb stöder asynkrona borttagning av jobb. Ett jobb kan vara markerad för borttagning och systemet tar bort jobbet och alla dess jobbhistorik när alla jobb körningar har slutförts för jobbet. Systemet avbryter inte aktiva jobb körningar automatiskt.  
+## <a name="delete-a-job-by-name-and-the-jobs-history"></a>Ta bort ett jobb efter namn och jobbets historik
+Elastic Database-jobb har stöd för asynkrona borttagning av jobb. Ett jobb kan markeras för borttagning och systemet tar bort jobbet och alla dess jobbhistorik när alla jobbkörningar har slutfört för projektet. Systemet avbryts inte active jobbkörningar automatiskt.  
 
-Stoppa AzureSqlJobExecution måste i stället anropas om du vill avbryta aktiva jobb körningar.
+Stoppa AzureSqlJobExecution måste i stället anropas om du vill avbryta active jobbkörningar.
 
-Utlös borttagning av jobbet genom att använda den **ta bort AzureSqlJob** cmdlet och ange den **jobbnamn** parameter.
+För att utlösa jobbet tas bort, Använd den **Remove-AzureSqlJob** cmdleten och ange den **JobName** parametern.
 
    ```
     $jobName = "{Job Name}"
     Remove-AzureSqlJob -JobName $jobName
    ```
 
-## <a name="create-a-custom-database-target"></a>Skapa en anpassad databas mål
-Anpassad databas mål kan definieras i jobb för elastisk databas som kan användas för att köras direkt eller som ska ingå i en anpassad databas-grupp. Eftersom **elastiska pooler** ännu direkt stöds inte via PowerShell-APIs du helt enkelt skapa en anpassad databas mål och anpassad databas samling mål som omfattar alla databaser i poolen.
+## <a name="create-a-custom-database-target"></a>Skapa en anpassad databas-mål
+Anpassad databas mål kan definieras i Elastic Database-jobb som kan användas för körning direkt eller ska ingå i en anpassad databas-grupp. Eftersom **elastiska pooler** ännu direkt stöds inte via PowerShell-APIs du helt enkelt skapa en anpassad databas mål och anpassad databas samling mål som omfattar alla databaser i poolen.
 
-Ange följande variabler återspeglar den önskade databasinformationen:
+Ange följande variabler för att återspegla den önskade databasinformationen:
 
    ```
     $databaseName = "{Database Name}"
@@ -333,19 +338,19 @@ Ange följande variabler återspeglar den önskade databasinformationen:
    ```
 
 ## <a name="create-a-custom-database-collection-target"></a>Skapa en anpassad databas samling mål
-En anpassad databas samling mål kan definieras för att möjliggöra körning över flera definierade databasen mål. När du har skapat en databasgrupp kan databaser vara kopplad till anpassade samlingar målet.
+En anpassad databas samling mål kan du definiera om du vill aktivera körning över flera definierade databasen mål. När du har skapat en grupp kan databaser associeras till målet för anpassad insamling.
 
-Ange följande variabler önskade anpassade samlingar mål konfiguration:
+Ange följande variabler på önskad anpassad samling target konfiguration:
 
    ```
     $customCollectionName = "{Custom Database Collection Name}"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
    ```
 
-### <a name="add-databases-to-a-custom-database-collection-target"></a>Lägga till databaser till en anpassad databas samling mål
-Databasen mål kan vara associerat med anpassad databas samling mål för att skapa en grupp databaser. När ett jobb skapas som en anpassad databas samling mål, objektet om du vill anpassa databaserna som är associerade med gruppen vid tidpunkten för körning.
+### <a name="add-databases-to-a-custom-database-collection-target"></a>Lägga till databaser i en anpassad databas samling mål
+Mål för databasen kan associeras med anpassad databas samling mål att skapa en grupp med databaser. När ett jobb skapas som har ett mål för anpassad databas-samling, har detta utökats för att rikta databaser som är kopplad till gruppen vid tidpunkten för körning.
 
-Lägg till rätt databas i en specifik egen samling:
+Lägg till rätt databas i en specifik anpassade samling:
 
    ```
     $serverName = "{Database Server Name}"
@@ -354,8 +359,8 @@ Lägg till rätt databas i en specifik egen samling:
     Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName
    ```
 
-#### <a name="review-the-databases-within-a-custom-database-collection-target"></a>Granska databaser i en anpassad databas samling målet
-Använd den **Get-AzureSqlJobTarget** för att hämta underordnade databaser i en anpassad databas samling målet.
+#### <a name="review-the-databases-within-a-custom-database-collection-target"></a>Granska databaserna i en anpassad databas samling mål
+Använd den **Get-AzureSqlJobTarget** cmdlet för att hämta underordnade databaserna i en anpassad databas samling mål.
 
    ```
     $customCollectionName = "{Custom Database Collection Name}"
@@ -365,7 +370,7 @@ Använd den **Get-AzureSqlJobTarget** för att hämta underordnade databaser i e
    ```
 
 ### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Skapa ett jobb för att köra ett skript i en anpassad databas samling mål
-Använd den **ny AzureSqlJob** för att skapa ett jobb mot en grupp databaser som definieras av en anpassad databas samling mål. Den elastiska databasen jobb expanderas jobbet till flera underordnade jobb varje motsvarar en databas som är associerade med samlingen målet anpassad databas och se till att skriptet körs mot varje databas. Igen, är det viktigt att skripten har idempotent för att hantera att återförsök.
+Använd den **New AzureSqlJob** cmdlet för att skapa ett jobb mot en grupp med databaser som definieras av en anpassad databas samling mål. Elastic Database-jobb kan utökas jobbet i flera underordnade jobb varje motsvarar en databas som är associerade med anpassad databas samling mål och se till att skriptet körs mot varje databas. Igen, är det viktigt att skripten är idempotenta för att hantera att återförsök.
 
    ```
     $jobName = "{Job Name}"
@@ -377,14 +382,14 @@ Använd den **ny AzureSqlJob** för att skapa ett jobb mot en grupp databaser so
     Write-Output $job
    ```
 
-## <a name="data-collection-across-databases"></a>Insamling av data över databaser
-**Den elastiska databasen jobb** stöder köra en fråga i en grupp med databaser och skickar resultatet till en angiven databastabell. Tabellen kan efterfrågas efter faktumet att se resultatet av frågan från varje databas. Detta ger en asynkron metod för att köra en fråga över flera databaser. Fel fall, till exempel en av databaserna som för tillfället otillgänglig hanteras automatiskt via återförsök.
+## <a name="data-collection-across-databases"></a>Insamling av data mellan databaser
+**Elastic Database-jobb** stöder kör en fråga för en grupp med databaser och skickar resultatet till en angiven databastabell. Tabellen kan frågas efter faktumet att se resultatet av frågan från varje databas. Detta är en asynkron mekanism för att köra en fråga över flera databaser. Fel fall, till exempel en av databaserna är inte tillgänglig för tillfället hanteras automatiskt via återförsök.
 
-Den angivna tabellen skapas automatiskt om den inte ännu finns, matchar schemat för den returnerade resultatuppsättningen. Om en skriptkörningen returnerar flera resultatmängder skickar elastisk databas jobb bara det första till den angivna måltabellen.
+Den angivna tabellen skapas automatiskt om det inte finns ännu, matchar schemat för den returnerade resultatuppsättningen. Om en körning av skript returnerar flera resultatmängder, skickar elastiska databasjobb endast den första som den angivna tabellen.
 
-Följande PowerShell-skript kan användas för att köra ett skript som samlar in resultaten till en angiven tabell. Det här skriptet förutsätter att ett T-SQL-skript har skapats som matar ut en enda resultatmängd och ett mål för insamling av anpassad databas har skapats.
+Följande PowerShell-skript kan användas för att köra ett skript som samlar in resultaten till en angiven tabell. Det här skriptet förutsätter att du har skapat ett T-SQL-skript som matar ut en enda resultatmängd och ett mål för insamling av anpassad databas har skapats.
 
-Ange följande för att återspegla önskade skript, autentiseringsuppgifter och mål för körning:
+Ange följande för att återspegla den önskade skript, autentiseringsuppgifter och körningsmål:
 
    ```
     $jobName = "{Job Name}"
@@ -399,7 +404,7 @@ Ange följande för att återspegla önskade skript, autentiseringsuppgifter och
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
    ```
 
-### <a name="create-and-start-a-job-for-data-collection-scenarios"></a>Skapa och starta ett jobb för scenarion för insamling av data
+### <a name="create-and-start-a-job-for-data-collection-scenarios"></a>Skapa och starta ett jobb för insamling av datascenarier
    ```
     $job = New-AzureSqlJob -JobName $jobName -CredentialName $executionCredentialName -ContentName $scriptName -ResultSetDestinationServerName $destinationServerName -ResultSetDestinationDatabaseName $destinationDatabaseName -ResultSetDestinationSchemaName $destinationSchemaName -ResultSetDestinationTableName $destinationTableName -ResultSetDestinationCredentialName $destinationCredentialName -TargetId $target.TargetId
     Write-Output $job
@@ -407,8 +412,8 @@ Ange följande för att återspegla önskade skript, autentiseringsuppgifter och
     Write-Output $jobExecution
    ```
 
-## <a name="create-a-schedule-for-job-execution-using-a-job-trigger"></a>Skapa ett schema för jobbkörningen med en utlösare för jobb
-Följande PowerShell-skript kan användas för att skapa ett reoccurring schema. Det här skriptet använder en minuts intervall, men ny AzureSqlJobSchedule stöder också - DayInterval, - HourInterval, - MonthInterval, och WeekInterval - parametrar. Scheman som kör en gång kan skapas med skicka - görs.
+## <a name="create-a-schedule-for-job-execution-using-a-job-trigger"></a>Skapa ett schema för jobbkörning med en utlösare som jobb
+Följande PowerShell-skript kan användas för att skapa ett återkommande schema. Det här skriptet använder en minuts intervall, men New-AzureSqlJobSchedule stöder också - DayInterval, - HourInterval, - MonthInterval, och -WeekInterval parametrar. Scheman som kör bara en gång kan skapas av skicka - genomfört.
 
 Skapa ett nytt schema:
    ```
@@ -419,10 +424,10 @@ Skapa ett nytt schema:
     Write-Output $schedule
    ```
 
-### <a name="create-a-job-trigger-to-have-a-job-executed-on-a-time-schedule"></a>Skapa en utlösare för jobbet om du vill att ett jobb som körs på en tidsplan
-En utlösare för jobbet kan definieras om du vill att ett jobb som körs enligt ett schema med tiden. Följande PowerShell-skript kan användas för att skapa en utlösare för jobbet.
+### <a name="create-a-job-trigger-to-have-a-job-executed-on-a-time-schedule"></a>Skapa en utlösare som jobb ska ha ett jobb som körs på en tidsplan
+En utlösare för jobbet kan definieras för ett jobb som körs enligt ett schema. Följande PowerShell-skript kan användas för att skapa en utlösare för jobbet.
 
-Ange följande variabler som motsvarar den önskade jobbet och schema:
+Ange följande variabler på motsvarar önskad jobbet och schema:
 
    ```
     $jobName = "{Job Name}"
@@ -431,9 +436,9 @@ Ange följande variabler som motsvarar den önskade jobbet och schema:
     Write-Output $jobTrigger
    ```
 
-### <a name="remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Ta bort en schemalagd association att avbryta jobbet körs enligt schema
-Jobbet utlösaren kan tas bort för att avbryta igen jobbkörningen via en utlösare för jobbet.
-Ta bort utlösaren jobbet om du vill stoppa ett jobb från utförs enligt ett schema som använder den **ta bort AzureSqlJobTrigger** cmdlet.
+### <a name="remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Ta bort en schemalagd kopplingen att avbryta jobbet från att köras på schema
+Jobbet utlösaren kan tas bort för att avbryta körningen av återkommande jobb via en utlösare för jobbet.
+Ta bort jobbet utlösaren om du vill stoppa ett jobb från som körs enligt ett schema med hjälp av den **Remove-AzureSqlJobTrigger** cmdlet.
 
    ```
     $jobName = "{Job Name}"
@@ -446,24 +451,24 @@ Ta bort utlösaren jobbet om du vill stoppa ett jobb från utförs enligt ett sc
 
 1. Starta Excel 2013.
 2. Navigera till den **Data** menyfliksområdet.
-3. Klicka på **från andra källor** och på **från SQL Server**.
+3. Klicka på **från andra källor** och klicka på **från SQL Server**.
 
    ![Excel-import från andra källor](./media/sql-database-elastic-query-getting-started/exel-sources.png)
 
-4. I den **Dataanslutningsguiden** skriver server servernamn och inloggningsuppgifter. Klicka sedan på **Nästa**.
-5. I dialogrutan **Markera databasen som innehåller de data som du vill**, Välj den **ElasticDBQuery** databas.
-6. Välj den **kunder** tabell i listan och klickar på **nästa**. Klicka på **Slutför**.
-7. I den **importera Data** formuläret under **Välj hur du vill visa data i arbetsboken**väljer **tabell** och på **OK**.
+4. I den **Dataanslutningsguiden** skriver du servernamnet och inloggningsuppgifter för servern. Klicka sedan på **Nästa**.
+5. I dialogrutan **Markera databasen som innehåller de data du vill**väljer den **ElasticDBQuery** databas.
+6. Välj den **kunder** tabellen i listvyn och klicka på **nästa**. Klicka sedan på **Slutför**.
+7. I den **importdata** formuläret under **Välj hur du vill visa data i din arbetsbok**väljer **tabell** och klicka på **OK**.
 
-Alla rader från **kunder** tabell som sparas i olika delar fylla i Excel-blad.
+Alla rader från **kunder** tabell, lagras i olika shards fylla i Excel-blad.
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan nu använda Excel-data. Använda anslutningssträngen med servernamnet, databasnamnet och autentiseringsuppgifter för att ansluta din verktyg för BI och integrering till elastisk fråga databas. Kontrollera att SQL Server stöds som en datakälla för verktyget du behöver. Referera till elastisk fråga databas och externa tabeller precis som andra SQL Server-databas och SQL Server-tabeller som du vill ansluta till med din-verktyget.
+Du kan nu använda Excel-data. Använd anslutningssträngen med servernamnet, databasnamnet och autentiseringsuppgifter för att ansluta din integreringsverktyg BI och data till elastisk fråga i databasen. Kontrollera att SQL Server stöds som en datakälla för ditt verktyg. Se elastisk fråga databas och externa tabeller precis som andra SQL Server-databas och SQL Server-tabeller som du vill ansluta till med verktyg.
 
 ### <a name="cost"></a>Kostnad
-Det finns utan extra kostnad för att använda funktionen för elastisk databas frågan. Dock just nu den här funktionen är bara tillgängliga på Premium- och Business kritiska (förhandsgranskning) databaser och elastiska pooler som en slutpunkt, men delar som kan vara av en tjänstnivå.
+Det finns ingen extra kostnad för att använda funktionen för Elastic Database-fråga. Men just nu den här funktionen är endast tillgänglig på Premium- och affärskritiska databaser och elastiska pooler som en slutpunkt, men shards kan vara av valfri tjänstnivå.
 
-Mer information om priser finns [prisinformation för SQL-databasen](https://azure.microsoft.com/pricing/details/sql-database/).
+Information om priser finns i [prisinformation för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

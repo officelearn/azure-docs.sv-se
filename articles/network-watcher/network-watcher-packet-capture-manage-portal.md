@@ -1,6 +1,6 @@
 ---
-title: Hantera paket insamlingar med Nätverksbevakaren Azure - Azure-portalen | Microsoft Docs
-description: Den här sidan förklarar hur du hanterar funktionen paket avbildning i Nätverksbevakaren med hjälp av Azure portal
+title: Hantera infångade paket med Azure Network Watcher - Azure-portalen | Microsoft Docs
+description: Den här sidan förklarar hur du hanterar paket avbildningsfunktionen i Network Watcher med hjälp av Azure portal
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,136 +14,135 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 508b9e7eef757277d4bc0e93a26f3a63045f31e4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 18e5f8eda51f8834f6346eef3d7ad31bc556290a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187539"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090205"
 ---
-# <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Hantera paket insamlingar med Azure Nätverksbevakaren med hjälp av portalen
+# <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Hantera infångade paket med Azure Network Watcher med hjälp av portalen
 
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
+> - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
 > - [Azure REST-API](network-watcher-packet-capture-manage-rest.md)
 
-Nätverket Watcher paketinsamling kan du skapa avbildning sessioner för att spåra trafik till och från en virtuell dator. Filter har angetts för hämtningens så du fångar upp trafiken som du vill använda. Det hjälper dig för att diagnostisera nätverk avvikelser reaktivt och proaktivt paketinsamling. Andra användningsområden omfattar att samla in nätverksstatistik får information om nätverket intrång felsöka klient-/ serverkommunikation och mycket mer. Genom att via fjärranslutning utlösa paket insamlingar, underlättar den här funktionen för att köra en paketinsamling manuellt och på den önskade datorn, vilket sparar värdefull tid.
+Network Watcher-infångade kan du skapa avbildning sessioner för att spåra trafik till och från en virtuell dator. Filter tillhandahålls för avbildningssessionen att se till att du fångar upp trafiken som du vill. Det hjälper dig för att diagnostisera nätverk avvikelser både reaktivt och proaktivt infångade paket. Andra användningsområden är att samla in nätverksstatistik, få information om nätverk intrång, felsöka klient-/ serverkommunikation och mycket mer. Genom för att utlösa infångade paket via en fjärranslutning, förenklar med den här funktionen ansvaret för att köra ett infångat manuellt och på den önskade datorn, vilket sparar värdefull tid.
 
-Den här artikeln tar dig igenom de olika administrativa uppgifter som är tillgängliga för paketinsamling.
+Den här artikeln tar dig igenom de olika administrativa uppgifter som är tillgängliga för infångade paket.
 
-- [**Starta en paketinsamling**](#start-a-packet-capture)
-- [**Stoppa en paketinsamling**](#stop-a-packet-capture)
-- [**Ta bort en paketinsamling**](#delete-a-packet-capture)
-- [**Hämta en paketinsamling**](#download-a-packet-capture)
+- [**Starta ett infångat paket**](#start-a-packet-capture)
+- [**Stoppa ett infångat paket**](#stop-a-packet-capture)
+- [**Ta bort ett infångat paket**](#delete-a-packet-capture)
+- [**Ladda ned ett infångat paket**](#download-a-packet-capture)
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Den här artikeln förutsätter att du har följande resurser:
 
-- En instans av Nätverksbevakaren i den region som du vill skapa en paketinsamling
-- En virtuell dator med filnamnstillägget paket avbilda aktiverad.
+- En instans av Network Watcher i regionen som du vill skapa ett infångat paket
+- En virtuell dator med packet capture tillägget aktiverat.
 
 > [!IMPORTANT]
-> Paketinsamling kräver ett tillägg för virtuell dator `AzureNetworkWatcherExtension`. Installera tillägget på en Windows VM finns [tillägg för virtuell dator i Azure Network Watcher Agent för Windows](../virtual-machines/windows/extensions-nwa.md) och för Linux VM besöka [tillägg för virtuell dator i Azure Network Watcher Agent för Linux](../virtual-machines/linux/extensions-nwa.md).
+> Paketfångsten kräver tillägg för virtuell dator `AzureNetworkWatcherExtension`. Installera tillägget på en Windows-VM finns [tillägg för virtuell dator i Azure Network Watcher-Agent för Windows](../virtual-machines/windows/extensions-nwa.md) och Linux VM finns [tillägg för virtuell dator i Azure Network Watcher-Agent för Linux](../virtual-machines/linux/extensions-nwa.md).
 
-### <a name="packet-capture-agent-extension-through-the-portal"></a>Tillägget av paketet avbilda agent via portalen
+### <a name="packet-capture-agent-extension-through-the-portal"></a>Packet Capture agenttillägg via portalen
 
-För att installera paketet avbilda VM-agenten via portalen, navigerar du till den virtuella datorn, klickar du på **tillägg** > **Lägg till** och Sök efter **nätverk Watcher agenten för Windows**
+Om du vill installera packet capture VM-agenten via portalen, navigera till den virtuella datorn, klicka på **tillägg** > **Lägg till** och Sök efter **Network Watcher-Agent för Windows**
 
-![Visa Agent][agent]
+![Agent-vy][agent]
 
-## <a name="packet-capture-overview"></a>Översikt över avbildning av paket
+## <a name="packet-capture-overview"></a>Översikt över paket
 
-Navigera till den [Azure-portalen](https://portal.azure.com) och på **nätverk** > **Nätverksbevakaren** > **paket avbilda**
+Navigera till den [Azure-portalen](https://portal.azure.com) och klicka på **nätverk** > **Network Watcher** > **Paketfångst**
 
-Översiktssidan visas en lista över alla paket fångar som finns oavsett tillståndet.
+På översiktssidan visas en lista över alla paket fångar som finns oavsett status.
 
 > [!NOTE]
-> Paketinsamling kräver följande anslutningsbarhet.
-> * Utgående anslutning till lagringskontot via port 443.
+> Paketfångsten kräver följande conectivity.
+> * Utgående anslutning till lagringskonto via port 443.
 > * Inkommande och utgående anslutning till 169.254.169.254
 > * Inkommande och utgående anslutning till 168.63.129.16
 
-![paketet avbilda översiktsskärm][1]
+![Packet capture översiktsskärmen][1]
 
-## <a name="start-a-packet-capture"></a>Starta en paketinsamling
+## <a name="start-a-packet-capture"></a>Starta ett infångat paket
 
-Klicka på **Lägg till** att skapa en paketinsamling.
+Klicka på **Lägg till** att skapa ett infångat paket.
 
-De egenskaper som kan definieras på en paketinsamling är:
+De egenskaper som kan definieras på ett infångat paket finns:
 
-**Huvudinställningarna**
+**Viktigaste inställningar**
 
-- **Prenumerationen** -värdet är den prenumeration som används, krävs en instans av nätverksbevakaren i varje prenumeration.
-- **Resursgruppen** -resursgruppen för den virtuella datorn som bearbetas.
-- **Rikta virtuella** -den virtuella datorn som kör paketinsamling
-- **Avbilda paketnamn** -värdet är namnet på paketinsamling.
+- **Prenumeration** – det här värdet är den prenumeration som används, krävs en instans av network watcher i varje prenumeration.
+- **Resursgrupp** -resursgruppen för den virtuella datorn som bearbetas.
+- **Rikta VM** -den virtuella datorn som kör paketfångsten
+- **Namn på paketfångst** – det här värdet är namnet på infångandet paket.
 
-**Samla in konfiguration**
+**Avbilda konfiguration**
 
-- **Lokal filsökväg** -lokal sökväg på den virtuella datorn där paketinsamling sparas (endast giltigt när **[fil]** har valts). Du måste ange en giltig sökväg. Om du använder en Linux-dator sökvägen måste börja med / var / avbildas.
-- **Lagringskontot** -anger om paketinsamling sparas i ett lagringskonto.
-- **Filen** -avgör om en paketinsamling sparas lokalt på den virtuella datorn.
-- **Storage-konton** – markerat lagringskonto för att spara paketinsamling i. Standardplatsen är name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription https://{storage konto-id} /resourcegroups/ {resursgruppens name}/providers/microsoft.compute/virtualmachines/{virtual datornamn} / {åå} / {MM} / {DD} / packetcapture_ {HH}_{MM}_{SS} _ {XXX} CAP. (Endast aktiverad om **lagring** har valts)
-- **Lokal filsökväg** -lokal sökväg på en virtuell dator för att spara paketinsamling. (Endast aktiverad om **filen** har valts). En giltig sökväg måste anges. Sökvägen måste börja med för en virtuell Linux-dator, */var/samlar in*.
-- **Maximalt antal byte per paket** - antalet byte från varje paket som har hämtats avbildas alla byte om värdet är tomt.
-- **Maximalt antal byte per session** – Totalt antal byte som har hämtats när värdet är nådd paket avbilda stoppas.
-- **Tidsgräns (sekunder)** -anger en tidsgräns för paketinsamling att stoppa. Standardvärdet är 18000 sekunder.
+- **Lokal filsökväg** -lokal sökväg på den virtuella datorn där paketfångsten har sparats (endast giltigt när **[file]** har valts). Du måste ange en giltig sökväg. Om du använder en Linux-dator, sökvägen måste börja med / var / samlar in.
+- **Storage-konto** – avgör om paketfångsten sparas i ett lagringskonto.
+- **Filen** – avgör om ett infångat paket har sparats lokalt på den virtuella datorn.
+- **Storage-konton** – valt lagringskonto att spara infångade i. Standardplatsen är name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription https://{storage konto-id} /resourcegroups/ {resursgruppnamn för name}/providers/microsoft.compute/virtualmachines/{virtual för datorn} / {dd} / {MM} / {DD} / packetcapture_ {HH}_{MM}_{SS} _ {XXX} .cap. (Endast aktiverad om **Storage** har valts)
+- **Lokal filsökväg** – den lokala sökvägen på en virtuell dator för att spara paketfångsten. (Endast aktiverad om **filen** har valts). En giltig sökväg måste anges. Sökvägen måste börja med för en Linux-dator, */var/samlar in*.
+- **Maximalt antal byte per paket** - antalet byte från varje paket som har hämtats, samlas alla byte om det lämnas tomt.
+- **Maximalt antal byte per session** : Totalt antal byte som har hämtats, när värdet har nåtts packet capture stoppas.
+- **Tidsgräns (sekunder)** – anger en tidsgräns att stoppa paketfångsten. Standardvärdet är 18000 sekunder.
 
 > [!NOTE]
-> Premium-lagringskonton stöds inte för närvarande för lagring av paket avbildas.
+> Premium storage-konton stöds för närvarande inte för lagring av paket samlar in.
 
 **Filtrering (valfritt)**
 
-- **Protokollet** -protokollet för att filtrera för paket-avbildning. Tillgängliga värden är TCP, UDP och alla.
-- **Lokal IP-adress** -värdet filtrerar paketinsamling att paket där den lokala IP-adressen matchar den här filtervärdet.
-- **Lokal port** -värdet filtrerar paketinsamling att paket där den lokala porten matchar filtret värdet.
-- **IP-Fjärradress** -värdet filtrerar paketinsamling att paket där fjärranslutna IP-Adressen matchar den här filtervärdet.
-- **Fjärrport** -värdet filtrerar paketinsamling att paket där fjärrporten matchar filtret värdet.
+- **Protokollet** -protokollet för att filtrera för paketfångsten. Tillgängliga värden är TCP, UDP och alla.
+- **Lokal IP-adress** – det här värdet filtrerar infångade att paket där den lokala IP-adressen matchar den här filtervärde.
+- **Lokal port** – det här värdet filtrerar infångade att paket där den lokala porten som matchar den här filtervärde.
+- **IP-Fjärradress** – det här värdet filtrerar infångade att paket där fjärr-IP matchar den här filtervärde.
+- **Fjärrport** – det här värdet filtrerar infångade att paket där fjärrporten matchar den här filtervärde.
 
 > [!NOTE]
-> Värden för porten och IP-adress kan vara ett värde, värdeintervallet eller en uppsättning. (det vill säga 80 1024 för port) Du kan definiera så många filter som du vill.
+> Värden för port och IP-adress kan vara ett enda värde, intervallet för värden eller en uppsättning. (det vill säga 80 – 1024 för port) Du kan definiera så många filter som du vill ha.
 
-När värdena fylls, klickar du på **OK** att skapa paketinsamling.
+När värdena fylls, klickar du på **OK** att skapa paketfångsten.
 
-![Skapa en paketinsamling][2]
+![Skapa ett infångat paket][2]
 
-När tidsgränsen på paketinsamling har upphört att gälla paketinsamling stoppas och kan granskas. Du kan också manuellt stoppa paket insamlingar sessionerna.
+När tidsgränsen på paketfångsten har överskridits stoppar paketfångsten och kan granskas. Du kan också manuellt stoppa paket insamlingar sessioner.
 
-## <a name="delete-a-packet-capture"></a>Ta bort en paketinsamling
+## <a name="delete-a-packet-capture"></a>Ta bort ett infångat paket
 
-I vyn paket avbildning, klickar du på den **snabbmenyn** (...) eller högerklicka och klicka på **ta bort** att stoppa paketinsamling
+I vyn packet capture klickar du på den **snabbmenyn** (...) eller högerklickar och klickar på **ta bort** att stoppa paketfångsten
 
-![Ta bort en paketinsamling][3]
+![ta bort ett infångat paket][3]
 
 > [!NOTE]
-> Om du tar bort en paketinsamling tar inte bort filen i lagringskontot.
+> Filen i lagringskontot tas inte bort om du tar bort ett infångat paket.
 
-Du uppmanas att bekräfta att du vill ta bort paketinsamling, klickar du på **Ja**
+Du uppmanas att bekräfta att du vill ta bort paketfångsten, klicka på **Ja**
 
 ![Bekräftelse][4]
 
-## <a name="stop-a-packet-capture"></a>Stoppa en paketinsamling
+## <a name="stop-a-packet-capture"></a>Stoppa ett infångat paket
 
-I vyn paket avbildning, klickar du på den **snabbmenyn** (...) eller högerklicka och klicka på **stoppa** att stoppa paketinsamling
+I vyn packet capture klickar du på den **snabbmenyn** (...) eller högerklickar och klickar på **stoppa** att stoppa paketfångsten
 
-## <a name="download-a-packet-capture"></a>Hämta en paketinsamling
+## <a name="download-a-packet-capture"></a>Ladda ned ett infångat paket
 
-När paketet avbildningssessionen är klar överförs filen avbildning till blob-lagring eller till en lokal fil på den virtuella datorn. Lagringsplatsen för paketinsamling har definierats vid skapandet av sessionen. Ett enkelt verktyg för att komma åt dessa avbilda filer som sparats till ett lagringskonto är Microsoft Azure Lagringsutforskaren, som kan hämtas här:  http://storageexplorer.com/
+När packet capture sessionen är klar, har avbilda filen överförts till blob-lagring eller till en lokal fil på den virtuella datorn. Lagringsplatsen för paketfångsten har definierats vid skapandet av sessionen. Ett praktiskt verktyg för att komma åt dessa avbilda filer som sparats i ett lagringskonto är Microsoft Azure Storage Explorer, som kan hämtas här:  http://storageexplorer.com/
 
-Om ett storage-konto anges sparas paket avbilda filer till ett lagringskonto på följande plats:
+Om ett lagringskonto anges sparas packet capture filer till ett lagringskonto på följande plats:
 ```
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig att automatisera insamlingar paket med virtuella aviseringar genom att visa [skapar en avisering utlösta paketinsamling](network-watcher-alert-triggered-packet-capture.md)
+Lär dig hur du automatiserar infångade paket med virtuella datorer aviseringar genom att visa [skapar en avisering utlösta paketfångsten](network-watcher-alert-triggered-packet-capture.md)
 
-Hitta om vissa trafik tillåts i eller utanför den virtuella datorn genom att besöka [Kontrollera Kontrollera IP-flöde](diagnose-vm-network-traffic-filtering-problem.md)
+Hitta om vissa trafik är tillåten i eller utanför din virtuella dator genom att besöka [Kontrollera Kontrollera IP-flöde](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->
 [1]: ./media/network-watcher-packet-capture-manage-portal/figure1.png

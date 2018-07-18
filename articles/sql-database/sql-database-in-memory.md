@@ -1,125 +1,125 @@
 ---
-title: Azure SQL Database i minnet tekniker | Microsoft Docs
-description: Azure SQL Database i minnet tekniker förbättra prestanda för transaktionell och analytics arbetsbelastningar.
+title: Azure SQL Database minnesinterna tekniker | Microsoft Docs
+description: Azure SQL Database minnesinterna tekniker förbättra prestanda för transaktionell och analytiska arbetsbelastningar.
 services: sql-database
 author: jodebrui
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/16/2018
 ms.author: jodebrui
-ms.openlocfilehash: a21ce5c9cbf5517733a6b491124e51b163f6c2b9
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: f4e056e9f8461085df6ae447672e2c9ec91aa3ca
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309307"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092411"
 ---
-# <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimera prestanda genom att använda InMemory-tekniker i SQL-databas
+# <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimera prestanda med hjälp av minnesinterna tekniker i SQL-databas
 
-Du kan åstadkomma prestandaförbättringar med olika arbetsbelastningar med hjälp av InMemory-tekniker i Azure SQL Database: transaktionell (online transaktionsbearbetning (OLTP)), analytics (online analytical processing (OLAP)), och blandade (hybrid transaktion analytical processing (HTAP)). På grund av effektivare fråga och transaktionsbearbetning hjälpa InMemory-tekniker också dig att minska kostnaden. Vanligtvis behöver du inte uppgradera prisnivån för databasen för att uppnå prestandavinster. I vissa fall kan du även eventuellt minska prisnivån samtidigt ändå prestandaförbättringar med InMemory-teknik.
+Du kan uppnå prestandaförbättringar med olika arbetsbelastningar med hjälp av minnesinterna tekniker i Azure SQL Database: transaktionell (online transaktionsbearbetning (OLTP)), analytics (online analytical processing (OLAP)), och blandat (hybrid-transaktion / analytisk bearbetning (HTAP)). På grund av effektivare frågan och bearbetning av transaktioner hjälpa minnesinterna tekniker även dig att minska kostnaderna. Vanligtvis måste inte du uppgradera prisnivån för databasen för att uppnå prestandavinster. I vissa fall går du kanske även kan minska prisnivån fortfarande se prestandaförbättringar med minnesinterna tekniker.
 
-Här är två exempel på hur Minnesintern OLTP hjälpt att avsevärt förbättra prestanda:
+Här följer två exempel på hur In-Memory OLTP har hjälpt till att avsevärt förbättra prestanda:
 
-- Med hjälp av Minnesintern OLTP [kvorum affärslösningar kunde fördubbla arbetsbelastningen samtidigt förbättra dtu: er med 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - DTU innebär *database transaction unit*, samt mätning av resursförbrukning.
-- Följande videoklipp visar viktig förbättringar i resursanvändningen med ett exempel på arbetsbelastning: [Minnesintern OLTP i Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
-    - Mer information finns i blogginlägget: [Minnesintern OLTP i Azure SQL Database-blogginlägg](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
+- Med hjälp av In-Memory OLTP [kvorum affärslösningar kunde dubbelklicka arbetsbelastningen samtidigt förbättra dtu: er med 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+    - DTU innebär *database-transaktionsenhet*, och innehåller ett mått på resursförbrukning.
+- Följande videoklipp visar viktig förbättringar i resursförbrukning med ett exempel på arbetsbelastning: [In-Memory OLTP i Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
+    - Mer information finns i blogginlägget: [In-Memory OLTP i Azure SQL Database-blogginlägget](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
-InMemory-teknik finns i alla databaser i Premium-nivån, inklusive databaser i Premium elastiska pooler.
+Minnesinterna tekniker är tillgängliga i alla databaser på Premium-nivån, inklusive databaser i elastiska Premium-pooler.
 
-Följande videoklipp beskrivs möjliga prestandafördelar med InMemory-tekniker i Azure SQL Database. Kom ihåg att prestanda får du alltid ser beror på många faktorer, inklusive typ av arbetsbelastning och data, åtkomstmönster av databasen, och så vidare.
+Följande videoklipp beskriver potentiella prestandafördelar med minnesinterna tekniker i Azure SQL Database. Kom ihåg att prestandaökning som du ser alltid är beroende av många faktorer, bland annat typen av arbetsbelastning och data, åtkomstmönster för av databasen, och så vidare.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-In-Memory-Technologies/player]
 >
 >
 
-Azure SQL Database har följande InMemory-tekniker:
+Azure SQL Database har följande minnesinterna tekniker:
 
-- *Minnesintern OLTP* ökar transaktion och minskar svarstiden för transaktionsbearbetning. Scenarier som har nytta i minnet OLTP är: hög genomströmning transaktionsbearbetning, till exempel handel och spel, datapåfyllning från händelser eller IoT-enheter, cachelagring datainläsning, och tillfällig tabell och tabellen variabeln scenarier.
-- *Grupperade columnstore-index* minska lagring-storleken (upp till 10 gånger) och förbättra prestanda för frågor för rapportering och analys. Du kan använda den med faktatabeller i-dataarkiv att få mer data i databasen och förbättra prestanda. Du kan också använda den med historiska data i databasen att arkivera och kunna läsa upp till 10 gånger mer data.
-- *Icke-grupperat columnstore-index* för HTAP hjälper dig att få realtid insikter om ditt företag genom att fråga databasen direkt, utan att behöva köra en dyr extrahera transformera, och läsa in (ETL)-processen och vänta tills den datalager fyllas. Icke-grupperat columnstore-index fjärrkörning mycket snabbt analytics frågor på OLTP-databasen samtidigt minska påverkan på operativa arbetsbelastningen.
-- Du kan också ha en kombination av en minnesoptimerad tabell med ett columnstore-index. Den här kombinationen kan du utföra mycket snabbt transaktionsbearbetning och *samtidigt* köra analytics frågor snabbt på samma data.
+- *In-Memory OLTP* ökar transaktion och minskar svarstiden för transaktionsbearbetning. Scenarier som har nytta av In-Memory OLTP är: högt dataflöde transaktionsbearbetning, till exempel handel och spel, datainmatning från händelser eller IoT-enheter, cachelagring, datainläsning, och tillfällig tabell och tabellen variabeln scenarier.
+- *Klustrade kolumnlagringsindex* och minska fotavtryck för lagring (upp till 10 gånger) och förbättra prestanda för rapporterings- och analysfrågor. Du kan använda med faktatabeller data marts och passar mer data i databasen som du kan förbättra prestanda. Du kan också använda den med historiska data i databasen att arkivera och kunna skicka frågor upp till 10 gånger mer data.
+- *Icke-grupperat columnstore-index* för HTAP hjälper dig att få insikter i realtid om din verksamhet genom att fråga den använda databasen direkt, utan att behöva köra en dyr extrahera, transformera och läsa in (ETL) bearbeta och vänta tills den informationslager fyllas i. Icke-grupperat columnstore-index Tillåt mycket snabbt körningen av analysfrågor på OLTP-databasen samtidigt som det minskar påverkan på arbetsbelastningen.
+- Du kan också ha en kombination av en minnesoptimerad tabell med ett columnstore-index. Den här kombinationen kan du utföra mycket snabba transaktionsbearbetning och *samtidigt* köra analysfrågor mycket snabbt på samma data.
 
-Både columnstore-index och Minnesintern OLTP har varit en del av SQL Server-produkt sedan 2012 och 2014, respektive. Azure SQL Database och SQL Server delar samma implementering av InMemory-tekniker. Framöver, släpps nya funktioner för dessa tekniker i Azure SQL Database först innan de blir tillgängliga i SQL Server.
+Både columnstore-index och In-Memory OLTP har varit en del av SQL Server-produkt sedan 2012 och 2014 respektive. Azure SQL Database och SQL Server kan du dela samma implementeringen av minnesinterna tekniker. Framöver kommer släpps nya funktioner för dessa tekniker i Azure SQL Database först innan de blir tillgängliga i SQL Server.
 
-Den här artikeln beskrivs aspekter av Minnesintern OLTP och columnstore-index som är specifika för Azure SQL Database och även exempel:
-- Effekten av dessa tekniker visas på storleksbegränsningar för lagring och data.
-- Du lär dig att hantera flytt av databaser som använder dessa tekniker mellan olika prisnivåer.
-- Ser du två exempel som visar hur du använder i minnet OLTP samt columnstore-index i Azure SQL Database.
+Den här artikeln beskrivs olika aspekter av In-Memory OLTP och columnstore-index som är specifika för Azure SQL Database och dessutom ingår exempel:
+- Effekten av dessa tekniker visas på storleksgränser för storage och data.
+- Du lär dig att hantera flödet av databaser som använder dessa tekniker mellan olika prisnivåer.
+- Du ser två exempel som illustrerar användningen av In-Memory OLTP, samt columnstore-index i Azure SQL Database.
 
 Se följande resurser för mer information.
 
 Detaljerad information om tekniker:
 
-- [Minnesintern OLTP översikt och Användningsscenarier](https://msdn.microsoft.com/library/mt774593.aspx) (innehåller referenser till kundfallstudier och information för att komma igång)
-- [Dokumentation för OLTP i minnet](http://msdn.microsoft.com/library/dn133186.aspx)
-- [Guide för Columnstore-index](https://msdn.microsoft.com/library/gg492088.aspx)
-- Hybrid transaktionella/analytisk behandling (HTAP), även kallat [operativa analys i realtid](https://msdn.microsoft.com/library/dn817827.aspx)
+- [InMemory-OLTP-översikt och Användningsscenarier](https://msdn.microsoft.com/library/mt774593.aspx) (innehåller referenser till kundfallstudier och information för att komma igång)
+- [Dokumentation för Minnesintern OLTP](http://msdn.microsoft.com/library/dn133186.aspx)
+- [Guide för Kolumnlagringsindex](https://msdn.microsoft.com/library/gg492088.aspx)
+- Hybrid transaktionella/analytisk bearbetning (HTAP), även kallat [operativa analys i realtid](https://msdn.microsoft.com/library/dn817827.aspx)
 
-En kort introduktion på Minnesintern OLTP: [snabb Start 1: I minnet OLTP-teknik för snabbare prestanda för T-SQL](http://msdn.microsoft.com/library/mt694156.aspx) (en annan artikel som hjälper dig att komma igång)
+En snabb genomgång på In-Memory OLTP: [snabb Start 1: InMemory-OLTP-tekniker för snabbare prestanda med T-SQL](http://msdn.microsoft.com/library/mt694156.aspx) (en annan artikel som hjälper dig att komma igång)
 
-Djupgående video om tekniker:
+Djupgående videor om tekniker:
 
-- [Minnesintern OLTP i Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (som innehåller en demonstration av prestandafördelarna och steg för att återskapa de här resultaten returneras själv)
-- [Minnesintern OLTP video: Vad det är och när/hur du använder den](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
-- [Kolumnlagringsindexet: I minnet Analytics videor från Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
+- [In-Memory OLTP i Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (som innehåller en demonstration av prestandafördelarna och steg för att återskapa de här resultaten själv)
+- [InMemory-OLTP-videor: Vad det är och när/hur ska använda det.](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
+- [Columnstore-Index: Minnesintern analys videor från Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
 ## <a name="storage-and-data-size"></a>Lagrings- och storlek
 
-### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Storlek och lagring cap för OLTP i minnet
+### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Data och gränsen för In-Memory OLTP
 
-Minnesintern OLTP innehåller minnesoptimerade tabeller som används för lagring av användardata. Dessa tabeller krävs för att få plats i minnet. Eftersom du hantera minne direkt i SQL Database-tjänsten har vi konceptet för en kvot för användardata. Den här idén kallas *Minnesintern OLTP lagring*.
+In-Memory OLTP innehåller minnesoptimerade tabeller som används för lagring av användardata. Dessa tabeller krävs för att få plats i minnet. Eftersom du hantera minne direkt i SQL Database-tjänsten har vi konceptet med en kvot för användardata. Den här idén kallas *InMemory-OLTP-lagring*.
 
-Varje stöds fristående databas prisnivå och varje elastisk pool prisnivån innehåller mängden lagringsutrymme som OLTP i minnet. Se [DTU-baserade gränserna - enskild databas](sql-database-dtu-resource-limits-single-databases.md), [DTU-baserade gränserna - elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-baserade gränserna - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade gränserna - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
+Varje stöds fristående databas prisnivå och varje elastisk pool prisnivån innehåller en viss mängd InMemory-OLTP-lagring. Se [DTU-baserade resursbegränsningar - enkel databas](sql-database-dtu-resource-limits-single-databases.md), [DTU-baserade resursbegränsningar - elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-baserade resursbegränsningar - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
 
-Följande objekt räknas in i din Minnesintern OLTP lagring cap:
+Följande objekt tillgodoräknas din begränsning för In-Memory OLTP-lagring:
 
-- Aktiva användare datarader i minnesoptimerade tabeller och tabellvariabler. Observera att den gamla raden versioner inte räknas in i fästpunkten.
+- Aktiv användare datarader i minnesoptimerade tabeller och tabellvariabler. Observera att den gamla raden versioner inte räknas mot gränsen.
 - Index för minnesoptimerade tabeller.
-- Operativ tillsyn ALTER TABLE-åtgärder.
+- Arbetet med ALTER TABLE-åtgärderna.
 
-Om du klickar på höljet felmeddelandet out av kvot och du inte längre kunna infoga eller uppdatera data. Ta bort data för att åtgärda felet, eller öka prisnivån för den databas eller poolen.
+Om du har nått gränsen får du en out kvotfel och du inte längre kunna infoga eller uppdatera data. Ta bort data för att lösa det här felet, eller öka prisnivån för databasen eller pool.
 
-Mer information om övervakning i minnet OLTP lagringsanvändningen och konfigurera aviseringar när du nästan träffar fästpunkten finns [övervakaren InMemory-lagringen](sql-database-in-memory-oltp-monitoring.md).
+Mer information om övervaka lagringsanvändningen för In-Memory OLTP och konfigurera aviseringar när du nästan har nått gränsen finns [övervaka Minnesintern lagring](sql-database-in-memory-oltp-monitoring.md).
 
 #### <a name="about-elastic-pools"></a>Om elastiska pooler
 
-Med elastiska pooler delas Minnesintern OLTP-lagringen mellan alla databaser i poolen. Därför kan användning i en databas potentiellt påverka andra databaser. Det finns två åtgärder för den här:
+Med elastiska pooler delas InMemory-OLTP-lagring mellan alla databaser i poolen. Därför kan användning i en databas potentiellt påverka andra databaser. Två åtgärder för det här är:
 
-- Konfigurera en `Max-eDTU` eller `MaxvCore` för databaser som är lägre än antalet eDTU eller vCore för poolen som helhet. Den här högsta värdet versaler i alla databaser i poolen, till samma storlek som motsvarar antalet eDTU i lagringsanvändningen Minnesintern OLTP.
-- Konfigurera en `Min-eDTU` eller `MinvCore` som är större än 0. Detta minsta garanterar att varje databas i poolen har mängden tillgängligt lagringsutrymme för OLTP i minnet som motsvarar den konfigurerade `Min-eDTU` eller `vCore`.
+- Konfigurera en `Max-eDTU` eller `MaxvCore` för databaser som är lägre än antalet edtu: er eller vCore för poolen som helhet. Den här högsta gränsen caps InMemory-OLTP-lagringsanvändning, i alla databaser i poolen, till den storlek som motsvarar antalet edtu: er.
+- Konfigurera en `Min-eDTU` eller `MinvCore` som är större än 0. Med detta minsta garanterar att varje databas i poolen har tillgängliga InMemory-OLTP-lagringsutrymme som motsvarar den konfigurerade `Min-eDTU` eller `vCore`.
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Datastorlek och lagring för columnstore-index
 
-Columnstore-index behöver inte ryms i minnet. Därför bara fästpunkten på storleken på index är största övergripande databasens storlek, som beskrivs i den [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md) artiklar.
+Columnstore-index behöver inte ryms i minnet. Därför endast fästpunkten på storleken på index som är den högsta totala databasstorleken, som dokumenteras i den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) artiklar.
 
-När du använder grupperade columnstore-index används kolumner komprimering för lagring av bastabellen. Den här komprimeringen kan avsevärt minska storleken för lagring av användardata, vilket innebär att du får plats mer data i databasen. Och komprimeringen kan förlängas med [kolumner arkivering komprimering](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). Mängden komprimering som du kan åstadkomma beror på typen av uppgift, men 10 gånger komprimeringen är inte ovanligt.
+När du använder grupperade columnstore-index används kolumnbaserad komprimering för lagringen som bastabellen. Den här komprimeringen kan avsevärt minska storleken för lagring av användardata, vilket innebär att du får plats mer data i databasen. Och komprimeringen kan förlängas med [kolumnbaserad arkivering komprimering](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). Mängden komprimering som du kan uppnå beror på vilken typ av data, men 10 gånger komprimering är inte ovanligt.
 
-Om du har en databas med en maximal storlek på 1 terabyte (TB) och du uppnå 10 gånger komprimering med hjälp av columnstore-index kan anpassa du totalt 10 TB användardata i databasen.
+Om du har en databas med en maximal storlek på 1 terabyte (TB) och du kan få 10 gånger komprimering med hjälp av columnstore-index, kan du till exempel passa totalt 10 TB användardata i databasen.
 
-När du använder icke-grupperat columnstore-index lagras i bastabellen fortfarande i traditionella rowstore-format. Lagringsbesparingar är därför inte lika stor som med grupperade columnstore-index. Om du ersätter ett antal traditionella icke-grupperat index med en enda columnstore-index, kan du dock fortfarande se en övergripande besparingar i lagringsutrymme storleken för tabellen.
+När du använder icke-grupperat columnstore-index, lagras fortfarande bastabellen i traditionella rowstore-format. Lagringsbesparingar är därför inte lika stor som med grupperade columnstore-index. Om du ersätter ett antal traditionella icke-grupperade index med en enda columnstore-index, kan du dock fortfarande se en övergripande besparingar i lagringsutrymme storleken för tabellen.
 
 ## <a name="moving-databases-that-use-in-memory-technologies-between-pricing-tiers"></a>Flytta databaser som använder minnesinterna tekniker mellan prisnivåer
 
-Det finns aldrig alla inkompatibiliteter eller andra problem när du uppgraderar till en högre prisnivå som från Standard till Premium. De tillgängliga funktioner och resurser som bara öka.
+Det finns aldrig alla inkompatibiliteter eller andra problem när du uppgraderar till en högre prisnivå, till exempel från Standard till Premium. De tillgängliga funktionerna och resurserna bara öka.
 
-Men nedgradera prisnivån kan påverka din databas. Påverkan är särskilt tydligt när du Nedgradera från Premium till Standard eller grundläggande när databasen innehåller Minnesintern OLTP-objekt. Minnesoptimerade tabeller är inte tillgängliga efter nedgraderingen (även om de är synligt). Samma villkor gäller när du sänker prisnivån för en elastisk pool eller flytta en databas med InMemory-tekniker, till en Standard eller grundläggande elastisk pool.
+Men nedgradera prisnivån kan negativt påverka din databas. Påverkan är särskilt tydligt när du börjar Nedgradera från Premium till Standard eller Basic när databasen innehåller In-Memory OLTP-objekt. Minnesoptimerade tabeller är inte tillgängliga när nedgraderingen (även om de fortfarande är synlig). Samma gäller när du minskar prisnivån för en elastisk pool, eller flytta en databas med minnesinterna tekniker i en Standard eller Basic-databaspool.
 
 ### <a name="in-memory-oltp"></a>Minnesintern OLTP
 
-*Nedgradera Basic-standarden*: Minnesintern OLTP stöds inte i databaser i Standard- eller Basic-nivån. Dessutom kan inte flytta en databas som har alla Minnesintern OLTP-objekt till Standard- eller Basic-nivån.
+*Nedgradering till Basic/Standard*: Minnesintern OLTP stöds inte i databaser på Standard- eller Basic-nivån. Dessutom kan det inte går att flytta en databas som har några In-Memory OLTP-objekt till nivån Standard eller Basic.
 
-Det finns en programmässiga sätt att förstå om en viss databas stöder Minnesintern OLTP. Du kan köra följande Transact-SQL-fråga:
+Det finns ett programmässiga sätt att förstå om en viss databas har stöd för In-Memory OLTP. Du kan köra följande Transact-SQL-fråga:
 
 ```
 SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
-Om frågan returnerar **1**, i minnet OLTP stöds i den här databasen.
+Om frågan returnerar **1**, In-Memory OLTP stöds i den här databasen.
 
-Ta bort alla minnesoptimerade tabeller och tabelltyper samt alla internt kompilerade moduler för T-SQL innan du nedgradera databasen till Standard/enkel. Följande frågor identifiera alla objekt som måste tas bort innan en databas kan nedgraderas till Standard/enkel:
+Ta bort alla minnesoptimerade tabeller och tabelltyper, samt alla internt kompilerade T-SQL-moduler innan du börjar nedgradera databasen till Standard/enkel. Följande frågor identifiera alla objekt som måste tas bort innan en databas kan nedgraderas till Standard/enkel:
 
 ```
 SELECT * FROM sys.tables WHERE is_memory_optimized=1
@@ -127,39 +127,39 @@ SELECT * FROM sys.table_types WHERE is_memory_optimized=1
 SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 ```
 
-*Nedgradera till en lägre nivå Premium*: Data i minnesoptimerade tabeller måste rymmas inom Minnesintern OLTP-lagring som är kopplad till prisnivån för databasen eller som är tillgängliga i den elastiska poolen. Om du försöker lägre prisnivån eller flytta databasen till en pool som inte har tillräckligt med lagringsutrymme för OLTP InMemory-åtgärden misslyckas.
+*Nedgradera till en lägre premiumnivå*: Data i minnesoptimerade tabeller måste rymmas inom den minnesinterna OLTP-lagring som är associerad med prisnivån för databasen eller som är tillgängliga i den elastiska poolen. Om du försöker minska prisnivån eller flytta databasen till en pool som inte har tillräckligt med tillgängliga InMemory-OLTP-lagring, åtgärden misslyckas.
 
 ### <a name="columnstore-indexes"></a>Columnstore-index
 
-*Nedgradera till Basic eller Standard*: Columnstore-index stöds endast på Premium-prisnivån på standardnivån S3 och senare och inte på den grundläggande nivån. När du nedgradera databasen till en nivå som inte stöds eller nivå otillgänglig columnstore-index. Systemet har columnstore-index, men den använder aldrig indexet. Om du uppgraderar senare tillbaka till en stöds nivån eller en nivå, är columnstore-index klar att användas igen.
+*Nedgradering till Basic eller Standard*: Columnstore-index stöds endast på Premiumprisnivån och på Standard-nivån S3 och ovan och inte på Basic-nivån. När du börjar nedgradera din databas till en nivå som inte stöds eller nivå otillgänglig columnstore-index. Systemet behålls columnstore-index, men den använder aldrig indexet. Om du senare uppgradera till en nivå som stöds eller nivå, är columnstore-index klar att användas igen.
 
-Om du har en **klustrade** columnstore-index hela tabellen blir tillgänglig efter nedgraderingen. Därför rekommenderar vi att du ta bort alla *klustrade* columnstore-index innan du nedgradera databasen till en nivå som inte stöds eller nivå.
+Om du har en **klustrade** columnstore-indexet, hela tabellen blir otillgänglig när nedgraderingen. Därför rekommenderar vi att du ta bort alla *klustrade* columnstore indexerar innan du börjar nedgradera din databas till en nivå som inte stöds eller nivå.
 
-*Nedgradera till en lägre nivå som stöds eller nivå*: den här nedgradering lyckas om hela databasen ryms inom den maximala databasstorleken för målet prisnivån eller inom tillgängligt lagringsutrymme i den elastiska poolen. Det finns ingen specifik inverkan från columnstore-index.
+*Nedgradera till en lägre nivå som stöds eller nivå*: den här nedgradering lyckas om hela databasen får plats inom den maximala databasstorleken för målet prisnivå eller inom tillgängligt lagringsutrymme i den elastiska poolen. Det finns ingen specifik inverkan från columnstore-index.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
 &nbsp;
 
-## <a name="1-install-the-in-memory-oltp-sample"></a>1. Installera Minnesintern OLTP-exempel
+## <a name="1-install-the-in-memory-oltp-sample"></a>1. Installera InMemory-OLTP-exempel
 
-Du kan skapa AdventureWorksLT exempeldatabasen med ett par klick i den [Azure-portalen](https://portal.azure.com/). Sedan beskrivs stegen i det här avsnittet hur du kan utöka AdventureWorksLT databasen med InMemory-OLTP-objekt och visa prestandafördelarna.
+Du kan skapa AdventureWorksLT-exempeldatabasen med ett par klick i den [Azure-portalen](https://portal.azure.com/). Sedan beskrivs stegen i det här avsnittet hur du kan utöka din AdventureWorksLT-databasen med In-Memory OLTP-objekt och demonstrera prestandafördelarna.
 
-En mer simplistic, men mer tilltalande prestanda demo för InMemory-OLTP finns:
+En mer förenklad, men mer visuellt tilltalande prestanda demo för In-Memory OLTP finns här:
 
-- Utgåvan: [i-minne-oltp-demo-v1.0](https://github.com/Microsoft/sql-server-samples/releases/tag/in-memory-oltp-demo-v1.0)
+- Version: [i-minne-oltp-demo-v1.0](https://github.com/Microsoft/sql-server-samples/releases/tag/in-memory-oltp-demo-v1.0)
 - Källkod: [in-memory-oltp-demo-source-code](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/in-memory/ticket-reservations)
 
 #### <a name="installation-steps"></a>Installationssteg
 
-1. I den [Azure-portalen](https://portal.azure.com/), skapa en Premium eller Business kritiska (förhandsgranskning) databas på en server. Ange den **källa** till AdventureWorksLT exempeldatabasen. Detaljerade instruktioner finns [skapa din första Azure SQL-databas](sql-database-get-started-portal.md).
+1. I den [Azure-portalen](https://portal.azure.com/), skapa en Premium- eller affärskritisk databas på en server. Ange den **källa** till AdventureWorksLT-exempeldatabasen. Detaljerade anvisningar finns i [skapa din första Azure SQL-databas](sql-database-get-started-portal.md).
 
 2. Ansluta till databasen med SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Kopiera den [Minnesintern OLTP Transact-SQL-skript](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) till Urklipp. T-SQL-skript skapar nödvändiga InMemory-objekt i-exempeldatabasen AdventureWorksLT som du skapade i steg 1.
+3. Kopiera den [InMemory-OLTP Transact-SQL-skript](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) till Urklipp. T-SQL-skript skapar nödvändiga InMemory-objekt i AdventureWorksLT-exempeldatabasen som du skapade i steg 1.
 
-4. Klistra in T-SQL-skript i SSMS och sedan köra skriptet. Den `MEMORY_OPTIMIZED = ON` instruktionen CREATE TABLE-satser är avgörande. Exempel:
+4. Klistra in T-SQL-skript i SSMS och sedan köra skriptet. Den `MEMORY_OPTIMIZED = ON` satsen CREATE TABLE-instruktioner är avgörande. Exempel:
 
 
 ```
@@ -173,7 +173,7 @@ CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
 #### <a name="error-40536"></a>Fel 40536
 
 
-Om det uppstår fel 40536 vid körning av T-SQL-skript, kör följande T-SQL-skript för att kontrollera om databasen stöder i minnet:
+Om du får fel 40536 när du kör T-SQL-skript, kör du följande T-SQL-skript för att kontrollera om databasen stöder i minnet:
 
 
 ```
@@ -181,12 +181,12 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
 
-Ett resultat av **0** innebär att i minnet inte stöds och **1** innebär att stöds. Se till att databasen är på premiumnivån för att diagnosticera problemet.
+Ett resultat av **0** innebär att i minnet inte stöds, och **1** innebär att det finns stöd. Se till att databasen är på Premium-tjänstnivå för att felsöka problemet.
 
 
-#### <a name="about-the-created-memory-optimized-items"></a>Om objekt du har skapat minnesoptimerade
+#### <a name="about-the-created-memory-optimized-items"></a>Om skapade minnesoptimerade objekt
 
-**Tabeller**: provet innehåller följande minnesoptimerade tabeller:
+**Tabeller**: exemplet innehåller följande minnesoptimerade tabeller:
 
 - SalesLT.Product_inmem
 - SalesLT.SalesOrderHeader_inmem
@@ -195,10 +195,10 @@ Ett resultat av **0** innebär att i minnet inte stöds och **1** innebär att s
 - Demo.DemoSalesOrderDetailSeed
 
 
-Du kan inspektera minnesoptimerade tabeller via den **Object Explorer** i SSMS. Högerklicka på **tabeller** > **Filter** > **filtrera inställningar** > **är Minnesoptimerad**. Värdet är lika med 1.
+Du kan inspektera minnesoptimerade tabeller via den **Object Explorer** i SSMS. Högerklicka på **tabeller** > **Filter** > **filterinställningar** > **är Minnesoptimerad**. Värdet är lika med 1.
 
 
-Eller fråga katalogvyer, exempelvis:
+Eller du kan fråga katalogvyer, till exempel:
 
 
 ```
@@ -208,7 +208,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 ```
 
 
-**Internt kompilerade lagrade proceduren**: du kan inspektera SalesLT.usp_InsertSalesOrder_inmem via en katalog Visa fråga:
+**Internt kompilerade lagrade procedurer**: du kan inspektera SalesLT.usp_InsertSalesOrder_inmem via en catalog view-fråga:
 
 
 ```
@@ -220,33 +220,33 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 &nbsp;
 
-### <a name="run-the-sample-oltp-workload"></a>Kör exempel OLTP-arbetsbelastning
+### <a name="run-the-sample-oltp-workload"></a>Kör exemplet OLTP-arbetsbelastning
 
-Den enda skillnaden mellan de följande två *lagrade procedurer* är att den första proceduren använder minnesoptimerade tabeller-versioner, medan andra proceduren använder vanliga på disken tabeller:
+Den enda skillnaden mellan följande två *lagrade procedurer* är att den första proceduren använder sig av minnesoptimerade versionerna av tabellerna, andra proceduren använder vanliga på disken tabeller:
 
 - SalesLT **.** usp_InsertSalesOrder **_inmem**
 - SalesLT **.** usp_InsertSalesOrder **_ondisk**
 
 
-I det här avsnittet visas hur du använder den praktiska **ostress.exe** verktyg för att köra två lagrade procedurer på stress nivåer. Du kan jämföra hur lång tid det tar för två stress körs ska slutföras.
+I det här avsnittet visas hur du använder den till hands **ostress.exe** verktyg för att köra två lagrade procedurer på stressigt nivåer. Du kan jämföra hur lång tid det tar för de två stress körningarna ska slutföras.
 
 
 När du kör ostress.exe, rekommenderar vi att du skickar parametervärden som utformats för båda av följande:
 
-- Kör ett stort antal samtidiga anslutningar med hjälp av - n100.
-- Har varje anslutning slinga hundratals gånger, med hjälp av - r500.
+- Kör ett stort antal samtidiga anslutningar, genom att använda - n100.
+- Har varje anslutning slinga hundratals gånger, av med - r500.
 
 
-Du kanske vill börja med mycket lägre värden som - n10 och -r50 så att allt fungerar.
+Dock kanske du vill börja med mycket lägre värden som - n10 och -r50 så att allt fungerar.
 
 
-### <a name="script-for-ostressexe"></a>Skriptet för ostress.exe
+### <a name="script-for-ostressexe"></a>Skript för ostress.exe
 
 
-Det här avsnittet visar T-SQL-skript som är inbäddad i vår ostress.exe-kommandoraden. Skriptet använder objekt som har skapats av T-SQL-skript som du tidigare har installerat.
+Det här avsnittet visar T-SQL-skript som är inbäddad i vår ostress.exe från kommandoraden. Skriptet använder objekt som har skapats av T-SQL-skriptet som du har installerat tidigare.
 
 
-Följande skript infogar ett exempel ordern fem artiklar i följande minnesoptimerade *tabeller*:
+Följande skript infogar ett exempel på försäljningsorder med fem radobjekt i följande minnesoptimerade *tabeller*:
 
 - SalesLT.SalesOrderHeader_inmem
 - SalesLT.SalesOrderDetail_inmem
@@ -276,21 +276,21 @@ end
 ```
 
 
-Att göra den *_ondisk* versionen av föregående T-SQL-skriptet för ostress.exe, ska du ersätta båda förekomster av de *_inmem* substring med *_ondisk*. Dessa ersättningar påverka namnen på de tabeller och lagrade procedurer.
+Att göra den *_ondisk* version av det föregående T-SQL-skriptet för ostress.exe Ersätt båda förekomsterna av den *_inmem* understräng med *_ondisk*. Dessa ersättningar påverka namnen på tabeller och lagrade procedurer.
 
 
 ### <a name="install-rml-utilities-and-ostress"></a>Installera RML verktyg och ostress
 
 
-Vi rekommenderar skulle du planerar att köra ostress.exe på en Azure-dator (VM). Du skapar en [Azure VM](https://azure.microsoft.com/documentation/services/virtual-machines/) i samma Azure geografiska region som där AdventureWorksLT databasen finns. Men du kan köra ostress.exe på din bärbara dator i stället.
+Vi rekommenderar att du skulle planerar att köra ostress.exe på en Azure-dator (VM). Du skapar en [Azure VM](https://azure.microsoft.com/documentation/services/virtual-machines/) i samma Azure geografiska region som där AdventureWorksLT-databasen finns. Men du kan köra ostress.exe på din bärbara dator i stället.
 
 
-På den virtuella datorn eller på det värd du väljer, installera verktyg för repetitionsattacker Markup Language (RML). Verktygen innehåller ostress.exe.
+På den virtuella datorn eller på det värd som du väljer, installera verktyg för repetitionsattacker Markup Language (RML). Verktygen innehåller ostress.exe.
 
 Mer information finns i:
-- Ostress.exe diskussion i [exempeldatabasen för InMemory-OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
-- [Exempel på databasen för InMemory-OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
-- Den [bloggen för att installera ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
+- Ostress.exe diskussion i [exempeldatabasen för In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
+- [Exempel på databasen för In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
+- Den [blogg för att installera ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
 
 
 
@@ -306,13 +306,13 @@ whereas for SQL 2016+
 
 
 
-### <a name="run-the-inmem-stress-workload-first"></a>Kör den *_inmem* betonar arbetsbelastning först
+### <a name="run-the-inmem-stress-workload-first"></a>Kör den *_inmem* först vara påfrestande för arbetsbelastning
 
 
 Du kan använda en *RML Cmd-Prompt* fönster för att köra vår ostress.exe kommandorad. Kommandoradsparametrar direkt ostress till:
 
 - Kör 100 anslutningar samtidigt (-n100).
-- Varje anslutning och köra T-SQL-skript 50 gånger (-r50).
+- Har varje anslutning och köra T-SQL-skriptet 50 gånger (-r50).
 
 
 ```
@@ -320,10 +320,10 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 ```
 
 
-Köra föregående ostress.exe kommandoraden:
+Så här kör kommandoraden i föregående ostress.exe:
 
 
-1. Återställ databasen datainnehåll genom att köra följande kommando i SSMS att ta bort alla data som infogats av alla tidigare körs:
+1. Återställa data databasinnehåll genom att köra följande kommando i SSMS, för att ta bort alla data som infogats av alla tidigare körningar:
 
     ``` tsql
     EXECUTE Demo.usp_DemoReset;
@@ -331,15 +331,15 @@ Köra föregående ostress.exe kommandoraden:
 
 2. Kopiera texten i föregående ostress.exe kommandoraden till Urklipp.
 
-3. Ersätt den `<placeholders>` för de parametrarna -S - U -P -d med rätt verkliga värden.
+3. Ersätt den `<placeholders>` för de parametrarna -S - U -P -d med korrekta värden för verkliga.
 
-4. Kör redigerade kommandoraden i ett RML Cmd-fönster.
+4. Kör redigerade kommandoraden i en RML kommandofönstret.
 
 
 #### <a name="result-is-a-duration"></a>Resultatet är en varaktighet
 
 
-När ostress.exe är klar skrivs kör varaktighet som den sista raden i utdata i RML Cmd-fönster. Till exempel varade en kortare testkörning ungefär 1,5 minuter:
+När ostress.exe är klar skriver varaktighet för körning som den sista raden i utdata i RML Cmd-fönstret. Till exempel varat en kortare testkörning ungefär 1,5 minuter:
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
@@ -347,10 +347,10 @@ När ostress.exe är klar skrivs kör varaktighet som den sista raden i utdata i
 #### <a name="reset-edit-for-ondisk-then-rerun"></a>Återställ, redigera för *_ondisk*, kör sedan
 
 
-När du har resultatet från den *_inmem* körs, utför följande steg för den *_ondisk* kör:
+När du har resultatet från den *_inmem* kör, utför följande steg för den *_ondisk* kör:
 
 
-1. Återställ databasen genom att köra följande kommando i SSMS att ta bort alla data som infogats av en tidigare körning:
+1. Återställ databasen genom att köra följande kommando i SSMS för att ta bort alla data som infogats av den tidigare körningen:
 ```
 EXECUTE Demo.usp_DemoReset;
 ```
@@ -359,44 +359,44 @@ EXECUTE Demo.usp_DemoReset;
 
 3. Kör ostress.exe för den andra gången och samla in resultatet varaktighet.
 
-4. Igen och återställa databasen (för ansvarsfullt om du tar bort kan vara en stor mängd testdata).
+4. Igen, återställa databasen (för ansvarsfullt tar du bort det kan vara en stor mängd testdata).
 
 
 #### <a name="expected-comparison-results"></a>Förväntade Jämförelseresultat
 
-Våra tester i minnet har visat att prestanda förbättras av **nio gånger** för den här simplistic arbetsbelastning med ostress som körs på en Azure-dator i samma Azure-region som databas.
+Vår minnesinterna tester har visat som prestanda förbättras av **nio gånger** för den här förenklad arbetsbelastning med ostress som körs på en virtuell Azure-dator i samma Azure-region som databasen.
 
 <a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
 
 &nbsp;
 
-## <a name="2-install-the-in-memory-analytics-sample"></a>2. Installera InMemory-Analytics-exempel
+## <a name="2-install-the-in-memory-analytics-sample"></a>2. Installera minnesinterna Analytics-exempel
 
 
-I det här avsnittet jämför resultaten i/o och statistik när du använder ett columnstore-index jämfört med traditionell b-trädindex.
+I det här avsnittet jämför resultaten i/o och statistik när du använder ett columnstore-index jämfört med traditionella b-trädindex.
 
 
 För analys i realtid på en OLTP-arbetsbelastning är det ofta bäst att använda ett icke-grupperat columnstore-index. Mer information finns i [Columnstore-index beskrivs](http://msdn.microsoft.com/library/gg492088.aspx).
 
 
 
-### <a name="prepare-the-columnstore-analytics-test"></a>Förbereda columnstore analytics test
+### <a name="prepare-the-columnstore-analytics-test"></a>Förbereda columnstore analytics testet
 
 
-1. Använda Azure portal för att skapa en ny AdventureWorksLT databas från exemplet.
- - Använda exakt samma namn.
- - Välj alla premiumnivån.
+1. Använd Azure-portalen för att skapa en ny AdventureWorksLT-databasen från exemplet.
+ - Använda det exakta namnet.
+ - Välj alla Premium-tjänstnivån.
 
 2. Kopiera den [sql_in memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) till Urklipp.
- - T-SQL-skript skapar nödvändiga InMemory-objekt i-exempeldatabasen AdventureWorksLT som du skapade i steg 1.
- - Skriptet skapar dimensionstabellen och två faktatabeller. Faktatabellerna fylls i med 3.5 miljoner rader.
+ - T-SQL-skript skapar nödvändiga InMemory-objekt i AdventureWorksLT-exempeldatabasen som du skapade i steg 1.
+ - Skriptet skapar dimensionstabellen och två faktatabeller. Faktatabellerna fylls med 3,5 miljoner rader.
  - Skriptet kan ta 15 minuter att slutföra.
 
-3. Klistra in T-SQL-skript i SSMS och sedan köra skriptet. Den **COLUMNSTORE** nyckelord i den **CREATE INDEX** -instruktionen är mycket viktigt, som:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
+3. Klistra in T-SQL-skript i SSMS och sedan köra skriptet. Den **COLUMNSTORE** nyckelord i den **CREATE INDEX** instruktionen är avgörande, som i:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 
-4. Ange AdventureWorksLT till kompatibilitetsnivå 130:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
+4. Ställ in AdventureWorksLT på kompatibilitetsnivå 130:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
 
-    Nivå 130 är inte direkt relaterat till InMemory-funktioner. Men nivå 130 erbjuder bättre frågeprestanda än 120.
+    Nivå 130 är inte direkt relaterade till InMemory-funktioner. Men nivå 130 har vanligtvis bättre frågeprestanda än 120.
 
 
 #### <a name="key-tables-and-columnstore-indexes"></a>Viktiga tabeller och columnstore-index
@@ -404,13 +404,13 @@ För analys i realtid på en OLTP-arbetsbelastning är det ofta bäst att använ
 
 - dbo. FactResellerSalesXL_CCI är en tabell som har ett grupperat columnstore-index som har avancerade komprimering vid den *data* nivå.
 
-- dbo. FactResellerSalesXL_PageCompressed är en tabell som har en motsvarande reguljära grupperat index, som komprimeras bara på den *sidan* nivå.
+- dbo. FactResellerSalesXL_PageCompressed är en tabell som har en motsvarande regelbundna grupperat index som komprimeras bara den *sidan* nivå.
 
 
-#### <a name="key-queries-to-compare-the-columnstore-index"></a>Viktiga frågor för att jämföra columnstore-index
+#### <a name="key-queries-to-compare-the-columnstore-index"></a>Viktiga frågor att jämföra columnstore-index
 
 
-Det finns [flera T-SQL-fråga typer som du kan köra](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) få bättre prestanda. I steg 2 i T-SQL-skript kan du vara uppmärksam på detta par av frågor. De skiljer sig bara på en rad:
+Det finns [flera frågetyper i T-SQL som du kan köra](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) att prestanda kan förbättras. I steg 2 i T-SQL-skriptet uppmärksam på den här par frågor. De skiljer sig åt endast på en rad:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
@@ -419,7 +419,7 @@ Det finns [flera T-SQL-fråga typer som du kan köra](https://raw.githubusercont
 
 Ett grupperat columnstore-index är i FactResellerSalesXL\_CCI tabell.
 
-Följande T-SQL-skript utdrag skrivs ut statistik för i/o och tid för frågan för varje tabell.
+I följande T-SQL-skript utdrag skriver ut statistik för i/o och tid för frågan i varje tabell.
 
 
 ```
@@ -484,40 +484,40 @@ SET STATISTICS TIME OFF
 GO
 ```
 
-Du kan förvänta dig om nio gånger prestandafördelar för den här frågan med hjälp av grupperade columnstore-index jämfört med traditionell index i en databas med P2 prisnivå. Du kan förvänta dig om 57 gånger prestandafördelar med P15, med hjälp av columnstore-index.
+Du kan förvänta dig ungefär nio gånger prestandaökning för den här frågan med hjälp av grupperade columnstore-indexet jämfört med traditionella index i en databas med P2 prisnivån. Du kan förvänta dig ungefär 57 gånger prestandaökning med P15, med hjälp av columnstore-indexet.
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Snabbstart 1: Minnesintern OLTP-teknik för snabbare T-SQL-prestanda](http://msdn.microsoft.com/library/mt694156.aspx)
+- [Snabbstart 1: Minnesintern OLTP-tekniker för snabbare prestanda för T-SQL](http://msdn.microsoft.com/library/mt694156.aspx)
 
-- [Använd InMemory-OLTP i ett befintligt Azure SQL-program](sql-database-in-memory-oltp-migration.md)
+- [Använda Minnesintern OLTP i ett befintligt Azure SQL-program](sql-database-in-memory-oltp-migration.md)
 
-- [Övervakaren i minnet OLTP lagring](sql-database-in-memory-oltp-monitoring.md) för OLTP i minnet
+- [Övervaka Minnesintern OLTP-lagring](sql-database-in-memory-oltp-monitoring.md) för In-Memory OLTP
 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 #### <a name="deeper-information"></a>Mer detaljerad information
 
-- [Lär dig hur kvorum fördubblar viktiga databasen arbetsbelastning och sänka DTU med 70% med InMemory-OLTP i SQL-databas](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [Lär dig hur kvorum fördubblar viktiga databasarbetsbelastningen samtidigt som du minskar DTU med 70% med In-Memory OLTP i SQL-databas](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
-- [Minnesintern OLTP i Azure SQL Database blogginlägget](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
+- [Minnesintern OLTP i Azure SQL Database-blogginlägget](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
-- [Lär dig mer om OLTP i minnet](http://msdn.microsoft.com/library/dn133186.aspx)
+- [Lär dig mer om Minnesintern OLTP](http://msdn.microsoft.com/library/dn133186.aspx)
 
 - [Lär dig mer om columnstore-index](https://msdn.microsoft.com/library/gg492088.aspx)
 
-- [Lär dig mer om drift analys i realtid](http://msdn.microsoft.com/library/dn817827.aspx)
+- [Lär dig mer om operativa analys i realtid](http://msdn.microsoft.com/library/dn817827.aspx)
 
-- Se [vanliga arbetsbelastning mönster och överväganden vid migrering](http://msdn.microsoft.com/library/dn673538.aspx) (som beskriver arbetsbelastning mönster där Minnesintern OLTP ofta ger betydande prestandavinster)
+- Se [vanliga mönster för arbetsbelastningen och överväganden vid migrering](http://msdn.microsoft.com/library/dn673538.aspx) (som beskriver arbetsbelastningmönster där In-Memory OLTP ofta ger betydande prestandavinster)
 
-#### <a name="application-design"></a>Programmet design
+#### <a name="application-design"></a>Programmets design
 
-- [OLTP (i minnet optimering) i minnet](http://msdn.microsoft.com/library/dn133186.aspx)
+- [Minnesintern OLTP (minnesoptimering)](http://msdn.microsoft.com/library/dn133186.aspx)
 
-- [Använd InMemory-OLTP i ett befintligt Azure SQL-program](sql-database-in-memory-oltp-migration.md)
+- [Använda Minnesintern OLTP i ett befintligt Azure SQL-program](sql-database-in-memory-oltp-migration.md)
 
 #### <a name="tools"></a>Verktyg
 

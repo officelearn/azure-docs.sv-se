@@ -8,30 +8,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 07/16/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: db5941528eedd10cf252607dbe2160bd498a70de
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 3a43c0cd13300918979ae03c7f6c703796b65dc9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951975"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114233"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med aktiviteten kör SSIS-paket i Azure Data Factory
 Den här artikeln beskriver hur du kör ett SSIS-paket i en Azure Data Factory-pipeline med hjälp av en aktivitet kör SSIS-paket. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-### <a name="azure-sql-database"></a>Azure SQL Database 
-I den här artikeln använder en Azure SQL-databas som är värd för SSIS-katalogen. Du kan också använda en Azure SQL Managed Instance (förhandsversion).
+**Azure SQL Database**. I den här artikeln använder en Azure SQL-databas som är värd för SSIS-katalogen. Du kan också använda en Azure SQL Managed Instance (förhandsversion).
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Skapa en Azure-SSIS Integration Runtime
 Skapa en Azure-SSIS integration runtime om du inte har en genom att följa de stegvisa anvisningarna i den [självstudie: distribuera SSIS-paket](tutorial-create-azure-ssis-runtime-portal.md).
 
-## <a name="data-factory-ui-azure-portal"></a>Data Factory-användargränssnitt (Azure portal)
+## <a name="run-a-package-in-the-azure-portal"></a>Kör ett paket i Azure portal
 I det här avsnittet använder du Användargränssnittet för Data Factory för att skapa Data Factory-pipeline med en köra SSIS-paket-aktivitet som kör ett SSIS-paket.
 
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
@@ -76,7 +75,7 @@ I det här steget använder du Användargränssnittet för Data Factory för att
     ![Sidan Kom igång](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
 2. I den **aktiviteter** verktygslådan Expandera **Allmänt**, och dra och släpp den **köra SSIS-paket** aktiviteten till pipelinedesignytan. 
 
-   ![Dra aktiviteten SSIS till designytan](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
+   ![Dra aktiviteten kör SSIS-paket till designytan](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
 
 3. På den **Allmänt** fliken av egenskaper för aktiviteten kör SSIS-paket, ange ett namn och beskrivning för aktiviteten. Ange tidsgränsen för valfritt och försök värden.
 
@@ -98,7 +97,7 @@ Du kan också tilldela värden, uttryck eller funktioner som kan hänvisa till D
 
 ![Lägga till parametrar till aktiviteten kör SSIS-paket](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
-### <a name="run-and-monitor-the-pipeline"></a>Köra och övervaka pipelinen
+### <a name="run-the-pipeline"></a>Köra en pipeline
 I det här avsnittet ska du utlösa en pipelinekörning och övervaka den. 
 
 1. För att utlösa en pipelinekörning klickar du på **utlösaren** i verktygsfältet och sedan på **Utlös nu**. 
@@ -107,15 +106,17 @@ I det här avsnittet ska du utlösa en pipelinekörning och övervaka den.
 
 2. I fönstret **Pipeline Run** (Pipelinekörning) väljer du **Slutför**. 
 
-3. Växla till fliken **Övervaka** till vänster. Du ser pipelinekörningen och dess status tillsammans med annan information (till exempel kör starttid). Om du vill uppdatera vyn klickar du på **Uppdatera**.
+### <a name="monitor-the-pipeline"></a>Övervaka pipeline
+
+1. Växla till fliken **Övervaka** till vänster. Du ser pipelinekörningen och dess status tillsammans med annan information (till exempel kör starttid). Om du vill uppdatera vyn klickar du på **Uppdatera**.
 
     ![Pipelinekörningar](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 
-4. Klicka på länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Du ser bara en aktivitetskörning eftersom pipelinen har endast en aktivitet (köra SSIS-paket-aktivitet).
+2. Klicka på länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Du ser bara en aktivitetskörning eftersom pipelinen har endast en aktivitet (köra SSIS-paket-aktivitet).
 
     ![Aktivitetskörningar](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
 
-5. Du kan köra följande **fråga** mot SSISDB-databasen i Azure SQL-servern att kontrollera att paketet körs. 
+3. Du kan köra följande **fråga** mot SSISDB-databasen i Azure SQL-servern att kontrollera att paketet körs. 
 
     ```sql
     select * from catalog.executions
@@ -123,20 +124,21 @@ I det här avsnittet ska du utlösa en pipelinekörning och övervaka den.
 
     ![Verifiera paketet körningar](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-6. Du kan också hämta SSISDB körnings-ID från utdata från aktiviteten pipelinekörning och använda det ID: T för att kontrollera mer omfattande körningsloggar och felmeddelanden i SSMS.
+4. Du kan också hämta SSISDB körnings-ID från utdata från aktiviteten pipelinekörning och använda det ID: T för att kontrollera mer omfattande körningsloggar och felmeddelanden i SSMS.
 
     ![Få körnings-ID.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
 
-> [!NOTE]
-> Du kan också skapa en schemalagd utlösare för din pipeline, så att pipelinen körs enligt ett schema (varje timme, varje dag, osv.). Ett exempel finns i [och skapa en data factory - Användargränssnittet för Data Factory](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+### <a name="schedule-the-pipeline-with-a-trigger"></a>Schemalägga en hel pipeline med en utlösare
 
-## <a name="azure-powershell"></a>Azure PowerShell
-I det här avsnittet använder du Azure PowerShell för att skapa Data Factory-pipeline med en SSIS-aktivitet som kör ett SSIS-paket. 
+Du kan också skapa en schemalagd utlösare för din pipeline, så att pipelinen körs enligt ett schema (varje timme, varje dag, osv.). Ett exempel finns i [och skapa en data factory - Användargränssnittet för Data Factory](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+
+## <a name="run-a-package-with-powershell"></a>Kör ett paket med PowerShell
+I det här avsnittet använder du Azure PowerShell för att skapa Data Factory-pipeline med en köra SSIS-paket-aktivitet som kör ett SSIS-paket. 
 
 Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
-Du kan använda samma data factory som har Azure-SSIS IR, eller så kan du skapa en separat data factory. Följande procedur innehåller steg för att skapa en datafabrik. Du kan skapa en pipeline med en SSIS-aktivitet i den här datafabriken. SSIS-aktiviteten kör SSIS-paket. 
+Du kan använda samma data factory som har Azure-SSIS IR, eller så kan du skapa en separat data factory. Följande procedur innehåller steg för att skapa en datafabrik. Du kan skapa en pipeline med en aktivitet för köra SSIS-paket i den här datafabriken. Köra SSIS-paket-aktiviteten kör SSIS-paket. 
 
 1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/resource-group-overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Till exempel: `"adfrg"`. 
    
@@ -176,10 +178,10 @@ Observera följande punkter:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna **deltagare** eller **ägare**, eller vara **administratör** för Azure-prenumerationen.
-* Välj de regioner som intresserar dig på sidan och expandera sedan en lista över Azure-regioner som Data Factory är för närvarande tillgängligt **Analytics** att hitta **Data Factory**: [ Produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+* Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
-### <a name="create-a-pipeline-with-an-ssis-activity"></a>Skapa en pipeline med en SSIS-aktivitet 
-I det här steget skapar du en pipeline med en SSIS-aktivitet. Aktiviteten kör SSIS-paket. 
+### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>Skapa en pipeline med en aktivitet kör SSIS-paket 
+I det här steget skapar du en pipeline med en aktivitet kör SSIS-paket. Aktiviteten kör SSIS-paket. 
 
 1. Skapa en JSON-fil med namnet **RunSSISPackagePipeline.json** i den **C:\ADF\RunSSISPackage** mapp med innehåll som liknar följande exempel:
 
@@ -279,7 +281,7 @@ I det här steget skapar du en pipeline med en SSIS-aktivitet. Aktiviteten kör 
     Parameters        : {[inputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification], [outputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification]}
     ```
 
-### <a name="create-a-pipeline-run"></a>Skapa en pipelinekörning
+### <a name="run-the-pipeline"></a>Köra en pipeline
 Använd den **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet för att köra en pipeline. Cmdleten samlar även in pipelinekörningens ID för kommande övervakning.
 
 ```powershell
@@ -288,7 +290,7 @@ $RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataF
                                              -PipelineName $DFPipeLine.Name
 ```
 
-### <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
+### <a name="monitor-the-pipeline"></a>Övervaka pipeline
 
 Kör följande PowerShell-skript för att kontinuerligt kontrollera pipelinekörningens status tills kopieringen av data är klar. Kopiera/klistra in följande skript i PowerShell-fönstret och tryck på RETUR. 
 
@@ -313,7 +315,7 @@ while ($True) {
 
 Du kan också övervaka pipelinen med hjälp av Azure portal. Stegvisa instruktioner finns i [övervaka pipelinen](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
-### <a name="create-a-trigger"></a>Skapa en utlösare
+### <a name="schedule-the-pipeline-with-a-trigger"></a>Schemalägga en hel pipeline med en utlösare
 I föregående steg körde du den pipeline på begäran. Du kan också skapa en schemautlösare för att köra pipelinen enligt ett schema (varje timme, varje dag, osv.).
 
 1. Skapa en JSON-fil med namnet **MyTrigger.json** i **C:\ADF\RunSSISPackage** mapp med följande innehåll: 
@@ -379,7 +381,6 @@ I föregående steg körde du den pipeline på begäran. Du kan också skapa en 
     ```sql
     select * from catalog.executions
     ```
-
 
 ## <a name="next-steps"></a>Nästa steg
 Se i följande blogginlägg:

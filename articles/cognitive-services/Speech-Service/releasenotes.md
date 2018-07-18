@@ -8,14 +8,14 @@ manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/17/2018
 ms.author: wolfma
-ms.openlocfilehash: 71a5edfbe388f2d4bfb48255b901cb0037665252
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 50a8c183bd7f2711847ce6d0acade4cb498ef2fc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069438"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116103"
 ---
 # <a name="release-notes"></a>Viktig information
 
@@ -42,12 +42,22 @@ ms.locfileid: "39069438"
 
 * Igenkänning av händelser: NoMatch händelsetyp sammanfogas i felhändelsen.
 * SpeechOutputFormat i C# har bytt namn till OutputFormat att hålla justerade med C++.
+* Returtypen för vissa metoder för den `AudioInputStream` gränssnittet något ändrade:
+   * I Java, den `read` metoden nu returnerar `long` i stället för `int`.
+   * I C#, den `Read` metoden nu returnerar `uint` i stället för `int`.
+   * I C++ kan den `Read` och `GetFormat` metoder returnerar nu `size_t` i stället för `int`.
+* C++: instanser av inkommande ljudströmmar kan nu endast skickas som en `shared_ptr`.
 
 **Felkorrigeringar**
 
 * Fast felaktig returvärden i resultatet när `RecognizeAsync()` når sin tidsgräns.
 * Media foundation-bibliotek på Windows-beroendet tas bort. SDK: N använder Core ljud API: er.
 * Dokumentationskorrigering: lagt till en region sida för att beskriva vad är regionerna som stöds.
+
+**Kända problem**
+
+* Tal-SDK för Android rapporterar inte tal syntes resultat för översättning.
+  Detta kommer att åtgärdas i nästa version.
 
 ## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services tal SDK 0.4.0: 2018-juniversionen för
 

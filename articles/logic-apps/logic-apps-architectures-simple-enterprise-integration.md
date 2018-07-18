@@ -1,6 +1,6 @@
 ---
-title: Azure-integreringstjänster – enkel Enterprise-Integration
-description: Referensarkitektur visar hur du implementerar en enkel enterprise integration-mönstret med Azure Logic Apps och Azure API Management
+title: Azure Integration Services enkel enterprise integration-Referensarkitektur
+description: Beskriver referensarkitekturen som visar hur du implementerar en enkel enterprise integration-mönstret med Azure Logic Apps och Azure API Management.
 author: mattfarm
 manager: jonfan
 editor: ''
@@ -14,160 +14,157 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: df86ca5aed405ab5eda05c1dd207f0b6656bfd96
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 982a5eabf8c6c3012a9b3e8fdbe2ff32ba439972
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860205"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113600"
 ---
-# <a name="simple-enterprise-integration---reference-architecture"></a>Enkel Enterprise-Integration - Referensarkitektur
+# <a name="reference-architecture-simple-enterprise-integration"></a>Referensarkitektur: enkel enterprise-integration
 
-## <a name="overview"></a>Översikt
+Följande Referensarkitektur visas en uppsättning beprövade metoder som du kan använda för ett integration-program som använder Azure Integration Services. Arkitekturen kan fungera som bas för många olika mönster som kräver HTTP APIs, arbetsflöde och samordning.
 
-Denna Referensarkitektur visas en uppsättning beprövade metoder för ett integration-program som använder Azure Integration Services. Den här arkitekturen kan fungera som den här grunden för många olika mönster som kräver HTTP APIs, arbetsflöde och dirigering.
+![Arkitekturdiagram - enkel enterprise-integration](./media/logic-apps-architectures-simple-enterprise-integration/simple_arch_diagram.png)
 
-*Det finns många möjliga program av integreringsteknik, från ett enkelt att punkt till punkt-program till en fullständig enterprise service bus. Den här arkitekturen-serien innehåller återanvändbara komponenter som kan vara relevanta för att skapa ett allmänt integration-program – arkitekter bör tänka på vilka specifika kompontener som de behöver du implementera för sina program och infrastruktur.*
-
-   ![Arkitekturdiagram - enkel enterprise-integration](./media/logic-apps-architectures-simple-enterprise-integration/simple_arch_diagram.png)
+*Det finns många möjliga program för integreringsteknik. De röra sig om en enkel point-to-point programmet till en fullständig enterprise Azure Service Bus-programmet. Arkitektur-serien beskriver återanvändbara komponenter som kan användas för att skapa ett allmänt integration-program. Arkitekter bör överväga vilka komponenter som de behöver för att implementera för sina program och infrastruktur.*
 
 ## <a name="architecture"></a>Arkitektur
 
 Arkitekturen har följande komponenter:
 
-- Resursgrupp. En [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) är en logisk behållare för Azure-resurser.
-- Azure API Management. [Azure API Management](https://docs.microsoft.com/azure/api-management/) är en fullständigt hanterad plattform för att publicera, skydda och omvandla HTTP APIs.
-- Utvecklarportalen i Azure API Management. Varje instans av Azure API Management som levereras med en [Utvecklarportalen](https://docs.microsoft.com/azure/api-management/api-management-customize-styles), vilket ger åtkomst till dokumentation, kodexempel och möjlighet att testa ett API.
-- Azure Logic Apps. [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) är en plattform utan server för att skapa enterprise arbetsflödet och integrationskontot.
-- Kopplingar. [Kopplingar](https://docs.microsoft.com/azure/connectors/apis-list) används av Logic Apps för att ansluta till tjänster som ofta används. Logic Apps har redan hundratals olika anslutningar, men de kan även skapas med hjälp av en anpassad anslutningsapp.
-- IP-adress. Azure API Management-tjänsten har en fast offentlig [IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) och ett domännamn. Domännamnet är en underdomän till azure-api.net, till exempel contoso.azure-api.net. Logic Apps och Service Bus också ha en offentlig IP-adress; i den här arkitekturen kan vi dock begränsa åtkomsten för att anropa Logic apps slutpunkter till endast de IP-adress för API Management (för säkerhet). Anrop till Service Bus skyddas av en signatur för delad åtkomst.
-- Azure DNS. [Azure DNS](https://docs.microsoft.com/azure/dns/) är en värdtjänst för DNS-domäner som ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster. Skapa DNS-poster som mappar det anpassade domännamnet till IP-adressen om du vill använda ett anpassat domännamn (t.ex contoso.com). Mer information finns i Konfigurera ett anpassat domännamn i Azure API Management.
-- Azure Active Directory (AD Azure). Använd [Azure AD](https://docs.microsoft.com/azure/active-directory/) eller en annan identitetsleverantör för autentisering. Azure AD tillhandahåller autentisering för att komma åt API-slutpunkter (genom att skicka en [JSON Web Token för API Management](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) att verifiera) och kan skydda åtkomst till Utvecklarportalen för API Management (endast Standard och Premium-nivåer).
+- **Resursgrupp**. En [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) är en logisk container för Azure-resurser.
+- **Azure API Management**. [API Management](https://docs.microsoft.com/azure/api-management/) är en fullständigt hanterad plattform som används för att publicera, skydda och transformera HTTP APIs.
+- **Azure API Management-utvecklarportalen**. Varje instans av Azure API Management som levereras med åtkomst till den [utvecklarportalen](https://docs.microsoft.com/azure/api-management/api-management-customize-styles). API Management Developer-portalen får du tillgång till exempel dokumentation och kodexempel. Du kan testa API: er i Developer-portalen.
+- **Azure Logic Apps**. [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) är en plattform utan server som används för att skapa enterprise arbetsflödet och integrationskontot.
+- **Kopplingar**. Logic Apps använder [kopplingar](https://docs.microsoft.com/azure/connectors/apis-list) att ansluta till ofta används för tjänster. Logic Apps har redan hundratals olika anslutningar, men du kan också skapa en anpassad anslutningsapp.
+- **IP-adress**. Azure API Management-tjänsten har en fast offentlig [IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) och ett domännamn. Domännamnet är en underdomän till azure-api.net, till exempel contoso.azure-api.net. Logic Apps och Service Bus även ha en offentlig IP-adress. I den här arkitekturen kan vi dock begränsa åtkomsten för att anropa Logic Apps-slutpunkter som endast IP-adressen för API Management (för säkerhet). Anrop till Service Bus skyddas av en signatur för delad åtkomst (SAS).
+- **Azure DNS**. [Azure DNS](https://docs.microsoft.com/azure/dns/) är en värdtjänst för DNS-domäner. Azure DNS ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Du kan hantera dina DNS-poster genom att använda samma autentiseringsuppgifter, API: er, verktyg och fakturering att du använder för dina andra Azure-tjänster genom som värd för domäner i Azure. För att använda ett anpassat domännamn, t.ex. contoso.com, skapar du DNS-poster som mappar det anpassade domännamnet till IP-adressen. Mer information finns i [konfigurera ett anpassat domännamn i API Management](https://docs.microsoft.com/en-us/azure/api-management/configure-custom-domain).
+- **Azure Active Directory (Azure AD)**. Använd [Azure AD](https://docs.microsoft.com/azure/active-directory/) eller en annan identitetsleverantör för autentisering. Azure AD tillhandahåller autentisering för att komma åt API-slutpunkter genom att skicka en [JSON Web Token för API Management](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) att verifiera. Azure AD kan skydda åtkomst till API Management Developer-portalen (endast Standard och Premium-nivåer).
 
-Den här arkitekturen har vissa grundläggande mönster i dess drift:
+Arkitekturen har vissa mönster som är grundläggande för dess drift:
 
-2. Sammansatta API: er skapas med hjälp av Logic Apps; samordna anrop till SAAS-system, Azure-tjänster och alla API: er som publiceras till API Management. Den [Logic Apps publiceras även](https://docs.microsoft.com/azure/api-management/import-logic-app-as-api) via Utvecklarportalen för API Management.
-3. Program [skaffa ett OAuth 2.0-säkerhetstoken](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) krävs för att få åtkomst till ett API med Azure Active Directory.
-4. Azure API Management [verifierar säkerhetstoken](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad), och skickar begäran till API/Logic App-serverdelen.
+- Sammansatta API: er skapas med hjälp av logikappar. De dirigera anrop till programvara som en tjänst (SaaS)-system, till Azure-tjänster och till alla API: er som publiceras till API Management. [Logikappar publiceras även](https://docs.microsoft.com/azure/api-management/import-logic-app-as-api) via API Management Developer-portalen.
+- Program använder Azure AD för att [skaffa ett OAuth 2.0-säkerhetstoken](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) som krävs för att få åtkomst till ett API.
+- Azure API Management [verifierar säkerhetstoken](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) och skickar begäran till backend-API: et eller logic app.
 
 ## <a name="recommendations"></a>Rekommendationer
 
-Dina specifika krav kan skilja sig från den allmänna arkitektur som beskrivs här. Använd rekommendationerna i det här avsnittet som en utgångspunkt.
+Dina specifika krav kan skilja sig från den allmänna arkitektur som beskrivs i den här artikeln. Använd rekommendationerna i det här avsnittet som en utgångspunkt.
 
 ### <a name="azure-api-management-tier"></a>Azure API Management-nivå
 
-Använd Basic, Standard eller Premium-nivåerna eftersom de erbjuder ett serviceavtal (SLA) för produktion och stöd för skalbar inom Azure-region (antal enheter varierar beroende på nivån). Premium-nivån har även stöd för skalbar över flera Azure-regioner. Basera den nivå som du valde på din dataflödesnivå som krävs och funktionsuppsättning. Mer information finns i [API Management-priser](https://azure.microsoft.com/pricing/details/api-management/).
+Använd API Management Basic, Standard eller Premium-nivå. Nivåerna erbjuder ett produktion servicenivåavtal (SLA) och stöd för skalbar inom Azure-region (hur många enheter varierar beroende på nivån). Premium-nivån har även stöd för skalbar över flera Azure-regioner. Basera den nivå du väljer på dataflödet som krävs och din funktionsuppsättning. Mer information finns i [API Management-priser](https://azure.microsoft.com/pricing/details/api-management/).
 
-Du debiteras för alla API Management-instanser när de körs. Om du har skalats och behöver inte den här nivån av prestanda hela tiden, Överväg att utnyttja API Management timvis debitering och skala.
+Du debiteras för alla API Management-instanser när de körs. Om du har skalats och behöver inte den här nivån av prestanda hela tiden, Överväg att dra nytta av fakturering per timme API Management och skala ned.
 
 ### <a name="logic-apps-pricing"></a>Prissättning för Logic Apps
 
-Logikappar fungerar som en [serverlös](logic-apps-serverless-overview.md) modellen – debiteringen beräknas baserat på åtgärder och anslutningsprogram körning. Se [Logic Apps-priser](https://azure.microsoft.com/pricing/details/logic-apps/) för mer information. Det finns inga nivån överväganden för Logic Apps.
+Logic Apps använder en [serverlös](logic-apps-serverless-overview.md) modellen. Fakturering beräknas baserat på åtgärder och anslutningsprogram körning. Mer information finns i [Logic Apps-priser](https://azure.microsoft.com/pricing/details/logic-apps/). Det finns för närvarande inga nivån överväganden för Logic Apps.
 
 ### <a name="logic-apps-for-asynchronous-api-calls"></a>Logic Apps för asynkron API-anrop
 
-Logikappar fungerar bäst i scenarier som inte kräver låg latens – t.ex. asynkrona eller halvautomatisk lång körs API-anrop. Om låg latens krävs (t.ex. ett anrop som blockerar ett användargränssnitt) rekommenderar vi att API: et eller igen med en annan teknik, t.ex. Azure Functions eller webb-API som distribueras med App Service. Vi rekommenderar ändå att detta API är fronted med hjälp av API Management API som använder.
+Logikappar fungerar bäst i scenarier som inte kräver låg fördröjning. Till exempel den fungerar bäst för asynkron eller halvstrukturerade långvariga API-anrop. Om låg latens krävs (t.ex, ett anrop som blockerar ett användargränssnitt), rekommenderar vi att API: et eller åtgärden med hjälp av en annan teknik. Till exempel använda Azure Functions eller ett webb-API som du distribuerar med hjälp av Azure App Service. Vi rekommenderar ändå att du klientdelens API till API-konsumenter med hjälp av API Management.
 
 ### <a name="region"></a>Region
 
-Etablera API Management och Logikappar i samma region för att minimera nätverkssvarstiden. Du väljer normalt den region som är närmast dina användare.
+Etablera API Management och Logikappar i samma region för att minimera nätverkssvarstiden. I allmänhet väljer du regionen som är närmast dina användare.
 
-Resursgruppen har också en region som anger var metadata för distribution lagras, och där distributionsmallen körs från. Placera resursgruppen och dess resurser i samma region. Detta kan förbättra tillgängligheten under distributionen.
+Resursgruppen har också en region. Regionen anger var metadata för distribution lagras och där distributionsmallen kör från. Placera resursgruppen och dess resurser i samma region för att förbättra tillgängligheten under distributionen.
 
-## <a name="scalability-considerations"></a>Skalbarhetsöverväganden
+## <a name="scalability"></a>Skalbarhet
 
-API Management-administratörer bör lägga till [cachelagringsprinciper](../api-management/api-management-howto-cache.md) där det är lämpligt att öka skalbarheten för tjänsten och minska belastningen på sina serverdelstjänster.
+API Management-administratörer bör lägga till [cachelagringsprinciper](../api-management/api-management-howto-cache.md) där det är lämpligt för att öka skalbarheten i tjänsten. Cachelagring kan också minska belastningen på backend-tjänster.
 
-Azure API Management Basic, Standard och Premium-nivåerna kan skaländras ut med i en Azure-region som erbjuder större kapacitet. Administratörer kan använda kapacitet mått i mått-menyn för att analysera användandet av deras tjänster och skala upp eller efter behov.
+Azure API Management Basic, Standard och Premium-nivåerna kan skaländras ut i en Azure-region som erbjuder större kapacitet. Administratörer kan använda den **kapacitet mått** alternativet i den **mått** menyn för att analysera användandet av deras tjänster och sedan skala upp eller efter behov.
 
 Rekommendationer för att skala API Management-tjänsten:
 
-- Skalningsbehov med hänsyn till trafikmönster – kunder med mer föränderliga trafikmönster har större behov av ökad kapacitet.
+- Skalning måste ta hänsyn till trafikmönster. Kunder med mer föränderliga trafikmönster har större behov av ökad kapacitet.
 - Konsekvent kapacitet över 66% kan tyda på ett behov av att skala upp.
-- Konsekvent kapacitet under 20% kan indikera en möjlighet att skala ned.
-- Vi rekommenderar alltid att läsa in testa API Management-tjänsten med en representativ belastning innan du aktiverar i produktion.
+- Konsekvent kapacitet under 20% kan tyda på en möjlighet att skala ned.
+- Vi rekommenderar alltid för att belastningstest API Management-tjänsten med en representativ belastning innan du aktiverar belastningen i produktion.
 
-Premium-nivån-tjänster kan skalas ut över flera Azure-regioner. Kunder som distribuerar på det här sättet kommer få ett högre serviceavtal (99,95% till skillnad från 99,9%) och kan tillhandahålla tjänster nära användare i flera regioner.
+Premium-nivån-tjänster kan skalas ut över flera Azure-regioner. Kunder som distribuerar genom att skala tjänster över flera Azure-regioner få ett högre serviceavtal (99,95% jämfört med 99,9%) och kan tillhandahålla tjänster nära användare i flera regioner.
 
-Logic Apps serverlös modellen innebär att administratörer inte behöver göra extra bör tänka på vid tjänstskalbarhet; tjänsten skalas automatiskt för att möta efterfrågan.
+Logikappar serverlös modellen innebär att administratörer behöver inte planera för tjänstskalbarhet. Tjänsten skalas automatiskt för att möta efterfrågan.
 
-## <a name="availability-considerations"></a>Överväganden för tillgänglighet
+## <a name="availability"></a>Tillgänglighet
 
-I det här dokumentet skrivs är serviceavtalet (SLA) för Azure API Management 99,9% för nivåerna Basic, Standard och Premium. Premium-nivån konfigurationer med distribution av minst en enhet i två eller fler regioner har inget eget serviceavtal på 99,95%.
+SERVICEAVTALET för Azure API Management är för närvarande 99,9% för nivåerna Basic, Standard och Premium. Premium-nivån konfigurationer med distribution av minst en enhet i två eller fler regioner har inget eget serviceavtal på 99,95%.
 
-I det här dokumentet skrivs är serviceavtalet (SLA) för Azure Logic Apps 99,9%.
+SERVICEAVTALET för Azure Logic Apps är för närvarande 99,9%.
 
 ### <a name="backups"></a>Säkerhetskopior
 
-Azure API Management-konfigurationen ska vara [säkerhetskopieras regelbundet](../api-management/api-management-howto-disaster-recovery-backup-restore.md) (korrekt baserat på korrekthet ändring), och de säkerhetskopiera filerna som lagras på en plats eller Azure-Region olika där tjänsten finns. Kunder kan sedan välja ett av två alternativ för sin strategi för Haveriberedskap:
+Azure API Management-konfigurationen ska vara [säkerhetskopieras regelbundet](../api-management/api-management-howto-disaster-recovery-backup-restore.md) (baserat på korrekthet ändring). Säkerhetskopiera filer ska lagras på en plats eller Azure-region som skiljer sig från där tjänsten finns. Kunder kan sedan välja ett av två alternativ för sin strategi för katastrofåterställning:
 
-1. En ny API Management-instans etableras i en DR-händelse, säkerhetskopian återställs till den och DNS-poster är repointed.
-2. Håll kunderna en passiv kopia av deras tjänster i en annan Azure-region (genererar ytterligare kostnad) säkerhetskopieringar återställs regelbundet till den. I en DR-händelse, behöver du repointed DNS-poster för att återställa tjänsten.
+- En ny API Management-instans etableras i en disaster recovery-händelse, säkerhetskopian återställs till den nya instansen och DNS-poster är repointed.
+- Kunder behålla en passiv kopia av deras tjänster i en annan Azure-region (genererar ytterligare kostnad). Säkerhetskopior återställs regelbundet till kopian. I en disaster recovery-händelse, behöver du repointed DNS-poster för att återställa tjänsten.
 
-Eftersom Logic Apps kan skapas på nytt snabbt och utan server, säkerhetskopieras de genom att spara en kopia av den associerade Azure Resource Manager-mallen. Dessa kan sparas till källan kontroll/integreras i en kunders processen för kontinuerlig integrering/kontinuerlig distribution (CI/CD).
+Eftersom logic apps kan skapas igen snabbt och är utan server, säkerhetskopieras de genom att spara en kopia av den associerade Azure Resource Manager-mallen. Mallar kan sparas till källkontroll och de kan integreras med en kunds processen för kontinuerlig integrering/kontinuerlig distribution (CI/CD).
 
-Logic Apps som har publicerats via API Management måste deras platser uppdateras bör de flyttar till ett annat datacenter. Detta kan åstadkommas via ett enkelt PowerShell-skript för att uppdatera egenskapen serverdel för API: et.
+Om en logikapp som publicerats via API Management flyttas till ett annat datacenter, kan du uppdatera dess plats. Om du vill uppdatera appens plats, använder du grundläggande PowerShell.skript för att uppdatera den **serverdel** egenskapen för API: et.
 
-## <a name="manageability-considerations"></a>Överväganden för hantering
+## <a name="manageability"></a>Hanterbarhet
 
-Skapa separata resursgrupper för produktion, utveckling och testmiljöer. Det här gör det enklare att hantera distributioner, ta bort testdistributioner och tilldela åtkomsträttigheter.
-Tänk på följande när du tilldelar resurser till resursgrupper:
+Skapa separata resursgrupper för produktion, utveckling och testmiljöer. Med hjälp av separata resursgrupper gör det enklare att hantera distributioner, ta bort testdistributioner och tilldela åtkomsträttigheter.
 
-- Livscykel. I allmänhet ska du placera resurser med samma livscykel i samma resursgrupp.
-- Åtkomst. Du kan använda [Role-Based Access Control](../role-based-access-control/overview.md) (RBAC) för att tillämpa principer för åtkomst till resurser i en grupp.
-- Fakturering. Du kan visa de samlade kostnaderna för resursgruppen.
-- Prisnivå för API Management – vi rekommenderar att du använder Developer-nivån för utvecklings- och testmiljöer. För Förproduktion rekommenderar vi distribuerar en replik av produktionsmiljön, kör tester och stänger sedan för att minimera kostnader.
+Tänk på följande faktorer när du tilldelar resurser till resursgrupper:
 
-Mer information finns i [resursgrupp](../azure-resource-manager/resource-group-overview.md) Översikt.
+- **Livscykel**. I allmänhet Lägg till resurser som har samma livscykel i samma resursgrupp.
+- **Åtkomst**. Du kan använda [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) (RBAC) för att tillämpa principer för åtkomst till resurser i en grupp.
+- **Fakturering**. Du kan visa samlade kostnaderna för resursgruppen.
+- **Prisnivå för API Management**. Vi rekommenderar att du använder Developer-nivån för utveckling och testmiljöer. För Förproduktion rekommenderar vi distribuerar en replik av produktionsmiljön, kör tester och stänger sedan för att minimera kostnader.
+
+Mer information finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### <a name="deployment"></a>Distribution
 
-Vi rekommenderar att du använder [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) att distribuera både Azure API Management och Azure Logic Apps. Mallar gör det enklare att automatisera distribution via PowerShell eller kommandoradsgränssnittet (CLI).
+Vi rekommenderar att du använder [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) att distribuera API Management och Logikappar. Mallar gör det enklare att automatisera distribution via PowerShell eller Azure CLI.
 
-Vi rekommenderar att ange Azure API Management och alla enskilda Logikappar i sina egna separata Resource Manager-mallar. Detta gör att lagra dem i källkontrollsystem. Dessa mallar kan sedan distribueras tillsammans eller separat som en del av en process för kontinuerlig integrering/kontinuerlig (CI/CD).
+Vi rekommenderar att ange Azure API Management och alla enskilda logikappar i sina egna, separata Resource Manager-mallar. När du använder separata mallar kan du lagra resurser i källkontrollsystem. Du kan också distribuera resurser tillsammans eller separat som en del av en process för CI/CD.
 
 ### <a name="versions"></a>Versioner
 
-Varje gång du gör en konfiguration ändras till en Logikapp (eller distribuera en uppdatering via Resource Manager-mall), sparas en kopia av den här versionen för din bekvämlighet (alla versioner som har en körningshistoriken sparas). Du kan använda dessa versioner för att spåra ändringar av historiska och främjar också en version som den aktuella konfigurationen av logikappen; Gör innebär du kan effektivt återställa en Logikapp, till exempel.
+Varje gång du gör en konfiguration ändras till en logikapp (eller distribuera en uppdatering via Resource Manager-mall), sparas en kopia av den här versionen för din bekvämlighet (alla versioner som har en körningshistoriken hålls). Du kan använda dessa versioner spåra historiska ändringar och för att främja en version som den aktuella konfigurationen av logikappen. Exempelvis kan återställa du effektivt en logikapp.
 
 API Management har två distinkta (men kostnadsfri) [versionshantering begrepp](https://blogs.msdn.microsoft.com/apimanagement/2018/01/11/versions-revisions-general-availibility/):
 
-- Versioner som används för att ge konsumenterna API ett urval av de kan använda API: et utifrån deras behov (t.ex. v1, v2 eller beta, produktion).
-- Revisioner som administratörerna har API på ett säkert sätt göra ändringar i ett API och distribuera dem till användare med valfria kommentarer.
+- Versioner som används för att ge konsumenterna API ett urval av de kan använda API: et utifrån deras behov (till exempel v1, v2 eller beta, produktion).
+- Revisioner som gör att API-administratörer kan göra ändringar på ett säkert sätt till ett API och sedan distribuera ändringarna till användare med valfria kommentarer.
 
-Att behålla en ändring i samband med distributionen – API Management revisioner ska betraktas som ett sätt att göra ändringar på ett säkert sätt, och göra API-kunderna medveten om dessa ändringar. En revision skapas i en utvecklingsmiljö och distribueras mellan andra miljöer med hjälp av Resource Manager-mallar.
+I samband med distributionen är det en bra idé att tänka på API Management revisioner som ett sätt att göra ändringar på ett säkert sätt att behålla en ändring och göra API-kunderna medveten om dessa ändringar. En ändring kan skapas i en utvecklingsmiljö och distribueras mellan andra miljöer med hjälp av Resource Manager-mallar.
 
-Även om revisioner kan används för att testa ett API innan den görs ”aktuella” och göras tillgänglig för användare, rekommenderar vi inte den här mekanismen för belastning eller testning – separat test- eller testmiljöer ska användas istället.
+Men du kan använda revideringar för att testa ett API innan du gör den ”aktuella” och är tillgängliga för användare, rekommenderar vi inte den här mekanismen för belastning eller testning. Använd i stället separata test eller preproduktionsmiljöer.
 
 ### <a name="configuration"></a>Konfiguration
 
-Sök aldrig lösenord, åtkomstnycklar eller anslutningssträngar i till källkontroll. Om de behövs, kan du använda lämplig metod för att distribuera och skydda dessa värden. 
+Aldrig checka in lösenord, åtkomstnycklar eller anslutningssträngar till källkontroll. Om dessa värden krävs kan du använda lämplig metod för att distribuera och skydda dessa värden. 
 
-I Logic Apps, alla känsliga värden som behövs i logikappen (det inte går att skapa i form av en anslutning) lagras i Azure Key Vault och refereras till från en Resource Manager-mall. Vi rekommenderar också med hjälp av mallen distributionsparametrarna tillsammans med parameterfiler för varje miljö. Mer information om hur [skydda parametrar och indata i ett arbetsflöde](logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow).
+I Logic Apps, alla känsliga värden som behövs i logikappen (det inte går att skapa i form av en anslutning) lagras i Azure Key Vault och refereras till från en Resource Manager-mall. Vi rekommenderar också att med hjälp av distributionsparametrarna för mallen och parameterfilerna för varje miljö. Mer information finns i [skydda parametrar och indata i ett arbetsflöde](logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow).
 
-I API Management hanteras hemligheter med hjälp av objekt som kallas med namnet värden och egenskaper. Dessa lagra på ett säkert sätt värden som kan användas i API Management-principer. Se hur du [hantera hemligheter i API Management](../api-management/api-management-howto-properties.md).
+I API Management hemligheter hanteras med hjälp av objekt som kallas *namngivna värden* eller *egenskaper*. Objekten lagra på ett säkert sätt värden som kan användas i API Management-principer. Mer information finns i [hantera hemligheter i API Management](../api-management/api-management-howto-properties.md).
 
 ### <a name="diagnostics-and-monitoring"></a>Diagnostik och övervakning
 
-Båda [API Management](../api-management/api-management-howto-use-azure-monitor.md) och [Logikappar](logic-apps-monitor-your-logic-apps.md) stöder driftövervakning via [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor är aktiverat som standard och ger information baserat på de olika mått som konfigurerats för varje tjänst.
+[API Management](../api-management/api-management-howto-use-azure-monitor.md) och [Logikappar](logic-apps-monitor-your-logic-apps.md) båda har stöd för operativa övervakning via [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor innehåller information baserat på mått som är konfigurerade för varje tjänst. Azure Monitor är aktiverat som standard.
 
-Det finns dessutom ytterligare alternativ för varje tjänst:
+Dessa alternativ är också tillgängliga för varje tjänst:
 
-- Logic Apps loggar kan skickas till [Log Analytics](logic-apps-monitor-your-logic-apps-oms.md) för djupare analys och dashboarding.
-- Konfigurera Application Insights för övervakning av Dev Ops har stöd för API Management.
-- Har stöd för API Management på [Power BI-Lösningsmall för anpassade API-analytics](http://aka.ms/apimpbi). Den här lösningsmallen kan kunderna skapa sina egna anpassade analyslösning med rapporter som är tillgängliga i Power BI för företagsanvändare.
+- Logic Apps loggar kan skickas till [Azure Log Analytics](logic-apps-monitor-your-logic-apps-oms.md) för djupare analys och dashboarding.
+- Konfigurera Azure Application Insights för DevOps övervakning har stöd för API Management.
+- Har stöd för API Management på [Power BI-lösningsmall för anpassade API-analytics](http://aka.ms/apimpbi). Kunder kan använda lösningsmallen för att skapa egna anpassade analyslösning. Rapporter är tillgängliga i Power BI för företagsanvändare.
 
-## <a name="security-considerations"></a>Säkerhetsöverväganden
+## <a name="security"></a>Säkerhet
 
-Det här avsnittet innehåller säkerhetsaspekter som är specifika för Azure-tjänster som beskrivs i den här artikeln har distribuerats i arkitekturen som beskrivs. Det är inte en fullständig lista över säkerhetsmetoder.
+Det här avsnittet innehåller säkerhetsaspekter som är specifika för Azure-tjänster som beskrivs i den här artikeln och som har distribuerats i arkitekturen som beskrivs. Det är inte en fullständig lista över säkerhetsmetoder.
 
 - Använd rollbaserad åtkomstkontroll (RBAC) för att säkerställa rätt åtkomstnivå för användare.
-- Skydda offentliga API-slutpunkter i API Management med hjälp av OAuth/öppna IDConnect. Du kan göra detta genom att konfigurera en identitetsprovider och lägger till en princip för JWT-verifiering.
-- Anslut till serverdelstjänster från API Management med hjälp av ömsesidig certifikat
-- Skydda HTTP utlösningsbaserade Logic Apps genom att skapa en IP-adress-vitlistan som pekar på IP-adressen för API Management. Detta förhindrar att anropa logikappen från det offentliga internet utan att första gå via API Management.
-
-Den här referensarkitekturen visar hur du skapar en enkel företagsplattform på integrering med Azure Integration Services.
+- Skydda offentliga API-slutpunkter i API Management med hjälp av OAuth/OpenID Connect. Om du vill skydda offentliga API-slutpunkter, konfigurera en identitetsprovider och Lägg till en verifieringsprincip av JSON Web Token (JWT).
+- Ansluta till backend-tjänster från API Management med hjälp av ömsesidig certifikat.
+- Skydda HTTP utlösningsbaserade logikappar genom att skapa en godkänd IP-adress-lista som pekar till API Management IP-adressen. En godkänd IP-adress förhindrar att anropa logikappen från det offentliga internet utan att första gå via API Management.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Enterprise-Integration med köer och händelser](logic-apps-architectures-enterprise-integration-with-queues-events.md)
+- Lär dig mer om [enterprise-integration med köer och händelser](logic-apps-architectures-enterprise-integration-with-queues-events.md).

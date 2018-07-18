@@ -1,6 +1,6 @@
 ---
-title: Felsöka Azure virtuell nätverksgateway och anslutningar - PowerShell | Microsoft Docs
-description: Den här sidan förklarar hur du använder Azure Nätverksbevakaren felsöka PowerShell-cmdlet
+title: Felsöka Azure Vnet-Gateway och anslutningar – PowerShell | Microsoft Docs
+description: Den här sidan förklaras hur du använder Azure Network Watcher felsöka PowerShell-cmdlet
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,37 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 0a967759e477d213dd0a33298a4079fc48caa81f
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 67c34156d6a397cdeb4bb50c712b1bb651c2f257
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777687"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090436"
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Felsöka virtuella nätverksgateway och anslutningar med hjälp av Azure Network Watcher PowerShell
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Felsöka virtuella nätverkets Gateway och anslutningar som använder Azure Network Watcher PowerShell
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-> - [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
+> - [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
 > - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
-Nätverksbevakaren innehåller många funktioner relateras till att förstå nätverksresurserna i Azure. En av dessa funktioner är resurs felsökning. Felsökning av resursen kan anropas via portalen, PowerShell, CLI eller REST API. När den anropas, Nätverksbevakaren kontrollerar hälsotillståndet för en virtuell nätverksgateway eller en anslutning och returnerar resultatet.
+Network Watcher innehåller många funktioner som den relaterar till att förstå nätverksresurserna i Azure. En av dessa funktioner är resurs felsökning. Felsökning av resursen kan anropas via portal, PowerShell, CLI eller REST API. När den anropas, Network Watcher kontrollerar hälsotillståndet för en virtuell nätverksgateway eller en anslutning och returnerar resultatet.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Det här scenariot förutsätter att du redan har följt stegen i [skapa en Nätverksbevakaren](network-watcher-create.md) att skapa en Nätverksbevakaren.
+Det här scenariot förutsätter att du redan har följt stegen i [skapa en Network Watcher](network-watcher-create.md) att skapa en Network Watcher.
 
-En lista över stöds gateway typer besök [stöd för Gateway-typer](network-watcher-troubleshoot-overview.md#supported-gateway-types).
+En lista över stöds gateway typer besök [stöds gatewaytyper](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
 ## <a name="overview"></a>Översikt
 
-Felsökning av resursen ger möjlighet felsöka problem som uppstår med virtuella Nätverksgatewayer och anslutningar. När en begäran skickas till resursen felsökning, loggar som efterfrågas och kontrolleras. Resultaten returneras när kontroll har slutförts. Resursen felsökning förfrågningar är tidskrävande begäranden, vilket kan ta flera minuter att returnera ett resultat. Loggar från felsökning lagras i en behållare för ett lagringskonto som har angetts.
+Felsökning av resurs gör möjligheten felsöka problem som kan uppstå med Virtual Network-gatewayer och anslutningar. När en begäran skickas till felsöknings-resurs, som loggar ska efterfrågas och kontrolleras. När kontrollen är klar visas returneras resultaten. Resursen felsökning begärandena långvariga begäranden, vilket kan ta flera minuter att beräkna ett resultat. Loggar från felsökning lagras i en behållare på ett lagringskonto som har angetts.
 
-## <a name="retrieve-network-watcher"></a>Hämta Nätverksbevakaren
+## <a name="retrieve-network-watcher"></a>Hämta Network Watcher
 
-Det första steget är att hämta Nätverksbevakaren-instans. Den `$networkWatcher` variabel har skickats till den `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet i steg 4.
+Det första steget är att hämta Network Watcher-instans. Den `$networkWatcher` variabeln skickas till den `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet i steg 4.
 
 ```powershell
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
@@ -53,7 +52,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 
 ## <a name="retrieve-a-virtual-network-gateway-connection"></a>Hämta en Gateway för virtuell nätverksanslutning
 
-I det här exemplet är resurs felsökning som kördes på en anslutning. Du kan också flytta den virtuella Nätverksgatewayen.
+I det här exemplet som felsökning av resurs kördes på en anslutning. Du kan även skicka det en virtuell nätverksgateway.
 
 ```powershell
 $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
@@ -61,7 +60,7 @@ $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceG
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Felsökning av resursen returnerar data om hälsotillståndet för resursen, sparas även loggar till ett lagringskonto som ska granskas. I det här steget ska vi skapa ett lagringskonto, om det finns ett befintligt lagringskonto kan du använda den.
+Felsökning av resurs returnerar data om hälsotillståndet för resursen, sparas även loggar till ett lagringskonto som ska granskas. I det här steget ska vi skapa ett lagringskonto, om det finns ett befintligt lagringskonto kan du använda den.
 
 ```powershell
 $sa = New-AzureRmStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
@@ -69,25 +68,25 @@ Set-AzureRmCurrentStorageAccount -ResourceGroupName $sa.ResourceGroupName -Name 
 $sc = New-AzureStorageContainer -Name logs
 ```
 
-## <a name="run-network-watcher-resource-troubleshooting"></a>Kör Nätverksbevakaren resurs felsökning
+## <a name="run-network-watcher-resource-troubleshooting"></a>Kör felsökning av Network Watcher-resurs
 
-Felsökning av resurser med den `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet. Vi skickar cmdlet objektet Nätverksbevakaren, Id för anslutning eller virtuell nätverksgateway, storage-konto-id och sökvägen för att lagra resultaten.
+Felsökning av resurser med den `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet. Vi skickar cmdlet: en Network Watcher-objektet, Id för anslutningen eller det virtuella nätverkets Gateway, storage-konto-id och sökvägen för att lagra resultatet.
 
 > [!NOTE]
-> Den `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet är långvariga och kan ta några minuter att slutföra.
+> Den `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet körs länge och kan ta några minuter att slutföra.
 
 ```powershell
 Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)$($sc.name)"
 ```
 
-När du kör cmdleten, granskar Nätverksbevakaren resurs för att kontrollera hälsotillståndet. Den returnerar resultaten till shell och lagrar loggar av resultaten i storage-konto som har angetts.
+När du kör cmdleten, granskar Network Watcher resurs för att kontrollera hälsotillståndet. Den returnerar resultaten till gränssnittet och lagrar loggar resultat i det angivna lagringskontot.
 
 ## <a name="understanding-the-results"></a>Förstå resultaten
 
-Åtgärden texten innehåller allmänna råd om hur du löser problemet. Om en åtgärd kan vidtas för utfärdande, finns en länk med mer information. I fall där det finns inga ytterligare riktlinjer, svaret innehåller URL: en för att öppna ett supportärende.  Mer information om egenskaperna för svaret och vad som ingår finns [nätverk Watcher Felsökning: översikt](network-watcher-troubleshoot-overview.md)
+Åtgärd-texten innehåller allmänna råd om hur du löser problemet. Om en åtgärd kan utföras på problemet, länk en med ytterligare vägledning. I fall där det finns inga ytterligare vägledning, svaret anger webbadressen för att öppna ett supportärende.  Mer information om egenskaperna för svaret och vad som ingår finns [felsökning av Network Watcher-översikt](network-watcher-troubleshoot-overview.md)
 
-Anvisningar för att hämta filer från azure storage-konton, referera till [komma igång med Azure Blob storage med hjälp av .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Ett annat verktyg som kan användas är Lagringsutforskaren. Mer information om Lagringsutforskaren hittar du här på följande länk: [Lagringsutforskaren](http://storageexplorer.com/)
+Instruktioner om att ladda ned filer från azure storage-konton finns i [komma igång med Azure Blob storage med hjälp av .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Ett annat verktyg som kan användas är Storage Explorer. Mer information om Storage Explorer finns här på följande länk: [Storage Explorer](http://storageexplorer.com/)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om inställningarna har ändrats som stoppa VPN-anslutning, se [hantera Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md) att spåra de grupp och säkerhet Nätverkssäkerhetsregler som kan vara i fråga.
+Om inställningarna har ändrats som stoppa VPN-anslutning, se [hantera Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md) att spåra de och Nätverkssäkerhetsregler som kan vara i fråga.

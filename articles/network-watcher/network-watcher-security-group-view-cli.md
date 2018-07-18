@@ -1,6 +1,6 @@
 ---
-title: Analysera nätverkssäkerhet med Azure Network Watcher säkerhet gruppvyn - Azure CLI 2.0 | Microsoft Docs
-description: Den här artikeln beskriver hur du använder Azure CLI 2.0 för att analysera en säkerhet för virtuella datorer med Gruppvy för säkerhet.
+title: Analysera nätverkssäkerhet med Azure Network Watcher Säkerhetsgruppvy – Azure CLI 2.0 | Microsoft Docs
+description: Den här artikeln beskriver hur du använder Azure CLI 2.0 för att analysera en säkerhet för virtuella datorer med Säkerhetsgruppvy.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,35 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 9ae5ec422b197b077c52dbb2e64ddab4e08e3a50
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 82cd0d97a64819ae8528850ba9a44800bf960afc
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "26409886"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090572"
 ---
-# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-20"></a>Analysera dina virtuella säkerhet med säkerhet gruppvyn använder Azure CLI 2.0
+# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-20"></a>Analysera din säkerhet för virtuella datorer med Säkerhetsgruppvy med Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-security-group-view-cli.md)
+> - [Azure CLI](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
 
-Säkerhet gruppvyn returnerar konfigurerade och effektivt Nätverkssäkerhetsregler som tillämpas på en virtuell dator. Den här funktionen är användbar för att granska och diagnostisera Nätverkssäkerhetsgrupper och regler som är konfigurerade på en virtuell dator så trafik som tillåts eller nekas på rätt sätt. I den här artikeln hur vi du kan hämta de konfigurerade och effektivt säkerhetsreglerna till en virtuell dator med hjälp av Azure CLI
+Säkerhetsgruppvy returnerar konfigurerade och gällande säkerhetsregler som tillämpas på en virtuell dator. Den här funktionen är användbar för att granska och diagnostisera Nätverkssäkerhetsgrupper och regler som är konfigurerade på en virtuell dator för att se till att trafik som ska tillåtas eller nekas. I den här artikeln har visar vi hur du hämtar de konfigurerade och gällande säkerhetsreglerna som en virtuell dator med Azure CLI
 
 
-Den här artikeln använder våra nästa generations CLI för hantering av resursdistributionsmodell, Azure CLI 2.0, som är tillgänglig för Windows, Mac och Linux.
+Den här artikeln använder vår nästa generations CLI för resource management-distributionsmodellen, Azure CLI 2.0, som är tillgängligt för Windows, Mac och Linux.
 
 Om du vill utföra stegen i den här artikeln, måste du [installera Azure-kommandoradsgränssnittet för Mac, Linux och Windows (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Det här scenariot förutsätter att du redan har följt stegen i [skapa en Nätverksbevakaren](network-watcher-create.md) att skapa en Nätverksbevakaren.
+Det här scenariot förutsätter att du redan har följt stegen i [skapa en Network Watcher](network-watcher-create.md) att skapa en Network Watcher.
 
 ## <a name="scenario"></a>Scenario
 
-Det scenario som beskrivs i den här artikeln hämtar konfigurerade och effektivt säkerhetsregler för en viss virtuell dator.
+Det scenario som beskrivs i den här artikeln hämtar konfigurerade och gällande säkerhetsregler för en viss virtuell dator.
 
 ## <a name="get-a-vm"></a>Hämta en virtuell dator
 
@@ -52,15 +51,15 @@ En virtuell dator krävs för att köra den `vm list` cmdlet. Följande kommando
 az vm list -resource-group resourceGroupName
 ```
 
-När du vet att den virtuella datorn kan du använda den `vm show` för att hämta dess resursens Id:
+När du vet att den virtuella datorn kan du använda den `vm show` cmdlet för att hämta dess resurs-Id:
 
 ```azurecli
 az vm show -resource-group resourceGroupName -name virtualMachineName
 ```
 
-## <a name="retrieve-security-group-view"></a>Hämta gruppvy för säkerhet
+## <a name="retrieve-security-group-view"></a>Hämta säkerhetsgruppvy
 
-Nästa steg är att hämta säkerhet grupp visa resultatet.
+Nästa steg är att hämta security grupp visa resultatet.
 
 ```azurecli
 az network watcher show-security-group-view --resource-group resourceGroupName --vm vmName
@@ -68,7 +67,7 @@ az network watcher show-security-group-view --resource-group resourceGroupName -
 
 ## <a name="viewing-the-results"></a>Visa resultaten
 
-I följande exempel är ett kortare resultaten-svar. Resultaten visar alla säkerhet effektiva och tillämpa regler på den virtuella datorn som är uppdelad i grupper med **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, och **EffectiveSecurityRules**.
+I följande exempel är svaret förkortade av resultatet som returneras. Resultaten visar alla effektiva och tillämpade säkerhetsregler på den virtuella datorn som är uppdelade i grupper med **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, och  **EffectiveSecurityRules**.
 
 ```json
 {
@@ -160,6 +159,6 @@ I följande exempel är ett kortare resultaten-svar. Resultaten visar alla säke
 
 ## <a name="next-steps"></a>Nästa steg
 
-Besök [granskning Nätverkssäkerhetsgrupp grupper (NSG) med Nätverksbevakaren](network-watcher-nsg-auditing-powershell.md) information om hur du automatiserar validering av Nätverkssäkerhetsgrupper.
+Besök [granskning Nätverkssäkerhetsgrupper (NSG) med Network Watcher](network-watcher-nsg-auditing-powershell.md) att lära dig hur du automatiserar verifieringen av Nätverkssäkerhetsgrupper.
 
 Mer information om säkerhetsregler som tillämpas på nätverksresurserna genom att besöka [Säkerhetsöversikt grupp vy](network-watcher-security-group-view-overview.md)

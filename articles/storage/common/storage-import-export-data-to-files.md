@@ -1,61 +1,69 @@
 ---
-title: Med hjälp av Azure Import/Export för att överföra data till Azure-filer | Microsoft Docs
+title: Använda Azure Import/Export för att överföra data till Azure Files | Microsoft Docs
 description: Lär dig hur du skapar importjobb i Azure portal för att överföra data till Azure Files.
 author: alkohli
 manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 4349b471f960e7844511c473bffcd2177a34e055
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f48097fa1ece66dd9e20a7a7939ac43cb0f48b4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661022"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113485"
 ---
-# <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure-filer
+# <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Files
 
-Den här artikeln innehåller stegvisa instruktioner om hur du använder tjänsten Azure Import/Export för att importera stora mängder data på ett säkert sätt till Azure-filer. För att importera data måste tjänsten du leverera stöds diskenheter som innehåller dina data till ett Azure-datacenter.  
+Den här artikeln innehåller stegvisa instruktioner om hur du använder Azure Import/Export-tjänsten för att importera stora mängder data på ett säkert sätt till Azure Files. För att importera data, måste tjänsten du skicka stöds diskenheter som innehåller dina data till ett Azure-datacenter.  
 
-Importera och exportera tjänsten stöder bara importera av Azure-filer till Azure Storage. Exportera Azure-filer stöds inte.
+Import/Export-tjänsten stöder bara importera av Azure Files till Azure Storage. Exportera Azure Files stöds inte.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du skapar ett importjobb för att överföra data till Azure Files noggrant granska och utför följande förutsättningar. Du måste:
+Innan du skapar ett importjobb för att överföra data till Azure Files noggrant granska och slutför följande lista med krav. Måste du:
 
-- Ha en aktiv Azure-prenumeration för användning med Import/Export service.
-- Ha minst ett Azure Storage-konto. Visa en lista över [storage-konton och lagringstyper som stöds för Import/Export service](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagringskonto finns [hur du skapar ett Lagringskonto](storage-create-storage-account.md#create-a-storage-account).
+- Ha en aktiv Azure-prenumeration ska användas med tjänsten Import/Export.
+- Har minst en Azure Storage-konto. Se en lista över [storage-konton och lagringstyper stöds för tjänsten Import/Export](storage-import-export-requirements.md). Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-create-storage-account.md#create-a-storage-account).
 - Ha tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks). 
-- Har ett Windows-system som kör en [stöds OS-version](storage-import-export-requirements.md#supported-operating-systems).
-- [Hämta WAImportExport version 2](https://www.microsoft.com/download/details.aspx?id=55280) på Windows-systemet. Packa upp i standardmappen `waimportexport`. Till exempel `C:\WaImportExport`.
+- Har ett Windows-system som kör en [stöd för OS-version](storage-import-export-requirements.md#supported-operating-systems).
+- [Ladda ned WAImportExport version 2](https://www.microsoft.com/download/details.aspx?id=55280) på Windows-system. Packa upp i standardmappen `waimportexport`. Till exempel `C:\WaImportExport`.
+- Ha ett FedEx/DHL-konto. 
+    - Kontot måste vara giltig, bör ha saldo och måste ha returfrakt funktioner.
+    - Generera en spårningsnummer för export-jobbet.
+    - Alla jobb bör ha en separat spårningsnummer. Flera jobb med samma Spårningsnumret stöds inte.
+    - Om du inte har en transportföretagskonto går du till:
+        - [Skapa ett konto för FedEX](https://www.fedex.com/en-us/create-account.html), eller 
+        - [Skapa ett konto för DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
+ 
 
 
 ## <a name="step-1-prepare-the-drives"></a>Steg 1: Förbered enheterna
 
-Det här steget genererar en journal-fil. Journalfilen lagrar grundläggande information, till exempel serienumret för enheten, krypteringsnyckeln och information om lagringskonto.
+Det här steget genererar en journalfil. Journalfilen lagrar grundläggande information, till exempel serienumret för enheten och krypteringsnyckeln lagringskontouppgifter.
 
 Utför följande steg för att förbereda enheterna.
 
-1. Vår enheter att ansluta till Windows-systemet via SATA-kopplingar.
-2. Skapa en NTFS-volym på varje enhet. Tilldela en enhetsbeteckning till volymen. Använd inte monteringspunkter.
+1. Ansluta vår diskenheter till Windows-systemet via SATA-kopplingar.
+2. Skapa en enskild NTFS-volym på varje enhet. Tilldela en enhetsbeteckning till volymen. Använd inte monteringspunkter.
 3. Ändra den *dataset.csv* filen i rotmappen där verktyget finns. Beroende på om du vill importera en fil eller mapp eller båda, lägger du till poster i den *dataset.csv* filen liknar följande exempel.  
 
-    - **Importera en fil**: I följande exempel att kopiera data finns på enhet C:. Filen *MyFile1.txt* kopieras till roten av den *MyAzureFileshare1*. Om den *MyAzureFileshare1* finns inte, den har skapats i Azure Storage-konto. Mappstruktur.
+    - **Att importera en fil**: I följande exempel finns data som ska kopieras i C:-enheten. Din fil *MyFile1.txt* kopieras till roten för den *MyAzureFileshare1*. Om den *MyAzureFileshare1* finns inte, den skapas i Azure Storage-kontot. Mappstruktur.
 
         ```
             BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
             "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
         ```
-    - **Så här importerar du en mapp**: alla filer och mappar under *MyFolder2* rekursivt kopieras till filresursen. Mappstruktur.
+    - **Importera en mapp**: alla filer och mappar under *MyFolder2* rekursivt kopieras till filresursen. Mappstruktur.
 
         ```
             "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
             
         ```
-    Flera poster kan göras i samma fil motsvarar mappar eller filer som har importerats. 
+    Flera poster kan göras i samma fil för mappar eller filer som har importerats. 
 
         ```
             "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
@@ -63,30 +71,30 @@ Utför följande steg för att förbereda enheterna.
             "F:\MyFolder3\MyFile3.txt","MyAzureFileshare2/",file,rename,"None",None 
             
         ```
-    Lär dig mer om [förbereder dataset CSV-filen](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
+    Läs mer om [förbereder CSV-filen datauppsättning](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
 
-4. Ändra den *driveset.csv* filen i rotmappen där verktyget finns. Lägga till poster i den *driveset.csv* filen liknar följande exempel. Filen driveset med en lista över diskar och motsvarande enhetsbeteckningar så att verktyget korrekt kan hämta listan över diskar förberedas.
+4. Ändra den *driveset.csv* filen i rotmappen där verktyget finns. Lägga till poster i den *driveset.csv* filen liknar följande exempel. Filen driveset med en lista över diskar och motsvarande enhetsbeteckningar så att verktyget korrekt kan välja listan över diskar som ska förberedas.
 
-    Det här exemplet förutsätter att två diskar har anslutits och grundläggande NTFS-volymer G:\ och H:\ skapas. H:\is inte krypterat när G: redan är krypterad. Verktyget formaterar och krypterar disk som är värd för H:\ endast (och inte G:\).
+    Det här exemplet förutsätter att två diskar är anslutna och grundläggande NTFS-volymer G:\ och H:\ skapas. H:\is inte krypterat när G: redan är krypterad. Verktyget formaterar och krypterar den disk som är värd för H:\ endast (och inte G:\).
 
-    - **För en disk som inte är krypterad**: Ange *kryptera* att aktivera BitLocker-kryptering på disken.
+    - **För en disk som inte är krypterad**: Ange *Encrypt* att aktivera BitLocker-kryptering på disken.
 
         ```
         DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
         H,Format,SilentMode,Encrypt,
         ```
     
-    - **För en disk som redan är krypterad**: Ange *AlreadyEncrypted* och ange BitLocker-nyckel.
+    - **För en disk som redan är krypterat**: Ange *AlreadyEncrypted* och ange BitLocker-nyckel.
 
         ```
         DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
         G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
         ```
 
-    Flera poster kan göras i samma fil motsvarar flera enheter. Lär dig mer om [förbereder driveset CSV-filen](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file). 
+    Flera poster kan göras i samma fil för flera enheter. Läs mer om [förbereder CSV-filen driveset](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file). 
 
-5.  Använd den `PrepImport` alternativet för att kopiera och förbereda data till diskenheten. För den första kopia sessionen att kopiera kataloger och/eller filer med en ny kopia session, kör du följande kommando:
+5.  Använd den `PrepImport` alternativet för att kopiera och förbereda data till diskenheten. För den första kopia-sessionen att kopiera kataloger och/eller filer med en ny kopia-session kör du följande kommando:
 
         ```
         .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
@@ -98,61 +106,64 @@ Utför följande steg för att förbereda enheterna.
         .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
         ```
  
-6. En journal-fil med namnet som du tillhandahöll med `/j:` parameter, skapas för varje körning av kommandoraden. Varje enhet som du förbereder har en journal-fil som måste överföras när du skapar importjobbet. Enheter utan journal filerna inte bearbetas.
+6. En journal-fil med namnet som du tillhandahöll med `/j:` parametern skapas för varje körning av kommandoraden. Varje enhet som du förbereder har en journalfil måste laddas upp när du skapar importjobbet. Enheter utan journalen filerna inte bearbetas.
 
     > [!IMPORTANT]
-    > - Ändra inte data på diskenheter eller journal-fil när du har slutfört förberedelse av disken.
+    > - Ändra inte data på diskenheterna eller journal-fil när du har slutfört förberedelse av disk.
 
-Ytterligare exempel Gå till [prover för journalfiler](#samples-for-journal-files).
+Ytterligare exempel går du till [-exempel för journalfiler](#samples-for-journal-files).
 
 ## <a name="step-2-create-an-import-job"></a>Steg 2: Skapa ett importjobb 
 
 Utför följande steg för att skapa ett importjobb i Azure-portalen.
 1. Logga in på https://portal.azure.com/.
-2. Gå till **alla services > Storage > Import/export jobb**. 
+2. Gå till **alla tjänster > Storage > Import/export-jobb**. 
 
     ![Gå till Import/export](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. Klicka på **skapa Import-/ exportjobb**.
+3. Klicka på **skapa Import/export-jobbet**.
 
-    ![Klicka på Importera och exportera jobb](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
+    ![Klicka på Import/export-jobbet](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
 4. I **grunderna**:
 
-    - Välj **Import till Azure**.
-    - Ange ett beskrivande namn för importjobbet. Använd det här namnet om du vill spåra dina jobb när de pågår och när de har slutförts.
-        -  Det här namnet kan innehålla endast små bokstäver, siffror, bindestreck och understreck.
+    - Välj **importera till Azure**.
+    - Ange ett beskrivande namn för importjobbet. Du kan använda det här namnet för att spåra dina jobb medan de är håller på att skapas och när de har slutförts.
+        -  Det här namnet får innehålla endast gemener, siffror, bindestreck och understreck.
         -  Namnet måste börja med en bokstav och får inte innehålla blanksteg. 
     - Välj en prenumeration.
     - Välj en resursgrupp. 
 
-        ![Skapa importjobbet – steg 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+        ![Skapa importjobb – steg 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
 3. I **Jobbdetaljer**:
     
-    - Överför ändringsjournalen filerna som du skapade under den föregående [steg 1: Förbered enheterna](#step-1-prepare-the-drives). 
-    - Välj lagringskonto som data ska importeras till. 
-    - Samlingsbibliotek platsen fylls i automatiskt baserat på regionen som det lagringskonto som valts.
+    - Ladda upp journalfiler som du skapade under det föregående [steg 1: Förbered enheterna](#step-1-prepare-the-drives). 
+    - Välj det lagringskonto som data ska importeras till. 
+    - Samlingsplats fylls i automatiskt baserat på regionen som det valda lagringskontot.
    
-       ![Skapa importjobbet – steg 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+       ![Skapa importjobb – steg 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-4. I **returnera leverans info**:
+4. I **returnera leveransinformation**:
 
-    - Välj en operatör från den nedrullningsbara listan.
-    - Ange en giltig operatör kontonummer som du har skapat med den operatör. Microsoft använder kontot för att leverera enheter tillbaka till dig när importjobbet har slutförts. 
+    - Välj vilken operatör från den nedrullningsbara listan.
+    - Ange en giltig transportföretagets kontonummer som du har skapat med den operatör. Microsoft använder kontot för att leverera enheter till dig när importjobbet har slutförts. 
     - Ange en fullständig och giltig kontaktperson, telefon, e-post, gatuadress, ort, zip, region och land/region.
 
-       ![Skapa importjobb - steg3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+        > [!TIP] 
+        > Ange en gruppens e-post istället för att ange en e-postadress för en enskild användare. Detta säkerställer att du får meddelanden även om en administratör lämnar företaget.
+
+       ![Skapa importjobb – steg3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
    
 5. I den **sammanfattning**:
 
-    - Ge Azure-datacentret leveransadress för leverans av diskar tillbaka till Azure. Se till att Jobbnamn och fullständig adress nämns på etiketten leverans.
-    - Klicka på **OK** slutföra importen jobb.
+    - Ange Azure-datacentret leveransadress för att skicka tillbaka diskarna till Azure. Se till att Jobbnamnet och fullständig adress anges på adressetikett.
+    - Klicka på **OK** för att importera jobbet Skapa.
 
-        ![Skapa importjobbet – steg 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+        ![Skapa importjobb – steg 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>Steg 3: Levereras enheter till Azure-datacenter 
+## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>Steg 3: Skicka enheter till Azure-datacentret 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
@@ -160,11 +171,15 @@ Utför följande steg för att skapa ett importjobb i Azure-portalen.
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
+## <a name="step-5-verify-data-upload-to-azure"></a>Steg 5: Kontrollera ladda upp data till Azure
+
+Spåra jobbet kan slutföras. När jobbet har slutförts, kan du kontrollera att dina data har överförts till Azure. Ta bort lokalt data endast när du har kontrollerat att överföringen har slutförts.
+
 ## <a name="samples-for-journal-files"></a>Exempel för journalfiler
 
-Att **lägga till fler enheter**, skapa en ny driveset-fil och kör kommandot som nedan. 
+Att **lägga till fler enheter**, skapa en ny driveset-fil och kör kommandot enligt nedan. 
 
-För efterföljande kopiera sessioner till olika hårddiskar än vad som anges i *InitialDriveset .csv* fil, ange en ny driveset *.csv* filen och ange den som ett värde på parametern `AdditionalDriveSet`. Använd den **samma journalfil** ge namn och en **nytt sessions-ID**. Formatet för AdditionalDriveset CSV-fil är samma som InitialDriveSet format.
+För efterföljande kopia sessioner till olika hårddiskar än vad som anges i *InitialDriveset .csv* fil, ange en ny driveset *.csv* filen och anger du det som ett värde för parametern `AdditionalDriveSet`. Använd den **samma journalfil** ge namn och en **nytt sessions-ID**. Formatet på AdditionalDriveset CSV-filen är samma som InitialDriveSet format.
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
@@ -177,9 +192,9 @@ Importera exempel visas nedan.
     ```
 
 
-Om du vill lägga till ytterligare data i samma driveset kommandot PrepImport för efterföljande kopiera sessioner för att kopiera ytterligare filkatalogen.
+Om du vill lägga till ytterligare data i samma driveset kommandot PrepImport för efterföljande kopia sessioner du kopierar ytterligare filer eller katalogen.
 
-För efterföljande kopiera sessioner till samma hårddiskar anges i *InitialDriveset.csv* fil, ange den **samma journalfil** ge namn och en **nytt sessions-ID**; Det finns inget behov av att ange lagringskontots åtkomstnyckel.
+För efterföljande kopia sessioner till samma hårddiskar anges i *InitialDriveset.csv* fil, ange den **samma journalfil** ge namn och en **nytt sessions-ID**; Det finns inget behov att tillhandahålla lagringskontonyckeln.
 
     ```
     WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>

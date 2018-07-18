@@ -1,20 +1,20 @@
 ---
 title: Azure SQL Database-tjänst - vCore | Microsoft Docs
-description: Den vCore-baserade inköpsmodellen (förhandsversion) kan du oberoende skala beräknings- och lagringsresurser, matcha lokala prestanda och optimera pris.
+description: Den vCore-baserade inköpsmodellen kan du oberoende skala beräknings- och lagringsresurser, matcha lokala prestanda och optimera pris.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/15/2018
+ms.date: 07/16/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: cc69d2f195006fa196491fe9bed53db499eed11f
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d18076486704d5f03acd2253650762c3bd24b0af
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069986"
+ms.locfileid: "39091500"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Välja tjänstnivå vCore beräkning, minne, lagring och IO-resurser
 
@@ -30,11 +30,9 @@ Tabellen nedan hjälper dig att förstå skillnaderna mellan dessa två nivåer:
 |Storage|Premium Fjärrlagring, 5 GB – 4 TB|Lokal SSD-lagring, 5 GB – 4 TB|
 |I/o-genomströmning (ungefärlig)|500 IOPS per vCore med 7000 högsta IOPS|5000 IOPS per kärna med 200000 högsta IOPS|
 |Tillgänglighet|1 repliken, inga lässkala|3 repliker, 1 [lässkala](sql-database-read-scale-out.md), zone redundant hög tillgänglighet|
-|Säkerhetskopior|RA-GRS 7-35 dagar (7 dagar som standard)|RA-GRS 7-35 dagar (7 dagar som standard) *|
+|Säkerhetskopior|RA-GRS 7-35 dagar (7 dagar som standard)|RA-GRS 7-35 dagar (7 dagar som standard)|
 |I minnet|Gäller inte|Stöds|
 |||
-
-\* I förhandsversionen kvarhållningsperiod för säkerhetskopior kan inte konfigureras och är låst till 7 dagar.
 
 > [!IMPORTANT]
 > Om du behöver mindre än 1 vCore för beräkningskapacitet kan använda den DTU-baserade inköpsmodellen.
@@ -67,7 +65,7 @@ Lagring för säkerhetskopior av databasen har allokerats för att stödja punkt
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid-förmånen
 
-I den vCore-baserade inköpsmodellen (förhandsversion), kan du byta dina befintliga licenser för rabatterade priser på SQL-databas med hjälp av den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Den här Azure-förmån kan du använda en lokal SQL Server-licenser för att spara upp till 30% på Azure SQL Database med hjälp av en lokal SQL Server-licenser med Software Assurance.
+I den vCore-baserade inköpsmodellen, kan du byta dina befintliga licenser för rabatterade priser på SQL-databas med hjälp av den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Den här Azure-förmån kan du använda en lokal SQL Server-licenser för att spara upp till 30% på Azure SQL Database med hjälp av en lokal SQL Server-licenser med Software Assurance.
 
 ![prissättning](./media/sql-database-service-tiers/pricing.png)
 

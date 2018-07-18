@@ -1,7 +1,7 @@
 ---
 title: Distribuera en app till Azure Service Fabric nät med hjälp av en mall | Microsoft Docs
 description: Lär dig hur du distribuerar en .NET Core-program till Service Fabric-nät från en mall med Azure CLI.
-services: service-fabric
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: timlt
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 11b3ad6bf83eebfc94ead6f8a730b8e6a6b8de2f
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 8d813669f2f44fd64db669e9750e3bc064c7f916
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076556"
+ms.locfileid: "39090351"
 ---
 # <a name="deploy-a-service-fabric-mesh-application-to-service-fabric-mesh-using-a-template"></a>Distribuera ett Service Fabric-nät program till Service Fabric nät med hjälp av en mall
 Den här artikeln visar hur du distribuerar en .NET Core-program till Service Fabric-nät med hjälp av en mall. När du är klar har du ett röstningsprogram med en ASP.NET-kärnans webbklient som sparar röstningsresultat i en serverdelstjänst i klustret. Klient använder DNS för att matcha adressen för backend-tjänst.
@@ -54,28 +54,28 @@ Föregående kommando distribuerar ett Windows-program med [mesh_rp.windows.json
 
 Om några minuter bör kommandot returnerar med:
 
-`VotingApp has been deployed successfully on VotingAppNetwork with public ip address <IP address>.` 
-
-IP-adressen är till exempel 13.68.129.22.
+`VotingApp has been deployed successfully on VotingAppNetwork with public ip address <IP address>` 
 
 ## <a name="open-the-application"></a>Öppna programmet
-När programmet har distribuerats kan du ansluta till slutpunkten för tjänsten (13.68.129.22 från föregående exempel) i en webbläsare.  
+När programmet har distribuerats hämta den offentliga IP-adressen för tjänsteslutpunkt och öppna den i en webbläsare. Den visar följande webbsida. 
 
 ![Röstningsprogrammet](./media/service-fabric-mesh-howto-deploy-app-template/VotingApplication.png)
 
 Du kan nu lägga till röstningsalternativ i programmet och rösta på det eller ta bort röstningsalternativen.
+
+Distributionskommandot returnerar den offentliga IP-adressen för tjänsteslutpunkt. Du kan också kan du också fråga nätverksresurs för att hitta den offentliga IP-adressen till tjänstens slutpunkt. 
+
+Resursnamnet nätverk för det här programmet är `VotingAppNetwork`, hämta information om den med hjälp av följande kommando. 
+
+```azurecli-interactive
+az mesh network show --resource-group myResourceGroup --name VotingAppNetwork
+```
 
 ## <a name="check-the-application-details"></a>Kontrollera programinformation
 Du kan kontrollera programmets status med hjälp av den `app show` kommando. Programnamn för det distribuerade programmet är ”VotingApp”, så hämta information om den. 
 
 ```azurecli-interactive
 az mesh app show --resource-group myResourceGroup --name VotingApp
-```
-
-Du kan också fråga nätverksresurs för att hitta IP-adressen för den behållare där tjänsten har distribuerats genom att köra kommandot 'az nät network show ”:
-
-```azurecli-interactive
-az mesh network show --resource-group myResourceGroup --name VotingAppNetwork
 ```
 
 ## <a name="list-the-deployed-applications"></a>Lista över distribuerade program

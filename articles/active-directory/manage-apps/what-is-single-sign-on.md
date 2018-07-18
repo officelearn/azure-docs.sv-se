@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 9f9ae52c5dbdf655190caaceeaa03c444526e4f2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b7ea8a755f1f23c76bb0f7d8120970bb7795e95b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044629"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091841"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Vad är programåtkomst och enkel inloggning med Azure Active Directory?
 Enkel inloggning innebär det att kunna komma åt alla program och resurser som du behöver för att göra affärer, genom att logga in med ett enda användarkonto. När du har loggat in, du kan komma åt alla program som du behöver utan att behöva autentisera dig (exempel: Skriv ett lösenord) en andra gång.
@@ -45,8 +45,7 @@ När användare loggar in till ett program, övergången till en autentiseringsp
 Azure AD stöder tre olika sätt att logga in på programmen:
 
 * **Federerad enkel inloggning** gör det möjligt att omdirigera till Azure AD för autentisering av användare i stället för att fråga om ett eget lösenord. Federerad enkel inloggning har stöd för program som stöder protokoll, till exempel SAML 2.0, WS-Federation och OpenID Connect, och är det bästa möjliga läget för enkel inloggning.
-* **Lösenordsbaserad enkel inloggning** möjliggör säker lagring av lösenord för programmet och spela upp med ett webbläsartillägg eller mobilapp. Använder den befintliga lösenordsbaserad enkel inloggning 
-*  processen tillhandahålls av programmet, men låter en administratör hantera lösenorden och kräver inte att användaren känner till lösenordet.
+* **Lösenordsbaserad enkel inloggning** möjliggör säker lagring av lösenord för programmet och spela upp med ett webbläsartillägg eller mobilapp. Lösenordsbaserad enkel inloggning använder den befintliga processen som tillhandahålls av programmet, men låter en administratör hantera lösenorden och kräver inte att användaren känner till lösenordet.
 * **Befintlig enkel inloggning** gör att Azure AD kan utnyttja alla befintliga enkel inloggning som har ställts in för programmet, men gör att programmen ska kopplas till de Office 365 eller Azure AD åtkomst till panelen portalerna och även aktiverar ytterligare rapportering i Azure AD när programmen det startas.
 
 När en användare har autentiserats med ett program, måste de också har en kontopost som etablerats på programnivå som instruerar programmet var behörigheter och åtkomstnivå är i programmet. Etableringen av den här kontopost kan antingen automatiskt, eller när det kan ske manuellt av en administratör innan användaren får enkel inloggning.
@@ -194,7 +193,7 @@ Dessa länkar använder samma metoder för kontroll av åtkomst som åtkomstpane
 ## <a name="related-articles"></a>Relaterade artiklar
 * [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
 * [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Konfigurera Cloud Discovery](/cloud-app/security/set-up-cloud-discovery)
+* [Konfigurera Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)
 * [Introduktion till hantering av åtkomst till appar](what-is-access-management.md)
 * [Jämför funktioner för att hantera externa identiteter i Azure AD](../active-directory-b2b-compare-b2c.md)
 

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 741b32f394ca2ce447826f7207f7fd9cbede9c51
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: dd92fca89e3bdb123be46a52708feec1c939f7cc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070892"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112730"
 ---
 # <a name="understand-load-balancer-probes"></a>Förstå avsökningar av belastningsutjämnare
 
 Azure Load Balancer använder hälsoavsökningar för att avgöra vilka serverdels-serverpoolinstans ska ta emot nya flöden.   Du kan använda hälsoavsökningar för att upptäcka fel på ett program på en backend-instans.  Du kan också använda hälsotillstånd avsökningen svaret från ditt program för att signalera att Load Balancer om du vill fortsätta att skicka nya flöden eller sluta skicka nya flöden till en backend-instans för att hantera belastningen eller planerade driftstopp.
 
-Hälsoavsökningar styr huruvida nya flöden upprättas till Felfri backend-instanser. När en hälsoavsökning inte slutar belastningsutjämnaren att skicka nya flöden till respektive feltillstånd instansen.  Etablerad TCP-anslutningar fortsätter efter uteblivna för avsökning.  Befintliga UDP flöden kommer att flytta den från den felaktiga instansen till en annan instans i serverdelspoolen.
+Hälsoavsökningar styr huruvida nya flöden upprättas till Felfri backend-instanser. När en hälsoavsökning inte slutar belastningsutjämnaren att skicka nya flöden till respektive feltillstånd instansen.  Etablerad TCP-anslutningar fortsätter efter uteblivna för avsökning.  Befintliga UDP flöden flyttas från den felaktiga instansen till en annan felfri instans i serverdelspoolen.
 
 Om alla avsökningar för en serverdelspool misslyckas avslutas grundläggande belastningsutjämnare alla befintliga TCP-flöden till serverdelspoolen, medan Standard Load balancer tillåter etablerad TCP-flöden för att fortsätta; Inga nya flöden kommer att skickas till i serverdelspoolen.  Alla befintliga UDP flöden kommer att upphöra för Basic och Standard belastningsutjämnare när alla avsökningar för en backend-poolen misslyckas.
 

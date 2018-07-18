@@ -1,75 +1,77 @@
 ---
-title: Konfigurera domänanslutna HDInsight-kluster med AAD-DS
-description: Lär dig hur du skapar och konfigurerar domänanslutna HDInsight-kluster med Azure Active Directory Domain Services
+title: Konfigurera ett domänanslutet HDInsight-kluster med hjälp av Azure AD DS
+description: Lär dig att installera och konfigurera ett domänanslutet HDInsight-kluster med hjälp av Azure Active Directory Domain Services
 services: hdinsight
 author: omidm1
+ms.author: omidm
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.author: omidm
-ms.openlocfilehash: 8064940e0d0f035010a2521752d6f32f3f9ccd9f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.date: 07/17/2018
+ms.openlocfilehash: d38148181aa18404e45f6efc029117573570e6bc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849844"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115433"
 ---
-# <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Konfigurera domänanslutna HDInsight-kluster med Azure Active Directory Domain Services
+# <a name="configure-a-domain-joined-hdinsight-cluster-by-using-azure-active-directory-domain-services"></a>Konfigurera ett domänanslutet HDInsight-kluster med hjälp av Azure Active Directory Domain Services
 
-Domänanslutna kluster ger flera användare tillgång på HDInsight-kluster. Domänanslutna HDInsight-kluster är anslutna till en domän, så att användarna kan använda sina domänautentiseringsuppgifter att autentisera med kluster och köra jobb för stordata. 
+Domänanslutna kluster ger flera användare åtkomst i Azure HDInsight-kluster. Domänanslutna HDInsight-kluster är anslutna till en domän så att domänanvändare kan använda sina domänautentiseringsuppgifter för att autentisera med kluster och köra jobb för stordata. 
 
-I den här artikeln får du lära dig hur du konfigurerar en domänansluten HDInsight-kluster med Azure Active Directory Domain Services.
+I den här artikeln får du lära dig hur du konfigurerar ett domänanslutet HDInsight-kluster med hjälp av Azure Active Directory Domain Services (Azure AD DS).
 
-## <a name="create-azure-adds"></a>Skapa Azure ADDS
+## <a name="enable-azure-ad-ds"></a>Aktivera Azure AD DS
 
-Aktivera Azure AD Domain Services (AAD-DS) är en förutsättning innan du kan skapa en domänansluten HDInsight-kluster. För att aktivera en AAD-DS-instans, se [så här aktiverar du AAD-DS med hjälp av Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
+Aktivera Azure AD DS är en förutsättning innan du kan skapa ett domänanslutet HDInsight-kluster. Mer information finns i [aktivera Azure Active Directory Domain Services med Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Endast innehavaradministratörer har behörighet att skapa en AAD-DS-instans. Om du använder Azure Data Lake lagring (ADLS) som standardlagring för HDInsight, kontrollera standard Azure AD-klient för ADLS är samma som i domänen för HDInsight-klustret. Sincde Hadoop bygger på Kerberos och grundläggande autentisering, multifaktorautentisering måste vara inaktiverat för användare som ska ha åtkomst till klustret.
+> Endast klientadministratörer ha behörighet att skapa en Azure AD DS-instans. Om du använder Azure Data Lake Storage Gen1 som standardlagringen för HDInsight, se till att standard Azure AD-klient för Data Lake Storage Gen1 är densamma som domänen för HDInsight-klustret. Eftersom Hadoop är beroende av Kerberos- och grundläggande autentisering, måste multifaktorautentisering inaktiveras för användare som ska få åtkomst till klustret.
 
-När AAD-DS-instans har etablerats, måste du skapa ett tjänstkonto i AAD (som kommer att synkroniseras till AAD-DS) med rätt behörigheter. Om tjänstkontot redan finns, måste du återställa lösenordet och vänta tills synkroniseras med AAD-DS (återställningen leder till att skapa lösenords-hash för kerberos och det kan ta upp till 30 minuter att synkronisera med AAD-DS). Tjänstkontot måste ha följande behörigheter:
+När du etablerar Azure AD DS-instans, kan du skapa ett tjänstkonto i Azure Active Directory (Azure AD) med rätt behörigheter. Om det här service-kontot redan finns, återställa dess lösenord och vänta tills programmet synkroniseras till Azure AD DS. Den här återställningen resulterar i skapandet av Kerberos lösenords-hash och det kan ta upp till 30 minuter att synkronisera till Azure AD DS. 
 
-- Ansluta datorer till domänen och placera datorn säkerhetsobjekt i Organisationsenheten som du anger när klustret skapas.
+Kontot bör ha följande behörigheter:
+
+- Ansluta datorer till domänen och placera datorn säkerhetsobjekt i den Organisationsenhet som du anger när klustret skapas.
 - Skapa tjänstens huvudnamn i Organisationsenheten som du anger när klustret skapas.
 
 > [!NOTE]
-> Eftersom Apache Zeppelin använder domännamnet för att autentisera kontot administrativa, måste kontot ha samma domännamn som UPN-suffix för Apache Zeppelin ska fungera korrekt.
+> Eftersom Apache Zeppelin använder domännamnet för att autentisera administrationskontot tjänstkontot *måste* har samma domännamn som UPN-suffix för Apache Zeppelin ska fungera korrekt.
 
-Mer information om organisationsenheter och hur du hanterar dem finns [skapa en Organisationsenhet i en AAD-DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md). 
+Läs mer om organisationsenheter och hur du hanterar dem i [skapa en OU på en hanterad Azure AD DS-domän](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md). 
 
-Säker LDAP för AAD-DS-hanterade domän krävs. För att aktivera säker LDAP, se [hur du konfigurerar säker LDAP (LDAPS) för en AAD-DS hanterade domänen](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
+Det är säkert LDAP för en hanterad Azure AD DS-domän. Mer information finns i [konfigurera säkert LDAP för en Azure AD DS en domän hanterad](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
-## <a name="create-a-domain-joined-hdinsight-cluster"></a>Skapa en domänansluten HDInsight-kluster
+## <a name="create-a-domain-joined-hdinsight-cluster"></a>Skapa ett domänanslutet HDInsight-kluster
 
-Nästa steg är att skapa HDInsight-kluster med hjälp av AAD-DS och det tjänstkonto som skapats i föregående avsnitt.
+Nästa steg är att skapa HDInsight-kluster med hjälp av Azure AD DS och det tjänstkonto som du skapade i föregående avsnitt.
 
-Det är lättare att placera både AAD-DS och HDInsight-klustret i samma Azure virtuella network(VNet). Om du vill placera dem i olika Vnet, måste du peer-dessa Vnet så att HDI virtuella datorer har en fri domänkontrollanten för att ansluta till de virtuella datorerna. Mer information finns i [virtuella nätverk peering](../../virtual-network/virtual-network-peering-overview.md).
+Det är lättare att placera både Azure AD DS-instans och HDInsight-klustret i samma Azure-nätverk. Om du vill placera dem i olika virtuella nätverk måste du peerkoppla de virtuella nätverk så att HDInsight virtuella datorer har åtkomst till domänkontrollanten för att ansluta till de virtuella datorerna. Mer information finns i [peerkoppling av virtuella nätverk](../../virtual-network/virtual-network-peering-overview.md).
 
-När du skapar en domänansluten HDInsight-kluster måste du ange följande parametrar:
+När du skapar ett domänanslutet HDInsight-kluster måste du ange följande parametrar:
 
-- **Domännamn**: det domännamn som är associerad med AAD-DS. Till exempel contoso.onmicrosoft.com
-- **Namnet på användaren**: tjänstkonto i den hanterade domänen som skapas i föregående avsnitt. Till exempel hdiadmin@contoso.onmicrosoft.com. Den här domänanvändare ska vara administratör för HDInsight-kluster.
+- **Domännamn**: det domännamn som är associerat med Azure AD DS. Ett exempel är contoso.onmicrosoft.com.
+- **Domänanvändarnamn**: tjänstkontot i den hanterade domänen som du skapade i föregående avsnitt. Ett exempel är hdiadmin@contoso.onmicrosoft.com. Den här domänanvändare ska vara administratör för det här HDInsight-klustret.
 - **Domänlösenord**: lösenordet för tjänstkontot.
-- **Organisationsenheten**: det unika namnet på den Organisationsenhet som du vill använda med HDInsight-kluster. Till exempel: OU = HDInsightOU, DC = contoso, DC = onmicrosohift, DC = com. Om Organisationsenheten inte finns, försök HDInsight-kluster att skapa en Organisationsenhet med behörigheten tjänstkontot har. (Till exempel om kontot finns i AAD-DS administratörsgruppen, den har rätt behörighet för att skapa en Organisationsenhet, annars kanske du måste först skapa en Organisationsenhet och ge service för fullständig kontroll över denna Organisationsenhet först - se [skapa en Organisationsenhet på en AAD-DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md)).
+- **Organisationsenhet**: det unika namnet på den Organisationsenhet som du vill använda med HDInsight-kluster. Ett exempel är OU = HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com. Om den här Organisationsenheten inte finns, försöker HDInsight-klustret skapa en Organisationsenhet med hjälp av de privilegier som tjänstkontot har. Till exempel om kontot tillhör administratörsgruppen på Azure AD DS, har den rätt behörighet för att skapa en Organisationsenhet. I annat fall kan du behöva skapa Organisationsenheten först och ge service-konto fullständig kontroll över denna Organisationsenhet. Mer information finns i [skapa en OU på en hanterad Azure AD DS-domän](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
 
     > [!IMPORTANT]
-    > Det är viktigt att inkludera alla domänkontrollanter sepearated med kommatecken efter OU: N (t.ex. OU = HDInsightOU, DC = contoso, DC = onmicrosohift, DC = com).
+    > Inkludera alla domänkontrollanter, avgränsade med kommatecken, efter Organisationsenheten (t.ex, OU = HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com).
 
-- **LDAPS URL**: till exempel ldaps://contoso.onmicrosoft.com:636
+- **LDAPS-URL**: ett exempel är ldaps://contoso.onmicrosoft.com:636.
 
     > [!IMPORTANT]
-    > Ange fullständiga url inklusive ldaps: / / och portnummer (: 636)
+    > Ange den fullständiga URL, inklusive ”ldaps: / /” och portnummer (: 636).
 
-- **Åtkomst-användargrupp**: säkerhetsgrupperna vars användare som du vill synkronisera till klustret. Till exempel HiveUsers. Om du vill ange flera användargrupper, avgränsade med kommatecken (,).
+- **Ha åtkomst till användargrupper**: säkerhetsgrupperna vars användare som du vill synkronisera till klustret. Till exempel HiveUsers. Om du vill ange flera användargrupper avgränsa dem med semikolon (;).
  
-Följande skärmbild visar konfigurationerna i Azure-portalen:
+Följande skärmbild visar konfigurationerna i Azure portal:
 
 ![Azure HDInsight domänanslutna Active Directory Domain Services-konfiguration](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du vill konfigurera Hive-principer och köra Hive-frågor kan du läsa i [Konfigurera Hive-principer för domänanslutna HDInsight-kluster](apache-domain-joined-run-hive.md).
-* För att ansluta till domänanslutna HDInsight-kluster med hjälp av SSH finns [använda SSH med Linux-baserade Hadoop i HDInsight från Linux, Unix eller OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Konfigurera Hive-principer och köra Hive-frågor finns i [konfigurera Hive-principer för domänanslutna HDInsight-kluster](apache-domain-joined-run-hive.md).
+* Använda SSH för att ansluta till domänanslutna HDInsight-kluster, finns i [använda SSH med Linux-baserat Hadoop i HDInsight från Linux, Unix eller OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 

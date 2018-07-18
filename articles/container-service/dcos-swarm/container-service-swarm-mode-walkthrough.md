@@ -6,15 +6,15 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: 46e93953ba8db141b99b14aa78674e85b343adbc
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 4a592a20d009b269f1e8f7079311caa4c33cf613
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903411"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113114"
 ---
 # <a name="deploy-docker-ce-cluster"></a>Distribuera Docker CE-kluster
 
@@ -30,10 +30,10 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras.
 
-I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *ukwest*.
+I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *westus2* plats.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location ukwest
+az group create --name myResourceGroup --location westus2
 ```
 
 Resultat:
@@ -41,7 +41,7 @@ Resultat:
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "ukwest",
+  "location": "westus2",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
@@ -53,12 +53,12 @@ Resultat:
 
 ## <a name="create-docker-swarm-cluster"></a>Skapa Docker Swarm-kluster
 
-Skapa ett Docker CE-kluster i Azure Container Service med kommandot [az acs create](/cli/azure/acs#az_acs_create). 
+Skapa ett Docker CE-kluster i Azure Container Service med kommandot [az acs create](/cli/azure/acs#az_acs_create). Information om region availaiblity av Docker CE finns [ACS regioner för Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
 
 I följande exempel skapas ett kluster med namnet *mySwarmCluster* med en Linux-huvudnod och tre Linux-agentnoder.
 
 ```azurecli-interactive
-az acs create --name mySwarmCluster --orchestrator-type swarm --resource-group myResourceGroup --generate-ssh-keys
+az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 I vissa fall, som vid en begränsad utvärderingsversion, har en Azure-prenumeration begränsad åtkomst till Azure-resurser. Om distributionen misslyckas på grund av begränsade tillgängliga kärnor minskar du antalet standardagenter genom att lägga till `--agent-count 1` till kommandot [az acs create](/cli/azure/acs#az_acs_create). 
@@ -153,7 +153,7 @@ Gå till FQDN för Swarm-agentpoolen för att testa Azure Vote-programmet.
 ![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Ta bort klustret
-När klustret inte längre behövs du använda kommandot [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
+När klustret inte längre behövs du använda kommandot [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen, containertjänsten och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -161,7 +161,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="get-the-code"></a>Hämta koden
 
-I den här snabbstartsguide används fördefinierade behållaravbildningar för att skapa en Docker-tjänst. Tillhörande programkod, Dockerfile och Compose-fil finns på GitHub.
+I den här snabbstartsguide används fördefinierade containeravbildningar för att skapa en Docker-tjänst. Tillhörande programkod, Dockerfile och Compose-fil finns på GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 

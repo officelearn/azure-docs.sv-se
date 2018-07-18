@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 07/16/2018
 ms.author: marsma
-ms.openlocfilehash: da78d388c8e9fc9684942342f48902c2a248e3b1
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: cb7b27b178197cde040e1d106ed5a5ee20905823
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072307"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115803"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Nätverkskonfigurationen i Azure Kubernetes Service (AKS)
 
@@ -27,8 +27,7 @@ Noder i ett AKS-kluster som har konfigurerats för användning med grundläggand
 
 ## <a name="advanced-networking"></a>Avancerade nätverk
 
-**Avancerade** nätverk placerar dina poddar i en Azure-nätverk (VNet) som du konfigurerar, vilket ger dem automatisk anslutning till VNet-resurser och integrering med omfattande uppsättning funktioner för virtuella nätverk erbjudandet.
-Avancerade nätverksfunktioner är tillgängliga när du distribuerar AKS-kluster med den [Azure-portalen][portal], Azure CLI, eller med en Resource Manager-mall.
+**Avancerade** nätverk placerar dina poddar i en Azure-nätverk (VNet) som du konfigurerar, vilket ger dem automatisk anslutning till VNet-resurser och integrering med omfattande uppsättning funktioner för virtuella nätverk erbjudandet. Avancerade nätverksfunktioner är tillgängliga när du distribuerar AKS-kluster med den [Azure-portalen][portal], Azure CLI, eller med en Resource Manager-mall.
 
 Noder i ett AKS-kluster som har konfigurerats för användning av avancerad nätverk den [Azure behållare nätverk gränssnitt (CNI)] [ cni-networking] Kubernetes-plugin-programmet.
 
@@ -45,9 +44,6 @@ Avancerade nätverk ger följande fördelar:
 * Poddar i ett undernät som har aktiverat Tjänsteslutpunkter kan på ett säkert sätt ansluta till Azure-tjänster, till exempel Azure Storage och SQL DB.
 * Använda användardefinierade vägar (UDR) att dirigera trafik från poddar till en virtuell nätverksenhet.
 * Poddar kan komma åt resurser på Internet. Också en funktion i grundläggande nätverk.
-
-> [!IMPORTANT]
-> Varje nod i ett AKS-kluster som har konfigurerats för avancerade nätverk kan ha högst **30 poddar** konfigurerades med hjälp av Azure portal.  Du kan ändra det maximala värdet bara genom att ändra egenskapen maxPods när du distribuerar ett kluster med en Resource Manager-mall. Varje virtuellt nätverk som etablerats för användning med plugin-programmet Azure CNI är begränsad till **4096 konfigurerade IP-adresser**.
 
 ## <a name="advanced-networking-prerequisites"></a>Avancerade krav för nätverk
 
@@ -67,19 +63,36 @@ Planera för IP-adress för ett AKS-kluster består av ett virtuellt nätverk, m
 
 | Adressintervall / Azure resurs | Gränser och storlek |
 | --------- | ------------- |
-| Virtuellt nätverk | Azure virtuellt nätverk kan vara så stora/8 som men kan endast ha 4096 konfigurerat IP-adresser. |
-| Undernät | Måste vara tillräckligt stor för att hantera noder och Poddar. Att beräkna storleken på din minsta undernät: (antal noder) + (antalet noder * Poddar per nod). I ett kluster 50 noder: (50) + (50 * 30) = 1,550, ditt undernät måste vara en /21 eller större. |
+| Virtuellt nätverk | Azure virtuellt nätverk kan vara så stora/8 som men kan endast ha 16000 konfigurerat IP-adresser. |
+| Undernät | Måste vara tillräckligt stor för att hantera noder, poddar och alla Kubernetes och Azure-resurser som kan etableras i klustret. Om du distribuerar en intern Azure Load Balancer, exempelvis dess frontend IP-adresser tilldelas från klustret undernätet inte offentliga IP-adresser. <p/>Att beräkna *minsta* undernätets storlek: `(number of nodes) + (number of nodes * pods per node)` <p/>Exempel för ett kluster med 50 noder: `(50) + (50 * 30) = 1,550` (/ 21 eller större) |
 | Kubernetes service-adressintervall | Det här intervallet bör inte används av alla nätverkselement på eller ansluten till det här virtuella nätverket. CIDR-tjänstadress måste vara mindre än /12. |
 | IP-adress för Kubernetes DNS-tjänsten | IP-adress inom Kubernetes service-adressintervall som ska användas av klustertjänstidentifiering (kube-dns). |
 | Docker bridge-adress | IP-adress (i CIDR-notation) som används som Docker-brygga IP-adress på noder. Standardvärdet 172.17.0.1/16. |
 
-Som nämnts tidigare varje virtuellt nätverk som etablerats för användning med plugin-programmet Azure CNI är begränsad till **4096 konfigurerade IP-adresser**. Varje nod i ett kluster som konfigurerats för avancerade nätverk kan ha högst **30 poddar**.
+Varje virtuellt nätverk som etablerats för användning med plugin-programmet Azure CNI är begränsad till **16000 konfigurerade IP-adresser**.
+
+## <a name="maximum-pods-per-node"></a>Maximal poddar per nod
+
+Standard maximala antalet poddar per nod i ett AKS-kluster varierar mellan grundläggande och avancerade nätverks- och metoden för klusterdistribution.
+
+### <a name="default-maximum"></a>Standardmaxvärde
+
+* Grundläggande nätverk: **110 poddar per nod**
+* Avancerat nätverk **30 poddar per nod**
+
+### <a name="configure-maximum"></a>Konfigurera maximalt
+
+Beroende på din distribution kanske du kan ändra det maximala antalet poddar per nod i ett AKS-kluster.
+
+* **Azure CLI**: Ange den `--max-pods` argumentet när du distribuerar ett kluster med den [az aks skapa] [ az-aks-create] kommando.
+* **Resource Manager-mall**: Ange den `maxPods` -egenskapen i den [ManagedClusterAgentPoolProfile] objekt när du distribuerar ett kluster med en Resource Manager-mall.
+* **Azure-portalen**: du kan inte ändra det maximala antalet poddar per nod när du distribuerar ett kluster med Azure-portalen. Avancerade nätverk kluster är begränsade till 30 poddar per nod när de distribueras i Azure-portalen.
 
 ## <a name="deployment-parameters"></a>Distributionsparametrarna
 
-När skapar ett AKS-kluster, följande parametrar kan konfigureras för avancerade nätverksfunktioner:
+När du skapar ett AKS-kluster, konfigureras följande parametrar för avancerade nätverksfunktioner:
 
-**Virtuellt nätverk**: det virtuella nätverket dit du vill distribuera Kubernetes-klustret. Om du vill skapa ett nytt virtuellt nätverk för klustret, väljer *Skapa nytt* och följ stegen i den *skapa virtuellt nätverk* avsnittet.
+**Virtuellt nätverk**: det virtuella nätverket dit du vill distribuera Kubernetes-klustret. Om du vill skapa ett nytt virtuellt nätverk för klustret, väljer *Skapa nytt* och följ stegen i den *skapa virtuellt nätverk* avsnittet. Det virtuella nätverket är begränsad till 16 000 konfigurerade IP-adresser.
 
 **Undernät**: undernätet i det virtuella nätverket där du vill distribuera klustret. Om du vill skapa ett nytt undernät i det virtuella nätverket för klustret, väljer *Skapa nytt* och följ stegen i den *skapa undernät* avsnittet.
 
@@ -135,7 +148,7 @@ Följande frågor och svar gäller den **Avancerat** nätverkskonfiguration.
 
 * *Är det maximala antalet poddar distribueras till en nod kan konfigureras?*
 
-  Varje nod kan ha högst 30 poddar som standard. Du kan ändra det maximala värdet genom att ändra den `maxPods` egenskapen när du distribuerar ett kluster med en Resource Manager-mall.
+  Ja, när du distribuerar ett kluster med Azure CLI eller en Resource Manager-mall. Se [maximalt poddar per nod](#maximum-pods-per-node).
 
 * *Hur konfigurerar jag ytterligare egenskaper för det undernät som jag skapade när du skapar för AKS-klustret? Till exempel Tjänsteslutpunkter.*
 
@@ -173,3 +186,4 @@ Kubernetes-kluster som skapas med ACS-motorn ha stöd för både den [kubenet] [
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: aks-ssh.md
+[ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object

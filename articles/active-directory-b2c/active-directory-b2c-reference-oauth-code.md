@@ -10,26 +10,26 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6baeba9cc7e631c6dbdf2284db484dc5f95adcce
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9fb2d2ccabf79a95a108d4ecf39a4957fc9ffff4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444209"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113682"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0-auktoriseringskodflöde
 Du kan använda OAuth 2.0-auktoriseringskod i appar som installerats på en enhet för att få åtkomst till skyddade resurser, till exempel webb API: er. Genom att använda den Azure Active Directory B2C (Azure AD B2C) implementering av OAuth 2.0, du kan lägga till registrering, inloggning och andra Identitetshantering uppgifter till dina appar och program. Den här artikeln är språkoberoende. I artikeln beskrivs hur du skickar och tar emot HTTP-meddelanden utan att använda alla bibliotek med öppen källkod.
 
 <!-- TODO: Need link to libraries -->
 
-OAuth 2.0-auktoriseringskodflödet beskrivs i [avsnitt 4.1 i OAuth 2.0-specifikationen](http://tools.ietf.org/html/rfc6749). Du kan använda för autentisering och auktorisering i de flesta apptyper, däribland [webbappar](active-directory-b2c-apps.md#web-apps) och [internt installerade appar](active-directory-b2c-apps.md#mobile-and-native-apps). Du kan använda OAuth 2.0-auktoriseringskodflödet att på ett säkert sätt hämta *åtkomsttoken* för dina appar som kan användas för att komma åt resurser som skyddas av en [auktoriseringsservern](active-directory-b2c-reference-protocols.md#the-basics).
+OAuth 2.0-auktoriseringskodflödet beskrivs i [avsnitt 4.1 i OAuth 2.0-specifikationen](http://tools.ietf.org/html/rfc6749). Du kan använda för autentisering och auktorisering i de flesta [programtyper](active-directory-b2c-apps.md), inklusive webb- och internt installerade program. Du kan använda OAuth 2.0-auktoriseringskodflödet att på ett säkert sätt hämta åtkomsttoken för din applicationss som kan användas för att komma åt resurser som skyddas av en [auktoriseringsservern](active-directory-b2c-reference-protocols.md).
 
-Den här artikeln fokuserar på de **offentliga klienter** OAuth 2.0-auktoriseringskodflödet. En offentlig klient är klientprogram som inte är betrott för att upprätthålla integriteten hos ett hemligt lösenord på ett säkert sätt. Detta inkluderar mobilappar och skrivbordsappar i stort sett alla program som körs på en enhet och behöver få åtkomst-token. 
+Den här artikeln fokuserar på de **offentliga klienter** OAuth 2.0-auktoriseringskodflödet. En offentlig klient är klientprogram som inte är betrott för att upprätthålla integriteten hos ett hemligt lösenord på ett säkert sätt. Detta inkluderar mobilappar, program och i stort sett alla program som körs på en enhet och behöver få åtkomst-token. 
 
 > [!NOTE]
 > Lägg till Identitetshantering till en webbapp med hjälp av Azure AD B2C genom att använda [OpenID Connect](active-directory-b2c-reference-oidc.md) i stället för OAuth 2.0.
 
-Azure AD B2C utökar standard OAuth 2.0 flöden för att göra mer än enkel autentisering och auktorisering. Det introducerar den [principparametern](active-directory-b2c-reference-policies.md). Med inbyggda principer kan du använda OAuth 2.0 att lägga till användarupplevelser i din app, till exempel registrering, inloggning och profilhantering. I den här artikeln visar vi dig hur du använder OAuth 2.0 och principer för att implementera var och en av dessa upplevelser i dina interna program. Vi visar också hur du hämtar åtkomsttoken för att komma åt webb API: er.
+Azure AD B2C utökar standard OAuth 2.0 flöden för att göra mer än enkel autentisering och auktorisering. Det introducerar den [principparametern](active-directory-b2c-reference-policies.md). Med inbyggda principer kan du använda OAuth 2.0 för att lägga till användarupplevelser i ditt program, till exempel registrering, inloggning och profilhantering. I den här artikeln visar vi dig hur du använder OAuth 2.0 och principer för att implementera var och en av dessa upplevelser i dina interna program. Vi visar också hur du hämtar åtkomsttoken för att komma åt webb API: er.
 
 I exemplet HTTP-begäranden i den här artikeln använder vi vår exempel Azure AD B2C-katalog **fabrikamb2c.onmicrosoft.com**. Vi använder våra exempelprogrammet och principer. Du kan också försöka begäranden med hjälp av dessa värden eller ersätta dem med dina egna värden.
 Lär dig hur du [hämta egna Azure AD B2C-katalog, program och principer](#use-your-own-azure-ad-b2c-directory).
@@ -189,7 +189,7 @@ POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
+grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_secret=JqQX2PNo9bpM0uEihUPzyrh&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
 | Parameter | Krävs? | Beskrivning |

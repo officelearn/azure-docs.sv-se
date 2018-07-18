@@ -1,6 +1,6 @@
 ---
-title: Ange och hämta objektets egenskaper och metadata i Azure Storage | Microsoft Docs
-description: Lagra anpassade metadata för objekt i Azure Storage, och ange och hämta Systemegenskaper.
+title: Ange och hämta egenskaper och metadata i Azure Storage | Microsoft Docs
+description: Store anpassade metadata för objekt i Azure Storage, och ange och hämta Systemegenskaper.
 services: storage
 documentationcenter: ''
 author: tamram
@@ -12,37 +12,37 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 07/16/2018
 ms.author: tamram
-ms.openlocfilehash: a3eb598b2dabd4986c72b8814926eb0944707050
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2c95139d42f42e43e2fa6e587d5b1b13afdf1e9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873032"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112451"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Ange och hämta egenskaper och metadata
 
-Objekt i Azure Storage stödsystem egenskaper och användardefinierade metadata, förutom de data som de innehåller. Den här artikeln beskrivs hantera Systemegenskaper och användardefinierade metadata med den [Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/).
+Objekt i Azure Storage support Systemegenskaper och användardefinierade metadata, förutom de data de innehåller. Den här artikeln beskriver hantera Systemegenskaper och användardefinierade metadata med den [Azure Storage-klientbiblioteket för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/).
 
-* **Systemegenskaper**: Systemegenskaper finns på varje storage-resurs. Några av dem kan läsa eller ange, medan andra är skrivskyddad. Under försättsbladen motsvarar vissa Systemegenskaper vissa vanliga HTTP-huvuden. Azure storage-klientbiblioteket underhåller dessa åt dig.
+* **Systemegenskaper**: Systemegenskaper finns på varje resurs för lagring. Vissa av dem kan läsas eller ange, medan andra är skrivskyddade. Under försättsbladen motsvarar vissa Systemegenskaper vissa standard HTTP-huvuden. Azure Storage-klientbibliotek underhålla dessa egenskaper åt dig.
 
-* **Användardefinierade metadata**: användardefinierade metadata är metadata som du anger på en viss resurs i form av ett namn / värde-par. Du kan använda metadata för att lagra ytterligare värden med en lagringsresurs. Värdena ytterligare metadata egna endast för, och påverkar inte hur resursen ska fungera.
+* **Användardefinierade metadata**: användardefinierade metadata består av en eller flera namn / värde-par som du anger för en Azure Storage-resurs. Du kan använda metadata för att lagra ytterligare värden med en resurs. Metadatavärden efter behov endast, och påverkar inte hur resursen fungerar.
 
-Hämtar värden för egenskapen och metadata för en lagringsresurs är en tvåstegsprocess. Innan du kan läsa dessa värden, du måste uttryckligen hämta dem genom att anropa den **FetchAttributesAsync** metod.
+Hämtar värden för egenskapen och metadata för en resurs för lagring är en tvåstegsprocess. Innan du kan läsa dessa värden, måste du uttryckligen hämta dem genom att anropa den **FetchAttributes** eller **FetchAttributesAsync** metod. Undantaget är om du anropar den **Exists** eller **ExistsAsync** metod på en resurs. När du anropar någon av följande metoder, Azure Storage anropar rätt **FetchAttributes** metod under försättsbladen som en del av anropet till den **Exists** metod.
 
 > [!IMPORTANT]
-> Värden för egenskapen och metadata för en lagringsresurs fylls inte om du anropar en av de **FetchAttributesAsync** metoder.
+> Om du upptäcker att värdena för egenskapen eller metadata för en storage-resurs inte är ifyllda, kontrollerar du att koden anropar den **FetchAttributes** eller **FetchAttributesAsync** metod.
 >
-> Du får en `400 Bad Request` om alla namn/värde-par innehåller icke-ASCII-tecken. Metadata namn/värde-par är giltig HTTP-huvuden och därför måste följa alla begränsningar för HTTP-huvuden. Du bör därför att du använder URL-kodning eller Base64-kodning för namn och värden som innehåller icke-ASCII-tecken.
+> Metadata namn/värde-par kan endast innehålla ASCII-tecken. Metadata namn/värde-par är giltig HTTP-huvuden och därför måste följa alla begränsningar som reglerar HTTP-huvuden. Du rekommenderas att du använder URL-kodning eller Base64-kodning för namn och värden som innehåller icke-ASCII-tecken.
 >
 
 ## <a name="setting-and-retrieving-properties"></a>Ange och läsa egenskaper
-För att hämta egenskapsvärden anropa den **FetchAttributesAsync** metod på blob eller behållare för att fylla i egenskaperna sedan läsa värdena.
+Om du vill hämta egenskapsvärden anropa den **FetchAttributesAsync** metod på din blob eller behållare för att fylla i egenskaperna kan sedan läsa värdena.
 
 Ange egenskaper för ett objekt genom att ange egenskapen värdet och sedan anropa den **SetProperties** metod.
 
-Följande exempel skapar en behållare och sedan skriver några av dess egenskapsvärden till konsolfönstret.
+Följande exempel skapar en behållare och skriver sedan några av dess egenskapsvärden till ett konsolfönster.
 
 ```csharp
 //Parse the connection string for the storage account.
@@ -67,14 +67,14 @@ Console.WriteLine();
 ```
 
 ## <a name="setting-and-retrieving-metadata"></a>Ange och läsa metadata
-Du kan ange metadata som en eller flera namn-värdepar för en blob eller behållaren resurs. Lägg till namn / värde-par för att ange metadata, den **Metadata** samlingen på resursen, anropar den **SetMetadata** metod för att spara värdena till tjänsten.
+Du kan ange metadata som en eller flera namn / värde-par för en blob eller behållare resurs. Ange metadata genom att lägga till namn / värde-par till den **Metadata** samling på resurs kan sedan anropa den **SetMetadata** eller **SetMetadataAsync** metod för att spara värdena som den tjänsten.
 
 > [!NOTE]
-> Namnet på dina metadata måste följa namnkonventionerna för C#-identifierare.
+> Namnet på dina metadata uppfylla namnkonventionerna för C#-identifierare.
 >
 >
 
-Följande exempel anger metadata för en behållare. Ett värde ställs in med mängdens **Lägg till** metod. Det andra värdet med implicit nyckel/värde-syntax. Båda är giltiga.
+I följande kodexempel anger metadata för en behållare. Ett värde ställs in med samlingen **Lägg till** metod. Det andra värdet med implicit nyckel/värde-syntax. Båda är giltiga.
 
 ```csharp
 public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
@@ -88,7 +88,7 @@ public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
 }
 ```
 
-För att hämta metadata anropa den **FetchAttributes** metod på blob eller behållare för att fylla i **Metadata** samling, Läs värden som visas i exemplet nedan.
+Hämta metadata genom att anropa den **FetchAttributes** eller **FetchAttributesAsync** metod på din blob eller behållare för att fylla i den **Metadata** samling, läs sedan de värden som visas i exemplet nedan.
 
 ```csharp
 public static async Task ListContainerMetadataAsync(CloudBlobContainer container)
@@ -107,5 +107,5 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Azure Storage-klientbibliotek för .NET-referens](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
-* [Azure Storage-klientbibliotek för .NET-NuGet-paketet](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Azure Storage-klientbiblioteket för .NET-referens](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
+* [Azure Storage-klientbiblioteket för .NET NuGet-paket](https://www.nuget.org/packages/WindowsAzure.Storage/)

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: 344ed971dd4a869cfbdc363222d772dcc3191199
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a41cd658060ef92efb0fc21a98ca616276378c5e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916048"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113862"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsöka problem med Azure till Azure VM-replikering
 
@@ -177,6 +177,13 @@ Kontakta supporten om problemet kvarstår.
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Det går inte att se Azure VM väljas i ”Aktivera replikering”
 
+ **Orsak 1: Resursgrupp och virtuella källdatorn finns på olika platser** <br>
+Azure Site Recovery ut för närvarande källresursgruppen för region och virtuella datorer ska finnas på samma plats. Om detta inte är fallet skulle sedan du inte att hitta den virtuella datorn vid tidpunkten för skyddet.
+
+**Orsak 2: Resursgrupp ingår inte i vald prenumeration** <br>
+Du kanske inte att hitta resursgruppen vid tidpunkten för skydd om det inte är en del av den givna prenumerationen. Kontrollera att resursgruppen tillhör prenumerationen som används.
+
+ **Orsak 3: Inaktuell konfiguration** <br>
 Om du inte ser den virtuella datorn som du vill aktivera för replikering, kan det på grund av en inaktuell konfiguration av Site Recovery bli virtuella Azure-datorn. Den inaktuella konfigurationen kan finnas kvar i en Azure-dator i följande fall:
 
 - Du har aktiverat replikering för den virtuella Azure-datorn med hjälp av Site Recovery och tas sedan bort valvet för Site Recovery utan att uttryckligen inaktivera replikering på den virtuella datorn.
@@ -185,6 +192,11 @@ Om du inte ser den virtuella datorn som du vill aktivera för replikering, kan d
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 
 Du kan använda [ta bort inaktuella ASR-konfigurationsskript](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) och ta bort den inaktuella konfigurationen för Site Recovery på Azure-VM. Du bör kunna se den virtuella datorn när du tar bort den inaktuella konfigurationen.
+
+## <a name="unable-to-select-virtual-machine-for-protection"></a>Det går inte att välja virtuell dator för skydd 
+ **Orsak 1: virtuell dator har vissa tillägg som installeras i tillståndet misslyckad eller svarar inte** <br>
+ Gå till virtuella datorer > inställningen > tillägg och kontrollera om det finns några tillägg i ett felaktigt tillstånd. Avinstallera tillägget misslyckades och försök sedan skydda den virtuella datorn.<br>
+ **Orsak 2: [Virtuella datorns Etableringsstatus är inte giltig](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>Virtuella datorns Etableringsstatus är inte giltigt (felkod 150019)
 
@@ -200,6 +212,7 @@ Om du vill aktivera replikering på den virtuella datorn, Etableringsstatus mås
 
 - Om **provisioningState** är **misslyckades**, kontakta supporten med information om hur du felsöker.
 - Om **provisioningState** är **uppdaterar**, ytterligare ett tillägg kunde komma distribueras. Kontrollera om det finns några pågående åtgärder på den virtuella datorn, vänta tills de slutförts och försök misslyckade Site Recovery **Aktivera replikering** jobbet.
+
 
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM +/ fel i tjänsten Volume Shadow Copy (felkod 151025)

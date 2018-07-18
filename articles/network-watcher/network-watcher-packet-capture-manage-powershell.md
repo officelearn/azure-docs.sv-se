@@ -1,6 +1,6 @@
 ---
-title: Hantera paket insamlingar med Azure Nätverksbevakaren - PowerShell | Microsoft Docs
-description: Den här sidan förklarar hur du hanterar funktionen paket avbildning i Nätverksbevakaren med hjälp av PowerShell
+title: Hantera infångade paket med Azure Network Watcher – PowerShell | Microsoft Docs
+description: Den här sidan förklarar hur du hanterar paket avbildningsfunktionen i Network Watcher med hjälp av PowerShell
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,43 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 6ffb1aec91899b54a153e264e346910caee84cc0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d13c02696c9babae9fd04233ae7d2fdc75fca25f
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186791"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090698"
 ---
-# <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Hantera paket insamlingar med Azure Nätverksbevakaren med hjälp av PowerShell
+# <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Hantera infångade paket med Azure Network Watcher med hjälp av PowerShell
 
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
+> - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
 > - [Azure REST-API](network-watcher-packet-capture-manage-rest.md)
 
-Nätverket Watcher paketinsamling kan du skapa avbildning sessioner för att spåra trafik till och från en virtuell dator. Filter har angetts för hämtningens så du fångar upp trafiken som du vill använda. Det hjälper dig för att diagnostisera nätverk avvikelser reaktivt och proaktivt paketinsamling. Andra användningsområden omfattar att samla in nätverksstatistik får information om nätverket intrång felsöka klient-/ serverkommunikation och mycket mer. Genom att via fjärranslutning utlösa paket insamlingar, underlättar den här funktionen för att köra en paketinsamling manuellt och på den önskade datorn, vilket sparar värdefull tid.
+Network Watcher-infångade kan du skapa avbildning sessioner för att spåra trafik till och från en virtuell dator. Filter tillhandahålls för avbildningssessionen att se till att du fångar upp trafiken som du vill. Det hjälper dig för att diagnostisera nätverk avvikelser både reaktivt och proaktivt infångade paket. Andra användningsområden är att samla in nätverksstatistik, få information om nätverk intrång, felsöka klient-/ serverkommunikation och mycket mer. Genom för att utlösa infångade paket via en fjärranslutning, förenklar med den här funktionen ansvaret för att köra ett infångat manuellt och på den önskade datorn, vilket sparar värdefull tid.
 
-Den här artikeln tar dig igenom de olika administrativa uppgifter som är tillgängliga för paketinsamling.
+Den här artikeln tar dig igenom de olika administrativa uppgifter som är tillgängliga för infångade paket.
 
-- [**Starta en paketinsamling**](#start-a-packet-capture)
-- [**Stoppa en paketinsamling**](#stop-a-packet-capture)
-- [**Ta bort en paketinsamling**](#delete-a-packet-capture)
-- [**Hämta en paketinsamling**](#download-a-packet-capture)
+- [**Starta ett infångat paket**](#start-a-packet-capture)
+- [**Stoppa ett infångat paket**](#stop-a-packet-capture)
+- [**ta bort ett infångat paket**](#delete-a-packet-capture)
+- [**Ladda ned ett infångat paket**](#download-a-packet-capture)
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Den här artikeln förutsätter att du har följande resurser:
 
-* En instans av Nätverksbevakaren i den region som du vill skapa en paketinsamling
+* En instans av Network Watcher i regionen som du vill skapa ett infångat paket
 
-* En virtuell dator med filnamnstillägget paket avbilda aktiverad.
+* En virtuell dator med packet capture tillägget aktiverat.
 
 > [!IMPORTANT]
-> Paketinsamling kräver ett tillägg för virtuell dator `AzureNetworkWatcherExtension`. Installera tillägget på en Windows VM finns [tillägg för virtuell dator i Azure Network Watcher Agent för Windows](../virtual-machines/windows/extensions-nwa.md) och för Linux VM besöka [tillägg för virtuell dator i Azure Network Watcher Agent för Linux](../virtual-machines/linux/extensions-nwa.md).
+> Paketfångsten kräver tillägg för virtuell dator `AzureNetworkWatcherExtension`. Installera tillägget på en Windows-VM finns [tillägg för virtuell dator i Azure Network Watcher-Agent för Windows](../virtual-machines/windows/extensions-nwa.md) och Linux VM finns [tillägg för virtuell dator i Azure Network Watcher-Agent för Linux](../virtual-machines/linux/extensions-nwa.md).
 
-## <a name="install-vm-extension"></a>Installera tillägg för virtuell dator
+## <a name="install-vm-extension"></a>Installera VM-tillägg
 
 ### <a name="step-1"></a>Steg 1
 
@@ -60,7 +59,7 @@ $VM = Get-AzureRmVM -ResourceGroupName testrg -Name VM1
 
 ### <a name="step-2"></a>Steg 2
 
-I följande exempel hämtar tillägget information som behövs för att köra den `Set-AzureRmVMExtension` cmdlet. Denna cmdlet installerar paketet avbilda agent på den virtuella gästdatorn.
+I följande exempel hämtar tilläggsinformation som behövs för att köra den `Set-AzureRmVMExtension` cmdlet. Denna cmdlet installerar packet capture-agent på den virtuella gästdatorn.
 
 > [!NOTE]
 > Den `Set-AzureRmVMExtension` cmdlet kan ta flera minuter att slutföra.
@@ -73,7 +72,7 @@ $ExtensionName = "AzureNetworkWatcherExtension"
 Set-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
 ```
 
-För Linux virtuella datorer:
+För Linux-datorer:
 
 ```powershell
 $AzureNetworkWatcherExtension = Get-AzureRmVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentLinux -Version 1.4.13.0
@@ -81,7 +80,7 @@ $ExtensionName = "AzureNetworkWatcherExtension"
 Set-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
 ````
 
-Följande exempel är ett lyckat svar när du har kört den `Set-AzureRmVMExtension` cmdlet.
+I följande exempel är ett lyckat svar efter körning i `Set-AzureRmVMExtension` cmdlet.
 
 ```
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
@@ -91,13 +90,13 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ### <a name="step-3"></a>Steg 3
 
-För att säkerställa att agenten är installerad, kör den `Get-AzureRmVMExtension` cmdlet och överför den virtuella datornamn och namnet.
+Om du vill kontrollera att agenten är installerad, kör den `Get-AzureRmVMExtension` cmdlet och skicka det virtuella datornamn och namn på tillägg.
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -VMName $VM.Name -Name $ExtensionName
 ```
 
-I följande exempel är ett exempel på svar från att köras `Get-AzureRmVMExtension`
+I följande exempel är ett exempel på svaret från att köras `Get-AzureRmVMExtension`
 
 ```
 ResourceGroupName       : testrg
@@ -119,13 +118,13 @@ AutoUpgradeMinorVersion : True
 ForceUpdateTag          : 
 ```
 
-## <a name="start-a-packet-capture"></a>Starta en paketinsamling
+## <a name="start-a-packet-capture"></a>Starta ett infångat paket
 
-När de föregående stegen är klar kan är paket avbilda agenten installerad på den virtuella datorn.
+När de föregående stegen har slutförts, är packet capture agenten installerad på den virtuella datorn.
 
 ### <a name="step-1"></a>Steg 1
 
-Nästa steg är att hämta Nätverksbevakaren-instans. Den här variabeln har överförts till den `New-AzureRmNetworkWatcherPacketCapture` cmdlet i steg 4.
+Nästa steg är att hämta Network Watcher-instans. Den här variabeln skickas till den `New-AzureRmNetworkWatcherPacketCapture` cmdlet i steg 4.
 
 ```powershell
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
@@ -134,7 +133,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 
 ### <a name="step-2"></a>Steg 2
 
-Hämta ett lagringskonto. Det här lagringskontot används för att spara filen i paketet.
+Hämta ett storage-konto. Det här lagringskontot används för att lagra filen packet capture.
 
 ```powershell
 $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName testrg -Name testrgsa123
@@ -142,7 +141,7 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName testrg -Name test
 
 ### <a name="step-3"></a>Steg 3
 
-Filter kan användas för att begränsa de data som lagras med paketinsamling. I följande exempel ställer in två filter.  Ett filter samlar in utgående TCP-trafik från lokala IP 10.0.0.3 för målportar 20, 80 och 443.  Det andra filtret samlar in UDP-trafik.
+Filter kan användas för att begränsa de data som lagras med paketfångsten. I följande exempel ställer in två filter.  Ett filter samlar in utgående TCP-trafik från lokala IP 10.0.0.3 för målportar 20, 80 och 443.  Det andra filtret samlar in UDP-trafik.
 
 ```powershell
 $filter1 = New-AzureRmPacketCaptureFilterConfig -Protocol TCP -RemoteIPAddress "1.1.1.1-255.255.255" -LocalIPAddress "10.0.0.3" -LocalPort "1-65535" -RemotePort "20;80;443"
@@ -150,17 +149,17 @@ $filter2 = New-AzureRmPacketCaptureFilterConfig -Protocol UDP
 ```
 
 > [!NOTE]
-> Flera filter kan definieras för en paketinsamling.
+> Flera filter kan definieras för ett infångat paket.
 
 ### <a name="step-4"></a>Steg 4
 
-Kör den `New-AzureRmNetworkWatcherPacketCapture` att starta avbildningsprocessen paket skickas nödvändiga värden hämtas i föregående steg.
+Kör den `New-AzureRmNetworkWatcherPacketCapture` att starta insamlingen paket skicka värdena som krävs som du hämtade i föregående steg.
 ```powershell
 
 New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filter $filter1, $filter2
 ```
 
-Följande är exempel på utdata som förväntas från att köras i `New-AzureRmNetworkWatcherPacketCapture` cmdlet.
+I följande exempel är utdatan som förväntas från att köras i `New-AzureRmNetworkWatcherPacketCapture` cmdlet.
 
 ```
 Name                    : PacketCaptureTest
@@ -198,15 +197,15 @@ Filters                 : [
 
 ```
 
-## <a name="get-a-packet-capture"></a>Hämta en paketinsamling
+## <a name="get-a-packet-capture"></a>Hämta ett infångat paket
 
-Kör den `Get-AzureRmNetworkWatcherPacketCapture` cmdlet, hämtar status för en paketinsamling som körs eller har slutförts.
+Kör den `Get-AzureRmNetworkWatcherPacketCapture` cmdleten hämtar status för ett infångat paket som körs för tillfället, eller slutfördes.
 
 ```powershell
 Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
 ```
 
-Följande är exempel på utdata från den `Get-AzureRmNetworkWatcherPacketCapture` cmdlet. I följande exempel är när avbildningen har slutförts. Värdet för PacketCaptureStatus stoppas med en StopReason TimeExceeded. Det här värdet visar att paketinsamling lyckades och kördes tiden.
+I följande exempel är utdata från den `Get-AzureRmNetworkWatcherPacketCapture` cmdlet. I följande exempel är när insamlingen är klar. Värdet för PacketCaptureStatus har stoppats, med en StopReason TimeExceeded. Det här värdet visar att paketfångsten lyckades och körde tiden.
 ```
 Name                    : PacketCaptureTest
 Id                      : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatcher
@@ -245,9 +244,9 @@ StopReason              : TimeExceeded
 PacketCaptureError      : []
 ```
 
-## <a name="stop-a-packet-capture"></a>Stoppa en paketinsamling
+## <a name="stop-a-packet-capture"></a>Stoppa ett infångat paket
 
-Genom att köra den `Stop-AzureRmNetworkWatcherPacketCapture` cmdlet, om en avbildningssessionen pågår den har stoppats.
+Genom att köra den `Stop-AzureRmNetworkWatcherPacketCapture` cmdlet, om en avbildningssessionen är håller på att den har stoppats.
 
 ```powershell
 Stop-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
@@ -256,20 +255,20 @@ Stop-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketC
 > [!NOTE]
 > Cmdleten returnerar inga svar när kördes på en pågående avbildningssessionen eller en befintlig session som redan har stoppats.
 
-## <a name="delete-a-packet-capture"></a>Ta bort en paketinsamling
+## <a name="delete-a-packet-capture"></a>ta bort ett infångat paket
 
 ```powershell
 Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
 ```
 
 > [!NOTE]
-> Om du tar bort en paketinsamling tar inte bort filen i lagringskontot.
+> Filen i lagringskontot tas inte bort om du tar bort ett infångat paket.
 
-## <a name="download-a-packet-capture"></a>Hämta en paketinsamling
+## <a name="download-a-packet-capture"></a>Ladda ned ett infångat paket
 
-När paketet avbildningssessionen är klar, kan avbilda filen laddas upp till blob-lagring eller till en lokal fil på den virtuella datorn. Lagringsplatsen för paketinsamling har definierats vid skapandet av sessionen. Ett enkelt verktyg för att komma åt dessa avbilda filer som sparats till ett lagringskonto är Microsoft Azure Lagringsutforskaren, som kan hämtas här:  http://storageexplorer.com/
+När packet capture sessionen är klar kan att överföra filen avbildning till blob-lagring eller till en lokal fil på den virtuella datorn. Lagringsplatsen för paketfångsten har definierats vid skapandet av sessionen. Ett praktiskt verktyg för att komma åt dessa avbilda filer som sparats i ett lagringskonto är Microsoft Azure Storage Explorer, som kan hämtas här:  http://storageexplorer.com/
 
-Om ett storage-konto anges sparas paket avbilda filer till ett lagringskonto på följande plats:
+Om ett lagringskonto anges sparas packet capture filer till ett lagringskonto på följande plats:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
@@ -277,9 +276,9 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig att automatisera insamlingar paket med virtuella aviseringar genom att visa [skapar en avisering utlösta paketinsamling](network-watcher-alert-triggered-packet-capture.md)
+Lär dig hur du automatiserar infångade paket med virtuella datorer aviseringar genom att visa [skapar en avisering utlösta paketfångsten](network-watcher-alert-triggered-packet-capture.md)
 
-Hitta om vissa trafik tillåts i orr utanför den virtuella datorn genom att besöka [Kontrollera Kontrollera IP-flöde](diagnose-vm-network-traffic-filtering-problem.md)
+Hitta om vissa trafik är tillåten i orr utanför den virtuella datorn genom att besöka [Kontrollera Kontrollera IP-flöde](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->
 

@@ -6,15 +6,15 @@ author: jovanpop-msft
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 07/07/2018
+ms.date: 07/16/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: f55ce511f6ba90c27e149ac90bbd2c8aa0b3c742
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a6b987d9815cfabed6dd986a0d9842a97f5b5868
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921516"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092060"
 ---
 # <a name="scale-database-resources"></a>Skala databasresurser
 
@@ -28,9 +28,9 @@ Du behöver inte bekymra dig om att köpa maskinvara och ändra underliggande in
 
 ![Skala databasens prestanda](media/sql-database-scalability/scale-performance.svg)
 
-Azure SQL Database erbjuder en [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) eller [vCore-baserad inköpsmodell (förhandsversion)](sql-database-service-tiers-vcore.md). 
+Azure SQL Database erbjuder en [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). 
 -   Den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) erbjuder en kombination av beräkning, minne och IO-resurser i tre tjänstnivåer för att stödja lätta till tunga arbetsbelastningar: Basic, Standard och Premium. Det finns prestandanivåer inom varje nivå med en blandning av dessa resurser, och du kan lägga till ytterligare lagringsresurser till dessa.
--   Den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) (förhandsversion) kan du välja antal virtuella kärnor, hur mycket eller minne, och mycket och snabbt lagringsutrymme.
+-   Den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) kan du välja antal virtuella kärnor, hur mycket eller minne, och mycket och snabbt lagringsutrymme.
 Du kan skapa din första app på en liten, enkel databas för en låg månadskostnad och sedan ändra dess tjänstnivå manuellt eller programmässigt när som helst för att uppfylla behoven i din lösning. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
 
 

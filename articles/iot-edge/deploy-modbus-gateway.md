@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 7c0ef019536d527775e4f5b959a155db3eacebbf
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 4fbcfe4198f2655f77b1a61c86092e3ac727ab31
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006106"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115729"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Ansluta Modbus TCP-enheter via en gateway för IoT Edge-enhet
 
@@ -21,7 +21,7 @@ Om du vill ansluta IoT-enheter som använder Modbus TCP eller RTU-protokoll till
 
 ![Modbus-enheter ansluter till IoT Hub via en Edge-gateway](./media/deploy-modbus-gateway/diagram.png)
 
-Den här artikeln beskriver hur du skapar en egen behållaravbildning för en Modbus-modul (eller så kan du använda ett fördefinierat exempel) och sedan distribuera den till IoT Edge-enheten som fungerar som gateway. 
+Den här artikeln beskriver hur du skapar en egen containeravbildning för en Modbus-modul (eller så kan du använda ett fördefinierat exempel) och sedan distribuera den till IoT Edge-enheten som fungerar som gateway. 
 
 Den här artikeln förutsätter att du använder Modbus TCP-protokollet. Mer information om hur du konfigurerar modulen så att den stöder Modbus RTU finns i projektet [Azure IoT Edge Modbus-modul](https://github.com/Azure/iot-edge-modbus) på Github. 
 
@@ -30,15 +30,15 @@ Den här artikeln förutsätter att du använder Modbus TCP-protokollet. Mer inf
 * Primärnyckelns anslutningssträng för IoT Edge-enheten.
 * En fysisk eller simulerad Modbus-enhet som stöder Modbus TCP.
 
-## <a name="prepare-a-modbus-container"></a>Förbereda en Modbus-behållare
+## <a name="prepare-a-modbus-container"></a>Förbereda en Modbus-container
 
 Om du vill testa Modbus-gatewayens funktioner har Microsoft en exempelmodul som du kan använda. Om du vill använda exempelmodulen går du till avsnittet [Kör lösningen](#run-the-solution) och anger följande som bildens URI: 
 
 ```URL
-microsoft/azureiotedge-modbus-tcp:1.0-preview
+microsoft/azureiotedge-modbus-tcp:GA-preview-amd64
 ```
 
-Om du vill skapa en egen modul och anpassa den för din miljö finns det ett projekt med öppen källkod på Github, [Azure IoT Edge Modbus-modul](https://github.com/Azure/iot-edge-modbus). Följ vägledningarna i projektet för att skapa en egen behållaravbildning. Om du skapar en egen behållaravbildning kan du läsa informationen om att [utveckla och distribuera en C# IoT Edge-modul](tutorial-csharp-module.md) för att få anvisningar om att publicera behållaravbildningar till ett register och distribuera en anpassad modul till din enhet. 
+Om du vill skapa en egen modul och anpassa den för din miljö finns det ett projekt med öppen källkod på Github, [Azure IoT Edge Modbus-modul](https://github.com/Azure/iot-edge-modbus). Följ vägledningarna i projektet för att skapa en egen containeravbildning. Om du skapar en egen containeravbildning kan du läsa informationen om att [utveckla och distribuera en C# IoT Edge-modul](tutorial-csharp-module.md) för att få anvisningar om att publicera containeravbildningar till ett register och distribuera en anpassad modul till din enhet. 
 
 
 ## <a name="run-the-solution"></a>Kör lösningen
@@ -48,7 +48,7 @@ Om du vill skapa en egen modul och anpassa den för din miljö finns det ett pro
 4. Lägg till Modbus-modulen:
    1. Klicka på **Lägg till** och välj **IoT Edge-modul**.
    2. I fältet **Namn** skriver du ”modbus”.
-   3. I fältet **Bild** anger du bildens URI för exempelbehållaren: `microsoft/azureiotedge-modbus-tcp:1.0-preview`.
+   3. I fältet **Bild** anger du bildens URI för exempelcontainern: `microsoft/azureiotedge-modbus-tcp:GA-preview-amd64`.
    4. Markera rutan **Aktivera** för att uppdatera önskade egenskaper för modultvillingen.
    5. Kopiera följande JSON till textrutan. Ändra värdet för **SlaveConnection** till Modbus-enhetens IPv4-adress.
 

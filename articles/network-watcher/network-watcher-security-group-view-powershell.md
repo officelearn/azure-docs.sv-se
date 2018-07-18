@@ -1,6 +1,6 @@
 ---
-title: Analysera nätverkssäkerhet med Azure Network Watcher säkerhet gruppvyn - PowerShell | Microsoft Docs
-description: Den här artikeln beskriver hur du använder PowerShell för att analysera en säkerhet för virtuella datorer med Gruppvy för säkerhet.
+title: Analysera nätverkssäkerhet med Azure Network Watcher Säkerhetsgruppvy – PowerShell | Microsoft Docs
+description: Den här artikeln beskriver hur du använder PowerShell för att analysera en säkerhet för virtuella datorer med Säkerhetsgruppvy.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,36 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3983055cd580c263d39b908c61a16ed14353c9a4
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9cc06e97730ac846e8aa42c2cee77dfe17be99bb
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23864177"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089654"
 ---
-# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analysera dina virtuella säkerhet med säkerhet gruppvyn med hjälp av PowerShell
+# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analysera din säkerhet för virtuella datorer med Säkerhetsgruppvy med hjälp av PowerShell
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-security-group-view-cli.md)
+> - [Azure CLI](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
 
-Säkerhet gruppvyn returnerar konfigurerade och effektivt Nätverkssäkerhetsregler som tillämpas på en virtuell dator. Den här funktionen är användbar för att granska och diagnostisera Nätverkssäkerhetsgrupper och regler som är konfigurerade på en virtuell dator så trafik som tillåts eller nekas på rätt sätt. I den här artikeln hur vi du kan hämta de konfigurerade och effektivt säkerhetsreglerna till en virtuell dator med hjälp av PowerShell
+Säkerhetsgruppvy returnerar konfigurerade och gällande säkerhetsregler som tillämpas på en virtuell dator. Den här funktionen är användbar för att granska och diagnostisera Nätverkssäkerhetsgrupper och regler som är konfigurerade på en virtuell dator för att se till att trafik som ska tillåtas eller nekas. I den här artikeln har visar vi hur du hämtar de konfigurerade och gällande säkerhetsreglerna till en virtuell dator med hjälp av PowerShell
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I det här scenariot kan du köra den `Get-AzureRmNetworkWatcherSecurityGroupView` för att hämta säkerhetsinformation för regeln.
+I det här scenariot kan du köra den `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet för att hämta säkerhetsinformation för regeln.
 
-Det här scenariot förutsätter att du redan har följt stegen i [skapa en Nätverksbevakaren](network-watcher-create.md) att skapa en Nätverksbevakaren.
+Det här scenariot förutsätter att du redan har följt stegen i [skapa en Network Watcher](network-watcher-create.md) att skapa en Network Watcher.
 
 ## <a name="scenario"></a>Scenario
 
-Det scenario som beskrivs i den här artikeln hämtar konfigurerade och effektivt säkerhetsregler för en viss virtuell dator.
+Det scenario som beskrivs i den här artikeln hämtar konfigurerade och gällande säkerhetsregler för en viss virtuell dator.
 
-## <a name="retrieve-network-watcher"></a>Hämta Nätverksbevakaren
+## <a name="retrieve-network-watcher"></a>Hämta Network Watcher
 
-Det första steget är att hämta Nätverksbevakaren-instans. Den här variabeln har överförts till den `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet.
+Det första steget är att hämta Network Watcher-instans. Den här variabeln skickas till den `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet.
 
 ```powershell
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
@@ -58,9 +57,9 @@ En virtuell dator krävs för att köra den `Get-AzureRmNetworkWatcherSecurityGr
 $VM = Get-AzurermVM -ResourceGroupName testrg -Name testvm1
 ```
 
-## <a name="retrieve-security-group-view"></a>Hämta gruppvy för säkerhet
+## <a name="retrieve-security-group-view"></a>Hämta säkerhetsgruppvy
 
-Nästa steg är att hämta säkerhet grupp visa resultatet.
+Nästa steg är att hämta security grupp visa resultatet.
 
 ```powershell
 $secgroup = Get-AzureRmNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
@@ -68,7 +67,7 @@ $secgroup = Get-AzureRmNetworkWatcherSecurityGroupView -NetworkWatcher $networkW
 
 ## <a name="viewing-the-results"></a>Visa resultaten
 
-I följande exempel är ett kortare resultaten-svar. Resultaten visar alla säkerhet effektiva och tillämpa regler på den virtuella datorn som är uppdelad i grupper med **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, och **EffectiveSecurityRules**.
+I följande exempel är svaret förkortade av resultatet som returneras. Resultaten visar alla effektiva och tillämpade säkerhetsregler på den virtuella datorn som är uppdelade i grupper med **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, och  **EffectiveSecurityRules**.
 
 ```
 NetworkInterfaces : [
@@ -129,6 +128,6 @@ NetworkInterfaces : [
 
 ## <a name="next-steps"></a>Nästa steg
 
-Besök [granskning Nätverkssäkerhetsgrupp grupper (NSG) med Nätverksbevakaren](network-watcher-nsg-auditing-powershell.md) information om hur du automatiserar validering av Nätverkssäkerhetsgrupper.
+Besök [granskning Nätverkssäkerhetsgrupper (NSG) med Network Watcher](network-watcher-nsg-auditing-powershell.md) att lära dig hur du automatiserar verifieringen av Nätverkssäkerhetsgrupper.
 
 

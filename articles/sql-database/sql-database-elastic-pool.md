@@ -1,43 +1,43 @@
 ---
-title: Hantera flera SQL-databaser med elastiska pooler Azure | Microsoft Docs
-description: Hantera och skala flera databaser i SQL - hundratals och tusentalsavgränsare - med elastiska pooler. Ett pris för resurser som du kan distribuera om det behövs.
+title: Hantera flera SQL-databaser med elastiska pooler – Azure | Microsoft Docs
+description: Hantera och skala flera SQL-databaser – hundratals och tusentals - med elastiska pooler. Ett pris för resurser som du kan distribuera där det behövs.
 keywords: flera databaser, databasresurser, databasprestanda
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: ninarn
 ms.topic: conceptual
-ms.openlocfilehash: 5ef32b231a77906a6840ad3550e81b631ddc0c13
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: a5d5c29b30f746c5507e45ecbee6c5ab9aff56f3
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309662"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091950"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Hjälper dig att hantera och skala flera Azure SQL-databaser för elastiska pooler
 
-SQL-databas elastiska pooler är en enkel och kostnadseffektiv lösning för att hantera och skala flera databaser som har olika och oförutsägbart krav för användning. Databaserna i en elastisk pool finns på en enda Azure SQL Database-server och dela ett visst antal resurser på ett fast pris. Med elastiska pooler i Azure SQL Database kan SaaS-utvecklare optimera prisprestanda för en grupp med databaser inom en fastställd budget samtidigt som de levererar flexibla prestanda för varje databas.
+Elastiska pooler i SQL Database är en enkel och kostnadseffektiv lösning för att hantera och skala flera databaser som har varierande och oförutsägbara krav för användning. Databaser i en elastisk pool är på en enskild Azure SQL Database-server och dela ett bestämt antal resurser på ett fast pris. Med elastiska pooler i Azure SQL Database kan SaaS-utvecklare optimera prisprestanda för en grupp med databaser inom en fastställd budget samtidigt som de levererar flexibla prestanda för varje databas.
 
-## <a name="what-are-sql-elastic-pools"></a>Vad är SQL elastiska pooler?
+## <a name="what-are-sql-elastic-pools"></a>Vad är elastiska SQL-pooler?
 
-SaaS-utvecklare utvecklar program på storskaliga datanivåer som består av flera databaser. Ett vanligt programmönster är att etablera en enkel databas för varje kund. Men olika kunder har ofta varierande och oförutsägbara användningsmönster, och det är svårt att förutse resursbehoven för varje enskild databasanvändare. Traditionellt har du två alternativ:
+SaaS-utvecklare utvecklar program på storskaliga datanivåer som består av flera databaser. Ett vanligt programmönster är att etablera en enkel databas för varje kund. Men olika kunder har ofta varierande och oförutsägbara användningsmönster, och det är svårt att förutse resursbehoven för varje enskild databasanvändare. Förr hade du två alternativ:
 
-- Etablera över resurser baserat på högsta användningsnivå och över lön, eller
-- Under etablera spara kostnaden på bekostnad av prestanda och nöjda kunder under toppar.
+- Överetablera resurser baserat på högsta användning och betala per användning, eller
+- Underetablera för att spara kostnader på bekostnad av prestanda och kundnöjdhet under perioder med aktivitetstoppar.
 
-Elastiska pooler lösa detta problem genom att säkerställa att databaser får prestanda-resurser som de behöver, när de behöver den. De tillhandahåller en enkel resursallokeringsmekanism med en förutsägbar budget. Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Elastiska pooler löser det här problemet genom att se till att databaserna får de prestandaresurser som de behöver när de behöver den. De tillhandahåller en enkel resursallokeringsmekanism med en förutsägbar budget. Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-Elastiska pooler kan utvecklare att köpa resurser för en pool som delas av flera databaser för oväntade perioder med användning av enskilda databaser. Du kan konfigurera resurser för poolen baserat antingen på den [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md). Resurskrav för en pool bestäms av den sammanlagda användningen av databaserna. Mängden resurser som är tillgängliga för poolen styrs av utvecklare budget. Utvecklaren bara lägger till databaserna i poolen, anger de lägsta och högsta resurserna för databaserna (lägsta och högsta dtu: er eller lägsta eller högsta vCores beroende på ditt val av resourcing modellen), och anger resurserna från poolen baserat på sina budget. Med hjälp av pooler kan utvecklare sömlöst expandera sina tjänster från en idé till en mogen affärsverksamhet som bara fortsätter att växa.
+Elastiska pooler gör att utvecklare kan köpa resurser för en pool som delas av flera databaser för att därigenom hantera oförutsägbara perioder av användning av enskilda databaser. Du kan konfigurera resurser för poolen baserat antingen på den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). Resurskrav för poolen bestäms av den sammanlagda användningen av dess databaser. Mängden resurser som är tillgängligt för poolen beror på utvecklarens budget. Utvecklaren bara lägger till databaser i poolen, anger de lägsta och högsta resurserna för databaserna (antingen lägsta och högsta dtu: er eller lägsta eller högsta vCores beroende på ditt val av resourcing modellen), och ställer sedan resurser på poolen baserat på sina budget. Med hjälp av pooler kan utvecklare sömlöst expandera sina tjänster från en idé till en mogen affärsverksamhet som bara fortsätter att växa.
 
-I poolen kan de enskilda databaserna skalas automatiskt inom fastställda parametrar. Hårt belastad, kan en databas använda mer resurser för att uppfylla begäran. Databaser under lätta belastningar förbrukar mindre och databaser under inga belastningen använda några resurser. Genom att etablera resurser för hela poolen i stället för enskilda databaser kan du förenkla dina hanteringsuppgifter. Dessutom har en förutsägbar budget för poolen. Ytterligare resurser kan läggas till en befintlig adresspool utan avbrott i databasen, förutom att databaserna kan behöva flyttas att tillhandahålla ytterligare beräkningsresurser för ny eDTU-reservation. På liknande sätt, om extra resurser inte längre behövs de kan tas bort från en befintlig adresspool när som helst i tid. Och du kan lägga till eller ta bort databaser i poolen. Om du vet att en databas underförbrukar resurser tar du bort den.
+I poolen kan de enskilda databaserna skalas automatiskt inom fastställda parametrar. Vid hög belastning använda en databas fler resurser för att möta efterfrågan. Databaser under lätta laster förbrukar mindre, och databaser utan belastning förbrukar inga resurser. Genom att etablera resurser för hela poolen i stället för enskilda databaser kan du förenkla dina hanteringsuppgifter. Dessutom kan ha du en förutsägbar budget för poolen. Ytterligare resurser kan läggas till en befintlig pool utan något avbrott i databasen, förutom att databaserna kan behöva flyttas för att ge ytterligare beräkningsresurser för den nya eDTU-reservationen. På samma sätt, om extra resurser inte längre behövs de kan tas bort från en befintlig pool när som helst i tid. Och du kan lägga till eller ta bort databaser i poolen. Om du vet att en databas underförbrukar resurser tar du bort den.
 
-## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>När bör du överväga en SQL Database-elastisk pool?
+## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>När ska du tänka på en SQL Database-elastisk pool?
 
 Pooler lämpar sig för ett stort antal databaser med specifika användningsmönster. För en viss databas kännetecknas det här mönstret av låg genomsnittlig användning med relativt ovanliga användningstoppar.
 
@@ -55,7 +55,7 @@ Under femminutersperioden som visas har DB1 toppar med 90 DTU:er, men en genoms
 
 En pool gör att dessa oanvända DTU:er kan delas av flera databaser och minskar således de DTU:er som krävs och den sammanlagda kostnaden.
 
-Vi ska bygga vidare på föregående exempel och antar att det finns ytterligare databaser med liknande användningsmönster som DB1. I de två figurerna nedan användning av fyra databaser och 20 databaser lager till samma diagram som illustrerar den icke-överlappande strukturen på deras belastning över tid med DTU-baserade inköpsmodell:
+Vi ska bygga vidare på föregående exempel och antar att det finns ytterligare databaser med liknande användningsmönster som DB1. I de två bilderna nedan är användningen av 4 databaser och 20 databaser lager i samma diagram som illustrerar den inte överlappar varandra deras användning över tid med hjälp av den DTU-baserade inköpsmodellen:
 
    ![4 databaser med ett användningsmönster som passar för en pool](./media/sql-database-elastic-pool/four-databases.png)
 
@@ -75,16 +75,16 @@ Genom att följa nedanstående tumregler för antalet databaser och databasanvä
 
 ### <a name="minimum-number-of-databases"></a>Minsta antal databaser
 
-Om summan av resurser för enskilda databaser är mer än 1,5 x de resurser som krävs för poolen, är det mer kostnadseffektivt med en elastisk pool.
+Om summan av resurser för enskilda databaser är mindre än 1,5 gånger resurser som behövs för poolen, är det mer kostnadseffektivt med en elastisk pool.
 
-***DTU-baserade köp modell-exempel***<br>
+***DTU-baserade inköpschef modell-exempel***<br>
 Minst två S3-databaser eller minst 15 S0-databaser behövs för att en pool med 100 eDTU:er ska vara mer kostnadseffektivt än användningen av prestandanivåer för enskilda databaser.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Högsta antal samtidigt databaser med aktivitetstoppar
 
-Genom att dela resurser, kan inte alla databaser i poolen samtidigt använda resurser upp till gränsen som är tillgängliga för enskilda databaser. Färre databaserna som samtidigt högsta, Ju lägre pool-resurser kan ställas in och det mer kostnadseffektivt poolen blir. I allmänhet bör inte mer än 2/3 (eller 67%) för databaserna i poolen samtidigt högsta att begränsa deras resurser.
+Genom att dela resurser kan använda inte alla databaser i en pool samtidigt resurser upp till den tillgängliga gränsen för enskilda databaser. Ju färre databaser som har hög aktivitet som samtidigt, desto lägre poolresurser kan anges och desto mer kostnadseffektiv blir poolen. I allmänhet bör bör inte mer än 2/3 (eller 67%) av databaserna i poolen toppar samtidigt till sin gräns på resurser.
 
-***DTU-baserade köp modell-exempel***<br>
+***DTU-baserade inköpschef modell-exempel***<br>
 För att minska kostnaderna för tre S3-databaser i en pool med 200 eDTU:er kan högst två av dessa databaser ha belastningstoppar samtidigt. Annars, om fler än två av dessa fyra S3-databaser har toppar samtidigt, skulle poolen behöva utökas till mer än 200 eDTU:er. Om poolen utökas till mer än 200 eDTU:er skulle fler S3-databaser behöva läggas till i poolen för att kostnaderna ska vara lägre än med prestandanivåer för enskilda databaser.
 
 Observera att det här exemplet inte tar hänsyn till användningen av andra databaser i poolen. Om alla databaser har viss belastning vid en given tidpunkt kan mindre än 2/3 (eller 67 %) av databaserna ha aktivitetstoppar samtidigt.
@@ -92,36 +92,36 @@ Observera att det här exemplet inte tar hänsyn till användningen av andra dat
 ### <a name="resource-utilization-per-database"></a>Resursutnyttjande per databas
 En stor skillnad mellan topp- och genomsnittsanvändningen av en databas indikerar långa perioder med låg belastning och korta perioder med hög användning. Det här användningsmönstret är idealisk för delning av resurser mellan databaser. Du bör överväga att lägga till en databas i en pool om dess högsta användning är runt 1,5 gånger större än dess genomsnittliga användning.
 
-***DTU-baserade köp modell-exempel***<br>
+***DTU-baserade inköpschef modell-exempel***<br>
 En S3-databas som behöver 100 DTU:er vid hög aktivitet och som har en genomsnittlig användning på 67 DTU:er eller mindre är lämplig för delning av eDTU:er i en pool. På motsvarande sätt är en S1-databas som använder 20 DTU:er vid hög belastning och som har en genomsnittsanvändning på 13 DTU:er inte lämplig för en pool.
 
-## <a name="how-do-i-choose-the-correct-pool-size"></a>Hur väljer rätt poolstorleken?
+## <a name="how-do-i-choose-the-correct-pool-size"></a>Hur väljer jag rätt poolstorlek?
 
-Den rekommenderade storleken för en pool beror på de sammanställda resurser som krävs för alla databaser i poolen. Detta omfattar att fastställa följande:
+Den bästa storleken för en pool beror på de sammanställda resurser som krävs för alla databaser i poolen. Detta innebär att du fastställa följande:
 
-* Maximal resurser som används av alla databaser i poolen (högsta dtu: er eller maximal vCores beroende på ditt val av resourcing modell).
+* Maximal resurser som används av alla databaser i poolen (maximala dtu: er eller högsta vCores beroende på ditt val av resourcing modell).
 * Högsta lagringsutrymme i byte som används av alla databaser i poolen.
 
-Tillgängliga nivåer för varje resursmodell, finns det [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodell (förhandsgranskning)](sql-database-service-tiers-vcore.md).
+Tillgängliga tjänstnivåer för varje resursmodell, finns det [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
 
 SQL Database utvärderar automatiskt den historiska resursanvändningen för databaser på en befintlig SQL Database-server och rekommenderar lämplig poolkonfiguration på Azure Portal. Förutom rekommendationerna finns det en inbyggd beräkning som uppskattar eDTU-användningen för en anpassad grupp databaser på servern. Detta gör att du kan utföra en konsekvensanalys genom att interaktivt lägga till databaser i poolen och sedan ta bort dem för att visa en analys över resursanvändningen och storleksrekommendationer innan du genomför ändringarna. Mer information finns i [Monitor, manage, and size an elastic pool](#monitor-an-elastic-pool-and-its-databases) (Övervaka, hantera och ändra storlek på en elastisk pool).
 
 I de fall då du inte kan använda verktygsuppsättningar kan du följa stegen nedan för att ta reda på om en pool är ett mer kostnadseffektivt alternativ än enskilda databaser:
 
-1. Beräkna edtu: er eller vCores som behövs för poolen på följande sätt:
+1. Beräkna edtu: er eller v-kärnor som behövs för en pool på följande sätt:
 
-   För DTU-baserade inköpsmodell: MAX (<*Totalt antal DBs* X *genomsnittlig DTU-användning per DB*>,<br>
+   För DTU-baserade inköpsmodellen: MAX (<*Totalt antal databaser* X *genomsnittlig DTU-användningen per databas*>,<br>
    <*Antal databaser som har aktivitetstoppar samtidigt* × *DTU-toppbelastning per databas*)
 
-   För vCore-baserade inköpsmodell (förhandsversion): MAX (<*Totalt antal DBs* X *genomsnittlig vCore användning per DB*>,<br>
-   <*Antal samtidigt peaking DBs* X *belastning vCore användning per DB*)
+   För vCore-baserade inköpsmodellen: MAX (<*Totalt antal databaser* X *genomsnittlig vCore användning per databas*>,<br>
+   <*Antal har aktivitetstoppar samtidigt databaser* X *vCore belastningstopparna per DB*)
 
 2. Beräkna hur stort lagringsutrymme som krävs för poolen genom att lägga till antalet byte som behövs för alla databaser i poolen. Fastställ sedan den eDTU-poolstorlek som ger den här mängden lagringsutrymme.
-3. DTU-baserade inköpsmodell ta för större eDTU uppskattningar från steg 1 och 2. Ta vCore uppskattning från steg 1 för vCore-baserade köp modellen (förhandsversion).
-4. Finns det [SQL-databas sida med priser](https://azure.microsoft.com/pricing/details/sql-database/) och hitta poolen minsta storlek som är större än uppskattningen från steg3.
+3. DTU-baserade inköpsmodellen ta för större av eDTU-beräkningarna från steg 1 och steg 2. För vCore-baserade inköpsmodellen ta vCore-beräkningen från steg 1.
+4. Se den [SQL Database-sidan med priser](https://azure.microsoft.com/pricing/details/sql-database/) och hitta det minsta poolstorleken som är större än beräkningen från steg3.
 5. Jämför poolpriset i steg 5 med priset för att använda lämpliga prestandanivåer för enskilda databaser.
 
-## <a name="using-other-sql-database-features-with-elastic-pools"></a>Använda andra funktioner i SQL-databas med elastiska pooler
+## <a name="using-other-sql-database-features-with-elastic-pools"></a>Med hjälp av andra SQL Database-funktioner med elastiska pooler
 
 ### <a name="elastic-jobs-and-elastic-pools"></a>Elastiska jobb och elastiska pooler
 
@@ -132,63 +132,63 @@ Mer information om andra databasverktyg för att jobba med flera databaser, finn
 ### <a name="business-continuity-options-for-databases-in-an-elastic-pool"></a>Alternativ för verksamhetskontinuitet för databaser i en elastisk pool
 Databaser i pool stöder generellt sett samma [funktioner för affärskontinuitet](sql-database-business-continuity.md) som finns tillgängliga för enskilda databaser.
 
-- **Point-in-time-återställning**: Point-in-time-återställning använder automatiska säkerhetskopieringar för att återställa en databas i en pool till en specifik tidpunkt. Mer information finns i avsnittet om [återställning till tidpunkt](sql-database-recovery-using-backups.md#point-in-time-restore)
+- **Point-in-time-återställning**: Point-in-time-återställning använder automatiska databassäkerhetskopieringar för att återställa en databas i en pool till en viss tidpunkt. Mer information finns i avsnittet om [återställning till tidpunkt](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-- **GEO-återställning**: Geo-återställning ger standardalternativet när en databas är inte tillgänglig på grund av en incident i den region där databasen finns. Mer information finns i avsnittet [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md) (Återställa en Azure SQL-databas eller växla över till en sekundär databas)
+- **GEO-återställning**: Geo-återställning tillhandahåller standardalternativet för återställning när en databas är inte tillgänglig på grund av en incident i den region där databasen finns. Mer information finns i avsnittet [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md) (Återställa en Azure SQL-databas eller växla över till en sekundär databas)
 
-- **Aktiv geo-replikering**: konfigurera för program som har mer aggressivt recovery krav än geo-återställning kan erbjuda [aktiv geo-replikering](sql-database-geo-replication-overview.md).
+- **Aktiv geo-replikering**: program som har mer aggressiva återställningskrav än vad geo-återställning kan erbjuda, konfigurera [aktiv geo-replikering](sql-database-geo-replication-overview.md).
 
-## <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Skapa en ny SQL Database-elastisk pool med Azure-portalen
+## <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Skapa en ny SQL Database-elastisk pool med Azure portal
 
-Det finns två sätt att skapa en elastisk pool i Azure-portalen.
-1. Du kan skapa en elastisk pool genom att söka **elastiska SQL-poolen** i den **Marketplace** eller klicka på **+ Lägg till** på SQL elastiska pooler bläddrar du bladet. Du kan ange en ny eller befintlig server via den här poolen etablering av arbetsflöde.
-2. Du kan också skapa en elastisk pool genom att gå till en befintlig SQLServer och klicka **skapa poolen** att skapa en pool direkt till servern. Den enda skillnaden är att du hoppa över steg där du anger servern under poolen etablering av arbetsflöde.
+Det finns två sätt som du kan skapa en elastisk pool i Azure-portalen.
+1. Du kan skapa en elastisk pool genom att söka **SQL-databaspool** i den **Marketplace** eller klicka på **+ Lägg till** Bläddra bladet på de elastiska SQL-poolerna. Du kan ange en ny eller befintlig server via det här arbetsflödet för pooldistribution.
+2. Eller så kan du skapa en elastisk pool genom att gå till en befintlig SQLServer och klicka **Skapa pool** att skapa en pool direkt till den servern. Den enda skillnaden är att du hoppa över steget där du anger servern under arbetsflödet för pooldistribution.
 
 > [!NOTE]
 > Du kan skapa flera pooler på en server, men du kan inte lägga till databaser från olika servrar i samma pool.
 
-Den pooltjänstnivå avgör vilka funktioner som är tillgängliga för elastics i poolen och maximala mängden resurser som är tillgängliga för varje databas. Mer information finns i gränserna för elastiska pooler i den [DTU modellen](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels). VCore-baserade gränserna för elastiska pooler, se [vCore-baserade gränserna - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
+Poolens tjänstnivå avgör vilka funktioner som är tillgängliga för elastiska poolen och den maximala mängden resurser som är tillgängliga för varje databas. Mer information finns i resursgränser för elastiska pooler i den [DTU modellen](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels). VCore-baserade resursbegränsningar för elastiska pooler, se [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
 
-Konfigurera resurserna och prisnivå för poolen, klickar du på **konfigurera pool**. Välj en tjänstnivå, lägga till databaser i poolen och konfigurera resurs-gränser för poolen och databaserna.
+Konfigurera resurserna och priser för poolen klickar du på **konfigurera pool**. Välj sedan en tjänstnivå, lägga till databaser i poolen och konfigurera resursgränser för poolen och dess databaser.
 
-När du har slutfört konfigurationen poolen, kan du på Verkställ, namn i poolen, och klicka på 'OK' om du vill skapa poolen.
+När du har slutfört konfigurationen av poolen, kan du klicka på Verkställ, namnet på poolen och klicka på 'OK' om du vill skapa poolen.
 
-## <a name="monitor-an-elastic-pool-and-its-databases"></a>Övervaka en elastisk pool och databaserna
+## <a name="monitor-an-elastic-pool-and-its-databases"></a>Övervaka en elastisk pool och dess databaser
 
-Du kan övervaka användningen av en elastisk pool och databaserna i poolen i Azure-portalen. Du kan också göra en uppsättning ändringar i den elastiska poolen och skicka alla ändringar på samma gång. De här förändringarna innefattar att lägga till eller ta bort databaser, ändra inställningarna elastisk pool eller ändra databasinställningarna.
+I Azure-portalen kan du övervaka användningen av en elastisk pool och databaserna i poolen. Du kan också göra en uppsättning ändringar i din elastiska pool och skicka alla ändringar på samma gång. De här förändringarna innefattar att lägga till eller ta bort databaser, ändra dina inställningar för elastisk pool eller ändra inställningarna för din databas.
 
-Om du vill börja övervaka din elastisk pool, hitta och öppna en elastisk pool i portalen. En skärm som ger en översikt över statusen för den elastiska poolen visas först. Det här omfattar:
+Om du vill börja övervaka din elastiska pool, hitta och öppna en elastisk pool i portalen. En skärm som ger dig en översikt över statusen för din elastiska pool visas först. Det här omfattar:
 
-* Övervakning av diagram som visar resurser användning av den elastiska poolen
-* Senaste aviseringarna och rekommendationer om de är tillgängliga för den elastiska poolen
+* Övervakning av diagram som visar Resursanvändning för elastisk pool
+* De senaste aviseringarna och rekommendationer om alternativet är tillgängligt för den elastiska poolen
 
 Följande bild visar ett exempel elastisk pool:
 
 ![Pool-vy](./media/sql-database-elastic-pool-manage-portal/basic.png)
 
-Om du vill ha mer information om poolen kan du klicka på någon av informationen i den här översikten. Klicka på den **resursutnyttjande** diagrammet tar dig till den Azure-övervakning vyn där du kan anpassa fönstret mått och tid som visas i diagrammet. Klicka på alla tillgängliga meddelanden att ta dig till ett blad som visar fullständig information om aviseringen eller rekommendation.
+Om du vill ha mer information om poolen som du kan klicka på någon av tillgänglig information i den här översikten. När du klickar på den **resursutnyttjande** diagrammet dirigeras du till vyn övervakning av Azure där du kan anpassa fönstret mått och tid som visas i diagrammet. När du klickar på meddelanden som har tillgängliga tar dig till ett blad som visar fullständig information om aviseringen eller rekommendation.
 
-Om du vill övervaka databaser i din pool, kan du klicka på **databasen resursutnyttjande** i den **övervakning** resurs-menyn till vänster.
+Om du vill övervaka databaserna på din pool kan du klicka på **databasen resursutnyttjande** i den **övervakning** delen av resurs-menyn till vänster.
 
-![Sidan databas resurs för användning](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
+![Användning av databasen resurssida](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
 ### <a name="to-customize-the-chart-display"></a>Du kan anpassa diagram
 
-Du kan redigera diagrammet och sidan mått om du vill visa andra mått som CPU-procent, data IO-procent och loggen IO-procent som används.
+Du kan redigera diagrammet och sidan mått att visa andra mått som CPU-procentandel, data IO-procent och logg-i/o-procent Använd.
 
-På den **redigera diagram** formuläret som du kan välja en fast tidpunkt intervall eller klicka på **anpassade** att välja valfritt 24-timmarsformat fönster under de senaste två veckorna och välj sedan resurserna som ska övervaka.
+På den **redigera diagram** formuläret, kan du välja en fast tidpunkt intervall eller klicka på **anpassade** att välja alla 24-timmarsperiod under de senaste två veckorna Välj sedan resurserna som ska övervaka.
 
 ### <a name="to-select-databases-to-monitor"></a>Att välja databaser för att övervaka
 
-Som standard i diagrammet i den **databasen resursutnyttjande** bladet visar 5 viktigaste databaser genom DTU eller processor (beroende på din tjänstnivån). Du kan växla av databaserna i det här diagrammet genom att välja och unselecting databaser i listan under diagrammet via kryssrutorna till vänster.
+Som standard diagrammet i den **Databasresursanvändning** bladet visar de 5 främsta databaserna av DTU eller CPU (beroende på din tjänstenivå). Du kan växla av databaserna i det här diagrammet genom att markera och avmarkera databaser i listan under diagrammet via kryssrutorna till vänster.
 
-Du kan också välja fler mått till vyn sida vid sida i den här databastabell för att få en mer komplett vy av dina databaser prestanda.
+Du kan också välja fler mått att visa sida vid sida i den här databastabell för att få en mer komplett vy över dina databaser prestanda.
 
-Mer information finns i [skapa SQL-databas aviseringar i Azure-portalen](sql-database-insights-alerts-portal.md).
+Mer information finns i [skapa aviseringar för SQL-databas i Azure-portalen](sql-database-insights-alerts-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill skala elastiska pooler finns [skalning elastiska pooler](sql-database-elastic-pool.md) och [skala en elastisk pool - exempelkod](scripts/sql-database-monitor-and-scale-pool-powershell.md)
-* Se en video [Microsoft Virtual Academy video kursen på Azure SQL Database-elastisk funktioner](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
+- Om du vill skala elastiska pooler finns i [skalning elastiska pooler](sql-database-elastic-pool.md) och [skala en elastisk pool - exempelkod](scripts/sql-database-monitor-and-scale-pool-powershell.md)
+* Se en video [Microsoft Virtual Academy-videokurs om elastiska Azure SQL Database-funktioner](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
-* Om du har en SaaS-självstudiekurs med elastiska pooler finns [introduktion till Wingtip SaaS-program](sql-database-wtp-overview.md).
+* Om du har en SaaS-självstudiekurs med hjälp av elastiska pooler finns i [introduktion till Wingtip SaaS-program](sql-database-wtp-overview.md).

@@ -1,6 +1,6 @@
 ---
-title: Köra uppgifter datavetenskap - Azure Machine Learning | Microsoft Docs
-description: Hur en data-forskare kan köra ett datavetenskap projekt i en trackable version kontrollerade och samarbetsfunktioner sätt.
+title: Köra datavetenskapsaktiviteter – Azure Machine Learning | Microsoft Docs
+description: Hur datavetare kan köra ett datavetenskapsprojekt i en spårningsbar version kontrolleras och samarbetsfunktioner sätt.
 documentationcenter: ''
 author: deguhath
 manager: cgronlun
@@ -14,106 +14,106 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: ed402f9730136fdb8a4d07dd291599c567637600
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 19267429510207129b0229dc55fbd46f12977d5d
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838389"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112652"
 ---
-# <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Köra datavetenskap aktiviteter: utforskning, modellering och distribution
+# <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Köra datavetenskapsaktiviteter: utforskning, modellering och distribution
 
-Vanliga vetenskap aktiviteter inkluderar datagranskning, modellering och distribution. Den här artikeln visar hur du använder den **interaktiv Datagranskning, analys och rapportering (IDEAR)** och **automatisk modellering och rapportering (AMAR)** verktyg för att slutföra flera gemensamma datavetenskap uppgifter till exempel interaktiv datagranskning, dataanalys, rapportering och skapa en modell. Här beskrivs också alternativ för distribution av en modell i en produktionsmiljö med hjälp av en mängd olika verktyg och data plattformar, till exempel följande:
+Vanliga datavetenskapsuppgifter inkludera datautforskning, modellering och distribution. Den här artikeln visar hur du använder den **interaktiv Datagranskning, analys och rapportering (IDEAR)** och **automatiserad modellering och rapportering (AMAR)** verktyg för att slutföra flera vanliga datavetenskapsuppgifter till exempel interaktiv datagranskning, dataanalys, rapportering och skapa en modell. Här beskrivs också alternativ för att distribuera en modell till en produktionsmiljö med hjälp av en rad olika verktyg och data plattformar, till exempel följande:
 
 - [Azure Machine Learning](../service/index.yml)
 - [SQL-Server med ML-tjänster](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 
-## 1. <a name='DataQualityReportUtility-1'></a> Undersökning 
+## 1. <a name='DataQualityReportUtility-1'></a> Utforskning 
 
-En data-forskare kan utföra undersökning och rapportering i en mängd olika sätt: genom att använda bibliotek och paket som är tillgängliga för Python (matplotlib till exempel) eller med R (ggplot eller gitter till exempel). Datavetare kan anpassa sådan kod så att de passar bäst för datagranskning för specifika scenarier. Behov för att hantera strukturerade data är olika för Ostrukturerade data, till exempel text och bilder. 
+Dataexpert kan utföra utforskning och rapportering i en mängd olika sätt: med hjälp av bibliotek och paket som är tillgängliga för Python (matplotlib till exempel) eller med R (ggplot eller gitter till exempel). Dataexperter kan anpassa sådan kod så att de passar behoven för datagranskning för specifika scenarier. Behov för att hantera strukturerade data är olika för Ostrukturerade data, till exempel text eller bilder. 
 
-Produkter som Azure Machine Learning arbetsstationen även ange [avancerade förberedelse av data](../desktop-workbench/tutorial-bikeshare-dataprep.md) för data som wrangling och undersökning, inklusive funktionen skapas. Användaren ska fatta beslut om verktyg, bibliotek och paket som bäst suite deras behov. 
+Produkter som Azure Machine Learning Workbench tillhandahåller även [avancerad dataförberedelse](../desktop-workbench/tutorial-bikeshare-dataprep.md) för data Datatransformering och undersökning, inklusive funktionen skapas. Användaren bör de verktyg, bibliotek och paket som bäst suite bestämma deras behov. 
 
-Leverans i slutet av den här fasen är en rapport för undersökning av data. Rapporten bör ge en ganska omfattande vy av data som ska användas för modellering och bedöma om data är lämpligt att gå vidare till steg modellering. Team Data vetenskap processen (TDSP)-verktyg som beskrivs i följande avsnitt för delvis automatiserad utforskning, modellering och rapportering dessutom standardiserade datagranskning och modellering rapporter. 
+Leverans i slutet av den här fasen är en rapport för utforskning av data. Rapporten bör ge en ganska omfattande vy över data som ska användas för modellering och en utvärdering av om data är lämpligt att gå vidare till steg modellering. Team Data Science Process TDSP ()-verktyg som beskrivs i följande avsnitt för halvautomatiserat utforskning, modellering och rapportering dessutom standardiserade datagranskning och modellering rapporter. 
 
 ### <a name="interactive-data-exploration-analysis-and-reporting-using-the-idear-utility"></a>Interaktiv datagranskning, analys och rapportering med hjälp av verktyget IDEAR
 
-Denna R markdown-baserade eller Python anteckningsboken-baserat verktyg ger ett flexibelt och interaktiva verktyg för att utvärdera och utforska datauppsättningar. Användarna kan snabbt skapa rapporter från datauppsättningen med minimal kodning. Användarna kan klicka på knappar för att exportera resultaten utforskning i verktyget interaktivt till en slutlig rapport som kan skickas till klienter eller används för att fatta beslut om vilka variabler som ska inkluderas i efterföljande modellering steg.
+Den här markdown-baserade R eller Python notebook-baserade verktyg ger ett flexibelt och interaktiva verktyg för att utvärdera och utforska datauppsättningar. Användarna kan snabbt generera rapporter från datauppsättningen med minimal kodning. Användarna kan klicka på knappar för att exportera resultaten i verktyget interaktiv utforskning till slutrapporten som kan levereras till klienter eller används för att fatta beslut rörande vilka variabler som ska inkluderas i efterföljande modellering steg.
 
-För tillfället fungerar verktyget bara på dataramar i minnet. En YAML-fil behövs för att ange parametrarna för de data som ska undersökas. Mer information finns i [IDEAR i TDSP datavetenskap verktyg](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
+För tillfället fungerar verktyget bara på dataramar i minnet. En YAML-fil krävs för att ange parametrarna för datauppsättning att undersökas. Mer information finns i [IDEAR i TDSP Data Science Utilities](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
 
-## 2. <a name='ModelingUtility-2'></a> Modeling
+## 2. <a name='ModelingUtility-2'></a> Modellering
 
-Det finns flera verktyg och paket för utbildning-modeller i en mängd olika språk. Datavetare bör passa på att använda som ever som de är nöjd med, så länge prestandaöverväganden om noggrannhet och svarstid uppfylls för relevanta företag använder fall och produktion scenarier.
+Det finns många verktyg och -paket för utbildning-modeller i olika språk. Dataexperter bör passa på att använda vilket ever som de är nöjd med, så länge prestandaöverväganden om Precision och svarstiden är uppfyllda för relevanta företag använder fall och produktionsscenarier.
 
-I nästa avsnitt visar hur du använder ett R-baserade TDSP verktyg för delvis automatiserad modellering. Verktyget AMAR kan användas för att generera baslinjen modeller snabbt samt de parametrar som behöver justeras för att ge en bättre utför modell.
+Nästa avsnitt visar hur du använder ett R-baserad TDSP-verktyg för halvautomatiserat modellering. Den här AMAR verktyg kan användas för att generera baslinjen modeller snabbt samt de parametrar som behöver justeras för att ge en bättre utför modell.
 Modellen management nedan visar hur du har ett system för att registrera och hantera flera modeller.
 
 
-### <a name="model-training-modeling-and-reporting-using-the-amar-utility"></a>Modellen utbildning: modellering och rapportering med hjälp av verktyget AMAR
+### <a name="model-training-modeling-and-reporting-using-the-amar-utility"></a>Modellera utbildning: modellering och rapportering med hjälp av verktyget AMAR
 
-Den [automatisk modellering och rapportering (AMAR)-verktyget](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling) anpassningsbara, delvis automatiserad verktyg som utför modellen skapas med hyper-parametern omfattande och jämför dessa modeller noggrannhet. 
+Den [automatiserad modellering och rapportering (AMAR)-verktyget](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling) ger ett anpassningsbar, delvis automatiserad Verktyg att utföra modellskapandet med hyper-parametern omfattande och jämföra det arbete du utfört dessa modeller. 
 
-Verktyget Skapa modellen är en R Markdown-fil som kan köras för att skapa fristående HTML-utdata skapas med en innehållsförteckning för enkel navigering via dess olika avsnitt. Tre algoritmer utförs när Markdown-fil körs (knit): reglerats regression som använder glmnet paketet slumpmässiga skog randomForest paketera och förstärkning träd med xgboost-paket). Var och en av dessa algoritmer producerar en tränad modell. Riktighet modellers jämförs sedan och relativa funktionen vikten områden rapporteras. Det finns två verktyg: en är en binär klassificering aktivitet och en är en regression-aktivitet. De huvudsakliga skillnaderna mellan dem är kontrollparametrar sätt och noggrannhet mått har angetts för åtgärderna learning. 
+Verktyget Skapa modellen är en R Markdown-fil som kan köras för att skapa fristående HTML-utdata med en innehållsförteckning för enkel navigering via dess olika avsnitt. Tre algoritmer körs när den Markdown-fil körs (knit): reglerats regression med glmnet paketera slumpmässiga skog med hjälp av randomForest-paketet och öka träd med hjälp av xgboost-paketet). Var och en av dessa algoritmer producerar en tränad modell. Hur korrekt referensdatorns dessa modeller jämförs sedan och relativa funktionen vikten områden har rapporterats. Det finns två verktyg: en för en binär klassificering och en är för en regression aktivitet. De huvudsakliga skillnaderna mellan dem är kontrollparametrar sätt och noggrannhet mått har angetts för dessa learning-aktiviteter. 
 
-En YAML-fil används för att ange:
+En YAML-fil för att ange:
 
-- data-indata (en SQL-källa eller ett R-fil) 
-- hur stor del av informationen som används för träning och vilken del för testning
+- indata (en SQL-datakälla eller en R-fil) 
+- hur stor del av informationen som används för utbildning och vilken del för testning
 - vilka algoritmer som ska köras 
-- valet av kontrollparametrar för optimering av modellen:
+- valet av kontrollparametrar för modellen optimering:
     - korsvalidering 
     - startprogram
     - vikningar för korsvalidering
 - hyper-parametern anger för varje algoritm. 
 
-Antalet algoritmer, antalet vikningar för optimering, hyper-parametrarna och antalet hyper-parametern anger att Sopa över kan också ändras i Yaml-filen för att köra modeller snabbt. De kan till exempel köras med ett lägre antal KA vikningar, ett lägre antal parameteruppsättningar. Om den garanteras, kan de även köra mer utförligt med ett högre antal KA vikningar eller ett större antal parameteruppsättningar.
+Antalet algoritmer, antalet vikningar för optimering, hyper-parametrarna och antalet hyper parameteruppsättningar till svepvinkeln över kan också ändras i Yaml-filen kör modellerna snabbt. Exempelvis kan de köras med ett lägre antal KA vikningar, ett lägre antal parameteruppsättningar. Om den är korrekt, kan de även köra fler ett mer omfattande sätt med ett högre antal KA vikningar eller ett större antal parameteruppsättningar.
 
-Mer information finns i [automatisk modellering och rapportering Utility i TDSP datavetenskap verktyg](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling).
+Mer information finns i [automatiserad modellering och rapportering Utility i TDSP Data Science Utilities](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling).
 
 ### <a name="model-management"></a>Modellhantering
-När flera modeller har skapats, måste vanligtvis du ha ett system för att registrera och hantera modeller. Vanligtvis behöver du en kombination av skript eller API: er och backend-databas eller versionshantering systemet. Några alternativ som du kan tänka på för dessa hanteringsaktiviteter är:
+När flera modeller har skapats, måste vanligtvis du ha ett system för att registrera och hantera modeller. Vanligtvis behöver du en kombination av skript eller API: er och ett serverdelsystem för databasen eller versionshantering. Ett par alternativ som du kan tänka på för dessa hanteringsaktiviteter finns:
 
-1. [Azure Machine Learning - modellen management-tjänsten](../service/index.yml)
+1. [Azure Machine Learning - modell management-tjänsten](../service/index.yml)
 2. [ModelDB från MIT](https://mitdbg.github.io/modeldb/) 
-3. [SQL-seerver som ett system för hantering av modellen](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
+3. [SQL-server som ett hanteringssystem för modellen](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 ## 3. <a name='Deployment-3'></a> Distribution
 
-Produktionsdistribution gör det möjligt för en modell att spela upp en aktiv roll i ett företag. Förutsägelser från en distribuerad modell kan användas för affärsbeslut.
+Produktionsdistribution gör det möjligt för en modell att spela upp en aktiv roll i ett företag. Förutsägelser från en distribuerad modell kan användas för bättre affärsbeslut.
 
-### <a name="production-platforms"></a>Produktion plattformar
-Det finns olika strategier och plattformar för att placera modeller i produktionen. Här följer några alternativ:
+### <a name="production-platforms"></a>Plattformar för produktion
+Det finns olika metoder och plattformar för att använda modeller i produktion. Här följer några alternativ:
 
 
-- [Distribution av modellen i Azure Machine Learning](../desktop-workbench/model-management-overview.md)
-- [Distribution av en modell i SQL server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
+- [Distribution av modeller i Azure Machine Learning](../desktop-workbench/model-management-overview.md)
+- [Distribution av en modell i SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 > [!NOTE]
-> Före distributionen för en är att försäkra dig om svarstiden för modellen bedömningen är tillräckligt små för att använda i produktionen.
+> Ett måste försäkra dig om svarstiden för bedömning av modellen är låg ska användas i produktion före distributionen.
 >
 >
 
-Ytterligare exempel finns i genomgång som visar alla steg i processen för **specifika scenarier**. De anges och är kopplad till miniatyr beskrivningar i den [exempel genomgång](walkthroughs.md) artikel. De visar hur du kombinerar moln, lokala verktyg och tjänster i ett arbetsflöde eller en rörledning för att skapa ett intelligent program.
+Ytterligare exempel finns i genomgångar som visar alla steg i processen för **specifika scenarier**. De visas och som är kopplad till miniatyrbilder beskrivningarna i den [exempel genomgångar](walkthroughs.md) artikeln. De visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program.
 
 > [!NOTE]
-> Distribution med hjälp av Azure Machine Learning Studio finns [distribuera en Azure Machine Learning-webbtjänst](../studio/publish-a-machine-learning-web-service.md).
+> Distribution med hjälp av Azure Machine Learning Studio finns i [distribuera en Azure Machine Learning-webbtjänst](../studio/publish-a-machine-learning-web-service.md).
 >
 >
 
 ### <a name="ab-testing"></a>A / B-testning
-När det finns flera modeller i produktion kan det vara bra att utföra [A / B-testning](https://en.wikipedia.org/wiki/A/B_testing) att jämföra prestanda av modeller. 
+När det finns flera modeller i produktion, kan det vara praktiskt att utföra [A / B-testning](https://en.wikipedia.org/wiki/A/B_testing) att jämföra prestanda för modellerna. 
 
  
 ## <a name="next-steps"></a>Nästa steg
 
-[Spåra förloppet för datavetenskap projekt](track-progress.md) visar hur en data-forskare kan spåra förloppet för ett projekt för vetenskapliga data.
+[Spåra förloppet för dataforskningsprojekt](track-progress.md) visar hur datavetare kan följa förloppet för ett datavetenskapsprojekt.
 
-[Modellen igen och CI/CD](ci-cd-flask.md) visar hur CI/CD kan utföras med utvecklade modeller.
+[Modellera åtgärden och CI/CD](ci-cd-flask.md) visar hur du kan utföra CI/CD med utvecklade modeller.
 
 

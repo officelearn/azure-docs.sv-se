@@ -1,6 +1,6 @@
 ---
-title: Träna om Machine Learning-modellen | Microsoft Docs
-description: Lär dig mer om att träna om en modell och uppdatera webbtjänsten för att använda den nya tränade modellen i Azure Machine Learning.
+title: Träna en Maskininlärningsmodell | Microsoft Docs
+description: Lär dig hur du tränar en modell och uppdatera webbtjänsten för att använda den nyligen tränade modellen i Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
@@ -15,87 +15,87 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: ca7ad5a46c1401a283879f8aba80c781a88fc089
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 46aa2c209f782706357f9a928ddbaa6321abdd77
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835437"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115535"
 ---
-# <a name="retrain-a-machine-learning-model"></a>Träna om Machine Learning-modellen
-Som en del av processen för operationalization för machine learning-modeller i Azure Machine Learning, din modell tränas och sparas. Du sedan använda den för att skapa en predicative webbtjänst. Webbtjänsten kan sedan användas i webbplatser, instrumentpaneler och mobilappar. 
+# <a name="retrain-a-machine-learning-model"></a>Träna om Machine Learning-modell
+Som en del av processen för driftsättning av machine learning-modeller i Azure Machine Learning, är din modell tränas och sparas. Du sedan använda den för att skapa en förutsägbar webbtjänst. Webbtjänsten kan sedan användas i webbplatser, instrumentpaneler och mobila appar. 
 
-Modeller som du skapar med Machine Learning finns vanligtvis inte statisk. När nya data blir tillgängliga eller när konsumenten API har sina egna data måste vara retrained modellen. 
+Modeller som du skapar med Machine Learning är vanligtvis inte statiska. När nya data blir tillgängliga eller när användaren av API: et har sina egna data måste vara modellkomponenten modellen. 
 
-Omtränings kan inträffa ofta. Med funktionen programmässiga Omtränings-API du programmässigt träna om modellen med Omtränings-API och uppdatera webbtjänsten med den nyligen tränade modellen. 
+Träna kan inträffa ofta. Med funktionen programmatisk omtrimning API du programmässigt tränar modellen med API: erna träna och uppdatera webbtjänsten med den nyligen tränade modellen. 
 
-Det här dokumentet beskrivs hur du omtränings och visar hur du använder Omtränings-API.
+Det här dokumentet beskriver hur du omtränings och visar hur du Använd Omtränings-API.
 
-## <a name="why-retrain-defining-the-problem"></a>Träna om varför: definiera problemet
-Som en del av maskininlärning utbildning process, är en modell tränas med hjälp av en uppsättning data. Modeller som du skapar med Machine Learning finns vanligtvis inte statisk. När nya data blir tillgängliga eller när konsumenten API har sina egna data måste vara retrained modellen.
+## <a name="why-retrain-defining-the-problem"></a>Varför omtrimma: definiera problemet
+En del av de machine learning-träningsprocess är tränas en modell med hjälp av en uppsättning data. Modeller som du skapar med Machine Learning är vanligtvis inte statiska. När nya data blir tillgängliga eller när användaren av API: et har sina egna data måste vara modellkomponenten modellen.
 
-I dessa scenarier ger programmässiga API ett bekvämt sätt att låta dig eller konsumenter av din API: er att skapa en klient som kan, på en gång eller regelbunden basis träna om modellen med sina egna data. De kan sedan utvärdera resultaten av omtränings och uppdatera Web service API för att använda den nya tränade modellen.
+I dessa scenarion använder är en programmatisk API ett enkelt sätt att låta dig eller användaren av dina API: er att skapa en klient som kan regelbundet enstaka tillfällen eller regelbundet, träna modellen med sina egna data. De kan sedan utvärdera resultaten av träna och uppdatera den webbtjänst-API om du vill använda den nyligen tränade modellen.
 
 > [!NOTE]
-> Om du har en befintlig Träningsexperiment och nya Web service kanske du vill checka ut omtrimning en befintlig förutsägande webbtjänst i stället för att följa den här genomgången som nämns i följande avsnitt.
+> Om du har en befintlig Träningsexperiment och nya Web service kan du kolla in omtrimning av en befintlig förutsägande webbtjänst i stället för att följa den här genomgången nämns i följande avsnitt.
 > 
 > 
 
 ## <a name="end-to-end-workflow"></a>Arbetsflödet slutpunkt till slutpunkt
-Processen omfattar följande komponenter: A Träningsexperiment och Prediktivt Experiment publiceras som en webbtjänst. Om du vill aktivera omtränings av en tränad modell måste utbildning experimentet publiceras som en webbtjänst med utdata från en tränad modell. Detta gör det möjligt för API-åtkomst till modellen för omtränings. 
+Processen omfattar följande komponenter: A Träningsexperiment och ett Förutsägelseexperiment som publiceras som en webbtjänst. Om du vill aktivera omtrimning av en trained model måste Träningsexperimentet publiceras som en webbtjänst med utdata från en tränad modell. Detta gör det möjligt för API-åtkomst till modellen för att träna. 
 
-Följande steg gäller för både nya och klassiska Web services:
+Följande steg gäller för både nya och klassiska webbtjänster:
 
-Skapa första förutsägande webbtjänsten:
+Skapa första förutsägbar webbtjänst:
 
-* Skapa ett experiment utbildning
-* Skapa en prediktiv web experiment
-* Distribuera en prediktiv webbtjänst
+* Skapa ett träningsexperiment
+* Skapa ett förutsägelsewebbtjänster experiment
+* Distribuera en förutsägbar webbtjänst
 
 Träna om webbtjänsten:
 
-* Uppdatera träningsexperiment för omtränings
-* Distribuera omtränings-webbtjänst
-* Använda Batch Execution Service-kod för att träna om modellen
+* Uppdatera träningsexperiment så att träna
+* Distribuera omtränings webbtjänsten
+* Använd Batch Execution Service-kod för att träna modellen
 
-En genomgång av den föregående steg finns [träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md).
+En genomgång av det föregående steg finns i [träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md).
 
 > [!NOTE] 
-> Om du vill distribuera en ny webbtjänst måste du ha tillräckliga behörigheter i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webbtjänst med hjälp av Azure Machine Learning-webbtjänster portal](manage-new-webservice.md). 
+> Om du vill distribuera en ny webbtjänst måste du ha tillräcklig behörighet i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webbtjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md). 
 
 Om du har distribuerat en klassiska webbtjänst:
 
-* Skapa en ny slutpunkt på förutsägande webbtjänsten
-* Hämta korrigering URL och kod
-* Använda PATCH-URL så att den pekar på ny slutpunkt på retrained modellen 
+* Skapa en ny slutpunkt på förutsägbar webbtjänst
+* Hämta KORRIGERA URL: en och kod
+* Använda KORRIGERA URL: en så att den pekar på ny slutpunkt på retrained modellen 
 
-En genomgång av den föregående steg finns [träna om en klassiska webbtjänst](retrain-a-classic-web-service.md).
+En genomgång av det föregående steg finns i [Omtrimma en klassisk webbtjänst](retrain-a-classic-web-service.md).
 
-Om du stöter på problem med omtränings klassiska webbtjänsten finns [felsökning omtränings av en webbtjänst för Azure Machine Learning klassiska](troubleshooting-retraining-models.md).
+Om du stöter på problem med träna en klassisk webbtjänst, se [felsöka omtrimning av en klassisk webbtjänst för Azure Machine Learning](troubleshooting-retraining-models.md).
 
 Om du har distribuerat en ny webbtjänst:
 
 * Logga in på Azure Resource Manager-konto
 * Hämta Web service definition
 * Exportera Web Service Definition som JSON
-* Uppdatera referens till den `ilearner` blob i JSON
+* Uppdatera referensen till den `ilearner` blob i JSON
 * Importera JSON till en Web Service Definition
 * Uppdatera webbtjänsten med nya Web Service Definition
 
-En genomgång av den föregående steg finns [träna om en ny webbtjänst med hjälp av Machine Learning Management PowerShell-cmdlets](retrain-new-web-service-using-powershell.md).
+En genomgång av det föregående steg finns i [omtrimning av en ny webbtjänst med hjälp av Machine Learning Management PowerShell-cmdletar](retrain-new-web-service-using-powershell.md).
 
-Processen för att ställa in omtränings för det klassiska omfattar följande steg:
+Processen för att konfigurera retraining för en klassisk webbtjänst omfattar följande steg:
 
 ![Översikt över omtränings][1]
 
-Processen för att ställa in omtränings för en ny webbtjänst omfattar följande steg:
+Processen för att konfigurera retraining för en ny webbtjänst omfattar följande steg:
 
 ![Översikt över omtränings][7]
 
 ## <a name="other-resources"></a>Andra resurser
-* [Omtränings och uppdaterar Azure Machine Learning-modeller med Azure Data Factory](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory/)
-* [Skapa många Machine Learning-modeller och web service slutpunkter från ett experiment med hjälp av PowerShell](create-models-and-endpoints-with-powershell.md)
-* Den [AML Omtränings modeller med hjälp av API: er](https://www.youtube.com/watch?v=wwjglA8xllg) videon visar hur du träna om Machine Learning-modeller som skapats i Azure Machine Learning med Omtränings-API: er och PowerShell.
+* [Träna och uppdaterar Azure Machine Learning-modeller med Azure Data Factory](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory/)
+* [Skapa många Machine Learning-modeller och webbtjänstslutpunkter från ett experiment med PowerShell](create-models-and-endpoints-with-powershell.md)
+* Den [AML träna modeller med hjälp av API: er](https://www.youtube.com/watch?v=wwjglA8xllg) videon visar hur du träna om Machine Learning-modeller som skapats i Azure Machine Learning med Omtränings-API: er och PowerShell.
 
 <!--image links-->
 [1]: ./media/retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE01.png

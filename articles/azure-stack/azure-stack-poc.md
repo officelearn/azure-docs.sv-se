@@ -1,6 +1,6 @@
 ---
 title: Vad är Azure Stack? | Microsoft Docs
-description: Azure-stacken kan du köra Azure-tjänster i ditt datacenter.
+description: Med Azure Stack kan du köra Azure-tjänster i ditt datacenter.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -25,16 +25,16 @@ ms.locfileid: "35234894"
 ---
 # <a name="what-is-azure-stack"></a>Vad är Azure Stack?
 
-Microsoft Azure-stacken är en hybrid cloud plattform som gör att du kan leverera Azure-tjänster i ditt datacenter. Den här plattformen är utformad för att stödja dina växande affärsbehov. Azure-stacken kan aktivera nya scenarier för dina moderna program, till exempel kant och frånkopplade miljöer eller uppfyller specifika krav för säkerhet och efterlevnad.
+Microsoft Azure Stack är en hybridmolnplattform som gör det möjligt att leverera Azure-tjänster i ditt datacenter. Den här plattformen är utformad för att stödja dina växande affärsbehov. Azure Stack kan aktivera nya scenarier för dina moderna program, till exempel kant- och frånkopplade miljöer, eller uppfylla specifika krav på säkerhet och efterlevnad.
 
-Azure-stacken erbjuds i två distributionsalternativ för dina behov.
+Azure Stack erbjuds i två distributionsalternativ, utifrån dina behov.
 
-## <a name="azure-stack-integrated-systems"></a>Integrerade Azure Stack-system
-Azure-stacken integrerade system erbjuds via ett partnerskap av Microsoft och [maskinvarupartners](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), skapa en lösning som erbjuder molntjänster takt innovation och datorfunktioner management enkelhet. Eftersom Azure Stack erbjuds som en integrerad maskinvara och programvarusystem har flexibilitet och kontroll som du behöver, tillsammans med möjligheten att förnya från molnet. Azure Stack integrerat system i intervallet från 4 – 12 noder och stöds gemensamt av maskinvaran partner och Microsoft.  Använd Azure-stacken integrerat system för att skapa nya scenarier och distribuera nya lösningar för din produktionsarbetsbelastningar.
+## <a name="azure-stack-integrated-systems"></a>Azure Stack-integrerade system
+Azure Stack-integrerade system erbjuds via ett partnerskap mellan Microsoft och [maskinvarupartners](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), och ger en lösning som innebär såväl innovation i molnet som enkel och smidig databehandling. Eftersom Azure Stack erbjuds som ett integrerat maskinvaru- och programvarusystem får du den flexibilitet och kontroll du behöver och även möjligheten att förnya från molnet. Azure Stack-integrerade system finns i storleksintervall från 4 till 12 noder och de stöds både av maskinvarupartnern och av Microsoft.  Med Azure Stack-integrerade system kan du skapa nya scenarier och distribuera nya lösningar för dina produktionsarbetsbelastningar.
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack Development Kit
 
-Microsoft [Azure Stack Development Kit (ASDK)](.\asdk\asdk-what-is.md) är en nod distribution av Azure-stacken, som du kan använda för att utvärdera och lär dig mer om Azure-stacken.  Du kan också använda ASDK som en utvecklare miljö för att skapa appar som använder API: er och verktyg som är kompatibel med Azure.
+Microsoft [Azure Stack Development Kit (ASDK)](.\asdk\asdk-what-is.md) är en ennodsdistribution av Azure Stack. Du kan använda den för att utvärdera Azure Stack och för att lära dig mer om plattformen.  Du kan också använda ASDK som en utvecklare miljö för att skapa appar som använder API: er och verktyg som är kompatibel med Azure.
 
 >[!Note]
 >ASDK är inte avsedd att användas som en produktionsmiljö.
@@ -42,10 +42,10 @@ Microsoft [Azure Stack Development Kit (ASDK)](.\asdk\asdk-what-is.md) är en no
 ASDK har följande begränsningar:
 
 * ASDK är associerad med en enda Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) identitetsleverantör. Du kan skapa flera användare i den här katalogen och tilldela varje användare prenumerationer.
-* Eftersom Azure Stack-komponenter har distribuerats på en värddator finns begränsad fysiska resurser tillgängliga för klienternas resurser. Den här konfigurationen är inte avsedd att skala eller prestanda.
+* Eftersom Azure Stack-komponenter distribueras på en värddator är de fysiska resurser som finns tillgängliga för klientresurser begränsade. Den här konfigurationen är inte avsedd att skala eller prestanda.
 * Scenarier för nätverk är begränsade på grund av en värd och NIC-distributionskrav.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Huvudfunktioner och koncept](azure-stack-key-features.md)
-- [Azure-stacken: Ett tillägg i Azure (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
+- [Azure Stack: ett Azure-tillägg (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)

@@ -1,4 +1,0 @@
-- name: Använd en virtuell MSI-dator för att få åtkomst till Azure Storage
-  items:
-    - name: Från en virtuell Linux-dator med åtkomstnyckel
-      href: msi-tutorial-linux-vm-access-storage.md

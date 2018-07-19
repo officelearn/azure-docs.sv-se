@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: c2c93b8f6b4f8c4d888f7105f09e96dd9df7b574
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 72452382c4fd2f9c1acb0d773da5c7ed014f9bda
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902630"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001940"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Självstudie: Använda en hanterad tjänstidentitet (MSI) på en virtuell Windows-dator och komma åt Azure SQL
 
@@ -53,7 +53,7 @@ I den här självstudien ska vi skapa en ny virtuell Windows-dator.  Du kan äve
 5.  Du väljer en ny **Resursgrupp** där du skapar din virtuella dator genom att välja **Skapa ny**. När du är klar klickar du på **OK**.
 6.  Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Acceptera alla standardvärden på inställningssidan och klicka på **OK**.
 
-    ![Alternativ bildtext](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alternativ bildtext](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn 
 
@@ -63,7 +63,7 @@ Med hanterade tjänstidentiteter (MSI) för virtuella datorer kan du hämta åtk
 2.  Klicka på **Konfiguration** i det vänstra navigeringsfältet. 
 3.  **Hanterad tjänstidentitet** visas. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej. 
 4.  Klicka på **Spara** för att spara konfigurationen.  
-    ![Alternativ bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alternativ bildtext](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Ge din virtuella dator åtkomst till en databas i en Azure SQL-server
 

@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 4e547a97cde896acc4b6c8b19bc6c6cebf512adb
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 423995aecc6e5f29464ad140349ba27f89c75b5d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867638"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068751"
 ---
 # <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Skapa och dirigera Blob Storage-händelser med Azure Portal och Event Grid
 
@@ -27,7 +27,7 @@ När du är klar kan se du att händelsedata som har skickats till webbappen.
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Om du vill använda Blob Storage-händelser behöver du antingen ett [Blob Storage-konto](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) eller ett [GPv2-konto (General Purpose v2)](../storage/common/storage-account-options.md#general-purpose-v2). **GPv2-konton (General Purpose v2)** är lagringskonton som stöder alla funktionerna för alla lagringstjänster, som blobbar, filer, köer och tabeller. Ett **Blob Storage-konto** är ett specialiserat lagringskonto för lagring av ostrukturerade data som blobbar (objekt) i Azure Storage. Blob Storage-konton liknar allmänna lagringskonton och har samma höga hållbarhet, tillgänglighet, skalbarhet och prestanda som du använder idag, inklusive 100 % API-konsekvens för blockblobbar och tilläggsblobbar. För program som bara behöver lagring av block- eller tilläggsblobbar, rekommenderar vi att du använder Blob-lagringskonton. 
+Om du vill använda Blob Storage-händelser behöver du antingen ett [Blob Storage-konto](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) eller ett [GPv2-konto (General Purpose v2)](../storage/common/storage-account-options.md#general-purpose-v2-accounts). **GPv2-konton (General Purpose v2)** är lagringskonton som stöder alla funktionerna för alla lagringstjänster, som blobbar, filer, köer och tabeller. Ett **Blob Storage-konto** är ett specialiserat lagringskonto för lagring av ostrukturerade data som blobbar (objekt) i Azure Storage. Blob Storage-konton liknar allmänna lagringskonton och har samma höga hållbarhet, tillgänglighet, skalbarhet och prestanda som du använder idag, inklusive 100 % API-konsekvens för blockblobbar och tilläggsblobbar. För program som bara behöver lagring av block- eller tilläggsblobbar, rekommenderar vi att du använder Blob-lagringskonton. 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -89,13 +89,13 @@ Du kan utlösa en händelse för Blob Storage-kontot genom att ladda upp en fil.
 
    ![Välj blobbar](./media/blob-event-quickstart-portal/select-blobs.png)
 
-1. Välj **+ Behållare**. Namnge behållaren och använd valfri åtkomstnivå.
+1. Välj **+ Container**. Namnge containern och använd valfri åtkomstnivå.
 
-   ![Lägg till behållare](./media/blob-event-quickstart-portal/add-container.png)
+   ![Lägga till containern](./media/blob-event-quickstart-portal/add-container.png)
 
-1. Välj din nya behållare.
+1. Välj din nya container.
 
-   ![Välj behållare](./media/blob-event-quickstart-portal/select-container.png)
+   ![Välj container](./media/blob-event-quickstart-portal/select-container.png)
 
 1. Välj **Ladda upp** för att ladda upp en fil.
 

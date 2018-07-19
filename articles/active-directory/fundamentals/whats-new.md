@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9f0d0b9732b2af36a0411329cede01a9b8cc8efc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 480bbd543ddef60dc8dd84d4b454ef5a8c742636
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920822"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008400"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -34,6 +34,18 @@ Azure AD får förbättringar med jämna mellanrum. Om du vill hålla dig uppdat
 - Planer för ändringar
 
 Den här sidan uppdateras varje månad, så gå tillbaka till den regelbundet.
+
+## <a name="july-2018"></a>Juli 2018
+
+### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Visa äldre autentiseringar via inloggningar aktivitetsloggar
+
+**Typ:** ny funktion  
+**Tjänstekategori:** rapportering  
+**Produkt-funktionen:** övervakning och rapportering
+ 
+Med introduktionen av den **Klientappen** fält i inloggningsaktivitet loggar, kunder kan nu se användare som använder äldre autentiseringar. Kunder kommer att kunna komma åt informationen med inloggningar MS Graph API eller via inloggningen aktivitetsloggar i Azure AD-portalen där du kan använda den **Klientappen** kontroll för att filtrera på äldre autentiseringar. Läs igenom dokumentationen för mer information.
+
+---
 
 ## <a name="june-2018"></a>Juni 2018
 
@@ -242,16 +254,6 @@ Anpassade principer kan, du nu använda vanliga Azure AD-slutpunkten som en iden
 **Produkt-funktionen:** SSO
  
 Användare kan nu komma åt program via interna URL: er även när utanför företagets nätverk med hjälp av den Mina appar skyddat Inloggningstillägg för Azure AD. Detta fungerar med alla program som du har publicerat med hjälp av Azure AD Application Proxy i valfri webbläsare som också har åtkomstpanelen webbläsartillägget installerad. URL-omdirigering funktionerna aktiveras automatiskt när en användare loggar in på tillägget. Tillägget är tillgänglig för hämtning på [Edge](https://go.microsoft.com/fwlink/?linkid=845176), [Chrome](https://go.microsoft.com/fwlink/?linkid=866367), och [Firefox](https://go.microsoft.com/fwlink/?linkid=866366).
-
----
-
-### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Visa äldre autentiseringar via inloggningar aktivitetsloggar
-
-**Typ:** ny funktion  
-**Tjänstekategori:** rapportering  
-**Produkt-funktionen:** övervakning och rapportering
- 
-Med introduktionen av den **Klientappen** fält i inloggningsaktivitet loggar, kunder kan nu se användare som använder äldre autentiseringar. Kunder kommer att kunna komma åt informationen med inloggningar MS Graph API eller via inloggningen aktivitetsloggar i Azure AD-portalen där du kan använda den **Klientappen** kontroll för att filtrera på äldre autentiseringar. Läs igenom dokumentationen för mer information.
 
 ---
  

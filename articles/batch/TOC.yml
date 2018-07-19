@@ -104,7 +104,7 @@
       items:
         - name: MPI-jobb
           href: batch-mpi.md
-        - name: Behållararbetsbelastningar
+        - name: Containerarbetsbelastningar
           href: batch-docker-container-workloads.md
         - name: Rendering
           href: batch-rendering-service.md
@@ -121,18 +121,14 @@
           href: batch-get-resource-counts.md
         - name: Fråga resurser effektivt
           href: batch-efficient-list-queries.md
-    - name: Använda utvecklarverktyg
+    - name: Använd skriptverktyg
       items:
-        - name: Använda .NET för Batch
-          href: batch-dotnet-get-started.md
-        - name: Använda Python för Batch
-          href: batch-python-tutorial.md
-        - name: Använda Node.js för Batch
-          href: batch-nodejs-get-started.md
         - name: Använda PowerShell-cmdletar
           href: batch-powershell-cmdlets-get-started.md
         - name: Använda Azure CLI
           href: batch-cli-get-started.md
+    - name: Använd Batch Node.js SDK
+      href: batch-nodejs-get-started.md
 - name: Referens
   items:
     - name: Azure CLI

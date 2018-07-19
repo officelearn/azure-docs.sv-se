@@ -412,38 +412,50 @@ items:
                 href: cassandra-import-data.md
   - name: Instruktionsguider
     items:
-      - name: Nycklar och konsekvens
-        href: manage-account.md
-      - name: Dataflöde
-        href: set-throughput.md
-      - name: Brandväggssupport
-        href: firewall-support.md
-      - name: Konfigurera slutpunkt för virtuell nätverkstjänst
-        href: vnet-service-endpoint.md
-      - name: Mått
-        href: use-metrics.md
-      - name: Övervaka serviceavtal
-        href: monitor-accounts.md
-      - name: Säkerhetskopiera och återställa
-        href: online-backup-and-restore.md
-      - name: Regional redundans
-        href: regional-failover.md
-      - name: Diagnostikloggning
-        href: logging.md
-      - name: 'Lagrade procedurer, utlösare och UDF:er'
-        href: programming.md
-      - name: Översikt över BulkExecutor
+      - name: Hantera
+        items:
+          - name: Hantera med hjälp av PowerShell
+            href: manage-account-with-powershell.md
+          - name: Hantera Storage Explorer
+            href: storage-explorer.md
+          - name: Hantering med hjälp av datautforskaren
+            href: data-explorer.md
+          - name: Hantera nycklar och konsekvensnivåer
+            href: manage-account.md
+          - name: Dataflöde
+            href: set-throughput.md
+          - name: Få data att upphöra att gälla automatiskt
+            href: time-to-live.md
+          - name: Diagnostikloggning
+            href: logging.md
+      - name: Skydda data
+        items:
+          - name: Brandväggssupport
+            href: firewall-support.md
+          - name: Konfigurera slutpunkt för virtuell nätverkstjänst
+            href: vnet-service-endpoint.md
+      - name: Övervaka
+        items:
+          - name: Övervaka med mått
+            href: use-metrics.md
+          - name: Övervaka serviceavtal
+            href: monitor-accounts.md
+      - name: Säkerhetskopiering och återställning
+        items:
+          - name: Säkerhetskopiering och återställning online
+            href: online-backup-and-restore.md
+          - name: Regional redundans
+            href: regional-failover.md
+      - name: Automatisera
+        items:
+          - name: 'Lagrade procedurer, utlösare och UDF:er'
+            href: programming.md
+          - name: Konfiguration med flera huvudservrar
+            href: multi-master-workaround.md
+      - name: Massexecutor-bibliotek
         href: bulk-executor-overview.md
       - name: Kostnadseffektiva läsningar och skrivningar
         href: key-value-store-cost.md
-      - name: Få data att upphöra att gälla automatiskt
-        href: time-to-live.md
-      - name: Hantera med hjälp av PowerShell
-        href: manage-account-with-powershell.md
-      - name: Hantera Storage Explorer
-        href: storage-explorer.md
-      - name: Konfiguration med flera huvudservrar
-        href: multi-master-workaround.md
   - name: Resurser
     items:
       - name: Översiktsblad för frågor

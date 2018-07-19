@@ -4,7 +4,7 @@
 ## [Vad är Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Kom igång
-## [Azure Portal](data-lake-analytics-get-started-portal.md)
+## [Azure-portalen](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
@@ -13,7 +13,7 @@
 # Gör så här för att
 
 ## Hantera Data Lake Analytics
-### [Azure Portal](data-lake-analytics-manage-use-portal.md)
+### [Azure-portalen](data-lake-analytics-manage-use-portal.md)
 ### Kommandorad
 #### [Azure CLI](data-lake-analytics-manage-use-cli.md)
 #### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
@@ -58,6 +58,9 @@
 #### [Redigering](data-lake-analytics-data-lake-tools-for-vscode.md)
 #### [Anpassad kod](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Lokal körning och felsökning](data-lake-tools-for-vscode-local-run-and-debug.md)
+
+## Schemalägga U-SQL-jobb
+### [Schemalägga jobb med SSIS](data-lake-analytics-schedule-jobs-ssis.md)
 
 ## Kontinuerlig integrering och distribution
 ### [Översikt](data-lake-analytics-cicd-overview.md)

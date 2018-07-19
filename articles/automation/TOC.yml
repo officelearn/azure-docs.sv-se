@@ -41,6 +41,8 @@
           href: automation-update-management.md
         - name: Hantera uppdateringar för flera virtuella datorer
           href: manage-update-multi.md
+        - name: Migrera OMS-uppdateringsdistributioner till Azure
+          href: migrate-oms-update-deployments.md
         - name: Integrera SCCM med Uppdateringshantering
           href: oms-solution-updatemgmt-sccmintegration.md
     - name: Spårning av ändringar

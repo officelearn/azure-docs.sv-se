@@ -145,6 +145,8 @@
           href: functions-develop-vs.md
         - name: Utvecklingsverktyg
           href: functions-run-local.md
+        - name: IntelliJ IDEA-utveckling
+          href: functions-create-maven-intellij.md
         - name: Hantera anslutningar
           href: manage-connections.md
         - name: Felhantering

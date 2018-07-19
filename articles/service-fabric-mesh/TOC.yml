@@ -9,17 +9,17 @@
   items:
     - name: Distribuera Hello World
       href: service-fabric-mesh-quickstart-deploy-container.md
-    - name: Skapa och distribuera en webbapp
+    - name: Skapa och distribuera en webbapp till Azure Service Fabric Mesh
       href: service-fabric-mesh-quickstart-dotnet-core.md
 - name: Självstudier
   items:
-    - name: Skapa och distribuera en webbapp för flera tjänster
+    - name: 'Skapa, felsöka och distribuera en Service Fabric Mesh-webbapp för flera tjänster'
       items:
-        - name: 1– Skapa ett ASP.NET Core-program
+        - name: 1 – Skapa en Service Fabric Mesh-webbapp
           href: service-fabric-mesh-tutorial-create-dotnetcore.md
-        - name: 2– Felsök programmet
+        - name: 2 – Felsöka en Service Fabric Mesh-webbapp
           href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
-        - name: 3 – Distribuera programmet
+        - name: 3 – Distribuera en Service Fabric Mesh-webbapp
           href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
 - name: Begrepp
   items:

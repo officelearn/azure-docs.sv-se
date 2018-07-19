@@ -27,9 +27,9 @@
       href: apache-spark-use-bi-tools.md
     - name: Köra ett direktuppspelningsjobb
       href: apache-spark-eventhub-streaming.md
-    - name: Skapa ett maskininlärningsprogram
+    - name: Skapa en maskininlärningsapp
       href: apache-spark-ipython-notebook-machine-learning.md
-    - name: Skapa ett Spark-program med IntelliJ
+    - name: Skapa en Spark-app i IntelliJ
       href: apache-spark-create-standalone-application.md
 - name: Gör så här för att
   items:

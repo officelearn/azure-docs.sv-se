@@ -77,6 +77,8 @@
       items:
         - name: Med AES-128 – .NET
           href: protect-with-aes128.md
+        - name: Med DRM - .NET
+          href: protect-with-drm.md
 - name: Referens
   items:
     - name: OpenAPI-specifikation (Swagger)

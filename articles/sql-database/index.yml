@@ -12,14 +12,14 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: landing-page
-  ms.date: 04/01/2018
+  ms.date: 07/07/2018
   ms.author: carlrab
-  ms.openlocfilehash: 5fcfe7b12acc943224d3c3158f2b39b4c35de1ee
-  ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+  ms.openlocfilehash: eae18cf5956582f3b66eb2ed837412815efbd4cf
+  ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 07/09/2018
-  ms.locfileid: "37916157"
+  ms.lasthandoff: 07/18/2018
+  ms.locfileid: "39112509"
 abstract:
   description: Azure SQL Database är en relationsdatabas-som-en-tjänst (DBaaS) som bygger på den senaste stabila versionen av Microsoft SQL Server Database-motorn. SQL Database är en högpresterande, tillförlitlig och säker databas som du kan använda för att skapa datadrivna program och webbplatser i valfritt programmeringsspråk, utan att behöva hantera infrastrukturen. Lär dig hur du använder SQL Database med våra snabbstarter, självstudier och exempel.
   aside:
@@ -39,35 +39,50 @@ sections:
     columns: 3
     items:
     - href: /azure/sql-database/sql-database-technical-overview
-      html: <p>PaaS-databas med <a href="/azure/sql-database/sql-database-high-availability">hög tillgänglighet</a> som alltid körs på den senaste stabila versionen av SQL Server Database-motorn och ett uppdaterat operativsystem med <a href="/azure/sql-database/sql-database-automated-backups">automatisk säkerhetskopia av databas</a>.</p>
+      html: <p>PaaS-databas som alltid körs på den senaste stabila versionen av SQL Server Database-motorn och ett uppdaterat operativsystem med 99,99 % tillgänglighet.</p>
       image:
         src: media/index/i_managed.svg
       title: Fullständigt hanterat
     - href: /azure/sql-database/sql-database-service-tiers
-      html: <p>Skräddarsy pris-/prestandakvoten efter dina behov med <a href="/azure/sql-database/sql-database-service-tiers">flexibla prestandanivåer</a> som finns tillgängliga från prisvärda 5 USD/månad till kraftfulla 80-kärniga databaser.</p>
+      html: <p>Skräddarsy pris-/prestandakvoten efter dina behov med flexibla prestandanivåer som finns tillgängliga från prisvärda 5 USD/månad till kraftfulla 80-kärniga databaser.</p>
       image:
         src: media/index/i_perftier.svg
       title: Pris-/prestandanivåer
     - href: /azure/sql-database/sql-database-scale-resources
-      html: <p>Du kan enkelt <a href="/azure/sql-database/sql-database-single-database-scale">skala upp</a>, <a href="/azure/sql-database/sql-database-read-scale-out">skala ut</a> eller dela upp dina databaser efter behov och därmed förbättra programmets prestanda.</p>
+      html: <p>Du kan enkelt skala upp, skala ut eller dela upp dina databaser efter behov och därmed förbättra programmets prestanda.</p>
       image:
         src: media/index/i_scale.svg
-      title: Skalbarhet och elasticitet
-    - href: /azure/sql-database/sql-database-technical-overview#built-in-intelligence
-      html: <p>Släpp in inbyggd intelligens i tjänsten och <a href="/azure/sql-database/sql-database-automatic-tuning">justera databasprestandan automatiskt</a> och <a href="/azure/sql-database/sql-advanced-threat-protection">identifiera hot</a> och <a href="/azure/sql-database/sql-vulnerability-assessment">sårbarheter</a> i databasen.</p>
-      image:
-        src: media/index/i_intelligence.svg
-      title: Inbyggd intelligens
+      title: Skalbarhet
     - href: /azure/sql-database/sql-database-servers-databases
-      html: <p>Använd <a href="/azure/sql-database/sql-database-managed-instance">den enskilda databasen som hanteras av logiska servrar</a> för dina <a href="/azure/sql-database/saas-tenancy-app-design-patterns">SaaS-program</a> och mikrotjänster som behöver en enkel databas med förutsägbara prestanda.</p>
+      html: <p>Använd den enskilda databasen som hanteras av logiska servrar för dina SaaS-program och mikrotjänster som behöver en enkel databas med förutsägbara prestanda.</p>
       image:
         src: media/index/i_db.svg
       title: Enkel databas
+    - href: /azure/sql-database/sql-database-elastic-pool
+      html: <p>Elastiska pooler i SQL Database är en enkel och kostnadseffektiv lösning för att hantera och skala flera databaser med varierande och oförutsägbara användningskrav.</p>
+      image:
+        src: media/index/i_elasticpool.svg
+      title: Elastiska pooler
     - href: /azure/sql-database/sql-database-managed-instance
-      html: <p>Använd <a href="/azure/sql-database/sql-database-managed-instance">Hanterad instans</a> och <a href="azure/sql-database/sql-database-managed-instance-migrate">migrera enkelt dina lokala databaser</a> till Azure PaaS med minimala eller inga kodändringar i databasen.</p>
+      html: <p>Använd Hanterad instans och migrera enkelt dina lokala databaser till den fullständigt hanterade Azure PaaS-databastjänsten med minimala eller inga kodändringar i databasen.</p>
       image:
         src: media/index/i_mi.svg
       title: Managed Instance
+    - href: /azure/sql-database/sql-database-business-continuity
+      html: <p>Inbyggd hög tillgänglighet, automatiska säkerhetskopieringar och geo-replikering förhindrar att underhållsåtgärder, infrastruktur eller maskinvarufel stoppar upp verksamheten.</p>
+      image:
+        src: media/index/gear.svg
+      title: Verksamhetskontinuitet
+    - href: /azure/sql-database/sql-database-security-overview
+      html: <p>Skydda din databas med Azure AD-autentisering, virtuella nätverk, brandväggar och Always Encrypted-anslutningar. Identifiera hot och sårbarheter med inbyggd säkerhet.</p>
+      image:
+        src: media/index/i_security.svg
+      title: Avancerad säkerhet
+    - href: /azure/sql-database/sql-database-technical-overview#built-in-intelligence
+      html: <p>Inbyggd intelligens hjälper dig att avsevärt minska kostnaderna för att köra och hantera databaser och maximerar både prestanda och säkerhet för programmet.</p>
+      image:
+        src: media/index/i_intelligence.svg
+      title: Inbyggd intelligens
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
@@ -174,6 +189,6 @@ sections:
     - title: REST
       html: <p><a href="/rest/api/sql/">REST API-referens</a></p>
     - title: SQL Server-verktyg
-      html: <p><a href="https://msdn.microsoft.com/library/mt238365.aspx">SQL Server-verktyg</a></p><p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p><p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SQL Server Data Tools (SSDT)</a></p><p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p><p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p><p><a href="https://msdn.microsoft.com/hh550080.aspx">SqlPackage</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">Bibliotekspaket för SQL Database-hantering</a></p>
+      html: <p><a href="https://msdn.microsoft.com/library/mt238365.aspx">SQL Server-verktyg</a></p><p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p><p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SQL Server Data Tools (SSDT)</a></p><p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p><p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p><p><a href="https://docs.microsoft.com/sql/tools/sqlpackage">SqlPackage</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">Bibliotekspaket för SQL Database-hantering</a></p>
     - title: SQL Server-drivrutiner
       html: <p><a href="https://msdn.microsoft.com/library/mt654049.aspx">SQL Server-drivrutiner</a></p><p><a href="https://msdn.microsoft.com/library/mt657768.aspx">ADO.NET</a></p><p><a href="https://msdn.microsoft.com/library/mt484311.aspx">JDBC</a></p><p><a href="https://msdn.microsoft.com/library/mt654048.aspx">ODBC</a></p>

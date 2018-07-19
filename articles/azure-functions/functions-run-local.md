@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: 44485d04dad3ff9dfc6067a3737989c5d273541f
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c7be9079da6be8d9d7f25b910ab07e905e8ac449
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116188"
+ms.locfileid: "39126222"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -121,7 +121,7 @@ I följande anvisningar används [APT](https://wiki.debian.org/Apt) installera C
 
 ## <a name="create-a-local-functions-project"></a>Skapa ett lokalt Functions-projekt
 
-En functions projektkatalogen innehåller filerna som [host.json](functions-host-json.md) och [local.settings.json](#local-settings-file), längs undermappar som innehåller koden för enskilda funktioner. Den här katalogen är motsvarigheten till en funktionsapp i Azure. Läs mer om funktioner mappstrukturen i den [utvecklarguide för Azure Functions](functions-reference.md#folder-structure).
+En functions projektkatalogen innehåller filerna som [host.json](functions-host-json.md) och [local.settings.json](#local-settings-file), tillsammans med undermappar som innehåller koden för enskilda funktioner. Den här katalogen är motsvarigheten till en funktionsapp i Azure. Läs mer om funktioner mappstrukturen i den [utvecklarguide för Azure Functions](functions-reference.md#folder-structure).
 
 Version 2.x måste du välja ett standardspråk för ditt projekt när den har initierats och alla funktioner har lagts till användning standardmallarna för språk. I version 1.x, du ange vilket språk varje gång du skapar en funktion.
 
@@ -137,6 +137,7 @@ I version 2.x, när du kör kommandot du måste välja en runtime för ditt proj
 Select a worker runtime:
 dotnet
 node
+java
 ```
 
 Använd upp/ned piltangenterna för att välja ett språk, och tryck sedan på RETUR. Utdata ser ut som i följande exempel för en JavaScript-projektet:
@@ -151,6 +152,9 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
 Du kan skapa projektet utan en lokal Git-lagringsplats med de `--no-source-control [-n]` alternativet.
+
+> [!IMPORTANT]
+> Som standard version 2.x av de viktigaste verktygen skapar funktionen app-projekt för .NET-runtime som [C#-klass projekt](functions-dotnet-class-library.md) (.csproj). Dessa C#-projekt, som kan användas med Visual Studio 2017 eller Visual Studio Code, kompileras under testningen och när du publicerar till Azure. Om du istället vill skapa och arbeta med samma C#-skript (.csx) filer som skapades i version 1.x och i portalen, måste du inkludera den `--csx` parameter när du skapar och distribuerar funktioner.
 
 ## <a name="register-extensions"></a>Registrera tillägg
 
@@ -177,7 +181,7 @@ Filen local.settings.json lagrar appinställningar, anslutningssträngar och ins
     "CORS": "*"
   },
   "ConnectionStrings": {
-    "SQLConnectionString": "Value"
+    "SQLConnectionString": "<sqlclient-connection-string>"
   }
 }
 ```
@@ -189,7 +193,7 @@ Filen local.settings.json lagrar appinställningar, anslutningssträngar och ins
 | **Värd** | Inställningarna i det här avsnittet Anpassa värdprocessen funktioner när du kör lokalt. |
 | **LocalHttpPort** | Anger standardporten som används när du kör den lokala Functions-värden (`func host start` och `func run`). Den `--port` kommandoradsalternativet har företräde framför det här värdet. |
 | **CORS** | Definierar de ursprung som får för [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Ursprung tillhandahålls som en kommaavgränsad lista med utan blanksteg. Jokertecknet (\*) stöds, vilket gör att begäranden från valfri origin. |
-| **ConnectionStrings** | Använd inte den här samlingen för anslutningssträngar som används av din funktionsbindning. Den här samlingen används endast av ramverk som måste få anslutningssträngar från den **ConnectionStrings** avsnitt i en konfiguration av fil, som [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Anslutningssträngar i det här objektet läggs till i miljön med providertyp av [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Objekt i den här samlingen inte har publicerats till Azure med andra appinställningar. Du måste uttryckligen lägga till dessa värden till den **anslutningssträngar** delen av den **programinställningar** för din funktionsapp. |
+| **ConnectionStrings** | Använd inte den här samlingen för anslutningssträngar som används av din funktionsbindning. Den här samlingen används endast av ramverk som kommer vanligtvis anslutningssträngar från den **ConnectionStrings** avsnitt i en konfiguration av fil, som [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Anslutningssträngar i det här objektet läggs till i miljön med providertyp av [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Objekt i den här samlingen inte har publicerats till Azure med andra appinställningar. Du måste uttryckligen lägga till dessa värden till den **anslutningssträngar** insamling av din funktionsappinställningarna. Om du skapar en [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) i Funktionskoden, bör du lagra Anslutningssträngens värde i **programinställningar** med dina andra anslutningar. |
 
 Funktionen appen inställningsvärden kan också läsa i koden som miljövariabler. Mer information finns i avsnittet miljö variabler i dessa språkspecifika referensämnen:
 
@@ -209,7 +213,7 @@ När ingen giltig lagringsanslutningssträng har angetts för **AzureWebJobsStor
 
 Även om du använder storage-emulatorn för utveckling, kan du vill testa med en verkligt lagringsutrymme-anslutning. Om vi antar att du redan har [skapat ett lagringskonto](../storage/common/storage-create-storage-account.md), du kan hämta en giltig lagringsanslutningssträng i något av följande sätt:
 
-+ Från den [Azure Portal]. Gå till ditt lagringskonto väljer **åtkomstnycklar** i **inställningar**, kopiera en av de **anslutningssträngen** värden.
++ Från den [Azure-portalen]. Gå till ditt lagringskonto väljer **åtkomstnycklar** i **inställningar**, kopiera en av de **anslutningssträngen** värden.
 
   ![Kopiera anslutningssträngen från Azure-portalen](./media/functions-run-local/copy-storage-connection-portal.png)
 
@@ -271,8 +275,9 @@ Du kan också ange alternativen i kommandot med följande argument:
 | Argumentet     | Beskrivning                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--language -l`**| Mallen programmeringsspråk som C#, F # eller JavaScript. Det här alternativet krävs i version 1.x. I version 2.x kan inte använda det här alternativet och välj standardspråket för ditt projekt. |
-| **`--template -t`** | Certifikatmallens namn som kan vara något av värdena:<br/><ul><li>`Blob trigger`</li><li>`Cosmos DB trigger`</li><li>`Event Grid trigger`</li><li>`HTTP trigger`</li><li>`Queue trigger`</li><li>`SendGrid`</li><li>`Service Bus Queue trigger`</li><li>`Service Bus Topic trigger`</li><li>`Timer trigger`</li></ul> |
+| **`--template -t`** | Använd den `func templates list` kommando för att se den fullständiga listan över tillgängliga mallar för varje språk som stöds.   |
 | **`--name -n`** | Funktionsnamnet. |
+| **`--csx`** | (Version 2.x) Genererar samma C#-skript (.csx) mallarna som används i version 1.x och i portalen. |
 
 Till exempel för att skapa en JavaScript-HTTP-utlösare i ett enda kommando, kör du:
 
@@ -413,7 +418,7 @@ Du kan använda följande alternativ:
 
 Det här kommandot publicerar till en befintlig funktionsapp i Azure. Ett fel uppstår när den `<FunctionAppName>` finns inte i din prenumeration. Läs hur du skapar en funktionsapp från Kommandotolken eller med hjälp av Azure CLI-terminalfönstret i [skapa en Funktionsapp för serverlös körning](./scripts/functions-cli-create-serverless.md).
 
-Den `publish` kommando laddar upp innehållet i projektkatalogen funktioner. Om du tar bort filer lokalt, den `publish` kommandot tar inte bort dem från Azure. Du kan ta bort filer i Azure med hjälp av den [Kudu-verktyget](functions-how-to-use-azure-function-app-settings.md#kudu) i den [Azure Portal].  
+Den `publish` kommando laddar upp innehållet i projektkatalogen funktioner. Om du tar bort filer lokalt, den `publish` kommandot tar inte bort dem från Azure. Du kan ta bort filer i Azure med hjälp av den [Kudu-verktyget](functions-how-to-use-azure-function-app-settings.md#kudu) i den [Azure-portalen].  
 
 >[!IMPORTANT]  
 > När du skapar en funktionsapp i Azure använder version 1.x av funktionskörningen som standard. Att göra funktionen app Använd version 2.x av körning, Lägg till inställningen `FUNCTIONS_EXTENSION_VERSION=beta`.  
@@ -433,5 +438,5 @@ Till filen en bugg eller funktionen begäran [öppna ett GitHub-ärende](https:/
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure Portal]: https://portal.azure.com 
+[Azure-portalen]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

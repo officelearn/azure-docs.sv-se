@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/28/2018
+ms.date: 07/17/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 8152a9934d6a280abfc75fdc74e0864053d82f45
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 42a11607c46f77840b14973dd5b7faf4b1734fdc
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116086"
+ms.locfileid: "39136850"
 ---
 # <a name="built-in-roles-in-azure"></a>Inbyggda roller i Azure
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela till användare, grupper och tjänstens huvudnamn. Rolltilldelningar är det sätt som du styr åtkomst till resurser i Azure. Om de inbyggda rollerna inte uppfyller organisationens specifika krav kan du skapa egna, [anpassade roller](custom-roles.md).
@@ -78,6 +78,8 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Logic App-operatör](#logic-app-operator) | Låter dig läsa, aktivera och inaktivera logikapp. |
 | [Hanterad Identitetsdeltagare](#managed-identity-contributor) | Skapa, läs, uppdatera och ta bort användartilldelad identitet |
 | [Hanterade Identitetsoperatör](#managed-identity-operator) | Läs och tilldela användartilldelad identitet |
+| [Hanteringsgrupp-deltagare](#management-group-contributor) | Rollen hanteringsgrupp-deltagare |
+| [Hanteringsgruppen läsare](#management-group-reader) | Rollen hanteringsgrupp-läsare |
 | [Övervaka deltagare](#monitoring-contributor) | Kan läsa alla övervakningsdata och redigera övervakningsinställningarna. Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Övervaka läsare](#monitoring-reader) | Kan läsa alla övervakningsdata (mått, loggar osv.). Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Nätverksdeltagare](#network-contributor) | Låter dig hantera nätverk, men ger dig inte tillgång till dem. |
@@ -617,7 +619,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.ClassicNetwork/virtualNetworks/join/action | Anslut till det virtuella nätverket. |
 > | Microsoft.ClassicNetwork/virtualNetworks/read | Hämtar det virtuella nätverket. |
 > | Microsoft.ClassicStorage/storageAccounts/disks/read | Returnerar lagringskontodisken. |
-> | Microsoft.ClassicStorage/storageAccounts/images/read | Returnerar lagringskontoavbildning. |
+> | Microsoft.ClassicStorage/storageAccounts/images/read | Returnerar lagringskontoavbildning. (Inaktuell. Använd ”Microsoft.ClassicStorage/storageAccounts/vmImages”) |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Listar lagringskontots åtkomstnycklar. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Returnerar lagringskontot med det givna kontot. |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera Insights Varningsregler |
@@ -826,6 +828,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | Skapa ett labb i ett labbkonto. |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Hämta information om regional tillgänglighet för varje storlek kategori under ett labbkonto |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
@@ -932,7 +935,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
-## <a name="managed-identity-operator"></a>Hanterade identitetsoperatör
+## <a name="managed-identity-operator"></a>Operatör för hanterad identitet
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -947,6 +950,28 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
+## <a name="management-group-contributor"></a>Hanteringsgrupp-deltagare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Rollen hanteringsgrupp-deltagare |
+> | **Id** | 5d58bcaf-24a5-4b20-bdb6-eed9f69fbe4c |
+> | **Åtgärder** |  |
+> | Microsoft.Management/managementGroups/delete | Ta bort hanteringsgruppen. |
+> | Microsoft.Management/managementGroups/read | Lista över hanteringsgrupper för autentiserade användare. |
+> | Microsoft.Management/managementGroups/subscriptions/delete | Ta bort associerar prenumeration från hanteringsgruppen. |
+> | Microsoft.Management/managementGroups/subscriptions/write | Associates befintliga prenumeration med hanteringsgruppen. |
+> | Microsoft.Management/managementGroups/write | Skapa eller uppdatera en hanteringsgrupp. |
+
+## <a name="management-group-reader"></a>Hanteringsgrupp-läsare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Rollen hanteringsgrupp-läsare |
+> | **Id** | ac63b705-f282-497d-ac71-919bf39d939d |
+> | **Åtgärder** |  |
+> | Microsoft.Management/managementGroups/read | Lista över hanteringsgrupper för autentiserade användare. |
+
 ## <a name="monitoring-contributor"></a>Övervaka deltagare
 > [!div class="mx-tableFixed"]
 > | | |
@@ -957,18 +982,18 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | * / läsa | Läsa resurser av alla typer utom hemligheter. |
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
+> | Microsoft.Insights/actiongroups/* |  |
 > | Microsoft.Insights/AlertRules/* | Läs/Skriv/ta bort aviseringsregler. |
 > | Microsoft.Insights/components/* | Läs/Skriv/ta bort Application Insights-komponenter. |
 > | Microsoft.Insights/DiagnosticSettings/* | Läs/Skriv/ta bort diagnostikinställningar. |
 > | Microsoft.Insights/eventtypes/* | Lista över aktivitetslogghändelser (av hanteringshändelser) i en prenumeration. Den här behörigheten gäller för både program- och portalen åtkomst till aktivitetsloggen. |
 > | Microsoft.Insights/LogDefinitions/* | Den här behörigheten krävs för användare som behöver åtkomst till aktivitetsloggar via portalen. Lista loggkategorier i aktivitetsloggen. |
+> | Microsoft.Insights/metricalerts/* |  |
 > | Microsoft.Insights/MetricDefinitions/* | Läs måttdefinitionerna (lista över tillgängliga typer av mått för en resurs). |
 > | Microsoft.Insights/Metrics/* | Läsa måtten för en resurs. |
 > | Microsoft.Insights/Register/Action | Registrera Microsoft Insights-providern |
-> | Microsoft.Insights/webtests/* | Läs/Skriv/ta bort Application Insights webbtester. |
-> | Microsoft.Insights/actiongroups/* |  |
-> | Microsoft.Insights/metricalerts/* |  |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
+> | Microsoft.Insights/webtests/* | Läs/Skriv/ta bort Application Insights webbtester. |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Läs/Skriv/ta bort Log Analytics-lösningspaket. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | Läs/Skriv/ta bort Log Analytics sparade sökningar. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Kör en sökfråga |
@@ -976,6 +1001,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Läs/Skriv/ta bort Log Analytics insight lagringskonfigurationer. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | Microsoft.WorkloadMonitor/workloads/* |  |
+> | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
 ## <a name="monitoring-reader"></a>Övervaka läsare
 > [!div class="mx-tableFixed"]

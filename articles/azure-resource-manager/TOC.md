@@ -4,10 +4,10 @@
 ## [Vad är Resource Manager?](resource-group-overview.md)
 ## [Resource Manager och klassisk distribution](resource-manager-deployment-model.md)
 
-# Kom igång
-## [Skapa och distribuera mall](resource-manager-create-first-template.md)
-## [VS Code-tillägg för mallar](resource-manager-vscode-extension.md)
-## [Visual Studio med Resurshanteraren](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+# Snabbstarter
+## [Skapa mallar – portal](resource-manager-quickstart-create-templates-use-the-portal.md)
+## [Skapa mallar – VS-kod](resource-manager-quickstart-create-templates-use-visual-studio-code.md)
+## [Skapa mallar – Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Begrepp
 ## [Resursproviders och resurstyper](resource-manager-supported-services.md)
@@ -48,7 +48,7 @@
 ## Hantera
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
-### [Azure Portal](resource-group-portal.md)
+### [Azure-portalen](resource-group-portal.md)
 ### [Använd taggar för att organisera resurser](resource-group-using-tags.md)
 ### [Flytta resurser till ny grupp eller prenumeration](resource-group-move-resources.md)
 ### [Skapa EA-prenumerationer](programmatically-create-subscription.md)
@@ -60,7 +60,7 @@
 ### Skapa tjänstens huvudnamn
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Azure Portal](resource-group-create-service-principal-portal.md)
+#### [Azure-portalen](resource-group-create-service-principal-portal.md)
 ### [Autentiserings-API för att få åtkomst till prenumerationer](resource-manager-api-authentication.md)
 ### [Lås resurser](resource-group-lock-resources.md)
 

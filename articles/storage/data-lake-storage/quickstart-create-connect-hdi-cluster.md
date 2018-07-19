@@ -2,24 +2,24 @@
 title: Installationen av kluster för Hadoop, Spark, Kafka, HBase eller R-Server – Azure HDInsight
 description: Ställ in Hadoop-, Kafka, Spark, HBase, R Server eller Storm-kluster för HDInsight från en webbläsare, Azure CLI, Azure PowerShell, REST eller SDK.
 keywords: konfiguration av hadoop, kafka-kluster installation, konfiguration av spark, vad är hadoop-kluster
-services: hdinsight
+services: storage
 documentationcenter: ''
 author: jamesbak
 manager: jahogg
 tags: azure-portal
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 9c037b35af19b94b6655cf7d1d45ba6b6182879c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 725e79596a919cba4214dba8b3cc86e9bb48cc79
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346594"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136646"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Snabbstart: Konfigurera kluster i HDInsight
 
@@ -38,7 +38,7 @@ I följande tabell visas de olika metoderna som du kan använda för att konfigu
 
 | Kluster som skapas med | Webbläsare | Kommandorad | REST-API | SDK | 
 | --- |:---:|:---:|:---:|:---:|
-| [Azure Portal](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure-portalen](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](../../hdinsight/hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [Azure CLI (version 1.0)](../../hdinsight/hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](../../hdinsight/hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
@@ -258,7 +258,7 @@ Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkr
 ## <a name="next-steps"></a>Nästa steg
 
 - [ABFS Hadoop-filsystem-drivrutin för Azure Data Lake Storage Gen2](abfs-driver.md)
-- [Självstudier: Extrahera, transformera och läsa in data med Apache Hive på Azure HDInsight](tutorial-extract-transform-load-hive.md)
+- [Självstudie: Extrahera, transformera och läsa in data med Apache Hive i HDInsight](tutorial-extract-transform-load-hive.md)
 - [Vad är HDInsight, Hadoop-ekosystemet och Hadoop-kluster?](../../hdinsight/hadoop/apache-hadoop-introduction.md)
 - [Komma igång med Hadoop i HDInsight](../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Arbeta i Hadoop på HDInsight från Windows PC](../../hdinsight/hdinsight-hadoop-windows-tools.md)

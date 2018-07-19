@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 2a6118bd23c6e8319ad4fa26a266948a4dad1b9f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
-ms.translationtype: MT
+ms.openlocfilehash: 23b5373f4986c4a3d113baebe9e04ce65b9a9df0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37934474"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39062907"
 ---
 Hittills har du kört programmets kod som om du var den enda utvecklaren som arbetade med appen. I det här avsnittet lär du dig hur Azure Dev Spaces förenklar utvecklingen i ett team:
 * Göra det möjligt för ett utvecklarteam att arbeta i samma miljö, genom att arbeta i en delad utvecklarmiljö eller i särskilda utvecklarmiljöer efter behov..
@@ -45,7 +45,7 @@ När du utvecklar kod för en tjänst är koden sällan perfekt förrän du väl
 > [!Note]
 > Innan du fortsätter ska du stänga alla VS Code-fönster för båda tjänsterna och sedan köra `azds up -d` i var och en av tjänstens rotmappar. (Detta är en begränsning för förhandsversion.)
 
-Låt oss ta en närmare titt på var tjänsterna körs. Kör kommandot `azds list` så ser du ett resultat som liknar följande:
+Låt oss ta en närmare titt på var tjänsterna körs. Kör kommandot `azds list-up` så ser du ett resultat som liknar följande:
 
 ```
 Name         Space     Chart              Ports   Updated     Access Points

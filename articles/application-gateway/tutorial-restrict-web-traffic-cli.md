@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 4/27/2018
+ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: ca00dd3b359d9aff1b987a3bef5b27732678b0a3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 48f1a4950365c00b7bff8c804abd95fd7b7ab9b9
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356230"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069064"
 ---
 # <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>Självstudier: Aktivera brandvägg för webbaserade program med hjälp av Azure CLI
 
@@ -41,7 +41,7 @@ Om du väljer att installera och använda CLI lokalt kräver de här självstudi
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Skapa en resursgrupp i Azure med namnet *myResourceGroup* med [az group create](/cli/azure/group#az_group_create).
+En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Skapa en resursgrupp i Azure med namnet *myResourceGroup* med [az group create](/cli/azure/group#az_group_create).
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -135,7 +135,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Skapa ett lagringskonto och konfigurera diagnostik

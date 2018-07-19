@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 7466c3ca87ed47b6d7dfe3d725197d3a6027fdf9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 7e2033310a30499cf862fb4d399cb0180ac9b713
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901025"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006972"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Använda en hanterad tjänstidentitet (MSI) på en virtuell Windows-dator för att få åtkomst till Azure Resource Manager
 
@@ -30,7 +30,7 @@ Den här självstudien beskriver steg för steg hur du aktiverar MSI (hanterad t
 > [!div class="checklist"]
 > * Aktivera MSI på en virtuell Windows-dator 
 > * Ge den virtuella datorn åtkomst till en resursgrupp i Azure Resource Manager 
-> * Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använd den för att anropa Azure Resource Manager
+> * Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använda den för att anropa Azure Resource Manager
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -43,16 +43,16 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Windows-dator i en ny resursgrupp
 
-I den här självstudiekursen ska vi skapa en ny virtuell Windows-dator.  Du kan även aktivera MSI på en befintlig virtuell dator.
+I den här självstudien ska vi skapa en ny virtuell Windows-dator.  Du kan även aktivera MSI på en befintlig virtuell dator.
 
 1.  Klicka på knappen **Skapa en resurs** längst upp till vänster i Azure Portal.
 2.  Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
 3.  Ange informationen för den virtuella datorn. **Användarnamnet** och **lösenordet** som skapas här är de autentiseringsuppgifter som du använder när du loggar in på den virtuella datorn.
 4.  Välj lämplig **prenumeration** för den virtuella datorn i listrutan.
-5.  Välj **Skapa ny** för att välja en ny **resursgrupp** som den virtuella datorn ska skapas i. När du är klar klickar du på **OK**.
-6.  Välj storlek på den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Acceptera alla standardvärden på inställningssidan och klicka på **OK**.
+5.  Du väljer en ny **Resursgrupp** där du skapar din virtuella dator genom att välja **Skapa ny**. När du är klar klickar du på **OK**.
+6.  Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Acceptera alla standardvärden på inställningssidan och klicka på **OK**.
 
-    ![Alternativ bildtext](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alternativ bildtext](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn 
 
@@ -62,7 +62,7 @@ Med hanterade tjänstidentiteter (MSI) för virtuella datorer kan du hämta åtk
 2.  Klicka på **Konfiguration** i det vänstra navigeringsfältet. 
 3.  **Hanterad tjänstidentitet** visas. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej. 
 4.  Klicka på **Spara** för att spara konfigurationen.  
-    ![Alternativ bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alternativ bildtext](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Ge den virtuella datorn åtkomst till en resursgrupp i Resource Manager
 Med hjälp av MSI kan din kod hämta åtkomsttoken och autentisera mot resurser som stöder Azure Active Directory-autentisering.  Azure Resource Manager har stöd för Azure AD-autentisering.  Först måste vi ge den virtuella datorns identitet åtkomst till en resurs i Resource Manager, i detta fall den resursgrupp som den virtuella datorn finns i.  
@@ -75,7 +75,7 @@ Med hjälp av MSI kan din kod hämta åtkomsttoken och autentisera mot resurser 
 6.  Kontrollera sedan att rätt prenumeration visas i listrutan **Prenumeration**. Och för **Resursgrupp** väljer du **Alla resursgrupper**. 
 7.  I **Välj** väljer du slutligen din virtuella Windows-dator i listrutan och klickar på **Spara**.
 
-    ![Alternativ bildtext](../media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
+    ![Alternativ bildtext](media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
 
 ## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-resource-manager"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använd den för att anropa Azure Resource Manager 
 

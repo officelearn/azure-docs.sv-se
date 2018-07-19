@@ -29,14 +29,6 @@
 ### Support  
 #### [Support för Azure Marketplace och AppSource](./support-azure-marketplace.md)  
 
-### Publiceringsguider  
-#### [Azure Marketplace-konsulttjänst](consulting-services.md)  
-#### [Teknisk publiceringsguide om Azure Marketplace SaaS-appar](marketplace-saas-applications-technical-publishing-guide.md) 
-#### [Aktivera din utvärderingsversion av Marketplace med Azure Active Directory](./enable-trial-using-azure-ad.md)  
-
-### [Låt din verksamhet växa genom marknadsplatsen](./grow-your-business-with-azure-marketplace.md)  
-#### [Önskade lösningar](./preferred-solutions.md) 
-
 ## [Partnerportalen i molnet](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  
 
 ## Resurser  

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3b767da394f6337a1110ad171f19ad789fa044d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 2a6fbd9e52e07141ae1d8c630bde6ab23801fb18
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972989"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054509"
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Azure AD-lösenordsåterställning från inloggningsskärmen
 
@@ -99,7 +99,7 @@ Vad förändras för användaren när principen är konfigurerad och tilldelad? 
 
 När användarna försöker logga in ser de nu en länk för återställning av lösenord som öppnar självbetjäningen för återställning av lösenord på inloggningsskärmen. Via den här funktionen kan användarna återställa sina lösenord utan att de behöver använda en annan enhet för att få åtkomst till webbläsaren.
 
-Dina användare får hjälp med att använda funktionen i [Reset your work or school password](../active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in) (Återställa ditt arbets- eller skollösenord)
+Dina användare får hjälp med att använda funktionen i [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in) (Återställa ditt arbets- eller skollösenord)
 
 ## <a name="common-issues"></a>Vanliga problem
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 332bfba0664391b6126669c4c89e38d1af4cf4fa
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b4358d1ccffd31d1f347f1872237620bee081251
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30265092"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989367"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute-krav och checklista
 Om du vill ansluta till Microsofts molntjänster med ExpressRoute måste du kontrollera att följande krav som anges i följande avsnitt är uppfyllda.
@@ -65,6 +65,6 @@ Om du planerar att aktivera Dynamics 365 på ExpressRoute bör du läsa följand
 * Hitta en ExpressRoute-anslutningsleverantör. Se [ExpressRoute-partners och peeringplatser](expressroute-locations.md).
 * Se kraven för [routning](expressroute-routing.md), [NAT](expressroute-nat.md) och [QoS](expressroute-qos.md).
 * Konfigurera ExpressRoute-anslutningen.
-  * [Skapa en ExpressRoute-krets](expressroute-howto-circuit-classic.md)
-  * [Konfigurera routning](expressroute-howto-routing-classic.md)
-  * [Länka ett VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-classic.md)
+  * [Skapa en ExpressRoute-krets](expressroute-howto-circuit-arm.md)
+  * [Konfigurera routning](expressroute-howto-routing-arm.md)
+  * [Länka ett VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-arm.md)

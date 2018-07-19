@@ -3,7 +3,7 @@ title: Uppgradera Service Fabric-körningen i Azure | Microsoft Docs
 description: I den här guiden får du lära dig hur du använder PowerShell och uppgraderar körningen för ett Service Fabric-kluster med Azure som värd.
 services: service-fabric
 documentationcenter: .net
-author: Thraka
+author: rwike77
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
-ms.author: adegeo
+ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7e7304b259931c5196a4865383cf0b4ace4c4398
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 367528353d5849a64ed1924d1b1e02a9b2c38252
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109774"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007941"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Självstudie: Uppgradera körningen av ett Service Fabric-kluster i Azure
 
@@ -31,7 +31,7 @@ Den här guiden är del tre i en serie. Den visar hur du uppgraderar körningen 
 
 Om klustret redan körs med senaste Service Fabric-körningen behöver du inte genomföra det här steget. Den här artikeln kan dock användas för att installera alla stödda körningar på ett Azure Service Fabric-kluster.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * läser klusterversionen
@@ -44,7 +44,7 @@ I den här självstudieserien får du lära du dig att:
 > * uppgradera körningen för ett kluster
 > * [distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar den här självstudien:
 

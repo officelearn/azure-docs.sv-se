@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/02/2018
 ms.author: maheshu
-ms.openlocfilehash: 701fe17869d6e7744751d80330422ea47361b411
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ff2659ed7dbdb21bccb8b5858d946b47951e40cc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216148"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048941"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Aktivera lösenordshashsynkronisering med Azure Active Directory Domain Services
 I föregående uppgifter aktiverade du Azure Active Directory Domain Services för din Azure Active Directory-klient (Azure AD). Nästa uppgift är att aktivera synkronisering av lösenordshasher som krävs för NT LAN Manager (NTLM)- och Kerberos-autentisering till Azure AD Domain Services. När du har konfigurerat lösenordshashsynkronisering kan användarna logga in till den hanterade domänen med sina företagsuppgifter.
@@ -78,7 +78,7 @@ Här är de instruktioner som du behöver ge användarna så att de kan ändra s
 Ett par minuter efter att du har ändrat ditt lösenord kan det nya lösenordet användas i Azure Active Directory Domain Services. Efter cirka 20 minuter kan du logga in på datorer som är anslutna till den hanterade domänen med det nya lösenordet.
 
 ## <a name="related-content"></a>Relaterat innehåll
-* [Uppdatera ditt eget lösenord](../active-directory/active-directory-passwords-update-your-own-password.md)
+* [Uppdatera ditt eget lösenord](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [Komma igång med lösenordshantering i Azure AD](../active-directory/authentication/quickstart-sspr.md)
 * [Aktivera lösenordshashsynkronisering till Azure Active Directory Domain Services för en synkroniserad Azure AD-klient](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Administrera en Azure Active Directory Domain Services-hanterad domän](active-directory-ds-admin-guide-administer-domain.md)

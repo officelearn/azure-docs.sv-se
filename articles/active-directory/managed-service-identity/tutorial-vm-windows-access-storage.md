@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: a9b0ddbd8d0a348d00e57526e6d248e59a8a1e79
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e001907b9df77eff1455043a3fd7ce5533838fcc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903969"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056182"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-identity-to-access-azure-storage"></a>Självstudie: Komma åt Azure Storage med en hanterad tjänstidentitet för virtuell Windows-dator
 
@@ -51,14 +51,14 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 I det här avsnittet skapar du en virtuell Windows-dator som sedan beviljas en hanterad identitet.
 
-1.  Klicka på knappen **+/Skapa ny tjänst** som finns i övre vänstra hörnet i Azure-portalen.
+1.  Klicka på knappen **+/Skapa ny tjänst** som finns i det övre vänstra hörnet på Azure Portal.
 2.  Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
 3.  Ange informationen för den virtuella datorn. **Användarnamnet** och **lösenordet** som skapas här är de autentiseringsuppgifter som du använder när du loggar in på den virtuella datorn.
-4.  Välj rätt **prenumeration** för den virtuella datorn i listrutan.
+4.  Välj lämplig **prenumeration** för den virtuella datorn i listrutan.
 5.  Välj en ny **Resursgrupp** som den virtuella datorn ska skapas i genom att klicka på **Skapa ny**. När du är klar klickar du på **OK**.
 6.  Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Acceptera alla standardvärden på bladet Inställningar och klicka på **OK**.
 
-    ![Alternativ bildtext](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alternativ bildtext](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-managed-identity-on-your-vm"></a>Aktivera hanterad identitet på den virtuella datorn
 
@@ -77,10 +77,10 @@ I det här avsnittet skapar du ett lagringskonto.
 2. Klicka på **Lagring** och sedan på **Lagringskonto – blob, fil, tabell, kö**.
 3. Under **Namn** anger du ett namn för lagringskontot.  
 4. **Distributionsmodell** och **Typ av konto** ska vara inställda på **Resurshanterare** respektive **Lagring (generell användning v1)**. 
-5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** stämmer överens med den du angav när du skapade den virtuella datorn i förra steget.
+5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** matchar informationen som du angav när du skapade den virtuella datorn i föregående steg.
 6. Klicka på **Skapa**.
 
-    ![Skapa ett nytt lagringskonto](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Skapa ett nytt lagringskonto](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Skapa en blobcontainer och ladda upp en fil till lagringskontot
 
@@ -91,28 +91,28 @@ Eftersom filer kräver bloblagring måste du skapa en blobcontainer som du lagra
 3. Klicka på **+ Container** överst på sidan.
 4. Under **Ny container**anger du ett namn för containern och under **Offentlig åtkomstnivå** behåller du standardvärdet.
 
-    ![Skapa lagringscontainer](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Skapa lagringscontainer](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 5. Med hjälp av valfritt redigeringsprogram skapar du en fil som heter *hello world.txt* på den lokala datorn.  Öppna filen och lägg till följande text (utan citattecken): ”Hello world! :)”och spara den. 
 6. Ladda upp filen till containern du skapade genom att klicka på containernamnet och sedan på **Ladda upp**
 7. I fönstret **Ladda upp blob**, under **Filer**, klickar du på mappikonen och bläddrar till filen **hello_world.txt** på den lokala datorn. Välj sedan filen och klicka på **Ladda upp**.
-    ![Ladda upp textfil](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+    ![Ladda upp textfil](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Ge din virtuella dator åtkomst till en Azure Storage-container 
 
-Du kan använda den virtuella datorns hanterade identitet och hämta data i Azure Storage-bloben.   
+Du kan använda den hanterade identiteten på den virtuella datorn till att hämta data i Azure Storage Blob.   
 
 1. Gå tillbaka till det lagringskonto du nyss skapade.  
-2. Klicka på länken **åtkomstkontroll (IAM)** i vänstra panelen.  
+2. Klicka på länken **Åtkomstkontroll (IAM)** i vänstra fönstret.  
 3. Klicka på **+ Lägg till** högst upp på sidan om du vill lägga till en ny rolltilldelning för din virtuella dator.
-4. I listrutan under **Roll** väljer du **Storage Blob Data-läsare (förhandsgranskning)**. 
+4. Välj **Storage Blob Data-läsare (förhandsgranskning)** i listrutan under **Roll**. 
 5. I listrutan under **Tilldela behörighet till** väljer du **Virtuell dator**.  
 6. Kontrollera sedan att rätt prenumeration är inställd i listrutan **Prenumeration**. Under **Resursgrupper** väljer du **Alla resursgrupper**.  
 7. Under **Välj** väljer du din virtuella dator och klickar sedan på **Spara**. 
 
     ![Tilldela behörigheter](~/articles/active-directory/managed-service-identity/media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
-## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Hämta en åtkomsttoken och använda den när du anropar Azure Storage 
+## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Hämta en åtkomsttoken och anropa Azure Storage med den 
 
 Azure Storage har inbyggt stöd för Azure Active Directory-autentisering, vilket gör att åtkomsttoken som hämtas med en hanterad identitet kan accepteras direkt. Detta är en del av integreringen av Azure Storage med Azure Active Directory, och skiljer sig från att ange autentiseringsuppgifter i anslutningssträngen.
 

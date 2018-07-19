@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 02cc3f861864d3bfa878be6501b8563715f88dac
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 79f1b299417acbfa2d9e565f0ec9aebede2508e1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971327"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002663"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med Java-enhets-SDK och tjänst-SDK och gruppregistreringar för IoT Hub Device Provisioning-tjänsten
 
@@ -32,7 +32,7 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
 
 1. Kontrollera att `git` är installerat på datorn och har lagts till i de miljövariabler som är tillgängliga för kommandofönstret. Se [Git-klientverktyg för Software Freedom Conservancy](https://git-scm.com/download/) för att få den senaste versionen av `git`-verktyg att installera, vilket omfattar **Git Bash**, kommandoradsappen som du kan använda för att interagera med det lokala Git-lagret. 
 
-1. Använd följande [certifikatöversikt](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) för att skapa dina testcertifikat. En mer grundlig genomgång av att skapa certifikat finns i [PowerShell scripts to manage CA-signed X.509 certificates](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates) (PowerShell-skript för att hantera CA-signerade X.509-certifikat).
+1. Använd följande [certifikatöversikt](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) för att skapa dina testcertifikat.
 
     > [!NOTE]
     > Det är steget kräver [OpenSSL](https://www.openssl.org/), vilket antingen kan byggas och installeras från källkoden eller laddas ned och installeras från en [tredje part](https://wiki.openssl.org/index.php/Binaries) som [det här](https://sourceforge.net/projects/openssl/). Om du redan har skapat dina _rot-_, _mellanliggande_ och _enhets_-certifikat kan du hoppa över det här steget.

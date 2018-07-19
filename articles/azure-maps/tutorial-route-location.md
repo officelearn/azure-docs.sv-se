@@ -1,24 +1,24 @@
 ---
 title: Hitta vägen med Azure Maps | Microsoft Docs
 description: Rutt till en orienteringspunkt med hjälp av Azure Maps
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fc5dfafec303a439d8a1092771fd2247ab305172
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09828fade464c3b7b5f6eedaa16513e9eab49467
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34601351"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989650"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Rutt till en orienteringspunkt med hjälp av Azure Maps
 
-Den här självstudiekursen visar hur du använder Azure Maps-kontot och Route Service SDK för att hitta rutten till en orienteringspunkt. I den här guiden får du lära dig hur man:
+Den här självstudiekursen visar hur du använder Azure Maps-kontot och Route Service SDK för att hitta rutten till en orienteringspunkt. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en ny webbsida med API:n för kartkontroll

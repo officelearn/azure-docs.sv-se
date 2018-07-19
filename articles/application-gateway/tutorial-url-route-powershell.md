@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 3/20/2018
+ms.date: 7/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9aa0eec9036e32d6f3462886dfc7a796ed1844b8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 66f79b68c003aa3605653b0decc091d22fbf3860
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306390"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055193"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Dirigera webbtrafik baserat på webbadressen med Azure PowerShell
 
@@ -23,7 +23,7 @@ Du kan använda Azure PowerShell till att konfigurera dirigering av webbtrafik t
 
 Om du vill aktivera trafikdirigering skapar du [routningsregler](application-gateway-url-route-overview.md) som tilldelas till lyssnarna för specifika portar. Då ser du till att webbtrafiken kommer till rätt server i poolen.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera nätverket
@@ -362,6 +362,7 @@ for ($i=1; $i -le 3; $i++)
     -ImageReferenceOffer WindowsServer `
     -ImageReferenceSku 2016-Datacenter `
     -ImageReferenceVersion latest
+    -OsDiskCreateOption FromImage
 
   Set-AzureRmVmssOsProfile $vmssConfig `
     -AdminUsername azureuser `
@@ -386,7 +387,7 @@ for ($i=1; $i -le 3; $i++)
 Varje skalningsuppsättning innehåller två virtuella datorinstanser där du installerar IIS, som kör en exempelsida för att testa om programgatewayen fungerar.
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 for ($i=1; $i -le 3; $i++)

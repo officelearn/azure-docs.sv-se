@@ -3,7 +3,7 @@ title: Kom igång med Azure Cloud Services och ASP.NET | Microsoft Docs
 description: Lär dig hur du kan skapa en app för flera nivåer med ASP.NET MVC och Azure. Appen körs i en molntjänst med en webbroll och en arbetsroll. Appen använder Entity Framework, SQL Database och Azure Storage-köer och -blobbar.
 services: cloud-services, storage
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
-ms.author: adegeo
-ms.openlocfilehash: 66ece0affbafc219add2ef5c4da34f29ab34e058
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.author: jeconnoc
+ms.openlocfilehash: 819a2f81ca5403a3656bf713cf0ee3ae58050a4b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860028"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003121"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
 
@@ -485,7 +485,7 @@ public class ContosoAdsContext : DbContext
 Klassen har två konstruktorer. Den första används av webbprojektet och anger namnet på en anslutningssträng som lagras i Web.config-filen. Den andra konstruktorn gör att du kan överföra den faktiska anslutningssträngen som används av arbetsrollsprojektet, eftersom det inte har en Web.config-fil. Du såg tidigare var den här anslutningssträngen lagras, och du kommer längre fram att få se hur koden hämtar anslutningssträngen när den instantierar DbContext-klassen.
 
 ### <a name="contosoadsweb---globalasaxcs"></a>ContosoAdsWeb – Global.asax.cs
-Kod som anropas från metoden `Application_Start` skapar en blobbehållare för *images* och en kö för *images* om dessa inte redan finns. Det innebär att när du börjar använda ett nytt lagringskonto eller börjar använda lagringsemulatorn på en ny dator, skapas den nödvändiga blobbehållaren och kön automatiskt.
+Kod som anropas från metoden `Application_Start` skapar en blobcontainer för *images* och en kö för *images* om dessa inte redan finns. Det innebär att när du börjar använda ett nytt lagringskonto eller börjar använda lagringsemulatorn på en ny dator, skapas den nödvändiga blobcontainern och kön automatiskt.
 
 Koden får tillgång till lagringskontot genom att använda lagringsanslutningssträngen från *.cscfg*-filen.
 
@@ -494,7 +494,7 @@ var storageAccount = CloudStorageAccount.Parse
     (RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
 ```
 
-Sedan hämtar den en referens till blobbehållaren för *images*, skapar behållaren om den inte redan finns, och anger åtkomstbehörighet för den nya behållaren. Som standard tillåter nya behållare enbart klienter med lagringskontouppgifter att få tillgång till blobbar. Webbplatsen kräver att blobbarna är offentliga så att den kan visa bilder med URL:er som pekar på bildblobbarna.
+Sedan hämtar den en referens till blobcontainern för *images*, skapar containern om den inte redan finns, och anger åtkomstbehörighet för den nya containern. Som standard tillåter nya containrar enbart klienter med lagringskontouppgifter att få tillgång till blobbar. Webbplatsen kräver att blobbarna är offentliga så att den kan visa bilder med URL:er som pekar på bildblobbarna.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -533,7 +533,7 @@ Filen *Views\Home\Index.cshtml* visar kategorilänkar på startsidan. Länkarna 
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb – AdController.cs
 I filen *AdController.cs* anropar konstruktorn metoden `InitializeStorage` för att skapa Azure Storage-klientbiblioteksobjekt som tillhandahåller en API som kan användas för blobbar och köer.
 
-Sedan hämtar koden en referens till blobbehållaren för *images* som du såg tidigare i *Global.asax.cs*. När den gör det anger den en [standardpolicy för återförsök](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) som är lämplig för en webbapp. Standardpolicyn för återförsök med exponentiell begränsning kan hänga webbappen längre än en minut vid upprepade återförsök för ett tillfälligt fel. Återförsökspolicyn som anges här väntar i tre sekunder efter varje försök i upp till tre försök.
+Sedan hämtar koden en referens till blobcontainern för *images* som du såg tidigare i *Global.asax.cs*. När den gör det anger den en [standardpolicy för återförsök](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) som är lämplig för en webbapp. Standardpolicyn för återförsök med exponentiell begränsning kan hänga webbappen längre än en minut vid upprepade återförsök för ett tillfälligt fel. Återförsökspolicyn som anges här väntar i tre sekunder efter varje försök i upp till tre försök.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -663,7 +663,7 @@ var dbConnString = CloudConfigurationManager.GetSetting("ContosoAdsDbConnectionS
 db = new ContosoAdsContext(dbConnString);
 ```
 
-Därefter hämtar metoden en referens till lagringskontot och skapar blobbehållaren och kön om de inte redan finns. Koden för den åtgärden liknar det du redan har sett i metoden `Application_Start` för webbrollen.
+Därefter hämtar metoden en referens till lagringskontot och skapar blobcontainern och kön om de inte redan finns. Koden för den åtgärden liknar det du redan har sett i metoden `Application_Start` för webbrollen.
 
 ### <a name="contosoadsworker---workerrolecs---run-method"></a>ContosoAdsWorker – WorkerRole.cs – Run-metoden
 Metoden `Run` anropas när metoden `OnStart` har avslutat initieringsarbetet. Metoden kör en oändlig loop som söker efter nya kömeddelanden och bearbetar dem när de kommer in.

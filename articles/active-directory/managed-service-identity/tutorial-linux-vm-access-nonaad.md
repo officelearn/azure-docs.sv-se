@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 16b715261329544687fd78ed9c022d7392cc32d9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e775ed9d918e53b8381a010691c679d80e7dd216
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901484"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044058"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Självstudie: Använda en hanterad tjänstidentitet (MSI) i en virtuell Linux-dator för att få åtkomst till Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien visar hur du aktiverar en hanterad tjänstidentitet (MSI) för en virtuell Linux-dator and sedan använder den identiteten för att få åtkomst till Azure Key Vault. Key Vault fungerar som en bootstrap, som gör det möjligt för klientprogrammet att använda hemligheten för åtkomst till resurser som inte skyddas av Azure Active Directory (AD). Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera till tjänster som stöder Azure AD-autentisering, utan att behöva infoga autentiseringsuppgifter i din kod. 
+Den här självstudien visar hur du aktiverar en hanterad tjänstidentitet (MSI) för en virtuell Linux-dator and sedan använder den identiteten för att få åtkomst till Azure Key Vault. Key Vault fungerar som en bootstrap, som gör det möjligt för klientprogrammet att använda hemligheten för åtkomst till resurser som inte skyddas av Azure Active Directory (AD). Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. 
 
 Lär dig att:
 
 > [!div class="checklist"]
 > * Aktivera MSI på en virtuell Linux-dator 
 > * Ge din virtuella dator åtkomst till en hemlighet som lagras i Key Vault 
-> * Få ett åtkomsttoken med hjälp av identiteten för den virtuella datorn och använd den för att hämta hemligheten från Key Vault 
+> * Få ett åtkomsttoken med hjälp av den virtuella datorns identitet och hämta hemligheten från Key Vault med hjälp av den 
  
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -51,46 +51,46 @@ I den här självstudien skapar vi en ny virtuell Linux-dator. Du kan även akti
 2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
 3. Ange informationen för den virtuella datorn. För **Autentiseringstyp** väljer du **Offentlig SSH-nyckel** eller **Lösenord**. Med de skapade autentiseringsuppgifterna kan du logga in på den virtuella datorn.
 
-    ![Alternativ bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Alternativ bildtext](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Välj en **Prenumeration** för den virtuella datorn i listrutan.
-5. Välj en ny **Resursgrupp** som den virtuella datorn ska skapas i genom att klicka på **Skapa ny**. När du är klar klickar du på **OK**.
+5. Välj en ny **resursgrupp** som den virtuella datorn ska skapas i genom att klicka på **Skapa ny**. När du är klar klickar du på **OK**.
 6. Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för disktyper som stöds. Acceptera alla standardvärden på inställningssidan och klicka på **OK**.
 
 ## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn
 
-Med en MSI för virtuell dator kan du få åtkomsttoken från Azure AD utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar en hanterad tjänstidentitet på en virtuell dator händer två saker: din virtuella dator registreras hos Azure Active Directory och dess hanterade tjänstidentitet skapas, och identiteten konfigureras på den virtuella datorn.
+Med en MSI för virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar en hanterad tjänstidentitet på en virtuell dator händer två saker: din virtuella dator registreras hos Azure Active Directory och dess hanterade tjänstidentitet skapas, och identiteten konfigureras på den virtuella datorn.
 
-1. Välj den **virtuell dator** som du vill aktivera MSI på.
-2. I det vänstra navigeringsfältet klickar du på **Konfiguration**.
-3. Du ser **Hanterad tjänstidentitet**. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej.
-4. Klicka på **Spara** om du vill spara konfigurationen.
+1. Välj den **virtuella dator** som du vill aktivera MSI på.
+2. Klicka på **Konfiguration** i det vänstra navigeringsfältet.
+3. **Hanterad tjänstidentitet** visas. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej.
+4. Klicka på **Spara** för att spara konfigurationen.
 
-    ![Alternativ bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alternativ bildtext](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Ge din virtuella dator åtkomst till en hemlighet som lagras i Key Vault  
 
-Med hjälp av MSI kan din kod hämta åtkomsttoken för att autentisera mot resurser som stöder Azure Active Directory-autentisering. Men alla Azure-tjänster stöder inte Azure Active Directory-autentisering. För att använda MSI med dessa tjänster lagrar du autentiseringsuppgifterna för tjänsten i Azure Key Vault och använder MSI för att få åtkomst till Key Vault för att hämta autentiseringsuppgifterna. 
+Med hjälp av MSI kan din kod hämta åtkomsttoken för att autentisera mot resurser som stöder Azure Active Directory-autentisering. Men alla Azure-tjänster stöder inte Azure Active Directory-autentisering. Om du vill använda MSI med dessa tjänster lagrar du autentiseringsuppgifterna för tjänsten i Azure Key Vault och får åtkomst till Key Vault och hämtar autentiseringsuppgifterna med hjälp MSI:n. 
 
-Börja med att skapa ett Key Vault och bevilja identiteten för den virtuella datorn åtkomst till Key Vault.   
+Börja med att skapa ett Key Vault och bevilja den virtuella datorns identitet åtkomst till Key Vault.   
 
 1. Överst i det vänstra navigeringsfältet väljer du **Skapa en resurs** > **Säkerhet och identitet** > **Key Vault**.  
 2. Ange ett **namn** för det nya Key Vault. 
-3. Leta upp Key Vault i samma prenumerations- och resursgrupp som den virtuella datorn du skapade tidigare. 
-4. Välj **Åtkomstprinciper** och klicka på knappen **Lägg till**. 
+3. Leta upp Key Vault i samma prenumerations- och resursgrupp som den virtuella dator du skapade tidigare. 
+4. Välj **Åtkomstprinciper** och klicka på **Lägg till**. 
 5. I Konfigurera från mall väljer du **Hemlighetshantering**. 
-6. Välj **Välj huvudkonto** och ange namnet på den virtuella datorn som du skapade tidigare i sökfältet.  Välj den virtuella datorn i resultatlistan och klicka på **Välj**. 
-7. Klicka på **OK** för att lägga till den nya åtkomstprincipen. Klicka sedan på **OK** att slutföra valet av åtkomstprincip. 
-8. Klicka på **Skapa** för att skapa Key Vault. 
+6. Välj **Välj huvudkonto** och ange namnet på den virtuella dator som du skapade tidigare i sökfältet.  Välj den virtuella datorn i resultatlistan och klicka på **Välj**. 
+7. Klicka på **OK** och lägg till den nya åtkomstprincipen. Klicka sedan på **OK** och slutför valet av åtkomstprincip. 
+8. Klicka på **Skapa** och skapa Key Vault. 
 
-    ![Alternativ bildtext](../media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
+    ![Alternativ bildtext](../managed-service-identity/media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
 Lägg sedan till en hemlighet i Key Vault, så att du senare kan hämta hemligheten med hjälp av koden som körs i den virtuella datorn: 
 
 1. Välj **Alla resurser** och leta upp och välj det Key Vault som du skapade. 
 2. Välj **Hemligheter** och klicka på **Lägg till**. 
 3. Välj **Manuell** från **Uppladdningsalternativ**. 
-4. Ange ett namn och värdet för hemligheten.  Värdet kan vara allt du vill. 
+4. Ange ett namn och värde för hemligheten.  Värdet kan vara vad du vill. 
 5. Låt aktiveringsdatum och förfallodatum vara tomt och sätt **Aktiverad** som **Ja**. 
 6. Klicka på **Skapa** för att skapa hemligheten. 
  

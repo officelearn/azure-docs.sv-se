@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1195161a0c4045620447439bf9361b7c4c0189ae
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 06abd7867a99c20597ed17faf6fa61b91f70baaa
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904398"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007714"
 ---
 # <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Självstudier: Använda en användartilldelad identitet på en virtuell Linux-dator för att få åtkomst till Azure Resource Manager
 
@@ -42,7 +42,7 @@ Lär dig att:
 
 - Om du inte har arbetat med hanterade tjänstidentiteter tidigare rekommenderar vi att du läser den här [översikten](overview.md). **Gå också igenom [skillnaderna mellan system- och användartilldelade identiteter](overview.md#how-does-it-work)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
-- Ditt konto måste ha behörigheten ”Ägare” och lämpligt omfång (din prenumeration eller resursgrupp) för att du ska kunna utföra stegen i den här självstudien som beskriver hur du skapar resurser och hanterar roller. Information om hur du tilldelar roller finns i [Använda rollbaserad åtkomstkontroll för att hantera åtkomsten till dina Azure-prenumerationsresurser](/azure/role-based-access-control/role-assignments-portal).
+- Ditt konto måste ha behörigheten ”Ägare” och lämpligt omfång (din prenumeration eller resursgrupp) för att du ska kunna utföra stegen i den här självstudien som beskriver hur du skapar resurser och hanterar roller. Information om rolltilldelning finns i [Använda rollbaserad åtkomstkontroll för att hantera åtkomsten till dina Azure-prenumerationsresurser](/azure/role-based-access-control/role-assignments-portal).
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
@@ -56,9 +56,9 @@ I den här självstudien börjar du med att skapa en ny virtuell Linux-dator. Du
 
 1. Klicka på **Skapa en resurs** längst upp till vänster på Azure Portal.
 2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
-3. Ange informationen för den virtuella datorn. Som **Autentiseringstyp** väljer du **Offentlig SSH-nyckel** eller **Lösenord**. Med autentiseringsuppgifterna som skapats kan du logga in på den virtuella datorn.
+3. Ange informationen för den virtuella datorn. För **Autentiseringstyp** väljer du **Offentlig SSH-nyckel** eller **Lösenord**. Med autentiseringsuppgifterna som skapats kan du logga in på den virtuella datorn.
 
-    ![Skapa en virtuell Linux-dator](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Skapa en virtuell Linux-dator](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Välj en **prenumeration** för den virtuella datorn i listrutan.
 5. Välj en ny **resursgrupp** som den virtuella datorn ska skapas i genom att klicka på **Skapa ny**. När du är klar klickar du på **OK**.

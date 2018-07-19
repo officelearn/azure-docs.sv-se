@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 823b647dbc171050f7b36cfc729b0d3529e1f296
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 94e16156e8accc2460005cb1927a621ec7921c71
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901236"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044000"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Självstudie: Använda en hanterad tjänstidentitet på en virtuell Windows-dator för att komma åt Azure Storage via åtkomstnycklar
 
@@ -31,7 +31,7 @@ Den här självstudien beskriver hur du aktiverar MSI (hanterad tjänstidentitet
 > [!div class="checklist"]
 > * Aktiverar MSI på en virtuell Windows-dator 
 > * Ger den virtuella datorn åtkomst till åtkomstnycklar för lagringskonton i Resource Manager 
-> * Hämtar en åtkomsttoken med hjälp av den virtuella datorns identitet och använder den för att hämta lagringsåtkomstnycklarna från Resource Manager 
+> * Få en åtkomsttoken med hjälp av den virtuella datorns identitet, och använda den och hämta lagringsåtkomstnycklarna från Resource Manager 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -45,16 +45,16 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Windows-dator i en ny resursgrupp
 
-I den här självstudiekursen ska vi skapa en ny virtuell Windows-dator. Du kan även aktivera MSI på en befintlig virtuell dator.
+I den här självstudien ska vi skapa en ny virtuell Windows-dator. Du kan även aktivera MSI på en befintlig virtuell dator.
 
 1.  Klicka på knappen **+/Skapa ny tjänst** som finns i det övre vänstra hörnet på Azure Portal.
 2.  Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
-3.  Ange informationen för den virtuella datorn. **Användarnamnet** och **lösenordet** som skapas här är de autentiseringsuppgifter som du använder för att logga in på den virtuella datorn.
+3.  Ange informationen för den virtuella datorn. **Användarnamnet** och **lösenordet** som skapas här är de autentiseringsuppgifter som du använder när du loggar in på den virtuella datorn.
 4.  Välj lämplig **prenumeration** för den virtuella datorn i listrutan.
 5.  Välj en ny **Resursgrupp** som den virtuella datorn ska skapas i genom att klicka på **Skapa ny**. När du är klar klickar du på **OK**.
 6.  Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Acceptera alla standardvärden på bladet Inställningar och klicka på **OK**.
 
-    ![Alternativ bildtext](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alternativ bildtext](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn
 
@@ -65,7 +65,7 @@ Med en MSI för en virtuell dator kan du hämta en åtkomsttoken från Azure AD 
 3. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej.
 4. Klicka på **Spara** för att spara konfigurationen.
 
-    ![Alternativ bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alternativ bildtext](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 
@@ -78,7 +78,7 @@ Nu skapar du ett lagringskonto, om du inte redan har ett. Du kan även hoppa öv
 5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** matchar informationen som du angav när du skapade den virtuella datorn i föregående steg.
 6. Klicka på **Skapa**.
 
-    ![Skapa ett nytt lagringskonto](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Skapa ett nytt lagringskonto](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-in-the-storage-account"></a>Skapa en blob-container i lagringskontot
 
@@ -89,7 +89,7 @@ Senare ska vi ladda upp och ned en fil till det nya lagringskontot. Eftersom fil
 3. Klicka på **+ Container** längst upp på sidan. Panelen ”Ny container” visas.
 4. Ge containern ett namn, välj en åtkomstnivå och klicka sedan på **OK**. Du ska använda det här namnet senare i självstudien. 
 
-    ![Skapa en lagringscontainer](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Skapa en lagringscontainer](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 ## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>Ge den virtuella datorns MSI behörighet att använda åtkomstnycklar för lagringskonton 
 
@@ -103,13 +103,13 @@ Azure Storage har inte inbyggt stöd för Azure AD-autentisering.  Du kan dock a
 6. Kontrollera sedan att rätt prenumeration visas i listrutan **Prenumeration**. Välj Alla resursgrupper under **Resursgrupper**.  
 7. Under **Välj** väljer du sedan din virtuella Windows-dator i listrutan och klickar på **Spara**. 
 
-    ![Alternativ bildtext](../media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
+    ![Alternativ bildtext](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använd den för att anropa Azure Resource Manager 
 
 Under resten av självstudiekursen arbetar vi från den virtuella datorn som vi skapade tidigare. 
 
-Du måste använda Azure Resource Manager PowerShell-cmdlets i den här delen.  Om du inte har installerat det [hämtar du den senaste versionen](https://docs.microsoft.com/powershell/azure/overview) innan du fortsätter.
+Du måste använda Azure Resource Manager PowerShell-cmdletar i den här delen.  Om du inte har installerat det [hämtar du den senaste versionen](https://docs.microsoft.com/powershell/azure/overview) innan du fortsätter.
 
 1. Gå till **Virtuella datorer** på Azure Portal, gå till din virtuella Windows-dator och klicka sedan på **Anslut** längst upp på sidan **Översikt**. 
 2. Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn. 
@@ -201,5 +201,5 @@ Name              : testblob
 I den här självstudien har du lärt dig hur du skapar en hanterad tjänstidentitet för att komma åt Azure Storage med hjälp av en åtkomstnyckel.  Mer information om Azure Storage-åtkomstnycklar finns här:
 
 > [!div class="nextstepaction"]
->[Hantera dina åtkomstnycklar för lagring](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
+>[Hantera dina lagringsåtkomstnycklar](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
 

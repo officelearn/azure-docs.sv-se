@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 690775bb2ff0d5ee16ec5d7f1869c4f23b3745ad
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 60a15c69f1ec748e366697640707804565245cea
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900923"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001593"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Använda Hanterad tjänstidentitet (MSI) i en virtuell Linux-dator för att få åtkomst till Azure Resource Manager
 
@@ -50,7 +50,7 @@ I den här självstudien skapar vi en ny virtuell Linux-dator. Du kan även akti
 2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
 3. Ange informationen för den virtuella datorn. För **Autentiseringstyp** väljer du **Offentlig SSH-nyckel** eller **Lösenord**. Med de skapade autentiseringsuppgifterna kan du logga in på den virtuella datorn.
 
-    ![Alternativ bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Alternativ bildtext](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Välj en **Prenumeration** för den virtuella datorn i listrutan.
 5. Välj en ny **resursgrupp** som den virtuella datorn ska skapas i genom att klicka på **Skapa ny**. När du är klar klickar du på **OK**.
@@ -58,14 +58,14 @@ I den här självstudien skapar vi en ny virtuell Linux-dator. Du kan även akti
 
 ## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn
 
-Med en MSI för virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar hanterad tjänstidentitet på en virtuell dator händer två saker: din virtuella dator registreras hos Azure Active Directory för att skapa dess hanterade identitet, och identiteten konfigureras på den virtuella datorn.
+Med en MSI för virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar en hanterad tjänstidentitet på en virtuell dator händer två saker: din virtuella dator registreras hos Azure Active Directory och dess hanterade tjänstidentitet skapas, och identiteten konfigureras på den virtuella datorn.
 
 1. Välj den **virtuella dator** som du vill aktivera MSI på.
 2. Klicka på **Konfiguration** i det vänstra navigeringsfältet.
 3. **Hanterad tjänstidentitet** visas. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej.
 4. Klicka på **Spara** för att spara konfigurationen.
 
-    ![Alternativ bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alternativ bildtext](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>Ge den virtuella datorn åtkomst till en resursgrupp i Azure Resource Manager 
 
@@ -79,7 +79,7 @@ Med hjälp av MSI kan din kod hämta åtkomsttoken och autentisera mot resurser 
 6. Kontrollera sedan att rätt prenumeration visas i listrutan **Prenumeration**. Och för **Resursgrupp** väljer du **Alla resursgrupper**.
 7. I **Välj** väljer du sedan din virtuella Linux-dator i listrutan och klickar på **Spara**.
 
-    ![Alternativ bildtext](../media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
+    ![Alternativ bildtext](media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använd den för att anropa Resource Manager 
 

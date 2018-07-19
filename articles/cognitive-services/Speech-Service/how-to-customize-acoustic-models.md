@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 3e247b6f81a9306cbad630d42c3a41d8ce3045a5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 32dc9015f5e1a58d02571eb84e6ceeb0e9e8582d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345132"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069047"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Självstudie: Skapa en anpassad akustisk modell
 
@@ -144,5 +144,5 @@ Då visas en ny post i tabellen för akustiska modeller som motsvarar den nya mo
 ## <a name="next-steps"></a>Nästa steg
 
 - [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
-- [Så identifierar du tal i C#](quickstart-csharp-windows.md)
+- [Så identifierar du tal i C#](quickstart-csharp-dotnet-windows.md)
 - [Git-exempeldata](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

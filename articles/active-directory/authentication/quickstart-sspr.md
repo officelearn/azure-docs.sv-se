@@ -10,21 +10,21 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c99ae755705dddf501609c8f199d1977d0bde415
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33870030"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057369"
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Snabb distribution av återställning av lösenord för självbetjäning i Azure AD
 
 > [!IMPORTANT]
-> **Är du här eftersom du har problem med att logga in?** Om så är fallet, se [Hjälp, jag har glömt mitt Azure AD-lösenord](../active-directory-passwords-update-your-own-password.md).
+> **Är du här eftersom du har problem med att logga in?** Om så är fallet, se [Hjälp, jag har glömt mitt Azure AD-lösenord](../user-help/active-directory-passwords-update-your-own-password.md).
 
 Återställning av lösenord för självbetjäning (SSPR) erbjuder ett enkelt sätt för IT-administratörer att låta användarna återställa eller låsa upp sina lösenord eller sina konton. Systemet innehåller detaljerade rapporter för att spåra när användare använder systemet tillsammans med aviseringar som informerar om missbruk.
 
-I den här handboken förutsätts att du redan har en aktiv utvärderingsversion eller licensierad Azure Active Directory-klient (Azure AD). Om du behöver hjälp med att konfigurera Azure AD kan du läsa [Komma igång med Azure AD](../get-started-azure-ad.md).
+I den här handboken förutsätts att du redan har en aktiv utvärderingsversion eller licensierad Azure Active Directory-klient (Azure AD). Om du behöver hjälp med att konfigurera Azure AD kan du läsa [Komma igång med Azure AD](../fundamentals/get-started-azure-ad.md).
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Aktivera SSPR för din Azure AD-klientorganisation
 
@@ -62,7 +62,7 @@ I den här handboken förutsätts att du redan har en aktiv utvärderingsversion
    * Meddela användare om lösenordsåterställning.
    * Meddela alla administratörer när andra administratörer återställer sina lösenord.
 
-Nu har du konfigurerat SSPR för din Azure AD-klient. Användarna kan nu använda instruktionerna i artiklarna [Registrera för återställning av lösenord för självbetjäning](../active-directory-passwords-reset-register.md) och [Återställ eller ändra ditt lösenord](../active-directory-passwords-update-your-own-password.md) för att uppdatera sina lösenord utan inblandning av administratören. Om du använder en molnbaserad lösning kan du sluta här. Alternativt kan du fortsätta till nästa avsnitt och konfigurera synkronisering av lösenord till en lokal Active Directory-domän.
+Nu har du konfigurerat SSPR för din Azure AD-klient. Användarna kan nu använda instruktionerna i artiklarna [Registrera för återställning av lösenord för självbetjäning](../user-help/active-directory-passwords-reset-register.md) och [Återställ eller ändra ditt lösenord](../user-help/active-directory-passwords-update-your-own-password.md) för att uppdatera sina lösenord utan inblandning av administratören. Om du använder en molnbaserad lösning kan du sluta här. Alternativt kan du fortsätta till nästa avsnitt och konfigurera synkronisering av lösenord till en lokal Active Directory-domän.
 
 > [!TIP]
 > Testa SSPR med en användare och inte en administratör eftersom Microsoft tillämpar starka autentiseringskrav för administratörskonton i Azure. Mer information om lösenordsprinciper för administratörer finns i vår artikel om [lösenordsprinciper](concept-sspr-policy.md#administrator-password-policy-differences).
@@ -95,8 +95,8 @@ Det är enkelt att inaktivera lösenordsåterställning via självbetjäning. Ö
 Följande artiklar ger ytterligare information om lösenordsåterställning via Azure AD:
 
 * [Hur gör jag för att slutföra en lyckad distribution av SSPR?](howto-sspr-deployment.md)
-* [Återställ eller ändra ditt lösenord](../active-directory-passwords-update-your-own-password.md)
-* [Registrera för återställning av lösenord för självbetjäning](../active-directory-passwords-reset-register.md)
+* [Återställ eller ändra ditt lösenord](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registrera för återställning av lösenord för självbetjäning](../user-help/active-directory-passwords-reset-register.md)
 * [Har du en fråga om licensiering?](concept-sspr-licensing.md)
 * [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](howto-sspr-authenticationdata.md)
 * [Vilka autentiseringsmetoder är tillgängliga för användarna?](concept-sspr-howitworks.md#authentication-methods)

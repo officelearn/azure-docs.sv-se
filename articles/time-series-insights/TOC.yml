@@ -101,7 +101,7 @@
     - name: Kunddataförfrågningar
       href: time-series-insights-customer-data-requests.md
     - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
     - name: Priskalkylator

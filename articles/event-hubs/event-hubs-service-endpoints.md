@@ -1,6 +1,6 @@
 ---
-title: Virtuella nätverksslutpunkter och regler för Händelsehubbar i Azure | Microsoft Docs
-description: Lägg till en Microsoft.ServiceBus tjänstslutpunkt till ett virtuellt nätverk.
+title: Tjänstslutpunkter i virtuella nätverk och regler för Azure Event Hubs | Microsoft Docs
+description: Lägg till en slutpunkt för Microsoft.EventHub till ett virtuellt nätverk.
 services: event-hubs
 documentationcenter: ''
 author: clemensv
@@ -10,46 +10,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: clemensv
-ms.openlocfilehash: a23e5414cd3c60192badfee65b14c49cd5e96f4e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 3746c4b7d1b53d7522f317fd2e349d31ba77f406
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036369"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136346"
 ---
-# <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Använda slutpunkter för virtuellt nätverk med Azure Event Hubs
+# <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Använda virtuella nätverksslutpunkter med Azure Event Hubs
 
-Integrering av Händelsehubbar med [virtuella nätverk (VNet) Tjänsteslutpunkter] [ vnet-sep] möjliggör säker åtkomst till meddelandefunktioner från arbetsbelastningar som till exempel virtuella datorer som är kopplade till virtuella nätverk med nätverkssökvägen för trafik som skyddas i båda ändar. 
+Integreringen av Event Hubs med [tjänstslutpunkter i virtuella nätverk (VNet)] [ vnet-sep] möjliggör säker åtkomst till funktioner för meddelanden från arbetsbelastningar som till exempel virtuella datorer som är kopplade till virtuella nätverk med nätverkssökvägen för trafik som skyddas i bägge ändar. 
 
-När du konfigurerat vara bundna till minst ett virtuellt undernät tjänstslutpunkten respektive Händelsehubbar namnområdet inte längre tillåter trafik från var som helst men behörighet virtuella nätverk. Ur virtuellt nätverk konfigurerar bindning ett namnområde för Händelsehubbar till en tjänstslutpunkt ett isolerat nätverk tunnel från det virtuella nätverket till meddelandetjänsten.
+När konfigurerad att vara bunden till minst en tjänstslutpunkt för virtuellt nätverk undernät, de respektive Event Hubs-namnområdet inte längre tar emot trafik från var som helst utan behörighet virtuella nätverk. Ur virtuellt nätverk konfigurerar bindning ett namnområde för Event Hubs till en slutpunkt för ett isolerat nätverk tunnel från det virtuella undernätet till meddelandetjänsten.
 
-Resultatet är en privat och isolerade relation mellan de arbetsbelastningar som är kopplad till undernätet och respektive Händelsehubbar namnområdet, trots synliga nätverksadressen för den asynkrona tjänsten endpoint en offentlig IP-adressintervall.
+Resultatet är en privata och isolerade relation mellan de arbetsbelastningar som är bundna till undernätet och respektive Event Hubs-namnområdet, trots synliga nätverksadressen för den asynkrona service slutpunkt i en offentlig IP-adressintervallet.
 
-## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Scenarier för avancerad säkerhet aktiveras genom integrering av virtuellt nätverk 
+## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Avancerade scenarier som använder VNet-integrering 
 
-Lösningar som kräver nära och avdelningsvis säkerhet och där virtuella undernät ger segmentering mellan tjänsterna compartmentalized måste oftast fortfarande Kommunikationssökvägar mellan tjänster som finns i dessa utrymmen.
+Lösningar som kräver nära och avdelningsvis säkerhet och där virtuella undernätverk ger segmentering mellan tjänsterna som compartmentalized behöver oftast fortfarande kommunikationsvägar mellan tjänster som finns i dessa avdelningar.
 
-Någon omedelbar IP-väg mellan avdelningar, inklusive de som HTTPS över TCP/IP, bär risken för utnyttjandet av säkerhetsproblem från nätverket på upp. Meddelandetjänster ger helt isolerade Kommunikationssökvägar, där även meddelanden skrivs till disk när de flyttar mellan parterna. Arbetsbelastningar i två olika virtuella nätverk som är både bundna till samma Händelsehubbar-instans kan kommunicera effektivt och tillförlitligt sätt via meddelanden, medan respektive nätverk isolerade gräns integritet bevaras.
+Någon omedelbar IP-väg mellan avdelningar, inklusive de som HTTPS via TCP/IP, bär risken för problem från nätverket på upp. Meddelandetjänster ger helt isolerade kommunikationsvägar, där även meddelanden skrivs till disk när de överför mellan parterna. Arbetsbelastningar i två olika virtuella nätverk som är både bundna till samma Event Hubs-instans kan kommunicera på ett effektivt och tillförlitligt sätt via meddelanden, medan respektive nätverk isolering gräns integritet bevaras.
  
-Det innebär att säkerheten känsliga molnlösningar inte få åtkomst till Azure branschledande tillförlitliga och skalbara asynkron meddelandefunktioner, men de kan nu använda meddelanden för att skapa Kommunikationssökvägar mellan säker lösning compartments som är samtidigt säkrare än vad som kan uppnås med peer-to-peer-kommunikation-läge som helst, inklusive HTTPS och andra TLS-skyddad socket-protokoll.
+Det innebär att din säkerhet som är känsliga molnlösningar inte bara tillgång till Azure branschledande pålitliga och skalbara asynkrona meddelandefunktioner, men de kan nu använda meddelanden för att skapa kommunikationsvägar mellan säker lösning compartments som är säkrare än vad som kan uppnås med alla peer-to-peer-kommunikationsläge, inklusive HTTPS och andra TLS för säker socket-protokoll.
 
 ## <a name="bind-event-hubs-to-virtual-networks"></a>Binda Händelsehubbar till virtuella nätverk
 
-*Virtuellt Nätverksregler* är funktionen Brandvägg säkerhet som styr om Händelsehubbar i Azure-servern tar emot anslutningar från ett särskilt virtuellt undernät.
+*Virtuella Nätverksregler* är säkerhetsfunktion för brandväggen som styr om Azure Event Hubs-server tar emot anslutningar från ett visst virtuellt nätverksundernät.
 
-Binda ett namnområde för Händelsehubbar till ett virtuellt nätverk är en tvåstegsprocess. Först måste du skapa en **tjänstslutpunkten för virtuellt nätverk** på ett undernät för virtuellt nätverk och aktivera den för ”Microsoft.ServiceBus” som beskrivs i den [översikt över slutpunkt] [ vnet-sep]. När du har lagt till i tjänsteslutpunkt kan du binda Händelsehubbar namnområdet till den med en *virtuellt nätverk regeln*.
+Bindning för ett namnområde för Event Hubs till ett virtuellt nätverk är en tvåstegsprocess. Du måste först skapa en **tjänstslutpunkt för virtuellt nätverk** på ett undernät för virtuellt nätverk och aktivera den för ”Microsoft.EventHub” som beskrivs i den [endpoint tjänstöversikt] [ vnet-sep]. När du har lagt till tjänsteslutpunkt kan du binda Event Hubs-namnområdet till den med en *virtuell nätverksregel*.
 
-Regeln för virtuellt nätverk är en namngiven associering av Händelsehubbar namnområde med ett undernät för virtuellt nätverk. När regeln finns beviljas alla arbetsbelastningar som är bundna till undernätet åtkomst till namnområdet Händelsehubbar. Händelsehubbar själva aldrig upprättar utgående anslutningar inte behöver komma åt och därför aldrig beviljas åtkomst till ditt undernät genom att aktivera den här regeln.
+Regel för virtuella nätverk är en namngivna nätverk med Event Hubs-namnområde med ett virtuellt nätverksundernät. När regeln finns har alla arbetsbelastningar som är bunden till undernätet beviljats åtkomst till Event Hubs-namnområdet. Händelsehubbar själva aldrig upprättar utgående anslutningar, behöver inte komma åt och därför aldrig beviljas åtkomst till ditt undernät genom att aktivera den här regeln.
 
-### <a name="create-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Skapa en regel för virtuellt nätverk med Azure Resource Manager-mallar
+### <a name="create-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Skapa en regel för virtuella nätverk med Azure Resource Manager-mallar
 
-Följande Resource Manager-mall kan lägga till en regel för virtuellt nätverk till ett befintligt namnområde i Händelsehubbar.
+Följande Resource Manager-mallen gör det möjligt att lägga till en regel för virtuella nätverk till ett befintligt namnområde för Event Hubs.
 
 Mallparametrar:
 
-* **namespaceName**: Händelsehubbar namnområde.
-* **vnetRuleName**: namn på regeln för virtuella nätverk som ska skapas.
-* **virtualNetworkingSubnetId**: fullständiga Resource Manager-sökvägen för det virtuella nätverket, till exempel `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` för standard undernätet för ett virtuellt nätverk.
+* **namespaceName**: Event Hubs-namnområdet.
+* **vnetRuleName**: namn för virtuellt nätverk regeln som ska skapas.
+* **virtualNetworkingSubnetId**: fullständiga Resource Manager-sökvägen för virtuella nätverkets undernät, till exempel `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` för standardundernät i ett virtuellt nätverk.
 
 ```json
 {  
@@ -88,13 +88,13 @@ Mallparametrar:
 }
 ```
 
-Följ instruktionerna för att distribuera mallen [Azure Resource Manager][lnk-deploy].
+Om du vill distribuera mallen genom att följa anvisningarna för [Azure Resource Manager][lnk-deploy].
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om virtuella nätverk finns i följande länkar:
 
-- [Slutpunkter för virtuella Azure-nätverket][vnet-sep]
+- [Tjänstslutpunkter i virtuella Azure-nätverket][vnet-sep]
 - [Azure Event Hubs IP-filtrering][ip-filtering]
 
 [vnet-sep]: ../virtual-network/virtual-network-service-endpoints-overview.md

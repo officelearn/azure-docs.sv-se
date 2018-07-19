@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: cc6837ab14aa8fb36317da52cf011ddbd7e464be
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ae670eca3d655e16ddf55da2e2538ba96b7e0115
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972239"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126059"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-kluster kapacitetsplanering
 För alla Produktionsdistribution är kapacitetsplanering ett viktigt steg. Här är några av de objekt som du måste väga in som en del av den här processen.
@@ -165,6 +165,7 @@ För produktionsarbetsbelastningar:
 - Vi rekommenderar att du anger dina kluster primära NodeType systemtjänster och Använd placeringsbegränsningar för att distribuera programmet till sekundära NodeTypes.
 - Den rekommenderade VM-SKU är Standard D3 Standard D3_V2 eller motsvarande med minst 14 GB lokal SSD-lagring.
 - Minsta stöds användning VM SKU är Standard D1 Standard D1_V2 eller motsvarande med minst 14 GB lokal SSD-lagring. 
+- 14 GB lokal SSD är ett minimikrav. Vår rekommendation är minst 50 GB. Större diskar krävs för dina arbetsbelastningar, särskilt när du kör Windows-behållare. 
 - Partiell grundläggande VM SKU: er som Standard A0 stöds inte för produktionsarbetsbelastningar.
 - Standard A1-SKU stöds inte för produktionsarbetsbelastningar av prestandaskäl.
 

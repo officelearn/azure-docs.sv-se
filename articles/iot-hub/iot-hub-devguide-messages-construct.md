@@ -1,75 +1,75 @@
 ---
 title: Förstå Azure IoT Hub-meddelandeformat | Microsoft Docs
-description: Utvecklarhandbok - beskrivs formatet och förväntade innehållet i IoT-hubb meddelanden.
+description: Utvecklarguide – beskrivs formatet och förväntade innehållet i meddelanden från IoT Hub.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 1d84fa5ca580a1e56ba9ce17dece9ad9680c74c6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a1296565384e60117d883a1f1407362482ba1a3e
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633935"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125021"
 ---
-# <a name="create-and-read-iot-hub-messages"></a>Skapa och läsa IoT-hubb
+# <a name="create-and-read-iot-hub-messages"></a>Skapa och läsa IoT Hub-meddelanden
 
-För att stödja smidig samverkan över protokoll, definierar IoT-hubb ett gemensamt meddelandeformat för alla enheter riktade protokoll. Formatet som används för både [enhet till moln] [ lnk-d2c] och [moln till enhet] [ lnk-c2d] meddelanden. 
+Om du vill ha stöd för smidig samverkan mellan protokoll, definierar IoT Hub ett vanliga meddelandeformat för alla protokoll för webbservergrupper på enheten. Meddelanden i formatet används för både [enhet till moln] [ lnk-d2c] och [moln till enhet] [ lnk-c2d] meddelanden. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-En [IoT-hubb meddelandet] [ lnk-messaging] består av:
+En [IoT Hub-meddelande] [ lnk-messaging] består av:
 
-* En uppsättning *Systemegenskaper*. Egenskaper som IoT-hubb tolkar eller anger. Den här uppsättningen är förinställda.
-* En uppsättning *programegenskaper*. En ordlista med egenskaper för anslutningssträngar som programmet kan definiera och åtkomst utan att avbryta serialiseringen för brödtext. IoT-hubb ändrar aldrig dessa egenskaper.
+* En uppsättning *Systemegenskaper*. Egenskaper som IoT Hub tolkar eller anger. Den här uppsättningen är förinställt.
+* En uppsättning *programegenskaper*. En ordlista med egenskaper för anslutningssträngar som programmet kan definiera och åtkomst, utan att behöva deserialisera meddelandetexten. IoT Hub ändrar aldrig de här egenskaperna.
 * En täckande binära brödtext.
 
-Egenskapsnamn och värden kan endast innehålla alfanumeriska ASCII-tecken, plus ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``` när du:  
+Egenskapsnamn och värden får bara innehålla alfanumeriska ASCII-tecken, plus ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``` när du:  
 
-* Skicka meddelanden från enhet till moln med hjälp av HTTPS-protokollet.
-* Skicka meddelanden moln till enhet.
+* Skicka meddelanden från enheten till molnet med hjälp av HTTPS-protokollet.
+* Skicka meddelanden från molnet till enheten.
 
-Mer information om hur du kodar och avkodar meddelanden som skickas med olika protokoll finns [Azure IoT SDK][lnk-sdks].
+Läs mer om hur du kodar och avkodar meddelandena som skickas med olika protokoll, [Azure IoT SDK: er][lnk-sdks].
 
-I följande tabell visas en uppsättning egenskaper i IoT-hubb-meddelanden.
+I följande tabell visar uppsättningen Systemegenskaper i IoT Hub-meddelanden.
 
 | Egenskap  | Beskrivning |
 | --- | --- |
-| messageId |En användare går identifierare för meddelandet som används för request-reply-mönster. Format: En skiftlägeskänslig sträng (upp till 128 tecken) av alfanumeriska tecken, ASCII-7-bitars + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
-| Sekvensnummer |En siffra (unika per enhet kö) IoT-hubben har tilldelats varje moln till enhet-meddelande. |
+| MessageId |En användare inställbar identifierare för meddelandet som används för begäran / svar-mönster. Format: En skiftlägeskänslig sträng (upp till 128 tecken) med ASCII 7 bitar alfanumeriska tecken + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
+| Sekvensnummer |Ett tal (unika per enhet kö) IoT Hub har tilldelats varje moln-till-enhet-meddelande. |
 | Till |Ett mål som anges i [moln till enhet] [ lnk-c2d] meddelanden. |
-| ExpiryTimeUtc |Datum och tid för meddelandet upphör att gälla. |
-| EnqueuedTime |Datum och tid i [moln till enhet] [ lnk-c2d] meddelande togs emot av IoT-hubb. |
-| CorrelationId |En strängegenskap i ett svarsmeddelande som vanligtvis innehåller MessageId för begäran i request-reply-mönster. |
-| UserId |Ett ID som används för att ange ursprung av meddelanden. När meddelanden som genereras av IoT-hubb, den är inställd på `{iot hub name}`. |
-| Ack |En feedback generatorn för meddelandet. Den här egenskapen används i meddelanden moln till enhet för att begära IoT-hubb för att generera feedback meddelanden till följd av användningen av meddelandet av enheten. Möjliga värden: **ingen** (standard): ingen feedback-meddelandet genereras **positivt**: ett meddelande feedback om meddelandet slutfördes **negativa**: ta emot en feedback meddelande om meddelandet har upphört att gälla (eller leverans av maximalt antal nåddes) utan slutförs av enheten, eller **fullständig**: både positiva och negativa. Mer information finns i [meddelande feedback][lnk-feedback]. |
-| ConnectionDeviceId |Ett ID som angetts av IoT-hubb på meddelanden från enhet till moln. Den innehåller den **deviceId** på den enhet som skickade meddelandet. |
-| ConnectionDeviceGenerationId |Ett ID som angetts av IoT-hubb på meddelanden från enhet till moln. Den innehåller den **generationId** (enligt [identitet enhetsegenskaper][lnk-device-properties]) på den enhet som skickade meddelandet. |
-| ConnectionAuthMethod |En autentiseringsmetod som angetts av IoT-hubb på meddelanden från enhet till moln. Den här egenskapen innehåller information om autentiseringsmetoden som används för att autentisera enheten skickar meddelandet. Mer information finns i [enheten till molnet skydd mot förfalskning][lnk-antispoofing]. |
+| ExpiryTimeUtc |Datum och tid för förfallodatum för meddelanden. |
+| EnqueuedTime |Datum och tid i [moln till enhet] [ lnk-c2d] meddelande togs emot av IoT Hub. |
+| CorrelationId |En strängegenskap i ett svarsmeddelande som vanligtvis innehåller meddelande-ID för begäran i begäran / svar-mönster. |
+| UserId |Ett ID som används för att ange ursprunget av meddelanden. När meddelanden genereras av IoT Hub, den är inställd på `{iot hub name}`. |
+| Ack |En feedback meddelande generator. Den här egenskapen används i meddelanden från moln till enhet för att begära IoT Hub för att generera meddelanden på grund av användningen av meddelandet av enheten. Möjliga värden: **ingen** (standard): ingen feedback meddelande genereras **positivt**: meddelandet feedback om meddelandet har slutförts, **negativt**: ta emot en feedback-meddelande om meddelandet har gått ut (eller har nått maximalt antal leveranser) utan håller på att slutföras av enheten, eller **fullständig**: både positiva och negativa. Mer information finns i [meddelande feedback][lnk-feedback]. |
+| ConnectionDeviceId |Ett ID som angetts av IoT Hub på meddelanden från enheten till molnet. Den innehåller den **deviceId** på den enhet som skickade meddelandet. |
+| ConnectionDeviceGenerationId |Ett ID som angetts av IoT Hub på meddelanden från enheten till molnet. Den innehåller den **generationId** (enligt [identitet enhetsegenskaper][lnk-device-properties]) på den enhet som skickade meddelandet. |
+| ConnectionAuthMethod |En autentiseringsmetod som angetts av IoT Hub på meddelanden från enheten till molnet. Den här egenskapen innehåller information om den autentiseringsmetod som används för att autentisera den enhet som skickar meddelandet. Mer information finns i [enhet till moln skydd mot förfalskning][lnk-antispoofing]. |
 | CreationTimeUtc | Datum och tidpunkt som meddelandet skapades på en enhet. En enhet måste ange ett explicit värde. |
 
 ## <a name="message-size"></a>Meddelandestorlek
 
-IoT-hubb mäter meddelandestorlek på ett sätt som protokoll-oberoende överväger faktiska nyttolasten. Storlek i byte beräknas som summan av följande:
+IoT Hub mäter meddelandestorlek på ett protokoll-oberoende sätt, överväger bara den faktiska nyttolasten. Storlek i byte beräknas som summan av följande:
 
 * Brödtext storlek i byte.
-* Storlek i byte för alla värden i meddelandet Systemegenskaper.
+* Storlek i byte för alla värden i systemet meddelandeegenskaper.
 * Storlek i byte för alla användare egenskapsnamn och värden.
 
-Egenskapsnamn och värden är begränsade till ASCII-tecken, så att längden på strängarna som är lika med storleken i byte.
+Egenskapsnamn och värden är begränsade till ASCII-tecken så lång strängarna är lika storlek i byte.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om storleksgränser för meddelanden i IoT-hubb finns [IoT-hubb kvoter och begränsning][lnk-quotas].
+Information om begränsningar för meddelandestorlek i IoT Hub finns i [IoT Hub-kvoter och begränsningar][lnk-quotas].
 
-Information om hur du skapar och läsa meddelanden i olika programmeringsspråk för IoT-hubb finns i [Kom igång] [ lnk-get-started] självstudier.
+Information om hur du skapar och läsa IoT Hub-meddelanden i olika programmeringsspråk, finns det [Snabbstarter][lnk-get-started].
 
 [lnk-messaging]: iot-hub-devguide-messaging.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-get-started]: iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-d2c]: iot-hub-devguide-messages-d2c.md

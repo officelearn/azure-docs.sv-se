@@ -1,43 +1,43 @@
 ---
-title: Python Snabbstartsguide för Azure kognitiva Services, Microsoft Translator tal API | Microsoft Docs
-description: Hämta information och exempel på kod för att snabbt komma igång med Microsoft översättare tal-API i kognitiva Microsoft-tjänster i Azure.
+title: Python-Snabbstart för Azure Cognitive Services och Microsoft Translator-API för Talöversättning | Microsoft Docs
+description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med Microsoft Translator Speech API i Microsoft Cognitive Services på Azure.
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
 ms.service: cognitive-services
 ms.component: translator-speech
 ms.topic: article
-ms.date: 3/5/2018
+ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 29722b3fa7fe61aff0b2406002453020d999ea41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 40535f400bc5359019e89320489721bf481c1210
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352191"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124835"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>Snabbstart för Microsoft Translator tal API med Python 
+# <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>Snabbstart för Microsoft Translator Speech API med Python 
 <a name="HOLTop"></a>
 
-Den här artikeln visar hur du använder Microsoft översättare tal-API för att översätta ord talas i WAV-filer.
+Den här artikeln visar hur du använder Microsoft Translator Speech API för att översätta ord som sägs i en WAV-fil.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver [Python 3.x](https://www.python.org/downloads/) att köra den här koden.
 
-Du måste installera den [websocket-klientpaketet](https://pypi.python.org/pypi/websocket-client) för Python.
+Du måste installera den [websocket-client-paketet](https://pypi.python.org/pypi/websocket-client) för Python.
 
-Du behöver en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du sammanställer från koden nedan. Den här WAV-filen måste vara i standard PCM, 16-bitars, 16kHz monoljud format. Du kan hämta dessa WAV-filer från de [översättare Text tala API](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak).
+Du behöver en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du kompilera från koden nedan. Den här .wav-filen ska vara i standard PCM, 16-bitars, 16kHz mono format.
 
-Du måste ha en [kognitiva Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Microsoft översättare tal-API**. Du behöver en betald prenumeration nyckeln från din [Azure instrumentpanelen](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+Du måste ha en [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Microsoft Translator Speech API**. Du behöver en betald prenumerationsnyckel från din [Azure-instrumentpanelen](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
-## <a name="translate-speech"></a>Översätta tal
+## <a name="translate-speech"></a>Översätt tal
 
-Följande kod översätter tal från ett språk till en annan.
+Följande kod omvandlar tal från ett språk till ett annat.
 
-1. Skapa ett nytt Python-projekt i din favorit IDE.
+1. Skapa ett nytt Python-projekt i din favorit-IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `key` värde med en giltig snabbtangent för din prenumeration.
+3. Ersätt den `key` värde med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ```python
@@ -118,18 +118,18 @@ print ("Connecting...")
 client.run_forever()
 ```
 
-**Översätta tal svar**
+**Omvandla tal svar**
 
-En lyckad resultatet är att skapa en fil med namnet ”speak2.wav”. Filen innehåller översättning av orden talas i ”speak.wav”.
+En lyckad resultatet är att skapa en fil med namnet ”speak2.wav”. Filen innehåller översättningen av ord som sägs i ”speak.wav”.
 
 [Överst på sidan](#HOLTop)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Översättare tal självstudiekursen](../tutorial-translator-speech-csharp.md)
+> [Translator Speech självstudien](../tutorial-translator-speech-csharp.md)
 
 ## <a name="see-also"></a>Se också 
 
-[Översättare tal, översikt](../overview.md)
+[Översikt över Translator Speech](../overview.md)
 [API-referens](http://docs.microsofttranslator.com/speech-translate.html)

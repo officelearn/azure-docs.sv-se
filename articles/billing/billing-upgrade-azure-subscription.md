@@ -1,7 +1,7 @@
 ---
-title: Uppgradera din kostnadsfria Azure-prenumeration till betala per användning | Microsoft Docs
-description: Beskriver hur du kan göra en betala per användning uppgradera från en kostnadsfri prenumeration och krav
-keywords: betala per uppgradering
+title: Uppgradera ditt kostnadsfria Azure-prenumeration till betala per användning | Microsoft Docs
+description: Beskriver hur du kan göra en användningsbaserad betalning uppgradera från en kostnadsfri prenumeration och kraven
+keywords: betala uppgradering
 services: ''
 documentationcenter: ''
 author: jlian
@@ -17,23 +17,28 @@ ms.workload: na
 ms.date: 08/30/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86c733f138e9926fb13c2c1cb404cc9b61f4780e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 089bb6f3fd187a56495dfd353ee89086e6bea120
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32769179"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124991"
 ---
-# <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Uppgradera din prenumeration kostnadsfri utvärderingsversion eller Microsoft anta Azure till betala per användning
+# <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Uppgradera din utvärderingsversion eller Microsoft Imagine Azure-prenumeration till betala per användning
 
-Uppgradera din [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/) eller [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) prenumeration på [betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/) i Azure Kontocenter.
+Uppgradera din [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/) eller [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) prenumeration på [användningsbaserad](https://azure.microsoft.com/offers/ms-azr-0003p/) i Azure Kontocenter.
 
 1. Logga in på den [Azure Kontocenter](https://account.windowsazure.com/subscriptions).
 2. I avsnittet prenumeration status väljer du den **uppgradera nu** banderoll.
    
-    ![Skärmbild som visar var du ska klicka för att uppgradera från den kostnadsfria utvärderingsversionen till betala per användning](./media/billing-upgrade-azure-subscription/billpage.png)
+    ![Skärmbild som visar var du ska klicka om du vill uppgradera från den kostnadsfria utvärderingsversionen till betala per användning](./media/billing-upgrade-azure-subscription/billpage.png)
 3. Bekräfta uppgraderingen.
    
     ![Skärmbild som visar vad du ska välja för att bekräfta att du vill uppgradera din prenumeration](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
- När du uppgraderar från en kostnadsfri utvärderingsversion kan du behålla din återstående kredit för fullständig 30 dagar efter att du har skapat prenumerationen. Du har också åtkomst till kostnadsfria tjänster i tolv månader.
+ När du uppgraderar från en kostnadsfri utvärderingsprenumeration Behåll din kvarvarande kredit för fullständig 30 dagar efter att du har skapat prenumerationen. Du kan också ha tillgång till kostnadsfria tjänster i 12 månader.
+ 
+ Om du vill [överföra prenumerationen](billing-subscription-transfer.md) efter uppgraderingen måste du vänta tills prenumerationserbjudande ID: T ändras till **MS-AZR - 003P**. Erbjudande-ID: T ändras när
+
+* Du förbrukar alla återstående kredit, eller
+* 30 dagar skickar sedan början av den kostnadsfria utvärderingsversionen

@@ -8,14 +8,14 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 07/16/2018
 ms.author: v-geberr
-ms.openlocfilehash: b695783c6d68876d39482ed5abec24f45087603d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c146182c07c49cb73349df69c649601276a6e837
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054870"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126481"
 ---
 # <a name="improve-app-with-batch-test"></a>Förbättra app med batch-test
 
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 * Skapa en batchfil för testning 
 * Köra ett batch-test
 * Granskningsresultat
-* Åtgärda fel för avsikter
+* Åtgärda fel 
 * Testa om batch
 
 För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#luis-website) för att kunna redigera LUIS-programmet.
@@ -38,48 +38,25 @@ Om du inte har personalapp från den [granska endpoint yttranden](luis-tutorial-
 
 Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `batchtest`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
 
+Träna appen.
+
 ## <a name="purpose-of-batch-testing"></a>Syftet med batch-testning
-Batch-testning kan du kontrollera tillstånd för en modell med en känd uppsättning av test yttranden och märkt med entiteter. I JSON-formaterade kommandofilen, Lägg till talade och ange etiketter för entiteten som du behöver förutse inuti uttryck. 
+Batch-testning kan du kontrollera aktiva tränas modellens tillstånd med en känd uppsättning av taggade yttranden och entiteter. I JSON-formaterade kommandofilen, Lägg till talade och ange etiketter för entiteten som du behöver förutse inuti uttryck. 
 
-Rekommenderade test-strategin för LUIS använder tre separata uppsättningar av data: exempel yttranden till modellen, batch test yttranden och slutpunkten yttranden. Kontrollera att du inte använder yttranden från antingen exempel yttranden (läggs till ett intent) eller slutpunkten yttranden i den här självstudien. 
-
-Kontrollera din batch test yttranden mot exempel yttranden och slutpunkten yttranden [exportera](luis-how-to-start-new-app.md#export-app) appen och [hämta](luis-how-to-start-new-app.md#export-endpoint-logs) frågeloggen. Jämför app exempel uttryck och fråga log yttranden till batch test yttranden. 
+<!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> När du använder en app än den här självstudien måste du kontrollera att du är *inte* med hjälp av exempel talade redan lagts till i en avsikt. Kontrollera din batch test yttranden mot exempel-yttranden [exportera](luis-how-to-start-new-app.md#export-app) appen. Jämför den appen exempel uttrycks till batch test yttranden. 
 
 Krav för att testa batch:
 
-* 1000 yttranden per test. 
+* Högst 1000 yttranden per test. 
 * Inga dubbletter. 
-* Entitetstyper tillåts: enkel och sammansatta.
+* Entitetstyper tillåts: endast bearbetas-lärt dig enheter enkla, hierarkisk (överordnade endast), och komposita. Batch testning är endast användbart för bearbetning-lärt dig avsikter och entiteter.
 
 ## <a name="create-a-batch-file-with-utterances"></a>Skapa en batchfil med yttranden
 1. Skapa `HumanResources-jobs-batch.json` i en textredigerare som [VSCode](https://code.visualstudio.com/). 
 
 2. Lägg till yttranden med i JSON-formaterade kommandofilen, den **avsikt** du vill att förväntade i testet. 
 
-    ```JSON
-    [
-        {
-        "text": "Are there any janitorial jobs currently open?",
-        "intent": "GetJobInformation",
-        "entities": []
-        },
-        {
-        "text": "I would like a fullstack typescript programming with azure job",
-        "intent": "GetJobInformation",
-        "entities": []
-        },
-        {
-        "text": "Is there a database position open in Los Colinas?",
-        "intent": "GetJobInformation",
-        "entities": []
-        },
-        {
-        "text": "Can I apply for any database jobs with this resume?",
-        "intent": "GetJobInformation",
-        "entities": []
-        }
-    ]
-    ```
+   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
 
 ## <a name="run-the-batch"></a>Kör om gruppen
 
@@ -112,35 +89,33 @@ Krav för att testa batch:
     [ ![Skärmbild av LUIS-app med testresultaten för batch](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
 
 ## <a name="review-batch-results"></a>Granska resultatet från batch
-Batch-diagrammet visar fyra quadrants resultat. Är ett filter till höger om diagrammet. Filtret är som standard första avsikten i listan. Filtret innehåller alla avsikter och endast enkla, hierarkisk (överordnade endast), och sammansatta entiteter. När du väljer en del av diagrammet eller en punkt i diagrammet visas de associerade utterance(s) under diagrammet. 
+Batch-diagrammet visar fyra quadrants resultat. Är ett filter till höger om diagrammet. Filtret är som standard första avsikten i listan. Filtret innehåller alla avsikter och endast enkla, hierarkisk (överordnade endast), och sammansatta entiteter. När du väljer en [delen av diagrammet](luis-concept-batch-test.md#batch-test-results) eller en punkt i diagrammet visas de associerade utterance(s) under diagrammet. 
 
 Vid hovring över diagrammet, ett mushjul förstora eller minska visas i diagrammet. Detta är användbart när det finns många saker i diagrammet klustrade nära tillsammans. 
 
 Diagrammet är i fyra quadrants med två av de avsnitt som visas i rött. **Dessa finns i avsnitt fokuserar på**. 
 
-### <a name="applyforjob-test-results"></a>ApplyForJob testresultat
-Den **ApplyForJob** test visas i filtret visar att 1 av fyra förutsägelser lyckades. Välj namnet **falsklarm** över övre högra quadrant att se yttranden under diagrammet. 
+### <a name="getjobinformation-test-results"></a>GetJobInformation testresultat
+Den **GetJobInformation** test visas i filtret visar att 2 av fyra förutsägelser har genomförts. Välj namnet **falsklarm** över övre högra quadrant att se yttranden under diagrammet. 
 
 ![LUIS batch test yttranden](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
 
-Tre talade hade en främsta syftet med **ApplyForJob**. Avsikten som anges i batchfilen hade en lägre poäng. Varför hände detta? Två avsikter relaterade mycket nära när det gäller word val och word placering. Det finns dessutom nästan tre gånger så många exempel för **ApplyForJob** än **GetJobInformation**. Den här ojämnheter av exempel yttranden väger **ApplyForJob** avsikts fördel. 
+Varför är två av talade förutse som **ApplyForJob**, i stället för rätt avsikten **GetJobInformation**? Två avsikter relaterade mycket nära när det gäller word val och word placering. Det finns dessutom nästan tre gånger så många exempel för **ApplyForJob** än **GetJobInformation**. Den här ojämnheter av exempel yttranden väger **ApplyForJob** avsikts fördel. 
 
-Lägg märke till att båda avsikter har samma antal fel: 
+Observera att båda avsikter har samma antal fel. En felaktig förutsägelse i en avsikt påverkar andra avsikten samt. De båda innehåller fel eftersom talade har felaktigt förväntas en avsikt, och även felaktigt inte förväntad för ett annat syfte. 
 
 ![LUIS batch test filterfel](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
 
-Det uttryck som motsvarar den övre punkten i den **falsklarm** avsnittet är `Can I apply for any database jobs with this resume?`. Ordet `resume` har endast används i **ApplyForJob**. 
-
-De andra två punkterna i diagrammet hade mycket lägre poäng för fel avsikt, vilket innebär att de är närmare till rätt avsikt. 
+Tidpunkt för talade motsvarande upp den **falsklarm** avsnittet är `Can I apply for any database jobs with this resume?` och `Can I apply for any database jobs with this resume?`. För den första uttryck ordet `resume` har endast används i **ApplyForJob**. För andra uttryck, ordet `apply` har endast används i den **ApplyForJob** avsikt.
 
 ## <a name="fix-the-app-based-on-batch-results"></a>Åtgärda appen baserat på batch-resultat
-Målet med det här avsnittet är att ha tre yttranden som var felaktigt förväntas **ApplyForJob** till att korrekt förutse för **GetJobInformation**, när appen har lösts. 
+Målet med det här avsnittet är att låta alla talade korrekt förutse för **GetJobInformation** genom att åtgärda appen. 
 
 En till synes snabb korrigering är att lägga till dessa batch filen yttranden till rätt avsikt. Det är inte vad du vill göra om. Vill du LUIS för att förutsäga dessa yttranden utan att lägga till dem som exempel. 
 
 Du kanske också undrar om att ta bort yttranden från **ApplyForJob** tills antalet uttryck är samma som **GetJobInformation**. Som kan åtgärdas testresultaten men skulle hindra LUIS från att förutsäga detta syfte korrekt nästa gång. 
 
-Första korrigeringen är att lägga till fler yttranden till **GetJobInformation**. Andra korrigeringen är att minska vikten för ordet `resume` mot den **ApplyForJob** avsikt. 
+Första korrigeringen är att lägga till fler yttranden till **GetJobInformation**. Andra korrigeringen är att minska vikten av ord som till exempel `resume` och `apply` mot den **ApplyForJob** avsikt. 
 
 ### <a name="add-more-utterances-to-getjobinformation"></a>Lägg till mer yttranden till **GetJobInformation**
 1. Stänga panelen batch test genom att välja den **testa** knappen i övre navigeringsfönstret. 
@@ -151,25 +126,27 @@ Första korrigeringen är att lägga till fler yttranden till **GetJobInformatio
 
     [ ![Skärmbild av LUIS med testknappen markerat](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png#lightbox)
 
-3. Lägg till mer yttranden som varieras för längd, word val och word placering, se till att inkludera villkoren `resume` och `c.v.`:
+3. Lägg till mer yttranden som varieras för längd, word val och word placering, se till att inkludera villkoren `resume`, `c.v.`, och `apply`:
 
-    ```JSON
-    Is there a new job in the warehouse for a stocker?
-    Where are the roofing jobs today?
-    I heard there was a medical coding job that requires a resume.
-    I would like a job helping college kids write their c.v.s. 
-    Here is my resume, looking for a new post at the community college using computers.
-    What positions are available in child and home care?
-    Is there an intern desk at the newspaper?
-    My C.v. shows I'm good at analyzing procurement, budgets, and lost money. Is there anything for this type of work?
-    Where are the earth drilling jobs right now?
-    I've worked 8 years as an EMS driver. Any new jobs?
-    New food handling jobs?
-    How many new yard work jobs are available?
-    Is there a new HR post for labor relations and negotiations?
-    I have a masters in library and archive management. Any new positions?
-    Are there any babysitting jobs for 13 year olds in the city today?
-    ```
+    |Exempel yttranden för **GetJobInformation** avsikt|
+    |--|
+    |Kräver det nya projektet i lagret för en stocker jag använda med en återuppta?|
+    |Var finns takentreprenör jobb idag?|
+    |Jag har hört det uppstod ett medicinska kodning jobb som kräver en återuppta.|
+    |Jag vill ha ett jobb som hjälper college barn skriva sina c.v.s. |
+    |Här är min resume, letar du efter ett nytt inlägg på gymnasium med datorer.|
+    |Vilka positioner är tillgängliga i underordnade och hemifrån försiktighet?|
+    |Finns det ett intern skrivbord på tidningen?|
+    |Min C.v. visar jag är bra på att analysera inköp, budgetar och förlorade pengar. Finns det något för den här typen av arbete?|
+    |Där är jorden Detaljgranskning jobb just nu?|
+    |Jag har jobbat åtta år som ett EMS-drivrutin. Eventuella nya jobb?|
+    |Nya mat hantering av jobb kräver program?|
+    |Hur många nya yard arbete jobb är tillgängliga?|
+    |Finns det ett nytt HR-inlägg för arbete relationer och förhandlingar?|
+    |Jag har en huvudservrar i biblioteket och Arkiv. Alla nya positioner?|
+    |Finns det några babysitting jobb för 13 åringarna i staden idag?|
+
+    Inte etikettera den **jobbet** entitet i talade. Det här avsnittet av självstudiekursen fokuserar på avsikt förutsägelse.
 
 4. Träna appen genom att välja **träna** i det övre högra navigeringsfältet.
 
@@ -182,11 +159,70 @@ För att verifiera att yttranden i batch-testet är korrekt förutse, kör du ba
 
 3. Välj **se resultat**. Avsikter ska ha grön ikonerna till vänster om avsiktlig namnen. 
 
-    [ ![Skärmbild av LUIS med batch resulterar knappen markerad](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png#lightbox)
+    ![Skärmbild av LUIS med batch resulterar knappen markerad](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
 
+## <a name="create-batch-file-with-entities"></a>Skapa en batchfil med entiteter 
+För att verifiera entiteter i ett batch-test, måste entiteterna ska förses i batch JSON-fil. Endast datorn lärt dig-entiteter som används: enkelt, hierarkisk (överordnade endast), och sammansatta entiteter. Lägg inte till icke-machine-lärt dig entiteter, eftersom de finns alltid genom reguljära uttryck eller explicit text matchar.
+
+Variationen för entiteter för totalt antal ord ([token](luis-glossary.md#token)) antal kan påverka förutsägelse kvalitet. Kontrollera att träningsdata som angetts för avsikten med märkta yttranden innehåller en mängd längder för entiteten. 
+
+När du först skriva och testa batch-filer, är det bäst att börja med ett par yttranden och entiteter som du vet fungerar, samt några som du kan fundera över förutsägas felaktigt. Det här kan du fokusera på på problemområden snabbt. När du testar den **GetJobInformation** och **ApplyForJob** avsikter med hjälp av flera olika jobbnamn, som inte har förutsade, den här batchfilen test har utarbetats för att se om det finns ett problem för förutsägelse med vissa värden för **jobbet** entitet. 
+
+Värdet för en **jobbet** entiteten i test-uttryck är vanligtvis en eller två ord med några exempel som flera ord. Om _egna_ personalapp har vanligtvis jobbet namnen på många ord, exempel yttranden som är märkt med **jobbet** entitet i den här appen inte skulle fungera bra.
+
+1. Skapa `HumanResources-entities-batch.json` i en textredigerare som [VSCode](https://code.visualstudio.com/). Eller ladda ned [filen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json) från LUIS-Samples Github-lagringsplatsen.
+
+
+2. I JSON-formaterade batch-filen lägger du till en matris med objekt som innehåller yttranden med den **avsikt** du vill att förväntade i test samt platserna för alla entiteter i uttryck. Eftersom en entitet är tokenbaserad kan du se till att starta och stoppa varje entitet på ett tecken. Inte börja eller sluta uttryck på ett blanksteg. Detta orsakar ett fel under importen för batch-fil.  
+
+   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
+
+<!--TBD: when will the patterns fix be in for batch testing? -->
+## <a name="run-the-batch-with-entities"></a>Kör om gruppen med entiteter
+
+1. Välj **Test** i det övre navigeringsfältet. 
+
+2. Välj **Batch-testning panelen** i den högra panelen. 
+
+3. Välj **importera datauppsättningen**.
+
+4. Välj system sökvägen till den `HumanResources-entities-batch.json` filen.
+
+5. Namnge datauppsättningen `entities` och välj **klar**.
+
+6. Klicka på knappen **Kör**. Vänta tills testet är klart.
+
+    [ ![Skärmbild av LUIS-app med markerat som körs](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
+
+7. Välj **se resultat**.
+
+## <a name="review-entity-batch-results"></a>Granska batch-enhetsresultat
+Diagrammet öppnas med alla avsikter korrekt förutse. Rulla nedåt i höger filtret för att hitta siffervärdena entitet förutsägelser. 
+
+1. Välj den **jobbet** entitet i filtret.
+
+    ![Siffervärdena entitet förutsägelser i filter](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+
+    Diagrammet ändras för att visa entitet förutsägelser. 
+
+2. Välj **falska negativa** kvar i undre quadrant i diagrammet. Använd sedan tangentbord kombination SKIFT + E byter du till vyn token. 
+
+    [ ![Token vy över entiteten förutsägelser](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
+    
+    Granska yttranden under diagrammet visar ett konsekvent fel när Jobbnamnet innehåller `SQL`. Granska exempel yttranden och frasen jobblistan kan SQL används endast en gång och endast som en del av ett större jobbnamn `sql/oracle database administrator`.
+
+## <a name="fix-the-app-based-on-entity-batch-results"></a>Åtgärda appen baserat på batch-enhetsresultat
+Åtgärda appen kräver LUIS för att korrekt fastställa varianter av SQL-jobb. Det finns flera alternativ för att åtgärda. 
+
+* Uttryckligen lägga till fler exempel yttranden som använder SQL och märka orden som en enhet för jobbet. 
+* Uttryckligen lägga till flera SQL-jobb i listan med fraser
+
+Dessa uppgifter finns kvar för dig att göra.
+
+Att lägga till en [mönstret](luis-concept-patterns.md) innan entiteten korrekt förväntas inte kommer att åtgärda problemet. Det beror på att mönstret inte matcha tills alla entiteter i mönstret identifieras. 
 
 ## <a name="what-has-this-tutorial-accomplished"></a>Vad har den här självstudien göra detta?
-Den här appen förutsägelsefunktionen har ökat genom att söka efter fel i batchen och åtgärda modellen genom att lägga till fler exempel yttranden rätt avsikten och utbildning. 
+Förutsägelsefunktionen app har ökat genom att söka efter fel i batchen och åtgärda modellen. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 Ta bort LUIS-appen när den inte längre behövs. Välja **My apps** (Mina appar) på menyn längst upp till vänster. Välj ellipsen **...**  till höger om appnamnet i programlistan, Välj **ta bort**. På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.

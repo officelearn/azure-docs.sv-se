@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 43eb988915fb917923ab968d22b9b7f0ee36c0f5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 754449dcf759820c8bb99d082c3a5ba2792f02c8
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444403"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126331"
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
@@ -35,15 +35,15 @@ Du måste ha behörighet att komma åt någon av IoT Hub-slutpunkter. Till exemp
 
 Du kan bevilja [behörigheter](#iot-hub-permissions) på följande sätt:
 
-* **IoT hub-nivå delade åtkomstprinciper**. Principer för delad åtkomst kan ge olika kombinationer av [behörigheter](#iot-hub-permissions). Du kan definiera principer i den [Azure-portalen][lnk-management-portal], eller via programmering med hjälp av den [resursprovidern i IoT Hub REST API: er][lnk-resource-provider-apis]. En nyligen skapade IoT-hubb har följande standardprinciper:
+* **IoT hub-nivå delade åtkomstprinciper**. Principer för delad åtkomst kan ge olika kombinationer av [behörigheter](#iot-hub-permissions). Du kan definiera principer i den [Azure-portalen][lnk-management-portal], via programmering med hjälp av den [IoT Hub Resource REST API: er][lnk-resource-provider-apis], eller med hjälp av [az iot hub policy](https://docs.microsoft.com/cli/azure/iot/hub/policy?view=azure-cli-latest) CLI. En nyligen skapade IoT-hubb har följande standardprinciper:
   
   | Policy för delad åtkomst | Behörigheter |
   | -------------------- | ----------- |
   | iothubowner | Alla behörigheter |
   | tjänst | **ServiceConnect** behörigheter |
   | enhet | **DeviceConnect** behörigheter |
-  | registryRead | **RegistryRead** behörigheter |
-  | registryReadWrite | **RegistryRead** och **RegistryWrite** behörigheter |
+  | RegistryRead | **RegistryRead** behörigheter |
+  | RegistryReadWrite | **RegistryRead** och **RegistryWrite** behörigheter |
 
 * **Per enhet säkerhetsreferenser**. Varje IoT-hubb innehåller ett [identitetsregistret][lnk-identity-registry]. Du kan konfigurera säkerhetsreferenser som beviljar för varje enhet i den här identitetsregister **DeviceConnect** behörigheter som är begränsade till slutpunkter i motsvarande enhet.
 
@@ -91,7 +91,9 @@ HTTPS implementerar autentisering genom att inkludera en giltig token i den **au
 
 Användarnamn (DeviceId är skiftlägeskänsligt): `iothubname.azure-devices.net/DeviceId`
 
-Lösenord (generera SAS-token med den [enhetsutforskare] [ lnk-device-explorer] verktyget): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+Lösenord (du kan generera en SAS-token med den [enhetsutforskare] [ lnk-device-explorer] verktyg eller kommando för CLI-tillägget [az iot hub generera sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token)):
+
+`SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [!NOTE]
 > Den [Azure IoT SDK: er] [ lnk-sdks] automatiskt generera token när du ansluter till tjänsten. I vissa fall kan stöder Azure IoT SDK: er inte alla protokoll eller alla autentiseringsmetoder.
@@ -268,7 +270,7 @@ Resultatet, som ger åtkomst till alla funktioner för device1 skulle bli:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> Det är möjligt att skapa en SAS-token med hjälp av .NET [enhetsutforskare] [ lnk-device-explorer] verktyget eller plattformsoberoende, Python-baserade [IoT-tillägget för Azure CLI 2.0] [ lnk-IoT-extension-CLI-2.0] kommandoradsverktyget.
+> Det är möjligt att skapa en SAS-token med hjälp av .NET [enhetsutforskare] [ lnk-device-explorer] verktyget eller plattformsoberoende, Python-baserade [IoT-tillägget för Azure CLI 2.0] [ lnk-IoT-extension-CLI-2.0] -kommandoradsverktyget eller [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ### <a name="use-a-shared-access-policy"></a>Använda en princip för delad åtkomst
 
@@ -308,7 +310,7 @@ En protokoll-gateway kan använda samma token för alla enheter som är helt enk
 
 Tjänstkomponenter kan bara generera säkerhetstoken med hjälp av principer för delad åtkomst som beviljar behörighet enligt beskrivningen ovan.
 
-Här är de servicefunktioner som exponeras för slutpunkter:
+Här följer de servicefunktioner som exponeras för slutpunkter:
 
 | Slutpunkt | Funktioner |
 | --- | --- |
@@ -348,11 +350,13 @@ Certifikat som stöds är:
 
 En enhet kan antingen använda ett X.509-certifikat eller en säkerhetstoken för autentisering, men inte båda.
 
-Mer information om autentisering med hjälp av certifikatutfärdare finns i [konceptuella förståelse för X.509 CA-certifikat](iot-hub-x509ca-concept.md).
+Mer information om autentisering med hjälp av certifikatutfärdare finns i [autentisering med X.509 CA-certifikat](iot-hub-x509ca-overview.md).
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Registrera ett X.509-certifikat för en enhet
 
 Den [Azure IoT Service SDK för C#] [ lnk-service-sdk] (version 1.0.8+) har stöd för registrering av en enhet som använder ett X.509-certifikat för autentisering. API: er, till exempel import/export av enheter har också stöd för X.509-certifikat.
+
+Du kan också använda CLI-tillägg-kommando [az iot hub-enhetsidentitet](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) Konfigurera X.509-certifikat för enheter.
 
 ### <a name="c-support"></a>C\# Support
 

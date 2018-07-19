@@ -1,63 +1,63 @@
 ---
-title: Förstå Azure IoT Hub-enhet till moln messaging | Microsoft Docs
-description: Utvecklare guide - hur du använder enhet till moln-meddelanden med IoT-hubben. Innehåller information om hur du skickar data både telemetri och icke-telemtry routning för att leverera meddelanden.
+title: Förstå Azure IoT Hub-enhet till moln-meddelanden | Microsoft Docs
+description: Developer guide – hur du använder enhet-till-moln-meddelanden med IoT Hub. Innehåller information om skicka både telemetri och icke-telemtry data och använda routning för att leverera meddelanden.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 6096d726d7a00a4ddf8047edeebb74ab3f151e51
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: be87b00f27f0d0b25cd77a0634ab1c653a85e5ac
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808265"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126450"
 ---
-# <a name="send-device-to-cloud-messages-to-iot-hub"></a>Skicka meddelanden från enhet till moln till IoT-hubb
+# <a name="send-device-to-cloud-messages-to-iot-hub"></a>Skicka meddelanden från enhet till moln till IoT Hub
 
-Skicka meddelanden från enhet till moln för att skicka tidsserier telemetri och aviseringar från dina enheter till din lösningens serverdel, från en enhet till IoT-hubben. En beskrivning av andra enhet till moln-alternativ som stöds av IoT-hubb finns [enhet till moln kommunikation vägledning][lnk-d2c-guidance].
+Skicka meddelanden från enheten till molnet för att skicka time series-telemetri och aviseringar från dina enheter till lösningens backend-servrar, från en enhet till IoT hub. En beskrivning av andra alternativ för enhet-till-moln som stöds av IoT Hub finns i [enhet till molnet kommunikation vägledning][lnk-d2c-guidance].
 
-Du skickar meddelanden från enhet till moln via en enhet riktade slutpunkt (**/devices/ {deviceId} / meddelanden/händelser**). Routningsregler och vidarebefordra meddelanden till en av slutpunkterna service-riktade på din IoT-hubb. Regler för routning använda sidhuvuden och innehållet i meddelandena från enhet till moln för att avgöra var du vill dirigera dem. Som standard meddelanden dirigeras till den inbyggda tjänst-riktade slutpunkten (**meddelanden/händelser**), som är kompatibel med [Händelsehubbar][lnk-event-hubs]. Därför kan du använda standard [Händelsehubbar integrering och SDK] [ lnk-compatible-endpoint] att ta emot meddelanden från enhet till moln i din lösningens serverdel.
+Du skickar meddelanden från enheten till molnet via en enhet-riktade slutpunkt (**/devices/ {deviceId} / meddelanden/händelser**). Regler för vidarebefordran och vidarebefordra meddelandena till en tjänst-slutpunkter på IoT hub. Routningsregler Använd rubriker och brödtext för enhet-till-moln-meddelanden för att avgöra var du vill dirigera dem. Som standard dirigeras meddelanden till den inbyggda tjänst-riktade slutpunkten (**meddelanden/händelser**), som är kompatibel med [Händelsehubbar][lnk-event-hubs]. Du kan därför använda standard [Event Hubs-integrering och SDK: er] [ lnk-compatible-endpoint] att ta emot meddelanden från enheten till molnet i lösningens backend-servrar.
 
-IoT-hubb implementerar enhet till moln-meddelanden med hjälp av en strömmande meddelandemönster används. IoT-hubb meddelanden från enhet till moln är mer som [Händelsehubbar] [ lnk-event-hubs] *händelser* än [Service Bus] [ lnk-servicebus] *meddelanden* att en stor volym med händelser som passerar den tjänst som kan läsas av flera läsare.
+IoT Hub implementerar enhet-till-moln-meddelanden med hjälp av en strömmande meddelandemönster. Meddelanden från IoT Hub-enhet till molnet är mer som [Händelsehubbar] [ lnk-event-hubs] *händelser* än [Service Bus] [ lnk-servicebus] *meddelanden* eftersom det finns ett stort antal händelser som passerar genom den tjänst som kan läsas av flera läsare.
 
-Enhet till moln meddelanden med IoT-hubben har följande egenskaper:
+Meddelanden med IoT Hub enhet-till-molnet har följande egenskaper:
 
-* Meddelanden från enhet till moln är beständiga och behållas i en IoT-hubb standard **meddelanden/händelser** slutpunkt för upp till sju dagar.
-* Meddelanden från enhet till moln kan innehålla högst 256 KB och kan grupperas i batchar att optimera skickar. Batchar kan innehålla högst 256 KB.
-* Enligt beskrivningen i den [styra åtkomsten till IoT-hubb] [ lnk-devguide-security] avsnittet, IoT-hubb kan per enhet autentisering och åtkomstkontroll.
-* IoT-hubb kan du skapa upp till 10 anpassade slutpunkter. Meddelanden levereras till slutpunkterna baserat på vägar som konfigurerats på din IoT-hubb. Mer information finns i [regler för routning](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
-* IoT-hubb kan miljontals samtidigt anslutna enheter (se [kvoter och begränsning][lnk-quotas]).
-* IoT-hubb kan inte godtycklig partitionering. Meddelanden från enhet till moln partitioneras baserat på deras ursprung **deviceId**.
+* Meddelanden från enheten till molnet är hållbar och sparade i en IoT-hubb standard **meddelanden/händelser** slutpunkt för upp till sju dagar.
+* Meddelanden från enheten till molnet får innehålla högst 256 KB och kan grupperas i batchar att optimera skickar. Batchar får innehålla högst 256 KB.
+* Enligt beskrivningen i den [styra åtkomsten till IoT Hub] [ lnk-devguide-security] avsnittet, IoT Hub kan per enhet autentisering och åtkomstkontroll.
+* IoT Hub kan du skapa upp till 10 anpassade slutpunkter. Meddelanden levereras till slutpunkterna baserat på vägar som konfigurerats på din IoT-hubb. Mer information finns i [regler för routning](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
+* IoT Hub kan miljontals simultant kopplade enheter (se [kvoter och begränsningar][lnk-quotas]).
+* IoT Hub tillåter inte godtyckliga partitionering. Meddelanden från enheten till molnet partitioneras baserat på deras ursprung **deviceId**.
 
-Mer information om skillnaderna mellan IoT-hubb och Händelsehubbar finns [jämförelse av Azure IoT Hub och Azure Event Hubs][lnk-comparison].
+Mer information om skillnaderna mellan IoT Hub och Event Hubs finns i [jämförelse av Azure IoT Hub och Azure Event Hubs][lnk-comparison].
 
-## <a name="send-non-telemetry-traffic"></a>Skicka ej telemetri trafik
+## <a name="send-non-telemetry-traffic"></a>Skicka icke-telemetritrafik
 
-Ofta skicka enheter förutom telemetri, meddelanden och förfrågningar som kräver separat utförande och hantering i lösningens serverdel. Till exempel kritiska aviseringar som skall utlösa en specifik åtgärd i serverdelen. Du kan skriva en [routningsregel] [ lnk-devguide-custom] att skicka dessa typer av meddelanden till en slutpunkt som är dedikerad till bearbetningen baserat på antingen ett sidhuvud på meddelandet eller ett värde i meddelandetexten.
+Ofta skicka enheter förutom telemetri, meddelanden och förfrågningar som kräver separat körning och hantering i lösningens serverdel. Till exempel kritiska aviseringar som måste utlösa en specifik åtgärd i serverdelen. Du kan skriva en [routningsregel] [ lnk-devguide-custom] att skicka dessa typer av meddelanden till en slutpunkt för bearbetningen baserat på antingen ett sidhuvud på meddelandet eller ett värde i meddelandetexten.
 
-Mer information om det bästa sättet att bearbeta den här typen av meddelande finns i [Självstudier: bearbeta meddelanden från enhet till moln IoT-hubb] [ lnk-d2c-tutorial] kursen.
+Läs mer om det bästa sättet att bearbeta den här typen av meddelande i [självstudien: hur du bearbetar meddelanden från IoT Hub-enhet till molnet] [ lnk-d2c-tutorial] självstudien.
 
-## <a name="route-device-to-cloud-messages"></a>Vidarebefordra meddelanden från enhet till moln
+## <a name="route-device-to-cloud-messages"></a>Dirigera meddelanden från enheten till molnet
 
-Har du två alternativ för att dirigera enhet till moln-meddelanden till backend-appar:
+Har du två alternativ för att dirigera enhet-till-moln-meddelanden till dina backend-appar:
 
-* Använd inbyggt [Event Hub-kompatibel endpoint] [ lnk-compatible-endpoint] aktivera backend-appar att läsa de enhet till moln har tagits emot av hubben. Mer information om inbyggda Event Hub-kompatibel slutpunkten, se [läsa meddelanden från enhet till moln från inbyggd slutpunkt][lnk-devguide-builtin].
-* Använda regler för routning för att skicka meddelanden till anpassade slutpunkter i din IoT-hubb. Anpassade slutpunkter aktivera dina backend-appar att läsa meddelanden från enhet till moln med Händelsehubbar, Service Bus-köer eller Service Bus-ämnen. Mer information om Routning och anpassade slutpunkter, se [använda anpassade slutpunkter och routningsregler för meddelanden från enhet till moln][lnk-devguide-custom].
+* Använda inbyggda [Event Hub-kompatibla slutpunkten] [ lnk-compatible-endpoint] aktivera backend-appar att läsa enhet-till-moln-meddelandena som tagits emot av hubben. Läs om den inbyggda Event Hub-kompatibla slutpunkten i [läsa meddelanden från enheten till molnet från den inbyggda slutpunkten][lnk-devguide-builtin].
+* Använda regler för routning för att skicka meddelanden till anpassade slutpunkter i IoT hub. Anpassade slutpunkter konfigurera dina backend-appar kan läsa meddelanden från enhet till molnet med hjälp av Event Hubs, Service Bus-köer och Service Bus-ämnen. Läs om Routning och anpassade slutpunkter i [använda anpassade slutpunkter och routningsregler för meddelanden från enheten till molnet][lnk-devguide-custom].
 
-## <a name="anti-spoofing-properties"></a>Skydd mot förfalskning egenskaper
+## <a name="anti-spoofing-properties"></a>Egenskaper för skydd mot förfalskning
 
-För att undvika enheten förfalskning i meddelanden från enhet till moln, IoT-hubb stämplar alla meddelanden med följande egenskaper:
+För att undvika enheten förfalskning i meddelanden från enheten till molnet, IoT Hub stämplar alla meddelanden med följande egenskaper:
 
 * **ConnectionDeviceId**
 * **ConnectionDeviceGenerationId**
 * **ConnectionAuthMethod**
 
-De första två innehåller den **deviceId** och **generationId** på den ursprungliga enheten enligt [identitet enhetsegenskaper][lnk-device-properties].
+De första två innehåller den **deviceId** och **generationId** för den ursprungliga enheten enligt [identitet enhetsegenskaper][lnk-device-properties].
 
-Den **ConnectionAuthMethod** -egenskapen innehåller ett serialiserat JSON-objekt med följande egenskaper:
+Den **ConnectionAuthMethod** egenskapen innehåller ett JSON-serialiserat objekt med följande egenskaper:
 
 ```json
 {
@@ -69,15 +69,15 @@ Den **ConnectionAuthMethod** -egenskapen innehåller ett serialiserat JSON-objek
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om SDK: erna som du kan använda för att skicka meddelanden från enhet till moln finns [Azure IoT SDK][lnk-sdks].
+Information om SDK: erna som du kan använda för att skicka meddelanden från enheten till molnet finns i [Azure IoT SDK: er][lnk-sdks].
 
-Den [Kom igång] [ lnk-get-started] självstudiekurser visar hur du skickar meddelanden från enhet till moln från både simulerade och fysiska enheter. Mer information finns i [processen IoT Hub-enhet till moln meddelanden med hjälp av vägar] [ lnk-d2c-tutorial] kursen.
+Den [Snabbstarter] [ lnk-get-started] visar hur du skickar meddelanden från enheten till molnet från simulerade enheter. Mer information finns i den [Process IoT Hub enhet-till-moln-meddelanden med vägar] [ lnk-d2c-tutorial] självstudien.
 
 [lnk-devguide-builtin]: iot-hub-devguide-messages-read-builtin.md
 [lnk-devguide-custom]: iot-hub-devguide-messages-read-custom.md
 [lnk-comparison]: iot-hub-compare-event-hubs.md
 [lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
-[lnk-get-started]: iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/

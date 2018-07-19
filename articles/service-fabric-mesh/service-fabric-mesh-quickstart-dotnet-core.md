@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – distribuera en app till Azure Service Fabric-nät | Microsoft Docs
+title: Snabbstart – skapa och distribuera en webbapp till Azure Service Fabric nät | Microsoft Docs
 description: Den här snabbstarten visar hur du skapar en ASP.NET Core-webbplats och publicera den till Azure Service Fabric-nät.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3ce40c87bbdd2f032b399b96a3021781e0dec341
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ad8920ac01ce62eb676b495dcde2aae6b076cbe2
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091975"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125511"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Snabbstart: Skapa och distribuera en webbapp till Azure Service Fabric nät
 
@@ -46,23 +46,23 @@ Se till att **Skapa katalog för lösningen** är markerad och klicka på **OK**
 
 ### <a name="create-a-service"></a>Skapa en tjänst
 
-När du klickar på **OK**, **ny Service Fabric-tjänst** dialogruta. Välj den **ASP.NET Core** projektet typ, se till att **Container OS** är inställd på **Windows** och tryck på **OK** att skapa ASP.NET Core-projektet . 
+När du klickar på **OK**, **ny Service Fabric-tjänst** dialogruta. Välj den **ASP.NET Core** projektet typ, se till att **Container OS** är inställd på **Windows** och klicka på **OK** att skapa ASP.NET Core-projektet . 
 
 ![Visual studio Service Fabric-nät dialogrutan Nytt projekt](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-service-fabric-service.png)
 
-Den **ny ASP.NET Core-Webbapp** dialogruta. Välj **webbprogram** och tryck sedan på **OK**.
+Den **ny ASP.NET Core-Webbapp** dialogruta. Välj **webbprogram** och klicka sedan på **OK**.
 
 ![Visual studio nytt ASP.NET core-program](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-aspnetcore-app.png)
 
-Visual Studio skapar programprojektet Service Fabric-nät såväl ASP.NET Core-projektet.
+Visual Studio skapar programprojektet nät för Service Fabric och ASP.NET Core-projektet.
 
 ## <a name="build-and-publish-to-your-local-cluster"></a>Skapa och publicera till ditt lokala kluster
 
-En Docker-avbildning skapats och publicerats till ditt lokala kluster så fort projektet läses in automatiskt. Den här processen kan ta lite tid. Du kan övervaka förloppet för Service Fabric-verktygen i den **utdata** fönstret om du vill. Välj den **Service Fabric-verktyg** objektet i rutan. Du kan fortsätta att arbeta medan docker-avbildningen distribueras.
+En Docker-avbildning skapats och publicerats till ditt lokala kluster så fort projektet läses in automatiskt. Den här processen kan ta lite tid. Du kan övervaka förloppet för Service Fabric-verktygen i den **utdata** fönster om du vill genom att välja den **Service Fabric-verktyg** objektet i den **utdata** fönstret listrutan. Du kan fortsätta att arbeta medan docker-avbildningen distribueras.
 
-När projektet har skapats, trycker du på **F5** felsöka din tjänst lokalt. När den lokala distributionen är klar och Visual Studio med ditt projekt, öppnas ett webbläsarfönster med en exempel-webbsida.
+När projektet har skapats, klickar du på **F5** felsöka din tjänst lokalt. När den lokala distributionen är klar och Visual Studio med ditt projekt, öppnas ett webbläsarfönster med en exempel-webbsida.
 
-När du är klar Bläddra i den distribuerade tjänsten kan du stoppa felsökningen av projektet genom att trycka på **SKIFT + F5** i Visual Studio.
+När du är klar Bläddra i den distribuerade tjänsten stoppa felsökningen projektet genom att trycka på **SKIFT + F5** i Visual Studio.
 
 ## <a name="publish-to-azure"></a>Publicera till Azure
 
@@ -76,30 +76,30 @@ Du ser en **publicera Service Fabric-program** dialogrutan.
 
 Välj Azure-konto och prenumeration. Välj en **plats**. Den här artikeln använder **USA, östra**.
 
-Under **resursgrupp**väljer  **\<Skapa ny resursgrupp... >**. En dialogruta visas där du skapar en ny resursgrupp. Den här artikeln används den **USA, östra** plats och namn gruppen **sfmeshTutorial1RG** (om din organisation har flera personer med samma prenumeration, Välj ett unikt namn).  Tryck på **skapa** skapa resursgruppen och gå tillbaka till dialogrutan Publicera.
+Under **resursgrupp**väljer  **\<Skapa ny resursgrupp... >**. Den **skapa resursgrupp** dialogruta. Ange den **Resursgruppsnamn** och **plats**.  Den här snabbstarten används de **USA, östra** plats och namn gruppen **sfmeshTutorial1RG** (om din organisation har flera personer med samma prenumeration, Välj ett unikt Resursgruppsnamn).  Klicka på **skapa** skapa resursgruppen och gå tillbaka till dialogrutan Publicera.
 
 ![Visual studio Service Fabric-nät resource group dialogrutan Ny](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
-I den **publicera Service Fabric-program** dialogrutan under **Azure Container Registry**väljer  **\<skapa nya Behållarregister... >**. I den **skapa Behållarregister** dialogrutan, Använd ett unikt namn för den **behållarregisternamnet**. Ange en **plats** (den här självstudien används **USA, östra**). Välj den **resursgrupp** som du skapade i föregående steg i listrutan, t.ex. **sfmeshTutorial1RG**. Ange den **SKU** till **grundläggande** och tryck sedan på **skapa** att gå tillbaka till dialogrutan Publicera.
+I den **publicera Service Fabric-program** dialogrutan under **Azure Container Registry**väljer  **\<skapa nya Behållarregister... >**. I den **skapa Behållarregister** dialogrutan, Använd ett unikt namn för den **behållarregisternamnet**. Ange en **plats** (den här snabbstarten används **USA, östra**). Välj den **resursgrupp** som du skapade i föregående steg i listrutan, till exempel **sfmeshTutorial1RG**. Ange den **SKU** till **grundläggande** och klicka sedan på **skapa** att gå tillbaka till dialogrutan Publicera.
 
 Om du får ett felmeddelande som en resursprovider har inte registrerats för din prenumeration kan du registrera den. Se först om resursprovidern är tillgänglig för din prenumeration:
 
 ```Powershell
+Connect-AzureRmAccount
 Get-AzureRmResourceProvider -ListAvailable
 ```
 
 Om container registry-providern (`Microsoft.ContainerRegistry`) är tillgänglig, registrera den från Powershell:
 
 ```Powershell
-Connect-AzureRmAccount
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerRegistry
 ```
 
 ![Visual studio Service Fabric-nät resource group dialogrutan Ny](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 
-I dialogrutan Publicera trycker du på den **publicera** knappen för att distribuera programmet till Azure Service Fabric-nät.
+I dialogrutan Publicera klickar du på den **publicera** knappen för att distribuera programmet till Azure Service Fabric-nät.
 
-När du publicerar på Azure för första gången, skickas docker-avbildningen till den Azure Container Registry (ACR) som tar tid beroende på storleken på avbildningen. Efterföljande publicerar av samma projekt går uppgraderingen snabbare. Du kan övervaka förloppet för distributionen genom att välja den **Service Fabric-verktyg** i Visual Studio **utdata** fönster. När distributionen är klar, den **Service Fabric-verktyg** utdata visar du IP-adress och port för ditt program i form av en URL.
+När du publicerar på Azure för första gången, skickas docker-avbildningen till den Azure Container Registry (ACR) som tar tid beroende på storleken på avbildningen. Efterföljande publicerar av samma projekt går uppgraderingen snabbare. Du kan övervaka förloppet för distributionen genom att välja **Service Fabric-verktyg** i Visual Studio **utdata** fönstret listrutan. När distributionen är klar, den **Service Fabric-verktyg** utdata visar du IP-adress och port för ditt program i form av en URL.
 
 ```json
 Packaging Application...
@@ -110,23 +110,27 @@ Deploying application to remote endpoint...
 The application was deployed successfully and it can be accessed at http://...
 ```
 
-Öppna en webbläsare och gå till URL: en till webbplatsen som körs i Azure.
+Öppna en webbläsare och gå till URL: en till webbplatsen som körs i Azure:
+
+![Service Fabric nät Web-program som körs](media/service-fabric-mesh-tutorial-deploy-dotnetcore/deployed-web-project.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du ta bort alla resurser som du skapade för den här snabbstarten. Eftersom du har skapat en ny resursgrupp för att vara värd för både ACR och Service Fabric blandar resurser kan du ta bort den här resursgruppen som är ett enkelt sätt att ta bort alla resurser som är associerade med den.
+När den inte längre behövs kan du ta bort alla resurser som du skapade för den här snabbstarten. Eftersom du har skapat en ny resursgrupp för att vara värd för både ACR och Service Fabric blandar resurser kan du ta bort den här resursgruppen, vilket är ett enkelt sätt att ta bort alla resurser som är associerade med den.
 
 ```azurecli
 az group delete --resource-group sfmeshTutorial1RG
 ```
 
 ```powershell
+Connect-AzureRmAccount
 Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 ```
 
 Du kan också ta bort resursgruppen [från Azure portal](https://portal.azure.com).
 
 ## <a name="next-steps"></a>Nästa steg
+
 Läs mer om att skapa och distribuera Service Fabric-nät program fortsätter du till självstudien.
 > [!div class="nextstepaction"]
-> [Skapa och distribuera flera tjänster webbprogram](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> [Skapa, felsöka och distribuera ett flera tjänster webbprogram till Service Fabric-nät](service-fabric-mesh-tutorial-create-dotnetcore.md)

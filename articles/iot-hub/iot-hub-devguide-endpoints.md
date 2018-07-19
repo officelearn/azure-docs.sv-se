@@ -1,115 +1,115 @@
 ---
-title: Förstå Azure IoT-hubbslutpunkter | Microsoft Docs
-description: Utvecklarhandbok - referensinformation om IoT-hubb riktade enheten och tjänsten riktade slutpunkter.
+title: Förstå Azure IoT Hub-slutpunkter | Microsoft Docs
+description: Utvecklarguide – information om IoT Hub enheten kund- och service-riktade slutpunkter.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 37e1bd0b479e27f0d871495c0725fc865cbb8572
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bf23046b8a80b02bc1667f647cb1d475503a8feb
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632585"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125784"
 ---
-# <a name="reference---iot-hub-endpoints"></a>Referens - slutpunkter för IoT-hubb
+# <a name="reference---iot-hub-endpoints"></a>Referens – IoT Hub-slutpunkter
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="iot-hub-names"></a>IoT-hubb namn
+## <a name="iot-hub-names"></a>IoT Hub-namn
 
-Du hittar namnet på IoT-hubb som är värd för dina slutpunkter i portalen på den **översikt** bladet. Som standard är DNS-namnet för en IoT-hubb ser ut som: `{your iot hub name}.azure-devices.net`.
+Du kan hitta värdnamnet för IoT-hubben som är värd för dina slutpunkter i portalen på din hubb **översikt** sidan. Som standard är DNS-namnet på en IoT-hubb ser ut som: `{your iot hub name}.azure-devices.net`.
 
-Du kan använda Azure DNS för att skapa en anpassad DNS-namn för din IoT-hubb. Mer information finns i [Använd Azure DNS för att ange inställningar för anpassad domän för en Azure-tjänst](../dns/dns-custom-domain.md).
+Du kan använda Azure DNS för att skapa ett anpassat DNS-namn för din IoT hub. Mer information finns i [Använda Azure DNS för att skapa inställningar för anpassad domän för en Azure-tjänst](../dns/dns-custom-domain.md).
 
-## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista över inbyggda IoT-hubb-slutpunkter
+## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista över inbyggda IoT Hub-slutpunkter
 
-Azure IoT-hubb är en tjänst för flera innehavare som visar dess funktioner till olika aktörer. I följande diagram visas de olika slutpunkterna som visar IoT-hubb.
+Azure IoT Hub är en tjänst för flera innehavare som innehåller dess funktioner till olika aktörer. I följande diagram visas de olika slutpunkterna exponerar IoT Hub.
 
 ![IoT Hub-slutpunkter][img-endpoints]
 
 I följande lista beskrivs slutpunkterna:
 
-* **Resursprovidern**. IoT-hubb resursprovidern Exponerar en [Azure Resource Manager] [ lnk-arm] gränssnitt. Det här gränssnittet aktiverar Azure-prenumeration ägare att skapa och ta bort IoT-hubbar och för att uppdatera IoT-hubb egenskaper. IoT-hubb egenskaper styr [hubb nivå säkerhetsprinciper][lnk-accesscontrol], till skillnad från enheten på användarnivå och funktionella alternativ för moln till enhet och enheten till molnet. Resursprovidern IoT-hubb kan du också [exportera enheten identiteter][lnk-importexport].
-* **Enheten Identitetshantering**. Varje IoT-hubb uppvisar en uppsättning HTTPS REST-slutpunkter för att hantera identiteter för enheten (skapa, hämta, uppdatera och ta bort). [Enheten identiteter] [ lnk-device-identities] används för autentisering och åtkomstkontroll för enheten.
-* **Dubbla enhetshantering**. Varje IoT-hubb uppvisar en uppsättning service-riktade HTTPS REST-slutpunkt för frågor och uppdaterar [enhet twins] [ lnk-twins] (uppdatering taggar och egenskaper).
-* **Jobb management**. Varje IoT-hubb uppvisar en uppsättning service-riktade HTTPS REST-slutpunkt för att fråga efter och hantera [jobb][lnk-jobs].
-* **Enheten slutpunkter**. För varje enhet i identitetsregistret visar IoT-hubb en uppsättning slutpunkter:
+* **Resursprovidern**. Resursprovidern IoT Hub Exponerar en [Azure Resource Manager] [ lnk-arm] gränssnitt. Det här gränssnittet gör det möjligt för Azure-prenumerationsägare att skapa och ta bort IoT-hubbar och för att uppdatera egenskaper för IoT hub. IoT Hub egenskaper styr [principer för säkerhet på radnivå hub][lnk-accesscontrol], till skillnad från på enhetsnivå access control och funktionella alternativ för moln-till-enhet och enhet till moln-meddelanden. Resursprovidern IoT Hub kan du också [exportera enhetsidentiteter][lnk-importexport].
+* **Identitetshantering för enheten**. Varje IoT-hubb Exponerar en uppsättning HTTPS REST-slutpunkter för att hantera enhetsidentiteter (skapa, hämta, uppdatera och ta bort). [Enhetsidentiteter] [ lnk-device-identities] används för autentisering och åtkomstkontroll för enheten.
+* **Enhetshantering twin**. Varje IoT-hubb innehåller en rad för tjänst för webbservergrupper på HTTPS-REST-slutpunkt för fråge- och [enhetstvillingar] [ lnk-twins] (uppdatering taggar och egenskaper).
+* **Jobb management**. Varje IoT-hubb Exponerar en uppsättning service webbservergrupper HTTPS REST-slutpunkt fråga och hantera [jobb][lnk-jobs].
+* **Enheten slutpunkter**. För varje enhet i identitetsregistret exponerar IoT-hubb en uppsättning slutpunkter:
 
-  * *Skicka meddelanden från enhet till moln*. En enhet använder den här slutpunkten till [skicka meddelanden från enhet till moln][lnk-d2c].
-  * *Ta emot meddelanden moln till enhet*. En enhet använder den här slutpunkten för att ta emot riktade [moln till enhet meddelanden][lnk-c2d].
-  * *Initierar filöverföringar*. En enhet använder den här slutpunkten för att ta emot en Azure Storage SAS URI från IoT-hubb för att [överför en fil][lnk-upload].
-  * *Hämta och uppdatera egenskaper för enhet dubbla*. En enhet använder den här slutpunkten för åtkomst till dess [enheten dubbla][lnk-twins]'s egenskaper.
-  * *Ta emot begäranden om direkta metoden*. En enhet använder den här slutpunkten för att lyssna efter [direkt metod][lnk-methods]'s begäranden.
+  * *Skicka meddelanden från enheten till molnet*. En enhet använder den här slutpunkten till [skicka meddelanden från enheten till molnet][lnk-d2c].
+  * *Ta emot meddelanden från moln till enhet*. En enhet använder den här slutpunkten för att ta emot riktade [meddelanden från moln till enhet][lnk-c2d].
+  * *Initierar filöverföringar*. En enhet använder den här slutpunkten för att ta emot ett Azure Storage SAS-URI från IoT Hub och [ladda upp en fil][lnk-upload].
+  * *Hämta och uppdatera tvillingegenskaper*. En enhet använder den här slutpunkten för att få åtkomst till dess [enhetstvillingen][lnk-twins]'s egenskaper.
+  * *Ta emot förfrågningar för direkt metod*. En enhet använder den här slutpunkten för att lyssna efter [direktmetod][lnk-methods]'s begäranden.
 
-    Dessa slutpunkter som exponeras med hjälp av [MQTT v3.1.1][lnk-mqtt], HTTPS 1.1 och [AMQP 1.0] [ lnk-amqp] protokoll. AMQP är också tillgänglig via [WebSockets] [ lnk-websockets] på port 443.
+    De här slutpunkterna blir tillgängliga via [MQTT v3.1.1][lnk-mqtt], HTTPS 1.1 och [AMQP 1.0] [ lnk-amqp] protokoll. AMQP är också tillgänglig via [WebSockets] [ lnk-websockets] på port 443.
 
-* **Tjänstens slutpunkter**. Varje IoT-hubb uppvisar en uppsättning slutpunkter för din lösningens serverdel att kommunicera med dina enheter. Med ett undantag dessa slutpunkter är bara tillgängliga med den [AMQP] [ lnk-amqp] protokoll. Metoden anrop slutpunkten exponeras över HTTPS-protokoll.
+* **Tjänstslutpunkter**. Varje IoT-hubb Exponerar en uppsättning slutpunkter för lösningens backend-servrar att kommunicera med dina enheter. Med ett undantag slutpunkterna är bara tillgängliga via den [AMQP] [ lnk-amqp] protokoll. Metoden anrop slutpunkten exponeras via HTTPS-protokollet.
   
-  * *Ta emot meddelanden från enhet till moln*. Den här slutpunkten är kompatibel med [Azure Event Hubs][lnk-event-hubs]. En backend tjänst kan använda den för att läsa den [meddelanden från enhet till moln] [ lnk-d2c] skickas av dina enheter. Du kan skapa anpassade slutpunkter på din IoT-hubb förutom den här inbyggda slutpunkten.
-  * *Skicka meddelanden moln till enhet och ta emot bekräftelser för leverans av*. Dessa slutpunkter aktivera din lösningens serverdel ska skickas pålitlig [moln till enhet meddelanden][lnk-c2d], samt för att få motsvarande leverans eller upphör att gälla bekräftelser.
-  * *Ta emot meddelanden i filen*. Den här asynkrona slutpunkten kan du ta emot meddelanden om när dina enheter har överfört en fil. 
-  * *Dirigera metodanropet*. Den här slutpunkten kan en backend-tjänst att anropa en [direkt metod] [ lnk-methods] på en enhet.
-  * *Ta emot operations händelseövervakning*. Den här slutpunkten kan du få övervaka händelser om din IoT-hubb har konfigurerats för att generera dessa åtgärder. Mer information finns i [IoT-hubb operations övervakning][lnk-operations-mon].
+  * *Ta emot meddelanden från enheten till molnet*. Den här slutpunkten är kompatibel med [Azure Event Hubs][lnk-event-hubs]. En backend tjänst kan använda den för att läsa den [meddelanden från enheten till molnet] [ lnk-d2c] skickas av dina enheter. Du kan skapa anpassade slutpunkter i IoT-hubben förutom den här inbyggda slutpunkten.
+  * *Skicka meddelanden från moln till enhet och ta emot bekräftelser för leverans*. De här slutpunkterna aktivera lösningens backend-servrar att skicka tillförlitlig [meddelanden från moln till enhet][lnk-c2d], samt för att få motsvarande leverans- eller förfallodatum bekräftelser.
+  * *Ta emot meddelanden i filen*. Den här slutpunkten för meddelanden kan du ta emot meddelanden om när dina enheter har överför en fil. 
+  * *Dirigera metodanropet*. Den här slutpunkten kan en backend-tjänst för att anropa en [direktmetod] [ lnk-methods] på en enhet.
+  * *Ta emot händelser för åtgärdsövervakning*. Den här slutpunkten kan du ta emot händelseövervakning om IoT-hubben har konfigurerats för att generera dem. Mer information finns i [IoT Hub åtgärdsövervakning][lnk-operations-mon].
 
-Den [Azure IoT SDK] [ lnk-sdks] beskrivs olika sätt att få åtkomst till dessa slutpunkter.
+Den [Azure IoT SDK: er] [ lnk-sdks] artikeln beskrivs olika sätt att få åtkomst till dessa slutpunkter.
 
-Alla IoT-hubbslutpunkter använder den [TLS] [ lnk-tls] protokoll och ingen slutpunkt exponeras aldrig på okrypterade/oskyddad kanaler.
+Alla slutpunkter i IoT Hub använder den [TLS] [ lnk-tls] protokollet och ingen slutpunkt exponeras någonsin via okrypterade/oskyddad kanaler.
 
 ## <a name="custom-endpoints"></a>Anpassade slutpunkter
 
-Du kan länka befintliga Azure-tjänster i din prenumeration för din IoT-hubb som fungerar som slutpunkter för routning av meddelanden. Dessa slutpunkter fungerar som slutpunkter och används som sänkor för meddelandevägar. Enheter kan inte skriva direkt till ytterligare slutpunkter. Mer information om meddelandevägar Se developer guide även [skicka och ta emot meddelanden med IoT-hubb][lnk-devguide-messaging].
+Du kan länka befintliga Azure-tjänster i din prenumeration till din IoT hub så att den fungerar som slutpunkter för meddelanderoutning. De här slutpunkterna fungerar som slutpunkter och används som mottagare för meddelandevägar. Enheter kan inte skrivas direkt till ytterligare slutpunkter. Läs mer om meddelandevägar i posten developer guide på [skicka och ta emot meddelanden med IoT hub][lnk-devguide-messaging].
 
-IoT-hubb stöder för närvarande följande Azure-tjänster som ytterligare slutpunkter:
+IoT Hub stöder för närvarande följande Azure-tjänster som ytterligare slutpunkter:
 
 * Azure Storage-behållare
 * Event Hubs
 * Service Bus-köer
 * Avsnitt om Service Bus
 
-IoT-hubb måste ha skrivbehörighet till dessa Tjänsteslutpunkter för meddelanderoutning för att fungera. Om du konfigurerar dina slutpunkter via Azure portal, läggs behörigheterna som krävs för dig. Kontrollera att du konfigurerar dina tjänster för att stödja det förväntade genomflödet. När du först konfigurera din IoT-lösning kan du behöva övervaka dina ytterligare slutpunkter och gör eventuella ändringar för den faktiska belastningen.
+IoT Hub måste ha skrivbehörighet för dessa tjänstslutpunkter för meddelanderoutning för att fungera. Om du konfigurerar dina slutpunkter via Azure portal, läggs behörigheterna som krävs för dig. Kontrollera att du konfigurerar dina tjänster för att stödja det förväntade dataflödet. När du först konfigurera din IoT-lösning kan du behöva övervaka din ytterligare slutpunkter och gör eventuella ändringar för den faktiska belastningen.
 
-Om ett meddelande matchar flera vägar som alla pekar till samma slutpunkt, levererar IoT-hubb meddelandet till denna slutpunkt bara en gång. Därför behöver du inte konfigurera deduplicering på din Service Bus-kö eller ett ämne. I den partitionerade köer garanterar partition tillhörighet meddelandet ordning.
+Om ett meddelande matchar flera vägar som alla pekar mot samma slutpunkt, IoT-hubb levererar meddelanden till denna slutpunkt bara en gång. Därför behöver du inte konfigurera deduplicering på din Service Bus-kö eller ämne. I partitionerade köer garanterar partition tillhörighet ordningsföljd för meddelanden.
 
-Begränsningar för antalet slutpunkter som du kan lägga till finns [kvoter och begränsning][lnk-devguide-quotas].
+Gränser för antalet slutpunkter som du kan lägga till, se [kvoter och begränsningar][lnk-devguide-quotas].
 
 ### <a name="when-using-azure-storage-containers"></a>När du använder Azure Storage-behållare
 
-IoT-hubben har bara stöd för skrivning av data till Azure Storage-behållare som blobar i den [Apache Avro](http://avro.apache.org/) format. IoT-hubb batchar meddelanden och skriver data till en blobb när:
+IoT Hub stöder endast skriva data till Azure Storage-behållare som blobbar i den [Apache Avro](http://avro.apache.org/) format. IoT Hub slår ihop meddelanden och skriver data till en blob när:
 
-* Batchen når en viss storlek.
-* Eller mängden tid har gått ut.
+* Batch når en viss storlek.
+* Eller en viss tidsperiod har gått ut.
 
-IoT-hubb skriver till en tom blob om det finns inga data att skriva.
+IoT Hub skriver till en tom blob om det finns inga data att skriva.
 
-IoT-hubb som standard följande namngivningskonvention för filen:
+IoT Hub som standard följande namngivningskonvention för filen:
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
 ```
 
-Du kan använda oavsett fil namngivningskonvention som du vill, men du måste ha alla listade token.
+Du kan använda oavsett fil naming convention som du vill, men du måste ha alla listade token.
 
 ### <a name="when-using-service-bus-queues-and-topics"></a>När du använder Service Bus-köer och ämnen
 
-Service Bus-köer och ämnen som används som IoT-hubbslutpunkter inte får ha **sessioner** eller **dubblettidentifiering** aktiverat. Om något av dessa alternativ är aktiverade ändpunkt som **inte åtkomlig** i Azure-portalen.
+Service Bus-köer och ämnen som används som IoT Hub-slutpunkter inte får ha **sessioner** eller **dubblettidentifiering** aktiverat. Om något av dessa alternativ är aktiverade ändpunkt som **tillbaka** i Azure-portalen.
 
-## <a name="field-gateways"></a>Fältet gateways
+## <a name="field-gateways"></a>Fält-gateways
 
-I en IoT-lösningen en *fältet gateway* placeras mellan dina enheter och slutpunkter för din IoT-hubb. Det finns normalt sett nära dina enheter. Dina enheter kommunicerar direkt med fältet gateway med hjälp av ett protokoll som stöds av enheter. Fältet gatewayen ansluter till en IoT-hubb slutpunkt med ett protokoll som stöds av IoT-hubb. En gateway för fältet kan vara en särskild maskinvaruenhet eller en låg energiförbrukning-dator som kör anpassade gateway-programvaran.
+I en IoT-lösning kan en *fältgateway* är placerad mellan dina enheter och IoT Hub-slutpunkter. Det finns normalt nära dina enheter. Dina enheter kommunicerar direkt med fält-gateway med hjälp av ett protokoll som stöds av enheter. Fält-gateway ansluter till en IoT Hub-slutpunkt med ett protokoll som stöds av IoT Hub. En fält-gateway kan vara en särskild maskinvaruenhet eller en låg-dator som kör anpassade gateway-programvaran.
 
-Du kan använda [Azure IoT kant] [ lnk-iot-edge] att implementera en gateway för fältet. IoT-Edge erbjuder funktioner, till exempel multiplexering kommunikation från flera enheter på samma IoT-hubb-anslutning.
+Du kan använda [Azure IoT Edge] [ lnk-iot-edge] att implementera en fält-gateway. IoT Edge erbjuder funktioner som multiplexering kommunikation från flera enheter på samma IoT Hub-anslutning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Andra referensavsnitten i den här IoT-hubb Utvecklarhandbok inkluderar:
+Andra referensavsnitten i det här utvecklarhandboken för IoT Hub är:
 
-* [IoT-hubb frågespråk för enheten twins, jobb och meddelanderoutning][lnk-devguide-query]
-* [Kvoter och begränsning][lnk-devguide-quotas]
-* [IoT-hubb MQTT stöd][lnk-devguide-mqtt]
+* [IoT Hub-frågespråk för enhetstvillingar, jobb och meddelanderoutning][lnk-devguide-query]
+* [Kvoter och begränsningar][lnk-devguide-quotas]
+* [IoT Hub MQTT-support][lnk-devguide-mqtt]
 
 [lnk-iot-edge]: https://github.com/Azure/iot-edge
 

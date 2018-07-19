@@ -3,7 +3,7 @@ title: Infrastruktur för Backup-tjänsten Metodtips för Azure Stack | Microsof
 description: Du kan följa uppsättning rekommenderade metoder när du distribuerar och hanterar Azure Stack i datacentret för att minimera dataförlust om det finns ett oåterkalleligt fel.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
-ms.author: mabrigg
+ms.date: 7/18/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 06a2d4ab12d2a7e03a538a98f5232a417fb39e4f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0b6153a863b0637f314b4f333b255ec8d24b5b0c
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969477"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136442"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Metodtips för infrastruktur Backup-tjänsten
 
@@ -34,7 +34,7 @@ Bästa praxis bör du granska med jämna mellanrum att verifiera att installatio
 
 ### <a name="deployment"></a>Distribution
 
-Aktivera säkerhetskopiering av infrastruktur efter distributionen av varje Azure Stack-molnet. Med hjälp av AzureStack-verktyg som du kan schemalägga säkerhetskopieringar från en klient/server med åtkomst till API för operatorn hanteringsslutpunkten.
+Aktivera säkerhetskopiering av infrastruktur efter distributionen av varje Azure Stack-molnet. Du kan schemalägga säkerhetskopieringar från en klient/server med åtkomst till operatorn management API-slutpunkt med hjälp av Azure Stack PowerShell.
 
 ### <a name="networking"></a>Nätverk
 

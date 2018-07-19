@@ -1,45 +1,38 @@
 ---
-title: Azure IoT-hubb - komma igång ansluta IoT-enheter till molnet | Microsoft Docs
-description: Lär dig hur du ansluter din IoT-kort och startpaket till Azure IoT Hub. Enheterna kan skicka telemetri IoT-hubb och IoT-hubb kan övervaka och hantera dina enheter.
+title: Azure IoT Hub - komma igång med att ansluta IoT-enheter till molnet | Microsoft Docs
+description: Lär dig hur du ansluter dina IoT-kort och startpaket till Azure IoT Hub. Dina enheter kan skicka telemetri till IoT Hub och IoT Hub kan övervaka och hantera dina enheter.
 author: dominicbetts
 manager: timlt
-keywords: självstudiekurs för Azure iot-hubb
+keywords: självstudie för Azure iot hub
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 76f427204f0ad31196ce8b995b9e4ed9676209ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 77abe7e2187a3cb28b326ffa833a856625d6c33d
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634710"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125200"
 ---
-# <a name="azure-iot-hub-get-started-with-real-devices"></a>Azure IoT-hubb Kom igång med verkliga enheter
+# <a name="azure-iot-hub-get-started-with-real-devices"></a>Azure IoT Hub Kom igång med verkliga enheter
 
-Du kan använda Azure IoT Hub och SDK för Azure IoT-enhet för att skapa lösningar för Sakernas Internet (IoT):
-
-* Azure IoT Hub är en helt hanterad tjänst i molnet som ansluter, övervakar och hanterar IoT-enheter på ett säkert sätt. Använd SDK: er för Azure IoT-enhet för att implementera din IoT-enheter.
-* Använd en IoT-gateway i mer komplexa IoT-scenarier. Till exempel när du behöver Tänk till exempel äldre enheter, kostnader för bandbredd, principer för säkerhet och sekretess eller edge databearbetning. I dessa fall kan använda [Azure IoT kant](https://docs.microsoft.com/azure/iot-edge/) att implementera en gateway som ansluter enheter till din IoT-hubb.
-
-## <a name="what-the-how-to-articles-cover"></a>Instruktionsartiklar omfattar
-
-Dessa artiklar introduktion till Azure IoT Hub och SDK-enheten. Artiklarna beskriver vanliga IoT-scenarier för att demonstrera funktionerna i IoT-hubb. Artiklarna visar även hur du kombinerar IoT-hubb med andra Azure-tjänster och verktyg för att skapa mer kraftfulla IoT-lösningar. I artiklar använder du verkliga IoT-enheter.
+Dessa artiklar beskrivs Azure IoT Hub och som kör enheten SDK: er på verkliga enheter.
 
 ## <a name="set-up-your-device"></a>Konfigurera enheten
 
-Anslut en IoT-enhet eller gateway för Azure IoT-hubb:
+Anslut en IoT-enhet eller en gateway på Azure IoT Hub:
 
-| IoT-enhet                       | Programmeringsspråk |
+| IoT-enheter                       | Programmeringsspråk |
 |----------------------------------|----------------------|
 | Raspberry Pi                     | [Python][Pi_Py], [Node.js][Pi_Nd], [C][Pi_C]  |
 | IoT DevKit                       | [Arduino i VSCode][DevKit]     |
 | Intel Edison                     | [Node.js][Ed_Nd], [C][Ed_C]    |
-| Adafruit ludd HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
-| Sparkfun ESP8266 sak Dev       | [Arduino][Th_Ard]              |
-| Adafruit ludd M0              | [Arduino][M0_Ard]              |
-| Online enheten simulatorn         | [Raspberry Pi (Node.js)][Ol_Sim] |
+| Adafruit Feather HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
+| Sparkfun ESP8266 Thing Dev       | [Arduino][Th_Ard]              |
+| Adafruit Feather M0              | [Arduino][M0_Ard]              |
+| Onlineenhetssimulator         | [Raspberry Pi (Node.js)][Ol_Sim] |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 

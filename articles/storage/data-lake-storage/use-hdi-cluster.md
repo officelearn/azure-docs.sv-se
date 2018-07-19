@@ -8,7 +8,7 @@ tags: azure-portal
 author: jamesbak
 manager: jahogg
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: e9fd28ac21ce843655697c5d58849d940e305fce
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: e4e72d3c5b6b9c96de6a8faafccfcc39fe3c37b8
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344962"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136697"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 förhandsversion med Azure HDInsight-kluster
 
@@ -33,7 +33,7 @@ I den här artikeln får du lära dig hur Azure Data Lake Storage Gen2 fungerar 
 
 Azure Storage är en robust lagringslösning för allmänna ändamål som smidigt kan integreras med HDInsight. HDInsight kan använda Azure Data Lake Storage som standardfilsystem för klustret. Genom ett distribuerat filsystem (HDFS) gränssnitt för Hadoop tillämpas en fullständig uppsättning komponenter i HDInsight direkt på filer i Azure Data Lake Storage.
 
-Vi rekommenderar inte att du använder standardfilsystemet för att lagra affärsdata. Tar bort standardfilsystemet efter varje användning för att minska kostnaden för lagring är en bra idé. Observera att standardbehållaren innehåller program- och loggar. Se till att hämta loggarna innan du tar bort behållaren.
+Vi rekommenderar inte att du använder standardfilsystemet för att lagra affärsdata. Tar bort standardfilsystemet efter varje användning för att minska kostnaden för lagring är en bra idé. Observera att standardbehållaren innehåller program- och loggar. Se till att hämta loggarna innan du tar bort containern.
 
 Dela ett filsystem för flera kluster stöds inte.
 
@@ -147,7 +147,7 @@ Om du [installerat och konfigurerat Azure PowerShell][powershell-install], du ka
 
 [!INCLUDE [use-latest-version](../../../includes/hdinsight-use-latest-cli.md)]
 
-Om du har [installerat och konfigurerat Azure CLI](../../cli-install-nodejs.md) kan du använda följande kommando för att skapa ett lagringskonto och en behållare.
+Om du har [installerat och konfigurerat Azure CLI](../../cli-install-nodejs.md) kan du använda följande kommando för att skapa ett lagringskonto och en container.
 
 ```bash
 az storage account create \
@@ -168,7 +168,7 @@ När du har skapat lagringskontot använder du följande kommando för att hämt
 
     azure storage account keys list <STORAGE_ACCOUNT_NAME>
 
-Om du vill skapa en behållare använder du följande kommando:
+Om du vill skapa en container använder du följande kommando:
 
     azure storage container create <CONTAINER_NAME> --account-name <STORAGE_ACCOUNT_NAME> --account-key <STORAGE_ACCOUNT_KEY>
 

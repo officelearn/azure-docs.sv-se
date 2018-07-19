@@ -3,8 +3,8 @@
 | Batch-konton per region per prenumeration | 1 – 3 |50 |
 | Reserverade kärnor per Batch-konto | 10 - 100 | N/A<sup>1</sup> |
 | Lågprioritetskärnor per Batch-konto | 10 - 100 | EJ TILLÄMPLIGT<sup>2</sup> |
-| Aktiva jobb och jobbscheman<sup>3</sup> per Batch-konto | 100 – 300 | 5000<sup>4</sup> |
-| Pooler per Batch-konto | 20 – 100 | 2500 |
+| Aktiva jobb och jobbscheman<sup>3</sup> per Batch-konto | 100 – 300 | 2500<sup>4</sup> |
+| Pooler per Batch-konto | 20 – 100 | 500 |
 
 > [!NOTE]
 > Standardgränserna varierar beroende på vilken typ av prenumeration som du använder för att skapa ett Batch-konto. Kärnkvoter som visas är för Batch-konton i Batch-tjänstläge. [Visa kvoter i Batch-kontot](../articles/batch/batch-quota-limit.md#view-batch-quotas). 

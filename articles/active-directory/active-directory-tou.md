@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 06/29/2018
+ms.date: 07/18/2018
 ms.author: rolyon
-ms.openlocfilehash: 7833c9da2303d119f0cb421f21bea455ab449898
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856424"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136663"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkor för Azure AD.
@@ -86,7 +86,7 @@ När du har skapat ditt dokument för användningsvillkor använder du följande
 
     ![Lägga till användningsvillkor](media/active-directory-tou/create-tou.png)
 
-## <a name="view-who-has-accepted-and-declined"></a>Visa vem som har accepterat och avböjt
+## <a name="view-report-of-who-has-accepted-and-declined"></a>Visa rapport över vem som har godkänts och nekats
 Bladet för användningsvillkor visar antalet användare som har godkänt och avböjt. Detta antal och vem som accepterat/avböjt lagras under användningsvillkorens livslängd.
 
 1. Logga in på Azure och gå till **Användningsvillkoren** på [https://aka.ms/catou](https://aka.ms/catou).
@@ -97,10 +97,10 @@ Bladet för användningsvillkor visar antalet användare som har godkänt och av
 
     ![Granska händelse](media/active-directory-tou/accepted-tou.png)
 
-## <a name="view-audit-logs"></a>Visa granskningsloggar
+## <a name="view-azure-ad-audit-logs"></a>Öppna Azure AD-granskningsloggar
 Om du vill visa ytterligare aktivitet innehåller Azure AD-användningsvillkor granskningsloggar. Varje användargodkännande utlöser en händelse i granskningsloggarna som lagras i 30 dagar. Du kan visa dessa loggar i portalen eller hämta dem som en CSV-fil.
 
-Kom igång med granskningsloggar genom att följa stegen:
+Du kommer igång med Azure AD granskningsloggar, Följ stegen nedan:
 
 1. Logga in på Azure och gå till **Användningsvillkoren** på [https://aka.ms/catou](https://aka.ms/catou).
 
@@ -167,10 +167,19 @@ Principer för villkorlig åtkomst börjar gälla omedelbart. När detta händer
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **F: Hur ser jag om/när en användare har godkänt användningsvillkoren?**</br>
-S: på villkoren i Använd bladet, klickar du på numret under **godkända**. Du kan också visa eller söka accept-aktiviteten i granskningsloggarna. Mer information finns i [Visa vem som har godkänts och nekats](#view-who-has-accepted-and-declined) och [visa granskningsloggar](#view-audit-logs).
+S: på villkoren i Använd bladet, klickar du på numret under **godkända**. Du kan också visa eller söka efter accept-aktiviteten i Azure AD granskningsloggar. Mer information finns i [Visa rapport över vem som har godkänts och nekats](#view-who-has-accepted-and-declined) och [öppna Azure AD-granskningsloggar](#view-azure-ad-audit-logs).
+ 
+**F: Hur länge lagras informationen?**</br>
+S: användare räknas av villkoren i rapporten för användning och som accepterat/avvisade lagras för resten av användningsvillkoren. Azure AD-granskningen loggar lagras i 30 dagar.
 
-**F: Om du ändrar användningsvillkoren behöver användarna godkänna igen?**</br>
+**F: Varför visas ett annat antal medgivanden i villkoren för användning rapporten jämfört med Azure AD som granskningsloggar?**</br>
+S: användningsvillkoren Använd rapporten sparas livslängden för de användningsvillkoren när Azure AD-granskningen loggar lagras i 30 dagar. Dessutom visar villkoren i Använd rapporten endast användare aktuella medgivande tillstånd. Till exempel om en användare nekar och sedan accepterar villkoren i Använd rapporten visas bara den användaren Godkänn. Om du vill se historiken kan du använda Azure AD granskningsloggar.
+
+**F: om jag ändrar användningsvillkoren, behöver användarna godkänna igen?**</br>
 S: Ja, en administratör kan ändra användningsvillkoren och det kräver att användarna måste godkänna de nya villkoren.
+
+**F: om hyperlänkar finns i PDF-dokument med användningsvillkor, kommer användare kunna klickar du på dem?**</br>
+S: PDF-filen renderas som standard som JPEG, så att inte klickbara hyperlänkar. Användare har möjlighet att välja **har du problem med att visa? Klicka här**, vilket visas med PDF-filen internt där hyperlänkar stöds.
 
 **F: Kan användningsvillkor ha stöd för flera språk?**</br>
 S: Ja.  Det finns för närvarande 18 olika språk som en administratör kan konfigurera för ett enskilt användningsvillkor. 
@@ -189,6 +198,7 @@ S: Användare blockeras från åtkomst till programmet. Användaren behöver log
  
 **F: är det möjligt att unaccept användningsvillkoren som godkändes tidigare?**</br>
 S: du kan [granska tidigare godkända användningsvillkor](#how-users-can-review-their-terms-of-use), men det finns för närvarande inte ett sätt att unaccept.
- 
-**F: Hur länge lagras informationen?**</br>
-S: Användarantal och vem som accepterat/avböjt lagras under användningsvillkorens livslängd. Granskningsloggarna lagras i 30 dagar.
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md) (Metodtips för villkorlig åtkomst i Azure Active Directory)

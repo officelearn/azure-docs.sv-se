@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: f305f552d576f58914bc33351331f1da3c68bc23
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c2100ee2388ae09bd309167b1be77f7bdbe32f69
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951656"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126025"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Felsöka problem med replikering för virtuella VMware-datorer och fysiska servrar
 
@@ -74,25 +74,7 @@ Om det inte går att ansluta kan du kontrollera om Åtkomstproblemet beror på a
 
 * **Kontrollera om URL-baserad brandvägg på processervern blockerar åtkomst**: Om du använder en URL-baserad brandväggsregler på servern, se till att följande webbadresser läggs till brandväggskonfigurationen.
 
-  `*.accesscontrol.windows.net:` Används för Access Control och identitetshantering
-
-  `*.backup.windowsazure.com:` Används för överföring av replikeringsdata och dirigering
-
-  `*.blob.core.windows.net:` Används för åtkomst till lagringskontot som lagrar replikerade data
-
-  `*.hypervrecoverymanager.windowsazure.com:` Används för åtgärder för replikeringshantering och dirigering
-
-  `time.nist.gov` och `time.windows.com`: används för att kontrollera tidssynkronisering mellan system och global tid.
-
-URL: er för **Azure Government-molnet**:
-
-`* .ugv.hypervrecoverymanager.windowsazure.us`
-
-`* .ugv.backup.windowsazure.us`
-
-`* .ugi.hypervrecoverymanager.windowsazure.us`
-
-`* .ugi.backup.windowsazure.us`
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
 * **Kontrollera om inte proxyinställningar på processervern blockerar åtkomst**.  Om du använder en proxyserver, se till att namnet på proxyservern matchar DNS-servern.
 Om du vill kontrollera vad har du angett vid tidpunkten för installationen av konfigurationsservern. Gå till registernyckeln

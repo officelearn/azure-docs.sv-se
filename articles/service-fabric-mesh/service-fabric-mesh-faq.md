@@ -9,15 +9,19 @@ ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 849f8e4f961bcfde2bb4984185d571601060d957
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 07c0347793f6541a3e047f3f357d0d1b05dc3bca
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076663"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136189"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Vanliga frågor och svar om Service Fabric-nät
 Azure Service Fabric-nät är en fullständigt hanterad tjänst som ger utvecklare möjlighet att distribuera mikrotjänstprogram utan att hantera virtuella datorer, lagring och nätverk. Den här artikeln innehåller svar på vanliga frågor.
+
+## <a name="how-do-i-report-an-issue-or-ask-a-question"></a>Hur jag för att rapportera ett problem eller Ställ en fråga?
+
+Ställ frågor, få svar från Microsofts tekniker och rapportera problem i den [service-fabric-nät-förhandsversion GitHub-lagringsplatsen](https://aka.ms/sfmeshissues).
 
 ## <a name="quota-and-cost"></a>Kvoter och kostnad
 

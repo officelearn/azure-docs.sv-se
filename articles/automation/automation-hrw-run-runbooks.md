@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 899e5dc13dfaf7d7545955e7b4b73939c3275d3f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: cd2578f2fd8217d513a693ef348a5c26a4b18623
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930315"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126515"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks som körs på en Hybrid Runbook Worker
 
@@ -160,9 +160,69 @@ Spara den *Export RunAsCertificateToHybridWorker* runbook på datorn med en `.ps
 
 Jobb hanteras något annorlunda på Hybrid Runbook Worker än de är när de körs på Azure sandbox-miljöer. En viktig skillnad är att det finns ingen gräns på varaktighet för jobb på Hybrid Runbook Worker. Runbooks som kördes i Azure sandbox-miljöer är begränsade till tre timmar på grund av [rättmätiga del](automation-runbook-execution.md#fair-share). Om du har en tidskrävande runbook som du vill se till att det kan stå emot möjliga omstart, till exempel om den dator som är värd för Hybrid worker startar om. Om värddatorn för Hybrid worker startar om datorn startar alla runbook-jobb som körs från början eller från den senaste kontrollpunkten för PowerShell Workflow-runbooks. Om en runbook-jobbet har startats om mer än 3 gånger sedan pausas den.
 
+## <a name="run-only-signed-runbooks"></a>Kör endast signerade Runbooks
+
+Hybrid Runbook Worker kan konfigureras för att köra endast signerade runbooks med viss konfiguration. I följande avsnitt beskrivs hur du ställer in din Hybrid Runbook Worker för att köra signerade runbooks och hur du registrerar dina runbooks.
+
+> [!NOTE]
+> När du har konfigurerat en Hybrid Runbook Worker för att köra endast signerade runbooks, runbook-flöden som har **inte** har registrerat kommer gick inte att köra på worker.
+
+### <a name="create-signing-certificate"></a>Skapa signeringscertifikat
+
+I följande exempel skapas ett självsignerat certifikat som kan användas för signering av runbooks. Exemplet skapar certifikatet och exporterar den. Certifikatet har importerats till Hybrid Runbook Worker senare. Tumavtrycket returneras, detta används senare för att referera till certifikatet.
+
+```powershell
+# Create a self signed runbook that can be used for code signing
+$SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
+                                        -Subject "CN=contoso.com" `
+                                        -KeyAlgorithm RSA `
+                                        -KeyLength 2048 `
+                                        -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
+                                        -KeyExportPolicy Exportable `
+                                        -KeyUsage DigitalSignature `
+                                        -Type CodeSigningCert
+
+
+# Export the certificate so that it can be imported to the hybrid workers
+Export-Certificate -Cert $SigningCert -FilePath .\hybridworkersigningcertificate.cer
+
+# Import the certificate into the trusted root store so the certificate chain can be validated
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\Root
+
+# Retrieve the thumbprint for later use
+$SigningCert.Thumbprint
+```
+
+### <a name="configure-the-hybrid-runbook-workers"></a>Konfigurera Hybrid Runbook Worker
+
+Kopiera certifikatet som skapades för varje Hybrid Runbook Worker i en grupp. Kör följande skript för att importera certifikatet och konfigurera Hybrid Worker för att använda verifiera signaturen på runbooks.
+
+```powershell
+# Install the certificate into a location that will be used for validation.
+New-Item -Path Cert:\LocalMachine\AutomationHybridStore
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\AutomationHybridStore
+
+# Import the certificate into the trusted root store so the certificate chain can be validated
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\Root
+
+# Configure the hybrid worker to use signature validation on runbooks.
+Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocation "Cert:\LocalMachine\AutomationHybridStore"
+```
+
+### <a name="sign-your-runbooks-using-the-certificate"></a>Registrera dina Runbooks med hjälp av certifikatet
+
+Med Hybrid Runbook signerade Worker-arbeten som konfigurerats för att använda endast runbooks. Du måste registrera runbooks som ska användas på den Hybrid Runbook Worker. Använd följande exempel PowerShell för att registrera dina runbooks.
+
+```powershell
+$SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprint>)
+Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
+```
+
+När runbooken har signerats, måste de importeras till ditt Automation-konto och publiceras med signaturblocket. Läs hur importera runbooks, se [importera en runbook från en fil till Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+
 ## <a name="troubleshoot"></a>Felsöka
 
-Om dina runbooks inte har slutförts korrekt och jobbsammanfattningen visar statusen **pausad**, granska de felsökningsguide för [fel vid körning av runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
+Om dina runbooks inte slutförs, granska felsökningsguiden på [fel vid körning av runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 
 ## <a name="next-steps"></a>Nästa steg
 

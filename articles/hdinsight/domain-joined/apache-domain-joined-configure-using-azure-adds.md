@@ -9,12 +9,12 @@ editor: cgronlun
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.openlocfilehash: d38148181aa18404e45f6efc029117573570e6bc
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 45cb9590e6dd0d8260f6e63b80caeca894f0fd44
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115433"
+ms.locfileid: "39126042"
 ---
 # <a name="configure-a-domain-joined-hdinsight-cluster-by-using-azure-active-directory-domain-services"></a>Konfigurera ett domänanslutet HDInsight-kluster med hjälp av Azure Active Directory Domain Services
 
@@ -52,7 +52,7 @@ Det är lättare att placera både Azure AD DS-instans och HDInsight-klustret i 
 När du skapar ett domänanslutet HDInsight-kluster måste du ange följande parametrar:
 
 - **Domännamn**: det domännamn som är associerat med Azure AD DS. Ett exempel är contoso.onmicrosoft.com.
-- **Domänanvändarnamn**: tjänstkontot i den hanterade domänen som du skapade i föregående avsnitt. Ett exempel är hdiadmin@contoso.onmicrosoft.com. Den här domänanvändare ska vara administratör för det här HDInsight-klustret.
+- **Domänanvändarnamn**: tjänstkontot i domänkontrollanten lägger Azure till en domän hanterad som du skapade i föregående avsnitt. Ett exempel är hdiadmin@contoso.onmicrosoft.com. Den här domänanvändare ska vara administratör för det här HDInsight-klustret.
 - **Domänlösenord**: lösenordet för tjänstkontot.
 - **Organisationsenhet**: det unika namnet på den Organisationsenhet som du vill använda med HDInsight-kluster. Ett exempel är OU = HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com. Om den här Organisationsenheten inte finns, försöker HDInsight-klustret skapa en Organisationsenhet med hjälp av de privilegier som tjänstkontot har. Till exempel om kontot tillhör administratörsgruppen på Azure AD DS, har den rätt behörighet för att skapa en Organisationsenhet. I annat fall kan du behöva skapa Organisationsenheten först och ge service-konto fullständig kontroll över denna Organisationsenhet. Mer information finns i [skapa en OU på en hanterad Azure AD DS-domän](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
 

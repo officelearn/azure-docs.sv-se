@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 672e27bf53679c52dab8d42a52378aa90eba33cb
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 7c3ce5571c54d6c613114ea49999e450934c8ff4
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114318"
+ms.locfileid: "39136206"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric-nät terminologi
 
@@ -47,7 +47,7 @@ Den inbyggda datamodellen stöds inte i Service Fabric-nät-miljö.
 
 ## <a name="environments"></a>Miljöer
 
-Service Fabric är en teknik för öppen plattform som flera olika tjänster och produkter som är baserade på. Microsoft tillhandahåller följande alternativ:
+Service Fabric är en teknik för öppen källkodsplattform som flera olika tjänster och produkter som är baserade på. Microsoft tillhandahåller följande alternativ:
 
  - **Service Fabric-nät**: en fullständigt hanterad tjänst för att köra Service Fabric-program i Microsoft Azure.
  - **Azure Service Fabric**: Azure Service Fabric-kluster värdtjänst. Det ger integrering mellan Service Fabric och Azure-infrastrukturen, tillsammans med uppgradering och konfiguration hantering av Service Fabric-kluster.
@@ -57,17 +57,17 @@ Service Fabric är en teknik för öppen plattform som flera olika tjänster och
 ## <a name="environment-framework-and-deployment-model-support-matrix"></a>Supportmatris för miljön, ramverk och distributionsmodellen
 Olika miljöer har olika stöd för ramverk och distributionsmodeller. I följande tabell beskrivs stöds framework och distribution av modellen kombinationer.
 
-|Frameworks\Deployment modell |Resursmodell |Inbyggda datamodellen | Compose|
-|---|---|---|---|
-|Reliable Actors och Reliable Services |Stöds inte |Stöds |Stöds inte |
-|Alla andra ramverk och språk |Stöds i behållare |Stöds som processer och i behållare |Stöds i behållare |
+| Typ av program | Beskrivningen av | Azure Service Fabric-nät | Azure Service-kluster (alla OS)| Lokala kluster – Windows | Lokala kluster – Linux | Lokalt kluster - Mac | Fristående kluster (Windows)
+|---|---|---|---|---|---|---|---|---|---|
+| Service Fabric-nät program | Resursmodell (YAML & JSON) | Stöds |Stöds inte | Stöds |Stöds inte | Stöds inte | Stöds inte |
+|Interna Service Fabric-program | Internt programmodell (XML) | Stöds inte| Stöds|Stöds|Stöds|Stöds|Stöds|
 
-I följande tabell beskrivs den miljö som stöds och distribution av modellen kombinationer.
+I följande tabell beskrivs de olika program-modellerna och verktyg som finns för dem mot Service Fabric.
 
-|Environment\Deployment modell |Resursmodell |Inbyggda datamodellen |Compose |
-|---|---|---|---|
-|Azure Service Fabric-nät |Stöds |Stöds inte|Stöds inte |
-|Alla andra miljöer |Stöds (vissa resurser har krav för att arbeta i en miljö) |Stöds |Begränsat stöd |
+| Typ av program | Beskrivningen av | Visual Studio 2017 | Visual Studio 2015 | Eclipse | VS-kod | SFCTL | AZ-CLI | PowerShell
+|---|---|---|---|---|---|---|---|---|---|
+| Service Fabric-nät program | Resursmodell (YAML & JSON) | Stöds |Stöds inte |Stöds inte |Stöds inte |Stöds inte | Stöd för – nät-miljö | Stöds inte
+|Interna Service Fabric-program | Internt programmodell (XML) | Stöds| Stöds|Stöds|Stöds|Stöds|Stöds|Stöds|
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2018
 ms.author: jaredro
-ms.openlocfilehash: 401ffcdfa1aa84d7db4e991dd412723b2bafe6fd
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4e56e8ab1e31ec875f33bc47f745aa7b93e7788e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969885"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116137"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -76,7 +76,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Plats** | **Tjänstleverantörer** |
 | --- | --- |
 | **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Verizon, Zayo |
-| **Atlanta** |Equinix |
+| **Atlanta** |Equinix, Megaport |
 | **Busan** |LG CNS |
 | **Canberra** | CDC |
 | **Canberra2** | CDC |

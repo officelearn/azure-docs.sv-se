@@ -135,7 +135,7 @@
         - name: Säkerhetskopior av databasen
           href: sql-database-automated-backups.md
         - name: Långsiktig kvarhållning av säkerhetskopior
-          itmes:
+          items:
             - name: Långsiktig kvarhållning av säkerhetskopior
               href: sql-database-long-term-retention.md
             - name: Konfigurera långsiktig kvarhållning av säkerhetskopior – SQL-lagring

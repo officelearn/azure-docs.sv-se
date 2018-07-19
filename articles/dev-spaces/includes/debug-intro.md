@@ -10,15 +10,15 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: ad02c7abf42d61d5e67eefdbb42fe3501e4cfba8
+ms.openlocfilehash: 5edbbfa5b12d13c0823045b71448db94fa5a426e
 ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991030"
+ms.locfileid: "38991025"
 ---
-I den här guiden får du lära dig hur du:
+I det här avsnittet ska du använda VS Code för att direkt felsöka våra containrar som körs i Azure. Du får också lära dig hur du kan få en snabbare redigera-kör-test-loop.
 
-- Skapa en Kubernetes-baserad miljö i Azure som är optimerad för utveckling, en _utvecklarmiljö_.
-- Utveckla kod iterativt i containrar med VS Code och kommandoraden.
-- Effektivt utvecklar och testar din kod i en teammiljö.
+![](../media/common/edit-refresh-see.png)
+
+[!INCLUDE[](see-troubleshooting.md)]

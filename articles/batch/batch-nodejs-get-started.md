@@ -11,21 +11,14 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: bef298ea8e5710b386822f071d0644c9ddad04a2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 807fd49a54c82b0930134beb8413e14c1c28b278
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314429"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115569"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Kom igång med Batch SDK för Node.js
-
-> [!div class="op_single_selector"]
-> * [.NET](batch-dotnet-get-started.md)
-> * [Python](batch-python-tutorial.md)
-> * [Node.js](batch-nodejs-get-started.md)
->
->
 
 Lär dig grunderna i att bygga en Batch-klient i Node.js med [Azure Batch Node.js SDK](/javascript/api/overview/azure/batch). Vi går igenom ett scenario med ett batch-program, steg för steg, och utför sedan en konfigurering med en Node.js-klient.  
 
@@ -35,14 +28,14 @@ Den här artikeln förutsätter att du har kunskaper om Node.js och att du är b
 Vi rekommenderar att du läser [Azure Batch, teknisk översikt](batch-technical-overview.md) innan du går igenom stegen som beskrivs i den här artikeln.
 
 ## <a name="the-tutorial-scenario"></a>Självstudiescenario
-Vi börjar med att gå igenom själva scenariot för batch-arbetsflödet. Vi har ett enkelt skript skrivet i Python som laddar ned alla CSV-filer från en Azure Blob Storage-behållare och konverterar dem till JSON-format. Om du vill bearbeta flera Storage- kontobehållare parallellt med varandra kan vi distribuera skriptet som ett Azure Batch-jobb.
+Vi börjar med att gå igenom själva scenariot för batch-arbetsflödet. Vi har ett enkelt skript skrivet i Python som laddar ned alla CSV-filer från en Azure Blob Storage-container och konverterar dem till JSON-format. Om du vill bearbeta flera Storage- kontocontainrar parallellt med varandra kan vi distribuera skriptet som ett Azure Batch-jobb.
 
 ## <a name="azure-batch-architecture"></a>Azure Batch-arkitektur
 Följande diagram visar hur vi kan skala Python-skriptet med Azure Batch och en Node.js-klient.
 
 ![Azure Batch-scenario](./media/batch-nodejs-get-started/BatchScenario.png)
 
-Node.js-klienten distribuerar ett batch-jobb med en förberedande aktivitet (beskrivs i detalj senare) och en uppsättning aktiviteter beroende på antalet behållare i lagringskontot. Du kan ladda ned skripten från GitHub-lagringsplatsen.
+Node.js-klienten distribuerar ett batch-jobb med en förberedande aktivitet (beskrivs i detalj senare) och en uppsättning aktiviteter beroende på antalet containrar i lagringskontot. Du kan ladda ned skripten från GitHub-lagringsplatsen.
 
 * [Node.js-klient](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
 * [Förberedande aktivitet – kommandoskript](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
@@ -262,7 +255,7 @@ Följande är ett exempel på ett resultatobjekt som returnerats av funktionen p
 
 
 ### <a name="step-4-submit-an-azure-batch-job"></a>Steg 4: Skicka ett Azure Batch-jobb
-Azure Batch-jobbet består av en logisk grupp av snarlika uppgifter. I vårt exempel är det ”Process csv to JSON” (konvertering från CSV-format till JSON-format). Varje aktivitet här kan bearbeta de CSV-filer som finns i respektive Azure Storage-behållare.
+Azure Batch-jobbet består av en logisk grupp av snarlika uppgifter. I vårt exempel är det ”Process csv to JSON” (konvertering från CSV-format till JSON-format). Varje aktivitet här kan bearbeta de CSV-filer som finns i respektive Azure Storage-container.
 
 Dessa uppgifter körs parallellt och distribueras över flera noder, och allt detta samordnas av Azure Batch-tjänsten.
 
@@ -320,14 +313,14 @@ Om det inte finns några obligatoriska program att installera före aktivitetsk�
 
 ### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>Steg 5: Skicka Azure Batch-aktiviteter för ett jobb
 
-Nu när vi har skapat ett jobb för bearbetning av CSV-filer kan vi börja skapa aktiviteter för jobbet i fråga. Anta att vi har fyra behållare och vill skapa fyra aktiviteter – en för varje behållare.
+Nu när vi har skapat ett jobb för bearbetning av CSV-filer kan vi börja skapa aktiviteter för jobbet i fråga. Anta att vi har fyra containrar och vill skapa fyra aktiviteter – en för varje container.
 
 Om vi tittar på [Python-skriptet](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py) så godtas två möjliga parametrar:
 
 * container name: Den Storage-behållare som du vill ladda ned filer från
 * pattern: En valfri parameter för filnamnsmönster
 
-Anta att vi har fyra behållare – ”con1”, ”con2”, ”con3” och ”con4”. Följande kod visar hur man skickar aktiviteter till Azure Batch-jobbet ”process csv” som vi skapade tidigare.
+Anta att vi har fyra containrar – ”con1”, ”con2”, ”con3” och ”con4”. Följande kod visar hur man skickar aktiviteter till Azure Batch-jobbet ”process csv” som vi skapade tidigare.
 
 ```nodejs
 // storing container names in an array

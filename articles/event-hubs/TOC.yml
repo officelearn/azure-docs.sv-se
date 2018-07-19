@@ -26,6 +26,10 @@
   items:
     - name: Översikt över händelsebearbetningsvärd
       href: event-hubs-event-processor-host.md
+    - name: IP-anslutningsfilter
+      href: event-hubs-ip-filtering.md
+    - name: Tjänstslutpunkter för virtuellt nätverk
+      href: event-hubs-service-endpoints.md
     - name: Programmeringsguide
       href: event-hubs-programming-guide.md
     - name: Integrera med Event Grid
@@ -150,7 +154,7 @@
     - name: VANLIGA FRÅGOR OCH SVAR
       href: event-hubs-faq.md
     - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Utbildningsväg
       href: 'https://azure.microsoft.com/documentation/learning-paths/event-hubs/'
     - name: Prissättning

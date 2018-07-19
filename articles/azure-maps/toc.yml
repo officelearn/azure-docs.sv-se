@@ -22,8 +22,16 @@
   items:
     - name: Zoomningsnivåer och rutnät
       href: zoom-levels-and-tile-grid.md
-    - name: Sökkategorier som stöds
-      href: supported-search-categories.md
+    - name: Tjänstetäckning
+      items:
+        - name: Geokodning
+          href: geocoding-coverage.md
+        - name: Trafik
+          href: traffic-coverage.md
+        - name: Rendering
+          href: render-coverage.md
+        - name: Routning
+          href: routing-coverage.md
     - name: Språk som stöds
       href: supported-languages.md
 - name: Instruktionsguider
@@ -64,22 +72,14 @@
           href: map-accessibility.md
 - name: Referens
   items:
-    - name: Tjänstetäckning
-      items:
-        - name: Geokodning
-          href: geocoding-coverage.md
-        - name: Trafik
-          href: traffic-coverage.md
-        - name: Rendering
-          href: render-coverage.md
-        - name: Routning
-          href: routing-coverage.md
     - name: API- och parametertillägg
       items:
         - name: Förbrukningsmodell för fordon
           href: consumption-model.md
         - name: Utöka GeoJSON-format
           href: extend-geojson.md
+        - name: Sökkategorier som stöds
+          href: supported-search-categories.md
     - name: REST
       items:
         - name: Renderingstjänst
@@ -129,7 +129,7 @@
     - name: Azure IoT Developer Center
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Prissättning

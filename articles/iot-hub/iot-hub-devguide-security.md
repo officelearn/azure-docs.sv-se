@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 754449dcf759820c8bb99d082c3a5ba2792f02c8
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 227723ecea1401247f0df87bccfe058fb2273647
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126331"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145357"
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
@@ -91,7 +91,7 @@ HTTPS implementerar autentisering genom att inkludera en giltig token i den **au
 
 Användarnamn (DeviceId är skiftlägeskänsligt): `iothubname.azure-devices.net/DeviceId`
 
-Lösenord (du kan generera en SAS-token med den [enhetsutforskare] [ lnk-device-explorer] verktyg eller kommando för CLI-tillägget [az iot hub generera sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token)):
+Lösenord (du kan generera en SAS-token med den [enhetsutforskare] [ lnk-device-explorer] verktyget tilläggskommando CLI [az iot hub generera sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), eller [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -270,7 +270,7 @@ Resultatet, som ger åtkomst till alla funktioner för device1 skulle bli:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> Det är möjligt att skapa en SAS-token med hjälp av .NET [enhetsutforskare] [ lnk-device-explorer] verktyget eller plattformsoberoende, Python-baserade [IoT-tillägget för Azure CLI 2.0] [ lnk-IoT-extension-CLI-2.0] -kommandoradsverktyget eller [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+> Det är möjligt att skapa en SAS-token med den [enhetsutforskare] [ lnk-device-explorer] verktyget tilläggskommando CLI [az iot hub generera sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), eller [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ### <a name="use-a-shared-access-policy"></a>Använda en princip för delad åtkomst
 
@@ -415,7 +415,7 @@ Här är de viktigaste anvisningarna för tokentjänsten mönster:
 
 Tokentjänsten som kan ange giltighetstid för token som du vill. När token upphör att gälla, ned IoT-hubben enhetsmodulen /. Enheten/modulen måste sedan begära en ny token från token-tjänsten. En kort förfallotid ökar belastningen på både enhetsmodulen och token-tjänsten.
 
-För en enhet/modul för att ansluta till din hubb, måste du fortfarande lägga till den IoT Hub-identitetsregistret – även om it använder en token och inte en nyckel för att ansluta. Därför kan du kan fortsätta att använda per enhet/per-zakazuje åtkomstkontroll genom att aktivera eller inaktivera enhetsmodulen/identiteter i den [identitetsregistret][lnk-identity-registry]. Den här metoden minskar riskerna med att använda token med lång giltighetstid.
+För en enhet/modul för att ansluta till din hubb, måste du fortfarande lägga till den IoT Hub-identitetsregistret – trots att den använder en token och inte en nyckel för att ansluta. Därför kan du kan fortsätta att använda per enhet/per-zakazuje åtkomstkontroll genom att aktivera eller inaktivera enhetsmodulen/identiteter i den [identitetsregistret][lnk-identity-registry]. Den här metoden minskar riskerna med att använda token med lång giltighetstid.
 
 ### <a name="comparison-with-a-custom-gateway"></a>Jämförelse med en anpassad gateway
 
@@ -492,8 +492,6 @@ I följande självstudier får IoT Hub om du vill prova några av de koncept som
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
-
-[lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-getstarted-tutorial]: quickstart-send-telemetry-node.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: tutorial-routing.md

@@ -1,92 +1,164 @@
 ---
-title: Azure händelse rutnätet prenumeration Händelseschema
-description: Beskriver de egenskaper som har angetts för prenumerationshändelser med Azure händelse rutnätet
+title: Händelseschema för Azure Event Grid-prenumeration
+description: Beskriver de egenskaper som har angetts för prenumerationshändelser med Azure Event Grid
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 07/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 04bcc3018346e9cf162d26b0a23147c88e902e1e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 1ee6bf2f358a24d1f36d0b5e10f3556e7037cad2
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34301366"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159040"
 ---
-# <a name="azure-event-grid-event-schema-for-subscriptions"></a>Azure händelse rutnätet Händelseschema för prenumerationer
+# <a name="azure-event-grid-event-schema-for-subscriptions"></a>Azure Event Grid-Händelseschema för prenumerationer
 
-Den här artikeln innehåller egenskaperna och schemat för Azure-prenumerationshändelser. En introduktion till händelse scheman, se [Azure händelse rutnätet Händelseschema](event-schema.md).
+Den här artikeln innehåller egenskaperna och schema för Azure-prenumerationshändelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
 
-Generera samma händelsetyper Azure-prenumerationer och resursgrupper. Händelsetyperna som är relaterade till ändringar i resurser. Den viktigaste skillnaden är att resursgrupper genererar händelser för resurser i resursgruppen och Azure-prenumerationer genererar händelser för resurser i prenumerationen.
+Generera samma händelsetyper Azure-prenumerationer och resursgrupper. Händelsetyperna som är relaterade till ändringar i resurser. Den viktigaste skillnaden är att resursgrupper skickar händelser för resurserna i resursgruppen och Azure-prenumerationer Generera händelser för resurser i prenumerationen.
 
 ## <a name="available-event-types"></a>Tillgängliga händelsetyper
 
-Azure-prenumerationer genererar management händelser från Azure Resource Manager, t.ex. när en virtuell dator skapas eller en lagringskontot tas bort.
+Azure-prenumerationer generera management händelser från Azure Resource Manager, t.ex. när en virtuell dator skapas eller en lagringskontot har tagits bort.
 
 | Händelsetyp | Beskrivning |
 | ---------- | ----------- |
 | Microsoft.Resources.ResourceWriteSuccess | Utlöses lyckas när en resurs skapa eller uppdatera åtgärden. |
-| Microsoft.Resources.ResourceWriteFailure | Utlöses när en resurs skapa eller uppdateringsåtgärden misslyckas. |
-| Microsoft.Resources.ResourceWriteCancel | Utlöses har när en resurs skapa eller uppdatera åtgärden avbrutits. |
+| Microsoft.Resources.ResourceWriteFailure | Utlöses när en resurs skapar eller uppdatering misslyckas. |
+| Microsoft.Resources.ResourceWriteCancel | Utlöses avbryts när en resurs skapa eller uppdatera åtgärden. |
 | Microsoft.Resources.ResourceDeleteSuccess | Utlöses när en resurs borttagningsåtgärd lyckas. |
 | Microsoft.Resources.ResourceDeleteFailure | Utlöses när en resurs borttagningsåtgärd misslyckas. |
-| Microsoft.Resources.ResourceDeleteCancel | Utlöses när en resurs delete-åtgärden har avbrutits. Den här händelsen inträffar när en för malldistribution har avbrutits. |
+| Microsoft.Resources.ResourceDeleteCancel | Utlöses när en resurs borttagningsåtgärd har avbrutits. Den här händelsen inträffar när en för malldistribution har avbrutits. |
 
 ## <a name="example-event"></a>Exempel-händelse
 
-I följande exempel visas schemat för en resurs som skapas händelse: 
-
-```json
-[
-  {
-    "topic":"/subscriptions/{subscription-id}",
-    "subject":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
-    "eventType":"Microsoft.Resources.ResourceWriteSuccess",
-    "eventTime":"2017-08-16T03:54:38.2696833Z",
-    "id":"25b3b0d0-d79b-44d5-9963-440d4e6a9bba",
-    "data": {
-        "authorization":"{azure_resource_manager_authorizations}",
-        "claims":"{azure_resource_manager_claims}",
-        "correlationId":"54ef1e39-6a82-44b3-abc1-bdeb6ce4d3c6",
-        "httpRequest":"{request-operation}",
-        "resourceProvider":"Microsoft.EventGrid",
-        "resourceUri":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
-        "operationName":"Microsoft.EventGrid/eventSubscriptions/write",
-        "status":"Succeeded",
-        "subscriptionId":"{subscription-id}",
-        "tenantId":"72f988bf-86f1-41af-91ab-2d7cd011db47"
-        },
-      "dataVersion": "",
-      "metadataVersion": "1"
-  }
-]
-```
-
-Schemat för en resurs tas bort händelse är ungefär:
+I följande exempel visar schemat för en resurs som skapas händelse: 
 
 ```json
 [{
-  "topic":"/subscriptions/{subscription-id}",
-  "subject": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicApp0ecd6c02-2296-4d7c-9865-01532dc99c93",
-  "eventType": "Microsoft.Resources.ResourceDeleteSuccess",
-  "eventTime": "2017-11-07T21:24:19.6959483Z",
-  "id": "7995ecce-39d4-4851-b9d7-a7ef87a06bf5",
+  "subject": "/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+  "eventType": "Microsoft.Resources.ResourceWriteSuccess",
+  "eventTime": "2018-07-19T18:38:04.6117357Z",
+  "id": "4db48cba-50a2-455a-93b4-de41a3b5b7f6",
   "data": {
-    "authorization": "{azure_resource_manager_authorizations}",
-    "claims": "{azure_resource_manager_claims}",
-    "correlationId": "7995ecce-39d4-4851-b9d7-a7ef87a06bf5",
-    "httpRequest": "{request-operation}",
-    "resourceProvider": "Microsoft.EventGrid",
-    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
-    "operationName": "Microsoft.EventGrid/eventSubscriptions/delete",
+    "authorization": {
+      "scope": "/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+      "action": "Microsoft.Storage/storageAccounts/write",
+      "evidence": {
+        "role": "Subscription Admin"
+      }
+    },
+    "claims": {
+      "aud": "{audience-claim}",
+      "iss": "{issuer-claim}",
+      "iat": "{issued-at-claim}",
+      "nbf": "{not-before-claim}",
+      "exp": "{expiration-claim}",
+      "_claim_names": "{\"groups\":\"src1\"}",
+      "_claim_sources": "{\"src1\":{\"endpoint\":\"{URI}\"}}",
+      "http://schemas.microsoft.com/claims/authnclassreference": "1",
+      "aio": "{token}",
+      "http://schemas.microsoft.com/claims/authnmethodsreferences": "rsa,mfa",
+      "appid": "{ID}",
+      "appidacr": "2",
+      "http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "{ID}",
+      "e_exp": "{expiration}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "{last-name}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "{first-name}",
+      "ipaddr": "{IP-address}",
+      "name": "{full-name}",
+      "http://schemas.microsoft.com/identity/claims/objectidentifier": "{ID}",
+      "onprem_sid": "{ID}",
+      "puid": "{ID}",
+      "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "{ID}",
+      "http://schemas.microsoft.com/identity/claims/tenantid": "{ID}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "{user-name}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "{user-name}",
+      "uti": "{ID}",
+      "ver": "1.0"
+    },
+    "correlationId": "{ID}",
+    "resourceProvider": "Microsoft.Storage",
+    "resourceUri": "/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+    "operationName": "Microsoft.Storage/storageAccounts/write",
     "status": "Succeeded",
     "subscriptionId": "{subscription-id}",
-    "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+    "tenantId": "{tenant-id}"
   },
-  "dataVersion": "",
-  "metadataVersion": "1"
+  "dataVersion": "2",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/{subscription-id}"
+}]
+```
+
+Schemat för en resurs har tagits bort händelsen liknar:
+
+```json
+[{
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+  "eventType": "Microsoft.Resources.ResourceDeleteSuccess",
+  "eventTime": "2018-07-19T19:24:12.763881Z",
+  "id": "19a69642-1aad-4a96-a5ab-8d05494513ce",
+  "data": {
+    "authorization": {
+      "scope": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+      "action": "Microsoft.Storage/storageAccounts/delete",
+      "evidence": {
+        "role": "Subscription Admin"
+      }
+    },
+    "claims": {
+      "aud": "{audience-claim}",
+      "iss": "{issuer-claim}",
+      "iat": "{issued-at-claim}",
+      "nbf": "{not-before-claim}",
+      "exp": "{expiration-claim}",
+      "_claim_names": "{\"groups\":\"src1\"}",
+      "_claim_sources": "{\"src1\":{\"endpoint\":\"{URI}\"}}",
+      "http://schemas.microsoft.com/claims/authnclassreference": "1",
+      "aio": "{token}",
+      "http://schemas.microsoft.com/claims/authnmethodsreferences": "rsa,mfa",
+      "appid": "{ID}",
+      "appidacr": "2",
+      "http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "{ID}",
+      "e_exp": "262800",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "{last-name}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "{first-name}",
+      "ipaddr": "{IP-address}",
+      "name": "{full-name}",
+      "http://schemas.microsoft.com/identity/claims/objectidentifier": "{ID}",
+      "onprem_sid": "{ID}",
+      "puid": "{ID}",
+      "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "{ID}",
+      "http://schemas.microsoft.com/identity/claims/tenantid": "{ID}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "{user-name}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "{user-name}",
+      "uti": "{ID}",
+      "ver": "1.0"
+    },
+    "correlationId": "{ID}",
+    "httpRequest": {
+      "clientRequestId": "{ID}",
+      "clientIpAddress": "{IP-address}",
+      "method": "DELETE",
+      "url": "https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}?api-version=2018-02-01"
+    },
+    "resourceProvider": "Microsoft.Storage",
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}",
+    "operationName": "Microsoft.Storage/storageAccounts/delete",
+    "status": "Succeeded",
+    "subscriptionId": "{subscription-id}",
+    "tenantId": "{tenant-id}"
+  },
+  "dataVersion": "2",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/{subscription-id}"
 }]
 ```
 
@@ -96,31 +168,31 @@ En händelse har följande översta data:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Avsnittet | sträng | Fullständigt labbresurs sökvägen till händelsekällan. Det här fältet är skrivskyddat. Händelsen rutnätet innehåller det här värdet. |
-| Ämne | sträng | Publisher-definierade sökvägen till ämnet för händelsen. |
-| Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekälla. |
-| EventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
+| Ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
+| Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
+| eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | sträng | Unik identifierare för händelsen. |
-| data | objekt | Händelsedata i prenumerationen. |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversionen. |
-| metadataVersion | sträng | Schemaversion för händelsemetadata. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
+| data | objekt | Händelsedata för prenumerationen. |
+| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Auktorisering | sträng | Det begärda tillståndet för åtgärden. |
-| Anspråk | sträng | Egenskaperna för anspråk. |
+| Auktorisering | sträng | Den begärda auktoriseringen för åtgärden. |
+| anspråk | sträng | Egenskaper för anspråken. Mer information finns i [JWT-specifikationen](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | sträng | En Operations-ID för felsökning. |
 | httpRequest | sträng | Information om åtgärden. |
-| resourceProvider | sträng | Resursprovidern utför åtgärden. |
+| ResourceProvider | sträng | Resursprovidern som utför åtgärden. |
 | resourceUri | sträng | URI för resursen i åtgärden. |
 | operationName | sträng | Åtgärden som utfördes. |
 | status | sträng | Status för åtgärden. |
 | subscriptionId | sträng | Prenumerations-ID för resursen. |
-| Klient-ID | sträng | Klient-ID för resursen. |
+| TenantId | sträng | Klient-ID för resursen. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure händelse rutnätet finns [vad är händelsen rutnätet?](overview.md).
-* Mer information om hur du skapar en prenumeration på Azure händelse rutnätet finns [händelse rutnätet prenumeration schemat](subscription-creation-schema.md).
+* En introduktion till Azure Event Grid finns i [vad är Event Grid?](overview.md).
+* Läs mer om hur du skapar en Azure Event Grid-prenumeration, [Event Grid prenumerationsschema](subscription-creation-schema.md).

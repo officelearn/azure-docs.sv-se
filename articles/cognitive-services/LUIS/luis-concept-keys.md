@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: v-geberr
-ms.openlocfilehash: eb3487a304ec2e4045ff76253c456dc4b6ee19b5
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 083169b300cc2714da3921c3abeee68d52444b9b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888631"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145714"
 ---
 # <a name="keys-in-luis"></a>Nycklar i LUIS
 LUIS använder två nycklar: [redigering](#programmatic-key) och [endpoint](#endpoint-key). Redigering nyckeln skapas automatiskt åt dig när du skapar ditt Understanding Intelligent Service-konto. När du är redo att publicera LUIS-appen kan du behöva [skapa slutpunktsnyckeln](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [tilldela den](luis-how-to-manage-keys.md#assign-endpoint-key) till din LUIS-app och [använder den med slutpunkt-frågan](#use-endpoint-key-in-query). 
@@ -54,10 +54,12 @@ Använd inte slutpunktsnyckeln för redigering av LUIS-appar.
 ## <a name="use-endpoint-key-in-query"></a>Använd slutpunktsnyckeln i fråga
 LUIS-slutpunkten accepterar två sorters fråga, både använda slutpunkten nyckel, men på olika platser:
 
-|Verb|Exempel på placering av url och nyckel|
+|verb|Exempel på placering av url och nyckel|
 |--|--|
-|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/98998dcf-66d2-468e-840a-7c7c57549b5a?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn lamporna<br><br>frågesträngsvärdet för `subscription-key`<br><br>Ändra din fråga slutpunktsvärdet för den `subscription-key` från den redigering (starter)-nyckeln till den nya slutpunktsnyckeln för att kunna använda LUIS endpoint viktiga kvot hastighet. Om du skapa nyckeln, och tilldela nyckeln men inte ändra frågan slutpunktsvärdet för prenumeration-key ”, du inte använder din viktiga kvot för slutpunkten.|
-|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/98998dcf-66d2-468e-840a-7c7c57549b5a<br><br> huvudets värde för `Ocp-Apim-Subscription-Key`<br><br>Ändra din fråga slutpunktsvärdet för den `Ocp-Apim-Subscription-Key` från den redigering (starter)-nyckeln till den nya slutpunktsnyckeln för att kunna använda LUIS endpoint viktiga kvot hastighet. Om du skapar nyckeln, och tilldela nyckeln men inte ändra frågan slutpunktsvärdet för `Ocp-Apim-Subscription-Key`, du inte använder din viktiga kvot för slutpunkten.|
+|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>frågesträngsvärdet för `subscription-key`<br><br>Ändra din fråga slutpunktsvärdet för den `subscription-key` från den redigering (starter)-nyckeln till den nya slutpunktsnyckeln för att kunna använda LUIS endpoint viktiga kvot hastighet. Om du skapa nyckeln, och tilldela nyckeln men inte ändra frågan slutpunktsvärdet för prenumeration-key ”, du inte använder din viktiga kvot för slutpunkten.|
+|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> huvudets värde för `Ocp-Apim-Subscription-Key`<br><br>Ändra din fråga slutpunktsvärdet för den `Ocp-Apim-Subscription-Key` från den redigering (starter)-nyckeln till den nya slutpunktsnyckeln för att kunna använda LUIS endpoint viktiga kvot hastighet. Om du skapar nyckeln, och tilldela nyckeln men inte ändra frågan slutpunktsvärdet för `Ocp-Apim-Subscription-Key`, du inte använder din viktiga kvot för slutpunkten.|
+
+App-ID som används i de föregående URL: er, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, är den offentliga IoT-app som används för den [interaktiv demonstration](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/). 
 
 ## <a name="api-usage-of-ocp-apim-subscription-key"></a>API-användning av Ocp-Apim-Subscription-Key
 LUIS APIs använda rubriken, `Ocp-Apim-Subscription-Key`. Huvudets namn ändras inte beroende på vilken nyckel och en uppsättning API: er du använder. Ange rubriken till redigering nyckeln för redigering API: er. Om du använder slutpunkten inställd rubriken slutpunktsnyckeln. 

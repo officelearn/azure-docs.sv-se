@@ -1,45 +1,47 @@
 ---
-title: Licens lösenordsåterställning via självbetjäning – Azure Active Directory
+title: Licens för Azure Active Directory självåterställning av lösenord
 description: Licensieringskrav för återställning av lösenord för självbetjäning av Azure AD
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e185b67ae73b86b5f1c3b6cda884de05eb89c6fd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 83054c505689768c14d168841764a4557c3e1f8b
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049092"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159006"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Återställning av Licensieringskrav för lösenord för självbetjäning i Azure AD
 
-För Azure Active Directory (Azure AD)-lösenordsåterställning ska fungera du *måste ha minst en engångslicens tilldelad inom organisationen* för användaren. En riktig licens krävs om en användare direkt eller indirekt utnyttjar någon funktion som omfattas av den licensen.
+Azure Active Directory (Azure AD) finns i fyra versioner: kostnadsfri, Basic, Premium P1 och Premium P2. Det finns flera olika funktioner som gör dig lösenordsåterställning via självbetjäning, inklusive ändringen, återställa, låsa upp och tillbakaskrivning av som är tillgängliga i de olika versionerna av Azure AD. Den här artikeln försöker beskriver skillnaderna. Mer information om de funktioner som ingår i varje Azure AD-version kan hittas på den [sidan med priser för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-* **Molnexklusiva användare**: Office 365 någon betalda SKU: N eller Azure AD Basic
-* **Molnet** eller **lokala användare**: Azure AD Premium P1 eller P2, Enterprise Mobility + Security (EMS) eller Microsoft 365
+## <a name="compare-editions-and-features"></a>Jämför versioner och funktioner
 
-## <a name="licensing-requirements-for-password-writeback"></a>Licensieringskrav för tillbakaskrivning av lösenord
+Lösenord för självbetjäning av Azure AD lösenordsåterställning licensieras per användare, för att underhålla kompatibiliteten organisationer som krävs för att tilldela rätt licens till sina användare.
 
-**Självbetjäning lösenord återställning/ändring/upplåsning med lokal tillbakaskrivning är en premiumfunktion i Azure AD**. Mer information om licensiering finns i den [priser platsen för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+* Självbetjäning för ändring av lösenord för molnanvändare
+   * Jag är en **endast molnbaserad** och vet mitt lösenord.
+      * Jag skulle vilja **ändra** mitt lösenord till något nytt.
+   * Den här funktionen ingår i alla utgåvor av Azure AD.
 
-Om du vill använda tillbakaskrivning av lösenord, måste du ha en av de följande licenser som tilldelats på din klient:
+* Självbetjäning för återställning av lösenord för molnanvändare
+   * Jag är en **endast molnbaserad** och har glömt mitt lösenord.
+      * Jag skulle vilja **återställa** mitt lösenord till något som jag vet.
+   * Den här funktionen ingår i Azure AD Basic, Premium P1 eller Premium P2-versioner.
 
-* Azure AD Premium P1
-* Azure AD Premium P2
-* Enterprise Mobility + Security E3 eller A3
-* Enterprise Mobility + Security E5 eller A5
-* Microsoft 365 E3 eller A3
-* Microsoft 365 E5 eller A5
-* Microsoft 365 F1
+* Självbetjäning lösenord återställning/ändring/upplåsning **med lokal tillbakaskrivning**
+   * Jag är en **hybrid användaren** mitt lokala Active Directory-användarkonto är synkroniserad med min Azure AD-konto med Azure AD Connect. Jag skulle vilja ändra mitt lösenord, har glömt mitt lösenord eller låsts ute.
+      * Jag skulle vilja ändra mitt lösenord eller återställa den till något som jag vet eller låsa upp mitt konto, **och** har att ändra synkroniseras tillbaka till en lokal Active Directory.
+   * Den här funktionen ingår i Azure AD Premium P1 eller Premium P2-versioner.
 
 > [!WARNING]
-> Fristående Office 365 licensiering planer *inte har stöd för tillbakaskrivning av lösenord* och kräver att du har en av de föregående prenumerationerna för den här funktionen ska fungera.
+> Fristående Office 365 licensiering planer **inte har stöd för tillbakaskrivning av lösenord** och kräver Azure AD Premium P1 eller Premium P2-versioner för den här funktionen ska fungera.
 >
 
 Ytterligare information om licenser går inklusive kostnader, kan hittas på följande sidor:

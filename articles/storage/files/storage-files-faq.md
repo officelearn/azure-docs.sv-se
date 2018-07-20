@@ -11,17 +11,17 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/31/2018
+ms.date: 07/19/2018
 ms.author: renash
-ms.openlocfilehash: d11ddb0bc15798187ccea22fe1a80a9c86162dcd
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 89c1bb0404e1fbff9241fe42404123288fffea71
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866478"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160237"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
-[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync (förhandsversion) för snabb åtkomst nära där data används.
+[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
 
 Den här artikeln innehåller vanliga frågor och svar om Azure Files och funktioner, inklusive användning av Azure File Sync med Azure Files. Om du inte ser svar på din fråga, kan du kontakta oss via följande kanaler (i ständigt växande ordning):
 
@@ -90,8 +90,8 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
-**Vilka regioner stöds för Azure File Sync (förhandsversion)?**  
-    Azure File Sync är för närvarande tillgängligt i Östra Australien, sydöstra Australien, centrala Kanada, Östra Kanada, centrala USA, Östasien, östra USA, östra usa2, Norra Europa, Sydostasien, Storbritannien, södra, Storbritannien, västra, Europa, västra och USA, västra. Stöd för fler regioner kommer att läggas vi arbetar mot allmänt tillgängliga. Mer information finns i [regiontillgänglighet](storage-sync-files-planning.md#region-availability).
+**Vilka regioner stöds för Azure File Sync?**  
+    Lista över tillgängliga regioner finns på den [regiontillgänglighet](storage-sync-files-planning.md#region-availability) avsnitt av Azure File Sync-planering guide. Vi lägger kontinuerligt till stöd för ytterligare regioner, inklusive icke-offentlig regioner.
 
 * <a id="cross-domain-sync"></a>
 **Kan jag ha domänanslutna och icke-domänanslutna servrar i samma synkroniseringsgruppen?**  
@@ -367,4 +367,4 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 ## <a name="see-also"></a>Se också
 * [Felsöka Azure Files i Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Felsöka Azure Files i Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Felsöka Azure File Sync (förhandsversion)](storage-sync-files-troubleshoot.md)
+* [Felsök Azure File Sync](storage-sync-files-troubleshoot.md)

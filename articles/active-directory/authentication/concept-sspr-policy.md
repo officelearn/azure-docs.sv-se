@@ -1,31 +1,31 @@
 ---
-title: Lösenordsåterställning via självbetjäning principer - Azure Active Directory
-description: Alternativ för återställning av lösenord för självbetjäning av Azure AD
+title: Azure AD-självbetjäning princip för lösenordsåterställning
+description: Konfigurera alternativ för princip för återställning av lösenord för självbetjäning Azure AD
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: a851b3842e44dbb81ef80bacde645ebafdb48d86
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8396db3a45c2b6f2c88a9fd6bbf0b8e5a7df4efb
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054768"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162056"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
 Den här artikeln beskriver lösenordsprinciper och krav på komplexitet som är associerade med användarkonton som lagrats i din Azure Active Directory (Azure AD)-klient.
 
-## <a name="administrator-password-policy-differences"></a>Administratören lösenord princip skillnader
+## <a name="administrator-reset-policy-differences"></a>Administratören återställa principen skillnader
 
-Microsoft tillämpar en stark standardprincip *två gate* för återställning av lösenord för alla Azure-administratörsroller. 
+**Microsoft tillämpar en stark standardprincip *två gate* för återställning av lösenord för alla Azure-administratörsroller** den här polciy kan skilja sig från det du har definierat för dina användare och kan inte ändras. Du bör alltid kontrollera att återställa lösenord som en användare utan någon Azure-administratörsroller som tilldelats.
 
-Med en två-gate-princip har administratörer inte kan använda säkerhetsfrågor.
+Med en princip för två gate **administratörer inte har möjlighet att använda säkerhetsfrågor**.
 
  En två-gate-princip kräver två typer av autentiseringsdata, till exempel en e-postadress *och* ett telefonnummer. En två-gate-princip tillämpas under följande omständigheter:
 
@@ -49,7 +49,7 @@ Med en två-gate-princip har administratörer inte kan använda säkerhetsfrågo
   * Administratör för tjänsten webbprogramproxy
   * CRM-tjänstadministratör
   * Power BI-tjänstadministratör
-  
+
 * Om 30 dagar har i en utvärderingsprenumeration
 
   eller
@@ -61,18 +61,18 @@ Med en två-gate-princip har administratörer inte kan använda säkerhetsfrågo
 * Azure AD Connect synkroniserar identiteter från din lokala katalog
 
 ### <a name="exceptions"></a>Undantag
+
 En princip för en gate kräver en typ av autentiseringsdata, till exempel en e-postadress *eller* telefonnummer. En princip för en gate gäller under följande omständigheter:
 
 * Det är inom de första 30 dagarna av en utvärderingsprenumeration
 
   eller
 
-* En anpassad domän inte finns (*. onmicrosoft.com) 
+* En anpassad domän inte finns (*. onmicrosoft.com)
 
-  och 
+  och
 
   Azure AD Connect synkroniserar inte identiteter
-
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>UserPrincipalName-principer som gäller för alla användarkonton
 
@@ -109,13 +109,13 @@ Den här vägledningen gäller för andra leverantörer, till exempel Intune och
 > [!NOTE]
 > Endast lösenord för användarkonton som inte synkroniseras via katalogsynkronisering kan konfigureras för att inte upphör för att gälla. Läs mer om katalogsynkronisering [Connect AD med Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
 >
->
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Ange eller kontrollera principer för lösenord med hjälp av PowerShell
 
 Om du vill komma igång kan du behöva [ladda ned och installera Azure AD PowerShell-modulen](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). När du har installerat kan använda du följande steg för att konfigurera varje fält.
 
-### <a name="how-to-check-the-expiration-policy-for-a-password"></a>Hur du kontrollerar förfalloprincipen för lösenord
+### <a name="check-the-expiration-policy-for-a-password"></a>Kontrollera förfalloprincipen för lösenord
+
 1. Ansluta till Windows PowerShell med hjälp av företagets administratörsautentiseringsuppgifter.
 2. Kör något av följande kommandon:
 

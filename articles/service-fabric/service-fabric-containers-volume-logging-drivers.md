@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: subramar
-ms.openlocfilehash: a5b75a7069375f503cbe25554eb7c04cba868413
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9bd370e8070816d62b22c1e3d5ad4b6cdd2da30a
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969613"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144959"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure Files volym drivrutinen (förhandsversion)
 Plugin-programmet för Azure Files volym är en [Docker volym plugin-programmet](https://docs.docker.com/engine/extend/plugins_volume/) som ger [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) baserat på volymer för Docker-behållare. Det här plugin-program med Docker volymen kommer som ett Service Fabric-program som kan distribueras till Service Fabric-kluster. Dess syfte är att tillhandahålla Azure Files baserat på volymer för andra program i Service Fabric-behållare som distribueras till klustret.
@@ -36,6 +36,33 @@ Plugin-programmet för Azure Files volym är en [Docker volym plugin-programmet]
 * Följ instruktionerna i den [dokumentation för Azure Files](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share) att skapa en filresurs för Service Fabric-behållarprogrammet ska användas som volym.
 
 * Du behöver [Powershell med Service Fabric-modul](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) eller [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) installerad.
+
+* Om du använder Hyper-v-behållare, måste följande kodavsnitt som ska läggas till i området ClusterManifest (lokala kluster) eller fabricSettings i ARM-mall (Azure-kluster) eller ClusterConfig.json (fristående kluster). Du måste volymens namn och port som volymen avlyssnar klustret. 
+
+I ClusterManifest följande behov som ska läggas till i avsnittet Hosting. I det här exemplet volymnamnet är **sfazurefile** och porten den lyssnar till i klustret är **19300**.  
+
+``` xml 
+<Section Name="Hosting">
+  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19300" />
+</Section>
+```
+
+Följande fragment måste läggas till i avsnittet fabricSettings i ARM-mall (för Azure-distributioner) eller ClusterConfig.json (för fristående distributioner). 
+
+```json
+"fabricSettings": [
+  {
+    "name": "Hosting",
+    "parameters": [
+      {
+          "name": "VolumePluginPorts",
+          "value": "sfazurefile:19300"
+      }
+    ]
+  }
+]
+```
+
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>Distribuera Service Fabric Azure Files-programmet
 

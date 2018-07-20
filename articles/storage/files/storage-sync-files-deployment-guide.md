@@ -1,5 +1,5 @@
 ---
-title: Distribuera Azure File Sync (förhandsversion) | Microsoft Docs
+title: Distribuera Azure File Sync | Microsoft Docs
 description: Lär dig hur du distribuerar Azure File Sync, från början till slut.
 services: storage
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 808bc3908790c8d6dedf1d9f00a4c70b42c7c490
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: b3837da26868dcf3c14fab230b4dad4aa6f531b3
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867077"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161405"
 ---
-# <a name="deploy-azure-file-sync-preview"></a>Distribuera Azure File Sync (förhandsversion)
-Använd Azure File Sync (förhandsversion) för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
+# <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
+Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
 
 Vi rekommenderar starkt att du läser [planera för distribution av Azure Files](storage-files-planning.md) och [planera för distribution av Azure File Sync](storage-sync-files-planning.md) innan du slutför stegen som beskrivs i den här artikeln.
 
@@ -135,7 +135,7 @@ Distributionen av Azure File Sync som börjar med att placera en **Lagringssynkr
 > Storage Sync-tjänsten ärvda åtkomstbehörigheter från prenumeration och resursgrupp som den har distribuerats till. Vi rekommenderar att du noggrant kontrollera vem som har åtkomst till den. Entiteter med skrivåtkomst kan börja synkronisera nya grupper av filer från servrar som registrerats till den här lagringen synkroniseringstjänsten och orsaka data kan flöda till Azure storage som är tillgänglig för dem.
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
-Om du vill distribuera en tjänst för Lagringssynkronisering, går du till den [Azure-portalen](https://portal.azure.com/), klickar du på *New* och söker sedan efter Azure File Sync. I sökresultaten väljer **Azure File Sync (förhandsversion)**, och välj sedan **skapa** att öppna den **distribuera synkronisering av lagring** fliken.
+Om du vill distribuera en tjänst för Lagringssynkronisering, går du till den [Azure-portalen](https://portal.azure.com/), klickar du på *New* och söker sedan efter Azure File Sync. I sökresultaten väljer **Azure File Sync**, och välj sedan **skapa** att öppna den **distribuera synkronisering av lagring** fliken.
 
 I fönstret som öppnas anger du följande information:
 

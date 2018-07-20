@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e955973008f1ba3900deb691426d0409440ad08a
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3f2480fb1068096bf77a3677ad62c886bc4774bb
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917735"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160162"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory-direktautentisering: Uppgradera förhandsversionen Autentiseringsagenter
 
@@ -51,7 +51,7 @@ Följ de här instruktionerna för att kontrollera vilka versioner av dina Auten
 
 1. Gå till **Kontrollpanelen -> program -> program och funktioner** på den lokala servern.
 2. Om det finns en post för ”**Microsoft Azure AD Connect-Autentiseringsagenten**”, du behöver inte vidta några åtgärder för den här servern.
-3. Om det finns en post för ”**Microsoft Azure AD Application Proxy Connector**”, versioner 1.5.132.0 eller tidigare, måste du uppgradera manuellt på den här servern.
+3. Om det finns en post för ”**Microsoft Azure AD Application Proxy Connector**”, måste du manuellt uppgradera på den här servern.
 
 ![Förhandsversionen av Autentiseringsagenten](./media/active-directory-aadconnect-pass-through-authentication/pta6.png)
 

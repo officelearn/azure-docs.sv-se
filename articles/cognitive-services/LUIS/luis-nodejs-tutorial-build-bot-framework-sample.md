@@ -1,6 +1,6 @@
 ---
-title: Integrera THOMAS med en bot med Bot Builder SDK för Node.js i Azure | Microsoft Docs
-description: Skapa en bot integrerad med en THOMAS-program med hjälp av ramverket Bot.
+title: Integrera LUIS med en bot med Bot Builder-SDK för Node.js i Azure | Microsoft Docs
+description: Skapa en robot som är integrerad med en LUIS-App med Bot Framework.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,107 +9,107 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5d9b78977457f818b964adb16ebb5e9e5872aa2c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 23809b40026955f0c864764781d7a151e5ab2756
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264981"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144400"
 ---
-# <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>Integrera THOMAS med en bot med Bot Builder SDK för Node.js
+# <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>Integrera LUIS med en bot med Bot Builder-SDK för Node.js
 
-Den här självstudiekursen vägleder dig genom att skapa en bot med den [Bot Framework] [ BotFramework] som är integrerad med en THOMAS app.
+Den här självstudien vägleder dig genom att skapa en robot med den [Bot Framework] [ BotFramework] som är integrerad med en LUIS-app.
 
 ## <a name="prerequisite"></a>Krav
 
-Innan du skapar bot följer du stegen i [skapa en app](./luis-get-started-create-app.md) att bygga appen THOMAS som används.
+Innan du skapar roboten följer du stegen i [skapa en app](./luis-get-started-create-app.md) att skapa LUIS-app som används.
 
-Bot svarar avsikter från domänen HomeAutomation i appen THOMAS. För var och en av dessa avsikter ger appen THOMAS syftet som mappar till den. Bot visar en dialogruta som hanterar avsikten THOMAS identifierar.
+Roboten besvarar avsikter från HomeAutomation domänen som finns i LUIS-app. För var och en av dessa avsikter ger LUIS-app ett intent som mappar till den. Roboten visar en dialogruta som hanterar avsikten som identifierar LUIS.
 
-| Avsikten | Exempel utterance | Bot funktioner |
+| Avsikten | Exempel-uttryck | Bot-funktioner |
 |:----:|:----------:|---|
-| HomeAutomation.TurnOn | Aktivera indikeringar. | Bot anropar den `TurnOnDialog` när den `HomeAutomation.TurnOn` har identifierats. Den här dialogrutan är där du vill anropa en IoT-tjänst för att aktivera en enhet och meddela användaren som enheten har aktiverats. |
-| HomeAutomation.TurnOff | Inaktivera sovrum indikeringar. | Bot anropar den `TurnOffDialog` när den `HomeAutomation.TurnOff` har identifierats. Den här dialogrutan där du vill anropa en IoT-tjänsten för att stänga av en enhet och meddela användaren som enheten har inaktiverats. |
+| HomeAutomation.TurnOn | Tända lampan. | Roboten anropar den `TurnOnDialog` när den `HomeAutomation.TurnOn` har identifierats. Den här dialogrutan är där du vill anropa en IoT-tjänst för att aktivera en enhet och meddela användaren som enheten har slagits på. |
+| HomeAutomation.TurnOff | Inaktivera sovrum lamporna. | Roboten anropar den `TurnOffDialog` när den `HomeAutomation.TurnOff` har identifierats. Den här dialogrutan där du vill anropa en IoT-tjänst för att stänga av en enhet och meddela användaren som enheten har inaktiverats. |
 
 
-## <a name="create-a-language-understanding-bot-with-bot-service"></a>Skapa en språk förstå bot med Bot Service
+## <a name="create-a-language-understanding-bot-with-bot-service"></a>Skapa en Luis-bot med Bot Service
 
 1. I den [Azure-portalen](https://portal.azure.com)väljer **Skapa ny resurs** i menyn bladet och välj **se alla**.
 
     ![Skapa ny resurs](./media/luis-tutorial-node-bot/bot-service-creation.png)
 
-2. I sökrutan söker du efter **Web App Bot**. 
+2. I sökrutan söker du efter **Web App-robot**. 
 
     ![Skapa ny resurs](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
-3. I den **Bot Service** bladet, ange nödvändig information och välj **skapa**. Detta skapar och distribuerar bot service och THOMAS app till Azure. Om du vill använda [tal promotor](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), granska [region krav](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) innan du skapar din bot. 
-    * Ange **appnamn** till din bot namn. Namnet används som underdomänen när din bot distribueras till molnet (exempelvis mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * Välj prenumerationen [resursgruppen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), apptjänstplan, och [plats](https://azure.microsoft.com/regions/).
-    * Välj den **språk förstå (Node.js)** mall för den **Bot mallen** fältet.
-    * Välj den **THOMAS platsen**. Detta är redigeringen [region] [ LUIS] appen skapas i.
+3. I den **Robottjänst** bladet anger du nödvändig information och väljer **skapa**. Detta skapar och distribuerar bot service och LUIS-app till Azure. Om du vill använda [tal promotor](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), granska [region krav](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) innan du skapar din robot. 
+    * Ange **appnamn** till din robot namn. Namnet används som underdomänen när din robot distribueras till molnet (exempelvis mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+    * Välj prenumerationen [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service-plan och [plats](https://azure.microsoft.com/regions/).
+    * Välj den **språkförståelse (Node.js)** mallen för den **Bot mallen** fält.
+    * Välj den **LUIS platsen**. Det här är redigeringen [region] [ LUIS] appen skapas i.
     * Markera kryssrutan bekräftelse för juridiskt meddelande. Villkoren i juridiskt meddelande är lägre än kryssrutan.
 
-    ![Bot Service bladet](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
+    ![Bot Service-bladet](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
 
 
-4. Bekräfta att tjänsten bot har distribuerats.
-    * Välj meddelanden (klockikonen finns längs överkanten av Azure portal). Meddelandet kommer att ändras från **distributionen har startat** till **distributionen lyckades**.
-    * När meddelandet ändras till **distributionen lyckades**väljer **finns resurs** på detta meddelande.
+4. Bekräfta att bot-tjänsten har distribuerats.
+    * Välj meddelanden (klockikonen finns längs överkanten av Azure portal). Meddelandet kommer att ändras från **distributionen har påbörjats** till **distributionen lyckades**.
+    * När ändras meddelandet och **distributionen lyckades**väljer **gå till resurs** på som meddelanden.
 
-## <a name="try-the-default-bot"></a>Försök standard bot
+## <a name="try-the-default-bot"></a>Prova standard bot
 
-Bekräfta att bot har distribuerats genom att kontrollera den **meddelanden**. Meddelanden kommer att ändras från **distribution pågår...**  till **distributionen lyckades**. Välj **finns resurs** knappen för att öppna den bot resurser bladet.
+Bekräfta att roboten har distribuerats genom att markera den **meddelanden**. Meddelanden kommer att ändras från **distribution pågår...**  till **distributionen lyckades**. Välj **gå till resurs** knappen för att öppna bladet för den bot-resurser.
 
 <!-- this step isn't supposed to be necessary -->
 ## <a name="install-npm-resources"></a>Installera NPM-resurser
 Installera NPM-paket med följande steg:
 
-1. Välj **skapa** från den **Bot Management** avsnitt i Web App Bot. 
+1. Välj **skapa** från den **Bot Management** delen av Web App-robot. 
 
-2. En ny, andra webbläsare öppnas. Välj **öppna online redigerare**.
+2. En ny, andra webbläsare öppnas. Välj **öppna online Kodredigerare**.
 
-3. I det övre navigeringsfältet välja bot webbprogramnamnet `homeautomationluisbot`. 
+3. I det övre navigeringsfältet väljer du namnet på webbappen bot `homeautomationluisbot`. 
 
-4. I den nedrullningsbara listan **öppna Kudu-konsolen**.
+4. I listrutan, väljer **öppna Kudu-konsolen**.
 
-5. Ett nytt fönster i webbläsaren öppnas. Ange följande kommando i konsolen:
+5. Ett nytt webbläsarfönster öppnas. Ange följande kommando i konsolen:
 
     ```
     cd site\wwwroot && npm install
     ```
 
-    Vänta på att installationen ska slutföras. Gå tillbaka till det första webbläsarfönstret. 
+    Vänta tills installationen ska slutföras. Gå tillbaka till det första webbläsarfönstret. 
 
 ## <a name="test-in-web-chat"></a>Testa i webbchatt
-När bot registreras, välja **Test i Web chatta** att öppna fönstret Web chatta. Skriv ”hello” i Web chatta.
+När roboten är registrerad väljer **Test i Web Chat** att öppna fönstret Web Chat. Skriv ”hello” i Web Chat.
 
-  ![Testa bot i Web chatt](./media/luis-tutorial-node-bot/bot-service-web-chat.png)
+  ![Testa roboten i Web Chat](./media/luis-tutorial-node-bot/bot-service-web-chat.png)
 
-Bot svarar genom att säga ”du har nått hälsning. Du SA: hello ”. Det här bekräftar att bot har tagit emot meddelandet och skickas till en standard THOMAS app som skapats. Den här standardinställningen THOMAS app har upptäckt en hälsning avsikt. I nästa steg ansluts bot till THOMAS appen som du skapade tidigare i stället för default THOMAS app.
+Roboten svarar genom att säga ”du har nått hälsning. Du SA: hello ”. Detta bekräftar att roboten har tagit emot ditt meddelande och skickas till en standard LUIS-app som skapats. Det här standardvärdet LUIS-app har upptäckt en hälsning avsikt. I nästa steg ansluter du roboten till LUIS-app som du skapade tidigare i stället för standard LUIS-app.
 
-## <a name="connect-your-luis-app-to-the-bot"></a>Anslut appen THOMAS till bot
+## <a name="connect-your-luis-app-to-the-bot"></a>Anslut din LUIS-app till roboten
 
-Öppna **programinställningar** i den första webbläsarfönster och redigera den **LuisAppId** fältet ska innehålla program-ID för appen THOMAS.
+Öppna **programinställningar** i den första webbläsarfönster och redigera den **LuisAppId** fält som innehåller program-ID för LUIS-appen.
 
-  ![Uppdatera THOMAS app-ID i Azure](./media/luis-tutorial-node-bot/bot-service-app-id.png)
+  ![Uppdatera LUIS-app-ID i Azure](./media/luis-tutorial-node-bot/bot-service-app-id.png)
 
-Om du inte har THOMAS app-ID, logga in på den [THOMAS](luis-reference-regions.md) webbplats som använder samma konto som du använder för att logga in på Azure. Välj på **Mina appar**. 
+Om du inte har LUIS-app-ID kan logga in på den [LUIS](luis-reference-regions.md) webbplats som använder samma konto som du använder för att logga in på Azure. Välj på **Mina appar**. 
 
-1. Hitta THOMAS appen du skapade tidigare, som innehåller avsikter och entiteter från domänen HomeAutomation.
+1. Hitta LUIS-appen du skapade tidigare, som innehåller avsikter och entiteter från HomeAutomation-domän.
 
-2. I den **inställningar** THOMAS appens sida, hitta och kopiera app-ID.
+2. I den **inställningar** för LUIS-app, hitta och kopiera app-ID.
 
-3. Om du inte har tränats appen, Välj den **träna** knappen i det övre högra hörnet för att träna din app.
+3. Om du inte har tränats appen, väljer du den **träna** knappen i det övre högra hörnet för att träna din app.
 
-4. Om du inte har publicerat appen, Välj **publicera** i det övre navigeringsfältet att öppna den **publicera** sidan. Välj produktionsplatsen och **publicera** knappen.
+4. Om du inte har publicerat appen, Välj **publicera** i det övre navigeringsfältet för att öppna den **publicera** sidan. Välj platsen Production (Produktionsplats) och knappen **Publish** (Publicera).
 
-## <a name="modify-the-bot-code"></a>Ändra bot koden
+## <a name="modify-the-bot-code"></a>Ändra bot-koden
 
-Gå till andra webbläsarfönstret om det är fortfarande öppen eller i det första webbläsarfönstret väljer **skapa** och välj sedan **öppna online redigerare**.
+Gå till andra webbläsarfönstret om det är fortfarande öppna eller i det första webbläsarfönstret väljer **skapa** och välj sedan **öppna online Kodredigerare**.
 
-   ![Öppna online redigerare](./media/luis-tutorial-node-bot/bot-service-build.png)
+   ![Öppna online Kodredigerare](./media/luis-tutorial-node-bot/bot-service-build.png)
 
-Öppna i Redigeraren för koden `app.js`. Det innehåller följande kod:
+Öppna i kodredigeraren `app.js`. Det innehåller följande kod:
 
 ```javascript
 /*-----------------------------------------------------------------------------
@@ -196,11 +196,11 @@ bot.dialog('CancelDialog',
 })
 ```
 
-De befintliga avsikter i app.js ignoreras. Du kan lämna dem. 
+Befintliga avsikter i app.js ignoreras. Du kan lämna dem. 
 
 ## <a name="add-a-dialog-that-matches-homeautomationturnon"></a>Lägg till en dialogruta som matchar HomeAutomation.TurnOn
 
-Kopiera följande kod och lägger till den i `app.js`.
+Kopiera följande kod och lägga till den i `app.js`.
 
 ```javascript
 bot.dialog('TurnOn',
@@ -213,11 +213,11 @@ bot.dialog('TurnOn',
 })
 ```
 
-Den [matchar] [ matches] alternativet på den [triggerAction] [ triggerAction] kopplade till dialogrutan anger namnet på avsikten. Tolken körs varje gång bot tar emot en utterance från användaren. Om högsta bedömningsprofil avsikten som upptäcks matchar en `triggerAction` bunden till en dialogruta, bot anropar den dialogrutan.
+Den [matchar] [ matches] alternativet på den [triggerAction] [ triggerAction] kopplad till dialogen anger namnet på avsikten. Identifieraren körs varje gång roboten tar emot ett uttryck från användaren. Om högsta bedömnings avsikten vidtas matchar en `triggerAction` bunden till en dialogruta, roboten anropar dialogrutan.
 
 ## <a name="add-a-dialog-that-matches-homeautomationturnoff"></a>Lägg till en dialogruta som matchar HomeAutomation.TurnOff
 
-Kopiera följande kod och lägger till den i `app.js`.
+Kopiera följande kod och lägga till den i `app.js`.
 
 ```javascript
 bot.dialog('TurnOff',
@@ -229,20 +229,20 @@ bot.dialog('TurnOff',
     matches: 'HomeAutomation.TurnOff'
 })
 ```
-## <a name="test-the-bot"></a>Testa bot
+## <a name="test-the-bot"></a>Testa roboten
 
-I Azure Portal väljer på **testa i Web chatta** att testa bot. Försök skriva meddelanden like ”aktivera indikeringar” och ”inaktivera min värmare” att anropa avsikter som du lade till den.
-   ![Testa HomeAutomation bot i Web chatt](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
+I Azure-portalen väljer du på **testa i Web Chat** att testa roboten. Försök skriva meddelanden like ”tänd lamporna” och ”inaktivera min heater” anropa avsikter som du lade till den.
+   ![Testa HomeAutomation bot i Web Chat](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> Om du tycker att din bot inte alltid kan identifiera rätt avsikt eller enheter kan förbättra THOMAS appens prestanda med flera exempel utterances för att träna den. Du kan träna om appen THOMAS utan några andra ändringar till din bot kod. Se [lägger du till exempel utterances](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) och [träna och testa appen THOMAS](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
+> Om du upptäcker att din robot inte alltid kan identifiera rätt avsikt eller entiteter, förbättra LUIS appens prestanda genom att ge den mer exempel yttranden träna upp tjänsten. Du kan kvarhålla LUIS-app utan några ändringar till din robot kod. Se [lägger du till exempel yttranden](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) och [träna och testa LUIS-appen](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
 
-## <a name="learn-more-about-bot-framework"></a>Mer information om Bot Framework
-Lär dig mer om [Bot Framework](https://dev.botframework.com/) och [3.x](https://github.com/Microsoft/BotBuilder) och [4.x](https://github.com/Microsoft/botbuilder-js) SDK: er.
+## <a name="learn-more-about-bot-framework"></a>Läs mer om Bot Framework
+Läs mer om [Bot Framework](https://dev.botframework.com/) och [3.x](https://github.com/Microsoft/BotBuilder) och [4.x](https://github.com/Microsoft/botbuilder-js) SDK: er.
 
 ## <a name="next-steps"></a>Nästa steg
 
-<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.--> Du kan försöka att lägga till andra avsikter som hjälp, Avbryt och hälsning, THOMAS appen. Sedan lägga till dialogrutor för nya avsikter och testa dem med hjälp av bot. 
+<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.--> Du kan försöka att lägga till andra avsikter som hjälp, Avbryt och hälsning, LUIS-app. Sedan lägger du till dialogrutor för nya avsikter och testa dem med hjälp av roboten. 
 
 <!-- 
 > [!NOTE] 

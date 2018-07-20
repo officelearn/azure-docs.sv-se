@@ -1,6 +1,6 @@
 ---
 title: Jämföra AppSource och Azure Marketplace | Azure
-description: Den här artikeln beskriver skyltfönster på AppSource och Azure Marketplace.
+description: Den här artikeln beskriver butiker i Microsoft AppSource och Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,42 +14,41 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b0ed71efd99d55315b217686e978048712a7b7c4
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: be7c7e5ad66d6a3412b358c95f74a7d2d653a190
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825223"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158785"
 ---
-# <a name="comparing-appsource-and-azure-marketplace"></a>Jämföra AppSource och Azure Marketplace  
-Skyltfönster fungera unika kunders behov. Skyltfönster aktivera inriktning av rollen. Du kan erbjuda den rätta lösningen eller tjänst baserat på kunden.  
+# <a name="comparing-appsource-and-the-azure-marketplace"></a>Jämföra AppSource och Azure Marketplace
+Butiker i den [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Microsoft AppSource](https://appsource.microsoft.com) fungerar unika kundbehov. Använd butiker till målkunder efter roll. Du kan erbjuda rätt lösning eller tjänst beroende på kunden.
 
-## <a name="understanding-the-differences-between-the-storefronts"></a>Förstå skillnaderna mellan skyltfönster  
-Om du väljer en storefront börjar med att identifiera målgrupp för ditt erbjudande. Om meddelanderegler båda målgrupper och du kan publicera en gång för att sälja i båda skyltfönster.  
+## <a name="understanding-the-differences-between-storefronts"></a>Förstå skillnaderna mellan butiker
+Om du vill välja en butik, börja med att identifiera vilken målgrupp för ditt erbjudande. Om målgruppen för flera butiker, kan du publicera en gång om du vill sälja i flera butiker.
  
-Överväg att ytterligare fördelar för skyltfönster.   
+I följande tabeller beskrivs fördelarna med att använda en butik:
 
-### <a name="appsource"></a>AppSource  
-
-| Fördelar | Information | 
-|:--- |:--- | 
-| ***Faktureringsflexibilitet*** | Etablerar en utvärderingsversionen. Erbjuder inte ett commerce-aktiverade publiceringsalternativ för närvarande. Du kan använda din aktuella beställning och fakturering infrastruktur utan ytterligare investeringar eller ändringar. | 
-| ***Förenkling av anslutningar med andra partners*** | Länkar oberoende programvaruleverantörer systemintegrerare och hanterade leverantörer av specifik implementering scenarier. Du får kollektivt sälja nya kunder. | 
-| ***Automation*** | Länkar oberoende programvaruleverantörer systemintegrerare och hanterade leverantörer av specifik implementering scenarier. Du får kollektivt sälja nya kunder. |  
-| ***Flera molntyper*** | För närvarande stöder inte Azure-stacken, Azure Government eller regionala moln. | 
-| ***Presentation i kontexten för kunder*** | Nå fler kunder via app upplevelsen för Microsoft-produkter som Dynamics 365, Power BI och Office 365. |  
-
-### <a name="azure-marketplace"></a>Azure Marketplace  
+### <a name="appsource"></a>AppSource
 
 | Fördelar | Information | 
 |:--- |:--- | 
-| ***Faktureringsflexibilitet*** | För virtuella datorer kan använda betala per användning fakturering alternativ Microsoft Enterprise-avtal (EAs) eller web direkt försäljning modeller. Prisnivå alternativ inkluderar en kostnadsfria nivån prenumeration där ett erbjudande är perpetually ledigt. Prisnivå alternativ kan också innehålla en prenumeration försök nu. En prenumeration försök nu är promotionally ledig under en begränsad tid. Då konverteras den virtuella datorn till en betald prenumeration. BYOL aktivering är också ett alternativ för att stödja du.<br />Alla etablerade Azure-resurser debiteras för både alternativ för fakturering och de Virtuella erbjudandena direkt till kunden.<ul> <li>Azure apps: hanterad app</li> <li>Appar i Azure: lösningsmall</li> </ul> | 
-| ***Förenkling av anslutningar med andra partners*** | Det går för närvarande inte att länka en service provider eller leverans partner till din prenumeration. Den här funktionen startas i 2018. | 
-| ***Automation*** | Det går för närvarande inte att länka en service provider eller leverans partner till din prenumeration. Dra nytta av automatiserad SaaS med tillägget etablering. Använd Azure apps: lösningsmall att automatisera SaaS-baserade data insamlings- och scenarier. |  
-| ***Flera molntyper*** | Publicera på både offentliga molnet och lokala lösningar med hjälp av följande typer.<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>regional moln, inklusive Kina och Tyskland</li> </ul> | 
-| ***Presentation i kontexten för kunder*** | Gör din lösning som är tillgängliga i Azure-portal upplevelsen för kontextuella sökning med hjälp av virtuella datorer och Azure apps: lösningsmall. |  
+| **Faktureringsflexibilitet** | Etablerar en utvärderingsmiljö. För närvarande erbjuder inte en commerce-aktiverade publiceringsalternativ. Du kan använda den aktuella sorteringen och fakturering infrastrukturen utan ytterligare investeringar eller ändringar. | 
+| **Anslutningar med andra partner** | Länkar oberoende programvaruleverantörer, systemintegrerare och leverantörer av hanterade tjänster till särskilda implementeringslösningar scenarier. Du kan samarbeta sälj till nya kunder. | 
+| **Automation** | Länkar oberoende programvaruleverantörer, systemintegrerare och leverantörer av hanterade tjänster till särskilda implementeringslösningar scenarier. Du kan samarbeta sälj till nya kunder. |
+| **Flera molntyper** | För närvarande stöd inte för Azure Stack, Azure Government eller nationella moln. | 
+| **Kontextbaserad presentation för kunder** | Nå fler kunder genom appupplevelsen för Microsoft-produkter, till exempel Dynamics 365, Power BI och Office 365. |
+
+### <a name="azure-marketplace"></a>Azure Marketplace
+
+| Fördelar | Information | 
+|:--- |:--- | 
+| **Faktureringsflexibilitet** | För virtuella datorer kan använda betala per användning faktureringsalternativ Microsoft Enterprise-avtal (EAs) eller web direct försäljning modeller. Priserna omfattar en prenumeration på kostnadsfri nivå, där ett erbjudande är alltid gratis. Prisalternativ även innehålla en Prova nu-prenumeration. En prenumeration med Prova nu tillhandahålls kostnadsfritt under en begränsad period. När den har löpt ut, konverteras den virtuella datorn till en betald prenumeration. Bring Your Own License (BYOL) aktivering är också ett alternativ som du kan använda för kunder.<br /><br/>Både faktureringsalternativ och de Virtuella erbjudandena faktureras alla etablerade Azure-resurser direkt till kunden:<ul> <li>Azure-appar: hanterad app</li> <li>Azure-appar: lösningsmallen</li> </ul> | 
+|**Anslutningar med andra partner** | Du kan inte för närvarande kan länka en tjänstepartner för provider eller leverans till ditt erbjudande. | 
+| **Automation** | Du kan inte för närvarande kan länka en tjänstepartner för provider eller leverans till ditt erbjudande. Dra nytta av automatiserade programvara som en tjänst (SaaS) med tillägget etablering. Använda Azure-appar: lösningsmallen publicera alternativet för att automatisera scenarier för insamling och distribution av SaaS-baserade data. |
+| **Flera molntyper** | Publicera lösningar för både det offentliga molnet och lokalt med hjälp av följande typer:<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>Nationella moln, inklusive Kina och Tyskland</li></ul> | 
+| **Kontextbaserad presentation för kunder** | Tillgängliggöra din lösning i Azure-portal-upplevelsen för sammanhangsbaserad sökning. Använda virtuella datorer och Azure-appar: lösningsmallen publiceringsalternativ. |
 
 ## <a name="next-steps"></a>Nästa steg
-*   Besök den [Azure Marketplace och AppSource Publisher Guide](./marketplace-publishers-guide.md) sidan.  
-*   
----  
+*   Granska den [publiceringsguide för Azure Marketplace och AppSource](./marketplace-publishers-guide.md).
+

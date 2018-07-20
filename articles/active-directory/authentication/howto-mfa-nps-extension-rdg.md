@@ -4,18 +4,18 @@ description: Integrera din infrastruktur för Remote Desktop Gateway med Azure M
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 08/15/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 74e56480c5bbf86ee6cbc059431d7d5a328dfcec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: michmcla
+ms.openlocfilehash: e22fedda4861e68f2318aff89bc3fe5a15cb6ede
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049073"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160111"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera fjärrskrivbordsgateway infrastruktur med Network Policy Server (NPS)-tillägget och Azure AD
 
@@ -293,7 +293,7 @@ Kom ihåg att NPS-server med Azure MFA-tillägget är avsedda centrala principar
  ![Nätverksprinciper](./media/howto-mfa-nps-extension-rdg/image24.png)
 
 ## <a name="verify-configuration"></a>Verifiera konfigurationen
-Du kan verifiera konfigurationen som du behöver logga in på den Remote Desktop Gateway med en lämplig RDP-klient. Glöm inte att använda ett konto som tillåts av din anslutning auktoriseringsprinciper och är aktiverad för Azure MFA. 
+Du måste logga in på den Remote Desktop Gateway med en lämplig RDP-klient för att kontrollera konfigurationen. Glöm inte att använda ett konto som tillåts av din anslutning auktoriseringsprinciper och är aktiverad för Azure MFA. 
 
 Som visas i bilden nedan kan du använda den **webbåtkomst för fjärrskrivbord** sidan.
 

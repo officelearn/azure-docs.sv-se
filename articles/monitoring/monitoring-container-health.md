@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/16/2018
+ms.date: 07/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 1fd5ac0f9994a4dbf4365c21ac4f31ba0eccbb15
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 6658eeb70e31593da5f3612ccac8685ecbb976b9
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069159"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161596"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Övervaka hälsotillstånd för behållare i Azure Kubernetes Service (AKS) (förhandsversion)
 
@@ -72,13 +72,13 @@ Du kan aktivera övervakning av ett AKS-kluster som redan har distribuerats frå
 ### <a name="enable-from-azure-portal"></a>Aktivera från Azure-portalen
 Utför följande steg om du vill aktivera övervakning av din AKS-behållare från Azure-portalen.
 
-1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver **behållare**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Kubernetes-tjänster**.<br><br> ![Azure Portal](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
+1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver **behållare**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Kubernetes-tjänster**.<br><br> ![Azure-portalen](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
 2. Välj en behållare i din lista över behållare.
 3. På översiktssidan behållaren väljer **övervaka behållarens hälsa** och **registrering för hälsotillstånd för behållare och loggar** visas.
 4. På den **registrering för hälsotillstånd för behållare och loggar** om du har en befintlig Log Analytics-arbetsyta i samma prenumeration som klustret, markerar du den i den nedrullningsbara listan.  Listan förväljer standardarbetsytan och plats AKS behållaren distribueras till i prenumerationen.<br><br> ![Aktivera hälsoövervakning för AKS-behållare](./media/monitoring-container-health/container-health-enable-brownfield-02.png) 
 
 >[!NOTE]
->Om du vill skapa en ny Log Analytics-arbetsyta för att lagra övervakningsdata från klustret, följer du stegen i [Cretae Log Analytics-arbetsytan](../log-analytics/log-analytics-quick-create-workspace.md) och se till att skapa arbetsytan i samma prenumeration som AKS-behållare distribuerat till.  
+>Om du vill skapa en ny Log Analytics-arbetsyta för att lagra övervakningsdata från klustret, följer du stegen i [skapa en Log Analytics-arbetsyta](../log-analytics/log-analytics-quick-create-workspace.md) och se till att skapa arbetsytan i samma prenumeration som AKS-behållare distribuerat till.  
 >
  
 När övervakning har aktiverats kan ta det ungefär 15 minuter innan du kan se driftdata för klustret. 
@@ -371,7 +371,7 @@ Ikonerna i statusfältet onlinestatus behållare:
 | ![Klar körs statusikon](./media/monitoring-container-health/container-health-ready-icon.png) | Kör (klar)|
 | ![Väntar på eller pausat statusikon](./media/monitoring-container-health/container-health-waiting-icon.png) | Väntar på eller pausats|
 | ![Senast rapporterat kör statusikon](./media/monitoring-container-health/container-health-grey-icon.png) | Senast rapporterat körs men har inte svarat mer än 30 minuter|
-| ![Avslutade statusikon](./media/monitoring-container-health/container-health-green-icon.png) | Har stoppats eller gick inte att stoppa|
+| ![Lyckad statusikon](./media/monitoring-container-health/container-health-green-icon.png) | Har stoppats eller gick inte att stoppa|
 
 Statusikonen visar antalet baserat på din pod tillhandahåller. Den visar sämre två tillstånd och när du hovrar över statusen visar en sammanställd in status från alla poddar i behållaren.  Om det inte finns ett färdigt tillstånd, statusvärdet visas en **(0)**.  
 
@@ -489,9 +489,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
           "addonProfiles": {
             "omsagent": {
               "enabled": false,
-              "config": {
-                "logAnalyticsWorkspaceResourceID": null
-              }
+              "config": null
             }
            }
          }

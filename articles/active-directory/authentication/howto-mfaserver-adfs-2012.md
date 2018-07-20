@@ -4,18 +4,18 @@ description: Den här artikeln beskriver hur du kommer igång med Azure Multi-Fa
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 08/25/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 4ed4db6fa2c712c0fd858815d89dd0094dd5cfbd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.reviewer: michmcla
+ms.openlocfilehash: 663ed2f42f59093252506fc5bb5fe2581d4dd200
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868236"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160220"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Konfigurera Azure Multi-Factor Authentication Server så att den fungerar med AD FS i Windows Server
 
@@ -79,7 +79,7 @@ Nu är Multi-Factor Authentication-servern konfigurerad som ytterligare en auten
 Redigera filen MultiFactorAuthenticationAdfsAdapter.config genom att följa stegen nedan:
 
 1. Ange noden **UseWebServiceSdk** till **sant**.  
-2. Ange värdet för **WebServiceSdkUrl** till URL:en för webbtjänst-SDK för Multi-Factor Authentication. Exempel: *https://contoso.com/&lt;certifikatnamn&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, där *certifikatnamn* är namnet på certifikatet.  
+2. Ange värdet för **WebServiceSdkUrl** till URL:en för webbtjänst-SDK för Multi-Factor Authentication. Till exempel:  *https://contoso.com/&lt; certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, där *certificatename* är namnet på certifikatet.  
 3. Redigera skriptet Register-MultiFactorAuthenticationAdfsAdapter.ps1 genom att lägga till `-ConfigurationFilePath &lt;path&gt;` i slutet av kommandot `Register-AdfsAuthenticationProvider`, där *&lt;sökvägen&gt;* är den fullständiga sökvägen till filen MultiFactorAuthenticationAdfsAdapter.config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Konfigurera webbtjänst-SDK med ett användarnamn och lösenord

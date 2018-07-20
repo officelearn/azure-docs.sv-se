@@ -6,19 +6,19 @@ author: gabrtv
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/18/2018
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: f6b8e964f4277150e104cd6d77db092aaa8553b4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9557311c97ea0fde66790c37b08d1a22d1197405
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933282"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144592"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uppgradera ett kluster i Azure Kubernetes Service (AKS)
 
-Azure Kubernetes Service (AKS) gör det enkelt att utföra vanliga hanteringsuppgifter, inklusive uppgradera Kubernetes kluster.
+Azure Kubernetes Service (AKS) gör det enkelt att utföra vanliga hanteringsuppgifter, bland annat uppgradera Kubernetes-kluster.
 
 ## <a name="upgrade-an-aks-cluster"></a>Uppgradera ett AKS-kluster
 
@@ -36,10 +36,10 @@ Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
 default  mytestaks007     1.8.10           1.8.10             1.9.1, 1.9.2, 1.9.6
 ```
 
-Vi har tre versioner som är tillgängliga för uppgraderingen: 1.9.1, 1.9.2 och 1.9.6. Vi kan använda kommandot `az aks upgrade` för att uppgradera till den senaste tillgängliga versionen.  Under uppgraderingen, noder är noggrant [cordoned och tar slut] [ kubernetes-drain] att minimera störningar för program som körs.  Innan du påbörjar en uppgradering av klustret bör du se till att du har tillräckligt med beräkningskapacitet för att hantera arbetsbelastningen när klusternoder läggs till och tas bort.
+Vi har tre versioner som är tillgängliga för uppgradering: 1.9.1, 1.9.2 och 1.9.6. Vi kan använda kommandot `az aks upgrade` för att uppgradera till den senaste tillgängliga versionen.  Under uppgraderingsprocessen AKS lägger till en ny nod i klustret, sedan noggrant [här] [ kubernetes-drain] en nod åt gången för att minimera störningar i program som körs.
 
 > [!NOTE]
-> När du uppgraderar en AKS kluster, kan inte Kubernetes delversioner hoppas över. Till exempel uppgraderar mellan 1.7.x > 1.8.x eller 1.8.x > 1.9.x tillåts dock 1,7 > 1,9 är inte.
+> När du uppgraderar ett AKS-kluster kan inte Kubernetes delversioner hoppas över. Till exempel uppgraderingar mellan 1.8.x -> 1.9.x eller 1.9.x -> 1.10.x tillåts, men 1.8 -> 1.10 är inte.
 
 ```azurecli-interactive
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.9.6

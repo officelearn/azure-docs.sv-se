@@ -1,6 +1,6 @@
 ---
-title: Aktivera utvärderingsversion med Azure AD | Azure
-description: Aktivera utvärderingsversion listtyp med Azure Active Directory (AD Azure) i Azure Marketplace och AppSource för appen och tjänsten utgivare
+title: Aktivera en utvärderingsversion på Azure Marketplace med hjälp av Azure Active Directory | Azure
+description: Aktivera en utvärderingsversion listtyp med hjälp av Azure Active Directory i Azure Marketplace och AppSource för appen och tjänsten utgivare.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,50 +14,53 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4140ba98c0c65c22674c61dc7266818af904e777
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: c5b7b4967c1acef733d366e651d50706db42aace
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825230"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160475"
 ---
-# <a name="enable-trial-using-azure-ad"></a>Aktivera utvärderingsversion med Azure AD  
-Azure Active Directory (AD Azure) är en molntjänst identitet som aktiverar autentisering med ett Microsoft arbets- eller skolkonto genom att använda branschstandardiserad ramverk: OAuth och OpenID Connect.  
-*   Mer information om Azure AD finns i Azure Active Directory sidan finns på [azure.microsoft.com/services/active-directory](https://azure.microsoft.com/services/active-directory).  
+# <a name="enable-a-trial-listing-by-using-azure-active-directory"></a>Aktivera en utvärderingsversion lista med hjälp av Azure Active Directory
 
-Du och dina kunder autentiseras på marketplace med hjälp av Azure AD. När kunden väljer din utvärderingsversion lista på marketplace, omdirigeras kunden till din utvärderingsversion miljö.  I din utvärderingsversion miljö kan du ställa in kunden direkt utan att ytterligare logga in-åtgärder. Din app eller erbjudandet får du en token från Azure AD under autentiseringen som innehåller värdefulla användarinformation för att skapa ett användarkonto i din app eller erbjudandet. Du kan automatisera din installation och öka sannolikheten för konvertering.  
-*   Mer information om den token som skickas från Azure AD under autentiseringen finns exempel token som finns i avsnittet [docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens)
+Azure Active Directory (Azure AD) är en molnidentitetstjänst som möjliggör autentisering med ett Microsoft arbets- eller skolkonto genom att använda vanliga ramverk. Azure AD stöder OAuth och OpenID Connect-autentisering. Den [Azure Marketplace](https://azuremarketplace.microsoft.com) använder Azure AD för att autentisera dig och dina kunder.
 
-Använda Azure AD för att aktivera autentisering för ett klick i din app eller en utvärderingsversion.  
-*   Förenkla kundupplevelsen från marketplace till test.  
-*   Underhålla känslan av en i produkten, även om användaren omdirigeras från Marketplace till din domän eller utvärderingsversion miljö.  
-*   Minska risken för nedläggning på omdirigering, eftersom det finns inga ytterligare åtgärder inloggning.  
-*   Minska distribution hinder för stor del av Azure AD-användare.  
+Läs mer om Azure AD, [Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 
-## <a name="verify-your-azure-ad-integration-on-the-marketplace-multitenant-apps"></a>Kontrollera din Azure AD-integrering på marketplace: Multitenant-appar  
-Stöd följande alternativ för din lösning med hjälp av Azure AD.  
-*   Registrera din app i skyltfönster på marketplace.  
-*   Aktivera stöd för multitenancy-funktionen i Azure AD för att hämta en enkelklickning utvärderingsversionen.  
-    *   Mer information om app-registreringen finns integrera program med Azure Active Directory sidan finns på [docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+När en kund väljer din utvärderingsversion i Marketplace, omdirigeras kunderna till din utvärderingsmiljö. I din utvärderingsversion miljö, kan du ställa in din kund direkt utan att kräva ytterligare logga in-åtgärder. Din app eller erbjudandet får du en token från Azure AD under autentiseringen. Token innehåller värdefulla användarinformation som används för att skapa ett användarkonto i din app eller erbjudandet. Du kan automatisera kundens inställningar och öka sannolikheten för konvertering.
 
-Om du är nybörjare till med hjälp av Azure AD federerad enkel inloggning (SSO) och sedan följa dessa steg.  
-1.  Registrera din app på marketplace. 
-2.  Utveckla enkel inloggning med Azure AD med hjälp av OAuth 2.0- eller OpenID Connect.  
-    *   Mer information om OAuth 2.0 finns i OAuth 2.0 sidan finns på [docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).  
-    *   Mer information om öppna ID Connect finns i OpenID Connect sidan finns på [docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  
-3.  Aktivera stöd för multitenancy-funktionen i Azure AD för att tillhandahålla en enkelklickning utvärderingsversionen.  
-    *   Mer information om AppSource certifiering finns AppSource certifikatutfärdare sidan finns på [docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified). 
+Läs mer om den token som skickas från Azure AD under autentiseringen [exempel token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens).
 
-## <a name="verify-your-azure-ad-integration-on-the-marketplace-single-tenant-apps"></a>Kontrollera din Azure AD-integrering på marketplace: stöd för en innehavare appar  
-Stöd för något av följande alternativ för din lösning för en klient.  
-*   Lägga till användare i katalogen som gästanvändare med hjälp av Azure AD B2B.  
-    *   Mer information om Azure AD B2B finns vad är Azure AD B2B-samarbete sidan finns på [docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
-*   Manuellt konfigurera försök för kunder som använder kontakta Me.  
-*   Utveckla en testkörning per kund.  
-*   Skapa en multitenant exempelapp demo med enkel inloggning.  
+Använd Azure AD för att aktivera ett klick i din app eller en utvärderingsversion. Azure AD ger följande fördelar: 
+*   Effektivisera kundupplevelsen från Marketplace-utvärderingsversionen.
+*   Underhålla känslan av en upplevelse i produkten, även om användaren omdirigeras från Marketplace till din domän- eller utvärderingsversion.
+*   Minska sannolikheten att försämras vid omdirigering, eftersom det finns inga ytterligare åtgärder logga in.
+*   Minska distribution hinder för stora befolkningen i Azure AD-användare.
+
+## <a name="verify-your-azure-ad-integration-in-the-marketplace-multitenant-apps"></a>Verifiera Azure AD-integrering i Marketplace: appar för flera innehavare
+Använda Azure AD för att stödja följande alternativ för din lösning:
+*   Registrera din app i butiker i Marketplace.
+*   Aktivera stöd för multitenancy-funktionen i Azure AD för att få en testperiod för ett klick.
+
+Läs mer om appregistrering [integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
+
+Om du är nybörjare till med hjälp av Azure AD-federerad enkel inloggning (SSO), gör följande:
+1.  Registrera din app i Marketplace. 
+2.  Utveckla enkel inloggning med Azure AD med hjälp av OAuth 2.0 eller OpenID Connect.
+    *   Läs mer om OAuth 2.0, [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
+    *   Läs mer om att öppna ID Connect [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
+3.  Aktivera stöd för multitenancy-funktionen i Azure AD för att tillhandahålla en utvärderingsmiljö med ett klick.
+    
+    Läs mer om AppSource-certifiering, [AppSource-certifiering](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified). 
+
+## <a name="verify-your-azure-ad-integration-in-the-marketplace-single-tenant-apps"></a>Verifiera Azure AD-integrering i Marketplace: appar för en enskild klient
+Använda Azure AD till stöd för ett av följande alternativ för din enda klient-lösning: 
+*   Lägga till användare i din katalog som gästanvändare med hjälp av Azure Active Directory B2B (Azure AD B2B).
+    
+    Läs mer om Azure AD B2B [vad är Azure AD B2B-samarbete](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+*   Installera manuellt utvärderingar för kunder med hjälp av kontakten mig publicera alternativet.
+*   Utveckla en testenhet per kund.
+*   Skapa en multitenant demo-exempelapp som använder enkel inloggning.
 
 ## <a name="next-steps"></a>Nästa steg
-*   Besök den [Azure Marketplace och AppSource Publisher Guide](./marketplace-publishers-guide.md) sidan.  
- 
----  
-
+*   Granska den [publiceringsguide för Azure Marketplace och AppSource](./marketplace-publishers-guide.md).

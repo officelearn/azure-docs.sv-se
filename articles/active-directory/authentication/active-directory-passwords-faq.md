@@ -4,18 +4,18 @@ description: Vanliga frågor och svar om Azure AD-självbetjäning lösenord åt
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c006e448b8da1acaf51c8339cbcd0b6170f29874
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 92f9732adadc4eb580d89f8a43cf76177450aeb7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054819"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160750"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Vanliga och frågor svar om lösenordshantering
 
@@ -79,7 +79,7 @@ Den här vanliga frågor och svar är uppdelat i följande avsnitt:
   >
   >
 
-## <a name="password-reset"></a>Återställ lösenord
+## <a name="password-reset"></a>Lösenordsåterställning
 
 * **F: förhindrar du att användare från flera försök att återställa ett lösenord i en kort tidsperiod?**
 
@@ -115,7 +115,7 @@ Den här vanliga frågor och svar är uppdelat i följande avsnitt:
   >
 * **F: hur kan jag för att informera användarna om vart du ska gå att återställa sina lösenord?**
 
-  > **S:** prova några förslag på vår [SSPR distribution](howto-sspr-deployment.md#email-based-rollout) artikeln.
+  > **S:** prova några förslag på vår [SSPR distribution](howto-sspr-deployment.md#sample-communication) artikeln.
   >
   >
 * **F: kan jag använda den här sidan från en mobil enhet?**
@@ -170,7 +170,7 @@ Den här vanliga frågor och svar är uppdelat i följande avsnitt:
   >
 * **F: Jag har konfigurerat min principen så att användarna kan använda säkerhetsfrågor för återställning, men Azure-administratörer verkar konfigureras på olika sätt.**
 
-  > **S:** detta är förväntat beteende. Microsoft tillämpar en stark standardprincip två gate principen för lösenordsåterställning för alla Azure-administratörsroller. Detta förhindrar att administratörer med säkerhetsfrågor. Du hittar mer information om den här principen i den [lösenordsprinciper och begränsningar i Azure Active Directory](concept-sspr-policy.md#administrator-password-policy-differences) artikeln.
+  > **S:** detta är förväntat beteende. Microsoft tillämpar en stark standardprincip två gate principen för lösenordsåterställning för alla Azure-administratörsroller. Detta förhindrar att administratörer med säkerhetsfrågor. Du hittar mer information om den här principen i den [lösenordsprinciper och begränsningar i Azure Active Directory](concept-sspr-policy.md) artikeln.
   >
   >
 * **F: om en användare har registrerat mer än det maximala antalet frågor som krävs för återställning, hur säkerhetsfrågorna väljs under återställning?**
@@ -274,7 +274,7 @@ Den här vanliga frågor och svar är uppdelat i följande avsnitt:
   >
 * **F: är det säkert att tillbakaskrivning av lösenord?  Hur vet jag att jag inte kommer över ditt konto?**
 
-  > **S:** Ja, tillbakaskrivning av lösenord är säker. Om du vill läsa mer om de fyra säkerhetslagren implementeras av tjänsten för tillbakaskrivning av lösenord, Kolla in den [säkerhetsmodell för tillbakaskrivning av lösenord](howto-sspr-writeback.md#password-writeback-security-model) i avsnittet den [översikt för tillbakaskrivning av lösenord](howto-sspr-writeback.md) artikeln.
+  > **S:** Ja, tillbakaskrivning av lösenord är säker. Om du vill läsa mer om flera säkerhetslager implementeras av tjänsten för tillbakaskrivning av lösenord, Kolla in den [säkerhet för tillbakaskrivning av lösenord](concept-sspr-writeback.md#password-writeback-security) i avsnittet den [översikt för tillbakaskrivning av lösenord](howto-sspr-writeback.md) artikeln.
   >
   >
 

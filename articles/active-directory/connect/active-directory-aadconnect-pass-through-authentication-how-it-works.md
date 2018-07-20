@@ -12,20 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4a98b971367c9f83826e85bdc24bbcfe48483f57
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 371f3ea3b764eecbb621fc06ec483de4778e7db2
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916273"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159499"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory-direktautentisering: Teknisk djupdykning
 Den här artikeln är en översikt över hur fungerar med Azure Active directory (Azure AD)-direktautentisering. Djup teknisk och säkerhetsinformation finns i den [djupgående om säkerhet](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) artikeln.
 
 ## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Hur fungerar Azure Active Directory-direktautentisering?
+
+[!NOTE]
+En nödvändig förutsättning för direktautentisering ska fungera måste användare etableras i Azure AD från en lokal Active Directory med Azure AD Connect. Direktautentisering gäller inte för molnexklusiva användare.
 
 När en användare försöker logga in på ett program som skyddas av Azure AD, och om direktautentisering är aktiverad på klienten, genomförs följande steg:
 

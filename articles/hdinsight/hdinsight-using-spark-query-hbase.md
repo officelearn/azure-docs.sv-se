@@ -1,57 +1,55 @@
 ---
-title: Att läsa och skriva data i HBase - Azure HDInsight Spark | Microsoft Docs
-description: Använda Spark HBase-anslutningen för att läsa och skriva data från ett Spark-kluster till ett HBase-kluster.
+title: Använd Spark för att läsa och skriva HBase-data – Azure HDInsight
+description: Använda HBase Spark-Anslutningsappen för att läsa och skriva data från ett Spark-kluster till ett HBase-kluster.
 services: hdinsight
-documentationcenter: ''
 author: maxluk
+ms.author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: maxluk
-ms.openlocfilehash: 7cfc7f586e8a92c29736a7c4cff0b12796be430a
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.topic: conceptual
+ms.date: 07/18/2018
+ms.openlocfilehash: 5123a95852fae58adf0b4a4684b012d3b9c71e3b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161183"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144779"
 ---
 # <a name="use-spark-to-read-and-write-hbase-data"></a>Använda Spark för att läsa och skriva HBase-data
 
-Apache HBase efterfrågas vanligtvis med dess lågnivå API (sökningar, hämtar och placeringar) eller med en SQL-syntaxen med Phoenix. Apache ger också Spark HBase Connector, som är ett praktiskt och performant alternativ för att fråga och ändra data som lagras av HBase.
+Apache HBase är vanligtvis efterfrågas med dess lågnivå-API (genomsökningar, hämtar och placerar) eller med en SQL-syntax med Phoenix. Apache innehåller också Spark HBase-anslutningstjänsten, som är ett praktiskt och högpresterande alternativ för att fråga och ändra data som lagras av HBase.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Två separata kluster, en HBase och en Spark i HDInsight med Spark 2.1 (HDInsight 3,6) installerat.
-* Spark-klustret måste kommunicera direkt med HBase-kluster med minimal svarstid, så är den rekommenderade konfigurationen distribuera båda klustren i samma virtuella nätverk. Mer information finns i [skapa Linux-baserade kluster i HDInsight med hjälp av Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).
+* Två separata HDInsight-kluster, en HBase och en Spark med Spark 2.1 (HDInsight 3.6) installerat.
+* Spark-klustret behöver för att kommunicera direkt med HBase-kluster med minimal svarstid, så den rekommenderade konfigurationen är att distribuera båda klustren i samma virtuella nätverk. Mer information finns i [skapa Linux-baserade kluster i HDInsight med Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 * SSH-åtkomst till varje kluster.
 * Åtkomst till standardlagring för varje kluster.
 
 ## <a name="overall-process"></a>Övergripande processen
 
-Anvisningar om hur du aktiverar Spark-kluster att fråga ditt HDInsight-kluster är följande:
+Den övergripande processen för att aktivera ditt Spark-kluster att fråga ditt HDInsight-kluster är följande:
 
-1. Förbered exempeldata i HBase.
-2. Hämta filen hbase-site.XML från mappen HBase-kluster configuration (/ etc/hbase/conf).
-3. Placera en kopia av hbase-site.xml i mappen Spark 2-konfiguration (/ etc/spark2/conf).
-4. Kör `spark-shell` refererar till Spark HBase koppling av dess Maven samordnar i den `packages` alternativet.
+1. Förbered lite exempeldata i HBase.
+2. Hämta filen hbase-site.xml från mappen HBase-kluster-konfiguration (/ conf/etc/hbase).
+3. Placera en kopia av hbase-site.xml i mappen Spark-2-konfiguration (/ etc/spark2/conf).
+4. Kör `spark-shell` refererar till Spark-Anslutningsappen för HBase av dess Maven koordinerar i den `packages` alternativet.
 5. Definiera en katalog som mappar schemat från Spark till HBase.
-6. Interagera med HBase-data med RDD eller DataFrame APIs.
+6. Interagera med HBase-data med hjälp av antingen RDD eller DataFrame APIs.
 
 ## <a name="prepare-sample-data-in-hbase"></a>Förbereda exempeldata i HBase
 
-I det här steget Skapa och fylla i en enkel tabell i HBase som sedan kan du ställa frågor med Spark.
+I det här steget ska du skapa och fylla i en enkel tabell i HBase, som sedan kan du ställa frågor med Spark.
 
-1. Ansluta till din HBase-kluster med SSH huvudnod. Mer information finns i [Anslut till HDInsight med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Ansluta till klustrets huvudnod HBase-kluster med SSH. Mer information finns i [Anslut till HDInsight med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 2. Kör HBase-gränssnittet:
 
         hbase shell
 
-3. Skapa en `Contacts` tabell med kolumnen familjer `Personal` och `Office`:
+3. Skapa en `Contacts` tabellen med kolumnserier `Personal` och `Office`:
 
         create 'Contacts', 'Personal', 'Office'
 
@@ -68,13 +66,13 @@ I det här steget Skapa och fylla i en enkel tabell i HBase som sedan kan du st�
 
 ## <a name="acquire-hbase-sitexml-from-your-hbase-cluster"></a>Hämta hbase-site.xml från HBase-kluster
 
-1. Ansluta till din HBase-kluster med SSH huvudnod.
-2. Kopiera hbase-site.xml från lokal lagring till roten i HBase-kluster standardlagring:
+1. Ansluta till klustrets huvudnod HBase-kluster med SSH.
+2. Kopiera hbase-site.xml från lokal lagring till roten i din HBase-kluster standardlagring:
 
         hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml /
 
-3. Navigera till din HBase-kluster med den [Azure-portalen](https://portal.azure.com).
-4. Välj Storage-konton. 
+3. Gå till din HBase-kluster med den [Azure-portalen](https://portal.azure.com).
+4. Välj lagringskonton. 
 
     ![Lagringskonton](./media/hdinsight-using-spark-query-hbase/storage-accounts.png)
 
@@ -82,23 +80,23 @@ I det här steget Skapa och fylla i en enkel tabell i HBase som sedan kan du st�
 
     ![Standardkontot för lagring](./media/hdinsight-using-spark-query-hbase/default-storage.png)
 
-6. Välj BLOB-panelen i rutan Storage-konto.
+6. Välj panelen Blobar på rutan för lagring.
 
-    ![BLOB-panelen](./media/hdinsight-using-spark-query-hbase/blobs-tile.png)
+    ![Blobbar-panel](./media/hdinsight-using-spark-query-hbase/blobs-tile.png)
 
-7. Markera den behållare som används av HBase-kluster i listan över behållare.
+7. I listan över behållare, väljer du den behållare som används av HBase-kluster.
 8. I listan, Välj `hbase-site.xml`.
 
     ![HBase-site.xml](./media/hdinsight-using-spark-query-hbase/hbase-site-xml.png)
 
-9. På panelen Blob-egenskaper väljer du hämta och spara `hbase-site.xml` till en plats på den lokala datorn.
+9. På panelen Blob-egenskaper väljer du ladda ned och spara `hbase-site.xml` till en plats på den lokala datorn.
 
     ![Ladda ned](./media/hdinsight-using-spark-query-hbase/download.png)
 
-## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Spärra hbase-site.xml Spark-kluster
+## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Placera hbase-site.xml på Spark-kluster
 
-1. Navigera till din Spark-kluster med den [Azure-portalen](https://portal.azure.com).
-2. Välj Storage-konton.
+1. Gå till ditt Spark-kluster med den [Azure-portalen](https://portal.azure.com).
+2. Välj lagringskonton.
 
     ![Lagringskonton](./media/hdinsight-using-spark-query-hbase/storage-accounts.png)
 
@@ -106,39 +104,39 @@ I det här steget Skapa och fylla i en enkel tabell i HBase som sedan kan du st�
 
     ![Standardkontot för lagring](./media/hdinsight-using-spark-query-hbase/default-storage.png)
 
-4. Välj BLOB-panelen i rutan Storage-konto.
+4. Välj panelen Blobar på rutan för lagring.
 
-    ![BLOB-panelen](./media/hdinsight-using-spark-query-hbase/blobs-tile.png)
+    ![Blobbar-panel](./media/hdinsight-using-spark-query-hbase/blobs-tile.png)
 
-5. Markera den behållare som används av ditt Spark-kluster i listan över behållare.
+5. I listan över behållare, väljer du den behållare som används av ditt Spark-kluster.
 6. Välj överför.
 
     ![Ladda upp](./media/hdinsight-using-spark-query-hbase/upload.png)
 
-7. Välj den `hbase-site.xml` filen som du tidigare har hämtat till din lokala dator.
+7. Välj den `hbase-site.xml` filen som du tidigare har hämtat till den lokala datorn.
 
-    ![Överför hbase-site.xml](./media/hdinsight-using-spark-query-hbase/upload-selection.png)
+    ![Ladda upp hbase-site.xml](./media/hdinsight-using-spark-query-hbase/upload-selection.png)
 
 8. Välj överför.
-9. Ansluta till ditt Spark-kluster med SSH huvudnod.
-10. Kopiera `hbase-site.xml` från Spark-kluster standardlagring till Spark 2 Konfigurationsmappen på klustrets lokal lagring:
+9. Ansluta till huvudnoden för ditt Spark-kluster med SSH.
+10. Kopiera `hbase-site.xml` från standardlagring för ditt Spark-kluster till Spark 2 Konfigurationsmappen på klustrets lokal lagring:
 
         sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf
 
-## <a name="run-spark-shell-referencing-the-spark-hbase-connector"></a>Kör Spark-gränssnittet som refererar till Spark HBase-koppling
+## <a name="run-spark-shell-referencing-the-spark-hbase-connector"></a>Köra Spark-Shell som refererar till Spark HBase-Anslutningsappen
 
-1. Ansluta till ditt Spark-kluster med SSH huvudnod.
-2. Starta spark shell, ange paketets Spark HBase-anslutningen:
+1. Ansluta till huvudnoden för ditt Spark-kluster med SSH.
+2. Starta spark-shell, som att ange Spark-Anslutningsappen för HBase-paketet:
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/coroups/public/
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/
 
-3. Håll den här instansen Spark Shell öppet och fortsätta till nästa steg.
+3. Låt den här instansen av Spark-Shell öppet och fortsätta till nästa steg.
 
 ## <a name="define-a-catalog-and-query"></a>Definiera en katalog och fråga
 
-I det här steget definierar du ett objekt i katalogen som mappar schemat från Spark till HBase. 
+I det här steget definierar du ett katalogobjekt som mappar schemat från Spark till HBase. 
 
-1. Din öppna Spark Shell, kör du följande `import` instruktioner:
+1. Dina öppna Spark-Shell och kör följande `import` instruktioner:
 
         import org.apache.spark.sql.{SQLContext, _}
         import org.apache.spark.sql.execution.datasources.hbase._
@@ -147,8 +145,8 @@ I det här steget definierar du ett objekt i katalogen som mappar schemat från 
 
 2. Definiera en katalog för tabellen för kontakter som du skapade i HBase:
     1. Definiera ett katalogschema för HBase-tabellen med namnet `Contacts`.
-    2. Identifiera rowkey som `key`, och mappa kolumnnamn som används i Spark kolumnfamilj, kolumnnamn och kolumntypen som används i HBase.
-    3. Rowkey måste också definieras i detalj som en namngiven kolumn (`rowkey`), som har en viss kolumnfamilj `cf` av `rowkey`.
+    2. Identifiera rowkey som `key`, och mappa de kolumnnamn som använts i Spark till kolumnserie, kolumnnamn och kolumntyp i HBase.
+    3. Rowkey har också definieras i detalj som en namngiven kolumn (`rowkey`), som har en viss kolumnfamilj `cf` av `rowkey`.
 
             def catalog = s"""{
                 |"table":{"namespace":"default", "name":"Contacts"},
@@ -162,7 +160,7 @@ I det här steget definierar du ett objekt i katalogen som mappar schemat från 
                 |}
             |}""".stripMargin
 
-3. Definiera en metod som ger en DataFrame runt din `Contacts` tabellen i HBase:
+3. Definiera en metod som ger en dataram runt dina `Contacts` tabellen i HBase:
 
             def withCatalog(cat: String): DataFrame = {
                 spark.sqlContext
@@ -172,15 +170,15 @@ I det här steget definierar du ett objekt i katalogen som mappar schemat från 
                 .load()
             }
 
-4. Skapa en instans av DataFrame:
+4. Skapa en instans av dataramen:
 
         val df = withCatalog(catalog)
 
-5. Fråga i DataFrame:
+5. Nu när dataramen-fråga:
 
         df.show()
 
-6. Du bör se två rader data:
+6. Du bör se två rader med data:
 
         +------+--------------------+--------------+-------------+--------------+
         |rowkey|       officeAddress|   officePhone| personalName| personalPhone|
@@ -193,7 +191,7 @@ I det här steget definierar du ett objekt i katalogen som mappar schemat från 
 
         df.registerTempTable("contacts")
 
-8. Utfärda en SQL-fråga mot den `contacts` tabellen:
+8. Utfärda en SQL-fråga mot den `contacts` tabell:
 
         val query = spark.sqlContext.sql("select personalName, officeAddress from contacts")
         query.show()
@@ -207,7 +205,7 @@ I det här steget definierar du ett objekt i katalogen som mappar schemat från 
         |  Calvin Raji|5415 San Gabriel Dr.|
         +-------------+--------------------+
 
-## <a name="insert-new-data"></a>Infoga ny data
+## <a name="insert-new-data"></a>Infoga nya data
 
 1. Om du vill infoga en ny kontaktpost, definiera en `ContactRecord` klass:
 
@@ -248,4 +246,4 @@ I det här steget definierar du ett objekt i katalogen som mappar schemat från 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Spark HBase-koppling](https://github.com/hortonworks-spark/shc)
+* [Spark-Anslutningsappen för HBase](https://github.com/hortonworks-spark/shc)

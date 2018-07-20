@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2018
+ms.date: 07/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 05504f94d72f39762672d0e79669dd50d8e6435e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 800ec83b3599dba716e7a4a015b9b8c1745a0975
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441523"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144575"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Få insyn i klienttäckande för Azure Security Center
 Den här artikeln hjälper dig att komma igång genom att göra flera åtgärder och maximerar fördelarna Azure Security Center tillhandahåller. Utför dessa åtgärder kan du få insyn i alla Azure-prenumerationer som är länkade till din Azure Active Directory-klient och effektivt sätt hantera din organisations säkerhetsposition i stor skala genom att tillämpa säkerhetsprinciper på flera prenumerationer på ett aggregative sätt.
@@ -85,8 +85,20 @@ En Azure Active Directory-klientadministratör har inte direkt åtkomst till Azu
 
 5. Utföra uppgifter som du behöver göra på den utökade behörigheten. Ange växeln när du är klar, tillbaka till **nr**.
 
+### <a name="open-or-refresh-security-center"></a>Öppnar eller uppdaterar Security Center
+När du har haft utökade åtkomst, öppnar eller uppdaterar Azure Security Center för att kontrollera att du har insyn i alla prenumerationer under Azure AD-klienten. 
+
+1. Logga in på [Azure Portal](https://portal.azure.com). 
+2. Se till att du väljer alla prenumerationer i väljaren för prenumerationen som du vill visa i Security Center.
+    ![Skärmbild av prenumeration väljare](./media/security-center-management-groups/subscription-selector.png)
+1. Välj **alla tjänster** under Azure-huvudmenyn väljer **Security Center**.
+2. I den **översikt**, det finns ett diagram för täckning av prenumerationen. 
+    ![Prenumeration täckning diagrammet skärmbild](./media/security-center-management-groups/security-center-subscription-coverage.png)
+3. Klicka på **täckning** att se listan över prenumerationer som omfattas. 
+    ![Prenumeration täckning lista skärmbild](./media/security-center-management-groups/security-center-coverage.png)
+
 ### <a name="assign-rbac-roles-to-users"></a>Tilldela RBAC-roller till användare
-När en Innehavaradministratör förhöjd åtkomst, kan de tilldela RBAC-roll för relevanta användarna på rotnivå för management-grupp. Den rekommenderade rollen tilldelas är [ **läsare**](../role-based-access-control/built-in-roles.md#reader). Den här rollen krävs för att tillhandahålla på klientnivå synlighet. Den tilldelade rollen överförs automatiskt till alla hanteringsgrupper och -prenumerationer under rot-hanteringsgruppen. Mer information om RBAC-roller finns i [tillgängliga roller](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles).
+När en Innehavaradministratör förhöjd åtkomst, kan de tilldela RBAC-roll för relevanta användarna på rotnivå för management-grupp. Den rekommenderade rollen tilldelas är [ **läsare**](../role-based-access-control/built-in-roles.md#reader). Den här rollen krävs för att tillhandahålla på klientnivå synlighet. Den tilldelade rollen överförs automatiskt till alla hanteringsgrupper och -prenumerationer under rot-hanteringsgruppen. Mer information om RBAC-roller finns i [tillgängliga roller](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles). 
 
 1. [Installera Azure PowerShell](/powershell/azure/install-azurerm-ps).
 2. Kör följande kommandon: 
@@ -141,15 +153,7 @@ När RBAC-roller har tilldelats till användarna, klientadministratören ska ta 
 
 4. Klicka på **spara** att spara dina inställningar.
 
-### <a name="open-or-refresh-security-center"></a>Öppnar eller uppdaterar Security Center
-När du har tilldelat RBAC-roller öppnar eller uppdaterar Azure Security Center för att kontrollera att du har insyn i alla prenumerationer under Azure AD-klienten. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
-2. Välj **alla tjänster** under Azure-huvudmenyn väljer **Security Center**.
-3. I den **översikt**, det finns ett diagram för täckning av prenumerationen. 
-    ![Prenumeration täckning diagrammet skärmbild](./media/security-center-management-groups/security-center-subscription-coverage.png)
-4. Klicka på **täckning** att se listan över prenumerationer som omfattas. 
-    ![Prenumeration täckning lista skärmbild](./media/security-center-management-groups/security-center-coverage.png)
 
 ## <a name="adding-subscriptions-to-a-management-groups"></a>Lägger till prenumerationer för en hanteringsgrupper
 Du kan lägga till prenumerationer till den hanteringsgrupp som du skapade. De här stegen är inte obligatoriska för att få klienttäckande synlighet och global princip- och åtkomsthantering.

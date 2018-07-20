@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ea7fb5951cd0b2925aa3dd5ae14b452292ba582c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 48710bc10a57854fcbd4ffbe44bc426333baddc0
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918000"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159237"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory-direktautentisering djupgående om säkerhet
 
@@ -156,7 +156,7 @@ För att säkerställa att direktautentisering förblir aktiv drift säker, för
 
 Förnya ett autentiseringsagent förtroende med Azure AD:
 
-1. Autentisering-Agent pingar regelbundet Azure AD var några timmar för att se om det är dags att förnya sina certifikat. 
+1. Autentisering-Agent pingar regelbundet Azure AD var några timmar för att se om det är dags att förnya sina certifikat. Certifikatet förnyas 30 dagar innan det upphör att gälla.
     - Den här kontrollen görs via en ömsesidigt autentiserad HTTPS-kanal och använder samma certifikat som utfärdades under registreringen.
 2. Om tjänsten indikerar att det är dags att förnya, autentisering-agenten genererar ett nytt nyckelpar: en offentlig nyckel och en privat nyckel.
     - Nycklarna skapas via standard RSA 2048-bitars kryptering.

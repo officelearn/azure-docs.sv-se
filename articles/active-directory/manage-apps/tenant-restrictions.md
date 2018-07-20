@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: abf7d571097aefd47c90cbd0ce4aab941c4e24c4
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: b89ab77b1cd97fd501a754dbf41d1aa74ef118d9
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126668"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145000"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Använd Klientrestriktioner för att hantera åtkomst till SaaS-molnprogram
 
@@ -97,7 +97,7 @@ En exempelanvändare finns i Contoso-nätverket, men försöker komma åt ett de
 
 När konfigurationen av Klientrestriktioner är klar på företagets proxy-infrastrukturen kan administratörer kan komma åt Klientrestriktioner rapporterna i Azure portal direkt. Om du vill visa rapporter, gå till sidan översikt av Azure Active Directory och tittar du under andra funktioner.
 
-Administratör för klienten som har angetts som begränsad åtkomst sammanhangsberoende-klient kan använda den här rapporten för att se alla inloggningar som blockerats på grund av Klientrestriktioner principen, inklusive den identitet som används och målkatalogen-ID.
+Administratör för klienten som har angetts som begränsad åtkomst sammanhangsberoende-klient kan använda den här rapporten för att se inloggningar som blockerats på grund av Klientrestriktioner principen, inklusive den identitet som används och målkatalogen-ID. Inloggningar ingår om klientinställningen begränsningen är antingen den användare eller resurs-klient för att logga in.
 
 ![Använda Azure-portalen för att visa begränsade inloggningsförsök](./media/tenant-restrictions/portal-report.png)
 

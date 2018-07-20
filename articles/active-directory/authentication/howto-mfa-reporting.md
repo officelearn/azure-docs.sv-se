@@ -4,24 +4,24 @@ description: Här beskrivs hur du använder funktionen för Azure Multi-Factor A
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 12/15/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 146a86058adc73626e532f33e9fdbc83d9cf27e8
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: michmcla
+ms.openlocfilehash: ead1c5a899057bb26154b45c75251e7d9e481147
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049002"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160900"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapporter i Azure Multi-Factor Authentication
 
 Azure Multi-Factor Authentication innehåller flera rapporter som kan användas av dig och din organisation som är tillgängliga via Azure-portalen. I följande tabell visas de tillgängliga rapporterna:
 
-| Rapportera | Plats | Beskrivning |
+| Rapport | Plats | Beskrivning |
 |:--- |:--- |:--- |
 | Blockeringshistorik för användare | Azure AD > MFA Server > blockera/avblockera användare | Visar historiken över förfrågningar om att blockera eller avblockera användare. |
 | Användning och bedrägeri aviseringar | Azure AD > inloggningar | Innehåller information om totala användning, Användarsammanfattning och information om användare; samt en historik över bedrägerivarningar som skickats under det angivna datumintervallet. |

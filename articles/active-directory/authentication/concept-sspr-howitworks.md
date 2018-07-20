@@ -1,23 +1,23 @@
 ---
-title: Lösenordsåterställning via självbetjäning hur det fungerar – Azure Active Directory
-description: Azure lösenordsåterställning AD via självbetjäning djupdykning
+title: Azure Active Directory lösenord för självbetjäning djupdykning
+description: Hur Självbetjäning för lösenordsåterställning fungerar
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 04a446f43bd39ef7bfca590af67289813eab4032
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6b4c709f27a0c23c4fb977f64ef45e82df378d47
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048887"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159482"
 ---
-# <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Lösenord för självbetjäning i Azure AD djupdykning
+# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: återställning av lösenord för självbetjäning i Azure AD
 
 Hur lösenordsåterställning via självbetjäning (SSPR) arbete? Vad betyder det alternativet i gränssnittet? Fortsätt att läsa och lär dig mer om Azure Active Directory (Azure AD) SSPR.
 
@@ -35,15 +35,16 @@ Läs igenom följande steg för att lära dig om logiken bakom lösenordet för 
 
 1. Användaren väljer den **kan inte komma åt ditt konto** länkar eller går direkt till [ https://aka.ms/sspr ](https://passwordreset.microsoftonline.com).
    * Utifrån Webbläsarspråk återges upplevelsen i det aktuella språket. Lösenordsåterställningen är översatt till samma språk som har stöd för Office 365.
+   * Visa lösenordsåterställningen portalen i en annan lokaliserade Lägg till ”? mkt =” i slutet av lösenordet Webbadress för återställning med exemplet som följer lokalisera till spanska [ https://passwordreset.microsoftonline.com/?mkt=es-us ](https://passwordreset.microsoftonline.com/?mkt=es-us).
 2. Användaren anger ett användar-ID och skickar en captcha.
 3. Azure AD verifierar att användaren ska kunna använda den här funktionen genom att göra följande kontroller:
    * Kontrollerar att användaren har den här funktionen är aktiverad och har en Azure AD-licens.
      * Om användaren inte har den här funktionen är aktiverad eller har en tilldelad licens, uppmanas användaren att kontakta administratören om du vill återställa sina lösenord.
-   * Kontrollerar att användaren har rättigheten utmana data som definierats på sitt konto i enlighet med systemadministratören.
-     * Om principen kräver endast en utmaning, sedan ser till att användaren har rätt data som definierats för minst en av de utmaningar som aktiveras av administratörsprincipen.
-       * Om användaren utmaningen inte är konfigurerad, är användaren bäst att kontakta administratören om du vill återställa sina lösenord.
-     * Om principen kräver två utmaningar, sedan ser till att användaren har rätt data som definierats för minst två av de utmaningar som aktiveras av administratörsprincipen.
-       * Om användaren utmaningen inte är konfigurerad, är användaren bäst att kontakta administratören om du vill återställa sina lösenord.
+   * Kontrollerar att användaren har rätt autentiseringsmetoder som definierats på sitt konto i enlighet med systemadministratören.
+     * Om principen kräver bara en av metoderna, sedan ser till att användaren har rätt data som definierats för minst en av de autentiseringsmetoder som aktiveras av administratörsprincipen.
+       * Om autentiseringsmetoderna som inte har konfigurerats, rekommenderas du att kontakta administratören om du vill återställa sina lösenord.
+     * Om principen kräver två metoder, sedan ser till att användaren har rätt data som definierats för minst två av de autentiseringsmetoder som aktiveras av administratörsprincipen.
+       * Om autentiseringsmetoderna som inte har konfigurerats, rekommenderas du att kontakta administratören om du vill återställa sina lösenord.
    * Kontrollerar om användarens lösenord måste hanteras lokalt (federerade direkt autentisering eller synkroniseras lösenords-hash).
      * Om tillbakaskrivning av distribueras och användarens lösenord måste hanteras lokalt, tillåts användaren att fortsätta att autentisera och återställa sina lösenord.
      * Om tillbakaskrivning av inte har distribuerats och användarens lösenord måste hanteras lokalt, uppmanas användaren att kontakta administratören om du vill återställa sina lösenord.
@@ -51,31 +52,18 @@ Läs igenom följande steg för att lära dig om logiken bakom lösenordet för 
 
 ## <a name="authentication-methods"></a>Autentiseringsmetoder
 
-Om SSPR är aktiverad, måste du välja minst en av följande alternativ för autentiseringsmetoder. Ibland hör du de här alternativen som kallas ”gates”. Vi rekommenderar starkt att du väljer minst två autentiseringsmetoder så att användarna har mer flexibilitet.
+Om SSPR är aktiverad, måste du välja minst en av följande alternativ för autentiseringsmetoder. Ibland hör du de här alternativen som kallas ”gates”. Vi rekommenderar starkt att som du **väljer minst två autentiseringsmetoder** så att användarna har mer flexibilitet om de inte går att komma åt en när de behöver den.
 
 * E-post
 * Mobiltelefon
 * Arbetstelefon
 * Säkerhetsfrågor
 
+Användare kan bara återställa sina lösenord, om de har data som finns i de autentiseringsmetoder som administratören har aktiverat.
+
 ![Autentisering][Authentication]
 
-### <a name="what-fields-are-used-in-the-directory-for-the-authentication-data"></a>Vilka fält som används i katalogen för autentisering?
-
-* **Arbetstelefon**: motsvarar Arbetstelefon.
-    * Användare kan inte ange det här fältet själva. Det måste definieras av en administratör.
-* **Mobiltelefon**: motsvarar telefon för autentisering (inte synligt offentligt) eller mobiltelefonen (offentligt synligt).
-    * Tjänsten söker efter telefon för autentisering först och sedan infaller under tillbaka till mobiltelefonen om telefon för autentisering är finns inte.
-* **Alternativ e-postadress**: motsvarar autentisering e-postmeddelandet (inte synligt offentligt) eller alternativa e-postmeddelandet.
-    * Tjänsten ser ut för e-post för autentisering först och sedan växlas tillbaka till den alternativa e-postadress.
-
-Som standard synkroniseras endast molnet attribut arbetstelefon och mobiltelefon med din molnkatalog från din lokala katalog för autentiseringsdata.
-
-Användare kan bara återställa sina lösenord, om de har data som finns i de autentiseringsmetoder som administratören har aktiverat och kräver.
-
-Om användarna inte vill ha sina mobila telefonnummer som ska visas i katalogen, men fortfarande vill använda den för återställning av lösenord, bör administratörer inte fyller den i katalogen. Användare bör sedan fylla i sina **Autentiseringstelefon** attributet den [registreringsportalen för lösenordsåterställning](https://aka.ms/ssprsetup). Administratörer kan se den här informationen i användarens profil, men det publiceras inte någon annanstans.
-
-### <a name="the-number-of-authentication-methods-required"></a>Antalet autentiseringsmetoder krävs
+### <a name="number-of-authentication-methods-required"></a>Antal autentiseringsmetoder krävs
 
 Det här alternativet anger det minsta antalet tillgängliga autentiseringsmetoderna eller portar som en användare måste gå igenom återställa eller låsa upp sina lösenord. Det kan ställas in till en eller två.
 
@@ -83,7 +71,7 @@ Användare kan välja att ange flera autentiseringsmetoder om administratören a
 
 Om en användare inte har de minsta nödvändiga metoderna som registrerats, visas en felsida som uppmanar dem att begära att en administratör återställa sina lösenord.
 
-#### <a name="change-authentication-methods"></a>Ändra autentiseringsmetoder
+### <a name="change-authentication-methods"></a>Ändra autentiseringsmetoder
 
 Om du startar med en princip som har endast en nödvändig autentisering-metod för att återställa eller låsa upp registrerad och du ändrar att två metoderna, vad som händer?
 
@@ -95,81 +83,16 @@ Om du startar med en princip som har endast en nödvändig autentisering-metod f
 
 Om du ändrar vilka typer av autentiseringsmetoder som en användare kan använda, kan du oavsiktligt hindra användare från att kunna använda SSPR om de inte har den minsta mängden data som är tillgängliga.
 
-Exempel: 
+Exempel:
 1. Den ursprungliga principen är konfigurerad med två autentiseringsmetoder som krävs. Används endast arbetstelefonnummer och säkerhetsfrågorna. 
 2. Administratören ändrar principen för att inte längre använda säkerhetsfrågorna, men tillåter användning av en mobiltelefon och alternativa e-post.
-3. Användare utan mobiltelefon och alternativa e-fält kan inte återställa sina lösenord.
-
-### <a name="how-secure-are-my-security-questions"></a>Hur säker är Mina säkerhetsfrågor?
-
-Om du använder säkerhetsfrågor, bör du använda dem tillsammans med en annan metod. Säkerhetsfrågor kan vara mindre säkert än andra metoder, eftersom vissa kanske känner till svar på en annan användares frågor.
-
-> [!NOTE] 
-> Säkerhetsfrågor lagras säkert och privat på ett användarobjekt i katalogen och kan endast besvaras av användare under registreringen. Det går inte att en administratör att läsa eller ändra en användares frågorna och svaren.
->
-
-### <a name="security-question-localization"></a>Security fråga lokalisering
-
-De fördefinierade frågor som följer är lokaliserade till den fullständiga uppsättningen Office 365-språk och baseras på användarens webbläsare nationella inställningar:
-
-* I vilken stad träffade du din första make/maka/partner?
-* I vilken stad träffades dina föräldrar?
-* I vilken stad bor ditt närmsta syskon?
-* I vilken stad föddes din pappa?
-* I vilken stad hade du ditt första jobb?
-* I vilken stad föddes din mamma?
-* Vilken stad befann du dig i på nyårsafton 2000?
-* Vad hette din favoritlärare i gymnasiet i efternamn?
-* Vad heter ett av de universitet du har ansökt till men aldrig gått på?
-* Vad heter den plats där du hade din första bröllopsmottagning?
-* Vilket är din pappas mellannamn?
-* Vilken är din favoriträtt?
-* Vad hette din mormor i för- och efternamn?
-* Vilket är din mammas mellannamn?
-* Vad är ditt äldsta syskon månad och år? (t.ex. November 1985)
-* Vilket är ditt äldsta syskons mellannamn?
-* Vad hette din farfar i för- och efternamn?
-* Vilket är ditt yngsta syskons mellannamn?
-* Vilken skola gick du i när du gick i sjätte klass?
-* Vad hette din bästa barndomskompis i för- och efternamn?
-* Vad hette din första kärlek i för- och efternamn?
-* Vad hette din favoritlärare i grundskolan i efternamn?
-* Av vilket märke och vilken modell var din första bil eller motorcykel?
-* Vad hette den första skolan som du gick i?
-* Vad hette det sjukhus där du föddes?
-* Vad är adressen till ditt första barndomshem?
-* Vad hette din barndomshjälte?
-* Vad hette din favoritgosedjur?
-* Vad hette ditt första husdjur?
-* Vad hade du för smeknamn som barn?
-* Vilken var din favoritsport i gymnasiet?
-* Vilket var ditt första jobb?
-* Vilka är de fyra sista siffrorna i det telefonnummer du hade som barn?
-* Vad drömde du om att bli som vuxen när du var barn?
-* Vilken är den mest berömda person som du har träffat?
-
-### <a name="custom-security-questions"></a>Anpassade säkerhetsfrågor
-
-Anpassade säkerhetsfrågor är inte lokaliserade för olika språk. Alla anpassade frågor visas på samma språk när det anges i gränssnittet administrativ användare, även om användarens webbläsare språkinställningar är olika. Om du behöver lokaliserade frågor, bör du använda fördefinierade frågor.
-
-Den maximala längden på en anpassad säkerhetsfråga är 200 tecken.
-
-Visa portalen för återställning av lösenord och frågor i en annan lokaliserade språk Lägg till ”? mkt =<Locale>” i slutet av lösenordet Webbadress för återställning med exemplet som följer lokalisera till spanska [ https://passwordreset.microsoftonline.com/?mkt=es-us ](https://passwordreset.microsoftonline.com/?mkt=es-us).
-
-### <a name="security-question-requirements"></a>Säkerhetskrav för fråga
-
-* Teckengränsen minsta svar är tre tecken.
-* Gränsen för högsta svar tecken är 40 tecken.
-* Användare kan inte svara på samma fråga mer än en gång.
-* Användare kan inte ange samma svar på fler än en fråga.
-* Alla teckenuppsättningen kan användas för att definiera frågorna och svar, inklusive Unicode-tecken.
-* Antalet frågor som definierats måste vara större än eller lika med antalet frågor som krävs för att registrera.
+3. Användare utan mobiltelefon eller alternativa e-fält kan inte återställa sina lösenord.
 
 ## <a name="registration"></a>Registrering
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>Kräv att användare registrerar vid inloggning
 
-Om du vill aktivera det här alternativet om du har en användare som har aktiverats för återställning av lösenord att slutföra registreringen för lösenordsåterställning att logga in till program med hjälp av Azure AD. Detta omfattar följande:
+Aktivera det här alternativet måste en användare för att slutföra registreringen för lösenordsåterställning om de loggar in på de program som använder Azure AD. Detta omfattar följande program:
 
 * Office 365
 * Azure Portal
@@ -177,7 +100,7 @@ Om du vill aktivera det här alternativet om du har en användare som har aktive
 * Federerade program
 * Anpassade program med hjälp av Azure AD
 
-När kräver registrering har inaktiverats kan registrera användare fortfarande manuellt deras kontaktuppgifter. De kan antingen besök [ https://aka.ms/ssprsetup ](https://aka.ms/ssprsetup) eller Välj den **registrera för återställning av lösenord** länka den **profil** fliken i åtkomstpanelen.
+När kräver registrering har inaktiverats kan registrera användare manuellt. De kan antingen besök [ https://aka.ms/ssprsetup ](https://aka.ms/ssprsetup) eller Välj den **registrera för återställning av lösenord** länka den **profil** fliken i åtkomstpanelen.
 
 > [!NOTE]
 > Användare kan stänga registreringsportalen för lösenordsåterställning genom att välja **Avbryt** eller genom att stänga fönstret. Men uppmanas de att registrera varje gång de loggar in förrän de har slutfört registreringen.
@@ -194,27 +117,27 @@ Giltiga värden är 0 till 730 dagar ”0” vilket innebär att användarna upp
 
 ### <a name="notify-users-on-password-resets"></a>Meddela användare om lösenordsåterställning
 
-Om det här alternativet är inställt på **Ja**, och användaren som återställer sitt lösenord får ett e-postmeddelande om att deras lösenord har ändrats. E-postmeddelandet skickas via SSPR-portalen till sina primära och alternativa e-postadresser som finns i filen i Azure AD. Ingen annan meddelas om återställning av den här händelsen.
+Om det här alternativet är inställt på **Ja**, och sedan användarna återställa sina lösenord får ett e-postmeddelande om att deras lösenord har ändrats. E-postmeddelandet skickas via SSPR-portalen till sina primära och alternativa e-postadresser som finns i filen i Azure AD. Ingen annan meddelas om händelsen återställning.
 
 ### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>Meddela alla administratörer när andra administratörer återställer sina lösenord
 
 Om det här alternativet är inställt på **Ja**, sedan *alla administratörer* får ett e-postmeddelande till den primära e-postadressen på filen i Azure AD. E-postmeddelandet meddelar dem en annan administratör har ändrat sitt lösenord genom att använda SSPR.
 
-Exempel: Det finns fyra administratörer i en miljö. Administratör A återställer sitt lösenord genom att använda SSPR. Administratörer B, C och D får ett e-postmeddelande som uppmanar för återställning av lösenord.
+Exempel: Det finns fyra administratörer i en miljö. Administratör A återställer sitt lösenord genom att använda SSPR. Administratörer B, C och D får ett e-postmeddelande som varningar för återställning av lösenord.
 
 ## <a name="on-premises-integration"></a>Lokal integration
 
-Om du installerar, konfigurerar och aktiverar Azure AD Connect har du följande ytterligare alternativ för lokal integrationer. Om dessa alternativ är nedtonade har sedan tillbakaskrivning av inte konfigurerats korrekt. Mer information finns i [konfigurera tillbakaskrivning av lösenord](howto-sspr-writeback.md#configure-password-writeback).
+Om du installerar, konfigurerar och aktiverar Azure AD Connect har du följande ytterligare alternativ för lokal integrationer. Om dessa alternativ är nedtonade har sedan tillbakaskrivning av inte konfigurerats korrekt. Mer information finns i [konfigurera tillbakaskrivning av lösenord](howto-sspr-writeback.md).
 
 ![Tillbakaskrivning av][Writeback]
 
-Den här sidan innehåller en snabb lokal tillbakaskrivning av klientens status visas något av följande meddelanden baserat på den aktuella konfigurationen:
+Den här sidan innehåller en snabb status för den lokala tillbakaskrivningsklient, något av följande meddelanden visas baserat på den aktuella konfigurationen:
 
 * Din lokala tillbakaskrivningsklient är igång.
 * Azure AD är online och är ansluten till din lokala tillbakaskrivningsklient. Det verkar dock som den installera versionen av Azure AD Connect är inaktuell. Överväg att [uppgradera Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) så att du har de senaste anslutningsfunktionerna och viktiga felkorrigeringar.
 * Tyvärr kan vi Kontrollera din lokala tillbakaskrivningsklient eftersom den installerade versionen av Azure AD Connect är inaktuell. [Uppgradera Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) för att kunna kontrollera din anslutningsstatus.
 * Det verkar tyvärr som vi inte kan ansluta till din lokala tillbakaskrivningsklient just nu. [Felsöka Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) att återställa anslutningen.
-* Vi kan tyvärr inte ansluta till din lokala tillbakaskrivningsklient eftersom tillbakaskrivning av lösenord inte har konfigurerats korrekt. [Konfigurera tillbakaskrivning av lösenord](howto-sspr-writeback.md#configure-password-writeback) att återställa anslutningen.
+* Vi kan tyvärr inte ansluta till din lokala tillbakaskrivningsklient eftersom tillbakaskrivning av lösenord inte har konfigurerats korrekt. [Konfigurera tillbakaskrivning av lösenord](howto-sspr-writeback.md) att återställa anslutningen.
 * Det verkar tyvärr som vi inte kan ansluta till din lokala tillbakaskrivningsklient just nu. Detta kan bero på tillfälliga problem hos oss. Om problemet kvarstår [felsöka Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) att återställa anslutningen.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Skriv tillbaka lösenord till din lokala katalog
@@ -231,7 +154,8 @@ Den här kontrollen anger om användare som besöker portalen för återställni
 * Om inställd **Ja**, och användarna har du möjlighet att återställa sina lösenord och låsa upp kontot eller att låsa upp sitt konto utan att behöva återställa lösenordet.
 * Om inställd **nr**, användare är sedan endast att kunna utföra en kombinerad lösenordsåterställning och kontoupplåsning igen.
 
-## <a name="how-does-password-reset-work-for-b2b-users"></a>Hur för lösenordsåterställning fungerar för B2B-användare?
+## <a name="password-reset-for-b2b-users"></a>Återställning av lösenord för B2B-användare
+
 Återställning av lösenord och ändrar stöds helt för alla konfigurationer för business-to-business (B2B). B2B återställning av användarlösenord stöds i följande tre fall:
 
    * **Användare från en partnerorganisation med en befintlig Azure AD-klient**: Om du samarbetar med organisationen har en befintlig Azure AD-klient, vi *respekterar principerna för lösenordsåterställning är aktiverade på den klienten*. För lösenordsåterställning för att fungera behöver partnerorganisationen bara se till att Azure AD SSPR är aktiverad. Det finns ingen extra kostnad för Office 365-kunder och den kan aktiveras genom att följa stegen i vår [Kom igång med lösenordshantering](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) guide.

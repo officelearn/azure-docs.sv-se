@@ -4,18 +4,18 @@ description: Felsökning Azure AD lösenordsåterställning via självbetjäning
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e24f5070a793f62481bdc80044c97163c5b5c79f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 95ec87d2fdc34864b90a6596e7100cc6c1387631
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045197"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161998"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Felsöka lösenordsåterställning via självbetjäning
 
@@ -80,7 +80,7 @@ Har du problem med lösenordsåterställning för Azure Active Directory (Azure 
 
 | Fel | Lösning |
 | --- | --- |
-| Tjänsten för återställning av lösenord startar inte på plats. Fel 6800 visas i programhändelseloggen för den Azure AD Connect-datorn. <br> <br> Efter integreringen, federerade, kan inte direktautentisering eller lösenord-hash-synkroniserade användare återställa sina lösenord. | När tillbakaskrivning av lösenord är aktiverad, anropar Synkroniseringsmotorn tillbakaskrivning av biblioteket för att utföra konfigurationen (onboarding) genom att kommunicera till onboarding-Molntjänsten. Eventuella fel som upptäcks under publiceringen eller när de startar Windows Communication Foundation (WCF)-slutpunkten för resultat för tillbakaskrivning av lösenord i fel inloggningen i Azure AD Connect-datorn. <br> <br> Under omstart av tjänsten Azure AD Sync (ADSync) om tillbakaskrivning av har konfigurerats, startas WCF-slutpunkten. Men om det inte går att starta slutpunkten, vi logga händelse 6800 och fjärrhantering av sync-tjänsten startas. Förekomst av den här händelsen innebär att slutpunkten för tillbakaskrivning av lösenord inte startar. Händelselogginformation för den här händelsen 6800, tillsammans med händelseloggen poster generera via komponenten PasswordResetService, ange varför du inte kan starta slutpunkten. Granska de här felen i händelseloggen och försök att starta om Azure AD Connect om tillbakaskrivning av lösenord inte fungerar fortfarande. Om problemet kvarstår försöker du inaktiverar och återaktiverar tillbakaskrivning av lösenord.
+| Tjänsten för återställning av lösenord startar inte på plats. Fel 6800 visas i programhändelseloggen för den Azure AD Connect-datorn. <br> <br> Efter integreringen, federerade, kan inte direktautentisering eller lösenord-hash-synkroniserade användare återställa sina lösenord. | När tillbakaskrivning av lösenord är aktiverad, anropar Synkroniseringsmotorn tillbakaskrivning av biblioteket för att utföra konfigurationen (onboarding) genom att kommunicera till onboarding-Molntjänsten. Eventuella fel som upptäcks under publiceringen eller när de startar Windows Communication Foundation (WCF)-slutpunkten för resultat för tillbakaskrivning av lösenord i fel i händelseloggen på din Azure AD Connect-datorn. <br> <br> Under omstart av tjänsten Azure AD Sync (ADSync) om tillbakaskrivning av har konfigurerats, startas WCF-slutpunkten. Men om det inte går att starta slutpunkten, vi logga händelse 6800 och fjärrhantering av sync-tjänsten startas. Förekomst av den här händelsen innebär att slutpunkten för tillbakaskrivning av lösenord inte startar. Händelselogginformation för den här händelsen 6800, tillsammans med händelseloggen poster generera via komponenten PasswordResetService, ange varför du inte kan starta slutpunkten. Granska de här felen i händelseloggen och försök att starta om Azure AD Connect om tillbakaskrivning av lösenord inte fungerar fortfarande. Om problemet kvarstår försöker du inaktiverar och återaktiverar tillbakaskrivning av lösenord.
 | När en användare försöker återställa ett lösenord eller låsa upp ett konto med tillbakaskrivning av lösenord aktiverat, misslyckas åtgärden. <br> <br> Dessutom kan du se att en händelse i händelseloggen för Azure AD Connect som innehåller ”: Synkroniseringsmotorn returnerade ett fel hr = 800700CE, message = filnamnet eller tillägget är för långt” efter upplåsning åtgärden sker. | Hitta Active Directory-konto för Azure AD Connect och återställa lösenordet så att den innehåller högst 127 tecken. Öppna sedan den **synkroniseringstjänsten** från den **starta** menyn. Bläddra till **Anslutningsappar** och hitta den **Active Directory-koppling**. Markera det och sedan välja **egenskaper**. Bläddra till den **autentiseringsuppgifter** sidan och ange det nya lösenordet. Välj **OK** att stänga sidan. |
 | I det sista steget i Azure AD Connect-installationen kan du se ett felmeddelande om att det inte gick att konfigurera den tillbakaskrivning av lösenord. <br> <br> Azure AD Connect-programhändelseloggen innehåller fel 32009 med texten ”gick inte att hämta auth-token”. | Det här felet uppstår i följande två fall: <br><ul><li>Du har angett ett felaktigt lösenord för det globala administratörskontot som anges i början av Azure AD Connect-installationen.</li><li>Du har försökt att använda en federerad användare för det globala administratörskontot som anges i början av Azure AD Connect-installationen.</li></ul> Se till att du inte använder ett federerat konto för den globala administratören som du angav i början av installationsprocessen för att åtgärda problemet. Se också till att det angivna lösenordet är korrekt. |
 | Händelseloggen för Azure AD Connect-datorn innehåller fel 32002 som genereras genom att köra PasswordResetService. <br> <br> Läser av felet: ”fel vid anslutning till ServiceBus. Tokenleverantören kunde inte tillhandahålla en säkerhetstoken ”. | Din lokala miljö inte kan ansluta till Azure Service Bus-slutpunkt i molnet. Det här felet orsakas normalt av en brandväggsregel som blockerar en utgående anslutning till en viss port eller web-adress. Se [anslutning krav](./../connect/active-directory-aadconnect-prerequisites.md) för mer information. När du har uppdaterat reglerna, starta om Azure AD Connect-datorn och tillbakaskrivning av lösenord ska börja fungera igen. |
@@ -96,7 +96,7 @@ Bästa praxis när du felsöker problem med tillbakaskrivning av lösenord är a
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Om källan för händelsen är ADSync
 
-| Programmera | Namn eller meddelande | Beskrivning |
+| Kod | Namn eller meddelande | Beskrivning |
 | --- | --- | --- |
 | 6329 | BORGEN: MMS(4924) 0x80230619: ”en begränsning förhindrar att lösenordet ändras till den aktuella som angetts”. | Den här händelsen inträffar när tjänsten för tillbakaskrivning av lösenord försöker ange ett lösenord för din lokala katalog som inte uppfyller ålder för lösenord, historik, komplexitet eller filtrering kraven i domänen. <br> <br> Om du har en lägsta ålder för lösenord och nyligen har ändrat lösenordet inom denna tidsperiod kan det inte går att ändra lösenordet igen tills den når den angivna åldern i din domän. I testsyfte sättas minimiålder till 0. <br> <br> Om du har använts på sistone aktiverad så du måste välja ett lösenord som inte har använts under senaste *N* tider var *N* är lösenordsinställningen för historik. Om du väljer ett lösenord som har använts under senaste *N* gånger, kan du se ett fel i det här fallet. I testsyfte ska tidigare lösenord anges till 0. <br> <br> Om du har krav på lösenordskomplexitet, tillämpas alla när användaren försöker att ändra och återställa ett lösenord. <br> <br> Om du har aktiverat lösenordsfilter och en användare väljer ett lösenord som uppfyller inte sökvillkoren, sedan återställa eller ändra åtgärden misslyckas. |
 | 6329 | MMS(3040): admaexport.cpp(2837): servern innehåller inte principkontroll för LDAP-lösenord. | Det här problemet uppstår om LDAP_SERVER_POLICY_HINTS_OID kontroll (1.2.840.113556.1.4.2066) inte är aktiverad på domänkontrollanter. Om du vill använda funktionen för tillbakaskrivning av lösenord, måste du aktivera kontrollen. Om du vill göra det finnas domänkontrollanter i Windows Server 2008 (med senaste SP) eller senare. Om dina domänkontrollanter som är på 2008 (pre-R2) så du måste också installera snabbkorrigeringar [KB2386717](http://support.microsoft.com/kb/2386717). |
@@ -104,7 +104,7 @@ Bästa praxis när du felsöker problem med tillbakaskrivning av lösenord är a
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Om källan för händelsen är PasswordResetService
 
-| Programmera | Namn eller meddelande | Beskrivning |
+| Kod | Namn eller meddelande | Beskrivning |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | Den här händelsen anger att den lokala tjänsten identifierat en lösenordsåterställning begäran för en federerad direkt autentisering eller lösenord-hash-synkroniserade användare som kommer från molnet. Den här händelsen är den första händelsen i varje tillbakaskrivningen för återställning av lösenord. |
 | 31002 | PasswordResetSuccess | Den här händelsen anger att en användare har valt ett nytt lösenord under en återställning av lösenord. Vi fastställt att det här lösenordet uppfyller företagets lösenordsprincip. Lösenordet har skrivits tillbaka till den lokala Active Directory-miljön. |

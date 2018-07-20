@@ -1,6 +1,6 @@
 ---
-title: Lägg till/ta bort en slutpunkt för server filsynkronisering i Azure (förhandsversion) | Microsoft Docs
-description: Lär dig vad du bör tänka på när du planerar för distribution av en Azure-filer.
+title: Lägg till/ta bort en serverslutpunkt för Azure File Sync | Microsoft Docs
+description: Lär dig att tänka på när du planerar för distribution av Azure Files.
 services: storage
 documentationcenter: ''
 author: wmgries
@@ -12,50 +12,50 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 93331dd936a6d7b30ca18743d2079900421b2620
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: c8da3f501d03a05ef5490197d4fd38ada01a4997
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738487"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158451"
 ---
-# <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Lägg till/ta bort en Azure-filsynkronisering (förhandsgranskning) serverslutpunkt
-Med Azure File Sync (förhandsversionen) kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
+# <a name="addremove-an-azure-file-sync-server-endpoint"></a>Lägg till/ta bort en serverslutpunkt för Azure File Sync
+Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
 
-En *serverslutpunkt* representerar en specifik plats på en *registrerad server*, till exempel en mapp på en server-volym eller i roten på volymen. Flera server-slutpunkter kan finnas på samma volym om deras namnområden inte överlappar (till exempel F:\sync1 och F:\sync2). Du kan konfigurera molnet lagringsnivåer principer individuellt för varje serverslutpunkt. Om du lägger till en plats med en befintlig uppsättning filer på servern som en serverslutpunkt i en grupp för synkronisering av slås filerna samman med andra filer redan på andra slutpunkter i gruppen synkronisering.
+En *serverslutpunkt* representerar en specifik plats på en *registrerad server*, till exempel en mapp på en server-volym eller i roten på volymen. Flera serverslutpunkter kan finnas på samma volym om deras namnområden överlappar inte varandra (till exempel F:\sync1 och F:\sync2). Du kan konfigurera molnet lagringsnivåer principer separat för varje serverslutpunkt. Om du lägger till en plats på servern med en befintlig uppsättning filer som en serverslutpunkt till en synkroniseringsgrupp slås filerna samman med andra filer som redan finns på andra slutpunkter i synkroniseringsgruppen.
 
-Se [hur du distribuerar Azure filsynkronisering (förhandsgranskning)](storage-sync-files-deployment-guide.md) information om hur du distribuerar Azure filsynkronisering slutpunkt till slutpunkt.
+Se [så här distribuerar du Azure File Sync](storage-sync-files-deployment-guide.md) information om hur du distribuerar Azure File Sync slutpunkt till slutpunkt.
 
 ## <a name="prerequisites"></a>Förutsättningar
-För att skapa en serverslutpunkt för, måste du först se till att följande villkor är uppfyllda: 
-- Servern filsynkronisering för Azure-agenten har installerats och registrerats. Anvisningar för att installera Azure File Sync-agenten finns i den [registrera/avregistrera en server med Azure filsynkronisering (förhandsgranskning)](storage-sync-files-server-registration.md) artikel. 
-- Se till att en lagring Sync-tjänsten har distribuerats. Se [hur du distribuerar Azure filsynkronisering (förhandsgranskning)](storage-sync-files-deployment-guide.md) mer information om hur du distribuerar en tjänst för synkronisering av lagring. 
-- Se till att en grupp för synkronisering har distribuerats. Lär dig hur du [skapar du en synkronisering grupp](storage-sync-files-deployment-guide.md#create-a-sync-group).
+Om du vill skapa en serverslutpunkt, måste du först se till att följande villkor är uppfyllda: 
+- Servern har Azure File Sync-agenten installerad och har registrerats. Instruktioner för installation av Azure File Sync-agenten finns i den [registrera/avregistrera en server med Azure File Sync](storage-sync-files-server-registration.md) artikeln. 
+- Se till att en Storage Sync-tjänsten har distribuerats. Se [så här distribuerar du Azure File Sync](storage-sync-files-deployment-guide.md) mer information om hur du distribuerar en Lagringssynkroniseringstjänst. 
+- Se till att en synkroniseringsgrupp har distribuerats. Lär dig hur du [skapar en synkroniseringsgrupp](storage-sync-files-deployment-guide.md#create-a sync-group-and-a-cloud-endpoint).
 - Kontrollera att servern är ansluten till internet och att Azure är tillgänglig. Vi använder port 443 för all kommunikation mellan servern och vår tjänst.
 
 ## <a name="add-a-server-endpoint"></a>Lägg till en serverslutpunkt
-Om du vill lägga till en serverslutpunkt för, navigerar du till gruppen önskade synkronisering och välj ”Lägg till server endpoint”.
+Gå till den önskade synkroniseringsgruppen för att lägga till en serverslutpunkt och välj ”Lägg till serverslutpunkt”.
 
 ![Lägg till en ny serverslutpunkt i fönstret sync grupp](media/storage-sync-files-server-endpoint/add-server-endpoint-1.png)
 
-Följande information krävs under **Lägg till serverslutpunkt**:
+Följande information krävs **Lägg till serverslutpunkt**:
 
 - **Registrerad server**: namnet på servern eller klustret att skapa Serverslutpunkten på.
-- **Sökvägen**: sökväg på Windows Server som ska synkroniseras som en del av gruppen synkronisering.
-- **Cloud Tiering**: en växel för att aktivera eller inaktivera molnet skiktning. När aktiverad molnet lagringsnivåer kommer *nivå* filer till Azure-filresurser. Detta konverterar lokala filresurser till en cache i stället för en fullständig kopia av datauppsättningen, som hjälper dig att hantera effektivt diskutrymme på servern.
-- **Ledigt utrymme på volymen**: mängden ledigt utrymme som ska reserveras på den volym som finns i Serverslutpunkten. Till exempel om volymens lediga utrymme anges till 50% på en volym med en enskild serverslutpunkt ska ungefär hälften av data vara nivåer till Azure Files. Oavsett om molnet skiktning är aktiverat, Azure-filresursen har alltid en fullständig kopia av data i gruppen synkronisering.
+- **Sökvägen**: sökväg på Windows-Server som ska synkroniseras som en del av synkroniseringsgruppen.
+- **Cloud Tiering**: en växel för att aktivera eller inaktivera lagringsnivåer. När aktiverad cloud lagringsnivåer kommer *nivå* filer till Azure-filresurser. Det konverterar lokala filresurser till en cache i stället för en fullständig kopia av datauppsättningen för att hjälpa dig att hantera utrymmeseffektivitet på servern.
+- **Ledigt utrymme på volym**: mängden ledigt utrymme för att reservera på volymen som Serverslutpunkten finns. Till exempel om volymens lediga utrymme är inställt på 50% på en volym med en enskild server-slutpunkt, ungefär hälften av data kommer att vara nivåindelad till Azure Files. Oavsett om molnet lagringsnivåer har aktiverats kan din Azure-filresurs har alltid en fullständig kopia av data i synkroniseringsgruppen.
 
-Välj **skapa** att lägga till Serverslutpunkten. Filerna i ett namnområde för en grupp för synkronisering kommer nu att synkroniseras. 
+Välj **skapa** att lägga till Serverslutpunkten. Filerna i ett namnområde för en synkroniseringsgrupp kommer nu hålls synkroniserade. 
 
-## <a name="remove-a-server-endpoint"></a>Ta bort en serverslutpunkt för
-Om du vill fortsätta att använda Azure filsynkronisering för en viss server-slutpunkt, kan du ta bort Serverslutpunkten. 
+## <a name="remove-a-server-endpoint"></a>Ta bort en serverslutpunkt
+Om du vill sluta använda Azure File Sync för en viss server-slutpunkt, kan du ta bort Serverslutpunkten. 
 
 > [!Warning]  
-> Försök inte att felsöka problem med synkronisering, molnet skiktning eller någon aspekt av Azure filen Sync genom att ta bort och återskapa Serverslutpunkten om du inte uttryckligen har angett till av en Microsoft-tekniker. Ta bort en serverslutpunkt för är en destruktiva åtgärd och nivåindelade filer i Serverslutpunkten kommer inte ”återanslutas” till deras platser på Azure-filresursen när Serverslutpunkten återskapas, vilket innebär synkroniserade fel. Observera också, skiktad filer som finns utanför servern endpoint namnområde kan vara förlorade permanent. Nivåindelad filer kan finnas i din server-slutpunkt, även om molnet skiktning aktiverades aldrig.
+> Försök inte att felsöka problem med synkronisering, lagringsnivåer för moln eller några andra aspekter av Azure File Sync genom att ta bort och återskapa Serverslutpunkten om inte explicit ger instruktioner till en Microsoft-tekniker. Det är en destruktiv åtgärd för att ta bort en serverslutpunkt och nivåindelade filer inom Serverslutpunkten kommer inte att ”återansluta” till deras platser på Azure-filresursen när Serverslutpunkten återskapas, vilket innebär synkroniserade fel. Observera också, nivåindelade filer som finns utanför den slutpunkten namnrymden kan gå förlorade permanent. Nivåindelade filer kan finnas samtidigt i din server-slutpunkt, även om molnet molnlagringsnivåer aldrig har aktiverats.
 
-Inaktivera molnet skiktning på Serverslutpunkten för att säkerställa att alla nivåindelade filer hämtas innan du tar bort Serverslutpunkten, och köra följande PowerShell-cmdlet om du vill återkalla alla nivåindelade filer i namnområdet server slutpunkt:
+Inaktivera molnlagringsnivåer på serverslutpunkt för att säkerställa att alla nivåindelade filer hämtas innan du tar bort Serverslutpunkten, och sedan köra följande PowerShell-cmdlet för att återkalla alla nivåindelade filer i din slutpunkt namnrymd:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -63,16 +63,16 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 
 > [!Note]  
-> Om den lokala volymen som värd för servern inte har tillräckligt med ledigt utrymme för att återställa alla nivåindelade data i `Invoke-StorageSyncFileRecall` cmdlet misslyckas.  
+> Om den lokala volymen som är värd för servern inte har tillräckligt med ledigt utrymme för att återställa alla nivåindelade data i `Invoke-StorageSyncFileRecall` cmdlet misslyckas.  
 
 Ta bort Serverslutpunkten:
 
-1. Gå till lagring synkroniseringstjänsten där servern är registrerad.
-2. Navigera till den önskade sync-gruppen.
-3. Ta bort serverslutpunkt som du önskar i gruppen synkronisering i synkroniseringstjänsten för lagring. Detta kan åstadkommas genom att högerklicka på relevant Serverslutpunkten i fönstret sync grupp.
+1. Gå till Storage Sync-tjänsten där servern är registrerad.
+2. Navigera till önskad synkroniseringsgruppen.
+3. Ta bort Serverslutpunkten du önskar i synkroniseringsgruppen i Storage Sync-tjänsten. Detta kan åstadkommas genom att högerklicka på relevant Serverslutpunkten i fönstret sync grupp.
 
-    ![Ta bort en serverslutpunkt för från en grupp för synkronisering](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
+    ![Ta bort en serverslutpunkt från en synkroniseringsgrupp](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
 ## <a name="next-steps"></a>Nästa steg
-- [Registrera/avregistrera en server med Azure filsynkronisering (förhandsgranskning)](storage-sync-files-server-registration.md)
-- [Planera för distribution av en Azure filsynkronisering](storage-sync-files-planning.md)
+- [Registrera/avregistrera en server med Azure File Sync](storage-sync-files-server-registration.md)
+- [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)

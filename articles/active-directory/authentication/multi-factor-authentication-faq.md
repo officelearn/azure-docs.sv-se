@@ -4,24 +4,25 @@ description: Vanliga frågor och svar som rör Azure Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/16/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 00eab947120cdfa76de64536ddaa0600c2dff2ec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: michmcla
+ms.openlocfilehash: b4fc67acae83573db772923a94cdbb6b1c4a301f
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049419"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159849"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor och svar om Azure Multi-Factor Authentication
 
 HÄR får du svar på vanliga frågor om Azure Multi-Factor Authentication och med Multi-Factor Authentication-tjänsten. Det är uppdelad i frågor om tjänsten i allmänhet faktureringsmodellerna, användarupplevelser, och felsökning.
 
 ## <a name="general"></a>Allmänt
+
 **F: hur hanterar användardata i Azure Multi-Factor Authentication-servern?**
 
 Med Multi-Factor Authentication Server lagras användardata endast på lokala servrar. Inga beständiga användardata lagras i molnet. När användaren utför tvåstegsverifiering, skickar data till Azure Multi-Factor Authentication-Molntjänsten för autentisering med hjälp av Multi-Factor Authentication Server. Kommunikation mellan Multi-Factor Authentication-servern och Multi-Factor Authentication-Molntjänsten använder Secure Sockets Layer (SSL) eller Transport Layer Security (TLS) via port 443 för utgående trafik.
@@ -60,6 +61,7 @@ I Kanada Microsoft använder du följande koder för SMS-kort:
 Microsoft garanterar inte konsekvent SMS eller Voice-baserade Multifaktorautentisering fråga leverans av samma nummer. För våra användare Microsoft Lägg till eller ta bort korta koder när som helst som vi justera väg att förbättra SMS levererbarhet. Microsoft stöder inte korta koder för länder utöver USA och Kanada
 
 ## <a name="billing"></a>Fakturering
+
 De flesta faktureringsfrågor besvaras genom att referera till antingen den [prissättning för multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) eller i dokumentationen om [så här hämtar du Azure Multi-Factor Authentication](concept-mfa-licensing.md).
 
 **F: är min organisation debiteras för telefonsamtal och textmeddelanden som används för autentisering?**
@@ -119,7 +121,6 @@ Azure Active Directory krävs för licens-modellen eftersom licenser läggs till
 Alla användare konfigurerats förhoppningsvis mer än en verifieringsmetod. Be dem att försöka logga in igen, men välj en annan verifieringsmetod på inloggningssidan.
 
 Du kan ange dina användare till den [slutanvändarens felsökningsguide för](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
-
 
 **F: Vad gör jag om en av Mina användare inte kan få deras konto?**
 
@@ -196,8 +197,8 @@ Det finns flera orsaker till att du kan uppmanas användarna att registrera dera
 - Organisationen har skapat och aktiverat en princip för MFA-registrering som har tillämpats på användaren.
 - Användaren kan du tidigare har registrerats för MFA, men valde en verifieringsmetod som en administratör har inaktiverat eftersom. Användaren måste därför gå igenom MFA-registrering igen för att välja en ny standard verifieringsmetod.
 
-
 ## <a name="errors"></a>Fel
+
 **F: Vad ska användare göra om de finns i felmeddelandet ”autentiseringsbegäran är inte för ett aktiverat konto” när du använder aviseringar i mobilappen?**
 
 Be dem att följa den här proceduren för att ta bort kontot från mobilappen, och sedan lägga till den igen:
@@ -214,6 +215,7 @@ Be dem att följa den här proceduren för att ta bort kontot från mobilappen, 
 En lösning för det här felet är att ha en separat användare konton för admin-relaterade och åtgärder för icke-administratörer. Senare kan länka du postlådor mellan ditt administratörskonto och icke-administratörskontot så att du kan logga in till Outlook med ditt administratörskonto. För mer information om den här lösningen kan du lära dig hur du [och ge en administratör kunna öppna och visa innehållet i en användares postlåda](http://help.outlook.com/141/gg709759.aspx?sl=1).
 
 ## <a name="next-steps"></a>Nästa steg
+
 Om din fråga inte besvaras här, lämna den i kommentarer längst ned på sidan. Alternativt kan du här finns ett par ytterligare alternativ för att få hjälp:
 
 * Sök efter den [Microsoft Support Knowledge Base](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) efter lösningar på vanliga tekniska problem.

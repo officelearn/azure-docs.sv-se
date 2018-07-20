@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 9795beca93ab4dbbeb1e0e99a50952ea23ca1568
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b516dd165bfc22ad3966ffe51e99591379f9e680
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005493"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144337"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bli en Cloud Marketplace-utgivare
 
@@ -28,18 +28,18 @@ Den här artikeln beskriver registrera som en cloud marketplace-utgivare. Beroen
 
 |  | Registreringssteget | Varaktighet | Information |  
 |:--- |:--- |:--- |:--- |  
-| 1 | Registrera i Microsoft Partner Network | 15 min | [Registrera i Microsoft Partner Network](#register-in-microsoft-partner-network) |  
-| 2 | Skapa ett Microsoft-konto <ul>(krävs för Azure Marketplace transact erbjudanden; rekommenderas för andra)</ul> | 15 minuter | [Skapa ett Microsoft-ID](#create-a-microsoft-id) |  
-| 3 | Skicka formuläret av marketplace-registrering | 15 min | [Skicka nomineringsformuläret marketplace](#submit-the-marketplace-nomination-form) |  
-| 4 |  Logga in på partnerportalen i molnet | 1 – 3 dagar | [Logga in på partnerportalen i molnet](#sign-into-cloud-partner-portal) |  
-| 5 | Registrera dig i Microsoft Developer Center (Dev Center) (för Azure Marketplace transact erbjudanden) | 5 – 10 dagar | [Registrera i Dev Center](#register-in-dev-center) |  
+| 1 | Registrera i Microsoft Partner Network | 15 min | [Registrera i Microsoft Partner Network](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
+| 2 | Skapa ett Microsoft-konto <ul>(krävs för Azure Marketplace transact erbjudanden; rekommenderas för andra)</ul> | 15 minuter | [Skapa ett Microsoft-ID](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 3 | Skicka formuläret av marketplace-registrering | 15 min | [Skicka nomineringsformuläret marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 4 |  Logga in på partnerportalen i molnet | 1 – 3 dagar | [Logga in på partnerportalen i molnet](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
+| 5 | Registrera dig i Microsoft Developer Center (Dev Center) (för Azure Marketplace transact erbjudanden) | 5 – 10 dagar | [Registrera i Dev Center](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
 
 ## <a name="1-register-in-microsoft-partner-network"></a>1. Registrera i Microsoft Partner Network  
 | 15 min |  
 Delta i Microsofts molnmarknadsplats kräver medlemskap till Microsoft Partner Network (MPN), som innehåller också viktiga fördelar, program och Prestandaspårning för partner. Om din organisation inte är ännu en medlem, ansluta Microsoft Partner Network (MPN) för att bli officiella Microsoft-partner och få ytterligare förmåner och stöd för publicering i marketplace. 
 
-*   Du kan registrera i Microsoft Partner Network den [medlemskap sidan](https://partner.microsoft.com/membership)och följ anvisningarna för att starta registreringen.  
+*   Du kan registrera i Microsoft Partner Network den [medlemskap sidan](https://partner.microsoft.com/membership) och följ anvisningarna för att starta registreringen.  
 
 Efter registreringen kan du registrera Microsoft Partner Network-ID för din organisation. Du behöver detta under steg 3 när du skickar in din marketplace-registreringsformuläret.
 *   Lär dig mer om fördelarna med den [Microsoft Partner Network](https://partner.microsoft.com/en-us/commercial)
@@ -99,7 +99,7 @@ När du har slutfört den [Dev Center](https://developer.microsoft.com/en-us/sto
 >För att avstå från registrering-avgift $99 Developer Center, fylla i registreringsformuläret för marketplace och du får ett e-postmeddelande som innehåller din kampanjkoden. 
 
 >[!Important]
->Verifiera att din organisation inte redan har ett Dev Center-konto för att undvika dubbla konton innan du skapar ett Microsoft Dev Center-konto. Mer information finns i [hur du registrera dig i Dev Center](https://review.docs.microsoft.com/en-us/azure/marketplace/become-publisher?branch=pr-en-us-44571#how-to-register-in-dev-center) avsnittet.
+>Verifiera att din organisation inte redan har ett Dev Center-konto för att undvika dubbla konton innan du skapar ett Microsoft Dev Center-konto. Mer information finns i [registrera i Dev Center](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center) avsnittet.
 
 
 ## <a name="next-steps"></a>Nästa steg

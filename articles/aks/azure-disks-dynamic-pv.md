@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 14617b57f59c068aa015c9bfea9b4d18520b4152
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 34d3a5dbccf2cad7873bf6166e406c7c4817ac09
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473690"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158717"
 ---
 # <a name="create-persistent-volumes-with-azure-disks-for-azure-kubernetes-service-aks"></a>Skapa beständiga volymer med Azure-diskar för Azure Kubernetes Service (AKS)
 
@@ -62,6 +62,9 @@ spec:
     requests:
       storage: 5Gi
 ```
+
+> [!TIP]
+> Du kan skapa en disk som använder standard-lagring med `storageClassName: default` snarare än *hanteras premium*.
 
 Skapa permanent volym-anspråk med den [kubectl gäller] [ kubectl-apply] kommandot och ange din *azure premium.yaml* fil:
 

@@ -4,18 +4,18 @@ description: Få hjälp med att lösa problem med NPS-tillägget för Azure Mult
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 07/14/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: fcfabde7236f0fd6ef7b965b816bc5b79a96d503
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: michmcla
+ms.openlocfilehash: 4097fab5610bf4bee6c14c65d3b45e0de818a0cc
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044646"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160917"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Åtgärda felmeddelanden från NPS-tillägget för Azure Multi-Factor Authentication
 
@@ -23,7 +23,7 @@ Om det uppstår fel med NPS-tillägget för Azure Multi-Factor Authentication, k
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Felsökning av vanliga fel
 
-| Felkod | Felsökningssteg |
+| Felkod | Felsökningsanvisningar |
 | ---------- | --------------------- |
 | **CONTACT_SUPPORT** | [Kontakta supporten](#contact-microsoft-support), och nämner lista över steg för att samla in loggar. Ange så mycket information som du kan om vad som hände före felet, inklusive klient-id och användarens huvudnamn (UPN). |
 | **CLIENT_CERT_INSTALL_ERROR** | Det kan finnas ett problem med hur klientcertifikatet installerades eller som är associerade med din klient. Följ instruktionerna i [felsökning MFA NPS-tillägget](howto-mfa-nps-extension.md#troubleshooting) att undersöka problem med certifikat-klienten. |
@@ -40,7 +40,7 @@ Om det uppstår fel med NPS-tillägget för Azure Multi-Factor Authentication, k
 
 ### <a name="alternate-login-id-errors"></a>Alternativa inloggnings-ID fel
 
-| Felkod | Felmeddelande | Felsökningssteg |
+| Felkod | Felmeddelande | Felsökningsanvisningar |
 | ---------- | ------------- | --------------------- |
 | **ALTERNATE_LOGIN_ID_ERROR** | Fel: userObjectSid sökningen misslyckades | Kontrollera att användaren finns i din lokala Active Directory-instans. Om du använder förtroenderelationer mellan skogar, [supporten](#contact-microsoft-support) för ytterligare hjälp. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Fel: Det gick inte att alternativa LoginId sökning | Kontrollera att LDAP_ALTERNATE_LOGINID_ATTRIBUTE har angetts till en [giltigt active directory-attributet](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Om LDAP_FORCE_GLOBAL_CATALOG har angetts till True, eller LDAP_LOOKUP_FORESTS har konfigurerats med en icke-tomma värden, kontrollera att du har konfigurerat en Global katalog och att attributet AlternateLoginId har lagts till den. <br><br> Om LDAP_LOOKUP_FORESTS konfigureras med en icke-tomma värden, kontrollerar du att värdet är korrekt. Om det finns fler än en skogsnamn, måste namnen avgränsade med semikolon, inte blanksteg. <br><br> Om de här stegen inte löser problemet, [supporten](#contact-microsoft-support) för mer hjälp. |
@@ -49,7 +49,7 @@ Om det uppstår fel med NPS-tillägget för Azure Multi-Factor Authentication, k
 
 ## <a name="errors-your-users-may-encounter"></a>Fel kan uppstå när dina användare
 
-| Felkod | Felmeddelande | Felsökningssteg |
+| Felkod | Felmeddelande | Felsökningsanvisningar |
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | Anroparen klienten har inte behörighet att utföra autentisering för användaren | Kontrollera om klientdomänen och domänen för användarens huvudnamn (UPN) är lika. Till exempel se till att user@contoso.com försöker autentisera till Contoso-klienten. UPN-namnet representerar en giltig användare för klienten i Azure. |
 | **AuthenticationMethodNotConfigured** | Den angivna autentiseringsmetoden har inte konfigurerats för användaren | Få användaren att lägga till eller verifiera sina verifieringsmetoder enligt anvisningarna i [hantera dina inställningar för tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-manage-settings.md). |

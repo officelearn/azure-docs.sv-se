@@ -4,18 +4,18 @@ description: Det här är sidan om Azure Multi-Factor-autentisering som beskrive
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 06/27/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: ef090b51141e8d77f23472058f9c3a8d096ca171
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.reviewer: michmcla
+ms.openlocfilehash: f5511486650d538bc136449c32babfd88efab86a
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867467"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159642"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS
 
@@ -25,7 +25,7 @@ Eftersom Windows-autentisering för Terminal Services inte stöds för Server 20
 
 Installera Azure Multi-Factor Authentication Server på en separat server, som sedan skickar RADIUS-begäran via en proxyanslutning till NPS på RDG-servern. När NPS har verifierat användarnamnet och lösenordet returneras ett svar till Multi-Factor Authentication-servern. MFA-servern utför sedan den andra delen i autentiseringen och returnerar ett svar till gatewayen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En domänansluten Azure MFA-server. Om du inte redan har installerat en sådan följer du anvisningarna i [Komma igång med Azure Multi-Factor Authentication Server](howto-mfaserver-deploy.md).
 - En fjärrskrivbordsgateway som autentiserar med Network Policy Services.

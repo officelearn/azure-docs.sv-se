@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/6/2018
+ms.date: 7/19/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 32f45b66c4b1d22da3ffc4310a8a47c17319301f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 249f473d7318051e0ce27bcc47a9fde080c4c8f6
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38302831"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160323"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Säkerhetskopiera SQL Server-databas i Azure
 
@@ -784,6 +784,10 @@ Nej. När du konfigurerar skydd för en SQL-server om du markerar kryssrutan på
 ### <a name="if-i-change-the-recovery-model-how-do-i-restart-protection"></a>Hur startar jag skydd om jag ändrar återställningsmodellen
 
 Om du ändrar återställningsmodellen kan aktivera en fullständig säkerhetskopiering och säkerhetskopieringar börjar som förväntat.
+
+### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>Jag kan skydda SQL Always On-Tillgänglighetsgrupper där den primära repliken är lokalt
+
+Nej. Azure Backup skyddar SQL-servrar som körs i Azure. Om tillgänglighet grupp (AG) fördelas mellan Azure och lokala datorer, kan AG skyddas endast om den primära repliken körs i Azure. Azure Backup skyddar dessutom endast de noder som körs i samma Azure-region som Recovery Services-valvet.
 
 ## <a name="next-steps"></a>Nästa steg
 

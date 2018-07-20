@@ -1,6 +1,6 @@
 ---
-title: Skapa din landningssida | Azure
-description: Startsida för Azure Marketplace och AppSource är för appen och tjänsten utgivare
+title: Skapa din landningssida på Azure Marketplace | Azure
+description: Lär dig hur du skapar en landningssida i Azure Marketplace och Microsoft AppSource, där appen och tjänsten utgivare.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,48 +14,50 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: bc2e1e735f4d3dd97fdb291154da656b9a2c71c7
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d3af6484a2c62a0ffa0a21e2df277ef3255ada84
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825224"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160866"
 ---
-# <a name="build-your-landing-page"></a>Skapa din landningssida  
-En landningssida på företagets webbplats är en gateway från din begäran generation aktiviteter i din registrering på marketplace.  
+# <a name="build-your-landing-page"></a>Skapa din landningssida
 
-Börja med att identifiera dina mål. Välj kundens mål och åtgärder för din kund för att ta för dina lösningar.  Din lösning kan innehålla följande åtgärder.  
-*   Testkör lösningen  
-*   Skaffa en lösning nu  
-*   med mera...  
+En landningssida på företagets webbplats är en gateway från din begäran generation aktiviteter till din registrering i de [Azure Marketplace](https://azuremarketplace.microsoft.com).
 
-Du kan referera till denna sida över flera marknadsföring medvetande. Du kan använda marknadsföring medvetande.  
-*   Händelser  
-*   Webbsändningar  
-*   Sociala medier  
-*   White paper-faktablad  
-*   Tekniska utbildningar  
-*   Pressmeddelanden  
+Börja med att identifiera dina mål. Välj din mål-kund och vilken åtgärd som kunden tar för dina lösningar. Din lösning kan innehålla följande åtgärder:
+*   Testa lösningen
+*   Få en lösning nu
 
-Ju mer konsekvent du befinner dig i dina meddelanden och samtal-till-åtgärden, lättare för kunderna att hitta din lösning.  
+Du kan referera till din landningssida över flera marknadsföring taktik. Du kan använda följande marknadsföring taktik: 
+*   Händelser
+*   Webbsändningar
+*   Sociala medier
+*   White paper-faktablad
+*   Tekniska utbildningar
+*   Pressmeddelanden
 
-Skapa din landningssida när du har en kampanj plan redo. Granska följande tabell för att maximera effektiviteten hos dina landningssida.  
+Ju mer konsekvent du är i ditt meddelande och anrop till åtgärden, desto lättare är det för dina kunder att hitta din lösning.
 
-| Bästa praxis | Vad du ska undvika |  
-|:--- |:--- |  
-| ***Meddela vilket kunden problem som löser din lösning och hur Azure för att gör det inträffa*** |  Inte kommunicerar på sätt som din lösning fungerar med Azure. |  
-| ***Skapa en korta, enkla att komma ihåg URL*** | Med hjälp av långa URL: er. Långa URL: er är inte lätt att komma ihåg och är svåra att hitta. |  
-| ***Lägga till relevanta visual innehåll, t.ex. en kund åsikt video eller en lösningsarkitektur*** | Med hjälp av för mycket text gör att kunderna att ignorera ditt innehåll och förhindra att utforska. |  
-| ***Skapa ett Rensa anrop till åtgärd att dirigera besökare till din katalog Marketplace-sida*** | Har för många länkar eller åtgärder på sidan. |  
-| ***Placera din anrop-till-åtgärd i ett sidhuvud eller ett tydligt avgränsad avsnitt*** |  Bädda in länkar till registreringen på marketplace i ett stycke text. |  
-| ***Undersök de bästa nyckelord och optimera sidan för sökning*** | Förutsatt att din produktnamn genererar högre Sök rangordning. |  
-| ***Använda nyckelord från din annonskampanjer*** |  Med hjälp av många olika nyckelord mellan din webbegenskaper späder reklam-investeringar. |  
-| ***Placera relevanta produktnamn och nyckelord `above the fold`*** | Att rulla för att se den produkt eller en lösning som du med användare. |  
-| ***Använder varumärken bilder visar färgerna för att verifiera din lösning i enlighet med Microsoft företagsanpassning riktlinjer<br />, till exempel Azure certifierad*** | Med hjälp av Microsoft varumärke bilder som visar färgerna inte är godkänd. |  
+## <a name="recommendations"></a>Rekommendationer
 
-*   Mer information om Azure certifierade Aktivitetsikon finns riktlinjer för Microsoft Azure-certifierad sidan finns på [azure.microsoft.com/support/legal/marketplace/certified-guidelines](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines).  
-*   Ytterligare resurser för anpassning finns i varumärken centrala sidan finns på [microsoft.sharepoint.com/teams/brandcentral](https://microsoft.sharepoint.com/teams/brandcentral).  
-*   Mer information om verktyget Logo Builder finns det Logo Builder sidan finns på [logobuilder.partner.microsoft.com](https://logobuilder.partner.microsoft.com).  
-*   Mer information finns i hur det fungerar finns på sidan [partner.microsoft.com/membership/how-it-works](https://partner.microsoft.com/membership/how-it-works).  
+När du har en kampanj plan är klara kan du skapa din landningssida i Marketplace. I följande tabell beskrivs olika sätt du kan hjälpa att maximera effektiviteten i din landningssida: 
 
----  
+| Bästa praxis | Undvika |
+|:--- |:--- |
+| **Kommunicera vilket kundernas problem löser din lösning och hur du använder Azure för att göra det direkt** | Inte kommunicerar på sätt som din lösning som fungerar med Azure. |
+| **Skapa en kort, enkelt att komma ihåg URL** | Med hjälp av långa URL: er. Långa URL: er är inte lätt att komma ihåg och är svåra att hitta. |
+| **Lägg till relevanta visuellt innehåll, t.ex. en kundberättelsefilmen eller en lösningsarkitektur** | Med hjälp av för mycket text gör att dina kunder att ignorera ditt innehåll och förhindra att utforska.|
+| **Skapa en tydlig uppmaning till att dirigera besökare din Marketplace-sidan för katalogen** | Har för många länkar eller åtgärder på sidan. |
+| **Placera anrop till åtgärden i ett sidhuvud eller ett tydligt avgränsad avsnitt** | Bädda in länkarna till din registrering i Marketplace i en punkt i texten. |
+| **Undersöka bästa nyckelord och optimera sidan för sökning** | Om vi antar att din produktnamn genererar högre search rangordning. |
+| **Använda nyckelord från din annonskampanjer** | Med många andra nyckelord i hela din webbegenskaper späder reklam-investeringar. |
+| **Placera relevanta produktnamn och nyckelord ”ovan vikning”** | Gör användarna Bläddra för att se produkt eller lösning som du visar. |
+| **Använd varumärke bilder för att verifiera din lösning i enlighet med Microsofts riktlinjer, till exempel Azure Certified för anpassning** | Med hjälp av Microsoft varumärke bilder som inte har godkänts. |
+
+## <a name="next-steps"></a>Nästa steg
+
+*   Läs mer om Azure Certified-märket [riktlinjer för Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines).
+*   Mer resurser om anpassning finns i [Brand Central](https://microsoft.sharepoint.com/teams/brandcentral).
+*   Läs mer om verktyget Logo Builder [Logo Builder](https://logobuilder.partner.microsoft.com).
+*   Granska [hur the Microsoft Partner-program som passar dig](https://partner.microsoft.com/membership/how-it-works).

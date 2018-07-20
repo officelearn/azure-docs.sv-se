@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 93532f4b0b2d527a4d5c79e2ee1b2810394b2f11
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ce8630f5718a849f460b372d9e15b03902ac2117
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442091"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159687"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Kom igång med Azure Active Directory reporting API
 
@@ -49,7 +49,7 @@ Detaljerade anvisningar finns i den [krav för att få åtkomst till Azure Activ
 
 ## <a name="apis-with-graph-explorer"></a>API: er med Graph-testaren
 
-Du kan använda den [MSGraph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) att verifiera din inloggning och granska API-data. Se till att logga in på ditt konto med båda knapparna logga in i Graph Explorer-Gränssnittet och Ställ in **Tasks.ReadWrite** och **Directory.ReadAll** behörigheter för din klient som visas.   
+Du kan använda den [MSGraph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) att verifiera din inloggning och granska API-data. Se till att logga in på ditt konto med båda knapparna logga in i Graph Explorer-Gränssnittet och Ställ in **AuditLog.Read.All** och **Directory.Read.All** behörigheter för din klient som visas.   
 
 ![Graph-testaren](./media/active-directory-reporting-api-getting-started-azure-portal/graph-explorer.png)
 

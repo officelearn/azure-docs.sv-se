@@ -4,18 +4,18 @@ description: Uppgifter som krävs för Azure AD-lösenord via Självbetjäning f
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ea6bf503eeba9e904c492a858139490b523a10cc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5d8fe6282d956d7f399aff9f7aa250c5061dc887
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044183"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159574"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuera lösenordsåterställning utan registrerad slutanvändare
 
@@ -47,20 +47,19 @@ En Global administratör kan manuellt ange kontaktinformation för autentisering
 
 ![Kontakta][Contact]
 
-Om fältet Phone fylls och mobiltelefon är aktiverat i SSPR-principen, kan användaren ser att antalet på registreringssidan för återställning av lösenord och under lösenordet återställning av arbetsflöde. 
+Om fältet Phone fylls och mobiltelefon är aktiverat i SSPR-principen, kan användaren ser att antalet på registreringssidan för återställning av lösenord och under lösenordet återställning av arbetsflöde.
 
 Alternativ telefon fältet används inte för återställning av lösenord.
 
 Om fylls fältet för e-post och e-post är aktiverat i SSPR-principen, ser användaren att e-post på registreringssidan för återställning av lösenord och under lösenordet återställning av arbetsflöde.
 
-Om fylls fältet alternativ e-post och e-post är aktiverat i SSPR-princip, kommer användaren **inte** se att registreringssidan för återställning av e-post på lösenordet, men visas den under lösenordet återställning av arbetsflöde. 
-
+Om fylls fältet alternativ e-post och e-post är aktiverat i SSPR-princip, kommer användaren **inte** se att registreringssidan för återställning av e-post på lösenordet, men visas den under lösenordet återställning av arbetsflöde.
 
 ## <a name="security-questions-and-answers"></a>Säkerhetsfrågor och svar
 
-Säkerhetsfrågor och svar lagras på ett säkert sätt i Azure AD-klienten och är endast tillgängliga för användare via den [SSPR-registreringsportalen](https://aka.ms/ssprsetup). Administratörer kan inte visa eller ändra innehållet i en annan användare frågor och svar.
+Säkerhetsfrågor och svar lagras på ett säkert sätt i Azure AD-klienten och är endast tillgängliga för användare via den [SSPR-registreringsportalen](https://aka.ms/ssprsetup). Administratörer kan inte se Ange eller ändra innehållet i en annan användare frågor och svar.
 
-### <a name="what-happens-when-a-user-registers"></a>Vad händer när en användare registrerar
+## <a name="what-happens-when-a-user-registers"></a>Vad händer när en användare registrerar
 
 När en användare registrerar, anger registreringssidan följande fält:
 

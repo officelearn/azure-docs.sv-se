@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bbd826b636bebca90eacba43ca879a725cddf7d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: aab03c92bee0d3b69062cdcb179eebbb5c0fc8f8
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971082"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160254"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Rapporter om inloggningfelkoder i Azure Active Directory-portalen
 
@@ -59,6 +59,7 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 
 |Fel|Beskrivning|
 |---|---|
+|16000|Detta är en intern implementeringsdetalj och inte ett feltillstånd. Du kan ignorera den här referensen.|
 |20001|Det är problem med den federerade identitetsprovidern. Kontakta din IDP för att lösa problemet.|
 |20012|Det är problem med den federerade identitetsprovidern. Kontakta din IDP för att lösa problemet.|
 |20033|Det är problem med den federerade identitetsprovidern. Kontakta din IDP för att lösa problemet.|
@@ -174,6 +175,7 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 |81001|Användarens Kerberos-biljett är för stor. Detta kan inträffa om användaren har för många grupper och Kerberos-biljetten därmed innehåller för många gruppmedlemskap. Minska användarens gruppmedlemskap och försök igen.|
 |81005|Autentiseringspaketet stöds inte|
 |81007|Klienten har inte aktiverats för sömlös SSO|
+|81012|Detta är inte ett feltillstånd. Anger den användare som försöker logga in på Azure AD skiljer sig från användaren som har loggat in på enheten. Du kan ignorera den här koden i loggarna.|
 |90010|Begäran stöds inte av olika anledningar. Till exempel begäran görs med hjälp av en metod för begäran stöds inte (endast POST-metoden stöds) eller token Signeringsalgoritm som begärdes stöds inte. Kontakta apputvecklaren.|
 |90014| Ett obligatoriskt fält för ett protokollmeddelande var saknas, Kontakta programmets ägare. Om du är programmets ägare kan du kontrollera att du har alla nödvändiga parametrar för inloggningsbegäran. |
 |90072| Kontot måste läggas till som en extern användare i klientorganisationen först. Logga ut och logga in igen med en annan Azure AD konto.|

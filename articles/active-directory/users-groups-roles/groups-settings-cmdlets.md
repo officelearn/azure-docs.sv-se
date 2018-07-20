@@ -14,12 +14,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 658ec5bb2aa7c15fb1d38da5249ff9b13973cf41
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 9e065b04083cce958bc42f2efade0038bf137f8a
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868005"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145119"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-cmdletar för att konfigurera gruppinställningar
 Den här artikeln innehåller anvisningar för att använda Azure Active Directory (AD Azure) PowerShell-cmdletar för att skapa och uppdatera grupper. Det här innehållet gäller endast för Office 365-grupper (kallas ibland för enhetliga grupper). 
@@ -96,7 +96,8 @@ Här följer inställningarna som anges i Group.Unified SettingsTemplate. Om ing
 |  <ul><li>EnableGroupCreation<li>Typ: booleskt<li>Standard: SANT |Flagga som anger om Office 365 skapas tillåts i katalogen genom att icke-administratörer. Den här inställningen kräver inte en Azure Active Directory Premium P1-licens.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Typ: Sträng<li>Standard ”:” |GUID för gruppen som medlemmar har behörighet att skapa Office 365-grupper även om EnableGroupCreation false. |
 |  <ul><li>UsageGuidelinesUrl<li>Typ: Sträng<li>Standard ”:” |En länk till riktlinjer för användning av gruppen. |
-|  <ul><li>ClassificationDescriptions<li>Typ: Sträng<li>Standard ”:” | En kommaavgränsad lista över klassificering beskrivningar. |
+|  <ul><li>ClassificationDescriptions<li>Typ: Sträng<li>Standard ”:” | En kommaavgränsad lista över klassificering beskrivningar. Värdet för ClassificationDescriptions är endast giltig i det här formatet:
+  $setting [”ClassificationDescriptions”] = ”klassificering: beskrivning, klassificering: beskrivning”, där klassificeringen matchar strängar i ClassificationList.|
 |  <ul><li>DefaultClassification<li>Typ: Sträng<li>Standard ”:” | Den klassificering som ska användas som standardklassificeringen för en grupp om inget har angetts.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Typ: Sträng<li>Standard ”:” | Sträng med högst 64 tecken som definierar den namngivningskonvention som konfigurerats för Office 365-grupper. Mer information finns i [framtvinga en namnprincip för Office 365-grupper](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Typ: Sträng<li>Standard ”:” | Kommaavgränsad sträng med fraser som användare inte tillåts att använda i namn eller alias. Mer information finns i [framtvinga en namnprincip för Office 365-grupper](groups-naming-policy.md). |

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ddc9941792b0c5d8fbf29bfdc698b16a999a3858
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: c239f2b04d8aad621adb4d31146cdc105b439889
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971048"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159816"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Några av Mina telemetri saknas
@@ -175,8 +175,11 @@ Om ditt program skickar stora mängder data och du använder Application Insight
 
 Du kan inaktivera det, men detta rekommenderas inte. Sampling är utformat så att relaterad telemetri är korrekt överförs i diagnostiskt syfte. 
 
+## <a name="client-ip-address-is-0000"></a>Klientens IP-adress är 0.0.0.0 
+Februari 2018 börjar vi [meddelade](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) att vi har tagit bort loggning av klient-IP-adress. Detta påverkar inte geografisk plats.
+
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Fel geografiska data i användaren telemetri
-Den ort, region och land dimensioner härleds från IP-adresser och alltid är inte korrekt.
+Den ort, region och land dimensioner härleds från IP-adresser och alltid är inte korrekt. Dessa IP-adresser bearbetas för platsen först och sedan ändrades till 0.0.0.0 ska lagras.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Undantaget ”metoden hittades inte” vid körning i Azure Cloud Services
 Utvecklade du för .NET 4.6? 4.6 stöds inte automatiskt i Azure Cloud Services-roller. [Installera 4.6 för varje roll](../cloud-services/cloud-services-dotnet-install-dotnet.md) innan du kör din app.

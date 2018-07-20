@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 1c33a75363eec2b4e338ba64e3d1ad877d8b1610
-ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
+ms.openlocfilehash: 82a7449bf75cd31f8da5bb93618c4e6977ed312b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "34757235"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144942"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostisera problem med virtuella nätverk trafik filter
 
@@ -40,38 +40,40 @@ Stegen nedan förutsätter att du har en befintlig virtuell dator att visa de ef
 2. Ange namnet på den virtuella datorn i sökrutan högst upp på Azure-portalen. När namnet på den virtuella datorn visas i sökresultatet väljer du den.
 3. Under **inställningar**väljer **nätverk**, enligt följande bild:
 
-    ![Visa säkerhetsregler](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
+   ![Visa säkerhetsregler](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
 
-    Reglerna du ser i föregående bild är för ett nätverksgränssnitt med namnet **myVMVMNic**. Du ser att det finns **regler för INKOMMANDE PORTAR** för nätverksgränssnittet från två olika nätverkssäkerhetsgrupper:- **mySubnetNSG**: som är associerade med det undernät som nätverksgränssnittet finns i.
-        - **myVMNSG**: som är kopplad till nätverksgränssnittet i den virtuella datorn med namnet **myVMVMNic**.
+   Reglerna du ser i föregående bild är för ett nätverksgränssnitt med namnet **myVMVMNic**. Du ser att det finns **regler för INKOMMANDE PORTAR** för nätverksgränssnittet från två olika nätverkssäkerhetsgrupper:
+   
+   - **mySubnetNSG**: som är associerade med det undernät som nätverksgränssnittet finns i.
+   - **myVMNSG**: som är kopplad till nätverksgränssnittet i den virtuella datorn med namnet **myVMVMNic**.
 
-    Regeln med namnet **DenyAllInBound** är vad förhindrar inkommande kommunikation till den virtuella datorn via port 80, från internet, enligt beskrivningen i den [scenariot](#scenario). Regeln listorna *0.0.0.0/0* för **källa**, som innehåller internet. Ingen annan regel med högre prioritet (lägre nummer) tillåter port 80 inkommande. Att tillåta port 80 inkommande till den virtuella datorn från internet, se [lösa ett problem](#resolve-a-problem). Läs mer om säkerhetsregler och hur Azure tillämpar dem i [Nätverkssäkerhetsgrupper](security-overview.md).
+   Regeln med namnet **DenyAllInBound** är vad förhindrar inkommande kommunikation till den virtuella datorn via port 80, från internet, enligt beskrivningen i den [scenariot](#scenario). Regeln listorna *0.0.0.0/0* för **källa**, som innehåller internet. Ingen annan regel med högre prioritet (lägre nummer) tillåter port 80 inkommande. Att tillåta port 80 inkommande till den virtuella datorn från internet, se [lösa ett problem](#resolve-a-problem). Läs mer om säkerhetsregler och hur Azure tillämpar dem i [Nätverkssäkerhetsgrupper](security-overview.md).
 
-    Längst ned i bilden du också se **regler för utgående PORT**. Under som visas i regler för utgående portar för nätverksgränssnittet. Även om bilden illustrerar bara fyra regler för inkommande trafik för varje NSG, kan dina NSG: er ha många fler än fyra regler. Du ser i bilden **VirtualNetwork** under **källa** och **mål** och **AzureLoadBalancer** under  **KÄLLAN**. **VirtualNetwork** och **AzureLoadBalancer** är [tjänsttaggar](security-overview.md#service-tags). Tjänsttaggar representerar en grupp med IP-adressprefixen för att minska komplexiteten vid skapande av säkerhetsregler.
+   Längst ned i bilden du också se **regler för utgående PORT**. Under som visas i regler för utgående portar för nätverksgränssnittet. Även om bilden illustrerar bara fyra regler för inkommande trafik för varje NSG, kan dina NSG: er ha många fler än fyra regler. Du ser i bilden **VirtualNetwork** under **källa** och **mål** och **AzureLoadBalancer** under  **KÄLLAN**. **VirtualNetwork** och **AzureLoadBalancer** är [tjänsttaggar](security-overview.md#service-tags). Tjänsttaggar representerar en grupp med IP-adressprefixen för att minska komplexiteten vid skapande av säkerhetsregler.
 
 4. Se till att den virtuella datorn är igång state och välj sedan **gällande säkerhetsregler**, vilket visas i föregående bild för att se vilka gällande säkerhetsregler som visas i följande bild:
 
-    ![Visa effektiva säkerhetsregler](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
+   ![Visa effektiva säkerhetsregler](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
 
-    Reglerna som visas är samma som du såg i steg 3, även om det finns olika flikarna för Nätverkssäkerhetsgruppen som är kopplad till nätverksgränssnittet och undernätet. Som du ser i bilden visas endast de första 50 reglerna. Om du vill hämta en CSV-fil som innehåller alla regler, Välj **hämta**.
+   Reglerna som visas är samma som du såg i steg 3, även om det finns olika flikarna för Nätverkssäkerhetsgruppen som är kopplad till nätverksgränssnittet och undernätet. Som du ser i bilden visas endast de första 50 reglerna. Om du vill hämta en CSV-fil som innehåller alla regler, Välj **hämta**.
 
-    Att se vilket prefix för varje tjänsttagg representerar, Välj en regel, till exempel regeln med namnet **AllowAzureLoadBalancerInbound**. Följande bild visar prefixen för den **AzureLoadBalancer** servicetagg:
+   Att se vilket prefix för varje tjänsttagg representerar, Välj en regel, till exempel regeln med namnet **AllowAzureLoadBalancerInbound**. Följande bild visar prefixen för den **AzureLoadBalancer** servicetagg:
 
-    ![Visa effektiva säkerhetsregler](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
+   ![Visa effektiva säkerhetsregler](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
 
-    Även om den **AzureLoadBalancer** tjänsttagg representerar bara ett prefix, andra tjänsttaggar representerar flera prefix.
+   Även om den **AzureLoadBalancer** tjänsttagg representerar bara ett prefix, andra tjänsttaggar representerar flera prefix.
 
-4. De föregående stegen visade säkerhetsreglerna för ett nätverksgränssnitt med namnet **myVMVMNic**, men du har också fått se ett nätverksgränssnitt med namnet **myVMVMNic2** i några av de föregående bilderna. Den virtuella datorn i det här exemplet har två nätverksgränssnitt som är kopplade till den. Gällande säkerhetsregler kan vara olika för varje nätverksgränssnitt.
+5. De föregående stegen visade säkerhetsreglerna för ett nätverksgränssnitt med namnet **myVMVMNic**, men du har också fått se ett nätverksgränssnitt med namnet **myVMVMNic2** i några av de föregående bilderna. Den virtuella datorn i det här exemplet har två nätverksgränssnitt som är kopplade till den. Gällande säkerhetsregler kan vara olika för varje nätverksgränssnitt.
 
-    I reglerna för den **myVMVMNic2** nätverksgränssnittet, markerar du den. I bilden nedan visas ett nätverksgränssnitt har samma regler som är kopplad till ett undernät som den **myVMVMNic** nätverksgränssnittet eftersom båda nätverksgränssnitt finns i samma undernät. När du kopplar en NSG till ett undernät, tillämpas reglerna på alla nätverksgränssnitt i undernätet.
+   I reglerna för den **myVMVMNic2** nätverksgränssnittet, markerar du den. I bilden nedan visas ett nätverksgränssnitt har samma regler som är kopplad till ett undernät som den **myVMVMNic** nätverksgränssnittet eftersom båda nätverksgränssnitt finns i samma undernät. När du kopplar en NSG till ett undernät, tillämpas reglerna på alla nätverksgränssnitt i undernätet.
 
-    ![Visa säkerhetsregler](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
+   ![Visa säkerhetsregler](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
 
-    Till skillnad från den **myVMVMNic** nätverksgränssnitt, den **myVMVMNic2** nätverksgränssnittet har inte en nätverkssäkerhetsgrupp som är associerade med den. Varje nätverksgränssnitt och undernät kan ha noll eller en NSG som är kopplad till den. NSG: N som är kopplade till varje nätverksgränssnitt eller undernät kan vara samma, eller en annan. Du kan associera samma nätverkssäkerhetsgruppen till så många nätverksgränssnitt och undernät som du väljer.
+   Till skillnad från den **myVMVMNic** nätverksgränssnitt, den **myVMVMNic2** nätverksgränssnittet har inte en nätverkssäkerhetsgrupp som är associerade med den. Varje nätverksgränssnitt och undernät kan ha noll eller en NSG som är kopplad till den. NSG: N som är kopplade till varje nätverksgränssnitt eller undernät kan vara samma, eller en annan. Du kan associera samma nätverkssäkerhetsgruppen till så många nätverksgränssnitt och undernät som du väljer.
 
-Även om gällande säkerhetsregler har visas via den virtuella datorn, du kan också visa gällande säkerhetsregler via en:
-- **Enskilda nätverksgränssnitt**: Lär dig hur du [visa ett nätverksgränssnitt](virtual-network-network-interface.md#view-network-interface-settings).
-- **Enskilda Nätverkssäkerhetsgruppen**: Lär dig hur du [visa en NSG](manage-network-security-group.md#view-details-of-a-network-security-group).
+Även om gällande säkerhetsregler har visas via den virtuella datorn, kan du också visa gällande säkerhetsregler via en enskild:
+- **Nätverksgränssnittet**: Lär dig hur du [visa ett nätverksgränssnitt](virtual-network-network-interface.md#view-network-interface-settings).
+- **NSG**: Lär dig hur du [visa en NSG](manage-network-security-group.md#view-details-of-a-network-security-group).
 
 ## <a name="diagnose-using-powershell"></a>Diagnostisera med hjälp av PowerShell
 
@@ -164,7 +166,7 @@ Regeln med namnet **defaultSecurityRules/DenyAllInBound** är vad förhindrar in
 
 Om du använder Azure [portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell), eller [Azure CLI](#diagnose-using-azure-cli) att diagnosticera problemet visas i den [scenariot](#scenario) i det här artikeln lösningen är att skapa en regel för säkerhet med följande egenskaper:
 
-| Egenskap                | Värde                                                                              |
+| Egenskap                 | Värde                                                                              |
 |---------                |---------                                                                           |
 | Källa                  | Alla                                                                                |
 | Källportintervall      | Alla                                                                                |

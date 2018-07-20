@@ -4,18 +4,18 @@ description: Hur du integrerar Azure Multi-Factor Authentication-server med Acti
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 06/16/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 3f6f1f351a4870e68f2a5d6562c5c4a8f0031bdd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.reviewer: michmcla
+ms.openlocfilehash: 818674ba1825a438a5abeb7927bcf0f683506625
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33882988"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159931"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Katalogintegrering mellan Azure MFA Server och Active Directory
 
@@ -54,7 +54,8 @@ Med filter kan du ange villkor för att kvalificera poster när du utför en kat
 
 Azure Multi-Factor Authentication har följande tre filteralternativ:
 
-* **Behållarfilter** – Ange filtervillkoren som används för att kvalificera behållarposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (|(objectClass=organizationalUnit)(objectClass=container)).  För andra LDAP-kataloger använder du filtervillkoren som kvalificerar varje typ av behållarobjekt, beroende på katalogschemat.  <br>Obs! Om det lämnas tomt används ((objectClass=organizationalUnit)(objectClass=container)) som standard.
+* 
+  **Containerfilter** – Ange filtervillkoren som används för att kvalificera behållarposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (|(objectClass=organizationalUnit)(objectClass=container)).  För andra LDAP-kataloger använder du filtervillkoren som kvalificerar varje typ av containerobjekt, beroende på katalogschemat.  <br>Obs! Om det lämnas tomt används ((objectClass=organizationalUnit)(objectClass=container)) som standard.
 * **Säkerhetsgruppfilter** – Ange filtervillkoren som används för att kvalificera säkerhetsposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)).  För andra LDAP-kataloger använder du filtervillkoren som kvalificerar varje typ av säkerhetsobjekt, beroende på katalogschemat.  <br>Obs! Om det lämnas tomt används (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) som standard.
 * **Användarfilter** – Ange filtervillkoren som används för att kvalificera användarposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (&(objectClass=user)(objectCategory=person)).  För andra LDAP-kataloger använder du (objectClass=inetOrgPerson) eller liknande, beroende på katalogschemat. <br>Om det lämnas tomt används (&(objectCategory=person)(objectClass=user)) som standard.
 
@@ -67,10 +68,10 @@ Attribut kan anges manuellt och behöver inte matcha ett attribut i attributlist
 
 | Funktion | Beskrivning |
 | --- | --- |
-| Unik identifierare |Ange attributnamnet för attributet som fungerar som den unika identifieraren för behållar-, säkerhetsgrupps- och användarposter.  I Active Directory är detta vanligtvis objectGUID. Andra LDAP-implementeringar kan använda entryUUID eller liknande.  Standardvärdet är objectGUID. |
+| Unik identifierare |Ange attributnamnet för attributet som fungerar som den unika identifieraren för container-, säkerhetsgrupps- och användarposter.  I Active Directory är detta vanligtvis objectGUID. Andra LDAP-implementeringar kan använda entryUUID eller liknande.  Standardvärdet är objectGUID. |
 | Typ av unik identifierare |Välj typen för attributet för unik identifierare.  I Active Directory har objectGUID-attributet typen GUID. Andra LDAP-implementeringar kan använda typen ASCII, bytematris eller Sträng.  Standardvärdet är GUID. <br><br>Det är viktigt att du anger den här typen korrekt eftersom de unika identifierarna används för att referera till synkroniseringsobjekt. Typen av unik identifierare används för att hitta objektet i katalogen.  Om du anger typen till Sträng trots att katalogen lagrar värdet som en bytematris (ByteArray) med ASCII-tecken så fungerar inte synkroniseringen korrekt. |
 | Unikt namn |Ange attributnamnet för attributet som innehåller det unika namnet för varje post.  I Active Directory är detta normalt distinguishedName. Andra LDAP-implementeringar kan använda entryDN eller liknande.  Standardvärdet är distinguishedName. <br><br>Om det inte finns något attribut som bara innehåller det unika namnet kan adspath användas.  ”LDAP://\<server\>/”-delen av sökvägen tas bort automatiskt så att bara objektets unika namn är kvar. |
-| Behållarens namn |Ange attributnamnet för attributet som innehåller namnet i en behållarpost.  Värdet för det här attributet visas i behållarhierarkin när du importerar från Active Directory eller lägger till synkroniseringsobjekt.  Standardvärdet är name. <br><br>Om olika behållare använder olika attribut för sina namn använder du semikolon för att avgränsa flera attribut med behållarnamn.  Det första attributet för behållarnamn som hittas i ett behållarobjekt används för att visa dess namn. |
+| Containerns namn |Ange attributnamnet för attributet som innehåller namnet i en containerpost.  Värdet för det här attributet visas i containerhierarkin när du importerar från Active Directory eller lägger till synkroniseringsobjekt.  Standardvärdet är name. <br><br>Om olika containrar använder olika attribut för sina namn använder du semikolon för att avgränsa flera attribut med containernamn.  Det första attributet för containernamn som hittas i ett containerobjekt används för att visa dess namn. |
 | Namn på säkerhetsgrupp |Ange attributnamnet för attributet som innehåller namnet i en säkerhetsgruppspost.  Värdet för det här attributet visas i säkerhetsgruppslistan när du importerar från Active Directory eller lägger till synkroniseringsobjekt.  Standardvärdet är name. |
 | Användarnamn |Ange attributnamnet för attributet som innehåller användarnamnet i en användarpost.  Värdet för det här attributet används som Multi-Factor Auth Server-användarnamnet.  Ett andra attribut kan anges som en reserv till det första.  Det andra attributet används endast om det första attributet inte innehåller ett värde för användaren.  Standardvärdena är userPrincipalName och sAMAccountName. |
 | Förnamn |Ange attributnamnet för attributet som innehåller förnamnet i en användarpost.  Standardvärdet är givenName. |
@@ -97,7 +98,7 @@ Om du vill redigera attribut klickar du på **Redigera** på fliken Attribut.  N
 ![Redigera attribut](./media/howto-mfaserver-dir-ad/dirint4.png)
 
 ## <a name="synchronization"></a>Synkronisering
-Synkronisering ser till att Azure MFA-databasen synkroniseras med användare i Active Directory eller en annan LDAP-katalog (Lightweight Directory Access Protocol). Processen påminner om när du importerar användare manuellt från Active Directory, men söker regelbundet efter ändringar i Active Directory-användare och säkerhetsgrupper som behöver bearbetas.  Synkronisering tar också bort eller inaktiverar användare som har tagits bort från en behållare, säkerhetsgrupp eller Active Directory.
+Synkronisering ser till att Azure MFA-databasen synkroniseras med användare i Active Directory eller en annan LDAP-katalog (Lightweight Directory Access Protocol). Processen påminner om när du importerar användare manuellt från Active Directory, men söker regelbundet efter ändringar i Active Directory-användare och säkerhetsgrupper som behöver bearbetas.  Synkronisering tar också bort eller inaktiverar användare som har tagits bort från en container, säkerhetsgrupp eller Active Directory.
 
 Tjänsten Multi-Factor Auth ADSync är en Windows-tjänst som utför den periodiska avsökningen av Active Directory.  Detta ska inte förväxlas med Azure AD Sync eller Azure AD Connect.  Multi-Factor Auth ADSync bygger visserligen på en liknande kodbas, men är specifik för Azure Multi-Factor Authentication-servern.  Den installeras i stoppat läge och startas av Multi-Factor Auth  Server-tjänsten när den konfigurerats att köra.  Om du har en Multi-Factor Auth Server-konfiguration med flera servrar kan Multi-Factor Auth ADSync endast köras på en enskild server.
 
@@ -115,7 +116,7 @@ Följande tabell innehåller ytterligare information om inställningarna på fli
 | Synkronisera var |Ange tidsintervallet som Multi-Factor Auth Server-tjänsten ska vänta mellan att göra avsökningar och bearbeta ändringar. <br><br> Obs! Det angivna intervallet är tiden mellan början av varje cykel.  Om tiden för att bearbeta ändringar överskrider intervallet startar tjänsten en ny avsökning direkt. |
 | Ta bort användare som inte längre finns i Active Directory |Om du väljer det här alternativet bearbetar tjänsten Multi-Factor Auth Server tombstone-objekten för borttagna användare i Active Directory och tar bort relaterade Multi-Factor Auth Server-användare. |
 | Utför alltid en fullständig synkronisering |Om du väljer det här alternativet utför tjänsten Multi-Factor Auth Server alltid en fullständig synkronisering.  Om alternativet är avmarkerat utför tjänsten Multi-Factor Auth Server en inkrementell synkronisering genom att endast fråga efter användare som har ändrats.  Alternativet är avmarkerat som standard. <br><br>Om alternativet är avmarkerat utför Azure MFA Server endast inkrementell synkronisering om katalogen stöder DirSync-kontrollen och om kontobindningen till katalogen har behörighet att köra inkrementella DirSync-frågor.  Om kontot inte har rätt behörighet eller om flera domäner omfattas av synkroniseringen utför Azure MFA Server en fullständig synkronisering. |
-| Kräv administratörsgodkännande om fler än X användare ska inaktiveras eller tas bort |Synkroniseringsobjekt kan konfigureras att inaktivera eller ta bort användare som inte längre är medlemmar i objektets behållare eller säkerhetsgrupp.  Som ett skydd kan godkännande från en administratör krävas om antalet användare som ska inaktiveras eller tas bort överskrider ett tröskelvärde.  Om det här alternativet har valts krävs godkännande för det angivna tröskelvärdet.  Standardvärdet är 5 och intervallet är 1 till 999. <br><br> Godkännandet börjar med att ett e-postmeddelande skickas till administratören. E-postmeddelandet innehåller anvisningar för att granska och godkänna inaktiveringen och borttagningen av användare.  När användargränssnittet för Multi-Factor Auth Server startas uppmanas administratören att ge sitt godkännande. |
+| Kräv administratörsgodkännande om fler än X användare ska inaktiveras eller tas bort |Synkroniseringsobjekt kan konfigureras att inaktivera eller ta bort användare som inte längre är medlemmar i objektets container eller säkerhetsgrupp.  Som ett skydd kan godkännande från en administratör krävas om antalet användare som ska inaktiveras eller tas bort överskrider ett tröskelvärde.  Om det här alternativet har valts krävs godkännande för det angivna tröskelvärdet.  Standardvärdet är 5 och intervallet är 1 till 999. <br><br> Godkännandet börjar med att ett e-postmeddelande skickas till administratören. E-postmeddelandet innehåller anvisningar för att granska och godkänna inaktiveringen och borttagningen av användare.  När användargränssnittet för Multi-Factor Auth Server startas uppmanas administratören att ge sitt godkännande. |
 
 Med knappen **Synkronisera nu** kan du köra en fullständig synkronisering för de angivna synkroniseringsobjekten.  En fullständig synkronisering krävs om du lägger till, ändrar, tar bort eller ändrar ordning på synkroniseringsobjekt.  Det krävs också för att starta tjänsten Multi-Factor Auth AdSync eftersom det anger startpunkten då tjänsten ska söka efter inkrementella ändringar.  Om ändringar har gjorts i synkroniseringsobjekten men ingen fullständig synkronisering har utförts, uppmanas du att synkronisera nu.
 
@@ -126,7 +127,7 @@ Med knappen **Ta bort** kan administratören ta bort ett eller flera synkroniser
 
 Synkroniseringsobjektet eller synkroniseringsobjekten har tagits bort från Multi-Factor Auth Server.  Tjänsten Multi-Factor Auth Server kommer inte längre att bearbeta synkroniseringsobjekten.
 
-Med knapparna Flytta upp och Flytta ned kan administratören ändra ordning på synkroniseringsobjekten.  Ordningen är viktig eftersom samma användare kan vara medlem i mer än ett synkroniseringsobjekt (t.ex. en behållare och en säkerhetsgrupp).  Inställningarna som tillämpas på användaren under synkroniseringen kommer från det första synkroniseringsobjektet i listan som användaren är associerad med.  Därför bör synkroniseringsobjekten placeras i prioritetsordning.
+Med knapparna Flytta upp och Flytta ned kan administratören ändra ordning på synkroniseringsobjekten.  Ordningen är viktig eftersom samma användare kan vara medlem i mer än ett synkroniseringsobjekt (t.ex. en container och en säkerhetsgrupp).  Inställningarna som tillämpas på användaren under synkroniseringen kommer från det första synkroniseringsobjektet i listan som användaren är associerad med.  Därför bör synkroniseringsobjekten placeras i prioritetsordning.
 
 > [!TIP]
 > En fullständig synkronisering bör utföras när du har tagit bort synkroniseringsobjekt.  En fullständig synkronisering bör utföras när du har ändrat ordning på synkroniseringsobjekt.  Klicka på **Synkronisera nu** om du vill utföra en fullständig synkronisering.

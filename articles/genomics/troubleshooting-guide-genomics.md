@@ -11,13 +11,13 @@ ms.author: grhuynh
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
-ms.date: 04/13/2018
-ms.openlocfilehash: d3991bdbcd9c3dcd08572dc92cc75aaebb02b133
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.date: 07/18/2018
+ms.openlocfilehash: 9bd1690003fd37b6c2edd0f0421cf8d0e74f8cb5
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34627372"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144184"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 Den här översikten beskrivs strategier för att lösa vanliga problem när du använder Microsoft Genomics-tjänsten. Vanliga frågor och svar, se [vanliga frågor](frequently-asked-questions-genomics.md). 
@@ -65,7 +65,7 @@ Lös detta genom att granska om fastq-filer som skickas till arbetsflödet är f
 
 
 ### <a name="error-uploading-bam-file-output-blob-already-exists-and-the-overwrite-option-was-set-to-false"></a>Fel vid uppladdning .bam-fil. Utdatablob finns redan och Överskrivningsalternativet har angetts till False.
-Om du ser felmeddelandet följande `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, den utgående mappen innehåller redan en utdatafil med samma namn.  Ta bort den befintliga utdatafilen eller aktivera Överskrivningsalternativet Skriv i konfigurationsfilen. Sedan kan skicka ditt arbetsflöde.
+Om du ser ett felmeddelande, `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, den utgående mappen innehåller redan en utdatafil med samma namn.  Ta bort den befintliga utdatafilen eller aktivera Överskrivningsalternativet Skriv i konfigurationsfilen. Sedan kan skicka ditt arbetsflöde.
 
 ### <a name="when-to-contact-microsoft-genomics-support"></a>När du kontaktar Microsoft Genomics-support
 Om du ser följande felmeddelanden uppstod ett internt fel. 

@@ -4,18 +4,18 @@ description: Det här är sidan om Azure Multi-Factor Authentication som beskriv
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 05/29/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: ce70641d9ccb3c86d1360a0aaf21a4817e2b3c5d
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
-ms.translationtype: HT
+ms.reviewer: michmcla
+ms.openlocfilehash: 43d7f147a64e55359e43ba793e3fc57efa63c30c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317869"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159914"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Skydda molnresurser med Azure Multi-Factor Authentication och AD FS
 Om din organisation är federerad med Azure Active Directory använder du Azure Multi-Factor Authentication eller Active Directory Federation Services (AD FS) för att skydda dessa resurser. Skydda dina resurser i Azure Active Directory med Azure Multi-Factor Authentication eller Active Directory Federation Services genom att använda följa steg.
@@ -73,7 +73,7 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
             => issue(claim = c);
     ![Molnet](./media/howto-mfa-adfs/trustedip5.png)
 13. Klicka på **Slutför**.
-14. Klicka på **Använd**.
+14. Klicka på **Verkställ**.
 15. Klicka på **OK**.
 16. Stäng AD FS-hantering.
 

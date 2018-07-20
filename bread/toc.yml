@@ -6,6 +6,9 @@
       tocHref: /azure/active-directory/
       topicHref: /azure/active-directory/
       items:
+        - name: Autentisering
+          tocHref: /azure/active-directory/authentication/
+          topicHref: /azure/active-directory/authentication/
         - name: Anslut
           tocHref: /azure/active-directory/connect/
           topicHref: /azure/active-directory/connect/
@@ -360,7 +363,7 @@
     - name: Key Vault
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
-    - name: Load Balancer
+    - name: Lastbalanserare
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
     - name: Log Analytics

@@ -40,6 +40,8 @@
       href: ../azure-resource-manager/resource-group-overview.md
 - name: Resurser
   items:
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: firewall-faq.md
     - name: Skapa mallar
       href: ../azure-resource-manager/resource-group-authoring-templates.md
     - name: Azure-översikt

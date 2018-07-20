@@ -230,9 +230,9 @@
     - name: Hitta region programmässigt
       items:
         - name: 'Använd C#'
-          href: find-region-csharp.md
+          href: luis-find-region-csharp.md
         - name: Använda Node.js
-          href: find-region-nodejs.md
+          href: luis-find-region-nodejs.md
 - name: Referens
   items:
     - name: Användarsekretess

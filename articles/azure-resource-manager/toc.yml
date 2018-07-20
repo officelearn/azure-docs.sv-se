@@ -1,0 +1,208 @@
+- name: Azure Resource Manager-dokumentation
+  href: index.md
+- name: Översikt
+  items:
+    - name: Vad är Resource Manager?
+      href: resource-group-overview.md
+    - name: Resource Manager och klassisk distribution
+      href: resource-manager-deployment-model.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Skapa mallar – portal
+      href: resource-manager-quickstart-create-templates-use-the-portal.md
+    - name: Skapa mallar – VS Code
+      href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
+    - name: Skapa mallar – Visual Studio
+      href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+- name: Begrepp
+  items:
+    - name: Resursprovidrar och resurstyper
+      href: resource-manager-supported-services.md
+    - name: Hanteringsgrupper
+      href: management-groups-overview.md
+    - name: Prenumerationsåtgärder
+      href: /azure/architecture/cloud-adoption-guide/subscription-governance
+      maintainContext: true
+    - name: Mallar för molnkonsekvens
+      href: templates-cloud-consistency.md
+- name: Gör så här för att
+  items:
+    - name: Skapa mallar
+      items:
+        - name: Mallavsnitt
+          href: resource-group-authoring-templates.md
+          items:
+            - name: Parametrar
+              href: resource-manager-templates-parameters.md
+            - name: Variabler
+              href: resource-manager-templates-variables.md
+            - name: Functions
+              href: 'resource-group-authoring-templates.md#functions'
+            - name: Resurser
+              href: resource-manager-templates-resources.md
+            - name: Utdata
+              href: resource-manager-templates-outputs.md
+        - name: Länkade och kapslade mallar
+          href: resource-group-linked-templates.md
+        - name: Definiera beroendet mellan resurser
+          href: resource-group-define-dependencies.md
+        - name: Skapa flera instanser
+          href: resource-group-create-multiple.md
+        - name: Uppdatera resurs
+          href: /azure/architecture/building-blocks/extending-templates/update-resource
+    - name: Distribuera
+      items:
+        - name: Azure PowerShell
+          items:
+            - name: Distribuera mallen
+              href: resource-group-template-deploy.md
+            - name: Distribuera privat mall med SAS-token
+              href: resource-manager-powershell-sas-token.md
+            - name: Exportera mall och distribuera om
+              href: resource-manager-export-template-powershell.md
+        - name: Azure CLI
+          items:
+            - name: Distribuera mallen
+              href: resource-group-template-deploy-cli.md
+            - name: Distribuera privat mall med SAS-token
+              href: resource-manager-cli-sas-token.md
+            - name: Exportera mall och distribuera om
+              href: resource-manager-export-template-cli.md
+        - name: Azure Portal
+          items:
+            - name: Distribuera resurser
+              href: resource-group-template-deploy-portal.md
+            - name: Exportera mall
+              href: resource-manager-export-template.md
+        - name: REST-API
+          href: resource-group-template-deploy-rest.md
+        - name: Flera resursgrupper eller prenumerationer
+          href: resource-manager-cross-resource-group-deployment.md
+        - name: Kontinuerlig integrering med Visual Studio Team Services
+          href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
+          maintainContext: true
+        - name: Skicka säkra värden under distributionen
+          href: resource-manager-keyvault-parameter.md
+    - name: Hantera
+      items:
+        - name: Azure PowerShell
+          href: powershell-azure-resource-manager.md
+        - name: Azure CLI
+          href: xplat-cli-azure-resource-manager.md
+        - name: Azure Portal
+          href: resource-group-portal.md
+        - name: Använd taggar för att organisera resurser
+          href: resource-group-using-tags.md
+        - name: Flytta resurser till ny grupp eller prenumeration
+          href: resource-group-move-resources.md
+        - name: Skapa EA-prenumerationer
+          href: programmatically-create-subscription.md
+        - name: Bevilja åtkomst för att skapa EA-prenumerationer
+          href: grant-access-to-create-subscription.md
+        - name: Skapa hanteringsgrupper
+          href: management-groups-create.md
+        - name: Hantera dina hanteringsgrupper
+          href: management-groups-manage.md
+    - name: Styr åtkomsten
+      items:
+        - name: Skapa tjänstens huvudnamn
+          items:
+            - name: Azure PowerShell
+              href: resource-group-authenticate-service-principal.md
+            - name: Azure CLI
+              href: /cli/azure/create-an-azure-service-principal-azure-cli
+              maintainContext: true
+            - name: Azure Portal
+              href: resource-group-create-service-principal-portal.md
+        - name: Autentiserings-API för att få åtkomst till prenumerationer
+          href: resource-manager-api-authentication.md
+        - name: Lås resurser
+          href: resource-group-lock-resources.md
+    - name: Granska
+      items:
+        - name: Visa aktivitetsloggar
+          href: resource-group-audit.md
+        - name: Visa distributionsåtgärder
+          href: resource-manager-deployment-operations.md
+    - name: Felsöka
+      items:
+        - name: Felsöka vanliga distributionsfel
+          href: resource-manager-common-deployment-errors.md
+        - name: AccountNameInvalid
+          href: resource-manager-storage-account-name-errors.md
+        - name: InvalidTemplate
+          href: resource-manager-invalid-template-errors.md
+        - name: Linux-distributionsproblem
+          href: ../virtual-machines/linux/troubleshoot-deploy-vm.md
+        - name: NoRegisteredProviderFound
+          href: resource-manager-register-provider-errors.md
+        - name: NotFound
+          href: resource-manager-not-found-errors.md
+        - name: ParentResourceNotFound
+          href: resource-manager-parent-resource-errors.md
+        - name: Problem med etablering och allokering för Linux
+          href: ../virtual-machines/linux/troubleshoot-deployment-new-vm.md
+        - name: Problem med etablering och allokering för Windows
+          href: ../virtual-machines/windows/troubleshoot-deployment-new-vm.md
+        - name: RequestDisallowedByPolicy
+          href: resource-manager-policy-requestdisallowedbypolicy-error.md
+        - name: ReservedResourceName
+          href: resource-manager-reserved-resource-name.md
+        - name: ResourceQuotaExceeded
+          href: resource-manager-quota-errors.md
+        - name: SkuNotAvailable
+          href: resource-manager-sku-not-available-errors.md
+        - name: Windows-distributionsproblem
+          href: ../virtual-machines/windows/troubleshoot-deploy-vm.md
+- name: Referens
+  items:
+    - name: Mallreferens
+      href: subtoc/toc.yml
+    - name: Mallfunktioner
+      href: resource-group-template-functions.md
+      items:
+        - name: Funktioner för matris och objekt
+          href: resource-group-template-functions-array.md
+        - name: Jämförelsefunktioner
+          href: resource-group-template-functions-comparison.md
+        - name: Distributionsfunktioner
+          href: resource-group-template-functions-deployment.md
+        - name: Logiska funktioner
+          href: resource-group-template-functions-logical.md
+        - name: Numeriska funktioner
+          href: resource-group-template-functions-numeric.md
+        - name: Resursfunktioner
+          href: resource-group-template-functions-resource.md
+        - name: Strängfunktioner
+          href: resource-group-template-functions-string.md
+    - name: PowerShell
+      href: /powershell/module/azurerm.resources
+    - name: Azure CLI
+      href: /cli/azure/resource
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.resourcemanager
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.resources
+    - name: Python
+      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html'
+    - name: REST
+      href: /rest/api/resources/
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=azure-resource-manager'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-resource-manager'
+    - name: Hantera personliga data
+      href: resource-manager-personal-data.md
+    - name: Begränsningsbegäranden
+      href: resource-manager-request-limits.md
+    - name: Spåra asynkrona åtgärder
+      href: resource-manager-async-operations.md
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager'

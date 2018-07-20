@@ -8,13 +8,13 @@
       href: about-iot-accelerators.md
 - name: Snabbstarter
   items:
-    - name: Distribuera en fjärrövervakningslösning
+    - name: Testa en fjärrövervakningslösning
       href: quickstart-remote-monitoring-deploy.md
-    - name: Distribuera en ansluten fabrikslösning
+    - name: Testa en lösning för ansluten fabrik
       href: quickstart-connected-factory-deploy.md
-    - name: Distribuera en förutsägande underhållslösning
+    - name: Testa en lösning för förutsägande underhåll
       href: quickstart-predictive-maintenance-deploy.md
-    - name: Distribuera en enhetssimuleringslösning
+    - name: Testa en enhetssimuleringslösning
       href: quickstart-device-simulation-deploy.md
 - name: Självstudier
   items:
@@ -137,10 +137,6 @@
               href: ../iot-suite/iot-suite-v1-custom-rule.md
             - name: Enhetsinformation i fjärrövervakningslösningen
               href: ../iot-suite/iot-suite-v1-remote-monitoring-device-info.md
-    - name: Förutsägande underhåll
-      items:
-        - name: Distribuera en lösningsaccelerator
-          href: iot-accelerators-predictive-overview.md
     - name: Ansluten fabrik
       items:
         - name: Använd instrumentpanelen

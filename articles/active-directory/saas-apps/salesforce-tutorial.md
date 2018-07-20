@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 64b94baeaede9b05e953b69324648c63d97cea8e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a453e2d16edecda9753c2940a745b260a3a2b893
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045446"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160271"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Självstudier: Azure Active Directory-integrering med Salesforce
 
@@ -60,14 +60,14 @@ Om du vill konfigurera integreringen av Salesforce till Azure AD, som du behöve
 
 **Utför följande steg för att lägga till Salesforce från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen][1]
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
-    
+
 3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
@@ -103,26 +103,26 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     ![Konfigurera enkel inloggning för länken][4]
 
 2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
+
     ![Enkel inloggning för dialogrutan](./media/salesforce-tutorial/tutorial_salesforce_samlbase.png)
 
 3. På den **Salesforce-domän och URL: er** avsnittet, utför följande steg:
 
     ![Salesforce-domän och URL: er med enkel inloggning för information](./media/salesforce-tutorial/tutorial_salesforce_url.png)
-    
+
     a. I den **inloggnings-URL** textrutan skriver du värdet med följande mönster:
-    
+
     Enterprise-konto: `https://<subdomain>.my.salesforce.com`
 
     Developer-konto: `https://<subdomain>-dev-ed.my.salesforce.com`
-    
+
     b. I den **identifierare** textrutan skriver du värdet med följande mönster:
-    
+
     Enterprise-konto: `https://<subdomain>.my.salesforce.com`
 
     Developer-konto: `https://<subdomain>-dev-ed.my.salesforce.com`
-    
-    > [!NOTE] 
+
+    > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL och identifierare. Kontakta [Salesforce-klienten supportteamet](https://help.salesforce.com/support) att hämta dessa värden.
 
 4. På den **SAML-signeringscertifikat** klickar du på **certifikat** och spara certifikatfilen på datorn.
@@ -170,14 +170,14 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     b. I den **utfärdare** fältet, klistra in värdet för **SAML entitets-ID**, som du har kopierat från Azure-portalen.
 
     c. I den **entitets-Id textrutan**, skriver du ditt Salesforce-domännamn med hjälp av följande mönster:
-      
+
       * Enterprise-konto: `https://<subdomain>.my.salesforce.com`
       * Developer-konto: `https://<subdomain>-dev-ed.my.salesforce.com`
-      
+
     d. Ladda upp den **providern identitetscertifikat**, klickar du på **Välj fil** att bläddra och välja den certifikatfil som du har hämtat från Azure-portalen.
 
     e. Som **SAML identitetstypen**, väljer du något av följande alternativ:
-    
+
       * Välj **Assertion innehåller användarens Salesforce användarnamn**om användarens Salesforce Username skickas i SAML-försäkran
 
       * Välj **Assertion innehåller Federation-ID från användarobjektet**om Federation-ID från användarobjektet skickas i SAML-försäkran
@@ -189,7 +189,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     g. För **providern initierade begära Tjänstbindning**väljer **omdirigering för HTTP**.
 
     h. I **inloggnings-URL för identitetsprovider** textrutan klistra in värdet för **enkel inloggnings-URL för**, som du har kopierat från Azure-portalen
-    
+
     i. Klicka slutligen på **spara** att använda SAML enkel inloggning för inställningarna.
 
 14. I det vänstra navigeringsfönstret i Salesforce, klickar du på **Företagsinställningar** Expandera avsnittet relaterade och klicka sedan på **min domän**.
@@ -200,7 +200,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-16. I den **Autentiseringskonfiguration** avsnittet, kontrollera den **inloggningssidan** som **autentisering Servie** SAML SSO-konfiguration och klicka sedan på  **Spara**.
+16. I den **Autentiseringskonfiguration** avsnittet, kontrollera den **AzureSSO** som **autentisering Servie** SAML SSO-konfiguration och klicka sedan på **spara** .
 
     ![Konfigurera enkel inloggning](./media/salesforce-tutorial/sf-auth-config.png)
 

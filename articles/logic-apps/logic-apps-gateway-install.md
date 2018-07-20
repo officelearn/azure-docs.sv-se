@@ -1,191 +1,217 @@
 ---
-title: Installera lokala datagateway - Azure Logic Apps | Microsoft Docs
-description: Innan du komma åt datakällor lokalt installera lokala datagateway för snabb överföring och kryptering mellan datakällor lokalt och logikappar
-keywords: komma åt data på lokala, dataöverföring, kryptering och datakällor
+title: Installera en lokal datagateway – Azure Logic Apps | Microsoft Docs
+description: Ladda ned och installera den lokala datagatewayen innan du kan komma åt data lokalt från logikappar
 services: logic-apps
-documentationcenter: ''
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
-ms.devlang: ''
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 09/14/2017
-ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: 63ec26325e045d2ddc027194377e1604d083d82c
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 07/20/2018
+ms.reviewer: yshoukry, LADocs
+ms.suite: integration
+ms.openlocfilehash: 09e3879ed91a0e9c6d27940cae53f3e3f0397d7b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300545"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145214"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Installera den lokala datagatewayen för Azure Logic Apps
 
-Innan dina logic apps kan komma åt datakällor lokalt, måste du installera och konfigurera den lokala datagatewayen. Gatewayen fungerar som en brygga som ger snabb överföring och kryptering mellan lokala system och dina logic apps. Gatewayen som vidarebefordrar data från lokala datakällor på krypterade kanaler via Azure Service Bus. Det kommer all trafik som säkra utgående trafik från gateway-agenten. Lär dig mer om [hur datagateway fungerar](#gateway-cloud-service).
+Innan du kan ansluta dina logikappar till den lokala datakällor, hämta och installera den lokala datagatewayen på en lokal dator. Gatewayen fungerar som en brygga som ger snabb dataöverföring och kryptering mellan datakällor lokalt (inte i molnet) och dina logic apps. Den här artikeln visar hur du kan hämta, installera och konfigurera din lokala datagateway. 
 
-Gatewayen stöder anslutningar till dessa datakällor lokalt:
+Du kan använda samma gatewayinstallationen med andra tjänster, till exempel Power BI, Microsoft Flow, PowerApps och Azure Analysis Services. Läs mer om [hur datagateway fungerar](#gateway-cloud-service).
+
+<a name="supported-connections"></a>
+
+Gatewayen stöder [lokala anslutningsappar](../connectors/apis-list.md#on-premises-connectors) i Azure Logic Apps för dessa datakällor:
 
 *   BizTalk Server 2016
-*   DB2  
 *   Filsystem
-*   Informix
-*   MQ
+*   IBM DB2  
+*   IBM Informix
+*   IBM MQ
 *   MySQL
 *   Oracle-databas
 *   PostgreSQL
 *   SAP Application Server 
 *   SAP Message Server
-*   SharePoint
+*   SharePoint Server
 *   SQL Server
 *   Teradata
 
-Dessa steg visar hur du först installera den lokala datagatewayen innan du [upprätta en anslutning mellan gateway och dina logic apps](./logic-apps-gateway-connection.md). Läs mer om kopplingar som stöds, [kopplingar för Azure Logikappar](https://docs.microsoft.com/azure/connectors/apis-list). 
+Information om hur du använder gatewayen med andra tjänster finns i följande artiklar:
 
-Information om hur du använder en gateway med andra tjänster finns i följande artiklar:
-
-*   [Microsoft Power BI lokala datagateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-*   [Azure Analysis Services lokala datagateway](../analysis-services/analysis-services-gateway.md)
-*   [Microsoft Flow lokala datagateway](https://flow.microsoft.com/documentation/gateway-manage/)
-*   [Microsoft PowerApps lokala datagateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Microsoft Power BI lokala datagatewayen](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
+* [Microsoft PowerApps lokal datagateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Microsoft Flow lokal datagateway](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Azure Analysis Services lokal datagateway](../analysis-services/analysis-services-gateway.md)
 
 <a name="requirements"></a>
 
-## <a name="requirements"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-**minsta**
+* En [arbets- eller skolkonto](../active-directory/fundamentals/sign-up-organization.md) som har en [Azure-prenumeration](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer). Under gatewayinstallationen kan logga du in till det här kontot så att du kan associera gatewayinstallationen med din Azure-prenumeration. Senare kan använda du också samma konto när du skapar en Azure-resurs för din gateway-installation i Azure-portalen. Om du inte har en Azure-prenumeration än, <a href="https://azure.microsoft.com/free/" target="_blank">registrera dig för ett kostnadsfritt konto</a>.
 
-* 4.5 för .NET framework
-* 64-bitars version av Windows 7 eller Windows Server 2008 R2 (eller senare)
+* Här följer kraven för den lokala datorn:
 
-**Rekommenderas**
+  **Minimikrav**
+  * .NET framework 4.5.2
+  * 64-bitars version av Windows 7 eller Windows Server 2008 R2 (eller senare)
 
-* 8 kärnor CPU
-* 8 GB minne
-* 64-bitarsversionen av Windows 2012 R2 (eller senare)
+  **Rekommenderade krav**
+  * Processor med 8 kärnor
+  * 8 GB minne
+  * 64-bitars version av Windows Server 2012 R2 (eller senare)
 
-**Viktiga överväganden**
+* **Att tänka på**
 
-* Installera datagateway lokalt på en lokal dator.
-Du kan inte installera gatewayen på en domänkontrollant.
+  * Du kan installera den lokala datagatewayen endast på en lokal dator, inte en domänkontrollant. Men behöver du installera gatewayen på samma dator som datakällan. Dessutom behöver du bara en gateway för alla dina datakällor, så du behöver installera gatewayen för varje datakälla.
 
-   > [!TIP]
-   > Du behöver installera gatewayen på samma dator som datakällan. Du kan installera gatewayen så nära som möjligt till datakällan eller på samma dator, förutsatt att du har behörighet för att minimera svarstider.
+    > [!TIP]
+    > Du kan installera gatewayen så nära som möjligt till datakällan eller på samma dator, förutsatt att du har behörighet för att minimera svarstider.
 
-* Installera inte gatewayen på en dator som stängs av, försätts i strömsparläge, eller inte ansluta till Internet eftersom gatewayen inte kan köras under dessa omständigheter. Gateway-prestanda kan dessutom lidande över ett nätverk.
+  * Installera gatewayen på en dator som *inte* stänga av, försättas i viloläge eller ansluta till Internet. Gatewayen kan inte köras under dessa förhållanden. 
+  Gatewayens prestanda försämras också på ett trådlöst nätverk.
 
-* Under installationen kan du behöva logga in med en [arbets- eller skolkonto](https://docs.microsoft.com/azure/active-directory/sign-up-organization) som hanteras av Azure Active Directory (Azure AD), inte ett Microsoft-konto.
+  * Under installationen, kan du bara logga in med en [arbets- eller skolkonto](../active-directory/sign-up-organization.md) som hanteras av Azure Active Directory (Azure AD) och inte ett Microsoft-konto. 
+  Kontrollera också att det här kontot är inte en Azure B2B (Gäst)-konto. 
+  Du måste också använda samma konto logga in på Azure-portalen när du registrerar din gateway-installation genom att skapa en Azure-resurs för din gateway. 
+  Sedan kan du välja den här gatewayresursen när du skapar anslutningen från logikappen till din lokala datakälla. 
+  [Varför måste jag använder en Azure AD-arbets- eller skolkonto?](#why-azure-work-school-account)
 
   > [!TIP]
-  > Om du vill använda ett Microsoft-konto som har en Visual Studio med MSDN-prenumeration först [skapa en katalog (klient) i Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) med ditt Microsoft-konto eller Använd standardkatalogen. Lägga till en användare med ett lösenord i katalogen och ge den åtkomsten till din prenumeration. Du kan logga in under gatewayinstallationen av med det här användarnamnet och lösenordet.
+  > Om du har registrerat dig för ett Office 365-erbjudande och inte angav din faktiska e-postadress, kan du ha en inloggning-adress som ser ut som i följande exempel: `username@domain.onmicrosoft.com` 
+  >
+  > Att använda ett microsoftkonto som har en [Visual Studio Standardprenumeration](https://visualstudio.microsoft.com/vs/pricing/), första [skapa en katalog (klient) i Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md), eller använda standardkatalogen med ditt Microsoft-konto. 
+  > Lägga till en användare med ett lösenord i katalogen och ge användaråtkomst till din prenumeration. 
+  > Du kan logga in under installationen av gateway med den här användarnamn och lösenord.
 
-  Du måste använda samma arbets- eller skolkonto senare i Azure-portalen när du skapar och associerar en gateway-resurs med gatewayinstallationen. Du kan sedan välja den här gatewayresursen när du skapar anslutningen mellan din logikapp och lokala datakällan. [Varför måste jag använda en Azure AD-arbets- eller skolkonto?](#why-azure-work-school-account)
+  * Den region som du väljer för din gateway-installation anger den plats där du senare registrera din gateway i Azure genom att skapa en Azure-resurs. 
+  När du skapar den här gatewayresursen i Azure måste du välja den *samma* plats som din gateway-installation. Standardregionen är samma plats som din Azure AD-klient som hanterar din Azure-konto, men du kan ändra platsen under installationen av gateway.
 
-  > [!TIP]
-  > Om du har registrerat dig för ett erbjudande för Office 365 och gick inte att få din faktiska arbetet i e-post, din adress för inloggningen kan se ut som jeff@contoso.onmicrosoft.com. 
-
-* Om du har en befintlig gateway som konfigurerats med ett installationsprogram som är äldre än version 14.16.6317.4 kan ändra du inte plats för din gateway genom att köra den senaste versionen installatören. Du kan dock använda senaste installationsprogrammet för att ställa in en ny gateway med den plats som du vill använda i stället.
+  * Om du redan har en gateway som du skapade med ett installationsprogram tidigare än version 14.16.6317.4 kan ändra du inte plats för din gateway genom att köra det senaste installationsprogrammet. Du kan dock använda det senaste installationsprogrammet för att ställa in en ny gateway med den plats du vill i stället.
   
-  Om du har en gateway-installationsprogram som är äldre än version 14.16.6317.4, men du inte har installerat din gateway ännu, kan du hämtar och använder den senaste versionen installatören.
+    Om du har en gateway-installationsprogram som är äldre än version 14.16.6317.4, men du inte har installerat din gateway ännu, kan du hämta och använda det senaste installationsprogrammet i stället.
 
 <a name="install-gateway"></a>
 
-## <a name="install-the-data-gateway"></a>Installera datagateway
+## <a name="install-data-gateway"></a>Installera datagateway
 
-1. [Hämta och kör installationsprogrammet för gateway på en lokal dator](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Hämta, spara och kör installationsprogrammet för gateway på en lokal dator](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
-2. Granska och Godkänn användningsvillkoren och sekretesspolicyn.
+2. Acceptera standardsökvägen eller ange platsen på datorn där du vill installera gatewayen.
 
-3. Ange sökvägen på den lokala datorn där du vill installera gatewayen.
+3. Gå igenom och godkänner användningsvillkoren och sekretesspolicyn och välj sedan **installera**.
 
-4. När du uppmanas logga in med ditt Azure arbets- eller skolkonto inte ett Microsoft-konto.
+   ![Godkänn användningsvillkoren och sekretesspolicyn](./media/logic-apps-gateway-install/accept-terms.png)
 
-   ![Logga in med Azure arbets- eller skolkonto](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
+4. När gatewayen har installerats kan ange den e-postadressen för ditt arbets- eller skolkonto konto och välj **logga in**.
 
-5. Nu registrera din installerade gateway med den [gateway-Molntjänsten](#gateway-cloud-service). Välj **registrera en ny gateway på den här datorn**.
+   ![Logga in med arbets-eller skolkonto](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-   Gateway-Molntjänsten krypterar och lagrar dina autentiseringsuppgifter för datakälla och gateway-information. 
-   Tjänsten skickar också frågor och deras resultat mellan din logikapp, lokala datagateway och datakällan lokalt.
+5. Välj **registrera en ny gateway på den här datorn** > **nästa**, som registrerar din gateway-installation med den [gatewaymolntjänsten](#gateway-cloud-service). 
 
-6. Ange ett namn för din gateway-installation. Skapa en återställningsnyckel och sedan bekräfta din återställningsnyckeln. 
+   ![Registrera gateway](./media/logic-apps-gateway-install/register-new-gateway.png)
 
-   > [!IMPORTANT] 
-   > Återställningsnyckeln måste innehålla minst åtta tecken. Kontrollera att du sparar och hålla nyckeln på en säker plats. Du måste också den här nyckeln om du vill migrera, Återställ eller ta över en befintlig gateway.
+6. Ange den här informationen för din gateway-installation:
 
-   1. Om du vill ändra standardregion för gateway-Molntjänsten och Azure Service Bus som används av gatewayinstallationen, Välj **ändra Region**.
+   * Namnet som du vill använda för din installation 
 
-      ![Ändra region](./media/logic-apps-gateway-install/change-region-gateway-install.png)
+   * Återställningsnyckeln du vill skapa, som måste ha minst åtta tecken
 
-      Standardregionen är den region som är associerade med Azure AD-klienten.
+     > [!IMPORTANT]
+     > Spara och Behåll din återställningsnyckel ska sparas på en säker plats. Du behöver den här nyckeln när du ändrar gatewayens plats, eller när du migrera, återställa eller ta över en befintlig gateway.
 
-   2. I nästa steg, öppna den **väljer Region** att välja en annan region.
+   * Bekräftelse för återställningsnyckeln 
+
+     ![Konfigurera gateway](./media/logic-apps-gateway-install/set-up-gateway.png)
+
+7. Kontrollera den region som valts för gateway-Molntjänsten och Azure Service Bus som används av din gateway-installation. 
+
+   ![Kontrollera region](./media/logic-apps-gateway-install/check-region.png)
+
+   > [!IMPORTANT]
+   > Om du vill ändra den här regionen när du har installerat din gateway, behöver du återställningsnyckeln för att installationen av gateway. Dessutom måste du avinstallera och installera om gatewayen. Mer information finns i [ändra platsen, migrera, återställa eller ta över befintlig gateway](#update-gateway-installation).
+
+   *Varför ändra regionen för din gateway-installation?* 
+
+   Om du vill minska svarstiden, kan du till exempel ändra regionen för din gateway till samma region som din logikapp. 
+   Eller du kan välja regionen som är närmast den lokala datakällan. 
+   Din *gatewayresursen i Azure* och din logikapp kan ha olika platser.
+
+8. Om du vill acceptera standardregion, Välj **konfigurera**. Eller, om du vill ändra standardregion, Följ dessa steg:
+
+   1. Markera bredvid den aktuella regionen **ändra Region**. 
+
+      ![Ändra region](./media/logic-apps-gateway-install/change-region.png)
+
+   2. På nästa sida, öppna den **väljer Region** väljer du den regionen och välja **klar**.
 
       ![Välj en annan region](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
-      Du kan till exempel välja samma region som din logikapp eller väljer du regionen som är närmast datakällan lokalt så att du kan minska svarstiden. Gateway-resurs och logik appen kan ha olika platser.
+9. När bekräftelsesidan visas, väljer **Stäng**. 
 
-      > [!IMPORTANT]
-      > Du kan inte ändra den här regionen efter installationen. Den här regionen avgör också och begränsar den plats där du kan skapa Azure-resurs för din gateway. Så när du skapar din gateway-resurs i Azure, se till att platsen för resursen matchar den region som du valde under gatewayinstallationen.
-      > 
-      > Om du vill använda en annan region för din gateway senare måste du ställa in en ny gateway.
+   Installationsprogrammet bekräftar att din gateway är nu online och redo att användas.
 
-   3. När du är klar kan du välja **klar**.
+   ![Klar gateway](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
-7. Nu följer du stegen i Azure-portalen så att du kan [skapa en Azure-resurs för din gateway](../logic-apps/logic-apps-gateway-connection.md). 
+10. Nu registrera din gateway i Azure genom [skapar en Azure-resurs för din gateway-installation](../logic-apps/logic-apps-gateway-connection.md). 
 
-Lär dig mer om [hur datagateway fungerar](#gateway-cloud-service).
+## <a name="enable-high-availability"></a>Aktivera hög tillgänglighet
 
-## <a name="migrate-restore-or-take-over-an-existing-gateway"></a>Migrera, Återställ eller ta över en befintlig gateway
+Den lokala datagatewayen stöder hög tillgänglighet när du har mer än en gateway-installation och lägga upp dem som kluster. Om du har en befintlig gateway när du går för att skapa en annan gateway kan skapa du också kluster för hög tillgänglighet. Dessa kluster ordna gatewayer i grupper som kan hjälpa dig att undvika enskilda felpunkter. Gå igenom dessa krav och överväganden om du vill använda den här funktionen:
 
-Om du vill utföra dessa uppgifter måste du ha återställningsnyckeln som angavs när gatewayen har installerats.
+* Endast vissa anslutningar stöd för hög tillgänglighet, till exempel anslutningsappen för filsystem och andra på sättet. 
+     
+* Du måste redan ha minst en gateway-installation i samma Azure-prenumeration som den primära gatewayen och av återställningsnyckeln för installationen. 
 
-1. Datorns Start-menyn, Välj **lokala datagateway**.
+* Din primära gateway måste köra gatewayuppdateringen från November 2017 eller senare.
 
-2. När installationsprogrammet har öppnats, logga in med samma Azure arbets- eller skolkonto som tidigare användes för att installera gatewayen.
+När du har uppfyllt dessa krav när du skapar din nästa gateway, Välj **lägga till ett befintlig gatewaykluster**, Välj den primära gatewayen för klustret och ange återställningsnyckeln för den primära gatewayen.
+Mer information finns i [kluster med hög tillgänglighet för den lokala datagatewayen](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
-3. Välj **migrera, Återställ eller ta över en befintlig gateway**.
+<a name="update-gateway-installation"></a>
 
-4. Ange namn och återställa nyckeln för den gateway som du vill migrera, Återställ eller ta över.
+## <a name="change-location-migrate-restore-or-take-over-existing-gateway"></a>Ändra platsen, migrera, återställa eller ta över befintlig gateway
 
-<a name="windows-service-account"></a>
+Om du måste ändra platsen för din gateway, flytta din gateway-installation till en ny dator, Återställ en skadad gateway eller överta ägarskapet för en befintlig gateway, måste återställningsnyckeln som angavs under installationen av gateway. Den här åtgärden kopplar från den gamla gatewayen.
 
-## <a name="windows-service-account"></a>Windows-tjänstkontot
+1. Från din dator **Kontrollpanelen**går du till **program och funktioner**. Välj i programlistan **lokal datagateway**, och välj sedan **avinstallera**.
 
-Lokala datagateway körs som en Windows-tjänst och har konfigurerats att använda `NT SERVICE\PBIEgwService` tjänsten inloggningsuppgifter för Windows. Gatewayen har som standard rättigheten ”logga in som en tjänst” på datorn där du installerar en gateway. Om du vill skapa och hantera gatewayen i Azure-portalen, Windows-tjänstkontot måste ha minst **deltagare** behörigheter. 
+2. [Installera om den lokala datagatewayen](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
-> [!NOTE]
-> Windows-tjänstkontot skiljer sig från det konto som används för att ansluta till lokala data källor, och från Azure arbets- eller skolkonto som används för att logga in till molntjänster.
+3. När installationsprogrammet öppnas och logga in med samma arbets- eller skolkonto som användes tidigare för att installera gatewayen.
 
-<a name="restart-gateway"></a>
+4. Välj **migrera, återställa eller ta över en befintlig gateway**, och välj sedan **nästa**.
 
-## <a name="restart-the-gateway"></a>Startar du om gatewayen
+   ![Välj ”migrera, återställa eller ta över en befintlig gateway”](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
-Precis som alla andra Windows-tjänster, kan du starta och stoppa tjänsten på flera olika sätt. Du kan till exempel öppna en kommandotolk med förhöjd behörighet på den dator där gatewayen körs och kör antingen dessa kommandon:
+5. Under **tillgängliga gateways** eller **tillgängliga gatewaykluster**, Välj den gateway-installation som du vill ändra. Ange återställningsnyckeln för gateway-installation. 
 
-* Kör det här kommandot för att stoppa tjänsten:
-  
-    `net stop PBIEgwService`
+   ![Välj primär gateway](./media/logic-apps-gateway-install/select-existing-gateway.png)
 
-* Om du vill starta tjänsten, kör du kommandot:
-  
-    `net start PBIEgwService`
+6. Om du vill ändra regionen, Välj **ändra Region** och det nya området.
 
-## <a name="configure-a-firewall-or-proxy"></a>Konfigurera en brandvägg eller proxyserver
+7. När du är klar väljer **konfigurera**.
 
-Gatewayen skapar en utgående anslutning till [Azure Service Bus](https://azure.microsoft.com/services/service-bus/). För att ge information om proxy för din gateway, se [konfigurera proxyinställningar](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy/).
+## <a name="configure-proxy-or-firewall"></a>Konfigurera proxy eller brandvägg
 
-Om du vill kontrollera om din brandvägg eller proxyserver, kan blockera anslutningar, bekräfta om datorn faktiskt kan ansluta till internet och [Azure Service Bus](https://azure.microsoft.com/services/service-bus/). Kör kommandot från en PowerShell-kommandotolk:
+Den lokala datagatewayen skapar en utgående anslutning till [Azure Service Bus](https://azure.microsoft.com/services/service-bus/). Om din arbetsmiljö kräver att trafik går igenom en proxy för åtkomst till internet, hindra den här begränsningen datagateway ansluter till gateway-Molntjänsten. Granska den här artikeln på superuser.com för att avgöra om nätverket använder en proxyserver: 
+
+[Hur vet jag vilken proxyserver jag använder? (SuperUser.com)](https://superuser.com/questions/346372/how-do-i-know-what-proxy-server-im-using) 
+
+För att tillhandahålla proxyinformation för din gateway, se [konfigurera proxyinställningar](https://docs.microsoft.com/power-bi/service-gateway-proxy). Du kan kontrollera om proxyservern eller brandväggen blockerar anslutningar genom att bekräfta om din dator verkligen kan ansluta till internet och [Azure Service Bus](https://azure.microsoft.com/services/service-bus/). Kör följande kommando från en PowerShell-kommandotolk:
 
 `Test-NetConnection -ComputerName watchdog.servicebus.windows.net -Port 9350`
 
 > [!NOTE]
-> Det här kommandot kan endast test nätverksanslutning och anslutningen till Azure Service Bus. Så har kommandot ingenting att göra med en gateway eller gateway-Molntjänsten som krypterar och lagrar dina autentiseringsuppgifter och gateway-information. 
+> Det här kommandot testar endast nätverksanslutningen och anslutning till Azure Service Bus. Kommandot göra inte något med gatewayen eller gateway-Molntjänsten som krypterar och lagrar dina autentiseringsuppgifter och gateway-informationen. 
 >
-> Det här kommandot är också bara tillgängligt på Windows Server 2012 R2 eller senare och Windows 8.1 eller senare. Du kan använda Telnet tidigare OS-version för att testa anslutningen. Lär dig mer om [Azure Service Bus och hybridlösningar](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+> Dessutom det här kommandot är endast tillgänglig på Windows Server 2012 R2 eller senare, och Windows 8.1 eller senare. Du kan använda Telnet på tidigare OS-versioner för att testa anslutningen. Läs mer om [lösningar för Azure Service Bus och hybrid](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
-Resultatet bör se ut ungefär så här:
+Resultaten bör likna det här exemplet med **TcpTestSucceeded** inställd **SANT**:
 
 ```text
 ComputerName           : watchdog.servicebus.windows.net
@@ -198,156 +224,309 @@ PingReplyDetails (RTT) : 0 ms
 TcpTestSucceeded       : True
 ```
 
-Om **TcpTestSucceeded** inte har angetts till **SANT**, du kan blockeras av en brandvägg. Om du vill ska vara omfattande ersätta den **ComputerName** och **Port** värden med de värden som anges [konfigurera portar](#configure-ports) i den här artikeln.
+Om **TcpTestSucceeded** inte är inställt på **SANT**, din gateway kan blockeras av en brandvägg. Om du vill ska vara omfattande ersätter den **ComputerName** och **Port** värden med de värden som anges [konfigurera portar](#configure-ports) i den här artikeln.
 
-Brandväggen kan också blockera anslutningar som Azure Service Bus gör att Azure-datacenter. Om det här scenariot inträffar kan godkänna (avblockera) alla IP-adresser för de datacenter i din region. För de IP-adresserna [hämta Azure IP-adresslistan här](https://www.microsoft.com/download/details.aspx?id=41653).
+Brandväggen kan även blockera anslutningarna som Azure Service Bus gör att Azure-datacenter. Om det här scenariot inträffar kan du godkänna (avblockera) alla IP-adresser för dessa datacenter i din region. För dessa IP-adresser [hämta Azure-IP-adresslistan här](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ## <a name="configure-ports"></a>Konfigurera portar
 
-Gatewayen skapar en utgående anslutning till [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) och kommunicerar på utgående portar: TCP 443 (standard), 5671, 5672, 9350 via 9354. Gatewayen kräver inte ingående portar. Lär dig mer om [Azure Service Bus och hybridlösningar](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+Gatewayen skapar en utgående anslutning till [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) och kommunicerar via utgående portar: TCP 443 (standard), 5671, 5672, 9350 till 9354. Gatewayen behöver inga ingående portar. Läs mer om [lösningar för Azure Service Bus och hybrid](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
-| Domännamn | Utgående portar | Beskrivning |
-| ------------ | -------------- | ----------- |
+Gatewayen använder de här fullständigt kvalificerade domännamn:
+
+| Domännamn | Utgående portar | Beskrivning | 
+| ------------ | -------------- | ----------- | 
 | *. analysis.windows.net | 443 | HTTPS | 
-| *.login.windows.net | 443 | HTTPS | 
-| *.servicebus.windows.net | 5671-5672 | Avancerade Message Queuing-protokollet (AMQP) | 
-| *.servicebus.windows.net | 443, 9350-9354 | Lyssnare på Service Bus Relay via TCP (kräver 443 för åtkomstkontroll token) | 
-| *.frontend.clouddatahub.net | 443 | HTTPS | 
 | *.core.windows.net | 443 | HTTPS | 
+| *.frontend.clouddatahub.net | 443 | HTTPS | 
+| *.login.windows.net | 443 | HTTPS | 
+| *.microsoftonline-p.com | 443 | Används för autentisering beroende på konfiguration. | 
+| *. msftncsi.com | 443 | Används för att testa Internetanslutningen om gatewayen inte kan nås av Power BI-tjänsten. | 
+| *.servicebus.windows.net | 443, 9350-9354 | Lyssnare på Service Bus Relay via TCP (kräver 443 för Access Control tokenförvärv) | 
+| *.servicebus.windows.net | 5671-5672 | Avancerade Message Queuing Protocol (AMQP) | 
 | login.microsoftonline.com | 443 | HTTPS | 
-| *. msftncsi.com | 443 | Används för att testa internet-anslutning när gatewayen inte kan nås av Power BI-tjänsten. | 
 ||||
 
-Om du behöver godkänna IP-adresser i stället för domänerna som du kan hämta och använda den [Microsoft Azure Datacenter IP-intervall lista](https://www.microsoft.com/download/details.aspx?id=41653). I vissa fall kan görs Azure Service Bus-anslutningar med IP-adress i stället för fullständigt kvalificerade domännamn.
+I vissa fall görs Azure Service Bus-anslutningar med IP-adresser i stället för fullständigt kvalificerade domännamn. Så kanske du vill vitlista IP-adresser för ditt dataområde i brandväggen. Att vitlista IP-adresser i stället domäner, kan du hämta och använda den [Microsoft Azure Datacenter IP-intervall lista](https://www.microsoft.com/download/details.aspx?id=41653). IP-adresser i den här listan finns i [Classless Inter-Domain Routing CIDR-](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
+
+### <a name="force-https-communication-with-azure-service-bus"></a>Tvinga HTTPS-kommunikation med Azure Service Bus
+
+Vissa proxyservrar tillåta trafik endast till portarna 80 och 443. Som standard sker kommunikationen med Azure Service Bus via andra portar än 443.
+Du kan tvinga gatewayen att kommunicera med Azure Service Bus via HTTPS i stället för direkt TCP, men detta kan avsevärt minska prestanda. Följ dessa steg om du vill utföra den här aktiviteten:
+
+1. Bläddra till platsen för den lokala data gatewayklienten, som vanligtvis finns här: ```C:\Program Files\On-premises data gateway\Microsoft.PowerBI.EnterpriseGateway.exe```
+
+   I annat fall för att hitta klientens plats, öppna konsolen tjänster på samma dator, hitta **lokala datagatewaytjänsten**, och visa den **sökvägen till körbara filen** egenskapen.
+
+2. Öppna det här *configuration* fil: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
+
+3. Ändra den **ServiceBusSystemConnectivityModeString** värdet från **AutoDetect** till **Https**:
+
+   ```html
+   <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
+      <value>Https</value>
+   </setting>
+   ```
+
+<a name="windows-service-account"></a>
+
+## <a name="windows-service-account"></a>Windows-tjänstkontot
+
+Den lokala datagatewayen körs som en Windows-tjänst med namnet ”lokal datagateway” men använder ”NT SERVICE\PBIEgwService” för autentiseringsuppgifterna ”logga in som”-konto. Som standard har den lokala datagatewayen ”logga in som en tjänst” behörigheter för den dator där du installerar gatewayen. Om du vill skapa och underhålla gatewayen i Azure portal, Windows-tjänstkontot måste ha minst **deltagare** behörigheter. 
+
+> [!NOTE]
+> Windows-tjänstkontot skiljer sig från det konto som används för att ansluta till lokala datakällor och det arbeta- eller skolkonto konto som används för att logga in på molntjänster.
+
+<a name="restart-gateway"></a>
+
+## <a name="restart-gateway"></a>Starta om gatewayen
+
+Datagateway körs som en Windows-tjänst, så som alla andra Windows-tjänsten, du kan starta och stoppa gatewayen på flera olika sätt. Du kan till exempel öppna en kommandotolk med förhöjd behörighet på den dator där gatewayen körs och kör kommandot:
+
+* Kör följande kommando för att stoppa tjänsten:
+  
+  `net stop PBIEgwService`
+
+* Om du vill starta tjänsten kör du följande kommando:
+  
+  `net start PBIEgwService`
+
+## <a name="tenant-level-administration"></a>Administration på klientnivå 
+
+Det finns för närvarande inte någon enskild plats där klientadministratörer kan hantera alla gatewayer som andra användare har installerat och konfigurerat. Om du är en Innehavaradministratör kan du be användarna i organisationen att lägga till dig som administratör för varje gateway som de installerar. På så sätt kan du hantera alla gatewayer i din organisation via sidan Gateway-inställningar eller via [PowerShell-kommandon](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
 
 <a name="gateway-cloud-service"></a>
 
-## <a name="how-does-the-data-gateway-work"></a>Hur fungerar datagateway?
+## <a name="how-does-the-gateway-work"></a>Hur fungerar gatewayen?
 
-Datagatewayen underlättar snabb och säker kommunikation mellan din logikapp, gateway-Molntjänsten och lokala datakällan. 
+Datagateway underlättar snabb och säker kommunikation mellan din logikapp, gateway-Molntjänsten och din lokala datakälla. Gatewaymolntjänsten krypterar och lagrar dina autentiseringsuppgifter för datakälla och gateway-informationen. Tjänsten dirigerar också frågor och deras resultat mellan din logikapp, en lokal datagateway och datakällan lokalt. 
+
+Gatewayen fungerar med brandväggar och använder endast utgående anslutningar. All trafik som samlas in som säker utgående trafik från gateway-agenten. Gatewayen vidarebefordrar data från lokala källor på krypterade kanaler via Azure Service Bus. Det här service bus skapar en kanal mellan gatewayen och anropa tjänsten, men lagras inte några data. Alla data som överförs via gatewayen är krypterad.
 
 ![diagram-for-on-premises-data-gateway-Flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
-När användaren i molnet som interagerar med ett element som är ansluten till din lokala datakälla:
+Dessa steg beskriver vad som händer när en användare i molnet som interagerar med ett element som är ansluten till din lokala datakälla:
 
-1. Gateway-Molntjänsten skapar en fråga, tillsammans med krypterade autentiseringsuppgifterna för datakällan, och skickar frågan till kön för gatewayen att bearbeta.
+1. Gateway-Molntjänsten skapar en fråga, tillsammans med de krypterade autentiseringsuppgifterna för datakällan, och skickar frågan till i kön för gatewayen ska bearbeta.
 
-2. Gateway-Molntjänsten analyserar frågan och skickar begäran till Azure Service Bus.
+2. Gatewaymolntjänsten analyserar frågan och skickar en begäran till Azure Service Bus.
 
-3. Lokala datagateway avsöker Azure Service Bus för väntande begäranden.
+3. Den lokala datagatewayen avsöker Azure Service Bus för väntande begäranden.
 
-4. Gatewayen hämtar frågan dekrypterar autentiseringsuppgifterna och ansluter till datakällan med autentiseringsuppgifterna.
+4. Gatewayen hämtar frågan, dekrypterar autentiseringsuppgifterna och ansluter till datakällan med autentiseringsuppgifterna.
 
 5. Gatewayen skickar frågan till datakällan för körning.
 
-6. Resultatet skickas från datakällan, tillbaka till gatewayen och sedan till gateway-Molntjänsten. Gateway-Molntjänsten använder sedan resultaten.
+6. Resultaten skickas från datakällan tillbaka till gatewayen och sedan till gateway-Molntjänsten. Gateway-Molntjänsten använder sedan resultaten.
 
 <a name="faq"></a>
-
-## <a name="tenant-level-administration"></a>Nivån innehavaradministration 
-
-Det finns för närvarande inga enda plats där innehavaradministratörer kan hantera alla gateways som andra användare har installerat och konfigurerat.  Om du är en Innehavaradministratör rekommenderar vi att du uppmanar användarna i din organisation att lägga till som en administratör i varje gateway installeras. Detta gör att du kan hantera alla gateways i din organisation via inställningssidan Gateway eller via [PowerShell-kommandon](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
-
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ### <a name="general"></a>Allmänt
 
-**Q**: behöver jag en gateway för datakällor i molnet, till exempel SQL Azure? <br/>
-**En**: Nej En gateway ansluter till endast lokala datakällor.
+**Frågor och**: behöver jag en gateway för datakällor i molnet, till exempel Azure SQL Database? <br/>
+**En**: Nej, gatewayen ansluter till lokala datakällor endast.
 
-**Q**: har en gateway installeras på samma dator som datakällan? <br/>
-**En**: Nej Gatewayen ansluter till datakällan med hjälp av informationen som angavs. Överväg att gatewayen som ett klientprogram på detta sätt. Gatewayen måste bara möjligheten att ansluta till namnet på servern som har angetts.
+**Frågor och**: har gatewayen installeras på samma dator som datakällan? <br/>
+**En**: Nej, gatewayen ansluter till datakällan med den angivna anslutningsinformationen. Överväg att gatewayen som ett klientprogram i detta avseende. Gatewayen måste bara möjligheten att ansluta till servernamnet som har angetts.
 
 <a name="why-azure-work-school-account"></a>
 
-**Q**: Varför måste jag använda en Azure arbets- eller skolkonto för att logga in? <br/>
-**En**: du kan bara använda en Azure arbets eller skolkonto när du installerar den lokala datagatewayen. Din inloggning konto lagras i en klient som hanteras av Azure Active Directory (AD Azure). Azure AD-kontot användarens huvudnamn (UPN) matchar vanligtvis e-postadress.
+**Frågor och**: Varför måste jag använda ett arbets eller skolkonto för att logga in? <br/>
+**En**: du kan bara använda ett arbets- eller skolkonto konto när du installerar den lokala datagatewayen. Ditt inloggningskonto lagras i en klient som hanteras av Azure Active Directory (AD Azure). Vanligtvis är matchar din Azure AD-konto användarens huvudnamn (UPN) den e-postadressen.
 
-**Q**: var lagras mina autentiseringsuppgifter? <br/>
-**En**: de autentiseringsuppgifter som du anger för en datakälla krypteras och lagras i gateway-Molntjänsten. Autentiseringsuppgifterna dekrypteras på lokala datagateway.
+**Frågor och**: var lagras mina autentiseringsuppgifter? <br/>
+**En**: de autentiseringsuppgifter som du anger för en datakälla krypteras och lagras i gatewayens molntjänst. Autentiseringsuppgifterna dekrypteras i den lokala datagatewayen.
 
-**Q**: finns det några krav för nätverksbandbredd? <br/>
-**En**: Vi rekommenderar att nätverksanslutningen har bra genomströmning. Alla miljöer skiljer sig, och mängden data som skickas påverkar resultaten. Med hjälp av ExpressRoute kan hjälpa till att garantera en nivå av dataflödet mellan lokala och Azure-datacenter.
-Du kan använda verktyg från tredje part Azure hastighet testa appen för att mäta din genomflöde.
+**Frågor och**: det finns några krav på bandbredd i nätverket? <br/>
+**En**: Kontrollera att nätverksanslutningen har bra dataflöde. Varje miljö är annorlunda och mängden data som skickas kan påverka resultatet. För att garantera en dataflödesnivå mellan din lokala datakälla och Azure-datacenter, försök [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). För att mäta ditt dataflöde kan du prova något externt verktyg, till exempel Azure Speed Test.
 
-**Q**: Vad är svarstiden för att köra frågor till en datakälla från gateway? Vad är den bästa arkitekturen? <br/>
-**En**: Installera gatewayen för att minska Nätverksfördröjningen som nära datakällan som möjligt. Om du kan installera gatewayen på den faktiska datakällan, minimerar den här närhet svarstiden införs. Överväg att Datacenter för. Till exempel om din tjänst använder västra USA datacenter, och du har SQL Server finns i en Azure VM, ska Azure VM vara i västra USA för. Den här närhet minimerar fördröjning och undviker utgång avgifter på Azure VM.
+**Frågor och**: Vad är svarstiden för att köra frågor till en datakälla från gatewayen? Vad är den bästa arkitekturen? <br/>
+**En**: för att förkorta Nätverksfördröjningen ska du installera gatewayen så nära datakällan som möjligt. Om du kan installera gatewayen på den faktiska datakällan, minimerar svarstiden i den här närhet. Överväg även närhet till Azure-datacenter. Till exempel om tjänsten använder datacenter för västra USA och du har SQL Server på en Azure virtuell dator, du sedan dina virtuella Azure-datorer i regionen västra USA för. Den här närhet minimerar svarstiden och undviker onödiga avgifter för Azure VM.
 
-**Q**: hur resultatet skickas tillbaka till molnet? <br/>
-**En**: resultat skickas via Azure Service Bus.
+**Frågor och**: hur skickas resultaten tillbaka till molnet? <br/>
+**En**: resultaten skickas via Azure Service Bus.
 
-**Q**: finns det några inkommande anslutningar till gatewayen från molnet? <br/>
-**En**: Nej Gatewayen använder utgående anslutningar till Azure Service Bus.
+**Frågor och**: finns det några inkommande anslutningar till gatewayen från molnet? <br/>
+**En**: Nej, gatewayen använder utgående anslutningar till Azure Service Bus.
 
-**Q**: Vad händer om jag blockera utgående anslutningar? Vad behöver jag att öppna? <br/>
-**En**: Se portar och värdar som används av gateway-servern.
+**Frågor och**: Vad händer om jag blockerar utgående anslutningar? Vad behöver jag att öppna? <br/>
+**En**: se vilka portar och värdar som används av gatewayen.
 
-**Q**: det faktiska Windows-tjänsten som kallas?<br/>
-**En**: I tjänster gatewayen kallas Power BI Enterprise Gateway-tjänsten.
+**Frågor och**: det faktiska Windows-tjänsten som kallas? <br/>
+**En**: på fliken tjänster i Aktivitetshanteraren tjänstens namn är ”PBIEgwService” eller Power BI Enterprise Gateway Service. Tjänstnamnet är ”On-premises data gateway-tjänsten” i konsolen tjänster. Windows-tjänsten använder ”NT SERVICE\PBIEgwService” som tjänst SID (SSID).
 
-**Q**: kan gateway Windows-tjänsten körs med ett Azure Active Directory-konto? <br/>
-**En**: Nej Windows-tjänsten måste ha ett giltigt Windows-konto. Som standard körs tjänsten med tjänst-SID NT SERVICE\PBIEgwService.
+**Frågor och**: kan gatewayens Windows-tjänst köras med ett Azure Active Directory-konto? <br/>
+**En**: Nej, den Windows-tjänsten måste ha ett giltigt Windows-konto.
 
-### <a name="high-availability-and-disaster-recovery"></a>Hög tillgänglighet och haveriberedskap
+### <a name="disaster-recovery"></a>Haveriberedskap
 
-**Q**: vilka alternativ som är tillgängliga för katastrofåterställning? <br/>
-**En**: du kan använda återställningsnyckeln för att återställa eller flytta en gateway. När du installerar en gateway måste du ange återställningsnyckeln.
+**Frågor och**: vilka alternativ är tillgängliga för haveriberedskap? <br/>
+**En**: du kan använda återställningsnyckeln för att återställa eller flytta en gateway. När du installerar gatewayen anger du återställningsnyckeln.
 
-**Q**: Vad är fördelen med återställningsnyckeln? <br/>
-**En**: återställningsnyckeln är ett sätt att migrera eller återställa gatewayinställningarna efter en katastrof.
-
-**Q**: finns det några planer för att aktivera scenarier med hög tillgänglighet med gatewayen? <br/>
-**En**: vissa kopplingar stöder hög tillgänglighet scenarier, till exempel filsystem kopplingen och andra på sättet. Mer information finns i [kluster med hög tillgänglighet för lokala datagateway](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
+**Frågor och**: Vad är fördelen med återställningsnyckeln? <br/>
+**En**: återställningsnyckeln gör det möjligt att migrera eller återställa gatewayinställningarna efter en katastrof.
 
 ## <a name="troubleshooting"></a>Felsökning
 
+Det här avsnittet behandlar några vanliga problem som kan uppstå när du ställer in och använder den lokala datagatewayen.
+
+**Frågor och**: Varför Mina gatewayinstallationen misslyckas? <br/>
+**En**: det här problemet kan inträffa om ett antivirusprogram på datorn är inaktuella. Du kan uppdatera ett antivirusprogram eller inaktivera antivirusprogrammet men endast under installationen av gateway och aktivera sedan programmet igen.
+
+**Frågor och**: Varför ser jag min gatewayinstallationen när jag skapar gatewayresursen i Azure? <br/>
+**En**: det här problemet kan bero på följande orsaker:
+
+* Din gateway-installation är redan registrerat och ägs av en annan gateway-resurs i Azure. Gateway-installationer visas inte i instanslistan över när gateway-resurser skapas för dessa.
+Kontrollera din gateway-registreringar i Azure portal genom att granska alla dina Azure-resurser med den **lokala Datagatewayer** skriver för *alla* Azure-prenumerationer. 
+
+* Azure AD-identitet för den person som installerade gatewayen skiljer sig från den person som loggat in på Azure-portalen. Kontrollera att du har loggat in med samma identitet som installerade gatewayen.
+
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-**Q**: hur kan jag se vilka frågor som ska skickas till den lokala datakällan? <br/>
-**En**: du kan aktivera frågespårning som innehåller de förfrågningar som skickas. Kom ihåg att ändra frågan spåra tillbaka till det ursprungliga värdet när du är klar felsökning. Lämna frågespårning aktiverad skapar större loggar.
+**Frågor och**: var finns gatewayloggarna? <br/>
+**En**: finns i den [ **loggar** avsnittet](#logs) senare i den här artikeln.
 
-Du kan också titta på Verktyg som datakällan har för spårning frågor. Du kan till exempel använda Extended Events eller SQL Profiler för SQL Server och Analysis Services.
+**Frågor och**: hur kan jag se vilka frågor som skickats till den lokala datakällan? <br/>
+**En**: du kan aktivera frågespårning, som innehåller de förfrågningar som skickas. Kom ihåg att ändra frågan spåra tillbaka till det ursprungliga värdet efter felsökningen. Lämna frågespårning aktiverad skapar större loggar.
 
-**Q**: där är gateway-loggarna? <br/>
-**En**: Se verktyg senare i den här artikeln.
+Du kan också leta i verktyg som datakällan har för att spåra frågor. Du kan till exempel använda Extended Events eller SQL Profiler för SQL Server och Analysis Services.
 
-### <a name="update-to-the-latest-version"></a>Uppdatera till den senaste versionen
+### <a name="outdated-gateway-version"></a>Inaktuell gateway-version
 
-Många problem kan ansluta när gateway-versionen blir inaktuella. Kontrollera att du använder den senaste versionen som allmän bra. Om du inte har uppdaterat en gateway för en månad eller längre, kan du du överväga att installera den senaste versionen av gatewayen och se om du kan återskapa problemet.
+Många problem kan uppstå om gatewayversionen gateway-versionen blir inaktuella. Allmän bra tips är att kontrollera att du har den senaste versionen. Om du inte har uppdaterat din gateway i en månad eller längre, kan du överväga att installera den senaste versionen av gatewayen och se om du kan återskapa problemet.
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Fel: Det gick inte att lägga till användaren i gruppen. (-2147463168 PBIEgwService användare)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Fel: Det gick inte att lägga till användare i gruppen. (-2147463168 PBIEgwService Performance Log Users)
 
-Du kan få detta fel om du försöker installera gatewayen på en domänkontrollant, vilket inte stöds. Se till att du distribuerar gatewayen på en dator som inte är en domänkontrollant.
+Du kan få det här felet om du försöker installera gatewayen på en domänkontrollant som inte stöds. Kontrollera att du har distribuerat gatewayen på en dator som inte är en domänkontrollant.
 
-## <a name="tools"></a>Verktyg
+<a name="logs"></a>
 
-### <a name="collect-logs-from-the-gateway-configurer"></a>Samla in loggar från gatewayen configurer
+### <a name="logs"></a>Logs
 
-Du kan samla in flera loggar för gateway. Börja alltid med loggar!
+Hjälper dig att felsöka och alltid börja med att samla in och granska gateway-loggar. Du har flera olika sätt för att samla in loggar, men det enklaste alternativet när du har installerat gatewayen är via användargränssnittet för installationsprogrammet för gateway. 
 
-#### <a name="installer-logs"></a>Installationsloggarna
+1. Öppna installationsprogrammet för den lokala data gateway på din dator.
+2. På menyn till vänster väljer **diagnostik**.
+3. Under **gatewayloggarna**väljer **Exportloggar**.
 
-`%localappdata%\Temp\Power_BI_Gateway_–Enterprise.log`
+   ![Exportera loggar från installationsprogrammet för gateway](./media/logic-apps-gateway-install/export-logs.png)
 
-#### <a name="configuration-logs"></a>Av konfigurationsloggar
+Här följer andra platser där du hittar flera loggar:
 
-`%localappdata%\Microsoft\Power BI Enterprise Gateway\GatewayConfigurator.log`
+| Loggtyp | Plats | 
+|----------|----------| 
+| **Installationsloggar** | %localappdata%\Temp\On-premises_data_gateway_ <*ÅÅÅÅMMDD*>. <*nummer*> .log | 
+| **Konfigurationsloggar** | C:\Users\<*användarnamn*> \AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator <*ÅÅÅÅMMDD*>. <*nummer*>. log | 
+| **Företagsgatewayens tjänstloggar** | C:\Users\PBIEgwService\AppData\Local\Microsoft\On-premises data gateway\Gateway <*ÅÅÅÅMMDD*>. <*nummer*> .log | 
+||| 
 
-#### <a name="enterprise-gateway-service-logs"></a>Enterprise gateway tjänstloggar
+**Händelseloggar**
 
-`C:\Users\PBIEgwService\AppData\Local\Microsoft\Power BI Enterprise Gateway\EnterpriseGateway.log`
+Följ dessa steg för att hitta händelseloggarna för gatewayen:
 
-#### <a name="event-logs"></a>Händelseloggar
+1. På datorn där gateway-installationen, öppnar den **Loggboken**. 
+2. Expandera **Loggboken (lokal)** > **applikationer och tjänsteloggar**. 
+3. Välj **lokala datagatewaytjänsten**.
 
-Du kan hitta loggar Data Management Gateway och PowerBIGateway under **program- och tjänstloggar**.
+   ![Visa händelseloggar för gateway](./media/logic-apps-gateway-install/event-viewer.png)
 
-### <a name="fiddler-trace"></a>Fiddler spårning
+### <a name="telemetry"></a>Telemetri
 
-[Fiddler](http://www.telerik.com/fiddler) är ett kostnadsfritt verktyg från Telerik som övervakar HTTP-trafik. Du kan se den här trafiken med Power BI-tjänsten från klientdatorn. Den här tjänsten kan visa fel och annan relaterad information.
+För ytterligare övervakning och felsökning, kan du aktivera och samla in telemetri. 
+
+1. Bläddra till platsen för den lokala data gatewayklienten, som vanligtvis finns här: ```C:\Program Files\On-premises data gateway```
+
+   I annat fall för att hitta klientens plats, öppna konsolen tjänster på samma dator, hitta **lokala datagatewaytjänsten**, och visa den **sökvägen till körbara filen** egenskapen.
+
+2. Öppna det här *configuration* fil: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
+
+3. Ändra den **SendTelemetry** värde att **SANT**:
+
+   ```html
+   <setting name="SendTelemetry" serializeAs="String">
+      <value>true</value>
+   </setting>
+   ```
+
+4. Spara dina ändringar och starta sedan om Windows-tjänsten.
+
+### <a name="review-slow-query-performance"></a>Granska långsamma frågeprestanda
+
+Om du har hittat frågor som körs långsamt via gatewayen kan aktivera du ytterligare loggning som visar frågor och deras varaktighet. Dessa loggar kan hjälpa dig att hitta vilka frågor som är långsam eller körs under lång tid. Du kan behöva ändra din datakälla, till exempel, justera index för SQL Server-frågor för att justera prestanda för frågor.
+
+Följ dessa steg för att fastställa hur länge en fråga:
+
+1. Bläddra till samma plats som gatewayklienten, som vanligtvis finns här: ```C:\Program Files\On-premises data gateway```
+
+   I annat fall för att hitta klientens plats, öppna konsolen tjänster på samma dator, hitta **lokala datagatewaytjänsten**, och visa den **sökvägen till körbara filen** egenskapen.
+
+2. Öppna och redigera konfigurationsfilerna enligt beskrivningen:
+
+   * **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
+
+     I den här filen, ändra den **EmitQueryTraces** värdet från **FALSKT** till **SANT** så att din gateway kan logga frågor som skickats från gatewayen till en datakälla:
+
+     ```html
+     <setting name="EmitQueryTraces" serializeAs="String">
+        <value>true</value>
+     </setting>
+     ```
+
+     > [!IMPORTANT]
+     > Aktivera EmitQueryTraces inställningen kan avsevärt öka loggstorleken baserat på gatewayens användning. När du har granskat loggarna ska du återställa EmitQueryTraces till **FALSKT** igen, i stället för att lämna den här inställningen på långsiktigt.
+
+   * **Microsoft.PowerBI.DataMovement.Pipeline.Diagnostics.dll.config**
+
+     Om du vill att din gateway utförliga poster, inklusive poster som visar varaktighet, ändra den **TracingVerbosity** värdet från **4** till **5** genom att utföra antingen steg: 
+
+     * I den här konfigurationsfilen ändrar den **TracingVerbosity** värdet från **4** till **5** 
+
+       ```html
+       <setting name="TracingVerbosity" serializeAs="String">
+          <value>5</value>
+       </setting>
+       ```
+
+     * Öppna installationsprogrammet för gateway, Välj **diagnostik**, aktivera **ytterligare loggning**, och välj sedan **tillämpa**:
+
+       ![Aktivera ytterligare loggning](./media/logic-apps-gateway-install/turn-on-additional-logging.png)
+
+     > [!IMPORTANT]
+     > Aktivera TracingVerbosity inställningen kan avsevärt öka loggstorleken baserat på gatewayens användning. När du har granskat loggarna kan kontrollera att du stänger av **ytterligare loggning** i installationsprogrammet för gateway eller Återställ TracingVerbosity till **4** igen i konfigurationsfilen, i stället för att lämna den här inställningen på långsiktigt.
+
+3. Följ dessa steg för att hitta varaktigheten för en fråga:
+
+   1. [Exportera](#logs) och öppna gatewayloggen.
+
+   2. För att hitta en fråga, söker du efter en aktivitetstyp, till exempel: 
+
+      | Aktivitetstyp | Beskrivning | 
+      |---------------|-------------| 
+      | MGEQ | Frågor som körs över ADO.NET. | 
+      | MGEO | Frågor som körs över OLEDB. | 
+      | MGEM | Frågor som körs från Mashup-motorn. | 
+      ||| 
+
+   3. Obs andra GUID, vilket är den som begär-ID.
+
+   4. Fortsätta söka efter aktivitetstypen tills du hittar en post med namnet ”FireActivityCompletedSuccessfullyEvent” som har en varaktighet i millisekunder. 
+   Bekräfta att posten har samma begäran-ID, till exempel:
+
+      ```text 
+      DM.EnterpriseGateway Verbose: 0 : 2016-09-26T23:08:56.7940067Z DM.EnterpriseGateway    baf40f21-2eb4-4af1-9c59-0950ef11ec4a    5f99f566-106d-c8ac-c864-c0808c41a606    MGEQ    21f96cc4-7496-bfdd-748c-b4915cb4b70c    B8DFCF12 [DM.Pipeline.Common.TracingTelemetryService] Event: FireActivityCompletedSuccessfullyEvent (duration=5004)
+      ```
+
+      > [!NOTE] 
+      > Posten ”FireActivityCompletedSuccessfullyEvent” är en utförlig post och loggas inte om inte inställningen ”TracingVerbosity” är på nivå 5.
+
+### <a name="trace-traffic-with-fiddler"></a>Spåra trafik med Fiddler
+
+[Fiddler](http://www.telerik.com/fiddler) är ett kostnadsfritt verktyg från Telerik som övervakar HTTP-trafik. Du kan granska den här trafiken med Power BI-tjänsten från klientdatorn. Den här tjänsten kan visa fel och annan relaterad information.
 
 ## <a name="next-steps"></a>Nästa steg
     
 * [Ansluta till lokala data från logikappar](../logic-apps/logic-apps-gateway-connection.md)
 * [Enterprise integration-funktioner](../logic-apps/logic-apps-enterprise-integration-overview.md)
-* [Kopplingar för Azure Logic Apps](../connectors/apis-list.md)
+* [Anslutningsappar för Azure Logic Apps](../connectors/apis-list.md)

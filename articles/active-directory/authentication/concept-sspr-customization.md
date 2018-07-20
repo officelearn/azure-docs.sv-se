@@ -1,21 +1,21 @@
 ---
-title: Lösenordsåterställning via självbetjäning anpassning - Azure Active Directory
+title: Anpassa Azure AD lösenordsåterställning via självbetjäning
 description: Återställa anpassade alternativ för lösenord för självbetjäning i Azure AD
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 23a2897142f5cba90513e8b79e4cd461f1dd25b7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 70f36447270199545ac27cf27f87f971e34ef424
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054598"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162134"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Anpassa Azure AD-funktionerna för lösenordsåterställning via självbetjäning
 
@@ -24,8 +24,9 @@ IT-proffs som vill distribuera lösenordsåterställning via självbetjäning (S
 ## <a name="customize-the-contact-your-administrator-link"></a>Anpassa länken ”Kontakta administratören”
 
 Även om SSPR inte är aktiverad kan användarna fortfarande att ha en ”Kontakta administratören” länk på lösenordet återställa portalen. Om användaren väljer den här länken det antingen:
-   * E-post dina administratörer och ber dem om du behöver hjälp med att ändra användarens lösenord. 
-   * Skickar dina användare till en URL som du anger för att få hjälp. 
+
+   * E-post dina administratörer och ber dem om du behöver hjälp med att ändra användarens lösenord.
+   * Skickar dina användare till en URL som du anger för att få hjälp.
 
 Vi rekommenderar att du ställer in den här kontakten till något som en e-postadress eller en webbplats som användarna redan använder för supportförfrågningar.
 
@@ -45,9 +46,7 @@ Du hittar mer information om de olika administratörsroller och tilldela dem [Ti
 
 Om din organisation inte vill meddela administratörer om lösenord återställa begäranden kan du aktivera följande konfiguration:
 
-* Aktivera Självbetjäning för återställning av lösenord för alla användare. Det här alternativet är **lösenordsåterställning** > **egenskaper**.
-  
-  Om du inte vill att användarna kan återställa sina lösenord, kan du begränsa åtkomst till en tom grupp. *Vi rekommenderar inte det här alternativet.*
+* Aktivera Självbetjäning för återställning av lösenord för alla användare. Det här alternativet är **lösenordsåterställning** > **egenskaper**. Om du inte vill att användarna kan återställa sina lösenord, kan du begränsa åtkomst till en tom grupp. *Vi rekommenderar inte det här alternativet.*
 * Anpassa helpdesk-länk om du vill ange en Webbadress eller en mailto: adress som användarna kan använda för att få hjälp. Det här alternativet är **lösenordsåterställning** > **anpassning** > **anpassad supportavdelningen e-postadress eller URL: en**.
 
 ## <a name="customize-the-ad-fs-sign-in-page-for-sspr"></a>Anpassa AD FS-inloggningssida för SSPR

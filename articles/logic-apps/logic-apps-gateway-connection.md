@@ -1,176 +1,161 @@
 ---
-title: Komma åt datakällor lokalt för Logikappar i Azure | Microsoft Docs
-description: Konfigurera lokala datagateway så att du kan komma åt datakällor lokalt från logikappar
-keywords: komma åt data på lokala, dataöverföring, kryptering och datakällor
+title: Åtkomst till datakällor lokalt för Azure Logic Apps | Microsoft Docs
+description: Skapa och konfigurera en lokal datagateway så att du kan komma åt datakällor lokalt från logikappar
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 6cb4449d-e6b8-4c35-9862-15110ae73e6a
 ms.service: logic-apps
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 09/14/2017
-ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: 0bf51f22e41ec78ef1dca7cba7bd5e26cbe1d969
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 07/20/2018
+ms.reviewer: yshoukry, LADocs
+ms.suite: integration
+ms.openlocfilehash: 65c7e03b349314ad61fa5f1ea8322f4d1352b8e6
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300017"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145697"
 ---
-# <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Ansluta till datakällor lokalt från logikappar med lokala datagateway
+# <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>Ansluta till datakällor lokalt från Azure Logic Apps med lokala datagateway
 
-Konfigurera en lokal datagateway logikappar kan använda med kopplingar som stöds för att komma åt datakällor lokalt från dina logic apps. Gatewayen fungerar som en brygga som ger snabb överföring och kryptering mellan datakällor lokalt och dina logic apps. Gatewayen som vidarebefordrar data från lokala datakällor på krypterade kanaler via Azure Service Bus. Det kommer all trafik som säkra utgående trafik från gateway-agenten. Lär dig mer om [hur datagateway fungerar](logic-apps-gateway-install.md#gateway-cloud-service). 
+Om du vill få åtkomst till datakällor lokalt från logikappar, du kan skapa en resurs till en Programgateway i Azure så att dina logic apps kan använda den [lokala anslutningsappar](../logic-apps/logic-apps-gateway-install.md#supported-connections). Den här artikeln visar hur du skapar din Azure gatewayresursen *när* du [ladda ned och installera gatewayen på den lokala datorn](../logic-apps/logic-apps-gateway-install.md). 
 
-Gatewayen stöder anslutningar till dessa datakällor lokalt:
+Information om hur du använder gatewayen med andra tjänster finns i följande artiklar:
 
-*   BizTalk Server 2016
-*   DB2  
-*   Filsystem
-*   Informix
-*   MQ
-*   MySQL
-*   Oracle-databas
-*   PostgreSQL
-*   SAP Application Server 
-*   SAP Message Server
-*   SharePoint
-*   SQL Server
-*   Teradata
+* [Microsoft Power BI lokala datagatewayen](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
+* [Microsoft Flow lokal datagateway](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Microsoft PowerApps lokal datagateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Azure Analysis Services lokal datagateway](../analysis-services/analysis-services-gateway.md)
 
-Dessa steg visar hur du ställer in lokala datagateway att fungera med dina logic apps. Läs mer om kopplingar som stöds, [kopplingar för Azure Logikappar](../connectors/apis-list.md). 
+## <a name="prerequisites"></a>Förutsättningar
 
-Information om hur du använder en gateway med andra tjänster finns i följande artiklar:
+* Du har redan [hämtas och installeras den datagatewayen på en lokal dator](../logic-apps/logic-apps-gateway-install.md).
 
-*   [Microsoft Power BI lokala datagateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-*   [Azure Analysis Services lokala datagateway](../analysis-services/analysis-services-gateway.md)
-*   [Microsoft Flow lokala datagateway](https://flow.microsoft.com/documentation/gateway-manage/)
-*   [Microsoft PowerApps lokala datagateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* Din gateway-installation inte redan är kopplad till en resurs för gatewayen i Azure. Du kan länka din gateway-installation endast till en resurs för gatewayen som sker när du skapar gatewayresursen och välj gatewayinstallationen. Den här länka kan gatewayinstallationen inte andra resurser.
 
-## <a name="requirements"></a>Krav
+* När du loggar in på Azure Portal och skapa gatewayresursen, måste du använda samma inloggning konto som har använts tidigare till [installera den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md#requirements).
+Du måste också använda samma [Azure-prenumeration](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) som användes för att installera gatewayen. Om du inte har en Azure-prenumeration än, <a href="https://azure.microsoft.com/free/" target="_blank">registrera dig för ett kostnadsfritt konto</a>.
 
-* Du måste redan ha [installerat datagateway på en lokal dator](logic-apps-gateway-install.md).
-
-* När du loggar in på Azure-portalen måste du använda samma arbets- eller skolkonto som används för att [installera lokala datagateway](logic-apps-gateway-install.md#requirements). Logga in kontot måste också ha en Azure-prenumeration som används när du skapar en gateway-resurs i Azure-portalen för gatewayinstallationen.
-
-* Gatewayinstallationen kan inte redan begärts av en Azure gateway-resurs. Du kan associera din gateway-installation till en resurs i Azure gateway. Anspråk händer när du skapar gatewayresursen så att installationen är inte tillgängligt för andra resurser.
-
-* Lokala datagateway körs som en Windows-tjänst och har konfigurerats att använda `NT SERVICE\PBIEgwService` tjänsten inloggningsuppgifter för Windows. Skapa och underhålla gateway-resurs i Azure-portalen på [Windows-tjänstkontot](../logic-apps/logic-apps-gateway-install.md) måste ha minst **deltagare** behörigheter. 
+* Du skapar och underhåller den gatewayresursen i Azure-portalen din [Windows-tjänstkontot](../logic-apps/logic-apps-gateway-install.md#windows-service-account) måste ha minst **deltagare** behörigheter. Den lokala datagatewayen körs som en Windows-tjänst och har ställts in att använda `NT SERVICE\PBIEgwService` för Windows service inloggningsuppgifter. 
 
   > [!NOTE]
-  > Windows-tjänstkontot skiljer sig från det konto som används för att ansluta till lokala data källor, och från Azure arbets- eller skolkonto som används för att logga in till molntjänster.
+  > Windows-tjänstkontot som skiljer sig från kontot som används för att ansluta till lokala data datakällor och från Azure arbets- eller skolkonto som används för att logga in på molntjänster.
 
-## <a name="install-the-on-premises-data-gateway"></a>Installera den lokala datagatewayen
+## <a name="download-and-install-gateway"></a>Hämta och installera gatewayen
 
-Så om du inte redan gjort det [steg för att installera den lokala datagatewayen](logic-apps-gateway-install.md). Innan du fortsätter med andra steg, se till att du har installerat datagateway på en lokal dator.
+Innan du fortsätter med stegen i den här artikeln måste du ha den gateway som redan är installerad på en lokal dator.
+och om du inte redan gjort följer du stegen för att [ladda ned och installera den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md). 
 
 <a name="create-gateway-resource"></a>
 
-## <a name="create-an-azure-resource-for-the-on-premises-data-gateway"></a>Skapa en Azure-resurs för lokala datagateway
+## <a name="create-azure-resource-for-gateway"></a>Skapa Azure-resurs för gatewayen
 
-När du har installerat gatewayen på en lokal dator måste du skapa din datagateway som en resurs i Azure. Det här steget associerar även din gateway-resurs med din Azure-prenumeration.
+Du kan sedan skapa en Azure-resurs för din gateway när du har installerat gatewayen på en lokal dator. Det här steget associerar även din gateway-resurs med din Azure-prenumeration.
 
-1. Logga in på [Azure Portal](https://portal.azure.com "Azure Portal"). Se till att använda samma Azure arbetet eller skolan e-postadress används för att installera gatewayen.
+1. Logga in på <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>. Kontrollera att du använder samma Azure arbets- eller skolans e-postadress som används för att installera gatewayen.
 
-2. Välj på Azure Huvudmeny, **skapar du en resurs** > **Enterprise Integration** > **lokala datagateway**.
+2. Välj på Azure-huvudmenyn **skapa en resurs** > 
+**integrering** > **lokal datagateway**.
 
-   ![Sök efter ”lokala datagateway”](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
+   ![Hitta ”lokal datagateway”](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
-3. På den **skapa anslutningen gateway** sidan, Tillhandahåll följande information för att skapa din data gateway-resurs:
+3. På den **skapa anslutningsgatewayen** anger du den här informationen för din gatewayresursen:
 
-    * **Namnet**: Ange ett namn för din gateway-resurs. 
+   | Egenskap  | Beskrivning | 
+   |----------|-------------|
+   | **Namn** | Namn för din gateway-resurs | 
+   | **Prenumeration** | Namn på din Azure-prenumeration, som ska vara samma prenumeration som din logikapp. Standard-prenumerationen baseras på Azure-konto du använde för att logga in. | 
+   | **Resursgrupp** | Namnet på den [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) för att organisera relaterade resurser | 
+   | **Plats** | Azure begränsar den här platsen till samma region som valts för gateway-Molntjänsten under [gatewayinstallationen](../logic-apps/logic-apps-gateway-install.md). <p>**Obs**: se till att den här gatewayen resursplats matchar tjänstlokalisering för gateway-molnet. I annat fall visas inte gateway-installation i listan över installerade gatewayar och du kan välja i nästa steg. Du kan använda olika områden för din gateway-resurs och för din logikapp. | 
+   | **Installationsnamn** | Om din gateway-installation inte redan är markerat, väljer du den gateway som du tidigare har installerat. | 
+   | | | 
 
-    * **Prenumerationen**: Välj den Azure-prenumerationen ska associeras med din gateway-resurs. 
-    Den här prenumerationen måste vara samma prenumeration som din logikapp.
-   
-      Standard-prenumerationen är baserad på det Azure-konto som du använde för att logga in.
+   Här är ett exempel:
 
-    * **Resursgruppen**: skapa en resursgrupp eller välj en befintlig resursgrupp för att distribuera din gateway-resurs. 
-    Resursgrupper kan du hantera relaterade Azure-resurser som en samling.
+   ![Ange information om hur du skapar din lokala datagateway](./media/logic-apps-gateway-connection/createblade.png)
 
-    * **Plats**: Azure begränsar den här platsen till samma region som valts för gateway-Molntjänsten under [gatewayinstallationen](logic-apps-gateway-install.md). 
+4. Om du vill lägga till gatewayresursen på Azure-instrumentpanelen, Välj **fäst på instrumentpanelen**. När du är klar väljer du **Skapa**.
 
-      > [!NOTE]
-      > Kontrollera att gateway-resursplats matchar gateway cloud service-plats. Annars visas inte din gateway-installation i listan över installerade gateways som du kan välja i nästa steg.
-      > 
-      > Du kan använda olika regioner för din gateway-resurs och för din logikapp.
+   För att hitta eller visa din gateway när som helst, från Azure-huvudmenyn, Välj **alla tjänster**. 
+   Ange ”lokala datagatewayer” i sökrutan och välj sedan **lokala Datagatewayer**.
 
-    * **Installationen namnet**: Välj den gateway som du tidigare har installerat om gatewayinstallationen av inte redan har markerats. 
-
-    Lägg till gateway-resurs i instrumentpanelen i Azure, Välj **fäst på instrumentpanelen**. 
-    När du är klar väljer du **Skapa**.
-
-    Exempel:
-
-    ![Ange information för att skapa din lokala datagateway](./media/logic-apps-gateway-connection/createblade.png)
-
-    Om du vill hitta eller visa din datagateway när som helst på Azure huvudmenyn väljer **alla tjänster**. 
-    Ange ”lokala data gateway” i sökrutan och väljer sedan **lokala Data Gateways**.
-
-    ![Sök efter ”lokala Data Gateways”](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+   ![Hitta ”lokala Datagatewayer”](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
 
-## <a name="connect-your-logic-app-to-the-on-premises-data-gateway"></a>Ansluta din logikapp till lokala datagateway
+## <a name="connect-to-on-premises-data"></a>Ansluta till lokala data
 
-Nu när du har skapat din data gateway-resurs och tillhörande din Azure-prenumeration med den här resursen, skapa en anslutning mellan din logikapp och datagateway.
+När du skapar din resurs för gatewayen och koppla din Azure-prenumeration med den här resursen kan skapa du nu en anslutning mellan din logikapp och din lokala datakälla med hjälp av gatewayen.
 
-> [!NOTE]
-> Din plats för gateway-anslutningen måste finnas i samma region som din logikapp, men du kan använda en datagateway som finns i en annan region.
+1. Skapa eller öppna logikappen i Logic App Designer i Azure-portalen.
 
-1. Skapa eller öppna logikappen i logik App Designer i Azure-portalen.
+2. Lägg till en anslutningsapp som stöder den lokala anslutningar, till exempel **SQL Server**.
 
-2. Lägg till en koppling som har stöd för lokala anslutningar, t.ex. SQL Server.
+3. Nu ställa in anslutningen:
 
-3. Efter den ordning som visas, Välj **Anslut via lokala datagateway**, ange ett unikt anslutningsnamn och informationen som krävs och välj den data gateway-resurs som du vill använda. När du är klar väljer du **Skapa**.
+   1. Välj **Anslut via lokal datagateway**. 
 
-   > [!TIP]
-   > Ett unikt anslutningsnamn hjälper dig att identifiera anslutningen senare, speciellt när du skapar flera anslutningar. Om tillämpligt, ange domännamn för ditt användarnamn. 
+   2. För **gatewayer**, Välj den gateway-resurs som du skapade tidigare. 
 
-   ![Skapa anslutning mellan logik appen och data gateway](./media/logic-apps-gateway-connection/blankconnection.png)
+      Även om din plats för gateway-anslutningen måste finnas i samma region som din logikapp, kan du välja en gateway i en annan region.
 
-Grattis, gateway-anslutningen är klar för din logikapp ska användas.
+   3. Ange ett unikt namn och annan nödvändig information. 
 
-## <a name="edit-your-gateway-connection-settings"></a>Redigera anslutningsinställningarna gateway
-
-När du har skapat en gateway-anslutningen för din logikapp kanske du vill uppdatera inställningarna för den specifika anslutningen.
-
-1. Hitta gateway-anslutningen:
-
-   * På menyn logiken i appen under **utvecklingsverktyg**väljer **API anslutningar**. 
+      Det unika anslutningsnamnet hjälper dig att identifiera anslutningen senare, särskilt när du skapar flera anslutningar. Om så är tillämpligt, även innehålla domännamn för ditt användarnamn.
    
-     Den **API anslutningar** visar alla API-anslutningar som är associerade med din logikapp, inklusive gateway-anslutningar.
+      Här är ett exempel:
 
-     ![Gå till din logikapp, Välj ”API-anslutningar](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
+      ![Skapa anslutning mellan logic app- och gateway](./media/logic-apps-gateway-connection/blankconnection.png)
 
-   * På Azure huvudmenyn går du till **fler tjänster** > **webb + mobilt** > **API anslutningar** för alla API-anslutningar, inklusive gateway anslutningar som är associerade med din Azure-prenumeration. 
+   4. När du är klar väljer du **Skapa**. 
 
-   * På Azure huvudmenyn, går du till **alla resurser** för alla API-anslutningar, inklusive gateway-anslutningar som är associerade med din Azure-prenumeration.
+Din gateway-anslutning är nu redo för din logikapp att använda.
 
-2. Välj gateway-anslutningen som du vill visa eller redigera och välj **redigera API-anslutningen**.
+## <a name="edit-connection"></a>Redigera anslutning
+
+När du skapar en gateway-anslutning för din logikapp kan vilja du uppdatera inställningarna för den specifika anslutningen.
+
+1. Hitta din gateway-anslutning:
+
+   * Du hittar alla API-anslutningar för just din logikapp på logikappens meny under **utvecklingsverktyg**väljer **API-anslutningar**. 
+   
+     ![Gå till din logikapp, Välj ”API-anslutningar”](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
+
+   * Hitta alla API-anslutningar som är associerade med din Azure-prenumeration: 
+
+     * Från Azure-huvudmenyn går du till **alla tjänster** > **Web** > **API-anslutningar**. 
+     * Från Azure-huvudmenyn går du till **alla resurser**.
+
+2. Välj den gatewayanslutning och sedan välja **redigera API-anslutningen**.
 
    > [!TIP]
-   > Om uppdateringarna inte gälla försök [stoppa och starta om Windows-tjänst för gateway](./logic-apps-gateway-install.md#restart-gateway).
+   > Om dina uppdateringar inte gälla försöka [stoppas och startas gatewayens Windows-tjänst](./logic-apps-gateway-install.md#restart-gateway).
 
 <a name="change-delete-gateway-resource"></a>
 
-## <a name="switch-or-delete-your-on-premises-data-gateway-resource"></a>Växla eller ta bort dina lokala data gateway-resurs
+## <a name="delete-gateway-resource"></a>Ta bort gateway-resurs
 
-För att skapa en annan gateway-resurs, associera din gateway med en annan resurs eller ta bort gateway-resurs, kan du ta bort gatewayresursen utan att påverka gateway-installationen. 
+Du kan ta bort gatewayresursen för att skapa en annan gateway-resurs, koppla din gateway till en annan resurs eller ta bort gatewayresursen, utan att påverka gateway-installation. 
 
-1. Gå till den Azure huvudmenyn **alla resurser**. 
-2. Hitta och välj din data gateway-resurs.
-3. Välj **lokala Data Gateway**, och välj verktygsfältet resurs **ta bort**.
+1. Från Azure-huvudmenyn går du till **alla resurser**. 
+
+2. Hitta och välj din gateway-resurs.
+
+3. Om du inte redan har markerats på din gateway resurs-menyn, Välj **lokala Data Gateway**. 
+
+4. Resurs-verktygsfältet **ta bort**.
 
 <a name="faq"></a>
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
+
+## <a name="get-support"></a>Få support
+
+* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 

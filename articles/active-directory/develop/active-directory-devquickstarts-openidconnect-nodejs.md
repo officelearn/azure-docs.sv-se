@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7d9b8a740c331a73ac66398be801ba3878312969
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7aa48b65423db2a3af032ed64d9d571fa603668d
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969086"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144762"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD-Node.js-webbapp, komma igång
 Här kan vi använda Passport för att:
@@ -62,7 +62,10 @@ Det färdiga programmet visas i slutet av den här självstudien samt.
 
 6. När du har registrerat tilldelar Azure AD en app i ett unikt program-ID. Du behöver det här värdet i följande avsnitt, så kopiera det från programsidan.
 7. Från den **inställningar** -> **egenskaper** för ditt program och uppdatera App-ID-URI. Den **Appidentitets-URI** är en unik identifierare för ditt program. Konventionen är att använda formatet `https://<tenant-domain>/<app-name>`, till exempel: `https://contoso.onmicrosoft.com/my-first-aad-app`.
-8. Följ steg 4 i för att skapa en hemlig nyckel, [att lägga till autentiseringsuppgifter eller behörighet att komma åt webb API: er](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
+
+8. Från den **inställningar** -> **Svarswebbadresser** för ditt program, lägga till en Webbadress som lagts till i inloggnings-URL: en från steg 5 och klicka på Spara.
+
+9. Följ steg 4 i för att skapa en hemlig nyckel, [att lägga till autentiseringsuppgifter eller behörighet att komma åt webb API: er](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
 
    > [!IMPORTANT]
    > Kopiera nyckelvärdet för programmet. Detta är värdet för den `clientSecret`, som du behöver för **steg3** nedan. 
@@ -91,7 +94,7 @@ Här kan konfigurera vi Express för att använda autentiseringsprotokollet Open
 
   * Den `clientID` är den **program-Id** som har tilldelats din app i portalen för registrering.
 
-  * Den `returnURL` är den **omdirigerings-Uri** som du angav på portalen.
+  * Den `returnURL` är den **svars-URL** som du angav på portalen.
 
   * Den `clientSecret` är den hemlighet som du genererade i portalen.
 

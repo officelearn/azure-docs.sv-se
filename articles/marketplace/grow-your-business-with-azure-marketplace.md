@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: edafc2e0c11f4395540081e4b09614f2beb70696
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f1616f7a20fdd55b98b3bfb37973a783997e2eb0
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115933"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145248"
 ---
 # <a name="grow-your-business-on-marketplace"></a>Utöka verksamheten på marketplace 
 När du har publicerat ditt erbjudande i AppSource eller Azure Marketplace, kan du använda din registrering som en startplats för gemensamma (GTM) go-to-market-aktiviteter med Microsoft. Kör trafik till dina marketplace-erbjudande- och köpet marketplace leads, till exempel är bra sätt att snabba upp din verksamhet att växa. I den här artikeln ska vi delar många marknadsföring Metodtips för att utöka verksamheten på marketplace.
@@ -215,7 +215,7 @@ Använd följande tabell för att flytta upp ditt erbjudande eller en app, att f
 | Bli redo för IP-Medförsäljning | Du kan vara kvalificerade för IP-Medförsäljning redo programmet, där du kan samarbeta direkt med Microsoft-säljare och andra partners på målet kundtillfällen och planera för kontot. Din lösning blir synliga för Microsoft-säljare i försäljning lösning katalogen. Microsoft-säljare är belönad samarbeta och vinna med dig.<br /> Mer information om medförsäljning, inklusive krav för berättigande, besök [marknadsföra ditt företag](https://partner.microsoft.com/reach-customers/promote-your-business). |
 
 
-# <a name="azure-partner-revenue-attribution"></a>Azure-Partner intäkter Attribution
+## <a name="azure-partner-customer-usage-attribution"></a>Azure-Partner kundens användning Attribution
 
 Som programvarupartner för Azure att dina lösningar antingen kräver Azure-komponenter eller distribueras direkt på Azure-infrastrukturen.  Idag när en partnerlösning har distribuerats av kunden och använder Azure-resurser etableras av kunden, är det svårt för partner att få insyn till statusen för dessa distributioner och svårt att få optik i påverkan på Azure tillväxt för justering med Microsofts säljteam och kredit för Microsoft partner-program.   
 
@@ -291,8 +291,6 @@ client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
 
 >Detta måste göras för varje klient, det finns ingen global statisk konfiguration (du kan välja att göra en klientfabrik om du vill vara säker på att alla klienter fungerar. 
 >[Ytterligare Referensinformation](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
-
-## <a name="registering-a-guid"></a>Registrera ett GUID: 
 
 Tagga en distribution med Azure PowerShell eller Azure CLI: Om du distribuerar resurser via AzurePowerShell kan du lägga till din GUID med hjälp av följande metod:
 
@@ -398,11 +396,14 @@ När våra programdistribution Microsoft kommer att ha identifiera installation 
 
 Om du behöver hjälp genom att följa de stegen nedan:
  1. Gå till supportsidan finns på [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)
- 2. Välj problemtypen för problem med användning associering -: **Marketplace Onboarding** och kategori: **andra** och klicka sedan på **starta begäran.**
-
-För problem med åtkomst till Azure Marketplace Cloud Partner Portal - Välj problemtypen: **Marketplace Onboarding** och kategori: **problem med anslutningen** och klicka sedan på **starta begäran.**
+ 2. Välj problemtypen för problem med användning associering -: **Marketplace Onboarding** och kategori: **andra** och klicka sedan på **starta begäran.** 
+>[!Note]
+>För problem med åtkomst till Azure Marketplace Cloud Partner Portal - Välj problemtypen: **Marketplace Onboarding** och kategori: **problem med anslutningen** och klicka sedan på **starta begäran.**
  3. Slutför de obligatoriska fälten på nästa sida och klicka på **Fortsätt.**
  4. Fyll i fälten fritext på nästa sida.  
+ 
+
+
  
 >[!Important] 
 >Fyll i titeln Incident med **”ISV användning spåra”** och beskrivning av problemet i detalj i fältet stora fritext efter.  Slutför resten av formuläret och klicka på **skicka**.

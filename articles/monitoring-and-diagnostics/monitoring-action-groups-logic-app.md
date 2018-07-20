@@ -1,21 +1,21 @@
 ---
-title: Hur du utlöser komplexa åtgärder med Azure Monitor-aviseringar och åtgärdsgrupper
+title: Hur du utlöser komplexa åtgärder med Azure Monitor-aviseringar
 description: Lär dig mer om att skapa en logic app-åtgärd för att bearbeta Azure Monitor-aviseringar.
 author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 51d47b87f898aa65fe4ee76c312240a50d45231d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 034e708b79bbdf15d7fa628f388402998f49c0d9
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049195"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161514"
 ---
-# <a name="create-a-logic-app-action"></a>Skapa en logic app-åtgärd
+# <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Hur du utlöser komplexa åtgärder med Azure Monitor-aviseringar
 
 Den här artikeln visar hur du konfigurerar och utlösa en logikapp för att skapa en konversation i Microsoft Teams när en avisering utlöses.
 
@@ -290,6 +290,9 @@ Processen för att skapa en måttavisering liknar [skapar en aktivitetsloggavise
        ![”Åtgärd metrisk varning falskt villkor efter”](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "åtgärd för metrisk varning falskt villkor efter")
 
 - Steg 15 är samma. Följ anvisningarna för att spara logikappen och uppdatera din åtgärdsgruppen.
+
+## <a name="calling-other-applications-besides-microsoft-teams"></a>Anropa andra program än Microsoft Teams
+Logic Apps har ett antal olika anslutningar som gör det möjligt att utlösaråtgärder i ett brett utbud av program och databaser. Slack, SQL Server, Oracle, Salesforce, är några exempel. Mer information om anslutningsappar finns i [Logikapp anslutningsappar](../connectors/apis-list.md).  
 
 ## <a name="next-steps"></a>Nästa steg
 * Hämta en [översikt över Azure aktivitetsloggaviseringar](monitoring-overview-alerts.md) och lär dig hur du får aviseringar.  

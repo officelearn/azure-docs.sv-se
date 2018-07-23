@@ -19,6 +19,8 @@
       href: quickstart-nodejs.md
     - name: Skapa Java-app
       href: quickstart-java.md
+    - name: Skapa Python-app
+      href: quickstart-python.md
     - name: Skapa Ruby-app
       href: quickstart-ruby.md
     - name: Skapa Docker-/Go-app
@@ -37,7 +39,7 @@
           href: tutorial-php-mysql-app.md
         - name: Node.js med MongoDB
           href: tutorial-nodejs-mongodb-app.md
-        - name: Anpassad Python-behållare med Postgres
+        - name: Anpassad Python-container med Postgres
           href: tutorial-docker-python-postgresql-app.md
     - name: App med flera behållare
       href: tutorial-multi-container-app.md

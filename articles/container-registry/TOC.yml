@@ -21,7 +21,7 @@
       href: ../aks/tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
-    - name: Skapa behållaravbildningar (förhandsgranskning)
+    - name: Skapa containeravbildningar (förhandsgranskning)
       items:
         - name: 1 – Skapa avbildningar i Azure
           href: container-registry-tutorial-quick-build.md
@@ -31,7 +31,7 @@
           href: container-registry-tutorial-base-image-update.md
     - name: Geo-replikering
       items:
-        - name: 1 – Förbered behållarregister
+        - name: 1 – Förbered containerregister
           href: container-registry-tutorial-prepare-registry.md
         - name: 2 – Distribuera webbprogrammet
           href: container-registry-tutorial-deploy-app.md
@@ -67,7 +67,7 @@
           href: container-registry-auth-service-principal.md
         - name: Azure Container Instances
           href: container-registry-auth-aci.md
-        - name: Azure Container Service
+        - name: Azure Kubernetes Service (AKS)
           href: container-registry-auth-aks.md
 - name: Referens
   items:

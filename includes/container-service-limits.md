@@ -3,10 +3,9 @@
 | Maximalt antal noder per kluster | 100 |
 | Maximalt antal poddar per nod ([grundläggande nätverk med Kubenet][basic-networking]) | 110 |
 | Maximalt antal poddar per nod ([avancerade nätverk med Azure CNI][advanced-networking]) | 30<sup>1</sup> |
-| Maximalt antal kluster per prenumeration | 20<sup>2</sup> |
+| Maximalt antal kluster per prenumeration | 100 |
 
 <sup>1</sup> Det här värdet kan anpassas med hjälp av ARM-malldistribution. Exempel finns [här][arm-deployment-example].<br />
-<sup>2</sup> Skapa en [supportbegäran för Azure][azure-support] om du vill begära ökning av gränsen.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/networking-overview.md#basic-networking

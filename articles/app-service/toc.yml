@@ -23,8 +23,6 @@
       href: app-service-web-get-started-php.md
     - name: Skapa Java-app
       href: app-service-web-get-started-java.md
-    - name: Skapa Python-app
-      href: app-service-web-get-started-python.md
     - name: Skapa en statisk HTML-webbplats
       href: app-service-web-get-started-html.md
 - name: Självstudier
@@ -41,8 +39,6 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: Java med MySQL
           href: app-service-web-tutorial-java-mysql.md
-        - name: Python med PostgreSQL
-          href: app-service-web-tutorial-python-postgresql.md
     - name: Få åtkomst till SQL DB på ett säkert sätt
       href: app-service-web-tutorial-connect-msi.md
     - name: Agera värd åt RESTful-API

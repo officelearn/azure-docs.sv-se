@@ -8,12 +8,12 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: e795a6c5f76fb8d40c7e6778555de619d00b3a41
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c01fcc7e69cf5af26b127519f183062ccf4923cc
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600921"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172752"
 ---
 # <a name="app-service-documentation"></a>Dokumentation om App Service
 Med Azure App Service kan du skapa och vara värd för webbappar med valfritt programmeringsspråk utan att behöva hantera infrastrukturen, språket eller webbramverkskörningen. Azure Web Apps tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från GitHub, Visual Studio Team Services eller valfri Git-lagringsplats. Lär dig hur du använder Azure App Service med våra snabbstarter, självstudier och exempel.
@@ -29,7 +29,7 @@ Lär dig hur du distribuerar ditt första program i molnet med hjälp av App Ser
 - [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
 - [PHP](/azure/app-service/app-service-web-get-started-php)
 - [Java](/azure/app-service/app-service-web-get-started-java)
-- [Python](/azure/app-service/app-service-web-get-started-python)
+- [Python](/azure/app-service/containers/quickstart-python)
 - [HTML](/azure/app-service/app-service-web-get-started-html)
 
 ## <a name="step-by-step-tutorials"></a>Steg för steg-självstudier
@@ -40,7 +40,7 @@ Lär dig att distribuera, hantera och övervaka säkra webbappar på Azure.
   - [.NET med Azure SQL DB](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
   - [Node.js med MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
   - [Java med MySQL](/app-service/app-service-web-tutorial-java-mysql)
-  - [Python med PostgreSQL](/app-service/app-service-web-tutorial-python-postgresql)
+  - [Python med PostgreSQL](/app-service/containers/tutorial-docker-python-postgresql-app)
 - [Mappa en befintlig anpassad domän till ditt program](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Bind ett befintligt SSL-certifikat till ditt program](/azure/app-service/app-service-web-tutorial-custom-SSL)
 

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: af5079e8c448a0df6b1109f5f23e3e3a2871a167
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: f666b59db978774cd299cb91eccdfac99e66ae76
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887274"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172059"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Web App-robot med LUIS-mall för C#
 
@@ -80,7 +80,7 @@ Roboten svarar genom att säga ”du har nått hälsning. Du SA: hello ”.  Det
 > Om du inte har LUIS-app-ID för den [Start Automation app](luis-get-started-create-app.md), logga in på den [LUIS](luis-reference-regions.md) webbplats som använder samma konto som du använder för att logga in på Azure. 
 > 1. Klicka på **Mina appar**. 
 > 2. Hitta LUIS-appen du skapade tidigare, som innehåller avsikter och entiteter från HomeAutomation-domän.
-> 3. I den **inställningar** för LUIS-app, hitta och kopiera app-ID. Se till att det [tränade](interactive-test.md) och [publicerade](luis-how-to-publish-app.md). 
+> 3. I den **inställningar** för LUIS-app, hitta och kopiera app-ID. Se till att det [tränade](luis-interactive-test.md) och [publicerade](luis-how-to-publish-app.md). 
 
     > [!WARNING]
     > If you delete your app ID or LUIS key, the bot will stop working.
@@ -145,7 +145,7 @@ I Azure-portalen klickar du på **testa i Web Chat** att testa roboten. Skriv me
    ![Testa HomeAutomation bot i Web Chat](./media/luis-tutorial-cscharp-web-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> Du kan kvarhålla LUIS-app utan några ändringar till din robot kod. Se [lägger du till exempel yttranden](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) och [träna och testa LUIS-appen](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test). 
+> Du kan kvarhålla LUIS-app utan några ändringar till din robot kod. Se [lägger du till exempel yttranden](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) och [träna och testa LUIS-appen](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test). 
 
 ## <a name="download-the-bot-to-debug"></a>Ladda ned roboten att felsöka
 Om din robot inte fungerar kan ladda ned projektet till den lokala datorn och fortsätta [felsökning](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot). 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 61fa6c94c0d717fe1e71bf8929f2e3b4a0982562
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: d5071a55c49a0749d91ec9617558ced76ebb007e
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903887"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188105"
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Konfigurera en VMSS hanterad tjänstidentitet (MSI) med hjälp av PowerShell
 
@@ -34,7 +34,11 @@ I den här artikeln får du lära dig hur du utför åtgärder för hanterad tj�
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Om du är bekant med hanterad tjänstidentitet kan ta en titt på [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en systemtilldelad och Användartilldelad identitet](overview.md#how-does-it-work)**.
-- Om du inte redan har ett Azure-konto, [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
+- Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
+- Ditt konto måste följande rolltilldelningar för att utföra vilka hanteringsåtgärder i den här artikeln:
+    - [Virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) att skapa en skalningsuppsättning för virtuell dator och aktivera och ta bort systemtilldelad hanterad identitet från en skalningsuppsättning för virtuell dator.
+    - [Hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) roll för att skapa en Användartilldelad identitet.
+    - [Hanterade Identitetsoperatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) roll att tilldela och ta bort en Användartilldelad identitet från och till en VM-skalningsuppsättning.
 - Installera [den senaste versionen av Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) om du inte redan har gjort. 
 
 ## <a name="system-assigned-managed-identity"></a>Systemtilldelad hanterad identitet
@@ -108,7 +112,7 @@ Du lär dig hur du lägger till och ta bort Användartilldelad identitet från e
 
 ### <a name="assign-a-user-assigned-identity-during-creation-of-an-azure-vmss"></a>Tilldela Användartilldelad identitet under skapandet av en Azure VMSS
 
-Skapa en ny VMSS med en Användartilldelad identitet stöds inte för närvarande via PowerShell. Om hur du lägger till en Användartilldelad identitet i en befintlig VMSS finns i nästa avsnitt. Kolla igen senare.
+Skapa en ny VMSS med en Användartilldelad identitet stöds inte för närvarande via PowerShell. Om hur du lägger till en Användartilldelad identitet i en befintlig VMSS finns i nästa avsnitt. Kom tillbaka om för att få uppdateringar.
 
 ### <a name="assign-a-user-identity-to-an-existing-azure-vmss"></a>Tilldela en användaridentitet till en befintlig Azure VMSS
 
@@ -133,9 +137,9 @@ Tilldela Användartilldelad identitet till en befintlig Azure-VMSS:
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>Ta bort Användartilldelad identitet från en Azure VMSS
 
 > [!NOTE]
-> Ta bort alla användartilldelade identiteter från en Virtual Machine Scale Sets stöds för närvarande inte, om du inte har en systemtilldelad identitet. Kolla igen senare.
+> Ta bort alla användartilldelade identiteter från en Virtual Machine Scale Sets stöds för närvarande inte, om du inte har en systemtilldelad identitet. Kom tillbaka om för att få uppdateringar.
 
-Om din VMSS har flera användartilldelade identiteter, kan du ta bort alla utom den sista som använder följande kommandon. Se till att ersätta den `<RESOURCE GROUP>` och `<VMSS NAME>` parametervärden med dina egna värden. Den `<MSI NAME>` är Användartilldelad identitet namnegenskapen som fortfarande på VMSS. Den här informationen kan hittas genom att i identitetsavsnittet av VMSS med `az vmss show`:
+Om din VMSS har flera användartilldelade identiteter, kan du ta bort alla utom den sista som använder följande kommandon. Ersätt parametervärdena `<RESOURCE GROUP>` och `<VMSS NAME>` med dina egna värden. Den `<MSI NAME>` är Användartilldelad identitet namnegenskapen som fortfarande på VMSS. Den här informationen kan hittas genom att i identitetsavsnittet av VMSS med `az vmss show`:
 
 ```powershell
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss

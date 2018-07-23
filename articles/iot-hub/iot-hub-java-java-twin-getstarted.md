@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: 96cad0fc7f387c5f0cb14996ae6ac015c104b81d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b8884cafbf250b9d7a88219b5647addafee9904a
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619445"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186908"
 ---
 # <a name="get-started-with-device-twins-java"></a>Kom igång med enhetstvillingar (Java)
 
@@ -318,7 +318,7 @@ I det här avsnittet skapar du en Java-konsolapp som anger en rapporterad egensk
 
     `mvn clean package -DskipTests`
 
-## <a name="run-the-apps"></a>Kör apparna
+## <a name="run-the-apps"></a>Köra apparna
 
 Du är nu redo att köra konsolappar.
 
@@ -350,8 +350,8 @@ I den här självstudiekursen konfigurerade du en ny IoT Hub på Azure Portal oc
 
 Använd följande resurser för att lära dig hur du:
 
-* Skicka telemetri från enheter med den [Kom igång med IoT Hub](iot-hub-java-java-getstarted.md) självstudien.
-* Kontrollera enheter interaktivt (till exempel aktivera en fans, från en användarstyrd app) med den [Använd direkta metoder](iot-hub-java-java-direct-methods.md) självstudien.
+* Skicka telemetri från enheter med den [Kom igång med IoT Hub](quickstart-send-telemetry-java.md) självstudien.
+* Kontrollera enheter interaktivt (till exempel aktivera en fans, från en användarstyrd app) med den [Använd direkta metoder](quickstart-control-device-java.md) självstudien.
 
 <!-- Images. -->
 [7]: ./media/iot-hub-java-java-twin-getstarted/invoke-method.png

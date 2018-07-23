@@ -10,17 +10,17 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 43a26f9e81b788c2a110c24bf2e02c56c0714f1e
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d579ba8913eeb6ce22e277dab454ba7e3b628703
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988844"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171940"
 ---
 # <a name="publish-your-trained-app"></a>Publicera din tränade app
 När du är klar att skapa och testa LUIS-appen kan du publicera den. När appen publiceras på publiceringssidan visar alla tillhörande HTTP [slutpunkter](luis-glossary.md#endpoint). De här slutpunkterna per [region](luis-reference-regions.md) och per [nyckel](luis-how-to-manage-keys.md), integreras sedan i alla klienten, chattrobot eller backend-program. 
 
-Du kan alltid [testa](interactive-test.md) din app innan du publicerar den. 
+Du kan alltid [testa](luis-interactive-test.md) din app innan du publicerar den. 
 
 ## <a name="production-and-staging-slots"></a>Produktions- och mellanlagringsplatser
 Du kan publicera din app till den **mellanlagringsplats** eller **produktionsplatsen**. Detta kan du ha två olika versioner med publicerade slutpunkter eller samma version på två olika slutpunkter med hjälp av två platser för publicering. 
@@ -154,4 +154,4 @@ Testa publicerade slutpunkten genom att välja URL: en i den **Endpoint** kolumn
 ## <a name="next-steps"></a>Nästa steg
 
 * Se [hantera nycklar](./luis-how-to-manage-keys.md) att lägga till nycklar LUIS-appen och lär dig mer om hur nycklar mappas till områden.
-* Se [träna och testa din app](interactive-test.md) anvisningar om hur du testar din publicerade app i test-konsolen.
+* Se [träna och testa din app](luis-interactive-test.md) anvisningar om hur du testar din publicerade app i test-konsolen.

@@ -1,27 +1,27 @@
 ---
-title: Krav för Azure Import/Export service | Microsoft Docs
-description: Förstå kraven för Azure Import/Export service programvara och maskinvara.
+title: Krav för tjänsten Azure Import/Export | Microsoft Docs
+description: Förstå kraven på programvara och maskinvara för tjänsten Azure Import/Export.
 author: alkohli
 manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 07/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 4c6e22f50f4550cb4a6e25960bcc13a4d92e9819
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 68e31f6b88a772ad67e3c58e11925f46f1cc37e9
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825075"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188808"
 ---
-# <a name="azure-importexport-system-requirements"></a>Systemkrav för Azure Import/Export
+# <a name="azure-importexport-system-requirements"></a>Azure Import/Export-systemkrav
 
-Den här artikeln beskriver viktiga för din Azure Import/Export-tjänst. Vi rekommenderar att du läser informationen noggrant innan du använder Import/Export-tjänsten och sedan refererar tillbaka till den vid behov under åtgärden.
+Den här artikeln beskriver viktiga för din Azure Import/Export-tjänst. Vi rekommenderar att du läser informationen noggrant innan du använder Import/Export-tjänsten och sedan refererar tillbaka till det som behövs under åtgärden.
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-Förbereda hårddiskar med hjälp av verktyget WAImportExport följande **64-bitars operativsystem som stöder BitLocker-diskkryptering** stöds.
+Förbereda hårddiskar med verktyget WAImportExport följande **64-bitars operativsystem som stöder BitLocker-diskkryptering** stöds.
 
 
 |Plattform |Version |
@@ -33,15 +33,15 @@ Förbereda hårddiskar med hjälp av verktyget WAImportExport följande **64-bit
 
 ## <a name="supported-storage-accounts"></a>Stöds storage-konton
 
-Azure Import/Export-tjänsten stöder följande Azure storage-konton.
+Azure Import/Export-tjänsten har stöd för följande Azure storage-konton.
 - Klassisk
 - Blob Storage-konton
-- Allmänna ändamål v1 storage-konton. 
+- Allmänt syfte v1-lagringskonton. 
 
-Varje jobb kan användas för att överföra data till eller från en enda storage-konto. Med andra ord kan inte ett enda import/export-jobb vara över flera lagringskonton. Information om hur du skapar ett nytt lagringskonto finns [hur du skapar ett Lagringskonto](storage-create-storage-account.md#create-a-storage-account).
+Varje jobb kan användas för att överföra data till eller från endast en storage-konto. Med andra ord kan inte en enda import/export-jobbet omfatta över flera lagringskonton. Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-create-storage-account.md#create-a-storage-account).
 
 > [!IMPORTANT] 
-> Tjänsten Azure Import exportera har inte stöd för lagringskonton där den [virtuella nätverksslutpunkter](../../virtual-network/virtual-network-service-endpoints-overview.md) funktionen har aktiverats. 
+> Azure Import Export-tjänsten stöder inte storage-konton där den [tjänstslutpunkter i virtuella nätverk](../../virtual-network/virtual-network-service-endpoints-overview.md) funktionen har aktiverats. 
 
 ## <a name="supported-storage-types"></a>Lagringstyper som stöds
 
@@ -50,15 +50,15 @@ Följande lista över lagringstyper stöds med Azure Import/Export-tjänsten.
 
 |Jobb  |Storage  |Stöds  |Stöds inte  |
 |---------|---------|---------|---------|
-|Importera     |  Azure Blob storage. <br>Blockblobbar, sidblobbar som stöds. <br> Azure-filer stöds.       |         |
-|Exportera     |   Azure Blob storage. <br>Blockblobbar, sidblobbar och Lägg till blobs stöds.       | Azure-filer stöds inte.        |
+|Importera     |  Azure Blob storage. <br>Blockblobar, sidblobar som stöds. <br> Azure-filer stöds.       |         |
+|Exportera     |   Azure Blob storage. <br>Blockblobar, sidblobar och Lägg till blobbar som stöds.       | Azure filer som inte stöds.        |
 
 
 ## <a name="supported-hardware"></a>Maskinvara som stöds 
 
-För tjänsten Azure Import/Export måste stöds diskar och stöd för SATA-anslutningsprogram för att kopiera data.
+För tjänsten Azure Import/Export behöver du stöds diskar för att kopiera data.
 
-### <a name="supported-disks"></a>Stöds diskar
+### <a name="supported-disks"></a>Diskar som stöds
 
 Följande lista över diskar stöds för användning med Import/Export-tjänsten.
 
@@ -66,30 +66,21 @@ Följande lista över diskar stöds för användning med Import/Export-tjänsten
 |Disktyp  |Storlek  |Stöds |Stöds inte  |
 |---------|---------|---------|---------|
 |SSD    |   2,5-tums      |         |         |
-|HDD     |  2,5-tums<br>3,5-tums       |SATA II SATA III         |Externa hårddiskar med inbyggd USB-adapter <br> Disk i versaler och gemener i en extern Hårddisk         |
+|HDD     |  2,5-tums<br>3,5-tums       |SATA II, SATA III         |Externa hårddiskar med inbyggd USB-adapter <br> Disk på versaler och gemener i en extern Hårddisk         |
 
 
-Ett enda import/export-jobb kan ha:
-- Högst 10 Hårddisk/SSD.
-- En blandning av Hårddisk/SSD av valfri storlek.
+En enda import/export-jobbet kan ha:
+- Högst 10 HDD/SSD-enheter.
+- En blandning av HDD/SSD med valfri storlek.
 
-Stort antal enheter går att sprida över flera jobb och det finns inga begränsningar för antalet jobb som kan skapas. 
+Stort antal enheter kan spridas till flera jobb och det finns inga gränser för antalet jobb som kan skapas. För importjobb bearbetas bara den första datavolymen på enheten. Datavolymen måste vara formaterad med NTFS.
 
-För importjobb bearbetas bara den första datavolymen på enheten. Datavolym måste vara formaterad med NTFS.
-
-### <a name="supported-external-usb-adaptors"></a>Stöd för externa USB-adaptrar
-
-När förbereder hårddiskar och kopiering av data med hjälp av verktyget WAImportExport, kan du använda följande (ut-the-shelp) externa USB-adaptrar: 
-- Anker 68UPSATAA - 02 för
-- Anker 68UPSHHDS-för
-- Startech SATADOCK22UE
-- Orico 6628SUS3-C-BK (6628-serien)
-- Thermaltake BlacX frekvent växlingen SATA externa hårddisken enhet dockningsstation (USB 2.0 & eSATA)
+När förbereda hårddiskar och kopiera data med hjälp av verktyget WAImportExport, kan du använda externa USB-adaptrar. Den mest startklara USB 3.0 eller senare efter adaptrar ska fungera. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera verktyget WAImportExport](storage-import-export-tool-how-to.md)
 * [Överföra data med kommandoradsverktyget AzCopy](storage-use-azcopy.md)
-* [Azure Import exportera REST API-exemplet](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+* [Exempel på Azure Import Export REST API](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
 

@@ -1,7 +1,7 @@
 ---
-title: Hur du använder vänta och icke-wait-åtgärder med en konversation deltagaren program - kognitiva Microsoft-tjänster | Microsoft Docs
+title: Hur du använder vänta och icke-wait-åtgärder med en modell för Konversationsdeltagare – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig använda vänta och icke-wait-åtgärder med en konversation deltagaren program.
+description: Lär dig hur du använder vänta och icke-wait-åtgärder med en Konversationsdeltagare modell.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,72 +10,77 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bb2cbd55b6c8be51213095926bb592169613d1fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a8f7ccf79e750c9f3c21c25c50c3e275db7e4195
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353946"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173092"
 ---
-# <a name="wait-and-non-wait-actions"></a>Vänta en stund och icke-wait-åtgärder
+# <a name="wait-and-non-wait-actions"></a>Vänta och icke-wait-åtgärder
 
-Den här kursen visar skillnaden mellan vänta och icke-wait-åtgärder i konversationen deltagaren.
+Den här självstudien visar skillnaden mellan vänta åtgärder och åtgärder som icke-wait den Konversationsdeltagare.
+
+## <a name="video"></a>Video
+
+[![Självstudie 2-förhandsversion](http://aka.ms/cl-tutorial-02-preview)](http://aka.ms/blis-tutorial-02)
 
 ## <a name="requirements"></a>Krav
-Den här kursen kräver att den allmänna självstudiekursen bot körs
+Den här självstudien krävs att Allmänt självstudiekursen bot körs
 
     npm run tutorial-general
 
 ## <a name="details"></a>Information
 
-- Vänta åtgärd: när systemet har en ”vänta”-åtgärd, den stoppas vidta åtgärder och vänta på användarindata.
-- Icke-wait-åtgärd: när systemet har en ”icke vänta”-åtgärd, kommer den omedelbart välja en annan åtgärd (utan att vänta på användaren inpu först).
+- Vänta åtgärd: när systemet har en ”vänta”-åtgärd, den slutar att vidta åtgärder och vänta på användarindata.
+- Icke-wait-åtgärden: när systemet tar en ”icke-wait”-åtgärd kan det omedelbart ska välja en annan åtgärd (utan att vänta tills användaren inpu först).
 
 ## <a name="steps"></a>Steg
 
-### <a name="create-a-new-app"></a>Skapa en ny app
+### <a name="create-a-new-model"></a>Skapa en ny modell
 
-1. Klicka på ny App i Webbgränssnittet,
+1. I Webbgränssnittet, klickar du på en ny modell
 2. Ange WaitNonWait i namn. Klicka på Skapa.
 
-### <a name="create-the-first-wait-action"></a>Skapa den första åtgärden vänta
+### <a name="create-the-first-wait-action"></a>Skapa den första Wait-åtgärden
 
-1. Klicka på Åtgärder sedan ny åtgärd.
-2. Ange 'vilken djuret vill du fortsätta?' svar.
-    - Detta är en vänta åtgärd, se till att vänta tills ikryssad svar.
-3. Klicka på klart.
+1. Klicka på åtgärder och ny åtgärd.
+2. Ange ”vilken de kan vill du”? i svaret.
+    - Det här är en Wait-åtgärd, så vänta tills ikryssad svar.
+3. Klicka på Skapa.
 
 ### <a name="create-a-non-wait-action"></a>Skapa en icke-Wait-åtgärd
 
 1. Klicka på ny åtgärd
-2. Skriv ”kor säger moo' svar.
+2. Skriv ”kor säger moo' som svar.
 3. Avmarkera väntan på svar kryssrutan.
 4. Klicka på Skapa
 
 ### <a name="create-a-second-non-wait-action"></a>Skapa en andra icke-Wait-åtgärd
 
 1. Klicka på ny åtgärd
-2. Skriv ”lägst säger quack' svar.
+2. Skriv ”ankor säger quack' som svar.
 3. Avmarkera väntan på svar kryssrutan.
 4. Klicka på Skapa
 
 ![](../media/tutorial2_actions.PNG)
 
-### <a name="train-the-bot"></a>Träna bot
+### <a name="train-the-bot"></a>Träna roboten
 
-1. Klicka på tåget dialogrutor, sedan nya Train dialogrutan.
-2. Typen ”Hej”
-3. Klicka på poäng åtgärder och välj 'vilken djuret vill du fortsätta?'.
-4. Ange 'ko'
-5. Klicka på poäng åtgärder och välj 'Kor säger moo'.
-    - Observera att bot inte väntar på indata och tar nästa åtgärd.
-2. Välj 'vilken djuret vill du fortsätta?'.
-3. Ange 'Anka'
-5. Klicka på poäng åtgärder och välj 'Lägst säger quack'.
+1. Klicka på träna dialogrutor, därefter nytt träna dialogrutan.
+2. Typen ”hello”
+3. Klicka på poäng åtgärder och välj ”vilken de kan vill”?.
+4. Ange ”ko'
+5. Klicka på poäng åtgärder och välj ”kor säger moo'.
+    - Roboten väntar inte på indata och tar nästa åtgärd.
+2. Välj ”vilken de kan vill”?.
+3. Ange ”ankor'
+5. Klicka på poäng åtgärder och välj ”ankor säger quack'.
 
 ![](../media/tutorial2_dialogs.PNG)
 
-Notera bot svar med avseende på vänta och icke-wait-åtgärder.
+> [!NOTE]
+> Sekvens med bot-svar för vänta och icke-wait-åtgärder.
 
 ## <a name="next-steps"></a>Nästa steg
 

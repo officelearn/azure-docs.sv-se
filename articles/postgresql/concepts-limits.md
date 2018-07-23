@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: dc1f8581df5dc7c5728094577298ba078cc2c527
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 52dfac826de86f67b3143cce49c35088547c4b39
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343046"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171780"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Begränsningar i Azure Database för PostgreSQL
 I följande avsnitt beskrivs kapacitet och funktionella begränsningar i databastjänsten.
@@ -55,8 +55,9 @@ Azure-systemet kräver fem anslutningar att övervaka Azure Database for Postgre
 ### <a name="vnet-service-endpoints"></a>VNet-tjänstslutpunkter
 - Stöd för VNet-tjänstslutpunkter är endast för generell användning och Minnesoptimerad servrar.
 
-### <a name="point-in-time-restore-pitr"></a>Punkt i-återställning till tidpunkt (PITR)
-- När du använder funktionen PITR, skapas den nya servern med samma konfiguration som den är baserad på-servern.
+### <a name="restoring-a-server"></a>När du återställer en server
+- När du använder funktionen PITR, skapas den nya servern med samma prisnivå nivå diskkonfigurationer som den är baserad på-servern.
+- Den nya servern som skapades under en återställning har inte de brandväggsregler som fanns på den ursprungliga servern. Brandväggsregler måste konfigureras separat för den här nya servern.
 - När du återställer en borttagen server stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg

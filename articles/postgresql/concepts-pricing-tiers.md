@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/21/2018
-ms.openlocfilehash: 3637ee63c94ea54145d99b9d5632f0a77c95d2f4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7494f139f824d3794fced3a0eb4f8d676f3961f5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970269"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173715"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database för PostgreSQL prisnivåer
 
@@ -97,6 +97,8 @@ Servern är skrivskyddad när mängden ledigt utrymme uppnår mindre än 5 GB el
 När servern har angetts till skrivskyddat läge kopplas bort alla befintliga sessioner och ogenomförda transaktioner återställs. Alla efterföljande skrivåtgärder och transaktionen genomför misslyckas. Alla efterföljande skrivskyddade frågor fungerar utan avbrott.  
 
 Du kan öka mängden etablerat lagringsutrymme till din server, eller så kan du starta en ny session i skrivskyddad läge och släpp information för att frigöra ledigt utrymme. Kör `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` anger den aktuella sessionen att läsa skrivläge. För att undvika att data skadas, utför inte alla skrivåtgärder när servern är fortfarande i skrivskyddad status.
+
+Vi rekommenderar att du ställer in en avisering som meddelar dig när tröskelvärdet närmar sig din serverlagring för att undvika hämta till skrivskyddat läge. Mer information finns i dokumentationen på [hur du ställer in en avisering](howto-alert-on-metric.md).
 
 ## <a name="backup"></a>Backup
 

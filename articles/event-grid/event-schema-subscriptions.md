@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 07/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1ee6bf2f358a24d1f36d0b5e10f3556e7037cad2
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 3303050311a30473bb973ac4f49bbeb707c16a33
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159040"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173817"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Azure Event Grid-Händelseschema för prenumerationer
 
@@ -181,10 +181,10 @@ Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Auktorisering | sträng | Den begärda auktoriseringen för åtgärden. |
-| anspråk | sträng | Egenskaper för anspråken. Mer information finns i [JWT-specifikationen](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| Auktorisering | objekt | Den begärda auktoriseringen för åtgärden. |
+| anspråk | objekt | Egenskaper för anspråken. Mer information finns i [JWT-specifikationen](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | sträng | En Operations-ID för felsökning. |
-| httpRequest | sträng | Information om åtgärden. |
+| httpRequest | objekt | Information om åtgärden. |
 | ResourceProvider | sträng | Resursprovidern som utför åtgärden. |
 | resourceUri | sträng | URI för resursen i åtgärden. |
 | operationName | sträng | Åtgärden som utfördes. |

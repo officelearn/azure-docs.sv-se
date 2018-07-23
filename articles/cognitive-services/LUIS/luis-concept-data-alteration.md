@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: v-geberr
-ms.openlocfilehash: ab70839b4fa8f2064a3ff929034a6ffcb8fc7788
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1f6f05376240b90aa82c25172349d716fb49234a
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887750"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170668"
 ---
 # <a name="data-alterations"></a>Ändringar av data
 LUIS innehåller olika sätt att manipulera uttryck före eller under förutsägelser. 
@@ -22,7 +22,7 @@ LUIS innehåller olika sätt att manipulera uttryck före eller under förutsäg
 ## <a name="correct-spelling-errors-in-utterance"></a>Rätta stavfel i uttryck
 LUIS använder [Bing stavningskontroll kontrollera API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) att rätta stavfel i uttryck. LUIS måste den nyckel som associeras med den tjänsten. Skapa nyckeln och sedan lägga till nyckeln som en frågesträngsparameter på den [endpoint](https://aka.ms/luis-endpoint-apis). 
 
-Du kan också korrigera stavfel i den **Test** panelen av [att ange nyckeln](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). Nyckeln sparas som en sessionsvariabel i webbläsaren till Test-panelen. Lägga till nyckeln i panelen Test i varje webbläsarsession som du vill att stavning korrigerats. 
+Du kan också korrigera stavfel i den **Test** panelen av [att ange nyckeln](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). Nyckeln sparas som en sessionsvariabel i webbläsaren till Test-panelen. Lägga till nyckeln i panelen Test i varje webbläsarsession som du vill att stavning korrigerats. 
 
 Användning av nyckeln på panelen test och på slutpunkten räknas in i den [nyckelanvändning](https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/) kvot. LUIS implementerar stavningskontroll i Bing gränser för textlängd. 
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 3204329dc7c9efe2b0ba0ae05d17bc93d51620b4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 709afe03570ca4cf81718fb071778439444d6bf6
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921530"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171991"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Stödmatris för Hyper-V-replikering till Azure
 
@@ -48,7 +48,12 @@ Konfiguration av virtuell dator | Virtuella datorer som replikerar till Azure m�
 Gästoperativsystem | Alla gäst-OS som stöds av Azure.<br/><br/> Windows Server 2016 Nano Server stöds inte.
 
 
+## <a name="vmdisk-management"></a>VM/Diskhantering
 
+**Åtgärd** | **Detaljer**
+--- | ---
+Ändra storlek på disk på replikerade Hyper-V-dator | Stöds ej. Inaktivera replikering, ändra och sedan återaktivera replikering för den virtuella datorn.
+Lägg till disk på replikerade Hyper-V-dator | Stöds ej. Inaktivera replikering, ändra och sedan återaktivera replikering för den virtuella datorn.
 
 ## <a name="hyper-v-network-configuration"></a>Hyper-V-nätverkskonfiguration
 

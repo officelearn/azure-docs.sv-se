@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 06fd547ff87263b660e697693c65d9ac1a907628
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 41fe350fd712f6c521a9020af9a540e554abe94b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866733"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170607"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>Så här lär du ut med Conversation Learner 
 
@@ -56,9 +56,10 @@ Aktivera systemåtgärder före tidigare | 4 |
 Entiteter i sin tur före aktuella aktivera | 4 | 
 Aktivera användare yttranden före aktuell | 5 | 
 
-Observera att åtgärdsval inte ta innehållet i systemåtgärder--text, kortinnehåll eller API-namn eller beteende – endast identiteten för systemåtgärd.  Därför kan påverkar ändra innehållet i en åtgärd inte beteendet för åtgärden val av modellen.
-
-Ytterligare, Observera att innehållet/värden för entiteter inte är använda--endast sådana närvaro/saknas.
+> [!NOTE]
+> Val av åtgärd tar inte innehållet i systemåtgärder--text, kortinnehåll eller API-namn eller beteende – endast identiteten för systemåtgärd.  Därför kan påverkar ändra innehållet i en åtgärd inte beteendet för åtgärden val av modellen.
+>
+> Dessutom används att innehållet/värdena för entiteter inte – endast sådana närvaro/saknas.
 
 Om val av åtgärd inte fungerar som förväntat, är här möjliga lösningar:
 

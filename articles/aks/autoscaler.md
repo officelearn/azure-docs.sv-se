@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 629659a3a5090bae987be77637a574fcbe0abe98
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 4f8df8e7004ca3cee832b6230dc153b21e2a6c18
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39164016"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186721"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Autoskalningen-kluster på Azure Kubernetes Service (AKS) – förhandsversion
 
@@ -32,7 +32,19 @@ Det här dokumentet förutsätter att du har ett RBAC-aktiverade AKS-kluster. Om
 
 ## <a name="gather-information"></a>Samla in information
 
-I följande tabell visas all information du måste ange i definitionen för autoskalningen.
+I följande lista visas all information du måste ange i definitionen för autoskalningen.
+
+- *Prenumerations-ID*: ID som motsvarar den prenumeration som används för det här klustret
+- *Namn på resursgrupp* : namnet på resursgruppen som klustret tillhör 
+- *Klusternamn*: namnet på klustret
+- *Klient-ID*: App-ID som har beviljats av behörighet som genererar steg
+- *Klienthemlighet*: apphemlighet har beviljats av behörighet som genererar steg
+- *Klient-ID*: ID för innehavaren (ägare)
+- *Resursgrupp för noden*: namnet på resursgruppen som innehåller agentnoder i klustret
+- *Nodnamnet för poolen*: namnet på noden programpool du vill skala
+- *Lägsta antal noder*: minsta antal noder som finns i klustret
+- *Maximalt antal noder*: maximalt antal noder som finns i klustret
+- *Typ av virtuell dator*: replikeringstjänsten som används för att skapa Kubernetes-kluster
 
 Få ditt prenumerations-ID med: 
 
@@ -91,19 +103,8 @@ $ echo AKS | base64
 QUtTCg==
 ```
 
-## <a name="create-secret"></a>Skapa hemlighet
-Med dessa data kan skapa en hemlighet för distributionen med de värden som finns i föregående steg, till exempel:
-
-- ClientID: `<base64-encoded-client-id>`
-- ClientSecret: `<base64-encoded-client-secret>`
-- ResourceGroup: `<base64-encoded-resource-group>` (använda versaler)
-- Prenumerations-ID: `<base64-encode-subscription-id>`
-- TenantID: `<base64-encoded-tenant-id>`
-- VMType: `<base64-encoded-vm-type>`
-- Klusternamn: `<base64-encoded-clustername>`
-- NodeResourceGroup: `<base64-encoded-node-resource-group>` (använda etikettens värde ordagrant. Skiftlägeskänsliga)
-
-i följande format:
+## <a name="create-secret"></a>Skapa hemliga
+Med dessa data kan skapa en hemlighet för distributionen med värdena i de föregående stegen i följande format:
 
 ```yaml
 ---

@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 09/01/2016
-ms.author: mbullwin; olegan
-ms.openlocfilehash: 8aec8567fd15865887a5fe5ded8b45cad0290bf9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
-ms.translationtype: HT
+ms.reviewer: olegan
+ms.author: mbullwin
+ms.openlocfilehash: 4f474ad234c80a0dcb5a9f704a263a97e7df0cc1
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174369"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Utvecklaranalys: språk, plattformar och integreringar
 Dessa objekt är implementeringar av [Application Insights](app-insights-overview.md) som vi har hört talas om, inklusive vissa av tredje parter.
@@ -62,7 +64,7 @@ Dessa objekt är implementeringar av [Application Insights](app-insights-overvie
 * [Annat](#projects)
 
 ## <a name="logging-frameworks"></a>Ramverk för loggning
-* [Log4Net, NLog eller System.Diagnostics.Trace](app-insights-diagnostic-search.md)
+* [Log4Net, NLog eller System.Diagnostics.Trace](app-insights-asp-net-trace-logs.md)
 * [Java, Log4J eller Logback](app-insights-java-trace-logs.md)
 * [Semantisk loggning (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) – integrerar med [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 * [Molnbaserad belastningstestning](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)

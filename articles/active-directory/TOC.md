@@ -82,7 +82,7 @@
 
 ## [Hantera grupper och medlemmar](fundamentals/active-directory-manage-groups.md)
 ### Hantera grupper
-#### [Azure Portal](fundamentals/active-directory-groups-create-azure-portal.md)
+#### [Azure-portalen](fundamentals/active-directory-groups-create-azure-portal.md)
 #### [Azure AD PowerShell för Graph (v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
 ### [Hantera gruppmedlemmar](fundamentals/active-directory-groups-members-azure-portal.md)
@@ -103,7 +103,7 @@
 ### [Återställa en borttagen Office 365-grupp](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Hantera gruppinställningar](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### Skapa avancerade regler
-#### [Azure Portal](users-groups-roles/groups-dynamic-membership.md)
+#### [Azure-portalen](users-groups-roles/groups-dynamic-membership.md)
 ### [Konfigurera självbetjäningsgrupper](users-groups-roles/groups-self-service-management.md)
 ### [Felsöka](users-groups-roles/groups-troubleshooting.md)
 
@@ -140,33 +140,13 @@
 #### [Inloggningsexempel](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Använda certifikat](active-directory-reporting-api-with-certificates.md)
 
-## Hantera lösenord
-### [Lösenordsöversikt](authentication/active-directory-passwords-overview.md)
+## Hantera lösenord (active-directory/authentication/concept-sspr-howitworks.md)
 ### Användardokument
 #### [Återställ eller ändra ditt lösenord](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Metodtips för lösenord](active-directory-secure-passwords.md)
 #### [Registrera för återställning av lösenord för självbetjäning](user-help/active-directory-passwords-reset-register.md)
-### [SSPR – så här fungerar det](authentication/concept-sspr-howitworks.md)
-### [SSPR-distributionsguide](authentication/howto-sspr-deployment.md)
-### [SSPR och Windows 10](authentication/tutorial-sspr-windows.md)
-### [SSPR-principer ](authentication/concept-sspr-policy.md)
-### [SSPR-anpassning](authentication/concept-sspr-customization.md)
-### [SSPR-datakrav](authentication/howto-sspr-authenticationdata.md)
-### [SSPR-rapportering](authentication/howto-sspr-reporting.md)
-### [Smart utlåsning](authentication/howto-password-smart-lockout.md)
-### [Eliminera svaga lösenord](authentication/concept-password-ban-bad.md)
-### [Konfigurera listan med förbjudna lösenord](authentication/howto-password-ban-bad.md)
-### [Lokal integration](authentication/concept-password-ban-bad-on-premises.md)
-### [Distribuera Azure AD-lösenordsskydd](authentication/howto-password-ban-bad-on-premises.md)
-### [Konfigurera Azure AD-lösenordsskydd](authentication/howto-password-ban-bad-on-premises-operations.md)
-### [Övervaka Azure AD-lösenordsskydd](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### IT-administratörer: Återställ lösenord
-#### [Azure Portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [Licensiera SSPR](authentication/concept-sspr-licensing.md)
-### [Tillbakaskrivning av lösenord](authentication/howto-sspr-writeback.md)
-### [Felsöka](authentication/active-directory-passwords-troubleshoot.md)
-### [Vanliga frågor och svar](authentication/active-directory-passwords-faq.md)
-
+#### [Azure-portalen](fundamentals/active-directory-users-reset-password-azure-portal.md)
 
 ## Hantera enheter
 ### [Introduktion](device-management-introduction.md)
@@ -404,7 +384,7 @@
 
 ## Skydda dina identiteter
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
-#### [Kom igång](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### Snabbstarter
 ##### [Konfigurera MFA per app](active-directory-conditional-access-app-based-mfa.md)
 ##### [Kräv att användningsvillkoren godkänns](active-directory-conditional-access-tou.md)
@@ -434,7 +414,7 @@
 ### Certifikatbaserad autentisering
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Kom igång](active-directory-certificate-based-authentication-get-started.md)
+#### [Komma igång](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Aktivera](active-directory-identityprotection-enable.md)

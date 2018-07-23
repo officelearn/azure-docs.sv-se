@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 07/19/2018
 ms.author: raynew
-ms.openlocfilehash: a02218922a4d4238abf752190293a788504e0cfb
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 516cb69042e923a46168c7655dc3e3010d9557e6
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070917"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173800"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Supportmatris för VMware och fysisk serverreplikering till Azure
 
@@ -61,7 +61,7 @@ Site Recovery har stöd för replikering av alla arbetsbelastningar som körs p�
 **Komponent** | **Detaljer**
 --- | ---
 Datorinställningar | Datorer som replikeras till Azure måste uppfylla [krav för Azure](#azure-vm-requirements).
-Windows-operativsystem | 64-bitars Windows Server 2016 (Server Core, Server med Skrivbordsmiljö), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med på minst SP1. </br></br>  [Windows Server 2008 med på minst SP2 - 32-bitars och 64-bitars](migrate-tutorial-windows-server-2008.md) (migrering). </br></br> * *Windows 2016 Nano Server stöds inte.*
+Windows-operativsystem | 64-bitars Windows Server 2016 (Server Core, Server med Skrivbordsmiljö), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med på minst SP1. </br></br>  [Windows Server 2008 med på minst SP2 - 32-bitars och 64-bitars](migrate-tutorial-windows-server-2008.md) (migrering). </br></br> Windows 2016 Nano Server stöds inte.
 Linux-operativsystem | Red Hat Enterprise Linux: 5.2 till 5.11, 6.1 6,9, 7.0 7.5 <br/><br/>CentOS: 5.2 till 5.11, 6.1 6,9, 7.0 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versioner som stöds)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versioner som stöds)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5 som kör Red Hat kompatibla kernel eller Unbreakable Enterprise Kernel version 3 (UEK3) <br/><br/></br>* *Uppgradera replikerade datorer från SUSE Linux Enterprise Server 11 SP3 till SP4 stöds inte. Om du vill uppgradera, inaktiverar du replikering och aktivera det igen efter uppgraderingen.*
 
 
@@ -120,7 +120,12 @@ Kataloger | Dessa kataloger (om konfigurerad som separata partitioner /-filsyste
 Krav för ledigt utrymme| 2 GB på/Root-partition <br/><br/> 250 MB på installationsmappen
 XFSv5 | XFSv5 funktioner på XFS filsystem, till exempel metadata kontrollsumma stöds från Mobilitetstjänsten version 9.10 och uppåt. Använda verktyget xfs_info för att kontrollera XFS superblock för partitionen. Om ftype har angetts till 1, är XFSv5 funktioner används.
 
+## <a name="vmdisk-management"></a>VM/Diskhantering
 
+**Åtgärd** | **Detaljer**
+--- | ---
+Ändra storlek på disk på den replikerade virtuella datorn | Stöds.
+Lägg till disk på den replikerade virtuella datorn | Inaktivera replikering för den virtuella datorn, lägga till disken och sedan återaktivera replikering. Lägger till en disk på en replikerande virtuella datorn stöds inte för närvarande.
 
 ## <a name="network"></a>Nätverk
 

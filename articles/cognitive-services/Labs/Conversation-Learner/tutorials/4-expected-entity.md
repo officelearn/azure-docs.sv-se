@@ -1,7 +1,7 @@
 ---
-title: Hur du använder egenskapen ”förväntades entitet” för konversationen deltagaren åtgärder - kognitiva Microsoft-tjänster | Microsoft Docs
+title: Hur du använder egenskapen ”förväntades entitet” för Konversationsdeltagare åtgärder – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig mer om att använda egenskapen ”förväntades enhet” i en konversation deltagaren program.
+description: Lär dig hur du använder egenskapen ”förväntades entitet” för en Konversationsdeltagare-modell.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,107 +10,112 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 83911eba8112cf356af8c4cd562a87f746fbabc5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9e013e237a996d722d958920a1310e3aaea36c52
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354057"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170916"
 ---
-# <a name="how-to-use-the-expected-entity-property-of-actions"></a>Hur du använder egenskapen ”förväntades entitet” för åtgärder
+# <a name="how-to-use-the-expected-entity-property-of-actions"></a>Hur du använder ”förväntades entitet”-egenskapen för åtgärder
 
 Den här kursen visar fältet ”förväntades entitet” av åtgärder.
 
+## <a name="video"></a>Video
+
+[![Självstudie 4 förhandsversion](http://aka.ms/cl-tutorial-04-preview)](http://aka.ms/blis-tutorial-04)
+
 ## <a name="requirements"></a>Krav
-Den här kursen kräver att den allmänna självstudiekursen bot körs
+Den här självstudien krävs att Allmänt självstudiekursen bot körs
 
     npm run tutorial-general
 
 ## <a name="details"></a>Information
-Använd fältet ”förväntades enhet” i en åtgärd för att kommunicera med systemet som du förväntar dig användarens svar till en åtgärd blir till en entitet.
+Använd fältet ”förväntades entitet” i en åtgärd för att kommunicera med systemet som du förväntar dig användarens svar till en åtgärd är att ange en entitet.
 
-Concretely, om fältet ”förväntades enhet” i en åtgärd har angetts till $entity och sedan på nästa användare utterance, kommer systemet:
+Concretely, om fältet ”förväntades entitet” i en åtgärd har angetts till $entity och sedan på nästa användaren uttryck, kommer systemet:
 
-1. Först som vanligt, försök hitta enheter med hjälp av machine learning beroende entitet extrahering modellen
-2. Om inga entiteter i steg 1, sedan--som en tumregel--tilldela hela användaren utterance $entity.
-3. Anropa `EntityDetectionCallback` som vanligt, och gå vidare till val av åtgärd.
+1. Först som vanligt försök hitta entiteter med hjälp av machine learning beroende entitet extrahering modellen
+2. Om inga entiteter finns i steg 1, sedan – som en tumregel – tilldela hela användaren uttryck $entity.
+3. Anropa `EntityDetectionCallback` som vanligt och fortsätt sedan till val av åtgärd.
 
 ## <a name="steps"></a>Steg
 
-### <a name="create-the-application"></a>Skapa programmet
+### <a name="create-the-model"></a>Skapa modellen
 
-1. Klicka på ny App i Webbgränssnittet,
+1. I Webbgränssnittet, klickar du på en ny modell
 2. Ange ExpectedEntities i namn. Klicka på Skapa.
 
 ### <a name="create-an-entity"></a>Skapa en entitet
 
-1. Klicka på entiteter sedan ny entitet.
-2. Ange namn i enhetsnamnet.
+1. Klicka på entiteter och ny entitet.
+2. Ange namn i enhetens namn.
 3. Klicka på Skapa
 
-Observera entitetstypen är 'custom' – det innebär att enheten kan exempelvis tränas.  Det finns också förskapad entiteter, vilket innebär att deras beteende kan inte justeras--dessa beskrivs i en annan kursen.
+> [!NOTE]
+> Denna typ är 'custom'. Det här värdet innebär att entiteten kan tränas.  Det finns även färdiga entiteter, vilket innebär att deras beteende inte kan ändras.  Dessa enheter beskrivs i den [Pre-Built entiteter självstudien](./7-built-in-entities.md).
 
 ![](../media/tutorial4_entities.PNG)
 
 ### <a name="create-two-actions"></a>Skapa två åtgärder
 
-1. Klicka på åtgärder och sedan ny åtgärd
-2. Skriv ”vad är namnet på din?' svar.
+1. Klicka på åtgärder och ny åtgärd
+2. I svaret, skriver du ”vad heter du”?.
 3. Ange $name i förväntat entiteter. Klicka på Spara.
-    - Det innebär att om den här frågan och och användarens svar har inte alla enheter som upptäckts, bot anta att hela användarens svar är den här entiteten.
-2. Klicka på Åtgärder sedan ny åtgärd för att skapa en andra åtgärd.
-3. Skriv ”Hello $name' svar.
-    - Observera att entiteten automatiskt läggs till som en disqualifying entitet. 
+    - Det här värdet innebär att om den här frågan ombeds och användarens svar inte har några entiteter som har identifierats, roboten anta att hela användarens svar är den här entiteten.
+2. Klicka på åtgärder och sedan ny åtgärd för att skapa en andra åtgärd.
+3. Skriv ”Hello $name' som svar.
+    - Entiteten läggs automatiskt som en disqualifying enhet. 
 4. Klicka på Spara
 
 Nu har du två åtgärder.
 
 ![](../media/tutorial4_actions.PNG)
 
-### <a name="train-the-bot"></a>Träna bot
+### <a name="train-the-bot"></a>Träna roboten
 
-1. Klicka på tåget dialogrutor, sedan nya Train dialogrutan.
+1. Klicka på träna dialogrutor, därefter nytt träna dialogrutan.
 2. Skriv ”hello”.
-3. Klicka på poäng åtgärder och välj ”vad är namnet på din”?
-    - Observera att svaret ”Hello $name' kan inte väljas eftersom den requies entiteten $name definieras och $name är inte i bot's minne.
-2. Ange 'david'. 
-    - Observera att namnet är markerad som en enhet. Detta är på grund av tumregel vi som angetts ovan ska välja svaret som entiteten.
+3. Klicka på poäng åtgärder och välj ”vad heter du”?
+    - Svaret ”Hello $name' kan inte väljas eftersom det kräver entiteten $name definieras och $name inte är i robotens minnet.
+2. Ange ”david”. 
+    - Namnet är markerad som en entitet. Detta är tack vare tumregeln vi ställa in ovan väljer svaret som entiteten.
 5. Klicka på poäng åtgärder
-    - Obs namn-värde är nu i den bot minne.
-    - 'Hello $name' är nu tillgängligt som ett svar. 
-6. Välj 'Hello $name'.
-7. Klicka på klar lärare.
+    - Namn-värde är nu i robotens minne.
+    - ”Hello $name” är nu tillgänglig som ett svar. 
+6. Välj ”Hello $name'.
+7. Klicka på klar undervisning.
 
-Här är två exempel där maskininlärning entiteten extrahering modellen identifierar ett namn, så att ”förväntades entitet” tumregel inte aktiveras.
+Här följer två exempel där den entiteten extrahering maskininlärningsmodell identifierar ett namn, så att tumregeln ”förväntades entitet” inte utlöses.
 
-1. Klicka på ny Train-dialogruta.
+1. Klicka på dialogrutan för nytt träna.
 2. Ange 'mitt namn är david'.
-    - Observera att den identifierar david som namn på entiteten eftersom den har upptäckt ordet innan.
+    - Modellen identifierar david som entiteten namn eftersom det har sett den här word innan.
 2. Klicka på poäng åtgärder
-3. Välj 'Hello $name'.
+3. Välj ”Hello $name'.
 4. Ange 'mitt namn är susan'.
-    - Observera att den identifierar susan som namn eftersom det redan har sett det här mönstret.
+    - Modellen identifierar susan som namnet eftersom det redan har sett det här mönstret.
 2. Klicka på poäng åtgärder.
-2. Välj 'Hello susan'.
-3. Klicka på klar lärare.
+2. Välj ”Hello susan'.
+3. Klicka på klar undervisning.
 
-Här är två ytterligare exempel där ”förväntades entitet” tumregel utlöser, men är felaktig och hur vi kan göra en korrigering.
+I följande exempel, ”förväntades entitet” tumregeln utlöser, men det är felaktigt. Exemplen visar sedan hur du gör en korrigering.
 
 1. Skriv ”Ring mig jose'.
-    - Observera att det inte känner till namnet som en enhet.
-2. Klicka på jose och markera namn.
+    - Modellen kan inte identifiera namnet som en entitet.
+2. Klicka på jose och välj namn.
 3. Klicka på poäng åtgärder.
 4. Välj hello $name.
-5. Klicka på klar lärare.
-1. Klicka på ny Train-dialogruta.
+5. Klicka på klar undervisning.
+1. Klicka på dialogrutan för nytt träna.
 2. Ange ”hello”.
-3. Ange ”jag vill kallas frank' som svar på” vad är ditt namn ”.
-    - Observera att hela frasen markeras. Det beror på att statistiska modellen inte gick att hitta ett namn, så att tumregeln utlöses och valt hela svaret som entiteten namn.
-2. Om du vill åtgärda det, klickar du på den markerade frasen, och klicka sedan på ett rött x. 
-3. Markera frank, och klicka sedan på namnet.
+3. Ange som svar på ”vad är namnet på din”, ”jag är kallas frank”.
+    - Hela frasen är markerad. Det beror på att statistiska modellen inte gick att hitta ett namn, så tumregeln utlöstes och valt hela svaret som entiteten namn.
+2. Åtgärda det genom att klicka på markerade frasen sedan klickar du på ett rött x. 
+3. Välj frank och klicka sedan på namnet på.
 2. Klicka på poäng åtgärder
-3. Välj 'Hello $name'.
-4. Klicka på klar lärare.
+3. Välj ”Hello $name'.
+4. Klicka på klar undervisning.
 
 ![](../media/tutorial4_dialogs.PNG)
 

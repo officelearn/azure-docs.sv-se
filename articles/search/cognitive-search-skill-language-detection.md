@@ -1,6 +1,6 @@
 ---
-title: Språk identifiering kognitiva Sök kunskaper (Azure Search) | Microsoft Docs
-description: Utvärderar Ostrukturerade text och returnerar ett språk-ID för varje post med ett värde som anger styrkan hos analys i en Azure Search berikande pipeline.
+title: Språk identifiering kognitiv sökning färdighet (Azure Search) | Microsoft Docs
+description: Utvärderar ostrukturerad text och returnerar ett språk-ID för varje post med ett värde som anger styrkan hos analyser i en Azure Search berikande pipeline.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,42 +10,42 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 338d89b47ea451efcf8300d4ac016a6946a95259
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 443ac895085053b7c4c876c3deecaa1943c9f506
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33791058"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171066"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Språk identifiering kognitiva kunskaper
 
-För upp till 120 språk i **identifiera språk** kunskaper identifierar språket för indata och rapporterar en enda språkkod för varje dokument som skickades i begäran. Språkkoden paras ihop med en poäng som anger styrkan hos analys.
+Upp till 120 språk som den **språkidentifiering** färdighet identifierar språket i indatatexten och rapporterar en enda språkkod för varje dokument som skickats på begäran. Språkkoden är kopplad till ett värde som anger styrkan hos analysen.
 
-Den här funktionen är särskilt användbar när du behöver ange språket i texten som indata för andra kunskaper (till exempel den [Sentiment Snalysis kunskaper](cognitive-search-skill-sentiment.md) eller [Text dela kunskaper](cognitive-search-skill-textsplit.md)).
+Den här funktionen är särskilt användbar när du ska ange språket för texten som indata för andra färdigheter (till exempel den [Attitydanalys färdighet](cognitive-search-skill-sentiment.md) eller [Text dela färdighet](cognitive-search-skill-textsplit.md)).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## <a name="data-limits"></a>Databegränsningar
-Den maximala storleken för en post ska vara 50 000 tecken med `String.Length`. Om du vill dela upp dina data innan den skickas till sentiment analyzer kan du använda den [Text dela kunskaper](cognitive-search-skill-textsplit.md).
+Den maximala storleken för en post ska vara 50 000 tecken enligt `String.Length`. Om du vill dela upp dina data innan de skickas till sentiment analyzer kan du använda den [Text dela färdighet](cognitive-search-skill-textsplit.md).
 
-## <a name="skill-inputs"></a>Kunskaper indata
+## <a name="skill-inputs"></a>Färdighet indata
 
 Parametrar är skiftlägeskänsliga.
 
 | Indata     | Beskrivning |
 |--------------------|-------------|
-| Text | Texten som ska analyseras.|
+| text | Texten som ska analyseras.|
 
-## <a name="skill-outputs"></a>Kunskaper utdata
+## <a name="skill-outputs"></a>Färdighet utdata
 
-| Namnet på målet    | Beskrivning |
+| Namn på utdata    | Beskrivning |
 |--------------------|-------------|
-| languageCode | ISO 6391 språkkoden för det språk som identifierats. Till exempel ”SV”. |
-| LanguageName | Namnet på språket. Till exempel ”English”. |
-| Poäng | Ett värde mellan 0 och 1. Sannolikheten att identifieras korrekt språk. Poängsättningen kan vara lägre än 1 om meningen har olika språk.  |
+| languageCode | ISO 6391 språkkoden för språket som identifieras. Till exempel ”SV”. |
+| LanguageName | Namnet på språket. Till exempel ”engelska”. |
+| poäng | Ett värde mellan 0 och 1. Sannolikheten att identifieras korrekt språk. Poängen kan vara lägre än 1 om meningen har olika språk.  |
 
-##  <a name="sample-definition"></a>Exempel definition
+##  <a name="sample-definition"></a>Exempeldefinition
 
 ```json
  {
@@ -125,10 +125,10 @@ Parametrar är skiftlägeskänsliga.
 ```
 
 
-## <a name="error-cases"></a>Fel
-Om texten uttrycks i ett språk som inte stöds, genereras ett fel och inget språk-ID returneras.
+## <a name="error-cases"></a>Felhändelser
+Om texten uttrycks i en språket stöds inte, genereras ett fel och inget språk-ID returneras.
 
 ## <a name="see-also"></a>Se också
 
 + [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
-+ [Hur du definierar en kunskaper](cognitive-search-defining-skillset.md)
++ [Hur du definierar en kompetens](cognitive-search-defining-skillset.md)

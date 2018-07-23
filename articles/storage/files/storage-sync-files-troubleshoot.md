@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: jeffpatt
-ms.openlocfilehash: 1aa834330035b7537de02388031af357ca28eeab
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: ad82cde2dc6048c5a87766b21bd38ed3fbc6bd39
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160306"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173289"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -748,22 +748,22 @@ I följande avsnitt visar hur du felsöker problem med lagringsnivåer-molnet oc
 <a id="monitor-tiering-activity"></a>**Hur övervakar lagringsnivåer på en server**  
 Om du vill övervaka lagringsnivåer på en server, använder du händelse-ID 9002 9003, 9016 och 9029 i händelseloggen telemetri (finns under program och Services\Microsoft\FileSync\Agent i Loggboken).
 
-Händelse-ID 9002 innehåller eftersläpningar statistik för en serverslutpunkt. Till exempel TotalGhostedFileCount, SpaceReclaimedMB, osv.
+- Händelse-ID 9002 innehåller eftersläpningar statistik för en serverslutpunkt. Till exempel TotalGhostedFileCount, SpaceReclaimedMB, osv.
 
-Händelse-ID 9003 innehåller felfördelningen för en serverslutpunkt. Till exempel Total Felräkning ErrorCode, osv. Observera att en händelse loggas per felkod.
+- Händelse-ID 9003 innehåller felfördelningen för en serverslutpunkt. Till exempel Total Felräkning ErrorCode, osv. Observera att en händelse loggas per felkod.
 
-Händelse-ID 9016 innehåller eftersläpningar resultat för en volym. Till exempel ledigt utrymme i procent är avbildad antalet filer i sessionen, antal filer kunde inte ghost osv.
+- Händelse-ID 9016 innehåller eftersläpningar resultat för en volym. Till exempel ledigt utrymme i procent är avbildad antalet filer i sessionen, antal filer kunde inte ghost osv.
 
-Händelse-ID 9029 innehåller eftersläpningar sessionsinformation. Till exempel antalet filer i sessionen, antal filer nivåer i sessionen, antalet filer som redan har nivåindelade, osv.
+- Händelse-ID 9029 innehåller eftersläpningar sessionsinformation. Till exempel antalet filer i sessionen, antal filer nivåer i sessionen, antalet filer som redan har nivåindelade, osv.
 
 <a id="monitor-recall-activity"></a>**Så här övervakar du återställningar på en server**  
 Du övervakar återställningar på en server med händelse-ID 9005, 9006, 9007 i händelseloggen telemetri (finns under program och Services\Microsoft\FileSync\Agent i Loggboken). Observera att dessa händelser loggas per timme.
 
-Händelse-ID 9005 ger återkallande tillförlitlighet för en slutpunkt för servern. Till exempel Total unika filer som används, totalt antal unika filer med misslyckade åtkomst osv.
+- Händelse-ID 9005 ger återkallande tillförlitlighet för en slutpunkt för servern. Till exempel Total unika filer som används, totalt antal unika filer med misslyckade åtkomst osv.
 
-Händelse-ID 9006 ger återkallande felfördelningen för en serverslutpunkt. Exempel: Totalt antal misslyckade begäranden, ErrorCode, osv. Observera att en händelse loggas per felkod.
+- Händelse-ID 9006 ger återkallande felfördelningen för en serverslutpunkt. Exempel: Totalt antal misslyckade begäranden, ErrorCode, osv. Observera att en händelse loggas per felkod.
 
-Händelse-ID 9007 ger återkallande prestanda för en slutpunkt för servern. Till exempel TotalRecallIOSize, TotalRecallTimeTaken, osv.
+- Händelse-ID 9007 ger återkallande prestanda för en slutpunkt för servern. Till exempel TotalRecallIOSize, TotalRecallTimeTaken, osv.
 
 <a id="files-fail-tiering"></a>**Felsökning av filer som misslyckas till tier**  
 Om filerna inte nivå till Azure Files:

@@ -1,6 +1,6 @@
 ---
-title: Azure verksamhet, lokal och fysisk säkerhet | Microsoft Docs
-description: Den här artikeln innehåller den Azure-datacenter, inklusive fysisk infrastruktur, säkerhet och efterlevnad erbjudanden.
+title: Azure anläggningar, plats och fysisk säkerhet | Microsoft Docs
+description: Artikeln beskriver den Azure-datacenter, inklusive fysisk infrastruktur, säkerhet och efterlevnadserbjudanden.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,75 +14,75 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: a6a9b1d6e12dabb09cde684c34481b4b3442c1b8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 69a54640ae3b4e71d7782712ad1764babab7104a
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102468"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170685"
 ---
-# <a name="azure-facilities-premises-and-physical-security"></a>Azure verksamhet, lokal och fysisk säkerhet
-Microsofts molntjänster består av en [globalt distribuerade datacenter infrastruktur](https://azure.microsoft.com/global-infrastructure/) stöder tusentals onlinetjänster och utsträckning mer än 100 mycket säkra verksamhet över hela världen.
+# <a name="azure-facilities-premises-and-physical-security"></a>Azure anläggningar, plats och fysisk säkerhet
+Azure består av en [infrastruktur med globalt distribuerade datacenter](https://azure.microsoft.com/global-infrastructure/), stöd för tusentals onlinetjänster och utsträckning anläggningar för fler än 100 med hög säkerhet världen över.
 
-Infrastrukturen som är utformat för att sätta program närmare till användare i världen, bevara data land och ger omfattande efterlevnad och återhämtning alternativ för kunder. Azure har 52 regioner över hela världen och är tillgänglig i 140 länder.
+Infrastrukturen som är utformad för att föra program närmare användare världen över, bevarar dataplacering och omfattande efterlevnad och elasticitet lagringsalternativ för kunder. Azure har 52 regioner över hela världen och är tillgängligt i 140 länder/regioner.
 
-En region är en uppsättning datacenter som är sammankopplade via en omfattande och flexibel nätverk. Nätverket innehåller innehållsdistribution, belastningsutjämning, redundans och kryptering som standard. Azure har fler globala regioner än någon annan molnleverantör och ger kunderna möjligheten att distribuera program där det behövs.
+En region är en uppsättning datacenter som är sammankopplade via ett omfattande och flexibel nätverk. Nätverket innehåller innehållsdistribution, belastningsutjämning, redundans och kryptering som standard. Fler globala regioner än någon annan molnleverantör ger Azure dig flexibiliteten att distribuera program där du behöver.
 
 De geografiska Azure-regionerna är ordnade i områden. Ett geografiskt Azure-område garanterar att krav på dataplacering, landsbaserad placering, efterlevnad och elasticitet stöds inom geografiska gränser.
 
-Geografiska områden hjälper kunder med specifika behov av dataplacering och efterlevnad att hålla sina data och program nära. Geografiska områden är feltolerant klara fullständig region fel via anslutningen till dedikerade hög kapacitet nätverksinfrastrukturen.
+Geografiska områden hjälper kunder med specifika behov av dataplacering och efterlevnad att hålla sina data och program nära. Geografiska områden är feltoleranta till fullständiga Regionsfel, via anslutningen till den dedikerade nätverksinfrastrukturen med hög kapacitet.
 
-Tillgänglighetszoner är fysiskt separata platser inom en Azure-region. Varje tillgänglighetszon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. Med Availability Zones kan kunderna köra verksamhetskritiska program med hög tillgänglighet och replikering med låg latens.
+Tillgänglighetszoner är fysiskt separata platser inom en Azure-region. Varje tillgänglighetszon består av en eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverkstjänster. Tillgänglighetszoner låter dig köra verksamhetskritiska program med hög tillgänglighet och låg latens replikering.
 
-Följande bild visar hur Azure-globala infrastrukturen par region och tillgänglighet zoner inom samma data land gräns för hög tillgänglighet, katastrofåterställning och säkerhetskopiering.
+Följande bild visar hur Azure global infrastruktur kombinationer av regioner och tillgänglighet zoner inom samma dataplaceringsgräns för hög tillgänglighet, haveriberedskap och säkerhetskopiering.
 
-![Data land gräns][1]
+![Diagram som visar dataplaceringsgräns][1]
 
-En stor geografiskt distribuerade storleken på Datacenter kan Microsoft vara nära kunder för att minska nätverkslatensen och möjliggöra geo-redundant säkerhetskopia och växling vid fel.
+Geografiskt fördelade datacenter hjälper Microsoft att vara nära kunder och Sänk svarstiderna i nätverket och tillåter geo-redundant säkerhetskopia och redundans.
 
 ## <a name="physical-security"></a>Fysisk säkerhet
-Microsoft utformar, bygger och fungerar Datacenter på ett sätt som styr absolut fysisk åtkomst till de områden där kundinformation lagras. Microsoft förstår vikten av att skydda kundens data och arbetar med att hjälpa skydda datacenter som innehåller dina data. Vi har en hela delning på Microsoft att utforma, utveckling och drift av lokaler som stöder Azure. Det här teamet investerat för att behålla den senaste fysisk säkerhet.
+Microsoft utformar, bygger och fungerar Datacenter på ett sätt som styr strikt fysisk åtkomst till de områden där dina data lagras. Microsoft förstår vikten av att skydda dina data och hjälper dig skydda det datacenter som innehåller dina data att. Vi har en hel delning på Microsoft som är tillägnad utforma, bygga och driva lokaler som stöd för Azure. Det här laget har investerat i underhålla den senaste fysisk säkerhet.
 
-Microsoft tar en överlappande tillvägagångssättet till fysisk säkerhet för att minska risken för att obehöriga användare får tillgång till data och datacenterresurser. Datacenter som hanteras av Microsoft har omfattande skyddslager: komma åt godkännande på den anläggning perimeter på i byggnaden perimeternätverk, i byggnaden och på datacenter våning. Lager av fysisk säkerhet är:
+Microsoft tar ett lager till fysisk säkerhet, och minska risken för obehöriga användare får tillgång till data och datacenterresurser. Datacenter som hanteras av Microsoft har omfattande skyddslager: åtkomst till godkännande på den anläggning perimetern, på den byggnad perimetern, i byggnaden och på datacenter våning. Lager av fysisk säkerhet är:
 
-- Begäran om åtkomst och godkännande – du måste begära åtkomst innan anländer till datacentret. Du måste ange en giltig affärsjustering för ditt besök, till exempel kompatibilitet eller granskningsändamål. Alla begäranden som är godkända på grundval av behovet av att åtkomst av Microsofts anställda. Bas behovet av att åtkomst gör att personer som behövs för att slutföra en aktivitet i datacenter till minst antalet. När du har beviljats behörighet att har en enskild endast åtkomst till området diskreta datacentret, baserat på godkända affärsjustering. Behörigheter som är begränsade till en viss tidsperiod och upphör efter den tillåtna tidsperioden.
+- **Åtkomstbegäran och godkännande.** Du måste begära åtkomst innan anländer till datacentret. Du måste ange en giltig motivering för webbplatsen, till exempel efterlevnad eller granskningsändamål. Alla förfrågningar har godkänts på basis av behovet att nå av Microsoft-anställda. Behovet av att nå bas hjälper till att hålla nere antalet personer som krävs för att slutföra en uppgift i datacenter till minst. När Microsoft ger behörighet, en enskild endast har åtkomst till området diskreta för det datacenter som krävs, baserat på godkända affärsrelaterad motivering. Behörigheter är begränsade till en viss tidsperiod och sedan upphör att gälla.
 
-- Lokals perimeter - när du kommer till ett datacenter, är du behöver gå igenom en väldefinierad åtkomstpunkt. Hög avgränsningstecken av stål och konkret omfattar vanligtvis tum i perimeternätverket. Det finns kameror runt datacenter med en säkerhetsteam övervaka deras videor 24/7 och 365 dagar på året.
+- **Anläggnings perimeternätverket.** När du kommer till ett datacenter, måste så du gå igenom en väldefinierad åtkomstpunkt. Hög avgränsningstecken som gjorts av stål och konkret omfattar vanligtvis tum i perimeternätverket. Det finns kameror kring datacenter, med en säkerhetsteam för övervakning av deras videor hela tiden.
 
-- Skapa ingångs - datacenter ingången får du hjälp med professional säkerhet polis som har genomgått rigorösa utbildnings- och kontroller. Dessa säkerhet polis patrullera även regelbundet datacentret medan de också övervaka videor kameror i ett datacenter 24/7 och 365 dagar per år.
+- **Skapa ingång.** Datacenter-ingång får du hjälp med professionella security införlivande som har genomgått rigorös kontroller för utbildning och bakgrund. Dessa också regelbundet patrullera datacentret, och övervaka videofilmer med kameror inifrån datacentret hela tiden.
 
-- När du har angett i byggnaden i Skapa - måste du överföra tvåfaktorsautentisering med biometrik fortsätta flytta i datacentret. Om din identitet har verifierats, kan du ange del av det datacenter som du har godkänt åtkomst till. Du kan hålla det endast för den tidsperiod som godkänt.
+- **I byggnaden.** När du har angett byggnaden måste du ange tvåfaktorsautentisering med biometrik fortsätta flytta i datacentret. Om din identitet har verifierats kan välja du att endast del av det datacenter som du har godkänt åtkomst till. Du kan hålla det endast för tiden som godkänts.
 
-- Datacenter våning – du tillåts endast i plan som du har godkänt för att ange. Du måste skicka en fullständig brödtext metal identifiering kontroll. För att minska risken för obehörig lämnar datacenter utan våra vetskap eller kan bara godkända enheter göra deras sätt datacenter våning. Dessutom video kameror övervakaren fram och tillbaka på varje server rack. Fullständig text metal identifiering kontrollen upprepas när du avslutar datacenter våning. Om du vill lämna datacenter, måste du passera en genomsökning för ytterligare säkerhet.
+- **Datacenter våning.** Du har endast tillåtelse till golv att du har godkänt för att ange. Du behöver för att skicka en fullständig brödtext operativsystem identifiering kontroll. För att minska risken för obehörig lämnar datacentret utan vår kunskaper eller kan bara godkända enheter hamna i datacenter våning. Dessutom video kameror övervakaren fram och tillbaka på varje server rack. När du avslutar datacenter våning måste dig igen passera fullständig brödtext operativsystem identifiering av kontrollen. Om du vill lämna datacenter, måste du passera en skanning för ytterligare säkerhet.
 
-Besökare krävs att avstå från märken efter Microsoft anläggningar.
+Microsoft kräver besökare att avstå från Aktivitetsikoner efter alla Microsoft-kontor.
 
-## <a name="physical-security-reviews"></a>Fysisk säkerhet granskar
-Fysisk säkerhet granskningar i anläggningen utförs med jämna mellanrum för att säkerställa Datacenter korrekt adress säkerhetskrav för Microsoft Azure. Datacenter värd providern personal tillhandahåller inte Microsoft Azure-tjänsthantering. Personal har inte inloggningsåtkomst till Azure-system eller fysisk åtkomst till Azure samplacering plats och burar.
+## <a name="physical-security-reviews"></a>Fysisk säkerhet går igenom
+Med jämna mellanrum, genomför vi fysisk säkerhet granskningar av anläggningar, så datacentren korrekt adress Azure säkerhetskrav. Datacenter som värd-providern personalen tillhandahåller inte Azure service management. Personal kan inte logga in på Azure-system och behöver inte fysisk åtkomst till Azure samplacering utrymme och burar.
 
 ## <a name="data-bearing-devices"></a>Data med enheter
-Microsoft använder den bästa praxis procedurer och en Radera lösning som är [NIST 800-88 kompatibla](https://csrc.nist.gov/publications/detail/sp/800-88/archive/2006-09-01). En destruktion process som förstör den och återger återställning av information omöjligt används för hårddiskar som inte kan rensas. Destruktion process kan vara splittras, hjälp, pulverisera dem eller förbränna. Lämpligt sätt avyttra bestäms av tillgångstyp. Posterna för destruktion bevaras.  
+Microsoft använder den bästa praxis procedurer och en Radera lösning som är [NIST 800-88 kompatibla](https://csrc.nist.gov/publications/detail/sp/800-88/archive/2006-09-01). Vi använder en destruktion process som förstör det och återger det omöjligt för återställning av information för hårddiskar som inte kan rensas. Den här processen destruktion kan vara att splittras, hjälp, pulverisera dem eller förbränning. Vi fastställer insamling av avyttring beroende på resurstyp. Vi behåller poster i destruktion.  
 
-## <a name="equipment-disposal"></a>Utrustning avyttring
-Microsoft Azure implementerar denna princip dina kunders räkning. När ett system slutet av-livscykeln Följ operativa Microsoft-Personal rigorösa datahantering och maskinvara avyttring procedurer för att garantera att maskinvara som innehåller kundinformation inte görs tillgängligt för obetrodda parter. En säker radering metod följs (via hårddisken inbyggd programvara) för enheter som stöder den. En destruktion process som förstör den och återger återställning av information omöjligt används för hårddiskar som inte kan rensas. Destruktion process kan vara splittras, hjälp, pulverisera dem eller förbränna. Lämpligt sätt avyttra bestäms av tillgångstyp. Posterna för destruktion bevaras. Alla Microsoft Azure-tjänster använder godkända media lagring och avyttring hanteringstjänster.
+## <a name="equipment-disposal"></a>Borttagning av utrustning
+När ett system slutet livscykel Följ Microsoft operational personal rigorösa datahantering och maskinvara avyttring procedurer för att garantera att maskinvara som innehåller dina data inte är tillgängliga till inte är betrodd part. Vi använder en metod för säker radering för enheter som har stöd för den. Vi använder en destruktion process som förstör enheten och återger det omöjligt för återställning av information för hårddiskar som inte kan rensas. Den här processen destruktion kan vara att splittras, hjälp, pulverisera dem eller förbränning. Vi fastställer insamling av avyttring beroende på resurstyp. Vi behåller poster i destruktion. Alla Azure-tjänster använder godkända media lagring och avyttring management services.
 
 ## <a name="compliance"></a>Efterlevnad
-Azure-infrastrukturen är utformad och hanteras för att uppfylla en bred uppsättning internationella och branschspecifika standarder, till exempel ISO 27001, HIPAA, FedRAMP, SOC 1 och SOC 2. Landsspecifika standarder också är uppfyllda, inklusive Australien IRAP, Storbritannien G-moln och Singapore MTCS. Omfattande granskningar utförda av oberoende part, till exempel British Standards Institute, kontrollerar att Azure har infört de stränga säkerhetskontrollerna i dessa standarder.
+Vi skapa och hantera Azure-infrastrukturen för att uppfylla en rad olika internationella och branschspecifika efterlevnadsstandarder, till exempel ISO 27001, HIPAA, FedRAMP, SOC 1 och SOC 2. Vi uppfyller även landsspecifika standarder inklusive IRAP i Australien, G-Cloud i Storbritannien och MTCS i Singapore. Noggranna granskningar från tredje part, till exempel de som görs av British Standards Institute, kontrollerar du infört de stränga säkerhetskontrollerna dessa standarder säkerhetsbehov.
 
-Finns det [kompatibilitet erbjudanden](https://www.microsoft.com/trustcenter/compliance/complianceofferings) för en fullständig lista över efterlevnadsstandarder följt av Azure.
+En fullständig lista över efterlevnadsstandarder som Azure följer finns i den [efterlevnadserbjudanden](https://www.microsoft.com/trustcenter/compliance/complianceofferings). 
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om vad Microsoft gör för att skydda Azure-infrastrukturen finns:
 
-- [Tillgängligheten för Azure-infrastrukturen](azure-infrastructure-availability.md)
+- [Tillgänglighet för Azure-infrastrukturen](azure-infrastructure-availability.md)
 - [Azure information systemkomponenter och gränser](azure-infrastructure-components.md)
 - [Arkitektur för Azure-nätverk](azure-infrastructure-network.md)
 - [Azure-produktionsnätverket](azure-production-network.md)
-- [Microsoft Azure SQL Database-säkerhetsfunktioner](azure-infrastructure-sql.md)
-- [Azure produktion och hantering](azure-infrastructure-operations.md)
+- [Azure SQL Database-säkerhetsfunktioner](azure-infrastructure-sql.md)
+- [Azure produktionsåtgärder och hantering](azure-infrastructure-operations.md)
 - [Övervakning av Azure-infrastrukturen](azure-infrastructure-monitoring.md)
-- [Integriteten hos Azure-infrastrukturen](azure-infrastructure-integrity.md)
-- [Skydd av kundinformation i Azure](azure-protection-of-customer-data.md)
+- [Azure-infrastrukturen integritet](azure-infrastructure-integrity.md)
+- [Dataskydd för Azure-kund](azure-protection-of-customer-data.md)
 
 <!--Image references-->
 [1]: ./media/azure-physical-security/data-residency-boundary.png

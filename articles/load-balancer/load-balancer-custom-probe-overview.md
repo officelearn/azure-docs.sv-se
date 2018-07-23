@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2018
+ms.date: 07/20/2018
 ms.author: kumud
-ms.openlocfilehash: dd92fca89e3bdb123be46a52708feec1c939f7cc
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8d354e3f409a51bdbb03ad340c951c39cc6137e1
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112730"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186452"
 ---
 # <a name="understand-load-balancer-probes"></a>Förstå avsökningar av belastningsutjämnare
 
@@ -28,7 +28,7 @@ Azure Load Balancer använder hälsoavsökningar för att avgöra vilka serverde
 
 Hälsoavsökningar styr huruvida nya flöden upprättas till Felfri backend-instanser. När en hälsoavsökning inte slutar belastningsutjämnaren att skicka nya flöden till respektive feltillstånd instansen.  Etablerad TCP-anslutningar fortsätter efter uteblivna för avsökning.  Befintliga UDP flöden flyttas från den felaktiga instansen till en annan felfri instans i serverdelspoolen.
 
-Om alla avsökningar för en serverdelspool misslyckas avslutas grundläggande belastningsutjämnare alla befintliga TCP-flöden till serverdelspoolen, medan Standard Load balancer tillåter etablerad TCP-flöden för att fortsätta; Inga nya flöden kommer att skickas till i serverdelspoolen.  Alla befintliga UDP flöden kommer att upphöra för Basic och Standard belastningsutjämnare när alla avsökningar för en backend-poolen misslyckas.
+Om alla avsökningar för en serverdelspool misslyckas avslutas grundläggande belastningsutjämnare alla befintliga TCP-flöden till serverdelspoolen, medan Standard Load balancer tillåter etablerad TCP-flöden för att fortsätta; Inga nya flöden kommer att skickas till i serverdelspoolen.  Alla befintliga UDP flöden kommer att upphöra för Basic och Standard belastningsutjämnare när alla avsökningar för en backend-poolen misslyckas.  UDP anslutningslös och det finns inga läget för energiflöde som spåras för UDP.  Så länge som den hash ger samma resultat, förblir flödet av datagram på en specifik instans.  En ändring av en hälsoavsökning i serverdelspoolen kan flytta nya datagram till en annan instans i serverdelspoolen.
 
 Molntjänstroller (arbetarroller och webbroller) använda en gästagenten för avsökning övervakning. TCP eller HTTP anpassade hälsoavsökningar måste konfigureras när du använder Cloud Services med virtuella IaaS-datorer bakom belastningsutjämnaren.
 

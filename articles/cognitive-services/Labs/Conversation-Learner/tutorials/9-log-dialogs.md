@@ -1,7 +1,7 @@
 ---
-title: Hur man loggar dialogrutor i en konversation deltagaren program - kognitiva Microsoft-tjänster | Microsoft Docs
+title: Hur du loggar in dialogrutor i en modell för Konversationsdeltagare – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig logga dialogrutor i en konversation deltagaren program.
+description: Lär dig mer om att logga dialogrutor i en Konversationsdeltagare-modell.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,125 +10,129 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 477545c48aeca05d56fdae28ac65a8f381a482fe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354114"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171443"
 ---
-# <a name="how-to-log-dialogs-in-a-conversation-learner-application"></a>Hur man loggar dialogrutor i en konversation deltagaren program
+# <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Hur du loggar in dialogrutor i en Konversationsdeltagare-modell
 
-Den här kursen visar hur slutanvändare i gränssnittet konversation deltagaren; hur dialogrutor loggas; och hur du gör ändringar i loggas dialogrutor för att förbättra din modell.
+Den här kursen visar hur du gör slutanvändarens testning i gränssnittet Konversationsdeltagare; hur dialogrutor loggas; och hur du gör ändringar av loggas dialogrutor för att därigenom förbättra din modell.
+
+## <a name="video"></a>Video
+
+[![Förhandsversion av självstudien 9](http://aka.ms/cl-tutorial-09-preview)](http://aka.ms/blis-tutorial-09)
 
 ## <a name="requirements"></a>Krav
-Den här kursen kräver att den allmänna självstudiekursen bot körs
+Den här självstudien krävs att Allmänt självstudiekursen bot körs
 
     npm run tutorial-general
 
 ## <a name="details"></a>Information
-Du kan använda loggen dialogrutorna för att granska och korrigera dialogrutor med slutanvändare.  Mer specifikt kan du åtgärda entiteten etiketter och val av åtgärd att förbättra den tränade modellen och hela systemets prestanda. 
+Du kan använda log-dialogrutorna för att granska och korrigera dialogrutor som utförs med slutanvändare.  Mer specifikt kan du åtgärda entitet etiketter och åtgärden val för att förbättra prestandan för den tränade modellen och hela systemet. 
 
 ## <a name="steps"></a>Steg
 
-### <a name="create-the-application"></a>Skapa programmet
+### <a name="create-the-model"></a>Skapa modellen
 
-1. Klicka på ny App i Webbgränssnittet,
+1. I Webbgränssnittet, klickar du på en ny modell
 2. Ange LogDialogs i namn. Klicka på Skapa.
 
 ### <a name="create-an-entity"></a>Skapa en entitet
 
-1. Klicka på entiteter sedan ny entitet.
-2. Ange ort i entitetsnamn.
+1. Klicka på entiteter och ny entitet.
+2. Ange ort i enhetens namn.
 3. Klicka på Skapa.
 
 ### <a name="create-two-actions"></a>Skapa två åtgärder
 
-1. Klicka på åtgärder och sedan ny åtgärd
-2. Skriv ”vilken stad?' svar.
+1. Klicka på åtgärder och ny åtgärd
+2. I svaret, skriver du ”vilka city”?.
 3. Ange $city i diskvalificera entiteter.
 3. Klicka på Skapa
 
 Skapa sedan den andra åtgärden:
 
-1. Klicka på Åtgärder sedan ny åtgärd.
-3. Skriv ”väder i $city är förmodligen Soligt” som svar.
+1. Klicka på åtgärder och ny åtgärd.
+3. Skriv ”vädret i $city är förmodligen solig” som svar.
 4. Nödvändiga entiteter, ange $city.
 4. Klicka på Skapa.
 
 Nu har du två åtgärder.
 
-### <a name="train-the-bot"></a>Träna bot
+### <a name="train-the-bot"></a>Träna roboten
 
-1. Klicka på tåget dialogrutor, sedan nya Train dialogrutan.
-2. Skriv ”vad är väder”.
-3. Klicka på poäng åtgärder och välj 'Vilken stad'?
+1. Klicka på träna dialogrutor, därefter nytt träna dialogrutan.
+2. Skriv ”vad blir vädret'.
+3. Klicka på poäng åtgärder och välj ”vilka city”?
 2. Ange ”Seattle”.
 3. Dubbelklicka på ”Seattle” och välj stad.
-    - Den markerad som en stad enhet.
+    - Den markerad som en stad-enhet.
 5. Klicka på poäng åtgärder
-6. Välj 'väder i $city är förmodligen Soligt'.
-7. Klicka på klar lärare.
+6. Välj ”vädret i $city är förmodligen solig”.
+7. Klicka på klar undervisning.
 
-Lägg till en annan dialogruta för exempel:
+Lägg till ett annat exempel dialogrutan:
 
-1. Klicka på ny åtgärd och sedan dialogrutan Ny tåget.
-2. Skriv ”vad är väder i Seattle”?. Lägg märke till Seattle märks med en entitet.
+1. Klicka på ny åtgärd och sedan dialogrutan Ny träna.
+2. Skriv ”vad är vädret i Seattle”?. Lägg märke till Seattle märkts med en entitet.
 5. Klicka på poäng åtgärder 
-6. Välj 'väder i $city är förmodligen Soligt'.
-7. Klicka på klar lärare.
+6. Välj ”vädret i $city är förmodligen solig”.
+7. Klicka på klar undervisning.
 
-### <a name="try-the-bot-as-the-user"></a>Försök i bot som användare
-Nu ska vi anta att vi har distribuerat den här bot till användare.
+### <a name="try-the-bot-as-the-user"></a>Försök roboten som användare
+Låt oss anta att vi har distribuerat den här bot till användare.
 
-1. Klicka på Logga dialogrutor.
+1. Klicka på logg-dialogrutor.
 2. Klicka på ny chatt.
-    - Detta anger bot när användaren skulle uppstå i chatt webbkontroll till vänster i Användargränssnittet. Du kan ignorera området tomt utrymme till höger.
+    - Detta medför roboten när användaren skulle uppleva i webbchattskontroll till vänster i Användargränssnittet. Du kan ignorera området tomt utrymme till höger.
 3. Skriv ”hello”.
-4. Bot svar: 'vilken stad'?
+4. Bot svar: ”vilka city”?
 4. Typen 'Boston'.
-5. Bot svar: 'vilken stad'?
-    - Det verkar inte rätt. Vi sparar den här dialogrutan.
-2. Klicka på klart testning.
+5. Bot svar: ”vilka city”?
+    - Det verkar inte vara rätt. Vi sparar den här dialogrutan.
+2. Klicka på klar testning.
 
 Låt oss börja en ny session:
 
 2. Klicka på ny chatt.
-3. Göra prognoser för Boston typ.
-4. Bot svar: 'vilken stad'?
-2. Klicka på klar lärare.
+3. Skapa prognoser för Boston typ.
+4. Bot svar: ”vilka city”?
+2. Klicka på klar undervisning.
 
-Nu ska vi göra korrigeringar andra dialogrutan:
+Nu ska vi göra korrigeringar av andra dialogrutan:
 
-1. Klicka på 'prognos Boston' under Log-dialogrutor.
-    - Konversationen öppnas.
-    - Om du klickar på användarsidan konversationens (här på 'prognos Boston'), kan du ändra entitet etiketter.
-    - Om du klickar på system-sida (här på vilken stad) kan du ändra vilken åtgärd som har valts.
-5. Klicka på 'prognos Boston'. 
-    - Den här grundläggande orsaken är att Boston inte har taggats som en enhet. Vi behöver ändra som.
-    - Dubbelklicka på 'Boston' och välj sedan stad.
-    - Klicka på Skicka ändringar och klicka på Spara. Detta skapar en utbildning dialogrutan baserat på de ändringar du gjort och släpp utbildning dialogrutor vid ändringar du gjort.
-6. Välj ”väder i $city är förmodligen Soligt”.
-7. Klicka på klar lärare. Om du går till Train-dialogrutor nu visas den nya åtgärden har lagts till.
+1. Klicka på ”prognosen för Boston' under Log-dialogrutor.
+    - Då öppnas konversationen.
+    - Om du klickar på användarsidan för konversationen (här på 'prognosen för Boston ”), kan du ändra etiketter för entiteten.
+    - Om du klickar på system-sida (här på ”vilka city”), du kan ändra vilken åtgärd som har valts.
+5. Klicka på ”prognosen för Boston'. 
+    - Den här grundläggande orsaken är att Boston inte har taggats som en entitet. Vi behöver du ändra.
+    - Dubbelklicka på ”Boston” och välj sedan stad.
+    - Klicka på Skicka ändringar och klicka på Spara. Detta skapar en utbildning dialogruta baserat på de ändringar du gjort och släpp utbildning dialogrutor vid ändringen du gjorde.
+6. Välj ”vädret i $city är förmodligen vackert”.
+7. Klicka på klar undervisning. Om du går till Train-dialogrutor nu visas den nya åtgärden har lagts till.
 
 ![](../media/tutorial9_logdiag1.PNG)
 
-Nu ska vi göra korrigeringar andra dialogrutan:
+Nu ska vi göra korrigeringar av andra dialogrutan:
 
 1. Klicka på ”hello” under Log-dialogrutor.
-    - Konversationen öppnas.
-3. Observera svaret ”hello” är vilken stad. Men vi vill ändra det till något som passar bättre. Ett bättre svar är något som ”hello, jag är väder bot'. Men det finns ingen åtgärd som utför som så att vi behöver skapa en.
+    - Då öppnas konversationen.
+3. Svaret ”hello” är ”vilka city”. Men vi vill ändra det till något som passar bättre. Ett bättre svar är något som ”Hej! jag heter väder-roboten'. Men det finns inga åtgärder som gör som så att vi behöver skapa ett.
 4. Klicka på åtgärden.
-    - I svaret, Skriv ”jag väder bot. Jag kan hjälpa dig med prognoser ”.
-6. Avmarkera väntan på svar kryssrutan så att det blir en icke-wait-åtgärd.
+    - I svaret, skriver du ”jag väder-roboten. Jag kan hjälpa dig med prognoser ”.
+6. Avmarkera väntan på svar kryssrutan så att de blir en icke-wait-åtgärden.
 7. Klicka på Skapa.
 8. Klicka för att välja den här nya åtgärden. Klicka sedan på spara.
-    - Detta ger dig tillbaka till den punkten i utbildning-sessionen.
-6. Klicka på Välj 'vilken stad ”?
-7. Typen i 'Boston'. Dubbelklicka på att tagga Boston som en enhet om den inte redan.
+    - Detta ger du tillbaka till den tidpunkten i utbildningssessionen.
+6. Klicka för att markera ”vilka city”?
+7. Ange ”Boston'. Dubbelklicka på taggen Boston som en enhet om den inte redan gjort.
 8. Klicka på poäng åtgärder.
-9. Markera ”väder i $city är förmodligen Soligt”.
-10. Klicka på klar lärare.
+9. Klicka för att välja ”vädret i $city är förmodligen vackert”.
+10. Klicka på klar undervisning.
 
 ![](../media/tutorial9_addnewaction.PNG)
 

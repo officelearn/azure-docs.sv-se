@@ -9,18 +9,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: v-geberr
-ms.openlocfilehash: d6cbba2a5bf9ff44439c6e98debde5cd47d4bfc3
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 46aa23ee359fd1f2f5a1cf8a05854d5c4cc7c739
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950397"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170624"
 ---
 # <a name="testing-in-luis"></a>Testa i LUIS
 
 Testning är processen med att tillhandahålla exempel yttranden till LUIS och hämtar ett svar av LUIS-identifieras avsikter och entiteter. 
 
-Du kan [testa](interactive-test.md) LUIS interaktivt, ett uttryck i taget, eller ange en [batch](luis-concept-batch-test.md) av yttranden. Testar kan du jämföra aktuellt [active](luis-concept-version.md#active-version) modeller till den publicerade modellen. 
+Du kan [testa](luis-interactive-test.md) LUIS interaktivt, ett uttryck i taget, eller ange en [batch](luis-concept-batch-test.md) av yttranden. Testar kan du jämföra aktuellt [active](luis-concept-version.md#active-version) modeller till den publicerade modellen. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -57,4 +57,4 @@ Lär dig [bästa praxis](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [testning](interactive-test.md) din yttranden.
+* Läs mer om [testning](luis-interactive-test.md) din yttranden.

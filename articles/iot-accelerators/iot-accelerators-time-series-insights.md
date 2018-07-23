@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: f16fdfca704b8f8cb175de637ad7f3ef143d3ed7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 10617c129212d8196897af750c02647f0086c8e5
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968963"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185898"
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Visualisera Remote övervakningsdata med Time Series Insights
 
@@ -23,7 +23,7 @@ En operatör kanske vill utöka out data box visualiseringen som tillhandahålls
 
 För att slutföra den här anvisningen, behöver du följande:
 
-* [Distribuera av den förkonfigurerade lösningen för fjärrövervakning](iot-accelerators-remote-monitoring-deploy.md)
+* [Distribuera av den förkonfigurerade lösningen för fjärrövervakning](quickstart-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Skapa en konsumentgrupp
 

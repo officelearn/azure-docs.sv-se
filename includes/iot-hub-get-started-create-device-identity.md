@@ -1,12 +1,12 @@
 ## <a name="create-a-device-identity"></a>Skapa en enhetsidentitet
 
-I det här avsnittet kan du använda verktyget Node.js [iothub explorer] [ iot-hub-explorer] att skapa en enhetsidentitet för den här kursen. Enhets-ID är skiftlägeskänsliga.
+I det här avsnittet ska du använda verktyget Node.js [iothub-explorer] [ iot-hub-explorer] att skapa en enhetsidentitet i den här självstudien. Enhets-ID är skiftlägeskänsliga.
 
-1. Kör du följande i Kommandotolken miljön:
+1. Kör följande i miljön kommandoraden:
 
     `npm install -g iothub-explorer@latest`
 
-1. Kör sedan följande kommando för att logga in på din hubb. Ersätt `{iot hub connection string}` med IoT-hubb anslutningssträngen som du kopierade tidigare:
+1. Kör sedan följande kommando för att logga in till hubben. Ersätt `{iot hub connection string}` med IoT Hub-anslutningssträngen som du kopierade tidigare:
 
     `iothub-explorer login "{iot hub connection string}"`
 
@@ -16,15 +16,15 @@ I det här avsnittet kan du använda verktyget Node.js [iothub explorer] [ iot-h
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-Anteckna anslutningssträngen för enheten från resultatet. Den här enheten anslutningssträngen används av appen enheter för att ansluta till din IoT-hubb som en enhet.
+Anteckna enhetsanslutningssträngen från resultatet. Den här enhetens anslutningssträng används av app för enheter för att ansluta till din IoT-hubb som en enhet.
 
 ![][img-identity]
 
-Referera till [komma igång med IoT-hubb] [ lnk-getstarted] programmässigt skapa enheten identiteter.
+Referera till [komma igång med IoT Hub] [ lnk-getstarted] du programmässigt skapar enhetsidentiteter.
 
 <!-- images and links -->
 [img-identity]: media/iot-hub-get-started-create-device-identity/devidentity.png
 
 [iot-hub-explorer]: https://github.com/Azure/iothub-explorer/blob/master/readme.md
 
-[lnk-getstarted]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
+[lnk-getstarted]: ../articles/iot-hub/quickstart-send-telemetry-dotnet.md

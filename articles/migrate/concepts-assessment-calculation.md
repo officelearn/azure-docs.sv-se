@@ -4,14 +4,14 @@ description: Översikt över utvärderingsberäkningar i Azure Migrate-tjänsten
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/20/2018
 ms.author: raynew
-ms.openlocfilehash: 6d5a0b959b25c0ee294b22b3f4066d006806b524
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 890614133649762788418c538bd22bb6ffc425bf
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920935"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173766"
 ---
 # <a name="assessment-calculations"></a>Utvärderingsberäkningar
 
@@ -106,10 +106,9 @@ För prestandabaserade storleksändringar behöver Azure Migrate börjar med dis
 Om storlekskriteriet är *som lokalt storlek*, Azure Migrate beräknar inte prestandahistoriken för virtuella datorer och diskar och allokerar en VM-SKU i Azure baserat på den allokerade lokala storleken. På liknande sätt för disk storlek tittar på lagringstypen som angetts i egenskaperna för utvärdering (Standard/Premium) och rekommenderar disktypen därefter. Standardtypen för lagring är Premium-diskar.
 
 ### <a name="confidence-rating"></a>Säkerhetsomdöme
+Varje prestandabaserad utvärdering i Azure Migrate är kopplad till ett säkerhetsomdöme från 1 stjärna till 5 stjärnor (1 stjärna är lägst och 5 stjärnor är högst). Säkerhetsomdömet tilldelas en utvärdering baserat på tillgängligheten av datapunkter som behövs för att beräkna utvärderingen. Med säkerhetsomdömet kan du beräkna tillförlitligheten i de storleksrekommendationer som anges av Azure Migrate. Säkerhetsomdömet är inte tillämpbar på som lokala utvärderingar.
 
-Varje utvärdering i Azure Migrate är kopplad till ett säkerhetsomdöme i intervallet 1 stjärna till 5 stjärnor (1 stjärna är lägst och 5 stjärnor är högst). Säkerhetsomdömet tilldelas en utvärdering baserat på tillgängligheten av datapunkter som behövs för att beräkna utvärderingen. Med säkerhetsomdömet kan du beräkna tillförlitligheten i de storleksrekommendationer som anges av Azure Migrate.
-
-Förtroendeklassificering av en bedömning är mer användbar för bedömningar där storlekskriteriet är prestandabaserad storleksändring. För prestandabaserade storleksändringar behöver Azure Migrate användningsdata för CPU, minne och den virtuella datorn. För varje disk som är ansluten till den virtuella datorn krävs dessutom information om IOPS och dataflöden. Precis som för varje nätverkskort som är kopplat till en virtuell dator så måste Azure Migrate ha åtkomst till nätverkets in-/utdata för att utföra prestandabaserade storleksändringar. Om några av ovanstående användningsnummer inte är tillgängliga i vCenter Server så är kanske storleksrekommendationen från Azure Migrate inte är tillförlitlig. Beroende på procentandelen datapunkter som är tillgängliga tillhandahålls säkerhetsomdömet för utvärderingen, som du ser nedan:
+För prestandabaserade storleksändringar behöver Azure Migrate användningsdata för CPU, minne och den virtuella datorn. För varje disk som är ansluten till den virtuella datorn krävs dessutom information om IOPS och dataflöden. Precis som för varje nätverkskort som är kopplat till en virtuell dator så måste Azure Migrate ha åtkomst till nätverkets in-/utdata för att utföra prestandabaserade storleksändringar. Om några av ovanstående användningsnummer inte är tillgängliga i vCenter Server så är kanske storleksrekommendationen från Azure Migrate inte är tillförlitlig. Beroende på procentandelen datapunkter som är tillgängliga tillhandahålls säkerhetsomdömet för utvärderingen, som du ser nedan:
 
    **Tillgänglighet för datapunkter** | **Säkerhetsomdöme**
    --- | ---

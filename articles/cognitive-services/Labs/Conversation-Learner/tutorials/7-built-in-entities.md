@@ -1,7 +1,7 @@
 ---
-title: Lägga till förskapad entiteter i en konversation deltagaren program - kognitiva Microsoft-tjänster | Microsoft Docs
+title: Lägga till färdiga entiteter i en modell för Konversationsdeltagare – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig hur du lägger till förskapad entiteter i en konversation deltagaren program.
+description: Lär dig hur du lägger till färdiga entiteter i en Konversationsdeltagare-modell.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,72 +10,76 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f014464419bfac39a9e57e679fcd28a737e9ebdb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84d73add5586aaaf130253a8122a4152e39bcbe9
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355089"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171375"
 ---
-# <a name="how-to-add-pre-built-entities"></a>Hur du lägger till förskapad entiteter
-Den här kursen visar hur du lägger till ”inbyggd” entiteter i tillämpningsprogrammet konversation deltagaren.
+# <a name="how-to-add-pre-built-entities"></a>Hur du lägger till färdiga entiteter
+Den här självstudien visar hur du lägger till ”färdiga” entiteter i Konversationsdeltagare-modellen.
+
+## <a name="video"></a>Video
+
+[![Förhandsversion av självstudien 7](http://aka.ms/cl-tutorial-07-preview)](http://aka.ms/blis-tutorial-07)
 
 ## <a name="requirements"></a>Krav
-Den här kursen kräver att den allmänna självstudiekursen bot körs
+Den här självstudien krävs att Allmänt självstudiekursen bot körs
 
     npm run tutorial-general
 
 ## <a name="details"></a>Information
 
-Förskapad entiteter identifiera vanliga typer av entiteter, till exempel siffror, datum, belopp och andra.  Till skillnad från anpassade enheter de arbetar ”out-of-the-box” och kräver inte någon utbildning.  Till skillnad från anpassade entiteter, kan inte deras beteende ändras.  Som standard förskapad entiteter med flera värden – det vill säga den bot minne samlar alla identifierade förekomster av entiteten.
+Färdiga entiteter identifiera vanliga typer av enheter, till exempel tal, datum, penningbelopp och andra.  Till skillnad från anpassade entiteter kan de fungera ”out-of the box” och kräver inte någon utbildning.  Till skillnad från anpassade entiteter, kan inte deras beteende ändras.  Färdiga entiteter finns flera värden – det vill säga robotens minne samlas alla identifierade förekomster av entiteten som standard.
 
 ## <a name="steps"></a>Steg
 
-### <a name="create-the-application"></a>Skapa programmet
+### <a name="create-the-model"></a>Skapa modellen
 
-1. Klicka på ny App i Webbgränssnittet,
+1. I Webbgränssnittet, klickar du på en ny modell
 2. Ange BuiltInEntities i namn. Klicka på Skapa.
 
 ### <a name="create-an-entity"></a>Skapa en entitet
 
-1. Klicka på entiteter sedan ny entitet.
+1. Klicka på entiteter och ny entitet.
 2. Klicka på EntityType listrutan och välj datetimev2.
-    - Alternativ för Programmable och Negatable har inaktiverats eftersom de inte gäller för att skapa före entiteter.
+    - Alternativ för programmerbart och Negatable har inaktiverats eftersom de inte gäller för att skapa förväg entiteter.
 3. Klicka på Skapa.
 
 ![](../media/tutorial7_entities.PNG)
 
 ### <a name="create-two-actions"></a>Skapa två åtgärder
 
-1. Klicka på åtgärder och sedan ny åtgärd
-2. Skriv i svaret, ' datumet är $luis-datetimev2'.
+1. Klicka på åtgärder och ny åtgärd
+2. I svaret, skriver du ”datumet är $luis-datetimev2”.
 3. Klicka på Skapa.
 
 ![](../media/tutorial7_actions.PNG)
 
 Skapa sedan den andra åtgärden:
 
-1. Klicka på Åtgärder sedan ny åtgärd för att skapa en andra åtgärd.
-3. Skriv ”vad är datumet?' svar.
-4. Ange 'Thomas datetimev2' i diskvalificera entiteter.
+1. Klicka på åtgärder och sedan ny åtgärd för att skapa en andra åtgärd.
+3. I svaret, skriver du ”vad är datumet”?.
+4. Ange ”luis-datetimev2” i diskvalificera entiteter.
 4. Klicka på Skapa
 
 ![](../media/tutorial7_actions2.PNG)
 
 Nu har du två åtgärder.
 
-### <a name="train-the-bot"></a>Träna bot
+### <a name="train-the-bot"></a>Träna roboten
 
-1. Klicka på tåget dialogrutor, sedan nya Train dialogrutan.
+1. Klicka på träna dialogrutor, därefter nytt träna dialogrutan.
 2. Skriv ”hello”.
 3. Klicka på poäng åtgärder och välj ”vad är datumet”?
-2. Ange dag'. 
-    - Meddelande idag märks och visas i den andra raden eftersom den är en förskapad entitet och kan inte redigeras.
+2. Ange ”dag”. 
+    - Meddelande i dag är märkta och visas i den andra raden, eftersom det är en färdiga entitet och kan inte redigeras.
 5. Klicka på poäng åtgärder
     - Observera datum nu visas i avsnittet för entiteten minne. 
-    - Om du placerar muspekaren över datumet visas ytterligare information som tillhandahålls av THOMAS som kan användas och ytterligare kan ändras i kod. 
-6. Välj ' datumet är $luis-datetimev2'.
-7. Klicka på klar lärare
+    - Om du för muspekaren över datumet, ser du ytterligare data som tillhandahålls av LUIS, vilket är användbart och ytterligare kan ändras i kod. 
+6. Välj ”datumet är $luis-datetimev2”.
+7. Klickar du på klar undervisning
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,7 +1,7 @@
 ---
-title: Så här skapar du ett program i ”Hello World” konversation deltagaren - kognitiva Microsoft-tjänster | Microsoft Docs
+title: Så här skapar du en ”Hello World” Konversationsdeltagare modell – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig hur du skapar en ”Hello World” konversation deltagaren program.
+description: Lär dig hur du skapar en ”Hello World” Konversationsdeltagare-modell.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,21 +10,26 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 30026285ac6dda45d2f5e3718aae741b928cf242
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 70b8f25bd699cbdb069892d65bf766ef3953f59d
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354099"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170879"
 ---
-# <a name="how-to-create-a-hello-world-application-with-conversation-learner"></a>Hur du skapar ett ”Hello World”-program med konversation deltagaren
+# <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>Hur du skapar en ”Hello World”-modell med Konversationsdeltagare
 
-Den här kursen visar hur du kommer igång med konversation deltagaren, inklusive att skapa åtgärder, lära interaktivt och gör nödvändiga ändringar av loggade dialogrutor från slutanvändare.
+Den här självstudiekursen visar hur du kommer igång med Konversationsdeltagare, inklusive att skapa åtgärder, undervisar interaktivt och göra ändringar av loggade dialogrutor för slutanvändarna.
+
+## <a name="video"></a>Video
+
+[![Självstudie 1 Preview](http://aka.ms/cl-tutorial-01-preview)](http://aka.ms/blis-tutorial-01)
+
 
 ## <a name="requirements"></a>Krav
-Om du inte redan gjort först se till att alla steg i installationen har slutförts, inklusive att skapa en `.env` filen med din THOMAS redigering av nyckeln.  Se [Quickstart](https://github.com/Microsoft/ConversationLearner-Samples) mer information.
+Om du inte redan gjort först se till att alla steg i installationen har slutförts, inklusive att skapa en `.env` filen med din LUIS redigering av nyckeln.  Se [snabbstarten](https://github.com/Microsoft/ConversationLearner-Samples) information.
 
-Den här kursen kräver att den allmänna självstudiekursen bot körs
+Den här självstudien krävs att Allmänt självstudiekursen bot körs
 
     npm run tutorial-general
 
@@ -32,81 +37,81 @@ Den här kursen kräver att den allmänna självstudiekursen bot körs
 
 Starta på startsidan i Webbgränssnittet.
 
-### <a name="create-the-app"></a>Skapa appen
-1. Klicka på ny App
-2. Ange Hello World i fältet namn
+### <a name="create-the-model"></a>Skapa modellen
+1. Klicka på ny modell
+2. Ange i fältet Namn på Hello World
 3. Klicka på Skapa
 
 ### <a name="create-an-action"></a>Skapa en åtgärd
 
-1. Klicka på Hello World-app för att starta den
-2. Klicka på åtgärder och sedan ny åtgärd
-    - En åtgärd kan vara ett textmeddelande konversation deltagaren returneras till användaren, ett API-anrop eller ett kort.
+1. Klicka på Hello World-modellen för att starta den
+2. Klicka på åtgärder och ny åtgärd
+    - En åtgärd kan vara ett textmeddelande som Konversationsdeltagare tillbaka till användaren, ett API-anrop eller ett kort.
 3. I svaret, skriver du ”Hello World”!
-    - Detta är svaret på bot returneras
+    - Det här är ett svar som returnerar roboten
 4. Klicka på Skapa
 
-Du har skapat det första som gör bot d.v.s. besvaras text.
+Du har skapat den första roboten kan t.ex. göra returnera ett textsvar.
 
-### <a name="train-the-bot"></a>Träna bot
+### <a name="train-the-bot"></a>Träna roboten
 
-#### <a name="create-the-first-dialog"></a>Skapa första dialogrutan
+#### <a name="create-the-first-dialog"></a>Den första dialogrutan Skapa
 
-1. Klicka på tåget dialogrutor, sedan nya Train Dialog
-2. Ange ett exempel på vad användaren säger i begging konversationens, till exempel ”hello”.
+1. Klicka på träna dialogrutor, därefter nytt Train-dialogrutan
+2. Ange ett exempel på vad användaren kommer att säga i begging konversationens, till exempel ”hello”.
 3. Klicka på poäng åtgärder
 4. Välj ”Hello World”!
-    - Detta skapar en aktivera en exempel-dialogruta. 
+    - Detta skapar en dialogruta i sin tur ett exempel. 
 2. Ange ”goodbye”
 3. Klicka på poäng åtgärder
-4. Klicka på Lägg till åtgärd och sedan ange Goodbye! svar och klicka sedan på ”Skapa”
-5. Klicka på klar lärare. Detta avslutar den här dialogrutan utbildning.
+4. Klicka på Lägg till åtgärd och sedan ange klart! svar och klicka sedan på ”Skapa”
+5. Klicka på klar undervisning. Detta avslutar den här dialogrutan för utbildning.
 
-Nu har du en lärare dialogrutan i systemet.
+Nu har du en undervisning dialogrutan i systemet.
 
-#### <a name="continue-teaching-the-bot"></a>Fortsätta lära bot
-Vi gör en mer utbildning och se hur bot svarar.
+#### <a name="continue-teaching-the-bot"></a>Fortsätta undervisar roboten
+Låt oss göra en mer utbildning och se hur roboten svarar.
 
-1. Klicka på ny Train dialogrutan
-2. Ange ”Hej det '
-    - Detta liknar första dialogrutan och vi räknar med att få ett bra resultat från bot.
+1. Klicka på dialogrutan för nytt Train
+2. Ange ”Hej det”
+    - Detta liknar den första dialogrutan och vi förväntar oss att få en bra poäng från roboten.
 2. Klicka på poäng åtgärd
-    - Placering och poäng kanske inte längre är tillräckligt aktuell och kräver ytterligare lärare.
+    - Position och poäng kanske inte längre är tillräckligt aktuell och kräver ytterligare undervisning.
 3. Klicka på Välj bredvid ”Hello World”!
-4. Ange 'bye ”
+4. Ange sedan ”bye”
 5. Klicka på poäng åtgärder
-6. Välj Goodbye!
-7. Klicka på klar lärare
+6. Välj klart!
+7. Klickar du på klar undervisning
 
 ![](../media/tutorial1_actions.PNG)
 
-Gör vi en annan lärare session för att se hur bot fungerar.
+Vi kommer att göra en annan undervisning session om du vill se hur roboten fungerar.
 
-Upprepa stegen ovan med ”Hej” och ”byebye' och notera ändringarna i position och poängen för robotar svaret när du klickar på poäng åtgärd.
+Upprepa stegen ovan med hjälp av ”Hej” och ”byebye” och notera ändringarna i position och poängen för robotar svaret när du poäng högerklicksåtgärd.
 
-Nu kan du upprepa steg med hjälp av 'howdy' och 'good bye ”och Observera att bedömningsprofil visar förbättringar i resultat som anger bot har lärt dig interaktionen.
+Nu kan du upprepa steg med hjälp av ”howdy” och ”good bye” och Observera att bedömnings visar förbättringarna i poäng som anger roboten har lärt dig interaktionen.
 
 ![](../media/tutorial1_dialogs.PNG)
 
-### <a name="test-the-bot-as-an-end-user"></a>Testa bot som en användare
+### <a name="test-the-bot-as-an-end-user"></a>Testa roboten som en användare
 
-1. Klicka på Logga dialogrutor, sedan nya loggen Dialog
+1. Klicka på Log dialogrutor, därefter nytt Log-dialogrutan
 2. Skriv ”Hej”
-3. Sedan 'bye ”
+3. Sedan ”bye”
 
-Du kan också prova att starta en konversation med 'bye ”och notera den bot svar.
+Du kan också prova att starta en konversation med ”bye” och Observera robotens svar.
 
-### <a name="view-conversations-in-the-log-dialogs"></a>Visa konversationer i loggen dialogrutor
+### <a name="view-conversations-in-the-log-dialogs"></a>Visa konversationer i den Log-dialogrutor
 
-I loggen dialoger kan du visa listan konversationer, uppdatera och spara interaktioner som utbildning dialogrutor. Att göra det:
+I loggen dialogrutor, kan du visa listan över konversationer, uppdatera och spara samverkan som utbildning dialogrutor. Att göra det:
 
-1. Klicka på en logg för en konversation
+1. Klicka på logg över en konversation
 2. Om konversationen ser bra ut klickar du på den senaste åtgärden t.ex. ”Goodbye”.
-3. Klicka på det föreslagna svaret. 
-    - Du kan också markera eller lägga till en annan åtgärd.
-4. Klicka sedan på klar spara det som en dialogruta för utbildning.
+3. Klicka för att välja det föreslagna svaret. 
+    - Du kan också välja eller lägga till en annan åtgärd.
+4. Sedan klickar du på klar om du vill spara den som en dialogruta för utbildning.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Vänta en stund och icke-wait-åtgärder](./2-wait-vs-nonwait-actions.md)
+> [Vänta och icke-wait-åtgärder](./2-wait-vs-nonwait-actions.md)

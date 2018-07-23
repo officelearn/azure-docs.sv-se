@@ -1,9 +1,9 @@
 ---
-title: Hantera DNS-zoner i Azure DNS - Azure CLI 2.0 | Microsoft Docs
-description: Du kan hantera DNS-zoner som använder Azure CLI 2.0. Den här artikeln visar hur du uppdatera, ta bort och skapa DNS-zoner på Azure DNS.
+title: Hantera DNS-zoner i Azure DNS – Azure CLI 2.0 | Microsoft Docs
+description: Du kan hantera DNS-zoner med Azure CLI 2.0. Den här artikeln visar hur du uppdatera, ta bort och skapa DNS-zoner i Azure DNS.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: timlt
 ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
@@ -12,15 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
-ms.author: kumud
-ms.openlocfilehash: 3fee44e282424caa0a9e57dae1228d8af075e4a6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: victorh
+ms.openlocfilehash: c81d8add7ae37e03a98da0ad86deaa1d9d7ec8e0
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166175"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172627"
 ---
-# <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Hur du hanterar DNS-zoner i Azure DNS använder Azure CLI 2.0
+# <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Så här hanterar du DNS-zoner i Azure DNS med Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
@@ -28,9 +28,9 @@ ms.locfileid: "32166175"
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 
-Den här guiden visar hur du hanterar DNS-zoner med hjälp av plattformsoberoende Azure CLI, som är tillgänglig för Windows, Mac och Linux. Du kan också hantera DNS-zoner med [Azure PowerShell](dns-operations-dnszones.md) eller Azure-portalen.
+Den här guiden visar hur du hanterar DNS-zoner med hjälp av plattformsoberoende Azure CLI, som är tillgängligt för Windows, Mac och Linux. Du kan också hantera dina DNS-zoner med [Azure PowerShell](dns-operations-dnszones.md) eller Azure-portalen.
 
-Den här guiden behandlar specifikt offentliga DNS-zoner. Information om hur du använder Azure CLI för att hantera privata zoner i Azure DNS finns [Kom igång med Azure privata DNS-zoner som använder Azure CLI 2.0](private-dns-getstarted-cli.md).
+Den här guiden behandlar specifikt offentliga DNS-zoner. Information om hur du använder Azure CLI för att hantera privata zoner i Azure DNS finns i [Kom igång med Azure DNS Private Zones med Azure CLI 2.0](private-dns-getstarted-cli.md).
 
 ## <a name="introduction"></a>Introduktion
 
@@ -44,7 +44,7 @@ Kontrollera att du har följande innan du påbörjar konfigurationen.
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
-* Installera den senaste versionen av Azure CLI 2.0, tillgänglig för Windows, Linux och MAC. Mer information finns på [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
+* Installera den senaste versionen av Azure CLI 2.0, tillgängliga för Windows, Linux eller MAC. Mer information finns på [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ### <a name="sign-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
 
@@ -68,7 +68,7 @@ Välj vilka av dina Azure-prenumerationer som du vill använda.
 az account set --subscription "subscription name"
 ```
 
-### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Valfritt: Om du vill installera/Använd Azure privata DNS-zoner funktion (förhandsversion)
+### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Valfritt: Installera/använda Azure DNS Private Zones funktion (förhandsversion)
 Funktionen för privata Azure DNS-zoner släpps i en allmänt tillgänglig förhandsversion via ett tillägg till Azure CLI. Installera dns-tillägget för Azure CLI 
 ```
 az extension add --name dns
@@ -86,7 +86,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Få hjälp
 
-Alla CLI 2.0-kommandon som är relaterade till Azure DNS börja med `az network dns`. Hjälp är tillgänglig för varje kommando med hjälp av den `--help` alternativet (kort form `-h`).  Exempel:
+Utgå från alla CLI 2.0-kommandon som är relaterade till Azure DNS `az network dns`. Hjälp är tillgänglig för varje kommando med hjälp av den `--help` alternativet (kort form `-h`).  Exempel:
 
 ```azurecli
 az network dns --help
@@ -98,7 +98,7 @@ az network dns zone create --help
 
 En DNS-zon skapas med hjälp av kommandot `az network dns zone create`. Om du vill ha hjälp, så gå till `az network dns zone create -h`.
 
-I följande exempel skapas en DNS-zon som kallas *contoso.com* i resursgruppen kallas *MyResourceGroup*:
+I följande exempel skapas en DNS-zon med namnet *contoso.com* i resursgruppen med namnet *MyResourceGroup*:
 
 ```azurecli
 az network dns zone create --resource-group MyResourceGroup --name contoso.com
@@ -106,7 +106,7 @@ az network dns zone create --resource-group MyResourceGroup --name contoso.com
 
 ### <a name="to-create-a-dns-zone-with-tags"></a>Skapa en DNS-zon med taggar
 
-I följande exempel visas hur du skapar en DNS-zon med två [Azure Resource Manager taggar](dns-zones-records.md#tags), *projekt = demo* och *env = test*, med hjälp av den `--tags` parameter (kort form `-t`):
+I följande exempel visas hur du skapar en DNS-zon med två [Azure Resource Manager-taggar](dns-zones-records.md#tags), *project = demo* och *env = test*, med hjälp av den `--tags` parametern () korta formuläret `-t`):
 
 ```azurecli
 az network dns zone create --resource-group MyResourceGroup --name contoso.com --tags "project=demo" "env=test"
@@ -167,9 +167,9 @@ az network dns zone list
 
 Du kan göra ändringar i en DNS-zonresurs med `az network dns zone update`. Om du vill ha hjälp, så gå till `az network dns zone update --help`.
 
-Det här kommandot uppdaterar inte någon av DNS-postuppsättningarna i zonen (mer information finns i [Hantera DNS-poster](dns-operations-recordsets-cli.md)). Det används endast för att uppdatera zonresursens egenskaper. Dessa egenskaper är för tillfället begränsad till den [Azure Resource Manager ”-taggar'](dns-zones-records.md#tags) för zonen resursen.
+Det här kommandot uppdaterar inte någon av DNS-postuppsättningarna i zonen (mer information finns i [Hantera DNS-poster](dns-operations-recordsets-cli.md)). Det används endast för att uppdatera zonresursens egenskaper. De här egenskaperna är för närvarande begränsade till den [Azure Resource Manager ”-taggar'](dns-zones-records.md#tags) för zonresursen.
 
-I följande exempel visas hur du uppdaterar taggarna i en DNS-zon. De befintliga taggarna ersättas med det angivna värdet.
+I följande exempel visar hur du uppdaterar taggar på en DNS-zon. De befintliga taggarna ersätts med det angivna värdet.
 
 ```azurecli
 az network dns zone update --resource-group myresourcegroup --name contoso.com --set tags.team=support
@@ -194,7 +194,7 @@ az network dns zone delete --resource-group myresourcegroup --name contoso.com
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [hantera uppsättningar av poster och poster](dns-getstarted-create-recordset-cli.md) i DNS-zonen.
+Lär dig hur du [hantera postuppsättningar och poster](dns-getstarted-create-recordset-cli.md) i din DNS-zon.
 
 Lär dig hur du [Delegera din domän till Azure DNS](dns-domain-delegation.md).
 

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 07/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: dc316df754ea0b8630abe341dc5ce6b0adffa685
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1c52a97bce1b18e16cb5109049f36e146165dff4
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920043"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172137"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -95,8 +95,12 @@ Ja, kan du undanta diskar från replikering.
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>Kan jag replikera virtuella datorer med dynamiska diskar?
 Dynamiska diskar kan replikeras. Operativsystemdisken måste vara en standarddisk.
 
-### <a name="can-i-add-a-new-vm-to-an-existing-replication-group"></a>Kan jag lägga till en ny virtuell dator till en befintlig replikeringsgrupp?
-Ja.
+### <a name="if-i-use-replication-groups-for-multi-vm-consistency-can-i-add-a-new-vm-to-an-existing-replication-group"></a>Om jag använder replikeringsgrupper för konsekvens för flera datorer, kan jag lägga till en ny virtuell dator till en befintlig replikeringsgrupp?
+Ja, kan du lägga till nya virtuella datorer till en befintlig replikeringsgrupp när du aktiverar replikering för dessa. Du kan inte lägga till en virtuell dator till en befintlig replikeringsgrupp när replikering initieras, och du kan inte skapa en replikeringsgrupp för befintliga virtuella datorer.
+
+### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>Kan jag ändra virtuella datorer som replikerar genom att lägga till eller ändra storlek på diskar?
+
+Du kan ändra diskens storlek för VMware-replikering till Azure. Om du vill lägga till nya diskar måste du lägga till disken och återaktivera skyddet för den virtuella datorn.
 
 ## <a name="configuration-server"></a>Konfigurationsservern
 

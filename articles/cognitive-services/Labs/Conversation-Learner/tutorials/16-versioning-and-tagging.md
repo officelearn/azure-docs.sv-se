@@ -1,7 +1,7 @@
 ---
-title: Hur du använder versionshantering och märkning med ett samtal deltagaren program - kognitiva Microsoft-tjänster | Microsoft Docs
+title: Hur du använder versionshantering och taggning med en modell för Konversationsdeltagare – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig hur du använder versionshantering och märkning med ett samtal deltagaren program.
+description: Lär dig hur du använder versionshantering och taggning med en Konversationsdeltagare-modell.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,57 +10,57 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: ea013db078ff33f8597b0e15a8fc951e8ae320e8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c7f23d989cbfa0ece9e404a0fe0feb68cf5fddb2
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354042"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170553"
 ---
 # <a name="how-to-use-versioning-and-tagging"></a>Hur du använder versionshantering och taggning
 
-Den här kursen visar hur du kan tagga versioner av appen konversation deltagaren och ange vilken version som är ”live”.  
+Den här självstudien visar hur du kan tagga versioner av din Konversationsdeltagare modell och ange vilken version som är ”live”.  
 
 ## <a name="requirements"></a>Krav
-Den här kursen krävs med hjälp av bot-emulatorn för att skapa loggen dialogrutor, inte loggen dialogrutan Webbgränssnittet.  
+Den här självstudien kräver bot-emulatorn för att skapa log dialogrutor, inte Log dialogrutan Webbgränssnittet.  
 
-Den här kursen kräver att den allmänna självstudiekursen bot körs:
+Den här självstudien krävs att Allmänt självstudiekursen bot körs:
 
     npm run tutorial-general
 
 ## <a name="details"></a>Information
 
-När du redigerar kan du redigerar alltid taggen ”överordnad” – du kan skapa taggade versioner från master (som i stort sett ta en ögonblicksbild av master), men du kan inte redigera taggade versioner.
+När du redigerar, redigerar du alltid taggen som kallas ”huvud” – du kan skapa taggade versioner från master (vilket i princip ta en ögonblicksbild av master), men du kan inte redigera taggade versioner.
 
 ## <a name="steps"></a>Steg
 
-### <a name="install-the-bot-framework-emulator"></a>Installera Bot framework emulatorn
+### <a name="install-the-bot-framework-emulator"></a>Installera Bot framework-emulatorn
 
 - Gå till [https://github.com/Microsoft/BotFramework-Emulator](https://github.com/Microsoft/BotFramework-Emulator).
-- Ladda ned och installerar emulatorn.
+- Ladda ned och installerar sedan emulatorn.
 
-### <a name="create-an-app"></a>Skapa en app
+### <a name="create-an-model"></a>Skapa en modell
 
-1. Klicka på ny App
-2. Ange i fältet Namn på kursen-16-Versioning
+1. Klicka på ny modell
+2. Ange i fältet Namn på självstudien-16-versionshantering
 3. Klicka på Skapa 
 4. Klicka på inställningar
-5. Kopiera App-ID
+5. Kopiera modell-ID
 
 ### <a name="configure-the-emulator"></a>Konfigurera emulatorn
 
-- Öppna filen .env i rotmappen konversation deltagaren.
-- Klistra in det App-ID som värde för CONVERSATION_LEARNER_APP_ID
-- Starta om tjänsten konversation deltagaren genom att avsluta från Kommandotolken och kör igen:
+- Öppna filen .env i rotmappen Konversationsdeltagare.
+- Klistra in modell-ID som värde för CONVERSATION_LEARNER_MODEL_ID
+- Starta om tjänsten Konversationsdeltagare genom att avsluta från Kommandotolken och kör igen:
  
-    npm kör kursen-Allmänt 
+    npm kör självstudien-Allmänt 
 
 ### <a name="actions"></a>Åtgärder
 
 Nu ska vi skapa en åtgärd:
 
 1. Växla till webbgränssnittet.
-1. Klicka på Åtgärder sedan ny åtgärd.
+1. Klicka på åtgärder och ny åtgärd.
 2. Ange i svaret ”, Hej där (version 1)”.
 3. Klicka på Spara.
 
@@ -70,50 +70,51 @@ Nu ska vi skapa en åtgärd:
 Skapa en ny tagg:
 
 3. Klicka på ”inställningar” och skapa en ny ”tagg”.
-    - Anropa den ”version 1”
+    - Den kallas ”version 1”
 4. Ange ”version 1” ska vara ”live”.  
-    - Effekten av att ställa in taggen live till ”version 1” är att kanaler som använder den här bot kommer att använda den ”version 1” taggen.
-    - Taggade versioner av program påverkas inte av ändringar (ändra åtgärder, enheter, lägga till train dialogrutor).  
-    - Redigering av ett program (ändra åtgärder, enheter, lägga till train dialogrutor) görs alltid för taggen ”överordnad”.  Med andra ord är ”överordnad” den enda tagg som kan ändras. andra taggar är fasta ögonblicksbilder.
-    - Logga dialogrutor i Användargränssnittet för konversationen deltagaren alltid använda master (inte live taggen).
+    - Effekten av att ställa in taggen live för ”version 1” är att med hjälp av den här bot channels kommer att använda den ”version 1 – taggen.
+    - Taggade versioner av modeller påverkas inte av ändringar (ändra åtgärder, entiteter, att lägga till träna dialogrutor).  
+    - Redigering av en modell (ändra åtgärder, entiteter, att lägga till träna dialogrutor) görs alltid på ”huvud”-taggen.  D.v.s. är ”huvud” den enda tagg som kan ändras. andra taggar är fasta ögonblicksbilder.
+    - Logga dialogrutor i Användargränssnittet för konversationen Learner alltid använda master (inte live taggen).
 
 ![](../media/tutorial16_v1_create.PNG)
 
-Observera att den har skapats i inställningarna för:
+Versionen har skapats i inställningarna för:
 
 ![](../media/tutorial16_settings.PNG)
 
 Lägg till en andra åtgärd:
 
-1. Klicka på Åtgärder sedan ny åtgärd.
-2. Ange svar ”bye bye (version 2)”.
+1. Klicka på åtgärder och ny åtgärd.
+2. Ange ”bye bye (version 2)” som svar.
 
-Redigera första åtgärd:
+Redigera den första åtgärden:
 
 1. Klicka på åtgärder.
 2. Under åtgärder, klickar du på ”Hej där (version 1)”.
-3. Ändra svaret ”Hej där (version 2)”.
+3. Ändra svaret till ”Hej där (version 2)”.
 
 ![](../media/tutorial16_hi_there_v2.PNG)
 
-### <a name="switch-to-the-bot-emulator"></a>Växla till bot emulatorn
+### <a name="switch-to-the-bot-emulator"></a>Växla till bot-emulatorn
 
 1. Ange ”goodbye” i bot Användargränssnittet.
-2. Obs bot svarar med ”Hej där (version 1)”.
+2. Roboten svarar med ”Hej där (version 1)”.
     - Detta visar version 1 är ”live”. 
 
 ![](../media/tutorial16_bf_response.PNG)
 
 ### <a name="switch-to-the-web-ui"></a>Växla till webbgränssnittet
 
-1. Klicka på Logga dialogrutor (om du inte ser alla dialogrutor uppdatera appen).
+1. Klicka på logg-dialogrutor (om du inte ser alla dialogrutor, klicka på Uppdatera).
 2. Klicka på ”Hej där (version 2)”
 
-Observera att vi kan göra korrigeringar att välja från alla tillgängliga åtgärder. Dessa ändringar sker i bakgrunden.
+> [!NOTE]
+> Vi kan göra ändringar genom att välja från alla tillgängliga åtgärder. Dessa ändringar kommer att göras till huvudservern.
 
-Nu har du sett hur versionshantering fungerar och hur du kan interagera med bot med hjälp av Bot framework-emulatorn.
+Du har nu sett hur versionshantering fungerar och hur du interagerar med robot som använder Bot framework-emulatorn.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Demo - återställning av lösenord](./demo-password-reset.md)
+> [Demo – återställning av lösenord](./demo-password-reset.md)

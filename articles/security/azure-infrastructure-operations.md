@@ -1,6 +1,6 @@
 ---
-title: Azure produktion och hantering
-description: Den här artikeln innehåller en allmän beskrivning av hanteringen och drift av Azure-produktionsnätverket.
+title: Azure produktionsåtgärder och hantering
+description: Den här artikeln innehåller en allmän beskrivning av hanteringen och driften av Azure-produktionsnätverket.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,45 +14,46 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: dc389f5f5c155555deb860f041b15b0ea49ee416
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 21ae81f1d8423a9d05208ec6d8c4f31d909d2f9f
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102703"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173167"
 ---
-# <a name="azure-production-operations-and-management"></a>Azure produktion och hantering    
-Hantering och drift av Azure-produktionsnätverket är koordinera operations-team i Azure och Azure SQL Database. Flera system- och övervakningsverktyg används i miljön. Nätverksenheter, servrar, tjänster och program övervakas med lämpliga verktyg.
+# <a name="azure-production-operations-and-management"></a>Azure produktionsåtgärder och hantering    
+Hantering och driften av Azure-produktionsnätverket är koordinera driftteam av Azure och Azure SQL Database. Hur team flera system och övervakning av programprestanda hanteringsverktygen i miljön. Och de använder lämpliga verktyg för att övervaka nätverksenheter, servrar, tjänster och program bearbetar.
 
-Flera nivåer av övervakning, loggning och rapportering implementeras för att säkerställa säker körning av tjänster som körs i Microsoft Azure-miljö, inklusive följande:
+För att säkerställa säker körning av tjänster som körs i Azure-miljön måste implementera driftteam flera nivåer av övervakning, loggning och rapportering, bland annat följande:
 
-- Främst Microsoft Azure Monitoring Agent (MA) samlar in övervakning och diagnostik logginformation på många olika sätt inklusive FC och roten OS och skriver den till loggfiler. Den skickas så småningom en uppdelade del av informationen i en förkonfigurerad Azure Storage-konto. Dessutom är övervakning och diagnostik Service (MDS) en fristående tjänst som läser olika loggdata för övervakning och diagnostik och sammanfattar informationen. MDS skriver informationen till en integrerad logg. Azure använder den specialbyggt Azure Security övervakning (ASM), vilket är ett tillägg till Azure övervakningssystemet. Den har komponenter som se, analysera och rapportera om säkerhet relevanta händelser från olika punkter i plattformen.
-- Microsoft Azure SQL Database WinFabric-plattformen ger operativa tillsyn tjänster för Microsoft Azure SQL Database, utveckling, distribution och hantering. Den erbjuder distribuerade, flera steg deployment services, hälsoövervakning, automatisk reparation och kompatibilitet för tjänsten version. Den tillhandahåller följande tjänster:
+- Främst Microsoft Monitoring Agent (MMA) samlar in information från övervakning och diagnostik på många olika sätt, inklusive infrastrukturkontrollanten (FC) och rotoperativsystemet (OS), och skriver den till loggfiler. Agenten skickar till slut en uppdelade del av informationen till en förkonfigurerad Azure storage-konto. Dessutom fristående övervakning och diagnostik tjänsten läser olika övervaknings- och diagnostikdata loggdata och sammanfattar informationen. Övervakning och diagnostik tjänsten skriver informationen till en integrerad loggfilen. Azure använder den anpassade Azure säkerhetsövervakning, vilket är ett tillägg till Azure-övervakningssystem. Den har komponenter som se, analysera och rapportera om säkerhet relevanta händelser från olika platser i plattformen.
 
-   - Tjänsten modeling funktioner med hög återgivning utvecklingsmiljö (datacenter kluster är dyrt och begränsade).
-   - Ett klick distribution och uppgradera arbetsflöden för tjänsten bootstrap och underhåll.
-   - Rapportering med automatisk reparation arbetsflöden för att aktivera självåterställning hälsa.
-   - Realtid övervakning, aviseringar och felsökning verksamhet mellan noder i ett distribuerat system.
-   - Centraliserad insamling av användningsdata och mått för distribuerade roten orsaka analys- och insikter.
-   - Drift tooling för distribution, ändringshantering och övervakning.
-   - Microsoft Azure SQL Database WinFabric plattform och watchdog skript kör kontinuerligt och övervaka i realtid.
+- Azure SQL Database Windows Fabric-plattformen ger hantering, distribution, utveckling och drift tillsyn tjänster för Azure SQL Database. Plattformen erbjuder distribuerade, flera steg distributionstjänster, hälsoövervakning, automatiska reparationer och tjänsten version efterlevnad. Den tillhandahåller följande tjänster:
 
-Om alla avvikelser sker, aktiveras Incident svar processen följt av Azure Incident prioritering-teamet. Den lämpliga Azure supportpersonalen meddelas att svara på incidenten. Spåra problem och lösningar dokumenteras och hanteras i ett centraliserad biljettsystem. System drifttid mått är tillgängliga under icke-avslöjande av avtalet (Sekretessavtalet) och på begäran.
+   - Tjänsten modellering funktioner med hifi-utvecklingsmiljö (datacenter kluster är dyrt och begränsade).
+   - Distribution och uppgradera arbetsflöden för tjänsten bootstrap och underhåll.
+   - Hälsa rapportering med automatisk reparation arbetsflöden för att aktivera självåterställning.
+   - Realtidsövervakning, aviseringar och felsökning verksamhet över noderna i ett distribuerat system.
+   - Centraliserad samling av driftdata och mått för distribuerade orsaka analys- och insikter.
+   - Drift verktyg för distribution, ändringshantering och övervakning.
+   - Azure SQL Database Windows Fabric-plattformen och watchdog skript köras kontinuerligt och övervaka i realtid.
 
-## <a name="corporate-network-and-multi-factor-access-to-production"></a>Företagsnätverket och Flerfunktionsåtkomstkontroll till produktion
-Företagsnätverk användarbas innehåller supporttekniker för Microsoft Azure. Företagsnätverket stöder interna företagets funktioner och innehåller åtkomst till interna program som används för Azure kundsupport. Företagets nätverk är logiskt och fysiskt åtskilda från Azure-produktionsnätverket. Microsoft Azure-personal åtkomst till företagsnätverket med hjälp av Microsoft Azure-arbetsstationer och bärbara datorer. Alla användare måste ha ett konto med Active Directory (AD), inklusive ett användarnamn och lösenord för åtkomst till företagets nätverksresurser. Åtkomst till företagsnätverket använder AD-konton, som är utfärdat till alla Microsoft-Personal, leverantörer, leverantörer och hanteras av MSIT. Unikt ID: n skilja personal baserat på deras anställningsstatus hos Microsoft.
+Om avvikelser sker, aktiveras den incidenthanteringsprocess följt av Azure incident prioritering-teamet. Den lämpliga Azure supportpersonal meddelas att svara på incidenten. Spårning och upplösning dokumenteras och hanteras i en centraliserad biljettsystem. System drifttid mått är tillgängliga under sekretessavtal (NDA) och på begäran.
 
-Åtkomst till interna Azure program styrs via autentisering med Active Directory Federation Services (ADFS). AD FS är en tjänst som värd MSIT som tillhandahåller autentisering av CorpNet användare genom att använda en säker anspråk token och användare. AD FS kan interna Microsoft Azure-program att autentisera användare mot Microsoft företagets AD-domänen. För att komma åt företagets nätverk från CorpNet-miljön, måste användaren autentisera med hjälp av multifaktorautentisering.
+## <a name="corporate-network-and-multi-factor-access-to-production"></a>Företagsnätverket och flerfunktionsåtkomstkontroll till produktion
+Företagsnätverket användarbas innehåller Azure supportpersonal. Företagets nätverk stöder interna företagets funktioner och ger åtkomst till interna program som används för Azure teknisk support. Företagets nätverk är logiskt och fysiskt avgränsade från Azure-produktionsnätverket. Azure personal tillgång till företagets nätverk med hjälp av Azure arbetsstationer och bärbara datorer. Alla användare måste ha en Azure Active Directory (Azure AD)-konto, inklusive ett användarnamn och lösenord för att komma åt företagets nätverksresurser. Åtkomst till företagets nätverk använder Azure AD-konton som är utfärdat till alla Microsoft-Personal, och underleverantörer och hanteras av Microsofts IT-avdelning. Unikt-ID: n skilja personal baserat på deras anställningsstatus på Microsoft.
+
+Åtkomst till interna Azure-program styrs via autentisering med Active Directory Federation Services (AD FS). AD FS är en tjänst som tillhandahålls genom Microsofts IT-avdelning som tillhandahåller autentisering av företagets nätverksanvändare genom att använda en säker token och användaren anspråk. AD FS kan intern Azure-program att autentisera användare mot Microsoft företagets active directory-domänen. Användare måste autentisera genom att använda multifaktorautentisering för att komma åt företagets nätverk från företagets nätverk-miljö.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om vad Microsoft gör för att skydda Azure-infrastrukturen finns:
 
-- [Azure verksamhet, lokal och fysisk säkerhet](azure-physical-security.md)
-- [Tillgängligheten för Azure-infrastrukturen](azure-infrastructure-availability.md)
+- [Azure anläggningar, plats och fysisk säkerhet](azure-physical-security.md)
+- [Tillgänglighet för Azure-infrastrukturen](azure-infrastructure-availability.md)
 - [Azure information systemkomponenter och gränser](azure-infrastructure-components.md)
 - [Arkitektur för Azure-nätverk](azure-infrastructure-network.md)
 - [Azure-produktionsnätverket](azure-production-network.md)
-- [Microsoft Azure SQL Database-säkerhetsfunktioner](azure-infrastructure-sql.md)
+- [Azure SQL Database-säkerhetsfunktioner](azure-infrastructure-sql.md)
 - [Övervakning av Azure-infrastrukturen](azure-infrastructure-monitoring.md)
-- [Integriteten hos Azure-infrastrukturen](azure-infrastructure-integrity.md)
-- [Skydd av kundinformation i Azure](azure-protection-of-customer-data.md)
+- [Azure-infrastrukturen integritet](azure-infrastructure-integrity.md)
+- [Dataskydd för Azure-kund](azure-protection-of-customer-data.md)

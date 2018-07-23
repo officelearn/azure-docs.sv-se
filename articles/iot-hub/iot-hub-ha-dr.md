@@ -1,6 +1,6 @@
 ---
-title: Azure IoT-hubb hög tillgänglighet och disaster recovery | Microsoft Docs
-description: Beskriver funktionerna i Azure och IoT-hubb som hjälper dig att skapa hög tillgänglighet Azure IoT-lösningar med katastrofåterställning återställningsfunktioner.
+title: Azure IoT Hub hög tillgänglighet och katastrofåterställning recovery | Microsoft Docs
+description: Beskriver de funktioner för Azure och IoT Hub som hjälper dig att bygga högtillgängliga Azure IoT-lösningar med disaster recovery-funktioner.
 author: fsautomata
 manager: ''
 ms.service: iot-hub
@@ -8,43 +8,43 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: 428209defa554599c01789e6f2a8b62f155b0f2f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 992c42511f7bc9e9af71ff552ee91bc2472ebcf8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633714"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185711"
 ---
-# <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT-hubb hög tillgänglighet och disaster recovery
-IoT-hubb ger hög tillgänglighet (HA) med hjälp av uppsägningar på nivån Azure-region utan ytterligare krävs för lösningen som en Azure-tjänst. Microsoft Azure-plattformen innehåller också funktioner för att skapa lösningar med funktioner för katastrofåterställning (DR) eller mellan regional tillgänglighet. Om du vill ange globalt, dra nytta av funktionerna Azure DR mellan region hög tillgänglighet för enheter eller användare. Artikeln [Azure Business Continuity teknisk vägledning](../resiliency/resiliency-technical-guidance.md) beskrivs de inbyggda funktionerna i Azure för kontinuitet för företag och Katastrofåterställning. Den [katastrofåterställning och hög tillgänglighet för Azure-program] [ Disaster recovery and high availability for Azure applications] dokumentet innehåller arkitekturvägledning om strategier för Azure-program att uppnå hög tillgänglighet och Katastrofåterställning.
+# <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub hög tillgänglighet och disaster recovery
+Som en Azure-tjänst ger IoT Hub hög tillgänglighet (HA) med hjälp av uppsägningar på nivån Azure-region utan ytterligare plattformsbelastning krävs av lösningen. Microsoft Azure-plattformen innehåller också funktioner för att hjälpa dig att skapa lösningar med funktioner för katastrofåterställning (DR) eller interregionala tillgänglighet. Om du vill ange globala kan utnyttja interregionala hög tillgänglighet för enheter eller användare, dessa Azure-DR-funktioner. Artikeln [Azure Business Continuity teknisk vägledning](../resiliency/resiliency-technical-guidance.md) beskrivs de inbyggda funktionerna i Azure för affärskontinuitet och Katastrofåterställning. Den [haveriberedskap och hög tillgänglighet för Azure-program] [ Disaster recovery and high availability for Azure applications] dokumentet innehåller vägledning för arkitektur om strategier för Azure-program att uppnå hög tillgänglighet och Katastrofåterställning.
 
-## <a name="azure-iot-hub-dr"></a>Azure IoT-hubb-Katastrofåterställning
-Förutom intra-region hög tillgänglighet implementerar IoT-hubb redundans mekanismer för katastrofåterställning som kräver ingen åtgärd från användaren. IoT Hub DR själva initieras och har en återställning tid mål för Återställningstid 2-26 timmar och följande återställningspunktmål (återställningspunkter):
+## <a name="azure-iot-hub-dr"></a>Azure IoT Hub DR
+Förutom intra-region hög tillgänglighet implementerar IoT Hub redundans mekanismer för haveriberedskap som kräver ingen åtgärd från användaren. IoT Hub DR initieras lokal och har en återställningstid (RTO) 2-26 timmar och följande återställningspunktmål (Rpo):
 
-| Funktioner | ÅTERSTÄLLNINGSPUNKTMÅL |
+| Funktioner | RPO-MÅL |
 | --- | --- |
-| Tjänsttillgänglighet för registret och kommunikation |Förlust av CName |
-| Identitetsuppgifter i identitetsregistret |0-5 minuter dataförlust |
-| Meddelanden från enheten till molnet |Alla oläst meddelanden försvinner |
-| Åtgärder som övervakning av meddelanden |Alla oläst meddelanden försvinner |
-| Meddelanden moln till enhet |0-5 minuter dataförlust |
-| Feedbackkö moln till enhet |Alla oläst meddelanden försvinner |
-| Dubbla enhetsdata |0-5 minuter dataförlust |
-| Överordnade och enheten jobb |0-5 minuter dataförlust |
+| Tjänsttillgänglighet för registret och kommunikation |CName förlust |
+| Identitetsdata i identitetsregistret |0 – 5 minuter dataförlust |
+| Meddelanden från enheten till molnet |Försvinner alla olästa meddelanden |
+| Åtgärdsövervakning meddelanden |Försvinner alla olästa meddelanden |
+| Meddelanden från moln till enhet |0 – 5 minuter dataförlust |
+| Moln till enhet någon feedbackkö |Försvinner alla olästa meddelanden |
+| Enhetsdata för enhetstvilling |0 – 5 minuter dataförlust |
+| Överordnade och enheten jobb |0 – 5 minuter dataförlust |
 
-## <a name="regional-failover-with-iot-hub"></a>Regional växling vid fel med IoT-hubb
-En fullständig behandling av distributionstopologier i IoT-lösningar som ligger utanför omfånget för den här artikeln. Här beskrivs de *regional växling vid fel* distributionsmodell för hög tillgänglighet och katastrofåterställning återställning.
+## <a name="regional-failover-with-iot-hub"></a>Regional redundans med IoT Hub
+En fullständig behandling av distributionstopologier i IoT-lösningar som ligger utanför omfånget för den här artikeln. Artikeln beskriver den *regional redundans* distributionsmodell för hög tillgänglighet och katastrofåterställning återställning.
 
-Lösningen tillbaka i en modell för regional växling vid fel, slut körs i första hand i en datacenter-plats. En sekundär IoT-hubb och serverdel distribueras på en annan plats för datacenter. Om IoT-hubb i det primära datacentret drabbas av ett avbrott eller nätverksanslutningen från enheten till det primära datacentret avbryts, använder enheterna en sekundär tjänstslutpunkt. Du kan förbättra tillgängligheten lösning genom att implementera en modell för cross-region växling vid fel i stället för att hålla sig inom en enskild region. 
+Lösningen tillbaka slutet körs huvudsakligen i en datacenterplats i en regional redundans-modell. En sekundär IoT-hubb och backend-servrar distribueras på en annan datacenterplats. Om IoT hub i det primära datacentret drabbas av ett avbrott eller nätverksanslutning från enheten till det primära datacentret avbryts, enheter att använda en sekundär slutpunkt. Du kan förbättra tillgängligheten för lösningen genom att implementera en modell för redundans över regioner i stället för dig inom en region. 
 
-På en hög nivå om du vill implementera en modell för regional växling vid fel med IoT-hubben, behöver du följande:
+På en hög nivå för att implementera en regional redundans-modell med IoT Hub, behöver du följande:
 
-* **En sekundär IoT-hubb och enheten routning logik**: tjänsten i din primära region avbryts enheter måste starta om anslutning till din sekundära regionen. Eftersom tillståndsmedveten de flesta tjänster ingår, är det vanligt att lösningen administratörer som kan utlösa mellan region failover-processen. Det bästa sättet att kommunicera ny slutpunkt till enheter, samtidigt som kontrollen över processen är att be dem regelbundet kontrollera en *concierge* tjänsten för den aktuella aktiva slutpunkten. Tjänsten concierge kan vara ett webbprogram som ska replikeras och sparas kan nås med hjälp av DNS-omdirigering tekniker (till exempel med hjälp av [Azure Traffic Manager][Azure Traffic Manager]).
-* **Identitet Registerreplikering**: kan användas, sekundära IoT-hubben måste innehålla alla enheten identiteter som kan ansluta till lösningen. Lösningen ska hålla georeplikerad säkerhetskopior av enheten identiteter och överför dem till sekundära IoT-hubben innan du byter aktiv slutpunkt för enheter. Exportfunktionen enheten identitet för IoT-hubben är användbart i detta sammanhang. Mer information finns i [IoT-hubb Utvecklarhandbok - identitetsregistret][IoT Hub developer guide - identity registry].
-* **Sammanslagning av logik**: när den primära regionen blir tillgänglig igen alla tillstånd och data som har skapats på den sekundära platsen måste flyttas tillbaka till den primära regionen. Detta tillstånd och data relaterar främst till enheten identiteter och programmetadata måste slås samman med den primära IoT-hubben och andra programspecifika data lagras i den primära regionen. Du bör använda idempotent åtgärder för att förenkla det här steget. Idempotent operations minimera sidoeffekter eventuell konsekvent distribution av händelser och från dubbletter eller out-ordning leverans av händelser. Dessutom designas programlogiken klarar eventuella inkonsekvenser eller inaktuella ”något” tillstånd. Den här situationen kan inträffa på grund av den extra tid det tar för systemet kan ”reparera” baserat på återställningspunktmål (RPO).
+* **En sekundär IoT hub och enhet routning logic**: om tjänsten i din primära region avbryts enheter måste börja ansluta till din sekundära region. Den tillståndsmedveten naturen för de flesta tjänster som ingår, är det vanligt för administratörer av lösning att utlösa mellan regioner redundansprocessen. Det bästa sättet att kommunicera med den nya slutpunkten till enheter, samtidigt som de behåller kontrollen över processen är att de regelbundet kontrollera en *concierge* för den aktuella aktiva slutpunkten. Tjänsten concierge kan vara ett webbprogram som ska replikeras och sparas kan nås med hjälp av tekniker för DNS-omdirigering (till exempel [Azure Traffic Manager][Azure Traffic Manager]).
+* **Replikering för Identity-registry**: kan användas, sekundära IoT-hubben måste innehålla alla enhetsidentiteter som kan ansluta till lösningen. Lösningen ska hålla geo-replikerade säkerhetskopior av enhetsidentiteter och överföra dem till den sekundära IoT-hubben innan du byter aktiv slutpunkt för enheter. Enhetens identitet exportfunktionen för IoT Hub är användbart i den här kontexten. Mer information finns i [utvecklarhandboken för en IoT Hub - identitetsregistret][IoT Hub developer guide - identity registry].
+* **Sammanslagning av logic**: när den primära regionen blir tillgänglig igen, alla tillstånd och data som har skapats på den sekundära platsen måste flyttas tillbaka till den primära regionen. Den här tillstånd och data främst är relaterade till enhetsidentiteter och programmetadata, som måste slås samman med den primära IoT hub och andra programspecifika butiker i den primära regionen. För att förenkla det här steget ska du använda idempotenta åtgärder. Idempotenta åtgärder minimera sidoeffekter från eventuell konsekvent distribution av händelser och dubbletter eller out ordning leverans av händelser. Dessutom bör programlogiken utformas ska kunna hanteras eventuella inkonsekvenser eller ”något” inaktuella tillstånd. Den här situationen kan inträffa på grund av den ytterligare tid det tar för systemet kan ”reparera” baserat på återställningspunktmål (RPO).
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan följa dessa länkar om du vill veta mer om Azure IoT-hubb:
+Du kan följa dessa länkar om du vill veta mer om Azure IoT Hub:
 
 * [Kom igång med IoT-hubbar (självstudier)][lnk-get-started]
 * [Vad är Azure IoT Hub?][What is Azure IoT Hub?]
@@ -54,5 +54,5 @@ Du kan följa dessa länkar om du vill veta mer om Azure IoT-hubb:
 [Azure Traffic Manager]: https://azure.microsoft.com/documentation/services/traffic-manager/
 [IoT Hub developer guide - identity registry]: iot-hub-devguide-identity-registry.md
 
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
+[lnk-get-started]: quickstart-send-telemetry-dotnet.md
+[What is Azure IoT Hub?]: about-iot-hub.md

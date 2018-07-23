@@ -1,7 +1,7 @@
 ---
-title: Hur du använder kort med ett samtal deltagaren program, del 1 - kognitiva Microsoft-tjänster | Microsoft Docs
+title: Hur du använder kort med en Konversationsdeltagare modell, del 1 – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig använda kort i en konversation deltagaren program.
+description: Lär dig hur du använder kort med en Konversationsdeltagare-modell.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,76 +10,83 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e90ccd42b21eea6139c402937be7e20513d73c84
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 988a2433f098f41bca4796299825293efd4de44b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353982"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171149"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Hur du använder kort (del 1 av 2)
 
-Den här kursen visar hur du lägger till och använder en enkel kort i din bot.
+Den här självstudiekursen visar hur du lägger till och använda ett enkelt kort i din robot.
 
-Observera att konversationen deltagaren förväntas kort definitionsfilerna ska placeras i en katalog med namnet ”kort” som finns i katalogen där bot har startats.
+> [!NOTE]
+> För närvarande Konversationsdeltagare förväntar sig ditt kort definitionsfiler finnas i en katalog med namnet ”kort” som finns i katalogen där roboten har startats. Vi kommer att göra detta kan konfigureras i framtiden.
+
+## <a name="video"></a>Video
+
+[![Förhandsversion av självstudien 13](http://aka.ms/cl-tutorial-13-preview)](http://aka.ms/blis-tutorial-13)
 
 ## <a name="requirements"></a>Krav
-Den här kursen kräver att den allmänna självstudiekursen bot körs
+Den här självstudien krävs att Allmänt självstudiekursen bot körs
 
     npm run tutorial-general
 
 ## <a name="details"></a>Information
 
-Kort är UI-element som tillåter användaren att välja ett alternativ i konversationen. 
+Kort är UI-element som tillåter användare att välja ett alternativ i konversationen. 
 
-### <a name="open-the-demo"></a>Öppna demonstrationen
+### <a name="open-the-demo"></a>Öppna demon
 
-Klicka på kursen-13-kort-1 i App-lista över webbgränssnittet. 
+I listan över webbgränssnittet modellen, klickar du på självstudien-13-kort-1. 
 
 ### <a name="the-card"></a>Kortet
 
-Kort definitionen är på följande plats: C:\<installedpath\>\src\cards\prompt.json.
+Kort-definitionen är på följande plats: C:\<installedpath\>\src\cards\prompt.json.
 
 Systemet förväntar sig att hitta kort definitionerna i den här katalogen för kort.
 
 ![](../media/tutorial13_prompt.PNG)
 
-- Observera tecknens och mallen för frågan.
-- Det finns två skicka knappar och texten som hämtar in för varje.
+> [!NOTE]
+> Lägg märke till brödtexten `TextBlock` och `{{question}}` platshållare i textfältet.
+> Det finns två skicka knappar och texten som hämtar skickade för var och en.
 
 ### <a name="actions"></a>Åtgärder
 
-Vi har skapat tre åtgärder. Nedan visas är den första åtgärden ett kort.
+Vi har skapat tre åtgärder. Som du ser nedan är den första åtgärden ett kort.
 
 ![](../media/tutorial13_actions.PNG)
 
-Nu ska vi se hur åtgärd korttyp skapades:
+Nu ska vi se hur typen av kort har skapats:
 
 ![](../media/tutorial13_cardaction.PNG)
 
-Observera fråga indata och knappar 1 och 2. De är mallen referenser i kort där du anger frågan och respektive svar. Du kan också referera till och använda entiteter eller en blandning av text och enheter.
+> [!NOTE]
+> Fråga indata och knappar 1 och 2. Här är mallen referenser i kortet där du anger i frågor och svar. Du kan också referera till och Använd entiteter eller en blandning av text och entiteter.
 
-Ikonen Öga visar hur kortet ser ut.
+På ögonikonen visar hur kortet ser ut.
 
-### <a name="train-dialog"></a>Train dialogrutan
+### <a name="train-dialog"></a>Träna dialogrutan
 
-Låt oss gå igenom en lärare dialogruta.
+Låt oss gå igenom en undervisning dialogruta.
 
-1. Klicka på tåget dialogrutor, sedan nya Train dialogrutan.
+1. Klicka på träna dialogrutor, därefter nytt träna dialogrutan.
 1. Ange ”Hej”.
 2. Klicka på poäng åtgärd.
-3. Klicka på 'Fråga gå åt vänster eller höger'.
-    - Klicka på 'vänster' eller '' motsvarar användare att skriva till-vänster- eller höger-respektive. 
+3. Klicka på ”fråga go vänster eller höger”.
+    - Klicka på ”vänster” eller ”höger” motsvarar användare att skriva ”vänster” eller ”höger” respektive. 
 4. Klicka på poäng åtgärder.
-4. Klicka på Välj vänster. Detta är en icke-wait-åtgärd.
-6. Klicka på 'Fråga gå åt vänster eller höger'.
+4. Klicka på Välj vänster. Detta är en icke-wait-åtgärden.
+6. Klicka på ”fråga go vänster eller höger”.
 4. Klicka på ”höger”.
 5. Klicka på poäng åtgärder.
-3. Markera ”höger”
-6. Klicka på 'Fråga gå åt vänster eller höger'.
-4. Klicka på klart testning.
+3. Klicka för att välja ”höger”
+6. Klicka på ”fråga go vänster eller höger”.
+4. Klicka på klar testning.
 
-Nu har du sett hur kort fungerar. De definieras i katalogen kort som json-mallarna. Mallarna kommer yta i Användargränssnittet som du kan fylla i med hjälp av en sträng eller en enhet eller en blandning av båda.
+Du har nu sett hur kort fungerar. De definieras i katalogen kort som json-mallar. Mallarna visar i Användargränssnittet som du kan fylla i med hjälp av en sträng eller en enhet eller en blandning av båda.
 
 ## <a name="next-steps"></a>Nästa steg
 

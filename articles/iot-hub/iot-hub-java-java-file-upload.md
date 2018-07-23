@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 09580f3bb5d6f6f5ccb15adddf0cf1f9e19c2210
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 165c6ed53b611ba6b4f56260f20069661cf22da7
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619411"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186567"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från din enhet till molnet med IoT Hub
 
@@ -25,7 +25,7 @@ Den här självstudien bygger på koden i den [skicka meddelanden från moln til
 - Ange en enhet på ett säkert sätt med en Azure blob-URI: N för att ladda upp en fil.
 - Använd IoT Hub filen ladda upp meddelanden för att utlösa fil i din app-serverdel.
 
-Den [Kom igång med IoT Hub](iot-hub-java-java-getstarted.md) och [skicka meddelanden från moln till enhet med IoT Hub](iot-hub-java-java-c2d.md) självstudiekurser visar de grundläggande funktionerna av enhet till moln och från moln till enhet meddelanden i IoT Hub. Den [processen enhet till moln-meddelanden](tutorial-routing.md) självstudien beskrivs ett sätt att pålitligt lagra meddelanden från enheten till molnet i Azure blob storage. Men i vissa fall kan inte du enkelt mappa enheterna skickar till relativt liten enhet-till-moln-meddelanden som IoT-hubb tar emot data. Exempel:
+Den [Kom igång med IoT Hub](quickstart-send-telemetry-java.md) och [skicka meddelanden från moln till enhet med IoT Hub](iot-hub-java-java-c2d.md) självstudiekurser visar de grundläggande funktionerna av enhet till moln och från moln till enhet meddelanden i IoT Hub. Den [processen enhet till moln-meddelanden](tutorial-routing.md) självstudien beskrivs ett sätt att pålitligt lagra meddelanden från enheten till molnet i Azure blob storage. Men i vissa fall kan inte du enkelt mappa enheterna skickar till relativt liten enhet-till-moln-meddelanden som IoT-hubb tar emot data. Exempel:
 
 * Stora filer som innehåller bilder
 * Videoklipp

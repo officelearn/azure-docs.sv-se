@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3a63aa13b7c3c98fb4c9c0177474e2c848aa7d1f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 3b225780240d772564e55d3bfa4b85eec2a20963
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869198"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170743"
 ---
 # <a name="use-features-to-improve-your-luis-apps-performance"></a>Använda funktioner för att förbättra prestanda för dina LUIS-app  
 
@@ -69,4 +69,4 @@ Klicka på ellipsen (***...*** ) i slutet av raden och välj **inaktivera**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Efter att lägga till, redigera, ta bort eller inaktivera en fras lista [träna och testa appen](interactive-test.md) igen för att se om prestanda förbättras.
+Efter att lägga till, redigera, ta bort eller inaktivera en fras lista [träna och testa appen](luis-interactive-test.md) igen för att se om prestanda förbättras.

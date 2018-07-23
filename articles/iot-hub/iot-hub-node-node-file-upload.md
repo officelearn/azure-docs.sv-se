@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 48a2d302727f2f8e9c87552a05bc7506fbef3120
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 936063e1419d5e2261033ea74d75687eade928e8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235567"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187338"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från din enhet till molnet med IoT Hub
 
@@ -25,7 +25,7 @@ Den här självstudien bygger på koden i den [skicka meddelanden från moln til
 - Ange en enhet på ett säkert sätt med en Azure blob-URI: N för att ladda upp en fil.
 - Använd IoT Hub filen ladda upp meddelanden för att utlösa fil i din app-serverdel.
 
-Den [Kom igång med IoT Hub](iot-hub-node-node-getstarted.md) självstudiekursen demonstrerar de grundläggande meddelanden funktionerna med enheten till molnet i IoT Hub. Men i vissa fall kan inte du enkelt mappa enheterna skickar till relativt liten enhet-till-moln-meddelanden som IoT-hubb tar emot data. Exempel:
+Den [Kom igång med IoT Hub](quickstart-send-telemetry-node.md) självstudiekursen demonstrerar de grundläggande meddelanden funktionerna med enheten till molnet i IoT Hub. Men i vissa fall kan inte du enkelt mappa enheterna skickar till relativt liten enhet-till-moln-meddelanden som IoT-hubb tar emot data. Exempel:
 
 * Stora filer som innehåller bilder
 * Videoklipp

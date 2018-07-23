@@ -1,22 +1,22 @@
 > [!div class="op_single_selector"]
-> * [Node.js](../articles/iot-hub/iot-hub-node-node-direct-methods.md)
-> * [C#](../articles/iot-hub/iot-hub-csharp-csharp-direct-methods.md)
-> * [Java](../articles/iot-hub/iot-hub-java-java-direct-methods.md)
-> * [Python](../articles/iot-hub/iot-hub-python-python-direct-methods.md)
+> * [Node.js](../articles/iot-hub/quickstart-control-device-node.md)
+> * [C#](../articles/iot-hub/quickstart-control-device-dotnet.md)
+> * [Java](../articles/iot-hub/quickstart-control-device-java.md)
+> * [Python](../articles/iot-hub/quickstart-control-device-python.md)
 
-Azure IoT Hub är en helt hanterad tjänst som gör tillförlitlig och säker dubbelriktad kommunikation mellan miljoner enheter och en lösning för serverdel. Föregående handledningar ([Kom igång med IoT-hubb] och [Skicka meddelanden moln till enhet med IoT-hubb]) visar grundläggande enhet till moln och moln till enhet meddelandetjänsten funktioner i IoT-hubb. IoT-hubb ger dig också möjligheten att anropa metoder i icke-beständiga på enheter från molnet. Direkta metoder representerar en request-reply-interaktion med en enhet som liknar en HTTPS-anrop i att de lyckas eller misslyckas omedelbart (efter en tidsgräns som användaren har angett) så att användarna vet status för anropet. Artikeln [anropa en metod som är direkt på en enhet] [ lnk-devguide-methods] beskriver direkt metoder i detalj och innehåller anvisningar om hur när du ska använda direkt metoder i stället moln till enhet meddelanden eller önskade egenskaper.
+Azure IoT Hub är en helt hanterad tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan miljontals enheter och som tillhandahåller serverdelen. Tidigare självstudier ([Kom igång med IoT Hub] och [skicka meddelanden från moln till enhet med IoT Hub]) illustrerar de grundläggande funktionerna av enhet till moln och från moln till enhet meddelanden i IoT Hub. IoT Hub ger dig också möjligheten att anropa icke-varaktiga metoder på enheter från molnet. Direkta metoder representerar en begäran / svar-interaktion med en enhet som liknar ett HTTPS-anrop i att de lyckas eller misslyckas omedelbart (efter en användardefinierade tidsgräns) till att de vet statusen för anropet. Artikeln [anropa en direkt metod på en enhet] [ lnk-devguide-methods] beskriver direkta metoder i detalj och ger vägledning om hur du använder direkta metoder i stället för meddelanden från moln till enhet eller önskade egenskaper.
 
 [!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 
 I den här självstudiekursen lär du dig att:
 
-* Använda Azure portal för att skapa en IoT-hubb och skapa en enhetsidentitet i din IoT-hubb.
-* Skapa en simulerad enhetsapp som har en direkt metod kan anropas av molnet.
-* Skapa en konsolapp som anropar en direkt metod i appen simulerade enheten via din IoT-hubb.
+* Använda Azure-portalen för att skapa en IoT hub och skapa en enhetsidentitet i IoT hub.
+* Skapa en app för simulerade enheter som har en direkt metod som kan anropas av molnet.
+* Skapa en konsolapp som anropar en direkt metod i den simulerade enhetsappen via din IoT-hubb.
 
 
 [lnk-devguide-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md
 
-[Skicka meddelanden moln till enhet med IoT-hubb]: ../articles/iot-hub/iot-hub-csharp-csharp-c2d.md
-[Kom igång med IoT-hubb]: ../articles/iot-hub/iot-hub-node-node-getstarted.md
+[Skicka meddelanden från moln till enhet med IoT Hub]: ../articles/iot-hub/iot-hub-csharp-csharp-c2d.md
+[Kom igång med IoT Hub]: ../articles/iot-hub/quickstart-send-telemetry-node.md

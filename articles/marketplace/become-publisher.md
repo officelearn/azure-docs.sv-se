@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b516dd165bfc22ad3966ffe51e99591379f9e680
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: fb3f307642dc6f4607a626e0b320949306129759
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144337"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172321"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bli en Cloud Marketplace-utgivare
 
@@ -65,7 +65,7 @@ En Microsoft-konto, t.ex. *@outlook.com eller @live.com*, används för att få 
 
 ## <a name="3-submit-the-marketplace-registration-form"></a>3. Skicka formuläret av marketplace-registrering  
 | 15 minuter |  
-Slutför den här korta registreringsformuläret för att bli en marketplace-utgivare. Uppgifter i det här formuläret används för att skapa ett utgivarkonto i Cloud Partner Portal där du kan skapa, publicera och hantera marketplace-erbjudanden.
+Slutför denna rapport [registreringsformuläret](https://azuremarketplace.microsoft.com/en-us/sell/signup) ska bli en marketplace-utgivare. Uppgifter i det här formuläret används för att skapa ett utgivarkonto i Cloud Partner Portal där du kan skapa, publicera och hantera marketplace-erbjudanden.
 
 Du blir ombedd att inkludera följande information:
 *   Information om din organisation, inklusive Microsoft Partner Network-ID (som du kan söka efter antingen [Partnercenter](https://partnercenter.microsoft.com/partner/home) eller [medlemskap Partnercenter](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx))

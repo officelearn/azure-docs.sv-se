@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 8779600f2c85a8bb309f7b2a8874608170de8877
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 34911c6133a6a2549a98db426f979b0c3c85dbd7
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035249"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185305"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Konfigurera en virtuell dator scale Sets hanterad tjänstidentitet (MSI) med Azure portal
 
@@ -30,13 +30,14 @@ Hanterad tjänstidentitet ger Azure-tjänster med en automatiskt hanterad identi
 I den här artikeln får du lära dig hur du aktiverar och inaktiverar systemtilldelad identitet för en VM-skalningsuppsättning med Azure portal. Tilldela och ta bort användartilldelade identiteter från en skalningsuppsättning för virtuella Azure-datorer stöds inte för närvarande via Azure portal.
 
 > [!NOTE]
-> Användartilldelad identitet åtgärder stöds för närvarande inte via Azure-portalen. Kolla igen senare.
+> Användartilldelad identitet åtgärder stöds för närvarande inte via Azure-portalen. Kom tillbaka om för att få uppdateringar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-
 - Om du är bekant med hanterad tjänstidentitet kan ta en titt på [översiktsavsnittet](overview.md).
-- Om du inte redan har ett Azure-konto, [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
+- Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
+- För att utföra vilka hanteringsåtgärder i den här artikeln, måste ditt konto följande rolltilldelningen:
+    - [Virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) aktivera och ta bort hanterad tjänstidentitet från en skalningsuppsättning för virtuell dator.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Hanterad tjänstidentitet under skapandet av en Azure VM-skalningsuppsättning
 

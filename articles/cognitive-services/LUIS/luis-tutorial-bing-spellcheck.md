@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: e7bf447dafecf090f610f670539ca4673827953a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 8d86bf3974cd11b644f59799e3d6140b46899244
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343986"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173834"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Rätta felstavade ord med stavningskontroll i Bing
 
@@ -57,7 +57,7 @@ Om din kostnadsfria nyckel har gått ut kan du skapa en slutpunktsnyckel.
 10. Kopiera den första nyckeln. Du behöver bara en av två nycklar. 
 
 ## <a name="using-the-key-in-luis-test-panel"></a>I nyckeln i LUIS test panelen
-Det finns två platser i LUIS för att använda nyckeln. Först är i den [test panelen](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). Nyckeln sparas inte i LUIS men i stället är en sessionsvariabeln. Du måste ange nyckeln varje gång du vill test-panelen för att tillämpa stavningskontroll i Bing v7-tjänsten på uttryck. Se [instruktioner](interactive-test.md#view-bing-spell-check-corrections-in-test-panel) på panelen test för att ställa in nyckeln.
+Det finns två platser i LUIS för att använda nyckeln. Först är i den [test panelen](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). Nyckeln sparas inte i LUIS men i stället är en sessionsvariabeln. Du måste ange nyckeln varje gång du vill test-panelen för att tillämpa stavningskontroll i Bing v7-tjänsten på uttryck. Se [instruktioner](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) på panelen test för att ställa in nyckeln.
 
 ## <a name="adding-the-key-to-the-endpoint-url"></a>Att lägga till nyckeln till slutpunkts-URL
 Slutpunkt-frågan måste nyckeln som har skickats frågesträngparametrarna för varje fråga som du vill använda stavning korrigering. Du kan ha en chattrobot som anropar LUIS eller du kan anropa LUIS slutpunkten API direkt. Oavsett hur slutpunkten som anropas, måste varje anrop innehålla information som behövs för stavningskorrigeringar ska fungera korrekt.

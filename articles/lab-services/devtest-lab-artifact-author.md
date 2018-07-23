@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 0414fa16f277c7495cc7fe4bdd7a51fc3a23ad93
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: ad9e9e893dc831530b69a30cc3dd930e879e9d7b
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988630"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185126"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Skapa anpassade artefakter för din virtuella dator för DevTest Labs
 
@@ -113,7 +113,7 @@ I följande exempel visas hur du använder uttryck och funktioner för att konst
 1. Installera en JSON-redigerare. Du behöver en JSON-redigerare för att arbeta med artefakt definitionsfiler. Vi rekommenderar att du använder [Visual Studio Code](https://code.visualstudio.com/), som är tillgängligt för Windows, Linux och OS X.
 2. Hämta en exempelfil artifactfile.json definition. Kolla in de artefakter som skapats av DevTest Labs-teamet i vår [GitHub-lagringsplatsen](https://github.com/Azure/azure-devtestlab). Vi har skapat ett omfattande bibliotek med artefakter som kan hjälpa dig skapa dina egna artefakter. Ladda ned en artefakt-definitionsfil och göra ändringar i det för att skapa dina egna artefakter.
 3. Genom att utnyttja IntelliSense. Använda IntelliSense för att se giltiga element som du kan använda för att konstruera en artefakt-definitionsfil. Du kan också se de olika alternativen för värden för ett element. Till exempel när du redigerar den **targetOsType** element, IntelliSense visar två alternativ för Windows eller Linux.
-4. Store artefakt i den [offentlig Git-lagringsplats för DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) eller [din egen Git-lagringsplats](devtest-lab-add-artifact-repo.md).
+4. Store artefakt i den [offentlig Git-lagringsplats för DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) eller [din egen Git-lagringsplats](devtest-lab-add-artifact-repo.md). I den offentliga databasen, kan du visa artefakter som delas av andra att du kan använda direkt eller anpassa dem efter dina behov. 
    
    1. Skapa en separat katalog för varje artefakt. Katalognamnet bör vara samma som sammansättningsartefaktens namn.
    2. Store artefakt-definitionsfil (artifactfile.json) i den katalog som du skapade.

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 23809b40026955f0c864764781d7a151e5ab2756
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b685dd65954da7a898875b67faa798fb2a1e33f9
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144400"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172263"
 ---
 # <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>Integrera LUIS med en bot med Bot Builder-SDK för Node.js
 
@@ -235,7 +235,7 @@ I Azure-portalen väljer du på **testa i Web Chat** att testa roboten. Försök
    ![Testa HomeAutomation bot i Web Chat](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> Om du upptäcker att din robot inte alltid kan identifiera rätt avsikt eller entiteter, förbättra LUIS appens prestanda genom att ge den mer exempel yttranden träna upp tjänsten. Du kan kvarhålla LUIS-app utan några ändringar till din robot kod. Se [lägger du till exempel yttranden](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) och [träna och testa LUIS-appen](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
+> Om du upptäcker att din robot inte alltid kan identifiera rätt avsikt eller entiteter, förbättra LUIS appens prestanda genom att ge den mer exempel yttranden träna upp tjänsten. Du kan kvarhålla LUIS-app utan några ändringar till din robot kod. Se [lägger du till exempel yttranden](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) och [träna och testa LUIS-appen](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test).
 
 ## <a name="learn-more-about-bot-framework"></a>Läs mer om Bot Framework
 Läs mer om [Bot Framework](https://dev.botframework.com/) och [3.x](https://github.com/Microsoft/BotBuilder) och [4.x](https://github.com/Microsoft/botbuilder-js) SDK: er.

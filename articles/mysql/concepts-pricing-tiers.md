@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 07/11/2018
-ms.openlocfilehash: 547839234e15455f3e268bad4d92972ea1f47e4c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 70891e4c1425badb43dac66ada9c0b3a43b8fb0d
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971945"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173681"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database för MySQL prisnivåer
 
@@ -94,6 +94,8 @@ Du kan övervaka dina i/o-användningen i Azure portal eller med hjälp av Azure
 Servern är skrivskyddad när mängden ledigt utrymme uppnår mindre än 5 GB eller 5% av etablerad lagring, beroende på vilket som är mindre. Exempel: Om du har etablerat 100 GB lagringsutrymme och den faktiska användningen går över 95 GB, servern är skrivskyddad. Du kan också om du har etablerat 5 GB lagringsutrymme, är servern skrivskyddad när det lediga lagringsutrymmet som når mindre än 250 MB.  
 
 När tjänsten försöker skrivskydda servern, alla nya transaktion skrivbegäranden blockeras och befintliga aktiva transaktioner fortsätter att köra. När servern har angetts till skrivskyddat läge, genomför alla efterföljande skrivåtgärder och transaktionen misslyckas. Läs frågor kommer att fortsätta att arbeta utan avbrott. När du ökar den etablerade lagringen, kommer servern vara redo att acceptera skrivtransaktioner igen.
+
+Vi rekommenderar att du ställer in en avisering som meddelar dig när tröskelvärdet närmar sig din serverlagring för att undvika hämta till skrivskyddat läge. Mer information finns i dokumentationen på [hur du ställer in en avisering](howto-alert-on-metric.md).
 
 ## <a name="backup"></a>Backup
 

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5babe089575d03db1f6bc0dd3f01bd3b6a5475fe
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: acf328b706a992df03de837ba8837c5810593ae5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951907"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173749"
 ---
 # <a name="utterances-in-luis"></a>Yttranden i LUIS
 
@@ -47,7 +47,7 @@ Här, core termen är ”dator” inte variera. De kan säga stationär dator, b
 Varje avsikt måste ha exempel yttranden, minst 10 – 15. Om du har ett intent som inte har yttranden exempel kan du inte träna LUIS. Om du har en syftet med en eller mycket få exempel yttranden kommer LUIS inte korrekt förutse avsikten. 
 
 ## <a name="add-small-groups-of-10-15-utterances-for-each-authoring-iteration"></a>Lägg till små grupper med 10 – 15 yttranden för varje redigering upprepning
-Lägg inte till ett stort antal yttranden i varje iteration av modellen. Lägg till yttranden i mängder tiotals. [Träna](luis-how-to-train.md), [publicera](luis-how-to-publish-app.md), och [testa](interactive-test.md) igen.  
+Lägg inte till ett stort antal yttranden i varje iteration av modellen. Lägg till yttranden i mängder tiotals. [Träna](luis-how-to-train.md), [publicera](luis-how-to-publish-app.md), och [testa](luis-interactive-test.md) igen.  
 
 LUIS skapar effektiva modeller med yttranden som väljs noggrant. Att lägga till för många uttryck är inte värdefulla eftersom förvirring.  
 

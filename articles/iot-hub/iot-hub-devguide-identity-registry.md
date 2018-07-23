@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure IoT Hub identitetsregistret | Microsoft Docs
-description: Utvecklarhandbok - beskrivning av IoT-hubb identitetsregistret och hur du använder den för att hantera dina enheter. Innehåller information om import och export av enheten identiteter gruppvis.
+title: Förstå Azure IoT Hub-identitetsregistret | Microsoft Docs
+description: Utvecklarguide – beskrivning av IoT Hub-identitetsregistret och hur du använder den för att hantera dina enheter. Innehåller information om import och export av enhetsidentiteter gruppvis.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,115 +8,115 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 9a3d3d1c93ce0c8bc782a2634eb7be9b95fcf4b4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2039b7760704de35c688dda41e3b75425e5ec0e8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633578"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186279"
 ---
-# <a name="understand-the-identity-registry-in-your-iot-hub"></a>Förstå identitetsregistret i din IoT-hubb
+# <a name="understand-the-identity-registry-in-your-iot-hub"></a>Förstå identitetsregistret i IoT hub
 
-Alla IoT-hubben har en identitetsregistret som lagrar information om de enheter och moduler som har behörighet att ansluta till IoT-hubben. Innan en enhet eller en modul kan ansluta till en IoT-hubb kan finnas det en post för den enhet eller en modul i IoT-hubben identitetsregistret. En enhet eller en modul måste också autentisera med IoT-hubben utifrån autentiseringsuppgifter som lagras i identitetsregistret.
+Varje IoT-hubb har ett identitetsregister som lagrar information om vilka enheter och moduler som tillåts att ansluta till IoT hub. Innan en enhet eller en modul kan ansluta till en IoT-hubb, måste det finnas en post för enheten, eller modulen i IoT-hubbens identitetsregister. En enhet eller modulen måste också autentisera med IoT hub utifrån autentiseringsuppgifter som lagras i identitetsregistret.
 
-Enheten eller modul-ID som lagras i identitetsregistret är skiftlägeskänsliga.
+Enhet eller modul-ID lagras i identitetsregistret är skiftlägeskänsliga.
 
-På en hög nivå är identitetsregistret en REST-kompatibla samling enhet eller modulen identity-resurser. När du lägger till en post i identitetsregistret skapar IoT-hubb en uppsättning resurser per enhet, till exempel den kö som innehåller relä moln till enhet meddelanden.
+På en hög nivå är en REST-kompatibla samling enhet eller modulen identitet resurser i identitetsregistret. När du lägger till en post i identitetsregistret skapar en uppsättning resurser för varje enhet, till exempel den kö som innehåller relä meddelanden från molnet till enheten i IoT Hub.
 
 Använd identitetsregistret när du behöver:
 
 * Etablera enheter eller modulerna som ansluter till din IoT-hubb.
-* Kontrollera per-enheten/per-module åtkomsten till din hubb enhet eller module-riktade slutpunkter.
+* Kontrollera per enhet/per-zakazuje åtkomsten till din hubb enhet eller modulen-slutpunkter.
 
 > [!NOTE]
-> Identitetsregistret innehåller inte några programspecifika metadata.
+> ID-registret innehåller inte några programspecifika metadata.
 
 ## <a name="identity-registry-operations"></a>Identitetsregisteråtgärder
 
-IoT-hubb identitetsregistret visar följande åtgärder:
+IoT Hub-identitetsregistret exponerar följande åtgärder:
 
 * Skapa enhet eller modulen identitet
 * Uppdatera enheten eller modulen identitet
-* Hämta enhet eller modul-ID: t
+* Hämta enhet eller modulen identitet med hjälp av ID
 * Ta bort enheten eller modulen identitet
-* Visa en lista med upp till 1 000 identiteter
-> Modulen identitets- och modulen dubbla är tillgänglig som förhandsversion. Under funktionen kommer att stödjas på modulen identitet när den är allmänt tillgänglig.
-* Exportera enheten identiteter till Azure blob storage
-* Importera enheten identiteter från Azure blob storage
+* Lista över upp till 1 000 identiteter
+> Modultvilling för identitets- och modulen finns i offentlig förhandsversion. Nedan funktionen kommer att stödjas på modulen identitet när den är allmänt tillgängliga.
+* Exportera enhetsidentiteter till Azure blob storage
+* Importera enhetsidentiteter från Azure blob storage
 
-Dessa åtgärder kan använda Optimistisk samtidighet som anges i [RFC7232][lnk-rfc7232].
+De här åtgärderna kan använda Optimistisk samtidighet som anges i [RFC7232][lnk-rfc7232].
 
 > [!IMPORTANT]
-> Det enda sättet att hämta alla identiteter i en IoT-hubb identitetsregistret är att använda den [exportera] [ lnk-export] funktioner.
+> Det enda sättet att hämta alla identiteter i en IoT-hubbens identitetsregister är att använda den [exportera] [ lnk-export] funktioner.
 
-En IoT-hubb identitetsregistret:
+En IoT Hub-identitetsregistret:
 
-* Innehåller inte några metadata för program.
+* Innehåller inte alla metadata som programmet.
 * Kan användas som en ordlista med hjälp av den **deviceId** eller **moduleId** som nyckel.
 * Stöder inte lättfattliga frågor.
 
-En IoT-lösning har vanligtvis ett separat Arkiv för Lösningsspecifika som innehåller programspecifika metadata. Arkivet Lösningsspecifika i en lösning för smart byggnad skulle till exempel registrera den plats där en temperatursensor distribueras.
+En IoT-lösning har vanligtvis ett annat Lösningsspecifika lager som innehåller programspecifika metadata. Arkivet Lösningsspecifika i en smart byggnad lösning skulle till exempel registrera rummet där en temperatursensor distribueras.
 
 > [!IMPORTANT]
-> Använd endast identitetsregistret för enhetshantering och etablering av åtgärder. Hög genomströmning åtgärder vid körning bör inte beroende utför åtgärder i identitetsregistret. Till exempel är kontrollerar anslutningsstatus för en enhet innan du skickar ett kommando inte ett mönster som stöds. Se till att markera den [begränsning priser] [ lnk-quotas] för identitetsregistret och [enheten pulsslag] [ lnk-guidance-heartbeat] mönster.
+> Använd endast identitetsregistret för hantering av enheter och etablera åtgärder. Högt dataflöde åtgärder vid körning bör inte bero på att utföra åtgärder i identitetsregistret. Kontrollera anslutningsstatus för en enhet innan du skickar ett kommando är exempelvis inte ett mönster som stöds. Se till att kontrollera den [begränsning priserna] [ lnk-quotas] för identity-registry och [enheten pulsslag] [ lnk-guidance-heartbeat] mönster.
 
 ## <a name="disable-devices"></a>Inaktivera enheter
 
-Du kan inaktivera enheter genom att uppdatera den **status** -egenskapen för en identitet i identitetsregistret. Normalt använder du den här egenskapen i två scenarier:
+Du kan inaktivera enheter genom att uppdatera den **status** egenskapen för en identitet i identitetsregistret. Normalt använder du den här egenskapen i två situationer:
 
-* Under en allokering orchestration-process. Mer information finns i [Enhetsetableringen][lnk-guidance-provisioning].
-* Om du av någon anledning du anser att en enhet har komprometterats eller blivit obehörig.
+* Under en etableringsprocessen för orkestrering. Mer information finns i [Enhetsetablering][lnk-guidance-provisioning].
+* Om du av någon anledning tror du en enhet är skadad eller har blivit obehörig.
 
-Den här funktionen är inte tillgängliga för moduler.
+Den här funktionen är inte tillgängligt för moduler.
 
-## <a name="import-and-export-device-identities"></a>Importera och exportera enheten identiteter
+## <a name="import-and-export-device-identities"></a>Importera och exportera enhetsidentiteter
 
-Använda asynkrona åtgärder på den [IoT-hubb resurs leverantörsslutpunkt] [ lnk-endpoints] att exportera enheten identiteter i grupp från en IoT-hubb identitetsregistret. Export är långvariga jobb som använder en kundens blob-behållare för att spara enhetens identitetsdata läses från identitetsregistret.
+Använd asynkrona åtgärder på den [leverantörsslutpunkt för IoT Hub-resurs] [ lnk-endpoints] att exportera enhetsidentiteter gruppvis från en IoT-hubbens identitetsregister. Export finns långvariga jobb som använder en kundens blob-behållare för att spara enhetens identitetsdata läses från identitetsregistret.
 
-Använda asynkrona åtgärder på den [IoT-hubb resurs leverantörsslutpunkt] [ lnk-endpoints] importera enheten identiteter gruppvis till identitetsregistret för en IoT-hubb. Import är långvariga jobb som använder data i en kundens blob-behållare för att skriva data på enheten identitet till identitetsregistret.
+Använd asynkrona åtgärder på den [leverantörsslutpunkt för IoT Hub-resurs] [ lnk-endpoints] importera enhetsidentiteter gruppvis till en IoT-hubbens identitetsregister. Import är långvariga jobb som använder data i en blobbehållare som kunden anger att enheten identitetsdata i identitetsregistret.
 
-Mer information om import och export API: er finns [IoT-hubb resursprovidern REST API: er][lnk-resource-provider-apis]. Om du vill veta mer om hur du kör import och exportera jobben, se [Massredigera hantering av identiteter för IoT-hubb enheten][lnk-bulk-identity].
+Mer information om import och export API: er finns i [resursprovidern i IoT Hub REST API: er][lnk-resource-provider-apis]. Om du vill lära dig mer om hur du kör import och exportera jobb, se [Bulk hantering av IoT Hub-enhetsidentiteter][lnk-bulk-identity].
 
-## <a name="device-provisioning"></a>Enhetsetableringen
+## <a name="device-provisioning"></a>Enhetsetablering
 
-Enhetsdata som lagras i en viss IoT-lösningen är beroende av de särskilda kraven i lösningen. Men minst en lösning måste lagra enheten identiteter och autentiseringsnycklar. Azure IoT-hubb innehåller en identitetsregistret som kan lagra värdena för varje enhet, t.ex ID, autentiseringsnycklar och statuskoder. En lösning kan använda andra Azure-tjänster, till exempel tabellagring eller blob-lagring Cosmos-databas för att lagra alla övriga data.
+Enhetsdata som lagras i en viss IoT-lösning är beroende av de specifika kraven för lösningen. Men minst en lösning lagrar enhtesidentiteter och autentiseringsnycklar. Azure IoT Hub tillhandahåller även ett identitetsregister som kan lagra värdena för varje enhet, till exempel-ID: N och autentiseringsnycklar statuskoder. En lösning kan använda andra Azure-tjänster, till exempel tabellagring, bloblagring och Cosmos DB för att lagra alla ytterligare enhetsdata.
 
-*Enhetsetableringen* är processen att lägga till den första enhetsdata lagras i din lösning. Om du vill aktivera en ny enhet att ansluta till din hubb, måste du lägga till en enhets-ID och nycklar identitetsregistret IoT-hubb. Som en del av etableringsprocessen kan behöva du initiera enhetsspecifika data i andra lösning Arkiv. Du kan också använda Azure IoT-hubb Device etablering Service för att aktivera zero touch, just-in-time etablering till en eller flera IoT-hubbar utan mänsklig inblandning. Mer information finns i [etablering dokumentation för tjänsten][lnk-dps].
+*Enhetsetablering* är processen att lägga till inledande enhetens data till datalager i din lösning. Om du vill aktivera en ny enhet att ansluta till din hubb, måste du lägga till ett enhets-ID och nycklar IoT Hub-identitetsregistret. Som en del av etableringen, kan du behöva initiera enhetsspecifika data i andra lösningen butiker. Du kan också använda Azure IoT Hub Device Provisioning-tjänsten för att aktivera zero-touch, just-in-time-etablering till en eller flera IoT-hubbar utan mänsklig inblandning. Mer information finns i den [provisioning service-dokumentationen][lnk-dps].
 
 ## <a name="device-heartbeat"></a>Enheten pulsslag
 
-IoT-hubb identitetsregistret innehåller ett fält med namnet **connectionState**. Använd bara den **connectionState** fältet under utveckling och felsökning. IoT-lösningar bör inte att fråga fältet vid körning. Till exempel fråga inte den **connectionState** fält som du vill kontrollera om en enhet är ansluten innan du skickar ett moln till enhet eller ett SMS.
+IoT Hub-identitetsregistret innehåller ett fält med namnet **connectionState**. Använd bara den **connectionState** fältet under utveckling och felsökning. IoT-lösningar bör inte fråga fältet vid körning. Till exempel fråga inte den **connectionState** fält för att kontrollera om en enhet är ansluten innan du skickar ett meddelande för moln-till-enhet eller ett SMS.
 
-Om din IoT-lösningen behöver veta om en enhet är ansluten, bör du implementera den *pulsslag mönster*.
+Om din IoT-lösning behöver veta om en enhet är ansluten, bör du implementera den *pulsslag mönstret*.
 
-I mönstret pulsslag skickar enheten meddelanden från enhet till moln minst en gång var fast tidsperiod (t.ex, minst en gång i timmen). Därför även om en enhet inte har några data att skicka skickar fortfarande den ett tomt meddelande enhet till moln (vanligtvis med en egenskap som identifierar den som ett pulsslag). På tjänstsidan upprätthåller en karta med det sista pulsslaget togs emot för varje enhet i lösningen. Om lösningen inte får ett heartbeat-meddelande inom den förväntade tiden från enheten, förutsätter att det finns ett problem med enheten.
+I mönstret pulsslag skickar enheten meddelanden från enheten till molnet minst en gång var fast mängd tid (t.ex, minst en gång i timmen). Därför även om en enhet inte har några data att skicka skickar fortfarande den ett tomt enhet-till-moln-meddelande (vanligtvis med en egenskap som identifierar den som ett pulsslag). Lösningen innehåller en karta på serversidan, med den senaste pulsslag har tagits emot för varje enhet. Om lösningen inte får ett heartbeat-meddelande inom den förväntade tiden från enheten, förutsätter att det finns ett problem med enheten.
 
-En mer komplex implementering kan inkludera information från [operations övervakning] [ lnk-devguide-opmon] att identifiera enheter som försöker ansluta eller kommunicera men misslyckas. När du implementerar heartbeat-mönster, se till att markera [IoT-hubb kvoter och begränsningar][lnk-quotas].
+En mer komplex implementering kan innehålla information från [åtgärdsövervakning] [ lnk-devguide-opmon] att identifiera enheter som försöker ansluta eller kommunicera men misslyckas. När du implementerar mönstret pulsslag, se till att kontrollera [IoT Hub-kvoter och begränsningar][lnk-quotas].
 
 > [!NOTE]
-> Om en IoT-lösningen använder anslutningsstatus enbart för att avgöra om du ska skicka moln till enhet meddelanden och meddelanden skickas inte till stora mängder enheter, bör du använda den enklare *kort förfallotid* mönster. Det här mönstret ger samma resultat som du underhålla enheten anslutning tillstånd registret med hjälp av heartbeat-mönster, samtidigt som det är mer effektivt. Om du begär meddelande bekräftelser kan IoT-hubb meddela dig om vilka enheter som kan ta emot meddelanden och som inte är.
+> Om en IoT-lösning använder anslutningsstatus enbart för att avgöra om du vill skicka meddelanden från moln till enhet och meddelanden inte skickas ut till stora mängder enheter, bör du använda den enklare *kort förfallotid* mönster. Det här mönstret ger samma resultat som underhålla en anslutning tillstånd enhetsregistret med hjälp av mönstret pulsslag samtidigt som det är mer effektivt. Om du begär meddelande bekräftelser, kan IoT Hub meddela dig om vilka enheter som kan ta emot meddelanden och som inte är.
 
 ## <a name="device-and-module-lifecycle-notifications"></a>Enheten och modulen livscykelmeddelanden
 
-IoT-hubb kan meddela din IoT-lösning när en identitet skapas eller tas bort genom att skicka livscykelmeddelanden. Om du vill göra det, IoT-lösningen behöver skapa en väg och datakällan ska vara lika med *DeviceLifecycleEvents* eller *ModuleLifecycleEvents*. Inga livscykelmeddelanden skickas som standard, som är det inför finns ingen sådan vägar. Meddelandet innehåller egenskaperna och innehållet.
+IoT Hub kan meddela din IoT-lösning när en identitet skapas eller tas bort genom att skicka livscykelmeddelanden. Gör din IoT-lösning behöver du skapar en väg och datakällan ska vara lika med *DeviceLifecycleEvents* eller *ModuleLifecycleEvents*. Som standard inga livscykelmeddelanden skickas, dvs, inga sådana vägar redan finnas. Meddelandet innehåller egenskaperna och brödtext.
 
-Egenskaper: Meddelandet Systemegenskaper föregås av `'$'` symbolen.
+Egenskaper för: System meddelandeegenskaper har prefixet i `'$'` symbolen.
 
-Meddelande för enhet:
+Meddelande för enheten:
 
 | Namn | Värde |
 | --- | --- |
 |$content-typ | application/json |
-|$iothub-enqueuedtime |  Tidpunkt som meddelandet skickades |
+|$iothub-enqueuedtime |  Tid när meddelandet skickades |
 |$iothub-meddelande-källa | deviceLifecycleEvents |
 |$content-kodning | UTF-8 |
 |opType | **createDeviceIdentity** eller **deleteDeviceIdentity** |
-|hubName | Namnet på IoT-hubb |
+|HubName | Namnet på IoT Hub |
 |deviceId | ID för enheten |
 |operationTimestamp | ISO8601 tidsstämpeln för åtgärden |
 |iothub-meddelande-schema | deviceLifecycleNotification |
 
-Body: Det här avsnittet är i JSON-format och representerar dubbla av skapade enhetens identitet. Exempel:
+Brödtext: Det här avsnittet är i JSON-format och representerar tvilling av skapade enhetens identitet. Exempel:
 
 ```json
 {
@@ -143,16 +143,16 @@ Meddelande för modulen:
 | Namn | Värde |
 | --- | --- |
 $content-typ | application/json |
-$iothub-enqueuedtime |  Tidpunkt som meddelandet skickades |
+$iothub-enqueuedtime |  Tid när meddelandet skickades |
 $iothub-meddelande-källa | moduleLifecycleEvents |
 $content-kodning | UTF-8 |
 opType | **createModuleIdentity** eller **deleteModuleIdentity** |
-hubName | Namnet på IoT-hubb |
+HubName | Namnet på IoT Hub |
 moduleId | ID för modulen |
 operationTimestamp | ISO8601 tidsstämpeln för åtgärden |
 iothub-meddelande-schema | moduleLifecycleNotification |
 
-Body: Det här avsnittet är i JSON-format och representerar dubbla skapade modulen identitet. Exempel:
+Brödtext: Det här avsnittet är i JSON-format och representerar läsningen av skapade modulen identitet. Exempel:
 
 ```json
 {
@@ -176,26 +176,26 @@ Body: Det här avsnittet är i JSON-format och representerar dubbla skapade modu
 }
 ```
 
-## <a name="device-identity-properties"></a>Egenskaper för enhet identitet
+## <a name="device-identity-properties"></a>Egenskaper för enhet-identitet
 
-Enheten identiteter representeras som JSON-dokument med följande egenskaper:
+Enhetsidentiteter representeras som JSON-dokument med följande egenskaper:
 
 | Egenskap  | Alternativ | Beskrivning |
 | --- | --- | --- |
-| deviceId |krävs, skrivskyddad på uppdateringar |En skiftlägeskänslig sträng (upp till 128 tecken) av ASCII-7-bitars alfanumeriska tecken samt vissa specialtecken: `- . + % _ # * ? ! ( ) , = @ $ '`. |
-| generationId |krävs, skrivskyddad |En IoT hub-genererade, skiftlägeskänsliga sträng upp till 128 tecken. Det här värdet används för att skilja mellan enheter med samma **deviceId**, när de har tagits bort och återskapas. |
-| ETag |krävs, skrivskyddad |En sträng som representerar en svag ETag för enhetens identitet enligt [RFC7232][lnk-rfc7232]. |
-| auth |valfri |En sammansatt objekt som innehåller information och säkerhet material för autentisering. |
-| auth.symkey |valfri |En sammansatt objekt som innehåller en primär och en sekundär nyckel lagrad i base64-format. |
-| status |obligatorisk |En åtkomst-indikator. Kan vara **aktiverad** eller **inaktiverade**. Om **aktiverad**, enheten kan ansluta. Om **inaktiverad**, den här enheten har inte åtkomst till valfri enhet riktade slutpunkt. |
-| statusReason |valfri |En 128 tecken lång sträng som lagrar Statusanledning för enhetens identitet. Alla UTF-8-tecken tillåts. |
-| statusUpdateTime |Skrivskyddad |En temporal indikator som visar datum och tid för senaste status för uppdateringen. |
-| connectionState |Skrivskyddad |Ett fält som anger status för användaranslutning: antingen **ansluten** eller **frånkopplad**. Det här fältet visar vyn IoT-hubb för enhetens anslutningsstatus. **Viktiga**: det här fältet bör användas endast för utveckling/felsökning. Om anslutningens status uppdateras bara för enheter med hjälp av MQTT eller AMQP. Dessutom baseras på protokollnivå pingar (MQTT pingar eller AMQP ping) och den kan ha en maximal fördröjning på endast 5 minuter. Därmed behöver kan det finnas falska positiva identifieringar, t.ex enheter rapporteras som är ansluten men som inte är ansluten. |
-| connectionStateUpdatedTime |Skrivskyddad |En temporal indikator som visar datum och tid för senaste status för anslutningen har uppdaterats. |
-| lastActivityTime |Skrivskyddad |En temporal indikator visar datum och tid för senaste enheten ansluten, tas emot eller skickade ett meddelande. |
+| deviceId |krävs, skrivskyddad på uppdateringar |En skiftlägeskänslig sträng (upp till 128 tecken) med ASCII 7 bitar alfanumeriska tecken samt vissa specialtecken: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| generationId |krävs, skrivskyddad |En IoT hub-genererade, skiftlägeskänsligt sträng högst 128 tecken. Det här värdet används för att skilja mellan enheter med samma **deviceId**, när de har tagits bort och återskapas. |
+| ETag |krävs, skrivskyddad |En sträng som representerar en svag ETag för enhetens identitet, enligt [RFC7232][lnk-rfc7232]. |
+| auth |valfri |Ett sammansatt objekt som innehåller information och säkerhet material för autentisering. |
+| auth.symkey |valfri |Ett sammansatt objekt som innehåller en primär och en sekundär nyckel som är lagrad i base64-format. |
+| status |obligatorisk |En åtkomst-indikator. Kan vara **aktiverad** eller **inaktiverad**. Om **aktiverad**, enheten kan ansluta. Om **inaktiverad**, den här enheten har inte åtkomst till valfri enhet-riktade slutpunkt. |
+| statusReason |valfri |En 128 tecken lång sträng som lagrar statusorsaken för enhetens identitet. Alla UTF-8-tecken tillåts. |
+| statusUpdateTime |skrivskyddad |En temporal indikator som visar datum och tid för senaste statusuppdatering. |
+| connectionState |skrivskyddad |Ett fält som anger status för användaranslutning: antingen **ansluten** eller **frånkopplad**. Det här fältet visar vyn IoT hubb för enhetens anslutningsstatus. **Viktiga**: det här fältet bör endast användas för utveckling/felsökning syften. Anslutningsstatus uppdateras endast för enheter med hjälp av MQTT eller AMQP. Dessutom den baseras på på protokollnivå pingar (MQTT pingar eller AMQP-ping) och den kan ha en maximal fördröjning på endast 5 minuter. Därmed behöver kan det finnas falska positiva identifieringar, t.ex. enheter rapporteras som är anslutna, men som inte är ansluten. |
+| connectionStateUpdatedTime |skrivskyddad |En temporal indikator som visar datum och tid för senaste status för anslutningen har uppdaterats. |
+| lastActivityTime |skrivskyddad |En temporal indikator som visar datum och tid för senaste enheten är ansluten, tas emot eller skickat ett meddelande. |
 
 > [!NOTE]
-> Status för anslutningen kan endast representerar vyn IoT-hubb i status för anslutningen. Uppdateringar till det här tillståndet kan fördröjas beroende på nätverkets tillstånd och konfigurationer.
+> Anslutningsläge kan bara representera IoT Hub-vy över statusen för anslutningen. Uppdateringar till det här tillståndet kan fördröjas beroende på nätverkets tillstånd och konfigurationer.
 
 ## <a name="module-identity-properties"></a>Modulen identitetsegenskaper
 
@@ -203,45 +203,45 @@ Modulen identiteter representeras som JSON-dokument med följande egenskaper:
 
 | Egenskap  | Alternativ | Beskrivning |
 | --- | --- | --- |
-| deviceId |krävs, skrivskyddad på uppdateringar |En skiftlägeskänslig sträng (upp till 128 tecken) av ASCII-7-bitars alfanumeriska tecken samt vissa specialtecken: `- . + % _ # * ? ! ( ) , = @ $ '`. |
-| moduleId |krävs, skrivskyddad på uppdateringar |En skiftlägeskänslig sträng (upp till 128 tecken) av ASCII-7-bitars alfanumeriska tecken samt vissa specialtecken: `- . + % _ # * ? ! ( ) , = @ $ '`. |
-| generationId |krävs, skrivskyddad |En IoT hub-genererade, skiftlägeskänsliga sträng upp till 128 tecken. Det här värdet används för att skilja mellan enheter med samma **deviceId**, när de har tagits bort och återskapas. |
-| ETag |krävs, skrivskyddad |En sträng som representerar en svag ETag för enhetens identitet enligt [RFC7232][lnk-rfc7232]. |
-| auth |valfri |En sammansatt objekt som innehåller information och säkerhet material för autentisering. |
-| auth.symkey |valfri |En sammansatt objekt som innehåller en primär och en sekundär nyckel lagrad i base64-format. |
-| status |obligatorisk |En åtkomst-indikator. Kan vara **aktiverad** eller **inaktiverade**. Om **aktiverad**, enheten kan ansluta. Om **inaktiverad**, den här enheten har inte åtkomst till valfri enhet riktade slutpunkt. |
-| statusReason |valfri |En 128 tecken lång sträng som lagrar Statusanledning för enhetens identitet. Alla UTF-8-tecken tillåts. |
-| statusUpdateTime |Skrivskyddad |En temporal indikator som visar datum och tid för senaste status för uppdateringen. |
-| connectionState |Skrivskyddad |Ett fält som anger status för användaranslutning: antingen **ansluten** eller **frånkopplad**. Det här fältet visar vyn IoT-hubb för enhetens anslutningsstatus. **Viktiga**: det här fältet bör användas endast för utveckling/felsökning. Om anslutningens status uppdateras bara för enheter med hjälp av MQTT eller AMQP. Dessutom baseras på protokollnivå pingar (MQTT pingar eller AMQP ping) och den kan ha en maximal fördröjning på endast 5 minuter. Därmed behöver kan det finnas falska positiva identifieringar, t.ex enheter rapporteras som är ansluten men som inte är ansluten. |
-| connectionStateUpdatedTime |Skrivskyddad |En temporal indikator som visar datum och tid för senaste status för anslutningen har uppdaterats. |
-| lastActivityTime |Skrivskyddad |En temporal indikator visar datum och tid för senaste enheten ansluten, tas emot eller skickade ett meddelande. |
+| deviceId |krävs, skrivskyddad på uppdateringar |En skiftlägeskänslig sträng (upp till 128 tecken) med ASCII 7 bitar alfanumeriska tecken samt vissa specialtecken: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| moduleId |krävs, skrivskyddad på uppdateringar |En skiftlägeskänslig sträng (upp till 128 tecken) med ASCII 7 bitar alfanumeriska tecken samt vissa specialtecken: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| generationId |krävs, skrivskyddad |En IoT hub-genererade, skiftlägeskänsligt sträng högst 128 tecken. Det här värdet används för att skilja mellan enheter med samma **deviceId**, när de har tagits bort och återskapas. |
+| ETag |krävs, skrivskyddad |En sträng som representerar en svag ETag för enhetens identitet, enligt [RFC7232][lnk-rfc7232]. |
+| auth |valfri |Ett sammansatt objekt som innehåller information och säkerhet material för autentisering. |
+| auth.symkey |valfri |Ett sammansatt objekt som innehåller en primär och en sekundär nyckel som är lagrad i base64-format. |
+| status |obligatorisk |En åtkomst-indikator. Kan vara **aktiverad** eller **inaktiverad**. Om **aktiverad**, enheten kan ansluta. Om **inaktiverad**, den här enheten har inte åtkomst till valfri enhet-riktade slutpunkt. |
+| statusReason |valfri |En 128 tecken lång sträng som lagrar statusorsaken för enhetens identitet. Alla UTF-8-tecken tillåts. |
+| statusUpdateTime |skrivskyddad |En temporal indikator som visar datum och tid för senaste statusuppdatering. |
+| connectionState |skrivskyddad |Ett fält som anger status för användaranslutning: antingen **ansluten** eller **frånkopplad**. Det här fältet visar vyn IoT hubb för enhetens anslutningsstatus. **Viktiga**: det här fältet bör endast användas för utveckling/felsökning syften. Anslutningsstatus uppdateras endast för enheter med hjälp av MQTT eller AMQP. Dessutom den baseras på på protokollnivå pingar (MQTT pingar eller AMQP-ping) och den kan ha en maximal fördröjning på endast 5 minuter. Därmed behöver kan det finnas falska positiva identifieringar, t.ex. enheter rapporteras som är anslutna, men som inte är ansluten. |
+| connectionStateUpdatedTime |skrivskyddad |En temporal indikator som visar datum och tid för senaste status för anslutningen har uppdaterats. |
+| lastActivityTime |skrivskyddad |En temporal indikator som visar datum och tid för senaste enheten är ansluten, tas emot eller skickat ett meddelande. |
 
-## <a name="additional-reference-material"></a>Ytterligare referensmaterialet
+## <a name="additional-reference-material"></a>Ytterligare referensmaterial
 
-Andra referensavsnitten i utvecklarhandboken för IoT-hubben är:
+Andra referensavsnitten i IoT Hub developer guide inkluderar:
 
-* [IoT-hubbslutpunkter] [ lnk-endpoints] beskriver de olika slutpunkter som varje IoT-hubb visar för körning och hanteringsåtgärder.
-* [Begränsning och kvoter] [ lnk-quotas] beskriver kvoter och begränsning beteenden som tillämpas på tjänsten IoT-hubb.
-* [Azure IoT-enheten och tjänsten SDK] [ lnk-sdks] Listar olika språk SDK: er som du kan använda när du utvecklar appar för både enheten och tjänsten som interagerar med IoT-hubben.
-* [IoT-hubb frågespråket] [ lnk-query] beskriver frågespråk som du kan använda för att hämta information från IoT-hubb om enheten twins och jobb.
-* [Stöd för IoT-hubb MQTT] [ lnk-devguide-mqtt] ger mer information om stöd för IoT-hubb för MQTT-protokollet.
+* [IoT Hub-slutpunkter] [ lnk-endpoints] beskriver de olika slutpunkter som varje IoT-hubb exponerar för körning och hanteringsåtgärder.
+* [Begränsning och kvoter] [ lnk-quotas] beskriver kvoter och begränsningar beteenden som gäller för IoT Hub-tjänsten.
+* [Azure IoT-enheten och tjänsten SDK: er] [ lnk-sdks] visar en lista över olika språk SDK: er som du kan använda när du utvecklar appar för både enheten och tjänsten som interagerar med IoT Hub.
+* [IoT Hub-frågespråk] [ lnk-query] beskriver frågespråk som du kan använda för att hämta information från IoT Hub om enhetstvillingar och jobb.
+* [IoT Hub MQTT-support] [ lnk-devguide-mqtt] innehåller mer information om IoT Hub-stöd för MQTT-protokollet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder identitetsregistret IoT-hubb, kan du är intresserad av i följande avsnitt för IoT-hubb developer-guide:
+Nu när du har lärt dig hur du använder IoT Hub-identitetsregistret, kanske du är intresserad av i följande avsnitt för IoT Hub developer guide:
 
-* [Kontrollera åtkomsten till IoT-hubb][lnk-devguide-security]
-* [Använd twins för enheten för att synkronisera tillstånd och konfigurationer][lnk-devguide-device-twins]
-* [Anropa en metod som är direkt på en enhet][lnk-devguide-directmethods]
-* [Schema-jobb på flera enheter][lnk-devguide-jobs]
+* [Kontrollera åtkomsten till IoT Hub][lnk-devguide-security]
+* [Använda enhetstvillingar för att synkronisera tillstånd och konfigurationer][lnk-devguide-device-twins]
+* [Anropa en direkt metod på en enhet][lnk-devguide-directmethods]
+* [Schemalägg jobb på flera enheter][lnk-devguide-jobs]
 
-Om du vill prova några av de begrepp som beskrivs i den här artikeln finns i följande IoT-hubb kursen:
+Se följande självstudie för IoT Hub för att prova några av de koncept som beskrivs i den här artikeln:
 
-* [Kom igång med Azure IoT-hubb][lnk-getstarted-tutorial]
+* [Kom igång med Azure IoT Hub][lnk-getstarted-tutorial]
 
-Om du vill utforska använda Etableringstjänsten IoT-hubb enheten för att aktivera zero touch se just-in-time-etablering: 
+Utforska använder IoT Hub Device Provisioning-tjänsten för att aktivera zero-touch och just-in-time-etablering, se: 
 
-* [Azure IoT-hubb enheten etablering av tjänst][lnk-dps]
+* [Azure IoT Hub Device Provisioning-tjänst][lnk-dps]
 
 
 <!-- Links and images -->
@@ -264,5 +264,5 @@ Om du vill utforska använda Etableringstjänsten IoT-hubb enheten för att akti
 [lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 
-[lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-getstarted-tutorial]: quickstart-send-telemetry-dotnet.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

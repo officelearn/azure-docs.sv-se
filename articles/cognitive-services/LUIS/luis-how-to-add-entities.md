@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7e60bc217562d91aa5ed3c653458a46251a45c8d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: bcdd4b681992b015b817e1245681c41c09b78210
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347467"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173698"
 ---
 # <a name="manage-entities"></a>Hantera entiteter
 När du har identifierat appens [avsikter](luis-concept-intent.md), måste du [märka exempel yttranden](luis-concept-utterance.md) med [entiteter](luis-concept-entity-types.md). Entiteter är viktiga delar av ett kommando eller en fråga och kan vara viktiga för din klientapp att utföra sitt uppdrag. 
@@ -260,5 +260,5 @@ Du kan söka och filtrera yttranden med på förstoringsglaset i verktygsfältet
 När du lägger till, redigera eller ta bort entiteter, [träna](luis-how-to-train.md) och [publicera](luis-how-to-publish-app.md) din app för ändringarna att påverka endpoint frågor. 
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har lagt till avsikter, yttranden och entiteter, har du en grundläggande LUIS-app. Lär dig hur du [träna](luis-how-to-train.md), [testa](interactive-test.md), och [publicera](luis-how-to-publish-app.md) din app.
+Nu när du har lagt till avsikter, yttranden och entiteter, har du en grundläggande LUIS-app. Lär dig hur du [träna](luis-how-to-train.md), [testa](luis-interactive-test.md), och [publicera](luis-how-to-publish-app.md) din app.
  

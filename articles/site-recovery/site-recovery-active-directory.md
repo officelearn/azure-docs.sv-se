@@ -7,14 +7,14 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 07/19/2018
 ms.author: manayar
-ms.openlocfilehash: e8094c582af6ea03f5ffcc4f61914488891cb556
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3a2ad35a5382394a6886ed14dcc4f659762f2833
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920897"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172246"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Använda Azure Site Recovery för att skydda Active Directory och DNS
 
@@ -31,13 +31,10 @@ Den här artikeln beskriver hur du skapar en lösning för haveriberedskap för 
 
 ## <a name="replicate-the-domain-controller"></a>Replikera domänkontrollanten
 
-Du måste konfigurera [Site Recovery-replikering](#enable-protection-using-site-recovery), på minst en virtuell dator som är värd för en domänkontrollant eller DNS. Om du har [flera domänkontrollanter](#environment-with-multiple-domain-controllers) i din miljö kan du också ställa in en [ytterligare en domänkontrollant](#protect-active-directory-with-active-directory-replication) på målplatsen. Ytterligare en domänkontrollant kan vara i Azure eller i ett sekundärt lokalt datacenter.
-
-### <a name="single-domain-controller"></a>En enda domänkontrollant
-Om du har bara ett fåtal program och en domänkontrollant, kan du redundansväxla hela platsen. I det här fallet bör du använda Site Recovery replikera domänkontrollanten till målplatsen (antingen i Azure eller i ett sekundärt lokalt datacenter). Du kan använda samma replikerad domänkontrollant eller DNS-dator för [redundanstest](#test-failover-considerations).
-
-### <a name="multiple-domain-controllers"></a>Flera domänkontrollanter
-Om du har många program och mer än en domänkontrollant i din miljö eller om du planerar att växla över några program samtidigt, förutom att replikera den domain controller virtuella datorn med Site Recovery, rekommenderar vi att du ställer in en [ytterligare en domänkontrollant](#protect-active-directory-with-active-directory-replication) på målplatsen (antingen i Azure eller i ett sekundärt lokalt datacenter). För [redundanstest](#test-failover-considerations), du kan använda en domänkontrollant som replikeras av Site Recovery. Du kan använda ytterligare en domänkontrollant på målplatsen för redundans.
+- Du måste konfigurera [Site Recovery-replikering](#enable-protection-using-site-recovery), på minst en virtuell dator som är värd för en domänkontrollant eller DNS.
+- Om du har [flera domänkontrollanter](#environment-with-multiple-domain-controllers) i din miljö kan du också ställa in en [ytterligare en domänkontrollant](#protect-active-directory-with-active-directory-replication) på målplatsen. Ytterligare en domänkontrollant kan vara i Azure eller i ett sekundärt lokalt datacenter.
+- Om du har bara ett fåtal program och en domänkontrollant, kan du redundansväxla hela platsen. I det här fallet bör du använda Site Recovery replikera domänkontrollanten till målplatsen (antingen i Azure eller i ett sekundärt lokalt datacenter). Du kan använda samma replikerad domänkontrollant eller DNS-dator för [redundanstest](#test-failover-considerations).
+- - Om du har många program och mer än en domänkontrollant i din miljö eller om du planerar att växla över några program samtidigt, förutom att replikera den domain controller virtuella datorn med Site Recovery, rekommenderar vi att du ställer in en [ytterligare en domänkontrollant](#protect-active-directory-with-active-directory-replication) på målplatsen (antingen i Azure eller i ett sekundärt lokalt datacenter). För [redundanstest](#test-failover-considerations), du kan använda en domänkontrollant som replikeras av Site Recovery. Du kan använda ytterligare en domänkontrollant på målplatsen för redundans.
 
 ## <a name="enable-protection-with-site-recovery"></a>Aktivera skydd med Site Recovery
 
@@ -186,9 +183,11 @@ Om föregående villkor är uppfyllda är det troligt att domänkontrollanten fu
     Mer information finns i [inaktivera kravet på att en global katalogserver är tillgängliga för att validera användarinloggningar](http://support.microsoft.com/kb/241789).
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS- och domänkontrollant på olika datorer
-Om DNS inte är på samma virtuella dator som domänkontrollant, måste du skapa en virtuell dator i DNS för att testa redundans. Om DNS- och domänkontrollanten inte är på samma virtuella dator kan du hoppa över det här avsnittet.
 
-Du kan använda en ny DNS-server och skapa alla nödvändiga zoner. Till exempel kan Active Directory-domänen är contoso.com, du skapa en DNS-zon med namnet contoso.com. Poster som motsvarar Active Directory måste uppdateras i DNS på följande sätt:
+Om du kör en domänkontrollant och DNs på samma virtuella dator, kan du hoppa över den här proceduren.
+
+
+Om DNS inte är på samma virtuella dator som domänkontrollant, måste du skapa en DNS VM för att testa redundans. Du kan använda en ny DNS-server och skapa alla nödvändiga zoner. Till exempel kan Active Directory-domänen är contoso.com, du skapa en DNS-zon med namnet contoso.com. Poster som motsvarar Active Directory måste uppdateras i DNS på följande sätt:
 
 1. Se till att de här inställningarna är uppfyllda innan du börjar någon annan virtuell dator i återställningsplanen:
    * Zonen måste ha namnet efter skogsrotens namn.

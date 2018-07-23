@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: byvinyal
-ms.openlocfilehash: 8b023540f57cb69fc1d2773ef533364f64820359
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 570eee6cc849c474cfeacf5a9ba1798f64f27183
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069547"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188088"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränserna, som kallas ibland också kvoter. Det här dokumentet täcker inte för närvarande alla Azure-tjänster. Med tiden, kommer listan utökats och uppdaterats så att den täcker flera av plattformen.
@@ -59,7 +59,7 @@ En ny tabell har lagts till återspeglar eventuella skillnader i begränsningar 
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
-* [Kubernetes-tjänst](#container-service-aks-limits)
+* [Kubernetes-tjänst](#kubernetes-service-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)

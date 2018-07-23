@@ -1,9 +1,9 @@
 ---
 title: Hantera DNS-zoner i Azure DNS - Azure-portalen | Microsoft Docs
-description: Du kan hantera DNS-zoner med Azure-portalen. Den här artikeln beskriver hur du uppdaterar, ta bort och skapa DNS-zoner på Azure DNS
+description: Du kan hantera DNS-zoner med Azure-portalen. Den här artikeln beskriver hur du uppdaterar, ta bort och skapa DNS-zoner i Azure DNS
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,15 +11,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
-ms.author: kumud
-ms.openlocfilehash: 3fbf59010e690ac022e4363eddebe1cfbba53d13
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: victorh
+ms.openlocfilehash: ca9d03cb14e79b23ccc2021e0a31650eb9bbd95b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779047"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171246"
 ---
-# <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Hur du hanterar DNS-zoner i Azure-portalen
+# <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Så här hanterar du DNS-zoner i Azure portal
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
@@ -27,12 +27,12 @@ ms.locfileid: "32779047"
 > * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
-Den här artikeln visar hur du hanterar DNS-zoner med hjälp av Azure portal. Du kan också hantera DNS-zoner med flera plattformar [Azure CLI](dns-operations-dnszones-cli.md) eller Azure [PowerShell](dns-operations-dnszones.md).
+Den här artikeln visar hur du hanterar DNS-zoner med hjälp av Azure portal. Du kan också hantera dina DNS-zoner med flera plattformar [Azure CLI](dns-operations-dnszones-cli.md) eller Azure [PowerShell](dns-operations-dnszones.md).
 
 ## <a name="create-a-dns-zone"></a>Skapa en DNS-zon
 
 1. Logga in på Azure Portal
-2. På navmenyn klickar du på och klicka på **skapar du en resurs > nätverk >** och klicka sedan på **DNS-zonen** att öppna bladet skapa DNS-zon.
+2. På navmenyn och klicka **skapa en resurs > nätverk >** och klicka sedan på **DNS-zon** att öppna bladet skapa DNS-zon.
 
     ![DNS-zon](./media/dns-operations-dnszones-portal/openzone650.png)
 
@@ -51,14 +51,14 @@ Den här artikeln visar hur du hanterar DNS-zoner med hjälp av Azure portal. Du
 
 ## <a name="list-dns-zones"></a>Lista DNS-zoner
 
-I Azure-portalen går du till **fler tjänster** > **nätverk** > **DNS-zoner**. Varje DNS-zon är det egna resurs, information, till exempel antal post och namnservrar kan visas i den här vyn. Kolumnen **NAMNSERVRAR** är inte i standardvyn för att lägga till den Klicka **kolumner**väljer **namnservrar** och på **klar**.
+I Azure-portalen går du till **fler tjänster** > **nätverk** > **DNS-zoner**. Varje DNS-zon är är det egna resurs, information, till exempel antalet postuppsättningar och DNS-servrar kan visas från den här vyn. Kolumnen **NAMNSERVRAR** är inte i standardvyn, att lägga till det klickar du på **kolumner**väljer **namnservrar** och klicka på **klar**.
 
-![Visar en lista över DNS-zoner](./media/dns-operations-dnszones-portal/listzones.png)
+![Visa en lista över DNS-zoner](./media/dns-operations-dnszones-portal/listzones.png)
 
 ## <a name="delete-a-dns-zone"></a>Ta bort en DNS-zon
 
-Navigera till en DNS-zon i portalen. På den **DNS-zonen** bladet, klickar du på **ta bort zon**. Du uppmanas att bekräfta att du vill ta bort DNS-zonen. En DNS-zon också tar bort alla poster i zonen.
+Navigera till en DNS-zon i portalen. På den **DNS-zon** bladet klickar du på **ta bort zonen**. Du uppmanas att bekräfta att du vill ta bort DNS-zonen. Tar bort en DNS-zon tas även bort alla poster i zonen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig att arbeta med din DNS-zon och poster genom att besöka [Kom igång med Azure DNS med hjälp av Azure portal](dns-getstarted-portal.md).
+Lär dig hur du arbetar med dina DNS-zon och -poster genom att besöka [Kom igång med Azure DNS med Azure-portalen](dns-getstarted-portal.md).

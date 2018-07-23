@@ -1,7 +1,7 @@
 ---
-title: Standardkonfigurationen för konversationen deltagaren - kognitiva Microsoft-tjänster | Microsoft Docs
+title: Standardkonfigurationen för konversationen Learner - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Läs mer om standardkonfigurationen för konversationen deltagaren.
+description: Läs mer om Konversationsdeltagare standardkonfigurationen.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,44 +10,44 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 56e2140b83bf1c5722a459c14f31b2b4b0ba6b15
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c0ad9f71665e503fe794c68200b90a8474750823
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353949"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173633"
 ---
 # <a name="default-values-and-boundaries"></a>Standardvärden och gränser
 
-Det här dokumentet beskriver standardkonfigurationen för konversationen deltagaren och nyckel gränser.
+Det här dokumentet beskriver standardkonfigurationen av Konversationsdeltagare och tjänstens gränser.
 
-## <a name="default-configuration"></a>Standardkonfigurationen
+## <a name="default-configuration"></a>Standardkonfiguration
 
 Parameter | Standardvärde
 --- | --- 
-Standard Sessionstidsgräns | 30 minuter
+Tidsgräns för session standard | 30 minuter
 
 ## <a name="boundaries"></a>Gränser
 
 Parameter | Gräns
 --- | --- 
 Redigera API max HTTP-anrop per månad | 5M
-Redigera API max HTTP-anrop per sekund | 25
+Redigerar API, max HTTP-anrop per sekund | 25
 Sessionen API, max HTTP-anrop per månad | 500 000
 Sessionen API, max HTTP-anrop per sekund | 10
-Max antal anpassade (icke-programmässiga) enheter per program | Se [THOMAS gränser doc](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries); i praktiken faktiska antalet kan vara något mindre
-Max antal förskapad entiteter per program | Se [THOMAS gränser doc](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries)
-Högsta antal enheter (i totalt) per program | 100
-Max antal åtgärder per program | 32
-Max antal train dialogrutor per program | 1000
-Högsta antal användare aktiverar per tåg dialogrutan | 100
-Max antal loggen dialogrutor per program | Inga förinställda gränsen, men loggen dialogrutor behålls endast för en bestämd tid innan det tas bort.  Dessutom visar konversation deltagaren Användargränssnittet 100 loggen dialogrutor i taget. 
-Max antal program per användare | Ingen förinställda gräns
-Max antal sekventiella-wait-åtgärder | 5 (*)
+Maxantal egna (icke-programmässiga) entiteter per modell | Se [LUIS gränser doc](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries); i praktiken faktiska antalet kan vara något mindre
+Maxantal färdiga entiteter per modell | Se [LUIS gränser dokument](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries)
+Maxantal entiteter (i totalt) per modell | 100
+Maxantal åtgärder per modell | 32
+Maxantal träna dialogrutor per modell | 1000
+Maximalt antal användare aktiverar per träna dialogrutan | 100
+Maxantal log dialogrutor per modell | Inga förinställda gränsen, men log dialogrutor behålls endast för en fast period innan det tas bort.  Dessutom visar konversationen Learner Användargränssnittet 100 log-dialogrutor i taget. 
+Maxantal modeller per användare | Ingen förinställda gräns
+Maxantal sekventiella-wait-åtgärder | 5 (*)
 
-(*) Alla åtgärder för icke-wait maskeras efter 5 sekventiella-wait-åtgärder och konversation deltagaren väljer bland tillgängliga vänta åtgärder.
+(*) Alla åtgärder som icke-wait maskeras efter 5 sekventiella-wait-åtgärder och Konversationsdeltagare väljer bland tillgängliga vänta åtgärder.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Kom igång med konversation deltagaren](./quickstart.md)
+> [Kom igång med Konversationsdeltagare](./quickstart.md)

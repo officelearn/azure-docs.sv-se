@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: cb25ae0e90189f0c808f561b20e45f08b49df0d6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3161715ac2ff212e2de8a27ff8f8eb53fb858b92
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299169"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186813"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Schemalägg och Sänd jobb (Java)
 
@@ -31,7 +31,7 @@ Ett jobb omsluter en av de här åtgärderna och spårar körning mot en uppsät
 Mer information om var och en av de här funktionerna finns:
 
 * Enhetstvillingen och egenskaper: [Kom igång med enhetstvillingar](iot-hub-java-java-twin-getstarted.md)
-* Direkta metoder: [IoT Hub developer guide - direkta metoder](iot-hub-devguide-direct-methods.md) och [självstudie: Använd direkta metoder](iot-hub-java-java-direct-methods.md)
+* Direkta metoder: [IoT Hub developer guide - direkta metoder](iot-hub-devguide-direct-methods.md) och [självstudie: Använd direkta metoder](quickstart-control-device-java.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -456,7 +456,7 @@ I det här avsnittet skapar du en Java-konsolapp som hanterar de önskade egensk
 
     `mvn clean package -DskipTests`
 
-## <a name="run-the-apps"></a>Kör apparna
+## <a name="run-the-apps"></a>Köra apparna
 
 Du är nu redo att köra konsolappar.
 
@@ -482,5 +482,5 @@ I den här självstudiekursen konfigurerade du en ny IoT Hub på Azure Portal oc
 
 Använd följande resurser för att lära dig hur du:
 
-* Skicka telemetri från enheter med den [Kom igång med IoT Hub](iot-hub-java-java-getstarted.md) självstudien.
-* Kontrollera enheter interaktivt (till exempel aktivera en fans, från en användarstyrd app) med den [Använd direkta metoder](iot-hub-java-java-direct-methods.md) självstudien.
+* Skicka telemetri från enheter med den [Kom igång med IoT Hub](quickstart-send-telemetry-java.md) självstudien.
+* Kontrollera enheter interaktivt (till exempel aktivera en fans, från en användarstyrd app) med den [Använd direkta metoder](quickstart-control-device-java.md) självstudien.

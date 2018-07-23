@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: fd4226254e076957ac8651f9172f1f3f82427a60
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5a321ef7dca86993a913a283fe7b9b076c127d94
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001838"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171263"
 ---
 # <a name="monitor-batch-solutions"></a>Övervaka Batch-lösningar
 
@@ -63,7 +63,7 @@ I dina Batch-program, använder du Batch-API: er att övervaka eller fråga stat
   > Du kan medföra ytterligare kostnader för att använda Application Insights. Se den [prisalternativ](https://azure.microsoft.com/pricing/details/application-insights/). 
   >
 
-* [BatchLabs](https://github.com/Azure/BatchLabs) är ett kostnadsfritt, fristående klientverktyg med omfattande funktioner för att skapa, felsöka och övervaka Azure Batch-program. Hämta ett [installationspaketet](https://azure.github.io/BatchLabs/) för Mac, Linux eller Windows. Du kan också konfigurera din Batch-lösning till [visa Application Insights-data](https://github.com/Azure/batch-insights) , till exempel VM-prestandaräknare i BatchLabs.
+* [Batch Explorer](https://github.com/Azure/BatchExplorer) är ett kostnadsfritt, omfattande funktioner, fristående klientverktyg för att skapa, felsöka och övervaka Azure Batch-program. Hämta ett [installationspaketet](https://azure.github.io/BatchExplorer/) för Mac, Linux eller Windows. Du kan också konfigurera din Batch-lösning till [visa Application Insights-data](https://github.com/Azure/batch-insights) , till exempel prestandaräknare för virtuella datorer i Batch Explorer.
 
 
 ## <a name="next-steps"></a>Nästa steg

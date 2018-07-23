@@ -79,6 +79,10 @@
           href: luis-tutorial-batch-testing.md
         - name: Med mönster
           href: luis-tutorial-pattern.md
+        - name: Med roller
+          href: luis-tutorial-pattern-roles.md
+        - name: Med Pattern.any-entitet
+          href: luis-tutorial-pattern-any.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -194,7 +198,7 @@
     - name: Testa
       items:
         - name: Interaktiv testning
-          href: interactive-test.md
+          href: luis-interactive-test.md
         - name: Batch-testning
           href: luis-how-to-batch-test.md
     - name: Publicera app
@@ -226,7 +230,7 @@
             - name: Fördela slutpunktskvoten mellan nycklar med Traffic Manager
               href: luis-traffic-manager.md
     - name: Migrera till V2 API
-      href: migration-v1-to-v2.md
+      href: luis-migration-api-v1-to-v2.md
     - name: Hitta region programmässigt
       items:
         - name: 'Använd C#'

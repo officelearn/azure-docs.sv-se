@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: kgremban
-ms.openlocfilehash: 532ae26dfd7add5c5ecc61db259903239e449f40
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: eb5e7ce608f434bd880baae4d6780dd5038099f8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299152"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187224"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från din enhet till molnet med IoT Hub
 
@@ -25,7 +25,7 @@ Den här självstudien följer hur du använder den [filen ladda upp funktionern
 - På ett säkert sätt ange en lagringsbehållare för att ladda upp en fil.
 - Använda Python-klienten för att ladda upp en fil via din IoT-hubb.
 
-Den [Kom igång med IoT Hub](iot-hub-node-node-getstarted.md) självstudiekursen demonstrerar de grundläggande meddelanden funktionerna med enheten till molnet i IoT Hub. Men i vissa fall kan inte du enkelt mappa enheterna skickar till relativt liten enhet-till-moln-meddelanden som IoT-hubb tar emot data. När du behöver upland filer från en enhet, kan du fortfarande använda säkerheten och pålitligheten för IoT Hub.
+Den [Kom igång med IoT Hub](quickstart-send-telemetry-node.md) självstudiekursen demonstrerar de grundläggande meddelanden funktionerna med enheten till molnet i IoT Hub. Men i vissa fall kan inte du enkelt mappa enheterna skickar till relativt liten enhet-till-moln-meddelanden som IoT-hubb tar emot data. När du behöver upland filer från en enhet, kan du fortfarande använda säkerheten och pålitligheten för IoT Hub.
 
 > [!NOTE]
 > IoT Hub Python SDK stöder för närvarande endast överföra teckenbaserade filer som **.txt** filer.

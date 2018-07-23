@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 067404193507f9787c994e82267679737ebe4832
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: deba3ad8a283b111dc94a5361f3fa4e73d95c0b8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145425"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187391"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Läs mer om Azure Virtual Networks börjar med den här informationen: [Azure översikt över Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -150,6 +150,7 @@ När en instans för API Management finns i ett virtuellt nätverk, används por
 * **Den inledande installationen**: när den första distributionen av API Management-tjänsten i ett undernät inte lyckas är det bäst att först distribuera en virtuell dator i samma undernät. Nästa fjärrskrivbord till den virtuella datorn och verifiera att det finns anslutning till en av varje resurs nedan i din azure-prenumeration
     * Azure Storage-blob
     * Azure SQL Database
+    * Azure Storage-tabell
 
  > [!IMPORTANT]
  > När du har godkänt anslutningen, se till att ta bort alla resurser som har distribuerats i undernätet, innan du distribuerar API Management till undernätet.

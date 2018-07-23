@@ -23,9 +23,9 @@
   items:
     - name: Distribuera appar till Azure och Azure Stack
       href: azure-stack-solution-pipeline.md
-    - name: Konfigurera cloud hybrididentitet
+    - name: Konfigurera hybrid cloud-identitet
       href: azure-stack-solution-hybrid-identity.md
-    - name: Konfigurera molnet för hybridanslutning
+    - name: Konfigurera hybrid cloud-anslutning
       href: azure-stack-solution-hybrid-connectivity.md
     - name: Prenumerera på ett erbjudande
       href: azure-stack-subscribe-services.md
@@ -35,7 +35,7 @@
   items:
     - name: Använda Azure Stack Portal
       href: azure-stack-use-portal.md
-    - name: Använda Azure API-stacken
+    - name: Använd Azure Stack API
       href: azure-stack-rest-api-use.md
     - name: Säkerhet och efterlevnad
       items:
@@ -55,11 +55,11 @@
               href: azure-stack-vm-considerations.md
             - name: VM-storlekar
               href: azure-stack-vm-sizes.md
-            - name: Hantera Virtuella diskar
+            - name: Hantera VM-diskar
               href: azure-stack-manage-vm-disks.md
             - name: Skydda virtuella datorer
               href: azure-stack-manage-vm-protect.md
-            - name: SQL Server-VM-överväganden
+            - name: Överväganden för SQL Server-VM
               href: azure-stack-sql-server-vm-considerations.md
         - name: Storage
           items:
@@ -101,7 +101,7 @@
           items:
             - name: Distribuera ett Service Fabric-kluster
               href: azure-stack-solution-template-service-fabric-cluster.md
-            - name: Distribuera ett Kubernetes kluster
+            - name: Distribuera ett Kubernetes-kluster
               href: azure-stack-solution-template-kubernetes-deploy.md
     - name: Skapa appar
       items:
@@ -110,35 +110,36 @@
         - name: Konfigurera utvecklingsmiljön
           items:
             - name: Installera Azure Stack PowerShell
-              href: 'https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install'
-            - name: Hämta Azure Stack-verktyg
+              href: ../azure-stack-powershell-install.md
+              maintainContext: true
+            - name: Ladda ned Azure Stack-verktyg
               href: azure-stack-powershell-download.md
             - name: Konfigurera PowerShell – användare
               href: azure-stack-powershell-configure-user.md
             - name: Installera Visual Studio
               href: azure-stack-install-visual-studio.md
-            - name: Med hjälp av profiler för API-version
+            - name: Med hjälp av API-versionsprofiler
               href: azure-stack-version-profiles.md
               items:
                 - name: PowerShell
                   href: azure-stack-version-profiles-powershell.md
                 - name: Azure CLI 2.0
                   href: azure-stack-version-profiles-azurecli2.md
-                - name: GÅ
+                - name: GO
                   href: azure-stack-version-profiles-go.md
                 - name: Ruby
                   href: azure-stack-version-profiles-ruby.md
                 - name: Python
                   href: azure-stack-version-profiles-python.md
-                - name: 'Resursprovidern API: er som stöds av profiler'
+                - name: 'Resursprovider API: er som stöds av profiler'
                   href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: Använda Azure Stack principmodul
+        - name: Använd Azure Stack-principmodulen
           href: azure-stack-policy-module.md
         - name: Använd mallar
           items:
             - name: Mallöversikt
               href: azure-stack-arm-templates.md
-            - name: Överväganden för
+            - name: Överväganden för principmallar
               href: azure-stack-develop-templates.md
             - name: Kontrollera mallar
               href: azure-stack-validate-templates.md
@@ -164,11 +165,11 @@
       href: /azure/azure-stack/asdk/
 - name: Resurser
   items:
-    - name: Översikt över Azure Stack
+    - name: Azure Stack-översikt
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Azure-stacken MSDN-forum
+    - name: Azure Stack MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Azure-stacken dokumentationskommentarer
+    - name: Feedback om Azure Stack-dokumentation
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Prisinformation
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'

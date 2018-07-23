@@ -1,7 +1,7 @@
 ---
-title: Använda alternativa indata med konversation deltagaren - kognitiva Microsoft-tjänster | Microsoft Docs
+title: Använda alternativa indata med Konversationsdeltagare - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig mer om att använda alternativa indata med konversation deltagaren.
+description: Lär dig hur du använder alternativa indata med Konversationsdeltagare.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,148 +10,152 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2214436b193932e5b3b80c190f7754a0436b7ed8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8d3b3f419ceacbb9a6fe2b19cf68ea6873de536f
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354120"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171025"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Hur du använder alternativa indata
 
-Den här kursen visar hur du använder fältet ”alternativa indata” till användaren i gränssnittet lärare.
+Den här självstudiekursen visar hur du använder fältet ”alternativa indata” för indata från användaren i gränssnittet undervisning.
+
+## <a name="video"></a>Video
+
+[![Självstudien 8 förhandsversion](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
 
 ## <a name="requirements"></a>Krav
-Den här kursen kräver att den allmänna självstudiekursen bot körs
+Den här självstudien krävs att Allmänt självstudiekursen bot körs
 
     npm run tutorial-general
 
 ## <a name="details"></a>Information
-”Alternativa indata” är alternativ utterances som användaren kan ha dessa vid en viss i dialogrutan för utbildning. Alternativa indata kan du ange mer compactly variationer av vilka en användare kan exempelvis utan att behöva alla varianter i separata tränings-dialogruta.
+”Alternativa indata” är alternativa användaren yttranden som användaren kan ha dessa vid en viss i en dialogruta för utbildning. Alternativa indata kan du ange mer compactly varianter av vad en användare kan det stå, utan att behöva alla varianter i en separata tränings-dialogruta.
 
 ## <a name="steps"></a>Steg
 
-### <a name="create-the-application"></a>Skapa programmet
+### <a name="create-the-model"></a>Skapa modellen
 
-1. Klicka på ny App i Webbgränssnittet,
+1. I Webbgränssnittet, klickar du på en ny modell
 2. Ange AlternativeInputs i namn. Klicka på Skapa.
 
 ### <a name="create-an-entity"></a>Skapa en entitet
 
-1. Klicka på entiteter sedan ny entitet.
-2. Ange ort i entitetsnamn.
+1. Klicka på entiteter och ny entitet.
+2. Ange ort i enhetens namn.
 3. Klicka på Skapa.
 
 ### <a name="create-three-actions"></a>Skapa tre åtgärder
 
-1. Klicka på åtgärder och sedan ny åtgärd
-2. Skriv ”vilken stad vill du fortsätta?' svar.
+1. Klicka på åtgärder och ny åtgärd
+2. I svaret, skriver du ”vilken stad vill”?.
 3. Ange $city i diskvalificera entiteter.
 3. Klicka på Skapa
 
 Skapa sedan den andra åtgärden:
 
-1. Klicka på Åtgärder sedan ny åtgärd.
-3. Skriv ”väder i $city är förmodligen Soligt” som svar.
+1. Klicka på åtgärder och ny åtgärd.
+3. Skriv ”vädret i $city är förmodligen solig” som svar.
 4. Nödvändiga entiteter, ange $city.
 4. Klicka på Skapa.
 
 Skapa den tredje åtgärden:
 
-1. Klicka på Åtgärder sedan ny åtgärd.
-3. Skriv försök ber om väder svar.
+1. Klicka på åtgärder och ny åtgärd.
+3. Ange försök efterfrågar vädret som svar.
     - Detta är som svar på användarnas frågor som ”vad kan systemet”?
 4. Ange $city i diskvalificera entiteter.
 4. Klicka på Skapa
 
 Nu har du tre åtgärder.
 
-### <a name="train-the-bot"></a>Träna bot
+### <a name="train-the-bot"></a>Träna roboten
 
-1. Klicka på tåget dialogrutor, sedan nya Train dialogrutan.
-2. Skriv ”vad är väder”.
-3. Klicka på poäng åtgärder och välj ”vilken stad vill du fortsätta?'
-2. Ange 'denver'.
-3. Dubbelklicka på 'denver' och välj stad.
-    - Den markerad som en stad enhet.
+1. Klicka på träna dialogrutor, därefter nytt träna dialogrutan.
+2. Skriv ”vad blir vädret'.
+3. Klicka på poäng åtgärder och välj ”vilken stad vill”?
+2. Ange ”denver'.
+3. Dubbelklicka på ”denver' och välj stad.
+    - Den markerad som en stad-enhet.
 5. Klicka på poäng åtgärder
-    - Observera att denver är finns i entiteten stad. 
-6. Välj 'väder i $city är förmodligen Soligt'.
-7. Klicka på klar lärare.
+    - 'denver ”finns nu i entiteten stad. 
+6. Välj ”vädret i $city är förmodligen solig”.
+7. Klicka på klar undervisning.
 
-Lägg till en annan dialogruta för exempel:
+Lägg till ett annat exempel dialogrutan:
 
-1. Klicka på ny åtgärd och sedan dialogrutan Ny tåget.
-2. Skriv ”vad kan du göra?'.
-3. Klicka på poäng åtgärder och välj försök ber om väder
-2. Ange ”vad är väder i seattle”.
+1. Klicka på ny åtgärd och sedan dialogrutan Ny träna.
+2. Skriv ”vad kan du göra”?.
+3. Klicka på poäng åtgärder och välj försök efterfrågar vädret
+2. Ange ”vad blir vädret i seattle”.
 3. Dubbelklicka på ”seattle” och välj stad.
-    - Den markerad som en stad enhet.
+    - Den markerad som en stad-enhet.
 5. Klicka på poäng åtgärder
-    - Observera att seattle är finns i entiteten stad. 
-6. Välj 'väder i $city är förmodligen Soligt'.
-7. Klicka på klar lärare.
+    - ”seattle” finns nu i entiteten stad. 
+6. Välj ”vädret i $city är förmodligen solig”.
+7. Klicka på klar undervisning.
 
-Nu ska vi se vad som händer om användaren säger semantiskt liknande i ovanstående:
+Nu ska vi se vad som händer om användaren säger något semantiskt liknar det ovan:
 
-1. Klicka på ny åtgärd och sedan dialogrutan Ny tåget.
-2. Skriv ”help'.
+1. Klicka på ny åtgärd och sedan dialogrutan Ny träna.
+2. Skriv ”help”.
 3. Klicka på poäng åtgärder.
-    - Observera att i resultaten för de två möjliga svar är mycket nära. Detta talar om för oss modellen du är osäker gränsen mellan de två åtgärderna.
-6. Klicka på avbryta lära och bekräfta.
+    - Poängen för två potentiella svar är mycket nära. Detta talar om för oss modellen är svårt att förstå gränsen mellan de två åtgärderna.
+6. Klicka på Abandon undervisar och bekräfta.
 
 ![](../media/tutorial8_closescores.png)
 
-I så fall skulle det hjälpa att lägga till alternativa indata till dialogrutor. Du kan lägga till dem som du gör lärare. Du kan också gå tillbaka och lägga till dem senare.
+I det här fallet skulle det bidra till att lägga till alternativa indata till dialogrutor. Du kan lägga till dem som du gör undervisningen. Du kan också gå tillbaka och lägga till dem senare.
 
-2. Klicka på ”vad kan du göra”? i Train dialogrutor.
+2. Klicka på ”vad kan du göra”? i träna dialogrutor.
 2. I dialogrutan klickar du på ”vad kan du göra”? att välja den.
-    1. Ange ett antal alternativ i Lägg till alternativa indata i den högra rutan under entiteten identifiering:
-    1. Ange, vilka är Mina val?'
-    2. Ange 'Berätta min val'.
-    3. Ange 'hjälp'
+    1. I den högra rutan, under entitet identifiering i Lägg till alternativa indata anger du ett par alternativ:
+    1. Ange ”vilka är Mina alternativ”?
+    2. Ange ”berätta Mina alternativ”.
+    3. Ange ”hjälp”
     1. Klicka på Skicka ändringar.
 
 
 ![](../media/tutorial8_helpalternates.png)
 
-2. Klicka på ”vad är väder i seattle”.
+2. Klicka nu på ”vad blir vädret i seattle”.
     1. Ange i Lägg till alternativa indata, göra prognoser för seattle.
-    2. Dubbelklicka på ”seattle” och välj stad. Observera att entiteter för alternativa indata ska vara tillgängligt och har samma uppsättning enheter. Det är bra om innehållet i enheterna är olika.
-    3. Lägg till alternativa indata, ange, kommer den rain idag i denver'.
-    4. Klicka på 'denver' och välj stad.
+    2. Dubbelklicka på ”seattle” och välj stad. Entiteter för alternativa indata ska vara tillgängligt och har samma uppsättning enheter. Det är bra om innehållet i entiteterna är olika.
+    3. I Lägg till alternativa indata, anger du ”kommer den rain idag i denver'.
+    4. Klicka på ”denver' och välj stad.
     5. Klicka på Skicka ändringar och klar.
 
 
-Lägg till alternativa indata till dialogrutan första:
+Nu ska vi lägga till alternativa indata till den första dialogrutan:
 
-1. Klicka på tåget dialogrutor.
-2. Klicka på dialogrutan börjar med ”vad är väder”.
-2. Klicka på ”vad är väder” i den vänstra rutan:
-    1. Lägg till alternativa indata, ange 'väder prognos'.
-    2. Ange, kommer den rain ”?
+1. Klicka på träna dialogrutor.
+2. Klicka på dialogrutan börjar med ”vad blir vädret'.
+2. Klicka för att välja ”vad blir vädret” i den vänstra rutan:
+    1. I Lägg till alternativa indata, anger du ”väderprognos'.
+    2. Ange ”kommer den rain”?
     3. Klicka på Skicka ändringar.
-4. Klicka på 'denver' i den vänstra rutan:
+4. Klicka för att välja ”denver” i den vänstra rutan:
     1. I Lägg till alternativa indata, anger du ”för denver'.
     2. Ange göra prognoser för austin.
-        - Observera att fullständiga frasen markeras. Klicka på frasen och rött x. Sedan väljer austin och klicka på stad.
+        - Fullständig frasen är markerad. Klicka på den frasen och rött x. Välj austin, och klicka sedan på ort.
         - Klicka på Skicka ändringar
-    1. Klicka på klar som gör att modellen för att träna om.
+    1. Klicka på klar vilket gör att träna modellen.
 
 ![](../media/tutorial8_altcities.png)
 
-Nu ska vi prova variationerna:
+Nu ska vi prova varianter:
 
-1. Klicka på ny Train-dialogruta.
-2. Skriv ”vad är du funktioner'.
+1. Klicka på dialogrutan för nytt träna.
+2. Skriv ”vilka använder du funktioner”.
 3. Klicka på poäng åtgärder.
-    - Observera att poängen nu mer avgörande för nästa åtgärd som anger säkerhet i modellen.
+    - Poängen är nu mer avgörande på nästa åtgärd som anger säkerheten vid modellen.
 2. Välj försök ber om väder.
-6. Klicka på klar lärare
+6. Klickar du på klar undervisning
 
-Du har nu visas hur alternativa indata kan användas för att ange andra saker som användaren kan ha sagt. De hjälper dig att undvika att skapa många dialogrutor som är likadana, genom att dölja dem till en enda dialog och räknar upp vad användaren kan säga på många olika sätt.
+Du har nu sågs hur alternativa indata som kan användas för att ange andra saker som du kanske har sagt. De hjälper dig att undvika att skapa många dialogrutor som är likadana, genom att dölja dem till en enda dialog och räkna upp vad användaren kan du säga på många sätt.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Loggen dialogrutor](./9-log-dialogs.md)
+> [Log-dialogrutor](./9-log-dialogs.md)

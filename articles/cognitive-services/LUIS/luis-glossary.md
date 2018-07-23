@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: c7a57ad13bbab66f0c100ed0a5bdb3fb20064806
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: aa971da964a2a5b7a81c882a346ac10fcda971a5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887682"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173218"
 ---
 # <a name="glossary"></a>Ordlista
 
@@ -92,15 +92,15 @@ Det ser ut som en exempel-slutpunkt:
 
 ## <a name="f-measure"></a>F-mått
 
-I [batch testning](interactive-test.md#batch-testing), ett mått på det test precision.
+I [batch testning](luis-interactive-test.md#batch-testing), ett mått på det test precision.
 
 ## <a name="false-negative"></a>FALSKT negativt (TN)
 
-I [batch testning](interactive-test.md#batch-testing), datapunkter representerar yttranden som din app felaktigt förutse avsaknad av avsikt/målentiteten.
+I [batch testning](luis-interactive-test.md#batch-testing), datapunkter representerar yttranden som din app felaktigt förutse avsaknad av avsikt/målentiteten.
 
 ## <a name="false-positive"></a>Falsk positiv identifiering (TP)
 
-I [batch testning](interactive-test.md#batch-testing), datapunkter representerar yttranden som din app felaktigt förutse förekomsten av avsikt/målentiteten.
+I [batch testning](luis-interactive-test.md#batch-testing), datapunkter representerar yttranden som din app felaktigt förutse förekomsten av avsikt/målentiteten.
 
 ## <a name="features"></a>Funktioner
 
@@ -138,7 +138,7 @@ En [fördefinierade domän](luis-how-to-use-prebuilt-domains.md) är en LUIS-app
 En [fördefinierade entitet](luis-prebuilt-entities.md) är en entitet som LUIS tillhandahåller för vanliga typer av information, till exempel antal, URL: en och e-post. Du kan välja att lägga till en fördefinierade entitet i ditt program. 
 
 ## <a name="precision"></a>Precision
-I [batch testning](interactive-test.md#batch-testing), precision (kallas även förutsägande positiv) är andelen av relevanta yttranden bland hämtade yttranden.
+I [batch testning](luis-interactive-test.md#batch-testing), precision (kallas även förutsägande positiv) är andelen av relevanta yttranden bland hämtade yttranden.
 
 ## <a name="programmatic-key"></a>Programmässig nyckel
 
@@ -153,7 +153,7 @@ Publicera sätt som gör en LUIS [aktiva versionen](#active-version) finns på d
 LUIS kvoten är begränsningen av den [Azure-prenumeration nivå](https://aka.ms/luis-price-tier). LUIS-kvot kan begränsas av båda begäranden per sekund (http-Status 429) och Totalt antal begäranden under en månad (http-Status 403). 
 
 ## <a name="recall"></a>Återkallande
-I [batch testning](interactive-test.md#batch-testing), återkalla (även kallad känslighet), är möjligheten för LUIS för att generalisera. 
+I [batch testning](luis-interactive-test.md#batch-testing), återkalla (även kallad känslighet), är möjligheten för LUIS för att generalisera. 
 
 ## <a name="semantic-dictionary"></a>Semantisk ordlista
 En semantiska ordlista finns på sidan med listan över entiteten samt sidan fras. Den semantiska innehåller förslag på ord baserat på den aktuella omfattningen.
@@ -179,7 +179,7 @@ Prenumerationsnyckeln är den **endpoint** nyckel som är associerad med tjänst
 
 ## <a name="test"></a>Test
 
-[Testa](interactive-test.md#test-your-app) en LUIS-app innebär att skicka ett uttryck till LUIS och visa JSON-resultat.
+[Testa](luis-interactive-test.md#test-your-app) en LUIS-app innebär att skicka ett uttryck till LUIS och visa JSON-resultat.
 
 ## <a name="timezoneoffset"></a>Förskjutning i tidszon
 
@@ -196,11 +196,11 @@ Utbildning är en process där du undervisar LUIS om ändringar av den [aktiva v
 
 ## <a name="true-negative"></a>SANT negativt (TN)
 
-I [batch testning](interactive-test.md#batch-testing), datapunkter representerar yttranden som din app korrekt förutse avsaknad av avsikt/målentiteten.
+I [batch testning](luis-interactive-test.md#batch-testing), datapunkter representerar yttranden som din app korrekt förutse avsaknad av avsikt/målentiteten.
 
 ## <a name="true-positive"></a>Sann positiv händelse (TP)
 
-I [batch testning](interactive-test.md#batch-testing), datapunkter representerar yttranden som din app korrekt förutse förekomsten av avsikt/målentiteten.
+I [batch testning](luis-interactive-test.md#batch-testing), datapunkter representerar yttranden som din app korrekt förutse förekomsten av avsikt/målentiteten.
 
 ## <a name="utterance"></a>Uttryck
 

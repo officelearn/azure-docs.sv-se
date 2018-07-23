@@ -1,7 +1,7 @@
 ---
-title: Hur du använder negeras entiteter med ett program i konversationen deltagaren - kognitiva Microsoft-tjänster | Microsoft Docs
+title: Hur du använder negeras entiteter med en modell för Konversationsdeltagare – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig använda negeras entiteter med ett samtal deltagaren program.
+description: Lär dig hur du använder negeras entiteter med en Konversationsdeltagare-modell.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,58 +10,62 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3d65376c9c43ee1407468f3e8bf3e058048bd556
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2fd00d53755e44e3a3d86782c40aa6a53ff4d378
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354066"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171409"
 ---
-# <a name="how-to-use-negatable-entities-with-a-conversation-learner-application"></a>Hur du använder negeras entiteter med ett samtal deltagaren program
+# <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Hur du använder negeras entiteter med en modell för Konversationsdeltagare
 
-Den här kursen visar egenskapen ”negeras” för entiteter.
+Den här självstudien visas ”negeras” egenskapen för entiteter.
+
+## <a name="video"></a>Video
+
+[![Självstudien 5 Preview](http://aka.ms/cl-tutorial-05-preview)](http://aka.ms/blis-tutorial-05)
 
 ## <a name="requirements"></a>Krav
-Den här kursen kräver att den allmänna självstudiekursen bot körs
+Den här självstudien krävs att Allmänt självstudiekursen bot körs
 
     npm run tutorial-general
 
 ## <a name="details"></a>Information
-Markera en åtgärd som ”negeras” om användaren kan ”rensa” en entitetsvärdet som ”Nej, jag vill inte $entity” eller ”Nej, inte $entity”. Till exempel ”Nej, jag inte vill lämna Boston”.
+Markera en åtgärd som ”negeras” om användaren kan ”rensa” ett värde för entiteten, som i ”Nej, jag vill inte ha $entity” eller ”Nej, inte $entity”. Till exempel ”Nej, jag inte vill lämna från Boston”.
 
-Concretely, om egenskapen ”negeras” för en entitet är:
+Concretely, om egenskapen ”negeras” för en entitet har angetts:
 
-- När etiketter entitet nämns, kan du märka både normala (positivt) förekomster av en enhet och en ”negativ” förekomster av entiteten
-- THOMAS lär sig två modeller för entitet: en för positivt instanser och en andra för negativa instanser
-- Effekten av en negativ instans av en entitet är att rensa värdet från variabeln entitet (om den finns)
+- När märkning entitet omnämnanden, kan du märka både normal (positiv) instanser av en entitet och en ”negativ” instanser av entiteten
+- LUIS lär sig två entitet modeller: en för positivt instanser och en andra för negativa instanser
+- Effekten av en negativ instans av en entitet är att ta bort värdet från entiteten variabel (om det finns)
 
 ## <a name="steps"></a>Steg
 
-### <a name="create-the-application"></a>Skapa programmet
+### <a name="create-the-model"></a>Skapa modellen
 
-1. Klicka på ny App i Webbgränssnittet,
+1. I Webbgränssnittet, klickar du på en ny modell
 2. Ange NegatableEntity i namn. Klicka på Skapa.
 
 ### <a name="create-an-entity"></a>Skapa en entitet
 
-1. Klicka på entiteter sedan ny entitet.
-2. Ange namn i enhetsnamnet.
+1. Klicka på entiteter och ny entitet.
+2. Ange namn i enhetens namn.
 3. Kontrollera negeras.
-    - Detta anger användaren kommer att kunna ange ett värde för entiteten eller Säg är något *inte* värdet för entiteten. I det senare fallet leder detta tar bort ett motsvarande värde för entiteten.
+    - Den här egenskapen anger användaren kommer att kunna ange ett värde för entiteten eller säga att det är något *inte* värdet för entiteten. I det senare fallet leder detta tar bort ett matchande värde för entiteten.
 3. Klicka på Skapa.
 
 ![](../media/tutorial5_entities.PNG)
 
 ### <a name="create-two-actions"></a>Skapa två åtgärder
 
-1. Klicka på åtgärder och sedan ny åtgärd
-2. Skriv ”vet inte ditt namn' svar.
+1. Klicka på åtgärder och ny åtgärd
+2. I svaret, skriver du ”Jag vet inte ditt namn”.
 3. Ange namn i diskvalificera entiteter.
 3. Klicka på Skapa
 
 Skapa sedan den andra åtgärden.
 
-1. Klicka på Åtgärder sedan ny åtgärd för att skapa en andra åtgärd.
+1. Klicka på åtgärder och sedan ny åtgärd för att skapa en andra åtgärd.
 3. I svaret, skriver du ”Jag vet ditt namn. Det är $name'.
 4. Klicka på Skapa
 
@@ -69,35 +73,35 @@ Nu har du två åtgärder.
 
 ![](../media/tutorial5_actions.PNG)
 
-### <a name="train-the-bot"></a>Träna bot
+### <a name="train-the-bot"></a>Träna roboten
 
-1. Klicka på tåget dialogrutor, sedan nya Train dialogrutan.
+1. Klicka på träna dialogrutor, därefter nytt träna dialogrutan.
 2. Skriv ”hello”.
-3. Klicka på poäng åtgärder och välj ”jag vet inte ditt namn'
-    - Observera att får en 100% poäng eftersom det är bara giltig åtgärd.
+3. Klicka på poäng åtgärder och välj ”jag vet inte ditt namn”
+    - Poängen är 100% eftersom det är den enda giltiga åtgärden.
 2. Ange 'mitt namn är david'
 3. Välj david, och välj etiketten ”+ namn”
-    - Observera att det finns två instanser av 'name': '+ name' och '-name'.  Dessutom innebär att vi tillhandahåller värdet. Minus innebär registreras det i systemet att något som inte är värdet.
+    - Det finns två instanser av ”name”: ”+ namn” och ”-namnet”.  (+) Dessutom lägger till eller skriver över värdet. (-) Minustecken tar du bort värdet.
 5. Klicka på poäng åtgärder
-    - Obs namn-värde är nu i den bot minne.
-    - ”Jag vet ditt namn. Det är $name' är endast tillgängligt svaret. 
+    - Namn-värde är nu i robotens minne.
+    - ”Jag vet ditt namn. Det är $name ”är det enda tillgängliga svaret. 
 6. Välj ”jag vet ditt namn. Det är $name'.
 
-Vi ska försöka ta bort entiteten negeras:
+Nu ska vi försöka ta bort entiteten negeras:
 
-7. Ange ”gäller inte david'.
-    - Meddelandet har ”inte” valts som namn baserat på det tidigare mönstret. Det är fel.
+7. Ange ”mitt namn is not david”.
+    - Meddelandet har ”not” valts som namn baserat på det tidigare mönstret. Den här etiketten är felaktig.
 2. Klicka på ”inte” och sedan ett rött x. 
-3. Klicka på 'david'.
-    - Detta är nu en negativ entitet kommunikation att detta inte är värdet för entiteten namn.
-2. Välj ”-namnet '.
+3. Klicka på ”david”.
+    - Det här är nu en negativ entitet kommunicerar att detta inte är värdet för entiteten namn.
+2. Välj '-name'.
 3. Klicka på poäng åtgärder.
     - Observera att värdet har det tagits bort från minnet.
-2. Välj ”jag vet inte ditt namn', vilket är den enda åtgärden.
+2. Välj ”jag vet inte ditt namn”, vilket är den enda åtgärden.
 
-Därefter visar vi hur ett nytt värde för namnet kan anges.
+Därefter visar vi hur ett nytt värde för namn kan anges.
 
-3. Ange ”john' som namn. Välj ”john” och klicka på namn.
+3. Ange ”john” som namn. Markera ”john” och klicka på namnet.
 4. Klicka på poäng åtgärder.
 5. Välj ”jag vet ditt namn. Det är $name'.
 
@@ -106,16 +110,16 @@ Nu du ersätta det angivna namnet.
 6. Ange 'mitt namn är susan'.
 7. Välj ”jag vet ditt namn. Det är $name'.
 7. Klicka på poäng åtgärder.
-8. Meddelande **susan** har skrivit över **john** i entiteten värden.
-9. Ange ”gäller inte susan'.
-    - Observera att systemet har betecknats detta som en negativ instans.
+8. Observera **susan** har över **john** i entitetsvärden.
+9. Ange ”mitt namn is not susan”.
+    - Observera att systemet har märkts detta som en negativ instans.
 2. Klicka på poäng åtgärder.
-3. Välj ”jag vet inte ditt namn', vilket är den enda åtgärden.
-7. Klicka på klar lärare.
+3. Välj ”jag vet inte ditt namn”, vilket är den enda åtgärden.
+7. Klicka på klar undervisning.
 
 ![](../media/tutorial5_dialogs.PNG)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Flervärde entiteter](./6-multi-value-entities.md)
+> [Flera värden entiteter](./6-multi-value-entities.md)

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: cahann
 ms.reviewer: v-geberr
-ms.openlocfilehash: 0dc1dbf32114e989fd2b9c2be61bd531f7b5e839
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f7abf6d8a9f0fe18017fe5c54801ac0d3b6c379e
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347459"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170791"
 ---
 # <a name="prebuilt-entities"></a>Fördefinierade entiteter
 
@@ -37,7 +37,7 @@ LUIS innehåller en uppsättning fördefinierade entiteter för att identifiera 
 ## <a name="use-a-prebuilt-number-entity"></a>Använda ett antal fördefinierade entiteten
 När en entitet som är färdiga ingår i ditt program, med dess förutsägelser i ditt publicerade program. Beteendet för förskapade entiteter är förtränade och **kan** ändras. Följ dessa steg om du vill se hur det fungerar en fördefinierade entitet:
 
-1. Lägg till en **nummer** entitet till appen, sedan [träna](interactive-test.md) och [publicera](luis-how-to-publish-app.md) appen.
+1. Lägg till en **nummer** entitet till appen, sedan [träna](luis-interactive-test.md) och [publicera](luis-how-to-publish-app.md) appen.
 2. Klicka på slutpunkts-URL i den **publicera appen** kan du öppna LUIS-slutpunkten i en webbläsare. 
 3. Lägg till ett uttryck till den URL som innehåller ett numeriskt uttryck. Du kan till exempel skriva i `buy two plane ticktets`, och se som identifierar LUIS `two` som en `builtin.number` entitet, och identifierar `2` som värdet på den `resolution` fält. Den `resolution` fältet hjälper dig att lösa tal och datum till ett kanoniskt format som är lättare för klientprogrammet att använda. 
 
@@ -70,7 +70,7 @@ I följande exempel visar ett JSON-svar från LUIS, som innehåller av lösninge
 ## <a name="use-a-prebuilt-datetimev2-entity"></a>Använda en fördefinierade datetimeV2 entitet
 Den **datetimeV2** fördefinierade entitet identifierar datum, tider, datumintervall och tidsvaraktigheter. Följ dessa steg för att se hur `datetimeV2` fördefinierade entiteten fungerar:
 
-1. Lägg till en **datetimeV2** entitet till appen, sedan [träna](interactive-test.md) och [publicera](luis-how-to-publish-app.md) appen.
+1. Lägg till en **datetimeV2** entitet till appen, sedan [träna](luis-interactive-test.md) och [publicera](luis-how-to-publish-app.md) appen.
 2. Klicka på slutpunkts-URL i den **publicera appen** kan du öppna LUIS-slutpunkten i en webbläsare. 
 3. Lägg till ett uttryck till den URL som innehåller ett datumintervall. Du kan till exempel skriva i `book a flight tomorrow`, och se som identifierar LUIS `tomorrow` som en `builtin.datetimeV2.date` entitet, och identifierar morgondagens datum som värde i den `resolution` fält. 
 

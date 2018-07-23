@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: 3825183fa7e8ca15a86935b5b96ff8d25d7bef14
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070900"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173058"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -26,35 +26,22 @@ Den här artikeln sammanfattar konfigurationer som stöds och komponenter när d
 
 **Användargränssnitt** |  **Stöds / stöds inte**
 --- | ---
-**Azure Portal** | Stöds
-**Klassisk portal** | Stöds inte
+**Azure-portalen** | Stöds
 **PowerShell** | [Replikering från Azure till Azure med PowerShell](azure-to-azure-powershell.md)
 **REST API** | Stöds för närvarande inte
 **CLI** | Stöds för närvarande inte
 
 
-## <a name="resource-move-support"></a>Flytta resursstöd
+## <a name="resource-support"></a>Resursstöd för
 
-**Flytta resurstypen** | **Stöds / stöds inte** | **Kommentarer**  
+**Flytta resurstypen** | **Detaljer** 
 --- | --- | ---
-**Flytta valv mellan resursgrupper** | Stöds inte |Du kan inte flytta Recovery services-valvet mellan resursgrupper.
-**Flytta beräkning, lagring och nätverk mellan resursgrupper** | Stöds inte |Om du flyttar en virtuell dator (eller dess associerade komponenter, till exempel lagring och nätverk) när du har aktiverat replikering, måste du inaktivera replikering och aktivera replikering för den virtuella datorn igen.
+**Flytta valv mellan resursgrupper** | Stöds inte<br/><br/> Du kan inte flytta ett Recovery services-valv mellan resursgrupper.
+**Flytta resurser för beräkning/lagringsnätverk mellan resursgrupper** | Stöds ej.<br/><br/> Om du flyttar en virtuell dator eller tillhörande komponenter, till exempel lagringsnätverk/när den replikerar, måste du inaktivera replikering och återaktivera replikering för den virtuella datorn.
+**Replikera virtuella Azure-datorer från en prenumeration till en annan för katastrofåterställning** | Stöds ej.
+**Migrera virtuella datorer mellan prenumerationer** | Stöds ej.
+**Migrera virtuella datorer i samma region** | Stöds ej.
 
-
-
-## <a name="support-for-deployment-models"></a>Stöd för distributionsmodeller
-
-**Distributionsmodell** | **Stöds / stöds inte** | **Kommentarer**  
---- | --- | ---
-**Klassisk** | Stöds | Du kan bara replikera en klassisk virtuell dator och återställa den som en klassisk virtuell dator. Du kan inte återställa den som en Resource Manager-dator. Om du distribuerar en klassisk virtuell dator utan ett virtuellt nätverk och direkt till en Azure-region, stöds det inte.
-**Resource Manager** | Stöds |
-
->[!NOTE]
->
-> 1. Replikera virtuella Azure-datorer från en prenumeration till en annan för för katastrofåterställning stöds inte.
-> 2. Migrera Azure virtuella datorer mellan prenumerationer stöds inte.
-> 3. Migrera Azure virtuella datorer i samma region stöds inte.
-> 4. Migrera virtuella Azure-datorer från klassisk distributionsmodell till Resource manager-distributionsmodellen inte stöds.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Stöd för replikerade datorn OS-versioner
 
@@ -145,6 +132,13 @@ Kina | Östra Kina, norra Kina
 >[!NOTE]
 >
 > För regionen södra Brasilien, du bara replikera och redundansväxla till en av södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA, västra USA 2 och USA, norra centrala regioner och växla tillbaka.
+
+## <a name="support-for-vmdisk-management"></a>Stöd för VM/Diskhantering
+
+**Åtgärd** | **Detaljer**
+-- | ---
+Ändra storlek på disk på den replikerade virtuella datorn | Stöds
+Lägg till disk i replikerade virtuella datorn | Stöds ej. Du måste inaktivera replikering för den virtuella datorn, Lägg till disk och aktiverar sedan replikeringen igen.
 
 
 ## <a name="support-for-compute-configuration"></a>Stöd för beräkningskonfigurationen

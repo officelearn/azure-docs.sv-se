@@ -1,6 +1,6 @@
 ---
-title: Skydd av kundinformation i Azure
-description: Den här artikeln tar hur Azure skyddar kundens data.
+title: Skydd av kunddata i Azure
+description: Den här artikeln tar upp hur Azure skyddar kundinformation.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,73 +14,73 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 9a3b00e39f78f65b05b7d730447440d481979539
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 0b702cec6113e6b31e34750872479dce162e4cb6
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102695"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173075"
 ---
-# <a name="protection-of-customer-data-in-azure"></a>Skydd av kundinformation i Azure   
-Åtkomst till kunddata av Microsoft operations och supportpersonal nekas som standard. När åtkomst till kunddata beviljas ledande godkännande krävs och sedan åtkomst är noggrant hanteras och loggas. Krav på åtkomstkontroll som upprättas av följande Microsoft Azure säkerhetsprincip:
+# <a name="azure-customer-data-protection"></a>Dataskydd för Azure-kund   
+Åtkomst till kunddata för Microsofts drift- och supportpersonal nekas som standard. När åtkomst till kunddata beviljas ledarskap godkännande krävs och sedan åtkomst hanteras och noggrant loggas. Åtkomstkontroll kraven som upprättas av följande Azure-säkerhetsprincipen:
 
-- Ingen åtkomst till kunddata som standard
-- Inga användare eller administratör konton på kundens virtuella datorer
-- Bevilja lägsta behörighet som krävs för att slutföra registreringen; Granska och logga förfrågningar
+- Ingen åtkomst till kunddata, som standard.
+- Inga användare eller administratör konton på kundens virtuella datorer (VM).
+- Ge det lägsta privilegium som krävs för att slutföra aktiviteten. Granska och logga förfrågningar.
 
-Microsoft Azure supporttekniker tilldelas unika Corporate AD-konton av Microsoft. Microsoft Azure förlitar sig på Microsoft företagets Active Directory, hanteras av MSIT att kontrollera åtkomst till viktig information systems. Multifaktorautentisering krävs och bara bevilja åtkomst från säkra konsoler.
+Azure supportpersonal har uppdrag unika företagets Active Directory-konton av Microsoft. Azure är beroende av Microsoft företagets Active Directory, hanteras av Microsoft Information Technology (MSIT) för att styra åtkomsten till viktiga informationssystem. Multifaktorautentisering krävs och åtkomst beviljas endast från säker konsoler.
 
 Alla åtkomstförsök övervakas och kan visas via en grundläggande uppsättning rapporter.
 
 ## <a name="data-protection"></a>Dataskydd
-Azure tillhandahåller kunder med stark datasäkerhet – både som standard och som alternativ för customer.
+Azure tillhandahåller kunder med stark datasäkerhet, både som standard som kunden alternativ.
 
-**Dataavgränsning** -Azure är en tjänst för flera innehavare, vilket innebär att flera kunder distributioner och virtuella datorer lagras på samma fysisk maskinvara. Azure använder logisk isolering för att särskilja varje kund data från den andra. Ansvarsfördelning tillhandahåller skalning och ekonomiska fördelarna med flera tjänster när noggrant förhindra kunder från att komma åt varandras data.
+**Dataavgränsning**: Azure är en multiklienttjänst, vilket innebär att flera kunden distributioner och virtuella datorer lagras på samma fysiska maskinvara. Azure använder logisk isolering för att särskilja varje kunds data från andra data. Uppdelning ger skalbarhet och ekonomiska fördelarna med tjänster med flera innehavare samtidigt som kunderna strikt förhindras från att komma åt varandras data.
 
-**Skydd av data i vila** -kunder ansvarar för att säkerställa att data som lagras i Azure krypteras i enlighet med deras standarder. Azure erbjuder en mängd olika krypteringsfunktioner för, vilket ger kunderna möjlighet att välja den lösning som bäst uppfyller deras behov. Azure Key Vault kan kunder enkelt kan behålla kontrollen över nycklar som används av molnprogram och tjänster för att kryptera data. Azure Disk Encryption kan kunder kryptera virtuella datorer. Azure Storage Service-kryptering gör det möjligt att kryptera alla data som placeras i en kund storage-konto.
+**Skydda data i vila**: kunder ansvarar för att säkerställa att data som lagras i Azure är krypterad i enlighet med deras standarder. Azure erbjuder en mängd olika krypteringsfunktioner, vilket ger kunderna möjlighet att välja den lösning som bäst motsvarar deras behov. Azure Key Vault kan kunder enkelt kan behålla kontrollen över nycklar som används av molnprogram och molntjänster för att kryptera data. Azure Disk Encryption kan kunder kryptera virtuella datorer. Azure Storage Service Encryption gör det möjligt att kryptera alla data som placeras i en kunds lagringskonto.
 
-**Dataskydd under överföring** -kunder kan aktivera kryptering för trafik mellan sina egna virtuella datorer och användare. Azure skyddar data under överföring till eller från utanför komponenter och data i transit internt, t.ex två virtuella nätverk. Azure använder den standardmässiga säkerhet TLS (Transport Layer) 1.2 eller senare protokollet med 2048-bitars RSA/SHA256 krypteringsnycklar som rekommenderas av CESG/NCSC för att kryptera kommunikationen mellan:
+**Skydda data under överföring**: kunder kan aktivera kryptering för trafik mellan sina egna virtuella datorer och slutanvändarna. Azure skyddar data under överföring till eller från utanför komponenter och data i överföra internt, till exempel mellan två virtuella nätverk. Azure använder protokollet branschstandard Transport Layer Security (TLS) 1.2 eller senare med 2 048-bitars RSA/SHA256 krypteringsnycklar, enligt rekommendationer från CESG/NCSC för att kryptera kommunikationen mellan:
 
-- kunden och molnet
-- internt mellan Azure och Datacenter
+- Kunden och molnet.
+- Internt mellan Azure-system och datacenter.
 
-**Kryptering** -kryptering av data i lagring och under överföring kan distribueras av kunder som bästa praxis för att säkerställa sekretess och integriteten hos data. Det är enkelt för kunder att konfigurera sina Azure cloud services att använda SSL för att skydda kommunikationen från Internet och även mellan sina Azure värd för virtuella datorer.
+**Kryptering**: kryptering av data i lagring och under överföring kan distribueras med kunder som bästa praxis för att säkerställa sekretess och integritet hos data. Det är enkelt för kunder att konfigurera sin Azure-molntjänster för att använda SSL för att skydda kommunikationen från internet och även mellan sina Azure-baserade virtuella datorer.
 
-**Dataredundans** -Microsoft garanterar att data är skyddade om det finns en cyberattack eller fysisk skada på ett datacenter. Kunder kan välja:
+**Dataredundans**: Microsoft hjälper till att säkerställa att data är skyddade om det finns en cyberattack eller fysisk skada på ett datacenter. Kunder kan välja:
 
-- i land lagring för kompatibilitet eller latens överväganden
-- out land lagring för säkerhet eller disaster recovery
+- I landet lagring för efterlevnad eller latens överväganden.
+- Tidsgräns för land lagring för säkerhets- eller disaster recovery-syften.
 
-Data kan replikeras inom en vald region för redundans men inte kommer att överföras utanför den. Kunder har flera alternativ för att replikera data, inklusive antalet kopior, nummer och platsen för replikering datacenter.
+Data kan replikeras inom en vald geografiska område för redundans men kan inte överföras utanför den. Kunder har flera alternativ för att replikera data, inklusive antalet kopior och antal och plats replikering datacenter.
 
-När du skapar ditt lagringskonto måste du välja ett av följande replikeringsalternativ:
+När du skapar ditt storage-konto, väljer du något av följande replikeringsalternativ:
 
-- Lokalt redundant lagring (LRS). Med lokalt redundant lagring underhålls tre kopior av dina data. LRS replikeras tre gånger på en anläggning i en region. LRS skyddar dina data mot normala maskinvarufel, men inte mot fel på en enskild anläggning.
-- Zonredundant lagring (ZRS). Med zonredundant lagring underhålls tre kopior av dina data. ZRS replikeras tre gånger mellan två eller tre anläggningar som ger högre hållbarhet än LRS. Replikering inträffar inom en enskild region eller mellan två regioner. ZRS garanterar att dina data skyddas inom en enskild region.
-- GEO-redundant lagring (GRS). Geo-redundant lagring är aktiverat för ditt lagringskonto som standard när du skapar det. Med GRS underhålls sex kopior av dina data. Med GRS replikeras dina data tre gånger i den primära regionen. Dina data också replikeras tre gånger i en sekundär region hundratals mil bort från den primära regionen, vilket ger den högsta nivån av hållbarhet. Om det uppstår ett fel i den primära regionen kommer Azure Storage att redundansväxla till den sekundära regionen. GRS garanterar att dina data skyddas i två olika områden.
+- **Lokalt redundant lagring (LRS)**: lokalt redundant lagring underhålls tre kopior av dina data. LRS replikeras tre gånger på en anläggning i en region. LRS skyddar dina data mot normala maskinvarufel, men inte från ett fel på en enskild anläggning.
+- **Zonredundant lagring (ZRS)**: zonredundant lagring underhålls tre kopior av dina data. ZRS replikeras tre gånger mellan två till tre anläggningar som ger högre hållbarhet än LRS. Replikeringen sker inom en enda region eller mellan två regioner. ZRS garanterar att dina data skyddas inom en enda region.
+- **GEO-redundant lagring (GRS)**: Geo-redundant lagring aktiveras för ditt lagringskonto som standard när du skapar den. Med GRS underhålls sex kopior av dina data. Med GRS replikeras dina data tre gånger på den primära regionen. Dina data replikeras också tre gånger i en sekundär region hundratals mil bort från den primära regionen, vilket ger den högsta nivån av hållbarhet. I händelse av ett fel i den primära regionen kommer Azure Storage som redundansväxlar till den sekundära regionen. GRS garanterar att dina data är beständiga i två olika områden.
 
-**Destruktion** – när kunder tar bort data eller lämna Azure, Microsoft följer strikta standarder för att skriva över lagringsresurser innan återanvändning samt fysiska förstörs inaktiverade maskinvara. Microsoft kör en fullständig radering av data på kundbegäran och kontrakt-avslutning.
+**Datadestruktion**: när kunder ta bort data eller lämna Azure, Microsoft följer strikta standarder för att skriva över lagringsresurser innan deras återanvändning, samt fysiska destruktion av inaktiverade maskinvara. Microsoft utför en fullständig borttagning av data på kundkrav och avtals uppsägning.
 
 ## <a name="customer-data-ownership"></a>Kunden dataägarskap
-Microsoft inte granska, godkänna eller övervaka program som kunder distribuera till Azure. Dessutom vet Microsoft inte vilka typer av data kunder väljer att lagra i Azure. Microsoft gör inte anspråk dataägarskap över den kundinformation som anges i Azure.
+Granska inte Microsoft, godkänna eller övervaka program som kunder distribuerar till Azure. Dessutom vet Microsoft inte vad typ av data kunder väljer att lagra i Azure. Microsoft gör inte anspråk på ägarskapet över den kundinformation som har angetts i Azure.
 
-## <a name="records-management"></a>Posthantering av
-Azure har upprättat interna poster krav på datalagring för backend-data. Kunder ansvarar för att identifiera sina egna krav på poster datalagring. Kunden är ansvarig för extrahering av sina data och behålla innehållet utanför Azure för en kvarhållningsperiod som anges av kunden för poster som lagras i Azure.
+## <a name="records-management"></a>Hantering av arkivhandlingar
+Azure har upprättat krav på interna poster-datalagring för backend-data. Kunderna ansvarar för att identifiera sina egna krav, registrera kvarhållning. Kunderna ansvarar för poster som lagras i Azure för extrahering av sina data och behålla sitt innehåll utanför Azure under en kunden angivna period.
 
-Azure tillhandahåller kunden möjlighet att exportera data och granska rapporter från produkten. Exporten sparas lokalt om du vill behålla information för ett kunddefinierat kvarhållning tidsperiod.
+Azure kan kunder exportera data och granska rapporter från produkten. Exporterna sparas lokalt om du vill behålla informationen för en kunddefinierad kvarhållning tidsperiod.
 
-## <a name="electronic-discovery-e-discovery"></a>Identifiering av elektroniska (e-identifiering)
-Azure-kunder ansvarar för att uppfylla kraven i e-identifiering i deras användning i Azure-tjänster. Om en kund med Azure måste bevara deras kundinformation, kan de exportera och sparar data lokalt. Kunder kan dessutom begära export av data från Azure kundsupport avdelning. Förutom att kunderna kan exportera data, utför Azure utförlig loggning och övervakning internt.
+## <a name="electronic-discovery-e-discovery"></a>Elektronisk identifiering (e-discovery)
+Azure-kunder ansvarar för att uppfylla krav för e-discovery i deras användning av Azure-tjänster. Om Azure-kunder måste bevara deras kunduppgifter, kan de exportera och spara data lokalt. Kunder kan också begära export av sina data från Azures kundsupport-avdelningen. Förutom så att kunder kan exportera sina data, utför omfattande loggning och övervakning internt i Azure.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om vad Microsoft gör för att skydda Azure-infrastrukturen finns:
 
-- [Azure verksamhet, lokal och fysisk säkerhet](azure-physical-security.md)
-- [Tillgängligheten för Azure-infrastrukturen](azure-infrastructure-availability.md)
+- [Azure anläggningar, plats och fysisk säkerhet](azure-physical-security.md)
+- [Tillgänglighet för Azure-infrastrukturen](azure-infrastructure-availability.md)
 - [Azure information systemkomponenter och gränser](azure-infrastructure-components.md)
 - [Arkitektur för Azure-nätverk](azure-infrastructure-network.md)
 - [Azure-produktionsnätverket](azure-production-network.md)
-- [Microsoft Azure SQL Database-säkerhetsfunktioner](azure-infrastructure-sql.md)
-- [Azure produktion och hantering](azure-infrastructure-operations.md)
+- [Azure SQL Database-säkerhetsfunktioner](azure-infrastructure-sql.md)
+- [Azure produktionsåtgärder och hantering](azure-infrastructure-operations.md)
 - [Övervakning av Azure-infrastrukturen](azure-infrastructure-monitoring.md)
-- [Integriteten hos Azure-infrastrukturen](azure-infrastructure-integrity.md)
+- [Azure-infrastrukturen integritet](azure-infrastructure-integrity.md)

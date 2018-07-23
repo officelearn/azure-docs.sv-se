@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 4e745a5de8000e0f26491c9f4f236f7f8a735ae9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: de0d6ee32380367bfba4a27958c9c1e739b5dba3
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635076"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173434"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Hur du säkerhetskopierar och återställer en server i Azure Database for PostgreSQL med Azure CLI
 
@@ -84,6 +84,8 @@ Plats och prisnivåvärden för den återställda servern behåller den ursprung
 
 När återställningen är klar, leta upp den nya servern och kontrollera att data har återställts som förväntat.
 
+Den nya servern som skapades under en återställning har inte de brandväggsregler som fanns på den ursprungliga servern. Brandväggsregler måste konfigureras separat för den här nya servern.
+
 ## <a name="geo-restore"></a>GEO-återställning
 Om du har konfigurerat din server som geografiskt redundanta säkerhetskopieringar, kan en ny server skapas från en säkerhetskopia av den befintliga servern. Den här nya servern kan skapas i valfri region som Azure Database for PostgreSQL är tillgänglig.  
 
@@ -121,6 +123,8 @@ Den `az postgres server georestore` kommandot requies följande parametrar:
 >När du skapar en ny server med en geo-återställning, ärver samma lagringsstorlek och prisnivå som källservern. Dessa värden kan inte ändras när du skapar. När den nya servern har skapats kan kan lagringsstorleken skalas upp.
 
 När återställningen är klar, leta upp den nya servern och kontrollera att data har återställts som förväntat.
+
+Den nya servern som skapades under en återställning har inte de brandväggsregler som fanns på den ursprungliga servern. Brandväggsregler måste konfigureras separat för den här nya servern.
 
 ## <a name="next-steps"></a>Nästa steg
 - Mer information om tjänstens [säkerhetskopior](concepts-backup.md).

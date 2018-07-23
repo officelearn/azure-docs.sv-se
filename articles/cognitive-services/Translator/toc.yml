@@ -105,6 +105,10 @@
           href: quickstart-ruby-languages.md
         - name: Hämta meningslängden i text
           href: quickstart-ruby-sentences.md
+- name: Självstudier
+  items:
+    - name: Skapa en WPF-app för Translator Text
+      href: tutorial-wpf-translation-csharp.md
 - name: Begrepp
   items:
     - name: Språk som stöds
@@ -125,8 +129,6 @@
       href: word-alignment.md
     - name: Använda funktionen för dynamisk ordlista
       href: dynamic-dictionary.md
-    - name: Skapa en Translator Text-app med WPF
-      href: tutorial-wpf-translation-csharp.md
 - name: Referens
   items:
     - name: Referens för v3 Translator Text API

@@ -11,12 +11,12 @@ ms.topic: article
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 4dee39b56cf0f6494f6e79c70b85bbf711d33d65
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c5224422c88690ccf063a27b053963ebde622a1e
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044602"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172110"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -28,7 +28,7 @@ Det här felet kan uppstå när koden för tjänsten inte startar. Orsaken är o
 
 På kommandoraden:
 
-1. När du använder _azds.exe_, använda--utförlig kommandoradsalternativet och använda kommandoradsalternativet--utdata att ange formatet för utdata.
+När du använder _azds.exe_, använda--utförlig kommandoradsalternativet och använda kommandoradsalternativet--utdata att ange formatet för utdata.
  
     ```cmd
     azds up --verbose --output json

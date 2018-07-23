@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: ced2a8354e63288ad9957b6a177b43c97b58698c
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 42d5b55e0bddf2d027810bfdf146de9bfee8a0fb
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160543"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188139"
 ---
 # <a name="create-list-and-delete-a-user-assigned-identity-using-azure-resource-manager"></a>Skapa, visa och ta bort en Användartilldelad identitet med Azure Resource Manager
 
@@ -37,8 +37,8 @@ Det går inte att lista och ta bort en Användartilldelad identitet med en Azure
 
 - Om du är bekant med hanterad tjänstidentitet kan ta en titt på [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en systemtilldelad och Användartilldelad identitet](overview.md#how-does-it-work)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
-
-Om du loggar in till Azure lokalt eller via Azure portal kan du använda ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn. Se också till att ditt konto tillhör en roll som ger dig skrivbehörighet på den virtuella datorn (till exempel rollen ”virtuell Datordeltagare”).
+- Om du vill utföra åtgärder i den här artikeln, måste ditt konto följande rolltilldelningen:
+    - [Hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rollen kan skapa, läsa (lista), uppdatera och ta bort en Användartilldelad identitet.
 
 ## <a name="template-creation-and-editing"></a>Skapa mallar och redigera
 
@@ -51,7 +51,7 @@ Som med Azure ger portal och skript, Azure Resource Manager-mallar möjlighet at
 
 ## <a name="create-a-user-assigned-identity"></a>Skapa en användartilldelad identitet 
 
-Använd följande mall för att skapa en Användartilldelad identitet. Minst ditt konto måste tilldelas den [hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) roll för att skapa en Användartilldelad identitet. Ersätt den `<USER ASSIGNED IDENTITY NAME>` värde med dina egna värden:
+Använd följande mall för att skapa en Användartilldelad identitet. Ersätt den `<USER ASSIGNED IDENTITY NAME>` värde med dina egna värden:
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 

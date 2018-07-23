@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2018
 ms.author: aljo
-ms.openlocfilehash: 6bc979e277c71610ebc0f7a603915689b0b0605b
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: a6351971ceb502297193bf0f2c3a452f30cade5d
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160383"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187408"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Anpassa Service Fabric-klusterinställningar och uppgraderingsprincip för infrastruktur
 Det här dokumentet får du lära dig att anpassa olika infrastrukturinställningarna och infrastrukturen uppgraderingsprincip för Service Fabric-klustret. Du kan anpassa dem via den [Azure-portalen](https://portal.azure.com) eller med en Azure Resource Manager-mall.
@@ -59,11 +59,11 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 ## <a name="applicationgatewayhttp"></a>ApplicationGateway/Http
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-|ApplicationCertificateValidationPolicy|sträng, standard är ”ingen”|Statisk| ApplicationCertificateValidationPolicy: Ingen: inte verifiera servercertifikat; lyckas begäran. ServiceCertificateThumbprints: Avse config ServiceCertificateThumbprints kommaavgränsad lista över tumavtrycken för de fjärranslutna certifikat som kan lita på den omvända proxyn. ServiceCommonNameAndIssuer: Avse config ServiceCommonNameAndIssuer för ämne namn och tumavtrycket för fjärr-certifikat som kan lita på den omvända proxyn. |
+|ApplicationCertificateValidationPolicy|sträng, standard är ”ingen”|Statisk| Detta kan inte valideras servercertifikatet; lyckas begäran. Avse config ServiceCertificateThumbprints kommaavgränsad lista över tumavtrycken för de fjärranslutna certifikat som kan lita på den omvända proxyn. Avse config ServiceCommonNameAndIssuer för ämne namn och tumavtrycket för fjärr-certifikat som kan lita på den omvända proxyn. |
 |BodyChunkSize |Uint, standardvärdet är 16384 |Dynamisk| Anger storleken på för segmentet i byte som används för att läsa innehållet. |
 |CrlCheckingFlag|uint, standard är 0x40000000 |Dynamisk| Flaggor för program/tjänst verifiering av certifikatkedjan; t.ex. CRL-kontroll 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY inställningen till 0 inaktiverar CRL kontrollerar fullständig lista över värden som stöds är dokumenterats av dwFlags av CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Tid i sekunder. Standardvärdet är 120 |Dynamisk|Ange tidsintervall i sekunder.  Ger timeout för standard-begäranden för http-begäranden som bearbetas i app-gateway http. |
-|ForwardClientCertificate|bool, standard är FALSKT|Dynamisk| |
+|ForwardClientCertificate|bool, standard är FALSKT|Dynamisk|När begär inte inställd på FALSKT, omvänd proxy för klientcertifikatet. Om inställd på true, använda omvänd proxy ska begära för klientcertifikatet under SSL-handskakningen och vidarebefordra den base64-kodad kan PEM formatsträng till tjänsten i en rubrik med namnet X-klient-Certificate.The tjänst misslyckas på begäran med lämplig statuskod efter att ha inspekterat certifikatdata. Om detta är SANT och ett certifikat finns inte i klienten, vidarebefordra ett tomt huvud omvänd proxy och fjärrhantering av tjänsten som hanterar fallet. Omvänd proxy fungerar som ett transparent lager.|
 |GatewayAuthCredentialType |sträng, standard är ”ingen” |Statisk| Anger de autentiseringsuppgifter du använder på http-app gateway-slutpunkten giltiga värden är ”ingen / X 509. |
 |GatewayX509CertificateFindType |sträng, standard är ”FindByThumbprint” |Dynamisk| Anger hur du söker efter certifikat i arkivet som anges av GatewayX509CertificateStoreName stöds värde: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | sträng, standardvärdet är ”” |Dynamisk| Sök filtervärdet som används för att hitta http app gateway-certifikatet. Det här certifikatet har konfigurerats på https-slutpunkten och kan också användas för att verifiera identiteten för appen vid behov av tjänsterna. Först; söks FindValue och om som inte finns; FindValueSecondary slås upp. |
@@ -76,12 +76,12 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |RemoveServiceResponseHeaders|sträng, standard är ”datum. Server ”|Statisk|Semikolonseparerade / kommaavgränsad lista över svarshuvuden som tas bort från tjänstsvaret; innan den vidarebefordrar det till klienten. Om detta är inställt på tom sträng; Skicka alla rubriker som returneras av tjänsten som – är. dvs Skriv inte över datum och Server |
 |ResolveServiceBackoffInterval |Tid i sekunder, standardvärdet är 5 |Dynamisk|Ange tidsintervall i sekunder.  Ger lösa backoff standardintervallet innan du försöker utföra en tjänståtgärd. |
 |SecureOnlyMode|bool, standard är FALSKT|Dynamisk| SecureOnlyMode: true: omvänd Proxy endast vidarebefordrar till tjänster som publicerar säker slutpunkter. FALSKT: omvänd Proxy kan vidarebefordra begäranden till secure/icke-säker slutpunkter.  |
-|ServiceCertificateThumbprints|sträng, standardvärdet är ””|Dynamisk| |
+|ServiceCertificateThumbprints|sträng, standardvärdet är ””|Dynamisk|Kommaavgränsad lista över tumavtrycken för de fjärranslutna certifikat som kan lita på den omvända proxyn.  |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>ApplicationGateway/Http/ServiceCommonNameAndIssuer
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, standardvärdet är ingen|Dynamisk|  |
+|PropertyGroup|X509NameMap, standardvärdet är ingen|Dynamisk| Föremål namn och tumavtrycket för fjärr-certifikat som kan lita på den omvända proxyn.|
 
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
@@ -157,10 +157,10 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 ## <a name="dnsservice"></a>DnsService
 | **Parametern** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-|InstanceCount|int, standard är-1|Statisk|  |
-|IsEnabled|bool, standard är FALSKT|Statisk| |
-|PartitionPrefix|sträng, standardvärdet är ”-”|Statisk|Anger Prefixsträngen partition i DNS-namn för den partitionerade tjänster: \<First-Label-Of-Partitioned-Service-DNSName\>\<PartitionPrefix\>\<mål-partitionsnamnet\> \< PartitionSuffix\>.\< Återstående-partitionerad-Service-DNSName\>.|
-|PartitionSuffix|sträng, standardvärdet är ””|Statisk|Anger suffixsträng partition i DNS-namn för den partitionerade tjänster: \<First-Label-Of-Partitioned-Service-DNSName\>\<PartitionPrefix\>\<mål-partitionsnamnet\> \< PartitionSuffix\>.\< Återstående-partitionerad-Service-DNSName\>. |
+|InstanceCount|int, standard är-1|Statisk|Standardvärdet är -1, vilket innebär att DnsService körs på varje nod. OneBox måste det anges till 1 eftersom DnsService använder välkända port 53, så att den inte kan ha flera instanser på samma dator.|
+|IsEnabled|bool, standard är FALSKT|Statisk|Aktiverar eller inaktiverar DnsService. DnsService är inaktiverad som standard och den här konfigurationen måste anges för att aktivera den. |
+|PartitionPrefix|sträng, standardvärdet är ”-”|Statisk|Styr strängvärdet partition prefix i DNS-frågor för tjänster som är partitionerad. Mer information finns i den här länken:[Service Fabric DNS-tjänst.](service-fabric-dnsservice.md)|
+|PartitionSuffix|sträng, standardvärdet är ””|Statisk|Styr strängvärdet partition suffix i DNS-frågor för tjänster som är partitionerad. Mer information finns i den här länken:[Service Fabric DNS-tjänst.](service-fabric-dnsservice.md) |
 
 ## <a name="fabricclient"></a>FabricClient
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
@@ -253,6 +253,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 ## <a name="federation"></a>Federation
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
+|GlobalTicketLeaseDuration|TimeSpan, standardvärdet är Common::TimeSpan::FromSeconds(300)|Statisk|Ange tidsintervall i sekunder. Noder i klustret måste vara en global lån med väljare. Väljare skicka sina globala lån ska spridas i klustret för den här perioden. Om hela upphör att gälla; sedan går lånet förlorad. På kvorumförlust av lån orsakar en nod att lämna klusternoderna. genom att inte ta emot kommunikation med ett kvorum för noder i den här tidsperioden.  Det här värdet måste justeras beroende på storleken på klustret. |
 |LeaseDuration |Tid i sekunder, standardvärdet är 30 |Dynamisk|Tiden då ett lån varar mellan en nod och sina grannar. |
 |LeaseDurationAcrossFaultDomain |Tid i sekunder, standardvärdet är 30 |Dynamisk|Tiden då ett lån varar mellan en nod och dess grannar över feldomäner. |
 
@@ -321,7 +322,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |ContainerServiceArguments|sträng, standardvärdet är ”-H localhost: 2375 -H npipe: / /”|Statisk|Service Fabric (SA) hanterar docker-daemon (förutom på windows-klientdatorer som Win10). Den här konfigurationen gör att användaren anger anpassade argument som ska skickas till docker-daemon när du startar den. När anpassade argument, Service Fabric inte skickar några andra argument till Docker-motorn, förutom ”--pidfile' argumentet. Användare bör därför inte ange '--pidfile' argument som en del av deras kund-argument. De anpassade argumenten ska kontrollera också att daemon lyssnar på pipen med standardnamnet på Windows (eller Unix-domänsocket på Linux) för Service Fabric ska kunna kommunicera med den.|
 |CreateFabricRuntimeTimeout|TimeSpan, standardvärdet är Common::TimeSpan::FromSeconds(120)|Dynamisk| Ange tidsintervall i sekunder. Timeout-värdet för synkronisering FabricCreateRuntime anropa |
 |DefaultContainerRepositoryAccountName|sträng, standardvärdet är ””|Statisk|Standardautentiseringsuppgifter som används i stället för autentiseringsuppgifter som anges i ApplicationManifest.xml |
-|DefaultContainerRepositoryPassword|sträng, standardvärdet är ””|Statisk||
+|DefaultContainerRepositoryPassword|sträng, standardvärdet är ””|Statisk|Standardautentiseringsuppgifter lösenord som används i stället för autentiseringsuppgifter som anges i ApplicationManifest.xml|
 |DeploymentMaxFailureCount|Int, standardvärdet är 20| Dynamisk|Programdistribution görs DeploymentMaxFailureCount gånger innan distributionen av programmet på noden.| 
 |DeploymentMaxRetryInterval| TimeSpan, standardvärdet är Common::TimeSpan::FromSeconds(3600)|Dynamisk| Ange tidsintervall i sekunder. Max återförsöksintervallet för distributionen. Vid varje kontinuerlig fel beräknas återförsöksintervallet som Min (DeploymentMaxRetryInterval; Kontinuerlig Felberäkning * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| TimeSpan, standardvärdet är Common::TimeSpan::FromSeconds(10)|Dynamisk|Ange tidsintervall i sekunder. Backoffintervall för distributionsfel. På varje kontinuerlig distributionsfel försöker systemet distributionen för upp till MaxDeploymentFailureCount. Intervallet är en produkt för misslyckad kontinuerlig distribution och distribution backoff intervall. |
@@ -333,7 +334,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |FirewallPolicyEnabled|bool, standard är FALSKT|Statisk| Gör det möjligt att öppna portar i brandväggen för Endpoint resurser med explicita portar som anges i ServiceManifest |
 |GetCodePackageActivationContextTimeout|TimeSpan, standardvärdet är Common::TimeSpan::FromSeconds(120)|Dynamisk|Ange tidsintervall i sekunder. Timeout-värdet för CodePackageActivationContext-anrop. Detta gäller inte för ad hoc-tjänster. |
 |IPProviderEnabled|bool, standard är FALSKT|Statisk|Möjliggör hantering av IP-adresser. |
-|IsDefaultContainerRepositoryPasswordEncrypted|bool, standard är FALSKT|Statisk||
+|IsDefaultContainerRepositoryPasswordEncrypted|bool, standard är FALSKT|Statisk|Om DefaultContainerRepositoryPassword är krypterade eller inte.|
 |LinuxExternalExecutablePath|sträng, standardvärdet är ”/ usr/bin /” |Statisk|Den primära katalogen för externa körbara kommandon på noden.|
 |NTLMAuthenticationEnabled|bool, standard är FALSKT|Statisk| Aktiverar stöd för att använda NTLM av kodpaket som är igång som andra användare så att processerna över datorer kan kommunicera på ett säkert sätt. |
 |NTLMAuthenticationPasswordSecret|SecureString, standardvärdet är Common::SecureString("")|Statisk|Är ett krypterat har som används för att generera lösenordet för NTLM-användare. Måste anges om NTLMAuthenticationEnabled är sant. Godkänt distribueraren. |

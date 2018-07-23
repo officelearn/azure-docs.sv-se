@@ -48,6 +48,8 @@
       href: tutorials/15-branching-and-undo.md
     - name: Versionshantering och taggning
       href: tutorials/16-versioning-and-tagging.md
+    - name: Hybrid Bots
+      href: tutorials/17-hybrid-bots.md
     - name: Demonstration – lösenordsåterställning
       href: tutorials/demo-password-reset.md
     - name: Demonstration – beställning av pizza

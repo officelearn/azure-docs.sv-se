@@ -1,6 +1,6 @@
 ---
-title: Hur du konfigurerar MSI på en Azure-dator med Azure portal
-description: Steg för steg-instruktioner för att konfigurera en hanterad tjänstidentitet (MSI) på en Azure-dator med Azure portal.
+title: Hur du konfigurerar hanterad tjänstidentitet på en Azure-dator med Azure portal
+description: Steg för steg-instruktioner för att konfigurera en hanterad tjänstidentitet på en Azure-dator med Azure portal.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 27ecb00bddb41ae45e790a54702c058ff3f1d24b
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 81aa8153198f69abd1722f97462927a0c242d4e7
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035949"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186167"
 ---
-# <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Konfigurera en virtuell dator hanterad tjänstidentitet (MSI) med Azure portal
+# <a name="configure-a-vm-managed-service-identity-using-the-azure-portal"></a>Konfigurera en virtuell dator hanterad tjänstidentitet med hjälp av Azure portal
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -30,12 +30,14 @@ Hanterad tjänstidentitet ger Azure-tjänster med en automatiskt hanterad identi
 I den här artikeln får du lära dig hur du aktiverar och inaktiverar systemtilldelad identitet för en Azure-dator med Azure portal. Tilldela och ta bort användartilldelade identiteter från virtuella Azure-datorer stöds inte för närvarande via Azure-portalen.
 
 > [!NOTE]
-> Användartilldelad identitet åtgärder stöds för närvarande inte via Azure-portalen. Kolla igen senare. 
+> Användartilldelad identitet åtgärder stöds för närvarande inte via Azure-portalen. Kom tillbaka om för att få uppdateringar. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Om du är bekant med hanterad tjänstidentitet kan ta en titt på [översiktsavsnittet](overview.md).
-- Om du inte redan har ett Azure-konto, [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
+- Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
+- För att utföra vilka hanteringsåtgärder i den här artikeln, måste ditt konto följande rolltilldelningen:
+    - [Virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) aktivera och ta bort hanterad tjänstidentitet från en Azure-dator.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-vm"></a>Hanterad tjänstidentitet under skapandet av en Azure-dator
 
@@ -50,14 +52,14 @@ Gå sedan vidare till nästa avsnitt för information om hur du aktiverar hanter
 
 För att aktivera systemtilldelad identitet på en virtuell dator som ursprungligen etablerades utan den:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumerationen som innehåller den virtuella datorn. Kontrollera också att ditt konto tillhör en roll som ger dig skrivbehörighet på den virtuella datorn, till exempel ”virtuell Datordeltagare”.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumerationen som innehåller den virtuella datorn.
 
 2. Navigera till den önskade virtuella datorn och välj ”Configuration”-sidan.
 
 3. Aktivera systemtilldelad identitet på den virtuella datorn genom att välja ”Ja” under ”hanterad tjänstidentitet” och klicka sedan på **spara**. Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
 
-    > [!NOTE]
-    > Att lägga till en Användartilldelad identitet till en virtuell dator stöds inte för närvarande via Azure-portalen.
+   > [!NOTE]
+   > Att lägga till en Användartilldelad identitet till en virtuell dator stöds inte för närvarande via Azure-portalen.
 
    ![Skärmbild av konfiguration av sidan](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
@@ -65,7 +67,7 @@ För att aktivera systemtilldelad identitet på en virtuell dator som ursprungli
 
 Om du har en virtuell dator som inte längre behöver systemtilldelade identiteter:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumerationen som innehåller den virtuella datorn. Kontrollera också att ditt konto tillhör en roll som ger dig skrivbehörighet på den virtuella datorn, till exempel ”virtuell Datordeltagare”.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumerationen som innehåller den virtuella datorn. 
 
 2. Navigera till den önskade virtuella datorn och välj ”Configuration”-sidan.
 
@@ -82,5 +84,5 @@ Om du har en virtuell dator som inte längre behöver systemtilldelade identitet
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Med hjälp av Azure-portalen ger en Azure-dator MSI [åtkomst till en annan Azure-resurs](howto-assign-access-portal.md).
+- Med hjälp av Azure-portalen ger en Azure-dator hanterad tjänstidentitet [åtkomst till en annan Azure-resurs](howto-assign-access-portal.md).
 

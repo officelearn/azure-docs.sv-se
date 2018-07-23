@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 0eaf1115dc6ed5a7dc9e7354340d5eb529116c88
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 181432c3050bbc614898b1ddf779bc90239a35be
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37780663"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39189408"
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>IOT-säkerhet från grunden
 
@@ -45,7 +45,7 @@ Microsofts system ger kontinuerlig intrångsidentifiering och dataförlustskydd,
 
 Lösningsacceleratorer dra nytta av säkerhet och sekretess är inbyggt i Azure-plattformen tillsammans med SDL-processen och OSA processer för säker utveckling och drift av alla Microsoft-programvara. De här procedurerna tillhandahålla infrastrukturen skydd, nätverksskydd och identitet och hantering av funktioner som är fundamentalt för säkerheten för alla lösningar.
 
-Den [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md) inom den [IoT-Lösningsacceleratorer](../articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md) erbjuder en fullständigt hanterad tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan IoT-enheter och Azure-tjänster som [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) och [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) genom att använda säkerhetsreferenser för varje enhet och åtkomstkontroll.
+Den [Azure IoT Hub](../articles/iot-hub/about-iot-hub.md) inom den [IoT-Lösningsacceleratorer](../articles/iot-fundamentals/iot-introduction.md) erbjuder en fullständigt hanterad tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan IoT-enheter och Azure-tjänster som [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) och [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) genom att använda säkerhetsreferenser för varje enhet och åtkomstkontroll.
 
 För att kommunicera bäst säkerhet och sekretess som finns inbyggda i Azure IoT-Lösningsacceleratorer, eliminerar den här artikeln suite till tre primära säkerhetsområden.
 

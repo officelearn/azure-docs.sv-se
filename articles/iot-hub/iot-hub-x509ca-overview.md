@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: eebaf679ada9da554f8582ad89db4e7491dcc134
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b5028010953b9dbe2386c30e6fa05cc4a94cb971
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004361"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185500"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autentisering med X.509 CA-certifikat
 
@@ -30,7 +30,7 @@ Med X.509 CA-funktionen kan autentisering till IoT Hub med hjälp av en certifik
 
 ## <a name="prerequisite"></a>Krav
 
-Med X.509 CA-funktionen kräver att du har en IoT Hub-konto.  [Lär dig hur du skapar en IoT Hub-instansen](iot-hub-csharp-csharp-getstarted.md) om du inte redan har ett.
+Med X.509 CA-funktionen kräver att du har en IoT Hub-konto.  [Lär dig hur du skapar en IoT Hub-instansen](quickstart-send-telemetry-dotnet.md) om du inte redan har ett.
 
 ## <a name="how-to-get-an-x509-ca-certificate"></a>Så här hämtar du ett X.509 CA-certifikat
 

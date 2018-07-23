@@ -1,6 +1,6 @@
 ---
-title: Azure Health Analytics plan
-description: Vägledning för distribution av en HIPAA/HITRUST hälsa Analytics plan
+title: Azure Health Analytics skiss
+description: Vägledning för distribution av en HIPAA/HITRUST hälsotillstånd Analytics skiss
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,62 +15,62 @@ ms.workload: na
 ms.date: 02/27/2018
 ms.author: jomolesk
 ms.openlocfilehash: f58466bb4cc90823d8e75e0371b400ee674e8b5d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "37113239"
 ---
-# <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-säkerhet och efterlevnad modell - HIPAA/HITRUST hälsa Data och AI
+# <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-säkerhet och efterlevnad skissen - HIPAA/hitrust – hälsodata och AI
 
 ## <a name="overview"></a>Översikt
 
-**Azure-säkerhet och efterlevnad modell - HIPAA/HITRUST hälsa Data och AI erbjuder en nyckelfärdig distribution av en Azure PaaS-lösning för att demonstrera hur du på ett säkert sätt mata in, lagra, analysera och interagera med hälsa data när kunna uppfylla branschen kompatibilitet krav. Modell kan påskynda molnet införande och användning för kunder med data som regleras.**
+**Den Azure Blueprint för säkerhet och efterlevnad – HIPAA/hitrust – hälsodata och AI erbjuder en nyckelfärdig distribution av en Azure PaaS-lösning för att demonstrera hur du på ett säkert sätt mata in, lagra, analysera och interagera med hälsodata samtidigt som det är uppfylla branschledande efterlevnad krav. Skissen hjälper dig att påskynda molnanvändning och belastningen för kunder med data som har reglerats.**
 
-Azure-säkerhet och efterlevnad modell - HIPAA/HITRUST hälsa Data och AI utkast tillhandahåller verktyg och vägledning för att distribuera en säker, Health Insurance Portability och Accountability Act (HIPAA) och hälsotillstånd Information förtroende Alliance (HITRUST) redo plattform som en tjänst (PaaS) miljö för vill föra in, lagra, analysera och interagerar med personlig och icke-personlig medicinska poster i en säker och flera nivåer molnmiljö bör distribueras som en lösning för slutpunkt till slutpunkt. Den innehåller en gemensam Referensarkitektur och förenklar införandet av Microsoft Azure. Den här angivna arkitekturen illustrerar en lösning som passar för organisationer som vill ha en molnbaserad metod för att minska belastningen och kostnaden för distribution.
+Den Azure Blueprint för säkerhet och efterlevnad – HIPAA/hitrust – hälsodata och AI skiss tillhandahåller verktyg och vägledning för att distribuera ett säkert, Health Insurance Portability och Accountability Act (HIPAA) och Health Information förtroende Alliance (HITRUST) redo Platform as a service (PaaS)-miljö för att mata in, lagra, analysera och interagera med personlig och icke-personlig medicinska journaler i en säker och flera nivåer molnmiljö som har distribuerats som en lösning för slutpunkt till slutpunkt. Den visar en gemensam Referensarkitektur och har utformats för att förenkla användningen av Microsoft Azure. Den här tillhandahållna arkitekturen illustrerar en lösning för att uppfylla behoven hos organisationer som vill ha en molnbaserad metod för att minska belastningen och kostnaden för distributionen.
 
 ![](images/components.png)
 
-Lösningen är utformad för att använda data exempeldata formaterats med snabb hälsovård samverkan resurser (FHIR), en global standard för utbyte sjukvården information elektroniskt och lagra den på ett säkert sätt. Användare kan sedan använda Azure Machine Learning dra nytta av kraftfulla business intelligence-verktyg och analyser för att granska förutsägelser som görs på exempeldata. Som ett exempel på vilken typ av experimentet Azure Machine Learning kan underlätta innehåller du vilken en exempeldatamängd, skript och verktyg för att förutsäga tid ett tålamod i en sjukhus anläggning. 
+Lösningen har utformats för att använda en exempeldatauppsättning som formaterats med snabb Healthcare samverkan resurser (FHIR), en globalt standard för informationsutbyte hälsovård elektroniskt, och lagra den på ett säkert sätt. Kunder kan sedan använda Azure Machine Learning för att dra nytta av kraftfulla business intelligence-verktyg och analyser för att granska förutsägelser som görs på exempeldata. Som ett exempel på vilken typ av experimentet som Azure Machine Learning kan underlätta innehåller skissen en exempeldatauppsättning, skript och verktyg för att förutsäga längden på en patients stanna i en sjukhusanläggning. 
 
-Det här utkastet är avsedd att fungera som en modulär grund för kunder att justera sina specifika krav, utveckla nya Azure Machine learning experiment för att lösa båda kliniska och operativa exempel på scenarier. Den är avsedd att vara skyddade och kompatibla när distribuerade; dock ansvarar kunder för att konfigurera roller på rätt sätt och genomföra alla ändringar. Observera följande:
+Den här skissen är avsedd att fungera som en modulbaserad grund för kunder enligt deras specifika krav, utveckla nya Azure Machine learning-experiment för att lösa båda klinisk och driftsmässig användningsfall. Det är avsett att vara skyddade och kompatibla när de distribueras; dock ansvarar kunderna för att konfigurera roller på rätt sätt och implementera eventuella ändringar. Observera följande:
 
--   Det här utkastet ger en baslinje för att hjälpa kunderna att använda Microsoft Azure i en HITRUST och HIPAA-miljö.
+-   Denna skiss tillhandahåller en baslinje för att hjälpa kunder som använder Microsoft Azure i en HITRUST och HIPAA-miljö.
 
--   Även om modell har utformats så att de justeras med HIPAA och HITRUST (via det vanliga säkerhetsramverk--CSF), ska den inte betraktas kompatibel tills certifierad av en extern granskare per HIPAA och HITRUST certifieringskraven.
+-   Även om skissen har utformats för att ligga i linje med HIPAA och HITRUST (via Common Security Framework--CSF), ska den inte betraktas kompatibel tills certifierats av en extern granskare per HIPAA och HITRUST certifieringskrav.
 
--   Kunder ansvarar för att utföra lämpliga säkerhets- och granskning av någon lösning som skapats med denna grundläggande arkitektur.
+-   Kunderna ansvarar för att utföra lämpliga säkerhets- och granskningar av alla lösningar som skapats med den här grundläggande arkitektur.
 
-## <a name="deploying-the-automation"></a>Distribuera automatisering
+## <a name="deploying-the-automation"></a>Distribuera automation
 
-- Om du vill distribuera lösningen, följer du anvisningarna i vägledning för distribution. 
+- Distribuera lösningen, följer du anvisningarna i vägledning för distribution. 
 
 [![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
 
-För en snabb överblick över hur den här lösningen fungerar, titta på den här [video](https://aka.ms/healthblueprintvideo) förklarar och visar dess distribution.
+Titta på den här för en snabb överblick över hur den här lösningen fungerar [video](https://aka.ms/healthblueprintvideo) hon förklarar och visar dess distribution.
 
-- Vanliga frågor och svar hittar du i den [vanliga frågor och svar](https://aka.ms/healthblueprintfaq) vägledning.
+- Vanliga frågor och svar finns i den [vanliga frågor och svar](https://aka.ms/healthblueprintfaq) vägledning.
 
--   **Arkitekturdiagram för.** Diagrammet visar den referens för arkitekturen för modell och exemplet använder Fallstudie.
+-   **Arkitekturdiagram för.** Diagrammet visar referensarkitekturen används för skissen och exemplet användningsfallsscenario.
 
--   **Distributionsmallar**. I den här distributionen [Azure Resource Manager-mallar](/azure/azure-resource-manager/resource-group-overview#template-deployment) används för att automatiskt distribuera komponenterna i arkitekturen i Microsoft Azure genom att ange konfigurationsparametrar under installationen.
+-   **Distributionsmallar**. I den här distributionen [Azure Resource Manager-mallar](/azure/azure-resource-manager/resource-group-overview#template-deployment) används för att automatiskt distribuera komponenter i arkitekturen i Microsoft Azure genom att ange konfigurationsparametrar under installationen.
 
--   **[Automatisk distribution skript](https://aka.ms/healthblueprintdeploy)**. Dessa skript att distribuera lösningen. Skripten består av:
+-   **[Automatiserad distributionsskript](https://aka.ms/healthblueprintdeploy)**. Dessa skript att distribuera lösningen. Skripten består av:
 
 
--   En installation av modulen och [global administratör](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) installationsskriptet används för att installera och kontrollera att PowerShell-moduler som krävs och global administratörsroller är korrekt konfigurerade. 
--   En installation av PowerShell-skript används för att distribuera lösningen som tillhandahålls via en .zip-fil som innehåller en förskapad demo-funktioner.
+-   En modul-installation och [global administratör](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) installationsskriptet används för att installera och verifiera att PowerShell-moduler som krävs och global administratörsroller är korrekt konfigurerade. 
+-   En installation av PowerShell-skript används för att distribuera lösningen tillhandahålls via en .zip-fil som innehåller en färdiga demo-funktioner.
 
 ## <a name="solution-components"></a>Lösningskomponenter
 
 
-Grundläggande arkitektur består av följande komponenter:
+Grundläggande arkitekturen består av följande komponenter:
 
--   **[Hotmodell](https://aka.ms/healththreatmodel)**  en omfattande hotmodell har tillhandahållits i tm7 format för användning med den [hot Modeling verktyget](https://www.microsoft.com/en-us/download/details.aspx?id=49168), visar komponenter i lösningen data som flödar mellan dem och förtroende gränser. Modellen hjälper kunder att förstå punkterna i risken i system-infrastruktur när du utvecklar machine learning komponenter eller andra ändringar.
+-   **[Hotmodell](https://aka.ms/healththreatmodel)**  en omfattande hotmodell har tillhandahållits i tm7 format för användning med den [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168), som visar komponenterna i lösningen, data som flödar mellan dem och förtroende gränser. Modellen kan hjälpa kunderna att förstå punkterna i risken i system-infrastruktur när du utvecklar machine learning komponenter eller andra ändringar.
 
--   **[Kunden implementering matrisen](https://aka.ms/healthcrmblueprint)**  en Microsoft Excel-arbetsbok innehåller relevant HITRUST kraven och förklarar hur Microsoft och kunden ansvarar för att uppfylla var och en.
+-   **[Matris för implementering av kunden](https://aka.ms/healthcrmblueprint)**  A Microsoft Excel-arbetsbok innehåller relevanta HITRUST kraven och förklarar hur Microsoft och kunden ansvarar för att uppfylla var och en.
 
--   **[Granska hälsa.](https://aka.ms/healthreviewpaper)** Lösningen granskades av Coalfire systems, Inc. Hälsotillstånd kompatibiliteten (HIPAA och HITRUST) och vägledning för implementering ger en granskare\'s granskning av lösningen och överväganden för att överföra modell som en produktionsklara-distribution.
+-   **[Granska hälsa.](https://aka.ms/healthreviewpaper)** Lösningen har granskat av Coalfire systems, Inc. Hälsotillstånd efterlevnad (HIPAA och HITRUST) och vägledning för implementering ger en granskare\'s genomgång av lösningen och överväganden för omvandling av modell som en produktionsklar-distribution.
 
 # <a name="architectural-diagram"></a>Arkitekturdiagram
 
@@ -80,23 +80,23 @@ Grundläggande arkitektur består av följande komponenter:
 ## <a name="roles"></a>Roller
 
 
-Modell definierar två roller för administrativa användare (operatörer) och tre användarroller i sjukhus hantering och vård. En sjätte roll har definierats för en granskare att utvärdera kompatibiliteten med HIPAA och andra föreskrifter. Azure rollbaserad åtkomstkontroll (RBAC) aktiverar exakt fokuserad åtkomsthantering för varje användare av lösningen via inbyggda och anpassade roller. Se [Kom igång med rollbaserad åtkomstkontroll i Azure portal](https://docs.microsoft.com/azure/role-based-access-control/overview) och [inbyggda roller för rollbaserad åtkomstkontroll i Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) detaljerad information om RBAC, roller och behörigheter.
+Skissen definierar två roller för administrativa användare (operatörer) och tre roller för användare i sjukhuset hanterings- och patientvård. En sjätte roll definieras för en granskare att utvärdera efterlevnad av HIPAA och andra bestämmelser. Azure rollbaserad åtkomstkontroll (RBAC) möjliggör exakt fokuserad åtkomsthantering för varje användare av lösningen via inbyggda och anpassade roller. Se [Kom igång med rollbaserad åtkomstkontroll i Azure-portalen](https://docs.microsoft.com/azure/role-based-access-control/overview) och [inbyggda roller för rollbaserad åtkomstkontroll i Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) detaljerad information om RBAC, roller och behörigheter.
 
-### <a name="site-administrator"></a>Webbplatsens administratör
+### <a name="site-administrator"></a>Webbplatsadministratör
 
 
-Webbplatsadministratören ansvarar för kundens Azure-prenumeration. De styr den övergripande distributionen, men har inte behörighet att patientjournaler.
+Webbplatsadministratören ansvarar för kundens Azure-prenumeration. De styr den övergripande distributionen, men ha inte åtkomst till patientjournaler.
 
 -   Standard rolltilldelningar: [ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 -   Anpassade rolltilldelningar: ej tillämpligt
 
--   Omfång: prenumeration
+-   Omfattning: prenumerationen
 
 ### <a name="database-analyst"></a>Databasen analytiker
 
-Databasen analysen administrerar SQL Server-instans och databas.
-De har inte behörighet att patientjournaler.
+Databas-analytiker administrerar SQL Server-instans och databas.
+De har ingen åtkomst till patientjournaler.
 
 -   Inbyggda rolltilldelningar: [SQL DB-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [SQL Server-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
@@ -104,108 +104,108 @@ De har inte behörighet att patientjournaler.
 
 -   Omfång: ResourceGroup
 
- ### <a name="data-scientist"></a>Forskare data
+ ### <a name="data-scientist"></a>Dataexpert
 
 
-Forskare data fungerar Azure Machine Learning-tjänsten. De kan importera, exportera, hantera data och köra rapporter. Forskare data har åtkomst till Patientdata, men har inte administratörsbehörighet.
+Data Science fungerar Azure Machine Learning-tjänsten. De kan importera, exportera, och hantera data och köra rapporter. Data Science har tillgång till patientens data, men har inte administratörsbehörighet.
 
--   Inbyggda rolltilldelningar: [Storage-konto deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
+-   Inbyggda rolltilldelningar: [Lagringskontodeltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
 -   Anpassade rolltilldelningar: ej tillämpligt
 
 -   Omfång: ResourceGroup
 
-### <a name="chief-medical-information-officer-cmio"></a>Chefen medicinska Information som (CMIO)
+### <a name="chief-medical-information-officer-cmio"></a>Chief Medical Information Officer: N)
 
 
-CMIO överbryggar gapet mellan informatics-teknik och vårdpersonal i en sjukvårdsorganisation. Sina uppgifter inkluderar vanligtvis med analytics för att avgöra om resurser som tilldelas på rätt sätt i organisationen.
-
--   Inbyggda rolltilldelningar: ingen
-
-### <a name="care-line-manager"></a>Hand Linjehanteraren
-
-
-Linjehanteraren försiktighet är direkt inblandade med försiktighet patienter.
-I den här rollen ingår att övervaka statusen för enskilda patienter och se till att det finns personal för patienternas olika vårdbehov. Försiktighet linjehanteraren ansvarar för att lägga till och uppdatera patientjournaler.
+Cmio: N är mellan informatics/teknik och sjukvårdspersonalen inom organisationen. Ansvarsområdet ingår normalt med analytics för att avgöra om resurser allokeras på rätt sätt i organisationen.
 
 -   Inbyggda rolltilldelningar: ingen
 
--   Anpassade rolltilldelningar: har privilegium för att köra HealthcareDemo.ps1 gör både tålamod åtkomst och tömning.
+### <a name="care-line-manager"></a>Care Line Manager
+
+
+Care line manager är direkt inblandad i patientvården.
+I den här rollen ingår att övervaka statusen för enskilda patienter och se till att det finns personal för patienternas olika vårdbehov. Care line manager ansvarar för att lägga till och uppdatera patientjournaler.
+
+-   Inbyggda rolltilldelningar: ingen
+
+-   Anpassade rolltilldelningar: har behörighet att köra HealthcareDemo.ps1 för att göra båda Patient-åtkomst och utskrivning.
 
 -   Omfång: ResourceGroup
 
 ### <a name="auditor"></a>Granskare
 
 
-Granskaren utvärderar lösning för kompatibilitet. De har ingen direkt åtkomst till nätverket.
+Granskaren utvärderar lösningen för kompatibilitet. De har ingen direkt åtkomst till nätverket.
 
 -   Inbyggda rolltilldelningar: [läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
 -   Anpassade rolltilldelningar: ej tillämpligt
 
--   Omfång: prenumeration
+-   Omfattning: prenumerationen
 
 ## <a name="example-use-case"></a>Exempel användningsfall
 
 
-Exempel användningsfall som ingår i det här utkastet illustrerar hur du vilken kan användas för att aktivera machine learning och analyser på hälsa data i molnet. Contosoclinic är en liten sjukhus finns i USA. Nätverksadministratörer sjukhus vill använda Azure Machine Learning bättre förutsäga tid ett tålamod vid tidpunkten för tillträde för att öka effektiviteten operativa arbetsbelastning och förbättra kvaliteten på försiktighet som den kan ge.
+Exempel-användningsfall som ingår i den här skissen illustrerar hur skissen kan användas för att aktivera maskininlärning och analys på hälsodata i molnet. Contosoclinic är ett litet sjukhus finns i USA. Nätverksadministratörer sjukhuset vill använda Azure Machine Learning för att bättre förutse längden på en patients stanna vid tidpunkten för tillträde, för att öka effektiviteten och förbättra vårdkvaliteten det kan ge.
 
-### <a name="predicting-length-of-stay"></a>Förutsäga tid
+### <a name="predicting-length-of-stay"></a>Förutsägelser kring längd på
 
 
-Exempel Användarscenario använder Azure Machine Learning för att förutsäga ett nyligen släppas in tålamod tid genom att jämföra informationen medicinska vidtas på patient intag att aggregerade historiska data från föregående patienter.
-Modell innehåller en stor mängd anonymiserade medicinska poster för att demonstrera utbildning och förutsägbara funktionerna i lösningen. I en Produktionsdistribution använder kunder sina egna poster för att träna lösning för mer korrekta förutsägelser reflektion unik information till deras miljö och verksamhet patienter.
+Användningsfall för exemplet använder Azure Machine Learning för att förutsäga en nyligen släppas in patient längd genom att jämföra medicinska information tas i patientens intag till sammanställda historiska data från föregående patienter.
+Skissen innehåller ett stort antal maskerade medicinska journaler att demonstrera funktionerna för utbildning och förutsägande i lösningen. I en Produktionsdistribution använder kunder sina egna poster för att träna lösningen mer exakta förutsägelser som återger unika information om deras miljö, anläggningar och patienter.
 
 ### <a name="users-and-roles"></a>Användare och roller
 
 
-**Webbplatsens administratör--Alex**
+**Platsadministratören--Alex**
 
-*E-post: Alex\_SiteAdmin*
+*E-postadress: Alex\_SiteAdmin*
 
-Alexs jobb är att utvärdera tekniker som kan minska belastningen för att hantera ett lokalt nätverk och minska kostnaderna för hantering. Alex har utvärdera Azure under en viss tid, men har fastnade att konfigurera de tjänster som han måste uppfylla krav på efterlevnad HiTrust att lagra tålamod Data i molnet. Alex har valt Azure hälsa AI du distribuerar en lösning för kompatibilitet redo hälsa som har beskrivs kraven för att uppfylla kraven för HiTrust kunden.
+Alexs jobb är att utvärdera tekniker som kan minska bördan med att hantera ett lokalt nätverk och minska kostnaderna för hantering. Alex har utvärdera Azure under en viss tid, men har fastnade att konfigurera de tjänster som han behöver för att uppfylla krav på efterlevnad HiTrust att lagra tålamod Data i molnet. Alex har valt Azure hälsotillstånd AI du distribuerar en lösning för efterlevnad färdiga för hälsotillstånd som har åtgärdas kraven för att uppfylla kundens krav för HiTrust.
 
-**Data forskare--Adina**
+**Datavetare – Adina**
 
-*E-post: Adina\_DataScientist*
+*E-postadress: Adina\_DataScientist*
 
-Adina är ansvarig för och skapa modeller som analyserar medicinska poster för att ge insikter om vård. Adina använder SQL och R statistiska programmeringsspråk för att skapa sitt modeller.
+Adina ansvarar för att använda och skapa modeller som analyserar medicinska journaler för att ge insikter om patientvård. Adina använder SQL och det statistiska programmeringsspråket R för att skapa sin modeller.
 
-**Analytiker--Danny-databas**
+**Databasen analytiker--Danny**
 
-*E-post: Danny\_DBAnalyst*
+*E-postadress: Danny\_DBAnalyst*
 
-Danny är den huvudsakliga kontakten för något om Microsoft SQL Server som lagrar alla Patientdata för Contosoclinic. Danny är en erfaren SQL Server-administratör som har nyligen bekanta dig med Azure SQL Database.
+Danny är den viktigaste kontakten för allt om Microsoft SQL Server som lagrar alla Patientdata för Contosoclinic. Danny är en erfaren SQL Server-administratör som har nyligen bekanta dig med Azure SQL Database.
 
-**Chefen medicinska Information som--Caroline**
+**Chief Medical Information Officer--Caroline**
 
-Caroline arbetar med Chris Linjehanteraren hand och Adina forskare Data för att fastställa vilka faktorer som påverkar patient tid.
-Caroline använder förutsägelser från längden av stanna (LOS) lösning för att avgöra om resurser som tilldelas på rätt sätt i sjukhus-nätverk. Till exempel med hjälp av instrumentpanelen finns i den här lösningen.
+Caroline samarbetar med Chris Care Line Manager och Adina den dataexpert för att fastställa vilka faktorer som påverkar patientens längd.
+Caroline använder förutsägelser från längden av stanna (LOS)-lösning för att avgöra om resurser allokeras på rätt sätt i sjukhuset-nätverk. Till exempel med hjälp av instrumentpanelen i den här lösningen.
 
-**Hand Linjehanteraren--Chris**
+**Care Line Manager – Chris**
 
-*E-post: Chris\_CareLineManager*
+*E-postadress: Chris\_CareLineManager*
 
-Som enskilda direkt ansvarar för att hantera patient åtkomst och utsläpp på Contosoclinic, Chris använder förutsägelser som genererats av LOS lösningen så att det finns tillräcklig personal att förse patienter försiktighet medan de kvar i den anläggning.
+Som personen som direkt ansvarar för att hantera inskrivning och utsläpp på Contosoclinic, Chris använder förutsägelser som genereras av lösningen LOS så att det finns tillräcklig personal att förse patienter försiktighet när de stanna kvar på den anläggning.
 
-**Granskare--Han**
+**Granskare – Han**
 
-*E-post: Han\_granskare*
+*E-postadress: Han\_granskare*
 
-Han är en certifierade granskare som har erfarenhet av ISO, SOC och HiTrust granskning. Han har anlitat för att granska Contosoclincs nätverk. Han kan granska kunden ansvar matrisen med lösningen för att säkerställa att utkast och LOS lösningen kan användas att lagra processen och visa känslig personlig information.
+Han är en certifierade granskare som har erfarenhet granskning för ISO, SOC och HiTrust. Han har anlitat för att granska Contosoclincs nätverk. Han kan granska kundens ansvar matrisen medföljer lösningen för att säkerställa att skissen och LOS lösningen kan användas för lagrar, bearbetar och visa känslig personlig information.
 
 
 # <a name="design-configuration"></a>Design-konfiguration
 
 
-Det här avsnittet beskrivs standardkonfigurationer och säkerhetsåtgärder som är inbyggda i den modell som anges till:
+Det här avsnittet beskrivs de standardinställningar och säkerhetsåtgärder som är inbyggda i skissen som beskrivs för att:
 
-- **INFOGNINGS** raw datakällor inklusive FHIR-datakälla
+- **INMATNING** raw datakällor inklusive FHIR-datakälla
 - **STORE** känslig information
 - **ANALYSERA** och förutsäga resultat
 - **INTERAGERA** med resultat och förutsägelser
-- **IDENTITY** hantering av lösning
-- **SÄKERHET** aktiverat funktioner
+- **IDENTITET** hantering av lösning
+- **SECURITY** aktiverat funktioner
 
 
 ## <a name="identity"></a>IDENTITET 
@@ -215,100 +215,100 @@ Det här avsnittet beskrivs standardkonfigurationer och säkerhetsåtgärder som
 
 **Autentisering:**
 
--   [Azure Active Directory (AD Azure)](https://azure.microsoft.com/services/active-directory/) är Microsoft\'s flera innehavare molnbaserad katalog och identity management-tjänsten. Alla användare för lösningen har skapats i Azure Active Directory, inklusive användare med åtkomst till SQL-databasen.
+-   [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) är Microsofts\'s flera innehavare molnbaserad katalog- och identity management-tjänsten. Alla användare för lösningen har skapats i Azure Active Directory, inklusive användare med åtkomst till SQL-databasen.
 
 
 
--   Tillämpningen utförs autentiseringen med hjälp av Azure AD. Mer information finns i [integrera program med Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
+-   Autentisering till programmet utförs med hjälp av Azure AD. Mer information finns i [integrera program med Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
 
--   [Azure Active Directory-identitetsskydd](/azure/active-directory/active-directory-identityprotection) identifierar potentiella problem som påverkar din organisations identiteter, konfigurerar du automatiska svar på identifierade misstänkta åtgärder som rör din organisations identiteter och undersöker misstänkta incidenter och vidtar lämpliga åtgärder som kan lösas.
+-   [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) identifierar potentiella problem som påverkar organisationens identiteter, konfigurerar automatiska svar till identifierade misstänkta åtgärder relaterade till din organisations identiteter, och undersöker misstänkta incidenter och vidtar lämpliga åtgärder du kan åtgärda detta.
 
--   [Azure rollbaserad åtkomstkontroll (RBAC)](/azure/role-based-access-control/role-assignments-portal) aktiverar exakt fokuserad åtkomsthantering för Azure. Prenumerationen åtkomst begränsas till administratör för prenumeration och Azure Key Vault åtkomst är begränsad till webbplatsens administratör. Starka lösenord (12 tecken minsta med minst en övre/nedre bokstav, siffra och specialtecken) krävs.
+-   [Azure rollbaserad åtkomstkontroll (RBAC)](/azure/role-based-access-control/role-assignments-portal) aktiverar exakt fokuserade åtkomsthantering för Azure. Prenumerationsåtkomst är begränsad till administratör för prenumerationen och Azure Key Vault-åtkomst är begränsad till platsadministratören. Starka lösenord (12 tecken minsta med minst en övre/lägre bokstav, siffra och specialtecken) krävs.
 
 -   Multifaktorautentisering stöds när växeln - enableMFA aktiveras under distributionen.
 
--   Lösenord upphör att gälla efter 60 dagar när växeln - enableADDomainPasswordPolicy aktiveras under distributionen.
+-   Lösenord upphör att gälla efter 60 dagar när växeln - enableADDomainPasswordPolicy har aktiverats under distributionen.
 
 **Roller:**
 
--   Lösningen gör att användning av [inbyggda roller](/azure/role-based-access-control/built-in-roles) att hantera åtkomst till resurser.
+-   Lösningen använder [inbyggda roller](/azure/role-based-access-control/built-in-roles) att hantera åtkomst till resurser.
 
 -   Alla användare tilldelas specifika inbyggda roller som standard.
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
--   Data som lagras i Nyckelvalvet innehåller:
+-   Data som lagras i Key Vault omfattar:
 
-    -   Insight tangent
-    -   Patient Data lagringsåtkomst nyckel
-    -   Patient anslutningssträngen
+    -   Nyckel för Application insight
+    -   Patientens dataåtkomst för Storage-nyckel
+    -   Patientens anslutningssträng
     -   Patientdata tabellnamn
-    -   Azure ML-webbtjänstens slutpunkt
+    -   Azure ML Web Service-slutpunkt
     -   Azure ML Service API-nyckel
 
--   Avancerade åtkomstprinciper konfigureras på grundval av behov
--   Key Vault åtkomstprinciper har definierats med minsta behörighet till nycklar och hemligheter
--   Alla nycklar och hemligheter i Nyckelvalvet ha ett förfallodatum
--   Alla nycklar i Key Vault är skyddade av HSM \[nyckeltypen = HSM-skyddad 2048-bitars RSA-nyckel\]
+-   Avancerade åtkomstprinciper har konfigurerats på basis av behöver
+-   Åtkomstprinciper för Nyckelvalv har definierats med minsta obligatoriska behörigheter till nycklar och hemligheter
+-   Alla nycklar och hemligheter i Key Vault ha ett förfallodatum
+-   Alla nycklar i Key Vault är skyddade av HSM \[nyckeltypen = HSM-skyddade 2048-bitars RSA-nyckel\]
 -   Alla användare/identiteter beviljas lägsta behörigheten som krävs med hjälp av rollbaserad åtkomstkontroll (RBAC)
--   Program har inte ett Nyckelvalv om de litar på varandra och de behöver åtkomst till samma hemligheter vid körning
--   Diagnostik-loggarna för Key Vault aktiveras med en kvarhållningsperiod på minst 365 dagar.
--   Tillåtna kryptografiska åtgärder för nycklarna är begränsade till de som krävs
+-   Program delar inte ett Key Vault om de litar på varandra och de behöver åtkomst till samma hemligheterna vid körning
+-   Diagnostikloggar för Key Vault har aktiverats med en period av minst 365 dagar.
+-   Tillåtna kryptografiska åtgärder för nycklar är begränsade till de som krävs
 
 ## <a name="ingest"></a>MATA IN 
 
 ### <a name="azure-functions"></a>Azure Functions
-Lösningen har utformats för att använda [Azure Functions](/azure/azure-functions/) bearbeta stanna data som används i demonstrationen analytics exempel längd. Tre funktionerna i funktionerna som har skapats.
+Lösningen har utformats för att använda [Azure Functions](/azure/azure-functions/) att bearbeta exempel längden på Håll data som används i analytics-demo. Tre funktioner i funktionerna har skapats.
 
-**1. Massimport av kundinformation data fi**
+**1. Massimport av kundinformation data phi**
 
-När du använder skriptet demo. . \\HealthcareDemo.ps1 med den **BulkPatientAdmission** växla som beskrivs i **distribuera och köra demonstrationen** utförs följande process-pipelinen:
-1. **Azure Blob Storage** -Patient CSV-filen datasampel har överförts till lagring
-2. **Händelsen rutnätet** -händelse publicerar data till Azure-funktion (massimport - blob-händelse)
-3. **Azure funktionen** - utför bearbetning och lagrar data i SQL-lagring med hjälp av funktionen säker - händelse (Skriv; blob-url)
-4. **SQL DB** - databasarkiv för tålamod Data med hjälp av taggar för klassificering och ML-processen har inletts sköta utbildning experimentet.
+När du använder demo-skriptet. . \\HealthcareDemo.ps1 med den **BulkPatientAdmission** växla som beskrivs i **distribuera och köra demon** följande process-pipelinen körs:
+1. **Azure Blob Storage** -Patientdata CSV-filen exempel laddas upp till storage
+2. **Event Grid** -händelse publicerar data till Azure-funktion (massimport - blob-händelse)
+3. **Azure-funktion** - utför bearbetningen och lagrar data i SQL-lagring med hjälp av funktionen säker - händelse (Skriv; blob url)
+4. **SQL DB** – databasarkiv för patienternas Data med hjälp av taggar för klassificering och ML-processen har startats för att göra träningsexperimentet.
 
 ![](images/dataflow.png)
 
-Dessutom har funktionen azure utformats för att läsa och skydda avsedda känsliga data i datauppsättningen exemplet med hjälp av följande taggar:
+Azure-funktionen har dessutom utformats för att läsa och skydda avsedda känsliga data i datauppsättningen exemplet med hjälp av följande taggar:
 - dataProfile = > ”ePHI”
 - ägare = > \<plats Admin UPN\>
 - miljö = > ”Pilot”
-- avdelning = > ”globala ekosystemet” taggarna har tillämpats på datauppsättningen exempel där tålamod ”namn” identifierades i klartext.
+- avdelning = > ”globala ekosystemet” de taggning har tillämpats på provdatauppsättning där patient ”namn” identifierades i klartext.
 
-**2. Åtkomstkontroll nya patienter**
+**2. Åtkomst av nya patienter**
 
-När du använder skriptet demo. . \\HealthcareDemo.ps1 med den **BulkPatientadmission** växla som beskrivs i **distribuera och köra demonstrationen** utförs följande process-pipelinen: ![](images/securetransact.png) 
- **1. Azure funktionen** utlöses och funktionen begäranden för en [ägartoken](/rest/api/) från Azure Active directory.
+När du använder demo-skriptet. . \\HealthcareDemo.ps1 med den **BulkPatientadmission** växla som beskrivs i **distribuera och köra demon** körs följande process-pipelinen: ![](images/securetransact.png) 
+ **1. Azure-funktion** utlöses och funktionen begäranden för en [ägartoken](/rest/api/) från Azure Active directory.
 
-**2. Key Vault** begärda för en hemlighet som är kopplad till den begärda token.
+**2. Key Vault** begärda för en hemlighet som är kopplad till begärd token.
 
-**3. Azure roller Validera begäran och godkänna begäran om åtkomst till Nyckelvalvet.
+**3. Azure-roller verifiera begäran och auktorisera åtkomstbegäran till Key Vault.
 
-**4. Key Vault** returnerar hemlighet, i det här fallet SQL DB anslutningssträng.
+**4. Key Vault** returnerar hemlighet, i det här fallet SQL DB-anslutningssträngen.
 
-**5. Azure funktionen** använder anslutningssträngen för att ansluta säkert till SQL-databas och fortsätter ytterligare bearbetning för att lagra ePHI data.
+**5. Azure-funktion** använder anslutningssträngen för att säkert ansluta till SQL-databas och fortsätter ytterligare bearbetning för att lagra ePHI data.
 
-För att uppnå lagring av data, implementerades ett gemensamt schema API efter snabb hälsovård samverkan resurser (FHIR, uttalas brand). Funktionen angavs följande FHIR exchange element:
+För att uppnå lagring av data, implementerades ett gemensamt API-schema följa snabbt Healthcare samverkan-resurser (FHIR, uttalas fire). Funktionen angavs följande FHIR exchange element:
 
--   [Patient schemat](https://www.hl7.org/fhir/patient.html) beskrivs ”som” hur en öppen.
+-   [Patientens schemat](https://www.hl7.org/fhir/patient.html) innehåller ”som” information om hur en patient.
 
--   [Anmärkning schemat](https://www.hl7.org/fhir/observation.html) omfattar centrala elementet i hälsovård, används för att stödja diagnostik, övervaka förloppet, fastställa baslinjer och mönster och även avbilda demografisk egenskaper. 
+-   [Fjärrvisning schemat](https://www.hl7.org/fhir/observation.html) omfattar centrala elementet inom hälsovården, används för att stödja diagnostik, övervaka förloppet, fastställa baslinjer och mönster och även fånga demografiska egenskaper. 
 
--   [Påträffar schemat](https://www.hl7.org/fhir/encounter.html) omfattar typerna av påträffas, till exempel ambulatory, i nödfall, hem hälsa och vård virtuella möten.
+-   [Om du stöter på schemat](https://www.hl7.org/fhir/encounter.html) täcker typerna av möten, till exempel ambulatory, nödfall, hem hälsa och vård virtuella möten.
 
--   [Villkoret schemat](https://www.hl7.org/fhir/condition.html) innehåller detaljerad information om ett villkor, problem, diagnostik, eller andra händelse, situationen, problemet eller kliniska begrepp som har ökat till en nivå av problem.  
+-   [Villkoret schemat](https://www.hl7.org/fhir/condition.html) innehåller detaljerad information om ett villkor, problem, diagnos, eller andra händelsen, situation, problemet eller kliniska begrepp som har ökat till en nivå av problem.  
 
 
 
 ### <a name="event-grid"></a>Event Grid
 
 
-Lösningen stöder Azure händelse rutnät, en enda tjänst för att hantera routning av alla händelser från andra källor till alla mål, förutsatt att:
+Lösningen har stöd för Azure Event Grid, en enskild tjänst för att hantera routning av alla händelser från valfri källa till valfritt mål tillhandahåller:
 
 -   [Säkerhet och autentisering](/azure/event-grid/security-authentication)
 
--   [Rollbaserad åtkomstkontroll](/azure/event-grid/security-authentication#management-access-control) för olika hanteringsåtgärder som visar en lista över händelseprenumerationer, skapa nya och generera nycklar
+-   [Rollbaserad åtkomstkontroll](/azure/event-grid/security-authentication#management-access-control) för olika hanteringsåtgärder, till exempel visa en lista över prenumerationer på händelser, skapa nya och nyckelgenerering
 
 -   Granskning
 
@@ -317,39 +317,39 @@ Lösningen stöder Azure händelse rutnät, en enda tjänst för att hantera rou
 ### <a name="sql-database-and-server"></a>SQL Database och Server 
 
 
--   [Transparent Data kryptering (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) ger realtid kryptering och dekryptering av data som lagras i Azure SQL Database med en nyckel som lagras i Azure Key Vault.
+-   [Transparent datakryptering (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) ger i realtid kryptering och dekryptering av data som lagras i Azure SQL Database med hjälp av en nyckel som lagras i Azure Key Vault.
 
--   [SQL Vulnerability Assessment](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) är ett enkelt att konfigurera verktyg som kan identifiera, spåra och åtgärda eventuella säkerhetsrisker i databasen.
+-   [Sårbarhetsbedömning för SQL](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) är ett enkelt sätt att konfigurera verktyg som kan upptäcka, spåra och åtgärda säkerhetsrisker i databasen.
 
--   [SQL-databasen Hotidentifiering](/azure/sql-database/sql-database-threat-detection) aktiverat.
+-   [SQL Database Threat Detection](/azure/sql-database/sql-database-threat-detection) aktiverat.
 
 -   [SQL Database Auditing](/azure/sql-database/sql-database-auditing) aktiverat.
 
--   [SQL-databas mått och diagnostikloggning](/azure/sql-database/sql-database-metrics-diag-logging) aktiverat.
+-   [SQL Database-mått och diagnostikloggning](/azure/sql-database/sql-database-metrics-diag-logging) aktiverat.
 
--   [Server - och databasnivå brandväggen regler](/azure/sql-database/sql-database-firewall-configure) har varit strängare än tidigare.
+-   [Brandväggsregler för Server - och databasnivå](/azure/sql-database/sql-database-firewall-configure) har blivit strängare än tidigare.
 
--   [Always Encrypted kolumner](/azure/sql-database/sql-database-always-encrypted-azure-key-vault) används för att skydda patient första mellersta och senaste namn.
-    Dessutom använder kolumnen databaskryptering också Azure Active Directory (AD) för att autentisera programmet till Azure SQL Database.
+-   [Alltid krypterad kolumner](/azure/sql-database/sql-database-always-encrypted-azure-key-vault) används för att skydda patientens första mellersta och sista namnen.
+    Dessutom använder kolumnen databaskryptering också Azure Active Directory (AD) för att autentisera program till Azure SQL Database.
 
--   Åtkomst till SQL Database och SQL Server har konfigurerats enligt principen om minsta behörighet.
+-   Åtkomst till SQL Database och SQL Server har konfigurerats enligt principen om lägsta behörighet.
 
--   Endast begärda IP-adresser tillåts via brandväggen för SQL.
+-   Endast nödvändiga IP-adresser tillåts åtkomst via brandväggen för SQL.
 
 ### <a name="storage-accounts"></a>Lagringskonton
 
 
 -   [Data i rörelse överförs med hjälp av TLS/SSL endast](/azure/storage/common/storage-require-secure-transfer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json).
 
--   Anonym åtkomst är inte tillåtet för behållare.
+-   Anonym åtkomst tillåts inte för behållare.
 
 -   Varningsregler är konfigurerade för att spåra anonym aktivitet.
 
--   HTTPS krävs för att komma åt kontot lagringsresurser.
+-   HTTPS krävs för att komma åt resurser för storage-kontot.
 
--   Autentiseringsdata begäran loggas och övervakas.
+-   Autentiseringsdata för begäran loggas och övervakas.
 
--   Vilande krypteras data i Blob storage.
+-   Data i Blob storage krypteras i vila.
 
 ## <a name="analyze"></a>ANALYSERA
 
@@ -357,27 +357,27 @@ Lösningen stöder Azure händelse rutnät, en enda tjänst för att hantera rou
 
 
 -   [Loggning är aktiverat](/azure/machine-learning/studio/web-services-logging) för Machine Learning-webbtjänster.
-- med hjälp av [Maskininlärning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) arbetsstationen kräver experiment, som ger dig möjlighet att förutsäga till en lösning. [Integrera arbetsstationen](/azure/machine-learning/desktop-workbench/using-git-ml-project) kan hjälpa till att förenkla hanteringen av experiment.
+- med hjälp av [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) workbench kräver utvecklingen av experiment, som gör möjligheten att förutsäga till en uppsättning av lösningen. [Integrera workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) kan hjälpa till att effektivisera hantering av experiment.
 
 ## <a name="security"></a>SÄKERHET
 
 ### <a name="azure-security-center"></a>Azure Security Center
-- [Azure Security Center](https://azure.microsoft.com/services/security-center/) innehåller en centraliserad för säkerhetsläget för alla dina Azure-resurser. En överblick över kan du kontrollera att lämpliga säkerhetsåtgärder som är installerade och korrekt konfigurerad och att du snabbt kan identifiera alla resurser som kräver uppmärksamhet. 
+- [Azure Security Center](https://azure.microsoft.com/services/security-center/) ger en central vy över säkerhetsläget hos alla dina Azure-resurser. På ett ögonblick, kan du kontrollera att rätt säkerhetskontroller är på plats och korrekt konfigurerad och att du snabbt kan identifiera eventuella resurser som kräver uppmärksamhet. 
 
-- [Azure Advisor](/azure/advisor/advisor-overview) är personliga molnet konsult som hjälper dig att följa bästa praxis för att optimera din Azure-distributioner. Advisor analyserar din resurskonfiguration och användningstelemetri och rekommenderar sedan lösningar som kan hjälpa dig att förbättra kostnadseffektiviteten, prestanda, tillgängligheten och säkerheten för dina Azure-resurser.
+- [Azure Advisor](/azure/advisor/advisor-overview) är en personligt anpassad molnrådgivare som hjälper dig att följa bästa praxis för att optimera dina Azure-distributioner. Advisor analyserar din resurskonfiguration och användningstelemetri och rekommenderar sedan lösningar som kan hjälpa dig att förbättra kostnadseffektiviteten, prestanda, tillgängligheten och säkerheten för dina Azure-resurser.
 
 ### <a name="application-insights"></a>Application Insights
-- [Application Insights](/azure/application-insights/app-insights-overview) är en utökningsbar Management-program (APM)-tjänst för webbutvecklare på flera plattformar. Du kan använda den för att övervaka ditt live-webbprogram. Den identifierar prestandaavvikelser. Den inkluderar kraftfulla analysverktyg för att hjälpa dig diagnosticera problem och förstå vad användare faktiskt gör med din app. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet.
+- [Application Insights](/azure/application-insights/app-insights-overview) är en utökningsbar tjänst Application Performance Management (APM) för webbutvecklare på flera plattformar. Du kan använda den för att övervaka ditt live-webbprogram. Den identifierar prestandaavvikelser. Den inkluderar kraftfulla analysverktyg för att hjälpa dig diagnosticera problem och förstå vad användare faktiskt gör med din app. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet.
 
 ### <a name="azure-alerts"></a>Azure-aviseringar
-- [Aviseringar ger en metod för att övervaka Azure-tjänster och kan du konfigurera villkor över data. Aviseringar kan du även ange meddelanden när ett varningsvillkor matchar övervakningsdata.
+- [Aviseringar erbjuder en metod för att övervaka Azure-tjänster så att du kan konfigurera villkor för över data. Aviseringar tillhandahåller även meddelanden när en varningsvillkor matchar övervakningsdata.
 
 ### <a name="operations-management-suite-oms"></a>Operations Management Suite (OMS)
-[Operations Management Suite (även kallat OMS)](/azure/operations-management-suite/operations-management-suite-overview) är en samling med hanteringstjänster.
+[Operations Management Suite (även kallat OMS)](/azure/operations-management-suite/operations-management-suite-overview) är en samling hanteringstjänster.
 
 -   Arbetsytan har aktiverats för Security Center
 
--   Arbetsytan är aktiverad för övervakning av arbetsbelastning
+-   Arbetsytan är aktiverat för övervakning av arbetsbelastning
 
 -   Arbetsbelastningen övervakning är aktiverad för:
 
@@ -385,7 +385,7 @@ Lösningen stöder Azure händelse rutnät, en enda tjänst för att hantera rou
 
     -   Säkerhet och granskning
 
-    -   Azure SQL DB Analytics
+    -   Azure SQL DB-analys
 
     -   [Azure WebApp Analytics](/azure/log-analytics/log-analytics-azure-web-apps-analytics) lösning
 
@@ -393,6 +393,6 @@ Lösningen stöder Azure händelse rutnät, en enda tjänst för att hantera rou
 
     -   Spårning av ändringar
 
--   [Application Insights Connector (förhandsgranskning)](/azure/log-analytics/log-analytics-app-insights-connector) är aktiverad
+-   [Application Insights-Anslutningsapp (förhandsversion)](/azure/log-analytics/log-analytics-app-insights-connector) är aktiverat
 
--   [Aktiviteten logganalys](/azure/log-analytics/log-analytics-activity) är aktiverad
+-   [Aktivitetslogganalys](/azure/log-analytics/log-analytics-activity) är aktiverat

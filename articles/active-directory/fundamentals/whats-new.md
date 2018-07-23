@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 480bbd543ddef60dc8dd84d4b454ef5a8c742636
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 76f2bed22d62895e1c537a807ff729c0ba56fbf6
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008400"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136765"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -35,9 +35,35 @@ Azure AD får förbättringar med jämna mellanrum. Om du vill hålla dig uppdat
 
 Den här sidan uppdateras varje månad, så gå tillbaka till den regelbundet.
 
+---
+
 ## <a name="july-2018"></a>Juli 2018
 
-### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Visa äldre autentiseringar via inloggningar aktivitetsloggar
+### <a name="improvements-to-azure-active-directory-email-notifications"></a>Förbättringar av Azure Active Directory e-postmeddelanden
+
+**Typ:** ändringsplan  
+**Tjänstekategori:** andra  
+**Produkt-funktionen:** identitetslivcykelhantering
+ 
+På den **slut juli 2018**, Azure Active Directory (Azure AD) e-postmeddelanden kommer det finnas en uppdaterad design, samt ändringar i avsändarens e-postadress och avsändaren visningsnamn, när de skickas från följande tjänster:
+ 
+- Azure AD-Åtkomstgranskningar
+- Azure AD Connect Health 
+- Azure AD Identity Protection 
+- Azure AD Privileged Identity Management
+- Enterprise-appen upphör att gälla certifikat-meddelanden
+- Etablering tjänstmeddelanden i Enterprise-App
+ 
+E-postmeddelanden skickas från följande e-postadress och ditt visningsnamn:
+
+- E-postadress: azure-noreply@microsoft.com
+- Visningsnamn: Microsoft Azure
+ 
+Ett exempel på några av de nya e-designerna och mer information finns i [e-postmeddelanden i Azure AD PIM](https://go.microsoft.com/fwlink/?linkid=2005832).
+
+---
+
+### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Visa äldre autentiseringar via inloggningsaktivitetsloggar
 
 **Typ:** ny funktion  
 **Tjänstekategori:** rapportering  
@@ -145,7 +171,7 @@ Läs mer om Azure AD-lösenordsskydd [eliminera felaktiga lösenord i din organi
 
 ---
 
-### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Ny ”alla gäster” villkorlig åtkomst Principmall när användningsvillkor (ToU) skapades
+### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Den nya mallen "alla gäster" för princip för villkorsstyrd åtkomst skapas samtidigt som användningsvillkoren skapas
 
 **Typ:** ny funktion  
 **Tjänstekategori:** användningsvillkor  
@@ -157,7 +183,7 @@ Mer information finns i [Azure Active Directory-villkoren i Använd funktion](ht
 
 ---
 
-### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Nya principmallen för ”anpassad” villkorlig åtkomst när användningsvillkor (ToU) skapades
+### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Den nya mallen "anpassad" för princip för villkorsstyrd åtkomst skapas samtidigt som användningsvillkoren skapas
 
 **Typ:** ny funktion  
 **Tjänstekategori:** användningsvillkor  
@@ -237,7 +263,7 @@ Vi har lagt till Microsoft Graph API: er för drift för administration av Azure
 
 ---
 
-### <a name="add-azure-ad-multi-tenant-endpoint-as-an-identity-provider-in-azure-ad-b2c"></a>Lägg till slutpunkt för flera innehavare av Azure AD som en identitetsprovider i Azure AD B2C
+### <a name="add-azure-ad-multi-tenant-endpoint-as-an-identity-provider-in-azure-ad-b2c"></a>Lägg till Azure Active Directory-slutpunkt för flera klientorganisationer som en identitetsprovider i Azure AD B2C
 
 **Typ:** ny funktion  
 **Tjänstekategori:** B2C – Konsumentidentitetshantering  
@@ -247,7 +273,7 @@ Anpassade principer kan, du nu använda vanliga Azure AD-slutpunkten som en iden
 
 ---
 
-### <a name="use-internal-urls-to-access-apps-from-anywhere-with-our-my-apps-sign-in-extension-and-the-azure-ad-application-proxy"></a>Använda interna URL: er för att komma åt appar från var som helst med vår Mina appar Inloggningstillägg och Azure AD-programproxyn
+### <a name="use-internal-urls-to-access-apps-from-anywhere-with-our-my-apps-sign-in-extension-and-the-azure-ad-application-proxy"></a>Använd interna URL:er om du vill ha åtkomst till appar från valfri plats med tillägget Mina appinloggningar och Azure Active Directory-programproxy
 
 **Typ:** ny funktion  
 **Tjänstekategori:** Mina appar  
@@ -257,7 +283,7 @@ Användare kan nu komma åt program via interna URL: er även när utanför för
 
 ---
  
-### <a name="azure-active-directory---data-in-europe-for-europe-customers"></a>Azure Active Directory - Data i Europa för Europa kunder
+### <a name="azure-active-directory---data-in-europe-for-europe-customers"></a>Azure Active Directory – Data i Europa för Europa-kunder
 
 **Typ:** ny funktion  
 **Tjänstekategori:** andra  
@@ -267,7 +293,7 @@ Kunder i Europa kräver att deras data stannar i Europa och replikeras inte utan
 
 ---
  
-### <a name="new-user-provisioning-saas-app-integrations---may-2018"></a>Nya användaretablering för SaaS-app integreringar - maj 2018
+### <a name="new-user-provisioning-saas-app-integrations---may-2018"></a>Ny användarförsörjning för SaaS-appintegreringar – maj 2018
 
 **Typ:** ny funktion  
 **Tjänstekategori:** Appetablering  
@@ -285,7 +311,7 @@ En lista över alla program som stöder etableringen av användare i Azure AD-ga
 
 ---
  
-### <a name="azure-ad-access-reviews-of-groups-and-app-access-now-provides-recurring-reviews"></a>Azure AD-åtkomstgranskningar av grupper och åtkomst till appen nu ger återkommande granskningar
+### <a name="azure-ad-access-reviews-of-groups-and-app-access-now-provides-recurring-reviews"></a>Åtkomstgranskningar i Microsoft Azure Active Directory av grupp- och appåtkomst tillhandahåller nu återkommande granskningar
 
 **Typ:** ny funktion  
 **Tjänstekategori:** Åtkomstgranskningar  
@@ -295,7 +321,7 @@ En lista över alla program som stöder etableringen av användare i Azure AD-ga
 
 ---
 
-### <a name="azure-ad-activity-logs-sign-ins-and-audit-are-now-available-through-ms-graph"></a>Azure AD-aktivitetsloggar (inloggningar och granskning) är nu tillgängliga via MS Graph
+### <a name="azure-ad-activity-logs-sign-ins-and-audit-are-now-available-through-ms-graph"></a>Aktivitetsloggar i Microsoft Azure Active Directory (inloggningar och granskning) är nu tillgängliga via MS Graph
 
 **Typ:** ny funktion  
 **Tjänstekategori:** rapportering  
@@ -305,7 +331,7 @@ Azure AD aktivitetsloggar, vilket innefattar inloggningar och granskningsloggar,
 
 ---
  
-### <a name="improvements-to-the-b2b-redemption-experience-and-leave-an-org"></a>Förbättringar av B2B-inlösen upplevelse och lämna en organisation
+### <a name="improvements-to-the-b2b-redemption-experience-and-leave-an-org"></a>Förbättringar av B2B-inlösningsprocessen och att lämna en organisation
 
 **Typ:** ny funktion  
 **Tjänstekategori:** B2B  
@@ -347,7 +373,7 @@ Om du vill visa distributionsguiden, går du till den [identitet distributionsgu
 
 ---
 
-### <a name="enterprise-applications-search---load-more-apps"></a>Företagsprogram Sök – Läs in fler appar
+### <a name="enterprise-applications-search---load-more-apps"></a>Enterprise-programsökning – Läs in fler appar
 
 **Typ:** ny funktion  
 **Tjänstekategori:** Företagsappar  
@@ -367,7 +393,7 @@ Maj versionen av AADConnect innehåller en offentlig förhandsversion av integre
 
 ---
 
-### <a name="azure-ad-access-reviews-auto-apply"></a>Azure AD-åtkomstgranskningar: Använd automatiskt
+### <a name="azure-ad-access-reviews-auto-apply"></a>Åtkomstgranskningar i Microsoft Azure Active Directory: Använd automatiskt
 
 **Typ:** ändrade funktionen  
 **Tjänstekategori:** Åtkomstgranskningar  
@@ -377,7 +403,7 @@ Maj versionen av AADConnect innehåller en offentlig förhandsversion av integre
 
 ---
 
-### <a name="id-tokens-can-no-longer-be-returned-using-the-query-responsemode-for-new-apps"></a>ID-token kan inte längre returneras med frågan response_mode för nya appar. 
+### <a name="id-tokens-can-no-longer-be-returned-using-the-query-responsemode-for-new-apps"></a>Det går inte längre att returnera ID-token med frågan response_mode för nya appar. 
 
 **Typ:** ändrade funktionen  
 **Tjänstekategori:** autentiseringar (inloggningar)  
@@ -558,7 +584,7 @@ Mer information finns i [Azure AD-lösenordsåterställning från inloggningssk�
 
 ## <a name="march-2018"></a>Mars 2018
  
-### <a name="certificate-expire-notification"></a>Meddelande om att certifikatet upphör att gälla
+### <a name="certificate-expire-notification"></a>Certifikatet upphör att gälla meddelande
 
 **Typ:** fast  
 **Tjänstekategori:** Företagsappar  
@@ -575,7 +601,7 @@ Mer information finns i:
  
 ---
  
-### <a name="twitter-and-github-identity-providers-in-azure-ad-b2c"></a>Twitter- och GitHub-identitetsproviders i Azure AD B2C
+### <a name="twitter-and-github-identity-providers-in-azure-ad-b2c"></a>Twitter- och GitHub-Identitetsproviders i Azure AD B2C
 
 **Typ:** ny funktion  
 **Tjänstekategori:** B2C – Konsumentidentitetshantering  
@@ -645,7 +671,7 @@ Mer information finns i [Azure Active Directory sömlös enkel inloggning](https
 
 ---
  
-### <a name="need-to-add-only-one-azure-ad-url-instead-of-two-urls-previously-to-users-intranet-zone-settings-to-roll-out-seamless-sso"></a>Behöver bara lägga till en Azure AD-URL, istället för två URL:er som tidigare, till användares zoninställningar för Intranätet för att rulla ut sömlös enkel inloggning
+### <a name="need-to-add-only-one-azure-ad-url-instead-of-two-urls-previously-to-users-intranet-zone-settings-to-roll-out-seamless-sso"></a>Lägga till endast en Azure AD-URL, istället för två URL: er tidigare, till användares Zoninställningar för intranätet att rulla ut sömlös enkel inloggning
 
 **Typ:** ny funktion  
 **Tjänstekategori:** autentiseringar (inloggningar)  

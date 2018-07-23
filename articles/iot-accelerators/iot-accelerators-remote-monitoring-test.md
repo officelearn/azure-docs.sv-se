@@ -1,6 +1,6 @@
 ---
-title: Enheten simuleringen i fjärranslutna övervakningslösning - Azure | Microsoft Docs
-description: Den här kursen visar hur du använder enheten simulatorn med fjärråtkomst övervakning solution accelerator.
+title: Enhetssimulering i fjärrövervakningslösningen – Azure | Microsoft Docs
+description: Den här självstudien visar hur du använder enhetssimulatorn med den lösningsacceleratorn för fjärrövervakningen.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,34 +8,34 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: 33566bd31f320ccc21f32a256d96d89ee25198bb
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8d8835bd97b489a730a040e86748c668963c7196
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088679"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187731"
 ---
 # <a name="create-a-new-simulated-device"></a>Skapa en ny simulerad enhet
 
-Den här kursen visar hur du anpassar enheten simulatorn mikrotjänster i Fjärrövervaknings solution accelerator. Den här kursen använder två scenarier i Contoso IoT-programmet för att visa funktionerna i enheten simulatorn.
+Den här självstudien visar hur du anpassar enheten simulatorn mikrotjänst i lösningsacceleratorn för fjärrövervakning. Den här självstudien används för att visa funktionerna i enhetssimulatorn, två scenarier i Contoso-IoT-program.
 
 Följande videoklipp visar en översikt över alternativ för att anpassa enheten simulatorn mikrotjänster:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
-Contoso vill testa en ny enhet för smart av glödlampa i det första scenariot. Om du vill utföra testerna måste skapa du en ny simulerade enhet med följande egenskaper:
+I det första scenariot vill Contoso testa en ny smart glödlampan-enhet. Om du vill utföra testerna måste skapa du en ny simulerad enhet med följande egenskaper:
 
 *Egenskaper*
 
 | Namn                     | Värden                      |
 | ------------------------ | --------------------------- |
 | Färg                    | Vit, röd, blå            |
-| Ljusstyrkan               | 0 till 100                    |
-| Uppskattad återstående livslängd | Nedräkning 10 000 timmar |
+| Ljusstyrka               | 0 till 100                    |
+| Beräknad återstående livslängd | Nedräkning från 10 000 timmar |
 
 *Telemetri*
 
-Följande tabell visar data i av glödlampa rapporterar till molnet som en dataström:
+I följande tabell visas data på glödlampan rapporterar till molnet som en dataström:
 
 | Namn   | Värden      |
 | ------ | ----------- |
@@ -44,7 +44,7 @@ Följande tabell visar data i av glödlampa rapporterar till molnet som en datas
 | Online | SANT, FALSKT |
 
 > [!NOTE]
-> Den **online** telemetri värdet är obligatoriskt för alla simulerade typer.
+> Den **online** telemetrivärde är obligatoriskt för alla simulerade typer.
 
 *Metoder*
 
@@ -53,95 +53,95 @@ I följande tabell visas de åtgärder som har stöd för den nya enheten:
 | Namn        |
 | ----------- |
 | Aktivera   |
-| Stäng av  |
+| Stänga av  |
 
-*Ursprungligt tillstånd*
+*Starttillstånd*
 
-I följande tabell visas enhetens inledande status:
+I följande tabell visas den första statusen för enheten:
 
 | Namn                     | Värden |
 | ------------------------ | -------|
 | Inledande färg            | Vit  |
-| Inledande intensitet       | 75     |
+| Inledande ljusstyrka       | 75     |
 | Inledande återstående livslängd   | 10 000 |
 | Inledande telemetri status | ”on”   |
 | Inledande telemetri temperatur | 200   |
 
 I det andra scenariot lägger du till en ny typ av telemetri till Contoso befintliga **kylaggregat** enhet.
 
-Den här kursen visar hur du använder enheten simulatorn med Fjärrövervaknings solution accelerator:
+Den här självstudien visar hur du använder enhetssimulatorn med lösningsacceleratorn för fjärrövervakning:
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 >[!div class="checklist"]
-> * Skapa en ny enhetstyp av
-> * Simulera anpassade beteende
-> * Lägga till en ny enhet på instrumentpanelen
+> * Skapa en ny typ av enhet
+> * Simulera beteende för anpassad enhet
+> * Lägga till en ny typ av enhet på instrumentpanelen
 > * Skicka telemetri om anpassade från en befintlig typ av enhet
 
-Följande videoklipp visar en genomgång av simulerade och verkliga enheter som ansluter till Fjärrövervaknings-lösningen:
+Följande videoklipp visar en genomgång av ansluta simulerade och verkliga enheter till lösningen för fjärrövervakning:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill följa den här kursen behöver du:
+Om du vill följa den här självstudien behöver du:
 
-* En distribuerad instans av Fjärrövervaknings lösningen i din Azure-prenumeration. Om du inte har distribuerat Fjärrövervaknings lösningen ännu, bör du genomföra den [distribuera Fjärrövervaknings solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) kursen.
+* En distribuerad instans av lösningen för fjärrövervakning i Azure-prenumerationen. Om du inte har distribuerat av lösningen för fjärrövervakning ännu, bör du genomföra den [distribuerar lösningsacceleratorn för fjärrövervakning](../iot-accelerators/quickstart-remote-monitoring-deploy.md) självstudien.
 
 * Visual Studio 2017. Om du inte har Visual Studio 2017 installerat kan du hämta den kostnadsfria [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) edition.
 
 * [Cloud Explorer för Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVS15Preview) Visual Studio-tillägget.
 
-* Ett konto på [Docker-hubb](https://hub.docker.com/). Du kan registrera dig gratis att komma igång.
+* Ett konto på [Docker Hub](https://hub.docker.com/). Du kan registrera dig kostnadsfritt att komma igång.
 
-* [Git](https://git-scm.com/downloads) installerad på den stationära datorn.
+* [Git](https://git-scm.com/downloads) installerad på din stationära dator.
 
 ## <a name="prepare-your-development-environment"></a>Förbereda utvecklingsmiljön
 
-Utför följande uppgifter för att förbereda din utvecklingsmiljö för att lägga till en ny simulerade enhet till din lösning för övervakning av fjärråtkomst:
+Utför följande uppgifter för att förbereda din utvecklingsmiljö för att lägga till en ny simulerad enhet till lösningen för fjärrövervakning:
 
-### <a name="configure-ssh-access-to-the-solution-virtual-machine-in-azure"></a>Konfigurera SSH-åtkomst till den virtuella datorn på lösningen i Azure
+### <a name="configure-ssh-access-to-the-solution-virtual-machine-in-azure"></a>Konfigurera SSH-åtkomst till den virtuella datorn för lösningen i Azure
 
-När du skapade din Fjärrövervaknings lösningen i [www.azureiotsolutions.com](https://www.azureiotsolutions.com), du har valt en lösningens namn. Lösningens namn blir namnet på Azure-resursgrupp som innehåller de olika distribuerade resurser som används i lösningen. Använder följande kommandon en resursgrupp med namnet **Contoso-01**, bör du ersätta **Contoso-01** med namnet på resursgruppen.
+När du skapade lösningen för fjärrövervakning i [www.azureiotsolutions.com](https://www.azureiotsolutions.com), du har valt en lösningsnamn. Lösningens namn blir namnet på Azure-resursgrupp som innehåller de olika distribuerade resurserna som lösningen använder. Använder följande kommandon en resursgrupp med namnet **Contoso-01**, bör du ersätta **Contoso-01** med namnet på resursgruppen.
 
-Följande kommandon för användning av `az` från [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Du kan installera Azure CLI 2.0 på utvecklingsdatorn eller använda den [moln Shell](https://docs.microsoft.com/azure/cloud-shell/overview) i den [Azure-portalen](http://portal.azure.com). Azure CLI 2.0 är förinstallerade i molnet-gränssnittet.
+Följande kommandon används den `az` från [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Du kan installera Azure CLI 2.0 på utvecklingsdatorn eller använda den [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) i den [Azure-portalen](http://portal.azure.com). Azure CLI 2.0 är förinstallerad i Cloud Shell.
 
-1. Kontrollera namnet på resursgruppen som innehåller dina Fjärrövervaknings resurser genom att köra följande kommando:
+1. Kontrollera namnet på resursgruppen som innehåller dina fjärrövervakning resurser genom att köra följande kommando:
 
     ```sh
     az group list | grep "name"
     ```
 
-    Det här kommandot visar alla resursgrupper i din prenumeration. I listan ska innehålla en resursgrupp med samma namn som din lösning för övervakning av fjärråtkomst.
+    Det här kommandot visar en lista över alla resursgrupper i prenumerationen. Listan ska innehålla en resursgrupp med samma namn som lösningen för fjärrövervakning.
 
-1. Kör följande kommando med din resursgruppens namn i stället för att göra din resurs gruppera standardgruppen för efterföljande kommandon **Contoso-01**:
+1. För att göra din resurs gruppen till standardgrupp för efterföljande kommandon, kör du följande kommando med hjälp av namn på resursgruppen i stället för **Contoso-01**:
 
     ```sh
     az configure --defaults group=Contoso-01
     ```
 
-1. Kör följande kommando för att lista resurserna i resursgruppen:
+1. Om du vill visa resurserna i resursgruppen, kör du följande kommando:
 
     ```sh
     az resource list -o table
     ```
 
-    Anteckna namnen på den virtuella datorn och dina nätverkssäkerhetsgruppen. Du kan använda dessa värden i senare steg.
+    Anteckna namnen på den virtuella datorn och nätverkssäkerhetsgruppen. Du kan använda dessa värden i senare steg.
 
-1. Om du vill aktivera SSH-åtkomst till den virtuella datorn, kör du följande kommando med namnet på din nätverkssäkerhetsgruppen från föregående steg:
+1. Om du vill aktivera SSH-åtkomst till den virtuella datorn, kör du följande kommando med hjälp av namnet i nätverkssäkerhetsgruppen från föregående steg:
 
     ```sh
     az network nsg rule create --name SSH --nsg-name YOUR-NETWORK-SECURITY-GROUP --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
     ```
 
-    Om du vill visa listan över regler för inkommande trafik i nätverket, kör du följande kommando:
+    Om du vill visa listan över regler för inkommande trafik för ditt nätverk, kör du följande kommando:
 
     ```sh
     az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
 
-1. Om du vill ändra lösenordet för virtuell dator till ett lösenord som du vet att köra följande kommando. Använd namnet på den virtuella datorn som du antecknade tidigare och ett lösenord som du väljer:
+1. Om du vill ändra lösenord för virtuell dator till ett lösenord som du vet, kör du följande kommando. Använd namnet på den virtuella datorn som du antecknade tidigare och ett valfritt lösenord:
 
     ```sh
     az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
@@ -152,13 +152,13 @@ Följande kommandon för användning av `az` från [Azure CLI 2.0](https://docs.
     az vm list-ip-addresses --name YOUR-VM-NAME
     ```
 
-1. Du kan nu använda SSH för att ansluta till den virtuella datorn. Den `ssh` kommandot är förinstallerade i molnet-gränssnittet. Använd den offentliga IP-adressen från föregående steg, och när du uppmanas att göra lösenordet som du konfigurerade för den virtuella datorn:
+1. Du kan nu använda SSH för att ansluta till den virtuella datorn. Den `ssh` kommandot är förinstallerad i Cloud Shell. Använd den offentliga IP-adressen från föregående steg, och när du uppmanas att göra lösenordet som du konfigurerade för den virtuella datorn:
 
     ```sh
     ssh azureuser@public-ip-address
     ```
 
-    Nu har du åtkomst till gränssnittet på den virtuella datorn som kör Docker-behållare i Fjärrövervaknings-lösning. Om du vill visa behållarna som körs, använder du följande kommando:
+    Nu har du åtkomst till gränssnittet på den virtuella datorn som kör Docker-behållare i lösningen för fjärrövervakning. Om du vill visa behållarna som körs, använder du följande kommando:
 
     ```sh
     docker ps
@@ -166,9 +166,9 @@ Följande kommandon för användning av `az` från [Azure CLI 2.0](https://docs.
 
 ### <a name="find-the-service-connection-strings"></a>Hitta anslutningssträngar för tjänsten
 
-I självstudierna kan du arbeta med Visual Studio-lösning som ansluter till lösningens Cosmos-DB- och IoT-hubb. Följande steg visar ett sätt att hitta anslutningen strängvärden som du behöver:
+I självstudien får arbeta du med Visual Studio-lösning som ansluter till lösningens Cosmos DB och IoT Hub-tjänster. Följande steg visar ett sätt att hitta anslutningen strängvärden som du behöver:
 
-1. Kör följande kommando för att hitta anslutningssträngen Cosmos-DB i SSH-session som är ansluten till den virtuella datorn:
+1. Kör följande kommando för att hitta Cosmos DB-anslutningssträngen i SSH-session som är anslutna till den virtuella datorn:
 
     ```sh
     sudo grep STORAGEADAPTER_DOCUMENTDB /app/env-vars
@@ -176,7 +176,7 @@ I självstudierna kan du arbeta med Visual Studio-lösning som ansluter till lö
 
     Anteckna anslutningssträngen. Du använder det här värdet senare i kursen.
 
-1. Kör följande kommando för att hitta anslutningssträngen IoT-hubb i SSH-session som är ansluten till den virtuella datorn:
+1. Kör följande kommando för att hitta IoT Hub-anslutningssträngen i SSH-session som är anslutna till den virtuella datorn:
 
     ```sh
     sudo grep IOTHUB_CONNSTRING /app/env-vars
@@ -185,13 +185,13 @@ I självstudierna kan du arbeta med Visual Studio-lösning som ansluter till lö
     Anteckna anslutningssträngen. Du använder det här värdet senare i kursen.
 
 > [!NOTE]
-> Du kan också hitta dessa anslutningssträngar i Azure-portalen eller genom att använda den `az` kommando.
+> Du kan också hitta dessa anslutningssträngar i Azure portal eller med hjälp av den `az` kommando.
 
-### <a name="stop-the-device-simulation-service-in-the-virtual-machine"></a>Stoppa tjänsten enhet simuleringen på den virtuella datorn
+### <a name="stop-the-device-simulation-service-in-the-virtual-machine"></a>Stoppa tjänsten enheten simulering i den virtuella datorn
 
-När du ändrar simuleringen tjänst kan köra du det lokalt för att testa dina ändringar. Innan du kör tjänsten enhet simuleringen lokalt, måste du stoppa den instans som körs på den virtuella datorn på följande sätt:
+När du ändrar device simulering-tjänsten kan köra du den lokalt och testa dina ändringar. Innan du kör tjänsten enheten simuleringen lokalt, måste du stoppa den instans som körs på den virtuella datorn på följande sätt:
 
-1. Att hitta den **BEHÅLLAR-ID** av den **enhet-simulering-dotnet** tjänsten, kör följande kommando i SSH-session som är ansluten till den virtuella datorn:
+1. Att hitta den **BEHÅLLAR-ID** av den **enhet-simulering-dotnet** tjänsten och köra följande kommando i SSH-session som är anslutna till den virtuella datorn:
 
     ```sh
     docker ps
@@ -199,75 +199,75 @@ När du ändrar simuleringen tjänst kan köra du det lokalt för att testa dina
 
     Anteckna behållar-ID för den **enhet-simulering-dotnet** service.
 
-1. Stoppa den **dotnet-simulering-enheten** behållare, kör du följande kommando:
+1. Stoppa den **enhet-simulering-dotnet** behållare, kör du följande kommando:
 
     ```sh
     docker stop container-id-from-previous-step
     ```
 
-### <a name="clone-the-github-repositories"></a>Klona GitHub-databaser
+### <a name="clone-the-github-repositories"></a>Klona GitHub-lagringsplatser
 
-I kursen får du arbeta med den **enheten simuleringen** och **lagringsadapter** Visual Studio-projekt. Du kan också klona källkodslager från GitHub. Utför det här steget på lokala utvecklingsdatorn där du har Visual Studio installerat:
+I den här självstudien får du arbeta med den **enhetssimulering** och **lagringsadapter** Visual Studio-projekt. Du kan klona källkodslager från GitHub. Utför det här steget på din lokala utvecklingsdator där du har Visual Studio installerat:
 
-1. Öppna en kommandotolk och navigera till mappen där du vill spara en kopia av den **enheten simuleringen** och **lagringsadapter** GitHub-lagringsplatser.
+1. Öppna en kommandotolk och navigera till mappen där du vill spara din kopia av den **enhetssimulering** och **lagringsadapter** GitHub-lagringsplatser.
 
-1. Att klona .NET-versionen av den **enheten simuleringen** databasen, kör du följande kommando:
+1. Klona .NET-versionen av den **enhetssimulering** databasen, kör du följande kommando:
 
     ```cmd
     git clone https://github.com/Azure/device-simulation-dotnet.git
     ```
 
-    Tjänst för simuleringen i lösningen Fjärrövervaknings gör att du kan göra ändringar i de inbyggda simulerade enhetstyper och om du vill skapa en ny simulerade enhetstyper. Du kan använda anpassade enhetstyper för att testa beteendet för lösningen Fjärrövervaknings innan du ansluter din fysiska enheter.
+    Enheten simulering tjänsten i lösningen för fjärrövervakning kan du göra ändringar i de inbyggda simulerade enhetstyper och för att skapa en ny simulerad enhetstyper. Du kan använda anpassade enhetstyper för att testa beteendet för lösningen för fjärrövervakning innan du ansluter din fysiska enheter.
 
-1. Att klona .NET-versionen av den **lagringsadapter** databasen, kör du följande kommando:
+1. Klona .NET-versionen av den **lagringsadapter** databasen, kör du följande kommando:
 
     ```cmd
     git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
-    Tjänsten enhet simuleringen använder nätverkskort lagringstjänsten för att ansluta till tjänsten Cosmos-DB i Azure. Fjärrövervaknings lösningen lagrar konfigurationsdata för simulerade enheten i en Cosmos-DB-databas.
+    Enheten simulering tjänsten använder storage adapter-tjänsten för att ansluta till Cosmos DB-tjänsten i Azure. Lösningen för fjärrövervakning lagrar konfigurationsdata simulerad enhet i en Cosmos DB-databas.
 
-### <a name="run-the-storage-adapter-service-locally"></a>Kör kortet lagringstjänsten lokalt
+### <a name="run-the-storage-adapter-service-locally"></a>Kör storage adapter-tjänsten lokalt
 
-Tjänsten enhet simuleringen använder nätverkskort lagringstjänsten för att ansluta till lösningens Cosmos-DB-databas. Om du kör tjänsten enhet simuleringen lokalt, måste du också köra kortet lagringstjänsten lokalt. Följande steg visar hur du kör kortet lagringstjänsten från Visual Studio:
+Enheten simulering tjänsten använder storage adapter-tjänsten för att ansluta till lösningens Cosmos DB-databas. Om du kör tjänsten enheten simuleringen lokalt, måste du också köra storage adapter-tjänsten lokalt. Följande steg visar hur du kör storage adapter-tjänsten från Visual Studio:
 
-1. Öppna i Visual Studio den **datorer-lagring – adapter.sln** lösningsfilen i din lokala kloning av den **lagringsadapter** databasen.
+1. Visual Studio, öppna den **datorer-storage-adapter.sln** lösningsfilen i din lokala klon av den **lagringsadapter** lagringsplats.
 
-1. I Solution Explorer högerklickar du på den **WebService** projekt, Välj **egenskaper**, och välj sedan **felsöka**.
+1. I Solution Explorer högerklickar du på den **webbtjänsten** projektet, Välj **egenskaper**, och välj sedan **felsöka**.
 
-1. I den **miljövariabler** avsnitt, redigera värdet för den **datorer\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING** variabeln ska vara Cosmos-DB-anslutning strängen som du antecknade tidigare. Spara dina ändringar.
+1. I den **miljövariabler** avsnittet, redigerar du värdet för den **datorer\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING** variabeln ska vara Cosmos DB-anslutning strängen som du antecknade tidigare. Spara dina ändringar.
 
-1. I Solution Explorer högerklickar du på den **WebService** projekt, Välj **felsöka**, och välj sedan **Starta ny instans**.
+1. I Solution Explorer högerklickar du på den **webbtjänsten** projektet, Välj **felsöka**, och välj sedan **Starta ny instans**.
 
-1. Tjänsten har startats körs lokalt och öppnar `http://localhost:9022/v1/status` i din standardwebbläsare. Kontrollera att den **Status** värdet är ”OK: Alive och korrekt”.
+1. Tjänsten har startats körs lokalt och öppnar `http://localhost:9022/v1/status` i din standardwebbläsare. Kontrollera att den **Status** värdet är ”OK: Alive och bra”.
 
-1. Lämna kortet lagringstjänsten körs lokalt förrän du har slutfört guiden.
+1. Lämna storage adapter-tjänsten som körs lokalt förrän du har slutfört kursen.
 
-Nu har du allt på plats och du är redo att börja lägga till en ny typ av simulerade enheten i din lösning för övervakning av fjärråtkomst.
+Nu har du allt på plats och du är redo att börja lägga till en ny typ av simulerad enhet i lösningen för fjärrövervakning.
 
-## <a name="create-a-simulated-device-type"></a>Skapa en simulerad enhetstyp
+## <a name="create-a-simulated-device-type"></a>Skapa en simulerad enhet-typ
 
-Det enklaste sättet att skapa en ny typ av enhet i simuleringen tjänst är att kopiera och ändra en befintlig typ. Följande steg visar hur du kopierar inbyggt **kylaggregat** enhet för att skapa en ny **av glödlampa** enhet:
+Det enklaste sättet att skapa en ny typ av enhet i device simulering-tjänsten är att kopiera och ändra en befintlig typ. Följande steg visar hur du kopierar inbyggt **kylaggregat** enheten för att skapa en ny **glödlampan** enhet:
 
-1. I Solution Explorer högerklickar du på den **WebService** projekt, Välj **egenskaper**, och välj sedan **felsöka**.
+1. I Solution Explorer högerklickar du på den **webbtjänsten** projektet, Välj **egenskaper**, och välj sedan **felsöka**.
 
-1. I den **miljövariabler** avsnitt, redigera värdet för den **datorer\_IOTHUB\_CONNSTRING** variabeln ska vara IoT-hubb anslutningssträngen som du antecknade tidigare. Spara dina ändringar.
+1. I den **miljövariabler** avsnittet, redigerar du värdet för den **datorer\_IOTHUB\_CONNSTRING** variabeln ska vara IoT Hub-anslutningssträngen som du antecknade tidigare. Spara dina ändringar.
 
-1. I Solution Explorer högerklickar du på den **enheten simuleringen** lösning och välj **ange Startprojekt**. Välj **enda Startprojekt** och välj **WebService**. Klicka sedan på **OK**.
+1. I Solution Explorer högerklickar du på den **enhetssimulering** lösningen och välj **ange Startprojekt**. Välj **enda Startprojekt** och välj **webbtjänsten**. Klicka sedan på **OK**.
 
-1. Varje typ av enhet har en modell JSON-fil och associerade skript i den **Services/data/devicemodels** mapp. I Solution Explorer, kopiera den **kylaggregat** filer för att skapa den **av glödlampa** filer som visas i följande tabell:
+1. Varje typ av enhet har en JSON-modellfil och associerade skript i den **tjänster/data/devicemodels** mapp. I Solution Explorer, kopiera den **kylaggregat** filer för att skapa den **glödlampan** filer som du ser i följande tabell:
 
     | Källa                      | Mål                   |
     | --------------------------- | ----------------------------- |
     | chiller-01.json             | lightbulb-01.json             |
-    | skript/kylaggregat-01-state.js | skript/av glödlampa-01-state.js |
-    | omstart/skript-method.js    | SwitchOn/skript-method.js    |
+    | skript/kylaggregat-01-state.js | skript/glödlampan-01-state.js |
+    | omstart/skript-method.js    | skript/SwitchOn-method.js    |
 
 ### <a name="define-the-characteristics-of-the-new-device-type"></a>Definiera egenskaperna för den nya enhetstypen
 
-Den **av glödlampa 01.json** filen definierar egenskaperna för typen, till exempel telemetrin genereras och metoderna som stöder. Följ anvisningarna nedan för uppdatering av **av glödlampa 01.json** filen för att definiera den **av glödlampa** enhet:
+Den **glödlampan 01.json** fil definierar egenskaperna för typ, till exempel telemetri som genereras och metoderna som stöds. Följande steg update den **glödlampan 01.json** att ange den **glödlampan** enhet:
 
-1. I den **av glödlampa 01.json** uppdaterar enhetens metadata som visas i följande utdrag:
+1. I den **glödlampan 01.json** uppdaterar enhetsmetadata som visas i följande kodavsnitt:
 
     ```json
     "SchemaVersion": "1.0.0",
@@ -278,7 +278,7 @@ Den **av glödlampa 01.json** filen definierar egenskaperna för typen, till exe
     "Protocol": "MQTT",
     ```
 
-1. I den **av glödlampa 01.json** uppdaterar definitionen simuleringen som visas i följande utdrag:
+1. I den **glödlampan 01.json** uppdaterar simulering definitionen som du ser i följande kodavsnitt:
 
     ```json
     "Simulation": {
@@ -298,7 +298,7 @@ Den **av glödlampa 01.json** filen definierar egenskaperna för typen, till exe
     },
     ```
 
-1. I den **av glödlampa 01.json** uppdaterar Typegenskaper enheten som visas i följande utdrag:
+1. I den **glödlampan 01.json** uppdaterar egenskaperna för enheten typ som du ser i följande kodavsnitt:
 
     ```json
     "Properties": {
@@ -309,7 +309,7 @@ Den **av glödlampa 01.json** filen definierar egenskaperna för typen, till exe
     },
     ```
 
-1. I den **av glödlampa 01.json** uppdaterar enheten telemetri typdefinitioner som visas i följande utdrag:
+1. I den **glödlampan 01.json** uppdaterar telemetri för enheten typdefinitioner som visas i följande kodavsnitt:
 
     ```json
     "Telemetry": [
@@ -329,7 +329,7 @@ Den **av glödlampa 01.json** filen definierar egenskaperna för typen, till exe
     ],
     ```
 
-1. I den **av glödlampa 01.json** uppdaterar enheten typen metoder som visas i följande utdrag:
+1. I den **glödlampan 01.json** uppdaterar enhetsmetoder för typen som visas i följande kodavsnitt:
 
     ```json
     "CloudToDeviceMethods": {
@@ -344,13 +344,13 @@ Den **av glödlampa 01.json** filen definierar egenskaperna för typen, till exe
     }
     ```
 
-1. Spara den **av glödlampa 01.json** fil.
+1. Spara den **glödlampan 01.json** fil.
 
-### <a name="simulate-custom-device-behavior"></a>Simulera anpassade beteende
+### <a name="simulate-custom-device-behavior"></a>Simulera beteende för anpassad enhet
 
-Den **skript/av glödlampa-01-state.js** filen definierar beteendet simulering av den **av glödlampa** typen. Följ anvisningarna nedan för uppdatering av **skript/av glödlampa-01-state.js** filen för att definiera beteendet för den **av glödlampa** enhet:
+Den **skript/glödlampan-01-state.js** fil definierar beteendet simulering av den **glödlampan** typen. Följande steg update den **skript/glödlampan-01-state.js** att ange beteendet för den **glödlampan** enhet:
 
-1. Redigera definition av tillstånd i den **skript/av glödlampa-01-state.js** filen som visas i följande utdrag:
+1. Redigera definitionen tillstånd i den **skript/glödlampan-01-state.js** filen som du ser i följande kodavsnitt:
 
     ```js
     // Default state
@@ -376,7 +376,7 @@ Den **skript/av glödlampa-01-state.js** filen definierar beteendet simulering a
     }
     ```
 
-1. Redigera den **huvudsakliga** funktion för att implementera beteenden som visas i följande utdrag:
+1. Redigera den **huvudsakliga** funktionen för att implementera beteende som visas i följande kodavsnitt:
 
     ```js
     function main(context, previousState, previousProperties) {
@@ -397,11 +397,11 @@ Den **skript/av glödlampa-01-state.js** filen definierar beteendet simulering a
     }
     ```
 
-1. Spara den **skript/av glödlampa-01-state.js** fil.
+1. Spara den **skript/glödlampan-01-state.js** fil.
 
-Den **SwitchOn/skript-method.js** filen implementerar den **växeln på** metod i en **av glödlampa** enhet. Följ anvisningarna nedan för uppdatering av **SwitchOn/skript-method.js** fil:
+Den **skript/SwitchOn-method.js** filen implementerar den **växel på** -metod i en **glödlampan** enhet. Följande steg update den **skript/SwitchOn-method.js** fil:
 
-1. Redigera definition av tillstånd i den **SwitchOn/skript-method.js** filen som visas i följande utdrag:
+1. Redigera definitionen tillstånd i den **skript/SwitchOn-method.js** filen som du ser i följande kodavsnitt:
 
     ```js
     var state = {
@@ -409,7 +409,7 @@ Den **SwitchOn/skript-method.js** filen implementerar den **växeln på** metod 
     };
     ```
 
-1. Om du vill aktivera den av glödlampa redigera den **huvudsakliga** fungerar på följande sätt:
+1. Om du vill växla på glödlampan, redigera den **huvudsakliga** fungerar på följande sätt:
 
     ```js
     function main(context, previousState) {
@@ -419,11 +419,11 @@ Den **SwitchOn/skript-method.js** filen implementerar den **växeln på** metod 
     }
     ```
 
-1. Spara den **SwitchOn/skript-method.js** fil.
+1. Spara den **skript/SwitchOn-method.js** fil.
 
-1. Skapa en kopia av **SwitchOn/skript-method.js** fil med namnet **SwitchOff/skript-method.js**.
+1. Skapa en kopia i **skript/SwitchOn-method.js** fil med namnet **skript/SwitchOff-method.js**.
 
-1. Om du vill stänga av glödlampa redigera den **huvudsakliga** fungera i den **SwitchOff/skript-method.js** enligt följande:
+1. Om du vill stänga av glödlampan, redigera den **huvudsakliga** fungera i den **skript/SwitchOff-method.js** så här:
 
     ```js
     function main(context, previousState) {
@@ -433,82 +433,72 @@ Den **SwitchOn/skript-method.js** filen implementerar den **växeln på** metod 
     }
     ```
 
-1. Spara den **SwitchOff/skript-method.js** fil.
+1. Spara den **skript/SwitchOff-method.js** fil.
 
-1. I Solution Explorer väljer du var och en av dina fyra nya filer i sin tur. I den **egenskaper** fönster för varje fil, kontrollerar du att **kopiera till utdatakatalog** är inställd på **kopiera om nyare**.
+1. I Solution Explorer väljer du var och en av dina fyra nya filer i tur och ordning. I den **egenskaper** fönstret för varje fil, kontrollerar du att **kopiera till utdatakatalog** är inställd på **kopiera om nyare**.
 
-### <a name="configure-the-device-simulation-service"></a>Konfigurera simulering tjänst
+### <a name="configure-the-device-simulation-service"></a>Konfigurera tjänsten enheten simulering
 
-Konfigurera tjänsten om du vill köra en enda kylaggregat och en enda av glödlampa enhet om du vill begränsa antalet simulerade enheter som ansluter till lösningen under testningen. Konfigurationsinformationen lagras i Cosmos-DB-instans i lösningens resursgruppen. Om du vill redigera konfigurationsdata, Använd den **Cloud Explorer** vyn i Visual Studio:
+Konfigurera tjänsten för att köra en enda kylaggregat och en enda glödlampan enhet om du vill begränsa antalet simulerade enheter som ansluter till lösningen under testningen. Konfigurationsinformationen lagras i Cosmos DB-instans i resursgruppen för lösningen. Om du vill redigera konfigurationsdata, använda den **Cloud Explorer** vyn i Visual Studio:
 
 1. Öppna den **Cloud Explorer** visa i Visual Studio, Välj **visa** och sedan **Cloud Explorer**.
 
-1. Att hitta simuleringen configuration dokumentet i **Sök efter resurser** ange **simualtions.1**.
+1. Du hittar konfigurationsdokumentet simulering Gå **Sök efter resurser** ange **simualtions.1**.
 
-1. Dubbelklicka på den **simulations.1** dokument för att öppna den för redigering.
+1. Dubbelklicka på den **simulations.1** dokumentet för att öppna den för redigering.
 
-1. I värdet för **Data**, leta upp den **DeviceModels** matris som ser ut som följande utdrag:
+1. I värdet för **Data**, leta upp den **DeviceModels** matris som ser ut som följande kodavsnitt:
 
     ```json
     [{\"Id\":\"chiller-01\",\"Count\":1},{\"Id\":\"chiller-02\",\"Count\":1},{\"Id\":\"elevator-01\",\"Count\":1},{\"Id\":\"elevator-02\",\"Count\":1},{\"Id\":\"engine-01\",\"Count\":1},{\"Id\":\"engine-02\",\"Count\":1},{\"Id\":\"prototype-01\",\"Count\":1},{\"Id\":\"prototype-02\",\"Count\":1},{\"Id\":\"truck-01\",\"Count\":1},{\"Id\":\"truck-02\",\"Count\":1}]
     ```
 
-1. Om du vill definiera en enda kylaggregat och en enda av glödlampa simulerade enhet, ersätter den **DeviceModels** matris med följande kod:
+1. Om du vill definiera en enda kylaggregat och en enda glödlampan simulerad enhet ersätter den **DeviceModels** matris med följande kod:
 
     ```json
     [{\"Id\":\"chiller-01\",\"Count\":1},{\"Id\":\"lightbulb-01\",\"Count\":1}]
     ```
 
-    Spara ändringen av **simulations.1** dokumentet.
+    Spara ändringen i **simulations.1** dokumentet.
 
 > [!NOTE]
 > Du kan också använda Cosmos DB Data Explorer i Azure-portalen för att redigera den **simulations.1** dokumentet.
 
-### <a name="test-the-lightbulb-device-type-locally"></a>Testa typ av glödlampa enhet lokalt
+### <a name="test-the-lightbulb-device-type-locally"></a>Testa glödlampan enhetstypen lokalt
 
-Du är nu redo att testa din nya simulerade av glödlampa typ genom att köra enheten simuleringen projektet lokalt.
+Du är nu redo att testa din nya simulerade glödlampan typ genom att köra projektet enheten simuleringen lokalt.
 
-1. I Solution Explorer högerklickar du på **WebService**, Välj **felsöka** och välj sedan **Starta ny instans**.
+1. I Solution Explorer högerklickar du på **webbtjänsten**, Välj **felsöka** och välj sedan **Starta ny instans**.
 
-1. Öppna Azure-portalen för att kontrollera att de två simulerade enheterna är anslutna till din IoT-hubb i webbläsaren.
+1. Öppna Azure portal i webbläsaren för att kontrollera att de två simulerade enheterna är anslutna till din IoT-hubb.
 
-1. Navigera till IoT-hubben i resursgruppen som innehåller din lösning för övervakning av fjärråtkomst.
+1. Navigera till IoT hub i resursgruppen som innehåller lösningen för fjärrövervakning.
 
 1. I den **övervakning** väljer **mått**. Kontrollera att antalet **anslutna enheter** är två:
 
-    ![Antal anslutna enheter](./media/iot-accelerators-remote-monitoring-test/connecteddevices.png)
+    ![Antalet anslutna enheter](./media/iot-accelerators-remote-monitoring-test/connecteddevices.png)
 
-1. I din webbläsare, navigerar du till den **instrumentpanelen** för din lösning för övervakning av fjärråtkomst. I panelen telemetri för den **instrumentpanelen**väljer **temperatur**. Temperaturen för simulerad enheter visas i diagrammet:
+1. I din webbläsare, navigerar du till den **instrumentpanelen** för lösningen för fjärrövervakning. På panelen telemetri på den **instrumentpanelen**väljer **temperatur**. Temperaturen som dina simulerade enheter visas i diagrammet:
 
-    ![Temperatur telemetri](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
+    ![Temperaturen som telemetri](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 
-Du har nu av glödlampa enheten simuleringen körs lokalt. Nästa steg är att distribuera din kod med uppdaterade simulator till den virtuella datorn som kör mikrotjänster Fjärrövervaknings i Azure.
+Nu har du glödlampan enhetssimulering som körs lokalt. Nästa steg är att distribuera ditt uppdaterade simuleringskod till den virtuella datorn som kör fjärrövervakning-mikrotjänster i Azure.
 
-Innan du fortsätter kan stoppa du felsökningen både enheten simulering och lagring kortet projekt i Visual Studio.
+Innan du fortsätter kan stoppa du felsökningen enhetssimulering såväl storage nätverkskort projekt i Visual Studio.
 
 ### <a name="deploy-the-updated-simulator-to-the-cloud"></a>Distribuera den uppdaterade simulatorn till molnet
 
-Mikrotjänster i lösningen Fjärrövervaknings kör i docker-behållare. Behållarna som finns i lösningens virtuell dator i Azure. I det här avsnittet får du:
+Mikrotjänster i lösningen för fjärrövervakning körs i docker-behållare. Behållarna som finns på lösningens virtuell dator i Azure. I det här avsnittet får du:
 
-* Skapa en ny enhet simuleringen docker-avbildning.
-* Överför avbildningen till docker-hubb databasen.
+* Skapa en ny enhet simulering docker-avbildning.
+* Överför avbildningen till docker-hubbens lagringsplats.
 * Importera den till din lösning virtuell dator.
 
-Följande steg förutsätter att du har en databas som heter **av glödlampa** i Docker-hubb-konto.
+Följande steg förutsätter att du har en databas som heter **glödlampan** i ditt Docker Hub-konto.
 
-1. I Visual Studio, i den **enheten simuleringen** projekt, öppna filen **solution\scripts\docker\build.cmd**.
+1. I Visual Studio i den **enhetssimulering** projekt, öppna filen **solution\scripts\docker\build.cmd**.
 
-1. Redigera den rad som anger den **DOCKER_IMAGE** miljövariabeln din hubb Docker-databasnamn:
-
-    ```cmd
-    SET DOCKER_IMAGE=your-docker-hub-acccount/lightbulb
-    ```
-
-    Spara ändringen.
-
-1. I Visual Studio, i den **enheten simuleringen** projekt, öppna filen **solution\scripts\docker\publish.cmd**.
-
-1. Redigera den rad som anger den **DOCKER_IMAGE** miljövariabeln din hubb Docker-databasnamn:
+1. Redigera den rad som anger den **DOCKER_IMAGE** miljövariabeln till ditt Docker Hub-databasnamn:
 
     ```cmd
     SET DOCKER_IMAGE=your-docker-hub-acccount/lightbulb
@@ -516,7 +506,17 @@ Följande steg förutsätter att du har en databas som heter **av glödlampa** i
 
     Spara ändringen.
 
-1. Öppna en kommandotolk som administratör. Gå till mappen **scripts\docker** i din kloning av den **enheten simuleringen** GitHub-lagringsplatsen.
+1. I Visual Studio i den **enhetssimulering** projekt, öppna filen **solution\scripts\docker\publish.cmd**.
+
+1. Redigera den rad som anger den **DOCKER_IMAGE** miljövariabeln till ditt Docker Hub-databasnamn:
+
+    ```cmd
+    SET DOCKER_IMAGE=your-docker-hub-acccount/lightbulb
+    ```
+
+    Spara ändringen.
+
+1. Öppna en kommandotolk som administratör. Gå sedan till mappen **scripts\docker** i din klon av den **enhetssimulering** GitHub-lagringsplatsen.
 
 1. Kör följande kommando för att skapa docker-avbildningen:
 
@@ -524,23 +524,23 @@ Följande steg förutsätter att du har en databas som heter **av glödlampa** i
     build.cmd
     ```
 
-1. Om du vill logga in på ditt konto med Docker-hubb, kör du följande kommando:
+1. Kör följande kommando för att logga in på ditt Docker Hub-konto:
 
     ```cmd
     docker login
     ```
 
-1. Om du vill överföra din nya avbildningen Docker-hubb-konto, kör du följande kommando:
+1. Om du vill överföra nya avbildningen till Docker Hub-konto, kör du följande kommando:
 
     ```cmd
     publish.cmd
     ```
 
-1. För att kontrollera överföringen, gå till [ https://hub.docker.com/ ](https://hub.docker.com/). Leta upp din **av glödlampa** databasen och välj **information**. Välj **taggar**:
+1. För att kontrollera överföringen, gå till [ https://hub.docker.com/ ](https://hub.docker.com/). Leta upp din **glödlampan** databasen och välj **information**. Välj sedan **taggar**:
 
     ![Docker-hubb](./media/iot-accelerators-remote-monitoring-test/dockerhub.png)
 
-    Skripten läggs den **testning** tagg på avbildningen.
+    Skripten har lagts till i **testning** tagg på avbildningen.
 
 1. Använda SSH för att ansluta till din lösning virtuell dator i Azure. Gå sedan till den **App** mapp och redigera den **docker-compose.yml** fil:
 
@@ -549,7 +549,7 @@ Följande steg förutsätter att du har en databas som heter **av glödlampa** i
     sudo nano docker-compose.yml
     ```
 
-1. Redigera posten för tjänsten enhet simuleringen att använda docker-avbildningen:
+1. Redigera posten för enheten simulering tjänsten att använda docker-avbildningen:
 
     ```yaml
     devicesimulation:
@@ -558,68 +558,68 @@ Följande steg förutsätter att du har en databas som heter **av glödlampa** i
 
     Spara ändringarna.
 
-1. Starta om alla tjänster med de nya inställningarna genom att köra följande kommando:
+1. Kör följande kommando för att starta om alla tjänster med de nya inställningarna:
 
     ```sh
     sudo ./start.sh
     ```
 
-1. Om du vill kontrollera loggfilen från din nya enhet simuleringen behållare, kör du följande kommando för att hitta behållar-ID:
+1. Om du vill kontrollera loggfilen från den nya enhet simulering behållaren, kör du följande kommando för att hitta behållar-ID:
 
     ```sh
     docker ps
     ```
 
-    Kör följande kommando använder behållar-ID:
+    Kör sedan följande kommando i behållar-ID:
 
     ```sh
     docker logs {container ID}
     ```
 
-Nu har du slutfört stegen för att distribuera en uppdaterad version av tjänsten simuleringen enhet till din lösning för övervakning av fjärråtkomst.
+Nu har du slutfört stegen för att distribuera en uppdaterad version av tjänsten simulering enhet till lösningen för fjärrövervakning.
 
-I din webbläsare, navigerar du till den **instrumentpanelen** för din lösning för övervakning av fjärråtkomst. I panelen telemetri för den **instrumentpanelen**väljer **temperatur**. Temperaturen för din simulerade enheterna visas i diagrammet:
+I din webbläsare, navigerar du till den **instrumentpanelen** för lösningen för fjärrövervakning. På panelen telemetri på den **instrumentpanelen**väljer **temperatur**. Temperaturen för dina två simulerade enheter visas i diagrammet:
 
-![Temperatur telemetri](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
+![Temperaturen som telemetri](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 
-På den **enheter** kan du etablera instanser av en ny typ:
+På den **enheter** kan du etablera instanser av din nya typ:
 
-![Visa listan över tillgängliga simulering](./media/iot-accelerators-remote-monitoring-test/devicesmodellist.png)
+![Visa en lista över tillgängliga simuleringar](./media/iot-accelerators-remote-monitoring-test/devicesmodellist.png)
 
-Du kan visa telemetri från den simulerade enheten:
+Du kan visa telemetrin från den simulerade enheten:
 
-![Vy av glödlampa telemetri](./media/iot-accelerators-remote-monitoring-test/devicestelemetry.png)
+![Visa glödlampan telemetri](./media/iot-accelerators-remote-monitoring-test/devicestelemetry.png)
 
-Du kan anropa den **SwitchOn** och **SwitchOff** metoder på din enhet:
+Du kan anropa den **SwitchOn** och **SwitchOff** metoder på enheten:
 
-![Anrop av glödlampa metoder](./media/iot-accelerators-remote-monitoring-test/devicesmethods.png)
+![Anropa metoder på glödlampan](./media/iot-accelerators-remote-monitoring-test/devicesmethods.png)
 
-## <a name="add-a-new-telemetry-type"></a>Lägga till en ny telemetri
+## <a name="add-a-new-telemetry-type"></a>Lägg till en ny typ av telemetri
 
-Det här avsnittet beskrivs hur du ändrar en befintlig typ simulerade enheten för att stödja en ny typ av telemetri.
+Det här avsnittet beskrivs hur du ändrar en befintlig typ simulerad enhet för att stödja en ny typ av telemetri.
 
-### <a name="locate-the-chiller-device-type-files"></a>Hitta kylaggregat enheten typen filer
+### <a name="locate-the-chiller-device-type-files"></a>Leta upp de kylaggregat typ filerna
 
-Följande steg visar hur du söker efter filer som definierar inbyggt **kylaggregat** enhet:
+Följande steg visar hur du hitta de filer som definierar inbyggt **kylaggregat** enhet:
 
-1. Om du inte redan har gjort det, använder du följande kommando för att klona den **enhet-simulering-dotnet** GitHub-lagringsplatsen till den lokala datorn:
+1. Om du inte redan har gjort det, Använd följande kommando för att klona den **enhet-simulering-dotnet** GitHub-lagringsplatsen till den lokala datorn:
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
     ```
 
-1. Varje typ av enhet har en modell JSON-fil och associerade skript i den `data/devicemodels` mapp. Filer som definierar den simulerade **kylaggregat** enhetstyp är:
+1. Varje typ av enhet har en JSON-modellfil och associerade skript i den `data/devicemodels` mapp. Filer som definierar den simulerade **kylaggregat** enhetstypen är:
 
     * **data/devicemodels/chiller-01.json**
     * **data/devicemodels/scripts/chiller-01-state.js**
 
-### <a name="specify-the-new-telemetry-type"></a>Ange den nya typen telemetri
+### <a name="specify-the-new-telemetry-type"></a>Ange en ny telemetrityp
 
-Följande steg visar hur du lägger till en ny **inre temperatur** typ till den **kylaggregat** enhetstyp:
+Följande steg visar hur du lägger till en ny **intern temperatur** skriver till den **kylaggregat** enhetstyp:
 
 1. Öppna den **kylaggregat 01.json** fil.
 
-1. Uppdatering av **SchemaVersion** värdet på följande sätt:
+1. Uppdatera den **SchemaVersion** värde enligt följande:
 
     ```json
     "SchemaVersion": "1.1.0",
@@ -653,7 +653,7 @@ Följande steg visar hur du lägger till en ny **inre temperatur** typ till den 
 
 1. Öppna den **skript/kylaggregat-01-state.js** fil.
 
-1. Lägg till följande fält till den **tillstånd** variabeln:
+1. Lägg till följande fält i den **tillstånd** variabeln:
 
     ```js
     internal_temperature: 65.0,
@@ -670,34 +670,34 @@ Följande steg visar hur du lägger till en ny **inre temperatur** typ till den 
 
 ### <a name="test-the-chiller-device-type"></a>Testa kylaggregat enhetstyp
 
-Att testa den uppdaterade **kylaggregat** enhetstyp, först köra en lokal kopia av den **enhet-simulering-dotnet** -tjänsten för att testa din enhetstyp fungerar som förväntat. När du har testat och testar din uppdaterade enhetstyp lokalt, kan du återskapa behållaren och omdistribuera den **enhet-simulering-dotnet** tjänst till Azure.
+Att testa den uppdaterade **kylaggregat** typ av enhet måste först köra en lokal kopia av den **enhet-simulering-dotnet** service för att testa din enhetstyp fungerar som förväntat. När du har testat och felsöks din uppdaterade enhetstyp lokalt, kan du återskapa behållaren och distribuera om den **enhet-simulering-dotnet** i Azure.
 
-När du kör den **enhet-simulering-dotnet** tjänsten lokalt, skickas telemetri till din lösning för övervakning av fjärråtkomst. På den **enheter** kan du etablera instanser av din uppdaterade.
+När du kör den **enhet-simulering-dotnet** tjänsten lokalt, den skickar telemetri till lösningen för fjärrövervakning. På den **enheter** kan du etablera instanser av din uppdaterade typen.
 
-Om du vill testa och felsöka dina ändringar lokalt, finns i föregående avsnitt [testa typ av glödlampa enhet lokalt](#test-the-lightbulb-device-type-locally).
+Om du vill testa och felsöka ändringarna lokalt, finns i föregående avsnitt [testa glödlampan enhetstypen lokalt](#test-the-lightbulb-device-type-locally).
 
-Om du vill distribuera uppdaterade enheten simuleringen tjänsten till lösningens virtuell dator i Azure finns i föregående avsnitt [distribuera uppdaterade simulatorn till molnet](#deploy-the-updated-simulator-to-the-cloud).
+Om du vill distribuera din uppdaterade simulering tjänst till lösningens virtuell dator i Azure finns i föregående avsnitt [distribuera uppdaterade simulatorn till molnet](#deploy-the-updated-simulator-to-the-cloud).
 
-På den **enheter** kan du etablera instanser av din uppdaterade:
+På den **enheter** kan du etablera instanser av din uppdaterade typ:
 
 ![Lägg till uppdaterade kylaggregat](./media/iot-accelerators-remote-monitoring-test/devicesupdatedchiller.png)
 
-Du kan visa den nya **inre temperatur** telemetri från den simulerade enheten.
+Du kan visa den nya **intern temperatur** telemetri från den simulerade enheten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här självstudiekursen visades hur du vill:
+Den här självstudien visar dig hur du:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
-> * Skapa en ny enhetstyp av
-> * Simulera anpassade beteende
-> * Lägga till en ny enhet på instrumentpanelen
+> * Skapa en ny typ av enhet
+> * Simulera beteende för anpassad enhet
+> * Lägga till en ny typ av enhet på instrumentpanelen
 > * Skicka telemetri om anpassade från en befintlig typ av enhet
 
-Nu har du lärt dig hur du anpassar simuleringen tjänst. Föreslagna nästa steg är att lära dig hur du [ansluta en fysisk enhet till din lösning för fjärråtkomst övervakning](iot-accelerators-connecting-devices-node.md).
+Nu har du lärt dig hur du anpassar device simulering-tjänsten. Föreslagna nästa steg är att lära dig hur du [ansluta en fysisk enhet till lösningen för fjärrövervakning](iot-accelerators-connecting-devices-node.md).
 
-Utvecklare om lösningen Fjärrövervaknings, Läs mer:
+Mer information för utvecklare om lösningen för fjärrövervakning, finns:
 
 * [Referensguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Felsökningsguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)

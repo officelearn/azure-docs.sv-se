@@ -1,7 +1,7 @@
 ---
-title: Så här distribuerar du en konversation deltagaren bot - kognitiva Microsoft-tjänster | Microsoft Docs
+title: Så här distribuerar du en Konversationsdeltagare robot - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig hur du distribuerar en konversation deltagaren bot.
+description: Lär dig hur du distribuerar en Konversationsdeltagare robot.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,24 +10,24 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 77cc998227d996a6e52b1b5629204da5dc735ede
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bb977df92cf0ada1e50a929a9ea714313a70165a
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353961"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171484"
 ---
-# <a name="how-to-deploy-a-conversation-learner-bot"></a>Så här distribuerar du en konversation deltagaren bot
+# <a name="how-to-deploy-a-conversation-learner-bot"></a>Så här distribuerar du en robot som Konversationsdeltagare
 
-Det här dokumentet förklarar hur du distribuerar en konversation deltagaren bot--antingen lokalt eller i Azure.
+Det här dokumentet beskriver hur du distribuerar en Konversationsdeltagare robot – antingen lokalt eller i Azure.
 
-## <a name="prerequisite-determine-the-application-id"></a>Förutsättning: ta reda på program-ID 
+## <a name="prerequisite-determine-the-model-id"></a>Förutsättning: ta reda på modell-ID 
 
-Om du vill köra en bot utanför konversation deltagaren Användargränssnittet måste du ange konversation deltagaren program-ID som kommer att använda bot--t.ex. ID för maskininlärningsmodell i konversationen deltagaren molnet.  (Däremot när du kör bot via Användargränssnittet för konversationen deltagaren Användargränssnittet väljer vilka program-ID).  
+Om du vill köra en robot utanför konversationen Learner Användargränssnittet, måste du ange Konversationsdeltagare modell-ID som roboten använder – t.ex, ID för machine learning-modell i molnet Konversationsdeltagare.  (Däremot när du kör roboten via Användargränssnittet för konversationen Learner Användargränssnittet väljer vilken modell-ID.).  
 
-Här är hur du hämtar det program-ID:
+Här är hur du skaffar modell-ID:
 
-1. Starta din bot och konversation deltagaren Användargränssnittet.  Se Snabbstartsguide fullständiga instruktioner; Sammanfattningsvis:
+1. Starta din robot och konversationen Learner Användargränssnittet.  Se snabbstartsguiden fullständiga instruktioner; Sammanfattningsvis:
 
     I ett kommandofönster:
 
@@ -45,27 +45,27 @@ Här är hur du hämtar det program-ID:
     npm run ui
     ```
 
-2. Öppna webbläsaren http://localhost:5050 
+2. Öppna webbläsaren till http://localhost:5050 
 
-3. Klicka på konversation deltagaren-program som du vill hämta ID för
+3. Klicka på Konversationsdeltagare-modell som du vill hämta ID för
 
 4. Klicka på ”inställningar” i navigeringsfältet till vänster.
 
-5. ”App-ID”-GUID visas längst upp på sidan.
+5. ”Modell-ID”-GUID visas längst upp på sidan.
 
-## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>Alternativ 1: Distribuera en konversation deltagaren bot ska köras lokalt
+## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>Alternativ 1: Distribuera en Konversationsdeltagare robotar kan köra lokalt
 
-Detta distribuerar en bot till din lokala dator och visar hur du kan komma åt den med hjälp av Bot Framework-emulatorn.
+Detta distribuerar en robot till den lokala datorn och visar hur du kommer åt den med hjälp av Bot Framework-emulatorn.
 
-### <a name="configure-your-bot-for-access-outside-the-conversation-learner-ui"></a>Konfigurera din bot för åtkomst utanför konversation deltagaren Användargränssnittet
+### <a name="configure-your-bot-for-access-outside-the-conversation-learner-ui"></a>Konfigurera din robot för åtkomst utanför konversationen Learner Användargränssnittet
 
-När du kör en bot lokalt, lägga till det program-ID i bot `.env` fil:
+När du kör en robot lokalt kan du lägga till program-ID till robotens `.env` fil:
 
     ```
-    CONVERSATION_LEARNER_APP_ID=<YOUR_APP_ID>
+    CONVERSATION_LEARNER_MODEL_ID=<YOUR_MODEL_ID>
     ```
 
-Starta din bot:
+Starta din robot:
 
     ```
     [open a command window]
@@ -73,9 +73,9 @@ Starta din bot:
     npm start
     ```
 
-Bot körs nu lokalt.  Du kan komma åt den med emulatorn Bot Framework.
+Roboten nu körs lokalt.  Du kan komma åt den med emulatorn Bot Framework.
 
-### <a name="download-and-install-the-emulator"></a>Hämtar och installerar emulatorn
+### <a name="download-and-install-the-emulator"></a>Ladda ned och installerar sedan emulatorn
 
     ```
     git clone https://github.com/Microsoft/BotFramework-Emulator
@@ -84,44 +84,44 @@ Bot körs nu lokalt.  Du kan komma åt den med emulatorn Bot Framework.
     npm start
     ```
 
-### <a name="connect-the-emulator-to-your-bot"></a>Ansluta emulatorn till din bot
+### <a name="connect-the-emulator-to-your-bot"></a>Ansluta emulatorn till din robot
 
-1. I det övre vänstra hörnet av emulatorn, i rutan ”anger slutpunkts-URL”, ange `http://127.0.0.1:3978/api/messages`.  Lämna de andra fälten tomma och klicka på ”Anslut”.
+1. I det övre vänstra hörnet av emulatorn i rutan ”Ange slutpunkts-URL”, ange `http://127.0.0.1:3978/api/messages`.  Lämna övriga fält tomma, och klicka på ”Anslut”.
 
-2. Du nu konversation med din bot.
+2. Du nu konversation med din robot.
 
 ## <a name="option-2-deploy-to-azure"></a>Alternativ 2: Distribuera till Azure
 
-Publicera din konversation deltagaren bot liknar på samma sätt som du skulle publicera andra bot. På en hög nivå, ladda upp din kod till en webbplats som värd, ange värden för lämplig konfiguration och registrera sedan bot med olika kanaler. Detaljerade anvisningar finns i den här videon visar hur du publicerar ditt bot med hjälp av Azure Bot Service.
+Publicera din liknar på samma sätt som du skulle publicera andra bot Konversationsdeltagare robot. På hög nivå, ladda upp din kod till en värdbaserad webbplats, anger du lämplig konfigurationsvärden och sedan registrera roboten med olika kanaler. Detaljerade anvisningar finns i den här videon visar hur du publicerar din bot med Azure Bot Service.
 
-När bot har distribuerats och kör du kan ansluta olika kanaler till den, till exempel Facebook, grupper, Skype etc med hjälp av en Azure Bot Kanalregistrering. Dokumentation om detta finns i processen: https://docs.microsoft.com/en-us/bot-framework/bot-service-quickstart-registration
+När roboten har distribuerats och kör du kan ansluta olika kanaler till den, till exempel Facebook, Teams, Skype osv med hjälp av en registrering med Azure Bot-kanal. Dokumentation om den går du till avsnittet: https://docs.microsoft.com/en-us/bot-framework/bot-service-quickstart-registration
 
-Nedan finns stegvisa instruktioner för att distribuera en konversation deltagaren Bot till Azure.  Dessa instruktioner förutsätter att bot-källan är tillgänglig från en molnbaserad källa, till exempel VSTS, GitHub, BitBucket eller OneDrive och konfigurerar din bot för kontinuerlig distribution.
+Nedan finns stegvisa instruktioner för att distribuera en konversation Learner robot till Azure.  Dessa instruktioner förutsätter att din bot-källan är tillgänglig från en molnbaserad källa, till exempel VSTS, GitHub, BitBucket eller OneDrive och konfigurerar din robot för kontinuerlig distribution.
 
 1. Logga in på Azure portal på https://portal.azure.com
 
-2. Skapa en ny resurs ”Web App Bot” 
+2. Skapa en ny ”Web App-robot”-resurs 
 
-    1. Namnge bot
-    2. Klicka på ”Bot mall”, Välj ”Node.js”, Välj ”Basic” och klicka på knappen ”Välj”
-    3. Klicka på ”Skapa” för att skapa Web App Bot.
-    4. Vänta tills Web App Bot resursen skapas.
+    1. Namnge roboten
+    2. Klicka på ”Bot mall”, väljer du ”Node.js”, välj ”grundläggande” och klicka på knappen ”Välj”
+    3. Klicka på ”Skapa” för att skapa Web App-robot.
+    4. Vänta tills Web App-robot-resurs som ska skapas.
 
-3. Redigera Web App Bot resursen som du skapade i Azure-portalen.
+3. Redigera Web App-robot-resurs som du skapade i Azure-portalen.
 
     1. Klicka på ”programinställningar” nav objekt till vänster
-    1. Rulla ned till avsnittet ”App-inställningar”
+    1. Rulla ned till avsnittet ”Appinställningar”
     2. Lägg till de här inställningarna:
 
         Miljövariabel | värde
         --- | --- 
         CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_APP_ID      | Program-Id-GUID som hämtas från konversationen deltagaren Användargränssnittet under ”inställningar” för appen >
-        LUIS_AUTHORING_KEY               | Redigera nyckel för den här appen THOMAS
+        CONVERSATION_LEARNER_MODEL_ID      | Program-Id-GUID som hämtas från konversationen Learner Användargränssnittet under ”inställningar” för modellen >
+        LUIS_AUTHORING_KEY               | Redigera nyckel för den här modellen LUIS
     
     4. Klicka på ”Spara” längst upp på sidan
-    5. Öppna ”skapa” nav objekt till vänster
+    5. Öppna ”Build” nav-objekt till vänster
     6. Klicka på ”Konfigurera kontinuerlig distribution” 
     7. Klicka på ikonen ”inställningar” under distributioner
     8. Klicka på ”nödvändiga inställningar”
-    9. Välj källa där bot koden är tillgänglig och konfigurera källan.
+    9. Välj källa där din bot-kod är tillgänglig och konfigurera källan.

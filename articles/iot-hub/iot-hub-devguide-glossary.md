@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 91a89d5db7c763fc3fe275d6c01f5fe9dd9af3af
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 1dae926a3a368e518877b210fb1caf487688750c
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125935"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187374"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub-ordlista
 Den här artikeln innehåller några av de vanliga termer som används i IoT Hub-artiklar.
@@ -151,7 +151,7 @@ En IoT hub exponerar flera [slutpunkter](iot-hub-devguide-endpoints.md) som gör
 Att läsa [enhet till moln](#device-to-cloud) meddelandena som skickas till din IoT-hubb, du kan ansluta till en slutpunkt på din hubb och använda alla Event Hubs-kompatibla-metoden för att läsa dessa meddelanden. Event Hubs-kompatibla sätt är att med hjälp av den [SDK: er för Event Hubs](../event-hubs/event-hubs-programming-guide.md) och [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
 
 ## <a name="field-gateway"></a>Fält-gateway
-Möjliggör en fältgateway-anslutning för enheter som inte kan ansluta direkt till [IoT Hub](#iot-hub) och vanligtvis har distribuerats lokalt med dina enheter. Mer information finns i [vad är Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
+Möjliggör en fältgateway-anslutning för enheter som inte kan ansluta direkt till [IoT Hub](#iot-hub) och vanligtvis har distribuerats lokalt med dina enheter. Mer information finns i [vad är Azure IoT Hub?](about-iot-hub.md)
 
 ## <a name="free-account"></a>Kostnadsfritt konto
 Du kan skapa en [kostnadsfritt Azure-konto](https://azure.microsoft.com/pricing/free-trial/) slutförts IoT Hub-självstudier och experimentera med IoT Hub-tjänsten (och andra Azure-tjänster).
@@ -168,7 +168,7 @@ En interaktiv meddelandet är ett [moln till enhet](#cloud-to-device) meddelande
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
 ## <a name="iot-hub"></a>IoT Hub
-IoT Hub är en fullständigt hanterad Azure-tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan miljontals enheter och tillhandahåller serverdelen. Mer information finns i [vad är Azure IoT Hub?](iot-hub-what-is-iot-hub.md) Med hjälp av din [Azure-prenumeration](#subscription), du kan skapa IoT-hubbar för att hantera dina IoT-meddelanden arbetsbelastningar.
+IoT Hub är en fullständigt hanterad Azure-tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan miljontals enheter och tillhandahåller serverdelen. Mer information finns i [vad är Azure IoT Hub?](about-iot-hub.md) Med hjälp av din [Azure-prenumeration](#subscription), du kan skapa IoT-hubbar för att hantera dina IoT-meddelanden arbetsbelastningar.
 
 ## <a name="iot-hub-metrics"></a>IoT Hub-mått
 [IoT Hub mått](iot-hub-metrics.md) ger dig information om tillstånd för IoT-hubbar i din [Azure-prenumeration](#subscription). IoT Hub mått kan du utvärdera den övergripande hälsan för tjänsten och de enheter som är anslutna till den. IoT Hub mått kan du se vad som händer med din IoT-hubb och undersöka grundorsaken problem utan att behöva kontakta Azure-supporten.
@@ -180,7 +180,7 @@ Den [IoT Hub-frågespråk](iot-hub-devguide-query-language.md) är ett SQL-likna
 Du kan använda den [IoT Hub Resource REST API: et](https://docs.microsoft.com/rest/api/iothub/iothubresource) att hantera IoT-hubbar i din [Azure-prenumeration](#subscription) utför åtgärder som att skapa, uppdatera och ta bort hubs.
 
 ## <a name="iot-solution-accelerators"></a>IoT-lösningsacceleratorer
-Azure IoT-Lösningsacceleratorer paketera samman flera Azure-tjänster till lösningar. Dessa lösningar kan du snabbt komma igång med slutpunkt till slutpunkt-implementeringar av vanliga IoT-scenarier. Mer information finns i [vad är Azure IoT-Lösningsacceleratorer?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
+Azure IoT-Lösningsacceleratorer paketera samman flera Azure-tjänster till lösningar. Dessa lösningar kan du snabbt komma igång med slutpunkt till slutpunkt-implementeringar av vanliga IoT-scenarier. Mer information finns i [vad är Azure IoT-Lösningsacceleratorer?](../iot-accelerators/about-iot-accelerators.md)
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>IoT-tillägget för Azure CLI 2.0
 [IoT-tillägget för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) är en plattformsoberoende, kommandorads-verktyget. Verktyget gör det möjligt att hantera enheter i den [identitetsregistret](#identity-registry), skicka och ta emot meddelanden och filer från dina enheter och övervaka din IoT hub-åtgärder.
@@ -201,7 +201,7 @@ En fysisk enhet är en riktig enhet, till exempel en Raspberry Pi som ansluter t
 När du ansluter till en enhet webbservergrupper eller service-riktade slutpunkt på en IoT-hubb din [anslutningssträngen](#connection-string) innehåller nyckel för att bevilja dig åtkomst. När du lägger till en enhet på den [identitetsregistret](#identity-registry) eller lägga till en [delad åtkomstprincip](#shared-access-policy) till hubben, tjänsten genererar en primär och sekundär nyckel. Eftersom det finns två nycklar kan du förnyar från en nyckel till en annan när du uppdaterar en nyckel utan att förlora åtkomst till IoT hub.
 
 ## <a name="protocol-gateway"></a>Protokoll-gateway
-En protokoll-gateway distribueras normalt i molnet och tillhandahåller protokoll översättning för enheter som ansluter till [IoT Hub](#iot-hub). Mer information finns i [vad är Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
+En protokoll-gateway distribueras normalt i molnet och tillhandahåller protokoll översättning för enheter som ansluter till [IoT Hub](#iot-hub). Mer information finns i [vad är Azure IoT Hub?](about-iot-hub.md)
 
 ## <a name="quotas-and-throttling"></a>Kvoter och begränsningar
 Det finns olika [kvoter](iot-hub-devguide-quotas-throttling.md) som gäller för din användning av [IoT Hub](#iot-hub), många av kvoter kan variera beroende på vilken nivå av IoT hub. [IoT Hub](#iot-hub) gäller även [begränsar](iot-hub-devguide-quotas-throttling.md) för din användning av tjänsten vid körning.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f8639cbb5c7ba86b4786f3d0b913d64bad59ad66
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: f0611662dfb0ad2e15f87bbe5ec5559e7d8da57d
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917524"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185728"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -140,7 +140,7 @@ Se till att den dator som kör Mac OS är ansluten till AD. Anvisningar om hur d
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (alla plattformar)
 
-Om du har åsidosättas i [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) eller [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) principinställningar i din miljö, se till att du lägger till Azure AD-URL (https://autologon.microsoftazuread-sso.com) till dem också.
+Om du har åsidosätts den [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) eller [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) principinställningar i din miljö, se till att du lägger till Azure AD-URL (https://autologon.microsoftazuread-sso.com) till dem också.
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (endast Mac OS)
 

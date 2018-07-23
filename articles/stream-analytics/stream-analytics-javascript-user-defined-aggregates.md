@@ -1,32 +1,32 @@
 ---
-title: JavaScript användardefinierade aggregeringar i Azure Stream Analytics
-description: Den här artikeln beskriver hur du utför avancerad fråga säkerhetsnivån med JavaScript användardefinierade aggregeringar i Azure Stream Analytics.
+title: Användardefinierade JavaScript-aggregeringar i Azure Stream Analytics
+description: Den här artikeln beskriver hur du utför avancerade frågor med användardefinierade JavaScript-aggregeringar användardefinierade i Azure Stream Analytics.
 services: stream-analytics
-author: minhe-msft
-ms.author: minhe
-manager: santoshb
-ms.reviewer: jasonh
+author: rodrigoamicrosoft
+ms.author: rodrigoa
+manager: kfile
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: 718109d17309747a3c19f22921e4a316b0b88dc6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: eb433a322f8077c947fd6db1aaa0e2266a109938
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907331"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187062"
 ---
-# <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure Stream Analytics JavaScript användardefinierade aggregeringar (förhandsgranskning)
+# <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure Stream Analytics JavaScript-användardefinierade aggregeringar (förhandsversion)
+ 
+Azure Stream Analytics stöder användardefinierade aggregeringar (UDA) skriven i JavaScript, du kan implementera komplex tillståndskänsliga affärslogik. Inom UDA har du fullständig kontroll över tillstånd datastrukturen, tillstånd anhopning, detta tillstånd och aggregerade resultat beräkning. Artikeln introducerar de två olika JavaScript UDA-gränssnitt, steg för att skapa en UDA och hur du använder UDA med Windows-baserad åtgärder i Stream Analytics-fråga.
 
-Azure Stream Analytics stöder användardefinierade aggregeringar (UDA) skriven i JavaScript, du kan implementera komplexa tillståndskänslig affärslogik. Ha fullständig kontroll över datastruktur tillstånd, tillstånd anhopning, detta tillstånd och sammanställd resultatet beräkning inom UDA. Artikeln introduceras de två olika JavaScript UDA-gränssnitt, steg för att skapa en UDA och hur du använder UDA med Windows-baserad åtgärder i Stream Analytics-fråga.
+## <a name="javascript-user-defined-aggregates"></a>JavaScript-användardefinierade aggregeringar
 
-## <a name="javascript-user-defined-aggregates"></a>JavaScript användardefinierade aggregeringar
+En användardefinierad samling används ovanpå en tidsangivelse för fönstret för att sammanställa via händelser i fönstret och producera ett enskilt resultatvärde. Det finns två typer av UDA-gränssnitt att Stream Analytics stöder idag, AccumulateOnly och AccumulateDeaccumulate. Båda typerna av UDA kan användas av rullande fönster, hoppar fönster och glidande fönster. AccumulateDeaccumulate UDA presterar bättre än AccumulateOnly UDA när de används tillsammans med hoppar fönster och glidande fönster. Du väljer ett av de två typerna som baseras på den algoritm som du använder.
 
-En användardefinierad funktion används ovanpå en tidsangivelse fönstret för att sammanställa över händelser i fönstret och skapa ett enskilt resultatvärde. Det finns två typer av UDA-gränssnitt att Stream Analytics stöder idag AccumulateOnly och AccumulateDeaccumulate. Båda typerna av UDA kan användas av rullande fönster, Hopping fönster och glidande fönster. AccumulateDeaccumulate UDA presterar bättre än AccumulateOnly UDA när de används tillsammans med Hopping fönster och glidande fönster. Du väljer ett av de två baserat på den algoritm som du använder.
+### <a name="accumulateonly-aggregates"></a>AccumulateOnly aggregeringar
 
-### <a name="accumulateonly-aggregates"></a>AccumulateOnly mängder
-
-AccumulateOnly mängder ackumulera endast nya händelser till dess tillstånd, algoritmen tillåter inte deaccumulation av värden. Välj den här typen av sammanställda deaccumulate när en händelse information från värdet state är omöjligt att implementera. Följande är JavaScript-mall för AccumulatOnly mängder:
+AccumulateOnly aggregeringar ackumulera endast nya händelser till dess tillstånd, algoritmen tillåter inte deaccumulation av värden. Välj den här typen av sammanställda deaccumulate när en händelse information från statusvärdet är omöjligt att implementera. Följande är JavaScript-mallen för AccumulatOnly aggregeringar:
 
 ````JavaScript
 // Sample UDA which state can only be accumulated.
@@ -45,9 +45,9 @@ function main() {
 }
 ````
 
-### <a name="accumulatedeaccumulate-aggregates"></a>AccumulateDeaccumulate mängder
+### <a name="accumulatedeaccumulate-aggregates"></a>AccumulateDeaccumulate aggregeringar
 
-Tillåt deaccumulation i ett tidigare ackumulerade värde från tillstånd, till exempel AccumulateDeaccumulate mängder, ta bort ett nyckel / värde-par från en lista över händelsevärden eller subtrahera ett värde från ett tillstånd för sum sammanställd. Följande är JavaScript-mall för AccumulateDeaccumulate mängder:
+Tillåt deaccumulation av en tidigare ackumulerade värdet från tillstånd, till exempel AccumulateDeaccumulate aggregeringar, ta bort ett nyckel / värde-par från en lista med värden för event eller subtrahera ett värde från ett tillstånd där sammanställd summan. Följande är JavaScript-mallen för AccumulateDeaccumulate aggregeringar:
 
 ````JavaScript
 // Sample UDA which state can be accumulated and deaccumulated.
@@ -74,60 +74,60 @@ function main() {
 }
 ````
 
-## <a name="uda---javascript-function-declaration"></a>UDA - JavaScript funktionsdeklarationen
+## <a name="uda---javascript-function-declaration"></a>UDA - deklarationen för JavaScript-funktion
 
-Varje JavaScript UDA definieras av en funktionsdeklarationen för objektet. Följande är viktiga element i en UDA-definition.
+Varje JavaScript UDA definieras av en funktionsdeklarationen för objektet. Följande är viktiga element i en definition av UDA.
 
 ### <a name="function-alias"></a>Funktionsalias
 
-Funktionen alias är UDA-identifierare. När den anropas i Stream Analytics-fråga alltid använda UDA alias tillsammans med ”uda”. prefix.
+Funktionsalias är UDA-identifierare. När den anropas i Stream Analytics-fråga alltid använda UDA alias tillsammans med en ”uda”. prefix.
 
 ### <a name="function-type"></a>Funktionstyp
 
-För UDA, funktionen typen ska vara **Javascript UDA**.
+UDA, vilken funktion som ska vara **Javascript UDA**.
 
 ### <a name="output-type"></a>Utdatatyp
 
-En specifik Skriv det Stream Analytics-jobbet som stöds eller ”alla” om du vill hantera den i frågan.
+En specifik skriver den Stream Analytics-jobb som stöds eller ”alla” om du vill hantera den i frågan.
 
 ### <a name="function-name"></a>Funktionsnamn
 
-Namnet på den här funktionen-objekt. Funktionsnamnet bokstavligt bör matcha UDA-alias (Förhandsgranska beteende, vi funderar på att anonym stödfunktionen när GA).
+Namnet på den här funktionen-objektet. Funktionsnamnet bokstavligen ska matcha UDA-alias (Förhandsgranska beteende och vi funderar på att anonym stödfunktionen när GA).
 
 ### <a name="method---init"></a>Metoden - init()
 
-Metoden init() initierar tillståndet för mängdfunktionen. Den här metoden anropas när Windows startas.
+Metoden init() initierar status för samlingen. Den här metoden anropas när Windows startar.
 
 ### <a name="method--accumulate"></a>Metoden – accumulate()
 
-Metoden accumulate() beräknar tillståndet UDA baserat på de aktuella händelsen värdena och det tidigare tillståndet. Den här metoden anropas när en händelse försätts i ett tidsfönster (TUMBLINGWINDOW, HOPPINGWINDOW eller SLIDINGWINDOW).
+Metoden accumulate() beräknar UDA tillståndet baserat på det tidigare tillståndet och de aktuella värdena för händelsen. Den här metoden anropas när en händelse som anger ett tidsfönster (TUMBLINGWINDOW, HOPPINGWINDOW eller SLIDINGWINDOW).
 
 ### <a name="method--deaccumulate"></a>Metoden – deaccumulate()
 
-Metoden deaccumulate() beräknar tillstånd baserat på de aktuella händelsen värdena och det tidigare tillståndet. Den här metoden anropas när en händelse lämnar en SLIDINGWINDOW.
+Metoden deaccumulate() beräknar om tillstånd baserat på det tidigare tillståndet och de aktuella värdena för händelsen. Den här metoden anropas när en händelse lämnar en SLIDINGWINDOW.
 
 ### <a name="method--deaccumulatestate"></a>Metoden – deaccumulateState()
 
-Metoden deaccumulateState() beräknar tillstånd baserat på det tidigare tillståndet och tillståndet för ett hopp. Den här metoden anropas när en uppsättning händelser lämna en HOPPINGWINDOW.
+Metoden deaccumulateState() beräknar om tillstånd baserat på föregående tillstånd och status för ett hopp. Den här metoden anropas när en uppsättning händelser lämna en HOPPINGWINDOW.
 
 ### <a name="method--computeresult"></a>Metoden – computeResult()
 
-Metoden computeResult() returnerar sammanlagda resultat baserat på aktuell status. Den här metoden anropas i slutet av ett tidsfönster (TUMBLINGWINDOW HOPPINGWINDOW och SLIDINGWINDOW).
+Metoden computeResult() returnerar aggregerade resultat som baseras på det aktuella tillståndet. Den här metoden anropas i slutet av en tidsperiod (TUMBLINGWINDOW HOPPINGWINDOW och SLIDINGWINDOW).
 
 ## <a name="javascript-uda-supported-input-and-output-data-types"></a>JavaScript UDA inkommande och utgående datatyper som stöds
-JavaScript UDA-datatyper finns i avsnittet **Stream Analytics och JavaScript skriver konvertering** av [integrera JavaScript UDF: er](stream-analytics-javascript-user-defined-functions.md).
+JavaScript UDA-datatyper finns i avsnittet **Stream Analytics och JavaScript typkonvertering** av [integrera JavaScript UDF: er](stream-analytics-javascript-user-defined-functions.md).
 
-## <a name="adding-a-javascript-uda-from-the-azure-portal"></a>Att lägga till en JavaScript UDA från Azure-portalen
+## <a name="adding-a-javascript-uda-from-the-azure-portal"></a>Att lägga till JavaScript UDA från Azure portal
 
-Nedan går vi igenom processen att skapa en UDA från portalen. Exemplet använder vi här beräknar tid viktas medelvärden.
+Nedan går vi igenom processen för att skapa en UDA från portalen. Exemplet använder vi här är databehandling tidsviktade genomsnitt.
 
-Nu skapar vi en JavaScript UDA under ett befintligt ASA jobb genom att följa steg.
+Nu ska vi skapa JavaScript UDA under ett befintligt ASA-jobb genom att följa stegen.
 
-1. Logga in på Azure-portalen och leta upp din befintliga Stream Analytics-jobbet.
-1. Klicka på länken funktioner under **jobbet TOPOLOGI**.
+1. Logga in på Azure-portalen och leta upp ditt befintliga Stream Analytics-jobb.
+1. Klicka på länken funktioner under **JOBBTOPOLOGI**.
 1. Klicka på den **Lägg till** ikon för att lägga till en ny funktion.
-1. På den nya funktionen i vyn väljer **JavaScript UDA** som typ av funktionen kan du se en standardmall för UDA som visas i redigeraren.
-1. Fyll i ”Nivågränsvärde” som UDA-alias och ändra implementeringen för funktionen som följande:
+1. På den nya funktionen i vyn väljer **JavaScript UDA** som typ av funktionen ser en standardmall för UDA som visas i redigeraren.
+1. Fyll i ”Nivågränsvärde” som UDA-alias och ändrar som följande:
 
     ````JavaScript
     // Sample UDA which calculate Time-Weighted Average of incoming values.
@@ -169,13 +169,13 @@ Nu skapar vi en JavaScript UDA under ett befintligt ASA jobb genom att följa st
     }
     ````
 
-1. När du klickar på knappen ”Spara” visas din UDA i listan funktion.
+1. När du klickar på knappen ”Spara” din UDA som visas i listan funktion.
 
-1. Klicka på den nya funktionen ”Nivågränsvärde” du kan kontrollera funktionsdefinitionen.
+1. Klicka på den nya funktionen ”Nivågränsvärde” kan du kontrollera definitionen.
 
-## <a name="calling-javascript-uda-in-asa-query"></a>Anropar JavaScript UDA i ASA frågan
+## <a name="calling-javascript-uda-in-asa-query"></a>Anropa JavaScript UDA i ASA-fråga
 
-I Azure-portalen och öppna ditt jobb, redigera frågan och anropa TWA() funktion med förordnandet prefixet ”uda”. Exempel:
+I Azure-portalen och öppna ditt jobb, redigera frågan och anropa TWA() funktion med utförda prefixet ”uda”. Exempel:
 
 ````SQL
 WITH value AS
@@ -193,9 +193,9 @@ FROM value
 GROUP BY TumblingWindow(minute, 5)
 ````
 
-## <a name="testing-query-with-uda"></a>Testa fråga med UDA
+## <a name="testing-query-with-uda"></a>Testa frågan med UDA
 
-Skapa en lokal JSON-fil med nedan innehåll, överföra filen till Stream Analytics-jobbet och testa ovan frågan.
+Skapa en lokal JSON-fil med nedan innehåll, överföra filen till Stream Analytics-jobb och testa ovanför fråga.
 
 ````JSON
 [
@@ -227,12 +227,12 @@ Skapa en lokal JSON-fil med nedan innehåll, överföra filen till Stream Analyt
 
 ## <a name="get-help"></a>Få hjälp
 
-För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Om du behöver mer hjälp kan du besöka vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics query language-referens](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Frågespråksreferens för Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics management REST API-referens](https://msdn.microsoft.com/library/azure/dn835031.aspx)

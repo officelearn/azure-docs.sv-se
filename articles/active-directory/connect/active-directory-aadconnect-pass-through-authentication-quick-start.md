@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fc98f15303f23937d58131de971d5c60017c9034
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 280d62f127c333ff195e921de380721170fd6a96
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917718"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214990"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory-direktautentisering: Snabbstart för
 
@@ -29,9 +29,9 @@ ms.locfileid: "37917718"
 Azure Active Directory (Azure AD)-direktautentisering kan användarna att logga in på både lokala och molnbaserade program genom att använda samma lösenord. Direktautentisering loggar användarna in genom att verifiera sina lösenord direkt mot den lokala Active Directory.
 
 >[!IMPORTANT]
->Om du använder den här funktionen via en förhandsversion kan du se till att du uppgraderar förhandsversioner av agenterna för autentisering med hjälp av instruktionerna i [Azure Active Directory-direktautentisering: uppgradera förhandsversionen Autentiseringsagenter](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
+>Om du migrerar från AD FS (eller andra tekniker för federation) till direktautentisering, rekommenderar vi att du följer våra detaljerad Distributionsguide publicerade [här](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
 
-Följ dessa instruktioner för att distribuera direktautentisering:
+Följ dessa instruktioner för att distribuera direktautentisering på din klient:
 
 ## <a name="step-1-check-the-prerequisites"></a>Steg 1: Kontrollera krav
 
@@ -50,7 +50,11 @@ Se till att följande krav är uppfyllda.
     >[!NOTE]
     >Azure AD Connect-versioner 1.1.557.0, 1.1.558.0, 1.1.561.0 och 1.1.614.0 har ett problem med synkronisering av lösenordshash. Om du _inte_ planerar att använda synkronisering av lösenordshash tillsammans med direktautentisering, läsa den [viktig information om Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470).
 
-3. Identifiera ytterligare en server (kör Windows Server 2012 R2 eller senare) där du kan köra en fristående Autentiseringsagenten. Autentiseringsagenten-version måste vara 1.5.193.0 eller senare. Den här ytterligare server krävs för att garantera hög tillgänglighet för begäranden för att logga in. Lägg till servern i samma Active Directory-skog som användare vars lösenord du måste verifiera.
+3. Identifiera en eller flera ytterligare servrar (som kör Windows Server 2012 R2 eller senare) där du kan köra fristående Autentiseringsagenter. Dessa ytterligare servrar behövs för att garantera hög tillgänglighet för begäranden för att logga in. Lägg till servrar i samma Active Directory-skog som användare vars lösenord du måste verifiera.
+
+    >[!IMPORTANT]
+    >I produktionsmiljöer rekommenderar vi att du har minst 3 Autentiseringsagenter som körs på din klient. Det finns en systemgränsen på 12 Autentiseringsagenter per klient. Och bästa praxis är att behandla alla servrar som kör Autentiseringsagenter som nivå 0-system (se [referens](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+
 4. Om det finns en brandvägg mellan dina servrar och Azure AD måste du konfigurera följande objekt:
    - Se till att Autentiseringsagenter kan göra *utgående* begäranden till Azure AD via följande portar:
    
@@ -62,32 +66,14 @@ Se till att följande krav är uppfyllda.
     Om din brandvägg tillämpar regler enligt ursprungliga användarna, kan du öppna dessa portar för trafik från Windows-tjänster som körs som en nätverkstjänst.
    - Om din brandvägg eller proxyserver kan DNS-lista över tillåtna, lista över tillåtna anslutningar till  **\*. msappproxy.net** och  **\*. servicebus.windows.net**. Om den inte tillåter åtkomst till den [Azure datacenter IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653), som uppdateras varje vecka.
    - Din Autentiseringsagenter behöver åtkomst till **login.windows.net** och **login.microsoftonline.com** för inledande registrering. Öppna din brandvägg för dessa URL: er samt.
-   - Certifikatsverifiering, avblockera i följande webbadresser: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, och  **www.microsoft.com:80**. Dessa URL: er används för certifikatsverifiering med andra Microsoft-produkter. Du kanske redan har dessa URL: er som är avblockerad.
+   - Certifikatsverifiering, avblockera i följande webbadresser: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, och  **www.microsoft.com:80**. Eftersom dessa URL: er används för certifikatsverifiering med andra Microsoft-produkter som du kan redan ha dessa URL: er avblockerad.
 
-## <a name="step-2-enable-exchange-activesync-support-optional"></a>Steg 2: Aktivera stöd för Exchange ActiveSync (valfritt)
-
-Följ dessa instruktioner för att aktivera stöd för Exchange ActiveSync:
-
-1. Använd [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) att köra följande kommando:
-```
-Get-OrganizationConfig | fl per*
-```
-
-2. Kontrollera värdet för den `PerTenantSwitchToESTSEnabled` inställningen. Om värdet är **SANT**, din klient är korrekt konfigurerad. Det är vanligtvis fallet för de flesta kunder. Om värdet är **FALSKT**, kör du följande kommando:
-```
-Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
-```
-
-3. Kontrollera att värdet för den `PerTenantSwitchToESTSEnabled` är nu inställningen **SANT**. Vänta en timme innan du fortsätter till nästa steg.
-
-Om du får problem under det här steget ska du kontrollera den [felsökningsguide för](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#exchange-activesync-configuration-issues).
-
-## <a name="step-3-enable-the-feature"></a>Steg 3: Aktivera funktionen
+## <a name="step-2-enable-the-feature"></a>Steg 2: Aktivera funktionen
 
 Aktivera direktautentisering via [Azure AD Connect](active-directory-aadconnect.md).
 
 >[!IMPORTANT]
->Du kan aktivera direktautentisering på Azure AD Connect primär eller fristående server. Du bör aktivera det från den primära servern.
+>Du kan aktivera direktautentisering på Azure AD Connect primär eller fristående server. Vi rekommenderar att du aktiverar det från den primära servern.
 
 Om du installerar Azure AD Connect för första gången, väljer du den [anpassade installationssökväg](active-directory-aadconnect-get-started-custom.md). På den **användarinloggning** väljer **direktautentisering** som den **inloggningsmetod**. Åtgärden lyckades, är en Autentiseringsagenten för direktautentisering installerad på samma server som Azure AD Connect. Dessutom är funktionen direktautentisering aktiverad på klienten.
 
@@ -98,9 +84,9 @@ Om du redan har installerat Azure AD Connect med hjälp av den [Snabbinstallatio
 ![Azure AD Connect: Ändra användarinloggning](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
 >[!IMPORTANT]
->Direktautentisering är en funktion på klientnivå. Att aktivera den påverkar inloggning för användare i _alla_ de hanterade domänerna i din klient. Om du växlar från Active Directory Federation Services (AD FS) till direktautentisering, bör du vänta minst 12 timmar innan du stänger av AD FS-infrastrukturen. Den här väntetid är att säkerställa att användarna kan hålla inloggning till Exchange ActiveSync under övergången.
+>Direktautentisering är en funktion på klientnivå. Att aktivera den påverkar inloggning för användare i _alla_ de hanterade domänerna i din klient. Om du växlar från Active Directory Federation Services (AD FS) till direktautentisering, bör du vänta minst 12 timmar innan du stänger av AD FS-infrastrukturen. Den här väntetid är att säkerställa att användarna kan hålla inloggning till Exchange ActiveSync under övergången. Kolla in vår detaljerad Distributionsguide som publicerats för mer hjälp om hur du migrerar från AD FS till direktautentisering [här](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
 
-## <a name="step-4-test-the-feature"></a>Steg 4: Testa funktionen
+## <a name="step-3-test-the-feature"></a>Steg 3: Testa funktionen
 
 Följ dessa instruktioner för att kontrollera att du har aktiverat direktautentisering korrekt:
 
@@ -116,9 +102,12 @@ Följ dessa instruktioner för att kontrollera att du har aktiverat direktautent
 
 I det här skedet kan användare från de hanterade domänerna i din klient logga in med hjälp av direktautentisering. Användare från federerade domäner fortsätter dock att logga in med hjälp av AD FS eller en annan federationsleverantör som du tidigare har konfigurerat. Om du konverterar en domän från federerad som hanteras, börjar alla användare från domänen automatiskt loggar in med hjälp av direktautentisering. Funktionen direktautentisering påverkar inte molnexklusiva användare.
 
-## <a name="step-5-ensure-high-availability"></a>Steg 5: Garantera hög tillgänglighet
+## <a name="step-4-ensure-high-availability"></a>Steg 4: Garantera hög tillgänglighet
 
-Om du planerar att distribuera direktautentisering i en produktionsmiljö bör du installera minst en mer fristående Autentiseringsagenten. Installera de här autentiseringsagenter på servrarna _andra_ än en aktiva Azure AD Connect. Den här konfigurationen ger hög tillgänglighet för begäranden för användare logga in.
+Om du planerar att distribuera direktautentisering i en produktionsmiljö bör du installera ytterligare fristående Autentiseringsagenter. Installera de här autentiseringsagenter på servrarna _andra_ än en aktiva Azure AD Connect. Den här konfigurationen ger hög tillgänglighet för begäranden för användare logga in.
+
+>[!IMPORTANT]
+>I produktionsmiljöer rekommenderar vi att du har minst 3 Autentiseringsagenter som körs på din klient. Det finns en systemgränsen på 12 Autentiseringsagenter per klient. Och bästa praxis är att behandla alla servrar som kör Autentiseringsagenter som nivå 0-system (se [referens](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 Följ dessa instruktioner för att hämta programvaran för autentiseringsagent:
 
@@ -132,7 +121,7 @@ Följ dessa instruktioner för att hämta programvaran för autentiseringsagent:
 ![Azure Active Directory Administrationscenter: ladda ned Agent-fönstret](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->Du kan också direkt ladda ned programvaran Autentiseringsagenten [här](https://aka.ms/getauthagent). Granska och Godkänn den Autentiseringsagenten [användningsvillkoren](https://aka.ms/authagenteula) _innan_ installerar den.
+>Du kan också direkt [ladda ned programvaran Autentiseringsagenten](https://aka.ms/getauthagent). Granska och Godkänn den Autentiseringsagenten [användningsvillkoren](https://aka.ms/authagenteula) _innan_ installerar den.
 
 Det finns två sätt att distribuera en fristående autentiseringsagent:
 
@@ -152,6 +141,7 @@ Dessutom kan du skapa och köra ett distributionsskript för obevakad. Detta är
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Nästa steg
+- [Migrera från AD FS till direktautentisering](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
 - [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md): Lär dig hur du konfigurerar funktionen för smarta kontoutelåsning på din klient för att skydda användarkonton.
 - [Aktuella begränsningar](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Läs mer om vilka scenarier som stöds med den direktautentisering och vilka som inte är.
 - [Teknisk djupdykning](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Förstå hur funktionen direktautentisering fungerar.

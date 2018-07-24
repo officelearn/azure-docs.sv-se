@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 89fb805ac64be358ed4f52865d2e89ab16fe2b17
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ffd0f272d182e3362a82e137e902d433ca750b46
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005806"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216299"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process i praktiken: med SQL Server
 I den här självstudien får du går igenom processen för att skapa och distribuera en maskininlärningsmodell med SQL Server och en datauppsättning som är allmänt tillgängliga – [NYC Taxi kommunikation](http://www.andresmh.com/nyctaxitrips/) datauppsättning. Proceduren följer en standard arbetsflöde för datavetenskap: mata in och utforska data, bygg funktioner för att förenkla inlärningen, och sedan skapa och distribuera en modell.
@@ -129,7 +129,7 @@ Prestanda för inläsning av/överföring av stora mängder data till en SQL-dat
 7. I den **exempelskript** mapp, det finns två PowerShell-exempelskript som demonstrerar parallella bulk import av data till SQL Server-tabeller.
    
    * **BCP\_parallella\_generic.ps1** är ett Allmänt skript till parallella bulk importera data till en tabell. Ändra det här skriptet för att ställa in indata och target-variabler som anges i kommentar raderna i skriptet.
-   * **BCP\_parallella\_nyctaxi.ps1** är en förkonfigurerad version av Allmänt skript och kan användas till att läsa in båda tabellerna för NYC Taxi och RETUR-data.  
+   * **BCP\_parallella\_nyctaxi.ps1** är en förkonfigurerad version av det allmänna skriptet och kan användas för att läsa in båda tabellerna för NYC Taxi och RETUR-data.  
 8. Högerklicka på den **bcp\_parallella\_nyctaxi.ps1** skriptets namn och klicka på **redigera** att öppna den i PowerShell. Granska de förinställda variablerna och ändra baserat på din valda databasens namn, indata-mappen, log målmappen och sökvägar till formatet exempelfilerna **nyctaxi_trip.xml** och **nyctaxi\_fare.xml** (i den **exempelskript** mapp).
    
     ![Importera bulkdata][16]

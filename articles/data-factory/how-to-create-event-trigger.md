@@ -10,20 +10,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/23/2018
 ms.author: douglasl
-ms.openlocfilehash: ecd5f242d2dcb5662376541ac0a9e75ce533b59f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 53ea7425f0497eca7c95ddefeaa09aa40259672b
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005840"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216284"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Skapa en utlösare som kör en pipeline som svar på en händelse
 
 Den här artikeln beskriver de händelsebaserade utlösare som du kan skapa i Data Factory-pipeliner.
 
 Händelsedriven arkitektur (EDA) är ett vanligt integration mönster för data som inbegriper produktion, identifiering, förbrukning och reaktionen på händelser. Dataintegrering kräver ofta Data Factory-kunder som utlöser pipelines baserat på händelser. Data Factory är nu integrerat med [Azure Event Grid](https://azure.microsoft.com/services/event-grid/), där kan du utlöser pipelines på en händelse.
+
+Titta på följande videoklipp för en tio minuter introduktion och demonstration av den här funktionen:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Event-based-data-integration-with-Azure-Data-Factory/player]
+
 
 > [!NOTE]
 > Integrering som beskrivs i den här artikeln är beroende av [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Se till att prenumerationen är registrerad med Event Grid-resursprovidern. Mer information finns i [resursproviders och resurstyper](../azure-resource-manager/resource-manager-supported-services.md#portal).

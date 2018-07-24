@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: d7814b976529bf7032edd54e4afd574ce766e5dd
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4bcb6734c33d70e4045860a2c0f0acfedfa06eff
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919870"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215187"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Upptäck och utvärdera en stor VMware-miljö
 
@@ -36,7 +36,7 @@ Azure Migrate måste ha åtkomst till VMware-servrar för att automatiskt kunna 
 
 Om du distribuerar i en miljö organisationer, är här ett sätt att konfigurera detta:
 
-1.  Skapa en användare per klient och och använder [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), tilldela läsbehörighet till Virtuella datorer som tillhör en viss klient. Sedan Använd dessa autentiseringsuppgifter för identifiering. RBAC säkerställer att motsvarande vCenter-användaren har åtkomst till endast specifika VM-klient.
+1.  Skapa en användare per klient och använder [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), tilldela läsbehörighet till Virtuella datorer som tillhör en viss klient. Sedan Använd dessa autentiseringsuppgifter för identifiering. RBAC säkerställer att motsvarande vCenter-användaren har åtkomst till endast specifika VM-klient.
 2. Du konfigurerar RBAC för olika klientanvändare enligt beskrivningen i följande exempel för användaren nr 1 och 2 för användaren:
 
     - I **användarnamn** och **lösenord**, anger du de skrivskyddade kontoautentiseringsuppgifter som insamlaren använder för att identifiera virtuella datorer i
@@ -197,7 +197,7 @@ Vi rekommenderar att du ställer in vanliga filegenskaper (3) för statistik niv
 
 I följande tabell visas även utvärderingsresultat som kommer att påverkas om en särskild räknare inte har samlats in.
 
-| Räknare                                 | Nivå | Nivå per enhet | Utvärdering av påverkan                    |
+| Räknaren                                 | Nivå | Nivå per enhet | Utvärdering av påverkan                    |
 | --------------------------------------- | ----- | ---------------- | ------------------------------------ |
 | CPU.Usage.Average                       | 1     | Ej tillämpligt               | Rekommenderad storlek och kostnad         |
 | Mem.Usage.Average                       | 1     | Ej tillämpligt               | Rekommenderad storlek och kostnad         |

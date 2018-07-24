@@ -3,23 +3,18 @@ title: Azure Health Analytics skiss
 description: Vägledning för distribution av en HIPAA/HITRUST hälsotillstånd Analytics skiss
 services: security
 documentationcenter: na
-author: jomolesk
-manager: mbaldwin
-editor: tomsh
+author: RajeevRangappa
 ms.assetid: 26566e0a-0a54-49f4-a91d-48e20b7cef71
 ms.service: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/27/2018
-ms.author: jomolesk
-ms.openlocfilehash: f58466bb4cc90823d8e75e0371b400ee674e8b5d
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 07/23/2018
+ms.author: rarangap
+ms.openlocfilehash: b20da0f31f197ed23aa73b185d127a6d5f2dbd8a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37113239"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214949"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-säkerhet och efterlevnad skissen - HIPAA/hitrust – hälsodata och AI
 
@@ -31,7 +26,7 @@ Den Azure Blueprint för säkerhet och efterlevnad – HIPAA/hitrust – hälsod
 
 ![](images/components.png)
 
-Lösningen har utformats för att använda en exempeldatauppsättning som formaterats med snabb Healthcare samverkan resurser (FHIR), en globalt standard för informationsutbyte hälsovård elektroniskt, och lagra den på ett säkert sätt. Kunder kan sedan använda Azure Machine Learning för att dra nytta av kraftfulla business intelligence-verktyg och analyser för att granska förutsägelser som görs på exempeldata. Som ett exempel på vilken typ av experimentet som Azure Machine Learning kan underlätta innehåller skissen en exempeldatauppsättning, skript och verktyg för att förutsäga längden på en patients stanna i en sjukhusanläggning. 
+Lösningen har utformats för att använda en exempeldatauppsättning som formaterats med snabb Healthcare samverkan resurser (FHIR), en globalt standard för informationsutbyte hälsovård elektroniskt, och lagra den på ett säkert sätt. Kunder kan sedan använda Azure Machine Learning Studio för att dra nytta av kraftfulla business intelligence-verktyg och analyser för att granska förutsägelser som görs på exempeldata. Som ett exempel på vilken typ av experimentet som Azure Machine Learning Studio kan underlätta innehåller skissen en exempeldatauppsättning, skript och verktyg för att förutsäga längden på en patients stanna i en sjukhusanläggning. 
 
 Den här skissen är avsedd att fungera som en modulbaserad grund för kunder enligt deras specifika krav, utveckla nya Azure Machine learning-experiment för att lösa båda klinisk och driftsmässig användningsfall. Det är avsett att vara skyddade och kompatibla när de distribueras; dock ansvarar kunderna för att konfigurera roller på rätt sätt och implementera eventuella ändringar. Observera följande:
 
@@ -66,7 +61,7 @@ Titta på den här för en snabb överblick över hur den här lösningen funger
 
 Grundläggande arkitekturen består av följande komponenter:
 
--   **[Hotmodell](https://aka.ms/healththreatmodel)**  en omfattande hotmodell har tillhandahållits i tm7 format för användning med den [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168), som visar komponenterna i lösningen, data som flödar mellan dem och förtroende gränser. Modellen kan hjälpa kunderna att förstå punkterna i risken i system-infrastruktur när du utvecklar machine learning komponenter eller andra ändringar.
+-   **[Hotmodell](https://aka.ms/healththreatmodel)**  en omfattande hotmodell har tillhandahållits i tm7 format för användning med den [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168), som visar komponenterna i lösningen, data som flödar mellan dem och förtroende gränser. Modellen kan hjälpa kunderna att förstå punkterna i risken i system-infrastruktur när du utvecklar Machine Learning Studio komponenter eller andra ändringar.
 
 -   **[Matris för implementering av kunden](https://aka.ms/healthcrmblueprint)**  A Microsoft Excel-arbetsbok innehåller relevanta HITRUST kraven och förklarar hur Microsoft och kunden ansvarar för att uppfylla var och en.
 
@@ -107,7 +102,7 @@ De har ingen åtkomst till patientjournaler.
  ### <a name="data-scientist"></a>Dataexpert
 
 
-Data Science fungerar Azure Machine Learning-tjänsten. De kan importera, exportera, och hantera data och köra rapporter. Data Science har tillgång till patientens data, men har inte administratörsbehörighet.
+Data Science fungerar Azure Machine Learning Studio. De kan importera, exportera, och hantera data och köra rapporter. Data Science har tillgång till patientens data, men har inte administratörsbehörighet.
 
 -   Inbyggda rolltilldelningar: [Lagringskontodeltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
@@ -148,12 +143,12 @@ Granskaren utvärderar lösningen för kompatibilitet. De har ingen direkt åtko
 ## <a name="example-use-case"></a>Exempel användningsfall
 
 
-Exempel-användningsfall som ingår i den här skissen illustrerar hur skissen kan användas för att aktivera maskininlärning och analys på hälsodata i molnet. Contosoclinic är ett litet sjukhus finns i USA. Nätverksadministratörer sjukhuset vill använda Azure Machine Learning för att bättre förutse längden på en patients stanna vid tidpunkten för tillträde, för att öka effektiviteten och förbättra vårdkvaliteten det kan ge.
+Exempel-användningsfall som ingår i den här skissen illustrerar hur skissen kan användas för att aktivera maskininlärning och analys på hälsodata i molnet. Contosoclinic är ett litet sjukhus finns i USA. Sjukhus-nätverket som administratörer ska kunna använda Azure Machine Learning Studio för att bättre förutse längden på en patients stanna vid tidpunkten för tillträde, för att öka effektiviteten och förbättra vårdkvaliteten det kan ge.
 
 ### <a name="predicting-length-of-stay"></a>Förutsägelser kring längd på
 
 
-Användningsfall för exemplet använder Azure Machine Learning för att förutsäga en nyligen släppas in patient längd genom att jämföra medicinska information tas i patientens intag till sammanställda historiska data från föregående patienter.
+Användningsfall för exemplet använder Azure Machine Learning Studio för att förutsäga en nyligen släppas in patient längd genom att jämföra medicinska information tas i patientens intag till sammanställda historiska data från föregående patienter.
 Skissen innehåller ett stort antal maskerade medicinska journaler att demonstrera funktionerna för utbildning och förutsägande i lösningen. I en Produktionsdistribution använder kunder sina egna poster för att träna lösningen mer exakta förutsägelser som återger unika information om deras miljö, anläggningar och patienter.
 
 ### <a name="users-and-roles"></a>Användare och roller
@@ -356,8 +351,8 @@ Lösningen har stöd för Azure Event Grid, en enskild tjänst för att hantera 
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   [Loggning är aktiverat](/azure/machine-learning/studio/web-services-logging) för Machine Learning-webbtjänster.
-- med hjälp av [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) workbench kräver utvecklingen av experiment, som gör möjligheten att förutsäga till en uppsättning av lösningen. [Integrera workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) kan hjälpa till att effektivisera hantering av experiment.
+-   [Loggning är aktiverat](/azure/machine-learning/studio/web-services-logging) för Machine Learning Studio-webbtjänster.
+- med hjälp av [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) workbench kräver utvecklingen av experiment, som gör möjligheten att förutsäga till en uppsättning av lösningen. [Integrera workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) kan hjälpa till att effektivisera hantering av experiment.
 
 ## <a name="security"></a>SÄKERHET
 

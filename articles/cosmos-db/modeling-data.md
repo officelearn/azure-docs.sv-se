@@ -1,7 +1,7 @@
 ---
-title: Modeling dokumentdata för en NoSQL-databas | Microsoft Docs
-description: Lär dig mer om att utforma data för NoSQL-databaser
-keywords: Modeling data
+title: Modelleringsdokumentdata för en NoSQL-databas | Microsoft Docs
+description: Lär dig om att utforma data för NoSQL-databaser
+keywords: datamodellering
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -10,38 +10,38 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2016
 ms.author: sngun
-ms.openlocfilehash: ef40bcb473e4d7dbe51f9d8d9ca20265c04d0df6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: acd3fa3367f68d5cc98a4ace82508f028d5fdbf8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612691"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214753"
 ---
-# <a name="modeling-document-data-for-nosql-databases"></a>Modeling dokumentdata för NoSQL-databaser
-Medan schemafria databaser som Azure Cosmos DB gör det super enkelt att omfatta ändringar i datamodellen du bör fortfarande tillbringar vissa tid tro om dina data. 
+# <a name="modeling-document-data-for-nosql-databases"></a>Modelleringsdokumentdata för NoSQL-databaser
+Medan schemafria databaser, som Azure Cosmos DB, gör det mycket enkelt att omfatta ändringar i datamodellen det bör fortfarande ta lite tid tänka om dina data. 
 
-Hur data ska lagras? Hur programmet ska hämta och frågar efter data? Är programmet läsa tjockt, eller Skriv tunga? 
+Hur data ska lagras? Hur kommer programmet att hämta och fråga efter data? Är programmet att läsa tjockt, eller Skriv tunga? 
 
-När du har läst den här artikeln kommer du att kunna svara på följande frågor:
+När du har läst den här artikeln kommer du att kunna besvara följande frågor:
 
-* Hur ska tycker om ett dokument i en dokumentdatabasen?
-* Vad är datamodellering och varför ska jag hand? 
-* Hur skiljer sig modellering data i en databas för dokument i en relationsdatabas?
-* Hur jag express data relationer i en icke-relationell databas?
-* När bädda data och när länkar jag data?
+* Hur ska jag tänka på ett dokument i en dokumentdatabas?
+* Vad är datamodellering och varför ska jag bry mig? 
+* Hur skiljer sig modellering av finansdata i en dokumentdatabas en relationsdatabas?
+* Hur jag express datarelationer i en icke-relationell databas?
+* När bäddar jag in data och när länkar jag till data?
 
 ## <a name="embedding-data"></a>Bädda in data
-När du startar modellerar data i ett dokumentarkiv, till exempel Azure Cosmos DB försöker behandla entiteter som **fristående dokument** representeras i JSON.
+När du startar datamodellering i ett dokumentarkiv, till exempel Azure Cosmos DB, försöker hantera dina entiteter som **självständigt dokument** representeras i JSON.
 
-Innan vi fördjupa dig för mycket mer Låt oss ta ett par steg tillbaka och ta en titt på hur vi kan modellen något i en relationsdatabas, ett ämne som många av oss redan är bekant med. I följande exempel visas hur en person kan lagras i en relationsdatabas. 
+Innan vi fördjupar oss för mycket dessutom Låt oss ta ett par steg tillbaka och ta en titt på hur vi kan modellera något i en relationsdatabas, ett ämne som många redan är bekant med. I följande exempel visas hur en person kan lagras i en relationsdatabas. 
 
-![Relationsdatabas modellen](./media/sql-api-modeling-data/relational-data-model.png)
+![Relationsdatabas modell](./media/sql-api-modeling-data/relational-data-model.png)
 
-När du arbetar med relationsdatabaser vi har blivit vilka undervisning förekommer i år att normalisera, normalisera, normalisera.
+När du arbetar med relationsdatabaser, har vi varit undervisats i flera år för att normalisera, normalisera, normalisera.
 
-Normaliserar data normalt omfattar tar en entitet, till exempel en person, och dela upp frågan separata delar av data. I exemplet ovan kan kan en person ha flera poster för kontakt-information samt flera poster. Vi även ta ytterligare ett steg och redovisar kontaktuppgifter genom att extrahera ytterligare vanliga fält som typen. Samma för adress, varje post här har en typ som *Start* eller *företag* 
+Normaliserar dina data vanligtvis innebär att en enhet, till exempel en person och dela upp frågan diskreta delar av data. I exemplet ovan är kan en person ha flera kontakta poster samt flera poster. Vi även gå ett steg längre och bryter ned kontaktinformation genom att extrahera ytterligare vanliga fält som en typ. På samma sätt som för adress, här varje post har en typ som *Start* eller *företag* 
 
-Den guidar premise när normalisera data är att **lagra inte redundanta data** på varje registrera och i stället referera till data. I det här exemplet för att läsa en person med sina kontaktuppgifter och adresser, måste du använda kopplingar för att effektivt aggregera dina data vid körning.
+Den guidar premise när normaliserar data ska **Undvik att lagra redundanta data** på varje post och i stället hänvisa till data. I det här exemplet för att läsa en person med deras kontaktuppgifter och adresser, behöver du använda kopplingar för att effektivt aggregera dina data vid körning.
 
     SELECT p.FirstName, p.LastName, a.City, cd.Detail
     FROM Person p
@@ -49,9 +49,9 @@ Den guidar premise när normalisera data är att **lagra inte redundanta data** 
     JOIN ContactDetailType on cdt ON cdt.Id = cd.TypeId
     JOIN Address a ON a.PersonId = p.Id
 
-Uppdatering av en person med kontaktinformation och adresser kräver skrivåtgärder över många enskilda tabeller. 
+Uppdatering av en enskild person med deras kontaktuppgifter och adresser kräver skrivåtgärder över många enskilda tabeller. 
 
-Nu ska vi ta en titt på hur vi skulle modeller för samma data som en fristående enhet i en databas för dokumentet.
+Nu ska vi ta en titt på hur vi skulle modeller för samma data som en fristående enhet i en dokumentdatabas.
 
     {
         "id": "1",
@@ -72,31 +72,31 @@ Nu ska vi ta en titt på hur vi skulle modeller för samma data som en friståen
         ] 
     }
 
-Med metoden ovan har vi nu **Avnormaliserade** personen som registrerar var vi **inbäddade** all information som rör till den här personen som deras kontaktuppgifter och adresser i ett enda JSON-dokument.
-Vi har också möjlighet att utföra åtgärder som att ha kontaktuppgifterna med olika former helt eftersom vi inte är begränsad till ett fast schema. 
+Med hjälp av metoden ovan har vi nu **Avnormaliserade** personen som registrerar var vi **embedded** all information som rör till den här personen som deras kontaktuppgifter och adresser, i en enda JSON dokumentet.
+Vi har också möjlighet att göra saker som att ha kontaktinformation på olika former helt eftersom vi inte är begränsad till ett fast schema. 
 
-Hämtar en fullständig personpost från databasen är nu en enda Läsåtgärd mot en enda samling och för ett enskilt dokument. Uppdatera en personpost med kontaktuppgifter och adresser, är också en enda skrivåtgärd mot ett enskilt dokument.
+Hämta en fullständig personpost från databasen är nu en enda Läsåtgärd mot en enda samling och för ett enskilt dokument. Uppdatera en personpost med deras kontaktuppgifter och adresser, är också en enskild skrivåtgärd mot ett enskilt dokument.
 
-Av denormalizing data, kan programmet behöva utfärda färre frågor och uppdateringar för att slutföra vanliga åtgärder. 
+Genom att avnormalisera data, kan programmet behöva skicka färre frågor och uppdateringar för att slutföra vanliga åtgärder. 
 
-### <a name="when-to-embed"></a>Bädda in
+### <a name="when-to-embed"></a>När du ska bädda in
 I allmänhet använder inbäddade data modeller när:
 
 * Det finns **innehåller** relationer mellan entiteter.
 * Det finns **en till några** relationer mellan entiteter.
 * Det finns inbäddade data som **ändras sällan**.
-* Det är inbäddat data inte växa **utan gräns**.
+* Det är inbäddade data inte växa **utan gräns**.
 * Det finns inbäddade data som är **integrerad** till data i ett dokument.
 
 > [!NOTE]
-> Vanligtvis Avnormaliserade data modeller får du bättre **läsa** prestanda.
+> Normalt Avnormaliserade data som ger bättre **läsa** prestanda.
 > 
 > 
 
-### <a name="when-not-to-embed"></a>När du inte att bädda in
-Tumregel i dokumentet databas är att denormalize allt och bädda in alla data i ett dokument, kan detta leda till vissa situationer bör undvikas.
+### <a name="when-not-to-embed"></a>När du inte vill bädda in
+Tumregel i en dokumentdatabas är att avnormalisera allt och bädda in alla data i ett enda dokument, kan detta leda till vissa situationer som bör undvikas.
 
-Ta den här JSON-fragment.
+Ta det här JSON-kodfragmentet.
 
     {
         "id": "1",
@@ -114,11 +114,11 @@ Ta den här JSON-fragment.
         ]
     }
 
-Det kan vara vad en post entitet med inbäddade kommentarer skulle se ut som om vi modellera en typisk blogg eller CMS, system. Problemet med det här exemplet är att kommentarer matrisen **unbounded**, vilket innebär att det finns ingen () gräns för antalet kommentarer som en enda post kan ha. Detta blir ett problem som storleken på dokumentet kan växa avsevärt.
+Det kan vara vad en post-entitet med inbäddade kommentarer skulle se ut som om vi modellering en typisk blogg eller CMS-system, system. Problem med det här exemplet är att kommentarer matrisen är **obundna**, vilket innebär att det finns ingen () gräns för antal kommentarer som det enda inlägget kan ha. Detta blir ett problem Eftersom storleken på dokumentet kan växa avsevärt.
 
-När storleken på dokumentet växer möjlighet att överföra data under överföring samt läsning och uppdatering av dokument i skala, påverkas.
+När storleken på dokumentet ökar möjligheten att överföra data via under överföring samt läsa och uppdatera dokumentet, i skala, kommer att påverkas.
 
-I det här fallet kan det vara bättre att tänka på följande modell.
+I det här fallet skulle det vara bättre att tänka på följande modell.
 
     Post document:
     {
@@ -151,11 +151,11 @@ I det här fallet kan det vara bättre att tänka på följande modell.
         ]
     }
 
-Den här modellen har de senaste tre kommentarer inbäddade för sig själv, vilket är en matris med en fast bunden nu. Andra kommentarer är grupperade i till batchar av 100 kommentarer och lagras i separata dokument. Storlek på batch valdes som 100 eftersom vårt fiktiva program används att läsa in 100 kommentarer i taget.  
+Den här modellen har de senaste tre kommentarer inbäddad på inlägget, vilket är en matris med en fast bunden nu. Andra kommentarerna är grupperade i batchar med 100 kommentarer och lagras i separata dokument. Storlek på batch har valts som 100 eftersom vårt fiktiva program används att läsa in 100 kommentarer i taget.  
 
-Ett annat fall där inbäddning data inte är en bra idé är när den inbäddade data används ofta mellan dokument och kommer att ändras ofta. 
+Ett annat fall där bädda in data inte är en bra idé är när inbäddade data används ofta i dokument och ändras ofta. 
 
-Ta den här JSON-fragment.
+Ta det här JSON-kodfragmentet.
 
     {
         "id": "1",
@@ -173,16 +173,16 @@ Ta den här JSON-fragment.
         ]
     }
 
-Detta kan vara en person portfölj. Vi har valt att bädda in lager informationen i varje portfölj dokumentet. I en miljö där relaterade data ändras ofta kommer som en börs handel program, bädda in data som ändras ofta att innebära att du kontinuerligt uppdaterar varje portfölj dokumentet varje gång en börs säljs.
+Detta kan vara en persons portfölj. Vi har valt att bädda in lagerartiklar informationen i varje portfölj dokumentet. I en miljö där relaterade data ändras ofta, kommer som aktier handel med program, bädda in data som ändras ofta att innebära att du hela tiden uppdaterar dokumenten portfölj varje gång aktier säljs.
 
-Börs *zaza* får säljas många hundratals gånger i en enda dag och tusentals användare kan ha *zaza* på sina portfölj. Med en datamodell som anges ovan måste vi uppdatera tusentals portfölj dokument många gånger varje dag, vilket leder till ett system som inte skala mycket bra. 
+Lager *zaza* får säljas flera hundra gånger under en enda dag och tusentals användare kan ha *zaza* deras portfölj. Med en datamodell som ovanstående vi skulle behöva uppdatera flera tusen portfölj dokument många gånger varje dag som leder till ett system som inte skala mycket bra. 
 
 ## <a id="Refer"></a>Refererar till data
-Därför bädda in data fungerar bra i många fall, men det är tydligt att det finns scenarier när denormalizing data medför flera problem än lönar. Så vad vi gör nu? 
+Därför bädda in data fungerar bra för många fall, men det är tydligt att det finns scenarier när avnormalisera data medför flera problem än vad det är värt att. Så vad vi gör nu? 
 
-Relationsdatabaser är inte den enda plats där du kan skapa relationer mellan entiteter. I en databas i dokumentet kan du ha information i ett dokument som verkligen är kopplad till data i andra dokument. Nu kan jag inte arbeta för ett även en minut att vi bygger system som skulle vara bättre passar relationsdatabaser i Azure Cosmos DB eller andra dokumentdatabasen, men enkla relationer är skadad och kan vara användbar. 
+Relationsdatabaser är inte den enda plats där du kan skapa relationer mellan entiteter. Du kan ha information i ett dokument som faktiskt är kopplat till data i andra dokument i en dokumentdatabas. Nu kan jag inte utvecklarrådgivning även en minut att vi bygger system som skulle vara bättre lämpade för en relationsdatabas i Azure Cosmos DB eller någon annan dokumentdatabas, men enkla relationer fungerar bra och kan vara användbar. 
 
-I JSON nedan vi valde att använda exempel på en portfölj från tidigare men den här gången avser vi lager artikeln på portfölj i stället för att bädda in den. Det här sättet när objektet lager som ändras ofta under dagen endast dokument som behöver uppdateras är i ett lager dokument. 
+I JSON nedan som vi har valt att använda exemplet med en portfölj från tidigare men nu kan vi refererar till objektet lagerartiklar portfölj i stället för att bädda in den. Det här sättet när lagerartiklar objektet ändras ofta under dagen den enda dokument som måste uppdateras är det enda lagerartiklar dokumentet. 
 
     Person document:
     {
@@ -218,15 +218,15 @@ I JSON nedan vi valde att använda exempel på en portfölj från tidigare men d
     }
 
 
-En omedelbar Nackdelen med att den här metoden är dock om ditt program krävs för att visa information om varje lager som hålls kvar när du visar en persons portfölj; i det här fallet skulle du behöva göra flera resor till databasen för att läsa in informationen för varje lager dokument. Här har vi gjort ett beslut att förbättra effektiviteten för skrivåtgärder som inträffa ofta under dagen, men som i sin tur komprometteras på läsåtgärder som eventuellt få mindre påverkan på prestandan för viss systemet.
+En omedelbar Nackdelen med att den här metoden är dock om ditt program krävs för att visa information om varje lager som hålls kvar när du visar en persons portföljen. i det här fallet skulle du behöva göra flera resor till databasen för att läsa in informationen för varje lagerartiklar dokument. Här har vi gjort ett beslut att förbättra effektiviteten för skrivåtgärder, vilket sker ofta under dagen, men i sin tur komprometteras på läsåtgärder som potentiellt har mindre påverkan på prestanda hos den här specifika system.
 
 > [!NOTE]
-> Normaliserade datamodeller **kan kräva mer sändningar** till servern.
+> Normalized datamodeller **kan kräva mer tur och RETUR** till servern.
 > 
 > 
 
-### <a name="what-about-foreign-keys"></a>Nyheter om externa nycklar?
-Eftersom det inte finns något begrepp om en begränsning, foreign key- eller på annat sätt, relationer mellan dokument som du har i dokument är effektivt ”svaga länkar” och kommer inte att verifiera genom att själva databasen. Om du vill säkerställa att data i ett dokument refererar till verkligen finns måste du göra i ditt program, eller genom att använda serversidan utlösare eller lagrade procedurer på Azure Cosmos DB.
+### <a name="what-about-foreign-keys"></a>Vad gäller främmande nycklar?
+Eftersom det finns för närvarande inga konceptet med en begränsning, foreign key- eller på annat sätt, relationer mellan dokument som du har i dokument är i själva verket ”svaga länkar” och kommer inte verifieras av själva databasen. Om du vill se till att de data som ett dokument refererar till faktiskt finns, måste du göra detta i ditt program eller med hjälp av serversidan utlösare eller lagrade procedurer i Azure Cosmos DB.
 
 ### <a name="when-to-reference"></a>När du ska referera till
 I allmänhet använder normaliserade data modeller när:
@@ -234,7 +234,7 @@ I allmänhet använder normaliserade data modeller när:
 * Som representerar **en-till-många** relationer.
 * Som representerar **många-till-många** relationer.
 * Relaterade data **ändras ofta**.
-* Refererade data kan gå **unbounded**.
+* Refererade data kan **obundna**.
 
 > [!NOTE]
 > Vanligtvis normaliserar ger bättre **skriva** prestanda.
@@ -242,7 +242,7 @@ I allmänhet använder normaliserade data modeller när:
 > 
 
 ### <a name="where-do-i-put-the-relationship"></a>Där placera relationen?
-Tillväxten av relationen hjälper dig att avgöra i vilken dokumentet för att lagra referensen.
+Tillväxt för relationen hjälper dig att avgöra i vilken dokumentet för att lagra referensen.
 
 Om vi tittar på JSON nedan som modeller utgivare och böcker.
 
@@ -262,9 +262,9 @@ Om vi tittar på JSON nedan som modeller utgivare och böcker.
     ...
     {"id": "1000", "name": "Deep Dive in to Azure Cosmos DB" }
 
-Om antalet böcker per utgivaren är liten med begränsad tillväxt, kan det vara användbart att lagra book referens i publisher-dokument. Men om antal böcker per utgivaren är unbounded skulle sedan denna datamodell leda till föränderliga, växande matriser, som i ovanstående exempel publisher dokumentet. 
+Om antal böcker per utgivaren är litet med begränsad möjlighet att växa, kan det vara praktiskt att lagra boken referensen i publisher-dokument. Men om antal böcker per utgivaren är obegränsade, skulle sedan den här datamodellen leda till föränderligt och växande matriser, som i ovanstående exempel publisher dokumentet. 
 
-Växla runt lite skulle resultera i en modell som representerar fortfarande samma data, men nu undviker dessa stora föränderliga samlingar.
+Växla runt lite skulle resultera i en modell som fortfarande representerar samma data men nu förhindrar dessa stora föränderliga samlingar.
 
     Publisher document: 
     {
@@ -281,14 +281,14 @@ Växla runt lite skulle resultera i en modell som representerar fortfarande samm
     ...
     {"id": "1000","name": "Deep Dive in to Azure Cosmos DB", "pub-id": "mspress"}
 
-I exemplet ovan har vi bort samlingen unbounded på utgivaren dokumentet. I stället vi bara har en en referens till en utgivare på varje bokdokument.
+Vi har släppt obundna samlingen för utgivaren-dokument i exemplet ovan. I stället ha vi bara en referens till utgivaren på varje bokdokument.
 
 ### <a name="how-do-i-model-manymany-relationships"></a>Hur jag för att modellera många: många-relationer?
-I en relationsdatabas *många: många* relationer ofta modelleras med anslutning till tabeller som bara ansluta poster från andra tabeller tillsammans. 
+I en relationsdatabas *många: många* relationer modelleras ofta med anslutning till tabeller, som bara ansluta till poster från andra tabeller tillsammans. 
 
-![Koppla tabeller](./media/sql-api-modeling-data/join-table.png)
+![Ansluter till tabeller](./media/sql-api-modeling-data/join-table.png)
 
-Du kanske tro att replikera samma sak med hjälp av dokument och skapa en datamodell som liknar följande.
+Du kanske att tro att replikera samma sak med hjälp av dokument och skapa en datamodell som ser ut ungefär så här.
 
     Author documents: 
     {"id": "a1", "name": "Thomas Andersen" }
@@ -307,9 +307,9 @@ Du kanske tro att replikera samma sak med hjälp av dokument och skapa en datamo
     {"authorId": "a1", "bookId": "b2" }
     {"authorId": "a1", "bookId": "b3" }
 
-Detta kan fungera. Dock kräver inläsning av antingen en författare med deras böcker eller läsa in en bok med dess upphovsman alltid minst två ytterligare frågor mot databasen. En fråga till anslutande dokumentet och sedan en annan fråga för att hämta det faktiska dokumentet är ansluten. 
+Detta skulle fungera. Dock kräver läser in antingen en författare med sina böcker eller läser in en bok med dess upphovsman alltid minst två ytterligare frågor mot databasen. En fråga för att slå samman dokumentet och sedan en annan fråga för att hämta det faktiska dokumentet att det har anslutits. 
 
-Om allt anslutning till tabellen gör fäster ihop två typer av data, varför inte släppa den helt?
+Om allt det här kopplingstabell gör limma ihop två typer av data, sedan varför inte att släppa den helt?
 Tänk på följande.
 
     Author documents:
@@ -322,14 +322,14 @@ Tänk på följande.
     {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
     {"id": "b4", "name": "Deep Dive in to Azure Cosmos DB", "authors": ["a2"]}
 
-Nu om jag har en författare jag vet vilka böcker som de har skrivit omedelbart och om jag hade ett book dokument läsas in I motsats vet ID innehålla. Detta sparar den mellanliggande frågan mot anslutning till tabellen minskar antalet server förfrågningar programmet måste göra. 
+Nu om jag har haft en författare, jag vet omedelbart vilka böcker som de har skrivit och omvänt om jag hade ett boken dokument som är inlästa jag skulle känner till ID: n innehålla. Detta sparar den mellanliggande frågor mot en anslutning till tabellen minska antalet servrar nätverksförfrågningar programmet måste göra. 
 
-## <a id="WrapUp"></a>Hybrid datamodeller
-Vi nu har tittat bädda in (eller denormalizing) och refererande (eller normaliserar) data har sina upsides och kompromisser har vi har sett. 
+## <a id="WrapUp"></a>Hybriddatamodeller
+Nu har vi tittat bädda in (eller avnormalisera) och referera till (eller normalisering) data, var och en har sina upsides och var och en har kompromisser som vi har sett. 
 
-Det behöver inte alltid vara antingen eller inte scared blanda saker lite. 
+Det behöver inte alltid vara antingen eller inte är scared blandas saker lite. 
 
-Baserat på ditt programs specifika användningsmönster och arbetsbelastningar som det kan finnas fall där blanda inbäddad refererade klokt och kan leda till enklare programlogik med färre server förfrågningar men har ändå en bra nivå av prestanda.
+Baserat på ditt programs specifika användningsmönster och arbetsbelastningar som det kan finnas fall där blanda inbäddad och använda data passar och kan leda till enklare programlogiken med färre server nätverksförfrågningar samtidigt en bra nivå av prestanda.
 
 Överväg följande JSON. 
 
@@ -374,21 +374,21 @@ Baserat på ditt programs specifika användningsmönster och arbetsbelastningar 
         ]
     }
 
-Vi har här (mest) följt inbäddad modell, där data från andra enheter som är inbäddade i det översta dokumentet, men andra data refereras. 
+Här har vi (huvudsakligen) följt inbäddad modell, där data från andra entiteter är inbäddade i översta dokumentet, men andra data refereras. 
 
-Om du tittar på book dokumentet ser vi några intressanta fält när vi tittar på matrisen för författare. Det finns en *id* fält som är det fält som vi använder för att referera tillbaka till ett författare dokument, standard Övning i en normaliserade modell, men sedan vi har också *namn* och *thumbnailUrl*. Vi kunde har precis har fastnat med *id* och lämnas programmet för att hämta ytterligare information den behövs från respektive författare dokumentet med hjälp av länken ””, men eftersom vårt program visar författarens namn och en miniatyrbild med alla böcker visas kan vi spara onödig kommunikation till servern per bok i en lista av denormalizing **vissa** data från författare.
+Om du tittar på bok dokumentet, ser vi några intressanta fält när vi tittar på ett antal författare. Det finns en *id* fältet som är de fält som vi använder för att referera tillbaka till ett dokument för författare, praxis i en normaliserad modell, men sedan vi har också *namn* och *thumbnailUrl*. Vi kunde har bara fastnar med *id* och programmet för att hämta eventuell ytterligare information som den behövs från respektive redigera dokumentet med hjälp av ”länken”, men eftersom appen visar författarens namn och en miniatyrbild med varje bok visas kan vi spara en tur och RETUR till servern per boken i en lista genom att avnormalisera **vissa** data från författare.
 
-Kontrollera, om författarens namn ändras eller de ville uppdatera sina foto vi skulle behöva gå en uppdatering alla böcker de publicerade någonsin men detta är en godkänd beslut för vårt program baserat på antagandet att författare inte ändrar deras namn så ofta.  
+Visst, om författarens namn ändras eller de ville uppdatera sina foto vi skulle behöva gå en uppdatering varje bok de publicerats någonsin men detta är en godtagbar designbeslut för vårt program, baserat på antagandet att författare inte ändrar namnen mycket ofta.  
 
-Det finns i exemplet **före beräknade mängder** värden för att spara dyra bearbetning på en Läsåtgärd. I det här exemplet är några av data som är inbäddade i dokumentet författare data som beräknas vid körning. Varje gång en ny bok publiceras, skapas en bokdokument **och** countOfBooks fältet är inställt på ett beräknat värde baserat på antalet book dokument som finns för en viss författare. Denna optimering är bra i skrivskyddade tunga system där vi har råd att utföra beräkningar på skrivningar för att optimera läsningar.
+I det här exemplet finns **beräknas aggregeringar i förväg** värden för att spara dyra bearbetning på en Läsåtgärd. I det här exemplet är några av de data som är inbäddad i dokumentet författare data som beräknas vid körning. Varje gång en ny bok publiceras, skapas en bokdokument **och** countOfBooks-fältet är inställt på ett beräknat värde baserat på antalet boken dokument som finns för en viss författare. Denna optimering är bra i Läs tung system där vi har råd att utföra beräkningar på skrivningar för att optimera läsningar.
 
-Möjlighet att ha en modell med före beräknade fält är möjligt eftersom Azure Cosmos DB stöder **flera dokument transaktioner**. Många NoSQL-lagringsplatser kan inte göra transaktioner mellan dokument och därför gör designbeslut, till exempel ”inkludera alltid allt”, på grund av den här begränsningen. Du kan använda serversidan utlösare eller lagrade procedurer som Infoga böcker och uppdatera författarna alla inom en ACID-transaktion med Azure Cosmos DB. Nu du inte **har** att bädda in allt i ett dokument bara för att se till att dina data förblir konsekventa.
+Möjlighet att aktivera en modell med förberäknade fält är möjligt eftersom Azure Cosmos DB stöder **flera dokument transaktioner**. Många NoSQL-Arkiv det går inte att göra transaktioner mellan dokument och därför förespråkar designbeslut, till exempel ”alltid bädda in allt” på grund av den här begränsningen. Med Azure Cosmos DB kan du använda serversidan utlösare eller lagrade procedurer som Infoga böcker och uppdatera författare allt inom en ACID-transaktion. Nu du inte **har** att bädda in allt i ett dokument bara för att se till att dina data förblir konsekvent.
 
 ## <a name="NextSteps"></a>Nästa steg
-De största takeaways från den här artikeln är att förstå att datamodeller i en schemafria värld är precis lika viktig som någonsin. 
+De största takeaways från den här artikeln är att förstå att datamodellering i en schemafri värld är precis lika viktig som någonsin. 
 
-Precis som det är inte ett enskilt sätt att representera en bit data på en skärm, är det inte ett enskilt sätt att modellera dina data. Du behöver förstå ditt program och hur produceras, använda och bearbeta data. Genom att använda några av de riktlinjer som visas här kan du ange om hur du skapar en modell som åtgärdar omedelbara behov av ditt program. När dina program behöver ändra kan du utnyttja flexibiliteten hos en schemafria databas att omfatta som ändras och utvecklas datamodellen enkelt. 
+Precis som det är inte ett enskilt sätt att representera en typ av data på en skärm, är det inte ett enskilt sätt att modellera dina data. Du behöver att förstå ditt program och hur den skapas, använda och bearbeta data. Sedan kan du ange om hur du skapar en modell som åtgärdar omedelbara behov av ditt program genom att använda några av de riktlinjer som beskrivs här. När dina program behöver ändra kan du utnyttja flexibiliteten i en schemafri databas till att använda som ändras och enkelt kan utveckla din datamodell. 
 
-Om du vill veta mer om Azure Cosmos DB kan referera till tjänstens [dokumentationen](https://azure.microsoft.com/documentation/services/cosmos-db/) sidan. 
+Om du vill veta mer om Azure Cosmos DB kan du referera till tjänstens [dokumentation](https://azure.microsoft.com/documentation/services/cosmos-db/) sidan. 
 
-Att förstå hur till Fragmentera data över flera partitioner avser [partitionering Data i Azure Cosmos DB](sql-api-partition-data.md). 
+Att förstå hur till shard dina data på flera partitioner, referera till [partitionera Data i Azure Cosmos DB](sql-api-partition-data.md). 

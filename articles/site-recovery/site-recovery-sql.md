@@ -2,24 +2,16 @@
 title: Replikera program med SQL Server och Azure Site Recovery | Microsoft Docs
 description: Den här artikeln beskriver hur du replikera SQL Server med Azure Site Recovery för SQL Server-funktioner för haveriberedskap.
 services: site-recovery
-documentationcenter: ''
-author: prateek9us
-manager: gauravd
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: pratshar
-ms.openlocfilehash: c877f4bbc0ed14e859ff39f1d719a9cd0b787118
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 07/22/2018
+ms.author: raynew
+ms.openlocfilehash: fecf7366417a8a592578a425d8b028249c2681d7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920839"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216367"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Skydda SQL Server med hjälp av SQL Server-haveriberedskap och Azure Site Recovery
 
@@ -78,7 +70,7 @@ Den här tabellen sammanfattas våra rekommendationer för integrering av SQL Se
 
 | **Version** | **Utgåva** | **Distribution** | **Lokal till lokal** | **Lokal till Azure** |
 | --- | --- | --- | --- | --- |
-| SQLServer 2014 eller 2012 |Enterprise |Redundansklusterinstans |Always On-Tillgänglighetsgrupper |Always On-Tillgänglighetsgrupper |
+| SQLServer 2016, 2014 eller 2012 |Enterprise |Redundansklusterinstans |Always On-Tillgänglighetsgrupper |Always On-Tillgänglighetsgrupper |
 || Enterprise |Always On-Tillgänglighetsgrupper för hög tillgänglighet |Always On-Tillgänglighetsgrupper |Always On-Tillgänglighetsgrupper | |
 || Standard |Redundansklusterinstans (FCI) |Site Recovery-replikering med lokala spegling |Site Recovery-replikering med lokala spegling | |
 || Enterprise eller Standard |Fristående |Site Recovery-replikering |Site Recovery-replikering | |

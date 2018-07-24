@@ -1,7 +1,7 @@
 ---
-title: Hur du använder Använd API-anrop med en modell för Konversationsdeltagare – Microsoft Cognitive Services | Microsoft Docs
+title: Hur du använder API-anrop med en modell för Konversationsdeltagare – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig hur du använder API-anrop för användning med en Konversationsdeltagare-modell.
+description: Lär dig hur du använder API-anrop med en Konversationsdeltagare-modell.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: d16f36a70ac176a895d9ba44d42d3fae5730f7ea
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 1d4013d736d8cfcb75874bc0c86d20b86ab4dd62
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173272"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215847"
 ---
 # <a name="how-to-add-api-calls-to-a-conversation-learner-model"></a>Hur du lägger till API-anrop till en modell för Konversationsdeltagare
 

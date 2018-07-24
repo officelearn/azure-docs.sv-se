@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 3f2480fb1068096bf77a3677ad62c886bc4774bb
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: be76965e99a20c1f7164187255e26f6463926c2f
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160162"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214735"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory-direktautentisering: Uppgradera förhandsversionen Autentiseringsagenter
 
@@ -60,7 +60,7 @@ Följ de här instruktionerna för att kontrollera vilka versioner av dina Auten
 Kontrollera att du har följande objekt på plats innan du uppgraderar:
 
 1. **Skapa molnbaserad globala administratörskonto**: inte uppgradera utan en endast molnbaserad Global administratör-konto du använder i nödfall situationer där direkt autentisering agenterna inte fungerar korrekt. Lär dig mer om [att lägga till ett globalt administratörskonto molnbaserad](../active-directory-users-create-azure-portal.md). Utför det här steget är mycket viktigt och ser till att du inte blir utelåst från klientorganisationen.
-2.  **Garantera hög tillgänglighet**: Om du inte slutföra tidigare, installera en andra fristående autentiseringsagent att tillhandahålla hög tillgänglighet för inloggningsförfrågningar, med hjälp av dessa [instruktioner](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+2.  **Garantera hög tillgänglighet**: Om du inte slutföra tidigare, installera en andra fristående autentiseringsagent att tillhandahålla hög tillgänglighet för inloggningsförfrågningar, med hjälp av dessa [instruktioner](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>Uppgradera agenten autentisering på din Azure AD Connect-server
 

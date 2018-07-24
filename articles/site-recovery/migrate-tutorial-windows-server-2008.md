@@ -11,14 +11,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 07/23/2018
 ms.author: bsiva
-ms.openlocfilehash: 0d3f28f0a9f1e9862fabb6ce5e96597f1534abd8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 552a0d131f630db7b3a73293d330377ee350d2a9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008771"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214626"
 ---
 # <a name="migrate-servers-running-windows-server-2008-2008-r2-to-azure"></a>Migrera servrar som kör Windows Server 2008, 2008 R2 till Azure
 
@@ -110,15 +110,47 @@ Det nya valvet läggs till på **Instrumentpanelen** under **Alla resurser** och
 ## <a name="prepare-your-on-premises-environment-for-migration"></a>Förbered din lokala miljö för migrering
 
 - Ladda ned installationsprogrammet till konfigurationsserver (enhetligt installationsprogram) från [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup)
-- [Konfigurera](physical-azure-disaster-recovery.md#set-up-the-source-environment) källmiljön använda installationsfilen hämtade i föregående steg.
+- Följ stegen som beskrivs nedan för att konfigurera källmiljön med hjälp av installationsfilen som hämtades i föregående steg.
 
 > [!IMPORTANT]
-> Kontrollera att du använder installationsfilen hämtade i det första steget ovan för att installera och registrera konfigurationsservern. Hämta inte installationsfilen från Azure-portalen. Installationsfilen finns på [ https://aka.ms/asr-w2k8-migration-setup ](https://aka.ms/asr-w2k8-migration-setup) är den enda versionen som har stöd för Windows Server 2008-migrering.
+> - Kontrollera att du använder installationsfilen hämtade i det första steget ovan för att installera och registrera konfigurationsservern. Hämta inte installationsfilen från Azure-portalen. Installationsfilen finns på [ https://aka.ms/asr-w2k8-migration-setup ](https://aka.ms/asr-w2k8-migration-setup) är den enda versionen som har stöd för Windows Server 2008-migrering.
 >
-> Du kan inte använda en befintlig Configuration Server för att migrera datorer som kör Windows Server 2008. Du måste installera en ny konfigurationsservern med hjälp av länken ovan.
+> - Du kan inte använda en befintlig Configuration Server för att migrera datorer som kör Windows Server 2008. Du måste installera en ny konfigurationsservern med hjälp av länken ovan.
+>
+> - Följ stegen nedan för att installera konfigurationsservern. Försök inte att använda metoden GUI-baserad installation genom att köra det enhetliga installationsprogrammet direkt. Detta resulterar i installera försöket misslyckas med ett felaktigt felmeddelande om att det inte finns någon Internetanslutning.
+
+ 
+1) Hämta valvautentiseringsfilen från portalen: på Azure-portalen väljer du skapade i föregående steg Recovery Services-valvet. På menyn på sidan valv väljer **Site Recovery-infrastruktur** > **Konfigurationsservrar**. Klicka sedan på **+ Server**. Välj *konfigurationsservern för fysisk* från nedrullningsbara menyn formuläret på sidan som öppnas. Klicka på knappen Hämta i steg 4 för att hämta valvautentiseringsfilen.
 
  ![Ladda ned valvregistreringsnyckel](media/migrate-tutorial-windows-server-2008/download-vault-credentials.png) 
- 
+
+2) Kopiera filen med valvautentiseringsuppgifter som hämtades i föregående steg och enhetlig installationsfilen hämtade tidigare på skrivbordet för Configuration Server-datorn (Windows Server 2012 R2 eller Windows Server 2016-dator som där du ska installera den konfiguration av serverprogramvara.)
+
+3) Se till att konfigurationsservern är ansluten till internet och att systemklockan och tidszon inställningarna på datorn är rätt konfigurerade. Ladda ned den [MySQL 5.7](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) installationsprogrammet och placera den på *C:\Temp\ASRSetup* (skapa katalogen om den inte finns.) 
+
+4) Skapa en fil för MySQL-autentiseringsuppgifter med följande rader och placera den på skrivbordet i **C:\Users\Administrator\MySQLCreds.txt** . Ersätt ”lösenordet ~ 1” nedan med ett lämpligt och starka lösenord:
+
+```
+[MySQLCredentials]
+MySQLRootPassword = "Password~1"
+MySQLUserPassword = "Password~1"
+```
+
+5) Extrahera innehållet i den hämta enhetlig installationsfilen på skrivbordet genom att köra följande kommando:
+
+```
+cd C:\Users\Administrator\Desktop
+
+MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Users\Administrator\Desktop\9.18
+```
+  
+6) Installera configuration server-programvara med hjälp av extraherade innehållet genom att köra följande kommandon:
+
+```
+cd C:\Users\Administrator\Desktop\9.18.1
+
+UnifiedSetup.exe /AcceptThirdpartyEULA /ServerMode CS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /MySQLCredsFilePath "C:\Users\Administrator\Desktop\MySQLCreds.txt" /VaultCredsFilePath <vault credentials file path> /EnvType VMWare /SkipSpaceCheck
+```
 
 ## <a name="set-up-the-target-environment"></a>Konfigurera målmiljön
 

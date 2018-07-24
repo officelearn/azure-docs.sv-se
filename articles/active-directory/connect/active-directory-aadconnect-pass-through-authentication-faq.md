@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d5cd79a6336b2e5c4b3c5c6f5765d92cd602552
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8b5f62daf2b43453aadb0373171bc98f96494688
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048976"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215075"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory-direktautentisering: Vanliga frågor och svar
 
@@ -28,7 +28,7 @@ Den här artikeln tar upp vanliga frågor och svar om Azure Active Directory (Az
 
 ## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Vilka metoder för att logga in på Azure AD, direktautentisering, lösenord hash-synkronisering och Active Directory Federation Services (AD FS) ska jag välja?
 
-Det beror på din lokala miljö och organisatoriska krav. Granska den [Azure AD Connect-inloggning användaralternativ](active-directory-aadconnect-user-signin.md) artikeln en jämförelse av de olika Azure AD-inloggning metoderna.
+Granska [den här guiden](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) en jämförelse av de olika Azure AD-inloggning metoderna och hur du väljer den direkt inloggningsmetoden för din organisation.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>Är en kostnadsfri funktion för direktautentisering?
 
@@ -48,7 +48,7 @@ Ja. Har stöd för direktautentisering `Alternate ID` som användarnamn när du 
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Synkronisering av lösenordshash fungera som reserv för direktautentisering?
 
-Nej. Direktautentisering _inte_ automatiskt växla över till synkronisering av lösenordshash. Det fungerar endast som reserv för [scenarier som direktautentisering inte stöder idag](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Om du vill undvika användaren inloggningar, bör du konfigurera direktautentisering för [hög tillgänglighet](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+Nej. Direktautentisering _inte_ automatiskt växla över till synkronisering av lösenordshash. Det fungerar endast som reserv för [scenarier som direktautentisering inte stöder idag](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Om du vill undvika användaren inloggningar, bör du konfigurera direktautentisering för [hög tillgänglighet](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Kan jag installera en [Azure AD Application Proxy](../manage-apps/application-proxy.md) anslutningsapp på samma server som en Autentiseringsagenten för direktautentisering?
 
@@ -82,7 +82,7 @@ Ja. Om Web Proxy Auto-Discovery (WPAD) är aktiverad i din lokala miljö, förs�
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Kan jag installera två eller flera Autentiseringsagenter för direkt på samma server?
 
-Nej, kan du endast installera en Autentiseringsagenten för direktautentisering på en enskild server. Om du vill konfigurera direktautentisering för hög tillgänglighet, följer du anvisningarna i [Azure Active Directory-direktautentisering: Snabbstart](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+Nej, kan du endast installera en Autentiseringsagenten för direktautentisering på en enskild server. Om du vill konfigurera direktautentisering för hög tillgänglighet, följer du anvisningarna i [Azure Active Directory-direktautentisering: Snabbstart](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Hur tar jag bort en Autentiseringsagenten för direktautentisering?
 
@@ -92,12 +92,7 @@ Om du markerar bladet direktautentisering på den [Azure Active Directory Admini
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Jag använder redan AD FS för att logga in på Azure AD. Hur växlar jag det till direktautentisering?
 
-Om du har konfigurerat AD FS som din metod för att logga in via Azure AD Connect-guiden, ändrar du den metod som användaren använder för att logga in på direktautentisering. Den här ändringen aktiverar direktautentisering på klienten och konverterar _alla_ federerade domäner i hanterade domäner. Direktautentisering hanterar alla efterföljande begäranden för att logga in på din klient. Det finns för närvarande inget stöds sätt i Azure AD Connect att använda en kombination av AD FS och direktautentisering i olika domäner.
-
-Om AD FS har konfigurerats som metod för att logga in _utanför_ Azure AD Connect-guiden, ändra användarinloggning metod till direktautentisering. Du kan göra den här ändringen från den **inte konfigurerar** alternativet. Den här ändringen kan direktautentisering på klienten, men alla federerade domäner kommer att fortsätta att använda AD FS för att logga in. Använda PowerShell för att konvertera manuellt en eller flera av de här federerade domäner till hanterade domäner. När du har gjort den här ändringen kan *endast* direktautentisering hanterar alla förfrågningar för att logga in på de hanterade domänerna.
-
->[!IMPORTANT]
->Direktautentisering kan inte hantera inloggning för endast molnbaserad Azure AD-användare.
+Om du migrerar från AD FS (eller andra tekniker för federation) till direktautentisering, rekommenderar vi att du följer våra detaljerad Distributionsguide publicerade [här](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>Kan jag använda direktautentisering i en Active Directory-miljö med flera skogar?
 
@@ -105,7 +100,7 @@ Ja. Miljöer med Multi-Forest stöds om det finns skogsförtroenden mellan dina 
 
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Hur många direkt Autentiseringsagenter jag behöver installera?
 
-Installera flera Autentiseringsagenter för vidarekoppling säkerställer [hög tillgänglighet](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Men det ger inte deterministisk belastningsutjämning mellan agenter för autentisering.
+Installera flera Autentiseringsagenter för vidarekoppling säkerställer [hög tillgänglighet](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability). Men det ger inte deterministisk belastningsutjämning mellan agenter för autentisering.
 
 Överväg att högsta och genomsnittliga belastningen för inloggningsförfrågningar du förväntar dig att se på din klient. Som prestandamått, kan en enda autentiseringsagent hantera 300 och 400 autentiseringar per sekund på en standard processor i 4 kärnor, 16 GB RAM-servern.
 
@@ -133,6 +128,7 @@ Om du avinstallerar en Agent för autentisering av direkt från en server gör s
 ## <a name="next-steps"></a>Nästa steg
 - [Aktuella begränsningar](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Läs mer om vilka scenarier som stöds och vilka som inte är.
 - [Snabbstart](active-directory-aadconnect-pass-through-authentication-quick-start.md): komma igång på Azure AD-direktautentisering.
+- [Migrera från AD FS till direktautentisering](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
 - [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md): Lär dig hur du konfigurerar funktionen för smarta kontoutelåsning på din klient för att skydda användarkonton.
 - [Teknisk djupdykning](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Förstå hur funktionen direktautentisering fungerar.
 - [Felsöka](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Lär dig att lösa vanliga problem med funktionen direktautentisering.

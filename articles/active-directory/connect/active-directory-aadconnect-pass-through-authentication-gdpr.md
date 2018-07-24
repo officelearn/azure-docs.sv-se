@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: f53f8ffcf8354d35fa552f099302456fa5226ca8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b785b23b41981efeb7fe160a18dc0c3c38f3772f
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915885"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215398"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Användarsekretess och Azure Active Directory-direktautentisering
 
@@ -75,7 +75,7 @@ Om du vill visa relaterade till Autentiseringsagenten för direktautentisering, 
 Du bör regelbundet kontrollera innehållet i **%ProgramData%\Microsoft\Azure AD ansluta autentisering Agent\Trace\**  och ta bort innehållet i den här mappen varje 48 timmar. 
 
 >[!IMPORTANT]
->Om autentiseringsagent-tjänsten körs, kommer det inte att ta bort den aktuella loggfilen i mappen. Stoppa tjänsten innan du försöker igen. Om du vill undvika användaren inloggningar, du bör redan ha konfigurerat direktautentisering för [hög tillgänglighet](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+>Om autentiseringsagent-tjänsten körs, kommer det inte att ta bort den aktuella loggfilen i mappen. Stoppa tjänsten innan du försöker igen. Om du vill undvika användaren inloggningar, du bör redan ha konfigurerat direktautentisering för [hög tillgänglighet](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 Du kan granska och ta bort dessa filer med hjälp av Windows Explorer eller du kan använda följande skript för att utföra åtgärderna som krävs:
 

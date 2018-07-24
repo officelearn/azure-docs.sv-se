@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 371f3ea3b764eecbb621fc06ec483de4778e7db2
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 674952982ac4342caaf31c05f3d644c1e74b649d
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159499"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215904"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory-direktautentisering: Teknisk djupdykning
 Den här artikeln är en översikt över hur fungerar med Azure Active directory (Azure AD)-direktautentisering. Djup teknisk och säkerhetsinformation finns i den [djupgående om säkerhet](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) artikeln.
 
 ## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Hur fungerar Azure Active Directory-direktautentisering?
 
-[!NOTE]
-En nödvändig förutsättning för direktautentisering ska fungera måste användare etableras i Azure AD från en lokal Active Directory med Azure AD Connect. Direktautentisering gäller inte för molnexklusiva användare.
+>[!NOTE]
+>En nödvändig förutsättning för direktautentisering ska fungera måste användare etableras i Azure AD från en lokal Active Directory med Azure AD Connect. Direktautentisering gäller inte för molnexklusiva användare.
 
 När en användare försöker logga in på ett program som skyddas av Azure AD, och om direktautentisering är aktiverad på klienten, genomförs följande steg:
 
@@ -52,6 +52,7 @@ Följande diagram illustrerar komponenterna och steg som ingår:
 ## <a name="next-steps"></a>Nästa steg
 - [Aktuella begränsningar](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Läs mer om vilka scenarier som stöds och vilka som inte är.
 - [Snabbstart](active-directory-aadconnect-pass-through-authentication-quick-start.md): komma igång på Azure AD-direktautentisering.
+- [Migrera från AD FS till direktautentisering](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
 - [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md): konfigurera funktionen för smarta kontoutelåsning på din klient för att skydda användarkonton.
 - [Vanliga frågor och svar](active-directory-aadconnect-pass-through-authentication-faq.md): få svar på vanliga frågor och svar.
 - [Felsöka](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Lär dig att lösa vanliga problem med funktionen direktautentisering.

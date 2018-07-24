@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 48710bc10a57854fcbd4ffbe44bc426333baddc0
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: ad4567ffb927694872d5b86dd38833466f944ca8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159237"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215092"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory-direktautentisering djupgående om säkerhet
 
@@ -37,14 +37,14 @@ Den här artikeln innehåller en detaljerad beskrivning av hur Azure Active Dire
 Dessa är viktiga säkerhetsaspekter i den här funktionen:
 - Det är byggt på en säker med flera innehavare arkitektur som ger isolering av inloggningsförfrågningar mellan klienter.
 - Lokala lösenord lagras aldrig i molnet i någon form.
-- Lokala Autentiseringsagenter som lyssnar efter och svara på, lösenord verifiering begäranden endast göra utgående anslutningar från ditt nätverk. Det finns inga krav för att installera agenterna autentisering i ett perimeternätverk (DMZ).
+- Lokala Autentiseringsagenter som lyssnar efter och svara på, lösenord verifiering begäranden endast göra utgående anslutningar från ditt nätverk. Det finns inga krav för att installera agenterna autentisering i ett perimeternätverk (DMZ). Bra tips är att behandla alla servrar som kör Autentiseringsagenter som nivå 0-system (se [referens](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 - Endast standardportarna (80 och 443) används för utgående kommunikation från agenter för autentisering till Azure AD. Du behöver inte öppna ingående portar i brandväggen. 
   - Port 443 används för alla autentiserade utgående kommunikation.
   - Port 80 används endast för att ladda ned den listor över återkallade certifikat (CRL) för att se till att ingen av de certifikat som används av den här funktionen har återkallats.
   - Läs den fullständiga listan med nätverkskraven [Azure Active Directory-direktautentisering: Snabbstart](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Lösenord som användare anger under inloggning krypteras i molnet innan Autentiseringsagenter lokala godkänner dem för verifiering mot Active Directory.
 - HTTPS-kanal mellan Azure AD och lokala autentiseringsagent är skyddat med hjälp av ömsesidig autentisering.
-- Funktionen integreras sömlöst med Azure AD skydd av moln-funktioner, till exempel principer för villkorlig åtkomst (inklusive Azure Multi-Factor Authentication), identitetsskydd och Smart kontoutelåsning.
+- Skyddar dina användarkonton genom att arbeta smidigt med [principer för Azure AD villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md), inklusive Multi-Factor Authentication (MFA), [blockera äldre](../active-directory-conditional-access-conditions.md) och av [ Filtrera bort råstyrkeattacker för lösenord](../authentication/howto-password-smart-lockout.md).
 
 ## <a name="components-involved"></a>Komponenter som ingår
 
@@ -209,6 +209,7 @@ Att automatiskt uppdatera en autentiseringsagent:
 ## <a name="next-steps"></a>Nästa steg
 - [Aktuella begränsningar](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Läs mer om vilka scenarier som stöds och vilka som inte är.
 - [Snabbstart](active-directory-aadconnect-pass-through-authentication-quick-start.md): komma igång på Azure AD-direktautentisering.
+- [Migrera från AD FS till direktautentisering](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
 - [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md): konfigurera funktionen för smarta kontoutelåsning på din klient för att skydda användarkonton.
 - [Så här fungerar det](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Lär dig grunderna för hur Azure AD-direktautentisering fungerar.
 - [Vanliga frågor och svar](active-directory-aadconnect-pass-through-authentication-faq.md): få svar på vanliga frågor och svar.

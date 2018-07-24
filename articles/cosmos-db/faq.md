@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: fb8ae3b6225b2029ced3687083777ae47cb54acf
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b792798c64ed0a2eb12a16d868d8a17302466fea
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002338"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215364"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB vanliga frågor och svar
 ## <a name="azure-cosmos-db-fundamentals"></a>Grunderna i Azure Cosmos DB
@@ -68,7 +68,7 @@ Mer information finns i [prisinformation för Azure Cosmos DB](https://azure.mic
 ### <a name="is-a-free-account-available"></a>Är ett kostnadsfritt konto tillgängligt?
 Ja, kan du registrera dig för en tidsbegränsad kontot utan kostnad, utan förpliktelser. Om du vill registrera dig, besök [testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) eller Läs mer i den [prova Azure Cosmos DB vanliga frågor och svar](#try-cosmos-db).
 
-Om du är nybörjare på Azure kan du registrera dig för en [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/), som ger dig 30 dagar och och en kredit att prova alla Azure-tjänster. Om du har en Visual Studio-prenumeration kan du också är berättigad till [kostnadsfri Azure-kredit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) att använda på valfri Azure-tjänst. 
+Om du är nybörjare på Azure kan du registrera dig för en [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/), som ger dig 30 dagar och en kredit att prova alla Azure-tjänster. Om du har en Visual Studio-prenumeration kan du också är berättigad till [kostnadsfri Azure-kredit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) att använda på valfri Azure-tjänst. 
 
 Du kan också använda den [Azure Cosmos DB-emulatorn](local-emulator.md) att utveckla och testa ditt program lokalt för kostnad, utan att skapa en Azure-prenumeration. När du är nöjd med hur programmet fungerar i Azure Cosmos DB-emulatorn kan du växla till ett Azure Cosmos DB-konto i molnet.
 

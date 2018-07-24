@@ -7,35 +7,35 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 07/03/2018
+ms.date: 07/14/2018
 ms.author: hux
-ms.openlocfilehash: 6efc50bfee54c38511fb3346f1341f81741d14eb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9ea4a6f0d1ff6e78d97fbc64b8a23406172ebf36
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445439"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072422"
 ---
 # <a name="azure-storage-account-options"></a>Alternativ för Azure Storage-konton
 
 ## <a name="overview"></a>Översikt
 Azure Storage tillhandahåller tre olika kontoalternativ, med olika priser och olika funktioner som stöds. Fundera på de här skillnaderna innan du skapar ett lagringskonto för att komma fram till vilket alternativ som passar bäst för dina behov. Dessa är de tre alternativen för lagringskonton:
 
-* **GPv2**-konton (General-purpose v2) 
-* **GPv1**-konton (General-purpose v1)
-* **Blob Storage**-konton
+* [**GPv2-** konton](#general-purpose-v2-accounts) (General-purpose v2)
+* [**GPv1-** konton](#general-purpose-v1-accounts) (General-purpose v1)
+* [**Blob Storage**-konton](#blob-storage-accounts)
 
 Varje typ av konto beskrivs mer detaljerat i avsnittet nedan:
 
 ## <a name="storage-account-options"></a>Alternativ för lagringskontot
 
-### <a name="general-purpose-v2"></a>General-purpose v2
+### <a name="general-purpose-v2-accounts"></a>General-purpose v2-konton (GPv2)
 
-GPv2-konton (General-purpose v2) är lagringskonton som stöder alla de senaste funktionerna för blobar, filer, köer och tabeller. GPv2-konton stöder alla API: er och funktioner som stöds av GPv1- och Blob Storage-konton. De har också stöd för samma hållbarhets-, tillgänglighets-, skalbarhets- och prestandafunktioner i dessa kontotyper. Prisstrukturen för GPv2-konton har utformats med låga gigabytepriser och konkurrenskraftiga transaktionspriser.
+GPv2-konton (General-purpose v2) är lagringskonton som stöder alla de senaste funktionerna för blobar, filer, köer och tabeller. GPv2-konton stöder alla API:er, tjänster och funktioner som stöds av GPv1-konton (General-purpose v1) och Blob Storage-konton. De har även samma hållbarhet, tillgänglighet, skalbarhet och prestanda som finns i alla lagringskontotyper. Prisstrukturen för GPv2-konton har utformats med låga gigabytepriser och konkurrenskraftiga transaktionspriser.
 
 Du kan uppgradera ditt GPv1- eller Blob Storage-konto till ett GPv2-konto med Azure-portalen, PowerShell eller Azure CLI. 
 
-För blockblobar i ett GPv2-lagringskonto kan du ange frekvent och lågfrekvent lagringsnivå på kontonivå, eller ange frekvent eller lågfrekvent nivå eller arkivnivå på blobnivå, baserat på åtkomstmönster. Lagra data som sällan, mer sällan eller ofta används på lagringsnivåerna för frekvent eller lågfrekvent åtkomst eller arkivering för att optimera kostnaderna. 
+För blockblobar i ett GPv2-lagringskonto kan du välja mellan frekvent och lågfrekvent lagringsåtkomstnivå på kontonivå samt frekvent eller lågfrekvent nivå eller arkivåtkomstnivå på blobnivå, baserat på användningsmönster. Lagra data som sällan, mer sällan eller ofta används på lagringsnivåerna för frekvent eller lågfrekvent åtkomst eller arkivering för att optimera lagrings- och transaktionskostnaderna. 
 
 I GPv2-konton visas attributet **Åtkomstnivå** på kontonivå, vilket innebär att standardlagringsnivån för kontot kan anges till **Frekvent** eller **Lågfrekvent**. Lagringskontonivån som är standard tillämpas på alla blobar som inte har en explicit nivå angiven på blobnivån. Du kan när som helst byta mellan de olika lagringsnivåerna om användningsmönstret förändras. **Arkivnivån** kan endast användas på blobnivån.
 
@@ -46,7 +46,10 @@ I GPv2-konton visas attributet **Åtkomstnivå** på kontonivå, vilket innebär
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>Uppgradera ett lagringskonto till GPv2
 
-Användare kan när som helst uppgradera ett GPv1- eller Blob Storage-konto till ett GPv2-konto via Azure-portalen, PowerShell eller Azure CLI. Den här ändringen kan inte ångras och inga andra ändringar tillåts.
+Användare kan när som helst uppgradera ett GPv1- eller Blob Storage-konto till ett GPv2-konto via Azure-portalen, PowerShell eller Azure CLI. Den här ändringen kan inte ångras och inga andra ändringar av kontotyp tillåts. Mer information om hur du utvärderar ett befintligt lagringskonto finns i avsnittet [Utvärdera och migrera till GPv2-konton](#evaluating-and-migrating-to-gpv2-storage-accounts).
+* [Uppgradera till GPv2 med Azure-portalen](#upgrade-with-azure-portal)
+* [Uppgradera till GPv2 med PowerShell](#upgrade-with-powershell)
+* [Uppgradera till GPv2 med Azure CLI](#upgrade-with-azure-cli)
 
 #### <a name="upgrade-with-azure-portal"></a>Uppgradera med Azure-portalen
 Om du vill uppgradera ett GPv1- eller Blob Storage-konto till ett GPv2-konto med hjälp av Azure-portalen loggar du först in på [Azure-portalen](https://portal.azure.com) och väljer ditt lagringskonto. Välj **Inställningar** > **Konfiguration**. Där visas knappen **Uppgradera** och ett meddelande om uppgraderingsprocessen.
@@ -67,7 +70,7 @@ Om du vill uppgradera ett GPv1- eller Blob Storage-konto till ett GPv2-konto med
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
 ```` 
 
-### <a name="general-purpose-v1"></a>General-purpose v1
+### <a name="general-purpose-v1-accounts"></a>General-purpose v1-konton (GPv1)
 
 GPv1-konton (General-purpose v1) ger åtkomst till alla Azure Storage-tjänster, men erbjuder kanske inte de senaste funktionerna eller det lägsta gigabytepriset. Lågfrekvent lagring och arkivlagring är två exempel på funktioner som inte stöds av GPv1. Transaktionspriserna är lägre för GPPv1, så arbetsbelastningar med hög omsättning eller många läsåtgärder kan ha nytta av den här kontotypen.
 
@@ -180,7 +183,7 @@ Du kan inte ange arkiv som åtkomstnivå i följande exempel eftersom den här i
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Så här går du till din blob i ditt lagringskonto: välj **Alla resurser**, välj ditt lagringskonto, välj din behållare och välj sedan din blob.
+2. Så här går du till din blob i ditt lagringskonto: välj **Alla resurser**, välj ditt lagringskonto, välj din container och välj sedan din blob.
 
 3. På bladet Blob-egenskaper klickar du på listrutemenyn **Åtkomstnivå** för att välja lagringsnivåerna **Frekvent**, **Lågfrekvent**, eller **Arkiv**.
 
@@ -196,14 +199,19 @@ Avsikten med det här avsnittet är att hjälpa användare med övergången till
 * Du har ett befintligt GPv1-konto och vill utvärdera en övergång till ett GPv2-konto med rätt lagringsnivå.
 * Du har bestämt dig för att använda ett GPv2-konto eller har redan ett sådant, och vill utvärdera om du ska använda lågfrekvent eller frekvent lagringsnivå.
 
-I båda fallen bör du börja med att beräkna kostnaden för att lagra och komma åt dina data i GPv2-kontot och jämföra det med dina nuvarande kostnader.
+I båda fallen bör du börja med att beräkna kostnaden för att lagra, komma åt och köra mot dina data i GPv2-kontot och jämföra det med dina nuvarande kostnader.
 
 ## <a name="evaluating-gpv2-storage-account-tiers"></a>Utvärdera GPv2-kontonivåer
 
 För att beräkna kostnaden för att lagra och komma åt data som lagras i ett GPv2-konto måste du utvärdera ditt nuvarande användningsmönster eller göra en uppskattning av ditt förväntade användningsmönster. Vanligtvis vill du veta:
 
-* Din lagringsanvändning – hur mycket data lagras och hur ändras lagringen månadsvis?
-* Ditt åtkomstmönster – hur mycket data läses in och skrivs till kontot (inklusive nya data)? Hur många transaktioner används för dataåtkomst och vilka typer av transaktioner är de?
+* Din datalagringsanvändning (GB)
+    - Hur mycket data lagras i lagringskontot?
+    - Hur ändras datavolymen på månadsbasis; ersätter nya data ständigt gamla data?
+* Ditt lagringsåtkomstmönster (åtgärder och dataöverföring)
+    - Hur mycket data läses från (utgående) och skrivs till (inkommande) lagringskontot? 
+    - Hur många åtgärder utförs på data i lagringskontot?
+    - Vilka typer av åtgärder (läsa kontra skriva) utförs på data?
 
 ## <a name="monitoring-existing-storage-accounts"></a>Övervaka befintliga lagringskonton
 
@@ -244,7 +252,7 @@ Summan av *'TotalBillableRequests'*, för alla poster för ett API i tabellen ö
 För att kunna beräkna transaktionskostnader för Blob Storage-konton måste du dela in transaktionerna i tre grupper eftersom de har olika pris.
 
 * Skrivtransaktioner som *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* och *'CopyBlob'*.
-* Borttagningstransaktioner som *'DeleteBlob'* och *'DeleteContainer'*.
+* Lästransaktioner som *'GetBlob'*.
 * Alla andra transaktioner.
 
 För att kunna beräkna transaktionskostnaderna för GPv1-konton måste du aggregera alla transaktioner oavsett åtgärd/API.

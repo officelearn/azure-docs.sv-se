@@ -1,63 +1,63 @@
 ---
-title: Azure AD nivåer lösenordssäkerhet | Microsoft Docs
-description: Förklarar hur Azure AD tillämpar starka lösenord och skyddar användarnas lösenord från cyber kriminella
+title: Nivåindelad lösenordssäkerhet i Azure AD | Microsoft Docs
+description: Förklarar hur Azure AD kräver starka lösenord och skyddar användarnas lösenord från cyberhot,
 services: active-directory
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 08/28/2017
-ms.author: barlan
-ms.openlocfilehash: 04e437eb5a040f418df22e0857cb96d7ef99bbbb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: lizross
+ms.openlocfilehash: e3e97a5a9b768b3b9d4a36627d28955be1f3d9df
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31586382"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056927"
 ---
-# <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>En metod med flera nivåer för säkerhet för Azure AD-lösenord
+# <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>En metod med flera nivåer för Azure AD-lösenordssäkerhet
 
-Den här artikeln beskrivs några metoder du kan följa som en användare eller administratör för att skydda din Azure Active Directory (AD Azure) eller Account.
+Den här artikeln beskriver några regelverk som användare eller administratörer kan följa för att skydda Azure Active Directory- (Azure AD) eller Microsoft Account-konton.
 
  > [!NOTE]
- > **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](active-directory-passwords-update-your-own-password.md).
+ > **Är du här eftersom du har problem med att logga in?** I så fall är det [här som du ser hur du kan ändra och återställa ditt eget lösenord](user-help/active-directory-passwords-update-your-own-password.md).
  >
- > Azure AD-administratörer kan återställa användarlösenord med hjälp av anvisningarna i artikeln [återställa lösenordet för en användare i Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
+ > Azure AD-administratörer kan återställa användarlösenord genom att följa vägledningen i artikeln om att [återställa lösenordet för en användare i Azure Active Directory](fundamentals/active-directory-users-reset-password-azure-portal.md).
  >
 
-## <a name="password-requirements"></a>Krav på lösenord
+## <a name="password-requirements"></a>Lösenordskrav
 
 Azure AD använder följande vanliga metoder för att skydda lösenord:
 
 * Krav på lösenordslängd
-* Kraven på lösenordskomplexitet
+* Krav på lösenordskomplexitet
 * Regelbundet och periodiskt upphörande av lösenord
 
-Information om lösenordsåterställning i Azure Active Directory finns i avsnittet [Azure AD lösenordsåterställning via Självbetjäning för IT-proffs](active-directory-passwords-update-your-own-password.md).
+Information om lösenordsåterställning i Azure Active Directory finns i avsnittet om [Azure AD-lösenordsåterställning via självbetjäning för IT-proffs](user-help/active-directory-passwords-update-your-own-password.md).
 
-## <a name="azure-ad-password-protections"></a>Skydd med Azure AD-lösenord
+## <a name="azure-ad-password-protections"></a>Azure AD-lösenordsskydd
 
-Azure AD och Microsofts kontosystem använder branschen beprövade metoder för att säkerställa säker skydd av användar- och lösenord, inklusive:
+Azure AD och Microsoft Account System använder följande beprövade metoder för att säkerställa att lösenord för användare och administratörer skyddas på ett säkert sätt:
 
 * Lösenord som förbjuds dynamiskt
 * Smart lösenordsutelåsning
 
-Information om lösenordshantering baserat på aktuella research finns i vitboken [lösenord vägledning](https://aka.ms/passwordguidance).
+Information om lösenordshantering baserat på den senaste forskningen finns i faktabladet [Password Guidance](https://aka.ms/passwordguidance) (Riktlinjer för lösenord).
 
 ### <a name="dynamically-banned-passwords"></a>Lösenord som förbjuds dynamiskt
 
-Azure AD och Microsoft Accounts skydda lösenordsskydd genom dynamiskt förbjuda vanliga lösenord. Azure AD Identity Protection-teamet analyserar regelbundet förbjudna lösenordslistor, vilket förhindrar användare från att välja vanliga lösenord. Den här tjänsten är tillgänglig för Azure AD- och Microsoft Account Service-kunder.
+Azure AD- och Microsoft-konton upprätthåller lösenordsskyddet genom att dynamiskt förbjuda vanliga lösenord. Azure AD Identity Protection-teamet analyserar rutinmässigt listor med förbjudna lösenord, och hindrar användare från att välja vanliga lösenord. Den här tjänsten är tillgänglig för Azure AD- och Microsoft Account Service-kunder.
 
-När du skapar lösenord, är det viktigt för administratörer att uppmana användare att välja lösenord fraser som innehåller en unik kombination av bokstäver, siffror, tecknen eller orden. Den här metoden kan du göra användarlösenord nästan omöjligt att vara komprometterad men enklare för användare att komma ihåg.
+När lösenord skapas är det viktigt att administratören uppmanar användarna att välja lösenord som innehåller en unik kombination av bokstäver, siffror, tecken och ord. Den här metoden hjälper till att göra användarlösenord nästan omöjliga att kompromettera men enklare för användarna att komma ihåg.
 
-#### <a name="password-breaches"></a>Överträdelser av lösenord
+#### <a name="password-breaches"></a>Lösenordsöverträdelser
 
-Microsoft arbetar alltid för att hålla ett steg i cyber kriminella.
+Microsoft försöker alltid ligga steget före cyberbrottslingarna.
 
 Azure AD Identity Protection-teamet analyserar kontinuerligt lösenord som används ofta. Cyberbrottslingar använder också liknande strategier för sina attacker, t.ex. genom att skapa en [regnbågstabell](https://en.wikipedia.org/wiki/Rainbow_table) för att knäcka lösenordshashar.
 
@@ -65,17 +65,17 @@ Microsoft analyserar kontinuerligt [dataöverträdelser](https://www.privacyrigh
 
 ### <a name="smart-password-lockout"></a>Smart lösenordsutelåsning
 
-Om Azure AD upptäcker att en potentiell cyberbrottsling försöker hacka ett användarlösenord låser vi användarkontot med hjälp av smart lösenordsutelåsning. Azure AD har utformats för att bedöma riskerna med specifika inloggningssessioner. Sedan använder den senaste informationen om säkerhet, det använda semantiken för kontoutelåsning för att stoppa cyber hot.
+Om Azure AD upptäcker att en potentiell cyberbrottsling försöker hacka ett användarlösenord låser vi användarkontot med hjälp av smart lösenordsutelåsning. Azure AD har utformats för att bedöma riskerna med specifika inloggningssessioner. Sedan används uppdaterade säkerhetsdata och utelåsningssemantik för att stoppa cyberhot.
 
-Om en användare har låsts ute från Azure AD, liknar skärmen det som följer:
+Om Azure AD låser ut en användare visas en skärm liknande den följande:
 
   ![Utelåst från Azure AD](./media/active-directory-secure-passwords/locked-out-azuread.png)
 
-För andra Microsoft-konton liknar skärmen det som följer:
+För andra Microsoft-konton ser skärmen ut som den följande:
 
   ![Utelåst från ett Microsoft-konto](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-Information om lösenordsåterställning i Azure Active Directory finns i avsnittet [Azure AD lösenordsåterställning via Självbetjäning för IT-proffs](active-directory-passwords-update-your-own-password.md).
+Information om lösenordsåterställning i Azure Active Directory finns i avsnittet om [Azure AD-lösenordsåterställning via självbetjäning för IT-proffs](user-help/active-directory-passwords-update-your-own-password.md).
 
   >[!NOTE]
   >Om du är en Azure AD-administratör kan du använda [Windows Hello](https://www.microsoft.com/windows/windows-hello) för att helt och hållet förhindra att användare skapar traditionella lösenord.
@@ -83,6 +83,6 @@ Information om lösenordsåterställning i Azure Active Directory finns i avsnit
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Uppdatera ditt eget lösenord](active-directory-passwords-update-your-own-password.md)
+* [Uppdatera ditt eget lösenord](user-help/active-directory-passwords-update-your-own-password.md)
 * [Grunderna i Azures identitetshantering](fundamentals-identity.md)
-* [Återställningsaktivitet för rapporten på lösenord](authentication/howto-sspr-reporting.md)
+* [Rapportera om lösenordsåterställningsaktivitet](authentication/howto-sspr-reporting.md)

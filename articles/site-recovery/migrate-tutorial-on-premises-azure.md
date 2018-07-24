@@ -5,22 +5,22 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 07/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b297e2ef2f4c276b9183d1874e104d686b304a14
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bc04483c35162c0b461fd03c63aaa894b1bc199a
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919129"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070685"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrera lokala datorer till Azure
 
 Förutom att använda tjänsten [Azure Site Recovery](site-recovery-overview.md) för att hantera och samordna haveriberedskap på lokala datorer och virtuella Azure-datorer i syftet affärskontinuitet och haveriberedskap (BCDR) kan du även använda Site Recovery för att hantera migrering av lokala datorer till Azure.
 
 
-Den här kursen visar hur du migrerar lokala virtuella datorer och fysiska servrar till Azure. I den här guiden får du lära dig hur man:
+Den här kursen visar hur du migrerar lokala virtuella datorer och fysiska servrar till Azure. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Välj ett replikeringsmål
@@ -40,7 +40,10 @@ Innan du börjar är det bra att granska [VMware](vmware-azure-architecture.md)-
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Enheter som exporteras av paravirtualiserade drivrutiner stöds inte.
+- Enheter som exporteras av paravirtualiserade drivrutiner stöds inte.
+ 
+> [!WARNING]
+> Det är möjligt att migrera virtuella datorer på andra virtualiseringsplattformar (andra än VMware och Hyper-V), till exempel XenServer, genom att behandla de virtuella datorerna som fysiska servrar. Den här metoden har dock inte testats och validerats av Microsoft och fungerar kanske inte. Till exempel kan det hända att virtuella datorer som körs på XenServer-plattformen inte körs i Azure såvida inte XenServer-verktygen och de paravirtualiserade lagrings- och nätverksdrivrutinerna avinstalleras från den virtuella datorn innan du påbörjar migreringen.
 
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
@@ -109,7 +112,7 @@ Kör en redundansväxling för de datorer som du vill migrera.
 1. I **Inställningar** > **Replikerade objekt** klickar du på datorn > **Redundans**.
 2. I **Redundans** väljer du en **återställningspunkt** att redundansväxla till. Välj den senaste återställningspunkten.
 3. Inställningen för krypteringsnyckeln är inte relevant för det här scenariot.
-4. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av virtuella källdatorer innan du utlöser redundansväxlingen. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
+4. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker att stänga av virtuella datorer innan redundansen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
 5. Kontrollera att den virtuella Azure-datorn visas i Azure som förväntat.
 6. I **Replikerade objekt** högerklickar du på den virtuella datorn > **Slutför migrering**. Detta avslutar migreringsprocessen, stoppar replikeringen för den virtuella datorn och stoppar Site Recovery-debitering för den virtuella datorn.
 
@@ -124,7 +127,7 @@ I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 m
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen migrerade du lokala virtuella datorer till virtuella Azure-datorer. Nu kan du konfigurera haveriberedskap för de virtuella Azure-datorerna.
-
-> [!div class="nextstepaction"]
-> [Konfigurera haveriberedskap](azure-to-azure-replicate-after-migration.md) för virtuella Azure-datorer efter migrering från en lokal plats.
+I den här självstudiekursen migrerade du lokala virtuella datorer till virtuella Azure-datorer. Nu när du har migrerat virtuella datorer:
+- [Konfigurera haveriberedskap](azure-to-azure-replicate-after-migration.md) för de migrerade virtuella datorerna.
+- Dra nytta av Azures [säkra och välhanterade molnfunktioner](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) för att hantera dina virtuella datorer i Azure.
+  

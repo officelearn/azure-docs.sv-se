@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2018
 ms.author: ganesr
-ms.openlocfilehash: 998d4f8017af51a21e13695a8491e9b6bd62af9a
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 7fd2dd870338dc6778d192658143d14d9d9895cc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930536"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072154"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte måste du uppfylla följande krav:
@@ -221,7 +221,7 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 > 
 > 
 
-### <a name="bgp-community-support-in-national-clouds-preview"></a>Stöd för BGP-community i National Cloud (förhandsgranskning)
+### <a name="bgp-community-support-in-national-clouds"></a>Stöd för BGP-community i nationella moln
 
 | **Regioner för nationella Azure-moln**| **BGP-community värde** |
 | --- | --- |

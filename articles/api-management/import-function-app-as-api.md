@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 07/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 1962a4aac8e2d15caf4ec33998da1985d3b8a9af
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ee83446bb08e66c7f325bdd5585b8cc0484a74e
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306481"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090936"
 ---
 # <a name="import-a-function-app-as-an-api"></a>Importera en funktionsapp som ett API
 
@@ -34,7 +34,8 @@ I den här artikeln kan du se hur du:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
-+ Kontrollera att det finns en funktionsapp i din prenumeration. Mer information finns i [Skapa en funktionsapp](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
++ Kontrollera att det finns en Azure-funktionsapp i din prenumeration. Mer information finns i [Skapa en funktionsapp](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
++ [Skapa OpenAPI-definition](../azure-functions/functions-openapi-definition.md) för din Azure-funktionsapp
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -56,6 +57,24 @@ I den här artikeln kan du se hur du:
     * **Starter**
     * **Obegränsat**   
 7. Välj **Skapa**.
+
+## <a name="populate-azure-functions-keys-in-azure-api-management"></a>Fyll i Azure-funktionsnycklar i Azure API Management
+
+Om importerade Azure-funktioner skyddas av nycklar skapar Azure API Management automatiskt **namngivna värden** för dessa, men det fyller inte posterna med hemligheter. För varje post måste du utföra stegen nedan.  
+
+1. Navigera till fliken **Namngivna värden** i API Management-instansen.
+2. Klicka på en post och tryck på **Visa värde** i sidofältet.
+
+    ![Namngivna värden](./media/import-function-app-as-api/apim-named-values.png)
+
+3. Om innehållet liknar *kod för {Azure-funktionsnamn}* går du till den importerade Azure Functions-appen och navigera till din Azure-funktion.
+4. Gå till avsnittet **Hantera** för önskad Azure-funktion och kopiera den relevanta nyckeln baserat på din Azure-funktions autentiseringsmetod.
+
+    ![Funktionsapp](./media/import-function-app-as-api/azure-functions-app-keys.png)
+
+5. Klistra in nyckeln i textrutan från den **Namngivna värden** och klicka på **Spara**.
+
+    ![Funktionsapp](./media/import-function-app-as-api/apim-named-values-2.png)
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testa det nya APIM API:et i Azure Portal
 

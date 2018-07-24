@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 07/02/2018
+ms.date: 07/16/2018
 ms.author: sachinp
-ms.openlocfilehash: 264397fee8ea37321841a4130cb5977219861053
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 172ee6c2200334a57ebaa073d7ff530d19b2f07d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345431"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090538"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Skapa en Azure SQL-databas på Azure Portal
 
@@ -24,7 +24,7 @@ Den här snabbstarten visar hur du skapar en SQL-databas i Azure med den [DTU-ba
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
   >[!NOTE]
-  >I den här självstudiekursen används den DTU-baserade inköpsmodellen, men [den vCore-baserade inköpsmodellen (förhandsversion)](sql-database-service-tiers-vcore.md) är också tillgänglig.
+  >I den här självstudiekursen används den DTU-baserade inköpsmodellen, men [den vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) är också tillgänglig.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 

@@ -1,8 +1,8 @@
 ---
 title: Etablera en simulerad X.509-enhet på Azure IoT Hub med C# | Microsoft Docs
 description: Azure snabbstart – Skapa och etablera en simulerad X.509-enhet med C#-enhets-SDK för Azure IoT Hub Device Provisioning-tjänsten
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/18
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 697526b243fad585b8692edd59650661ea60fd62
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 28e6158a3dcd4cee98c380c53a1a345983bdf4f7
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629729"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090827"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med C#-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -40,6 +40,14 @@ Om du inte känner till processen för automatisk etablering, bör du också gå
     ```
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Skapa ett självsignerat X.509-enhetscertifikat och en post för enskild registrering
+
+I det här avsnittet använder du ett självsignerat X.509-certifikat. Det är viktigt att tänka på följande:
+
+* Självsignerade certifikat är endast för testning och ska inte användas i produktion.
+* Standardutgångsdatumet för ett självsignerat certifikat är 1 år.
+
+Du kommer att använda exempelkoden från [Azure IoT SDK för .NET](https://github.com/Azure/azure-iot-sdk-csharp.git) för att skapa det certifikat som ska användas med posten för enskild registrering för den simulerade enheten.
+
 
 1. I en kommandotolk ändrar du kataloger till projektkatalogen för X.509-enhetsetableringsexemplet.
 

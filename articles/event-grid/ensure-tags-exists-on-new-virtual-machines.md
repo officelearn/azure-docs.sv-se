@@ -1,7 +1,7 @@
 ---
-title: Integrera Azure Automation med händelsen rutnät | Microsoft Docs
-description: Lär dig hur du lägger till en tagg automatiskt när en ny virtuell dator skapas och skickas till Microsoft-Teams.
-keywords: Automation runbook, team, händelse rutnät, virtuell dator, VM
+title: Integrera Azure Automation med Event Grid | Microsoft Docs
+description: Lär dig hur du lägger till en tagg automatiskt när en ny virtuell dator skapas och skicka ett meddelande till Microsoft Teams.
+keywords: automation, runbook, teams, event grid, virtual machine, VM
 services: automation
 documentationcenter: ''
 author: eamonoreilly
@@ -14,112 +14,120 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2017
 ms.author: eamono
-ms.openlocfilehash: 9a4d6ecf19fc96a9c7b92cf246effbf3948fb478
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 6270f8bad893798f46d8db91e7b1140b6a125350
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
-ms.locfileid: "26349078"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049872"
 ---
-# <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integrera Azure Automation med händelsen rutnätet och Microsoft team
+# <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integrera Azure Automation med Event Grid och Microsoft Teams
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Importera en händelse rutnätet exempel-runbook.
-> * Skapa en valfri Microsoft Teams webhook.
-> * Skapa en webhook för runbook.
-> * Skapa en händelse rutnätet prenumeration.
-> * Skapa en virtuell dator som utlöser en runbook.
+> * Importera en Event Grid-exempel-runbook.
+> * Skapa en valfri Microsoft Teams-webhook.
+> * Skapa en webhook för runbooken.
+> * Skapa en Event Grid-prenumeration.
+> * Skapa en virtuell dator som utlöser runbooken.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Att slutföra den här självstudiekursen en [Azure Automation-konto](../automation/automation-offering-get-started.md) krävs för att rymma den runbook som utlöses från Azure Event rutnätet prenumerationen.
+För slutföra den här självstudien krävs ett [Azure Automation-konto](../automation/automation-offering-get-started.md) för att lagra den runbook som utlöses från Azure Event Grid-prenumerationen.
 
-## <a name="import-an-event-grid-sample-runbook"></a>Importera en händelse rutnätet exempel-runbook
-1. Välj ditt Automation-konto och välj den **Runbooks** sidan.
+* Modulen `AzureRM.Tags` måste läsas in på ditt Automation-konto. Se sidan om [hur du importerar moduler i Azure Automation](../automation/automation-update-azure-modules.md) för att lära dig hur du importerar moduler till Azure Automation.
 
-   ![Välj runbooks](./media/ensure-tags-exists-on-new-virtual-machines/select-runbooks.png)
+## <a name="import-an-event-grid-sample-runbook"></a>Importera en Event Grid-exempel-runbook
 
-2. Välj den **Bläddra galleriet** knappen.
+1. Välj ditt Automation-konto och välj sidan **Runbooks**.
 
-3. Sök efter **händelse rutnätet**, och välj **integrera Azure Automation med händelsen rutnätet**. 
+   ![Välja runbooks](./media/ensure-tags-exists-on-new-virtual-machines/select-runbooks.png)
 
-    ![Importera galleriet runbook](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
+2. Välj knappen **Sök i galleri**.
 
-4. Välj **importera** och ger den namnet **titta på VMWrite**.
+3. Sök efter **Event Grid** och välj **Integrera Azure Automation med Event Grid**.
 
-5. När den har importerats väljer **redigera** att visa runbook-källa. Välj sedan knappen **Publicera**.
+    ![Importera galleri-runbook](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
+
+4. Välj **Importera** och ge den namnet **Watch-VMWrite**.
+
+5. När den har importerats väljer du **Redigera** för att visa runbook-källan. Välj sedan knappen **Publicera**.
+
+> [!NOTE]
+> Rad 74 i skriptet måste ha få raden ändrad till `Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose`. Parametern `-Tags` är nu `-Tag`.
 
 ## <a name="create-an-optional-microsoft-teams-webhook"></a>Skapa en valfri Microsoft Teams-webhook
-1. Välj i Microsoft-Teams **fler alternativ** nästa till dess namn och välj sedan **kopplingar**.
 
-    ![Microsoft-Teams anslutningar](media/ensure-tags-exists-on-new-virtual-machines/teams-webhook.png)
+1. I Microsoft Teams väljer du **Fler alternativ** intill kanalnamnet, och sedan väljer du **Anslutningsappar**.
 
-2. Bläddra i listan över kopplingar till **inkommande Webhook**, och välj **Lägg till**.
+    ![Microsoft Teams-anslutningar](media/ensure-tags-exists-on-new-virtual-machines/teams-webhook.png)
 
-3. Ange **AzureAutomationIntegration** för namn och välj **skapa**.
+2. Bläddra igenom listan över anslutningsappar till **Inkommande Webhook** och välj **Lägg till**.
 
-4. Kopiera webhooken till Urklipp och spara den. Webhooksadressen används för att skicka information till Microsoft-Teams.
+3. Ange **AzureAutomationIntegration** som namn och välj **Skapa**.
 
-5. Välj **klar** att spara webhooken.
+4. Kopiera webhooken till Urklipp och spara den. Webhooks-URL:en används för att skicka information till Microsoft Teams.
 
-## <a name="create-a-webhook-for-the-runbook"></a>Skapa en webhook för runbook
-1. Öppna titta på VMWrite runbook.
+5. Välj **Klar** för att spara webhooken.
 
-2. Välj **Webhooks**, och välj den **lägga till Webhook** knappen.
+## <a name="create-a-webhook-for-the-runbook"></a>Skapa en webhook för runbooken
 
-3. Ange **WatchVMEventGrid** för namnet. Kopiera Webbadressen till Urklipp och spara den.
+1. Öppna runbooken Watch-VMWrite.
 
-    ![Konfigurera namnet på webhook](media/ensure-tags-exists-on-new-virtual-machines/copy-url.png)
+2. Välj **Webhooks** och välj knappen **Lägg till Webhook**.
 
-4. Välj **konfigurera parametrar och körningsinställningar**, och ange Microsoft-Teams Webhooksadressen för **CHANNELURL**. Lämna **WEBHOOKDATA** tomt.
+3. Ange **WatchVMEventGrid** som namn. Kopiera URL:en till Urklipp och spara den.
 
-    ![Konfigurera parametrarna för webhooken](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
+    ![Konfigurera namn på webhook](media/ensure-tags-exists-on-new-virtual-machines/copy-url.png)
 
-5. Välj **OK** att skapa Automation-runbook webhook.
+4. Välj **Konfigurera parametrar och kör inställningar**, och ange en Microsoft Teams-webhook-URL för **CHANNELURL**. Lämna **WEBHOOKDATA** tomt.
+
+    ![Konfigurera webhook-parametrar](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
+
+5. Välj **OK** för att skapa webhooken för Automation-runbook.
 
 
-## <a name="create-an-event-grid-subscription"></a>Skapa en händelse rutnätet-prenumeration
-1. På den **Automation-konto** översiktssidan väljer **händelse rutnätet**.
+## <a name="create-an-event-grid-subscription"></a>Skapa en Event Grid-prenumeration
+1. På översiktssidan **Automation-konto** väljer du **Event Grid**.
 
-    ![Välj händelse rutnätet](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
+    ![Välja Event Grid](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
 
-2. Välj den **+ händelseprenumerationen** knappen.
+2. Välj knappen **+ Händelseprenumeration**.
 
 3. Konfigurera prenumerationen med följande information:
 
-    *   Ange **AzureAutomation** för namnet.
-    *   I **ämnestyp**väljer **Azure-prenumerationer**.
-    *   Avmarkera den **prenumerera på alla händelsetyper** kryssrutan.
-    *   I **händelsetyper**väljer **resurs skriva lyckade**.
-    *   I **prenumeranten Endpoint**, ange Webhooksadressen för titta på VMWrite runbook.
-    *   I **prefixet Filter**, anger du prenumerationen och resursgrupp där du vill söka efter nya virtuella datorer skapas. Det bör se ut:`/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
+    *   Ange **AzureAutomation** som namn.
+    *   I **Typ av ämne** väljer du **Azure-prenumerationer**.
+    *   Avmarkera kryssrutan **Prenumerera på alla händelsetyper**.
+    *   I **Händelsetyper** väljer du **Resource Write Success** (Resursskrivning lyckades).
+    *   I **Slutpunkt för prenumerant** anger du webhook-URL:en för runbooken Watch-VMWrite runbook.
+    *   I **Prefixfilter** anger du den prenumeration och den resursgrupp där du vill leta efter de nya virtuella datorerna som skapats. Det bör se ut så här: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
-4. Välj **skapa** spara händelsen rutnätet prenumerationen.
+4. Välj **Skapa** för att spara Event Grid-prenumerationen.
 
-## <a name="create-a-vm-that-triggers-the-runbook"></a>Skapa en virtuell dator som utlöser en runbook
-1. Skapa en ny virtuell dator i resursgruppen som du angav i händelseloggen rutnätet prenumeration prefixet filter.
+## <a name="create-a-vm-that-triggers-the-runbook"></a>Skapa en virtuell dator som utlöser runbooken
+1. Skapa en ny virtuell dator i den resursgrupp som du angav i prefixfiltret för Event Grid-prenumerationen.
 
-2. Titta på VMWrite runbook ska anropas och en ny post läggs till den virtuella datorn.
+2. Runbooken Watch-VMWrite ska anropas, och en ny tagg ska läggas till i den virtuella datorn.
 
     ![VM-tagg](media/ensure-tags-exists-on-new-virtual-machines/vm-tag.png)
 
-3. Ett nytt meddelande skickas till Microsoft-Teams-kanalen.
+3. Ett nytt meddelande skickas till Microsoft Teams-kanalen.
 
-    ![Microsoft-Teams meddelande](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
+    ![Microsoft Teams-meddelande](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
 ## <a name="next-steps"></a>Nästa steg
-I den här kursen kan du ställa in integration mellan händelse rutnätet och automatisering. Du har lärt dig att:
+I den här självstudien konfigurerar du integrering mellan Event Grid och Automation. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Importera en händelse rutnätet exempel-runbook.
-> * Skapa en valfri Microsoft Teams webhook.
-> * Skapa en webhook för runbook.
-> * Skapa en händelse rutnätet prenumeration.
-> * Skapa en virtuell dator som utlöser en runbook.
+> * Importera en Event Grid-exempel-runbook.
+> * Skapa en valfri Microsoft Teams-webhook.
+> * Skapa en webhook för runbooken.
+> * Skapa en Event Grid-prenumeration.
+> * Skapa en virtuell dator som utlöser runbooken.
 
 > [!div class="nextstepaction"]
-> [Skapa och dirigera anpassade händelser med händelse rutnätet](../event-grid/custom-event-quickstart.md)
+> [Skapa och dirigera anpassade händelser med Event Grid](../event-grid/custom-event-quickstart.md)

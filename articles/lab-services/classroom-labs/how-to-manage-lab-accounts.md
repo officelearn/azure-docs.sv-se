@@ -1,6 +1,6 @@
 ---
-title: Hantera lab konton i Azure Lab Services | Microsoft Docs
-description: Lär dig mer om att skapa ett labb-konto, visa alla lab konton eller ta bort ett labb-konto i en Azure-prenumeration.
+title: Hantera labb konton i Azure Lab Services | Microsoft Docs
+description: Lär dig hur du skapar ett labbkonto, visa alla lab-konton eller ta bort ett labbkonto i en Azure-prenumeration.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 6039ea482b0968d48fc21ff3dfec82a2ff0db43d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 68baab14e2adf7f43bb1e0e0f47c414555a28659
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715334"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213409"
 ---
-# <a name="manage-lab-accounts-in-azure-lab-services"></a>Hantera lab konton i Azure Lab Services 
-Ett labb-konto är en behållare för hanterade labs, till exempel klassrum labb i Azure Lab Services. En administratör ställer in ett testlabb-konto med Azure Lab Services och ger åtkomst till labb ägare som kan skapa labs i kontot. Den här artikeln beskriver hur du skapar ett labb-konto, visa alla lab konton eller ta bort ett labb-konto.
+# <a name="manage-lab-accounts-in-azure-lab-services"></a>Hantera labb konton i Azure Lab Services 
+I Azure Lab Services är ett labbkonto en behållare för hanterade labbar som klassrum labs. En administratör konfigurerar ett testlabb-konto med Azure Lab Services och ger åtkomst till labbägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labbkonto, visa alla lab-konton eller ta bort ett labbkonto.
 
 ## <a name="create-a-lab-account"></a>Skapa ett labbkonto
 1. Logga in på [Azure Portal](https://portal.azure.com).
@@ -45,7 +45,7 @@ Ett labb-konto är en behållare för hanterade labs, till exempel klassrum labb
     ![Sidan Labbkonto](../media/how-to-manage-lab-accounts/lab-account-page.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Lägga till en användare i rollen Labbskapare
-Ge lärarna behörighet att skapa labb åt sina klasser genom att lägga till dem i rollen Labbskapare:
+Om du vill konfigurera ett klassrumslabb i ett labbkonto, måste du vara medlem i den **Labbskaparen** roll i labbkonto. Det konto som du använde för att skapa labb-kontot läggs automatiskt till den här rollen. Om du planerar att använda samma användarkonto för att skapa ett klassrumslabb, kan du hoppa över det här steget. Om du vill använda ett annat konto för att skapa ett klassrumslabb, gör du följande: 
 
 1. På sidan **Labbkonto** väljer du **Åtkomstkontroll (IAM)** och klickar på **+ Lägg till** i verktygsfältet. 
 
@@ -55,22 +55,22 @@ Ge lärarna behörighet att skapa labb åt sina klasser genom att lägga till de
     ![Lägga till en användare i rollen Labbskapare](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 
-## <a name="view-lab-accounts"></a>Visa lab konton
+## <a name="view-lab-accounts"></a>Visa lab-konton
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **alla resurser** på menyn. 
-3. Välj **Lab Services** för den **typen**. 
+3. Välj **Lab Services** för den **typ**. 
     Du kan också filtrera efter prenumeration, resursgrupp, platser och taggar. 
 
-## <a name="delete-a-lab-account"></a>Ta bort ett labb-konto
-Följ anvisningarna i föregående avsnitt som visar lab konton i en lista. Använd följande instruktioner för att ta bort ett labb-konto: 
+## <a name="delete-a-lab-account"></a>Ta bort ett labbkonto
+Följ anvisningarna i föregående avsnitt som visar lab-konton i en lista. Använd följande instruktioner för att ta bort ett labbkonto: 
 
-1. Välj den **lab konto** som du vill ta bort. 
+1. Välj den **labbkonto** som du vill ta bort. 
 2. Välj **ta bort** från verktygsfältet. 
-3. Typen **Ja** bekräftelse.
+3. Typ **Ja** bekräftelse.
 4. Välj **Ta bort**. 
 
 ## <a name="next-steps"></a>Nästa steg
 Kom igång med att konfigurera ett testlabb med Azure Lab Services:
 
 - [Konfigurera ett klassrumslabb](tutorial-setup-classroom-lab.md)
-- [Skapa ett labb](../tutorial-create-custom-lab.md)
+- [Konfigurera ett labb](../tutorial-create-custom-lab.md)

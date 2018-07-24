@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rayne
-ms.openlocfilehash: 97006f2dfecc8d3ade680f97cbb7776dfda98dd5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 95941b3f9333273c11208c56a63c62d5d37a9386
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921033"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213562"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Felsöka Hyper-V till Azure replikering och redundans
 
@@ -131,11 +131,11 @@ En appkompatibel ögonblicksbild är en point-in-time-ögonblicksbild av program
 2. Kontrollera att Hyper-V-integreringstjänsterna är installerade på den virtuella datorn och att säkerhetskopiering (VSS) Integration-tjänsten är aktiverad för att generera VSS-ögonblicksbilder för den virtuella datorn.
     - Se till att Integration Services VSS-tjänsten/Daemon körs på gästen och finns i en **OK** tillstånd.
     - Du kan kontrollera detta från en upphöjd PowerShell-session på Hyper-V-värden med kommandot **et-VMIntegrationService - VMName<VMName>-namnet VSS** du kan också få den här informationen genom att logga in den Virtuella gästdatorn. [Läs mer](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
-    - Se till att säkerhetskopiering/VSS-integreringstjänsterna på den virtuella datorn körs och är i felfritt tillstånd. Om inte, startar du om dessa tjänster och och Hyper-V Volume Shadow Copy-tjänsten för begärande på Hyper-V-värdservern.
+    - Se till att säkerhetskopiering/VSS-integreringstjänsterna på den virtuella datorn körs och är i felfritt tillstånd. Annars kan du starta om tjänsterna och Hyper-V Volume Shadow Copy-tjänsten för begärande på Hyper-V-värdservern.
 
 ### <a name="common-errors"></a>Vanliga fel
 
-**Felkod** | **Meddelande** | **Detaljer**
+**Felkod** | **meddelande** | **Detaljer**
 --- | --- | ---
 **0x800700EA** | ”Hyper-V kunde inte generera uppsättning av VSS-ögonblicksbilder för den virtuella datorn: flera data är tillgängliga. (0x800700EA). Ställ in VSS ögonblicksbildgenerering kan misslyckas om säkerhetskopiering pågår.<br/><br/> Replikeringsåtgärden för den virtuella datorn misslyckades: finns mer information ”. | Kontrollera om den virtuella datorn har en dynamisk disk som är aktiverad. Det stöds inte.
 **0x80070032** | ”Det gick inte att ansluta till det virtuella Hyper-V Volume Shadow Copy begärande <. / VMname > eftersom versionen inte matchar den version som förväntades av Hyper-V | Kontrollera om de senaste Windows-uppdateringarna är installerade.<br/><br/> [Uppgradera](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services.md#keep-integration-services-up-to-date) till den senaste versionen av Integration Services.

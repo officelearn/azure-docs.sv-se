@@ -1,6 +1,6 @@
 ---
-title: Koppla de olika processtegen en hallon Pi till dina Azure IoT centralt program (C#) | Microsoft Docs
-description: Som en enhet utvecklare, hur du ansluter en hallon Pi till dina Azure IoT centralt program med hjälp av C#.
+title: Connnect en Raspberry Pi till Azure IoT Central programmet (C#) | Microsoft Docs
+description: Som utvecklare av enheten, hur du ansluter en Raspberry Pi till ditt Azure IoT Central-program med C#.
 author: dominicbetts
 ms.author: dobett
 ms.date: 01/22/2018
@@ -8,83 +8,54 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 58f363c522f3e5abe6bf49a2aebafe4e953e00df
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 63843797cca7fe84cdb9ce91d2282b1c0c288f0c
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628597"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205144"
 ---
-# <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Ansluta en hallon Pi till dina Azure IoT centralt program (C#)
+# <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Ansluta en Raspberry Pi till Azure IoT Central programmet (C#)
 
 [!INCLUDE [howto-raspberrypi-selector](../../includes/iot-central-howto-raspberrypi-selector.md)]
 
-Den här artikeln beskriver hur som utvecklare som enheten kan ansluta en hallon Pi till Microsoft Azure IoT Central programmet med hjälp av programmeringsspråket C#.
+Den här artikeln beskrivs hur du som utvecklare enheten att ansluta en Raspberry Pi till ditt Microsoft Azure IoT Central-program med programmeringsspråket C#.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-* [.NET core 2](https://www.microsoft.com/net) installerat på utvecklingsdatorn. Du bör även ha en lämplig redigerare som [Visual Studio Code](https://code.visualstudio.com/).
-* Ett Azure IoT centrala program som skapas från den **exempel Devkits** mall för program. Mer information finns i [skapa Azure IoT centrala programmet](howto-create-application.md).
-* En hallon Pi-enhet som kör operativsystemet Raspbian.
+* [.NET core 2](https://www.microsoft.com/net) installerat på utvecklingsdatorn. Du bör även ha en lämplig Kodredigerare som [Visual Studio Code](https://code.visualstudio.com/).
+* Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i [skapa Azure IoT Central programmet](howto-create-application.md).
+* En Raspberry Pi-enhet som kör operativsystemet Raspbian.
 
-Ett program som skapas från den **exempel Devkits** programmall innehåller en **hallon Pi** enheten mallen med följande egenskaper:
 
-### <a name="telemetry-measurements"></a>Telemetri mått
+## <a name="sample-devkits-application"></a>**Exempel på Devkits** program
 
-| Fältnamn     | Enheter  | Minimum | Maximal | Antal decimaler |
-| -------------- | ------ | ------- | ------- | -------------- |
-| fuktighet       | %      | 0       | 100     | 0              |
-| Temp           | ° C     | -40     | 120     | 0              |
-| tryck       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | -1000   | 1000    | 0              |
-| magnetometerY  | mgauss | -1000   | 1000    | 0              |
-| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX | mg     | -2000   | 2000    | 0              |
-| accelerometerY | mg     | -2000   | 2000    | 0              |
-| accelerometerZ | mg     | -2000   | 2000    | 0              |
-| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+Ett program som skapats från den **exempel Devkits** programmall innehåller en **Raspberry Pi** enheten mallen med följande egenskaper: 
 
-### <a name="settings"></a>Inställningar
+- Telemetri som innehåller mätningarna för enheten **fuktighet**, **temperatur**, **tryck**, **Magnometer** (mätt längs X Y, Z-axeln), **Accelorometer** (mätt längs X, Y, Z-axeln) och **gyroskop** (mätt längs X, Y, Z-axeln).
+- Inställningar som visar **Voltage**, **aktuella**,**fläkthastighet** och en **IR** växlingsknappen.
+- Egenskaper som innehåller enhetsegenskap **dör nummer** och **plats** egenskap i molnet.
 
-Numeriska inställningar
 
-| Visningsnamn | Fältnamn | Enheter | Antal decimaler | Minimum | Maximal | Inledande |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Spänning      | setVoltage | V | 0              | 0       | 240     | 0       |
-| Aktuell      | setCurrent | A  | 0              | 0       | 100     | 0       |
-| Fläkthastighet    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+Fullständig information om konfigurationen av enheten mallen finns i [Raspberry PI enhetsinformation mall](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
 
-Visa/Dölj inställningar
 
-| Visningsnamn | Fältnamn | På text | Av text | Inledande |
-| ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ON      | AV      | Av     |
+## <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
-### <a name="properties"></a>Egenskaper
+I Azure IoT Central programmet, lägger du till en riktig enhet från den **Raspberry Pi** enheten mallen och gjort en notering enhetens anslutningssträng. Mer information finns i [ge en riktig enhet till Azure IoT Central programmet](tutorial-add-device.md).
 
-| Typ            | Visningsnamn | Fältnamn | Datatyp |
-| --------------- | ------------ | ---------- | --------- |
-| Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
-| Text            | Plats     | location   | Gäller inte       |
+### <a name="create-your-net-application"></a>Skapa .NET-program
 
-### <a name="add-a-real-device"></a>Lägga till en riktig enhet
+Skapa och testa enheten programmet på din stationära dator.
 
-Azure IoT centrala programmet, lägga till en verklig enhet från den **hallon Pi** enheten mallen och gjort en notering om anslutningssträngen för enheten. Mer information finns i [lägger till en verklig enhet tillämpningsprogrammet Azure IoT Central](tutorial-add-device.md).
-
-## <a name="create-your-net-application"></a>Skapa .NET-program
-
-Skapa och testa programmet enhet på den stationära datorn.
-
-Du kan använda Visual Studio-koden för att slutföra följande steg. Mer information finns i [arbeta med C#](https://code.visualstudio.com/docs/languages/csharp).
+Du kan använda Visual Studio Code för att slutföra följande steg. Mer information finns i [arbeta med C#](https://code.visualstudio.com/docs/languages/csharp).
 
 > [!NOTE]
-> Om du vill kan slutföra du följande steg med en annan redigerare.
+> Om du vill kan slutföra du följande steg med hjälp av en annan Kodredigerare.
 
-1. Om du vill initiera .NET-projektet och Lägg till nödvändiga NuGet-paketen, kör du följande kommandon:
+1. Om du vill initiera ditt .NET-projekt och Lägg till NuGet-paket som krävs, kör du följande kommandon:
 
   ```cmd/sh
   mkdir pisample
@@ -94,7 +65,7 @@ Du kan använda Visual Studio-koden för att slutföra följande steg. Mer infor
   dotnet restore
   ```
 
-1. Öppna den `pisample` mapp i Visual Studio-koden. Öppna den **pisample.csproj** projektfilen. Lägg till den `<RuntimeIdentifiers>` tagg som visas i följande utdrag:
+1. Öppna den `pisample` mappen i Visual Studio Code. Öppna sedan den **pisample.csproj** projektfilen. Lägg till den `<RuntimeIdentifiers>` tagg som visas i följande kodavsnitt:
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk">
@@ -110,9 +81,9 @@ Du kan använda Visual Studio-koden för att slutföra följande steg. Mer infor
     ```
 
     > [!NOTE]
-    > Din **Microsoft.Azure.Devices.Client** versionsnumret kan vara högre än det som visas.
+    > Din **Microsoft.Azure.Devices.Client** versionsnummer för paketet kan vara högre än den som visas.
 
-1. Spara **pisample.csproj**. Om Visual Studio Code uppmanas du att köra kommandot restore, välja **återställa**.
+1. Spara **pisample.csproj**. Om Visual Studio Code uppmanar dig att köra kommandot restore, välja **återställa**.
 
 1. Öppna **Program.cs** och Ersätt innehållet med följande kod:
 
@@ -290,33 +261,33 @@ Du kan använda Visual Studio-koden för att slutföra följande steg. Mer infor
 
 ## <a name="run-your-net-application"></a>Kör .NET-program
 
-Lägga till enhetsspecifika anslutningssträngen till kod för enheten för att autentisera med Azure IoT Central. Du antecknade den här anslutningssträngen när du har lagt till enheten verkliga Azure IoT centrala programmet.
+Lägga till specifika anslutningssträngen i koden för enheten för att autentisera med Azure IoT Central. Du antecknade den här anslutningssträngen när du har lagt till din verklig enhet till Azure IoT Central programmet.
 
 1. Ersätt `{your device connection string}` i den **Program.cs** filen med den anslutningssträng som du antecknade tidigare.
 
-1. Kör följande kommando i Kommandotolken miljön:
+1. Kör följande kommando i miljön kommandoraden:
 
   ```cmd/sh
   dotnet restore
   dotnet publish -r linux-arm
   ```
 
-1. Kopiera den `pisample\bin\Debug\netcoreapp2.0\linux-arm\publish` mappen på enheten hallon Pi. Du kan använda den **scp** kommando för att kopiera filer, till exempel:
+1. Kopiera den `pisample\bin\Debug\netcoreapp2.0\linux-arm\publish` mappen till din Raspberry Pi-enhet. Du kan använda den **scp** kommando för att kopiera filer, till exempel:
 
     ```cmd/sh
     scp -r publish pi@192.168.0.40:publish
     ```
 
-    Mer information finns i [hallon Pi fjärråtkomst](https://www.raspberrypi.org/documentation/remote-access/).
+    Mer information finns i [Raspberry Pi fjärråtkomst](https://www.raspberrypi.org/documentation/remote-access/).
 
-1. Logga in på enheten hallon Pi och kör följande kommandon i ett gränssnitt:
+1. Logga in på Raspberry Pi-enheten och kör följande kommandon i ett gränssnitt:
 
     ```cmd/sh
     sudo apt-get update
     sudo apt-get install libc6 libcurl3 libgcc1 libgssapi-krb5-2 liblttng-ust0 libstdc++6 libunwind8 libuuid1 zlib1g
     ```
 
-1. Kör följande kommandon på din hallon Pi:
+1. På Raspberry Pi, kör du följande kommandon:
 
     ```cmd/sh
     cd publish
@@ -326,18 +297,63 @@ Lägga till enhetsspecifika anslutningssträngen till kod för enheten för att 
 
     ![Programmet börjar](./media/howto-connect-raspberry-pi-csharp/device_begin.png)
 
-1. Du kan se hur koden körs på hallon Pi interagerar med programmet i ditt Azure IoT centrala program:
+1. Du kan se hur koden körs på Raspberry Pi interagerar med programmet i Azure IoT Central programmet:
 
-    * På den **mätningar** sidan för enheten verkliga kan du se telemetrin.
-    * På den **egenskaper** sida, ser du värdet för den rapporterade **dör nummer** egenskapen.
-    * På den **inställningar** kan du ändra olika inställningar på hallon Pi, till exempel spänning och fläkt hastighet.
+    * På den **mätningar** sidan för din riktig enhet visas telemetri.
+    * På den **egenskaper** sidan ser du värdet för det rapporterade **dör nummer** egenskapen.
+    * På den **inställningar** kan du kan ändra olika inställningar på Raspberry Pi, till exempel spänning och fläkt hastighet.
 
-    Följande skärmbild visar den hallon Pi tar emot Inställningsändringen:
+    I följande skärmbild visas den Raspberry Pi som tar emot ändringen:
 
-    ![Raspberry Pi får inställningen ändring](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
+    ![Raspberry Pi tar emot Inställningsändringen](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
+
+
+## <a name="raspberry-pi-device-template-details"></a>Raspberry PI mall enhetsinformation
+
+Ett program som skapats från den **exempel Devkits** programmall innehåller en **Raspberry Pi** enheten mallen med följande egenskaper:
+
+### <a name="telemetry-measurements"></a>Telemetri mätning av faktisk användning
+
+| Fältnamn     | Enheter  | Minimum | Maximal | Antal decimaler |
+| -------------- | ------ | ------- | ------- | -------------- |
+| luftfuktighet       | %      | 0       | 100     | 0              |
+| Temp           | ° C     | -40     | 120     | 0              |
+| tryck       | hPa    | 260     | 1260    | 0              |
+| magnetometerX  | mgauss | där-1 000   | 1000    | 0              |
+| magnetometerY  | mgauss | där-1 000   | 1000    | 0              |
+| magnetometerZ  | mgauss | där-1 000   | 1000    | 0              |
+| accelerometerX | mg     | -2000   | 2000    | 0              |
+| accelerometerY | mg     | -2000   | 2000    | 0              |
+| accelerometerZ | mg     | -2000   | 2000    | 0              |
+| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+
+### <a name="settings"></a>Inställningar
+
+Numeriska inställningar
+
+| Visningsnamn | Fältnamn | Enheter | Antal decimaler | Minimum | Maximal | Inledande |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| Spänning      | setVoltage | V | 0              | 0       | 240     | 0       |
+| Aktuell      | setCurrent | A  | 0              | 0       | 100     | 0       |
+| Fläkthastighet    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+Visa/Dölj inställningar
+
+| Visningsnamn | Fältnamn | Text | Av text | Inledande |
+| ------------ | ---------- | ------- | -------- | ------- |
+| IR           | activateIR | ON      | AV      | Av     |
+
+### <a name="properties"></a>Egenskaper
+
+| Typ            | Visningsnamn | Fältnamn | Datatyp |
+| --------------- | ------------ | ---------- | --------- |
+| Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
+| Text            | Plats     | location   | Gäller inte       |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du ansluter en hallon Pi till dina Azure IoT centralt program, är här de föreslagna nästa steg:
+Nu när du har lärt dig hur du ansluter en Raspberry Pi till programmet Azure IoT Central, är här nästa föreslagna steg:
 
-* [Ansluta ett allmänt Node.js-klientprogram till Azure IoT Central](howto-connect-nodejs.md)
+* [Ansluta en allmän Node.js-klientprogram till Azure IoT Central](howto-connect-nodejs.md)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: ee804ddc9e8fe9901173bb3d9357a273ea28057d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f6829d497c85ef1b4e74e26befe42d5d6fa87e36
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056825"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205977"
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>SQL-frågor för Azure Cosmos DB
 
@@ -522,7 +522,7 @@ För andra jämförelseoperatorer som >, > =,! =, < och < =, följande regler g�
 
 Om resultatet av det skalära uttrycket i filtret är odefinierad motsvarande dokumentet inte tas med i resultatet, eftersom Undefined logiskt inte motsvarar en ”true”.
 
-### <a name="between-keyword"></a>MELLAN nyckelord
+## <a name="between-keyword"></a>MELLAN nyckelord
 Du kan också använda nyckelordet BETWEEN för att uttrycka frågor mot intervall med värden som i ANSI SQL. MELLAN kan användas mot strängar eller siffror.
 
 Den här frågan returnerar till exempel alla family dokument där den första underordnade i företagsklass som är mellan 1-5 (båda inkluderande). 
@@ -561,7 +561,7 @@ Logiska operatorer fungerar på booleska värden. De logiska tabellerna sanninge
 | False |True |
 | Odefinierat |Odefinierat |
 
-### <a name="in-keyword"></a>I nyckelord
+## <a name="in-keyword"></a>I nyckelord
 IN-nyckelordet kan användas för att kontrollera om ett angivet värde matchar något värde i en lista. Den här frågan returnerar till exempel alla family dokument där id är ”WakefieldFamily” eller ”AndersenFamily”. 
 
     SELECT *
@@ -574,7 +574,7 @@ Det här exemplet returnerar alla dokument där tillståndet är någon av de an
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-### <a name="ternary--and-coalesce--operators"></a>Ternär (?) och operatörer av Coalesce (?)
+## <a name="ternary--and-coalesce--operators"></a>Ternär (?) och operatörer av Coalesce (?)
 Ternär och Coalesce operatörer kan användas för att skapa villkorsuttryck, liknar vanliga programmeringsspråk som C# och JavaScript. 
 
 Operatorn Ternär (?) kan vara väldigt användbar när nya JSON-egenskaper i farten. Exempel: nu kan du skriva frågor för att klassificera klass-nivåer till mänskliga läsbart format som nybörjare/mellanliggande/Avancerat enligt nedan.
@@ -594,7 +594,7 @@ Operatorn Coalesce (?) kan användas för att effektivt söka efter förekomsten
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-### <a id="EscapingReservedKeywords"></a>Citerade Egenskapsåtkomst
+## <a id="EscapingReservedKeywords"></a>Citerade Egenskapsåtkomst
 Du kan också komma åt egenskaper med hjälp av operatorn citerade egenskapen `[]`. Till exempel `SELECT c.grade` och `SELECT c["grade"]` är likvärdiga. Den här syntaxen är användbart när du behöver att undvika en egenskap som innehåller blanksteg, specialtecken eller händer att dela samma namn som en SQL-nyckelord eller reserverat ord.
 
     SELECT f["lastName"]
@@ -682,7 +682,7 @@ Låt oss titta på rollen `$1` här. Den `SELECT` satsen som behövs för att sk
     }]
 
 
-### <a name="aliasing"></a>Alias
+## <a name="aliasing"></a>Alias
 Nu ska vi utöka i exemplet ovan med explicita alias med värden. Så som de är nyckelord som används för alias. Det är valfritt som visas när du projicerar det andra värdet som `NameInfo`. 
 
 Om en fråga har två egenskaper med samma namn, måste alias användas för att byta namn på en eller båda egenskaperna så att de är skiljas åt i det beräknade resultatet.
@@ -708,7 +708,7 @@ Om en fråga har två egenskaper med samma namn, måste alias användas för att
     }]
 
 
-### <a name="scalar-expressions"></a>Skaläruttryck
+## <a name="scalar-expressions"></a>Skaläruttryck
 Förutom egenskapen referenser stöder SELECT-satsen också skaläruttryck konstanter, aritmetiska uttryck, logiska uttryck, t.ex. Här är till exempel en enkel ”Hello World”-fråga.
 
 **Fråga**
@@ -754,7 +754,7 @@ I följande exempel visas är resultatet av det skalära uttrycket ett booleskt 
     ]
 
 
-### <a name="object-and-array-creation"></a>Skapa en objekt och matriser
+## <a name="object-and-array-creation"></a>Skapa en objekt och matriser
 En annan viktig funktion i SQL-API är matris/objektskapande. Observera att vi har skapat ett nytt JSON-objekt i exemplet ovan. På samma sätt kan kan en också skapa matriser som visas i följande exempel:
 
 **Fråga**
@@ -779,7 +779,7 @@ En annan viktig funktion i SQL-API är matris/objektskapande. Observera att vi h
       }
     ]
 
-### <a id="ValueKeyword"></a>VÄRDET nyckelord
+## <a id="ValueKeyword"></a>VÄRDET nyckelord
 Den **värdet** nyckelord är ett sätt att returnera värdet på JSON. Exempelvis kan den fråga som visas nedan returnerar skalären `"Hello World"` i stället för `{$1: "Hello World"}`.
 
 **Fråga**
@@ -830,7 +830,7 @@ I följande exempel utökar det för att visa hur du returnerar JSON primitiva v
     ]
 
 
-### <a name="-operator"></a>* Operator
+## <a name="-operator"></a>* Operator
 Särskilda operatorn (*) stöds projicera dokumentet som – är. När den används, måste det vara det enda beräknade fältet. När en fråga av typen `SELECT * FROM Families f` är giltig, `SELECT VALUE * FROM Families f ` och `SELECT *, f.id FROM Families f ` är inte giltiga.
 
 **Fråga**
@@ -859,7 +859,7 @@ Särskilda operatorn (*) stöds projicera dokumentet som – är. När den anvä
         "isRegistered": true
     }]
 
-### <a id="TopKeyword"></a>Operatorn TOP
+## <a id="TopKeyword"></a>Operatorn TOP
 Nyckelordet ÖVERSTA kan användas för att begränsa antalet värden från en fråga. När upp används tillsammans med ORDER BY-satsen, är resultatmängden begränsad till sorterad värden; N första Annars returneras första N antalet resultat i en odefinierad order. Som bästa praxis, i en SELECT-instruktion, Använd alltid en ORDER BY-sats med TOP-satsen. Det här är det enda sättet att förutsägbart indikerar vilka rader som påverkas av längst upp. 
 
 **Fråga**
@@ -889,7 +889,7 @@ Nyckelordet ÖVERSTA kan användas för att begränsa antalet värden från en f
 
 TOP kan användas med ett konstant värde (som visas ovan) eller med ett variabelvärde använda parameteriserade frågor. Mer information finns i parameterfrågor nedan.
 
-### <a id="Aggregates"></a>Mängdfunktioner
+## <a id="Aggregates"></a>Mängdfunktioner
 Du kan också utföra aggregeringar i den `SELECT` satsen. Mängdfunktioner utföra beräkningar på en uppsättning värden och returnera ett enstaka värde. Följande fråga returnerar till exempel antalet family dokument i samlingen.
 
 **Fråga**

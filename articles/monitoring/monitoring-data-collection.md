@@ -1,6 +1,6 @@
 ---
 title: Samla in övervakningsdata i Azure | Microsoft Docs
-description: Översikt över övervakningsdata som samlas in från program och tjänster i Azure och verktyg för att analysera den.
+description: Översikt över övervakningsdata som samlas in från program och tjänster i Azure och de verktyg som används för att analysera den.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/06/2018
 ms.author: bwren
-ms.openlocfilehash: d3ebd512f8244de74c009ac8a2936ed8e817dad9
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: efbf0907f3ed75957159c38a536bd31e88a0dbb3
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991510"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213307"
 ---
 # <a name="collecting-monitoring-data-in-azure"></a>Samla in övervakningsdata i Azure
-Den här artikeln innehåller en översikt över övervakningsdata som samlas in från program och tjänster i Azure och verktyg som används för att analysera den. 
+Den här artikeln innehåller en översikt över övervakningsdata som samlas in från program och tjänster i Azure och de verktyg som används för att analysera den. 
 
 ## <a name="types-of-monitoring-data"></a>Typer av övervakningsdata
 Alla övervakningsdata passar in i två grundläggande typer, mått eller loggar. Varje typ har olika egenskaper och passar bäst för specifika scenarier som beskrivs nedan.

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad7c412ee92db53dd797e38df2fc6db0a762fe78
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 88869fbeef0475f2c674e0f154a3624545182363
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916174"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213239"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sömlös enkel inloggning
 
@@ -55,7 +55,7 @@ Sömlös enkel inloggning kan kombineras med antingen den [Lösenordshashsynkron
 - Om ett program (till exempel https://myapps.microsoft.com/contoso.com) vidarebefordrar en `domain_hint` (OpenID Connect) eller `whr` (SAML) parametern – identifiera din klient eller `login_hint` parametern – identifiera den här användaren, användare finns i Azure AD-inloggningen begäran loggas in automatiskt utan dem att ange användarnamn eller lösenord.
 - Användare får också en tyst inloggning om ett program (till exempel https://contoso.sharepoint.com) skickar inloggningsförfrågningar till Azure AD: s klientslutpunkter – det vill säga https://login.microsoftonline.com/contoso.com/<..> eller https://login.microsoftonline.com/<tenant_ID>/<..> – i stället för Azure AD: s vanliga slutpunkt - det vill säga https://login.microsoftonline.com/common/<...>.
 - Logga ut stöds. På så sätt kan användarna kan välja en annan Azure AD-konto för att logga in med, i stället för att automatiskt som loggat in med sömlös enkel inloggning automatiskt.
-- Office 365-klienter (16.0.8730.xxxx och senare) stöds med hjälp av en icke-interaktiv flow.
+- Office 365 Win32-klienter (Outlook, Word, Excel och andra) med versioner 16.0.8730.xxxx och senare stöds med hjälp av en icke-interaktiv flow. För OneDrive, måste du aktivera den [OneDrive tyst config funktionen](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) för en tyst inloggningsupplevelse.
 - Den kan aktiveras via Azure AD Connect.
 - Det är en kostnadsfri funktion och du behöver inte några betald utgåvor av Azure AD för att använda den.
 - Den stöds på webbläsarbaserade webbklienter och Office-klienter som har stöd för [modern autentisering](https://aka.ms/modernauthga) på plattformar och webbläsare som stöder Kerberos-autentisering:

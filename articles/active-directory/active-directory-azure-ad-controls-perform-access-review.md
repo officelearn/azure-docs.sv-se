@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 09/19/2017
+ms.date: 07/16/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 52d832de10de93c5bd4b91df821f96845b3b21be
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2e0a522f6125a9e34a37c50f547e725072ec65b4
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446647"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205011"
 ---
 # <a name="review-access-with-azure-ad-access-reviews"></a>Granska åtkomst med Azure AD åtkomstgranskningar
 
@@ -27,7 +27,11 @@ Azure Active Directory (AD Azure) gör det enklare företag hantera åtkomst til
 
 ## <a name="open-an-access-review"></a>Öppna en åtkomstgranskning
 
-Om du vill se de väntande åtkomstgranskningar, klicka på länken i e-postmeddelandet. Om du inte har e-postmeddelandet, kan du hitta åtkomstgranskningar genom att följa dessa steg:
+Om du vill se de väntande åtkomstgranskningar, klickar du på länken granska åtkomst för e-postmeddelandet. Från och med augusti 2018, har e-postmeddelanden för Azure AD-roller en uppdaterad design. Nedan visas ett exempel e-postmeddelande som skickas när en användare bjuds in till granskare. 
+
+![Granska åtkomst till e-post](./media/active-directory-azure-ad-controls-perform-access-review/new-ar-email.png)
+
+Om du inte har e-postmeddelandet, kan du hitta åtkomstgranskningar genom att följa dessa steg:
 
 1. Logga in på den [Azure AD-åtkomstpanelen](https://myapps.microsoft.com).
 
@@ -39,7 +43,7 @@ Om du vill se de väntande åtkomstgranskningar, klicka på länken i e-postmedd
 
 När du väljer en åtkomstgranskning i listan visas namnen på användare som behöver granskas. Visas endast en namn – din egen--om begäran var att granska din egen åtkomst.
 
-För varje rad i listan kan du bestämma om du vill godkänna eller neka användaren åtkomst. Välj raden och välj om du vill godkänna eller neka. (Om du inte vet att användaren anger du det för.)
+För varje rad i listan kan du bestämma om du vill godkänna eller neka användaren åtkomst. Välj raden och välj om du vill godkänna eller neka. (Om du inte vet att användaren kan du ange som för.)
 
 Granskaren kan kräva att du ange en motivering för godkännande av fortsatt åtkomst och gruppmedlemskap.
 

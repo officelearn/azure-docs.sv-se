@@ -19,4 +19,4 @@ Anvisningarna för att avregistrera en processerver är olika beroende på dess 
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-4. Information om processervern rensas från systemet.
+4. Det här meddelandet inträffar om processervern är har tagits bort: **avregistrerades servernamn > (server-IP-adress)**.

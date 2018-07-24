@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c01a63867ca3df85b4e7203c93855b43e9cd04c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3dfe16cc09f0453aef8adf8bf87a00aebd2054bc
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044857"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214643"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -145,7 +145,7 @@ Detta är att skydda tjänsten från runbooks som körs på obestämd tid utan a
 
 Om runbooken har inga kontrollpunkter eller jobbet hade inte nå den första kontrollpunkten innan tas bort från minnet, startas sedan om från början.
 
-För att långa köra aktiviteter, rekommenderar vi att du använder en [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Worker begränsas inte av rättmätiga del och inte har har en begränsning på hur lång tid en runbook kan köra.
+För att långa köra aktiviteter, rekommenderar vi att du använder en [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Worker begränsas inte av rättmätiga del och inte har en begränsning på hur lång tid en runbook kan köra.
 
 Om du använder en PowerShell Workflow-runbook i Azure, när du skapar en runbook, bör du kontrollera att tiden för att köra alla aktiviteter mellan två kontrollpunkter inte överskrider tre timmar. Du kan behöva lägga till kontrollpunkter till din runbook så att den inte uppnår sin gräns för den här tre timmar eller dela upp långa åtgärder. Din runbook kan till exempel utföra en reindex på en stor SQL-databas. Om den här enda åtgärden inte slutförs inom gränsen på rättmätiga del, tas bort från minnet jobbet och startas om från början. I det här fallet bör du dela upp reindex åtgärden i flera steg, t.ex omindexering en tabell i taget, och infoga en kontrollpunkt efter varje åtgärd så att jobbet återupptas efter den senaste åtgärden har slutförts.
 

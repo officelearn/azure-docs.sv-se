@@ -1,6 +1,6 @@
 ---
-title: Strömma data från Stream Analytics i Data Lake Store | Microsoft Docs
-description: Använd Azure Stream Analytics att sända data till Azure Data Lake Store
+title: Stream data från Stream Analytics i Data Lake Store | Microsoft Docs
+description: Använd Azure Stream Analytics för att strömdata till Azure Data Lake Store
 services: data-lake-store,stream-analytics
 documentationcenter: ''
 author: nitinme
@@ -12,112 +12,112 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 8c045bed943427b5cb74291d70ee2eebcb90b2ef
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 396d514d0d75c43f20ab7b0fcdf8c7351cb3dd89
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625241"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213460"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Strömma data från Azure Storage Blob till Data Lake Store med Azure Stream Analytics
-I den här artikeln får du lära dig hur du använder Azure Data Lake Store som utdata för ett Azure Stream Analytics-jobb. Den här artikeln visar ett enkelt scenario som läser data från ett Azure Storage blob (indata) och skriver data till Data Lake Store (utdata).
+I den här artikeln får du lära dig hur du använder Azure Data Lake Store som utdata för Azure Stream Analytics-jobb. Den här artikeln visar ett enkelt scenario som läser data från en Azure Storage blob (indata) och skriver data till Data Lake Store (utdata).
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar de här självstudierna måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Azure Storage-konto**. Du använder en blob-behållare från detta konto för att mata in data för ett Stream Analytics-jobb. Den här självstudiekursen förutsätter att du har ett lagringskonto som kallas **storageforasa** och en behållare i kontot kallas **storageforasacontainer**. När du har skapat behållaren måste du ladda upp en exempeldatafil till den. 
+* **Azure Storage-konto**. Du använder en blob-behållare från det här kontot för att mata in data för ett Stream Analytics-jobb. Den här självstudien antar vi att du har ett lagringskonto med namnet **storageforasa** och en behållare i kontot kallas **storageforasacontainer**. När du har skapat behållaren måste du ladda upp en exempeldatafil till den. 
   
-* **Azure Data Lake Store-konto**. Följ instruktionerna i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md). Antar vi att du har ett Data Lake Store-konto som kallas **asadatalakestore**. 
+* **Azure Data Lake Store-konto**. Följ instruktionerna i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md). Vi antar att du har ett Data Lake Store-konto med namnet **asadatalakestore**. 
 
 ## <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
-Börja med att skapa ett Stream Analytics-jobb som innehåller ingen källa och ett mål för utdata. I den här självstudien källan är en Azure blob-behållaren och målet är Data Lake Store.
+Börja med att skapa ett Stream Analytics-jobb som innehåller en indatakälla och ett mål för utdata. Den här självstudien källan är en Azure blob-behållare och målet är Data Lake Store.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. I den vänstra rutan klickar du på **Stream Analytics-jobb**, och klicka sedan på **Lägg till**.
 
-    ![Skapa ett Stream Analytics-jobbet](./media/data-lake-store-stream-analytics/create.job.png "skapa ett Stream Analytics-jobb")
+    ![Skapa ett Stream Analytics-jobb](./media/data-lake-store-stream-analytics/create.job.png "skapa ett Stream Analytics-jobb")
 
     > [!NOTE]
-    > Kontrollera att du skapar jobbet i samma region som lagringskontot eller du kan innebära ytterligare kostnader för att flytta data mellan regioner.
+    > Kontrollera att du skapar jobbet i samma region som lagringskontot eller tillkommer ytterligare kostnader för att flytta data mellan regioner.
     >
 
-## <a name="create-a-blob-input-for-the-job"></a>Skapa en Blob-inmatning för jobbet
+## <a name="create-a-blob-input-for-the-job"></a>Skapa en Blob som indata för jobbet
 
-1. Öppna den för Stream Analytics-jobbet från den vänstra rutan klickar du på den **indata** fliken och klicka sedan på **Lägg till**.
+1. Öppna den för Stream Analytics-jobbet i den vänstra rutan klickar du på den **indata** fliken och klicka sedan på **Lägg till**.
 
-    ![Lägga till indata till jobbet](./media/data-lake-store-stream-analytics/create.input.1.png "lägga till indata till dina jobb")
+    ![Lägg till indata för jobbet](./media/data-lake-store-stream-analytics/create.input.1.png "Lägg till indata för jobbet")
 
-2. På den **nya indata** bladet, ange följande värden.
+2. På den **nya indata** bladet anger du följande värden.
 
-    ![Lägga till indata till jobbet](./media/data-lake-store-stream-analytics/create.input.2.png "lägga till indata till dina jobb")
+    ![Lägg till indata för jobbet](./media/data-lake-store-stream-analytics/create.input.2.png "Lägg till indata för jobbet")
 
-    * För **indata alias**, ange ett unikt namn för det jobb som indata.
-    * För **typ av datakälla**väljer **dataströmmen**.
-    * För **källa**väljer **Blob storage**.
+    * För **indata alias**, ange ett unikt namn för jobbet som indata.
+    * För **källtyp**väljer **dataströmmen**.
+    * För **källa**väljer **Blob-lagring**.
     * För **prenumeration**väljer **använda blob storage från aktuell prenumeration**.
-    * För **lagringskonto**, Välj lagringskonto som du har skapat som en del av förutsättningarna. 
+    * För **lagringskonto**, Välj det lagringskonto som du har skapat som en del av förutsättningarna. 
     * För **behållare**, markera den behållare som du skapade i det valda lagringskontot.
-    * För **händelse serialiseringsformat**väljer **CSV**.
+    * För **händelseserialiseringsformat**väljer **CSV**.
     * För **avgränsare**väljer **fliken**.
-    * För **kodning**väljer **UTF-8**.
+    * För **Encoding**väljer **UTF-8**.
 
     Klicka på **Skapa**. Portalen nu lägger till indata och testar anslutningen till den.
 
 
 ## <a name="create-a-data-lake-store-output-for-the-job"></a>Skapa ett Data Lake Store-utdata för jobbet
 
-1. Öppna sidan för Stream Analytics-jobb, klicka på den **utdata** fliken och klicka sedan på **Lägg till**.
+1. Öppna den för Stream Analytics-jobbet klickar du på den **utdata** fliken och klicka sedan på **Lägg till**.
 
-    ![Lägga till utdata till jobbet](./media/data-lake-store-stream-analytics/create.output.1.png "lägga till utdata till dina jobb")
+    ![Lägg till utdata för jobbet](./media/data-lake-store-stream-analytics/create.output.1.png "Lägg till utdata för jobbet")
 
-2. På den **nya utdata** bladet, ange följande värden.
+2. På den **nya utdata** bladet anger du följande värden.
 
-    ![Lägga till utdata till jobbet](./media/data-lake-store-stream-analytics/create.output.2.png "lägga till utdata till dina jobb")
+    ![Lägg till utdata för jobbet](./media/data-lake-store-stream-analytics/create.output.2.png "Lägg till utdata för jobbet")
 
-    * För **kolumnalias**, ange ett unikt namn utdata för jobbet. Detta är ett eget namn som används i frågor för att dirigera utdata till denna Data Lake Store.
-    * För **Sink**väljer **Datasjölager**.
+    * För **utdataaliaset**, ange ett unikt namn för utdata för jobbet. Det här är ett eget namn som används i frågor för att dirigera utdata till det här Data Lake Store.
+    * För **mottagare**väljer **Data Lake Store**.
     * Du uppmanas att godkänna åtkomst till Data Lake Store-konto. Klicka på **auktorisera**.
 
 3. På den **nya utdata** bladet fortsätta att tillhandahålla följande värden.
 
-    ![Lägga till utdata till jobbet](./media/data-lake-store-stream-analytics/create.output.3.png "lägga till utdata till dina jobb")
+    ![Lägg till utdata för jobbet](./media/data-lake-store-stream-analytics/create.output.3.png "Lägg till utdata för jobbet")
 
-    * För **kontonamn**, Välj Data Lake Store-konto som du redan skapat där du vill att jobbet utdata skickas till.
-    * För **prefix sökvägar**, ange en filsökväg som används för att skriva filer inom det angivna Data Lake Store-kontot.
-    * För **datumformat**, om du har använt en datumtoken i sökvägen prefix, kan du välja datumformat där filerna ordnas.
-    * För **tidsformat**, om du har använt en tid token i prefix-sökvägen, ange tidsformat där filerna ordnas.
-    * För **händelse serialiseringsformat**väljer **CSV**.
+    * För **kontonamn**, väljer du det Data Lake Store-konto som du redan skapat där du vill att jobbet utdata skickas till.
+    * För **prefixmönster för sögväg**, ange en filsökväg som används för att skriva dina filer inom det angivna Data Lake Store-kontot.
+    * För **datumformat**, om du använde en datumtoken i prefixsökvägen kan du välja datumformat där filerna ordnas.
+    * För **tidsformat**, om du använde en time-token i prefixsökvägen, ange tidsformatet där filerna ordnas.
+    * För **händelseserialiseringsformat**väljer **CSV**.
     * För **avgränsare**väljer **fliken**.
-    * För **kodning**väljer **UTF-8**.
+    * För **Encoding**väljer **UTF-8**.
     
     Klicka på **Skapa**. Portalen nu lägger till utdata och testar anslutningen till den.
     
 ## <a name="run-the-stream-analytics-job"></a>Köra Stream Analytics-jobbet
 
-1. Om du vill köra ett Stream Analytics-jobb, måste du köra en fråga från den **frågan** fliken. För den här självstudiekursen, du kan köra exempelfråga genom att ersätta platshållarna med jobbet indata och utdata alias, som visas i skärmdumpen nedan.
+1. Om du vill köra ett Stream Analytics-jobb, måste du köra en fråga från den **fråga** fliken. För den här självstudien får du kan köra exemplet frågan genom att ersätta platshållarna med de jobb som indata och utdata alias, som visas i skärmdumpen nedan.
 
-    ![Kör frågan](./media/data-lake-store-stream-analytics/run.query.png "kör frågan")
+    ![Kör fråga](./media/data-lake-store-stream-analytics/run.query.png "Kör fråga")
 
-2. Klicka på **spara** högst upp på skärmen och sedan från den **översikt** klickar du på **starta**. Dialogrutan Välj **anpassad tid**, och sedan ange aktuellt datum och tid.
+2. Klicka på **spara** högst upp på skärmen och klicka sedan på **översikt** klickar du på **starta**. Dialogrutan Välj **anpassad tid**, och sedan ange aktuellt datum och tid.
 
-    ![Ange jobbtiden för](./media/data-lake-store-stream-analytics/run.query.2.png "ange jobbtiden för")
+    ![Ange jobbtid](./media/data-lake-store-stream-analytics/run.query.2.png "ange jobbtid")
 
-    Klicka på **starta** att starta jobbet. Det kan ta ett par minuter att starta jobbet.
+    Klicka på **starta** att starta jobbet. Det kan ta upp till ett par minuter att starta jobbet.
 
-3. Kopiera en exempeldatafil till blob-behållaren för att starta jobbet för att hämta data från blob. Du kan få en exempeldatafil från den [Azure Data Lake Git-lagringsplatsen](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Den här självstudiekursen kommer vi kopiera filen **vehicle1_09142014.csv**. Du kan använda olika klienter som [Azure Lagringsutforskaren](http://storageexplorer.com/), för att överföra data till en blob-behållare.
+3. Kopiera en exempeldatafil till blob-behållaren för att utlösa jobbet så att den hämtar data från blob. Du kan få en exempeldatafil från den [Azure Data Lake Git-lagringsplats](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Den här självstudien ska vi kopiera filen **vehicle1_09142014.csv**. Du kan använda olika klienter, till exempel [Azure Storage Explorer](http://storageexplorer.com/), för att ladda upp data till en blob-behållare.
 
 4. Från den **översikt** fliken, under **övervakning**, se hur data bearbetades.
 
     ![Övervakningsjobb](./media/data-lake-store-stream-analytics/run.query.3.png "Övervakningsjobb")
 
-5. Slutligen kan du kontrollera att utdata för jobbet är tillgänglig i Data Lake Store-konto. 
+5. Slutligen kan kontrollera du att utdata för jobbet är tillgänglig i Data Lake Store-konto. 
 
-    ![Kontrollera utdata](./media/data-lake-store-stream-analytics/run.query.4.png "Kontrollera utdata")
+    ![Verifiera utdata](./media/data-lake-store-stream-analytics/run.query.4.png "verifiera utdata")
 
-    I fönstret Data Explorer utgående meddelande som utdata skrivs till en sökväg som anges i Data Lake Store inställningar (`streamanalytics/job/output/{date}/{time}`).  
+    I Data Explorer-fönstret Lägg märke till att utdata skrivs till en mappsökväg som anges i Data Lake Store-utdatainställningar (`streamanalytics/job/output/{date}/{time}`).  
 
 ## <a name="see-also"></a>Se också
 * [Skapa ett HDInsight-kluster om du vill använda Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

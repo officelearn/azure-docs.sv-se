@@ -2,24 +2,17 @@
 title: Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery? | Microsoft Docs
 description: Beskriver de arbetsbelastningar som kan skyddas med haveriberedskap med Azure Site Recovery-tjänsten.
 services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: ''
-ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 07/22/2018
 ms.author: raynew
-ms.openlocfilehash: e0094b48bc602a1b59339458b430319f4a705d44
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
-ms.translationtype: HT
+ms.openlocfilehash: 5295002e823dc864f0f0dcc67594f49b5431bce7
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920124"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205960"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery?
 
@@ -61,9 +54,8 @@ Site Recovery kan replikera alla appar som körs på en dator som stöds. Dessut
 | Fjärrskrivbord/VDI |Y |Y |Y |Y |Y|
 | Linux (operativsystem och appar) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft)|
 | Dynamics AX |Y |Y |Y |Y |Y|
-| Oracle |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft)|
 | Windows-filserver |Y |Y |Y |Y |Y|
-| Citrix XenApp och XenDesktop |Y|Saknas |Y |Saknas |Y |
+| Citrix XenApp och XenDesktop |Y|Gäller inte |Y |Gäller inte |Y |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replikera Active Directory och DNS
 En Active Directory- och DNS-infrastruktur är fundamentalt för de flesta företagsappar. Vid haveriberedskap, behöver du skydda och återställa de här infrastrukturkomponenterna innan du återställer dina arbetsbelastningar och appar.

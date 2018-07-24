@@ -1,6 +1,6 @@
 ---
-title: Ansluter en Windows IoT Core-enhet till din Azure IoT centralt program | Microsoft Docs
-description: Som en enhet utvecklare lär du dig hur du ansluter en MXChip IoT DevKit enhet till din Azure IoT centralt program.
+title: Ansluta en Windows IoT Core-enhet till Azure IoT Central programmet | Microsoft Docs
+description: Lär dig hur du ansluter en enhet för MXChip IoT DevKit till Azure IoT Central programmet som utvecklare enheten.
 author: miriambrus
 ms.author: mriamb
 ms.date: 04/09/2018
@@ -8,31 +8,100 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c36a9798718c37fba889323830b76cf8201785cf
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 39eb6f137750f7f741c88dcdf9a55f34d24eaa59
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261907"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205756"
 ---
-# <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Anslut en Windows IoT Core-enhet till din Azure IoT centralt program
+# <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Anslut en Windows IoT Core-enhet till din Azure IoT Central program
 
-Den här artikeln beskriver hur som utvecklare som enheten kan du ansluta en Windows IoT Core till Microsoft Azure IoT Central programmet.
+Den här artikeln beskrivs hur du som utvecklare enheten att ansluta en Windows IoT Core-enhet till din Microsoft Azure IoT Central program.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-1. Ett Azure IoT centrala program som skapas från den **exempel Devkits** mall för program. Mer information finns i [skapa Azure IoT centrala programmet](howto-create-application.md).
-2. En enhet som kör operativsystemet Windows 10 IoT Core. Den här genomgången kommer vi att använda en hallon Pi
+1. Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i [skapa Azure IoT Central programmet](howto-create-application.md).
+2. En enhet som kör operativsystemet Windows 10 IoT Core. Den här genomgången använder vi en Raspberry Pi.
 
-Ett program som skapas från den **exempel Devkits** programmall innehåller en **Windows IoT Core** enheten mallen med följande egenskaper:
 
-### <a name="telemetry-measurements"></a>Telemetri mått
+## <a name="sample-devkits-application"></a>**Exempel på Devkits** program
+
+Ett program som skapats från den **exempel Devkits** programmall innehåller en **Windows IoT Core** enheten mallen med följande egenskaper: 
+
+- Telemetri som innehåller mätningarna för enheten **fuktighet**, **temperatur** och **tryck**. 
+- Inställningar som visar **fläkthastighet**.
+- Egenskaper som innehåller enhetsegenskap **dör nummer** och **plats** egenskap i molnet.
+
+
+Fullständig information om konfigurationen av enheten mallen finns i [mallinformationen för Windows IoT Core-enhet](howto-connect-windowsiotcore.md#windows-iot-core-device-template-details)
+
+## <a name="add-a-real-device"></a>Lägga till en riktig enhet
+
+I Azure IoT Central programmet, lägger du till en riktig enhet från den **Windows IoT Core** enheten mallen och gjort en notering enhetens anslutningssträng. Mer information finns i [ge en riktig enhet till Azure IoT Central programmet](tutorial-add-device.md).
+
+### <a name="prepare-the-windows-iot-core-device"></a>Förbereda Windows IoT Core-enhet
+
+Konfigurera en Windows IoT Core-enhet genom att följa steg-för-steg-instruktioner på [konfigurera en Windows IoT Core-enhet] (https://github.com/Microsoft/microsoft-iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
+
+### <a name="add-a-real-device"></a>Lägga till en riktig enhet
+
+I Azure IoT Central programmet, lägger du till en riktig enhet från den **Windows IoT Core** enheten mallen och gjort en notering enhetens anslutningssträng. Mer information finns i [ge en riktig enhet till Azure IoT Central programmet](tutorial-add-device.md).
+
+## <a name="prepare-the-windows-10-iot-core-device"></a>Förbereda Windows 10 IoT Core-enhet
+
+### <a name="what-youll-need"></a>Det här behöver du
+
+Om du vill konfigurera en fysisk Windows 10 IoT Core-enhet behöver du först ha en enhet som kör Windows 10 IoT Core. Lär dig hur du konfigurerar en Windows 10 IoT Core-enhet [här](https://developer.microsoft.com/en-us/windows/iot/getstarted/prototype/setupdevice).
+
+Du måste också ett klientprogram som kan kommunicera med Azure IoT Central. Du kan skapa egna anpassade program med Azure SDK och distribuera den till din enhet med hjälp av Visual Studio eller du kan ladda ned en [färdiga exemplet](https://developer.microsoft.com/en-us/windows/iot/samples) och helt enkelt distribuera och köra den på enheten. 
+
+### <a name="deploying-the-sample-client-application"></a>Distribuera exempelprogrammet för klienten
+
+För att distribuera klientprogrammet från föregående steg till din Windows 10 IoT-enhet för att förbereda den:
+
+**Se till att anslutningssträngen lagras på enheten för att klientprogrammet kan använda**
+* Spara anslutningssträngen i en textfil med namnet connection.string.iothub på skrivbordet.
+* Kopiera filen till enhetens dokumentmapp: `[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
+
+När du har gjort det, måste du öppna den [Windows Device Portal](https://docs.microsoft.com/en-us/windows/iot-core/manage-your-device/deviceportal) genom att skriva i http://[device-IP-address]:8080 i alla webbläsare.
+
+Från det och, som visas i om nedan, bör du:
+1. Expandera noden ”appar” till vänster.
+2. Klicka på ”snabbt och kör exempel”.
+3. Klicka på ”Azure IoT Hub-klient”.
+4. Klicka på ”distribuera och kör”.
+
+![GIF av Azure IoT Hub-klienten på Windows Device Portal](./media/howto-connect-windowsiotcore/iothubapp.gif)
+
+När återställningen har genomförts, programmet startar på enheten och se ut så här:
+
+![Skärmbild av Azure IoT Hub-klientappen](./media/howto-connect-windowsiotcore/IoTHubForegroundClientScreenshot.png)
+
+I Azure IoT Central, kan du se hur koden körs på Raspberry Pi interagerar med programmet:
+
+* På den **mätningar** sidan för din riktig enhet visas telemetri.
+* På den **egenskaper** sidan ser du värdet för egenskapen rapporterade dör tal.
+* På den **inställningar** kan du kan ändra olika inställningar på Raspberry Pi, till exempel spänning och fläkt hastighet.
+
+## <a name="download-the-source-code"></a>Ladda ned källkoden
+
+Om du vill utforska och ändra källkoden för klientprogrammet kan du hämta det från GitHub [här](https://github.com/Microsoft/Windows-iotcore-samples/tree/develop/Samples/Azure/IoTHubClients). Om du planerar att ändra koden, ska du följa dessa instruktioner i filen Viktigt [här](https://github.com/Microsoft/Windows-iotcore-samples) för ditt operativsystem för stationära datorer.
+
+> [!NOTE]
+> Om **git** har inte installerats i din utvecklingsmiljö kan du hämta det från [ https://git-scm.com/download ](https://git-scm.com/download).
+
+## <a name="windows-iot-core-device-template-details"></a>Windows IoT Core-enhet mallinformationen
+
+Ett program som skapats från den **exempel Devkits** programmall innehåller en **Windows IoT Core** enheten mallen med följande egenskaper:
+
+### <a name="telemetry-measurements"></a>Telemetri mätning av faktisk användning
 
 | Fältnamn     | Enheter  | Minimum | Maximal | Antal decimaler |
 | -------------- | ------ | ------- | ------- | -------------- |
-| fuktighet       | %      | 0       | 100     | 0              |
+| luftfuktighet       | %      | 0       | 100     | 0              |
 | Temp           | ° C     | -40     | 120     | 0              |
 | tryck       | hPa    | 260     | 1260    | 0              |
 
@@ -51,58 +120,3 @@ Numeriska inställningar
 | --------------- | ------------ | ---------- | --------- |
 | Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
 | Text            | Plats     | location   | Gäller inte       |
-
-## <a name="add-a-real-device"></a>Lägga till en riktig enhet
-
-Azure IoT centrala programmet, lägga till en verklig enhet från den **Windows IoT Core** enheten mallen och gjort en notering om anslutningssträngen för enheten. Mer information finns i [lägger till en verklig enhet tillämpningsprogrammet Azure IoT Central](tutorial-add-device.md).
-
-### <a name="prepare-the-windows-iot-core-device"></a>Förbered enheten Windows IoT Core
-
-För att ställa in en enhet med Windows IoT Core Följ steg-för-steg-guide på [konfigurera en enhet med Windows IoT Core] (https://github.com/Microsoft/microsoft-iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
-
-### <a name="add-a-real-device"></a>Lägga till en riktig enhet
-
-Azure IoT centrala programmet, lägga till en verklig enhet från den **Windows IoT Core** enheten mallen och gjort en notering om anslutningssträngen för enheten. Mer information finns i [lägger till en verklig enhet tillämpningsprogrammet Azure IoT Central](tutorial-add-device.md).
-
-## <a name="prepare-the-windows-10-iot-core-device"></a>Förbered enheten Windows 10 IoT Core
-
-### <a name="what-youll-need"></a>Det här behöver du
-
-Om du vill konfigurera en fysisk enhet för Windows 10 IoT Core, behöver du först har en enhet som kör Windows 10 IoT Core. Lär dig hur du konfigurerar en enhet med Windows 10 IoT Core [här](https://developer.microsoft.com/en-us/windows/iot/getstarted/prototype/setupdevice).
-
-Du måste också ett klientprogram som kan kommunicera med Azure IoT Central. Du kan skapa egna anpassade program med hjälp av Azure SDK och distribuera den till din enhet med hjälp av Visual Studio, eller så kan du hämta en [förskapad exempel](https://developer.microsoft.com/en-us/windows/iot/samples) helt enkelt distribuera och köra den på enheten. 
-
-### <a name="deploying-the-sample-client-application"></a>Distribuera klienten exempelprogrammet
-
-Att distribuera klientprogrammet från föregående steg till din Windows 10 IoT-enhet för att förbereda den:
-
-**Kontrollera anslutningssträngen lagras på enheten för klientprogrammet att använda**
-* Spara anslutningssträngen i en textfil med namnet connection.string.iothub på skrivbordet.
-* Kopiera filen till enhetens dokumentmapp: `[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
-
-När du har gjort det, måste du öppna den [Windows Portal för enhetens](https://docs.microsoft.com/en-us/windows/iot-core/manage-your-device/deviceportal) genom att skriva i http://[device-IP-address]:8080 i en webbläsare.
-
-Från det och som visas i om nedan vill du:
-1. Expandera noden ”appar” till vänster.
-2. Klicka på ”Kör Quick exempel”.
-3. Klicka på ”Azure IoT-hubb klient”.
-4. Klicka på ”distribuera och köra”.
-
-![GIF för Azure IoT-hubb-klienten på Windows-enhet Portal](./media/howto-connect-windowsiotcore/iothubapp.gif)
-
-När autentiseringen lyckas kan programmet startar på enheten och se ut så här:
-
-![Skärmbild av Azure IoT-hubb-klientappen](./media/howto-connect-windowsiotcore/IoTHubForegroundClientScreenshot.png)
-
-Du kan se hur koden körs på hallon Pi interagerar med programmet i Azure IoT Central:
-
-* På den **mätningar** sidan för enheten verkliga kan du se telemetrin.
-* På den **egenskaper** sida, ser du värdet på egenskapen rapporterade dör nummer.
-* På den **inställningar** kan du ändra olika inställningar på hallon Pi, till exempel spänning och fläkt hastighet.
-
-## <a name="download-the-source-code"></a>Ladda ned källkoden
-
-Om du vill utforska och ändra källkoden för klientprogrammet, kan du ladda ned det från GitHub [här](https://github.com/Microsoft/Windows-iotcore-samples/tree/develop/Samples/Azure/IoTHubClients). Om du planerar att ändra koden, ska du följa instruktionerna i filen Viktigt [här](https://github.com/Microsoft/Windows-iotcore-samples) för ditt operativsystem.
-
-> [!NOTE]
-> Om **git** har inte installerats i din utvecklingsmiljö kan du ladda ned det från [ https://git-scm.com/download ](https://git-scm.com/download).

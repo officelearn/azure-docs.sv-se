@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/18/2018
 ms.author: trinadhk
-ms.openlocfilehash: c9dff77f6b9fffc02ec94caa3454500772651195
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 787c4b0f6e8d5ed76260582bfa3d6c49574bd102
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39137382"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205348"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Uppgradera till säkerhetskopiering för Azure stack V2
 
@@ -48,7 +48,7 @@ Som standard hålls ögonblicksbilder i sju dagar. Den här funktionen möjligg�
 
 * Ögonblicksbilder lagras lokalt att öka skapa en återställningspunkt och påskynda återställningsåtgärder. Därför visas lagringskostnader för ögonblicksbilder som tas under sju dagar.
 
-* Inkrementella ögonblicksbilder lagras som sidblobar. Alla kunder som använder ohanterade diskar debiteras för de sju dagarna ögonblicksbilder lagras i kundens lokala storage-konto. Enligt den aktuella prismodellen ingår utan kostnad för kunder på hanterade diskar.
+* Inkrementella ögonblicksbilder lagras som sidblobar. Alla kunder som använder ohanterade diskar debiteras för de sju dagarna ögonblicksbilder lagras i kundens lokala storage-konto. Eftersom återställningspunkt samlingar som används av säkerhetskopieringar för hanterade virtuella datorn använder blob-ögonblicksbilder på underliggande lagringsnivå, hanterade diskar visas kostnaderna för [blob-ögonblicksbild priser](https://docs.microsoft.com/rest/api/storageservices/understanding-how-snapshots-accrue-charges) och de är inkrementell. 
 
 * Om du återställer en premium virtuell dator från en återställningspunkt för ögonblicksbild används en temporär lagringsplats medan den virtuella datorn skapas.
 
@@ -56,7 +56,7 @@ Som standard hålls ögonblicksbilder i sju dagar. Den här funktionen möjligg�
 
 ## <a name="upgrade"></a>Uppgradera
 ### <a name="the-azure-portal"></a>Azure Portal
-Om du använder Azure-portalen kan se du ett meddelande på instrumentpanelen för valvet. Det här meddelandet relaterar till stöd för stora diskar och förbättringar för säkerhetskopiering och återställning hastighet.
+Om du använder Azure-portalen kan se du ett meddelande på instrumentpanelen för valvet. Det här meddelandet relaterar till stöd för stora diskar och förbättringar för säkerhetskopiering och återställning hastighet. Du kan också gå till egenskapssidan för valvet för att hämta uppgraderingsalternativet.
 
 ![Säkerhetskopieringsjobbet på VM säkerhetskopieringsstack Resource Manager-modellen – stöd för meddelande](./media/backup-azure-vms/instant-rp-banner.png) 
 
@@ -72,13 +72,13 @@ Kör följande cmdlets från en upphöjd PowerShell-terminal:
     PS C:> Connect-AzureRmAccount
     ```
 
-2.  Välj den prenumeration som du vill registrera dig för förhandsversion:
+2.  Välj den prenumeration som du vill registrera:
 
     ```
     PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
     ```
 
-3.  Registrera den här prenumerationen för privat förhandsgranskning:
+3.  Registrera den här prenumerationen:
 
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
@@ -101,13 +101,13 @@ Följande frågor och svar har samlats in från forum och kundfrågor.
 
 Om du uppgraderar till V2, finns det ingen inverkan på dina aktuella säkerhetskopior och du behöver inte konfigurera om din miljö. Uppgradering och miljön backup fortsätter att fungera som den har.
 
-### <a name="what-does-it-cost-to-upgrade-to-azure-backup-stack-v2"></a>Vad kostar det om du vill uppgradera till Azure Backup stack v2?
+### <a name="what-does-it-cost-to-upgrade-to-azure-vm-backup-stack-v2"></a>Vad kostar det om du vill uppgradera till säkerhetskopiering för Azure stack v2?
 
-Det kostar ingenting att uppgradera till Azure Backup stack v2. Ögonblicksbilder lagras lokalt för att påskynda skapa en återställningspunkt och återställning. Därför visas lagringskostnader för ögonblicksbilder som tas under sju dagar.
+Det kostar ingenting att uppgradera stacken till v2. Ögonblicksbilder lagras lokalt för att påskynda skapa en återställningspunkt och återställning. Därför visas lagringskostnader för ögonblicksbilder som tas under sju dagar.
 
 ### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>Kan du öka premium storage-konto gränsen för ögonblicksbilder av 10 TB genom att uppgradera stack v2?
 
-Nej.
+Ögonblicksbilder som tas som en del av v2 stack antal mot gränsen för ögonblicksbilder av 10 TB för premium storage-konto för ohanterade diskar. 
 
 ### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>I Premium Storage-konton ögonblicksbilder som tas för omedelbar återställningspunkt uppta 10 TB-gränsen för ögonblicksbilder?
 
@@ -117,14 +117,6 @@ Ja, för premium storage-konton, ögonblicksbilder som tas för omedelbar åters
 
 Varje dag som en ny ögonblicksbild tas. Det finns sju enskilda ögonblicksbilder. Tjänsten **inte** ta en kopia på den första dagen och lägga till ändringarna under nästa sex dagar.
 
-### <a name="what-happens-if-the-default-resource-group-is-deleted-accidentally"></a>Vad händer om standardresursgruppen tas bort av misstag?
-
-Om resursgruppen raderas, omedelbar återställningspunkter för alla skyddade virtuella datorer i den regionen går förlorade. När nästa säkerhetskopiering sker resursgruppen skapas igen och fortsätter säkerhetskopieringarna som väntat. Den här funktionen är inte bara omedelbar återställningspunkter.
-
-### <a name="can-i-delete-the-default-resource-group-created-for-instant-recovery-points"></a>Kan jag ta bort standardresursgruppen som skapats för omedelbar återställningspunkter?
-
-Azure Backup-tjänsten skapar den hanterade resursgruppen. För närvarande kan du inte ändra eller ändra resursgruppen. Dessutom bör du inte låsa resursgruppen. Den här vägledningen är inte bara för V2-stacken.
- 
 ### <a name="is-a-v2-snapshot-an-incremental-snapshot-or-full-snapshot"></a>Är en ögonblicksbild av v2 en inkrementell ögonblicksbild eller en fullständig ögonblicksbild?
 
-Inkrementella ögonblicksbilder används för ohanterade diskar. För hanterade diskar är ögonblicksbilden en fullständig ögonblicksbild.
+Inkrementella ögonblicksbilder används för ohanterade diskar. För hanterade diskar återställningspunkt samling som skapats av Azure Backup använder blob-ögonblicksbilder och därför är inkrementell. 

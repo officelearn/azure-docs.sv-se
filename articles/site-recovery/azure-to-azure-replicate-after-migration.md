@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 85ebb141390e0fa6b4dfbd77d7b7d3f6844950d7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3e26e40c26a27fdab1ec565dd4112b40acdd17d2
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916470"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213375"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Konfigurera haveriberedskap för virtuella Azure-datorer efter migrering till Azure 
 
@@ -55,7 +55,7 @@ Observera att om du migrerar lokala virtuella VMware-datorer (eller fysiska serv
         ```
         MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
         ```
-    - För Linux, logga in en rotanvändare. I en terminal, går du till **/user/local/ASR**, och kör följande kommando:
+    - Logga in som en rotanvändare för Linux. I en terminal, går du till **/user/local/ASR**, och kör följande kommando:
         ```
         uninstall.sh -Y
         ```

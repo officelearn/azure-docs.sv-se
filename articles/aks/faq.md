@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/20/2018
 ms.author: iainfou
-ms.openlocfilehash: 915f74df69596b1677a0e03770e076ae50efc609
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ea22b33233f85da117de54829e5a16bd7dcab36a
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001253"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205256"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure Kubernetes Service (AKS)
 
@@ -37,7 +37,7 @@ Ja, automatisk skalning är tillgängligt via den [Kubernetes autoskalningen] [ 
 
 ## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>Stöder AKS Kubernetes rollbaserad åtkomstkontroll (RBAC)?
 
-Ja, RBAC kan aktiveras när du distribuerar ett AKS-kluster från Azure CLI eller Azure Resource Manager-mall. Den här funktionen kommer snart att Azure-portalen.
+Ja, RBAC kan vara aktiverad när [distribuerar ett AKS-kluster från Azure CLI eller Azure Resource Manager-mall](https://docs.microsoft.com/en-us/azure/aks/aad-integration). Den här funktionen kommer snart att Azure-portalen.
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-this-be-configured"></a>Vilka Kubernetes åtkomst domänkontrollanter stöder AKS? Detta konfigureras?
 
@@ -59,6 +59,10 @@ Det går för närvarande inte att ändra listan över åtkomst domänkontrollan
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Kan jag distribuera AKS till min befintliga virtuellt nätverk?
 
 Ja, du kan distribuera ett AKS-kluster till ett befintligt virtuellt nätverk med hjälp av den [avancerade funktionen](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
+
+## <a name="can-i-restrict-the-kubernetes-api-server-to-only-be-accessible-within-my-virtual-network"></a>Kan jag begränsa Kubernetes API-servern för att endast nås i mitt virtuella nätverk?
+
+Inte just nu. Kubernetes API-servern visas som en offentlig fullständigt kvalificerade domännamnet (FQDN). Du bör kontrollera åtkomsten till ditt kluster med hjälp av [Kubernetes rollbaserad åtkomst till kontroll (RBAC) och Azure Active Directory (AAD)](https://docs.microsoft.com/en-us/azure/aks/aad-integration).
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault är integrerad med AKS?
 

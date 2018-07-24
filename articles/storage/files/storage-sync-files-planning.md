@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 77ccfccc0a575cb64272b634b11e80f9e07280f1
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 79f3787713d7615d8f5c42d1747dfa5ed96780cd
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160044"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214891"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -29,7 +29,7 @@ Den här artikeln beskrivs viktiga överväganden för distribution av Azure Fil
 ## <a name="azure-file-sync-terminology"></a>Azure File Sync-terminologi
 Det är viktigt att du förstår termer som innan du hämtar in information om att planera för distribution av Azure File Sync.
 
-### <a name="storage-sync-service"></a>Tjänst för synkronisering av lagring
+### <a name="storage-sync-service"></a>Storage Sync-tjänsten
 Storage Sync-tjänsten är översta Azure-resursen för Azure File Sync. Tjänst för Lagringssynkronisering resursen är en peer för resursen för lagringskonton och på samma sätt kan bara distribueras till Azure-resursgrupper. En resurs med distinkta på toppnivå från resursen för lagringskonton är nödvändigt eftersom Storage Sync-tjänsten kan skapa synkroniseringsrelationer med flera storage-konton via flera synkroniseringsgrupper. En prenumeration kan ha flera resurser som Storage Sync-tjänsten har distribuerats.
 
 ### <a name="sync-group"></a>Synkroniseringsgrupp
@@ -149,7 +149,7 @@ Mer information finns i [översikt över DFS Replication](https://technet.micros
 Med hjälp av sysprep på en server som har Azure File Sync-agenten installerad stöds inte och kan leda till oväntade resultat. Agentregistreringen för installation och server ska inträffa efter distribution av server-avbildning och slutföra sysprep mini-installationen.
 
 ### <a name="windows-search"></a>Windows Search
-Om molnet lagringsnivåer är aktiverat på en serverslutpunkt, filer som är trött hoppas över och indexeras inte av Windows Search. Icke-nivåindelade filer indexeras korrekt.
+Om molnet lagringsnivåer är aktiverat på en serverslutpunkt, filer som är nivåindelade överhoppade och indexeras inte av Windows Search. Icke-nivåindelade filer indexeras korrekt.
 
 ### <a name="antivirus-solutions"></a>Antiviruslösningar
 Eftersom antivirus fungerar genom att skanna filer för känd skadlig kod, kan ett antivirusprogram orsaka återkallande av nivåindelade filer. Eftersom nivåindelade filer har attributet ”offline” ange, rekommenderar vi att du samråd med programvaruleverantören att lära dig hur du konfigurerar sin lösning om du vill hoppa över läsning av offline-filer. 
@@ -180,7 +180,7 @@ Azure File Sync känns inte fungerar med:
 
 - NTFS krypterade filsystem (EFS)
 
-I allmänhet Azure File Sync ska ha stöd för samverkan med krypteringslösningar som finns nedanför filsystem, till exempel BitLocker, och med lösningar som är implementerade i filformat, till exempel BitLocker. Inga särskilda interoperabilitet har gjorts för lösningar som finns ovanför filsystemet (till exempel NTFS EFS).
+I allmänhet Azure File Sync ska ha stöd för samverkan med krypteringslösningar som finns nedanför filsystem, till exempel BitLocker, och med lösningar som är implementerade i filformat, till exempel Azure Information Protection. Inga särskilda interoperabilitet har gjorts för lösningar som finns ovanför filsystemet (till exempel NTFS EFS).
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Andra lösningar för hantering av hierarkisk lagring (HSM)
 Ingen annan HSM-lösning bör användas tillsammans med Azure File Sync.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 34911c6133a6a2549a98db426f979b0c3c85dbd7
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 3421d0ab9007bdfe9fab093871a8517531059008
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185305"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213181"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Konfigurera en virtuell dator scale Sets hanterad tjänstidentitet (MSI) med Azure portal
 
@@ -37,7 +37,7 @@ I den här artikeln får du lära dig hur du aktiverar och inaktiverar systemtil
 - Om du är bekant med hanterad tjänstidentitet kan ta en titt på [översiktsavsnittet](overview.md).
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 - För att utföra vilka hanteringsåtgärder i den här artikeln, måste ditt konto följande rolltilldelningen:
-    - [Virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) aktivera och ta bort hanterad tjänstidentitet från en skalningsuppsättning för virtuell dator.
+    - [Virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) att aktivera och ta bort systemtilldelad hanterad identitet från en skalningsuppsättning för virtuell dator.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Hanterad tjänstidentitet under skapandet av en Azure VM-skalningsuppsättning
 

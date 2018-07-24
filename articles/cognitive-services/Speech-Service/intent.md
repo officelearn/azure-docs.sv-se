@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 4cf3bbfa24e102c544b0e3215a20b73d323f15df
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 3e9afc990d6bfa73eb045e7ed76dfd194df309c6
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070968"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213215"
 ---
 # <a name="sample-for-intent-recognition"></a>Exempel för taligenkänning
 
@@ -53,7 +53,7 @@ Kodfragmentet nedan visar hur avsiktsigenkänning från mikrofonen indata i ett 
 
 ## <a name="intent-recognition-from-a-file-using-events"></a>Taligenkänning från en fil med hjälp av händelser
 
-Kodfragmentet visar hur avsiktsigenkänning på standardspråket (`en-US`) på en kontinuerlig sätt. Den här koden ger tillgång till ytterligare information, t.ex mellanresultat. Indata hämtas från från en ljudfil, format är en kanal (mono) WAV / PCM med en samplingsfrekvensen 16 kHz.
+Kodfragmentet visar hur avsiktsigenkänning på standardspråket (`en-US`) på en kontinuerlig sätt. Den här koden ger tillgång till ytterligare information, t.ex mellanresultat. Indata hämtas från en ljudfil, format är en kanal (mono) WAV / PCM med en samplingsfrekvensen 16 kHz.
 
 [!code-csharp[Intent Recognition Using Events From a File](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 

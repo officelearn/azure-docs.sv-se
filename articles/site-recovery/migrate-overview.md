@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: efd8a8290525c27cddaa713a1b24b6afc187bb09
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 2cc030bf9724e98c1ef0a43134c5066c81b38b6b
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921397"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213096"
 ---
 # <a name="about-migration"></a>Om migrering
 
@@ -39,7 +39,7 @@ Förutom att använda Site Recovery för haveriberedskap för lokala och virtuel
 --- | ---
 **Migrera från lokal till Azure** | Du kan migrera lokala virtuella VMware-datorer, Hyper-V-datorer och fysiska servrar till Azure. Om du vill göra detta måste slutföra du nästan likadant, precis som för fullständig haveriberedskap. Du inte helt enkelt inte datorer från Azure till den lokala platsen.
 **Migrera mellan Azure-regioner** | Du kan migrera virtuella Azure-datorer från en Azure-region till en annan. När migreringen är klar kan konfigurera du haveriberedskap för virtuella Azure-datorer nu i den sekundära regionen som du har migrerat.
-**Migrera AWS till Azure** | Du kan migrera AWS-instanser till virtuella Azure-datorer. Site Recovery behandlar AWS-instanser som fysiska servrar för för migrering. 
+**Migrera AWS till Azure** | Du kan migrera AWS-instanser till virtuella Azure-datorer. Site Recovery behandlar AWS-instanser som fysiska servrar för migrering. 
 
 ## <a name="next-steps"></a>Nästa steg
 

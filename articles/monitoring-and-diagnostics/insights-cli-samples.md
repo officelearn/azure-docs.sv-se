@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
 ms.component: ''
-ms.openlocfilehash: 571e4707cd89f1d159928845eca955801ffb9209
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: dfc9a65325d25889c9d8d3c10aa0dcda2b5a9980
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971653"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213222"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Snabbstartsexempel för Azure Monitor CLI 2.0
 Den här artikeln visar exempel kommandoradsgränssnittet (CLI)-kommandon för att få åtkomst till Azure Monitor-funktioner. Azure Monitor kan du att automatisk skalning molntjänster, virtuella datorer och Webbappar och för att skicka aviseringar eller anropa webbadresser som baseras på värden för konfigurerade telemetridata.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte redan har installerat Azure CLI, följer du anvisningarna för [installera Azure CLI 2.0](/cli/azure/install-azure-cli). Du kan också använda [Azure Cloud Shell](/azure/cloud-shell) att köra CLI som en interaktiv upplevelse i din webbläsare. Se fullständiga referenser för alla tillgängliga kommandon finns tillgängliga i den [Azure Monitor CLI-referensen](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
+Om du inte redan har installerat Azure CLI, följer du anvisningarna för [installera Azure CLI 2.0](/cli/azure/install-azure-cli). Du kan också använda [Azure Cloud Shell](/azure/cloud-shell) att köra CLI som en interaktiv upplevelse i din webbläsare. Se fullständiga referenser för alla tillgängliga kommandon finns i den [Azure Monitor CLI-referensen](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 Det första steget är att logga in på ditt Azure-konto.

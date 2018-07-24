@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: a104578b0c010ea7ded99e6bf24e4daa30526318
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: c06811afbf575b36dd1cf185a4554427ce2cd9e3
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187339"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205239"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace och AppSource publiceringsguide
 
@@ -91,8 +91,8 @@ Varje butik innehåller särskilda alternativ för att maximera din investering 
 I följande artiklar kan hjälpa dig att lära dig om publiceringsalternativ i AppSource och Azure Marketplace.
 
 Bli en utgivare i en butik i Marketplace i tre enkla steg:
-1. [Avgör vilket publishing alternativ](https://review.docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type?branch=pr-en-us-47093)
-2. [Bli en utgivare i molnmarknadsplatsen](https://review.docs.microsoft.com/en-us/azure/marketplace/become-publisher?branch=pr-en-us-47093)
+1. [Avgör vilket publishing alternativ](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type) 
+2. [Bli en utgivare i molnmarknadsplatsen](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher) 
 
 ## <a name="publishing-checklists"></a>Publicera checklistor
 *   [Publicera checklista för AppSource](publishing-checklist-appsource.md)

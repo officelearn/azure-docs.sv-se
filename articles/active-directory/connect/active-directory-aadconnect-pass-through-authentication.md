@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d88bf5d20beb9de9bf4a0cdcb43548d0d582779
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: dfee42f813989da2333720ac92313344343d57a7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917286"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214037"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Användaren logga in med Azure Active Directory-direktautentisering
 
@@ -30,7 +30,7 @@ Med direktautentisering för Azure Active Directory (AD Azure) kan användarna l
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Den här funktionen är ett alternativ till [Lösenordshashsynkronisering för Azure AD](active-directory-aadconnectsync-implement-password-hash-synchronization.md), som erbjuder samma fördelen med autentisering i molnet för organisationer. Principer för säkerhet och efterlevnad i vissa organisationer tillåter dock inte dessa organisationer att skicka användarnas lösenord, även i ett hashade formulär utanför deras interna gränserna. Direktautentisering är rätt lösning för dessa organisationer.
+Den här funktionen är ett alternativ till [Lösenordshashsynkronisering för Azure AD](active-directory-aadconnectsync-implement-password-hash-synchronization.md), som erbjuder samma fördelen med autentisering i molnet för organisationer. Vissa organisationer som vill genomdriva deras lokala Active Directory säkerhets- och lösenordsprinciper, kan dock välja att använda direktautentisering i stället. Granska [den här guiden](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) en jämförelse av de olika Azure AD-inloggning metoderna och hur du väljer den direkt inloggningsmetoden för din organisation.
 
 ![Azure AD-direktautentisering](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
@@ -49,7 +49,7 @@ Du kan kombinera direktautentisering med den [sömlös enkel inloggning](active-
 - *Skydda*
   - Lokala lösenord lagras aldrig i molnet i någon form.
   - Agenten gör bara utgående anslutningar från ditt nätverk. Det finns därför inga krav på att installera agenten i ett perimeternätverk, även kallat DMZ.
-  - Skyddar dina användarkonton genom att arbeta smidigt med [principer för Azure AD villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md), inklusive Multi-Factor Authentication (MFA) och av [filtrerar ut lösenordet för råstyrkeattacker](../authentication/howto-password-smart-lockout.md).
+  - Skyddar dina användarkonton genom att arbeta smidigt med [principer för Azure AD villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md), inklusive Multi-Factor Authentication (MFA), [blockera äldre](../active-directory-conditional-access-conditions.md) och av [ Filtrera bort råstyrkeattacker för lösenord](../authentication/howto-password-smart-lockout.md).
 - *Med hög tillgänglighet*
   - Ytterligare agenter kan installeras på flera lokala servrar för att ge hög tillgänglighet för inloggningsförfrågningar.
 
@@ -68,12 +68,13 @@ Du kan kombinera direktautentisering med den [sömlös enkel inloggning](active-
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [**Snabbstart** ](active-directory-aadconnect-pass-through-authentication-quick-start.md) – komma igång och köra Azure AD-direktautentisering.
-- [**Smart kontoutelåsning** ](../authentication/howto-password-smart-lockout.md) -konfigurera Smart kontoutelåsning kapaciteten på din klient för att skydda användarkonton.
-- [**Aktuella begränsningar** ](active-directory-aadconnect-pass-through-authentication-current-limitations.md) – Lär dig vilka scenarier som stöds och vilka som inte är.
-- [**Teknisk djupdykning** ](active-directory-aadconnect-pass-through-authentication-how-it-works.md) -förstår hur den här funktionen fungerar.
-- [**Vanliga frågor och svar** ](active-directory-aadconnect-pass-through-authentication-faq.md) -svar på vanliga frågor och svar.
-- [**Felsöka** ](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) – Lär dig att lösa vanliga problem med funktionen.
-- [**Djupgående om säkerhet** ](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) -mer djupgående teknisk information om funktionen.
-- [**Azure AD sömlös SSO** ](active-directory-aadconnect-sso.md) -mer information om den här tilläggsfunktionen.
-- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – för att skicka in nya funktionbegäran.
+- [Snabbstart](active-directory-aadconnect-pass-through-authentication-quick-start.md) – komma igång och köra Azure AD-direktautentisering.
+- [Migrera från AD FS till direktautentisering](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
+- [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md) -konfigurera Smart kontoutelåsning kapaciteten på din klient för att skydda användarkonton.
+- [Aktuella begränsningar](active-directory-aadconnect-pass-through-authentication-current-limitations.md) – Lär dig vilka scenarier som stöds och vilka som inte är.
+- [Teknisk djupdykning](active-directory-aadconnect-pass-through-authentication-how-it-works.md) – förstå hur den här funktionen fungerar.
+- [Vanliga frågor och svar](active-directory-aadconnect-pass-through-authentication-faq.md) -svar på vanliga frågor och svar.
+- [Felsöka](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) – Lär dig att lösa vanliga problem med funktionen.
+- [Djupgående om säkerhet](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) -mer djupgående teknisk information om funktionen.
+- [Azure AD sömlös SSO](active-directory-aadconnect-sso.md) -mer information om den här tilläggsfunktionen.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – för att skicka in nya funktionbegäran.

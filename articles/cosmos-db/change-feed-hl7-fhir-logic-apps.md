@@ -1,6 +1,6 @@
 ---
-title: Ändra feed för HL7 FHIR resurser - Azure Cosmos DB | Microsoft Docs
-description: Lär dig hur du ställer in ändringsmeddelanden för HL7 FHIR hälsovård patientjournaler med Azure Logikappar, Azure Cosmos DB och Service Bus.
+title: För HL7 FHIR-resurser – Azure Cosmos DB-ändringsflödet | Microsoft Docs
+description: Lär dig hur du ställer in ändringsmeddelanden för HL7 FHIR hälsovård patientjournaler med Azure Logic Apps, Azure Cosmos DB och Service Bus.
 keywords: HL7 fhir
 services: cosmos-db
 author: SnehaGunda
@@ -10,96 +10,96 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: 9d05c41e7ebf9d1cc0735da8853e4ad1617eb810
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d40ab5d6bb29878c633a2645810d6256ac661071
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34610505"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213708"
 ---
-# <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Meddela patienter HL7 FHIR hälsovård post ändringar med hjälp av Logic Apps och Azure Cosmos DB
+# <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Meddela patienter av HL7 FHIR hälsovård poständringar med Logic Apps och Azure Cosmos DB
 
-Azure MVP Howard Edidin kontaktades nyligen av en sjukvårdsorganisation som du vill lägga till nya funktioner till deras patient portal. De behövs för att skicka meddelanden till patienter när deras hälsa posten har uppdaterats och de behövs patienter för att kunna prenumerera på dessa uppdateringar. 
+Azure MVP Howard Edidin kontaktades nyligen genom inom organisationen som vill lägga till nya funktioner till sina patientportal. De krävs för att skicka meddelanden till patienter när deras hälsotillstånd post uppdaterades och de behövs patienter för att kunna prenumerera på de här uppdateringarna. 
 
-Den här artikeln beskriver hur ändringen meddelande lösning som har skapats för den här sjukvårdsorganisation med Azure Cosmos DB, Logic Apps och Service Bus-feed. 
+Den här artikeln beskriver ändringsflödet meddelande lösning som har skapats för den här inom organisationen med hjälp av Azure Cosmos DB, Logic Apps och Service Bus. 
 
-## <a name="project-requirements"></a>Projektkrav för
-- Providers skicka HL7 konsoliderade kliniska dokumentet arkitektur (C-CDA) dokument i XML-format. C-CDA dokument omfattar nästan alla typer av kliniska dokument, inklusive kliniska dokument, till exempel family historik och vaccination poster, samt som administrativa, arbetsflöden och ekonomiska dokument. 
-- C-CDA dokument konverteras till [HL7 FHIR resurser](http://hl7.org/fhir/2017Jan/resourcelist.html) i JSON-format.
-- Ändrade FHIR resurs dokument skickas via e-post i JSON-format.
+## <a name="project-requirements"></a>Projektkrav
+- Leverantörer skicka HL7 konsoliderade kliniska dokumentet arkitektur (C-Videostrategin) dokument i XML-format. C-Videostrategin dokument omfatta nästan alla typer av kliniska dokument, inklusive kliniska dokument, till exempel family historik och vaccination poster, samt som administrativa, arbetsflöde och finansiella dokument. 
+- C-Videostrategin dokument konverteras till [HL7 FHIR resurser](http://hl7.org/fhir/2017Jan/resourcelist.html) i JSON-format.
+- Ändrade FHIR resource dokument skickas via e-post i JSON-format.
 
-## <a name="solution-workflow"></a>Lösning för arbetsflöde 
+## <a name="solution-workflow"></a>Arbetsflödet i en lösning 
 
-På en hög nivå krävs projektet följande arbetsflödessteg: 
-1. Konvertera C CDA dokument till FHIR resurser.
-2. Utför återkommande utlösare avsöker för ändrade FHIR resurser. 
+På en hög nivå krävs projektet följande arbetsflöde: 
+1. Konvertera C-Videostrategin dokument till FHIR resurser.
+2. Utför återkommande utlösare avsökningen för den ändrade FHIR resurser. 
 2. Anropa en anpassad app FhirNotificationApi att ansluta till Azure Cosmos DB och fråga efter nya eller ändrade dokument.
-3. Spara svar om du vill att Service Bus-kö.
+3. Spara svaret till Service Bus-kö.
 4. Avsökning för nya meddelanden i Service Bus-kö.
-5. Skicka e-postmeddelanden till patienter.
+5. Skicka e-postmeddelanden till patienter med rätt.
 
 ## <a name="solution-architecture"></a>Lösningsarkitektur
-Denna lösning kräver tre Logic Apps att uppfylla kraven ovan och slutföra arbetsflödet lösning. Tre logikappar är:
-1. **HL7-FHIR-mappning app**: tar emot HL7 C-CDA dokumentet, omvandlar till FHIR resursen och sedan sparar det på Azure Cosmos DB.
-2. **EHR app**: frågar Azure Cosmos DB FHIR databasen och sparar svar till en Service Bus-kö. Den här logikapp använder en [API-app](#api-app) att hämta nya och ändrade dokument.
-3. **Processen meddelandeprogram**: skickar ett e-postmeddelande med FHIR resurs dokument i brödtexten.
+Denna lösning kräver tre Logic Apps uppfyller kraven ovan och slutföra arbetsflödet lösning. De tre logiska apparna är:
+1. **HL7-FHIR-mappning app**: tar emot HL7 C-Videostrategin dokumentet, omvandlar det till FHIR-resurs och sparar den till Azure Cosmos DB.
+2. **EHR app**: frågar Azure Cosmos DB FHIR-databasen och sparar svaret på en Service Bus-kö. Den här logikappen använder en [API-app](#api-app) att hämta nya och ändrade dokument.
+3. **Processen meddelandeprogram**: skickar ett e-postmeddelande med FHIR resource dokument i brödtexten.
 
-![Tre Logic Apps som används i den här HL7 FHIR sjukvården lösningen](./media/change-feed-hl7-fhir-logic-apps/health-care-solution-hl7-fhir.png)
+![De tre Logic-appar som används i den här hälsovård HL7 FHIR-lösningen](./media/change-feed-hl7-fhir-logic-apps/health-care-solution-hl7-fhir.png)
 
 
 
 ### <a name="azure-services-used-in-the-solution"></a>Azure-tjänster används i lösningen
 
-#### <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB SQL-API
-Azure Cosmos-DB är lagringsplatsen för FHIR resurser som visas i följande bild.
+#### <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB SQL API
+Azure Cosmos DB är lagringsplatsen för FHIR-resurser enligt följande bild.
 
-![Azure DB som Cosmos-kontot som används i självstudierna HL7 FHIR sjukvården](./media/change-feed-hl7-fhir-logic-apps/account.png)
+![Azure Cosmos DB-kontot som används i självstudien HL7 FHIR hälsovård](./media/change-feed-hl7-fhir-logic-apps/account.png)
 
 #### <a name="logic-apps"></a>Logic Apps
-Logic Apps hantera arbetsflödesprocessen. Följande skärmdumpar visar logikappar som skapats för den här lösningen. 
+Logikappar hanterar arbetsflödesprocessen. De följande skärmbilderna visar Logic-appar som har skapats för den här lösningen. 
 
 
-1. **HL7-FHIR-mappning app**: ta emot HL7 C-CDA dokumentet och omvandla dem till en resurs för FHIR använder Enterprise-Integrationspaket för Logic Apps. Enterprise-Integrationspaket hanterar mappning från C-CDA FHIR resurser.
+1. **HL7-FHIR-mappning app**: ta emot HL7 C-Videostrategin dokumentet och omvandla dem till en FHIR-resurs med hjälp av Enterprise-Integrationspaketet för Logic Apps. Enterprise-Integrationspaketet hanterar mappningen från C-Videostrategin till FHIR resurser.
 
-    ![Logikappen som används för att ta emot HL7 FHIR sjukvården poster](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-json-transform.png)
+    ![Logikappen används för att ta emot HL7 FHIR hälso-poster](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-json-transform.png)
 
 
-2. **EHR app**: fråga Azure Cosmos DB FHIR databasen och spara svar till en Service Bus-kö. Koden för GetNewOrModifiedFHIRDocuments appen är nedan.
+2. **EHR app**: fråga Azure Cosmos DB FHIR-databasen och spara svaret på en Service Bus-kö. Koden för appen GetNewOrModifiedFHIRDocuments är under.
 
-    ![Logikappen som används för att fråga Azure Cosmos DB](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-api-app.png)
+    ![Logikappen används för att fråga Azure Cosmos DB](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-api-app.png)
 
-3. **Processen meddelandeprogram**: skicka ett e-postmeddelande med FHIR resurs dokument i.
+3. **Processen meddelandeprogram**: skicka ett e-postmeddelande med FHIR resource dokument i.
 
-    ![Logikappen som skickar patient e-post med HL7 FHIR resursen i brödtexten](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-send-email.png)
+    ![Den Logikapp som skickar patientens e-postmeddelande med HL7 FHIR-resursen i brödtexten](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-send-email.png)
 
 #### <a name="service-bus"></a>Service Bus
-Följande bild visar patienterna kön. Taggen egenskapens värde används för ämnet för e-post.
+Följande bild visar patienterna kö. Egenskapen Taggvärdet används för e-postmeddelandets ämne.
 
-![Service Bus-kö som används i den här självstudiekursen HL7 FHIR](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-service-bus-queue.png)
+![Service Bus-kö som används i den här HL7 FHIR-självstudien](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-service-bus-queue.png)
 
 <a id="api-app"></a>
 
 #### <a name="api-app"></a>API-app
-En API-app ansluter till Azure Cosmos DB och frågor om nya eller ändrade FHIR dokument uppdelat efter resurstyp. Det här programmet har en domänkontrollant **FhirNotificationApi** med en åtgärd **GetNewOrModifiedFhirDocuments**, se [källa för API-app](#api-app-source).
+En API-app som ansluter till Azure Cosmos DB och frågor för nya eller ändrade FHIR dokument efter resurstyp. Den här appen har en kontrollenhet **FhirNotificationApi** med en enda åtgärd **GetNewOrModifiedFhirDocuments**, se [källa för API-app](#api-app-source).
 
-Vi använder den [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) klass från Azure Cosmos SQL DB .NET API. Mer information finns i [ändra feed artikel](change-feed.md). 
+Vi använder den [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) klass från Azure Cosmos DB SQL .NET API. Mer information finns i den [ändringsfeed artikeln](change-feed.md). 
 
 ##### <a name="getnewormodifiedfhirdocuments-operation"></a>GetNewOrModifiedFhirDocuments åtgärden
 
-**Indata**
+**indata**
 - DatabaseId
 - CollectionId
-- Resurstyp för HL7 FHIR namn
-- Boolean: Starta från början
-- Int: Antal dokument som returneras
+- Resurstyp för HL7 FHIR-namn
+- Booleskt värde: Börja från början
+- Int: Antalet returnerade dokument
 
 **Utdata**
-- Lyckades: Statuskod: 200, svar: listan över dokument (JSON-matris)
-- Fel: Statuskod: 404, svar ”: inga dokument hittades för”*resursnamnet '* resurstypen ”
+- Lyckades: Statuskod: 200, svar: lista över dokument (JSON-matris)
+- Fel: Statuskod: 404, svar ”: inga dokument hittades för”*resursnamn '* resurstyp ”
 
 <a id="api-app-source"></a>
 
-**Källa för API-appen**
+**Källa för API-app**
 
 ```csharp
 
@@ -206,25 +206,25 @@ Vi använder den [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/
 
 ### <a name="testing-the-fhirnotificationapi"></a>Testa FhirNotificationApi 
 
-Följande bild visar hur swagger användes till att testa den [FhirNotificationApi](#api-app-source).
+Följande bild visar hur swagger användes för att testa den [FhirNotificationApi](#api-app-source).
 
-![Swagger-filen som används för att testa API-appen](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-testing-app.png)
+![Swagger-filen som används för att testa API-app](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-testing-app.png)
 
 
-### <a name="azure-portal-dashboard"></a>Azure portalens instrumentpanel
+### <a name="azure-portal-dashboard"></a>Instrumentpanelen för Azure portal
 
-Följande bild visar alla Azure-tjänster för den här lösningen som körs i Azure-portalen.
+Följande bild visar alla Azure-tjänster för den här lösningen körs i Azure-portalen.
 
-![Azure portal som visar alla tjänster som används i den här självstudiekursen HL7 FHIR](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-portal.png)
+![Azure-portalen som visar alla tjänster som används i den här HL7 FHIR-självstudien](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-portal.png)
 
 
 ## <a name="summary"></a>Sammanfattning
 
-- Du har lärt dig att Azure Cosmos DB har inbyggda relationstypen för meddelanden om nya eller ändras dokument och hur lätt det är att använda. 
-- Du kan skapa arbetsflöden utan att skriva någon kod genom att utnyttja Logic Apps.
-- Med Azure Service Bus-köer för att hantera distribution för HL7 FHIR-dokument.
+- Du har lärt dig att Azure Cosmos DB har inbyggd stöd för meddelanden om nya eller ändras dokument och hur enkelt det är att använda. 
+- Genom att använda Logic Apps kan du skapa arbetsflöden utan att behöva skriva någon kod.
+- Med Azure Service Bus-köer för att hantera fördelningen för HL7 FHIR-dokument.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure Cosmos DB finns på [Azure Cosmos DB startsidan](https://azure.microsoft.com/services/cosmos-db/). Mer information om Logic Apps finns i [Logikappar](https://azure.microsoft.com/services/logic-apps/).
+Mer information om Azure Cosmos DB finns i den [startsidan för Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Mer information om Logic Apps finns i [Logikappar](https://azure.microsoft.com/services/logic-apps/).
 
 

@@ -2,19 +2,17 @@
 title: Konfigurera källmiljön (fysiska servrar till Azure) | Microsoft Docs
 description: Den här artikeln beskriver hur du ställer in din lokala miljö att börja replikera fysiska servrar som kör Windows eller Linux till Azure.
 services: site-recovery
-documentationcenter: ''
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: anoopkv
-ms.openlocfilehash: 00b09db97e597521de5c73eeefab77b0dfa1304d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 07/21/2018
+ms.author: raynew
+ms.openlocfilehash: 0cbba45ce49667293d8f16bf370424acd70ff78b
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38671030"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213494"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Konfigurera källmiljön (fysisk till Azure)
 
@@ -23,8 +21,9 @@ Den här artikeln beskriver hur du ställer in din lokala miljö att börja repl
 ## <a name="prerequisites"></a>Förutsättningar
 
 Artikeln förutsätter att du redan har:
-1. En Recovery Services-valv i den [Azure-portalen](http://portal.azure.com "Azure-portalen").
-3. En fysisk dator som du vill installera konfigurationsservern.
+- En Recovery Services-valv i den [Azure-portalen](http://portal.azure.com "Azure-portalen").
+- En fysisk dator som du vill installera konfigurationsservern.
+- Om du har inaktiverat TLS 1.0 på datorn där du installerar configuration server kan du kontrollera att TLs 1.2 är aktiverat och att .NET Framework 4.6 eller senare har installerats på datorn (med stark kryptografi inaktiverad). [Läs mer](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### <a name="configuration-server-minimum-requirements"></a>Minsta konfigurationskrav för server
 I följande tabell visas de minimikraven på maskinvara, programvara och nätverkskrav för en konfigurationsserver.
@@ -63,7 +62,7 @@ I följande tabell visas de minimikraven på maskinvara, programvara och nätver
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> Konfigurationsservern kan installeras via en kommandorad. Mer information finns i [installera konfigurationsservern med hjälp av kommandoradsverktyg](http://aka.ms/installconfigsrv).
+> Konfigurationsservern kan installeras via en kommandorad. [Läs mer](physical-manage-configuration-server.md#install-from-the-command-line).
 
 
 ## <a name="common-issues"></a>Vanliga problem

@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 7e4057db6c7e42755bbaf8d05f68809cca0bc257
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 5adb6e6119856879e52836a8d3a797a7b40c6fe8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185745"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214438"
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-nodejs"></a>Anslut Intel Edison till Azure IoT Hub (Node.js)
 
@@ -27,7 +27,7 @@ Har inte ett kit ännu? Starta [här](https://azure.microsoft.com/develop/iot/st
 
 ## <a name="what-you-do"></a>Vad du gör
 
-* Konfigurera Intel Edison och och Groove-moduler.
+* Konfigurera Intel Edison och Groove-moduler.
 * Skapa en IoT-hubb.
 * Registrera en enhet för Edison i din IoT-hubb.
 * Kör ett exempelprogram på Edison att skicka sensordata till din IoT-hubb.
@@ -199,7 +199,7 @@ Grattis! Du konfigurerat har Edison.
    nano config.json
    ```
 
-   ![Konfigurationsfil](media/iot-hub-intel-edison-kit-node-get-started/13_configure_file.png)
+   ![Config-fil](media/iot-hub-intel-edison-kit-node-get-started/13_configure_file.png)
 
    Det finns två makron i den här filen kan du configurate. Den första är `INTERVAL`, som definierar tidsintervallet mellan två meddelanden som skickas till molnet. Den andra mallen `simulatedData`, vilket är ett booleskt värde för om du vill använda simulerade sensordata eller inte.
 

@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 07/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5f7c569eabcf6e4b743f1b6616161787764e8f84
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7cda2a406c6c49e9252bfd5840e8f943e5b7043f
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723863"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205807"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Hantera resurser med Azure PowerShell
 
@@ -72,13 +72,9 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 Normalt upprepar du processen för **Nätverksdeltagare** och **Lagringskontodeltagare** för att se till att hanteringen av alla distribuerade resurser tilldelas till användare. Du kan hoppa över dessa steg i den här artikeln.
 
-## <a name="azure-policies"></a>Azure-principer
+## <a name="azure-policy"></a>Azure Policy
 
-[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
-
-### <a name="apply-policies"></a>Tillämpa principer
-
-Din prenumeration har redan flera principdefinitioner. Om du vill se tillgängliga principdefinitioner, använder du:
+[Azure Policy](../azure-policy/azure-policy-introduction.md) kan du kontrollera att alla resurser i prenumerationen uppfyller företagets standarder. Din prenumeration har redan flera principdefinitioner. Om du vill se tillgängliga principdefinitioner, använder du:
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
@@ -186,17 +182,17 @@ Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.Reso
 
 ### <a name="view-costs-by-tag-values"></a>Visa kostnader efter taggvärden
 
-När du har lagt till taggarna till resurser kan visa du kostnaderna för resurser med taggarna. Det tar en stund innan kostnadsanalys att visa den senaste användningen, så att du inte kan se kostnaderna ännu. När kostnaderna är tillgängliga kan visa du kostnaderna för resurser mellan resursgrupper i din prenumeration. Användarna måste ha [prenumerationsåtkomst till faktureringsinformation](../billing/billing-manage-access.md) att se kostnaderna.
+När du har applicerat taggar på resurser kan du visa kostnaderna för resurser med de taggarna. Det tar en stund innan kostnadsanalysen visar den senaste användningen, och därför ser du kanske inte kostnaderna ännu. När kostnaderna är tillgängliga kan du visa kostnaderna för resurser över olika resursgrupper i prenumerationen. Användarna måste ha [åtkomst på prenumerationsnivå till faktureringsinformation](../billing/billing-manage-access.md) för att se kostnaderna.
 
-Om du vill visa kostnader efter taggar i portal, Välj din prenumeration och välj **kostnadsanalys**.
+Om du vill visa kostnader efter taggar i portalen väljer du din prenumeration och sedan **Kostnadsanalys**.
 
 ![Kostnadsanalys](./media/powershell-azure-resource-manager/select-cost-analysis.png)
 
-Filtrera efter Taggvärdet sedan och välj **tillämpa**.
+Filtrera sedan efter taggvärdet och välj **Applicera**.
 
-![Visa kostnaden efter tagg](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
+![Visa kostnad efter tagg](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
 
-Du kan också använda den [Azure Billing API: er](../billing/billing-usage-rate-card-overview.md) programmässigt visa kostnaderna.
+Du kan även använda [API:er för Azure-fakturering](../billing/billing-usage-rate-card-overview.md) för att programmässigt visa kostnaderna.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

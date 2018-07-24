@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2e7f3b0f01dbd6656413c233fcf64c46963d00ef
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6cd6b139699b38a06a8e3f9fce5eb6e24fe24654
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917378"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214183"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Felsöka Azure Active Directory-direktautentisering
 
@@ -97,7 +97,7 @@ Kontrollera att du använder ett globalt administratörskonto enbart i molnet f�
 
 Om du har direktautentisering har aktiverats på din klient och försök att avinstallera Azure AD Connect, den visar följande varning: ”användare kommer inte att kunna logga in på Azure AD om du inte har andra direktautentisering agenter som installerats på andra servrar ”.
 
-Se till att din konfiguration är [hög tillgängliga](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) innan du avinstallerar den Azure AD Connect för att undvika att skada användarinloggning.
+Se till att din konfiguration är [hög tillgängliga](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) innan du avinstallerar den Azure AD Connect för att undvika att skada användarinloggning.
 
 ## <a name="issues-with-enabling-the-feature"></a>Problem med att aktivera funktionen
 
@@ -112,18 +112,6 @@ Kontrollera att servern där Azure AD Connect är installerad kan kommunicera me
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>Det gick inte att aktivera funktionen på grund av token eller konto-auktoriseringsfel
 
 Kontrollera att du använder ett globalt administratörskonto enbart i molnet när du aktiverar funktionen. Det finns ett känt problem med multifaktorautentisering (MFA)-aktiverad globala administratörskonton; inaktivera MFA tillfälligt (endast för att slutföra åtgärden) som en tillfällig lösning.
-
-## <a name="exchange-activesync-configuration-issues"></a>Problem med konfigurationen av Exchange ActiveSync
-
-Dessa är vanliga problem när du konfigurerar Exchange ActiveSync-stöd för direktautentisering.
-
-### <a name="exchange-powershell-issue"></a>Exchange PowerShell-problem
-
-Om du ser den ”**går inte att hitta en parameter som matchar parameternamnet på 'PerTenantSwitchToESTSEnabled'\.**” fel när du kör den `Set-OrganizationConfig` Exchange PowerShell kommandot, kontakta Microsoft Support.
-
-### <a name="exchange-activesync-not-working"></a>Exchange ActiveSync fungerar inte
-
-Konfigurationen tar lite tid att börja gälla – hur lång tid som beror på din miljö. Kontakta Microsoft Support om situationen kvarstår under en längre tid.
 
 ## <a name="collecting-pass-through-authentication-agent-logs"></a>Samla in loggar för Autentiseringsagenten för direktautentisering
 

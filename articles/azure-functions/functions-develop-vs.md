@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: glenga
-ms.openlocfilehash: bc280e9b4ade8a4fb8107ec2dcc1c33f538472e1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 318a39e244f0fca3a1b2d8531dd9197a15400e02
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602983"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205365"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure-funktioner med hjälp av Visual Studio  
 
@@ -132,7 +132,7 @@ I förväg kompilerad funktion definieras de bindningar som används av funktion
         }
     }
     ````
-    En bindning-specifika attribut tillämpas på varje bindningsparametern som angetts för metoden. Attributet tar bindningsinformationen som parametrar. I exemplet ovan den första parametern har en **QueueTrigger** attributet tillämpas, som anger funktion som utlöses kö. Könamn och namn på anslutningssträng inställningen skickas som parametrar till den **QueueTrigger** attribut.
+    En bindning-specifika attribut tillämpas på varje bindningsparametern som angetts för metoden. Attributet tar bindningsinformationen som parametrar. I exemplet ovan den första parametern har en **QueueTrigger** attributet tillämpas, som anger funktion som utlöses kö. Könamn och namn på anslutningssträng inställningen skickas som parametrar till den **QueueTrigger** attribut. Mer information finns i [Azure Queue storage-bindningar för Azure Functions](functions-bindings-storage-queue.md#trigger---c-example).
     
 Du kan använda proceduren ovan för att lägga till fler funktioner i ditt funktionsappsprojekt. Varje funktion i projektet kan ha en annan utlösare, men en funktion måste ha exakt en utlösare. Mer information finns i [Azure Functions-utlösare och bindningar begrepp](functions-triggers-bindings.md).
 

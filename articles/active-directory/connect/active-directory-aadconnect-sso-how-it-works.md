@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0b1940894ffb01595d11bc49889c6ec01714816b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6507158a63de508164fc74bcafe39785046a2c79
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918262"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213358"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sömlös enkel inloggning: teknisk djupdykning
 
@@ -36,8 +36,8 @@ Det här avsnittet har tre delar:
 ### <a name="how-does-set-up-work"></a>Hur ställer in arbeta?
 
 Sömlös enkel inloggning har aktiverats med Azure AD Connect enligt [här](active-directory-aadconnect-sso-quick-start.md). När du aktiverar funktionen genomförs följande steg:
-- Ett datorkonto med namnet `AZUREADSSOACC` (som representerar Azure AD) har skapats i din lokala Active Directory (AD).
-- Krypteringsnyckel för det datorkonto Kerberos delas på ett säkert sätt med Azure AD.
+- Ett datorkonto med namnet `AZUREADSSOACC` (som representerar Azure AD) skapas i din lokala Active Directory (AD) i varje AD-skog.
+- Krypteringsnyckel för det datorkonto Kerberos delas på ett säkert sätt med Azure AD. Om det finns flera AD-skogar, har var och en sin egen nyckel för dekryptering av Kerberos.
 - Dessutom skapas två Kerberos tjänsternas huvudnamn (SPN) för att representera två URL: er som används under Azure AD-inloggningen.
 
 >[!NOTE]

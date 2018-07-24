@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 06179d42d2904a4d82f466be0719768f9f010858
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 16f5ffbfbb3ec4e0c01dd2ad151f282e5b2d0a87
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868566"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213691"
 ---
 # <a name="azure-active-directory-reporting"></a>Azure Active Directory-rapportering
 
@@ -88,7 +88,7 @@ Mer information finns i **Jämför allmänt tillgängliga funktioner i Free, Bas
 
 
 
-**Aktivitetsrapport för inloggningar**  gör det möjligt för att få svar på frågor som:
+Den **aktivitetsrapport för inloggningar** kan du få svar på frågor som:
 
 - Vilket inloggningsmönster har en användare?
 - Hur många användare har en användare loggat in under en vecka?

@@ -1,6 +1,6 @@
 ---
-title: Implementera funktioner i Azure Service Fabric aktörer | Microsoft Docs
-description: Beskriver hur du skriver egna aktören-tjänst som implementerar servicenivå funktioner på samma sätt som vid arv StatefulService.
+title: Implementering av funktioner i Azure Service Fabric actors | Microsoft Docs
+description: Beskriver hur du skriver din egen actor-tjänst som implementerar funktioner på servicenivå på samma sätt som vid arv StatefulService.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 41548c3395fa0c8f56e62cfcfb7338a2d53f040f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6aff9e9599d31942f994f3cb4e5e9219f33dc7e1
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212899"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205528"
 ---
-# <a name="implementing-service-level-features-in-your-actor-service"></a>Implementering av servicenivå funktioner i din aktören-tjänst
-Enligt beskrivningen i [service Skikta](service-fabric-reliable-actors-platform.md#service-layering), tjänsten aktören är en tillförlitlig tjänst.  Du kan skriva en egen tjänst som härleds från `ActorService` och implementera servicenivå funktioner på samma sätt som vid arv StatefulService, som:
+# <a name="implementing-service-level-features-in-your-actor-service"></a>Implementera funktioner på servicenivå i actor-tjänst
+Mer information finns i [service lagren](service-fabric-reliable-actors-platform.md#service-layering), aktörstjänsten själva är en tillförlitlig tjänst.  Du kan skriva din egen tjänst som härleds från `ActorService` och implementera funktioner på servicenivå på samma sätt som vid arv StatefulService, till exempel:
 
 - Tjänsten säkerhetskopiering och återställning.
-- Delade funktioner för alla aktörer, till exempel strömbrytare.
-- RPC-anrop på tjänsten aktören och på varje enskild aktören.
+- Delade funktioner för alla aktörer, till exempel en kretsbrytare.
+- RPC-anrop på aktörstjänsten själva och på varje enskild skådespelare.
 
-## <a name="using-the-actor-service"></a>Med hjälp av tjänsten aktören
-Aktören instanser har åtkomst till tjänsten aktören de körs. Via tjänsten aktören hämta aktören instanser programmässigt kontext för tjänster. Tjänsten kontexten har partitions-ID, namn, programnamn och andra plattformsspecifika Service Fabric-information:
+## <a name="using-the-actor-service"></a>Med hjälp av aktörstjänsten
+Aktörsinstanser har åtkomst till aktörstjänsten där de körs. Aktörsinstanser kan programmässigt hämta tjänstkontext via actor-tjänst. Tjänstkontext har partitions-ID, namn, programnamn och annan information för Service Fabric-plattformsspecifika:
 
 ```csharp
 Task MyActorMethod()
@@ -50,7 +50,7 @@ CompletableFuture<?> MyActorMethod()
 }
 ```
 
-Precis som alla Reliable Services måste tjänsten aktören registreras med en typ i Service Fabric-körningsmiljön. För tjänsten aktören att köra aktören-instanser måste aktören-typen registreras med tjänsten aktören. `ActorRuntime`-registreringsmetoden gör det här jobbet för aktörerna. Du kan registrera aktörstyp i det enklaste fallet och aktören tjänsten med standardinställningarna används implicit:
+Precis som alla tillförlitliga tjänster måste aktörstjänsten registreras med en tjänsttyp i Service Fabric-körningen. För aktörstjänsten ska kunna köra dina aktörsinstanser måste din aktörstypen registreras hos aktörstjänsten. `ActorRuntime`-registreringsmetoden gör det här jobbet för aktörerna. Du kan bara registrera din typ av aktör i det enklaste fallet och aktörstjänsten med standardinställningar används implicit:
 
 ```csharp
 static class Program
@@ -64,7 +64,7 @@ static class Program
 }
 ```
 
-Du kan också använda ett lambda-uttryck som tillhandahålls av metoden för registrering för att konstruera tjänsten aktören själv. Du kan konfigurera tjänsten aktören och uttryckligen skapa dina aktören instanser, där du kan mata in beroenden din aktören via sin konstruktor:
+Du kan också använda en lambda som tillhandahålls av metoden för registrering för att konstruera aktörstjänsten själv. Du kan sedan konfigurera aktörstjänsten och uttryckligen skapa dina aktörsinstanser, där du kan mata in beroenden aktören via dess konstruktorn:
 
 ```csharp
 static class Program
@@ -94,12 +94,12 @@ static class Program
 }
 ```
 
-## <a name="actor-service-methods"></a>Aktören Webbtjänstmetoder
-Aktören tjänsten implementerar `IActorService` (C#) eller `ActorService` (Java), som i sin tur implementerar `IService` (C#) eller `Service` (Java). Detta är det gränssnitt som används av Reliable Services fjärrkommunikation, vilket gör att RPC-anrop på Webbtjänstmetoder. Den innehåller servicenivå metoder som kan anropas via fjärranslutning via tjänsten fjärrkommunikation och du kan [räkna upp](service-fabric-reliable-actors-enumerate.md) och [ta bort](service-fabric-reliable-actors-delete-actors.md) aktörer.
+## <a name="actor-service-methods"></a>Aktören service-metoder
+Aktören tjänsten implementerar `IActorService` (C#) eller `ActorService` (Java), vilket i sin tur implementerar `IService` (C#) eller `Service` (Java). Detta är det gränssnitt som används av Reliable Services-fjärrkommunikation, vilket gör att RPC-anrop på Webbtjänstmetoder. Den innehåller tjänstnivå metoder som kan anropas via fjärranslutning via fjärrtjänst så att du kan [räkna upp](service-fabric-reliable-actors-enumerate.md) och [ta bort](service-fabric-reliable-actors-delete-actors.md) aktörer.
 
 
-## <a name="custom-actor-service"></a>Anpassade aktören service
-Du kan registrera dina egna anpassade aktören-tjänst som härleds från med hjälp av aktören registrering lambda `ActorService` (C#) och `FabricActorService` (Java). I den här anpassade aktören-tjänsten du kan implementera din egen servicenivå funktioner genom att skriva en service-klass som ärver `ActorService` (C#) eller `FabricActorService` (Java). En anpassad aktören tjänst ärver alla aktören runtime funktioner från `ActorService` (C#) eller `FabricActorService` (Java) och kan användas för att implementera din egen Webbtjänstmetoder.
+## <a name="custom-actor-service"></a>Anpassade actor-tjänst
+Med hjälp av aktör registrering lambda, kan du registrera dina egna anpassade actor-tjänst som härleds från `ActorService` (C#) och `FabricActorService` (Java). I den här anpassade actor-tjänst du kan implementera dina egna tjänstnivå funktioner genom att skriva en tjänsteklass som ärver `ActorService` (C#) eller `FabricActorService` (Java). En anpassad aktörstjänsten ärver alla actor runtime funktioner från `ActorService` (C#) eller `FabricActorService` (Java) och kan användas för att implementera en egen tjänstmetoder.
 
 ```csharp
 class MyActorService : ActorService
@@ -147,43 +147,72 @@ public class Program
 ```
 
 ## <a name="implementing-actor-backup-and-restore"></a>Implementera aktören säkerhetskopiering och återställning
-En anpassad aktören tjänst kan exponera en metod för att säkerhetskopiera aktören data genom att utnyttja fjärrkommunikation lyssnaren finns redan i `ActorService`.  Ett exempel finns [säkerhetskopiering och återställning aktörer](service-fabric-reliable-actors-backup-and-restore.md).
+En anpassad actor-tjänst kan exponera en metod för att säkerhetskopiera aktören data genom att utnyttja fjärrkommunikation lyssnaren finns redan i `ActorService`.  Ett exempel finns i [säkerhetskopiering och återställning aktörer](service-fabric-reliable-actors-backup-and-restore.md).
 
-## <a name="actor-using-remoting-v2-stack"></a>Aktören med fjärrkommunikation V2 Stack
-Användare kan nu använda fjärrkommunikation V2-stacken, vilket är mer performant och ger funktioner som anpassad serialisering med 2,8 nuget-paketet. Fjärrkommunikation V2 är inte bakåtkompatibla med befintliga fjärrkommunikation stack (vi ringer upp dig nu den som V1 fjärrkommunikation stacken).
+## <a name="actor-using-remoting-v2interfacecompatible-stack"></a>Använda fjärrkommunikation V2(InterfaceCompatible) Stack aktör
+Remoting V2 (InterfaceCompatible aka V2_1) stack har alla funktioner i V2-fjärrkommunikation stack utöver det är gränssnittet kompatibla stack till fjärrkommunikation V1 stack men är inte bakåtkompatibla med V2 och V1. För att kunna genomföra uppgraderingen från V1 till V2_1 utan att påverka tjänsttillgängligheten, Följ nedanstående [artikeln](#actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability).
 
-Följande ändringar krävs för att använda fjärrkommunikation V2-stacken.
- 1. Lägg till följande attribut för sammansättningen på aktören gränssnitt.
+Följande ändringar krävs för att använda fjärrkommunikation V2_1 Stack.
+ 1. Lägg till följande attribut i sammansättningen på Aktörsgränssnitt.
    ```csharp
-   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
    ```
 
- 2. Bygg- och uppgradera ActorService aktören klienten och projekt att använda V2-stacken.
+ 2. Bygg- och uppgradera ActorService och aktören klienten projekt att börja använda V2-stacken.
 
-### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Aktören uppgradera tjänsten till fjärrkommunikation V2 stacken utan att påverka tillgängligheten för tjänsten.
+#### <a name="actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability"></a>Aktören uppgradera tjänsten till fjärrkommunikation V2(InterfaceCompatible) Stack utan att påverka tjänsttillgängligheten.
 Den här ändringen kommer att vara en 2-steg-uppgradering. Följ stegen i samma ordning som anges.
 
-1.  Lägg till följande attribut för sammansättningen på aktören gränssnitt. Detta attribut kommer att starta två lyssnare för ActorService V1 (befintlig) och V2-lyssnare. Uppgradera ActorService med den här ändringen.
+1.  Lägg till följande attribut i sammansättningen på Aktörsgränssnitt. Det här attributet startar två lyssnare för ActorService, V1 (befintlig) och V2_1 lyssnare. Uppgradera ActorService med den här ändringen.
 
   ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
   ```
 
-2. Uppgradera ActorClients när du har uppgraderat ovan.
-Det här steget säkerställer aktören Proxy använder fjärrkommunikation V2-stacken.
+2. Uppgradera ActorClients när du har slutfört ovanstående uppgraderingen.
+Det här steget gör att aktören-proxyn använder fjärrkommunikation V2_1 Stack.
 
-3. Det här steget är valfritt. Ändra attributet ovan om du vill ta bort V1-lyssnaren.
+3. Det här steget är valfritt. Ändra attributet ovan för att ta bort V1-lyssnaren.
 
     ```csharp
-    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+    ```
+
+## <a name="actor-using-remoting-v2-stack"></a>Använda fjärrkommunikation V2 Stack aktör
+Användare kan nu använda Remoting V2 stack, som är bättre och innehåller funktioner som anpassade serialisering 2,8 nuget-paketet. Remoting V2 är inte bakåtkompatibla med befintliga fjärrkommunikation stack (vi ringer upp dig nu den som V1-fjärrkommunikation stack).
+
+Följande ändringar krävs för att använda Remoting V2-stacken.
+ 1. Lägg till följande attribut i sammansättningen på Aktörsgränssnitt.
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
+   ```
+
+ 2. Bygg- och uppgradera ActorService och aktören klienten projekt att börja använda V2-stacken.
+
+#### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Aktören uppgradera tjänsten till Remoting V2 Stack utan att påverka tjänsttillgängligheten.
+Den här ändringen kommer att vara en 2-steg-uppgradering. Följ stegen i samma ordning som anges.
+
+1.  Lägg till följande attribut i sammansättningen på Aktörsgränssnitt. Det här attributet startar två lyssnare för ActorService, V1 (befintlig) och V2-lyssnare. Uppgradera ActorService med den här ändringen.
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
+  ```
+
+2. Uppgradera ActorClients när du har slutfört ovanstående uppgraderingen.
+Det här steget gör att aktören-proxyn använder Remoting V2 Stack.
+
+3. Det här steget är valfritt. Ändra attributet ovan för att ta bort V1-lyssnaren.
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
     ```
 
 ## <a name="next-steps"></a>Nästa steg
 * [Aktören tillståndshantering](service-fabric-reliable-actors-state-management.md)
-* [Aktören livscykel och skräp samling](service-fabric-reliable-actors-lifecycle.md)
+* [Aktör livscykel och skräpinsamling samling](service-fabric-reliable-actors-lifecycle.md)
 * [Aktörer API-referensdokumentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Exempelkod för .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java-exempelkod](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [.NET-exempelkod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Java-exempelkoden](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

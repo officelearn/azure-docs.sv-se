@@ -8,6 +8,8 @@
       href: cheat-sheet.md
 - name: Viktig information
   items:
+    - name: Juli 2018
+      href: release-notes-july-2018.md
     - name: Juni 2018
       href: release-notes-june-2018.md
     - name: Maj 2018

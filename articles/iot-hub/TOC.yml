@@ -291,6 +291,8 @@
           items:
             - name: Hantera meddelanden mellan enheter och molnet med iothub-explorer
               href: iot-hub-explorer-cloud-device-messaging.md
+            - name: Hantera meddelanden mellan enheter och molnet med Azure IoT Toolkit för VS Code
+              href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
             - name: Spara IoT Hub-meddelanden i Azure Blob Storage
               href: iot-hub-store-data-in-azure-table-storage.md
             - name: Datavisualisering i Power BI

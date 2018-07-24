@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 91bb57f49f8c92967275d340410e22381adad19e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f795333e8af2f09800dedc0b65030c42165d6bbb
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114283"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068911"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Självstudie: Distribuera ett Service Fabric Windows-kluster till ett virtuellt Azure-nätverk
 
@@ -28,7 +28,7 @@ Den här självstudien ingår i en serie. Du får lära dig att distribuera ett 
 
 I den här självstudien beskrivs ett produktionsscenario.  Om du snabbt vill skapa ett mindre kluster för testning kan du läsa [Skapa ett testkluster med tre noder](./scripts/service-fabric-powershell-create-test-cluster.md).
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * skapa ett VNET i Azure med PowerShell
@@ -45,7 +45,7 @@ I den här självstudieserien får du lära du dig att:
 > * [uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar den här självstudien:
 
@@ -92,18 +92,18 @@ Ett Windows-kluster distribueras med följande egenskaper:
 
 * en enda nodtyp
 * fem noder av den primära nodtypen (kan konfigureras i mallparametrarna)
-* Operativsystem: Windows Server 2016 Datacenter med behållare (kan konfigureras i mallparametrarna)
+* Operativsystem: Windows Server 2016 Datacenter med containrar (kan konfigureras i mallparametrarna)
 * skyddat med certifikat (kan konfigureras i mallparametrarna)
 * [omvänd proxy](service-fabric-reverseproxy.md) är aktiverat
 * [DNS-tjänsten](service-fabric-dnsservice.md) är aktiverad
 * [Hållbarhetsnivå](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Brons (kan konfigureras i mallparametrarna)
-* [Tillförlitlighetsnivå](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (kan konfigureras i mallparametrarna)
+ * [Tillförlitlighetsnivå](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (kan konfigureras i mallparametrarna)
 * slutpunkt för klientanslutning: 19000 (kan konfigureras i mallparametrarna)
 * slutpunkt för HTTP-gateway: 19080 (kan konfigureras i mallparametrarna)
 
-### <a name="azure-load-balancer"></a>Azure-belastningsutjämnare
+### <a name="azure-load-balancer"></a>Azure-lastbalanserare
 
-En belastningsutjämnare distribueras och avsökningar och regler konfigureras för följande portar:
+En lastbalanserare distribueras och avsökningar och regler konfigureras för följande portar:
 
 * klientanslutningsslutpunkt: 19000
 * HTTP-gatewayslutpunkt: 19080
@@ -128,7 +128,7 @@ Följande regler för inkommande trafik är aktiverade i nätverkssäkerhetsgrup
 * Internodecommunication - 1025, 1026, 1027
 * Tillfälligt portintervall – 49152 till 65534 (minst 256 portar behövs)
 * Portar för programanvändning: 80 och 443
-* Portintervall för program – 49152 till 65534 (används för kommunikation mellan tjänster och öppnas inte i belastningsutjämnaren)
+* Portintervall för program – 49152 till 65534 (används för kommunikation mellan tjänster och öppnas inte i lastbalanseraren)
 * Blockera alla andra portar
 
 Om du behöver andra programportar måste du justera resursen Microsoft.Network/loadBalancers och Microsoft.Network/networkSecurityGroups för att låta trafiken komma in.
@@ -139,9 +139,9 @@ Parameterfilen [vnet-cluster.parameters.json][parameters] deklarerar många vär
 
 |Parameter|Exempelvärde|Anteckningar|
 |---|---||
-|adminUserName|vmadmin| Administratörsnamn för virtuella datorer i klustret. |
-|adminPassword|Password#1234| Administratörslösenord för virtuella datorer i klustret.|
-|clusterName|mysfcluster123| Namnet på klustret. |
+|adminUserName|vmadmin| Administratörsanvändarnamnet för virtuella klusterdatorer. [Användarnamnkrav för virtuell dator](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
+|adminPassword|Password#1234| Administratörslösenord för virtuella datorer i klustret. [Lösenordskrav för virtuell dator](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
+|clusterName|mysfcluster123| Namnet på klustret. Får endast innehålla bokstäver och siffror. Längden ska vara mellan 3 och 23 tecken.|
 |location|southcentralus| Klustrets placering. |
 |certificateThumbprint|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets tumavtrycksvärde. Till exempel ”6190390162C988701DB5676EB81083EA608DCCF3”</p>. |
 |certificateUrlValue|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil. </p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Exempel: "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|

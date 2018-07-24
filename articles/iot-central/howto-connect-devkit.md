@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 99d69c7e49179a7849e274c830d539833da33786
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ea9ff8f93ede3b9ec5e7eed83c6049b0c23de7e8
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049460"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205467"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Anslut en enhet för MXChip IoT DevKit till programmet Azure IoT Central
 
@@ -26,76 +26,38 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 1. Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i [skapa Azure IoT Central programmet](howto-create-application.md).
 1. En DevKit-enhet. Du kan köpa en DevKit enhet [MXChip IoT DevKit](http://mxchip.com/az3166).
 
-Ett program som skapats från den **exempel Devkits** programmall innehåller en **MXChip** enheten mallen med följande egenskaper:
 
-### <a name="measurements"></a>Mått
+## <a name="sample-devkits-application"></a>**Exempel på Devkits** program
 
-#### <a name="telemetry"></a>Telemetri 
+Ett program som skapats från den **exempel Devkits** programmall innehåller en **MXChip** enheten mallen med följande egenskaper: 
 
-| Fältnamn     | Enheter  | Minimal | Maximal | Antal decimaler |
-| -------------- | ------ | ------- | ------- | -------------- |
-| luftfuktighet       | %      | 0       | 100     | 0              |
-| Temp           | ° C     | -40     | 120     | 0              |
-| tryck       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | där-1 000   | 1 000    | 0              |
-| magnetometerY  | mgauss | där-1 000   | 1 000    | 0              |
-| magnetometerZ  | mgauss | där-1 000   | 1 000    | 0              |
-| accelerometerX | mg     | -2000   | 2000    | 0              |
-| accelerometerY | mg     | -2000   | 2000    | 0              |
-| accelerometerZ | mg     | -2000   | 2000    | 0              |
-| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
-
-#### <a name="states"></a>Tillstånd 
-
-| Namn          | Visningsnamn   | NORMAL | VARNING | RISK | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | Enhetens tillstånd   | Grön  | Orange  | Röd    | 
-
-#### <a name="events"></a>Events 
-
-| Namn             | Visningsnamn      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | Knappen B är nedtryckt  | 
+- Telemetri som innehåller mätningarna för enheten **fuktighet**, **temperatur**, **tryck**, **Magnometer** (mätt längs X Y, Z-axeln), **Accelorometer** (mätt längs X, Y, Z-axeln) och **gyroskop** (mätt längs X, Y, Z-axeln).
+- Tillstånd som innehåller ett exempel mått för **enhetstillstånd**.
+- Mätning av händelse med en **knappen B nedtryckt** händelse. 
+- Inställningar som visar **Voltage**, **aktuella**, **fläkthastighet**, och en **IR** växlingsknappen.
+- Egenskaper som innehåller enhetsegenskap **dör nummer** och **enhetsplats** som är en Platsegenskapen samt som i en **tillverkade i** egenskap i molnet. 
 
 
-
-### <a name="settings"></a>Inställningar
-
-Numeriska inställningar
-
-| Visningsnamn | Fältnamn | Enheter | Antal decimaler | Minimal | Maximal | Inledande |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Spänning      | setVoltage | V | 0              | 0       | 240     | 0       |
-| Aktuell      | setCurrent | A  | 0              | 0       | 100     | 0       |
-| Fläkthastighet    | fanSpeed   | RPM   | 0              | 0       | 1 000    | 0       |
-
-Visa/Dölj inställningar
-
-| Visningsnamn | Fältnamn | Text | Av text | Inledande |
-| ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | PÅ      | AV      | Av     |
-
-### <a name="properties"></a>Egenskaper
-
-| Typ            | Visningsnamn | Fältnamn | Datatyp |
-| --------------- | ------------ | ---------- | --------- |
-| Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
-| Enhetsegenskap | Enhetsplats   | plats  | plats    |
-| Text            | Tillverkas på     | manufacturedIn   | Gäller inte       |
+Fullständig information om konfigurationen finns i [MXChip mall enhetsinformation](howto-connect-devkit.md#mxchip-device-template-details)
 
 
-### <a name="add-a-real-device"></a>Lägga till en riktig enhet
+## <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
 I Azure IoT Central programmet, lägger du till en riktig enhet från den **MXChip** enheten mallen och gjort en notering enhetens anslutningssträng. Mer information finns i [ge en riktig enhet till Azure IoT Central programmet](tutorial-add-device.md).
 
-## <a name="prepare-the-devkit-device"></a>Förbered enheten DevKit
+### <a name="prepare-the-devkit-device"></a>Förbered enheten DevKit
 
 > [!NOTE]
 > Om du tidigare har använt enheten och har wifi autentiseringsuppgifter lagras och vill konfigurera om enheten för att använda ett annat Wi-Fi-nätverk eller anslutningssträng telemetri mätning, trycker du på både den **A** och **B** knappar på tavlan samtidigt. Om det inte fungerar, trycker du på **återställa** knappen och försök igen.
 
-Förbereda enheten DevKit:
+#### <a name="before-you-start-configuring-the-device"></a>Innan du börjar konfigurera enheten:
+1. I din IoT Central **exempel Devkits** gå till `Device Explorer` ->  `select MXChip Template`  ->  `Click on +New and choose **Real** Device`  ->  `Connect this device` (på upp till höger) 
+2. Kopiera primär anslutningssträng
+3. Se till att spara anslutningssträngen, som du kommer temporaritly hämta ansluten till internet när du förbereder DevKit enheten. 
+
+
+#### <a name="to-prepare-the-devkit-device"></a>Förbereda enheten DevKit:
+
 
 1. Ladda ned den senaste färdiga Azure IoT Central inbyggda programvaran för MXChip från den [släpper](https://github.com/Azure/iot-central-firmware/releases) sidan på GitHub. Ladda ned filnamnet på sidan med versioner som ser ut som `AZ3166-IoT-Central-X.X.X.bin`.
 
@@ -113,7 +75,7 @@ Förbereda enheten DevKit:
     ```
 
     > [!NOTE]
-    > Om skärmen visar allt annat, trycker du på den **återställa** knappen på enheten. 
+    > Om skärmen visar allt annat, trycker du på den **A** och **B** knappar på enheten på samma gång för att starta om enheten. 
 
 1. Enheten är nu i åtkomstläge åtkomstpunkten (AP). Du kan ansluta till den här Wi-Fi-åtkomstpunkt från din dator eller mobil enhet.
 
@@ -125,10 +87,9 @@ Förbereda enheten DevKit:
 
     På webbsidan: 
     - Lägg till namnet på ditt Wi-Fi-nätverk 
-    - lösenordet för Wi-Fi-nätverk 
+    - lösenordet för Wi-Fi-nätverk
     - PIN-koden som visas på enheten LCD 
-    - anslutningssträngen för din enhet. 
-      Du hittar anslutningssträngen \@ `https://apps.iotcentral.com`  ->  `Device Explorer`  ->  `Device`  ->  `Select or Create a new Real Device`  ->  `Connect this device` (på upp till höger) 
+    - anslutningssträngen för enheten (du bör redan har sparat den här följa stegen) som du kan hitta anslutningssträngen på `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (på upp till höger)
     - Välj all tillgänglig telemetri mätningar! 
 
 1. När du har valt **– konfigurera enhet**, visas den här sidan:
@@ -191,7 +152,7 @@ Föregående kommando hämtar källkoden till en mapp med namnet `iot-central-fi
 
 Använd Visual Studio Code, som installerades när du har förberett din utvecklingsmiljö för att öppna den `AZ3166` mapp i den `iot-central-firmware` mapp: 
 
-![Visual Studio-kod](media/howto-connect-devkit/vscodeview.png)
+![Visual Studio-koden](media/howto-connect-devkit/vscodeview.png)
 
 Om du vill se hur telemetri som skickas till programmet Azure IoT Central, öppna den **main_telemetry.cpp** filen i källmappen.
 
@@ -206,6 +167,66 @@ Funktionen `telemetryLoop` skickar den **doubleTap** rapporterade egenskap när 
 Koden i den **iotHubClient.cpp** källfilen använder funktioner från den [ Microsoft Azure IoT SDK: er och bibliotek för C](https://github.com/Azure/azure-iot-sdk-c) att interagera med IoT Hub.
 
 Information om hur du ändrar, skapa och överföra kod till din enhet finns i den **readme.md** fil i den `AZ3166` mapp.
+
+## <a name="mxchip-device-template-details"></a>MXChip mall enhetsinformation 
+
+Ett program som skapats med mallen för exemplet Devkits program innehåller en MXChip enhet mall med följande egenskaper:
+
+### <a name="measurements"></a>Mått
+
+#### <a name="telemetry"></a>Telemetri 
+
+| Fältnamn     | Enheter  | Minimum | Maximal | Antal decimaler |
+| -------------- | ------ | ------- | ------- | -------------- |
+| luftfuktighet       | %      | 0       | 100     | 0              |
+| Temp           | ° C     | -40     | 120     | 0              |
+| tryck       | hPa    | 260     | 1260    | 0              |
+| magnetometerX  | mgauss | där-1 000   | 1000    | 0              |
+| magnetometerY  | mgauss | där-1 000   | 1000    | 0              |
+| magnetometerZ  | mgauss | där-1 000   | 1000    | 0              |
+| accelerometerX | mg     | -2000   | 2000    | 0              |
+| accelerometerY | mg     | -2000   | 2000    | 0              |
+| accelerometerZ | mg     | -2000   | 2000    | 0              |
+| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+
+
+#### <a name="states"></a>Tillstånd 
+| Namn          | Visningsnamn   | NORMAL | VARNING | RISK | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | Enhetens tillstånd   | Grön  | Orange  | Röd    | 
+
+#### <a name="events"></a>Händelser 
+| Namn             | Visningsnamn      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | Knappen B är nedtryckt  | 
+
+### <a name="settings"></a>Inställningar
+
+Numeriska inställningar
+
+| Visningsnamn | Fältnamn | Enheter | Antal decimaler | Minimum | Maximal | Inledande |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| Spänning      | setVoltage | V | 0              | 0       | 240     | 0       |
+| Aktuell      | setCurrent | A  | 0              | 0       | 100     | 0       |
+| Fläkthastighet    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+Visa/Dölj inställningar
+
+| Visningsnamn | Fältnamn | Text | Av text | Inledande |
+| ------------ | ---------- | ------- | -------- | ------- |
+| IR           | activateIR | ON      | AV      | Av     |
+
+### <a name="properties"></a>Egenskaper
+
+| Typ            | Visningsnamn | Fältnamn | Datatyp |
+| --------------- | ------------ | ---------- | --------- |
+| Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
+| Enhetsegenskap | Enhetsplats   | location  | location    |
+| Text            | Tillverkas på     | manufacturedIn   | Gäller inte       |
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

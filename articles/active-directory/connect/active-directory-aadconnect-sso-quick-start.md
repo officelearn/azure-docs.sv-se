@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0611662dfb0ad2e15f87bbe5ec5559e7d8da57d
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: bf83a98010631fc20c5fd7365a3ca081bd9c8c75
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185728"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214874"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -41,9 +41,13 @@ Se till att följande krav är uppfyllda:
     >[!NOTE]
     >Azure AD Connect-versioner 1.1.557.0, 1.1.558.0, 1.1.561.0 och 1.1.614.0 har ett problem med synkronisering av lösenordshash. Om du _inte_ planerar att använda synkronisering av lösenordshash tillsammans med direktautentisering, läsa den [viktig information om Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) vill veta mer.
 
+* **Använda en stödd Azure AD Connect-topologi**: Kontrollera att du använder en av Azure AD Connect topologier som stöds beskrivs [här](active-directory-aadconnect-topologies.md).
+
 * **Ställ in autentiseringsuppgifter som domänadministratör**: du måste ha administratörsbehörighet för domänen för varje Active Directory-skogen som:
     * Du kan synkronisera till Azure AD via Azure AD Connect.
     * Innehåller användare som du vill aktivera för sömlös enkel inloggning.
+    
+* **Aktivera modern autentisering**: du måste aktivera [modern autentisering](https://aka.ms/modernauthga) på din klient för den här funktionen ska fungera.
 
 ## <a name="step-2-enable-the-feature"></a>Steg 2: Aktivera funktionen
 
@@ -77,21 +81,27 @@ Följ dessa instruktioner för att kontrollera att du har aktiverat sömlös enk
 
 ## <a name="step-3-roll-out-the-feature"></a>Steg 3: Distribuera funktionen
 
-Om du vill distribuera funktionen till dina användare, måste du lägga till följande Azure AD-URL till användarnas Zoninställningar för intranätet med hjälp av Grupprincip i Active Directory:
+Du kan gradvis rulla ut sömlös enkel inloggning till dina användare med hjälp av anvisningarna nedan. Du startar genom att lägga till följande Azure AD-URL för alla eller valt användares Zoninställningar för intranätet med hjälp av Grupprincip i Active Directory:
 
 - https://autologon.microsoftazuread-sso.com
-
 
 Dessutom måste du aktivera en princip för intranät-zonen som heter **tillåta uppdateringar till statusfältet via skript** via en Grupprincip. 
 
 >[!NOTE]
-> Följande instruktioner fungerar endast för Internet Explorer och Google Chrome på Windows (om den delar en uppsättning tillförlitlig URL: er med Internet Explorer). Läs nästa avsnitt för anvisningar om hur du ställer in Mozilla Firefox och Google Chrome på Mac.
+> Följande instruktioner fungerar endast för Internet Explorer och Google Chrome på Windows (om den delar en uppsättning tillförlitlig URL: er med Internet Explorer). Läs nästa avsnitt för anvisningar om hur du ställer in Mozilla Firefox och Google Chrome på macOS.
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Varför behöver du ändra användares Zoninställningar för intranätet?
 
 Som standard beräknas automatiskt rätt zonen Internet- eller intranätvärdar från en specifik URL i webbläsaren. Till exempel ”http://contoso/” mappar till zonen Intranät, medan ”http://intranet.contoso.com/” mappar till zonen Internet (eftersom URL: en innehåller en punkt). Webbläsare skickar inte Kerberos-biljetter till en slutpunkt i molnet, t.ex. Azure AD-URL, såvida inte du uttryckligen lägga till URL: en till webbläsarens intranätzonen.
 
-### <a name="detailed-steps"></a>Detaljerade steg
+Det finns två sätt att ändra användares Zoninställningar för intranätet:
+
+| Alternativ | Admin-överväganden | Användarupplevelse |
+| --- | --- | --- |
+| Grupprincip | Admin-Lås ned redigering av Zoninställningar för intranätet | Användare kan inte ändra sina egna inställningar |
+| Grupp principen till inställningar |  Administratören tillåter redigering i Zoninställningar för intranätet | Användarna kan ändra sina egna inställningar |
+
+### <a name="group-policy-option---detailed-steps"></a>”Grupprincip” alternativet - detaljerade steg
 
 1. Öppna Redigeraren för Grupprinciphantering-verktyget.
 2. Redigera grupprincipen som tillämpas på vissa eller alla användare. Det här exemplet används **Standarddomänprincip**.
@@ -123,6 +133,32 @@ Som standard beräknas automatiskt rätt zonen Internet- eller intranätvärdar 
 
     ![Enkel inloggning](./media/active-directory-aadconnect-sso/sso12.png)
 
+### <a name="group-policy-preference-option---detailed-steps"></a>”Grupp principen till inställningar” alternativet - detaljerade steg
+
+1. Öppna Redigeraren för Grupprinciphantering-verktyget.
+2. Redigera grupprincipen som tillämpas på vissa eller alla användare. Det här exemplet används **Standarddomänprincip**.
+3. Bläddra till **Användarkonfiguration** > **inställningar** > **Windows-inställningar** > **registret**  >  **New** > **registerobjekt**.
+
+    ![Enkel inloggning](./media/active-directory-aadconnect-sso/sso15.png)
+
+4. Ange följande värden i lämpliga fält och klicka på **OK**.
+   - **Nyckeln sökväg**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
+   - **Värdenamn**: ***https***.
+   - **Värdetypen**: ***REG_DWORD***.
+   - **Värdedata**: ***00000001***.
+ 
+    ![Enkel inloggning](./media/active-directory-aadconnect-sso/sso16.png)
+ 
+    ![Enkel inloggning](./media/active-directory-aadconnect-sso/sso17.png)
+
+6. Bläddra till **Användarkonfiguration** > **Administrationsmallar** > **Windows-komponenter**  >   **Internet Explorer** > **Internet på Kontrollpanelen** > **säkerhetssidan** > **intranätzonen**. Välj sedan **tillåta uppdateringar till statusfältet via skript**.
+
+    ![Enkel inloggning](./media/active-directory-aadconnect-sso/sso11.png)
+
+7. Aktivera den här inställningen och väljer sedan **OK**.
+
+    ![Enkel inloggning](./media/active-directory-aadconnect-sso/sso12.png)
+
 ### <a name="browser-considerations"></a>Överväganden för webbläsare
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (alla plattformar)
@@ -134,15 +170,15 @@ Mozilla Firefox använda inte automatiskt Kerberos-autentisering. Varje använda
 4. Ange https://autologon.microsoftazuread-sso.com i fältet.
 5. Välj **OK** och öppnar sedan webbläsaren igen.
 
-#### <a name="safari-mac-os"></a>Safari (Mac OS)
+#### <a name="safari-macos"></a>Safari (macOS)
 
-Se till att den dator som kör Mac OS är ansluten till AD. Anvisningar om hur du ansluter AD finns i [bästa praxis för integrering med Active Directory i OS X](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
+Se till att den dator som kör macOS är ansluten till AD. Anvisningar om hur du ansluter AD finns i [bästa praxis för integrering med Active Directory i OS X](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (alla plattformar)
 
 Om du har åsidosätts den [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) eller [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) principinställningar i din miljö, se till att du lägger till Azure AD-URL (https://autologon.microsoftazuread-sso.com) till dem också.
 
-#### <a name="google-chrome-mac-os-only"></a>Google Chrome (endast Mac OS)
+#### <a name="google-chrome-macos-only"></a>Google Chrome (endast macOS)
 
 Google Chrome på Mac OS och andra icke-Windows-plattformar finns i [krom projekt Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) information om hur du godkänna Azure AD-URL för integrerad autentisering.
 
@@ -169,7 +205,12 @@ Använd någon av de här stegen för att testa scenariot där användaren inte 
 
 ## <a name="step-5-roll-over-keys"></a>Steg 5: Förnya nycklar
 
-I steg 2 skapar datorkonton (Visa Azure AD) i alla Active Directory-skogar som du har aktiverat sömlös enkel inloggning i Azure AD Connect. Mer information finns i [Azure Active Directory sömlös enkel inloggning: teknisk djupdykning](active-directory-aadconnect-sso-how-it-works.md). För ökad säkerhet rekommenderar vi att du regelbundet förnyar Kerberos dekrypteringsnycklar för dessa konton. Anvisningar om hur du förnyar nycklar finns i [Azure Active Directory sömlös enkel inloggning: vanliga frågor och svar](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account).
+I steg 2 skapar datorkonton (Visa Azure AD) i alla Active Directory-skogar som du har aktiverat sömlös enkel inloggning i Azure AD Connect. Mer information finns i [Azure Active Directory sömlös enkel inloggning: teknisk djupdykning](active-directory-aadconnect-sso-how-it-works.md).
+
+>[!IMPORTANT]
+>Kerberos-krypteringsnyckel på ett datorkonto kan om sprids, användas att generera Kerberos-biljetter för alla användare i dess AD-skog. Skadliga aktörer kan sedan personifiera Azure AD-inloggningar för komprometterade användare. Vi rekommenderar starkt att du byter periodvis över dessa Kerberos-dekrypteringsnycklar – minst en gång var 30: e dag.
+
+Anvisningar om hur du förnyar nycklar finns i [Azure Active Directory sömlös enkel inloggning: vanliga frågor och svar](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account). Vi arbetar på en funktion för att introducera automatiserad distribution över av nycklar.
 
 >[!IMPORTANT]
 >Du behöver inte göra det här steget _omedelbart_ när du har aktiverat funktionen. Om du förnya Kerberos-dekrypteringsnycklar på minst en gång var 30: e dag.

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 84aac0017496c50f0006fd6e184537e4c14f10c7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e11ba8ca9c4ad17b2ade909bb474ad2d1fcf4410
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059447"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Självstudier: Azure Active Directory-integration med kunskaper Base
 
@@ -110,7 +110,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://app.skills-base.com/o/<customer-unique-key>`
 
     > [!NOTE] 
-    > Inloggnings-URL-värdet är inte verkliga. Uppdatera värdet med faktiska inloggnings-URL: en. Kontakta [kunskaper Base klienten supportteamet](mailto:support@skills-base.com) att hämta värdet.
+    > Du kan hämta inloggnings-URL: en från kunskaper Base program. . Logga in som administratör och gå till Admin -> Inställningar -> instans information -> kommandot. Kopiera inloggnings URL och klistra in det i ovanför textrutan.
 
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -141,7 +141,6 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. Klicka på **Spara**.
     
-
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
@@ -179,7 +178,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i kunskaper Base. Kunskaper Base stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt grundläggande kunskaper om det inte finns ännu.
 
 >[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [kunskaper Base klienten supportteamet](mailto:support@skills-base.com).
+>Om du behöver skapa en användare manuellt följer du anvisningarna [här](http://wiki.skills-base.net/index.php?title=Adding_people_and_enabling_them_to_log_in).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

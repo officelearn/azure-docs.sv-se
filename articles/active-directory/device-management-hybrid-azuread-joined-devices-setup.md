@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fd23da29324dc5cb212c144f5bb303a46d6f4d42
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 3fbf47eca2c623e55ff5e70095c04f16a1a1b3e6
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868443"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215170"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Konfigurera hybrid Azure Active Directory-anslutna enheter
 
@@ -97,7 +97,7 @@ Om din organisation planerar att använda sömlös SSO, följande webbadresser s
 
 Om din organisation använder hanterade (icke-federerade) installation med lokala AD och inte använder AD FS för att federera med Azure AD, och sedan hybrid Azure AD-anslutning i Windows 10 är beroende av datorobjekt i AD för att vara sync'ed till Azure AD. Se till att alla organisationens enheter (OU) som innehåller datorobjekt som måste vara hybrid Azure AD-anslutna är aktiverad för synkronisering i Azure AD Connect sync-konfiguration.
 
-Om din organisation kräver åtkomst till Internet via en utgående proxy, måste du implementera Web Proxy Auto-Discovery (WPAD) för att aktivera Windows 10-datorer att registrera till Azure AD.
+Om din organisation kräver åtkomst till Internet via en utgående proxy för Windows 10-enheter på version 1703 eller tidigare måste du implementera Web Proxy Auto-Discovery (WPAD) för att aktivera Windows 10-datorer att registrera till Azure AD. 
 
 ## <a name="configuration-steps"></a>Konfigurationssteg
 

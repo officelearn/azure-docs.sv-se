@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: 05340c8504150ed568e0d5ce5c8250127e59bca0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6d1d90ff0f9a49d3db9f4dc8894c9837942658f0
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003245"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215007"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-visual-studio-team-services-vsts"></a>Contoso-migrering: omstrukturera en Team Foundation Server-distribution till Visual Studio Team Services (VSTS)
 
@@ -242,7 +242,7 @@ Innan de börjar schemalägger Contoso driftstopp med Utvecklingsteamet ska saml
 2. **Skapa en säkerhetskopia**: nästa steg i processen är att skapa en säkerhetskopia som kan importeras till VSTS. Datanivå program komponenten paket (DACPAC), är en SQL Server-funktion som gör att databasändringar paketeras i en enda fil och distribueras till andra instanser av SQL. Det kan också återställas direkt till VSTS och används därför som paketering metod för att hämta samlingsdata i molnet. Contoso använder verktyget SqlPackage.exe för att generera DACPAC. Det här verktyget ingår i SQL Server Data Tools.
 3. **Ladda upp till storage**: efter DACPAC skapas, de överför den till Azure Storage. När paketet har överförts får de en signatur för delad åtkomst (SAS) för att tillåta Migreringsverktyget för TFS-åtkomst till lagringen.
 4. **Fyll importen**: Contoso kan sedan fylla i saknade fält i importfilen, inklusive DACPAC-inställningen. Börja med de anger att de vill göra en **blobbar i kontrolläge har** import för att kontrollera att allt fungerar korrekt innan du fullständig migrering.
-5. **Gör en testsändning**: testsändning import att testa migrering av samling. Torr körningar har begränsad livslängd och tas bort innan en en migrering i produktion körs. De är tas bort automatiskt efter en angiven tidsperiod. En anteckning om när testsändningen kommer att tas bort ingår i de e-postmeddelande tas emot när importen är klar. Notera och planera på lämpligt sätt.
+5. **Gör en testsändning**: testsändning import att testa migrering av samling. Torr körningar har begränsad livslängd och tas bort innan en migrering i produktion körs. De är tas bort automatiskt efter en angiven tidsperiod. En anteckning om när testsändningen kommer att tas bort ingår i de e-postmeddelande tas emot när importen är klar. Notera och planera på lämpligt sätt.
 6. **Slutföra migreringen produktion**: med testsändning migreringen har slutförts, Contoso har sista migreringen genom att uppdatera import.json och köra importera igen.
 
 

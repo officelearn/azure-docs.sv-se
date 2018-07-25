@@ -19,7 +19,7 @@
     - name: Isolering i Azure-molnet
       href: azure-isolation.md
     - name: Skydda hybridnätverksarkitektur
-      href: 'https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json'
+      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: Tekniska funktioner för säkerhet
       href: azure-security-technical-capabilities.md
 - name: Datasäkerhet och kryptering
@@ -46,11 +46,11 @@
             - name: Felsökning
               href: azure-security-disk-encryption-tsg.md
         - name: Kryptera en virtuell Azure-dator
-          href: ../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json
+          href: ../security-center/security-center-disk-encryption.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Azure Storage-säkerhet
       href: security-storage-overview.md
     - name: Lagringssäkerhetsguide
-      href: ../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json
+      href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Plattform och infrastruktur
   items:
     - name: Säkerhet för infrastruktur
@@ -104,7 +104,7 @@
         - name: DDoS Protection
           href: azure-ddos-best-practices.md
         - name: Gränssäkerhet
-          href: ../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json
+          href: ../best-practices-network-security.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Program
   items:
     - name: PaaS
@@ -116,15 +116,15 @@
           href: security-paas-applications-using-storage.md
         - name: DB-metodtips för PaaS
           href: security-paas-applications-using-sql.md
-        - name: IoT
-          href: security-internet-of-things-overview.md
-          items:
-            - name: Metodtips för IoT-säkerhet
-              href: ../iot-accelerators/iot-security-best-practices.md
-            - name: IoT-säkerhet
-              href: '../iot-accelerators/iot-security-architecture.md#security-in-iot'
-            - name: Skydda distributionen av IoT
-              href: ../iot-accelerators/iot-accelerators-security-deployment.md
+    - name: IoT
+      href: security-internet-of-things-overview.md
+      items:
+        - name: Metodtips för IoT-säkerhet
+          href: ../iot-accelerators/iot-security-best-practices.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: IoT-säkerhet
+          href: '../iot-accelerators/iot-security-architecture.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot'
+        - name: Skydda distributionen av IoT
+          href: ../iot-accelerators/iot-accelerators-security-deployment.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Azure Service Fabric-säkerhet
       href: azure-service-fabric-security-overview.md
       items:
@@ -138,7 +138,7 @@
     - name: Granskning och loggning
       items:
         - name: Säkerhetshantering
-          href: ../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json
+          href: ../security-center/security-center-intro.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
         - name: Säkerhet för fjärrhantering
           href: azure-security-management.md
         - name: Azure-loggintegrering

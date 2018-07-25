@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: da81f26109eb140135eb972fd28e487139470b82
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: a69bfbe4c062012e82ca49233226eb1fcb8eb75e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033091"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113548"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure Stream Analytics-verktygen för Visual Studio
 
@@ -54,9 +54,9 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som har k
 
 5. Från sidan **Blob Service** väljer du **behållare** och anger ett **namn** för behållaren, som *container1* > välj sedan  **OK**.  
 
-   ![Skapa en behållare](./media/stream-analytics-quick-create-vs/create-a-storage-container.png)
+   ![Skapa en container](./media/stream-analytics-quick-create-vs/create-a-storage-container.png)
 
-6. Gå till behållaren du skapade i föregående steg. Välj **Ladda upp** och ladda upp sensordata som du fick i det första steget.  
+6. Gå till containern du skapade i föregående steg. Välj **Ladda upp** och ladda upp sensordata som du fick i det första steget.  
 
    ![Ladda upp exempeldata till blob](./media/stream-analytics-quick-create-vs/upload-sample-data-to-blob.png)
 
@@ -71,6 +71,11 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som har k
 4. Ange projektets **namn**, **plats** och **lösningsnamn**. Välj sedan **OK**.
 
    ![Skapa ett Stream Analytics-projekt](./media/stream-analytics-quick-create-vs/create-stream-analytics-project.png)
+
+Lägg märke till de element som ingår i ett Azure Stream Analytics-projekt.
+
+   <img src="./media/stream-analytics-quick-create-vs/stream-analytics-project.png" alt="Azure Stream Analytics project elements" width="300px"/>
+
 
 ## <a name="choose-the-required-subscription"></a>Välj den prenumeration som krävs
 
@@ -92,7 +97,7 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som har k
    |Resurs  | Välj datakälla från det aktuella kontot | Välj att ange data manuellt eller välj ett befintligt konto.   |
    |Prenumeration  |  \<Din prenumeration\>   | Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration.   |
    |Lagringskonto  |  asaquickstartstorage   |  Välj eller ange lagringskontots namn. Lagringskontonamn identifieras automatiskt om de skapas i samma prenumeration.   |
-   |Behållare  |  container1   |  Välj en befintlig behållare som du skapade i ditt lagringskonto.   |
+   |Container  |  container1   |  Välj en befintlig container som du skapade i ditt lagringskonto.   |
    
 3. Låt standardvärdena stå kvar för övriga alternativ och välj **Spara** för att spara inställningarna.  
 
@@ -111,8 +116,8 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som har k
    |Resurs  |  Ange inställningar för datakälla manuellt |  Välj att ange data manuellt eller välj ett befintligt konto.   |
    |Prenumeration  |  \<Din prenumeration\>   | Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration.   |
    |Lagringskonto  |  asaquickstartstorage   |  Välj eller ange lagringskontots namn. Lagringskontonamn identifieras automatiskt om de skapas i samma prenumeration.   |
-   |Behållare  |  container1   |  Välj en befintlig behållare som du skapade i ditt lagringskonto.   |
-   |Sökvägsmönster  |  utdata   |  Ange namnet för en sökväg som ska skapas i behållaren.   |
+   |Container  |  container1   |  Välj en befintlig container som du skapade i ditt lagringskonto.   |
+   |Sökvägsmönster  |  utdata   |  Ange namnet för en sökväg som ska skapas i containern.   |
    
 3. Låt standardvärdena stå kvar för övriga alternativ och välj **Spara** för att spara inställningarna.  
 

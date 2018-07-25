@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: fe0b2531ef4bb85513d63207b903ee14b6652fc0
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 36df9d00d41f3c092320fa88772b41c9a41c6d8e
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216280"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237289"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Konfigurera en virtuell dator hanterad tjänstidentitet (MSI) med Azure CLI-skalningsuppsättning
 
@@ -91,20 +91,26 @@ Om du vill aktivera den systemtilldelade identiteten på en befintlig Azure VM-s
 
 ### <a name="disable-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Inaktivera systemtilldelade identiteter från en Azure VM-skalningsuppsättning
 
-> [!NOTE]
-> Inaktiverar hanterad tjänstidentitet från en Virtual Machine Scale Sets stöds för närvarande inte. Under tiden kan växla du mellan att använda System tilldelas och tilldelade användaridentiteter. Kom tillbaka om för att få uppdateringar.
-
-Om du har en skalningsuppsättning för virtuella datorer som inte längre behöver en systemtilldelad identitet, men fortfarande ha användartilldelade identiteter, utför du följande kommando:
+Om du har en skalningsuppsättning för virtuella datorer som inte längre behöver systemtilldelad identitet, men fortfarande ha användartilldelade identiteter, använder du följande kommando:
 
 ```azurecli-interactive
-az vmss update -n myVMSS -g myResourceGroup --set identity.type='UserAssigned' 
+az vmss update -n myVM -g myResourceGroup --set identity.type='UserAssigned' 
+```
+
+Om du har en virtuell dator som inte längre behöver systemtilldelad identitet och har inga användartilldelade identiteter, använder du följande kommando:
+
+> [!NOTE]
+> Värdet `none` är skiftlägeskänsligt. Det måste vara gemener. 
+
+```azurecli-interactive
+az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
 Ta bort MSI VM-tillägget med [az vmss-identitet ta bort](/cli/azure/vmss/identity/#az_vmss_remove_identity) till att ta bort systemtilldelade identiteter från en Skalningsuppsättningen:
 
-   ```azurecli-interactive
-   az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
-   ```
+```azurecli-interactive
+az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
+```
 
 ## <a name="user-assigned-identity"></a>Användartilldelad identitet
 
@@ -122,13 +128,12 @@ Det här avsnittet vägleder dig genom skapandet av en VMSS och tilldelningen av
 
 2. Skapa en Användartilldelad identitet med hjälp av [az identitet skapa](/cli/azure/identity#az-identity-create).  Den `-g` parametern anger resursgruppen där Användartilldelad identitet skapas, och `-n` parametern anger dess namn. Ersätt parametervärdena `<RESOURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` med dina egna värden:
 
-[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
-
-    ```azurecli-interactive
-    az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
-    ```
-Svaret innehåller information om Användartilldelad identitet skapas, liknar följande. Resursen `id` värde som tilldelats Användartilldelad identitet som ska användas i följande steg.
+   ```azurecli-interactive
+   az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
+   ```
+   Svaret innehåller information om Användartilldelad identitet skapas, liknar följande. Resursen `id` värde som tilldelats Användartilldelad identitet som ska användas i följande steg.
 
    ```json
    {
@@ -184,20 +189,27 @@ Svaret innehåller information om Användartilldelad identitet skapas, liknar f�
     az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>
     ```
 
-### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>Ta bort Användartilldelad identitet från en Azure VMSS
+### <a name="remove-a-user-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Ta bort en Användartilldelad identitet från en Azure VM-skalningsuppsättning
 
-> [!NOTE]
->  Ta bort alla användartilldelade identiteter från en Virtual Machine Scale Sets stöds för närvarande inte, om du inte har en systemtilldelad identitet. 
-
-Om din VMSS har flera användartilldelade identiteter kan du ta bort alla utom den avslutande med [az vmss-identitet ta bort](/cli/azure/vmss/identity#az-vmss-identity-remove). Ersätt parametervärdena `<RESOURCE GROUP>` och `<VMSS NAME>` med dina egna värden. Den `<MSI NAME>` är Användartilldelad identitet namnegenskapen som finns med i identitetsavsnittet i en virtuell dator med hjälp av `az vm show`:
+Ta bort en Användartilldelad identitet från en VM scale set användning [az vmss-identitet ta bort](/cli/azure/vmss/identity#az-vmss-identity-remove). Ersätt parametervärdena `<RESOURCE GROUP>` och `<VMSS NAME>` med dina egna värden. Den `<MSI NAME>` som det Användartilldelad identitet `name` egenskapen, som finns med i identitetsavsnittet i en virtuell dator med hjälp av `az vmss identity show`:
 
 ```azurecli-interactive
 az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAME>
 ```
-Om din VMSS har både systemtilldelad och användartilldelade identiteter, du kan ta bort alla användartilldelade identiteter genom att växla mellan för att använda endast system som har tilldelats. Ange följande kommando: 
+
+Om din skalningsuppsättning för virtuell dator har inte en systemtilldelad identitet och du vill ta bort alla användartilldelade identiteter från den, använder du följande kommando:
+
+> [!NOTE]
+> Värdet `none` är skiftlägeskänsligt. Det måste vara gemener.
 
 ```azurecli-interactive
-az vmss update -n <VMSS NAME> -g <RESOURCE GROUP> --set identity.type='SystemAssigned' identity.identityIds=null
+az vmss update -n myVMSS -g myResourceGroup --set identity.type="none" identity.identityIds=null
+```
+
+Om din skalningsuppsättning för virtuell dator har både systemtilldelad och användartilldelade identiteter, du kan ta bort alla användartilldelade identiteter genom att växla med endast system som har tilldelats. Ange följande kommando:
+
+```azurecli-interactive
+az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null 
 ```
 
 ## <a name="next-steps"></a>Nästa steg

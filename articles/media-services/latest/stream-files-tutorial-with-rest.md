@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 07/16/2018
 ms.author: juliako
-ms.openlocfilehash: 0faed5d72002f24d7be7602c5f16c18e66a0089e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5cc109467f9affa9cf5f43342203e8d4298269e0
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308621"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115214"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Självstudie: överför, koda och strömma videoklipp med REST
 
@@ -77,22 +77,23 @@ Det här avsnittet konfigurerar Postman.
     > [!Note]
     > Uppdatera åtkomstvariablerna med värden som du fick från avsnittet **Åtkomst till Media Services API** ovan.
 
-7. Stäng dialogrutan.
-8. Välj miljön **Azure Media Service v3-miljö** från listmenyn.
+7. Dubbelklicka på den valda filen och ange värden som du har fått genom att följa stegen i [åtkomst till API](#access-the-media-services-api).
+8. Stäng dialogrutan.
+9. Välj miljön **Azure Media Service v3-miljö** från listmenyn.
 
     ![Välj miljö](./media/develop-with-postman/choose-env.png)
    
 ### <a name="configure-the-collection"></a>Konfigurera samlingen
 
 1. Klicka på **Importera** för att importera samlingsfilen.
-1. Bläddra till `Media Services v3 (2018-03-30-preview).postman_collection.json`-filen som hämtades när du klonade `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`
-3. Välj filen **Media Services v3 (2018-03-30-preview).postman_collection.json**.
+1. Bläddra till `Media Services v3.postman_collection.json`-filen som hämtades när du klonade `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`
+3. Välj filen **Media Services v3.postman_collection.json**.
 
     ![Importera en fil](./media/develop-with-postman/postman-import-collection.png)
 
 ## <a name="send-requests-using-postman"></a>Skicka begäranden med Postman
 
-I det här avsnittet skickar vi begäranden som är relevanta för att koda och skapa URL:er så att du kan strömma din fil. Mer specifikt skickas följande begäranden:
+I det här avsnittet skickar vi begäranden som är relevanta för att koda och skapa webbadresser, så att du kan direktuppspela en fil. Mer specifikt skickas följande begäranden:
 
 1. Hämta Azure AD-token för autentisering för tjänstens huvudnamn
 2. Skapa en utdatatillgång
@@ -128,11 +129,21 @@ I det här avsnittet skickar vi begäranden som är relevanta för att koda och 
 2. Välj därefter Skapa eller uppdatera en tillgång.
 3. Tryck på **Skicka**.
 
-    Följande **PUT**-åtgärd skickas.
+    * Följande **PUT**-åtgärd skickas:
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
+        ```
+    * Åtgärden har följande text:
+
+        ```json
+        {
+        "properties": {
+            "description": "My Asset",
+            "alternateId" : "some GUID"
+         }
+        }
+        ```
 
 ### <a name="create-a-transform"></a>Skapa en transformering
 
@@ -149,11 +160,30 @@ Du kan använda en inbyggd EncoderNamedPreset eller anpassade förinställningar
 2. Välj sedan Skapa transformering.
 3. Tryck på **Skicka**.
 
-    Följande **PUT**-åtgärd skickas.
+    * Följande **PUT**-åtgärd skickas.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
+        ```
+    * Åtgärden har följande text:
+
+        ```json
+        {
+            "properties": {
+                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "outputs": [
+                    {
+                    "onError": "StopProcessingJob",
+                "relativePriority": "Normal",
+                    "preset": {
+                        "@odata.type": "#Microsoft.Media.BuiltInStandardEncoderPreset",
+                        "presetName": "AdaptiveStreaming"
+                    }
+                    }
+                ]
+            }
+        }
+        ```
 
 ### <a name="create-a-job"></a>Skapa ett jobb
 
@@ -165,13 +195,34 @@ I det här exemplet är jobbets indata baserat på en HTTPS-URL (https://nimbusc
 2. Välj därefter Skapa eller uppdatera jobbet.
 3. Tryck på **Skicka**.
 
-    Följande **PUT**-åtgärd skickas.
+    * Följande **PUT**-åtgärd skickas.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
+        ```
+    * Åtgärden har följande innehåll:
 
-Jobbet tar en stund att slutföra och du meddelas när detta sker. Om du vill se förloppet för jobbet, rekommenderar vi att du använder Event Grid. Det är utformat för hög tillgänglighet, konsekvent prestanda och dynamisk skalning. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt även från anpassade källor. Med enkel och HTTP-baserad reaktiv händelsehantering blir det lättare att skapa effektiva lösningar med hjälp av intelligent filtrering och dirigering av händelser.  Se [Dirigera händelser till en anpassad webbslutpunkt](job-state-events-cli-how-to.md).
+        ```json
+        {
+        "properties": {
+            "input": {
+            "@odata.type": "#Microsoft.Media.JobInputHttp",
+            "baseUri": "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/",
+            "files": [
+                    "Ignite-short.mp4"
+                ]
+            },
+            "outputs": [
+            {
+                "@odata.type": "#Microsoft.Media.JobOutputAsset",
+                "assetName": "testAsset1"
+            }
+            ]
+        }
+        }
+        ```
+
+Jobbet tar en stund att slutföra och du meddelas när detta sker. Om du vill se förloppet för jobbet rekommenderar vi att du använder Event Grid. Det är utformat för hög tillgänglighet, konsekvent prestanda och dynamisk skalning. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt även från anpassade källor. Med enkel och HTTP-baserad reaktiv händelsehantering blir det lättare att skapa effektiva lösningar med hjälp av intelligent filtrering och dirigering av händelser.  Se [Dirigera händelser till en anpassad webbslutpunkt](job-state-events-cli-how-to.md).
 
 **Jobb** har vanligtvis följande tillstånd: **Schemalagd**, **I kö**, **Bearbetas**, **Slutförd** (slutlig status). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
 
@@ -189,14 +240,24 @@ När du skapar en [StreamingLocator](https://docs.microsoft.com/rest/api/media/s
 Media Service-kontot har en kvot för antalet StreamingPolicy-poster. Du bör inte skapa en ny StreamingPolicy för varje StreamingLocator.
 
 1. I det vänstra fönstret i Postman, väljer du Strömningsprinciper.
-2. Välj därefter Skapa en strömningsprincip.
+2. Välj därefter Skapa en positionerare.
 3. Tryck på **Skicka**.
 
-    Följande **PUT**-åtgärd skickas.
+    * Följande **PUT**-åtgärd skickas.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        ```
+    * Åtgärden har följande innehåll:
+
+        ```json
+        {
+            "properties":{
+            "assetName": "{{assetName}}",
+            "streamingPolicyName": "{{streamingPolicyName}}"
+            }
+        }
+        ```
 
 ### <a name="list-paths-and-build-streaming-urls"></a>Lista sökvägar och skapa URL:er för strömning
 
@@ -208,40 +269,40 @@ Nu när [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglo
 2. Välj sedan Lista sökvägar.
 3. Tryck på **Skicka**.
 
-    Följande **POST**-åtgärd skickas.
+    * Följande **POST**-åtgärd skickas.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
+        ```
+        
+    * Den här åtgärden har inget innehåll:
+        
 4. Notera en av sökvägarna du vill använda för strömning, du använder den i nästa avsnitt. I det här fallet returnerades följande sökvägar:
     
     ```
-    {
-        "streamingPaths": [
-            {
-                "streamingProtocol": "Hls",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)"
-                ]
-            },
-            {
-                "streamingProtocol": "Dash",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=mpd-time-csf)"
-                ]
-            },
-            {
-                "streamingProtocol": "SmoothStreaming",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest"
-                ]
-            }
-        ],
-        "downloadPaths": []
-    }
+    "streamingPaths": [
+        {
+            "streamingProtocol": "Hls",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)"
+            ]
+        },
+        {
+            "streamingProtocol": "Dash",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=mpd-time-csf)"
+            ]
+        },
+        {
+            "streamingProtocol": "SmoothStreaming",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest"
+            ]
+        }
+    ]
     ```
 
 #### <a name="build-the-streaming-urls"></a>Skapa strömnings-URL:erna
@@ -253,16 +314,27 @@ I det här avsnittet ska vi skapa en HLS-strömnings-URL. URL:er består av föl
     > [!NOTE]
     > Om en spelare finns på en HTTPS-webbplats uppdaterar du URL:en till ”HTTPS”.
 
-2. Värdnamnet för StreamingEndpoint. I det här fallet är namnet amsaccount-usw22.streaming.media.azure.net
-3. En sökväg som du fick i föregående avsnitt.  
+2. Värdnamnet för StreamingEndpoint. I det här fallet är namnet amsaccount-usw22.streaming.media.azure.net.
+
+    Du kan använda följande hämtningsåtgärd för att hämta värdnamnet:
+    
+    ```
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    ```
+    
+3. En sökväg som du fick i föregående avsnitt (listsökvägar).  
 
 Därmed skapades följande HLS-URL
 
 ```
-https://amsaccount-usw22.streaming.media.azure.net/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)
+https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)
 ```
 
 ## <a name="test-the-streaming-url"></a>Testa strömnings-URL:en
+
+
+> [!NOTE]
+> Kontrollera att slutpunkten för direktuppspelning som du vill spela upp innehåll från körs.
 
 I den här artikeln används Azure Media Player till att testa strömningen. 
 

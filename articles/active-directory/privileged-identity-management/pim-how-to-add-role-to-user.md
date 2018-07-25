@@ -1,6 +1,6 @@
 ---
-title: Lägga till eller ta bort en användarroll | Microsoft Docs
-description: Lär dig mer om att lägga till roller i Privilegierade identiteter med Azure Active Directory Privileged Identity Management-programmet.
+title: Tilldela användare med hjälp av Azure AD PIM katalogroller | Microsoft Docs
+description: Lär dig mer om att tilldela directory roller till användare som använder Azure Active Directory Privileged Identity Management och Azure-portalen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,57 +10,106 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
-ms.date: 01/03/2018
+ms.date: 07/23/2018
 ms.author: rolyon
-ms.openlocfilehash: eac0869c0f4a7dd780d6988ff9bc4362458a7e3d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1834addb4e51030afda43a2d7acad5d7ffc1889a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38590508"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226704"
 ---
-# <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management, lägg till eller ta bort en användarroll
-Med Azure Active Directory (AD), en global administratör (eller företagets administratör) kan uppdatera som användarna **permanent** tilldelas till roller i Azure AD. Detta görs med PowerShell-cmdlets som `Add-MsolRoleMember` och `Remove-MsolRoleMember`. Eller de kan använda Azure portal enligt beskrivningen i [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+# <a name="assign-directory-roles-to-users-using-azure-ad-pim"></a>Tilldela användare med hjälp av Azure AD PIM katalogroller
 
-Azure AD Privileged Identity Management-programmet administratörer Privilegierade roller kan göra permanenta rolltilldelningar, samt. Dessutom Privilegierade rolladministratörer kan utse användare **berättigade** för administratörsroller. En berättigad administratör kan aktivera rollen när de behöver den, och sedan deras behörigheter går ut när de är klar.
+Med Azure Active Directory (AD Azure), en Global administratör kan göra **permanent** directory rolltilldelningar. De här rolltilldelningarna kan skapas med den [Azure-portalen](../users-groups-roles/directory-assign-admin-roles.md) eller med hjälp av [PowerShell-kommandon](/powershell/module/azuread#directory_roles).
 
-## <a name="manage-roles-with-pim-in-the-azure-portal"></a>Hantera roller med PIM i Azure portal
-I din organisation, kan du tilldela användare till olika administrativa roller i Azure AD, Office 365 och andra Microsoft-tjänster och program.  Mer information om tillgängliga roller finns på [roller i Azure AD PIM](pim-roles.md).
+Azure AD Privileged Identity Management (PIM)-tjänsten kan också Privilegierade rolladministratörer att göra permanenta directory rolltilldelningar. Dessutom Privilegierade rolladministratörer kan utse användare **berättigade** för katalogroller. En berättigad administratör kan aktivera rollen när de behöver den, och sedan deras behörigheter går ut när de är klar. Läs om hur de roller som du kan hantera med hjälp av PIM [katalogroller som du kan hantera med hjälp av Azure AD PIM](pim-roles.md).
 
-Om du vill lägga till eller ta bort en användare i en roll med hjälp av Privileged Identity Management genom att ta fram PIM-instrumentpanelen. Klicka sedan antingen på den **användare i Adminroller** knappen eller välja en viss roll (till exempel Global administratör) från tabellen roller.
+## <a name="make-a-user-eligible-for-a-role"></a>Gör en användare som är tillgängliga för en roll
 
-> [!NOTE]
-> Om du inte har aktiverat PIM i Azure portal ännu, går du till [Kom igång med Azure AD PIM](pim-getting-started.md) mer information.
+Följ dessa steg om du vill göra en användare som är berättigade till en Azure AD directory-roll.
 
-Om du vill ge en annan användaråtkomst till PIM själva de roller som PIM kräver att användaren har beskrivs ytterligare i [ge åtkomst till PIM](pim-how-to-give-access-to-pim.md).
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med en användare som är medlem i den [privilegierad Rolladministratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) roll.
 
-## <a name="add-a-user-to-a-role"></a>Lägga till en användare till en roll
-1. I den [Azure-portalen](https://portal.azure.com/)väljer den **Azure AD Privileged Identity Management** panelen på instrumentpanelen.
-2. Välj **hantera Privilegierade roller**.
-3. I den **Rollsammanfattning** tabellen, Välj den roll som du vill hantera.
-4. I bladet roll väljer **Lägg till**.
-5. Klicka på **Välj användare** och Sök efter användaren på den **Välj användare** bladet.  
-6. Välj användaren från listan över sökresultat och klicka på **klar**.
-7. Klicka på **OK** att spara ditt val. Användare som du har valt visas i listan som berättigad för rollen.
+    Information om hur du ger en annan användaråtkomst för att hantera PIM finns [ge åtkomst till PIM](pim-how-to-give-access-to-pim.md).
 
-> [!NOTE]
-> Nya användare i en roll är bara berättigad till rollen som standard. Om du vill göra rollen permanenta, klickar du på användaren i listan. Information om användaren visas i ett nytt blad. Välj **gör permanent** i menyn användaren information.  
-> Om en användare kan inte registrera dig för Azure Multi-Factor Authentication (MFA) eller använder ett Microsoft-konto (vanligtvis @outlook.com), måste du se dem permanent i deras roller. Berättigade administratörer uppmanas att registrera för MFA vid aktivering.
+1. Öppna **Azure AD Privileged Identity Management**.
 
-Nu när du är berättigad för en roll kan informera dem om att de kan aktivera enligt anvisningarna i [aktivera eller inaktivera en roll](pim-how-to-activate-role.md).
+    Om du inte har aktiverat PIM i Azure portal ännu, går du till [Kom igång med Azure AD PIM](pim-getting-started.md).
+
+1. Klicka på **Azure AD-katalogroller**.
+
+1. Klicka på **roll (förhandsversion)** eller **medlemmar**.
+
+    ![Azure AD-katalogroller](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+
+1. Klicka på **Lägg till medlem** öppna Lägg till hanterade medlemmar.
+
+1. Klicka på **Välj en roll**, klickar du på en roll som du vill hantera och klicka sedan på **Välj**.
+
+    ![Välj en roll](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
+
+1. Klicka på **Välj medlemmar**, markera de användare som du vill tilldela rollen och klickar sedan på **Välj**.
+
+    ![Välj en roll](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+
+1. Lägg till hanterade medlemmar, klicka på **OK** att lägga till användaren till rollen.
+
+     När rollen tilldelas den användaren som du har valt visas i listan över medlemmar som **berättigade** för rollen.
+
+    ![Användare som är berättigade till en roll](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
+
+1. Nu när du är berättigad till rollen kan informera dem om att de kan aktivera enligt anvisningarna i [aktivera eller inaktivera en roll](pim-how-to-activate-role.md).
+
+    Berättigade administratörer uppmanas att registrera dig för Azure Multi-Factor Authentication (MFA) under aktiveringen. Om en användare kan inte registrera för MFA, eller använder ett Microsoft-konto (vanligtvis @outlook.com), måste du se dem permanent i deras roller.
+
+## <a name="make-a-role-assignment-permanent"></a>Göra en rolltilldelning permanenta
+
+Som standard är endast nya användare berättigade till en katalogroll. Följ dessa steg om du vill göra en rolltilldelning permanenta.
+
+1. Öppna **Azure AD Privileged Identity Management**.
+
+1. Klicka på **Azure AD-katalogroller**.
+
+1. Klicka på **medlemmar**.
+
+    ![Listan över medlemmar](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+
+1. Klicka på en **berättigade** roll som du vill göra permanenta.
+
+1. Klicka på **mer** och klicka sedan på **gör permanent**.
+
+    ![Göra rolltilldelning permanenta](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
+
+    Rollen visas nu som **permanent**.
+
+    ![Listan över medlemmar med permanent ändring](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
 
 ## <a name="remove-a-user-from-a-role"></a>Ta bort en användare från en roll
-Du kan ta bort användare från kvalificerade rolltilldelningar, men se till att det finns alltid minst en användare som är en permanent global administratör.
 
-Följ dessa steg för att ta bort en specifik användare från en roll:
+Du kan ta bort användare från rolltilldelningar, men se till att det finns alltid minst en användare som är en permanent Global administratör. Om du inte vet vilka användare behöver fortfarande ha sin rolltilldelningar kan du [starta en åtkomstgranskning för rollen](pim-how-to-start-security-review.md).
 
-1. Navigera till rollen i listan över rollen genom att välja en roll i Azure AD PIM-instrumentpanel eller genom att klicka på den **användare i Adminroller** knappen.
-2. Klicka på användare i användarlistan.
-3. Klicka på **ta bort**. Ett meddelande som ber dig att bekräfta.
-4. Klicka på **Ja** att ta bort rollen från användaren.
+Följ dessa steg om du vill ta bort en specifik användare från en katalogroll.
 
-Om du inte vet vilka användare behöver fortfarande ha sin rolltilldelningar så kan du [starta en åtkomstgranskning för rollen](pim-how-to-start-security-review.md).
+1. Öppna **Azure AD Privileged Identity Management**.
+
+1. Klicka på **Azure AD-katalogroller**.
+
+1. Klicka på **medlemmar**.
+
+    ![Listan över medlemmar](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+
+1. Klicka på en rolltilldelning som du vill ta bort.
+
+1. Klicka på **mer** och klicka sedan på **ta bort**.
+
+    ![Ta bort en roll](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
+
+1. Klicka på meddelandet som ber dig bekräfta **Ja**.
+
+    ![Ta bort en roll](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+
+    Rolltilldelningen har tagits bort.
 
 ## <a name="next-steps"></a>Nästa steg
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
-

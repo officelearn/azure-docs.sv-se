@@ -2,24 +2,24 @@
 title: Självstudien skapa en sammansatt entitet för att extrahera komplexa data – Azure | Microsoft Docs
 description: Lär dig hur du skapar en sammansatt entitet i din LUIS-app för att extrahera olika typer av entitetsdata.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
 ms.date: 07/09/2018
-ms.author: v-geberr
-ms.openlocfilehash: d73dc9b9f204e334a75c9de5e19c6b11e3a95b12
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: d14041e895bdf70544f7e956c76f91992a2df991
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929193"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238105"
 ---
 # <a name="tutorial-6-add-composite-entity"></a>Självstudie: 6. Lägg till sammansatta entitet 
 I den här självstudien lägger du till en sammansatt entitet för att bifoga extraherade data i en innehållande entiteten.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -123,7 +123,7 @@ För att få en LUIS-förutsägelse i en chattrobot eller i ett annat program m�
 3. Publiceringen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
 
 ## <a name="query-the-endpoint"></a>Fråga slutpunkten 
-1. På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunkts-URL i adressfältet. 
+1. På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunktens URL i adressfältet. 
 
     ![Välj slutpunkts-URL](./media/luis-tutorial-composite-entity/hr-publish-select-endpoint.png)
 
@@ -312,7 +312,7 @@ Din chattrobot har nu tillräcklig information för att fastställa den primära
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och data från entiteten för att gå vidare. LUIS utför inte detta programmässiga arbete för roboten eller det anropande programmet. LUIS tar endast reda på vad användarens avsikt är. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. Välj **Mina appar** på menyn längst upp till vänster. Välj ellipsen (***...*** ) till höger om appnamnet i applistan väljer **ta bort**. På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+Ta bort LUIS-appen när den inte längre behövs. Välja **My apps** (Mina appar) på menyn längst upp till vänster. Välj ellipsen (***...*** ) till höger om appnamnet i applistan väljer **ta bort**. På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 

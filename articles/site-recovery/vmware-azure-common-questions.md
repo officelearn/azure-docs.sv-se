@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 07/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 1c52a97bce1b18e16cb5109049f36e146165dff4
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e8d30ae6cde7c787f1aa950506e0eb74bac0c12d
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172137"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238816"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -72,7 +72,7 @@ Ja, ExpressRoute kan användas för att replikera datorer till Azure. Site Recov
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Varför kan inte replikera via VPN?
 
-När du replikerar till Azure replikeringstrafik når de offentliga slutpunkterna för ett Azure Storage-konto och därför kan du bara replikera via det offentliga internet med med ExpressRoute (offentlig peering) VPN fungerar inte. 
+När du replikerar till Azure replikeringstrafik når de offentliga slutpunkterna för ett Azure Storage-konto och därför kan du bara replikera via det offentliga internet med ExpressRoute (offentlig peering) VPN fungerar inte. 
 
 
 

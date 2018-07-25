@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/08/2018
+ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: f9648e15c720c076a65e84a95f4160f27eec598d
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2cda30c85ce8a8dc9b7a6c0134b7cabc58b842a4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068606"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115328"
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
 
@@ -27,7 +27,7 @@ Azure Key Vault är en molntjänst som fungerar som säkert lager för hemlighet
 
 Du har lösenord, anslutningssträngar och andra uppgifter som behövs för att hålla igång dina program. Du vill se till att den här informationen är tillgänglig men att den samtidigt är skyddad. Lösningen på det här problemet heter Azure Key Vault. Med Azure Key Vault kan du säkert lagra och hantera programhemligheter.
 
-Du kan skapa flera säkra behållare, som kallas valv, i Key Vault. De här valven stöds av säkerhetsmoduler på maskinvarunivå (HSM:er). Med valv så minskar risken för att säkerhetsinformation förloras av misstag eftersom lagringen av hemligheter centraliseras. Key Vaults styr och loggar dessutom åtkomsten till informationen du lagrar. Azure Key Vault kan hantera förfrågningar om och förnyande av TLS-certifikat (Transport Layer Security), och du har tillgång till alla de funktioner som krävs för en robust livscykelhantering av certifikat.
+Du kan skapa flera säkra containrar, som kallas valv, i Key Vault. De här valven stöds av säkerhetsmoduler på maskinvarunivå (HSM:er). Med valv så minskar risken för att säkerhetsinformation förloras av misstag eftersom lagringen av hemligheter centraliseras. Key Vaults styr och loggar dessutom åtkomsten till informationen du lagrar. Azure Key Vault kan hantera förfrågningar om och förnyande av TLS-certifikat (Transport Layer Security), och du har tillgång till alla de funktioner som krävs för en robust livscykelhantering av certifikat.
 
  Azure Key Vault är utformat med stöd för programnycklar och hemligheter. Key Vault är inte avsett att användas för lagring av användarlösenord.
 
@@ -39,9 +39,9 @@ När dina programhemligheter lagras lokalt i Azure Key Vault kan du styra spridn
 
 Dina program har säker åtkomst till den information de behöver via URI:er som tillåter dem att hämta specifika versioner av en hemlighet när programmets nyckel eller hemlighet lagras i Azure Key Vault. Det här sker utan att du behöver skriva någon egen kod för att skydda den hemliga informationen.
 
-### <a name="securely-store-secrets"></a>Lagra hemligheter säkert
+### <a name="securely-store-secrets-and-keys"></a>Lagra hemligheter och nycklar säkert
 
-I Azure skyddas Keys med hjälp av algoritmer, nyckellängder och maskinvarubaserade säkerhetsmoduler (HSM:er) som är branschstandard. De HSM:er som används är FIPS-validerade (Federal Information Processing Standards) enligt 140-2 Level 2.
+Hemligheter och nycklar skyddas av Azure med branschstandardalgoritmer, nyckellängder och maskinvarusäkerhetsmoduler (HSM). De HSM:er som används är FIPS-validerade (Federal Information Processing Standards) enligt 140-2 Level 2.
 
 För åtkomst till ett nyckelvalv krävs en korrekt autentisering och auktorisering (av en användare eller ett program). Autentiseringen etablerar anroparens identitet medan auktoriseringen avgör vilka åtgärder som anroparen får utföra.
 
@@ -49,7 +49,7 @@ Autentiseringen görs via Azure Active Directory. Auktoriseringen kan göras via
 
 Skyddet för Azure Key Vaults kan vara antingen program - eller maskinvarubaserat (HSM). I situationer där du vill öka säkerheten ytterligare kan du importera och generera nycklar i maskinvarubaserade säkerhetsmoduler (HSM:er) som aldrig lämnar HSM-gränsen. Microsoft använder Thales HSM:er. Du kan använda Thales verktyg till att flytta en nyckel från din HSM till Azure Key Vault.
 
-Azure Key Vault är dessutom utformat så att Microsoft inte kan se eller extrahera dina nycklar.
+Azure Key Vault är dessutom utformat så att Microsoft inte kan se eller extrahera dina data.
 
 ### <a name="monitor-access-and-use"></a>Övervaka åtkomst och användning
 

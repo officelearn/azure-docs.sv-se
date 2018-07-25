@@ -10,25 +10,22 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
-ms.date: 03/04/2018
+ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: bbc87f529cb70b6f4b21984199ed87427b4e3108
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6553fdba463144c6eda1e35c0967e92a3c44aff6
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38590347"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225584"
 ---
-# <a name="different-administrative-role-in-azure-active-directory-pim"></a>Olika administrativa roll i Azure Active Directory-PIM
+# <a name="directory-roles-you-can-manage-using-azure-ad-pim"></a>Du kan hantera med hjälp av Azure AD PIM för katalogroller
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
-Du kan tilldela användare i din organisation för olika administrativa roller i Azure AD. De här rolltilldelningarna bestämma vilka aktiviteter, till exempel att lägga till eller ta bort användare eller ändra tjänstinställningar, användarna ska kunna utföra på Azure AD, Office 365 och andra Microsoft Online Services och anslutna program.  
+Du kan tilldela användare i din organisation för olika administrativa roller i Azure AD. De här rolltilldelningarna bestämma vilka aktiviteter, till exempel att lägga till eller ta bort användare eller ändra tjänstinställningar, användarna ska kunna utföra på Azure AD, Office 365, och andra Microsoft Online Services och anslutna program.  
 
-> [!IMPORTANT]
-> Microsoft rekommenderar att du hanterar Azure AD via den [Azure AD administratörscenter](https://aad.portal.azure.com) i Azure-portalen.
-
-En global administratör kan uppdatera som användarna **permanent** tilldelas till roller i Azure AD, med hjälp av PowerShell-cmdletar som `Add-MsolRoleMember` och `Remove-MsolRoleMember`, eller via portalen enligt beskrivningen i [tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+En Global administratör kan uppdatera som användarna **permanent** tilldelas till roller i Azure AD via portalen, enligt beskrivningen i [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md) eller med hjälp av [ PowerShell-kommandon](/powershell/module/azuread#directory_roles).
 
 Azure AD Privileged Identity Management (PIM) hanterar principer för privilegierad åtkomst för användare i Azure AD. PIM tilldelar användare till en eller flera roller i Azure AD och du kan tilldela någon vara permanent i rollen eller berättigad för rollen. När en användare permanent tilldelade till en roll eller aktiverar en berättigad rolltilldelning och de kan hantera Azure Active Directory, Office 365 och andra program med de behörigheter som tilldelats deras roller.
 
@@ -66,7 +63,7 @@ Om du vill ge en annan användare åtkomst till att hantera i PIM själva de rol
 ## <a name="roles-not-managed-in-pim"></a>Roller som inte hanteras i PIM
 Roller i Exchange Online eller SharePoint Online, förutom de som nämns ovan, representeras inte i Azure AD och så visas inte i PIM. Mer information om hur du ändrar detaljerade rolltilldelningar i de här Office 365-tjänster finns i [behörigheter i Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Azure-prenumerationer och resursgrupper är också inte representeras i Azure AD. För att hantera Azure-prenumerationer, se [lägga till eller ändra Azure-administratörsroller](../../billing/billing-add-change-azure-subscription-administrator.md) och mer information om Azure RBAC finns [rollbaserad åtkomstkontroll i](../../role-based-access-control/role-assignments-portal.md).
+Azure-prenumerationer och resursgrupper är också inte representeras i Azure AD. För att hantera Azure-prenumerationer, se [lägga till eller ändra Azure-administratörsroller](../../billing/billing-add-change-azure-subscription-administrator.md) och Läs mer om Azure RBAC [rollbaserad åtkomstkontroll i Azure](../../role-based-access-control/role-assignments-portal.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 

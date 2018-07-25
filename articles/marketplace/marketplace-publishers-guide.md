@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: c06811afbf575b36dd1cf185a4554427ce2cd9e3
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 0f4ff7c11952e6e222104b3953c547a91b4fc124
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205239"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223080"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace och AppSource publiceringsguide
 
@@ -70,47 +70,6 @@ När du [skicka din lösning](https://azuremarketplace.microsoft.com/sell/signup
 
 Läs mer om Microsoft Go-To-Market-fördelar och sätt att utöka verksamheten på Marketplace, [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 
-## <a name="storefronts"></a>Butiker
-I en butik du listan erbjudanden, aktivera utvärderingsversioner och transact direkt med Microsoft-kunder. Microsoft tillhandahåller olika butiker i Marketplace och AppSource. Information om fördelarna med varje butiker, finns i följande länk:
-* [Jämföra AppSource och Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
-* [Utöka verksamheten på Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-with-azure-marketplace)
+## <a name="next-steps"></a>Nästa steg
 
-Butiker hjälpa kunder att hitta, prova och köpa appar och tjänster som påskyndar kundens digitala omvandling. Butiker hjälper dig att växa ditt företag genom att öka åtkomst till Microsofts kunder och partner.
- 
-Varje butik innehåller särskilda alternativ för att maximera din investering i publicering. I följande tabell sammanfattas de här alternativen:
-
-| Alternativ | AppSource | Azure Marketplace |
-|:--- |:--- |:--- |
-| Målgrupp | Line-of-business-beslutsfattare<table> <tr> <th>Specialist roller </th> </tr> <tr> <td>Redovisning</td> </tr> <tr> <td>Inköp</td> </tr> <tr> <td>Tillverkning</td> </tr> </table> | IT-proffs och utvecklare<table> <tr> <th>Specialist roller </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>Databasadministratörer</td> </tr> <tr> <td>SecOps</td> </tr> </table> |
-| Skapats med eller utöka | <ul><li>Azure Dynamics 365</li><li>Office 365</li><li>Power BI</li><li>PowerApps</li></ul> | Azure | 
-| Typer av lösningar och tjänster | <ul><li>Klar line-of-business-molnappar</li><li>Office 365-tillägg</li></ul> | <ul><li>Infrastrukturlösningar</li><li>Professionella tjänster</li></ul> |
-| Erbjudandetyp | <ul><li>Konsulttjänster</li><li>Kontakta mig</li><li>Kostnadsfri utvärderingsversion</li><li>Hämta nu</li><li>Testkör</li></ul> | <ul><li>Azure-appar: hanterad app</li><li>Azure-appar: lösningsmallen</li><li>Konsulttjänster</li><li>Kontakta mig</li><li>Utvärdering</li><li>Virtuell dator</li></ul> |
-| I appen uppleva för att ge användare åtkomst till appar och tjänster i samband med din app | <ul><li>Dynamics 365</li><li>Office 365</li><li>Office-klientappar</li><li>Power BI</li></ul> | <ul><li>Azure Portal</li><li>Azure Resource Manager</li><li>Azure CLI</li></ul> |
-
-## <a name="publish-in-the-marketplace"></a>Publicera i Marketplace
-I följande artiklar kan hjälpa dig att lära dig om publiceringsalternativ i AppSource och Azure Marketplace.
-
-Bli en utgivare i en butik i Marketplace i tre enkla steg:
-1. [Avgör vilket publishing alternativ](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type) 
-2. [Bli en utgivare i molnmarknadsplatsen](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher) 
-
-## <a name="publishing-checklists"></a>Publicera checklistor
-*   [Publicera checklista för AppSource](publishing-checklist-appsource.md)
-*   [Publicera checklista för Azure Marketplace i partnerportalen i molnet](./publishing-checklist-azure-Marketplace.md)
-*   [Aktivera en utvärderingsversion lista med hjälp av Azure Active Directory](./enable-trial-using-azure-ad.md)
-
-## <a name="support"></a>Support
-*   [Support för AppSource](./support-appsource.md) 
-*   [Stöd för Azure Marketplace](./support-azure-Marketplace.md)
-
-## <a name="guides"></a>Guider
-*   [Azure Marketplace-konsulttjänster](consulting-services.md)
-*   [Teknisk publiceringsguide om Azure Marketplace SaaS-appar](Marketplace-saas-applications-technical-publishing-guide.md)
-
-## <a name="guidelines"></a>Riktlinjer
-*   [Riktlinjer](./guidelines.md)
-*   [Riktlinjer för att skapa ett Microsoft-ID för att hantera ett Marketplace-konto](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account)
-*   [Registrera i Dev Center](./register-dev-center.md) 
-*   [Lägg till bank-och skatt](./add-bank-tax-info.md) 
-*   [Aktivera en utvärderingsversion lista med hjälp av Azure Active Directory](./enable-trial-using-azure-ad.md)
-*   [Faktureringsalternativ för Azure Marketplace](./billing-options-azure-marketplace.md) 
+Granska detaljerad information om molnämnen marketplace genom att utforska innehållsförteckningen till vänster. 

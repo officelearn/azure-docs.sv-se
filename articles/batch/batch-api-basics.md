@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3fe0d3836046ad143e746503210099ee5c640a08
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 9de4b00b2fff1feabcaee4e30667dfbdc75d9266
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129106"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114447"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -149,9 +149,9 @@ Om du vill använda en anpassad avbildning måste du förbereda avbildningen gen
 
 Detaljerade krav och steg finns i [Use a custom image to create a pool of virtual machines](batch-custom-images.md) (Använda en anpassad avbildning för att skapa en pool med virtuella datorer).
 
-#### <a name="container-support-in-virtual-machine-pools"></a>Stöd för behållare i pooler med virtuella datorer
+#### <a name="container-support-in-virtual-machine-pools"></a>Stöd för containrar i pooler med virtuella datorer
 
-När du skapar en pool med virtuella datorer med hjälp av Batch-API:er kan du ställa in poolen på att köra uppgifter i Docker-behållare. För närvarande måste du skapa poolen med hjälp av en avbildning som stöder Docker-behållare. Använd Windows Server 2016 Datacenter och en behållaravbildning från Microsoft Azure Marketplace. Alternativt kan du ange en anpassad VM-avbildning som innehåller Docker Community Edition eller Enterprise Edition och alla nödvändiga drivrutiner. Poolinställningarna måste innehålla en [behållarkonfiguration](/rest/api/batchservice/pool/add#definitions_containerconfiguration) som kopierar behållaravbildningar till de virtuella datorerna när poolen skapas. Uppgifter som körs i poolen kan sedan referera till behållaravbildningar och körningsalternativ för behållare.
+När du skapar en pool med virtuella datorer med hjälp av Batch-API:er kan du ställa in poolen på att köra uppgifter i Docker-containrar. För närvarande måste du skapa poolen med hjälp av en avbildning som stöder Docker-container. Använd Windows Server 2016 Datacenter och en containeravbildning från Microsoft Azure Marketplace. Alternativt kan du ange en anpassad VM-avbildning som innehåller Docker Community Edition eller Enterprise Edition och alla nödvändiga drivrutiner. Poolinställningarna måste innehålla en [containerkonfiguration](/rest/api/batchservice/pool/add#definitions_containerconfiguration) som kopierar containeravbildningar till de virtuella datorerna när poolen skapas. Uppgifter som körs i poolen kan sedan referera till containeravbildningar och körningsalternativ för containrar.
 
 Mer information finns i [Run Docker container applications on Azure Batch](batch-docker-container-workloads.md) (Köra Docker-behållarprogram på Azure Batch).
 
@@ -259,7 +259,7 @@ När du skapar en aktivitet kan du ange:
 * **Miljövariablerna** som krävs av programmet. Mer information finns i avsnittet [Miljöinställningar för aktiviteter](#environment-settings-for-tasks).
 * **Begränsningarna** som aktiviteten ska köras under. Begränsningarna omfattar t.ex. den längsta tid som aktiviteten kan köras, det högsta antal omförsök som ska göras för en aktivitet som misslyckats, samt den längsta tid som filer i aktivitetens arbetskatalog ska bevaras.
 * **Programpaket** för distribution till beräkningsnoden som aktiviteten har schemalagts att köra på. Med [programpaket](#application-packages) blir det lättare att distribuera och hantera versionerna av de program som dina aktiviteter kör. Programpaket på aktivitetsnivå är särskilt användbara i miljöer med delade pooler där olika jobb körs i en pool och där poolen inte tas bort när ett jobb har slutförts. Om jobbet har färre aktiviteter än noder i poolen kan programpaket för aktiviteter minimera dataöverföringen eftersom ditt program bara distribueras till noderna som kör aktiviteterna.
-* En **behållaravbildning** refererar till Docker Hub eller ett privat register och andra inställningar som behövs för att skapa en Docker-behållare där uppgifter kan köras på noden. Den här informationen behöver du bara ange om poolen har skapats med en behållarkonfiguration.
+* En **containeravbildning** refererar till Docker Hub eller ett privat register och andra inställningar som behövs för att skapa en Docker-container där uppgifter kan köras på noden. Den här informationen behöver du bara ange om poolen har skapats med en containerkonfiguration.
 
 > [!NOTE]
 > Maximal livstid för en uppgift, från när den läggs till i jobbet tills den slutförs, är 7 dagar. Slutförda uppgifter finns kvar på obestämd tid. Data för uppgifter som inte slutförts inom den maximala livstiden är inte tillgängliga.
@@ -504,7 +504,7 @@ Om vissa av dina aktiviteter misslyckas kan Batch-klientprogrammet eller Batch-t
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs om tillgängliga [Batch-API:er och verktyg](batch-apis-tools.md) för att skapa Batch-lösningar.
-* Gå igenom ett Batch-exempelprogram steg för steg i [Komma igång med Azure Batch-biblioteket för .NET](batch-dotnet-get-started.md). Det finns också en [Python-version](batch-python-tutorial.md) i självstudien som kör en arbetsbelastning på Linux-beräkningsnoder.
+* Lär dig hur du utvecklar ett enkelt Batch-aktiverat program med hjälp av [Batch .NET-klientbiblioteket](quick-run-dotnet.md) eller [Python](quick-run-python.md). I de här snabbstarterna beskriver vi ett exempelprogram som använder Batch-tjänsten för att köra en arbetsbelastning på flera beräkningsnoder och förklarar hur du använder Azure Storage för mellanlagring och hämtning av filer i arbetsbelastningar.
 * Hämta och installera [BatchLabs] [ batch_labs] och använd verktyget i arbetet med att utveckla Batch-lösningar. Använd BatchLabs för att skapa, felsöka och övervaka Azure Batch-program. 
 * Läs mer i olika community-resurser som [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), [repon för Batch-communityn](https://github.com/Azure/Batch) och [Azure Batch-forumet][batch_forum] på MSDN. 
 

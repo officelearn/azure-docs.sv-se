@@ -1,31 +1,31 @@
 ---
-title: Instrumentpanel för program för THOMAS appar | Microsoft Docs
-description: Mer information om instrumentpanelen för program, ett visualiserade reporting verktyg som gör att du kan övervaka dina appar på ett enda ögonblick.
+title: Instrumentpanel för program för LUIS-appar | Microsoft Docs
+description: Läs mer om instrumentpanelen för program, ett visualiserade verktyg som hjälper dig att övervaka dina appar i korthet enkel.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: v-geberr
-ms.openlocfilehash: c7ef38e2f2edaf795d3d76706afd4aa09b3b6959
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: diberry
+ms.openlocfilehash: 518227d9f4165a08fafefa357de255d97c710f61
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110056"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224508"
 ---
 # <a name="application-dashboard"></a>Instrumentpanel för program
-Appinstrumentpanelen kan du övervaka din app på en enda överblick över. Den **instrumentpanelen** visas när du öppnar en app genom att klicka på namnet på programmet på **Mina appar** sidan Välj **instrumentpanelen** från övre panelen. 
+Appinstrumentpanelen kan du övervaka din app på en snabb titt. Den **instrumentpanelen** visas när du öppnar en app genom att klicka på namnet på programmet på **Mina appar** sedan väljer **instrumentpanelen** från övre panelen. 
 
 > [!CAUTION]
-> Om du vill använda de senaste mätvärdena för THOMAS måste du:
-> * Använd en THOMAS [slutpunktsnyckel](luis-how-to-azure-subscription.md) skapas i Azure
-> * Använd THOMAS slutpunktsnyckel för alla endpoint begäranden inklusive THOMAS [API](https://aka.ms/luis-endpoint-apis) och bot
-> * Använd olika endpoint nyckel för varje THOMAS app. Använd inte en enda slutpunkt-nyckel för alla appar. Nyckeln endpoint spåras på nivån nyckel inte på app-nivå.  
+> Om du vill använda de senaste uppdaterade mått för LUIS måste du:
+> * Använda en LUIS [slutpunktsnyckeln](luis-how-to-azure-subscription.md) skapats i Azure
+> * Använd LUIS slutpunktsnyckeln för alla endpoint begäranden, inklusive LUIS [API](https://aka.ms/luis-endpoint-apis) och bot
+> * Använd olika slutpunktsnyckeln för varje LUIS-app. Använd inte en enda slutpunkt-nyckel för alla appar. Slutpunktsnyckeln spåras på viktiga-nivå, inte på appnivå.  
 
-Den **instrumentpanelen** sidan ger en översikt över appen THOMAS inklusive den aktuella modellen tillstånd samt [endpoint](luis-glossary.md#endpoint) användning över tid. <!--The following image shows the **Dashboard** page.-->
+Den **instrumentpanelen** sidan ger dig en översikt över LUIS-app, inklusive den aktuella modellen tillstånd, samt [endpoint](luis-glossary.md#endpoint) användning över tid. <!--The following image shows the **Dashboard** page.-->
 
 <!-- TBD: Get a working screen shot
 ![The Dashboard](./media/luis-how-to-use-dashboard/dashboard.png)
@@ -36,61 +36,61 @@ At the top of the **Dashboard** page, a contextual notification bar constantly d
 -->
   
 ## <a name="app-status"></a>Appstatus
-Instrumentpanelen innehåller programmets utbildning och publicering av status, inklusive datum och tid när appen senast tränas och publiceras.  
+Instrumentpanelen visar programmets utbildning och Publiceringsstatus, inklusive datum och tid när appen senast tränas och publiceras.  
 
-![Instrumentpanelen - appens Status](./media/luis-how-to-use-dashboard/app-state.png)
+![Instrumentpanel – Appstatus](./media/luis-how-to-use-dashboard/app-state.png)
 
 ## <a name="model-data-statistics"></a>Data modellstatistik
-Instrumentpanelen visar det totala antalet avsikter, enheter och märkt utterances befintliga i appen. 
+Instrumentpanelen visar det totala antalet avsikter och entiteter taggade yttranden befintliga i appen. 
 
 ![AppData statistik](./media/luis-how-to-use-dashboard/app-model-count.png)
 
 ## <a name="endpoint-hits"></a>Slutpunkten träffar
-Instrumentpanelen visar de totala endpoint träffar som THOMAS appen tar emot och låter dig visa träffar inom en period som du anger. Det totala antalet träffar som visas är summan av slutpunkten träffar som använder en [slutpunktsnyckel](./luis-concept-keys.md#endpoint-key) och slutpunkten träffar som använder en [redigering nyckeln](./luis-concept-keys.md#authoring-key).
+Instrumentpanelen visar de totala endpoint träffar som LUIS-app tar emot och kan du visa når inom en period som du anger. Det totala antalet träffar som visas är summan av slutpunkten träffar som använder en [slutpunktsnyckeln](./luis-concept-keys.md#endpoint-key) och slutpunkten når som använder en [redigering nyckeln](./luis-concept-keys.md#authoring-key).
 
 <!-- TBD: this image is old but I don't have a new one based on usage -->
 ![Slutpunkten träffar](./media/luis-how-to-use-dashboard/dashboard-endpointhits.png)
 
 > [!NOTE] 
-> Antal träffar i den senaste slutpunkten i Azure portal på THOMAS serviceöversikt. 
+> Antal träffar i den senaste slutpunkten i Azure portal på tjänstöversikt LUIS. 
  
 ### <a name="total-endpoint-hits"></a>Totalt antal endpoint träffar
-Det totala antalet endpoint träffar som tagits emot i appen och sedan skapa upp till det aktuella datumet.
+Totalt antal endpoint träffar som tagits emot i din app sedan appskapande upp till det aktuella datumet.
 
 ### <a name="endpoint-hits-per-period"></a>Slutpunkten träffar per period
-Antal träffar emot inom en tidigare period visas per dag. Punkter mellan start- och slutdatum representerar dagar som omfattas av i denna period. Muspekaren över varje punkt Se träffarna räkna varje dag under tidsperioden. 
+Antal träffar emot inom en tidigare period, visas per dag. Punkterna mellan start- och slutdatumen motsvarar dagar som omfattas av i den här perioden. Muspekaren över varje punkt om du vill se träffarna antal i varje dag under perioden. 
 
-Att välja en tid att visa i diagrammet:
+Att välja en period om du vill visa i diagrammet:
  
-1. Klicka på **ytterligare inställningar** ![ytterligare inställningar för](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) komma åt listan punkter. Du kan välja perioder som sträcker sig från en vecka upp till ett år. 
+1. Klicka på **ytterligare inställningar** ![knappen ytterligare inställningar](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) att komma åt listan över perioder. Du kan välja perioder som sträcker sig från en vecka upp till ett år. 
 
     ![Slutpunkten träffar per Period](./media/luis-how-to-use-dashboard/timerange.png)
 
-2. Välj en punkt i listan och klicka sedan på pilen Bakåt ![Bakåt](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) att visa diagrammet.
+2. Välj en punkt i listan och klicka sedan på bakåtpilen ![Bakåtpil](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) att visa diagrammet.
 
 ### <a name="key-usage"></a>Nyckelanvändning
-Antal träffar förbrukad från programnyckel slutpunkt. Mer information om slutpunkten nycklar finns [nycklar i THOMAS](luis-concept-keys.md). 
+Antal träffar som konsumeras från programmets slutpunktsnyckeln. Mer information om slutpunkt-nycklar finns i [nycklar i LUIS](luis-concept-keys.md). 
   
-## <a name="intent-breakdown"></a>Avsiktshantering uppdelning
-Den **avsikt uppdelning** visar en uppdelning av intents baserat på märkt utterances eller slutpunkt träffar. Den här översiktsdiagrammet visar varje avsikt relativa betydelse i appen. När du håller muspekaren över ett segment visas avsiktshantering namn och procentandelen representerar det totala antalet träffar märkt utterances-slutpunkten. 
+## <a name="intent-breakdown"></a>Avsiktshantering analys på detaljnivå
+Den **avsikt analys på detaljnivå** visar en uppdelning av avsikter utifrån taggade yttranden eller slutpunkten träffar. Den här översiktsdiagrammet visar den relativa prioriteten för varje avsikt i appen. När du håller muspekaren över en sektor visas namnet på avsiktlig och procentandelen representerar det totala antalet träffar taggade yttranden eller slutpunktens. 
 
-![Avsiktshantering uppdelning](./media/luis-how-to-use-dashboard/intent-breakdown.png)
+![Avsiktshantering analys på detaljnivå](./media/luis-how-to-use-dashboard/intent-breakdown.png)
 
-Kontrollera om en analys på detaljnivå baseras på märkt utterances eller slutpunkt träffar:
+Kontrollera om en analys på detaljnivå baseras på märkta yttranden eller slutpunkten träffar:
 
-1. Klicka på **ytterligare inställningar** ![ytterligare inställningar för](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) komma åt listan enligt följande bild:
+1. Klicka på **ytterligare inställningar** ![knappen ytterligare inställningar](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) att få åtkomst till listan som i följande bild:
 
-    ![Avsiktshantering uppdelning lista](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
-2. Välj ett värde i listan och klicka sedan på pilen Bakåt ![Bakåt](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) att visa diagrammet.
+    ![Avsiktshantering analys på detaljnivå lista](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
+2. Välj ett värde i listan och klicka sedan på bakåtpilen ![Bakåtpil](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) att visa diagrammet.
 
-## <a name="entity-breakdown"></a>Entiteten uppdelning
-Instrumentpanelen visar en uppdelning av enheter baserat på märkt utterances eller slutpunkt träffar. Den här översiktsdiagrammet visar en avvägning mellan kraven för varje entitet i appen. När du håller muspekaren över ett segment visas entitetsnamnet och procent i märkt utterances eller slutpunktens träffar. 
+## <a name="entity-breakdown"></a>Entiteten analys på detaljnivå
+Instrumentpanelen visar en uppdelning av enheter baserat på märkta yttranden eller slutpunkten träffar. Den här översiktsdiagrammet visar den relativa prioriteten för varje entitet i appen. När du håller muspekaren över en sektor visas enhetens namn och procent i taggade yttranden eller slutpunktens träffar. 
 
-![Entiteten uppdelning](./media/luis-how-to-use-dashboard/entity-breakdown.png)
+![Entiteten analys på detaljnivå](./media/luis-how-to-use-dashboard/entity-breakdown.png)
 
-Kontrollera om en analys på detaljnivå baseras på märkt utterances eller slutpunkt träffar:
+Kontrollera om en analys på detaljnivå baseras på märkta yttranden eller slutpunkten träffar:
 
-1. Klicka på **ytterligare inställningar** ![ytterligare inställningar för](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) komma åt listan enligt följande bild:
+1. Klicka på **ytterligare inställningar** ![knappen ytterligare inställningar](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) att få åtkomst till listan som i följande bild:
 
-    ![Entiteten uppdelning lista](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
-2. Välj ett värde i listan och klicka sedan på pilen Bakåt ![Bakåt](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) att visa diagrammet därefter.
+    ![Uppdelning Entitetslista](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
+2. Välj ett värde i listan och klicka sedan på bakåtpilen ![Bakåtpil](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) att visa diagrammet i enlighet med detta.

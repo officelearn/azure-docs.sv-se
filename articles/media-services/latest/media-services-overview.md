@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 06/14/2018
+ms.date: 07/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 5205a6746f6a698768a60375e2e77db9cb535a71
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ad3b8755615332249ac00f43a2d0cc5fa13a7233
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971915"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113292"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Vad är Azure Media Services v3?
 
@@ -69,6 +69,52 @@ Media Services resursnamn får inte innehålla: '<', '>', '%', '&', ':', '&#92;'
 
 Mer information om namngivning av Azure Resource Manager finns i: [Namngivningskrav](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) och [Namngivningskonventioner](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
+## <a name="media-services-v3-api-design-principles"></a>Designprinciper för Media Services, v3 API
+
+En av de viktigaste designprinciperna för v3 API är att göra API:et säkrare. v3 API:er returnerar inte hemlighet eller autentiseringsuppgifter för en åtgärd av typen **hämta** eller **lista**. Nycklarna är alltid null, tomma eller oberoende av svaret. Du måste anropa en separat åtgärdsmetod för att få hemlighet och autentiseringsuppgifter. Med separata åtgärder kan du ställa in olika RBAC-säkerhetsbehörigheter om vissa API:er hämtar/visar hemligheter medan andra API:er inte gör det. Information om hur du hanterar åtkomst med RBAC finns i dokumentationen om att [hantera åtkomst med RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
+
+Exempel på det här kan vara att 
+
+* inte returnera ContentKey-värden i Hämta för StreamingLocator, 
+* inte returnera begränsningsnycklar för get för ContentKeyPolicy, 
+* inte returnera frågesträngsdelen av webbadressen (för att ta bort signaturen) för jobbets HTTP-indatawebbadresser.
+
+I följande .NET-exempel visar vi hur du hämtar en signeringsnyckel från den befintliga principen. Du måste använda **GetPolicyPropertiesWithSecretsAsync** för att få nyckeln.
+
+```csharp
+private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
+    IAzureMediaServicesClient client,
+    string resourceGroupName,
+    string accountName,
+    string contentKeyPolicyName)
+{
+    ContentKeyPolicy policy = await client.ContentKeyPolicies.GetAsync(resourceGroupName, accountName, contentKeyPolicyName);
+
+    if (policy == null)
+    {
+        // Configure and create a new policy.
+        
+        . . . 
+        policy = await client.ContentKeyPolicies.CreateOrUpdateAsync(resourceGroupName, accountName, contentKeyPolicyName, options);
+    }
+    else
+    {
+        var policyProperties = await client.ContentKeyPolicies.GetPolicyPropertiesWithSecretsAsync(resourceGroupName, accountName, contentKeyPolicyName);
+        var restriction = policyProperties.Options[0].Restriction as ContentKeyPolicyTokenRestriction;
+        if (restriction != null)
+        {
+            var signingKey = restriction.PrimaryVerificationKey as ContentKeyPolicySymmetricTokenKey;
+            if (signingKey != null)
+            {
+                TokenSigningKey = signingKey.KeyValue;
+            }
+        }
+    }
+
+    return policy;
+}
+```
+
 ## <a name="how-can-i-get-started-with-v3"></a>Hur kan jag komma igång med v3?
 
 Som utvecklare kan du använda Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) eller klientbibliotek så att du kan interagera med REST API för att enkelt skapa, hantera och underhålla anpassade mediearbetsflöden. Du kan hitta exempel REST Postman [här](https://github.com/Azure-Samples/media-services-v3-rest-postman). Du kan också använda [Azure Resource Manager baserad REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates).
@@ -77,10 +123,10 @@ Microsoft genererar och har stöd för följande klientbibliotek:
 
 |Klientbibliotek|Exempel|
 |---|---|
-|[Azure CLI SDK](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)|[Azure CLI-exempel](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)|
+|[Azure CLI SDK](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)|[Azure CLI-exempel](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)|
 |[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)|[.NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)|
 |[.NET Core SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (välj fliken **.NET CLI**)|[.NET Core-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)|
-|[Java SDK](https://docs.microsoft.com/java/api/overview/azure/mediaservices)||
+|[Java SDK](https://docs.microsoft.com/java/api/mediaservices/management?view=azure-java-stable)||
 |[Node.js SDK](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)|[Node.js-exempel](https://github.com/Azure-Samples/media-services-v3-node-tutorials)|
 |[Python SDK](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)||
 |[Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)||

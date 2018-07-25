@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
 ms.author: marsma
-ms.openlocfilehash: 22be921c7ab437e08d8ea5032befb8671dc90ed0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1bc890abc8b406ae75f292f37775e4cb62cf0473
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163375"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115283"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Kvoter och regional tillgänglighet för Azure Container Instances
 
@@ -31,10 +31,11 @@ Azure Container Instances är tillgängligt i följande regioner med angivna pro
 | -------- | -- | :---: | :-----------: |
 | USA, västra, USA, östra, Europa, västra, Europa, norra | Linux | 4 | 14 |
 | USA, Väst 2, Asien, sydöstra | Linux | 2 | 7 |
+| Australien, östra, USA, östra 2, USA, centrala | Linux | 1 | 1.5 |
 | USA, västra, USA, östra, Europa, västra, Europa, norra | Windows | 4 | 14 |
 | USA, Väst 2, Asien, sydöstra | Windows | 2 | 3.5 |
 
-Behållarinstanser som har skapats inom dessa resursgränser finns i mån av tillgång i distributionsregionen. Om en region har hög belastning kan du uppleva fel vid distribution av instanser. Du kan försöka lindra sådana distributionsfel genom att prova att distribuera instanser med lägre processor- och minnesinställningar. Du kan även prova att genomföra distributionen senare.
+Containerinstanser som har skapats inom dessa resursgränser finns i mån av tillgång i distributionsregionen. Om en region har hög belastning kan du uppleva fel vid distribution av instanser. Du kan försöka lindra sådana distributionsfel genom att prova att distribuera instanser med lägre processor- och minnesinställningar. Du kan även prova att genomföra distributionen senare.
 
 Informera teamet om ytterligare regioner som krävs eller ökade begränsningar för CPU/minne på [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
 

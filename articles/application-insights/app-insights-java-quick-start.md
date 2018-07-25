@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/12/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 7248e2477a217c769bd232b87a8e510fcfd59790
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c0a1caca1c7b026965d2a83211c87d49db53c4ca
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798448"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991700"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Börja övervaka din Java-webbapp
 
@@ -89,25 +89,25 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
 1. Nu kan du öppna sidan **Översikt** i Application Insights i Azure-portalen, där du hämtade instrumenteringsnyckeln, för att visa information om den app som körs.
 
-   ![Översiktsmenyn i Application Insights](./media/app-insights-java-quick-start/0008-j.png)
+   ![översiktsvyn för Application Insights](./media/app-insights-java-quick-start/overview-001.png)
 
-2. Klicka på **App-karta** om du vill se en layout med beroendena mellan appens komponenter. För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
+2. Klicka på **Programkarta** om du vill se en layout med beroendena mellan appens komponenter. För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
 
-   ![Programkarta](./media/app-insights-java-quick-start/005-j.png)
+   ![Programkarta](./media/app-insights-java-quick-start/application-map-001.png)
 
 3. Klicka på **Analys**-ikonen![](./media/app-insights-java-quick-start/006.png). Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 
    ![analysdiagram över användarbegäranden under en viss tidsperiod](./media/app-insights-java-quick-start/0010-j.png)
 
-4. Gå tillbaka till sidan **Översikt** och undersök **hälsotillståndsöversiktens tidslinje**.  På den här instrumentpanelen visas statistik om appens hälsotillstånd, inklusive antalet inkommande begäranden, varaktigheten för dessa begäranden och fel som inträffar.
+4. Gå tillbaka till sidan **Översikt** och undersök KPI-diagrammen.  På den här instrumentpanelen visas statistik om appens hälsotillstånd, inklusive antalet inkommande begäranden, varaktigheten för dessa begäranden och fel som inträffar.
 
-   ![diagram med hälsotillståndsöversiktens tidslinje](./media/app-insights-java-quick-start/0009-j.png)
+   ![diagram med hälsotillståndsöversiktens tidslinje](./media/app-insights-java-quick-start/overview-perf.png)
 
    Om du vill möjliggör att diagrammet **Inläsningstid för sidvisning** fylls i med data för **telemetri på klientsidan** lägger du till den här skriptet på varje sida som du vill spåra:
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 

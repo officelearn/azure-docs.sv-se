@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 4484031b20e625f81ba8b3869110e90df189323e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9c26a85a50bf4e7272b229bac8a8b9aa8c1ae364
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117429"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238530"
 ---
 # <a name="http-application-routing"></a>Routning av HTTP-program
 
@@ -60,12 +60,12 @@ När klustret har distribuerats kan bläddra till den automatiskt skapade AKS-re
 
 HTTP-Programlösningen routning kan endast utlösas på Ingress-resurser med följande:
 
-```
+```yaml
 annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-Skapa en fil med namnet **exempel-http-program-routing.yaml** och kopiera följande YAML. På raden 43, uppdatera `<CLUSTER_SPECIFIC_DNS_ZONE>` med DNS-zonens namn som samlas in i det sista steget i den här artikeln.
+Skapa en fil med namnet **exempel-http-program-routing.yaml** och kopiera följande YAML. På raden 43, uppdatera `<CLUSTER_SPECIFIC_DNS_ZONE>` med DNS-zonens namn som samlas in i föregående steg i den här artikeln.
 
 
 ```yaml
@@ -119,7 +119,7 @@ spec:
 
 Använd den [kubectl gäller] [ kubectl-apply] kommando för att skapa resurser.
 
-```
+```bash
 $ kubectl apply -f samples-http-application-routing.yaml
 
 deployment "party-clippy" created
@@ -129,7 +129,7 @@ ingress "party-clippy" created
 
 Använda cURL eller en webbläsare för att navigera till värdnamn som anges i avsnittet värden i exempel-http-program-routing.yaml-filen. Det kan ta upp till en minut innan den är tillgänglig via internet.
 
-```
+```bash
 $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
  _________________________________
@@ -150,6 +150,14 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
 ```
 
+## <a name="remove-http-routing"></a>Ta bort HTTP-Routning
+
+HTTP-routning lösningen kan tas bort med hjälp av Azure CLI. För att göra det kör du följande kommando, och ersätt dina AKS-kluster och resurs gruppnamn.
+
+```azurecli
+az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myAKSCluster --no-wait
+```
+
 ## <a name="troubleshoot"></a>Felsöka
 
 Använd den [kubectl loggar] [ kubectl-logs] kommando för att visa programloggarna för externa DNS-programmet. Loggarna bekräftar du att en A- och DNS TXT-post har skapats.
@@ -167,7 +175,7 @@ Dessa poster visas också på DNS-zonresurs i Azure-portalen.
 
 Använd den [kubectl loggar] [ kubectl-logs] kommando för att visa programloggarna för Nginx Ingress-kontrollant. Loggarna ska bekräfta den `CREATE` av en resurs med ingångs- och Läs in igen för kontrollenheten. Alla HTTP-aktivitet loggas.
 
-```
+```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
 
 -------------------------------------------------------------------------------
@@ -208,7 +216,7 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 
 Ta bort de associerade Kubernetes-objekten som skapats i den här artikeln.
 
-```
+```bash
 $ kubectl delete -f samples-http-application-routing.yaml
 
 deployment "party-clippy" deleted

@@ -1,25 +1,22 @@
 ---
-title: Vad är HDInsight och Hadoop- och Spark-teknikstacken? - Azure | Microsoft Docs
+title: Vad är HDInsight och Hadoop- och Spark-teknikstacken? – Azure
 description: En introduktion till HDInsight och Hadoop- och Spark-teknikstacken samt deras komponenter, inklusive Kafka, Hive, Storm och HBase för stordataanalys.
 keywords: Azure hadoop, hadoop azure, introduktion av hadoop, introduktion av hadoop, hadoop-teknikstacken, introduktion till hadoop, introduktion till hadoop, vad är ett hadoop-kluster, vad är hadoop-kluster, vad används hadoop för
 services: hdinsight
-documentationcenter: ''
 author: cjgronlund
+ms.author: cgronlun
 manager: jhubbard
-editor: cgronlun
 ms.assetid: e56a396a-1b39-43e0-b543-f2dee5b8dd3a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
-ms.devlang: na
 ms.topic: overview
 ms.date: 05/07/2018
-ms.author: cgronlun
-ms.openlocfilehash: b84389c1d52c0c43f1e71da3eed86f4057b85559
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c7bed171a3b866f4b1f94d6a5348dd25d8820f2b
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051390"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115349"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>Vad är AzureHDInsight och Hadoop-teknikstacken
 
@@ -89,9 +86,9 @@ Med HDInsight kan du utöka din befintliga lokala infrastruktur för stordata ti
 ## <a name="cluster-types-in-hdinsight"></a>Klustertyper i HDInsight
 HDInsight omfattar specifika klustertyper och anpassningsmöjligheter för klustret, till exempel funktioner för att lägga till komponenter, verktyg och språk. HDInsight erbjuder följande klustertyper:
 
-* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: Ett ramverk som använder [HDFS](#hdfs), [YARN](#yarn)-resurshantering och en enkel [MapReduce](#mapreduce)-programmeringsmodell för att behandla och analysera batchdata parallellt.
+* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: Ett ramverk som använder HDFS, YARN-resurshantering och en enkel MapReduce-programmeringsmodell för att behandla och analysera batchdata parallellt.
 
-* **[Apache Spark](http://spark.apache.org/)**: Ett ramverk för parallellbearbetning med öppen källkod som stöder intern bearbetning för att höja prestandan hos program för stordataanalys. Se [Vad är Apache Spark i HDInsight?](../spark/apache-spark-overview.md)
+* **[Apache Spark](http://spark.apache.org/)**: Ett ramverk för parallellbearbetning med öppen källkod som stöder intern bearbetning för att höja prestandan hos program för stordataanalys. Se [Vad är Apache Spark i HDInsight?](../spark/apache-spark-overview.md).
 
 * **[Apache HBase](http://hbase.apache.org/)**: En NoSQL-databas som bygger på Hadoop och ger direktåtkomst och stark konsekvens för stora mängder ostrukturerade och delstrukturerade data, potentiellt miljarder rader gånger miljoner kolumner. Se [Vad är HBase på HDInsight?](../hbase/apache-hbase-overview.md)
 

@@ -3,19 +3,19 @@ title: Fördefinierade referens – Azure | Microsoft Docs
 titleSuffix: Azure
 description: Referens för de fördefinierade domäner som är färdiga samlingar av avsikter och entiteter från Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 45289b712a127e70636e225778d7a36578b34fa5
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931636"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238904"
 ---
 # <a name="prebuilt-domain-reference"></a>Fördefinierad domänreferens
 Den här referensen innehåller information om den [fördefinierade domäner](luis-how-to-use-prebuilt-domains.md), som är färdiga samlingar med avsikter och entiteter som LUIS erbjuder.
@@ -30,7 +30,7 @@ LUIS erbjuder 20 fördefinierade domäner.
 | Kalender | Kalender-domänen innehåller avsikt och entiteter för att lägga till, tar bort, eller redigera en avtalad tid, kontrollerar tillgängligheten för deltagare och hitta information om en kalenderhändelse.| sv-SE<br/> zh-CN |
 | Kamera | Kamera domänen tillhandahåller avsikter och entiteter för att ta bilder, spela in videor och broadcasting video till ett program.| sv-SE |
 | Kommunikation | Skicka meddelanden och telefonsamtal.| sv-SE <br/> zh-CN |
-| Underhållning  | Hantering av frågor som rör musik, filmer och TV.| sv-SE |
+| underhållning  | Hantering av frågor som rör musik, filmer och TV.| sv-SE |
 | Händelser | Biljetter för konserter, festivaler, Sportspel och Komedi för bokning visas.| sv-SE |
 | Lämplighet | Hantering av begäranden som rör spårning lämplighet aktiviteter.| sv-SE |
 | Spel | Hantering av begäranden som rör en game part i spelet.| sv-SE |
@@ -140,7 +140,7 @@ Kommunikation domänen innehåller avsikter och entiteter relaterade till e-post
 | OrderReference | Ordningstalet eller relativ position i en lista, identifiera ett objekt som ska hämtas. Till exempel ”efternamn” eller ”senaste” i ”vad var det sista meddelandet som jag skickat”?| Sista<br/>Senaste|
 | SenderName | Namnet på avsändaren.| Patti Owens|
 
-## <a name="entertainment"></a>Underhållning  
+## <a name="entertainment"></a>underhållning  
 Underhållning domän ger avsikter och entiteter relaterade till att söka efter filmer, musik, spel och TV visas.
 
 ### <a name="intents"></a>Avsikter
@@ -233,7 +233,7 @@ HomeAutomation domänen innehåller avsikter och entiteter relaterade till att s
 ### <a name="entities"></a>Entiteter
 | Entitetsnamn | Beskrivning | Exempel |
 | ---------------- |-----------------------|----|
-| Enhet | En typ av enhet som kan vara aktiverat eller inte.|Kaffe maker<br/>termostat<br/>ljus|
+| Enhet | En typ av enhet som kan vara aktiverat eller inte.|Kaffe maker<br/>Termostat<br/>ljus|
 | Åtgärd | Tillstånd att ställa in på enheten.|Lås<br/>öppna<br/>på<br/>inaktiverade|
 | Utrymme | Plats- eller enheten är i rummet.|Vardagsrum<br/>sovrum<br/>Se|
 
@@ -431,10 +431,10 @@ restart|
 | Köket med alla dess | Den köket med alla dess för en plats. |Medelhavet<br/>Italienska<br/>Territoriet i indiska|
 | DestinationAddress| En målplats eller adress.|Palo Alto<br/>300 112th para SE<br/>Seattle|
 | DestinationPlaceName| Namnet på ett mål som är ett företag, restaurang, offentliga finns eller institution.|Central park<br/>safeway<br/>walmart|
-| DestinationPlaceType | Typ av ett mål som är en lokal företag, restaurang, offentliga finns eller institution. |Restaurang<br/>Opera<br/>Biografer|
+| DestinationPlaceType | Typ av ett mål som är en lokal företag, restaurang, offentliga finns eller institution. |Restaurang<br/>Opera<br/>biografer|
 | Avstånd | Avståndet till en plats.|15 mil<br/>5 mil<br/>10 långt bort|
-| MealType | Typ av Måltid som bra eller lunch. |bra<br/>middag<br/>lunch<br/>supper|
-| OpenStatus | Anger om en plats är öppna eller stängda.|Öppet<br/>stängd<br/>Öppna|
+| MealType | Typ av Måltid som bra eller lunch. |Bra<br/>Middag<br/>Lunch<br/>Supper|
+| OpenStatus | Anger om en plats är öppna eller stängda.|Öppet<br/>Stängd<br/>Öppna|
 | PlaceName | Namnet på en plats.|Tårtbitar Factory|
 | PlaceType | Typ av en plats.|Cafe<br/>THEATRE<br/>Bibliotek|
 | PreferredRoute | Den prioriterade vägen som angetts av användaren. | 101 <br/>202 <br/>Väg 401|
@@ -492,7 +492,7 @@ Table for 3 in Palo Alto at 7
 | Programnamn | Namnet på ett program för att göra reservationer.|ÖppnaTabell<br/>Yelp<br/>TripAdvisor|
 | Atmosfär | En beskrivning av atmosfär i en restaurang eller på annan plats.|Romantiska<br/>avslappnat<br/>bra för grupper|
 | Köket med alla dess | En typ av mat, köket med alla dess eller köket med alla dess medborgarskap. |Kinesiska<br/>Italienska<br/>Mexikanska|
-| MealType | En måltid typ som är associerade med en reservation.|bra<br/>middag<br/>lunch<br/>supper|
+| MealType | En måltid typ som är associerade med en reservation.|Bra<br/>Middag<br/>Lunch<br/>Supper|
 | PlaceName | Namnet på en lokal företag, restaurang, offentliga finns eller institution.|IHOP<br/>Tårtbitar Factory<br/>Louvre|
 | PlaceType | Typ av en lokal företag, restaurang, offentliga finns eller institution.|restaurang<br/>Opera<br/>biografer|
 | Klassificering | Klassificering av en plats eller en restaurang.|5 stjärnor<br/>3 stjärnor<br/>4 stjärnor|
@@ -521,9 +521,9 @@ Cancel my Uber
 | Adress| Adressen som är associerade med en taxi för bokning. |Palo Alto<br/>300 112th para SE<br/>Seattle|
 | DestinationAddress| En målplats eller adress. |Palo Alto<br/>300 112th para SE<br/>Seattle|
 | DestinationPlaceName | Namnet på ett mål som är en lokal företag, restaurang, offentliga finns eller institution. |Central Park<br/>Safeway<br/>Walmart|
-| DestinationPlaceType | Typ av ett mål som är en lokal företag, restaurang, offentliga finns eller institution. |Restaurang<br/>Opera<br/>Biografer|
+| DestinationPlaceType | Typ av ett mål som är en lokal företag, restaurang, offentliga finns eller institution. |Restaurang<br/>Opera<br/>biografer|
 | PlaceName | Namnet på lokala företag, restaurang, offentliga finns eller institution. |Central Park<br/>Safeway<br/>Walmart|
-| PlaceType| Typ av plats i en begäran om att boka en taxi.|Restaurang<br/>Opera<br/>Biografer|
+| PlaceType| Typ av plats i en begäran om att boka en taxi.|Restaurang<br/>Opera<br/>biografer|
 | TransportationCompany | Namnet på en transportprovider.|Amtrak<br/>Acela<br/>Greyhound|
 | TransportationType | Transport-typen.|Bus<br/>Träna<br/>Driving (Bil)|
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/20/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d9fc643d9645f6b55ea885e3045a341ce6da88f6
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 669ac28302275c07365acad18cbd6cabebca5637
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186969"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239176"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Översikt: Active geo-replikering och automatisk redundans-grupper
 Aktiv geo-replikering är utformad som en företagslösning för affärskontinuitet som kan utföra snabb katastrofåterställning vid avbrott på datacentret skala programmet. Om geo-replikering är aktiverad, kan programmet initiera redundans till en sekundär databas i en annan Azure-region. Upp till fyra sekundära databaser stöds i samma eller olika regioner och de sekundära databaser kan också användas för skrivskyddad åtkomst frågor. Redundansväxlingen måste initieras manuellt av programmet eller användaren. Efter redundansväxlingen har den nya primärt slutpunkt för en annan anslutning. 
@@ -92,7 +92,7 @@ Automatisk redundans med funktionen ger en kraftfull abstraktion av aktiv geo-re
 
 * **Redundans skrivskyddad lyssnare**: ett DNS CNAME-post formaterad som  **&lt;redundansgruppsnamnet-&gt;. database.windows.net** som pekar på den aktuella primära server-URL. Tillåter Läs-och SQL-program kan transparent återansluta till den primära databasen när primärt ändras efter redundans. 
 * **Redundans skrivskyddad lyssnare**: ett DNS CNAME-post formaterad som  **&lt;redundansgruppsnamnet-&gt;. secondary.database.windows.net** som pekar på den sekundära servern URL: en. Det gör att skrivskyddade SQL-programmen för transparent anslutning till den sekundära databasen med hjälp av de angivna reglerna för belastningsutjämning. 
-* **Princip för automatisk redundans**: som standard i redundansgruppen har konfigurerats med en princip för automatisk redundans. Systemet utlöser redundans när felet upptäcks och respittiden har upphört att gälla. Systemet måste kontrollera att driftstörningarna inte kan hanteras av infrastrukturen inbyggd hög tillgänglighet i SQL Database-tjänsten på grund av den skalan för effekten. Om du vill styra redundans arbetsflödet från programmet kan du inaktivera automatisk växling vid fel. 
+* **Princip för automatisk redundans**: som standard i redundansgruppen har konfigurerats med en princip för automatisk redundans. Systemet utlöser redundans när felet upptäcks och respittiden har upphört att gälla. Systemet måste kontrollera att driftstörningarna inte kan hanteras av infrastrukturen inbyggd hög tillgänglighet i SQL Database-tjänsten på grund av effekten. Om du vill styra redundans arbetsflödet från programmet kan du inaktivera automatisk växling vid fel. 
 * **Skrivskyddad redundansprincip**: redundans för den skrivskyddade lyssnaren är inaktiverad som standard. Det innebär att prestandan för primärt inte påverkas när sekundärt är offline. Men innebär det också skrivskyddade sessioner inte kommer att kunna ansluta förrän sekundärt återställs. Om du inte tolererar driftstopp för readonly-sessioner och är OK att tillfälligt använda primärt för både skrivskyddad och Skriv-trafik på bekostnad av potentiellt prestandaförsämring på primärt, kan du aktivera redundans för den skrivskyddade lyssnaren. I så fall omdirigeras skrivskyddad trafiken automatiskt till den primära servern om den sekundära servern inte är tillgänglig.  
 * **Manuell redundans**: du kan initiera redundans manuellt när som helst oavsett automatisk redundans-konfiguration. Om automatisk redundans principen inte är konfigurerad, krävs manuell redundans för att återställa databaser i redundansgruppen. Du kan initiera framtvingad eller eget redundans (med fullständig synkronisering). Det senare kan användas för att flytta den aktiva servern till den primära regionen. När redundansväxlingen är klar, uppdateras automatiskt DNS-poster för att kontrollera nätverksanslutningen till rätt server.
 * **Respitperiod med dataförlust**: eftersom de primära och sekundära databaserna synkroniseras med asynkron replikering, redundans kan resultera i dataförlust. Du kan anpassa principen för automatisk redundans så att den återspeglar ditt programs tolerans för dataförlust. Genom att konfigurera **lade**, du kan styra hur länge systemet ska vänta innan du påbörjar redundans som troligen kommer att resultatet data går förlorade. 
@@ -191,7 +191,7 @@ Vilket beskrivs ovan, automatisk redundans grupper och aktiv kan geo-replikering
 * Exempel på skript, finns här:
    - [Konfigurera och redundansväxla en enskild databas med aktiv geo-replikering](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
    - [Konfigurera och redundansväxla en databas i pool med aktiv geo-replikering](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-   - [Konfigurera och redundansväxla en redundansgrupp grupp för en enskild databas](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+   - [Konfigurera och redundansväxla en redundansgrupp för en enskild databas](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 * En översikt över affärskontinuitet och scenarier finns i [översikt över affärskontinuitet](sql-database-business-continuity.md)
 * Vill veta mer om Azure SQL Database automatiska säkerhetskopior, se [SQL Database automatiska säkerhetskopior](sql-database-automated-backups.md).
 * Läs om hur du använder automatiska säkerhetskopieringar för återställning i [återställa en databas från de tjänstinitierade säkerhetskopiorna](sql-database-recovery-using-backups.md).

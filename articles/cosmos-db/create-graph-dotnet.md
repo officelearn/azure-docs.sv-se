@@ -11,18 +11,18 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: bbe60fb6a6371551f588d5472ac304148a4a1aa7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 27cfb391c5c47ef44c443e2603da62fe5d6a3122
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453424"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113053"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Skapa ett .NET Framwork- eller Core-program med Graph API
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-Den här snabbstarten demonstrerar hur du skapar ett Microsoft Azure Cosmos DB [Graph API](graph-introduction.md)-konto, en databas och en graf (behållare) med hjälp av Azure Portal. Sedan skapar och kör du en konsolapp med drivrutinen [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) (öppen källkod).  
+Den här snabbstarten demonstrerar hur du skapar ett Microsoft Azure Cosmos DB [Graph API](graph-introduction.md)-konto, en databas och en graf (container) med hjälp av Azure Portal. Sedan skapar och kör du en konsolapp med drivrutinen [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) (öppen källkod).  
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -151,23 +151,27 @@ Följande kodfragment är alla hämtade från filen Program.cs.
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
-Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen.
+Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen.
 
-1. I [Azure Portal](http://portal.azure.com/) klickar du på **Nycklar**. 
+1. Öppna [Azure Portal](http://portal.azure.com/) och navigera till ditt Graph-databaskonto. På fliken **Översikt** ser du två slutpunkter: 
+ 
+   **.NET SDK URI** – Det här värdet används när du ansluter till Graph-kontot via biblioteket Microsoft.Azure.Graphs. 
 
-    Kopiera den första delen av URI-värdet.
+   **Gremlin-slutpunkt** – Det här värdet används när du ansluter till Graph-kontot via biblioteket Gremlin.Net.
 
-    ![Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar](./media/create-graph-dotnet/keys.png)
+    ![Kopiera slutpunkten](./media/create-graph-dotnet/endpoint.png)
+
+   Om du vill köra det här exemplet kopierar du värdet för **Gremlin-slutpunkt** och tar bort portnumret i slutet, så att URI:n blir `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`
 
 2. I Program.cs klistrar du värdet över `your-endpoint` i variabeln `hostname` på rad 19. 
 
-    `"private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";`
+    `"private static string hostname = "<your cosmos db account name>.gremlin.cosmosdb.azure.com";`
 
     Slutpunktsvärdet bör nu se ut så här:
 
     `"private static string hostname = "testgraphacct.gremlin.cosmosdb.azure.com";`
 
-3. Kopiera värdet för din **PRIMÄRNYCKEL** från portalen och klistra in det i variabeln `authkey`, som ersätter platshållaren `"your-authentication-key"` på rad 21. 
+3. Navigera sedan till fliken **Nycklar** och kopiera värdet för **PRIMÄRNYCKEL** från portalen. Klistra in det för variabeln `authkey` så att du ersätter platshållaren `"your-authentication-key"` på rad 21. 
 
     `private static string authKey = "your-authentication-key";`
 
@@ -201,7 +205,7 @@ Nu kan du gå tillbaka till datautforskaren i Azure Portal och bläddra bland oc
 
     ![Visa diagrammet i Datautforskaren på Azure-portalen](./media/create-graph-dotnet/graph-explorer.png)
 
-## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

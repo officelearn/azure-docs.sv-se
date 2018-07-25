@@ -1,35 +1,35 @@
 ---
-title: THOMAS färdiga föråldrad entiteter referens - Azure | Microsoft Docs
+title: LUIS fördefinierade inaktuell entitetsreferenser – Azure | Microsoft Docs
 titleSuffix: Azure
-description: Den här artikeln innehåller entitetsinformation om föråldrade färdiga språk förstå (THOMAS).
+description: Den här artikeln innehåller föråldrad fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8ff260adf437eb8b390d5cfb708d2a98f989bdcb
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 8fbd2e7ea0998a6a3dc141b97d64341c8140fa61
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321878"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237068"
 ---
-# <a name="deprecated-entities"></a>Föråldrad entiteter
-Följande fördefinierade entiteter är föråldrade och går inte att lägga till nya THOMAS appar.
+# <a name="deprecated-entities"></a>Inaktuella entiteter
+Följande fördefinierade entiteter är föråldrade och går inte att lägga till nya LUIS-appar.
 
-* **Datetime**: befintliga THOMAS appar som använder **datetime** ska migreras till **datetimeV2**, även om entiteten datetime fortsätter att fungera i befintliga appar som använder den.
-* **Geografi**: befintliga THOMAS appar som använder **geografi** stöds förrän December 2018.
-* **Uppslagsverk**: befintliga THOMAS appar som använder **uppslagsverk** stöds förrän December 2018.
+* **Datetime**: befintliga LUIS-appar som använder **datetime** ska migreras till **datetimeV2**, även om entiteten datetime fortsätter att fungera i befintliga appar som använder den.
+* **Geografi**: befintliga LUIS-appar som använder **geografi** stöds till December 2018.
+* **Uppslagsverk**: befintliga LUIS-appar som använder **uppslagsverk** stöds till December 2018.
 
 ## <a name="geography-culture"></a>Geografi kultur
-**Geografi** är endast tillgänglig i den `en-us` språk.
+**Geografi** är endast tillgängligt i den `en-us` nationella inställningar.
 
 #### <a name="3-geography-subtypes"></a>3 geografi undertyper
 
-Fördefinierade entitet   |   Exempel utterance   |   JSON
+Fördefinierade entitet   |   Exempel-uttryck   |   JSON
 ------|------|------|
 ```builtin.geography.city```   |  ```seattle```    |```{ "type": "builtin.geography.city", "entity": "seattle" }```|
 ```builtin.geography.city```   |  ```paris```    |```{ "type": "builtin.geography.city", "entity": "paris" }```|
@@ -39,10 +39,10 @@ Fördefinierade entitet   |   Exempel utterance   |   JSON
 ```builtin.geography.pointOfInterest```   |   ```sahara desert```|```{ "type": "builtin.geography.pointOfInterest", "entity": "sahara desert" }```|
 
 ## <a name="encyclopedia-culture"></a>Uppslagsverk kultur
-**Uppslagsverk** är endast tillgänglig i den `en-US` språk.
+**Uppslagsverk** är endast tillgängligt i den `en-US` nationella inställningar.
 
-#### <a name="encyclopedia-subtypes"></a>Underordnade typer uppslagsverk
-Uppslagsverk inbyggda entitet innehåller fler än 100 undertyper i följande tabell: dessutom uppslagsverk entiteter ofta mappa flera typer. Till exempel frågan Ronald Reagan ger: 
+#### <a name="encyclopedia-subtypes"></a>Uppslagsverk undertyper
+Uppslagsverk inbyggda entitet innehåller fler än 100 underordnade typer i följande tabell: dessutom uppslagsverk entiteter ofta mappar till flera typer. Till exempel frågan Ronald Reagan ger: 
 
 ```JSON
 {
@@ -64,7 +64,7 @@ Uppslagsverk inbyggda entitet innehåller fler än 100 undertyper i följande ta
  ```
 
 
-Fördefinierade entitet   |   Fördefinierade entitet (undertyper)   |   Exempel utterance
+Fördefinierade entitet   |   Fördefinierade entitet (underordnade typer)   |   Exempel-uttryck
 ------|------|------|
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.people.person ```|```bryan adams``` |
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.film.producer ```| ```walt disney``` |

@@ -1,27 +1,27 @@
 ---
-title: Den färdiga THOMAS entiteter e-referens - Azure | Microsoft Docs
+title: LUIS förskapade entiteter e-referens – Azure | Microsoft Docs
 titleSuffix: Azure
-description: Den här artikeln innehåller e-post färdiga entitetsinformation i språk förstå (THOMAS).
+description: Den här artikeln innehåller e-post fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 517e92202bdd5bc8d970306b9e24999fa62a8e43
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 5f2ff9ef8e06c747558d795b52423d494824a746
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321871"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236738"
 ---
-# <a name="email-entity"></a>E-entitet
-Extrahering av e-post innehåller hela e-postadressen från en utterance. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel utterances som innehåller e-postmeddelande till programmet avsikter. E-entitet stöds i `en-us` endast kultur. 
+# <a name="email-entity"></a>Entitet för e-post
+Extrahering av e-post innehåller hela e-postadressen från ett uttryck. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller e-postmeddelande till programmet avsikter. E-entitet stöds i `en-us` kultur endast. 
 
 ## <a name="resolution-for-prebuilt-email"></a>Lösning för fördefinierade e-post
-I följande exempel visas upplösning på **builtin.email** entitet.
+I följande exempel visas av lösningen på den **builtin.email** entitet.
 
 ```JSON
 {
@@ -49,4 +49,4 @@ I följande exempel visas upplösning på **builtin.email** entitet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om den [nummer](luis-reference-prebuilt-number.md), [ordningstal](luis-reference-prebuilt-ordinal.md), och [procentandel](luis-reference-prebuilt-percentage.md). 
+Lär dig mer om den [nummer](luis-reference-prebuilt-number.md), [ordningstal](luis-reference-prebuilt-ordinal.md), och [procent](luis-reference-prebuilt-percentage.md). 

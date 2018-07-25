@@ -3,19 +3,19 @@ title: Skapa en LUIS-app via programmering med hjälp av Node.js | Microsoft Doc
 titleSuffix: Azure
 description: Lär dig hur du skapar en LUIS-app via programmering från befintliga data i CSV-format med hjälp av redigering LUIS-API.
 services: cognitive-services
-author: DeniseMak
-manager: rstand
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: v-geberr
-ms.openlocfilehash: fe82899dc4db24c0d4c09a42872ad9113ef7ebad
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.author: diberry
+ms.openlocfilehash: 42b9800c94171ecbd2dadf30bb2ce2f342063552
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172008"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238513"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Skapa en LUIS-app via programmering med hjälp av Node.js
 

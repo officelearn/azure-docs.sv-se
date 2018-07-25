@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: 403490f47ac171d4a302d2b68af65375bbdc26cd
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 62b0639f134a134739b09593a0b21b47d06699dc
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345730"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236932"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Översikt över Azure SQL Database-resursgränser 
 
@@ -63,10 +63,6 @@ Det maximala antalet sessioner och arbetare bestäms av tjänstnivå och prestan
 
 När den påträffar hög användning för sessionen eller arbete, är minskning alternativen:
 - Öka servicenivå för tjänstenivå eller prestandanivå för databasen eller den elastiska poolen. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastisk poolresurser](sql-database-elastic-pool-scale.md).
-- Optimera frågor för att minska resursanvändningen för varje fråga om orsaken till ökad worker användningen är på grund av konkurrens om beräkningsresurser. Mer information finns i [fråga justering/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
-
-När den påträffar hög användning för sessionen eller arbete, är minskning alternativen:
-- Öka servicenivå för tjänstenivå eller prestandanivå för databasen. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastisk poolresurser](sql-database-elastic-pool-scale.md).
 - Optimera frågor för att minska resursanvändningen för varje fråga om orsaken till ökad worker användningen är på grund av konkurrens om beräkningsresurser. Mer information finns i [fråga justering/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="next-steps"></a>Nästa steg

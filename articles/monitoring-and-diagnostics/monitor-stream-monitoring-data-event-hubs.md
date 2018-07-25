@@ -5,19 +5,21 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/06/2018
+ms.date: 7/24/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5e8d8947643494e06faaabb5335c52df5908303e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: d131fb09e365a7a2d17b8a96c6a5fbc5d82164dc
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902997"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237952"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg
 
 Azure Monitor innehåller en enda pipeline för att få åtkomst till alla övervakningsdata från Azure-miljön, så att du kan enkelt konfigurera partner SIEM och övervakningsverktyg för att använda dessa data. Den här artikeln beskriver steg för steg genom att ställa in olika nivåer av data från Azure-miljön som ska skickas till en enda Event Hubs-namnområde eller händelse hubb, där den kan samlas in av något externt verktyg.
+
+> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ## <a name="what-data-can-i-send-into-an-event-hub"></a>Vilka data som kan skicka till en event hub? 
 

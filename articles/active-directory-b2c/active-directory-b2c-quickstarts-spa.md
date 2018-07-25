@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 2/13/2018
+ms.date: 7/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7e600f55b9eeb2682b005b8c84c74ec25e054c36
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 155cdaf51ac5725a315259a0d809ba644f64110c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447259"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048924"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Snabbstart – Konfigurera inloggning för en ensidesapp med Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ I den här snabbstarten använder du ett enkelsidigt Azure AD B2C-aktiverat exem
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) med arbetsbelastningen **ASP.NET och webbutveckling**.
 * Installera [Node.js](https://nodejs.org/en/download/)
-* Ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter.
+* Ett Facebook-konto.
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
@@ -63,21 +63,17 @@ Bläddra till programmets URL `http://localhost:6420` i en webbläsare.
 
 Klicka på knappen **Logga in** för att starta Azure AD B2C-arbetsflödet **Registrera dig eller logga in** baserat på en Azure AD B2C-princip. 
 
-Exemplet stöder flera registreringsalternativ, inklusive att använda en social identitetsprovider eller skapa ett lokalt konto med en e-postadress. För den här snabbstarten använder du ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter. 
+Exemplet är avsett att stödja flera registreringsalternativ, till exempel att skapa ett lokalt konto med en e-postadress. För den här snabbstarten använder du ett Facebook-konto. 
 
 ### <a name="sign-up-using-a-social-identity-provider"></a>Registrera dig med en social identitetsprovider
 
 Azure AD B2C visar en anpassad inloggningssida för ett fiktivt varumärke som kallas Wingtip Toys för exempelwebbappen. 
 
-1. Klicka på knappen för den identitetsprovider som du vill använda för att registrera dig med en social identitetsprovider.
-
-    ![Inloggnings- eller registreringsprovider](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+1. Om du vill registrera dig med social identitetsprovider klickar du på knappen för Facebook-identitetsprovidern.
 
     Du autentiserar dig (loggar in) med autentiseringsuppgifterna för ditt sociala konto och ger behörighet till programmet att läsa information från det sociala kontot. När du beviljar åtkomst kan programmet hämta profilinformation från det sociala kontot, till exempel ditt namn och din ort. 
 
-2. Avsluta inloggningsprocessen för identitetsprovidern. Om du till exempel väljer Twitter anger du dina autentiseringsuppgifter för Twitter och klickar på **Logga in**.
-
-    ![Autentisera och auktorisera användare med ett socialt konto](media/active-directory-b2c-quickstarts-spa/twitter-authenticate-authorize-spa.png)
+2. Slutför inloggningsprocessen för identitetsprovidern genom att ange dina autentiseringsuppgifter.
 
     Dina profiluppgifter för det nya kontot fylls i automatiskt med information från det sociala kontot. 
 

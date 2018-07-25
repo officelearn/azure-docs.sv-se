@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 04/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: f933788968ffdbd4a856a84476d8d82b32637d62
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 4dbb8b7abf6da77115d0e1d12621ec20ec60d174
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100342"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035208"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Tjänstens huvudnamn med Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ När du distribuerar ett AKS-kluster med kommandot `az aks create` har du möjli
 
 I följande exempel skapas ett AKS-kluster och eftersom ett befintlig huvudnamn för tjänsten inte har angetts så skapas ett för klustret. Kontot måste ha rätt behörigheter för att skapa ett huvudnamn för tjänsten för att kunna slutföra den här åtgärden.
 
-```azurecli
+```azurecli-interactive
 az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
@@ -47,7 +47,7 @@ Ett befintligt Azure AD-huvudnamn för tjänsten kan användas eller skapas i f�
 
 Använd kommandot [az ad sp create-for-rbac][az-ad-sp-create] för att skapa tjänstens huvudnamn med Azure CLI.
 
-```azurecli
+```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
 ```
 
@@ -84,7 +84,12 @@ Tänk på följande när du arbetar med AKS och Azure AD-tjänstens huvudnamn.
 * När du anger **klient-id:t** för tjänstens huvudnamn använder du värdet för `appId` (som visas i den här artikeln) eller motsvarande `name` för tjänstens huvudnamn (till exempel `https://www.contoso.org/example`).
 * På virtuella huvud- och noddatorer i Kubernetes-klustret lagras autentiseringsuppgifterna för tjänstobjektet i filen `/etc/kubernetes/azure.json`.
 * Om du använder kommandot `az aks create` för att generera tjänstobjektet automatiskt skrivs autentiseringsuppgifterna för tjänstobjektet till filen `~/.azure/aksServicePrincipal.json` på den dator som används för att köra kommandot.
-* När du tar bort ett AKS-kluster som har skapats av `az aks create` tas inte tjänstens huvudnamn som skapades automatiskt bort. Använd `az ad sp delete --id $clientID` för att ta bort det.
+* När du tar bort ett AKS-kluster som skapats av `az aks create` tas tjänstens huvudnamn som skapades automatiskt inte bort. Om du vill ta bort tjänstens huvudnamn hämtar du först ID för tjänsten huvudnamn med [az ad app-listan][az-ad-app-list]. Följande exempel frågar efter klustret med namnet *myAKSCluster* och tar sedan bort app-ID med [az ad app-borttagningen][az-ad-app-delete]. Byt ut dessa namn mot dina egna värden:
+
+    ```azurecli-interactive
+    az ad app list --query "[?displayName=='myAKSCluster'].{Name:displayName,Id:appId}" --output table
+    az ad app delete --id <appId>
+    ```
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -101,3 +106,5 @@ Mer information om Azure Active Directory-tjänstens huvudnamn finns i programdo
 [install-azure-cli]: /cli/azure/install-azure-cli
 [service-principal]: ../active-directory/develop/active-directory-application-objects.md
 [user-defined-routes]: ../load-balancer/load-balancer-overview.md
+[az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
+[az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete

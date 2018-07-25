@@ -10,12 +10,12 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 891206e88173d72a0bacf6694a331c4ad8cc9acc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 86b8f76bd221be9f30a5b9336af858359ae0af8f
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069455"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238887"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i miljön med lösningen ändringsspårning
 
@@ -99,7 +99,7 @@ Använd följande steg för att konfigurera filer spårning på Windows-datorer:
 
 ## <a name="configure-file-content-tracking"></a>Konfigurera filinnehåll spårning
 
-Du kan visa den innehållet före och efter en ändring av en fil med filen innehåll ändringsspårning. Detta är tillgänglig för Windows och Linux-filer för varje ändring i filen, innehållet i filen lagras i ett lagringskonto och visar filen före och efter ändringen, infogade eller sida vid sida. Mer information finns i [visa innehållet i en spårade fil](change-tracking-file-contents.md).
+Du kan visa innehållet före och efter en ändring av en fil med filen innehåll ändringsspårning. Detta är tillgänglig för Windows och Linux-filer för varje ändring i filen, innehållet i filen lagras i ett lagringskonto och visar filen före och efter ändringen, infogade eller sida vid sida. Mer information finns i [visa innehållet i en spårade fil](change-tracking-file-contents.md).
 
 ![Visa ändringar i en fil](./media/change-tracking-file-contents/view-file-changes.png)
 

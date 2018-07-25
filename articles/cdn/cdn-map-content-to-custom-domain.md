@@ -14,19 +14,19 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f66aaa23a631bd71494587683aab87a74a5aef20
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 30dbe6590cc1d70dfc026330a09645c86be24288
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261278"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036895"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Självstudiekurs: Lägga till en anpassad domän i Azure CDN-slutpunkten
 Den här självstudien visar hur du lägger till en anpassad domän till en slutpunkt i Azure Content Delivery Network (CDN). När du använder en CDN-slutpunkt för att leverera innehåll behövs en anpassad domän om du vill att ditt eget domännamn ska synas i din URL för CDN. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte. 
 
 När du har skapat en CDN-slutpunkt i din profil inkluderas slutpunktsnamnet (det vill säga en underdomän till azureedge.net) i URL för leverans av CDN-innehåll som standard (till exempel https:\//contoso.azureedge.net/photo.png). Med Azure CDN kan du associera en anpassad domän med en CDN-slutpunkt. På så sätt kan du leverera ditt innehåll med en anpassad domän i din URL i stället för slutpunktsnamnet (till exempel https:\//www.contoso.com/photo.png). 
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > - Skapa en CNAME DNS-post
 > - Associera den anpassade domänen med CDN-slutpunkten
@@ -54,11 +54,11 @@ En anpassad domän och dess underdomän kan endast associeras med en slutpunkt �
 
 När du mappar en befintlig domän som är i produktion finns några saker att tänka på. Medan du registrerar din anpassade domän i Azure Portal kan det uppstå en kort tids driftstopp. För att undvika störningar i webbtrafiken mappar du först din anpassade domän till CDN-slutpunktens värdnamn med Azure cdnverify-underdomänen för att skapa en tillfällig CNAME-mappning. Den här metoden gör att användare kan komma åt din domän utan avbrott under tiden DNS-mappningen utförs. 
 
-Om du använder din anpassade domän för första gången och ingen produktionstrafik körs på den, kan du mappa din anpassade domän direkt till CDN-slutpunkten. Gå vidare till [Mappa permanent anpassad domän](#map-permanent-custom-domain).
+Om du använder din anpassade domän för första gången och ingen produktionstrafik körs på den, kan du mappa din anpassade domän direkt till CDN-slutpunkten. Gå vidare till [Mappa permanent anpassad domän](#map-the-permanent-custom-domain).
 
 Skapa en CNAME-post med underdomänen cdnverify:
 
-1. Logga in på webbplatsen för domänleverantören för din anpassade domän.
+1. Logga in på webbplatsen för domänleverantören för den anpassade domänen.
 
 2. Leta reda på sidan för att hantera DNS-poster med hjälp av leverantörens dokumentation eller genom att söka på webbplatsen efter platser som **domännamn**, **DNS** eller **namnserverhantering**. 
 
@@ -109,7 +109,7 @@ Till exempel är förfarandet för GoDaddy-domänregistratorn följande:
 
 När du har registrerat din anpassade domän kan du lägga till den i din CDN-slutpunkt. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) och gå till den CDN-profil som innehåller den slutpunkt som du vill mappa till en anpassad domän.
+1. Logga in på [Azure Portal](https://portal.azure.com/) och navigera till den CDN-profil som innehåller den slutpunkt du vill mappa till en anpassad domän.
     
 2. På sidan **CDN-profil** väljer du den CDN-slutpunkt som du vill associera med den anpassade domänen.
 
@@ -141,7 +141,7 @@ När du har registrerat din anpassade domän kan du lägga till den i din CDN-sl
 
 När du har slutfört registreringen av den anpassade domänen kan du kontrollera att den anpassade domänen refererar till CDN-slutpunkten.
  
-1. Se till att du har offentligt innehåll som cachelagras på slutpunkten. Om CDN-slutpunkten till exempel är associerad med ett lagringskonto cachelagrar Azure CDN innehållet i en offentlig behållare. Om du vill testa den anpassade domänen kontrollerar du att behållaren är inställd på att tillåta offentlig åtkomst och att den innehåller minst en fil.
+1. Se till att du har offentligt innehåll som cachelagras på slutpunkten. Om CDN-slutpunkten till exempel är associerad med ett lagringskonto cachelagrar Azure CDN innehållet i en offentlig container. Om du vill testa den anpassade domänen kontrollerar du att containern är inställd på att tillåta offentlig åtkomst och att den innehåller minst en fil.
 
 2. Navigera till filens adress genom att använda den anpassade domänen i webbläsaren. Om din anpassade domän till exempel är cdn.contoso.com ska URL:en till den cachelagrade filen se ut ungefär som följande URL: http:\//cdn.contoso.com/my-public-container/my-file.jpg. Kontrollera att resultatet är detsamma som när du öppnar CDN-slutpunkten direkt på *&lt;värdnamn för slutpunkt&gt;*.azureedge.net.
 
@@ -152,7 +152,7 @@ Om du har kontrollerat att underdomänen cdnverify har mappats till slutpunkten 
 
 Skapa en CNAME-post för den anpassade domänen:
 
-1. Logga in på webbplatsen för domänleverantören för din anpassade domän.
+1. Logga in på webbplatsen för domänleverantören för den anpassade domänen.
 
 2. Leta reda på sidan för att hantera DNS-poster med hjälp av leverantörens dokumentation eller sök efter områden på webbplatsen som heter **Domännamn**, **DNS** eller **Namnserverhantering**. 
 

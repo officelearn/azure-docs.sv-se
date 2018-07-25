@@ -4,14 +4,14 @@ description: Översikt över utvärderingsberäkningar i Azure Migrate-tjänsten
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/20/2018
+ms.date: 07/24/2018
 ms.author: raynew
-ms.openlocfilehash: 890614133649762788418c538bd22bb6ffc425bf
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: af832cb3791f0175b38aad16526acd51509bbe52
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173766"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223692"
 ---
 # <a name="assessment-calculations"></a>Utvärderingsberäkningar
 
@@ -40,7 +40,7 @@ Azure Migrate granskar följande egenskaper för lokala virtuella datorn att ide
 --- | --- | ---
 **Starttyp** | Azure har stöd för virtuella datorer med starttypen BIOS och UEFI inte. | Villkorligt redo för Azure om starttypen är UEFI.
 **Kärnor** | Antalet kärnor på datorerna måste vara lika med eller mindre än det maximala antalet kärnor (32) som stöds för en Azure-dator.<br/><br/> Om det finns prestandahistorik överväger Azure Migrate utnyttjade kärnor för jämförelse. Om en komfortfaktor anges i inställningarna för utvärdering av multipliceras antalet utnyttjade kärnor med komfortfaktorn.<br/><br/> Om det finns inga prestandahistorik, använder Azure Migrate tilldelade kärnor, utan att tillämpa komfortfaktorn. | Ej redo om antalet kärnor som är större än 32.
-**Minne** | Storleken på datorn minne måste vara lika med eller mindre än den maximalt minne (448 GB) som tillåts för en Azure-dator. <br/><br/> Om det finns prestandahistorik överväger Azure Migrate utnyttjade minne för jämförelse. Om en komfortfaktor anges multipliceras utnyttjade minne med komfortfaktorn.<br/><br/> Om det finns ingen historik allokerat minne används, utan att tillämpa komfortfaktorn.<br/><br/> | Ej redo om minnesstorleken är större än 448 GB.
+**Minne** | Storleken på datorn minne måste vara lika med eller mindre än maximalt minne (3892 GB på Azure-M-serien Standard_M128m&nbsp;<sup>2</sup>) tillåts för en Azure-dator. [Läs mer](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory.md#m-series).<br/><br/> Om det finns prestandahistorik överväger Azure Migrate utnyttjade minne för jämförelse. Om en komfortfaktor anges multipliceras utnyttjade minne med komfortfaktorn.<br/><br/> Om det finns ingen historik allokerat minne används, utan att tillämpa komfortfaktorn.<br/><br/> | Ej redo om minnesstorleken är större än 448 GB.
 **Lagringsdisk** | Allokerade storleken på en disk måste vara 4 TB (4096 GB) eller mindre.<br/><br/> Antalet diskar som är anslutna till datorn måste vara 65 eller mindre, inklusive OS-disken. | Ej redo eventuellt disken är större än 4 TB, eller om det finns fler än 65 diskar som är anslutna till datorn.
 **Nätverk** | En dator måste ha 32 eller färre anslutna nätverkskort till den. | Ej redo om datorn har mer än 32 nätverkskort
 

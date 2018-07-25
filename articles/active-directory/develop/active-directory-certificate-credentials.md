@@ -13,49 +13,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 07/24/2018
 ms.author: celested
-ms.reviewer: nacanuma
+ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c782429ac2d8ee030ca8b589b4241242c7b101d6
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 49561434688806b3959824f87d1c81e07d7a7559
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156508"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238713"
 ---
-# <a name="certificate-credentials-for-application-authentication"></a>Autentiseringsuppgifter för certifikat för autentisering
+# <a name="certificate-credentials-for-application-authentication"></a>Autentiseringsuppgifter för certifikat för autentisering för programmet
 
-Azure Active Directory kan ett program att använda sina egna autentiseringsuppgifter för autentisering. Till exempel i flödet för OAuth 2.0 klientens autentiseringsuppgifter Grant ([v1](active-directory-protocols-oauth-service-to-service.md), [v2](active-directory-v2-protocols-oauth-client-creds.md)) och On-Behalf-Of-flöde ([v1](active-directory-protocols-oauth-on-behalf-of.md), [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
-En form av autentiseringsuppgifter som kan användas är en JSON Web Token(JWT) assertion signeras med ett certifikat som programmet äger.
+Azure Active Directory (Azure AD) kan ett program att använda sina egna autentiseringsuppgifter för autentisering, till exempel i flödet för OAuth 2.0-klientautentiseringsuppgifter ([v1.0](active-directory-protocols-oauth-service-to-service.md), [v2.0](active-directory-v2-protocols-oauth-client-creds.md)) och den On-Behalf-Of Flow ([v1.0](active-directory-protocols-oauth-on-behalf-of.md), [v2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 
-## <a name="format-of-the-assertion"></a>Formatet på kontrollen
-Om du vill beräkna kontrollen, vill du förmodligen använda en av många [JSON Web Token](https://jwt.ms/) bibliotek på önskat språk. Informationen som token är:
+En form av autentiseringsuppgifter som ett program kan använda för autentisering är en JSON Web Token(JWT) försäkran som signeras med ett certifikat som programmet äger.
 
-#### <a name="header"></a>Sidhuvud
+## <a name="assertion-format"></a>Assertion format
+Om du vill beräkna kontrollen, du kan använda en av många [JSON Web Token](https://jwt.ms/) bibliotek i valfritt språk. Den information som utförs av token är följande:
+
+### <a name="header"></a>Sidhuvud
 
 | Parameter |  Kommentar |
 | --- | --- |
 | `alg` | Bör vara **RS256** |
 | `typ` | Bör vara **JWT** |
-| `x5t` | Ska vara tumavtrycket för X.509-certifikat SHA-1 |
+| `x5t` | Ska vara tumavtrycket för X.509-certifikatet SHA-1 |
 
-#### <a name="claims-payload"></a>Anspråk (Payload)
+### <a name="claims-payload"></a>Anspråk (nyttolast)
 
-| Parameter |  Kommentar |
+| Parameter |  Kommentarer |
 | --- | --- |
 | `aud` | Målgrupp: Bör vara  **https://login.microsoftonline.com/ *tenant_Id*  /oauth2/token** |
-| `exp` | Förfallodatum: det datum då token upphör att gälla. Tiden representeras som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills giltigheten token upphör att gälla.|
-| `iss` | Utgivare: bör vara client_id (program-ID för klient-tjänst) |
+| `exp` | Förfallodatum: det datum när token upphör att gälla. Tiden representeras som hur många sekunder från 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills giltigheten token upphör att gälla.|
+| `iss` | Utgivare: bör vara client_id (program-ID för klienttjänsten) |
 | `jti` | GUID: JWT ID |
-| `nbf` | Inte före: datum före vilken token inte kan användas. Tiden representeras som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills token har utfärdats. |
-| `sub` | Ämne: som för `iss`, bör vara client_id (program-ID för klient-tjänst) |
+| `nbf` | Inte före: det datum som token inte kan användas. Tiden representeras som hur många sekunder från 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills token utfärdats. |
+| `sub` | Ämne: som för `iss`, ska vara client_id (program-ID för klienttjänsten) |
 
-#### <a name="signature"></a>Signatur
+### <a name="signature"></a>Signatur
 
-Signaturen beräknas tillämpa certifikatet som beskrivs i den [JSON Web Token RFC7519 specifikation](https://tools.ietf.org/html/rfc7519)
+Signaturen är beräknad tillämpa certifikatet enligt beskrivningen i den [JSON Web Token RFC7519-specifikation](https://tools.ietf.org/html/rfc7519)
 
-### <a name="example-of-a-decoded-jwt-assertion"></a>Exempel på en avkodade JWT-kontrollen
+## <a name="example-of-a-decoded-jwt-assertion"></a>Exempel på en avkodade JWT-kontrollen
 
 ```
 {
@@ -77,44 +78,59 @@ Signaturen beräknas tillämpa certifikatet som beskrivs i den [JSON Web Token R
 
 ```
 
-### <a name="example-of-an-encoded-jwt-assertion"></a>Exempel på en kodad JWT-kontrollen
+## <a name="example-of-an-encoded-jwt-assertion"></a>Exempel på en kodad JWT-kontrollen
 
-Följande sträng är ett exempel på kodade kontrollen. Om du ser noggrant kan se du tre avsnitt avgränsade med punkter (.).
-Det första avsnittet kodar rubriken, den andra nyttolasten och sist är signaturen som beräknats med certifikat från innehållet i de två första avsnitten.
+Följande sträng är ett exempel på kodade kontrollen. Om du tittar noggrant, kan du se tre avsnitt avgränsade med punkter (.):
+* Det första avsnittet kodar rubriken
+* Det andra avsnittet kodar nyttolasten
+* Det sista avsnittet är signaturen beräknas med certifikat från innehållet i de första två avsnitten
+
 ```
 "eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ubWljcm9zb2Z0b25saW5lLmNvbVwvam1wcmlldXJob3RtYWlsLm9ubWljcm9zb2Z0LmNvbVwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQ4NDU5MzM0MSwiaXNzIjoiOTdlMGE1YjctZDc0NS00MGI2LTk0ZmUtNWY3N2QzNWM2ZTA1IiwianRpIjoiMjJiM2JiMjYtZTA0Ni00MmRmLTljOTYtNjVkYmQ3MmMxYzgxIiwibmJmIjoxNDg0NTkyNzQxLCJzdWIiOiI5N2UwYTViNy1kNzQ1LTQwYjYtOTRmZS01Zjc3ZDM1YzZlMDUifQ.
 Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
-### <a name="register-your-certificate-with-azure-ad"></a>Registrera ditt certifikat med Azure AD
+## <a name="register-your-certificate-with-azure-ad"></a>Registrera certifikatet med Azure AD
 
-Du kan associera certifikat-autentiseringsuppgifter med klientprogrammet i Azure AD via Azure-portalen med hjälp av följande metoder:
+Du kan associera certifikat-autentiseringsuppgifter med klientprogram i Azure AD via Azure-portalen med hjälp av någon av följande metoder:
 
-**Överföring av certifikatfilen**
+### <a name="uploading-the-certificate-file"></a>Överföring av certifikatfilen
 
-I Azure-app-registrering för klientprogrammet klickar du på **inställningar**, klickar du på **nycklar** och klicka sedan på **överför offentliga nyckel**. Välj den certifikatfil du vill överföra och klicka på **spara**. När du sparar certifikatet som överförs och certifikatets tumavtryck startdatum och upphör att gälla visas värden. 
+I Azure appregistreringen för klientprogrammet:
+1. Välj **Inställningar > nycklar** och välj sedan **ladda upp offentlig nyckel**. 
+2. Markera den certifikatfil du vill ladda upp.
+3. Välj **Spara**. 
+   
+   När du sparar certifikatet har laddats upp och tumavtryck, startdatum och upphör att gälla värden visas. 
 
-**Uppdatera programmanifestet**
+### <a name="updating-the-application-manifest"></a>Uppdatera applikationsmanifestet
 
 Med undantag för ett certifikat, måste du beräkna:
 
-- `$base64Thumbprint`, vilket är base64-kodning av certifikat-Hash
-- `$base64Value`, vilket är base64-kodning av certifikatets rådata
+- `$base64Thumbprint`, som är base64-kodning av certifikat-hash
+- `$base64Value`, vilket är base64-kodning av rådata för certifikatet
 
-Du måste också ange ett GUID för att identifiera nyckeln i programmanifestet (`$keyId`).
+Du måste också ange ett GUID för att identifiera nyckeln i applikationsmanifestet (`$keyId`).
 
-Öppna programmanifestet i Azure-app-registrering för klientprogrammet och Ersätt den *keyCredentials* egenskap med information för din nya certifikat med hjälp av följande schema:
+I Azure appregistreringen för klientprogrammet:
+1. Öppna programmanifestet.
+2. Ersätt den *keyCredentials* egenskap med din nya certifikatinformationen med hjälp av följande schema.
 
-```
-"keyCredentials": [
-    {
-        "customKeyIdentifier": "$base64Thumbprint",
-        "keyId": "$keyid",
-        "type": "AsymmetricX509Cert",
-        "usage": "Verify",
-        "value":  "$base64Value"
-    }
-]
-```
+   ```
+   "keyCredentials": [
+       {
+           "customKeyIdentifier": "$base64Thumbprint",
+           "keyId": "$keyid",
+           "type": "AsymmetricX509Cert",
+           "usage": "Verify",
+           "value":  "$base64Value"
+       }
+   ]
+   ```
+3. Spara ändringarna i manifestet och överför sedan manifestet till Azure AD. 
 
-Spara ändringarna i programmanifestet och ladda upp till Azure AD. Egenskapen keyCredentials är ett flervärdesattribut, så du kan ladda upp flera certifikat bättre hantering av nycklar.
+   Den `keyCredentials` egenskap har flera värden, så att du kan ladda upp flera certifikat för bättre hantering av nycklar.
+   
+## <a name="code-sample"></a>Kodexempel
+
+Kodexempel på [autentiserar till Azure AD i daemon-appar med certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) visar hur ett program använder sina egna autentiseringsuppgifter för autentisering. Det visar även hur du kan [skapa ett självsignerat certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) med hjälp av den `New-SelfSignedCertificate` Powershell-kommando. Du kan också dra nytta och använda den [skripten för att skapa appen](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) att skapa certifikat, compute tumavtrycket och så vidare.

@@ -3,19 +3,19 @@ title: Lägg till entiteter i LUIS-appar | Microsoft Docs
 titleSuffix: Azure
 description: Lägg till entiteter (viktiga data i ditt programs domän) i appar för Språkförståelse (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: bcdd4b681992b015b817e1245681c41c09b78210
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.author: diberry
+ms.openlocfilehash: e97f9a5391799849983bd98db5400e0a842627b7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173698"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224134"
 ---
 # <a name="manage-entities"></a>Hantera entiteter
 När du har identifierat appens [avsikter](luis-concept-intent.md), måste du [märka exempel yttranden](luis-concept-utterance.md) med [entiteter](luis-concept-entity-types.md). Entiteter är viktiga delar av ett kommando eller en fråga och kan vara viktiga för din klientapp att utföra sitt uppdrag. 

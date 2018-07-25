@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2018
 ms.author: aljo
-ms.openlocfilehash: a6351971ceb502297193bf0f2c3a452f30cade5d
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 1f7cad982e4a78aaad92e563eb4a1fc33b533478
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187408"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238955"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Anpassa Service Fabric-klusterinställningar och uppgraderingsprincip för infrastruktur
 Det här dokumentet får du lära dig att anpassa olika infrastrukturinställningarna och infrastrukturen uppgraderingsprincip för Service Fabric-klustret. Du kan anpassa dem via den [Azure-portalen](https://portal.azure.com) eller med en Azure Resource Manager-mall.
@@ -159,8 +159,8 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 | --- | --- | --- | --- |
 |InstanceCount|int, standard är-1|Statisk|Standardvärdet är -1, vilket innebär att DnsService körs på varje nod. OneBox måste det anges till 1 eftersom DnsService använder välkända port 53, så att den inte kan ha flera instanser på samma dator.|
 |IsEnabled|bool, standard är FALSKT|Statisk|Aktiverar eller inaktiverar DnsService. DnsService är inaktiverad som standard och den här konfigurationen måste anges för att aktivera den. |
-|PartitionPrefix|sträng, standardvärdet är ”-”|Statisk|Styr strängvärdet partition prefix i DNS-frågor för tjänster som är partitionerad. Mer information finns i den här länken:[Service Fabric DNS-tjänst.](service-fabric-dnsservice.md)|
-|PartitionSuffix|sträng, standardvärdet är ””|Statisk|Styr strängvärdet partition suffix i DNS-frågor för tjänster som är partitionerad. Mer information finns i den här länken:[Service Fabric DNS-tjänst.](service-fabric-dnsservice.md) |
+|PartitionPrefix|sträng, standardvärdet är ”-”|Statisk|Styr strängvärdet partition prefix i DNS-frågor för tjänster som är partitionerad. Värde: <ul><li>Ska vara RFC-kompatibel eftersom det är en del av en DNS-fråga.</li><li>Får inte innehålla en punkt '.', som punkt stör DNS-suffix beteende.</li><li>Får inte vara längre än 5 tecken.</li><li>Det går inte att vara en tom sträng.</li><li>Om inställningen PartitionPrefix åsidosätts kommer PartitionSuffix måste åsidosättas, och vice versa.</li></ul>Mer information finns i [Service Fabric DNS-tjänst.](service-fabric-dnsservice.md).|
+|PartitionSuffix|sträng, standardvärdet är ””|Statisk|Styr strängvärdet partition suffix i DNS-frågor för tjänster som är partitionerad. Värde: <ul><li>Ska vara RFC-kompatibel eftersom det är en del av en DNS-fråga.</li><li>Får inte innehålla en punkt '.', som punkt stör DNS-suffix beteende.</li><li>Får inte vara längre än 5 tecken.</li><li>Om inställningen PartitionPrefix åsidosätts kommer PartitionSuffix måste åsidosättas, och vice versa.</li></ul>Mer information finns i [Service Fabric DNS-tjänst.](service-fabric-dnsservice.md). |
 
 ## <a name="fabricclient"></a>FabricClient
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |

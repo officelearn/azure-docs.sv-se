@@ -1,43 +1,62 @@
 ---
 title: Översikt över Azure Maps | Microsoft Docs
 description: En introduktion till Azure Maps
-author: kgremban
-ms.author: kgremban
-ms.date: 05/07/2018
+author: dsk-2015
+ms.author: dkshir
+ms.date: 07/12/2018
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 239134e7665b80ef78b6a3df12c14156bff9ae29
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 93fe8dc3f8ff991cd6c48923d9e2073e4e93f1ad
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317066"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040855"
 ---
-# <a name="an-introduction-to-azure-maps"></a>En introduktion till Azure Maps
-Azure Maps är en portfölj med geospatiala tjänster som omfattar tjänst-API:er för kartor, sökning, ruttplanering, trafik och tidszoner. Med portföljen med tjänster kan du använda välbekanta verktyg för att snabbt utveckla och skala lösningar som integrerar platsinformation i dina Azure-lösningar. Azure Maps ger utvecklare från alla branscher kraftfulla geospatiala funktioner med nya mappningsdata som krävs för att tillhandahålla geografisk kontext till webb- och mobilprogram. Azure Maps är en uppsättning REST API:er som åtföljs av en webbaserad JavaScript-kontroll som gör utveckling över flera medier enkelt, flexibelt och portabelt. 
+# <a name="what-is-azure-maps"></a>Vad är Azure Maps?
+Azure Maps är en samling geospatiala tjänster som backas upp av nya mappningsdata. Du kan ange exakt geografisk kontext till webb- och mobilprogram. Den innehåller REST API:er för att rendera kartor, söka efter intressanta platser, trafikförhållanden, tidszoner och IP till plats-tjänster. Med de här API:erna och välbekanta verktyg kan du snabbt utveckla och skala lösningar som integrerar platsinformation i dina Azure-lösningar. Tillsammans med REST API:erna får du en webbaserad JavaScript-kontroll som gör utveckling över flera medier enkel, flexibel och portabel. 
 
-Följande video introducerar Azure Maps:
+I följande video beskriver vi Azure Maps mer ingående:
 
 <iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-Azure Maps består av fem primära tjänster som stöder Azure-program som kräver geografisk kontext. Varje tjänst förklaras i detalj.
+## <a name="services-in-azure-maps"></a>Tjänster i Azure Maps
 
-**Render Service** är utformad för utvecklare som skapar webb- och mobilprogram runt mappning. Tjänsten använder antingen grafiska rasterbilder av hög kvalitet, tillgängliga i 19 zoomningsnivåer, eller helt anpassningsbara kartbilder i vektorformat.
+Azure Maps består av följande sex tjänster som kan tillhandahålla geografisk kontext till dina Azure-program. 
+
+### <a name="render-service"></a>Renderingstjänst
+
+Render Service är utformad för utvecklare som skapar webb- och mobilprogram runt mappning. Tjänsten använder antingen grafiska rasterbilder av hög kvalitet, tillgängliga i 19 zoomningsnivåer, eller helt anpassningsbara kartbilder i vektorformat.
 
 ![Azure Maps Map.png](media/about-azure-maps/Introduction_Map.png)
 
-**Route Service** innehåller robusta geometriberäkningar från verklig infrastruktur och flera transportlägesriktningar. Tjänsten gör det möjligt för utvecklare att beräkna riktningar efter ett antal färdmedel, till exempel bil, lastbil, cykel eller gående. Tjänsten kan också inkludera indata som trafikförhållanden, viktbegränsningar eller transport av farligt material.
+Nu finns förhandsversions-API:er med återgivningstjänsten, så att utvecklare kan arbeta med satellitbilder. Mer information finns i dokumentationen om [Azure Maps-renderings-API:er](https://docs.microsoft.com/rest/api/maps/render).
+
+
+### <a name="route-service"></a>Routningstjänst 
+
+I Route Service finns robusta geometriberäkningar för verklig infrastruktur och anvisningar om flera transportlägen. Tjänsten gör det möjligt för utvecklare att beräkna riktningar efter ett antal färdmedel, till exempel bil, lastbil, cykel eller gående. Tjänsten kan också inkludera indata som trafikförhållanden, viktbegränsningar eller transport av farligt material.
 
 ![Azure Maps Route.png](media/about-azure-maps/Introduction_Route.png)
 
-**Search Service** är utformad för utvecklare för att söka efter adresser, platser, företag efter namn eller kategori och annan geografisk information. Search Service kan också [omvänt geokoda](https://en.wikipedia.org/wiki/Reverse_geocoding) adresser och gatukorsningar baserat på latitud/longitud. 
+Ruttjänsten har nu förhandsversioner av avancerade funktioner som bearbetning av flera ruttbegäranden samtidigt, matriser med restid och avstånd mellan ursprung och mål, samt identifiering av rutter och avstånd så att du kan resa baserat på tid eller bränslekrav. Mer information om ruttfunktioner finns i dokumentationen om [rutt-API:er i Azure Maps](https://docs.microsoft.com/rest/api/maps/route).
+
+
+### <a name="search-service"></a>Söktjänst
+
+Söktjänsten är utformad för utvecklare som behöver söka efter adresser, platser, företag efter namn och kategori och annan geografisk information. Söktjänsten kan också [omvänt geokoda](https://en.wikipedia.org/wiki/Reverse_geocoding) adresser och gatukorsningar baserat på latitud/longitud. 
 
 ![Azure Maps Search.png](media/about-azure-maps/Introduction_Search.png)
 
-**Time Zone Service** tillåter användare att skicka frågor mot aktuell, historisk och framtida tidszonsinformation med hjälp av antingen latitud- och longitudpar eller ett [IANA-ID](http://www.iana.org/). Time Zone Service kan även användas för att konvertera Microsoft Windows tidszon-ID till IANA-tidszoner, hämta en tidszonsförskjutning mot UTC och hämta den aktuella tiden i respektive tidszon. Ett typiskt JSON-svar på en fråga till Time Zone Service ser ut så här:
+I söktjänsten finns dessutom avancerade funktioner som att söka längs en rutt, söka i ett större område, bearbeta flera sökbegäranden samtidigt och söka efter ett större område i stället för en viss punkt. API:er för sökningar inom batch och område finns för närvarande som förhandsversion. Mer information om sökfunktionerna finns på sidan med dokumentation om [Sök-API:er för Azure Maps](https://docs.microsoft.com/rest/api/maps/search).
+
+
+### <a name="time-zone-service"></a>Tidszontjänst
+
+Med tidszontjänsten kan du skicka begäranden om aktuell, historisk och framtida tidszonsinformation med hjälp av antingen latitud- och longitudpar eller [IANA ID](http://www.iana.org/). Time Zone Service kan även användas för att konvertera Microsoft Windows tidszon-ID till IANA-tidszoner, hämta en tidszonsförskjutning mot UTC och hämta den aktuella tiden i respektive tidszon. Ett typiskt JSON-svar på en fråga till Time Zone Service ser ut så här:
 
 ```JSON
 {
@@ -57,18 +76,38 @@ Azure Maps består av fem primära tjänster som stöder Azure-program som kräv
 }
 ```
 
-**Traffic Service** är en svit med webbtjänster som utformats för utvecklare som skapar webb- och mobilprogram som kräver trafik. Tjänsten tillhandahåller två typer av data:
-* Traffic flow – realtidsinformation om observerade hastigheter och resetider för alla viktiga vägar i nätverket. 
-* Traffic incidents – en precis bild över trafikstockningar och olyckor i vägnätet.
+Mer information om den här tjänsten finns på sidan med dokumentation om [tidszons-API:er i Azure Maps](https://docs.microsoft.com/rest/api/maps/timezone).
+
+### <a name="traffic-service"></a>Trafiktjänst
+
+Trafiktjänsterna är en svit med webbtjänster som utformats för utvecklare som skapar webb- och mobilprogram som kräver trafik. Tjänsten tillhandahåller två typer av data:
+    * Traffic flow – realtidsinformation om observerade hastigheter och resetider för alla viktiga vägar i nätverket. 
+    * Traffic incidents – en precis bild över trafikstockningar och olyckor i vägnätet.
 
 ![Azure Maps-trafik](media/about-azure-maps/Introduction_Traffic.png)
 
-Azure Maps har skapats för rörlighet och fungerar plattformsoberoende, eftersom programmeringsmodellen är oberoende och stöder JSON-utdata via REST API:er. Dessutom erbjuder Azure Maps en praktisk JavaScript-kartkontroll med en enkel programmeringsmodell för snabb och enkel utveckling av både webb- och mobilprogram. 
+Du hittar mer information på sidan med dokumentation om [Trafik-API:er i Azure Maps](https://docs.microsoft.com/rest/api/maps/traffic).
 
-Azure Maps använder ett nyckelbaserat autentiseringsschema. Åtkomst till tjänsterna sker via [Azure-portalen](http://portal.azure.com), där man kan skapa ett Azure Maps-konto. Ditt konto har två nycklar som har genererats åt dig. Börja integrera de här platsfunktioner direkt i dina program med någon av dina nycklar i begärandena till Azure Maps-tjänsten.
+### <a name="ip-to-location"></a>IP till plats
 
-## <a name="unsupported-regions"></a>Regioner som inte stöds
-Azure Maps API är för närvarande inte tillgänglig alla länder. Kontrollera din aktuella IP-adress och dess plats. Länderna som nämns nedan stöds inte:
+Tjänsten för IP till plats finns för närvarande som förhandsversion. Med den kan du hämta landskoden med två bokstäver för en angiven IP-adress. Med den här tjänsten kan du anpassa programmet och uppfylla särskilda geopolitiska begränsningar samt ändra innehållet baserat på den geografiska platsen för en bättre användarupplevelse. 
+
+
+## <a name="programming-model"></a>Programmeringsmodell
+
+Azure Maps är byggt för flexibilitet och fungerar på olika plattformar. Programmeringsmodellen är språkoberoende och har stöd för JSON-utdata via [REST API:er](https://docs.microsoft.com/rest/api/maps/). 
+
+Azure Maps har dessutom en praktisk [JavaScript-kartkontroll ](https://docs.microsoft.com/javascript/api/azure-maps-javascript/?view=azure-iot-typescript-latest) med en enkel programmeringsmodell för snabb och enkel utveckling av både webb- och mobilprogram. 
+
+
+## <a name="usage"></a>Användning
+
+Du kommer åt karttjänsterna via [Azure-portalen](http://portal.azure.com) där du kan skapa ett Azure Maps-konto. 
+
+I Azure Maps används ett schema för nyckelbaserad autentisering. Ditt konto har två nycklar som har genererats åt dig. Börja integrera de här platsfunktioner direkt i dina program med någon av dina nycklar i begärandena till Azure Maps-tjänsten.
+
+## <a name="supported-regions"></a>Regioner som stöds
+Azure Maps-API:t är nu tillgängligt i alla länder och regioner utom följande: 
 
 * Argentina
 * Kina
@@ -77,9 +116,11 @@ Azure Maps API är för närvarande inte tillgänglig alla länder. Kontrollera 
 * Pakistan
 * Sydkorea
 
+Kontrollera din aktuella IP-adress och dess plats, så att den inte är kopplad till någon av de länder som nämns ovan.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du en översikt över Azure Maps. Nästa steg är att testa en exempelapp som använder tjänsten.
-
-> [!div class="nextstepaction"]
-> [Starta en demokarta för interaktiv sökning](quick-demo-map-app.md)
+- Mer information om de nya funktionerna i Azure Maps: 
+    - [Ruttmatris, isokroner, hitta IP-adress med mera](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/). 
+- Gå vidare och testa en provapp som visar tjänsten
+    - [Starta en demokarta för interaktiv sökning](quick-demo-map-app.md)

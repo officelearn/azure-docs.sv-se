@@ -2,19 +2,19 @@
 title: Förstå begrepp för extrahering av data i LUIS - Azure | Microsoft Docs
 description: Lär dig vilka typer av data kan extraheras från Språkförståelse (LUIS)
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 4341233e56ef62486b935457f606e54e54af84f4
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: f57e7cb85e6d183a59b358e347d70d4d185868a7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952597"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225690"
 ---
 # <a name="data-extraction"></a>Extrahering av data
 LUIS ger dig möjlighet att få information från en användares naturligt språk yttranden. Informationen hämtas i ett sätt att den kan användas av ett program, programmet eller chattrobot för att vidta åtgärder.
@@ -139,7 +139,7 @@ Alla entiteter returneras i de **entiteter** matris för svaret från slutpunkte
 ]
 ```
 
-## <a name="tokenized-entity-returned"></a>Principfilerna entitet returnerades
+## <a name="tokenized-entity-returned"></a>principfilerna entitet returnerades
 Flera [kulturer](luis-supported-languages.md#tokenization) returnera entitetsobjekt med den `entity` värdet [tokeniserad](luis-glossary.md#token). StartIndex och endIndex som returnerades av LUIS i entitetsobjektet mappas inte till det nya, principfilerna värdet utan istället på den ursprungliga frågan i ordning att extrahera raw entiteten programmässigt. 
 
 Till exempel på tyska, ordet `das Bauernbrot` tokeniserad till `das bauern brot`. Värdet principfilerna `das bauern brot`, returneras och det ursprungliga värdet programmässigt kan fastställas från startIndex och endIndex av den ursprungliga frågan, vilket ger dig `das Bauernbrot`.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 6033269ab1dd35721aff17b1732d1f02cc452b31
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: b82785d0f4b6a5952334e891e7adec570c624f2d
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216164"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238139"
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Konfigurera en VMSS hanterad tjänstidentitet (MSI) med hjälp av PowerShell
 
@@ -27,9 +27,9 @@ ms.locfileid: "39216164"
 
 Hanterad tjänstidentitet ger Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering utan autentiseringsuppgifter i din kod. 
 
-I den här artikeln får du lära dig hur du utför åtgärder för hanterad tjänstidentitet på en virtuell dator skala ange (VMSS), med hjälp av PowerShell:
-- Aktivera och inaktivera systemtilldelad identitet i en Azure VMSS
-- Lägga till och ta bort en Användartilldelad identitet i en Azure VMSS
+I den här artikeln får du lära dig hur du utför åtgärder för hanterad tjänstidentitet på en Azure VM-skalningsuppsättning med hjälp av PowerShell:
+- Aktivera och inaktivera den systemtilldelade identiteten på en VM-skalningsuppsättning
+- Lägga till och ta bort en Användartilldelad identitet på en VM-skalningsuppsättning
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -45,7 +45,7 @@ I den här artikeln får du lära dig hur du utför åtgärder för hanterad tj�
 
 I det här avsnittet får du lära dig hur du aktiverar och ta bort en systemtilldelade identiteter med Azure PowerShell.
 
-### <a name="enable-system-assigned-identity-during-the-creation-of-an-azure-vmss"></a>Aktivera systemtilldelad identitet när du skapar en Azure VMSS
+### <a name="enable-system-assigned-identity-during-the-creation-of-an-azure-virtual-machine-scale-set"></a>Aktivera systemtilldelade identiteter under genereringen av en Azure VM-skalningsuppsättning
 
 Skapa en VMSS med systemtilldelad identitet aktiverat:
 
@@ -55,7 +55,7 @@ Skapa en VMSS med systemtilldelad identitet aktiverat:
     $VMSS = New-AzureRmVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
 
-2. (Valfritt) Lägg till en MSI VMSS tillägget med hjälp av den `-Name` och `-Type` parametern på den [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet. Du kan skicka ”ManagedIdentityExtensionForWindows” eller ”ManagedIdentityExtensionForLinux” beroende på vilken typ av virtuell dator och namnge den med hjälp av den `-Name` parametern. Den `-Settings` parametern anger den port som används av OAuth-token-slutpunkten för tokenförvärv:
+2. (Valfritt) Lägg till en MSI VMSS tillägget med hjälp av den `-Name` och `-Type` parametern på den [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet. Du kan skicka antingen ”ManagedIdentityExtensionForWindows” eller ”ManagedIdentityExtensionForLinux”, beroende på vilken typ av virtual machine scale ställa in och använda den `-Name` parametern. Den `-Settings` parametern anger den port som används av OAuth-token-slutpunkten för tokenförvärv:
 
     > [!NOTE]
     > Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS) identitet slutpunkten, för att hämta token samt.
@@ -66,24 +66,23 @@ Skapa en VMSS med systemtilldelad identitet aktiverat:
    Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
 
-## <a name="enable-system-assigned-identity-on-an-existing-azure-vmss"></a>Aktivera systemtilldelad identitet i en befintlig Azure VMSS
+## <a name="enable-system-assigned-identity-on-an-existing-azure-virtual-machine-scale-set"></a>Aktivera systemtilldelade identiteter på en befintlig Azure VM-skalningsuppsättning
 
-Om du vill aktivera en systemtilldelade identiteter på en befintlig Azure-VMSS:
+Om du vill aktivera en systemtilldelade identiteter på en befintlig Azure VM-skalningsuppsättning:
 
-1. Logga in på Azure med `Login-AzureRmAccount`. Använd ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn. Kontrollera också att ditt konto tillhör en roll som ger dig skrivbehörighet på den virtuella datorn, till exempel ”virtuell Datordeltagare”:
+1. Logga in på Azure med `Login-AzureRmAccount`. Använd ett konto som är associerad med Azure-prenumerationen som innehåller virtuella datorns skalningsuppsättning. Kontrollera också att ditt konto tillhör en roll som ger dig skrivbehörighet på virtuella datorns skalningsuppsättning, till exempel ”virtuell Datordeltagare”:
 
    ```powershell
    Login-AzureRmAccount
    ```
 
-2. Först hämta VMSS-egenskaper med hjälp av den [ `Get-AzureRmVmss` ](/powershell/module/azurerm.compute/get-azurermvmss) cmdlet. Om du vill aktivera en systemtilldelad identitet, Använd den `-IdentityType` växla den [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
+2. Första hämta VM-skalningsuppsättningen egenskaper med hjälp av den [ `Get-AzureRmVmss` ](/powershell/module/azurerm.compute/get-azurermvmss) cmdlet. Om du vill aktivera en systemtilldelad identitet, Använd den `-IdentityType` växla den [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) cmdlet:
 
    ```powershell
-   $vm = Get-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVM
-   Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name -myVM -IdentityType "SystemAssigned"
+   Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-3. Lägg till en MSI VMSS tillägget med hjälp av den `-Name` och `-Type` parametern på den [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet. Du kan skicka ”ManagedIdentityExtensionForWindows” eller ”ManagedIdentityExtensionForLinux” beroende på vilken typ av virtuell dator och namnge den med hjälp av den `-Name` parametern. Den `-Settings` parametern anger den port som används av OAuth-token-slutpunkten för tokenförvärv:
+3. Lägg till en MSI VMSS tillägget med hjälp av den `-Name` och `-Type` parametern på den [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet. Du kan skicka antingen ”ManagedIdentityExtensionForWindows” eller ”ManagedIdentityExtensionForLinux”, beroende på vilken typ av virtual machine scale ställa in och använda den `-Name` parametern. Den `-Settings` parametern anger den port som används av OAuth-token-slutpunkten för tokenförvärv:
 
    ```powershell
    $setting = @{ "port" = 50342 }
@@ -91,68 +90,66 @@ Om du vill aktivera en systemtilldelade identiteter på en befintlig Azure-VMSS:
    Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
 
-### <a name="disable-the-system-assigned-identity-from-an-azure-vmss"></a>Inaktivera systemtilldelad identitet från en Azure VMSS
+### <a name="disable-the-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Inaktivera den systemtilldelade identiteten från en Azure VM-skalningsuppsättning
 
-> [!NOTE]
-> Inaktiverar hanterad tjänstidentitet från en Virtual Machine Scale Sets stöds för närvarande inte. Under tiden kan växla du mellan att använda System tilldelas och tilldelade användaridentiteter.
+Om du har en skalningsuppsättning för virtuella datorer som inte längre behöver systemtilldelad identitet, men fortfarande ha användartilldelade identiteter, använder du följande cmdlet:
 
-Om du har en Virtual Machine Scale Sets som inte längre behöver systemtilldelad identitet, men fortfarande ha användartilldelade identiteter, använder du följande cmdlet:
-
-1. Logga in på Azure med `Login-AzureRmAccount`. Använd ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn. Kontrollera också att ditt konto tillhör en roll som ger dig skrivbehörighet på den virtuella datorn, till exempel ”virtuell Datordeltagare”:
+1. Logga in på Azure med `Login-AzureRmAccount`. Använd ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn. Kontrollera också att ditt konto tillhör en roll som ger dig skrivbehörighet på virtuella datorns skalningsuppsättning, till exempel ”virtuell Datordeltagare”:
 
 2. Kör följande cmdlet:
 
-    ```powershell
-    Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "UserAssigned"
-    ```
+   ```powershell
+   Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "UserAssigned"
+   ```
+
+Om du har en skalningsuppsättning för virtuella datorer som inte längre behöver systemtilldelad identitet och har inga användartilldelade identiteter, använder du följande kommandon:
+
+```powershell
+Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
+```
 
 ## <a name="user-assigned-identity"></a>Användartilldelad identitet
 
-Du lär dig hur du lägger till och ta bort Användartilldelad identitet från en Skalningsuppsättningen med hjälp av Azure PowerShell i det här avsnittet.
+I det här avsnittet ska du lära dig hur du lägger till och ta bort Användartilldelad identitet från en VM-skalningsuppsättning med Azure PowerShell.
 
-### <a name="assign-a-user-assigned-identity-during-creation-of-an-azure-vmss"></a>Tilldela Användartilldelad identitet under skapandet av en Azure VMSS
+### <a name="assign-a-user-assigned-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Tilldela en Användartilldelad identitet under skapandet av en Azure VM-skalningsuppsättning
 
-Skapa en ny VMSS med en Användartilldelad identitet stöds inte för närvarande via PowerShell. Om hur du lägger till en Användartilldelad identitet i en befintlig VMSS finns i nästa avsnitt. Kom tillbaka om för att få uppdateringar.
+Skapa en ny VM-skalningsuppsättning med en Användartilldelad identitet stöds inte för närvarande via PowerShell. Se nästa avsnitt om hur du lägger till en Användartilldelad identitet i en befintlig VM-skalningsuppsättning. Kom tillbaka om för att få uppdateringar.
 
-### <a name="assign-a-user-identity-to-an-existing-azure-vmss"></a>Tilldela en användaridentitet till en befintlig Azure VMSS
+### <a name="assign-a-user-identity-to-an-existing-azure-virtual-machine-scale-set"></a>Tilldela en användaridentitet till en befintlig Azure VM-skalningsuppsättning
 
-Tilldela Användartilldelad identitet till en befintlig Azure-VMSS:
+Att tilldela en Användartilldelad identitet till en befintlig Azure VM-skalningsuppsättning:
 
-1. Logga in på Azure med `Connect-AzureRmAccount`. Använd ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn. Kontrollera också att ditt konto tillhör en roll som ger dig skrivbehörighet på den virtuella datorn, till exempel ”virtuell Datordeltagare”:
+1. Logga in på Azure med `Connect-AzureRmAccount`. Använd ett konto som är associerad med Azure-prenumerationen som innehåller virtuella datorns skalningsuppsättning. Kontrollera också att ditt konto tillhör en roll som ger dig skrivbehörighet på virtuella datorns skalningsuppsättning, till exempel ”virtuell Datordeltagare”:
 
    ```powershell
    Connect-AzureRmAccount
    ```
 
-2. Hämta först virtuella datorns egenskaper med hjälp av den `Get-AzureRmVM` cmdlet. Om du vill tilldela en Användartilldelad identitet för Azure VMSS, Använd den `-IdentityType` och `-IdentityID` växla den [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet. Ersätt `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` med dina egna värden.
+2. Första hämta VM-skalningsuppsättningen egenskaper med hjälp av den `Get-AzureRmVM` cmdlet. Om du vill tilldela en Användartilldelad identitet till virtuella datorns skalningsuppsättning, använder du sedan den `-IdentityType` och `-IdentityID` växla den [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) cmdlet. Ersätt `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` med dina egna värden.
 
    [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
-
    ```powershell
-   $vmss = Get-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME>
-   Update-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -VM $vmss -IdentityType UserAssigned -IdentityID "<USER ASSIGNED ID1>","<USER ASSIGNED ID2>"
+   Update-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME> -IdentityType UserAssigned -IdentityID "<USER ASSIGNED ID1>","<USER ASSIGNED ID2>"
    ```
 
-### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>Ta bort Användartilldelad identitet från en Azure VMSS
+### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Ta bort en användare som tilldelats hanterad identitet från en Azure VM-skalningsuppsättning
 
-> [!NOTE]
-> Ta bort alla användartilldelade identiteter från en Virtual Machine Scale Sets stöds för närvarande inte, om du inte har en systemtilldelad identitet. Kom tillbaka om för att få uppdateringar.
-
-Om din VMSS har flera användartilldelade identiteter, kan du ta bort alla utom den sista som använder följande kommandon. Ersätt parametervärdena `<RESOURCE GROUP>` och `<VMSS NAME>` med dina egna värden. Den `<MSI NAME>` är Användartilldelad identitet namnegenskapen som fortfarande på VMSS. Den här informationen kan hittas genom att i identitetsavsnittet av VMSS med `az vmss show`:
+Om din skalningsuppsättning för virtuell dator har flera användartilldelade identiteter, kan du ta bort alla utom den sista som använder följande kommandon. Ersätt parametervärdena `<RESOURCE GROUP>` och `<VMSS NAME>` med dina egna värden. Den `<MSI NAME>` är Användartilldelad identitet namnegenskapen som fortfarande på virtuella datorns skalningsuppsättning. Den här informationen finns i identitetsavsnittet i VM-skaluppsättning som anges med `az vmss show`:
 
 ```powershell
-$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss
-$vmss.Identity.IdentityIds = "<MSI NAME>"
-Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -VirtualMachineScaleSet $vmss
+Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType UserAssigned -IdentityID "<MSI NAME>"
 ```
-
-Om din VMSS har både systemtilldelad och användartilldelade identiteter, du kan ta bort alla användartilldelade identiteter genom att växla mellan för att använda endast system som har tilldelats. Ange följande kommando:
+Om din skalningsuppsättning för virtuell dator har inte en systemtilldelad identitet och du vill ta bort alla användartilldelade identiteter från den, använder du följande kommando:
 
 ```powershell
-$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss
-$vmss.Identity.IdentityIds = $null
-Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -VirtualMachine $vmss -IdentityType "SystemAssigned"
+Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
+```
+Om din skalningsuppsättning för virtuell dator har både systemtilldelad och användartilldelade identiteter, du kan ta bort alla användartilldelade identiteter genom att växla med endast system som har tilldelats.
+
+```powershell 
+Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "SystemAssigned"
 ```
 
 ## <a name="related-content"></a>Relaterat innehåll

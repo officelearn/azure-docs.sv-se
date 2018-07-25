@@ -1,27 +1,23 @@
 ---
-title: Använda Data Lake Store med Hadoop i Azure HDInsight | Microsoft Docs
+title: Använd Data Lake Store med Hadoop i Azure HDInsight
 description: Lär dig mer om hur du frågar efter data från Azure Data Lake Store och lagrar resultatet av dina analyser.
-keywords: blob storage,hdfs,structured data,unstructured data, data lake store
 services: hdinsight,storage
-documentationcenter: ''
 tags: azure-portal
 author: mumian
+ms.author: jgao
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 362a9ae9cb1a1ebc30193b76929f0a683414e5fd
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 07/23/2018
+ms.openlocfilehash: 8f81e04c1b80173868f068957b6ca7da6bfe19c1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435305"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222897"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Använda Data Lake Store med Azure HDInsight-kluster
 
@@ -34,9 +30,9 @@ I den här artikeln får du lära dig hur Data Lake Store fungerar med HDInsight
 > 
 > 
 
-## <a name="availabilities-for-hdinsight-clusters"></a>Tillgänglighet för HDInsight-kluster
+## <a name="availability-for-hdinsight-clusters"></a>Tillgänglighet för HDInsight-kluster
 
-Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Du kan ange en blobbehållare i Azure Storage som standardfilsystem när du skapar HDInsight-kluster. Med HDInsight 3.5 eller senare kan du välja antingen Azure Storage eller Azure Data Lake Store som standardfilsystem, med några undantag. 
+Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Du kan ange en blobcontainer i Azure Storage som standardfilsystem när du skapar HDInsight-kluster. Med HDInsight 3.5 eller senare kan du välja antingen Azure Storage eller Azure Data Lake Store som standardfilsystem, med några undantag. 
 
 HDInsight-kluster kan använda Data Lake Store på två sätt:
 
@@ -81,13 +77,13 @@ Mer information om att skapa tjänstens huvudnamn och bevilja åtkomst finns i [
 
 ## <a name="use-data-lake-store-as-additional-storage"></a>Använda Data Lake Store som ytterligare lagring
 
-Du kan även använda Data Lake Store som ytterligare lagringsutrymme för klustret. I sådana fall kan standardlagringsutrymmet för klustret vara ett konto för antingen Azure Storage Blob eller Data Lake Store. Om du kör HDInsight-jobb mot data som finns lagrade i Data Lake Store som ytterligare lagringsutrymme måste du använda den fullständiga sökvägen till filerna. Till exempel:
+Du kan även använda Data Lake Store som ytterligare lagringsutrymme för klustret. I sådana fall kan standardlagringsutrymmet för klustret vara ett konto för antingen Azure Storage Blob eller Data Lake Store. Om du kör HDInsight-jobb mot data som finns lagrade i Data Lake Store som ytterligare lagringsutrymme måste du använda den fullständiga sökvägen till filerna. Exempel:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Observera att det inte finns någon **cluster_root_path** i URL-adressen nu. Det beror på att Data Lake Store inte är ett standardlagringsutrymme i det här fallet, så allt du behöver göra är att ange sökvägen till filerna.
 
-För att kunna använda ett Data Lake Store som ytterligare lagringsutrymme behöver du bara ge tjänstens huvudnamn åtkomst till de sökvägar där filerna lagras.  Till exempel:
+För att kunna använda ett Data Lake Store som ytterligare lagringsutrymme behöver du bara ge tjänstens huvudnamn åtkomst till de sökvägar där filerna lagras.  Exempel:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
@@ -135,6 +131,60 @@ Använd länkarna nedan om du vill ha mer detaljerade instruktioner om hur du sk
 * [Använda PowerShell (med Data Lake Store som ytterligare lagringsutrymme)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Använda Azure-mallar](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
+## <a name="refresh-the-hdinsight-certificate-for-data-lake-store-access"></a>Uppdatera HDInsight-certifikatet för Data Lake Store-åtkomst
+
+I följande exempel PowerShell-kod läser en lokal certifikatfil och uppdaterar ditt HDInsight-kluster med det nya certifikatet till Azure Data Lake Store. Ange dina egna HDInsight-klusternamnet och resursgruppens namn, prenumerations-ID, app-ID, lokal sökväg till certifikatet. Ange lösenordet när du uppmanas till detta.
+
+```powershell-interactive
+$clusterName = 'MyCluster'
+$resourceGroupName = 'MyResourceGroup'
+$subscriptionId = '01234567-8a6c-43bc-83d3-6b318c6c7305'
+$appId = '01234567-e100-4118-8ba6-c25834f4e938'
+$generateSelfSignedCert = $false
+$addNewCertKeyCredential = $true
+$certFilePath = 'C:\localfolder\adls.pfx'
+$certPassword = Read-Host "Enter Certificate Password"
+
+if($generateSelfSignedCert)
+{
+    Write-Host "Generating new SelfSigned certificate"
+    
+    $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=hdinsightAdlsCert" -KeySpec KeyExchange
+    $certBytes = $cert.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $certPassword);
+    $certString = [System.Convert]::ToBase64String($certBytes)
+}
+else
+{
+
+    Write-Host "Reading the cert file from path $certFilePath"
+
+    $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($certFilePath, $certPassword)
+    $certString = [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes($certFilePath))
+}
+
+Login-AzureRmAccount
+
+if($addNewCertKeyCredential)
+{
+    Write-Host "Creating new KeyCredential for the app"
+    $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
+    New-AzureRmADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+    Write-Host "Waiting for 30 seconds for the permissions to get propagated"
+    Start-Sleep -s 30
+}
+
+Select-AzureRmSubscription -SubscriptionId $subscriptionId
+Write-Host "Updating the certificate on HDInsight cluster..."
+
+Invoke-AzureRmResourceAction `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType 'Microsoft.HDInsight/clusters' `
+    -ResourceName $clusterName `
+    -ApiVersion '2015-03-01-preview' `
+    -Action 'updateclusteridentitycertificate' `
+    -Parameters @{ ApplicationId = $appId; Certificate = $certString; CertificatePassword = $certPassword.ToString() } `
+    -Force
+```
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln fick du lära dig hur du använder det HDFS-kompatibla Azure Data Lake Storage med HDInsight. Du kan skapa skalbara, långsiktiga lösningar för arkivering av insamlade data samt HDInsight för att få tillgång till informationen i lagrade strukturerade och ostrukturerade data.

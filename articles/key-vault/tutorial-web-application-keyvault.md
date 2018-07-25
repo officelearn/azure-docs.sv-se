@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: b82eeb43c29fd52f4df2d453bb24bb2b3bd581ad
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 747a0fc7f66edbae8d4a99eeaf0ea45f844d6465
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030523"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125954"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Självstudier: Konfigurera ett Azure-webbprogram att läsa en hemlighet från Key Vault
 
@@ -44,7 +44,7 @@ az login
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras.
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
 I följande exempel skapas en resursgrupp med namnet *ContosoResourceGroup* på platsen *eastus*.
 
@@ -128,8 +128,8 @@ Du måste installera två NuGet-paket för webbprogrammet. Installera dem genom 
 3. Markera kryssrutan bredvid sökrutan. **Ta med förhandsversion**
 4. Sök efter de två NuGet-paketen som anges nedan och godkänn att de läggs till i din lösning:
 
-    * [Microsoft.Azure.Services.AppAuthentication (förhandsversion)](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) gör det enkelt att hämta åtkomsttoken för autentiseringsscenarier av typen ”tjänst till Azure-tjänst”. 
-    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/2.4.0-preview) innehåller metoder för interaktion med Key Vault.
+    * [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) – gör det enkelt att hämta åtkomsttoken för autentiseringsscenarier av typen ”tjänst till Azure-tjänst”. 
+    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) innehåller metoder för interaktion med Key Vault.
 
 5. Öppna `Program.cs` i Solution Explorer och ersätt innehållet i filen Program.cs med följande kod. Ersätt ```<YourKeyVaultName>``` med namnet på ditt nyckelvalv:
 
@@ -142,37 +142,36 @@ Du måste installera två NuGet-paket för webbprogrammet. Installera dem genom 
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureKeyVault;
     
-        namespace WebKeyVault
-        {
-        public class Program
-        {
-        public static void Main(string[] args)
-        {
-        BuildWebHost(args).Run();
-        }
-    
-            public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((ctx, builder) =>
-                {
-                    var keyVaultEndpoint = GetKeyVaultEndpoint();
-                    if (!string.IsNullOrEmpty(keyVaultEndpoint))
-                    {
-                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        var keyVaultClient = new KeyVaultClient(
-                            new KeyVaultClient.AuthenticationCallback(
-                                azureServiceTokenProvider.KeyVaultTokenCallback));
-                        builder.AddAzureKeyVault(
-                            keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
-                    }
-                }
-             )
-                .UseStartup<Startup>()
-                .Build();
-    
-            private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
-        }
-        }
+    namespace WebKeyVault
+    {
+       public class Program
+       {
+           public static void Main(string[] args)
+           {
+               BuildWebHost(args).Run();
+           }
+
+           public static IWebHost BuildWebHost(string[] args) =>
+           WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((ctx, builder) =>
+               {
+                   var keyVaultEndpoint = GetKeyVaultEndpoint();
+                   if (!string.IsNullOrEmpty(keyVaultEndpoint))
+                   {
+                       var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                       var keyVaultClient = new KeyVaultClient(
+                           new KeyVaultClient.AuthenticationCallback(
+                               azureServiceTokenProvider.KeyVaultTokenCallback));
+                       builder.AddAzureKeyVault(
+                           keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                   }
+               }
+            ).UseStartup<Startup>()
+             .Build();
+
+           private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
+         }
+    }
     ```
 
 6. Navigera till avsnittet **Sidor** med hjälp av Solution Explorer och öppna `About.cshtml`. Ersätt innehållet i **About.cshtml.cs** med koden nedan:
@@ -206,7 +205,8 @@ Du måste installera två NuGet-paket för webbprogrammet. Installera dem genom 
 7. Från huvudmenyn väljer du **Felsöka** > **Starta utan felsökning**. När webbläsaren visas går du till sidan **Om**. Värdet för AppSecret visas.
 
 >[!IMPORTANT]
-> Om meddelandet ”HTTP-fel 502.5 – Processfel” visas kontrollerar du namnet på nyckelvalvet i `Program.cs`
+> Om du får ett meddelande av typen HTTP Error 502.5 - Process Failure
+> > ska du kontrollera namnet på nyckelvalvet som anges i `Program.cs`
 
 ## <a name="publish-the-web-application-to-azure"></a>Publicera webbappen till Azure
 

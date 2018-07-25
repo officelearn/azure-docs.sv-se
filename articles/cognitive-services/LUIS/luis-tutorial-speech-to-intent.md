@@ -3,19 +3,19 @@ title: Använd tal C# SDK med LUIS - Azure | Microsoft Docs
 titleSuffix: Azure
 description: Använd tal C# SDK-exempel för att tala i mikrofonen och få LUIS avsikt och entiteter förutsägelser som returneras.
 services: cognitive-services
-author: v-geberr
+author: diberry
 manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 3b225a012abe4796172327d8a723338e8de67749
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry;
+ms.openlocfilehash: 4249b908cc64eb229281cff60ddaa0394f946433
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930026"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238921"
 ---
 # <a name="integrate-speech-service"></a>Integrera Speech service
 Den [taltjänst](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kan du använda en enskild begäran att ta emot ljud och returnera LUIS förutsägelse JSON-objekt.

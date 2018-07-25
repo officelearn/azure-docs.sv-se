@@ -9,14 +9,14 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: ad4b31fa7b4f4b062f01935c34f7cacf82f99106
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 543e8d6fb68a351dfe75c962debaf15eeb080a3f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072134"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223895"
 ---
-# <a name="custom-speech-service-frequently-asked-questions"></a>Vanliga och frågor svar om Custom Speech Service
+# <a name="speech-to-text-frequently-asked-questions"></a>Vanliga och frågor svar om tal till Text
 
 Om du inte hittar svar på dina frågor i den här vanliga frågor och svar, kan du prova att fråga Custom Speech Service community på [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) och [UserVoice](https://cognitive.uservoice.com/)
 
@@ -36,7 +36,7 @@ Om du inte hittar svar på dina frågor i den här vanliga frågor och svar, kan
 
 **Fråga**: hur vet jag när bearbetningen av min datauppsättning eller en modell är klar?
 
-**Svar**: status för den modellen eller en uppsättning data i tabellen är för närvarande bara vill veta.
+**Svar**: för närvarande status för den modellen eller en uppsättning data i tabellen är det enda sättet du behöver veta.
 När bearbetningen är klar, ska status vara ”lyckades”.
 
 **Fråga**: kan jag skapa mer än en modell?
@@ -49,7 +49,7 @@ När bearbetningen är klar, ska status vara ”lyckades”.
 
 **Fråga**: Vad är skillnaden mellan sökningen & diktering modeller och Konversationsanpassade modeller?
 
-**Svar**: det finns fler än en baslinjemodeller att välja bland i Speech-tjänsten. Konversationsanpassad modellen passar känna igen tal som sägs i ett konversationsanpassade format. Den här modellen skulle vara optimal för trnascribing anrop vid sökning och diktering är perfekt för rösten appar. Universal är en ny modell för att hantera både scenarier.
+**Svar**: det finns fler än en baslinjemodeller att välja bland i Speech-tjänsten. Konversationsanpassad modellen passar känna igen tal som sägs i ett konversationsanpassade format. Den här modellen skulle vara optimal för att skriva av anrop vid sökning och diktering är perfekt för rösten appar. Universal är en ny modell för att hantera både scenarier.
 
 **Fråga**: kan jag uppdatera min befintliga modellen (model stapling)?
 
@@ -133,7 +133,7 @@ Du bör syfta till beat baslinje-modellen för att göra anpassningen någonsin 
 
 **Fråga**: hur mycket textdata kan jag överföra?
 
-**Svar**: Det beror på hur olika ordförråd och fraser som används i ditt program är från från språkmodeller. För alla nya ord är det praktiskt att ange så många exempel som möjligt av användningen av orden. För vanliga fraser som används i ditt program, är inklusive fraser i språk data också användbart eftersom det anger att lyssna efter även dessa villkor. Det är vanligt att ha minst en hudrend och vanligtvis flera hundra yttranden i datauppsättningen språk eller mer. Även om vissa typer av frågor som förväntas vara vanligare än andra, kan du infoga flera kopior av de vanliga frågorna i datauppsättningen.
+**Svar**: Det beror på hur olika ordförråd och fraser som används i ditt program är från från språkmodeller. För alla nya ord är det praktiskt att ange så många exempel som möjligt av användningen av orden. För vanliga fraser som används i ditt program, är inklusive fraser i språk data också användbart eftersom det anger att lyssna efter även dessa villkor. Det är vanligt att ha minst 100 och vanligtvis flera hundra yttranden i datauppsättningen språk eller mer. Även om vissa typer av frågor som förväntas vara vanligare än andra, kan du infoga flera kopior av de vanliga frågorna i datauppsättningen.
 
 **Fråga**: kan bara överföra en lista över ord?
 

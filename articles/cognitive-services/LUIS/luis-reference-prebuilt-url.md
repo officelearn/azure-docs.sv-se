@@ -1,30 +1,30 @@
 ---
-title: 'THOMAS färdiga entiteter URL: en referens - Azure | Microsoft Docs'
+title: 'LUIS fördefinierade entiteter URL: en referens – Azure | Microsoft Docs'
 titleSuffix: Azure
-description: 'Den här artikeln innehåller URL: en fördefinierad entitetsinformation i språk förstå (THOMAS).'
+description: Den här artikeln innehåller en url fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4eacf564a295a568a3e2c8d2f44ad0af3fbbe258
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 86989abab1dcf64384b8b26b9484bc508f2ce31f
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321962"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236796"
 ---
-# <a name="url-entity"></a>URL: en entitet
-URL: en entitet hämtar URL: er med domännamn eller IP-adresser. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel utterances som innehåller URL: er till programmet. URL-entitet stöds i `en-us` endast kultur. 
+# <a name="url-entity"></a>URL-entitet
+URL: en entitet extraherar URL: er med domännamn eller IP-adresser. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller URL: er till programmet. URL: en entitet har stöd för `en-us` kultur endast. 
 
-## <a name="types-of-urls"></a>URL-typer
-URL: en hanteras från den [identifierare text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) Github-lagringsplatsen
+## <a name="types-of-urls"></a>Typer av URL: er
+URL: en hanteras från den [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) Github-lagringsplats
 
-## <a name="resolution-for-prebuilt-url-entity"></a>Lösning för färdiga URL: en entitet
-I följande exempel visas upplösning på **builtin.url** entitet.
+## <a name="resolution-for-prebuilt-url-entity"></a>Lösning för den fördefinierade URL: en entitet
+I följande exempel visas av lösningen på den **builtin.url** entitet.
 
 ```JSON
 {

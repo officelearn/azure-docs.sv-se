@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: babeb0eb930d865cf519ddb45c651a3d77265665
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: b4fa875c71869dc3fd671f5dc4b801934c27f0ff
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215802"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237204"
 ---
-# <a name="configure-a-vmss-managed-service-identity-by-using-a-template"></a>Konfigurera en VMSS hanterad tjänstidentitet med hjälp av en mall
+# <a name="configure-managed-service-identity-on-virtual-machine-scale-using-a-template"></a>Konfigurera hanterad tjänstidentitet på VM-skalningsuppsättning med en mall
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Hanterad tjänstidentitet ger Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering utan autentiseringsuppgifter i din kod. 
 
-I den här artikeln får du lära dig hur du utför följande åtgärder för hanterad tjänstidentitet i en Azure-VMSS, med hjälp av Azure Resource Manager-mall för distribution:
-- Aktivera och inaktivera systemtilldelad identitet i en Azure VMSS
-- Lägga till och ta bort en Användartilldelad identitet i en Azure VMSS
+I den här artikeln får du lära dig hur du utför följande åtgärder för hanterad tjänstidentitet för Azure VM-skalningsuppsättning, med hjälp av mall för distribution av Azure Resource Manager:
+- Aktivera och inaktivera den systemtilldelade identiteten på en Azure VM-skalningsuppsättning
+- Lägga till och ta bort en Användartilldelad identitet på en Azure VM-skalningsuppsättning
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -55,7 +55,7 @@ Oavsett vilket alternativ som väljs, är densamma under den första distributio
 
 I det här avsnittet ska du aktivera och inaktivera systemtilldelad identitet med hjälp av en Azure Resource Manager-mall.
 
-### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vmss-or-an-existing-azure-vmss"></a>Aktivera systemtilldelad identitet under skapandet av en Azure-VMSS eller en befintlig Azure VMSS
+### <a name="enable-system-assigned-identity-during-creation-the-creation-of-or-an-existing-azure-virtual-machine-scale-set"></a>Aktivera system Användartilldelad identitet när du skapar skapandet av eller en befintlig Azure VM-skalningsuppsättning
 
 1. Läsa in mallen till en textredigerare, leta upp den `Microsoft.Compute/virtualMachineScaleSets` resource intressanta inom den `resources` avsnittet. Själv kan skilja sig från följande skärmbild, beroende på redigerare som du använder och om du redigerar en mall för en ny distribution eller befintlig.
    
@@ -99,12 +99,23 @@ I det här avsnittet ska du aktivera och inaktivera systemtilldelad identitet me
 
 ### <a name="disable-a-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Inaktivera en systemtilldelade identiteter från en Azure VM-skalningsuppsättning
 
-> [!NOTE]
-> Inaktiverar hanterad tjänstidentitet från en virtuell dator stöds för närvarande inte. Under tiden kan växla du mellan att använda System tilldelas och tilldelade användaridentiteter.
+Om du har en VM-skalningsuppsättning som inte längre behöver du en hanterad tjänstidentitet:
 
-Om du har en VM-skalningsuppsättning som inte längre behöver en systemtilldelad identitet men fortfarande ha användartilldelade identiteter:
+1. Om du loggar in på Azure lokalt eller via Azure portal, kan du använda ett konto som är associerade med Azure-prenumerationen som innehåller virtuella datorns skalningsuppsättning.
 
-- Läsa in mallen till en textredigerare och ändra identitetstypen till `'UserAssigned'`
+2. Läsa in mallen till en [redigeraren](#azure-resource-manager-templates) och leta upp den `Microsoft.Compute/virtualMachineScaleSets` resource intressanta inom den `resources` avsnittet. Om du har en skalningsuppsättning för virtuella datorer som endast har systemtilldelade identiteter kan du inaktivera det genom att ändra den identitetstypen till `None`.  Om din skalningsuppsättning för virtuell dator har både system och användartilldelade identiteter, ta bort `SystemAssigned` från identitetstyp och håll `UserAssigned` tillsammans med den `identityIds` matris med användartilldelade identiteter.  I följande exempel visas hur bort systemtilldelad identitet från en VM-skalningsuppsättning med inga användartilldelade identiteter:
+   
+   ```json
+   {
+       "name": "[variables('vmssName')]",
+       "apiVersion": "2017-03-30",
+       "location": "[parameters(Location')]",
+       "identity": {
+           "type": "None"
+        }
+
+   }
+   ```
 
 ## <a name="user-assigned-identity"></a>Användartilldelad identitet
 
@@ -134,6 +145,7 @@ I det här avsnittet ska tilldela du en Användartilldelad identitet till en Azu
 
     }
     ```
+
 2. (Valfritt) Lägg till följande post under den `extensionProfile` elementet ska tilldelas din VMSS tillägget hanterad identitet. Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS) identitet slutpunkten, för att hämta token samt. Använd följande syntax:
    
     ```JSON
@@ -152,12 +164,37 @@ I det här avsnittet ska tilldela du en Användartilldelad identitet till en Azu
                         "protectedSettings": {}
                     }
                 }
-   ```
+    ```
+
 3.  När du är klar bör se din mall ut ungefär så här:
    
       ![Skärmbild av Användartilldelad identitet](./media/qs-configure-template-windows-vmss/qs-configure-template-windows-final.PNG)
 
+### <a name="remove-user-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Ta bort Användartilldelad identitet från en Azure VM-skalningsuppsättning
+
+Om du har en VM-skalningsuppsättning som inte längre behöver du en hanterad tjänstidentitet:
+
+1. Om du loggar in på Azure lokalt eller via Azure portal, kan du använda ett konto som är associerade med Azure-prenumerationen som innehåller virtuella datorns skalningsuppsättning.
+
+2. Läsa in mallen till en [redigeraren](#azure-resource-manager-templates) och leta upp den `Microsoft.Compute/virtualMachineScaleSets` resource intressanta inom den `resources` avsnittet. Om du har en skalningsuppsättning för virtuella datorer som endast har Användartilldelad identitet kan du inaktivera det genom att ändra den identitetstypen till `None`.  Om din skalningsuppsättning för virtuell dator har både system och användartilldelade identiteter och du vill behålla systemtilldelade identiteter, ta bort `UserAssigned` från identitetstypen tillsammans med den `identityIds` matris med användartilldelade identiteter.
+    
+   Ta bort en en enda Användartilldelad identitet från en skalningsuppsättning för virtuella datorer, ta bort den från den `identityIds` matris.
+   
+   I följande exempel visas hur du tar bort alla användartilldelade identiteter från en VM-skalningsuppsättning med inga systemtilldelade identiteter:
+   
+   ```json
+   {
+       "name": "[variables('vmssName')]",
+       "apiVersion": "2017-03-30",
+       "location": "[parameters(Location')]",
+       "identity": {
+           "type": "None"
+        }
+
+   }
+   ```
+
 ## <a name="next-steps"></a>Nästa steg
 
-- Ett bredare perspektiv om MSI läsa den [hanterad tjänstidentitet översikt](overview.md).
+- Ett bredare perspektiv om hanterad tjänstidentitet läsa den [hanterad tjänstidentitet översikt](overview.md).
 

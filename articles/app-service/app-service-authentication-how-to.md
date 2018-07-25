@@ -1,6 +1,6 @@
 ---
 title: Anpassa autentisering och auktorisering i Azure App Service | Microsoft Docs
-description: Visar hur du anpassar autentisering och auktorisering i Apptjänst och hämta användar- och annan token.
+description: Visar hur du anpassar autentisering och auktorisering i App Service och hämta användar- och annan token.
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -13,21 +13,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: 688ea090384755b9a6d60a4968d958678edc27ad
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 191d42f43e500c7f8041a02aeba2fbcb7dfd5379
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337858"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226534"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Anpassa autentisering och auktorisering i Azure App Service
 
 Den här artikeln visar hur du anpassar [autentisering och auktorisering i Apptjänst](app-service-authentication-overview.md), och för att hantera identitet från ditt program. 
 
-Om du vill komma igång snabbt, finns i något av följande kurser:
+Om du vill komma igång snabbt, finns i följande Självstudier:
 
-* [Självstudier: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
-* [Självstudier: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service för Linux](containers/tutorial-auth-aad.md)
+* [Självstudie: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
+* [Självstudie: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service för Linux](containers/tutorial-auth-aad.md)
 * [Så här konfigurerar du din app för att använda Azure Active Directory-inloggning](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Så här konfigurerar du din app för att använda Facebook-inloggning](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Så här konfigurerar du din app för att använda Google-inloggning](app-service-mobile-how-to-configure-google-authentication.md)
@@ -36,13 +36,13 @@ Om du vill komma igång snabbt, finns i något av följande kurser:
 
 ## <a name="configure-multiple-sign-in-options"></a>Konfigurera flera inloggningsalternativ
 
-Portalen konfigurationen kan inte du nyckelfärdig presentera flera inloggningsalternativ för dina användare (till exempel både Facebook och Twitter). Men det är inte svårt att lägga till funktionen i ditt webbprogram. Steg som beskrivs i följande:
+Ett NYCKELFÄRDIGT sätt att presentera flera inloggningsalternativ för dina användare (till exempel både Facebook och Twitter) omfattas inte av Portalkonfiguration. Men det är inte svårt att lägga till funktioner till din webbapp. Stegen beskrivs i följande:
 
-Först i den **autentisering / auktorisering** i Azure-portalen kan du konfigurera varje identitetsleverantör som du vill aktivera.
+Först i den **autentisering / auktorisering** i Azure-portalen kan konfigurera var och en för den identitetsprovider som du vill aktivera.
 
-I **åtgärd att vidta när begäran inte har autentiserats**väljer **Tillåt anonyma begäranden (ingen åtgärd)**.
+I **åtgärd att vidta när begäran inte har autentiserats**väljer **Tillåt anonyma förfrågningar (ingen åtgärd)**.
 
-På sidan logga in eller navigeringsfältet eller någon annan plats för ditt webbprogram, lägga till en inloggning länk var och en av de leverantörer som du har aktiverat (`/.auth/login/<provider>`). Exempel:
+På sidan logga in eller navigeringsfältet eller någon annan plats på din webbapp, lägga till en inloggning länk var och en av de leverantörer som du har aktiverat (`/.auth/login/<provider>`). Exempel:
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -52,22 +52,28 @@ På sidan logga in eller navigeringsfältet eller någon annan plats för ditt w
 <a href="/.auth/login/twitter">Log in with Twitter</a>
 ```
 
-När användaren klickar på länken, öppnas respektive inloggningssidan om du vill logga in användaren.
+När användaren klickar på länken, öppnas respektive inloggningssidan för att logga in användaren.
 
-## <a name="access-user-claims"></a>Åtkomst användaranspråk
+För att omdirigera användaren efter-registrerings-modulen till en anpassad URL, Använd den `post_login_redirect_url` frågesträngparametern (inte ska inte förväxlas med omdirigerings-URI i din identitet providerkonfigurationen). Till exempel för att vidarebefordra användaren till `/Home/Index` efter inloggning, Använd följande HTML-kod:
 
-Apptjänst skickar användaranspråk i ditt program med hjälp av särskilda huvuden. Externa förfrågningar är inte tillåtet att ställa in dessa huvuden, så att de finns bara om ange av App Service. Vissa exempel huvuden innehåller:
+```HTML
+<a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
 
-* X-MS-CLIENT--HUVUDNAMN
-* X-MS-CLIENT-SÄKERHETSOBJEKT-ID
+## <a name="access-user-claims"></a>Användaranspråk för åtkomst
 
-Kod som skrivs i valfritt språk eller ramverk kan hämta den information som krävs från dessa huvuden. För ASP.NET 4.6 appar i **ClaimsPrincipal** ställs in automatiskt med lämpliga värden.
+App Service skickar användaranspråk i ditt program med hjälp av särskilda rubriker. Externa begäranden är inte tillåtet att ställa in dessa huvuden så att de finns bara om anges av App Service. Vissa exempel huvuden är:
 
-Programmet kan även hämta ytterligare information om den autentiserade användaren genom att anropa `/.auth/me`. Mobile Apps server SDK: er ger helper metoder att arbeta med dessa data. Mer information finns i [hur du använder Azure Mobile Apps Node.js SDK](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity), och [arbeta med serverdelen .NET SDK för Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
+* X-MS-CLIENT-PRINCIPAL-NAME
+* X-MS-CLIENT-PRINCIPAL-ID
+
+Koden som är skrivna på valfritt språk eller ramverk kan hämta den information som krävs från dessa rubriker. För 4.6 för ASP.NET-appar i **ClaimsPrincipal** ställs automatiskt med lämpliga värden.
+
+Ditt program kan också få mer information om den autentiserade användaren genom att anropa `/.auth/me`. Mobile Apps-server SDK: er ger helper-metoder för att arbeta med dessa data. Mer information finns i [hur du använder Azure Mobile Apps Node.js SDK](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity), och [arbeta med SDK för .NET-serverdelen för Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
 
 ## <a name="retrieve-tokens-in-app-code"></a>Hämta token i Appkod
 
-Från din serverkod injekteras provider-specifik token i begärandehuvudet, så att du enkelt kan komma åt dem. I följande tabell visas möjliga token sidhuvud namn:
+Från din serverkod införs provider-specifik token i huvudet för begäran och så att du enkelt kan komma åt dem. I följande tabell visas möjliga token rubriknamn:
 
 | | |
 |-|-|
@@ -78,22 +84,22 @@ Från din serverkod injekteras provider-specifik token i begärandehuvudet, så 
 | Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
 |||
 
-Skicka en HTTP från din klientkod (till exempel en mobilapp eller i webbläsaren JavaScript) `GET` begäran om att `/.auth/me`. Returnerade JSON har provider-specifik-token.
+Skicka en HTTP från klientkoden (till exempel en mobilapp eller JavaScript i webbläsaren), `GET` begäran till `/.auth/me`. Den returnerade JSON har provider-specifik token.
 
 > [!NOTE]
-> Åtkomst-token är för att komma åt providern resurser, så att de finns bara om du konfigurerar din leverantör med en klienthemlighet. Information om hur du hämtar uppdaterings-tokens finns [uppdatering åtkomsttoken](#refresh-access-tokens).
+> Åtkomsttoken är för att komma åt provider-resurser, så att de finns bara om du konfigurerar din provider med en klienthemlighet. Så här hämtar du uppdateringstoken finns i [uppdatera åtkomsttoken](#refresh-access-tokens).
 
-## <a name="refresh-access-tokens"></a>Uppdatera åtkomst-token
+## <a name="refresh-access-tokens"></a>Uppdatera åtkomsttoken
 
-Du måste autentiseras användaren när din leverantör åtkomst-token upphör att gälla. Du kan undvika giltighetstid för token genom att göra en `GET` anrop till den `/.auth/refresh` slutpunkten för ditt program. När den anropas, uppdaterar Apptjänst automatiskt åtkomst-token i arkivet token för den autentiserade användaren. Efterföljande förfrågningar för token av app koden hämta uppdateras token. Men för token uppdatering fungerar arkivet token måste innehålla [uppdateringstoken](https://auth0.com/learn/refresh-tokens/) för providern. Sätt att få uppdaterings-tokens dokumenteras av varje leverantör, men i följande lista finns en kort sammanfattning:
+När din provider åtkomst-token upphör att gälla måste autentiseras användaren. Du kan undvika giltighetstid för token genom att göra en `GET` anrop till den `/.auth/refresh` slutpunkten för ditt program. När den anropas, uppdaterar App Service automatiskt åtkomsttoken i arkivet token för autentiserade användare. Efterföljande begäranden om token genom din Appkod hämta uppdateras token. Men för tokenuppdatering ska fungera, av tokenarkiv måste innehålla [uppdateringstoken](https://auth0.com/learn/refresh-tokens/) för din provider. Sättet att få uppdaterings-tokens dokumenteras av varje provider, men i följande lista är en kort sammanfattning:
 
-- **Google**: Lägg till en `access_type=offline` frågesträngparametern till din `/.auth/login/google` API-anrop. Med Mobile Apps-SDK kan du lägga till parametern till ett av de `LogicAsync` överlagringar (se [Google uppdatera token](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
-- **Facebook**: inte ger uppdaterings-tokens. Långlivade token ut inom 60 dagar (se [Facebook förfallodatum och tillägget åtkomsttoken](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter**: åtkomsttoken inte gälla (se [Twitter OAuth vanliga frågor och svar](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq)).
-- **Account**: när [konfigurera autentiseringsinställningar för Microsoft-konto](app-service-mobile-how-to-configure-microsoft-authentication.md), Välj den `wl.offline_access` omfång.
-- **Azure Active Directory**: I [ https://resources.azure.com ](https://resources.azure.com), gör du följande:
-    1. Överst på sidan Välj **Skrivskyddstyp**.
-    1. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
+- **Google**: lägga till en `access_type=offline` frågesträngparametern till din `/.auth/login/google` API-anrop. Om du använder SDK för Mobile Apps, du kan lägga till parametern till en av de `LogicAsync` överlagringar (se [Google uppdatera token](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
+- **Facebook**: ger inte uppdateringstoken. Långlivade token går ut inom 60 dagar (se [Facebook förfallodatum och tillägg av åtkomsttoken](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
+- **Twitter-**: åtkomsttoken inte upphör att gälla (se [Twitter OAuth vanliga frågor och svar](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq)).
+- **Account**: när [konfigurera autentiseringsinställningar för Microsoft-konto](app-service-mobile-how-to-configure-microsoft-authentication.md)väljer den `wl.offline_access` omfång.
+- **Azure Active Directory**: I [ https://resources.azure.com ](https://resources.azure.com), gör följande:
+    1. Längst ned på sidan Välj **Läs/Skriv**.
+    1. I den vänstra webbläsaren, navigerar du till **prenumerationer** > **_\<prenumeration\_namn_**   >  **resourceGroups** > _**\<resource\_grupp\_namn >**_   >  **providers** > **Microsoft.Web** > **platser** > _**\<app \_namn >**_ > **config** > **authsettings**. 
     1. Klicka på **Redigera**.
     1. Ändra följande egenskaper. Ersätt  _\<app\_id >_ med Azure Active Directory-program-ID för tjänsten som du vill komma åt.
 
@@ -103,9 +109,9 @@ Du måste autentiseras användaren när din leverantör åtkomst-token upphör a
 
     1. Klicka på **placera**. 
 
-När din leverantör är konfigurerad, kan du [hitta uppdateringstoken och förfallotiden för åtkomsttoken](#retrieve-tokens-in-app-code) i arkivet för token. 
+När din provider har konfigurerats, kan du [hitta uppdateringstoken och förfallotid för åtkomsttoken](#retrieve-tokens-in-app-code) i arkivet för token. 
 
-Om du vill uppdatera åtkomst-token när som helst, bara anropa `/.auth/refresh` på alla språk. Följande kodavsnitt använder jQuery för att uppdatera åtkomst-token från en JavaScript-klient.
+Om du vill uppdatera ditt åtkomst-token när som helst, bara anropa `/.auth/refresh` på valfritt språk. I följande kodfragment används jQuery för att uppdatera ditt åtkomst-token från en JavaScript-klient.
 
 ```JavaScript
 function refreshTokens() {
@@ -118,31 +124,31 @@ function refreshTokens() {
 }
 ```
 
-Om en användare återkallar behörigheterna för din app anrop till `/.auth/me` kan misslyckas med ett `403 Forbidden` svar. För att diagnostisera fel i loggarna programmet information.
+Om en användare återkallas behörigheterna för din app, anrop till `/.auth/me` kan misslyckas med ett `403 Forbidden` svar. Kontrollera programloggarna för information om du vill diagnostisera fel.
 
 ## <a name="extend-session-expiration-grace-period"></a>Utöka respitperiod för sessionen upphör att gälla
 
-När en autentiserad session upphör att gälla, är det respitperiod 72 timmar som standard. Du har rätt att uppdatera sessions-cookie eller sessionstoken med App Service utan reauthenticating användaren i den här tiden. Du kan endast anropa `/.auth/refresh` när din sessions-cookie eller sessionstoken blir ogiltigt och du behöver inte följa giltighetstid för token själv. När respitperioden 72 timmar onlinesäkerhetskopieringen kan måste användaren logga in igen att hämta en giltig sessions-cookie eller sessionstoken.
+När en autentiserad session har gått ut, finns det en respitperiod för 72 timmar som standard. I den här tiden kan har du behörighet att uppdatera sessions-cookie eller sessionstoken med App Service utan autentiserades på nytt användaren. Du kan bara anropa `/.auth/refresh` när din sessions-cookie eller sessionstoken blir ogiltiga och du inte behöver spåra giltighetstid för token själv. När respitperioden 72 timmar är uppnås kan måste användaren logga in igen att hämta en giltig sessions-cookie eller sessionstoken.
 
-Om 72 timmar inte tillräckligt med tid för dig, kan du utöka det här fönstret upphör att gälla. Utöka giltighetstid under en längre tid kan ha betydande säkerhetsaspekter (till exempel när en autentiseringstoken läcka ut eller blir stulen). Därför bör du lämna standardinställningen 72 timmar eller ange förlängningen till det minsta värdet.
+Om 72 timmar inte tillräckligt med tid för dig, kan du utöka det här fönstret upphör att gälla. Utöka giltighetstid under en längre tid kan ha betydande säkerhetsaspekter (till exempel när en autentiseringstoken läcka ut eller blir stulen). Du bör så lämnar du standardinställningen 72 timmar eller anger tillägg du det minsta värdet.
 
-Kör följande kommando för att utöka fönstret Standard upphör att gälla den [moln Shell](../cloud-shell/overview.md).
+Om du vill utöka fönstret Standard upphör att gälla, kör du följande kommando den [Cloud Shell](../cloud-shell/overview.md).
 
 ```azurecli-interactive
 az webapp auth update --resource-group <group_name> --name <app_name> --token-refresh-extension-hours <hours>
 ```
 
 > [!NOTE]
-> Respittiden gäller bara för Apptjänst autentiserad session, inte token från identitetsleverantörer. Det finns inga respitperiod för token har upphört att gälla providern. 
+> Respittiden gäller endast för App Service-autentiserad session inte token från identitetsleverantörer. Det finns inga respitperiod för token som har upphört att gälla providern. 
 >
 
-## <a name="limit-the-domain-of-sign-in-accounts"></a>Begränsa domänen för att logga in konton
+## <a name="limit-the-domain-of-sign-in-accounts"></a>Begränsa domänen för logga in konton
 
-Både Account och Azure Active Directory kan du logga in från flera domäner. Account kan till exempel _outlook.com_, _live.com_, och _hotmail.com_ konton. Azure Active Directory kan valfritt antal anpassade domäner för inloggning-konton. Det här problemet kan vara oönskade för en intern app som du inte vill att vem som helst med en _outlook.com_ kontot till åtkomst. Följ dessa steg om du vill begränsa domännamnet för kontona inloggning.
+Både Account och Azure Active Directory kan du logga in från flera domäner. Exempelvis kan Account _outlook.com_, _live.com_, och _hotmail.com_ konton. Azure Active Directory kan valfritt antal anpassade domäner för konton loggar in. Det här beteendet kan vara oönskade för en intern app som du inte vill att vem som helst med en _outlook.com_ kontot till åtkomst. Följ dessa steg om du vill begränsa domännamnet konton som loggar in.
 
-In [https://resources.azure.com](https://resources.azure.com), navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
+I [ https://resources.azure.com ](https://resources.azure.com), gå till **prenumerationer** > **_\<prenumeration\_namn_**   >  **resourceGroups** > _**\<resource\_grupp\_namn >**_   >  **providers** > **Microsoft.Web** > **platser**  >    _**\<app\_namn >**_ > **config** > **authsettings**. 
 
-Klicka på **redigera**ändra följande egenskaper och klicka sedan på **placera**. Se till att ersätta  _\<domän\_namn >_ med den domän som du vill använda.
+Klicka på **redigera**, ändra egenskapen följande och klickar sedan på **placera**. Se till att ersätta  _\<domän\_namn >_ med den domän som du vill.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
@@ -150,5 +156,5 @@ Klicka på **redigera**ändra följande egenskaper och klicka sedan på **placer
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Autentisera och auktorisera användare slutpunkt till slutpunkt (Windows)](app-service-web-tutorial-auth-aad.md)
-> [Självstudier: autentisera och auktorisera användare slutpunkt till slutpunkt (Linux)](containers/tutorial-auth-aad.md)
+> [Självstudie: Autentisera och auktorisera användare slutpunkt till slutpunkt (Windows)](app-service-web-tutorial-auth-aad.md)
+> [självstudie: autentisera och auktorisera användare slutpunkt till slutpunkt (Linux)](containers/tutorial-auth-aad.md)

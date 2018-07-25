@@ -8,12 +8,12 @@ ms.date: 04/16/2018
 ms.topic: article
 ms.prod: microsoft-iot-central
 manager: timlt
-ms.openlocfilehash: 083410c6407ce7aa83c3829f884890561b0b44b8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 42516e4dd6a85e0d07d4a8e70e958b2ec6e84aad
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008220"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225208"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-an-action-in-your-azure-iot-central-application"></a>Skapa en regel för telemetri och konfigurera en åtgärd i programmet Azure IoT Central
 
@@ -60,7 +60,9 @@ Det här avsnittet visar hur du lägger till ett villkor för att övervaka temp
 
 ### <a name="add-an-action"></a>Lägga till en åtgärd
 
-hans avsnittet visar hur du lägger till en åtgärd på en regel. Detta visar hur du lägger till e-poståtgärden, men du kan också [Lägg till en åtgärd i Microsoft Flow](howto-add-microsoft-flow.md) till din regel för att sätta igång ett arbetsflöde i Microsoft Flow när regeln utlöses.
+Det här exemplet visar hur du lägger till en åtgärd på en regel. Detta visar hur du lägger till e-poståtgärden, men du kan också lägga till andra åtgärder:
+-  [Microsoft Flow-åtgärden](howto-add-microsoft-flow.md) sätta igång ett arbetsflöde i Microsoft Flow när en regel utlöses
+- [Webhook-åtgärd](howto-create-webhooks.md) att meddela andra tjänster när en regel utlöses
 
 > [!NOTE]
 > Endast 1 åtgärd kan kopplas till en enda regel just nu.

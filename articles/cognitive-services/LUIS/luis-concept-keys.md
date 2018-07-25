@@ -2,19 +2,19 @@
 title: Förstå din LUIS nycklar – Azure | Microsoft Docs
 description: Använd Språkförståelse (LUIS) för att skapa din app och fråga din endpoing.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
-ms.author: v-geberr
-ms.openlocfilehash: 083169b300cc2714da3921c3abeee68d52444b9b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.author: diberry
+ms.openlocfilehash: b40ca74999be1821ffa329224ff419646591960e
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145714"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225184"
 ---
 # <a name="keys-in-luis"></a>Nycklar i LUIS
 LUIS använder två nycklar: [redigering](#programmatic-key) och [endpoint](#endpoint-key). Redigering nyckeln skapas automatiskt åt dig när du skapar ditt Understanding Intelligent Service-konto. När du är redo att publicera LUIS-appen kan du behöva [skapa slutpunktsnyckeln](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [tilldela den](luis-how-to-manage-keys.md#assign-endpoint-key) till din LUIS-app och [använder den med slutpunkt-frågan](#use-endpoint-key-in-query). 

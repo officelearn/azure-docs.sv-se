@@ -1,30 +1,30 @@
 ---
-title: Den färdiga THOMAS entiteter valuta referens - Azure | Microsoft Docs
+title: LUIS fördefinierade valuta entitetsreferenser – Azure | Microsoft Docs
 titleSuffix: Azure
-description: Den här artikeln innehåller valuta färdiga entitetsinformation i språk förstå (THOMAS).
+description: Den här artikeln innehåller valuta fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 3e20642f6734b0247d23db1a63317eb8b4a96b5e
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: b383e21f870d15818c540b79a9a56c1dd65fa342
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321850"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236830"
 ---
-# <a name="currency-entity"></a>Valuta entitet
-Valutaentiteten fördefinierade identifierar valuta i många benämningar och länder, oavsett THOMAS app kultur. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel utterances som innehåller programmet avsikter valuta. Currency-entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
+# <a name="currency-entity"></a>Entitet för valuta
+Valutaentiteten fördefinierade identifierar valuta i många benämningar och länder/regioner, oavsett LUIS app kultur. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller den valuta som programmet avsikter. Valuta entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-currency"></a>Typer av valuta
-Valuta hanteras från den [identifierare text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26) Github-lagringsplatsen
+Valuta hanteras från den [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26) Github-lagringsplats
 
 ## <a name="resolution-for-currency-entity"></a>Lösning för valuta entitet
-I följande exempel visas upplösning på **builtin.currency** entitet.
+I följande exempel visas av lösningen på den **builtin.currency** entitet.
 
 ```JSON
 {

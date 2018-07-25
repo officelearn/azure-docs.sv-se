@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 7726d7eae2d9b3a37ffc141e4a4cbdc9a1af459c
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: eaf05d44a4d77f1a294664485e38c6f5719ce238
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145045"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238319"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Begränsningar och konfigurationsinformation för Azure Logic Apps
 
@@ -96,8 +96,9 @@ Här följer begränsningarna för en enkel logikapp-körningen:
 | Åtgärder samtidiga utgående samtal | ~2,500 | Minska antalet samtidiga begäranden eller minska varaktigheten efter behov. | 
 | Runtime-slutpunkten: samtidiga inkommande samtal | ~1,000 | Minska antalet samtidiga begäranden eller minska varaktigheten efter behov. | 
 | Runtime-slutpunkten: läsa anrop per 5 minuter  | 60,000 | Kan fördela belastningen över fler än en app efter behov. | 
-| Runtime-slutpunkten: anropa anrop per 5 minuter| 45,000 | Kan fördela belastningen över fler än en app efter behov. | 
-|||| 
+| Runtime-slutpunkten: anropa anrop per 5 minuter| 45,000 | Kan fördela belastningen över fler än en app efter behov. |
+| Innehåll dataflöde per 5 minuter | 600 MB | Kan fördela belastningen över fler än en app efter behov. |  
+||||| 
 
 Att gå över dessa gränser i normala bearbetningen eller köra belastningstest som kan gå över dessa gränser [Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina behov.
 

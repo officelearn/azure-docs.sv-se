@@ -1,30 +1,30 @@
 ---
-title: Den färdiga THOMAS entiteter procentandel referens - Azure | Microsoft Docs
+title: LUIS fördefinierade procent entitetsreferenser – Azure | Microsoft Docs
 titleSuffix: Azure
-description: Den här artikeln innehåller procent färdiga entitetsinformation i språk förstå (THOMAS).
+description: Den här artikeln innehåller procent fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4d502e93f8b6bf3af2da05a499c359faeabb51da
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: d445dbf69e3d2163b5d44b894f8795d41fbd34e3
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321913"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238972"
 ---
-# <a name="percentage-entity"></a>Procentandel entitet
-Procentandel tal kan visas som bråk, `3 1/2`, eller som ett procentvärde, `2%`. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel utterances som innehåller procent för att programmet avsikter. Procentandel entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
+# <a name="percentage-entity"></a>Entitet för procentandel
+Procentandel siffrorna visas som bråkdelar, `3 1/2`, eller som procentandel, `2%`. Eftersom den här entiteten har redan tränats, behöver du inte att lägga till exempel yttranden som innehåller andel till programmet avsikter. Procentandel entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-percentage"></a>Typer av procent
-Procentandel hanteras från den [identifierare text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114) Github-lagringsplatsen
+Procentandel hanteras från den [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114) Github-lagringsplats
 
-## <a name="resolution-for-prebuilt-percentage-entity"></a>Lösning för färdiga procentandel entitet
-I följande exempel visas upplösning på **builtin.percentage** entitet.
+## <a name="resolution-for-prebuilt-percentage-entity"></a>Lösning för fördefinierade procent entitet
+I följande exempel visas av lösningen på den **builtin.percentage** entitet.
 
 ```JSON
 {

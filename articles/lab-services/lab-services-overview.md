@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/19/2018
+ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 8f8de53f03cc1378e8aaafa9a2f486eadc23fe14
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cb957346cb0e003e9aff19026ed81495abf432c5
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637861"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049385"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>En introduktion till Azure Lab Services
 Med Azure Lab Services kan du snabbt konfigurera en miljö för ditt team (till exempel en utvecklingsmiljö, en testmiljö eller en labbmiljö i klassrummet) i molnet. En labbägare skapar ett labb, etablerar Windows- eller Linux-datorer, installerar nödvändig programvara och verktyg och gör dem tillgängliga för labbanvändare. Labbanvändarna ansluter till virtuella datorer (VM) i labbet och använder dem för sitt dagliga arbete, kortare projekt eller för att göra klassrumsövningar. När användarna börjar använda resurser i labbet, kan en labbadministratör analysera kostnaden och användningen för flera labb och ange övergripande principer för att optimera din organisations eller ditt teams kostnader.
@@ -36,6 +36,9 @@ Azure Lab Services stöder följande viktiga funktioner:
 - **Kostnadsoptimering och analys**. En labbägare kan ställa in labbscheman för automatisk start och avstängning av virtuella datorer. Labbägaren kan ställa in ett schema för att specificera de tider när labbets virtuella datorer ska vara tillgängliga för användarna, ställa in användningsprinciper per användare eller per labb för att optimera kostnaden och analysera användnings- och aktivitetstrender för ett labb. För hanterade labb, som klassrumslabb, finns för närvarande en mindre deluppsättning av alternativ för kostnadsoptimering och -analys tillgängliga. 
 - **Inbäddad säkerhet**. En labbägare kan konfigurera ett privat virtuellt nätverk och ett undernät för ett labb och aktivera en delad offentlig IP-adress. Labbanvändarna får säker åtkomst till resurserna via det virtuella nätverk som konfigurerats med ExpressRoute eller VPN för plats-till-plats (för närvarande tillgängligt endast i DevTest Labs).
 - **Integration i dina arbetsflöden och verktyg**. Med Azure Lab Services kan du integrera labb i din organisations webbplats och hanteringssystem. Du kan automatiskt etablera miljöer inifrån dina verktyg för kontinuerlig integration/kontinuerlig distribution (för närvarande tillgängligt endast i DevTest Labs).
+
+> [!NOTE]
+> Azure Lab Services stöder för närvarande endast virtuella datorer som skapas med Azure Marketplace-avbildningar. Om du vill använda anpassade avbildningar eller skapa andra PaaS-resurser i en labbmiljö kan du använda DevTest Labs. Mer information finns i dokumentationen om att [skapa en anpassad avbildning i DevTest Labs](devtest-lab-create-custom-image-from-vm-using-portal.md) och att [skapa labbmiljöer med hjälp av Resource Manager-mallar](devtest-lab-create-environment-from-arm.md). 
 
 ## <a name="scenarios"></a>Scenarier
 Här följer några scenarier som Azure Lab Services stödjer: 

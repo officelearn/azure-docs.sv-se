@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: ea51252de4877cdeee093c4f21f68f59a061cdc9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 703595bbc13fb859f406e7c9fa422a9c573957ab
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213521"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237255"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Konfigurera en virtuell dator hanterad tjänstidentitet med hjälp av en mall
 
@@ -155,7 +155,7 @@ Om du har en virtuell dator som inte längre behövs en hanterad tjänstidentite
 
 1. Om du loggar in till Azure lokalt eller via Azure portal kan du använda ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn.
 
-2. Läsa in mallen till en [redigeraren](#azure-resource-manager-templates) och leta upp den `Microsoft.Compute/virtualMachines` resource intressanta inom den `resources` avsnittet. Om du har en virtuell dator som har bara systemtilldelade identiteter kan du inaktivera det genom att ändra den identitetstypen till `None`.  Om den virtuella datorn har både system och användartilldelade identiteter, ta bort `SystemAssigned` från identitetstyp och håll `UserAssigned` tillsammans med den `identityIds` matris med användartilldelade identiteter.  I följande exempel visas hur bort en systemtilldelad identitet från en virtuell dator med inga användartilldelade identiteter:
+2. Läsa in mallen till en [redigeraren](#azure-resource-manager-templates) och leta upp den `Microsoft.Compute/virtualMachines` resource intressanta inom den `resources` avsnittet. Om du har en virtuell dator som har bara systemtilldelade identiteter kan du inaktivera det genom att ändra identitetstypen till `None`.  Om den virtuella datorn har både system och användartilldelade identiteter, ta bort `SystemAssigned` från identitetstyp och håll `UserAssigned` tillsammans med den `identityIds` matris med användartilldelade identiteter.  I följande exempel visas hur bort en systemtilldelad identitet från en virtuell dator med inga användartilldelade identiteter:
    
    ```JSON
     {
@@ -222,8 +222,30 @@ I det här avsnittet ska tilldela du en Användartilldelad identitet till en Azu
 
       ![Skärmbild av Användartilldelad identitet](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
 
+### <a name="remove-user-assigned-identity-from-an-azure-vm"></a>Ta bort Användartilldelad identitet från en Azure-dator
+
+Om du har en virtuell dator som inte längre behövs en hanterad tjänstidentitet:
+
+1. Om du loggar in till Azure lokalt eller via Azure portal kan du använda ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn.
+
+2. Läsa in mallen till en [redigeraren](#azure-resource-manager-templates) och leta upp den `Microsoft.Compute/virtualMachines` resource intressanta inom den `resources` avsnittet. Om du har en virtuell dator som bara har Användartilldelad identitet kan du inaktivera det genom att ändra den identitetstypen till `None`.  Om den virtuella datorn har både system och användartilldelade identiteter och du vill behålla systemtilldelade identiteter, ta bort `UserAssigned` från identitetstypen tillsammans med den `identityIds` matris med användartilldelade identiteter.
+    
+   Ta bort en en enda Användartilldelad identitet från en virtuell dator, ta bort den från den `identityIds` matris.
+   
+   I följande exempel visas hur bort alla användartilldelade identiteter från en virtuell dator med inga systemtilldelade identiteter:
+   
+   ```JSON
+    {
+      "apiVersion": "2017-12-01",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('vmName')]",
+      "location": "[resourceGroup().location]",
+      "identity": { 
+          "type": "None"
+    }
+   ```
 
 ## <a name="related-content"></a>Relaterat innehåll
 
-- Ett bredare perspektiv om MSI läsa den [hanterad tjänstidentitet översikt](overview.md).
+- Ett bredare perspektiv om hanterad tjänstidentitet läsa den [hanterad tjänstidentitet översikt](overview.md).
 

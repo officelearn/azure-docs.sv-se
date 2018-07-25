@@ -1,96 +1,155 @@
 ---
-title: Blockchain arbetsstationen adresskonfigurationen som refereras till Azure
-description: Azure Konfigurationsöversikt för Blockchain arbetsstationen i programmet.
+title: Referens för Azure Blockchain Workbench-konfiguration
+description: Azure Blockchain Workbench programmet configuration-Översikt.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/16/2018
+ms.date: 7/12/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 178c2c1d4f727241338d6d933cd5eecbbffe65bb
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 60a84609c6ec8c1733f0938c69ab683f01ecb975
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34303822"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224542"
 ---
-# <a name="azure-blockchain-workbench-configuration-reference"></a>Blockchain arbetsstationen adresskonfigurationen som refereras till Azure
+# <a name="azure-blockchain-workbench-configuration-reference"></a>Referens för Azure Blockchain Workbench-konfiguration
 
- Azure Blockchain arbetsstationen program är flerparti arbetsflöden som definieras av konfigurationsmetadata och smarta kontraktkod. Konfigurationsmetadata definierar övergripande arbetsflöden och interaktion modell blockchain-programmet. Smart kontrakt definiera affärslogik blockchain programmet. Arbetsstationen använder konfiguration och smarta kontraktkod för att generera blockchain användarupplevelser för programmet.
+ Azure Blockchain Workbench-program är flerparti arbetsflöden som definieras av konfigurationsmetadata och smarta kontraktkod. Konfigurationsmetadata definierar avancerade arbetsflöden och interaktion modell blockchain-program. Smarta kontrakt definiera affärslogiken i blockchain-program. Workbench använder konfiguration och smarta kontraktkod för att generera användarupplevelser för blockchain-program.
 
-Konfigurationsmetadata anger följande information för varje blockchain program: 
+Konfigurationsmetadata anger följande information för varje blockchain-program: 
 
-* Namn och beskrivning av programmet blockchain
-* Unik roller om en användare kan arbeta eller delta i programmet blockchain
-* Ett eller flera arbetsflöden. Varje arbetsflöde som fungerar som en tillståndsdator styr flödet av affärslogiken. Arbetsflöden kan vara oberoende eller interagera med varandra.
+* Namn och en beskrivning av blockchain-program
+* Unikt roller för användare som kan fungera eller delta i blockchain-program
+* Ett eller flera arbetsflöden. Varje arbetsflöde fungerar som en tillståndsdator att styra flödet av affärslogik. Arbetsflöden kan vara oberoende eller interagera med varandra.
 
-Varje definierat arbetsflöde anger du följande:
+Varje definierad arbetsflöde anger du följande:
 
-* Namn och beskrivning av arbetsflödet
+* Namn och en beskrivning av arbetsflödet
 * Tillstånd för arbetsflödet.  Varje tillstånd är en del i den affärslogik Kontrollflöde. 
-* Åtgärder för att övergå till nästa steg
-* Användarroller som har behörighet att initiera varje åtgärd
-* Smart kontrakt som representerar affärslogik i kodfiler
+* Åtgärder för att gå över till nästa steg
+* Användarroller som tillåts att initiera varje åtgärd
+* Smarta kontrakt som representerar affärslogik i kodfiler
 
 ## <a name="application"></a>Program
 
-Ett blockchain program innehåller configuration metadata, arbetsflöden och användaren roller som kan fungera eller delta i programmet.
+En blockchain-program innehåller configuration metadata, arbetsflöden och användaren roller som kan fungera eller delta i programmet.
 
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
-| ApplicationName | Unikt programnamn. Motsvarande smart kontrakt måste ha samma **ApplicationName** för tillämpliga avtal.  | Ja |
+| ApplicationName | Unikt programnamn. Motsvarande smarta kontrakt måste använda samma **ApplicationName** för tillämpliga avtal.  | Ja |
 | DisplayName | Eget namn för programmet. | Ja |
 | Beskrivning | Beskrivning av programmet. | Nej |
-| ApplicationRoles | Samling av [ApplicationRoles](#application-roles). Användarroller som kan fungera eller delta i programmet.  | Ja |
-| Arbetsflöden | Samling av [arbetsflöden](#workflows). Varje arbetsflöde som fungerar som en tillståndsdator styr flödet av affärslogiken. | Ja |
+| ApplicationRoles | Insamling av [ApplicationRoles](#application-roles). Användarroller som kan fungera eller delta i programmet.  | Ja |
+| Arbetsflöden | Insamling av [arbetsflöden](#workflows). Varje arbetsflöde fungerar som en tillståndsdator att styra flödet av affärslogik. | Ja |
 
-Ett exempel finns [exempel på en konfigurationsfil](#configuration-file-example).
+Ett exempel finns i [exempel på en konfigurationsfil](#configuration-file-example).
 
 ## <a name="workflows"></a>Arbetsflöden
 
-Affärslogiken för ett program kan modelleras som en tillståndsdator där vidta åtgärder gör att flödet av affärslogiken flytta från ett tillstånd till en annan. Ett arbetsflöde är en samling av dessa tillstånd och åtgärder. Varje arbetsflöde består av en eller flera smarta kontrakt som representerar affärslogiken i kodfiler. Ett körbart kontrakt är en instans av ett arbetsflöde.
+Ett programs affärslogik kan modelleras som en tillståndsdator där vidta åtgärder gör att flödet av affärslogik flytta från ett tillstånd till en annan. Ett arbetsflöde är en samling av sådana tillstånd och åtgärder. Varje arbetsflöde består av en eller flera smarta kontrakt som representerar affärslogiken i kodfiler. Ett körbart kontrakt är en instans av ett arbetsflöde.
 
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
-| Namn | För unika Arbetsflödesnamn. Motsvarande smart kontrakt måste ha samma **namn** för tillämpliga avtal. | Ja |
+| Namn | För unika Arbetsflödesnamn. Motsvarande smarta kontrakt måste använda samma **namn** för tillämpliga avtal. | Ja |
 | DisplayName | Eget namn för arbetsflödet. | Ja |
 | Beskrivning | Beskrivning av arbetsflödet. | Nej |
-| Initierare | Samling av [ApplicationRoles](#application-roles). Roller som är kopplade till användare som har behörighet att skapa kontrakt i arbetsflödet. | Ja |
-| StartState | Namnet på arbetsflödet initialt tillstånd. | Ja |
-| Egenskaper | Samling av [identifierare](#identifiers). Representerar data som kan läsas av kedjan eller visualiserade i en användare få verktyget. | Ja |
-| Konstruktorn | Definierar indataparametrar för att skapa en instans av arbetsflödet. | Ja |
-| Functions | En samling [funktioner](#functions) som kan köras i arbetsflödet. | Ja |
-| tillstånd | En samling av arbetsflöde [tillstånd](#states). | Ja |
+| Initierare | Insamling av [ApplicationRoles](#application-roles). Roller som är tilldelade till användare som har behörighet att skapa kontrakt i arbetsflödet. | Ja |
+| StartState | Namnet på det ursprungliga tillståndet för arbetsflödet. | Ja |
+| Egenskaper | Insamling av [identifierare](#identifiers). Representerar data som kan läsas av kedjan eller visualiserade i en användare få verktyget. | Ja |
+| Konstruktor | Definierar indataparametrar för att skapa en instans av arbetsflödet. | Ja |
+| Functions | En samling [functions](#functions) som kan köras i arbetsflödet. | Ja |
+| Tillstånd | En samling av arbetsflödet [tillstånd](#states). | Ja |
 
-Ett exempel finns [exempel på en konfigurationsfil](#configuration-file-example).
+Ett exempel finns i [exempel på en konfigurationsfil](#configuration-file-example).
 
 ## <a name="type"></a>Typ
 
-Vilka datatyper som stöds.
+Datatyper som stöds.
 
 | Typ | Beskrivning |
 |-------|-------------|
-| Adress  | Blockchain-adresstyp, t.ex *kontrakt* eller *användare* |
-| bool     | Boolesk datatyp |
-| Kontrakt | Adress av typen kontrakt |
+| Adress  | Blockchain-adresstypen, till exempel *kontrakt* eller *användare* |
+| Bool     | Boolesk datatyp |
+| kontrakt | Adress av typen kontrakt |
+| Enum     | Numrerade uppsättning namngivna värden. När du använder uppräkningstypen kan ange du också en lista över EnumValues. Varje värde är begränsad till 255 tecken. Giltigt värde tecken omfattar övre och gemena bokstäver (A-Z, a – z) och siffror (0-9). |
 | int      | Datatypen Integer |
-| Money    | Money-datatyp |
+| pengar    | Datatypen Money |
 | state    | Arbetsflödets tillstånd |
 | sträng   | Datatypen String |
-| Användare     | Adressen för typ användare |
-| time     | Time-datatyp |
-|`[ Application Role Name ]`| Alla namn som anges i programrollen. Begränsar användarna av den rolltypen. |
+| Användare     | Adressen för typ av användare |
+| time     | Tid datatyp |
+|`[ Application Role Name ]`| Vilket namn som anges i programrollen. Begränsar användarna av den rolltypen. |
 
-## <a name="constructor"></a>Konstruktorn
+### <a name="example-configuration-of-type-string"></a>Exempel på konfiguration av typen sträng
+
+``` json
+{
+  "Name": "description",
+  "Description": "Descriptive text",
+  "DisplayName": "Description",
+  "Type": {
+    "Name": "string"
+  }
+}
+```
+
+### <a name="example-configuration-of-type-enum"></a>Exempel på konfiguration av typen enum
+
+``` json
+{
+  "Name": "PropertyType",
+  "DisplayName": "Property Type",
+  "Description": "The type of the property",
+  "Type": {
+    "Name": "enum",
+    "EnumValues": ["House", "Townhouse", "Condo", "Land"]
+  }
+}
+```
+
+#### <a name="using-enumeration-type-in-solidity"></a>Med uppräkningstypen i Solidity
+
+När en uppräkning har definierats i konfigurationen, kan du använda Uppräkningstyper i Solidity. Du kan till exempel definiera en uppräkning som kallas PropertyTypeEnum.
+
+```
+enum PropertyTypeEnum {House, Townhouse, Condo, Land} PropertyTypeEnum public PropertyType; 
+```
+
+Lista med strängar måste vara mellan konfigurations- och smarta kontrakt är giltig och konsekvent deklarationer i Blockchain Workbench.
+
+Exempel på tilldelning:
+
+```
+PropertyType = PropertyTypeEnum.Townhouse;
+```
+
+Exempel för funktionen parameter: 
+
+``` 
+function AssetTransfer(string description, uint256 price, PropertyTypeEnum propertyType) public
+{
+    InstanceOwner = msg.sender;
+    AskingPrice = price;
+    Description = description;
+    PropertyType = propertyType;
+    State = StateType.Active;
+    ContractCreated();
+}
+
+```
+
+## <a name="constructor"></a>Konstruktor
 
 Definierar indataparametrar för en instans av ett arbetsflöde.
 
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
-| Parametrar | Samling av [identifierare](#identifiers) krävs för att initiera ett smart kontrakt. | Ja |
+| Parametrar | Insamling av [identifierare](#identifiers) initiera ett smarta kontrakt. | Ja |
 
 ### <a name="constructor-example"></a>Konstruktorn exempel
 
@@ -119,16 +178,16 @@ Definierar indataparametrar för en instans av ett arbetsflöde.
 
 ## <a name="functions"></a>Functions
 
-Definierar funktioner som kan utföras på arbetsflödet.
+Definierar funktioner som kan köras i arbetsflödet.
 
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
-| Namn | Det unika namnet på funktionen. Motsvarande smart kontrakt måste ha samma **namn** för tillämplig funktion. | Ja |
+| Namn | Det unika namnet på funktionen. Motsvarande smarta kontrakt måste använda samma **namn** för funktionen tillämpliga. | Ja |
 | DisplayName | Eget namn för funktionen. | Ja |
 | Beskrivning | Beskrivning av funktionen | Nej |
-| Parametrar | Samling av [identifierare](#identifiers) motsvarande parametrar för funktionen. | Ja |
+| Parametrar | Insamling av [identifierare](#identifiers) motsvarar parametrarna för funktionen. | Ja |
 
-### <a name="functions-example"></a>Exempel på funktioner
+### <a name="functions-example"></a>Functions-exempel
 
 ``` json
 "Functions": [
@@ -165,20 +224,20 @@ Definierar funktioner som kan utföras på arbetsflödet.
 
 ```
 
-## <a name="states"></a>tillstånd
+## <a name="states"></a>Tillstånd
 
-En samling av unikt tillstånd i ett arbetsflöde. Varje tillstånd fångar upp ett steg i den affärslogik Kontrollflöde. 
+En samling av unika tillstånd i ett arbetsflöde. Varje tillstånd fångar ett steg i den affärslogik Kontrollflöde. 
 
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
-| Namn | Unikt namn för tillståndet. Motsvarande smart kontrakt måste ha samma **namn** för tillämpligt tillstånd. | Ja |
+| Namn | Unikt namn för tillståndet. Motsvarande smarta kontrakt måste använda samma **namn** för tillämpligt tillstånd. | Ja |
 | DisplayName | Eget namn för tillståndet. | Ja |
-| Beskrivning | Beskrivning av tillståndet. | Nej |
-| Värdet | Ett heltal som visas i användargränssnittet Blockchain arbetsstationen för att visa förlopp i business logic kontrollflödet. | Ja |
-| Stil | Visuella tips som anger om tillståndet representerar en lyckad eller misslyckad status. Det finns två giltiga värden: `Success` eller `Failure`. | Ja |
-| Övergångar | Samling av tillgängliga [övergångar](#transitions) från det aktuella tillståndet för en uppsättning tillstånd. | Nej |
+| Beskrivning | Beskrivning av tillstånd. | Nej |
+| Värdet för procent färdigt | Ett heltalsvärde som visas i användargränssnittet för Blockchain Workbench för att visa förloppet i kontrollflödet för business logic. | Ja |
+| Stil | Visuella tips som anger om tillståndet representerar tillståndet har lyckats eller misslyckats. Det finns två giltiga värden: `Success` eller `Failure`. | Ja |
+| Övergångar | Samling av tillgängliga [övergångar](#transitions) från det aktuella tillståndet för nästa uppsättning tillstånd. | Nej |
 
-### <a name="states-example"></a>Exempel på tillstånd
+### <a name="states-example"></a>Tillstånd-exempel
 
 ``` json
 "States": [
@@ -236,13 +295,13 @@ En samling av unikt tillstånd i ett arbetsflöde. Varje tillstånd fångar upp 
 
 ## <a name="transitions"></a>Övergångar
 
-Tillgängliga åtgärder till nästa steg. En eller flera roller kan utföra en åtgärd på varje tillstånd där åtgärden kan överföra ett tillstånd till ett annat tillstånd i arbetsflödet. 
+Tillgängliga åtgärder till nästa steg. En eller flera roller kan utföra en åtgärd på varje tillstånd, där en åtgärd kan överföra ett tillstånd till ett annat tillstånd i arbetsflödet. 
 
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
-| AllowedRoles | Lista över program roller kan initiera övergången. Alla användare av den angivna rollen kanske att utföra åtgärden. | Nej |
-| AllowedInstanceRoles | Lista med användarroller deltar eller anges i smart kontraktet får initiera övergången. Instansen roller har definierats i **egenskaper** i arbetsflöden. AllowedInstanceRoles representerar en användare som ingår i en instans av ett smart kontrakt. AllowedInstanceRoles ger dig möjlighet att begränsa vidta åtgärder till en användarroll i en instans av kontrakt.  Exempelvis kanske du bara vill att användaren som skapade kontraktet (InstanceOwner) för att kunna avsluta i stället för alla användare i rolltyp (ägare) om du har angett rollen i AllowedRoles. | Nej |
-| DisplayName | Eget namn för övergången. | Ja |
+| AllowedRoles | Lista över roller som program tillåts för att initiera övergången. Alla användare av den angivna rollen kanske att utföra åtgärden. | Nej |
+| AllowedInstanceRoles | Lista med användarroller deltar eller anges i det smarta kontrakt som tillåts att initiera övergången. Instansroller definieras i **egenskaper** i arbetsflöden. AllowedInstanceRoles representerar en användare som deltar i en instans av ett smarta kontrakt. AllowedInstanceRoles ger dig möjlighet att begränsa att utföra en åtgärd till en användarroll i en kontrakt-instans.  Till exempel kanske du bara vill tillåta användaren som skapade kontraktet (InstanceOwner) för att kunna avsluta i stället för alla användare i rolltyp (ägare) om du har angett rollen i AllowedRoles. | Nej |
+| DisplayName | Övergången eget visningsnamn. | Ja |
 | Beskrivning | Beskrivning av övergången. | Nej |
 | Funktion | Namnet på funktionen för att initiera övergången. | Ja |
 | NextStates | En samling av potentiella nästa tillstånd efter en lyckad övergång. | Ja |
@@ -281,11 +340,11 @@ Tillgängliga åtgärder till nästa steg. En eller flera roller kan utföra en 
 
 ## <a name="application-roles"></a>Programroller
 
-Programroller definiera roller som kan tilldelas till användare som vill vidta åtgärder eller delta i programmet. Programroller kan användas för att begränsa åtgärder och delta i blockchain program och motsvarande arbetsflöden. 
+Programroller definierar en uppsättning roller som kan tilldelas till användare som vill fungera eller delta i programmet. Programroller kan användas för att begränsa åtgärder och delta i blockchain-program och motsvarande arbetsflöden. 
 
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
-| Namn | Det unika namnet för programrollen. Motsvarande smart kontrakt måste ha samma **namn** för rollen tillämpliga. Bastypen namn är reserverade. Du kan inte namnge en roll för program med samma namn som [typ](#type)| Ja |
+| Namn | Det unika namnet för programrollen. Motsvarande smarta kontrakt måste använda samma **namn** för tillämpliga rollen. Bastypen namn är reserverade. Du kan kalla en programroll med samma namn som [typ](#type)| Ja |
 | Beskrivning | Beskrivning av programrollen. | Nej |
 
 ### <a name="application-roles-example"></a>Exempel på roller
@@ -304,15 +363,15 @@ Programroller definiera roller som kan tilldelas till användare som vill vidta 
 ```
 ## <a name="identifiers"></a>Identifierare
 
-Identifierare som representerar en samling information som används för att beskriva arbetsflödesegenskaper och konstruktorn funktionsparametrar. 
+Identifierare som representerar en mängd information som används för att beskriva egenskaperna för arbetsflödet, konstruktor och funktionsparametrar. 
 
 | Fält | Beskrivning | Krävs |
 |-------|-------------|:--------:|
-| Namn | Det unika namnet på egenskapen eller parametern. Motsvarande smart kontrakt måste ha samma **namn** för tillämpliga egenskapen eller parametern. | Ja |
-| DisplayName | Eget namn för egenskapen eller parametern. | Ja |
-| Beskrivning | Beskrivning av egenskapen eller parametern. | Nej |
+| Namn | Det unika namnet på egenskapen eller parametern. Motsvarande smarta kontrakt måste använda samma **namn** för egenskap eller parametern. | Ja |
+| DisplayName | Eget visningsnamn för egenskap eller parametern. | Ja |
+| Beskrivning | Beskrivning av den egenskapen eller parametern. | Nej |
 
-### <a name="identifiers-example"></a>Identifierare exempel
+### <a name="identifiers-example"></a>Exempel för identifierare
 
 ``` json
 "Properties": [
@@ -337,11 +396,11 @@ Identifierare som representerar en samling information som används för att bes
 
 ## <a name="configuration-file-example"></a>Exempel på en konfigurationsfil
 
-Överföringen tillgången är ett smart kontraktet scenario för handel värdefulla tillgångar, vilket kräver en inspector och appraiser. Säljare kan ange sina tillgångar genom en instans skapades av en tillgång överföring smart kontraktet. Centraliserad kan göra erbjudanden genom att utföra en åtgärd på smart kontraktet och andra parter kan vidta åtgärder för att granska och bedöma tillgången. När tillgången markeras både kontrolleras och ställer, centraliserad och säljaren bekräftar försäljning igen innan kontraktet anges för att slutföra. Alla deltagare ha inblick i tillståndet för kontraktet när den uppdateras vid varje punkt i processen. 
+Överföringen tillgången är ett smarta kontrakt-scenario för att köpa och sälja resurser med högt värde, som kräver en inspector och appraiser. Säljare kan visa sina tillgångar genom att instansiera en tillgång överföring smarta kontrakt. Köpare kan göra erbjudanden genom att utföra en åtgärd på det smarta kontraktet och andra parter kan vidta åtgärder för att granska eller bedöma tillgången. När tillgången har märkts både granskas och ställer, köparen och säljaren bekräftar försäljningen igen innan kontraktet är inställt på Slutför. Alla deltagare ha insyn i tillståndet för kontraktet när den uppdateras vid varje punkt i processen. 
 
-Mer information, inklusive kodfilerna, se [tillgången överföring exempel för Azure Blockchain arbetsstationen](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer)
+Mer information, inklusive kodfiler finns i [tillgången överföring exempel för Azure Blockchain Workbench](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer)
 
-Följande konfigurationsfil är för tillgångsinformation överföra:
+Följande konfigurationsfil är för tillgången överföring exemplet:
 
 ``` json
 {
@@ -915,5 +974,5 @@ Följande konfigurationsfil är för tillgångsinformation överföra:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Azure Blockchain arbetsstationen REST API-referens](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)
+> [REST API-referens för Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)
 

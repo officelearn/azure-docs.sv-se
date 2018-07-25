@@ -9,12 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: davidmu
-ms.openlocfilehash: 20865fc3adf8610b5a4ce111e3db91aef714fdd6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.component: B2C
+ms.openlocfilehash: cc48cd3eb40d93c26a68caf843a89f7bbfb46c6c
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448313"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236901"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Självstudier: Skapa en Azure Active Directory B2C-klient
 
@@ -46,7 +47,7 @@ Börja hantera din nya klient genom att klicka på ordet **här** står det **Kl
 
 ## <a name="link-your-tenant-to-your-subscription"></a>Länka din klient till din prenumeration
 
-Du måste länka din Azure AD B2C-klient till din Azure-prenumeration att aktivera alla funktioner och betalar för användningen. Om du inte länkar din klient till din prenumeration kan fungerar dina program inte korrekt.
+Du måste länka din Azure AD B2C-klientorganisation till din Azure-prenumeration för att aktivera alla funktioner och betala för användningsavgifter. Om du inte länkar din klient till din prenumeration kan fungerar dina program inte korrekt.
 
 1. Kontrollera att du använder den katalog som innehåller den prenumeration som du vill koppla till den nya klienten genom att växla mellan katalogen i det övre högra hörnet i Azure Portal.
 

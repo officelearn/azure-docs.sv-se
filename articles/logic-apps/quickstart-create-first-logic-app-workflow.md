@@ -6,17 +6,17 @@ ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 1/12/2018
 ms.topic: quickstart
 ms.custom: mvc
+ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 0a629deec0cc18f65dfe5e88a3eaea528636dd0f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 4774efda6748ac640d87ce83e2d5c4ee68310546
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300947"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125747"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Snabbstart: Skapa ditt första automatiserade arbetsflöde med Azure Logic Apps – Azure Portal
 
@@ -34,7 +34,7 @@ Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
 
 ## <a name="create-your-logic-app"></a>Skapa en logikapp 
 
-1. Välj **Skapa en resurs** > **Enterprise-integration** > **Logikapp** på Azure-huvudmenyn.
+1. Välj **Skapa en resurs** > **Integration** > **Logikapp** på Azure-huvudmenyn.
 
    ![Skapa en logikapp](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
@@ -42,12 +42,12 @@ Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
 
    ![Tillhandahålla information om logikappar](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | Inställning | Värde | Beskrivning | 
-   | ------- | ----- | ----------- | 
+   | Egenskap | Värde | Beskrivning | 
+   |----------|-------|-------------| 
    | **Namn** | MyFirstLogicApp | Logikappens namn | 
    | **Prenumeration** | <*your-Azure-subscription-name*> | Azure-prenumerationens namn | 
    | **Resursgrupp** | My-First-LA-RG | Namnet på den [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) som används för att organisera relaterade resurser | 
-   | **Plats** | Östra USA 2 | Regionen där logikappens information ska lagras | 
+   | **Plats** | Västra USA | Regionen där logikappens information ska lagras | 
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. | 
    |||| 
 
@@ -69,12 +69,12 @@ Lägg därefter till en [utlösare](../logic-apps/logic-apps-overview.md#logic-a
 
    ![Konfigurera utlösare med RSS-flöde, frekvens och intervall](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
 
-   | Inställning | Värde | Beskrivning | 
-   | ------- | ----- | ----------- | 
+   | Egenskap | Värde | Beskrivning | 
+   |----------|-------|-------------| 
    | **RSS-feedens webbadress** | ```http://feeds.reuters.com/reuters/topNews``` | Länken till det RSS-flöde som du vill övervaka | 
    | **Intervall** | 1 | Antalet intervaller som ska förflyta mellan kontrollerna | 
    | **Frekvens** | Minut | Tidsenhet för varje intervall mellan kontroller  | 
-   |  |  |  | 
+   |||| 
 
    Tillsammans definierar intervall och frekvens schemat för logikappens utlösare. 
    Logikappen kontrollerar feeden varje minut.
@@ -95,9 +95,11 @@ Nu lägger du till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-
 
    ![Lägga till en åtgärd](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. Under **Välj en åtgärd** söker du efter ”skicka e-post” och väljer sedan åtgärden ”skicka e-post” för den e-postprovider du önskar. Om du vill filtrera åtgärdslistan till en specifik tjänst kan du välja anslutningsappen först under **Anslutningar**.
+2. Under **Välj en åtgärd**, anger du skicka ett e-postmeddelande som filter. Välj åtgärden skicka ett e-postmeddelande för den önskade e-postleverantören. 
 
    ![Välj den här åtgärden: "Office 365 Outlook - Send an email" (Office 365 Outlook – Skicka ett e-postmeddelande)](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+
+   Om du vill filtrera åtgärdslistan till ett specifikt program eller en tjänst kan du välja det programmet eller den tjänsten först:
 
    * För Azure arbets- eller skolkonto väljer du Office 365 Outlook. 
    * För personliga Microsoft-konton väljer du Outlook.com.
@@ -109,21 +111,14 @@ Nu lägger du till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-
    1. Ange mottagarens e-postadress i fältet **Till**. 
    I testsyfte kan du använda din egen e-postadress.
 
-      För närvarande kan du ignorera parameterlistan eller listan **Lägg till dynamiskt innehåll** som visas. 
-      När du klickar i vissa redigeringsrutor blir listan synlig och visar eventuella tillgängliga parametrar från föregående steg som du kan ta med som indata i arbetsflödet.
-      Webbläsarens bredd bestämmer vilken lista som visas.
+      För närvarande kan du listan **Lägg till dynamiskt innehåll** som visas. 
+      När du klickar i vissa redigeringsrutor blir listan synlig och visar eventuella tillgängliga parametrar från föregående steg som du kan ta med som indata i arbetsflödet. 
 
    2. I rutan **Ämne** anger du den här texten med ett avslutande blanksteg: ```New RSS item: ```
 
       ![Ange ämne för e-post](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
  
-   3. Från parameterlistan eller listan **Lägg till dynamiskt innehåll** väljer du **Flödesrubrik** för att ta med RSS-objektets titel.
-
-      Här är till exempel parameterlistan:
-
-      ![Parameterlista – ”Feed-titel”](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject-parameters-list.png)
-
-      Och här är listan över dynamiskt innehåll:
+   3. På listan **Lägg till dynamiskt innehåll** väljer du **Flödesrubrik** för att ta med RSS-objektets titel.
 
       ![Lista med dynamiskt innehåll – ”Feed-titel”](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject-dynamic-content.png)
 
@@ -131,18 +126,18 @@ Nu lägger du till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-
 
       ![Tillagd flödesrubrik](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-feed-title.png)
 
-      Om en "For each"-loop (För varje) visas i designern har du valt ett fält som innehåller en matris, till exempel fältet **categories-item**. 
-      För sådana typer av fält lägger designern automatiskt till den här loopen omkring åtgärden som refererar till fältet. 
+      Om en For each-loop (för varje) visas i designern har du valt en token för en matris, till exempel token **categories-item**. 
+      För sådana typer av token lägger designern automatiskt till den här loopen omkring åtgärden som refererar till token. 
       På så sätt kan din logikappsåtgärd utföra samma åtgärd på varje element i matrisen. 
       Om du vill ta bort loopen väljer du **ellipserna**  (**...**) på loopens namnlist och väljer **Ta bort**.
 
-   4. I **brödtextrutan** anger du texten och väljer dessa fält för e-postmeddelandets brödtext. 
+   4. I **brödtextrutan** anger du texten och väljer dessa token för e-postmeddelandets brödtext. 
    Tryck på Skift + Enter för att lägga till tomma rader i en redigeringsruta. 
 
       ![Lägg till innehåll för e-postmeddelandets brödtext](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
-      | Inställning | Beskrivning | 
-      | ------- | ----------- | 
+      | Egenskap | Beskrivning | 
+      |----------|-------------| 
       | **Flödesrubrik** | Objektets rubrik | 
       | **Flödet publicerat den** | Objektets publiceringsdatum och -tid | 
       | **Flödets primära länk** | Objektets webbadress | 
@@ -167,9 +162,15 @@ Grattis! Nu har du skapar och kört din första logikapp med Azure Portal!
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen som innehåller logikappen och alla relaterade resurser när de inte längre behövs. På Azures huvudmeny går du till **Resursgrupper** och väljer resursgruppen för logikappen. Välj **Ta bort resursgrupp**. Ange resursgruppens namn som bekräftelse och välj **Ta bort**.
+Ta bort resursgruppen som innehåller logikappen och alla relaterade resurser när du inte längre behöver dem. 
 
-![”Resursgrupper” > ”Översikt” > ”Ta bort resursgrupp”](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
+1. På Azures huvudmeny öppnar du **Resursgrupper** och väljer logikappens resursgrupp. På sidan **Översikt** väljer du **Ta bort resursgrupp**. 
+
+   ![”Resursgrupper” > ”Översikt” > ”Ta bort resursgrupp”](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
+
+2. Ange resursgruppens namn som bekräftelse och välj **Ta bort**.
+
+   ![Bekräfta borttagning](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
 
 ## <a name="get-support"></a>Få support
 

@@ -1,21 +1,21 @@
 ---
-title: Söka efter halvstrukturerade data i Azure-molnlagring
-description: Söker efter halvstrukturerade blobdata med Azure Search.
-author: roygara
+title: Självstudie om att söka i halvstrukturerade data från Azure-molnlagring i Azure Search | Microsoft Docs
+description: I den här självstudien får du lära dig att söka i halvstrukturerade Azure-blobdata med Azure Search.
+author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 10/12/2017
-ms.author: v-rogara
-ms.openlocfilehash: 7579862e132724d101e4267023afd9e3336bc3b1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 07/12/2018
+ms.author: heidist
+ms.openlocfilehash: a7b006bd8469ddce1415ab6cb7c52c0171ae11cd
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795049"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005085"
 ---
-# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Del 2: Söka efter halvstrukturerade data i molnlagring
+# <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Självstudie: Söka i halvstrukturerade data i Azure-molnlagring
 
 I en självstudiekurs i två delar får du lära dig hur du söker efter halvstrukturerade och ostrukturerade data med Azure Search. I [del 1](../storage/blobs/storage-unstructured-search.md) fick du lära dig att söka i ostrukturerade data och den innehöll också viktiga förutsättningar för den här kursen, till exempel information om hur du skapar ett lagringskonto. 
 
@@ -24,18 +24,20 @@ I en del 2 fokuserar vi på halvstrukturerade data, till exempel JSON som lagras
 I del 2 får du lära dig att:
 
 > [!div class="checklist"]
-> * Konfigurera en Azure Search-datakälla för en Azure-blobbehållare
-> * Skapa och fylla i ett Azure Search-index och indexerare för att crawla behållaren och extrahera sökbart innehåll
+> * Konfigurera en Azure Search-datakälla för en Azure-blobcontainer
+> * Skapa och fylla i ett Azure Search-index och indexerare för att crawla containern och extrahera sökbart innehåll
 > * Söka i indexet som du precis skapade
 
-> [!NOTE]
-> I den här kursen används JSON-matriser som för närvarande är en förhandsgranskningsfunktion i Azure Search. Den finns inte i portalen. Därför använder vi förhandsversionen av REST API som tillhandahåller den här funktionen och ett REST-klientverktyg för att anropa API:t.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Lagringskonto och söktjänst som erhålls genom att slutföra den [tidigare kursen](../storage/blobs/storage-unstructured-search.md).
 
 * Installation av en REST-klient och en förståelse för hur du skapar en HTTP-begäran. I den här självstudiekursen använder vi [Postman](https://www.getpostman.com/). Du kan använda en annan REST-klient som du är van vid.
+
+> [!NOTE]
+> I den här kursen används JSON-matriser som för närvarande är en förhandsgranskningsfunktion i Azure Search. Den finns inte i portalen. Därför använder vi förhandsversionen av REST API som tillhandahåller den här funktionen och ett REST-klientverktyg för att anropa API:t.
 
 ## <a name="set-up-postman"></a>Konfigurera Postman
 
@@ -55,21 +57,21 @@ En uppsättning exempeldata har förberetts för dig. **Ladda ned [clinical-tria
 
 I mappen finns JSON-exempelfiler som ursprungligen var textfiler från [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). Vi har konverterat dem till JSON för att göra det enklare för dig.
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på [Azure-portalen](http://portal.azure.com).
 
 ## <a name="upload-the-sample-data"></a>Ladda upp exempeldata
 
-I Azure Portal går du tillbaka till det lagringskonto som skapades i den [tidigare kursen](../storage/blobs/storage-unstructured-search.md). Öppna **databehållaren** och klicka på **Överför**.
+I Azure Portal går du tillbaka till det lagringskonto som skapades i den [tidigare kursen](../storage/blobs/storage-unstructured-search.md). Öppna **datacontainern** och klicka på **Överför**.
 
 Klicka på **Avancerat**, ange ”clinical-trials-json” och ladda sedan upp alla JSON-filer som du hämtade.
 
   ![Halvstrukturerad sökning](media/search-semi-structured-data/clinicalupload.png)
 
-När överföringen är klar ska filerna visas i en egen undermapp i databehållaren.
+När överföringen är klar ska filerna visas i en egen undermapp i datacontainern.
 
-## <a name="connect-your-search-service-to-your-container"></a>Ansluta din söktjänst till behållaren
+## <a name="connect-your-search-service-to-your-container"></a>Ansluta din söktjänst till containern
 
 Vi använder Postman för att göra tre API-anrop till din söktjänst för att skapa en datakälla, ett index och en indexerare. Datakällan innehåller en pekare till ditt lagringskonto och dina JSON-data. Din söktjänst gör anslutningen vid inläsning av data.
 
@@ -255,7 +257,7 @@ Svaret ska se ut så här:
 
 ## <a name="search-your-json-files"></a>Söka i JSON-filer
 
-Nu när söktjänsten har anslutits till databehållaren kan du börja söka i dina filer.
+Nu när söktjänsten har anslutits till datacontainern kan du börja söka i dina filer.
 
 Öppna Azure Portal och gå tillbaka till din söktjänst. Precis som du gjorde i föregående självstudiekurs.
 
@@ -277,15 +279,13 @@ Passa på att experimentera och prova några frågor själv. Observera att du ka
 
 Parametern `$filter` fungerar endast med metadata som markerades som filtrerbara när indexet skapades.
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Det snabbaste sättet att rensa upp efter en självstudie är att ta bort resursgruppen som innehåller Azure Search-tjänsten. Du kan ta bort resursgruppen nu om du vill ta bort allt innehåll i den permanent. I portalen ser du resursgruppens namn på översiktssidan för Azure Search-tjänsten.
+
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen fick du lära dig hur du söker i halvstrukturerade data med Azure Search, till exempel:
-
-> [!div class="checklist"]
-> * Skapa en Azure Search-tjänst med hjälp av REST-API:et
-> * Använda Azure Search-tjänsten för att söka i en behållare
-
-Följ den här länken om du vill veta mer om sökning.
+Du kan koppla AI-drivna algoritmer till en indexerarpipeline. I nästa steg fortsätter du med följande självstudie:
 
 > [!div class="nextstepaction"]
 > [Indexera dokument i Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)

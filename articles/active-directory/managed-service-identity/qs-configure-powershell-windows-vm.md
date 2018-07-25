@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 38f229addd0cd1f9c4f4d0ceb976f19f06d4a293
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 9a40ad66f104a33230484f24e20a5f3bd9ed6175
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214718"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237663"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Konfigurera en virtuell dator hanterad tjänstidentitet (MSI) med hjälp av PowerShell
 
@@ -96,9 +96,6 @@ Om du vill aktivera en systemtilldelade identiteter på en befintlig virtuell da
 
 ## <a name="disable-the-system-assigned-identity-from-an-azure-vm"></a>Inaktivera systemtilldelad identitet från en Azure virtuell dator
 
-> [!NOTE]
->  Inaktiverar hanterad tjänstidentitet från en virtuell dator stöds för närvarande inte. Under tiden kan växla du mellan att använda System tilldelas och tilldelade användaridentiteter.
-
 Om du har en virtuell dator som inte längre behöver systemtilldelad identitet, men fortfarande ha användartilldelade identiteter, använder du följande cmdlet:
 
 1. Logga in på Azure med `Login-AzureRmAccount`. Använd ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn.
@@ -107,10 +104,20 @@ Om du har en virtuell dator som inte längre behöver systemtilldelad identitet,
    Login-AzureRmAccount
    ```
 
-2. Kör följande cmdlet: 
-    ```powershell       
-    Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -IdentityType "UserAssigned"
-    ```
+2. Hämta VM-egenskaper med hjälp av den `Get-AzureRmVM` cmdleten och ange den `-IdentityType` parameter `UserAssigned`:
+
+   ```powershell   
+   $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM    
+   Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType "UserAssigned"
+   ```
+
+Om du har en virtuell dator som inte längre behöver systemtilldelad identitet och har inga användartilldelade identiteter, använder du följande kommandon:
+
+```powershell
+$vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
+```
+
 Ta bort MSI VM-tillägg, användare-Name-växeln med den [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) cmdlet, att ange samma namn som du använde när du har lagt till tillägget:
 
    ```powershell
@@ -179,23 +186,23 @@ Tilldela Användartilldelad identitet till en befintlig virtuell Azure-dator:
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Ta bort en användare som tilldelats hanterad identitet från en Azure-dator
 
-> [!NOTE]
->  Ta bort alla användartilldelade identiteter från en virtuell dator stöds för närvarande inte, om du inte har en systemtilldelad identitet. Kom tillbaka om för att få uppdateringar.
-
-Om den virtuella datorn har flera användartilldelade identiteter, kan du ta bort alla utom den sista som använder följande kommandon. Ersätt parametervärdena `<RESOURCE GROUP>` och `<VM NAME>` med dina egna värden. Den `<MSI NAME>` är Användartilldelad identitet namnegenskapen som fortfarande på den virtuella datorn. Den här informationen kan hittas genom att i identitetsavsnittet i en virtuell dator med hjälp av `az vm show`:
+Om den virtuella datorn har flera användartilldelade identiteter, kan du ta bort alla utom den sista som använder följande kommandon. Ersätt parametervärdena `<RESOURCE GROUP>` och `<VM NAME>` med dina egna värden. Den `<MSI NAME>` är Användartilldelad identitet namnegenskapen som fortfarande på den virtuella datorn. Den här informationen finns i identitetsavsnittet i en virtuell dator med hjälp av `az vm show`:
 
 ```powershell
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm
-$vm.Identity.IdentityIds = "<MSI NAME>"
-Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -VirtualMachine $vm
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType UserAssigned -IdentityID "<MSI NAME>"
 ```
+Om den virtuella datorn inte har en systemtilldelad identitet och du vill ta bort alla användartilldelade identiteter från den, använder du följande kommando:
 
-Om den virtuella datorn har både systemtilldelad och användartilldelade identiteter, du kan ta bort alla användartilldelade identiteter genom att växla mellan för att använda endast system som har tilldelats. Ange följande kommando:
+```powershell
+$vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
+```
+Om den virtuella datorn har både systemtilldelad och användartilldelade identiteter, du kan ta bort alla användartilldelade identiteter genom att växla mellan för att använda endast system som har tilldelats.
 
 ```powershell 
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm
-$vm.Identity.IdentityIds = $null
-Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -VirtualMachine $vm -IdentityType "SystemAssigned"
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType "SystemAssigned"
 ```
 
 ## <a name="related-content"></a>Relaterat innehåll

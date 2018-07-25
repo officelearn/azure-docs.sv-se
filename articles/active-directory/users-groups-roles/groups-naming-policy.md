@@ -4,7 +4,7 @@ description: Hur du ställer in förfallodatum för Office 365-grupper i Azure A
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: michael.tillman
+manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.component: users-groups-roles
 ms.topic: article
 ms.date: 05/21/2018
 ms.author: curtand
-ms.reviewer: kairaz.contractor
+ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c973245b6c8ee3557f9bf410544f9f698b2733c5
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 111be7d3ee00f2b40ace3bfe4efdacc5029ccf77
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872526"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239142"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Framtvinga en namnprincip för Office 365-grupper i Azure Active Directory (förhandsversion)
 
@@ -200,9 +200,9 @@ Administrationscenter för Office 365 | Administrationscenter för Office 365 ä
 ## <a name="next-steps"></a>Nästa steg
 Dessa artiklar innehåller ytterligare information om Azure AD-grupper.
 
-* [Se befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Visa befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Princip för Office 365-grupper](groups-lifecycle.md)
-* [Hantera inställningarna för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
+* [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Hantera medlemmar i en grupp](../fundamentals/active-directory-groups-members-azure-portal.md)
 * [Hantera medlemskap i en grupp](../fundamentals/active-directory-groups-membership-azure-portal.md)
 * [Hantera dynamiska regler för användare i en grupp](groups-dynamic-membership.md)

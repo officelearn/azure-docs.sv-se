@@ -1,5 +1,5 @@
 ---
-title: Felsökning av RBAC i Azure | Microsoft Docs
+title: Felsöka RBAC i Azure | Microsoft Docs
 description: Felsök problem med Azure rollbaserad åtkomstkontroll (RBAC).
 services: azure-portal
 documentationcenter: na
@@ -11,29 +11,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 07/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 186bcf26639f5cff2dcbf1e805913ac7edab7df4
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: d1a0e46fe348bbc60a4d02a4727a9bb27cb26742
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437374"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223304"
 ---
-# <a name="troubleshooting-rbac-in-azure"></a>Felsökning av RBAC i Azure
+# <a name="troubleshoot-rbac-in-azure"></a>Felsöka RBAC i Azure
 
-Den här artikeln innehåller vanliga frågor och svar om rollbaserad åtkomstkontroll (RBAC), så att du vet vad som händer när du använder roller i Azure-portalen och kan felsöka problem med åtkomst till. Dessa roller täcker alla typer av resurser:
+Den här artikeln innehåller vanliga frågor och svar om rollbaserad åtkomstkontroll (RBAC), så att du vet vad som händer när du använder roller i Azure-portalen och kan felsöka problem med åtkomst till.
 
-* Ägare  
-* Deltagare  
-* Läsare  
+## <a name="web-app-features-that-require-write-access"></a>Web app-funktioner som kräver skrivbehörighet
 
-Ägare och deltagare ha fullständig åtkomst till hantering, men deltagare kan inte bevilja åtkomst till andra användare eller grupper. Det blir lite mer intressant med rollen Läsare, så det är där vi ägna lite tid. Information om hur du beviljar åtkomst, seee [hantera åtkomst med RBAC och Azure portal](role-assignments-portal.md).
-
-## <a name="app-service"></a>App Service
-### <a name="write-access-capabilities"></a>Skrivåtkomst funktioner
 Om du ger en användare skrivskyddad åtkomst till en enkel webbapp inaktiveras vissa funktioner som inte förväntat. Följande hanteringsfunktioner kräver **skriva** åtkomst till en webbapp (deltagare eller ägare) och inte är tillgängliga i alla skrivskyddade scenarier.
 
 * Kommandon (till exempel start, Stopp osv.)
@@ -49,7 +43,8 @@ Om du ger en användare skrivskyddad åtkomst till en enkel webbapp inaktiveras 
 
 Om du inte åtkomst till någon av dessa paneler, måste du be din administratör om deltagaråtkomst till webbappen.
 
-### <a name="dealing-with-related-resources"></a>Hantera relaterade resurser
+## <a name="web-app-resources-that-require-write-access"></a>Web app-resurser som kräver skrivbehörighet
+
 Webbappar är komplicerat av förekomsten av ett par olika resurser som samspel. Här är en typisk resursgrupp med några webbplatser:
 
 ![Resursgrupp för Web app](./media/troubleshooting/website-resource-model.png)
@@ -70,15 +65,9 @@ Dessa objekt kräver **skriva** åtkomst till hela **resursgrupp** som innehåll
 * Application Insights-komponenter  
 * Webbtest  
 
-## <a name="azure-functions"></a>Azure Functions
-Vissa funktioner i [Azure Functions](../azure-functions/functions-overview.md) kräver skrivbehörighet. Till exempel om en användare har tilldelats rollen Läsare, kommer de inte att kunna visa funktioner i en funktionsapp. Portalen visar **(ingen åtkomst)**.
+## <a name="virtual-machine-features-that-require-write-access"></a>Funktioner för virtuella datorer som kräver skrivbehörighet
 
-![Ingen åtkomst för funktionsappar](./media/troubleshooting/functionapps-noaccess.png)
-
-Användaren kan klicka på **plattformsfunktioner** fliken och klicka sedan på **alla inställningar** att visa vissa inställningar som är relaterade till en funktionsapp (liknar en webbapp), men de kan inte ändra någon av dessa inställningar.
-
-## <a name="virtual-machine"></a>Virtuell dator
-Mycket som med web apps, vissa funktioner på bladet för virtuella datorn kräver skrivbehörighet till den virtuella datorn eller till andra resurser i resursgruppen.
+Liknar webbappar, vissa funktioner på bladet för virtuella datorn kräver skrivbehörighet till den virtuella datorn eller till andra resurser i resursgruppen.
 
 Virtuella datorer är relaterade till domän namn, virtuella nätverk, lagringskonton och Varningsregler.
 
@@ -97,7 +86,19 @@ Dessa kräver **skriva** åtkomst till både den **VM**, och **resursgrupp** (ti
 
 Fråga din administratör om du inte åtkomst till någon av dessa paneler för deltagaråtkomst till resursgruppen.
 
+## <a name="azure-functions-and-write-access"></a>Azure Functions- och skrivåtkomst
+
+Vissa funktioner i [Azure Functions](../azure-functions/functions-overview.md) kräver skrivbehörighet. Till exempel om en användare har tilldelats rollen Läsare, kommer de inte att kunna visa funktioner i en funktionsapp. Portalen visar **(ingen åtkomst)**.
+
+![Ingen åtkomst för funktionsappar](./media/troubleshooting/functionapps-noaccess.png)
+
+Användaren kan klicka på **plattformsfunktioner** fliken och klicka sedan på **alla inställningar** att visa vissa inställningar som är relaterade till en funktionsapp (liknar en webbapp), men de kan inte ändra någon av dessa inställningar.
+
+## <a name="rbac-changes-are-not-being-detected"></a>RBAC ändringar identifieras inte
+
+Azure Resource Manager cachelagrar ibland konfigurationer och att förbättra prestanda. När du skapar eller tar bort rolltilldelningar kan det ta upp till 30 minuter innan ändringarna ska börja gälla. Om du använder den Azure-portalen, Azure PowerShell eller Azure CLI kan du framtvinga en uppdatering av ändringarna för tilldelningen av rollen genom att logga och logga in. Om du gör ändringarna för tilldelningen av rollen med REST API-anrop, kan du tvinga en uppdatering genom att uppdatera ditt åtkomst-token.
+
 ## <a name="next-steps"></a>Nästa steg
-* [Hantera åtkomst med RBAC och Azure portal](role-assignments-portal.md)
+* [Hantera åtkomst med hjälp av RBAC och Azure-portalen](role-assignments-portal.md)
 * [Visa aktivitetsloggar för RBAC ändringar](change-history-report.md)
 

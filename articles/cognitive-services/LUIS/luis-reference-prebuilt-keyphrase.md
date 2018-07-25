@@ -3,21 +3,21 @@ title: LUIS fördefinierade keyphrase entitetsreferenser – Azure | Microsoft D
 titleSuffix: Azure
 description: Den här artikeln innehåller keyphrase fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 07/09/2018
-ms.author: v-geberr
-ms.openlocfilehash: f7c71c409a1d32eb7ca0984e9fdfe4d5d0ed0cef
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 904f327dfe20e3d0864cbf355fd10237659879ee
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932926"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238608"
 ---
-# <a name="keyphrase-entity"></a>keyPhrase entitet
+# <a name="keyphrase-entity"></a>Entitet för keyPhrase
 keyPhrase extraherar massor av nyckelfraser från ett uttryck. Du behöver inte lägga till exempel yttranden som innehåller keyPhrase till programmet. keyPhrase entitet stöds i [många kulturer](luis-supported-languages.md#languages-supported) som en del av den [textanalys](../text-analytics/overview.md) funktioner. 
 
 ## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Lösning för fördefinierade keyPhrase entitet

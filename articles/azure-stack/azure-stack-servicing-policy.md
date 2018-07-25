@@ -1,6 +1,6 @@
 ---
-title: Azure-stacken behandling av princip | Microsoft Docs
-description: Läs mer om Azure-stacken behandling av princip för och hur du hålla ett integrerat system i ett läge som stöds.
+title: Azure Stack som hanteringsprincip | Microsoft Docs
+description: Läs mer om Azure Stack servicing principen samt hur du håller ett integrerat system i ett läge som stöds.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,56 +12,54 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 07/24/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: c3cc8857373238079fee06c61faec962d7e3a6b2
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: b1e162b9ae151ee947559d40f02909aea4010e5b
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796439"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242928"
 ---
-# <a name="azure-stack-servicing-policy"></a>Azure-stacken behandling av princip
-Den här artikeln beskriver Underhåll princip för Azure-stacken integrerat system och vad du måste göra för att hålla datorn i ett läge som stöds. 
+# <a name="azure-stack-servicing-policy"></a>Azure Stack som hanteringsprincip
+Den här artikeln beskriver Underhåll principen för integrerade Azure Stack-system och vad du måste göra för att behålla ditt system i ett läge som stöds. 
 
 ## <a name="update-package-types"></a>Uppdatera pakettyper
 
 Det finns två typer av uppdateringspaket för integrerade system: 
 
-- **Microsoft-programuppdateringar**. Microsoft ansvarar för slutpunkt till slutpunkt Underhåll livscykeln för uppdateringspaket för Microsoft-program. Dessa paket kan innehålla senaste säkerhetsuppdateringarna från Windows Server, icke-säkerhetsuppdateringar och funktionsuppdateringar för Azure-stacken. Du kan hämta de här uppdateringspaket direkt från Microsoft.
+- **Microsoft-programuppdateringar**. Microsoft ansvarar för underhåll livscykeln slutpunkt till slutpunkt för Microsoft-programuppdateringspaket. Dessa paket kan innehålla de senaste säkerhetsuppdateringarna för Windows Server, säkerhetsuppdateringar som inte och uppdaterade funktioner i Azure Stack. Du kan hämta dessa paket direkt från Microsoft.
 
-- **OEM-tillverkarens maskinvaruuppdateringar**. Azure Stack maskinvarupartners ansvarar för slutpunkt till slutpunkt Underhåll livscykeln (inklusive vägledning) för maskinvarurelaterade inbyggd programvara och uppdatera drivrutinspaket. Dessutom Azure Stack maskinvarupartners äger och underhåll för alla program- och maskinvara maskinvara livscykel värden. Maskinvaruleverantören OEM-värd för dessa uppdateringspaket på sina egna hämtningsplatsen.
+- **OEM-tillverkarens maskinvaruuppdateringar**. Azure Stack-maskinvarupartners ansvarar för slutpunkt till slutpunkt Underhåll livscykeln (inklusive vägledning) för maskinvarurelaterade inbyggd programvara och drivrutinspaket för uppdateringen. Dessutom Azure Stack maskinvarupartners äger och underhålla vägledning för alla program- och maskinvara på värden för maskinvara livscykel. OEM-maskinvaruleverantören är värd för dessa uppdateringspaket på sina egna hämtningsplats.
 
 
-## <a name="update-package-release-cadence"></a>Uppdatera paketet versionen takt
-Microsoft räknar med att släppa programuppdateringspaket i en månatlig takt. Det är dock möjligt att ha flera och update-versioner i en månad. OEM-maskinvaruleverantörer släpp uppdateringarna som behövs. 
+## <a name="update-package-release-cadence"></a>Uppdatera paketets versionstakt
+Microsoft förväntar sig att frigöra programuppdateringspaket på en månatlig takt. Det är dock möjligt att ha flera och update-versioner under en månad. OEM-maskinvaruleverantörer publicera sina uppdateringar som det behövs. 
 
-Hitta dokumentation om hur du planerar för och hantera uppdateringar och hur du fastställer din nuvarande version i [hantera uppdateringar översikt](azure-stack-updates.md). Information om en viss uppdatering, inklusive hur du hämtar det, finns i viktig information för att uppdatera: 
-- [Azure-stacken 1805 uppdatering](azure-stack-update-1805.md)
-- [Azure-stacken 1804 uppdatering](azure-stack-update-1804.md)
-- [Azure-stacken 1803 uppdatering](azure-stack-update-1803.md)
-
+Hitta dokumentation om hur du planerar för och hantera uppdateringar och hur du fastställer din nuvarande version i [hantera uppdaterar översikt](azure-stack-updates.md). Information om uppdateringen inklusive hur du hämtar det, finns i viktig information för att uppdatera: 
+- [Uppdatering av Azure Stack 1805](azure-stack-update-1805.md)
+- [Uppdatering av Azure Stack 1804](azure-stack-update-1804.md)
 
 ## <a name="hotfixes"></a>Snabbkorrigeringar
-Ibland kan tillhandahåller Microsoft snabbkorrigeringar för Azure-Stack adressen ett specifikt problem som är ofta förebyggande eller tid.  Varje snabbkorrigeringar släpps med en Microsoft Knowledge Base-artikel som beskriver problemet, orsak och lösning. 
+Ibland kan tillhandahåller Microsoft snabbkorrigeringar för Azure Stack adressen ett specifikt problem som ofta är förebyggande eller tid.  Varje snabbkorrigeringar släpps med en Microsoft Knowledge Base-artikel som beskriver problemet, orsak och lösning. 
 
-Snabbkorrigeringar hämtas och installeras precis som regelbunden fullständig uppdateringspaket för Azure-stacken. Till skillnad från en fullständig uppdatering kan dock snabbkorrigeringar installera i minuter. Vi rekommenderar Azure Stack operatörer underhållsfönster när du installerar snabbkorrigeringar. Snabbkorrigeringar uppdatera versionen av Azure Stack-molnet så kan du enkelt se om snabbkorrigeringen har tillämpats. En separat snabbkorrigering har angetts för varje version av Azure-stacken som fortfarande stöd. Varje korrigering för en specifik iteration är kumulativa och innehåller tidigare uppdateringar för samma version. Du kan läsa mer om tillämplighet för en specifik snabbkorrigering i en korrigeringar motsvarande Knowledge Base-artikel.  
+Snabbkorrigeringar hämtas och installeras precis som vanliga fullständig uppdateringspaket för Azure Stack. Till skillnad från en fullständig uppdatering kan dock snabbkorrigeringar installera på några minuter. Vi rekommenderar Azure Stack-operatörer ange underhållsperioder när du installerar snabbkorrigeringar. Snabbkorrigeringar uppdatera versionen av Azure Stack-molnet så kan du enkelt se om snabbkorrigeringen har installerats. En separat snabbkorrigering har angetts för varje version av Azure Stack som fortfarande stöd. Varje korrigering för en viss iteration beräknas kumulativt tillsammans med de tidigare uppdateringarna för samma version. Du kan läsa mer om tillämpligheten hos en viss snabbkorrigering i en korrigeringar som motsvarande Knowledge Base-artikel.  
 
 
-## <a name="keep-your-system-under-support"></a>Hålla systemet under stöd
-Om du vill fortsätta få support, måste du behålla distributionen av Azure-stacken aktuella. Avstängning policy för uppdateringar: för distributionen Azure Stack hålls kvar i stöd måste köra den uppdaterade versionen som nyligen utgivna eller köra något av de två föregående Uppdateringsversioner. Snabbkorrigeringar inte anses vara viktiga Uppdateringsversioner. Om ditt Azure Stack-moln som skyddas av *fler än två uppdateringar*, den anses vara inkompatibel och måste uppdatera till minst den lägsta versionen som stöds för att få support. 
+## <a name="keep-your-system-under-support"></a>Håll datorn under support
+Om du vill fortsätta att få support, måste du spara distributionen av Azure Stack aktuella. Uppskjutningsperiod principen efter uppdateringar är: för din Azure Stack-distribution ska behållas i support måste den köra den uppdaterade versionen som nyligen utgiven eller köra något av de två föregående Uppdateringsversioner. Snabbkorrigeringar beaktas inte större Uppdateringsversioner. Om Azure Stack-molnet som skyddas av *fler än två uppdateringar*, den anses vara kompatibel och måste uppdatera till minst den lägsta versionen som stöds för att få support. 
 
-Till exempel om den senaste tillgängliga uppdateringsversionen är 1805 och de föregående två uppdateringspaket har version 1804 och 1803, både 1803 1804 finnas kvar i stöd. 1802 är dock inte längre stöds. Principen gäller när det finns inga versionen för en månad eller två. Om den aktuella versionen är 1805 och det fanns inga 1804 versionen, till exempel kvar de föregående två uppdateringspaket 1803 och 1802 i stöd.
+Till exempel om den senaste tillgängliga uppdateringsversionen är 1805 och föregående två uppdateringspaket har version 1804 och 1803, både 1803 1804 finnas kvar i support. Det är dock 1802 support upphör. Principen gäller när det finns inga versionen för en månad eller två. Om den aktuella versionen är 1805 och det fanns inga 1804-versionen, till exempel kvar de föregående två uppdateringspaket 1803 och 1802 i support.
 
-Microsoft programuppdateringspaket är kumulativ och kräver tidigare uppdateringspaketet som ett krav. Om du vill skjuta upp en eller flera uppdateringar du övergripande runtime om du vill hämta till den senaste versionen. 
+Microsoft programuppdateringspaket är kumulativ och kräver föregående uppdateringspaketet som ett krav. Om du vill skjuta upp en eller flera uppdateringar kan du överväga att övergripande runtime om du vill hämta till den senaste versionen. 
 
 ## <a name="get-support"></a>Få support
-Azure-stacken följer samma process för support som Azure. Enterprise-kunder kan följa processen som beskrivs i [hur du skapar en Azure-supportbegäran](/azure/azure-supportability/how-to-create-azure-support-request). Om du är i en molntjänst-providers (CSP)-kund kontaktar du din Kryptografiprovider för support.  Mer information finns i [Azure svar](https://azure.microsoft.com/support/faq/). 
+Azure Stack följer samma process som stöd för Azure. Enterprise-kunder kan följa processen som beskrivs i [så här skapar du en supportförfrågan för Azure](/azure/azure-supportability/how-to-create-azure-support-request). Om du är en kund med en Cloud Service Provider (CSP), kontaktar du din CSP för support.  Mer information finns i den [Azure stöd för vanliga frågor och svar](https://azure.microsoft.com/support/faq/). 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hantera uppdateringar i Azure-stacken](azure-stack-updates.md)
+- [Hantera uppdateringar i Azure Stack](azure-stack-updates.md)
 
 

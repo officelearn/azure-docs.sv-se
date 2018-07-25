@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 5d91e543f370d65337c0298fb6421d5ffa85eda0
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: d8b8aee508ff1b243bf40261819071fc2a5194a3
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216231"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237622"
 ---
 # <a name="configure-managed-service-identity-msi-on-an-azure-vm-using-azure-cli"></a>Konfigurera hanterad tjänstidentitet (MSI) på en Azure-dator med Azure CLI
 
@@ -90,14 +90,21 @@ Om du vill aktivera den systemtilldelade identiteten på en befintlig virtuell d
 
 ### <a name="disable-the-system-assigned-identity-from-an-azure-vm"></a>Inaktivera systemtilldelad identitet från en Azure virtuell dator
 
-> [!NOTE]
-> Inaktiverar hanterad tjänstidentitet från en virtuell dator stöds för närvarande inte. Under tiden kan växla du mellan att använda System tilldelas och tilldelade användaridentiteter.
-
 Om du har en virtuell dator som inte längre behöver systemtilldelad identitet, men fortfarande ha användartilldelade identiteter, använder du följande kommando:
 
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type='UserAssigned' 
 ```
+
+Om du har en virtuell dator som inte längre behöver systemtilldelad identitet och har inga användartilldelade identiteter, använder du följande kommando:
+
+> [!NOTE]
+> Värdet `none` är skiftlägeskänsligt. Det måste vara gemener. 
+
+```azurecli-interactive
+az vm update -n myVM -g myResourceGroup --set identity.type="none"
+```
+
 Ta bort MSI VM-tillägg, användaren `-n ManagedIdentityExtensionForWindows` eller `-n ManagedIdentityExtensionForLinux` växla (beroende på vilken typ av virtuell dator) med [az vm-tillägget delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
 
 ```azurecli-interactive
@@ -120,34 +127,33 @@ Det här avsnittet vägleder dig genom skapandet av en virtuell dator med tillde
 
 2. Skapa en Användartilldelad identitet med hjälp av [az identitet skapa](/cli/azure/identity#az_identity_create).  Den `-g` parametern anger resursgruppen där Användartilldelad identitet skapas, och `-n` parametern anger dess namn.    
     
-[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
+   ```azurecli-interactive
+   az identity create -g myResourceGroup -n myUserAssignedIdentity
+   ```
+   Svaret innehåller information om Användartilldelad identitet skapas, liknar följande. Resurs-id-värdet som tilldelats Användartilldelad identitet används i följande steg.
 
-```azurecli-interactive
-az identity create -g myResourceGroup -n myUserAssignedIdentity
-```
-Svaret innehåller information om Användartilldelad identitet skapas, liknar följande. Resurs-id-värdet som tilldelats Användartilldelad identitet används i följande steg.
-
-```json
-{
-    "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
-    "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
-    "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
-    "location": "westcentralus",
-    "name": "<MSI NAME>",
-    "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
-    "resourceGroup": "<RESOURCE GROUP>",
-    "tags": {},
-    "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
-    "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
-}
-```
+   ```json
+   {
+       "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
+       "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
+       "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
+       "location": "westcentralus",
+       "name": "<MSI NAME>",
+       "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
+       "resourceGroup": "<RESOURCE GROUP>",
+       "tags": {},
+       "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
+       "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
+   }
+   ```
 
 3. Skapa en virtuell dator med [az vm create](/cli/azure/vm/#az_vm_create). I följande exempel skapas en virtuell dator som är associerade med den nya användartilldelade-identiteten som anges av den `--assign-identity` parametern. Ersätt parametervärdena `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` och `<MSI ID>` med dina egna värden. För `<MSI ID>`, använda Användartilldelad identitet resurs `id` egenskap som skapats i föregående steg: 
 
-```azurecli-interactive 
-az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
-```
+   ```azurecli-interactive 
+   az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
+   ```
 
 ### <a name="assign-a-user-assigned-identity-to-an-existing-azure-vm"></a>Tilldela Användartilldelad identitet till en befintlig Azure VM
 
@@ -184,14 +190,21 @@ Svaret innehåller information om användaren som har tilldelats MSI som skapats
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vm"></a>Ta bort Användartilldelad identitet från en Azure virtuell dator
 
-> [!NOTE]
-> Ta bort alla användartilldelade identiteter från en virtuell dator stöds för närvarande inte, om du inte har en systemtilldelad identitet.
-
-Om den virtuella datorn har flera användartilldelade identiteter kan du ta bort alla utom den avslutande med [az identitet för virtuell dator ta bort](/cli/azure/vm#az-vm-identity-remove). Ersätt parametervärdena `<RESOURCE GROUP>` och `<VM NAME>` med dina egna värden. Den `<MSI NAME>` som det Användartilldelad identitet `name` egenskapen, som finns med i identitetsavsnittet i en virtuell dator med hjälp av `az vm show`:
+Ta bort en Användartilldelad identitet från en virtuell dator använder [az identitet för virtuell dator ta bort](/cli/azure/vm#az-vm-identity-remove). Ersätt parametervärdena `<RESOURCE GROUP>` och `<VM NAME>` med dina egna värden. Den `<MSI NAME>` som det Användartilldelad identitet `name` egenskapen, som finns med i identitetsavsnittet i en virtuell dator med hjälp av `az vm identity show`:
 
 ```azurecli-interactive
 az vm identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
 ```
+
+Om den virtuella datorn inte har en systemtilldelad identitet och du vill ta bort alla användartilldelade identiteter från den, använder du följande kommando:
+
+> [!NOTE]
+> Värdet `none` är skiftlägeskänsligt. Det måste vara gemener.
+
+```azurecli-interactive
+az vm update -n myVM -g myResourceGroup --set identity.type="none" identity.identityIds=null
+```
+
 Om den virtuella datorn har både systemtilldelad och användartilldelade identiteter, du kan ta bort alla användartilldelade identiteter genom att växla mellan för att använda endast system som har tilldelats. Ange följande kommando:
 
 ```azurecli-interactive

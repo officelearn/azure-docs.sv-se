@@ -9,12 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: f4e8a579e020e81540c1fd52e412c8e6184813d2
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 120c78d9adb83ca58ae61700ae70d07ead42ebd0
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921220"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226568"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Distributionshanteraren för site Recovery för Hyper-V till Azure
 
@@ -94,13 +94,13 @@ Verktyget har tre huvudfaser för Hyper-V: hämta listan med virtuella datorer, 
 ## <a name="steps-to-add-servers-into-trustedhosts-list"></a>Steg för att lägga till servrar i listan TrustedHosts
 1.  Den virtuella dator som verktyget ska köras från måste ha alla värdar som ska profileras i listan TrustedHosts. När du ska lägga till klienten i listan TrustedHosts kör du följande kommando från en utökad PowerShell-session på den virtuella datorn. Den virtuella datorn kan vara en Windows Server 2012 R2 eller Windows Server 2016. 
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
 2.  Varje Hyper-V-värd som ska profileras ska ha:
 
     a. Den virtuella dator som verktyget ska köras från i listan TrustedHosts. Kör följande kommando från en utökad PowerShell-session på Hyper-V-värden:
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
     b. PowerShell-fjärrkommunikation aktiverad.
 

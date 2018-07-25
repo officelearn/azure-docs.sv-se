@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 68baab14e2adf7f43bb1e0e0f47c414555a28659
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: ff2968f8e2fa9a705817b020f2daa6582d78029c
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213409"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225310"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Hantera labb konton i Azure Lab Services 
 I Azure Lab Services är ett labbkonto en behållare för hanterade labbar som klassrum labs. En administratör konfigurerar ett testlabb-konto med Azure Lab Services och ger åtkomst till labbägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labbkonto, visa alla lab-konton eller ta bort ett labbkonto.
@@ -54,6 +54,22 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto, måste du vara medlem 
 
     ![Lägga till en användare i rollen Labbskapare](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
+## <a name="specify-marketplace-images-available-to-lab-owners"></a>Ange Marketplace-avbildningar som är tillgängliga för labbägare
+I det här avsnittet ska ange du Marketplace-avbildningar som labbägare kan använda för att skapa labb för klassrum. 
+
+1. Välj **Marketplace-avbildningar** på menyn till vänster. Som standard kan se du en fullständig lista över avbildningar (både aktiverade och inaktiverade). Du kan filtrera listan för att se endast aktiverad/inaktiverad avbildningar genom att välja den **aktiverat endast**/**endast inaktiverad** alternativet från listrutan längst upp. 
+
+    ![Marketplace-sidan för bilder](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+2. Att **inaktivera** en Marketplace-avbildning som har aktiverats, gör du något av följande åtgärder: 
+    1. Välj **... (tre punkter)**  i den sista kolumnen och välj **inaktivera bild**. 
+
+        ![Inaktivera en bild](../media/tutorial-setup-lab-account/disable-one-image.png) 
+    2. Välj en eller flera avbildningar från listan genom att markera kryssrutorna innan namnen i listan och välj **inaktivera valda avbildningar**. 
+
+        ![Inaktivera flera avbildningar](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
+1. På samma sätt, som **aktivera** en Marketplace-avbildning, gör du något av följande åtgärder: 
+    1. Välj **... (tre punkter)**  i den sista kolumnen och välj **aktivera avbildning**. 
+    2. Välj en eller flera avbildningar från listan genom att markera kryssrutorna innan namnen i listan och välj **aktivera valda avbildningar**. 
 
 ## <a name="view-lab-accounts"></a>Visa lab-konton
 1. Logga in på [Azure Portal](https://portal.azure.com).

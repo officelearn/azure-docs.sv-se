@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5bde54a65160c58d8bfba2f6c4c3b6a4317e46ed
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 54a8b5f14cc2f9fb0ac887da8995623353e73ac9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38540239"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115593"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snabbstart: Distribuera din första IoT Edge-modul från Azure Portal till en Windows.enhet – förhandsgranskning
 
@@ -47,12 +47,14 @@ Förbered följande på den dator som du använder för en IoT Edge-enhet:
    * Windows 10 eller senare
    * Windows Server 2016 eller senare
 2. Installera [Docker för Windows][lnk-docker] och kontrollera att den körs.
-3. Konfigurera Docker för att använda [Linux-behållare](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
+3. Konfigurera Docker för att använda [Linux-containrar](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-Starta snabbstarten genom att skapa din IoT Hub i Azure Portal.
+Starta snabbstarten genom att skapa en IoT-hubb i Azure-portalen.
 ![Skapa IoT Hub][3]
+
+Skapa IoT-hubben i en resursgrupp som du kan använda för att underhålla och hantera alla resurser som du skapar i den här snabbstarten. Anropa något som är lätt att komma ihåg, som **IoTEdgeResources**. Genom att lägga alla resurser för snabbstarten och självstudierna i en grupp kan du hantera dem tillsammans och enkelt ta bort dem när du har testat färdigt. 
 
 [!INCLUDE [iot-hub-create-hub](../../includes/iot-hub-create-hub.md)]
 
@@ -73,7 +75,7 @@ IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponen
 >[!NOTE]
 >Installationsstegen i det här avsnittet görs manuellt under tiden ett installationsskript utvecklas. 
 
-Anvisningarna i det här avsnittet konfigurerar IoT Edge-körningen med Linux-behållare. Om du vill använda Windows-behållare, se informationen i avsnittet om att [installera Azure IoT Edge-körning i Windows för användning med Windows-behållare](how-to-install-iot-edge-windows-with-windows.md).
+Anvisningarna i det här avsnittet konfigurerar IoT Edge-körningen med Linux-containrar. Om du vill använda Windows-containrar, se informationen i avsnittet om att [installera Azure IoT Edge-körning i Windows för användning med Windows-containrar](how-to-install-iot-edge-windows-with-windows.md).
 
 ### <a name="download-and-install-the-iot-edge-service"></a>Ladda ned och installera IoT Edge-tjänsten
 
@@ -81,14 +83,15 @@ Anvisningarna i det här avsnittet konfigurerar IoT Edge-körningen med Linux-be
 
 2. Ladda ned IoT Edge service pack.
 
-  ```powershell
-  Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
-  Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
-  Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
-  rmdir C:\ProgramData\iotedge\iotedged-windows
-  $env:Path += ";C:\ProgramData\iotedge"
-  SETX /M PATH "$env:Path"
-  ```
+   ```powershell
+   Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
+   Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
+   Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
+   rmdir C:\ProgramData\iotedge\iotedged-windows
+   $sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+   $path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+   Set-ItemProperty -Path $sysenv -Name Path -Value $path
+   ```
 
 3. Installera vcruntime.
 
@@ -160,7 +163,7 @@ Konfigurera körningen med anslutningssträngen för IoT Edge-enheten som du kop
   SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
   ```
 
-6. Leta upp avsnittet för **anslutningsinställningar** i filen `config.yaml`. Uppdatera värdena för **management_uri** och **workload_uri** med de IP-adresser och portar som du öppnade i föregående avsnitt. Ersätt **\<GATEWAY_ADDRESS\>** med din IP-adress. 
+6. Leta upp avsnittet för **anslutningsinställningar** i filen `config.yaml`. Uppdatera värdena för **management_uri** och **workload_uri** med de IP-adresser och portar som du öppnade i föregående avsnitt. Ersätt **\<GATEWAY_ADDRESS\>** med DockerNAT-IP-adressen som du kopierade.
 
    ```yaml
    connect: 
@@ -176,7 +179,7 @@ Konfigurera körningen med anslutningssträngen för IoT Edge-enheten som du kop
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-8. Leta upp avsnittet med **körningsinställningar för Moby-behållare** och kontrollera att värdet för **nätverk** är satt till `nat`.
+8. Leta upp avsnittet med **körningsinställningar för Moby-containrar** och kontrollera att värdet för **nätverk** är satt till `nat`.
 
 9. Spara konfigurationsfilen. 
 
@@ -249,14 +252,55 @@ Du kan visa meddelanden som tas emot av din IoT Hub med [verktyget IoT Hub Explo
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan använda den simulerade enheten som du konfigurerade i denna snabbstart för att testa IoT Edge-självstudierna. Om du vill stoppa modulen tempSensor från att skicka data till din IoT Hub, använder du följande kommando för att stoppa IoT Edge-tjänsten och ta bort de behållare som har skapats på enheten. Kom ihåg att starta tjänsten när du vill använda din dator som en IoT Edge-enhet igen. 
+Om du vill fortsätta med IoT Edge-självstudierna kan du använda enheten du registrerade och konfigurerade i den här snabbstarten. I annat fall kan du ta bort de Azure-resurser som du skapade och ta bort IoT Edge-körningen från enheten. 
+
+### <a name="delete-azure-resources"></a>Ta bort Azure-resurser
+
+Om du skapade den virtuella datorn och IoT-hubben i en ny resursgrupp kan du ta bort den gruppen och alla associerade resurser. Om det finns något i den resursgruppen som du vill behålla tar du bara bort de enskilda resurser som du vill rensa. 
+
+Om du vill ta bort en resursgrupp följer du dessa steg: 
+
+1. Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
+2. I textrutan **Filtrera efter namn ...** , skriver du namnet på resursgruppen som innehåller din IoT Hub. 
+3. Till höger av din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
+4. Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp igen för att bekräfta och klicka sedan på **Ta bort**. Efter en liten stund tas resursgruppen och resurser som finns i den bort.
+
+### <a name="remove-the-iot-edge-runtime"></a>Ta bort IoT Edge-körningen
+
+Om du planerar att använda IoT Edge-enheten för framtida testning men vill stoppa tempSensor-modulen från att skicka data till IoT-hubben använder du följande kommando för att stoppa IoT Edge-tjänsten. 
 
    ```powershell
    Stop-Service iotedge -NoWait
-   docker rm -f $(docker ps -aq)
    ```
 
-När du inte längre behöver den IoT Hub som du skapade kan du använda Azure Portal för att ta bort resursen och eventuella enheter som är kopplade till den. Gå till översiktssidan för din IoT Hub och välj **Ta bort**. 
+Du kan starta om tjänsten när du är redo att börja testa igen
+
+   ```powershell
+   Start-Service iotedge
+   ```
+
+Om du vill ta bort installationerna från din enhet kan du använda följande kommandon.  
+
+Ta bort IoT Edge-körningen.
+
+   ```powershell
+   cmd /c sc delete iotedge
+   rm -r c:\programdata\iotedge
+   ```
+
+När IoT Edge-körningen tas bort stoppas de containrar som den skapade, men de finns fortfarande kvar på enheten. Visa alla containrar.
+
+   ```powershell
+   docker ps -a
+   ```
+
+Ta bort de containrar som skapades på enheten av IoT Edge-körningen. Ändra namnet på containern tempSensor om du kallade den för något annat. 
+
+   ```powershell
+   docker rm -f tempSensor
+   docker rm -f edgeHub
+   docker rm -f edgeAgent
+   ```
 
 ## <a name="next-steps"></a>Nästa steg
 

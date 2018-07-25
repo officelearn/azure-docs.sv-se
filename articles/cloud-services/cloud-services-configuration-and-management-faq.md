@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 6cdfb40ce02cc5f80e3347b921e2b2c75ae3d8ea
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 5b8c7e8880f7e467b1b5a305cc7381e6499571f5
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37437145"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238629"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problem med konfiguration och hantering för Azure Cloud Services: vanliga frågor (FAQ)
 
@@ -41,6 +41,7 @@ Den här artikeln innehåller vanliga frågor och svar om konfiguration och hant
 
 - [Vilka är de kommande Cloud Service-funktionerna i Azure portal som kan hjälpa att hantera och övervaka program?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
 - [Varför sluta skriva till loggkatalogen i IIS?](#why-does-iis-stop-writing-to-the-log-directory)
+- [Hur aktiverar jag WAD loggning för Cloud Services?](#how-do-i-enable-wad-logging-for-cloud-services)
 
 **Nätverkskonfiguration**
 
@@ -138,6 +139,15 @@ Du har förbrukat lokala lagringskvoten för att skriva till loggkatalogen. Du
 Mer information finns i följande dokument:
 * [Lagra och visa diagnostikdata i Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 * [IIS-loggar sluta skriva i molntjänst](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+
+### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Hur aktiverar jag WAD loggning för Cloud Services?
+Du kan aktivera loggning för Windows Azure Diagnostics SÄKERHETSSPECIFIKA med följande alternativ:
+1. [Aktivera från Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+2. [Aktivera med hjälp av .net-kod](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+3. [Aktivera via Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+
+Du kan använda för att få de aktuella WAD inställningarna för din molntjänst [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd eller du kan visa den via portalen från bladet för ”molntjänster--> tillägg”.
+
 
 ## <a name="network-configuration"></a>Nätverkskonfiguration
 

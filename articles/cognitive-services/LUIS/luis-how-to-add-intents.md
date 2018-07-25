@@ -2,19 +2,19 @@
 title: Lägg till avsikter i LUIS program | Microsoft Docs
 description: Använd Språkförståelse (LUIS) för att lägga till avsikter att appar förstå användarförfrågningar och reagera på dem korrekt.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 479fa450b86d19032e75ef6aa511a7bdca608d75
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869060"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225894"
 ---
 # <a name="manage-intents"></a>Hantera avsikter 
 Lägg till [avsikter](luis-concept-intent.md) till din LUIS-app för att identifiera grupper av frågor eller kommandon som har samma avsikt. 

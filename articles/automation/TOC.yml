@@ -99,6 +99,8 @@
           href: automation-runbook-output-and-messages.md
         - name: Källkontrollsintegrering
           href: automation-source-control-integration.md
+        - name: Skapa runbook-flöden med grafisk runbook-SDK
+          href: graphical-runbook-sdk.md
     - name: Automatisera
       items:
         - name: Starta en Runbook

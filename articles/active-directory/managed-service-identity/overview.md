@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 3d6df04df8ceac1f868e64f0e8fbc7eb0fa317e3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38547981"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006938"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>Vad är Hanterad tjänstidentitet för Azure-resurser?
 
@@ -40,7 +40,7 @@ Koden kan därför antingen använda en systemtilldelad eller användartilldelad
 
 Här är ett exempel på hur systemtilldelade identiteter fungerar i Azure Virtual Machines:
 
-![Exempel med Hanterad identitet för virtuell dator](overview/msi-vm-vmextension-imds-example.png)
+![Exempel med Hanterad identitet för virtuell dator](media/overview/msi-vm-vmextension-imds-example.png)
 
 1. Azure Resource Manager tar emot en begäran om att aktivera den systemtilldelade identiteten på en virtuell dator.
 2. Azure Resource Manager skapar ett huvudnamn för tjänsten i Azure AD som representerar identiteten för den virtuella datorn. Tjänstens huvudnamn skapas i den Azure AD-klientorganisation som är betrodd av prenumerationen.
@@ -101,6 +101,7 @@ Testa självstudien Hanterad tjänstidentitet för att lära dig scenarier från
 | Azure Functions    | [Använda hanterad tjänstidentitet med Azure App Service eller Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Azure Service Bus  | [Använda hanterad tjänstidentitet med Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md) |
 | Azure Event Hubs   | [Använda hanterad tjänstidentitet med Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md) |
+| Azure API Management | [Använda hanterade tjänstidentiteter med Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Vilka tjänster stöder Hanterad tjänstidentitet?
 

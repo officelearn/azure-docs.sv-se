@@ -53,6 +53,8 @@
           href: howto-create-telemetry-rules.md
         - name: Skapa en händelseregel
           href: howto-create-event-rules.md
+        - name: Skapa webhook-åtgärder efter regler
+          href: howto-create-webhooks.md
         - name: Bygga arbetsflöden i Microsoft Flow
           href: howto-add-microsoft-flow.md
         - name: Konfigurera startsidan

@@ -7,7 +7,7 @@
 ## [Skapa Key Vault – CLI](quick-create-cli.md)
 ## [Skapa Key Vault – PowerShell](quick-create-powershell.md)
 ## [Skapa Key Vault – Portal](quick-create-portal.md)
-
+## [Läsa från Key Vault – .NET](quick-create-net.md)
 # Självstudier
 ## [Läsa en hemlighet från Key Vault ](tutorial-web-application-keyvault.md)
 ## [Kom igång med Key Vault](key-vault-get-started.md)

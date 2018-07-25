@@ -157,18 +157,26 @@
           href: iot-accelerators-device-simulation-custom-model.md
 - name: Referens
   items:
-    - name: Referensguide för utvecklare
-      href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide'
-    - name: Felsökningsguide för utvecklare
-      href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide'
-    - name: Säkerhetsarkitektur
-      href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/rc/rc
-    - name: Metodtips för säkerhet
-      href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/rc/rc
-    - name: Skydda distributionen av IoT
-      href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/rc/rc
-    - name: Säkerhet från grunden
-      href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/rc/rc
+    - name: Fjärrövervakning
+      items:
+        - name: Referensguide för utvecklare
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide'
+        - name: Felsökningsguide för utvecklare
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide'
+    - name: Enhetssimulering
+      items:
+        - name: Referensguide för utvecklare
+          href: 'https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide'
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsarkitektur
+          href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/rc/rc
+        - name: Metodtips för säkerhet
+          href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/rc/rc
+        - name: Skydda distributionen av IoT
+          href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/rc/rc
+        - name: Säkerhet från grunden
+          href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/rc/rc
 - name: Relaterat
   items:
     - name: Lösningar
@@ -203,6 +211,18 @@
       href: /azure/machine-learning/
 - name: Resurser
   items:
+    - name: GitHub-lagringsplatser
+      items:
+        - name: Fjärrövervakning (.NET)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet'
+        - name: Fjärrövervakning (Java)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-java'
+        - name: Ansluten fabrik
+          href: 'https://github.com/Azure/azure-iot-connected-factory'
+        - name: Förutsägande underhåll
+          href: 'https://github.com/Azure/azure-iot-predictive-maintenance'
+        - name: Enhetssimulering
+          href: 'https://github.com/Azure/device-simulation-dotnet'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: VANLIGA FRÅGOR OCH SVAR

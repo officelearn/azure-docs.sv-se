@@ -1,6 +1,6 @@
 ---
 title: Felsöka en webbapp i Azure App Service med Visual Studio
-description: Lär dig hur du felsöker ett Azure-webbapp med hjälp av fjärrfelsökning, spårning och loggningsverktyg som är inbyggda Visual Studio 2013.
+description: Lär dig hur du felsöker en Azure-webbapp med hjälp av fjärrfelsökning, spårning och loggningsverktyg som är inbyggda i Visual Studio 2013.
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -14,113 +14,113 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 7973f4311095b7c87ccd2394b048ec92c50f32a9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 522bc9e757abeae930e47eaf53bb6da4bd9d0531
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30266146"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224117"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Felsöka en webbapp i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt
-Den här kursen visar hur du använder Visual Studio tools för att felsöka en webbapp i [Apptjänst](http://go.microsoft.com/fwlink/?LinkId=529714), genom att köra i [felsökningsläge](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) via fjärranslutning eller genom att visa programloggarna samt webbserverloggar.
+Den här självstudien visar hur du använder Visual Studio-verktyg för att felsöka en webbapp i [Apptjänst](http://go.microsoft.com/fwlink/?LinkId=529714), genom att köra i [felsökningsläge](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) via fjärranslutning eller genom att visa programloggar och webbserverloggar.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 Du får lära dig:
 
-* Vilka Azure web app-hanteringsfunktioner är tillgängliga i Visual Studio.
-* Hur du använder Visual Studio Fjärrvisning för att göra ändringar i en fjärransluten webbapp.
-* Så här kör du felsökningsläget via fjärranslutning när ett projekt körs i Azure, både för en webbapp och ett Webbjobb.
-* Hur du skapar programloggar och visa dem när programmet skapar dem.
+* Vilka hanteringsfunktioner för Azure web app är tillgängliga i Visual Studio.
+* Hur du använder Visual Studio fjärrvy för att göra snabba ändringar i en fjärransluten webbapp.
+* Så här kör du felsökningsläget via en fjärranslutning när ett projekt körs i Azure, både för en webbapp och ett Webbjobb.
+* Hur du skapar spårningsloggar för program och visa dem när programmet är att skapa dem.
 * Så här visar du webbserverloggar, inklusive detaljerade felmeddelanden och spårning av misslyckade begäranden.
-* Så att skicka diagnostikloggar till ett Azure Storage-konto och visa dem det.
+* Så här att skicka diagnostikloggar till Azure Storage-kontot och visa dem det.
 
-Om du har Visual Studio Ultimate kan du också använda [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) för felsökning. IntelliTrace ingår inte i den här självstudiekursen.
+Om du har Visual Studio Ultimate kan du också använda [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) för felsökning. IntelliTrace ingår inte i den här självstudien.
 
 ## <a name="prerequisites"></a>Förhandskrav
-Den här kursen fungerar med utvecklingsmiljö, webbprojektet och Azure-webbapp som du ställer in i [Kom igång med Azure och ASP.NET][GetStarted]. För avsnitten WebJobs behöver du det program som du skapar i [Kom igång med Azure WebJobs SDK][GetStartedWJ].
+Den här självstudien fungerar med utvecklingsmiljö, webbprojektet och Azure-webbapp som du har konfigurerat i [Kom igång med Azure och ASP.NET](app-service-web-get-started-dotnet-framework.md). För WebJobs-avsnitt behöver du det program som du skapar i [Kom igång med Azure WebJobs SDK][GetStartedWJ].
 
-Kodexempel som visas i den här kursen är för ett webbprogram i C# MVC, men felsökning procedurerna är samma för Visual Basic och Web Forms-program.
+Kodexempel som visas i den här självstudien är för ett C# MVC-webbprogram, men åtgärderna för felsökning är desamma för Visual Basic och Web Forms-program.
 
-Kursen förutsätter att du använder Visual Studio 2017. 
+Självstudien förutsätter att du använder Visual Studio 2017. 
 
-Direktuppspelningsloggar funktionen fungerar bara för program som är riktade till .NET Framework 4 eller senare.
+Direktuppspelningsloggarna funktionen fungerar bara för program som är riktade till .NET Framework 4 eller senare.
 
-## <a name="sitemanagement"></a>Hantering och konfiguration av Web app
-Visual Studio har åtkomst till en delmängd av web app-hanteringsfunktioner och konfigurationsinställningar som är tillgängliga i den [Azure-portalen](http://go.microsoft.com/fwlink/?LinkId=529715). I det här avsnittet får du se vad som är tillgängligt med hjälp av **Server Explorer**. Om du vill se de senaste funktionerna i Azure-integrering testa **Cloud Explorer** också. Du kan öppna både windows från den **visa** menyn.
+## <a name="sitemanagement"></a>Web app-konfiguration och hantering
+Visual Studio har åtkomst till en delmängd av web app-hanteringsfunktioner och konfigurationsinställningar som är tillgängliga i den [Azure-portalen](http://go.microsoft.com/fwlink/?LinkId=529715). I det här avsnittet får du se vad som är tillgängligt med hjälp av **Server Explorer**. Om du vill se de senaste funktionerna i Azure-integrering, prova **Cloud Explorer** också. Du kan öppna både windows från den **visa** menyn.
 
-1. Om du inte redan är inloggad till Azure i Visual Studio högerklickar du på **Azure** och väljer Anslut till **Microsoft Azure-prenumeration** i **Server Explorer**.
+1. Om du inte redan loggat in till Azure i Visual Studio, högerklickar du på **Azure** och välja Anslut till **Microsoft Azure-prenumeration** i **Server Explorer**.
 
-    Ett alternativ är att installera ett certifikat som ger åtkomst till ditt konto. Om du väljer att installera ett certifikat, högerklickar du på den **Azure** nod i **Server Explorer**, och välj sedan **hantera och Filter prenumerationer** på snabbmenyn. I den **hantera Azure-prenumerationer** dialogrutan klickar du på den **certifikat** fliken och klicka sedan på **importera**. Följ instruktionerna för att hämta och sedan importera en prenumeration-fil (kallas även en *.publishsettings* fil) för din Azure-konto.
+    Ett alternativ är att installera ett certifikat som ger åtkomst till ditt konto. Om du väljer att installera ett certifikat, högerklickar du på den **Azure** nod i **Server Explorer**, och välj sedan **hantera och filtrera prenumerationer** på snabbmenyn. I den **hantera Microsoft Azure-prenumerationer** dialogrutan klickar du på den **certifikat** fliken och klicka sedan på **Import**. Följ instruktionerna för att hämta och importera en prenumeration-fil (kallas även en *.publishsettings* fil) för din Azure-konto.
 
    > [!NOTE]
-   > Om du hämtar en prenumerations-fil, spara den till en mapp utanför katalogerna källa kod (till exempel i mappen hämtade filer) och tar bort den när importen är klar. En obehörig användare som får åtkomst till prenumerationsfilen kan du redigera, skapa och ta bort Azure-tjänster.
+   > Om du hämtar en prenumerations-fil, spara den till en mapp utanför katalogerna källa kod (till exempel i mappen nedladdningar) och tar bort den när importen är klar. En obehörig användare som får åtkomst till prenumerationsfilen kan redigera, skapa och ta bort dina Azure-tjänster.
    >
    >
 
-    Mer information om hur du ansluter till Azure-resurser från Visual Studio finns [hantera konton, prenumerationer och administrativa roller](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
+    Mer information om hur du ansluter till Azure-resurser från Visual Studio finns i [hantera konton, prenumerationer och administrativa roller](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 2. I **Server Explorer**, expandera **Azure** och expandera **Apptjänst**.
-3. Expandera resursgruppen som innehåller den webbapp som du skapade i [skapa en ASP.NET-webbapp i Azure][app-service-web-get-started-dotnet.md], högerklicka på noden web app och klickar på **visningsinställningarna**.
+3. Expandera resursgruppen som innehåller webbappen som du skapade i [skapa en ASP.NET-webbapp i Azure](app-service-web-get-started-dotnet-framework.md), högerklicka på noden web app och klickar på **visningsinställningarna**.
 
     ![Visa inställningar i Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
-    Den **Azure Web App** visas och du kan se det web app hantering och konfiguration uppgifter som är tillgängliga i Visual Studio.
+    Den **Azure Web App** visas fliken och du kan se det i web app hanterings- och uppgifter som är tillgängliga i Visual Studio.
 
-    ![Azure Web App-fönster](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
+    ![Azure Web App-fönstret](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
 
-    I den här kursen ska du använda loggning och spårning i listrutorna. Du använder också fjärrfelsökning men du använder en annan metod för att aktivera den.
+    I de här självstudierna ska du använda loggning och spårning av listrutorna. Du använder också fjärrfelsökning men du använder en annan metod för att aktivera den.
 
-    Information om rutorna App-inställningar och anslutningssträngar i det här fönstret finns [Azure Web Apps: hur programmet strängar och anslutningen strängar arbete](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+    Läs om hur rutorna Appinställningar och anslutningssträngar i det här fönstret [Azure Web Apps: strängar fungerar och hur Programsträngar](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
-    Om du vill utföra en hanteringsaktivitet för webb-app som inte kan göras i det här fönstret klickar du på **öppna i hanteringsportalen** att öppna ett webbläsarfönster på Azure-portalen.
+    Om du vill utföra en hanteringsaktivitet för web-app som inte kan utföras i det här fönstret klickar du på **öppna i hanteringsportalen** att öppna ett webbläsarfönster på Azure Portal.
 
-## <a name="remoteview"></a>Komma åt web app filer i Server Explorer
-Normalt distribuerar ett webbprojekt med den `customErrors` flaggan i Web.config-filen som har angetts till `On` eller `RemoteOnly`, vilket betyder att du inte får en bra felmeddelande vid något går fel. För många fel är alla du får en sida som något av de följande:
+## <a name="remoteview"></a>Tillgång till web app-filer i Server Explorer
+Du normalt distribuerar ett webbprojekt med den `customErrors` flaggan i Web.config-filen som har angetts till `On` eller `RemoteOnly`, vilket innebär att du inte får felmeddelandet användbart när något går fel. För många fel är allt du får en sida som något av följande:
 
 **Serverfel i programmet '/':**
 
-![Unhelpful felsida](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
+![Exempelbild felsida](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
 
 **Ett fel uppstod:**
 
-![Unhelpful felsida](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png)
+![Exempelbild felsida](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png)
 
-**Webbplatsen kan inte visa sidan**
+**Webbplatsen kan inte visas på sidan**
 
-![Unhelpful felsida](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
+![Exempelbild felsida](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
-Det enklaste sättet att ta reda på orsaken till felet är ofta att aktivera detaljerade felmeddelanden som först av föregående skärmbilderna beskriver hur du gör. Som kräver en ändring i distribuerade Web.config-filen. Du kan redigera den *Web.config* filen i projektet och distribuera projektet eller skapa en [Web.config-transformering](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) och distribuera en felsökningsversion, men det finns ett snabbare sätt: i **Solution Explorer** , du kan visa och redigera filer i remote webbapp med hjälp av direkt i *fjärrvy* funktion.
+Det enklaste sättet att hitta orsaken till felet är ofta att aktivera detaljerade felmeddelanden som först av de föregående skärmbilderna beskriver hur du gör. Som kräver en ändring i distribuerade Web.config-filen. Du kan redigera den *Web.config* filen i projektet och distribuera om projektet eller skapa en [Web.config-transformering](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) och distribuera en felsökningsversion, men det finns ett snabbare sätt: i **Solution Explorer** , kan du direkt visa och redigera filer i remote webbapp med hjälp av den *fjärrvy* funktionen.
 
-1. I **Server Explorer**, expandera **Azure**, expandera **Apptjänst**, expandera den resursgrupp som ditt webbprogram finns i och expandera sedan noden för din webbapp.
+1. I **Server Explorer**, expandera **Azure**, expandera **Apptjänst**, expandera resursgruppen som webbappen finns i och expandera sedan noden för din webbapp.
 
-    Du ser noder som ger dig tillgång till webbappens innehållsfiler och loggfiler.
-2. Expandera den **filer** nod och dubbelklicka på den *Web.config* fil.
+    Ser du noder som ger dig tillgång till webbappens innehållsfilerna och loggfiler.
+2. Expandera den **filer** noden och dubbelklickar på den *Web.config* fil.
 
     ![Öppna Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfig.png)
 
-    Visual Studio öppnas Web.config-filen från remote webbapp och visar [Remote] bredvid filnamnet i namnlisten.
+    Visual Studio öppnas Web.config-filen från remote webbapp och visar [Remote] bredvid namnet på filen i namnlisten.
 3. Lägg till följande rad i den `system.web` element:
 
     `<customErrors mode="Off"></customErrors>`
 
     ![Redigera Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfigedit.png)
-4. Uppdatera webbläsaren som visas i unhelpful felmeddelandet och nu du få ett detaljerat felmeddelande, till exempel i följande exempel:
+4. Uppdatera webbläsaren som visar exempelbild felmeddelandet och nu du få ett detaljerat felmeddelande, till exempel i följande exempel:
 
     ![Detaljerat felmeddelande](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-    (Fel visas har skapats genom att lägga till den rad som visas i rött till *Views\Home\Index.cshtml*.)
+    (Felet som visas har skapats genom att lägga till den rad som visas i rött att *Views\Home\Index.cshtml*.)
 
-Redigera filen Web.config är bara ett exempel på scenarier där möjligheten att läsa och redigera filer på Azure-webbapp gör felsökningen lättare.
+Redigera filen Web.config är bara ett exempel på scenarier där möjligheten att läsa och redigera filer på Azure-webbappen gör felsökningen lättare.
 
-## <a name="remotedebug"></a>Fjärråtkomst felsökning webbprogram
-Om det detaljerade felmeddelandet inte ger tillräcklig information, och du kan inte återskapa felet lokalt, är ett annat sätt att felsöka fjärrköras i felsökningsläge. Du kan ange brytpunkter, ändra minne direkt, stega igenom koden och även ändra koden sökvägen.
+## <a name="remotedebug"></a>Fjärrfelsökning av webbappar
+Om det detaljerade felmeddelandet ger inte tillräckligt med information du kan inte återskapa felet lokalt, är ett annat sätt att felsöka att fjärrköra i felsökningsläge. Du kan ange brytpunkter, ändra minne direkt, gå igenom koden och även ändra kod sökvägen.
 
 Fjärrfelsökning fungerar inte i Express-versioner av Visual Studio.
 
-Det här avsnittet visar hur du felsöka med projektet som du skapar i [skapa en ASP.NET-webbapp i Azure](app-service-web-get-started-dotnet.md).
+Det här avsnittet visar hur du felsöker med projekt som du skapar i [skapa en ASP.NET-webbapp i Azure](app-service-web-get-started-dotnet-framework.md).
 
-1. Öppna webbprojekt som du skapade i [skapa en ASP.NET-webbapp i Azure](app-service-web-get-started-dotnet.md).
+1. Öppna de webový projekt som du skapade i [skapa en ASP.NET-webbapp i Azure](app-service-web-get-started-dotnet-framework.md).
 
 2. Öppna *Controllers\HomeController.cs*.
 
@@ -134,26 +134,26 @@ public ActionResult About()
     return View();
 }
 ```
-4. [Ange en brytpunkt](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) på den `ViewBag.Message` rad.
+4. [Konfigurera en brytpunkt](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) på den `ViewBag.Message` rad.
 
 5. I **Solution Explorer**, högerklicka på projektet och klicka på **publicera**.
 
-6. I den **profil** listrutan, Välj den profil som du använde i [skapa en ASP.NET-webbapp i Azure](app-service-web-get-started-dotnet.md). Klicka på inställningar.
+6. I den **profil** listrutan, Välj den profil som du använde i [skapa en ASP.NET-webbapp i Azure](app-service-web-get-started-dotnet-framework.md). Klicka på inställningar.
 
 7. I den **publicera** dialogrutan klickar du på den **inställningar** fliken och ändra sedan **Configuration** till **felsöka**, och klicka sedan på  **Spara**.
 
     ![Publicera i felsökningsläge](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
-8. Klicka på **Publicera**. Efter distributionen är klar och webbläsaren öppnar Azure-URL för ditt webbprogram, Stäng webbläsaren.
+8. Klicka på **Publicera**. Efter distributionen har slutförts och webbläsaren öppnar Azure-URL: en för din webbapp, Stäng webbläsaren.
 
-9. I **Server Explorer**, högerklicka på ditt webbprogram och klicka sedan på **koppla felsökare**.
+9. I **Server Explorer**, högerklicka på din webbapp och klicka sedan på **bifoga felsökningsprogrammet**.
 
     ![Koppla felsökare](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
-    Webbläsaren öppnas automatiskt till din startsida som körs i Azure. Du kan behöva vänta 20 sekunder eller liknande medan Azure konfigurerar servern för felsökning. Den här fördröjningen sker bara den första gången du kör i felsökningsläge på ett webbprogram i 48 timmar. När du startar felsökningen igen i samma period, det finns inte en fördröjning.
+    Webbläsaren öppnas automatiskt till din startsida som körs i Azure. Du kan behöva vänta 20 sekunder medan Azure konfigureras servern för felsökning. Den här fördröjningen sker bara första gången du kör i felsökningsläge på en webbapp i 48 timmar. När du startar felsökning igen i samma period, det finns inte en fördröjning.
 
     > [!NOTE] 
-    > Om du har några problem med att starta felsökningsprogrammet försök att göra det med hjälp av **Cloud Explorer** i stället för **Server Explorer**.
+    > Om du har problem med att starta felsökningsprogrammet försöker göra det med hjälp av **Cloud Explorer** i stället för **Server Explorer**.
     >
 
 10. Klicka på **om** på menyn.
@@ -162,87 +162,87 @@ public ActionResult About()
 
 11. Hovra över den `currentTime` variabeln för att se time-värdet.
 
-     ![Visa variabeln i felsökningsläge som körs i Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
+     ![Visa variabel i felsökningsläge som körs i Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
 
-     Den tid som du ser är tiden i Azure-server som kan vara i en annan tidszon än den lokala datorn.
+     Den tid som du ser är tiden i Azure-server som kan finnas i en annan tidszon än den lokala datorn.
 
 12. Ange ett nytt värde för den `currentTime` variabel, till exempel ”nu körs i Azure”.
 
-13. Tryck på F5 för att fortsätta att köras.
+13. Tryck på F5 för att fortsätta köras.
 
-     Om sidan som körs i Azure visar det nya värdet som du angett i variabeln currentTime.
+     Om sidan som körs i Azure visar det nya värdet som du har angett i variabeln currentTime.
 
      ![Om sidan med nytt värde](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
-## <a name="remotedebugwj"></a> Fjärråtkomst felsökning WebJobs
-Det här avsnittet visar hur du felsöka med hjälp av projektet och webb-app som du skapar i [Kom igång med Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
+## <a name="remotedebugwj"></a> Fjärrfelsökning av WebJobs
+Det här avsnittet visar hur du felsöker med projekt och web app som du skapar i [Kom igång med Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
-Funktioner som visas i det här avsnittet är endast tillgänglig i Visual Studio 2013 med Update 4 eller senare.
+De funktioner som visas i det här avsnittet är endast tillgänglig i Visual Studio 2013 Update 4 eller senare.
 
-Fjärrfelsökning fungerar bara med kontinuerliga Webbjobb. Schemalagda och på begäran WebJobs saknar stöd för felsökning.
+Fjärrfelsökning fungerar bara med kontinuerliga WebJobs. Schemalagda och på begäran WebJobs stöd inte för felsökning.
 
-1. Öppna webbprojekt som du skapade i [Kom igång med Azure WebJobs SDK][GetStartedWJ].
+1. Öppna de webový projekt som du skapade i [Kom igång med Azure WebJobs SDK][GetStartedWJ].
 
 2. Öppna i projektet ContosoAdsWebJob *Functions.cs*.
 
-3. [Ange en brytpunkt](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) på den första satsen i den `GnerateThumbnail` metoden.
+3. [Konfigurera en brytpunkt](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) på den första instruktionen i det `GnerateThumbnail` metod.
 
     ![Ange brytpunkt](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
-4. I **Solution Explorer**, högerklicka webbprojektet (inte projektet Webbjobb) och på **publicera**.
+4. I **Solution Explorer**, högerklicka på webbprojektet (inte WebJob-projekt) och klicka på **publicera**.
 
 5. I den **profil** listrutan, Välj den profil som du använde i [Kom igång med Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 6. Klicka på den **inställningar** fliken och ändra **Configuration** till **felsöka**, och klicka sedan på **publicera**.
 
-    Visual Studio distribuerar webb- och Webbjobb projekt och webbläsaren öppnar Azure-URL för ditt webbprogram.
+    Visual Studio distribuerar webb- och WebJob-projekt och webbläsaren öppnas på Azure-URL: en för din webbapp.
 
-7. I **Server Explorer**, expandera **Azure > Apptjänst > resursgruppen > ditt webbprogram > WebJobs > kontinuerlig**, högerklicka på **ContosoAdsWebJob**.
+7. I **Server Explorer**, expandera **Azure > App Service > din resursgrupp > webbappen > WebJobs > kontinuerlig**, högerklicka på **ContosoAdsWebJob**.
 
 8. Klicka på **koppla felsökare**.
 
     ![Koppla felsökare](./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png)
 
-    Webbläsaren öppnas automatiskt till din startsida som körs i Azure. Du kan behöva vänta 20 sekunder eller liknande medan Azure konfigurerar servern för felsökning. Den här fördröjningen sker bara den första gången du kör i felsökningsläge på ett webbprogram i 48 timmar. När du startar felsökningen igen i samma period, det finns inte en fördröjning.
+    Webbläsaren öppnas automatiskt till din startsida som körs i Azure. Du kan behöva vänta 20 sekunder medan Azure konfigureras servern för felsökning. Den här fördröjningen sker bara första gången du kör i felsökningsläge på en webbapp i 48 timmar. När du startar felsökning igen i samma period, det finns inte en fördröjning.
 
-9. Skapa en ny annons i webbläsare som öppnas till Contoso Ads-startsidan.
+9. Skapa en ny ad i webbläsare som öppnas till Contoso Ads-startsidan.
 
-    Skapa en ad gör ett kömeddelande skapas som tas upp av Webbjobbet och behandlas. WebJobs SDK anropar när funktionen för att bearbeta kömeddelande kod träffar din brytpunkt.
+    Skapa en ad orsakar ett kömeddelande som ska skapas, som hämtas av Webbjobbet och behandlas. WebJobs SDK anropar när funktionen för att bearbeta kömeddelande kod träffar din brytpunkt.
 
-10. När Felsökaren bryter vid din brytpunkt, kan du granska och ändra variabelvärden medan programmet körs i molnet. I följande bild visar felsökningsprogrammet innehållet i objektet blobInfo som skickades till den `GenerateThumbnail` metoden.
+10. När Felsökaren bryter på din brytpunkt, kan du granska och ändra variabelvärden medan programmet körs i molnet. I följande bild visar felsökningsprogrammet innehållet i objektet blobInfo som skickades till den `GenerateThumbnail` metoden.
 
-     ![blobInfo objekt i Felsökning](./media/web-sites-dotnet-troubleshoot-visual-studio/blobinfo.png)
+     ![blobInfo-objekt på felsökare](./media/web-sites-dotnet-troubleshoot-visual-studio/blobinfo.png)
 
-11. Tryck på F5 för att fortsätta att köras.
+11. Tryck på F5 för att fortsätta köras.
 
      Den `GenerateThumbnail` metoden har skapat miniatyrbilden.
 
-12. Uppdatera indexsidan och du ser miniatyren i webbläsaren.
+12. Uppdatera indexsidan i webbläsaren, och du se miniatyrbilden.
 
-13. Tryck på SKIFT + F5 för att stoppa felsökning i Visual Studio.
+13. Tryck på SKIFT + F5 för att stoppa felsökningen i Visual Studio.
 
-14. I **Server Explorer**, högerklicka på noden ContosoAdsWebJob och klickar på **visa instrumentpanelen**.
+14. I **Server Explorer**, högerklicka på noden ContosoAdsWebJob och klickar på **Vyinstrumentpanel**.
 
-15. Logga in med dina autentiseringsuppgifter för Azure och klicka på webbjobbsnamnet att gå till sidan för din Webbjobb.
+15. Logga in med dina autentiseringsuppgifter för Azure och sedan på webbjobbsnamnet att gå till sidan för ditt WebJob.
 
-     ![Click ContosoAdsWebJob](./media/web-sites-dotnet-troubleshoot-visual-studio/clickcaw.png)
+     ![Klicka på ContosoAdsWebJob](./media/web-sites-dotnet-troubleshoot-visual-studio/clickcaw.png)
 
-     Instrumentpanelen visar att den `GenerateThumbnail` funktion som kördes nyligen.
+     Instrumentpanelen visar att den `GenerateThumbnail` funktioner kördes senast.
 
-     (Nästa gång du klickar på **visa instrumentpanelen**du inte behöver logga in och webbläsaren går direkt till sidan för din Webbjobb.)
+     (Nästa gång du klickar på **Vyinstrumentpanel**du inte behöver logga in och webbläsaren går direkt till sidan för ditt WebJob.)
 
-16. Klicka på namnet på funktionen för att se information om funktionen körningen.
+16. Klicka på funktionsnamnet att se information om körning funktion.
 
      ![Funktionsinformation](./media/web-sites-dotnet-troubleshoot-visual-studio/funcdetails.png)
 
-Om din funktion [skrev loggar](https://github.com/Azure/azure-webjobs-sdk/wiki), du kan klicka på **ToggleOutput** se dem.
+Om din funktion [skrev loggar](https://github.com/Azure/azure-webjobs-sdk/wiki), du kan klicka på **ToggleOutput** finns.
 
 ## <a name="notes-about-remote-debugging"></a>Information om fjärrfelsökning
 
-* Du bör inte köra i felsökningsläge i produktion. Om ditt webbprogram för produktion inte skalas ut att flera serverinstanser förhindrar felsökning webbservern svarar på andra begäranden. Om du har flera web server-instanser, när du kopplar till felsökningsprogrammet, du får en slumpmässig instans och det finns inget sätt att säkerställa att webbläsaren efterföljande förfrågningar går du till samma instans. Dessutom du normalt distribuerar inte en felsökningsversion för produktion och kompileraren optimeringar för versionen versioner kan göra det omöjligt att visa vad som händer rad för rad i källkoden. För att felsöka problem i produktionen bästa resurs är program spårning och web server-loggar.
-* Undvika lång stopp vid brytpunkter när remote felsökning. Azure behandlar en process som har stoppats för längre än några minuter som en process för svarar inte och stängs av.
-* När du felsöker skickar servern data till Visual Studio som kan påverka kostnader för bandbredd. Information om bandbredd priser finns [priser för Azure](https://azure.microsoft.com/pricing/calculator/).
-* Se till att den `debug` attribut för den `compilation` element i den *Web.config* fil har angetts till true. Den är inställd på true som standard när du publicerar en debug build-konfiguration.
+* Kör i felsökningsläge i produktionen rekommenderas inte. Om webbappen produktion inte skalas ut till flera serverinstanser förhindrar felsökning webbservern svara på andra begäranden. Om du har flera webbserverinstanser, när du ansluter till felsökning kan du få en slumpmässig instans och finns det inget sätt att säkerställa att webbläsaren efterföljande begäranden går till samma instans. Dessutom vanligtvis distribueras inte en felsökningsversion till produktion och kompilatorn optimeringar för versionen versioner kan göra det omöjligt att visa vad som händer rad för rad i källkoden. För felsökning av produktionsproblem i, bästa resursen är program spårning och webbserverloggar.
+* Undvika långa stopp vid brytpunkter när remote felsökning. Azure behandlar en process som har stoppats mer än ett par minuter som en process som inte svarar och stängs av.
+* När du felsöker skickar servern data till Visual Studio, som kan påverka bandbreddsavgifter. Läs om hur bandbreddsavgifter [priser för Azure](https://azure.microsoft.com/pricing/calculator/).
+* Se till att den `debug` attributet för den `compilation` elementet i den *Web.config* -filen har angetts till true. Det är inställt på true som standard när du publicerar en versionskonfiguration för felsökning.
 
 ``` xml
 <system.web>
@@ -250,37 +250,37 @@ Om din funktion [skrev loggar](https://github.com/Azure/azure-webjobs-sdk/wiki),
   <httpRuntime targetFramework="4.5" />
 </system.web>
 ```
-* Om du upptäcker att felsökaren inte gå till den kod som du vill felsöka kan behöva du ändra inställningen bara min kod.  Mer information finns i [begränsa gå till bara min kod](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
-* En timer startar på servern när du aktiverar funktionen felsökning och efter 48 timmar funktionen inaktiveras automatiskt. Den här gränsen 48 timmar görs grund för säkerhet och prestanda. Du kan enkelt aktivera funktionen igen så många gånger. Vi rekommenderar att du lämnar inaktiverad när du inte aktivt felsökning.
-* Du kan manuellt koppla felsökaren till en process, inte bara web app processen (w3wp.exe). Mer information om hur du använder felsökningsläge i Visual Studio finns [felsökning i Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
+* Om du upptäcker att felsökningsprogrammet inte Stega in koden som du vill felsöka, kan du behöva ändra inställningen bara min kod.  Mer information finns i [begränsa Stega dig bara min kod](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
+* En timer börjar på servern när du aktiverar funktionen felsökning och efter 48 timmar funktionen inaktiveras automatiskt. Den här gränsen 48 timmar görs skäl för säkerhet och prestanda. Du kan enkelt aktivera funktionen igen så många gånger som helst. Vi rekommenderar dock inaktiveras när du inte aktivt felsöker.
+* Du kan manuellt koppla felsökaren till en process, inte bara web app processen (w3wp.exe). Mer information om hur du använder felsökningsläge i Visual Studio finns i [felsökning i Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 
 ## <a name="logsoverview"></a>Översikt över diagnostikloggar
-Ett ASP.NET-program som körs i en Azure-app kan skapa följande typer av loggar:
+Ett ASP.NET-program som körs i en Azure webbapp kan skapa följande typer av loggar:
 
-* **Programmet spårningsloggar**<br/>
+* **Spårningsloggar för program**<br/>
   Programmet skapar de här loggarna genom att anropa metoder i den [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx) klass.
-* **Webbserverloggarna**<br/>
-  Webbservern skapar en loggpost för varje HTTP-begäran till webbprogrammet.
-* **Detaljerade felloggar för meddelandet**<br/>
-  Webbservern skapar en HTML-sida med ytterligare information för den misslyckade HTTP-begäranden (begäranden som resulterar i statuskod: 400 eller högre).
-* **Det gick inte begäran spårningsloggar**<br/>
-  Webbservern skapar en XML-fil med detaljerad spårningsinformation för misslyckade begäranden för HTTP. Webbservern innehåller också en XSL-fil om du vill formatera XML-filen i en webbläsare.
+* **Webbserverloggar**<br/>
+  Webbservern skapar en loggpost för varje HTTP-begäran till webbappen.
+* **Detaljerade felloggar för meddelande**<br/>
+  Webbservern skapar en HTML-sida med ytterligare information för misslyckade HTTP-förfrågningar (begäranden som resulterar i statuskod 400 eller större).
+* **Det gick inte begära spårning av loggar**<br/>
+  Webbservern skapar en XML-fil med detaljerad spårningsinformation för misslyckade HTTP-förfrågningar. Webbservern innehåller också en XSL-fil för att formatera XML-koden i en webbläsare.
 
-Loggning påverkar prestandan för web app, så Azure ger dig möjlighet att aktivera eller inaktivera varje typ av loggen vid behov. Du kan ange att endast loggar över en viss nivå för allvarlighetsgrad ska skrivas för programloggar. När du skapar ett nytt webbprogram som standard alla loggning har inaktiverats.
+Loggning påverkar prestanda för webbappar, så Azure ger dig möjligheten att aktivera eller inaktivera varje typ av loggen efter behov. Programloggar, kan du ange att endast loggar över en viss nivå för allvarlighetsgrad ska skrivas. När du skapar en ny webbapp som standard all loggning är inaktiverad.
 
-Loggarna skrivs till filer i en *loggfiler* mapp i filsystemet för din webbapp och är tillgänglig via FTP. Webbserverloggarna- och programloggarna kan också vara skriven till ett Azure Storage-konto. Du kan behålla en större volym loggar i ett lagringskonto än vad som är möjligt i filsystemet. Du är begränsad till högst 100 megabyte loggar när du använder filsystemet. (Filen systemloggar är endast för kortsiktig kvarhållning. Azure tar bort gamla loggfiler för att göra plats för nya när gränsen har nåtts.)  
+Loggarna skrivs till filer i en *LogFiles* mapp i filsystemet för din webbapp och är tillgängliga via FTP. Webbserverloggar och programloggarna kan också skrivas till ett Azure Storage-konto. Du kan behålla en större mängd loggar i ett storage-konto än vad som är möjligt i filsystemet. Du är begränsad till högst 100 megabyte loggar när du använder filsystemet. (Filen systemloggar är endast för kortsiktig kvarhållning. Azure tar bort gamla loggfiler för att göra plats för nya när gränsen har nåtts.)  
 
-## <a name="apptracelogs"></a>Skapa och visa spårningsloggar för programmet
-I det här avsnittet kan göra du följande:
+## <a name="apptracelogs"></a>Skapa och visa spårningsloggar för program
+I det här avsnittet ska göra du följande uppgifter:
 
-* Lägg till spårning instruktioner i webbprojektet som du skapade i [Kom igång med Azure och ASP.NET][GetStarted].
+* Lägg till Spårningsuppgifter i webbprojektet som du skapade i [Kom igång med Azure och ASP.NET](app-service-web-get-started-dotnet-framework.md).
 * Visa loggarna när du kör projektet lokalt.
-* Visa loggar som de genereras av det program som körs i Azure.
+* Visa loggarna som de skapas av programmet som körs i Azure.
 
-För information om hur du skapar program som loggar in WebJobs, se [hur du arbetar med Azure queue storage med WebJobs-SDK - hur du skriver loggar](https://github.com/Azure/azure-webjobs-sdk/wiki). Följande instruktioner för att visa loggar och kontrollera hur de lagras i Azure gäller även för programloggarna som skapats av WebJobs.
+Information om hur du skapar program loggar i WebJobs finns i [hur du arbetar med Azure-kölagring med WebJobs-SDK - hur du skriver loggar](https://github.com/Azure/azure-webjobs-sdk/wiki). Följande instruktioner för att visa loggar och styra hur de lagras i Azure gäller också programloggar som skapats av WebJobs.
 
-### <a name="add-tracing-statements-to-the-application"></a>Lägga till spårning instruktioner för programmet
-1. Öppna *Controllers\HomeController.cs*, och Ersätt den `Index`, `About`, och `Contact` metoder med följande kod för att lägga till `Trace` instruktioner och en `using` -instruktion för `System.Diagnostics`:
+### <a name="add-tracing-statements-to-the-application"></a>Lägga till Spårningsuppgifter i programmet
+1. Öppna *Controllers\HomeController.cs*, och Ersätt den `Index`, `About`, och `Contact` metoder med följande kod för att lägga till `Trace` instruktioner och en `using` instruktionen för `System.Diagnostics`:
 
 ```c#
 public ActionResult Index()
@@ -311,17 +311,17 @@ public ActionResult Contact()
 }        
 ```
 
-2. Lägg till en `using System.Diagnostics;` uttryck överst i filen.
+2. Lägg till en `using System.Diagnostics;` instruktion högst upp i filen.
 
-### <a name="view-the-tracing-output-locally"></a>Visa spårning utdata lokalt
+### <a name="view-the-tracing-output-locally"></a>Visa spårningsdata som lokalt
 1. Tryck på F5 för att köra programmet i felsökningsläge.
 
-    Standard spårningslyssnaren skriver alla spårningsutdata till den **utdata** fönster, tillsammans med andra felsökningsresultat. Följande bild visar utdata från trace-satser som du lade till den `Index` metoden.
+    Standard trace listener skriver alla spårningsutdata till den **utdata** fönstret tillsammans med andra felsökningsresultat. Följande bild visar utdata från spårningsinstruktioner som du lade till den `Index` metoden.
 
     ![Spårning i felsökningsfönstret](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugtracing.png)
 
-    Följande steg visar hur du kan visa spårningsinformationen i en webbsida, utan att kompilera i felsökningsläge.
-2. Öppna filen Web.config för programmet (det finns i projektmappen) och Lägg till en `<system.diagnostics>` element i slutet av filen precis före avslutande `</configuration>` element:
+    Följande steg visar hur du visar spårningsinformation på en webbsida, utan att kompilera i felsökningsläge.
+2. Öppna programmets Web.config-file (som finns i projektmappen) och Lägg till en `<system.diagnostics>` element i slutet av filen precis före avslutande `</configuration>` element:
 
 ``` xml
 <system.diagnostics>
@@ -339,145 +339,145 @@ public ActionResult Contact()
 ```
 
 Den `WebPageTraceListener` kan du visa spårningsutdata genom att bläddra till `/trace.axd`.
-3. Lägg till en <a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">elementet trace</a> under `<system.web>` i filen Web.config, som i följande exempel:
+3. Lägg till en <a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace elementet</a> under `<system.web>` i Web.config-filen, till exempel i följande exempel:
 
 ``` xml
 <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 ```       
 
 4. Tryck på CTRL+F5 för att köra programmet.
-5. Lägg till i adressfältet i webbläsarfönstret *trace.axd* till URL och tryck på RETUR (URL: en liknar http://localhost:53370/trace.axd).
-6. På den **programmet Trace** klickar du på **visa information om** på den första raden (inte BrowserLink rad).
+5. I adressfältet i webbläsarfönstret, lägger du till *trace.axd* i Webbadressen och tryck på RETUR (URL: en liknar http://localhost:53370/trace.axd).
+6. På den **programspårning** klickar du på **visa information om** på den första raden (inte BrowserLink rad).
 
-    ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
+    ![Trace.Axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
-    Den **begär information** visas, och i den **spårningsinformation** avsnitt visas utdata från trace-satser som du lade till den `Index` metoden.
+    Den **information om begäran** visas, och i den **spårningsinformation** avsnitt som du ser utdata från spårningsinstruktioner som du lade till den `Index` metoden.
 
-    ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
+    ![Trace.Axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
 
-    Som standard `trace.axd` endast är tillgängligt lokalt. Om du vill göra den tillgänglig från en fjärransluten webbprogram, kan du lägga till `localOnly="false"` till den `trace` element i den *Web.config* -fil, som visas i följande exempel:
+    Som standard `trace.axd` endast är tillgängligt lokalt. Om du vill göra den tillgänglig från en fjärransluten webbapp kan du lägga till `localOnly="false"` till den `trace` elementet i den *Web.config* filen enligt i följande exempel:
 
         <trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
 
-    Men att aktivera `trace.axd` i en produktionsmiljö web app inte rekommenderas av säkerhetsskäl. I följande avsnitt ser du ett enklare sätt att läsa spårningsloggar i en Azure webbapp.
+    Men att aktivera `trace.axd` på en webbplats för produktion bör appen inte av säkerhetsskäl. I följande avsnitt visas ett enklare sätt att läsa spårningsloggar i en Azure webbapp.
 
-### <a name="view-the-tracing-output-in-azure"></a>Visa spårning utdata i Azure
-1. I **Solution Explorer**, högerklicka webbprojektet och på **publicera**.
+### <a name="view-the-tracing-output-in-azure"></a>Visa spårning av utdata i Azure
+1. I **Solution Explorer**, högerklicka på webbprojektet och klickar på **publicera**.
 2. I den **Publicera webbplats** dialogrutan klickar du på **publicera**.
 
-    När Visual Studio publicerar uppdateringen, öppnas ett webbläsarfönster på hemsidan (förutsatt att du inte avmarkera **Måladress** på den **anslutning** fliken).
-3. I **Server Explorer**, högerklicka på ditt webbprogram och välj **visa strömning loggfiler**.
+    När Visual Studio publicerar uppdateringen, öppnas ett webbläsarfönster till din startsida (förutsatt att du inte rensa **mål-URL** på den **anslutning** fliken).
+3. I **Server Explorer**, högerklicka på din webbapp och välj **visa Streaming loggar**.
 
-    ![Visa strömning loggfiler i snabbmenyn](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png)
+    ![Visa Streaming loggar i snabbmenyn](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png)
 
-    Den **utdata** fönster visar att du är ansluten till tjänsten log-direktuppspelning och lägger till en Meddelanderad varje minut som går utan en logg för att visa.
+    Den **utdata** visar att du är ansluten till loggströmningstjänsten och lägger till en meddelanderaden varje minut som går utan en logg ska visas.
 
-    ![Visa strömning loggfiler i snabbmenyn](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png)
-4. I webbläsarfönstret som visar startsidan program klickar du på **Kontakta**.
+    ![Visa Streaming loggar i snabbmenyn](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png)
+4. I webbläsarfönstret som visar din startsida för programmet, klickar du på **Kontakta**.
 
-    Inom några sekunder Spåra utdata från Felnivån du lägga till den `Contact` metoden visas i den **utdata** fönster.
+    Inom några sekunder, spåra utdata från Felnivån du lade till den `Contact` metod visas i den **utdata** fönster.
 
-    ![Felspårning i utdatafönstret](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
+    ![Fel vid spårning i utdatafönstret](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
 
-    Visual Studio bara visar Felnivån spårningar eftersom det är standardinställningen när du aktiverar loggen övervakningstjänsten. När du skapar en ny Azure webbapp är all loggning inaktiverat som standard, som du såg när du har öppnat inställningssidan tidigare:
+    Visual Studio visar endast Felnivån spårningar eftersom det är standardinställningen när du aktiverar loggen övervakningstjänsten. När du skapar en ny Azure webbapp är all loggning inaktiverad som standard, som du fick när du har öppnat inställningssidan tidigare:
 
-    ![Programmet logga ut](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-apploggingoff.png)
+    ![Programmet utloggning](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-apploggingoff.png)
 
-    Men om du har valt **visa strömning loggfiler**, Visual Studio automatiskt ändras **programmet Logging(File System)** till **fel**, vilket innebär att Felnivån loggar Hämta rapporterade. För att se alla dina spårningsloggar, du kan ändra inställningen till **utförlig**. När du väljer en allvarlighetsgrad som är lägre än fel rapporteras också alla loggar för högre nivåer av allvarlighetsgrad. Så när du väljer utförlig kan se du också information, varning och fel.  
+    Men om du har valt **visa Streaming loggar**, Visual Studio automatiskt ändrats **programmet Logging(File System)** till **fel**, vilket innebär att Felnivån loggar Hämta rapporteras. Du kan ändra den här inställningen om du vill se alla dina spårningsloggar **utförlig**. När du väljer en allvarlighetsgrad som är lägre än fel rapporteras även alla loggar för högre nivåer av allvarlighetsgrad. Så när du väljer utförlig kan se du också information, varning och felloggar.  
 
-1. I **Server Explorer**, högerklickar du på webbprogrammet och klickar sedan på **visningsinställningarna** som du gjorde tidigare.
-2. Ändra **programloggning (filsystem)** till **utförlig**, och klicka sedan på **spara**.
+1. I **Server Explorer**, högerklicka på webbappen och klicka sedan på **visningsinställningarna** som du gjorde tidigare.
+2. Ändra **Programinloggning (filsystem)** till **utförlig**, och klicka sedan på **spara**.
 
-    ![Anger spårningsnivå utförlig](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-applogverbose.png)
-3. I webbläsarfönstret som nu visas ditt **Kontakta** klickar du på **Start**, klicka på **om**, och klicka sedan på **Kontakta**.
+    ![Inställningen spårningsnivån till utförlig](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-applogverbose.png)
+3. I webbläsarfönstret som visar nu din **Kontakta** klickar du på **Start**, klicka sedan på **om**, och klicka sedan på **Kontakta**.
 
-    Inom några sekunder den **utdata** fönster visas alla spårning-utdata.
+    Inom några sekunder i **utdata** fönstret visar alla dina spårningsdata.
 
-    ![Utförlig spårningsutdata](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-verbosetraces.png)
+    ![Detaljerad spårningsinformation](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-verbosetraces.png)
 
-    I det här avsnittet, aktiverat och inaktiverat loggning genom att använda Azure web app-inställningar. Du kan också aktivera och inaktivera Samlingsspårlyssnarna genom att ändra filen Web.config. Dock gör ändra filen Web.config tillämpningsdomän att återvinna, när du aktiverar loggning via webbappkonfigurationen inte göra det. Om problemet tar lång tid att återskapa, eller är tillfälligt, återvinning tillämpningsdomänen kan ”åtgärdas” och göra så att vänta tills det sker igen. Aktivera diagnostik i Azure kan du börja samla in information om fel omedelbart utan återvinning tillämpningsdomänen.
+    I det här avsnittet ska du aktiverat och inaktiverat loggning genom att använda Azure web app-inställningar. Du kan också aktivera och inaktivera spårning lyssnare genom att ändra filen Web.config. Dock gör ändra Web.config-filen app-domänen att återvinna, även om att aktivera loggning via webbappkonfigurationen inte göra det. Om problemet tar lång tid att återskapa, eller är tillfälligt, återvinning app-domänen kan ”åtgärda” det och tvinga dig att vänta tills det händer igen. Aktivera diagnostik i Azure kan du börja samla in information om felet omedelbart utan återvinning app-domänen.
 
 ### <a name="output-window-features"></a>Utdata fönstret funktioner
-Den **Microsoft Azure loggar** för den **utdata** fönstret har flera knappar och en textruta:
+Den **Microsoft Azure Logs** fliken den **utdata** fönstret har flera knappar och en textruta:
 
 ![Loggar fliken knappar](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png)
 
 Dessa utför följande funktioner:
 
-* Avmarkera den **utdata** fönster.
-* Aktivera eller inaktivera automatisk radbyte.
+* Rensa den **utdata** fönster.
+* Aktivera eller inaktivera automatiskt radbyte.
 * Starta eller stoppa övervakningen av loggar.
-* Ange vilket loggar för att övervaka.
-* Hämta loggarna.
-* Filtrera loggarna baserat på en söksträng eller ett reguljärt uttryck.
+* Ange som loggar in övervaka.
+* Ladda ned loggar.
+* Filterloggar baserat på en söksträng eller ett reguljärt uttryck.
 * Stäng den **utdata** fönster.
 
-Om du anger en söksträng eller det reguljära uttrycket filtrerar logginformation på klienten i Visual Studio. Det innebär att du kan ange kriterier när loggarna visas i den **utdata** fönstret och du kan ändra filtervillkoren utan att behöva återskapa loggarna.
+Om du anger en söksträng eller reguljärt uttryck, filtrerar loggningsinformation på klienten i Visual Studio. Det innebär att du kan ange kriterier när loggarna visas i den **utdata** fönster och du kan ändra filtreringskriterier utan att behöva återskapa loggarna.
 
 ## <a name="webserverlogs"></a>Visa webbserverloggar
-Webbserverloggarna registrera alla HTTP-aktivitet för webbprogrammet. För att kunna se dem i den **utdata** fönster som du måste aktivera dem för webbappen och berätta att du vill övervaka dem för Visual Studio.
+Webbserverloggar registrera alla HTTP-aktivitet för webbappen. Om du vill se dem i den **utdata** fönstret som du måste aktivera dem för webbappen och berätta att du vill övervaka dem för Visual Studio.
 
-1. I den **Azure Web App Configuration** fliken som du har öppnat från **Server Explorer**, ändra Web Server-loggning till **på**, och klicka sedan på **spara**.
+1. I den **Azure Webbappkonfigurationen** fliken som du öppnade från **Server Explorer**, ändra Web Server-loggning till **på**, och klicka sedan på **spara**.
 
-    ![Aktivera web server-loggning](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-webserverloggingon.png)
-2. I den **utdata** -fönstret klickar du på den **ange som Microsoft Azure loggar för att övervaka** knappen.
+    ![Aktivera webbserverloggning](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-webserverloggingon.png)
+2. I den **utdata** fönstret klickar du på den **ange som Microsoft Azure loggar för att övervaka** knappen.
 
-    ![Ange vilka Azure loggar för att övervaka](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-specifylogs.png)
-3. I den **loggalternativ för Microsoft Azure** dialogrutan **Web server-loggar**, och klicka sedan på **OK**.
+    ![Ange vilka Azure-loggar att övervaka](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-specifylogs.png)
+3. I den **loggningsalternativ för Microsoft Azure** dialogrutan **Web serverloggar**, och klicka sedan på **OK**.
 
     ![Övervaka webbserverloggar](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorwslogson.png)
-4. I webbläsarfönstret som visar webbappen klickar du på **Start**, klicka på **om**, och klicka sedan på **Kontakta**.
+4. I webbläsarfönstret som visar webbappen klickar du på **Start**, klicka sedan på **om**, och klicka sedan på **Kontakta**.
 
-    Programloggarna vanligtvis visas först, följt av web server-loggar. Du måste kanske vänta en stund innan loggarna visas.
+    Programloggarna Allmänt visas först, följt av webbserverloggarna. Du måste kanske vänta en stund innan loggarna visas.
 
     ![Webbservern loggar i utdatafönstret](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
-När du aktiverar webbserverloggar med hjälp av Visual Studio som standard skriver loggarna till filsystemet Azure. Alternativt kan använda du Azure-portalen för att ange webbservern loggar ska skrivas till en blob-behållare i ett lagringskonto.
+När du först aktivera webbserverloggar med hjälp av Visual Studio som standard skriver loggarna till filsystemet Azure. Alternativt kan kan du använda Azure-portalen för att ange webbservern loggar ska skrivas till en blob-behållare i ett lagringskonto.
 
-Om du använder portalen till webbservern loggar till ett Azure storage-konto och sedan inaktivera har loggning i Visual Studio när du återaktivera loggning i Visual Studio kontoinställningarna lagring återställts.
+Om du använder portalen för att aktivera webbservern som loggning till ett Azure storage-konto och sedan inaktivera har loggning i Visual Studio när du återaktiverar loggning i Visual Studio inställningarna för ditt storage-konto återställts.
 
-## <a name="detailederrorlogs"></a>Visa detaljerade felloggar för meddelandet
-Detaljerade felloggar ger ytterligare information om HTTP-förfrågningar som resulterar i svaret felkoder (400 eller senare). För att kunna se dem i den **utdata** och du måste aktivera dem för webbappen och berätta att du vill övervaka dem för Visual Studio.
+## <a name="detailederrorlogs"></a>Visa detaljerade felloggar för meddelande
+Detaljerade felloggar ger ytterligare information om HTTP-begäranden som resulterar i fel svarskoder (400 eller senare). Om du vill se dem i den **utdata** fönstret så måste du aktivera dem för webbappen och berätta för Visual Studio som du vill övervaka dem.
 
-1. I den **Azure Web App Configuration** fliken som du har öppnat från **Server Explorer**, ändra **detaljerade felmeddelanden** till **på**, och sedan Klicka på **spara**.
+1. I den **Azure Webbappkonfigurationen** fliken som du öppnade från **Server Explorer**, ändra **detaljerade felmeddelanden** till **på**, och sedan Klicka på **spara**.
 
     ![Aktivera detaljerade felmeddelanden](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailedlogson.png)
 
-2. I den **utdata** -fönstret klickar du på den **ange som Microsoft Azure loggar för att övervaka** knappen.
+2. I den **utdata** fönstret klickar du på den **ange som Microsoft Azure loggar för att övervaka** knappen.
 
-3. I den **loggalternativ för Microsoft Azure** dialogrutan klickar du på **alla loggar**, och klicka sedan på **OK**.
+3. I den **loggningsalternativ för Microsoft Azure** dialogrutan klickar du på **alla loggar**, och klicka sedan på **OK**.
 
     ![Övervaka alla loggar](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorall.png)
 
-4. I adressfältet i webbläsarfönstret, lägga till ett extra tecken i URL: en kan orsaka ett 404-fel (till exempel `http://localhost:53370/Home/Contactx`), och tryck på RETUR.
+4. I adressfältet i webbläsarfönstret, lägger du till ett extra tecken i URL: en kan orsaka ett 404-fel (till exempel `http://localhost:53370/Home/Contactx`), och tryck på RETUR.
 
-    Efter några sekunder visas detaljerad fellogg i Visual Studio **utdata** fönster.
+    Efter några sekunder visas detaljerad felloggen i Visual Studio **utdata** fönster.
 
-    ![Detaljerad fellogg - utdata](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorlog.png)
+    ![Detaljerad felloggen - utdatafönstret](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorlog.png)
 
-    CTRL + klicka på länken om du vill se loggutdata formaterad i en webbläsare:
+    CTRL + klicka på länken om du vill visa loggutdata formaterade i en webbläsare:
 
-    ![Detaljerad fellogg - fönster i webbläsaren](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorloginbrowser.png)
+    ![Detaljerad felloggen - fönster i webbläsaren](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorloginbrowser.png)
 
-## <a name="downloadlogs"></a>Hämta filen systemloggar
-Loggar som du kan övervaka i den **utdata** fönster kan också hämtas som en *.zip* fil.
+## <a name="downloadlogs"></a>Ladda ned filen systemloggar
+Alla loggar som du kan övervaka i den **utdata** fönster kan också hämtas som en *.zip* fil.
 
-1. I den **utdata** -fönstret klickar du på **hämta strömning loggar**.
+1. I den **utdata** fönstret klickar du på **hämta Streaming loggar**.
 
     ![Loggar fliken knappar](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png)
 
-    Utforskaren öppnar din *hämtar* mappen med den hämta filen som valts.
+    Utforskaren öppnas på din *hämtar* mappen med den hämta filen som valts.
 
-    ![Hämtade filen](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png)
-2. Extrahera den *.zip* fil och du ser följande mappstrukturen:
+    ![Nedladdade filen](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png)
+2. Extrahera den *.zip* -filen, och se följande mappstrukturen:
 
-    ![Hämtade filen](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
+    ![Nedladdade filen](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-   * Programmet spårningsloggar finns i *.txt* filer i den *LogFiles\Application* mapp.
-   * Webbserverloggarna är i *.log* filer i den *LogFiles\http\RawLogs* mapp. Du kan använda ett verktyg som [Loggparser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) visa och manipulera filerna.
-   * Meddelande för detaljerade felloggar finns i *.html* filer i den *LogFiles\DetailedErrors* mapp.
+   * Spårningsloggar för program som finns i *.txt* filer i den *LogFiles\Application* mapp.
+   * Webbserverloggarna är i *.log* filer i den *LogFiles\http\RawLogs* mapp. Du kan använda ett verktyg som [Loggparser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) att visa och ändra dessa filer.
+   * Detaljerade felloggar för meddelandet finns i *.html* filer i den *LogFiles\DetailedErrors* mapp.
 
-    (Den *distributioner* mappen är för filer som skapas av källkontrollen publicering; den inte har något rör publicering med Visual Studio. Den *Git* mappen är för spår som rör källkontrollen publicering och loggen filen tjänst för liveströmning.)  
+    (Den *distributioner* mappen är för filer som skapas av källkontroll, publicera; inte är något som är kopplat till Visual Studio-publicering. Ju *Git* mappen är för spårningar som rör källkontroll publicering och loggen filen direktuppspelningstjänst.)  
 
 <!-- ## <a name="storagelogs"></a>View storage logs
 Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the Azure portal, and view them in the **Logs** tab of the **Azure Web App** window.
@@ -558,106 +558,106 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 
      ![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
  -->
-## <a name="failedrequestlogs"></a>Visa spårningsloggar för misslyckade begäranden
-Loggar för spårning av misslyckade begäranden är användbara när du behöver förstå information om hur IIS hanterar en HTTP-begäran i scenarier, till exempel skriva om eller autentisering problem med URL: en.
+## <a name="failedrequestlogs"></a>Visa loggar för spårning av misslyckade begäranden
+Loggar för spårning av misslyckade begäranden är användbara när du behöver förstå information om hur IIS hanterar en HTTP-förfrågan i scenarier, t.ex problem med URL: en skriva om eller autentisering.
 
-Azure webbappar som använder samma misslyckade begäranden spårning-funktioner som har varit tillgänglig med IIS 7.0 och senare. Du har inte åtkomst till IIS-inställningar som konfigurerar vilka fel får loggas men. När du aktiverar spårning av misslyckade begäranden fångas alla fel.
+Azure webbappar som använder samma misslyckade begäranden spårning-funktioner som har varit tillgänglig med IIS 7.0 och senare. Du har inte åtkomst till de IIS-inställningar som konfigurerar vilka fel loggas, men. När du aktiverar spårning av misslyckade begäranden, som alla fel avbildas.
 
-Du kan aktivera spårning av misslyckade begäranden med hjälp av Visual Studio, men du kan inte visa dem i Visual Studio. Dessa loggar är XML-filer. Strömmande Loggtjänsten övervakar endast filer som bedöms vara läsbar i läget oformaterad text: *.txt*, *.html*, och *.log* filer.
+Du kan aktivera spårning av misslyckade begäranden med hjälp av Visual Studio, men du kan inte visa dem i Visual Studio. Dessa loggar är XML-filer. Strömmande Loggtjänsten övervakar endast filer som bedöms som öppnas i läget oformaterad text: *.txt*, *.html*, och *.log* filer.
 
-Du kan visa spårningsloggar för misslyckade begäranden i en webbläsare direkt via FTP- eller lokalt efter att använda en FTP-verktyget för att ladda ned dem till den lokala datorn. I det här avsnittet ska du visa dem i en webbläsare direkt.
+Du kan visa loggar för spårning av misslyckade begäranden i en webbläsare direkt via FTP eller lokalt när du har använt ett FTP-verktyg för att ladda ned dem till din lokala dator. I det här avsnittet ska du visa dem i en webbläsare direkt.
 
-1. I den **Configuration** för den **Azure Web App** fönster som du öppnade från **Server Explorer**, ändra **spårning av misslyckade begäranden** till **På**, och klicka sedan på **spara**.
+1. I den **Configuration** fliken den **Azure Web App** fönster som du öppnade från **Server Explorer**, ändra **spårning av misslyckade begäranden** till **På**, och klicka sedan på **spara**.
 
     ![Aktivera spårning av misslyckade begäranden](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequeston.png)
-2. Lägg till ett extra tecken i URL: en i adressfältet i webbläsarfönstret som visar webbprogrammet, och klicka på RETUR om du vill få ett 404-fel.
+2. Lägg till ett extra tecken i URL: en i adressfältet i webbläsarfönstret som visar webbappen, och klicka på RETUR för att utlösa ett 404-fel.
 
-    Detta leder till en misslyckad begäran spårningsloggen skapas och följande steg visar hur du visar eller hämta loggen.
+    Detta leder till en misslyckad förfrågan spårningsloggen som ska skapas och följande steg visar hur du visar eller ladda ned loggen.
 
-3. I Visual Studio, i den **Configuration** för den **Azure Web App** fönstret klickar du på **öppna i hanteringsportalen**.
+3. I Visual Studio i den **Configuration** fliken den **Azure Web App** fönstret klickar du på **öppna i hanteringsportalen**.
 
-4. I den [Azure-portalen](https://portal.azure.com) **inställningar** för ditt webbprogram, klickar du på **distributionsbehörigheterna**, och ange sedan ett nytt användarnamn och lösenord.
+4. I den [Azure-portalen](https://portal.azure.com) **inställningar** för din webbapp och klicka på **distributionsbehörigheterna**, och ange sedan ett nytt användarnamn och lösenord.
 
     ![Ny FTP-användarnamn och lösenord](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
     > [!NOTE]
-    > Du måste använda det fullständiga användarnamnet med webbprogramnamnet som prefix till den när du loggar in. Till exempel om du anger ”myid” som ett användarnamn och platsen är ”mittexempel” kan logga du in som ”myexample\myid”.
+    > Du måste använda det fullständiga användarnamnet med namnet på webbappen som prefix till den när du loggar in. Exempel: Om du anger ”myid” som ett användarnamn och platsen är ”mittexempel” kan du logga in som ”myexample\myid”.
     >
 
-5. Gå till den URL som visas under i ett nytt webbläsarfönster **FTP-värdnamn** eller **FTPS hostname** i den **översikt** för ditt webbprogram.
+5. I ett nytt webbläsarfönster går du till den URL som visas under **FTP-värdnamnet** eller **FTPS-värdnamn** i den **översikt** sidan för din webbapp.
 
-6. Logga in med hjälp av FTP-autentiseringsuppgifter som du skapade tidigare (inklusive web app namnprefixet för användarnamnet).
+6. Logga in med FTP-autentiseringsuppgifter som du skapade tidigare (inklusive web app namnprefixet för användarnamnet).
 
-    Webbläsaren visar rotmappen på webbprogrammet.
+    Webbläsaren visar rotmappen för webbappen.
 
-7. Öppna den *loggfiler* mapp.
+7. Öppna den *LogFiles* mapp.
 
-    ![Öppna loggfiler mapp](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilesfolder.png)
+    ![Öppna mappen LogFiles](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilesfolder.png)
 
 8. Öppna mappen som heter W3SVC plus ett numeriskt värde.
 
-    ![Öppna W3SVC-mappen](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfolder.png)
+    ![Öppna W3SVC-mapp](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfolder.png)
 
-    Mappen innehåller XML-filer för eventuella fel som loggas när du har aktiverat spårning av misslyckade begäranden och en XSL-fil som en webbläsare kan använda för att formatera XML.
+    Mappen innehåller XML-filer för eventuella fel som har loggats när du aktiverade spårning av misslyckade begäranden och en XSL-fil som kan använda för att formatera XML-filen i en webbläsare.
 
-    ![W3SVC-mappen](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfoldercontents.png)
+    ![W3SVC-mapp](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfoldercontents.png)
 
-9. Klicka på XML-filen för den misslyckade begäran som du vill visa spårningsinformation för.
+9. Klicka på XML-filen för den misslyckade begäran som du vill se spårningsinformation för.
 
-    Följande bild visar en del av spårningsinformation för ett prov-fel.
+    Följande bild visar en del av spårningsinformationen för ett prov-fel.
 
     ![Spårning av misslyckade begäranden i webbläsare](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequestinbrowser.png)
 
 ## <a name="nextsteps"></a>Nästa steg
-Du har sett hur Visual Studio gör det enkelt att visa loggar som skapats av en Azure-webbapp. Följande avsnitt innehåller länkar till fler resurser i Närliggande ämnen:
+Du har sett hur Visual Studio gör det enkelt att visa loggar som skapats av en Azure webbapp. Följande avsnitt innehåller länkar till fler resurser på Närliggande ämnen:
 
-* Felsökning av Azure web app
+* Felsökning för Azure web app
 * Felsökning i Visual Studio
-* Fjärr-felsökning i Azure
+* Fjärrfelsökning i Azure
 * Spårning i ASP.NET-program
-* När webbserverloggar
+* Analysera webbserverloggar
 * Det gick inte att analysera spårningsloggar för begäran
-* Felsökning av molntjänster
+* Distribuera Cloud Services
 
-### <a name="azure-web-app-troubleshooting"></a>Felsökning av Azure web app
-Mer information om hur du felsöker web apps i Azure App Service finns i följande resurser:
+### <a name="azure-web-app-troubleshooting"></a>Felsökning för Azure web app
+Mer information om felsökning av web apps i Azure App Service finns i följande resurser:
 
-* [Så här övervakar du webbprogram](/manage/services/web-sites/how-to-monitor-websites/)
-* [Undersöka minnesläckor i Azure Webbappar med Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Microsoft ALM blogginlägget om Visual Studio-funktioner för att analysera hanterade minnesproblem.
-* [Azure web apps online verktyg du bör känna till om](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Blogginlägget Amit Apple.
+* [Övervaka webbappar](/manage/services/web-sites/how-to-monitor-websites/)
+* [Undersöka minnesläckor i Azure Web Apps med Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Microsoft ALM blogginlägget om Visual Studio-funktioner för att analysera hanterade minnesproblem.
+* [Azure web apps online-verktyg du bör känna till om](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Blogginlägget Amit Apple.
 
-Starta en tråd i något av följande forum för hjälp med en specifik felsökning fråga:
+Starta en tråd för hjälp med en specifik fråga för felsökning, i något av följande forum:
 
-* [Azure-forum på webbplatsen ASP.NET](http://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
+* [Azure-forumet på ASP.NET-webbplats](http://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
 * [Azure-forum på MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/).
 * [StackOverflow.com](http://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Felsökning i Visual Studio
-Mer information om hur du använder felsökningsläge i Visual Studio finns [felsökning i Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) och [felsökning Tips med Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+Mer information om hur du använder felsökningsläge i Visual Studio finns i [felsökning i Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) och [felsökning Tips med Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
-### <a name="remote-debugging-in-azure"></a>Fjärr-felsökning i Azure
-Mer information om fjärrfelsökning för Azure-webbappar och WebJobs finns i följande resurser:
+### <a name="remote-debugging-in-azure"></a>Fjärrfelsökning i Azure
+Mer information om fjärrfelsökning för Azure web apps och WebJobs finns i följande resurser:
 
-* [Introduktion till felsökning Azure App Service Web Apps Remote](https://azure.microsoft.com/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
-* [Introduktion till fjärranslutna felsökning Azure App Service Web Apps del 2 - inuti fjärrfelsökning](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
-* [Introduktion till fjärrfelsökning i Azure App Service Web Apps del 3 - miljö med flera instanser och GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
+* [Introduktion till Azure App Service Web Apps för fjärrfelsökning](https://azure.microsoft.com/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
+* [Introduktion till fjärranslutna felsökning Azure App Service Web Apps del 2 – i fjärrfelsökning](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
+* [Introduktion till fjärrfelsökning på Azure App Service Web Apps del 3 - miljö för flera instanser och GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [WebJobs felsökning (video)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
-Om ditt program använder ett Azure Web API eller Mobile Services backend- och du behöver felsöka som finns [felsökning .NET-serverdel i Visual Studio](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
+Om webbappen använder en Azure webb-API eller Mobile Services backend-server och du behöver att felsöka som finns i [felsökning .NET-serverdel i Visual Studio](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
 
 ### <a name="tracing-in-aspnet-applications"></a>Spårning i ASP.NET-program
-Det finns inga omfattande och uppdaterad introduktioner för ASP.NET-spårning på Internet. Det bästa som du kan göra är Kom igång med gamla inledande material som skrivits för Web Forms eftersom MVC inte finns ännu och tillägg som med nyare blogg Överför till överföringswebbadressen som fokuserar på specifika problem. Vissa bra sätt att börja finns i följande resurser:
+Det finns inga omfattande och uppdaterad introduktioner för ASP.NET-spårning på Internet. Det bästa du kan göra är Kom igång med gamla inledande material som är skrivna för Web Forms eftersom MVC inte finns ännu, och komplettera som med nyare blogg gör ett inlägg som fokuserar på specifika problem. Vissa lämpliga platser att starta finns i följande resurser:
 
-* [Övervakning och telemetri (skapa verkliga Molnappar med Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
-  E-bok kapitel med rekommendationer för spårning i Azure-molnprogram.
+* [Övervakning och telemetri (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
+  E-boken kapitel med rekommendationer för spårning i Azure molnprogram.
 * [ASP.NET-spårning](http://msdn.microsoft.com/library/ms972204.aspx)<br/>
   Gamla men fortfarande en bra resurs för en grundläggande introduktion till ämnet.
-* [Samlingsspårlyssnarna](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
-  Information om Samlingsspårlyssnarna men inte nämna de [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
-* [Genomgång: Integrera ASP.NET-spårning med System.Diagnostics spårning](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
-  Den här artikeln finns även gamla men innehåller ytterligare information som inledande artikeln inte täcker.
-* [Spårning i ASP.NET MVC Razor vyer](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-  Utöver spårning i Razor vyer Lär efter dig också att skapa ett filter för fel för att logga alla ohanterat undantag i ett MVC-program. Information om hur du loggar alla ohanterade undantag i ett Web Forms-program finns i Global.asax exemplet i [komplett exempel felhanterare](http://msdn.microsoft.com/library/bb397417.aspx) på MSDN. I MVC eller Web Forms om du vill logga vissa undantag, men låt standardvärdet ramen som hanterar börja gälla för dem, att fånga och skicka tillbaka som i följande exempel:
+* [Spåra lyssnare](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
+  Information om spårning lyssnare men inte nämner det [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
+* [Genomgång: Knyts System.Diagnostics spårning av ASP.NET-spårning](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
+  Den här artikeln är också gamla, men innehåller ytterligare information som inte tas upp den inledande artikeln.
+* [Spårning i ASP.NET MVC Razor-vyer](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
+  Utöver spårning i Razor-vyer förklarar också hur du skapar ett fel-filter för att logga alla ohanterade undantag i ett MVC-program i inlägget. Information om hur du loggar in alla ohanterade undantag i ett Web Forms-program finns i exemplet Global.asax i [komplett exempel för felhanterare](http://msdn.microsoft.com/library/bb397417.aspx) på MSDN. I MVC eller webbformulär om du vill logga vissa undantag, men låt standardramverk hantering av gälla för dem, kan du fånga upp och skicka tillbaka som i följande exempel:
 
 ``` c#
 try
@@ -671,27 +671,27 @@ catch (Exception ex)
 }
 ```
 
-* [Strömmande diagnostik spårningsloggning från Azure Command Line (plus uppfattning!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-  Använda kommandoraden för att göra vad den här kursen visar hur du gör i Visual Studio. [Uppfattning](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) är ett verktyg för felsökning av ASP.NET-program.
-* [Med Web Apps-loggning och diagnostik - med David Ebbo](/documentation/videos/azure-web-site-logging-and-diagnostics/) och [Direktuppspelningsloggar från Web Apps - med David Ebbo](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
-  Videor av Scott hanselman, så får och David Ebbo.
+* [Strömmande diagnostik spårningsloggning från Azure-kommandorad (plus glimt!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
+  Hur du använder kommandoraden för att göra vad den här självstudien visar hur du gör i Visual Studio. [Glimt](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) är ett verktyg för felsökning av ASP.NET-program.
+* [Med Web Apps-loggning och diagnostik – med David Ebbo](/documentation/videos/azure-web-site-logging-and-diagnostics/) och [Direktuppspelningsloggar från Web Apps - med David Ebbo](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
+  Videor med Scott Hanselman och David Ebbo.
 
-För felloggning, i stället för att skriva egen kod spårning är att använda ett loggningsramverk med öppen källkod som [ELMAH](http://nuget.org/packages/elmah/). Mer information finns i [Scott Hanselman blogginlägg om ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
+För felloggning, är ett alternativ till att skriva egen kod för spårning av att använda ett loggningsramverk för av öppen källkod som [ELMAH](http://nuget.org/packages/elmah/). Mer information finns i [Scott Hanselman blogginlägg om ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
-Dessutom behöver du inte använda ASP.NET eller `System.Diagnostics` spårning för att hämta strömning loggar från Azure. Azure-webbappen strömning Loggtjänsten strömmar någon *.txt*, *.html*, eller *.log* filen som hittas i den *loggfiler* mapp. Därför kan du skapa egna loggning system som skriver till filsystemet för webbappen och filen strömmas och hämtas automatiskt. Allt du behöver göra är att skriva programkod som skapar filer i den *d:\home\logfiles* mapp.
+Dessutom behöver du inte använder ASP.NET eller `System.Diagnostics` spårning för att hämta streaming loggar från Azure. Azure-webbappen streaming Loggtjänsten strömmar någon *.txt*, *.html*, eller *.log* filen som hittas i den *LogFiles* mapp. Därför kan du kan skapa dina egna system för loggning som skriver till filsystemet med webbapp och din fil strömmas och ned automatiskt. Allt du behöver göra är att skriva koden som skapar filer i den *d:\home\logfiles* mapp.
 
-### <a name="analyzing-web-server-logs"></a>När webbserverloggar
-Mer information om hur du analyserar webbserverloggar finns i följande resurser:
+### <a name="analyzing-web-server-logs"></a>Analysera webbserverloggar
+Mer information om att analysera webbserverloggar finns i följande resurser:
 
 * [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Ett verktyg för att visa data i webbserverloggar (*.log* filer).
-* [Felsöka IIS prestandaproblem och programfel med LogParser ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
-  En introduktion till verktyget Loggparser som du kan använda för att analysera webbloggar för servern.
-* [Blogginlägg av Robert McMurray med hjälp av LogParser](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
+* [Felsöka IIS prestandaproblem eller fel i program med hjälp av LogParser ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+  En introduktion till verktyget Parser för loggar som du kan använda för att analysera webbserverloggar.
+* [Blogginlägg av Robert McMurray om hur du använder LogParser](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [HTTP-statuskod i IIS 7.0, IIS 7.5 och IIS 8.0](http://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Det gick inte att analysera spårningsloggar för begäran
-Webbplatsen Microsoft TechNet innehåller en [med hjälp av spårning av misslyckade begäranden](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) avsnittet, vilket kan vara till hjälp för att förstå hur du använder dessa loggar. Men fokuserar den här dokumentationen huvudsakligen om att konfigurera spårning av misslyckade begäranden i IIS, som inte är möjligt i Azure Web Apps.
+Webbplatsen Microsoft TechNet innehåller en [med hjälp av spårning av misslyckade begäranden](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) avsnittet, vilket kan vara till hjälp för att förstå hur du använder dessa loggar. Men fokuserar den här dokumentationen främst information om hur du konfigurerar spårning av misslyckade begäranden i IIS, som du inte kan göra i Azure Web Apps.
 
 [GetStarted]: app-service-web-get-started-dotnet.md
 [GetStartedWJ]: https://github.com/Azure/azure-webjobs-sdk/wiki

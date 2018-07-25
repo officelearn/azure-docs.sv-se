@@ -1,61 +1,61 @@
 ---
-title: Distribuera Azure Blockchain arbetsstationen
-description: Hur du distribuerar Azure Blockchain arbetsstationen
+title: Distribuera Azure Blockchain Workbench
+description: Så här distribuerar du Azure Blockchain Workbench
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/17/2018
+ms.date: 7/13/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e226aadbe499d5905b1814bec5d042f67d898c18
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 57b610b40edff56207617e212d0eb6e591ad50d4
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294857"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224304"
 ---
-# <a name="deploy-azure-blockchain-workbench"></a>Distribuera Azure Blockchain arbetsstationen
+# <a name="deploy-azure-blockchain-workbench"></a>Distribuera Azure Blockchain Workbench
 
-Azure Blockchain arbetsstationen distribueras med hjälp av en lösningsmall i Azure Marketplace. Mallen förenklar distributionen av komponenter som behövs för att skapa blockchain program. När har distribuerats, ger Blockchain arbetsstationen åtkomst till klientprogram att skapa och hantera användare och blockchain program.
+Azure Blockchain Workbench med hjälp av en mall i Azure Marketplace. Mallen gör det enklare för distribueringen av komponenter som behövs för att skapa blockchain-program. När distribuerats ger Blockchain Workbench åtkomst till klientprogram för att skapa och hantera användare och blockchain-program.
 
-Läs mer om komponenterna Blockchain arbetsstationen, [Azure Blockchain arbetsstationen arkitektur](blockchain-workbench-architecture.md).
+Läs mer om komponenterna i Blockchain Workbench, [Azure Blockchain Workbench arkitektur](blockchain-workbench-architecture.md).
 
 ## <a name="prepare-for-deployment"></a>Förbereda för distribution
 
-Blockchain arbetsstationen kan du distribuera en blockchain redovisning tillsammans med en uppsättning relevanta Azure-tjänster som oftast används för att skapa ett blockchain-baserade program. Distribution av Blockchain Workbench resulterar i följande Azure-tjänster tillhandahålls inom en resursgrupp i Azure-prenumeration.
+Blockchain Workbench kan du distribuera en blockchain-redovisning tillsammans med en uppsättning relevanta Azure-tjänster som oftast används för att skapa en blockchain-baserade program. Distribuera Blockchain Workbench resulterar i följande Azure-tjänster håller på att etableras i en resursgrupp i Azure-prenumerationen.
 
-* 1 händelse rutnätet avsnittet
+* 1 event Grid-ämne
 * 1 Service Bus Namespace
 * 1 application Insights
 * 1 SQL-databas (Standard S0)
-* 2 Apptjänster (Standard)
-* 2 azure Nyckelvalv
-* 2 azure Storage-konton (Standard-LRS)
-* 2 Virtual machine-skalningsuppsättningar (för verifieraren- och arbetsroller noder)
-* 2 virtuella nätverk (inklusive belastningsutjämnare, nätverkssäkerhetsgrupp och den offentliga IP-adressen för varje virtuellt nätverk)
-* Valfritt: Azure-Monitor
+* 2 app Services (Standard)
+* 2 azure-Nyckelvalv
+* 2 azure Storage-konton (Standard LRS)
+* 2 VM-skalningsuppsättningar (för systemhälsoverifierarens- och arbetsroller noder)
+* 2 virtuella nätverk (inklusive belastningsutjämnaren nätverkssäkerhetsgrupp och offentlig IP-adress för varje virtuellt nätverk)
+* Valfritt: Azure Monitor
 
-Följande är ett exempel på distribution skapats i **myblockchain** resursgruppen.
+Följande är ett exempel på distribution skapats i **myblockchain** resursgrupp.
 
 ![Exempel på distribution](media/blockchain-workbench-deploy/example-deployment.png)
 
-Kostnaden för Blockchain arbetsstationen är en mängd av kostnaden för underliggande Azure-tjänster. Information om priser för Azure-tjänster kan beräknas med hjälp av den [prisnivå Kalkylatorn](https://azure.microsoft.com/pricing/calculator/).
+Kostnaden för Blockchain Workbench är en aggregering av kostnaden för de underliggande Azure-tjänsterna. Information om priser för Azure-tjänster kan beräknas med hjälp av den [priskalkylatorn](https://azure.microsoft.com/pricing/calculator/).
 
-Azure Blockchain arbetsstationen kräver flera förutsättningar före distributionen. Kraven inkluderar Azure AD-konfigurationen och tillämpningen registreringar.
+Azure Blockchain Workbench kräver flera förutsättningar före distributionen. Kraven är Azure AD-konfiguration och programmet registreringar.
 
-### <a name="blockchain-workbench-api-app-registration"></a>Registrering för Blockchain arbetsstationen API-app
+### <a name="blockchain-workbench-api-app-registration"></a>Blockchain Workbench API app-registrering
 
-Distribution av Blockchain Workbench kräver registrering av Azure AD-program. Du behöver en Azure Active Directory (Azure AD)-klient för att registrera appen. Du kan använda en befintlig klient eller skapa en ny klient. Om du använder en befintlig Azure AD-klient behöver behörighet att registrera program och bevilja behörigheter för Graph API i en Azure AD-klient. Om du inte har tillräcklig behörighet i en befintlig Azure AD-klient kan du skapa en ny klient. 
+Blockchain Workbench distributionen kräver registrering av en Azure AD-program. Du behöver en Azure Active Directory (Azure AD)-klient för att registrera appen. Du kan använda en befintlig klient eller skapa en ny klient. Om du använder en befintlig Azure AD-klient måste tillräcklig behörighet för att registrera program och bevilja Graph API i en Azure AD-klient. Om du inte har tillräcklig behörighet i en befintlig Azure AD-klient kan du skapa en ny klient. 
 
 > [!IMPORTANT]
-> Arbetsstationen behöver inte distribueras på samma klientorganisation som du använder för att registrera en Azure AD-program. Arbetsstationen måste distribueras i en klient där du har tillräcklig behörighet för att distribuera resurser. Mer information om Azure AD-klienter finns [skaffa en Active Directory-klient](../active-directory/develop/active-directory-howto-tenant.md) och [integrera program med Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
+> Workbench behöver inte distribueras i samma klient som du använder för att registrera ett Azure AD-program. Workbench måste distribueras i en klient där du har tillräcklig behörighet för att distribuera resurser. Mer information om Azure AD-klienter finns i [så här hämtar du en Active Directory-klient](../active-directory/develop/active-directory-howto-tenant.md) och [integrera program med Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj ditt konto i övre högra hörn och växla till önskad Azure AD-klient. Klienten måste vara den prenumerationsadministratör innehavare för prenumerationen där arbetsstationen distribueras och du har behörighet att registrera program.
-3. I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** service. Välj **App registreringar** > **nya appregistrering**.
+2. Välj ditt konto i övre högra hörnet och växla till den önskade Azure AD-klient. Klienten bör vara den prenumerationsadministratör klient för prenumerationen där Workbench har distribuerats och du har tillräcklig behörighet för att registrera program.
+3. I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** service. Välj **appregistreringar** > **ny programregistrering**.
 
     ![Appregistrering](media/blockchain-workbench-deploy/app-registration.png)
 
@@ -69,15 +69,15 @@ Distribution av Blockchain Workbench kräver registrering av Azure AD-program. D
     |Programtyp |Webbapp/API|
     |Inloggnings-URL | `https://blockchainapi` |
 
-5. Välj **skapa** registrera Azure AD-programmet.
+5. Välj **skapa** att registrera Azure AD-programmet.
 
-### <a name="modify-application-manifest"></a>Ändra programmanifestet
+### <a name="modify-application-manifest"></a>Ändra programmanifest
 
-Därefter måste du ändra programmanifestet att använda programmet roller i Azure AD för att ange Blockchain arbetsstationen administratörer.  Läs mer om applikationsmanifest [Azure Active Directory-programmanifestet](../active-directory/develop/active-directory-application-manifest.md).
+Därefter måste du ändra applikationsmanifestet om du vill använda programroller i Azure AD för att ange Blockchain Workbench administratörer.  Läs mer om programmanifesten [Azure Active Directorys programmanifest](../active-directory/develop/active-directory-application-manifest.md).
 
 1. Programmet som du har registrerat, Välj **Manifest** i informationsfönstret registrerade programmet.
-2. Generera ett GUID. Du kan generera ett GUID med PowerShell-kommando [guid]:: NewGuid () eller cmdlet New-GUID. Ett annat alternativ är att använda en GUID generator webbplats.
-3. Du kommer att uppdatera den **appRoles** avsnitt i manifestet. Välj i rutan Redigera manifestet **redigera** och Ersätt `"appRoles": []` med den angivna JSON. Se till att ersätta värdet för den **id** med det GUID som du genererade. 
+2. Generera ett GUID. Du kan generera ett GUID med hjälp av PowerShell-kommandot [guid]:: NewGuid () eller cmdlet New-GUID. Ett annat alternativ är att använda en GUID generator-webbplats.
+3. Du kommer att uppdatera den **appRoles** avsnittet i manifestet. I fönstret Redigera manifest väljer **redigera** och Ersätt `"appRoles": []` med den angivna JSON. Se till att ersätta värdet för den **id** fältet med det GUID som du skapade. 
 
     ``` json
     "appRoles": [
@@ -98,35 +98,35 @@ Därefter måste du ändra programmanifestet att använda programmet roller i Az
     ![Redigera manifest](media/blockchain-workbench-deploy/edit-manifest.png)
 
     > [!IMPORTANT]
-    > Värdet **administratör** krävs för att identifiera Blockchain arbetsstationen administratörer.
+    > Värdet **administratör** krävs för att identifiera Blockchain Workbench administratörer.
 
-4.  Klicka på **spara** spara application manifest ändringarna.
+4.  Klicka på **spara** att spara manifestet programändringar.
 
 ### <a name="add-graph-api-required-permissions"></a>Lägg till behörigheter för Graph API krävs
 
-API-programmet måste begära behörighet för användaren att få åtkomst till katalogen. Ange följande behörighet för API-program:
+API-programmet måste begära behörighet från användaren att gå till katalogen. Ange följande behörighet för API-program:
 
-1. Välj i appregistrering Blockchain API **Inställningar > nödvändiga behörigheter > Välj en API > Microsoft Graph**.
+1. Välj i appregistreringen Blockchain API **Inställningar > nödvändiga behörigheter > Välj en API > Microsoft Graph**.
 
     ![Välj ett API](media/blockchain-workbench-deploy/client-app-select-api.png)
 
     Klicka på **Välj**.
 
-2. I **Aktivera åtkomst** under **programbehörigheter**, Välj **fullständiga profiler för alla användare att läsa**.
+2. I **Aktivera åtkomst** under **programbehörigheter**, Välj **läsa fullständiga profiler för alla användare**.
 
     ![Aktivera åtkomst](media/blockchain-workbench-deploy/client-app-read-perms.png)
 
-    Klicka på **Välj** Klicka **klar**.
+    Klicka på **Välj** klickar **klar**.
 
-3. I **nödvändiga behörigheter**väljer **bevilja med** Välj **Ja** för verifiering prompten.
+3. I **nödvändiga behörigheter**väljer **bevilja behörigheter** därefter **Ja** för verifiering prompten.
 
    ![Bevilja behörigheter](media/blockchain-workbench-deploy/client-app-grant-permissions.png)
 
-   Bevilja behörighet tillåter Blockchain arbetsstationen för att få åtkomst till användare i katalogen. Skrivskyddad behörighet krävs för att söka efter och lägga till medlemmar i Blockchain arbetsstationen.
+   Bevilja behörighet kan Blockchain Workbench att få åtkomst till användare i katalogen. Skrivskyddad behörighet krävs för att söka efter och lägga till medlemmar i Blockchain Workbench.
 
-### <a name="add-graph-api-key-to-application"></a>Lägga till Graph API-nyckel i programmet
+### <a name="add-graph-api-key-to-application"></a>Lägg till Graph API-nyckel till program
 
-Blockchain arbetsstationen använder Azure AD som hanteringssystemet huvudsakliga identiteten för användare som interagerar med blockchain program. Du måste lägga till en snabbtangent för Blockchain arbetsstationen för att få åtkomst till Azure AD och hämta användarinformation, till exempel namn och e-postmeddelanden. Blockchain arbetsstationen använder nyckeln för att autentisera med Azure AD.
+Blockchain Workbench använder Azure AD som hanteringssystemet huvudsakliga identitet för användare som interagerar med blockchain-program. Du måste lägga till en åtkomstnyckel för Blockchain Workbench åtkomst till Azure AD och hämta användarinformation, till exempel namn och e-postmeddelanden. Blockchain Workbench använder för att autentisera med Azure AD.
 
 1. Programmet som du har registrerat, Välj **inställningar** i informationsfönstret registrerade programmet.
 2. Välj **Nycklar**.
@@ -137,141 +137,161 @@ Blockchain arbetsstationen använder Azure AD som hanteringssystemet huvudsaklig
     |Inställning  | Värde  |
     |---------|---------|
     | Beskrivning | `Service` |
-    | Förfaller | Välj en giltighetstiden |
+    | Förfaller | Välj en giltighetstid |
 
 4. Välj **Spara**. 
-5. Kopiera värdet för nyckeln och spara den för senare. Du behöver den för distribution.
+5. Kopiera värdet för nyckeln och lagra den för senare. Du behöver den för distribution.
 
     > [!IMPORTANT]
-    >  Om du inte sparar nyckeln för distributionen av behöver du skapa en ny nyckel. Du kan inte hämta värdet för nyckeln från portalen senare.
+    >  Om du inte har sparat nyckeln för distributionen, kommer du behöva skapa en ny nyckel. Du kan inte hämta nyckelvärdet från portalen senare.
 
 ### <a name="get-application-id"></a>Hämta program-ID
 
 Program-ID och klient information krävs för distributionen. Samla in och lagra information för användning under distributionen.
 
 1. Programmet som du har registrerat, Välj **inställningar** > **egenskaper**.
-2.  I den **egenskaper** rutan, kopiera och store följande värden för senare användning under distributionen.
+2.  I den **egenskaper** fönstret, kopiera och store följande värden för senare användning under distributionen.
 
     ![Egenskaper för API-app](media/blockchain-workbench-deploy/app-properties.png)
 
     | Inställningen för att lagra  | Använda i distributionen |
     |------------------|-------------------|
-    | Program-ID:t | Installationsprogram för Azure Active Directory > program-ID |
+    | Program-ID:t | Konfigurationen av Azure Active Directory > program-ID |
 
 ### <a name="get-tenant-domain-name"></a>Hämta klient domännamnet
 
-Samla in och lagra domännamnet för Active Directory-klient där programmen har registrerats. 
+Samla in och lagra domännamnet för Active Directory-klient där programmen registreras. 
 
-I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** service. Välj **anpassade domännamn**. Kopiera och spara namnet på en domän.
+I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** service. Välj **Egna domännamn**. Kopiera och lagra domännamnet.
 
 ![Domännamn](media/blockchain-workbench-deploy/domain-name.png)
 
-## <a name="deploy-blockchain-workbench"></a>Distribuera Blockchain arbetsstationen
+## <a name="deploy-blockchain-workbench"></a>Distribuera Blockchain Workbench
 
-När de nödvändiga steg har utförts, är du redo att distribuera Blockchain arbetsstationen. Följande avsnitt beskriver hur du distribuerar ramen.
+När nödvändiga steg har slutförts, är du redo att distribuera Blockchain Workbench. I följande avsnitt beskrivs hur du distribuerar ramen.
 
 1.  Logga in på [Azure Portal](https://portal.azure.com).
-2.  Välj ditt konto i övre högra hörnet och växla till önskad Azure AD-klient där du vill distribuera Azure Blockchain arbetsstationen.
-3.  I den vänstra rutan, Välj **skapar du en resurs**. Sök efter `Azure Blockchain Workbench` i den **söka Marketplace** sökfältet. 
+2.  Välj ditt konto i övre högra hörnet och växla till den önskade Azure AD-klient där du vill distribuera Azure Blockchain Workbench.
+3.  I den vänstra rutan väljer **skapa en resurs**. Sök efter `Azure Blockchain Workbench` i den **Sök på Marketplace** sökfältet. 
 
     ![Marketplace-sökfältet](media/blockchain-workbench-deploy/marketplace-search-bar.png)
 
-4.  Välj **Azure Blockchain arbetsstationen**.
+4.  Välj **Azure Blockchain Workbench**.
 
     ![Marketplace-sökresultat](media/blockchain-workbench-deploy/marketplace-search-results.png)
 
 4.  Välj **Skapa**.
 5.  Slutför de grundläggande inställningarna.
 
-    ![Skapa Azure Blockchain arbetsstationen](media/blockchain-workbench-deploy/blockchain-workbench-settings-basic.png)
+    ![Skapa Azure Blockchain Workbench](media/blockchain-workbench-deploy/blockchain-workbench-settings-basic.png)
 
     | Inställning | Beskrivning  |
     |---------|--------------|
     | Resurs-prefix | Kort Unik identifierare för din distribution. Det här värdet används som bas för namngivning av resurser. |
-    | Användarnamn för VM | Användarnamnet används som administratör för alla virtuella datorer (VM). |
-    | Autentiseringstyp | Välj om du vill använda ett lösenord eller nyckeln för att ansluta till virtuella datorer. |
-    | Lösenord | Lösenordet som används för att ansluta till virtuella datorer. |
-    | SSH | Använd en offentlig RSA-nyckel i den format för en rad som början med **ssh-rsa** eller använda PEM-format med flera rader. Du kan skapa SSH-nycklar med hjälp av `ssh-keygen` på Linux och OS X eller genom att använda PuTTYGen i Windows. Mer information om SSH-nycklar finns [hur du använder SSH-nycklar med Windows på Azure](../virtual-machines/linux/ssh-from-windows.md). |
-    | Lösenord för databas / Bekräfta lösenord | Ange lösenordet som ska användas för åtkomst till databasen som skapats som en del av distributionen. |
-    | Region för distribution | Ange var du vill distribuera Blockchain arbetsstationen resurser. För bästa tillgänglighet ska matcha den **plats** inställningen. |
+    | VM-användarnamn | Användarnamnet används som administratör för alla virtuella datorer (VM). |
+    | Autentiseringstyp | Välj om du vill använda ett lösenord eller nyckel för att ansluta till virtuella datorer. |
+    | Lösenord | Lösenordet används för att ansluta till virtuella datorer. |
+    | SSH | Använda en offentlig RSA-nyckel i den enradigt format som början med **ssh-rsa** eller Använd flerradigt PEM-format. Du kan generera SSH-nycklar med `ssh-keygen` på Linux och OS X eller genom att använda PuTTYGen i Windows. Mer information om SSH-nycklar finns i [hur du använder SSH-nycklar med Windows på Azure](../virtual-machines/linux/ssh-from-windows.md). |
+    | Lösenord för databas / Bekräfta lösenord | Ange lösenord ska användas för åtkomst till databasen skapas som en del av distributionen. |
+    | Distributionsregionen | Ange var du vill distribuera Blockchain Workbench resurser. För bästa tillgänglighet ska matcha den **plats** inställningen. |
     | Prenumeration | Ange Azure-prenumeration som du vill använda för din distribution. |
-    | Resursgrupper | Skapa en ny resursgrupp genom att välja **Skapa nytt** och ange en unik resursgruppens namn. |
+    | Resursgrupper | Skapa en ny resursgrupp genom att välja **Skapa nytt** och ange ett unikt Resursgruppsnamn. |
     | Plats | Ange den region som du vill distribuera ramen. |
 
-6.  Välj **OK** Slutför konfigurationsavsnittet grundläggande inställningen.
+6.  Välj **OK** ska slutföras i inställningen grundläggande konfigurationsavsnittet.
 
-7.  Slutför den **installationsprogram för Azure Active Directory**.
+7.  Slutför den **Azure Active Directory-installationen**.
 
-    ![Installationsprogram för Azure AD](media/blockchain-workbench-deploy/blockchain-workbench-settings-aad.png)
-
-    | Inställning | Beskrivning  |
-    |---------|--------------|
-    | Domännamn | Använda Azure AD-klient som samlas in i den [Get klientdomännamn](#get-tenant-domain-name) nödvändiga avsnittet. |
-    | Program-ID:t | Använd det program-ID från app klientregistrering Blockchain som samlas in i den [hämta program-ID](#get-application-id) nödvändiga avsnittet. |
-    | Programnyckel | Använd nyckeln för programmet från Blockchain app klientregistrering som samlas in i den [lägga till Graph API-nyckeln som programmet](#add-graph-api-key-to-application) nödvändiga avsnittet. |
-
-
-8.  Klicka på **OK** Slutför konfigurationsavsnittet Azure AD-parametrar.
-
-9.  Slutför den **storlek och prestanda** inställningar.
-
-    ![Inställningarna för nätverk och prestanda](media/blockchain-workbench-deploy/blockchain-workbench-settings-network.png)
+    ![Konfigurationen av Azure AD](media/blockchain-workbench-deploy/blockchain-workbench-settings-aad.png)
 
     | Inställning | Beskrivning  |
     |---------|--------------|
-    | Antalet blockchain noder | Välj antal Ethereum PoA verifieraren noder som ska distribueras i nätverket. |
-    | Lagringsprestanda | Välj den önskade Virtuella lagringsprestanda för nätverket blockchain. |
-    | Virtuell datorstorlek | Välj den önskade VM-storleken för nätverket blockchain. |
+    | Domännamn | Använd Azure AD-klient som samlas in i den [Get klientdomännamn](#get-tenant-domain-name) nödvändiga avsnittet. |
+    | Program-ID:t | Använd program-ID från app klientregistrering Blockchain som samlas in i den [hämta program-ID](#get-application-id) nödvändiga avsnittet. |
+    | Programnyckel | Använda programnyckeln från Blockchain app klientregistrering som samlas in i den [lägga till Graph API-nyckel till programmet](#add-graph-api-key-to-application) nödvändiga avsnittet. |
 
-10. Välj **OK** Slutför avsnittet network storlek och prestanda.
 
-11. Slutför den **Azure-Monitor** inställningar.
+8.  Klicka på **OK** att slutföra avsnittet för konfiguration av Azure AD-parametrar.
+
+9.  I **nätverksinställningar och prestanda**, Välj om du vill skapa ett nytt blockchain-nätverk eller Använd ett befintligt proof-of-authority blockchain-nätverk.
+
+    För **Skapa nytt**:
+
+    Den *skapa en ny* alternativet skapas en uppsättning Ethereum Proof-of Authority (PoA)-noder i en enda medlem prenumeration. 
+
+    ![Nätverksinställningar och prestanda](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-new.png)
+
+    | Inställning | Beskrivning  |
+    |---------|--------------|
+    | Antalet blockchain-noder | Välj antalet Ethereum PoA verifieraren noder som ska distribueras i nätverket. |
+    | Lagringsprestanda | Välj önskad VM-lagringsprestanda för nätverket blockchain. |
+    | Virtuell datorstorlek | Välj önskad storlek för nätverket blockchain. |
+
+    För **Använd befintlig**:
+
+    Den *Använd befintlig* gör det möjligt att ange en Ethereum Proof-of-Authority (PoA) blockchain-nätverk. Slutpunkter har följande krav.
+
+    * Slutpunkten måste vara ett Ethereum Proof-of-Authority (PoA) blockchain-nätverk.
+    * Slutpunkten måste vara offentligt tillgänglig över nätverket.
+    * PoA blockchain nätverket ska konfigureras för att ha gas priset noll (Obs: Blockchain Workbench konton är inte finansieras. Om pengar måste, misslyckas transaktioner).
+
+    ![Nätverksinställningar och prestanda](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-existing.png)
+
+    | Inställning | Beskrivning  |
+    |---------|--------------|
+    | Ethereum RPC-slutpunkt | Ange RPC-slutpunkten för ett befintligt PoA blockchain nätverk. Slutpunkten som börjar med http:// och slutar med ett portnummer. Till exempel, `http://contoso-chain.onmicrosoft.com:8545` |
+    | Lagringsprestanda | Välj önskad VM-lagringsprestanda för nätverket blockchain. |
+    | Virtuell datorstorlek | Välj önskad storlek för nätverket blockchain. |
+
+10. Välj **OK** Slutför nätverksinställningar och prestanda.
+
+11. Slutför den **Azure Monitor** inställningar.
 
     ![Azure Monitor](media/blockchain-workbench-deploy/blockchain-workbench-settings-oms.png)
 
     | Inställning | Beskrivning  |
     |---------|--------------|
-    | Övervakning | Välj om du vill aktivera Azure-Monitor att övervaka nätverket blockchain |
-    | Ansluta till befintliga logganalys-instans | Välj om du vill använda en befintlig logganalys-instans eller skapa en ny. Om du använder en befintlig instans, ange ditt arbetsyte-ID och primärnyckel. |
+    | Övervakning | Välj om du vill aktivera Azure Monitor för att övervaka nätverket blockchain |
+    | Anslut till befintliga Log Analytics-instans | Välj om du vill använda en befintlig Log Analytics-instans eller skapa en ny. Om du använder en befintlig instans anger du ditt arbetsyte-ID och den primära nyckeln. |
 
-12. Klicka på **OK** Slutför Azure-Monitor-avsnittet.
+12. Klicka på **OK** att slutföra avsnittet Azure Monitor.
 
-13. Granska sammanfattningen för att kontrollera att alla parametrar är korrekta.
+13. Granska sammanfattningen för att kontrollera parametrarna är korrekta.
 
     ![Sammanfattning](media/blockchain-workbench-deploy/blockchain-workbench-summary.png)
 
-14. Välj **skapa** att acceptera villkoren och distribuera din Azure Blockchain arbetsstationen.
+14. Välj **skapa** Godkänn villkoren och distribuera Azure Blockchain Workbench.
 
-Distributionen kan ta upp till 90 minuter. Du kan använda Azure-portalen för att övervaka förloppet. I den nya resursgruppen väljer **distributioner > Översikt** att se status för distribuerade artefakter.
+Distributionen kan ta upp till 90 minuter. Du kan använda Azure-portalen för att övervaka förloppet. I den nyligen skapade resursgruppen, Välj **distributioner > Översikt** att se status för de distribuerade artefakterna.
 
-## <a name="blockchain-workbench-web-url"></a>Webbadress för Blockchain arbetsstationen
+## <a name="blockchain-workbench-web-url"></a>Webbadress till Blockchain Workbench
 
-När distributionen av Blockchain arbetsstationen är klar innehåller en ny resursgrupp resurserna Blockchain arbetsstationen. Blockchain arbetsstationen tjänster kan nås via en URL. Följande steg visar hur du hämtar Webbadressen av distribuerade framework.
+När distributionen av Blockchain Workbench är klar innehåller din Blockchain Workbench resurser i en ny resursgrupp. Blockchain Workbench tjänster kan nås via en URL. Följande steg visar hur du hämtar Webb-URL för den distribuerade framework.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. I det vänstra navigeringsfönstret väljer **resursgrupper**
-3. Välj resursgruppens namn du angav när du distribuerar Blockchain arbetsstationen.
-4. Klicka på den **typen** kolumnrubrik för att sortera listan efter typ i alfabetisk ordning.
-5. Det finns två resurser med typen **Apptjänst**. Välj en resurs av typen **Apptjänst** *utan* den ”-api” suffix.
+3. Välj resursgruppens namn du angav när du distribuerar Blockchain Workbench.
+4. Klicka på den **typ** kolumnrubrik för att sortera listan i alfabetisk ordning efter typ.
+5. Det finns två resurser av typen **Apptjänst**. Välj resurs av typen **Apptjänst** *utan* den ”-api” suffix.
 
     ![App service-lista](media/blockchain-workbench-deploy/resource-group-list.png)
 
-6.  I App Service **Essentials** avsnittet, kopiera den **URL** -värde som representerar Webbadressen till din distribuerade Blockchain arbetsstationen.
+6.  I App Service **Essentials** avsnittet, kopiera den **URL** värde, som representerar webbtjänstens URL till dina distribuerade Blockchain Workbench.
 
     ![App service essentials](media/blockchain-workbench-deploy/app-service.png)
 
-Om du vill associera ett anpassat domännamn med Blockchain arbetsstationen finns [konfigurera ett anpassat domännamn för en webbapp i Azure App Service med Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md).
+Om du vill associera ett anpassat domännamn med Blockchain Workbench, se [konfigurera ett anpassat domännamn för en webbapp i Azure App Service med Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md).
 
-## <a name="configuring-the-reply-url"></a>Konfigurera Reply-URL
+## <a name="configuring-the-reply-url"></a>Konfigurera svars-URL
 
-När Azure Blockchain arbetsstationen har distribuerats, nästa steg är att kontrollera att klientprogrammet Azure Active Directory (AD Azure) har registrerats på rätt **Reply URL** i distribuerade Blockchain arbetsstationen Webb-URL.
+När Azure Blockchain Workbench har distribuerats, nästa steg är att kontrollera att klientprogrammet Azure Active Directory (AD Azure) registreras till rätt **svars-URL** av distribuerade Blockchain Workbench webbadress.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrollera att du är i klienten där du har registrerat Azure AD-klientprogrammet.
+2. Kontrollera att du är i klient där du registrerade Azure AD-klientprogram.
 3. I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** service. Välj **Appregistreringar**.
-4. Välj Azure AD-client-program som du har registrerat i avsnittet förutsättningar.
-5. Välj **Inställningar > svara URL: er**.
-6. Ange huvudsakliga Webbadressen för Azure Blockchain arbetsstationen distributionen som du hämtade i den **hämta Webbadress för Azure Blockchain arbetsstationen** avsnitt. Svars-URL med prefixet `https://`. Till exempel, `https://myblockchain2-7v75.azurewebsites.net`
+4. Välj Azure AD-klientprogram som du registrerade i avsnittet förutsättningar.
+5. Välj **Inställningar > svars-URL: er**.
+6. Ange huvudsakliga Webb-URL för Azure Blockchain Workbench-distribution som du hämtade i den **hämta Webbadress för Azure Blockchain Workbench** avsnittet. Svars-URL har prefixet `https://`. Till exempel, `https://myblockchain2-7v75.azurewebsites.net`
 
     ![Svars-URL:er](media/blockchain-workbench-deploy/configure-reply-url.png)
 
@@ -279,16 +299,16 @@ När Azure Blockchain arbetsstationen har distribuerats, nästa steg är att kon
 
 ## <a name="remove-a-deployment"></a>Ta bort en distribution
 
-När en distribution inte längre behövs, kan du ta bort en distribution genom att ta bort resursgruppen Blockchain arbetsstationen.
+När en distribution inte längre behövs kan du ta bort en distribution genom att ta bort resursgruppen Blockchain Workbench.
 
-1. I Azure-portalen går du till **resursgruppen** i det vänstra navigeringsfönstret och välj den resursgrupp som du vill ta bort. 
-2. Välj **Ta bort resursgrupp**. Bekräfta borttagningen genom att ange resursgruppens namn och välj **ta bort**.
+1. I Azure-portalen går du till **resursgrupp** i det vänstra navigeringsfönstret och välj den resursgrupp som du vill ta bort. 
+2. Välj **Ta bort resursgrupp**. Kontrollera borttagningen genom att ange resursgruppens namn och välj **ta bort**.
 
     ![Ta bort resursgrupp](media/blockchain-workbench-deploy/delete-resource-group.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har distribuerat Azure Blockchain arbetsstationen i den här artikeln. Information om hur du skapar ett program för blockchain fortsätta i nästa artikel.
+I den här artikeln med Azure Blockchain Workbench. Fortsätt till nästa artikel om anvisningar om du vill veta hur du skapar en blockchain-program.
 
 > [!div class="nextstepaction"]
-> [Skapa en blockchain program i Azure Blockchain arbetsstationen](blockchain-workbench-create-app.md)
+> [Skapa ett blockchain-program i Azure Blockchain Workbench](blockchain-workbench-create-app.md)

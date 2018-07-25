@@ -1,10 +1,10 @@
 ---
 title: Konfigurera Python med Azure App Service Web Apps
-description: Den här självstudiekursen beskrivs alternativ för redigering och konfigurerar en enkel webbserver Gateway Interface (WSGI) kompatibla Python-program i Azure App Service Web Apps.
+description: Den här självstudien beskrivs alternativ för att redigera och konfigurera en grundläggande webbserver wsgi (kompatibilitet Gateway Interface) Python-program på Azure App Service Web Apps.
 services: app-service
 documentationcenter: python
 tags: python
-author: huguesv
+author: cephalin
 manager: erikre
 editor: ''
 ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
@@ -15,37 +15,39 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 32d9cd6c42387b67881877a1165dfcbcaef405ba
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f1859660d2370093ab582c417233b25d363ce952
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598648"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39228181"
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Konfigurera Python med Azure App Service Web Apps
-Den här självstudiekursen beskrivs alternativ för redigering och konfigurera en grundläggande Web Server Gateway Interface (WSGI) kompatibla Python-program på [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
+Den här självstudien beskrivs alternativ för att redigera och konfigurera ett grundläggande Web Server (wsgi kompatibilitet Gateway Interface) Python-program på [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Beskriver ytterligare funktioner för Git-distribution, till exempel virtuell miljö och installationen med hjälp av requirements.txt.
+Det beskriver ytterligare funktioner för Git-distribution, till exempel virtuell miljö och installera paket med hjälp av requirements.txt.
 
 ## <a name="bottle-django-or-flask"></a>Bottle, Django eller Flask?
-Azure Marketplace innehåller mallar för Bottle, Django och Flask ramverk. Om du skapar din första webbapp i Azure App Service kan skapa du en snabbt från Azure portal:
+Azure Marketplace innehåller mallar för Bottle, Django och Flask-ramverk. Om du utvecklar din första webbapp i Azure App Service kan du skapa en snabbt från Azure portal:
 
-* [Webbprogram med Bottle](https://portal.azure.com/#create/PTVS.Bottle)
-* [Webbprogram med Django](https://portal.azure.com/#create/PTVS.Django)
-* [Webbprogram med Flask på Linux](https://portal.azure.com/#create/PTVS.FlaskLinux)
+* [Webbapp med Bottle på Linux](https://portal.azure.com/#create/PTVS.BottleLinux)
+* [Webbapp med Django i Linux](https://portal.azure.com/#create/PTVS.DjangoLinux)
+* [Webbapp med Flask på Linux](https://portal.azure.com/#create/PTVS.FlaskLinux)
+
+Eller så kan du [utforska Azure Marketplace själv](https://portal.azure.com/#create/hub).
 
 ## <a name="web-app-creation-on-azure-portal"></a>Skapa en webbapp i Azure-portalen
-Den här kursen förutsätter att en befintlig Azure-prenumeration och åtkomst till Azure-portalen.
+Den här självstudien förutsätter att en befintlig Azure-prenumeration och åtkomst till Azure-portalen.
 
-Om du inte har en befintlig webbapp, kan du skapa en från den [Azure-portalen](https://portal.azure.com). I det övre vänstra hörnet, klickar du på **skapar du en resurs** > **webb + mobilt** > **webbapp**.
+Om du inte har en befintlig webbapp, kan du skapa en från den [Azure-portalen](https://portal.azure.com). I det övre vänstra hörnet, klickar du på **skapa en resurs** > **webb + mobilt** > **webbapp**.
 
 ## <a name="git-publishing"></a>Git-publicering
-Konfigurera Git-publicering för den nya webbappen genom att följa anvisningarna i [Lokal Git-distribution till Azure App Service](app-service-deploy-local-git.md). Den här kursen använder Git för att skapa, hantera och publicera Python-webbapp till Azure App Service.
+Konfigurera Git-publicering för den nya webbappen genom att följa anvisningarna i [Lokal Git-distribution till Azure App Service](app-service-deploy-local-git.md). Den här självstudien använder Git för att skapa, hantera och publicera ditt Python-webbapp till Azure App Service.
 
-När Git-publicering har ställts in, skapas en Git-lagringsplats och som är kopplad till ditt webbprogram. Databasens URL visas och kan användas för att skicka data från den lokala utvecklingsmiljön till molnet. Kontrollera att en Git-klient installeras även för att publicera program via Git och använda anvisningarna för att push-webbinnehållet app till Azure App Service.
+När Git-publicering har ställts in, skapas en Git-lagringsplats och som är associerade med ditt webbprogram. URL för den databasen visas och kan användas för att skicka data från den lokala utvecklingsmiljön till molnet. Kontrollera att en Git-klient installeras även för att publicera program via Git och använda anvisningarna för att skicka ditt webbinnehåll för app till Azure App Service.
 
 ## <a name="application-overview"></a>Programöversikt
-Följande filer skapas i nästa avsnitt. De ska placeras i roten på Git-lagringsplats.
+I nästa avsnitt skapas följande filer. De ska placeras i roten för Git-lagringsplats.
 
     app.py
     requirements.txt
@@ -54,8 +56,8 @@ Följande filer skapas i nästa avsnitt. De ska placeras i roten på Git-lagring
     ptvs_virtualenv_proxy.py
 
 
-## <a name="wsgi-handler"></a>WSGI hanterare
-WSGI är en Python-standard som beskrivs av [program 3333](http://www.python.org/dev/peps/pep-3333/) definierar ett gränssnitt mellan webbservern och Python. Det ger en standardiserad gränssnitt för att skriva olika webbaserade program och ramverk som använder Python. Populära Python web ramverk använder dag WSGI. Azure App Service Web Apps får du stöd för ramverk; Dessutom kan avancerade användare även skapa egna så länge anpassade hanteraren följer riktlinjer för WSGI-specifikationen.
+## <a name="wsgi-handler"></a>Wsgi kompatibilitet hanterare
+Wsgi kompatibilitet är en Python-standard som beskrivs av [program 3333](http://www.python.org/dev/peps/pep-3333/) definierar ett gränssnitt mellan webbservern och Python. Det ger en standardiserad gränssnitt för att skriva olika webbaserade program och ramverk med hjälp av Python. Populära Python-webbramverk använda idag wsgi kompatibilitet. Azure App Service Web Apps ger dig stöd för ramverk; Dessutom kan skapa avancerade användare även egna så länge som anpassade hanteraren följer riktlinjerna som wsgi kompatibilitet-specifikationen.
 
 Här är ett exempel på en `app.py` som definierar en anpassad hanterare:
 
@@ -72,19 +74,19 @@ Här är ett exempel på en `app.py` som definierar en anpassad hanterare:
         httpd = make_server('localhost', 5555, wsgi_app)
         httpd.serve_forever()
 
-Du kan köra programmet lokalt med `python app.py`, bläddra sedan till `http://localhost:5555` i webbläsaren.
+Du kan köra programmet lokalt med `python app.py`, bläddra sedan till `http://localhost:5555` i din webbläsare.
 
 ## <a name="virtual-environment"></a>Virtuell miljö
-Även om föregående exempel appen inte kräver några externa paket, är det troligt att ditt program kräver vissa.
+Även om föregående exempelappen inte kräver några externa paket, är det troligt att ditt program kräver vissa.
 
-För att hantera externa paketberoenden, stöder Azure Git-distribution skapandet av virtuella miljöer.
+För att hantera externt paketberoenden, stöder skapandet av virtuella miljöer i Azure Git-distribution.
 
-När Azure upptäcker en requirements.txt i Lagringsplatsens rot, skapas automatiskt en virtuell miljö som heter `env`. Det här inträffar bara på den första distributionen eller under en distribution när den valda Python runtime har ändrats.
+När Azure upptäcker ett requirements.txt i Lagringsplatsens rot, skapas automatiskt en virtuell miljö med namnet `env`. Det här inträffar bara på den första distributionen eller under en distribution när den valda Python runtime har ändrats.
 
-Du förmodligen vill skapa en virtuell miljö lokalt för utveckling, men inkludera inte den i Git-lagringsplatsen.
+Du förmodligen vill skapa en virtuell miljö lokalt för utveckling, men inkludera inte den i din Git-lagringsplats.
 
 ## <a name="package-management"></a>Pakethantering
-Paket som anges i requirements.txt installeras automatiskt i den virtuella miljön med hjälp av pip. Detta sker vid varje distribution, men pip hoppar över installationen om ett paket har redan installerats.
+Paket som listas i requirements.txt installeras automatiskt i den virtuella miljön med hjälp av pip. Detta sker vid varje distribution, men pip hoppar över installationen om ett paket är redan installerad.
 
 Exempel `requirements.txt`:
 
@@ -100,11 +102,11 @@ Exempel `runtime.txt`:
 
 
 ## <a name="webconfig"></a>Web.config
-Du måste skapa en web.config-fil om du vill ange hur servern ska hantera begäranden.
+Du behöver skapa en web.config-fil om du vill ange hur servern ska hantera begäranden.
 
-Om du har en web.x.y.config-fil i databasen, där x.y matchar den valda Python-körningen, sedan kopieras Azure automatiskt filen Web.config.
+Om du har en web.x.y.config-fil i din lagringsplats där x.y matchar den valda Python-körningen, sedan kopierar Azure automatiskt filen Web.config.
 
-I följande exempel web.config förlitar sig på en virtuell miljö proxyskript som beskrivs i nästa avsnitt.  De fungerar med WSGI hanteraren används i exemplet `app.py` ovan.
+I följande exempel web.config är beroende av en virtuell miljö proxyskript som beskrivs i nästa avsnitt.  De fungerar med wsgi kompatibilitet hanteraren som används i exemplet `app.py` ovan.
 
 Exempel `web.config` för Python 2.7:
 
@@ -206,14 +208,14 @@ Exempel `web.config` för Python 3.4:
 
 Statiska filer hanteras av webbservern direkt, utan att gå via Python-kod för bättre prestanda.
 
-I föregående exempel, ska platsen för de statiska filerna på disk matcha plats i URL: en. Detta innebär att en begäran om `http://pythonapp.azurewebsites.net/static/site.css` fungerar filen på disken på `\static\site.css`.
+I föregående exempel, måste platsen för de statiska filerna på disk matcha platsen i URL: en. Detta innebär att en begäran om `http://pythonapp.azurewebsites.net/static/site.css` fungerar filen på disken på `\static\site.css`.
 
-`WSGI_ALT_VIRTUALENV_HANDLER` är där du anger WSGI-hanteraren. I föregående exempel, den har `app.wsgi_app` eftersom hanteraren är en funktion som heter `wsgi_app` i `app.py` i rotmappen.
+`WSGI_ALT_VIRTUALENV_HANDLER` är där du anger wsgi kompatibilitet hanteraren. I föregående exempel har `app.wsgi_app` eftersom hanteraren är en funktion som heter `wsgi_app` i `app.py` i rotmappen.
 
-`PYTHONPATH` kan anpassas, men om du installerar alla beroenden i den virtuella miljön genom att ange dem i requirements.txt, du får inte ändra den.
+`PYTHONPATH` kan anpassas, men om du installerar alla beroenden i den virtuella miljön genom att ange dem i requirements.txt, du bör inte ändra den.
 
 ## <a name="virtual-environment-proxy"></a>Virtuell miljö Proxy
-Följande skript för att hämta WSGI-hanteraren, aktivera de virtuella miljön och logga fel. Den är avsedd att vara generisk och används utan ändringar.
+Följande skript används för att hämta wsgi kompatibilitet-hanteraren, aktiverar de virtuella miljö och logga fel. Det är avsett att vara Allmänt och används utan ändringar.
 
 Innehållet i `ptvs_virtualenv_proxy.py`:
 
@@ -350,8 +352,11 @@ Innehållet i `ptvs_virtualenv_proxy.py`:
 ## <a name="troubleshooting---virtual-environment"></a>Felsökning – virtuell miljö
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
+## <a name="troubleshooting---startup-errors"></a>Felsökning – startfel
+[!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
+
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns i [Python Developer Center](/develop/python/).
+Mer information finns i [Python Developer Center](/python/azure/).
 
 > [!NOTE]
 > Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.

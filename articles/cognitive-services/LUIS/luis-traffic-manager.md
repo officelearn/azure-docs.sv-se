@@ -1,20 +1,20 @@
 ---
 title: Använd Microsoft Azure Traffic Manager för att öka kvoten för slutpunkten i Språkförståelse (LUIS) – Azure | Microsoft Docs
 description: Använd Microsoft Azure Traffic Manager för sprida endpoint kvot över flera prenumerationer i Språkförståelse (LUIS) att öka kvoten för slutpunkt
-author: v-geberr
+author: diberry
 manager: kaiqb
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8c8228b13c972c65596f0389e2fdfde585f8a742
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.author: diberry
+ms.openlocfilehash: 77a9d4197804dcdd1e0c8b3f8a0d66100f770855
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39137497"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238200"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Använd Microsoft Azure Traffic Manager för att hantera endpoint kvot över nycklar
 Språkförståelse (LUIS) ger dig möjlighet att öka kvoten för slutpunkt-begäran utöver en enda nyckel kvot. Detta görs genom att skapa flera nycklar för LUIS och lägga till dem i LUIS-programmet på den **publicera** sidan i den **resurser och nycklar** avsnittet. 

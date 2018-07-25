@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: d007869bb8bad1a2f0775a1ab2c1bf5d27c1cb8f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 1dcbc8e0221689a6ece7e061d4b1a2632986ae84
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866233"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224382"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration-tillägget med Azure Resource Manager-mallar
 
@@ -249,7 +249,7 @@ Konfiguration av argumenten skickas till standard-konfigurationsskript att stäl
 },
 "protectedSettings": {
     "Items": {
-        "registrationKeyPrivate": "[parameters('registrationKey1']"
+        "registrationKeyPrivate": "[parameters('registrationKey1')]"
     }
 }
 ```

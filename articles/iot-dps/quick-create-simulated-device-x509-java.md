@@ -1,8 +1,8 @@
 ---
 title: Etablera en simulerad X.509-enhet på Azure IoT Hub med Java | Microsoft Docs
 description: Azure snabbstart – Skapa och etablera en simulerad X.509-enhet med Java-enhets-SDK för IoT Hub Device Provisioning-tjänsten
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 1f7f044f46dded461d00d2ec78febf02271adcfa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0c5eefbd6d7758ad2a7640a1fbff3435fcd1d315
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631045"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091705"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med Java-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -51,6 +51,14 @@ Om du inte känner till processen för automatisk etablering, bör du också gå
     ```
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Skapa ett självsignerat X.509-enhetscertifikat och en post för enskild registrering
+
+I det här avsnittet använder du ett självsignerat X.509-certifikat. Då måste du tänka på det här:
+
+* Självsignerade certifikat är endast till för testning och ska inte användas i produktion.
+* Standardutgångsdatumet för ett självsignerat certifikat är 1 år.
+
+Du kommer att använda exempelkoden från [Azure IoT SDK för Java](https://github.com/Azure/azure-iot-sdk-java.git) till att skapa det certifikat som ska användas med posten för enskild registrering för den simulerade enheten.
+
 
 1. Använd kommandotolken från föregående steg och gå till mappen `target`, kör sedan jar-filen som skapades i föregående steg.
 

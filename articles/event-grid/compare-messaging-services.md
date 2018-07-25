@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 69db32698951519c2630a0a8697e4ebe74f69b04
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: c54f5c5fba31933a6dd9f98d1ecfb6d03a3ad9be
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930485"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003755"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Välj mellan Azure-tjänster som levererar meddelanden
 
@@ -82,7 +82,8 @@ Den har följande egenskaper:
 
 * tillförlitlig asynkron leverans av meddelanden (företagsmeddelanden som en tjänst) som kräver avsökning
 * avancerade meddelandefunktioner som FIFO, batchbearbetning/sessioner, transaktioner, obeställbara meddelanden, tidsbaserad kontroll, routning och filtrering, samt dubblettidentifiering
-* leverans exakt en gång
+* leverans minst en gång
+* leverans i ordning som alternativ
 
 ## <a name="use-the-services-together"></a>Använda tjänsterna tillsammans
 

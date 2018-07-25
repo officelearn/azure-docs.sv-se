@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c72ae695c33bf9147bce7f326e8501ce2a88bb33
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: de30085ae5ff95e7067684ff3af9ccb0d45357de
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916610"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990871"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replikera en virtuell Azure-dator till en annan Azure-region
 
@@ -34,7 +34,7 @@ Logga in på Azure Portal på http://portal.azure.com.
 
 1. I Azure-portalen klickar du på **Virtuella datorer** och väljer den virtuella dator som du vill replikera.
 
-2. I **Inställningar** klickar du på **Haveriberedskap**.
+2. I **Åtgärder** klickar du på **Haveriberedskap**.
 3. I **Konfigurera haveriberedskap** > **Målregion** väljer du den målregion som du ska replikera till.
 4. Acceptera de andra standardinställningarna för denna Snabbstart.
 5. Klicka på **Aktivera replikering**. Ett jobb startas som aktiverar replikering för den virtuella datorn.

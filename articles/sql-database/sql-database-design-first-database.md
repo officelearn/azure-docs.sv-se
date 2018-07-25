@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 6/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: c89b03baccc7e20ae945da154fbd78d5d0dac376
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 6f12c44c2d65eef7e8d3345ec79b812304fe9791
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311039"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091551"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Självstudier: Skapa din första Azure SQL-databas med SSMS
 
@@ -31,7 +31,7 @@ Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Mi
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
    >[!NOTE]
-   > I den här självstudiekursen använder vi [den DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md), men du kan också välja [den vCore-baserade inköpsmodellen (förhandsversion)](sql-database-service-tiers-vcore.md). 
+   > I den här självstudiekursen använder vi [den DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md), men du kan också välja [den vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -77,7 +77,7 @@ Följ de här stegen om du vill skapa en tom SQL-databas.
 
 5. Klicka på **Välj**.
 
-6. Klicka på **Prisnivå** för att ange tjänstnivå, antalet DTU:er eller V-kärnor och mängden lagring. Undersök alternativen för antalet DTU:er/V-kärnor och lagringsutrymme som du har tillgång till på varje tjänstnivå. I den här självstudiekursen använder vi [den DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md), men du kan också välja [den vCore-baserade inköpsmodellen (förhandsversion)](sql-database-service-tiers-vcore.md). 
+6. Klicka på **Prisnivå** för att ange tjänstnivå, antalet DTU:er eller V-kärnor och mängden lagring. Undersök alternativen för antalet DTU:er/V-kärnor och lagringsutrymme som du har tillgång till på varje tjänstnivå. I den här självstudiekursen använder vi [den DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md), men du kan också välja [den vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). 
 
 7. I de här självstudierna väljer du tjänstnivån **Standard** och använder sedan skjutreglaget för att välja **100 DTU:er (S3)** och **400** GB lagring.
 

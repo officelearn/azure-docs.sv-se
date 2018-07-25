@@ -11,27 +11,27 @@ ms.date: 05/11/2018
 ms.topic: include
 manager: douge
 ms.openlocfilehash: d44f33b0e9f71c1d8d6e2c9878b08f9fa0e1f8a1
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
-ms.translationtype: MT
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938180"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991040"
 ---
-## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Förbereda kod för Docker och Kubernetes utveckling
-Hittills har du en enkel webbapp som kan köra lokalt. Du kommer nu containerize den genom att skapa tillgångar som definierar appens behållare och hur den ska distribuera till Kubernetes. Den här uppgiften är enkelt att göra med Azure Dev blanksteg: 
+## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Förbereda kod för Docker- och Kubernetes-utveckling
+Hittills har du en grundläggande webbapp som kan köras lokalt. Du kommer nu använda den i en container genom att skapa tillgångar som definierar appens container och hur den kommer att distribueras till Kubernetes. Den här uppgiften är enkel att utföra med Azure Dev Spaces: 
 
-1. Starta VS-kod och öppna den `webfrontend` mapp. (Du kan ignorera alla standard frågar om du vill lägga till resurser för felsökning eller återställa projektet.)
-1. Öppna integrerad terminalen i VS-kod (med hjälp av den **Visa > integrerad Terminal** menyn).
-1. Kör det här kommandot (Kontrollera att **webfrontend** är din aktuella mapp):
+1. Starta VS Code och öppna mappen `webfrontend`. (Du kan ignorera eventuella standarduppmaningar om att lägga till felsökningstillgångar eller återställa projektet.)
+1. Öppna den integrerade terminalen i VS Code (med hjälp av menyn **Visa > Integrerade terminal**).
+1. Kör det här kommandot (se till att **webfrontend** är din aktuella mapp):
 
     ```cmd
     azds prep --public
     ```
 
-Azure CLI `azds prep` kommandot genererar Docker och Kubernetes tillgångar med standardinställningar:
-* `./Dockerfile` Beskriver appens behållaren avbildningen och hur källkoden bygger och kör i behållaren.
-* En [Helm diagram](https://docs.helm.sh) under `./charts/webfrontend` beskriver hur du distribuerar behållaren till Kubernetes.
+Kommandot `azds prep` i Azure CLI genererar Docker- och Kubernetes-tillgångar med standardinställningarna:
+* `./Dockerfile` beskriver appens containeravbildning och hur källkoden byggs och körs i containern.
+* Ett [Helm-diagram](https://docs.helm.sh) under `./charts/webfrontend` beskriver hur du distribuerar containern till Kubernetes.
 
-Nu är det inte nödvändigt att förstå det fullständiga innehållet på dessa filer. Det bör pekar på, men som **samma Kubernetes och Docker tillgångar konfigurationskod som kan användas från utveckling till produktion, vilket ger bättre konsekvens mellan olika miljöer.**
+För tillfället är det inte nödvändigt att förstå det fullständiga innehållet i dessa filer. Det är dock värt att påpeka att **samma Kubernetes- och Docker-konfiguration som kod-tillgångar kan användas från utveckling till produktion, vilket ger bättre konsekvens mellan olika miljöer.**
  
-En fil med namnet `./azds.yaml` också har genererats av den `prep` kommando och det är konfigurationsfilen för Azure Dev blanksteg. Den kompletterar Docker och Kubernetes artefakter med ytterligare konfiguration som gör att en iterativ utvecklingsupplevelse i Azure.
+En fil med namnet `./azds.yaml` genereras även av kommandot `prep`, och det är konfigurationsfilen för Azure Dev Spaces. Den kompletterar Docker- och Kubernetes-artefakterna med ytterligare konfiguration som möjliggör en iterativ utvecklingsprocess i Azure.

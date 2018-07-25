@@ -1,26 +1,26 @@
 ---
-title: Få åtkomst till Azure Data Lake Storage Gen2-data (förhandsversion) med DataBricks med hjälp av Spark| Microsoft Docs
-description: Lär dig hur du kör Spark-frågor i ett DataBricks-kluster för att komma åt data i ett Azure Data Lake Storage Gen2-lagringskonto.
+title: Få åtkomst till Azure Data Lake Storage Gen2-data (förhandsversion) med Azure Databricks med hjälp av Spark| Microsoft Docs
+description: Lär dig hur du kör Spark-frågor i ett Azure Databricks-kluster för att komma åt data i ett Azure Data Lake Storage Gen2-lagringskonto.
 services: hdinsight,storage
 tags: azure-portal
 author: dineshm
 manager: twooley
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.workload: big-data
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 27ed860c7dd3b979a25860d453231de74d3f46be
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 41c34b2c1459178c59af66a75e7b34e2ec158025
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096924"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136411"
 ---
-# <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-databricks-using-spark"></a>Självstudie: Få åtkomst till Azure Data Lake Storage Gen2-data (förhandsversion) med DataBricks med hjälp av Spark
+# <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Självstudie: Få åtkomst till Azure Data Lake Storage Gen2-data (förhandsversion) med Azure Databricks med hjälp av Spark
 
-I den här självstudien får du lära dig hur du kör Spark-frågor i ett DataBricks-kluster för att fråga efter data i ett Azure Data Lake Storage Gen2-konto (förhandsversion).
+I den här självstudien får du lära dig hur du kör Spark-frågor i ett Azure Databricks-kluster för att fråga efter data i ett Azure Data Lake Storage Gen2-konto (förhandsversion).
 
 > [!div class="checklist"]
 > * Skapa ett Databricks-kluster
@@ -49,9 +49,9 @@ Både kontonamnet och nyckeln behövs i senare steg i den här självstudien. Ö
 
 ## <a name="create-a-databricks-cluster"></a>Skapa ett Databricks-kluster
 
-Nästa steg är att skapa ett [DataBricks-kluster](https://docs.azuredatabricks.net/) för att skapa en dataarbetsyta.
+Nästa steg är att skapa ett [Databricks-kluster](https://docs.azuredatabricks.net/) för att skapa en dataarbetsyta.
 
-1. Skapa en [DataBricks-tjänst](https://ms.portal.azure.com/#create/Microsoft.Databricks) och ge den namnet **myFlightDataService** (se till att markera kryssrutan *Fäst på instrumentpanelen* när du skapar tjänsten).
+1. Skapa en [Databricks-tjänst](https://ms.portal.azure.com/#create/Microsoft.Databricks) och ge den namnet **myFlightDataService** (se till att markera kryssrutan *Fäst på instrumentpanelen* när du skapar tjänsten).
 2. Klicka på **Launch Workspace** (Starta arbetsyta) för att öppna arbetsytan i ett nytt webbläsarfönster.
 3. Klicka på **Clusters** (Kluster) i det vänstra navigeringsfältet.
 4. Klicka på **Create Cluster** (Skapa kluster).
@@ -85,9 +85,9 @@ set ACCOUNT_KEY=<ACCOUNT_KEY>
 azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive 
 ```
 
-### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Använd DataBricks-anteckningsboken för att konvertera CSV till Parquet
+### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Använda Databricks-anteckningsboken för att konvertera CSV till Parquet
 
-Öppna DataBricks på nytt i webbläsaren och utför följande steg:
+Öppna Databricks på nytt i webbläsaren och utför följande steg:
 
 1. Välj **Azure Databricks** längst upp till vänster i navigeringsfältet.
 2. Välj **Notebook** (Anteckningsbok) under avsnittet **New** (Ny) på den nedre halvan av sidan.
@@ -116,7 +116,7 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
 
 ## <a name="explore-data-using-hadoop-distributed-file-system"></a>Utforska data med HDFS (Hadoop Distributed File System)
 
-Gå tillbaka till DataBricks-arbetsytan och klicka på ikonen **Recent** (Senaste) i navigeringsfältet.
+Gå tillbaka till Databricks-arbetsytan och klicka på ikonen **Recent** (Senaste) i navigeringsfältet.
 
 1. Klicka på anteckningsboken **Flight Data Analytics**.
 2. Tryck på **Ctrl + Alt + N** för att skapa en ny cell.

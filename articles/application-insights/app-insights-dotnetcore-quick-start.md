@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/12/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ccd55633f71be172edc330459bf8610f2146ad8d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 008e61841611f36c440bb4896ae5a85d0bf4d874
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386392"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991688"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Börja övervaka din ASP.NET Core-webbapp
 
@@ -33,11 +33,11 @@ För att slutföra den här snabbstarten behöver du:
 - [Installera .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
 - Du behöver en Azure-prenumeration och en befintlig .NET Core-webbapp.
 
-Om du inte har en ASP.NET Core-webbapp kan du skapa en genom att följa [guiden för att skapa en ASP.NET Core-webbapp](https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
+Om du inte har något ASP.NET Core-webbprogram kan du använda vår guide för att [skapa en ASP.NET Core-app och lägga till Application Insights.](app-insights-asp-net-core.md)
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -77,25 +77,25 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
 1. Nu kan du öppna sidan **Översikt** för Application Insights i Azure-portalen genom att välja **Projekt** > **Application Insights** > **Öppna Application Insights-portalen** och visa information om den app som körs.
 
-   ![översiktsvyn för Application Insights](./media/app-insights-dotnetcore-quick-start/004-Black.png)
+   ![översiktsvyn för Application Insights](./media/app-insights-dotnetcore-quick-start/overview-001.png)
 
-2. Klicka på **App-karta** om du vill se en layout med beroendena mellan appens komponenter. För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
+2. Klicka på **Programkarta** om du vill se en layout med beroendena mellan appens komponenter. För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
 
-   ![Programkarta](./media/app-insights-dotnetcore-quick-start/0002-dc.png)
+   ![Programkarta](./media/app-insights-dotnetcore-quick-start/application-map.png)
 
 3. Klicka på **Analys**-ikonen![](./media/app-insights-dotnetcore-quick-start/006.png).  Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 
    ![analysdiagram över användarbegäranden under en viss tidsperiod](./media/app-insights-dotnetcore-quick-start/0007-dc.png)
 
-4. Gå tillbaka till sidan **Översikt** och undersök **hälsotillståndsöversiktens tidslinje**.  På den här instrumentpanelen visas statistik om appens hälsotillstånd, inklusive antalet inkommande begäranden, varaktigheten för dessa begäranden och fel som inträffar. 
+4. Gå tillbaka till sidan **Översikt** och undersök KPI-instrumentpanelerna.  På den här instrumentpanelen visas statistik om appens hälsotillstånd, inklusive antalet inkommande begäranden, varaktigheten för dessa begäranden och fel som inträffar. 
 
-   ![diagram med hälsotillståndsöversiktens tidslinje](./media/app-insights-dotnetcore-quick-start/0008-dc.png)
+   ![diagram med hälsotillståndsöversiktens tidslinje](./media/app-insights-dotnetcore-quick-start/overview-graphs.png)
 
    Om du vill att diagrammet **Inläsningstid för sidvisning** ska fyllas i med **telemetridata på klientsidan** lägger du till det här skriptet på varje sida du vill spåra:
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 

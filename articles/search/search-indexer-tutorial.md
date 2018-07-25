@@ -1,22 +1,22 @@
 ---
 title: Självstudiekurs i indexering av Azure SQL-databaser i Azure Search | Microsoft Docs
-description: Crawla Azure SQL-databasen för att extrahera sökbara data och fylla ett Azure Search-index.
+description: I den här självstudien crawlar du en Azure SQL-databas för att extrahera sökbara data och fylla ett Azure Search-index.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/10/2017
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: abf121ec369d84dd307416d2c08971d9096de4a8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b40d3a74904d6814eb01b5d41d10632e8c9af5be
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799523"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988803"
 ---
-# <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Crawla en Azure SQL-databas med Azure Search-indexerare
+# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Självstudie: Crawla en Azure SQL-databas med Azure Search-indexerare
 
 Den här kursen visar hur du konfigurerar en indexerare för att extrahera sökbara data från en Azure SQL-exempeldatabas. [Indexerare](search-indexer-overview.md) är en komponent i Azure Search som crawlar externa datakällor och fyller ett [sökindex](search-what-is-an-index.md) med innehåll. Indexeraren för Azure SQL-databasen är den indexerare som används mest. 
 
@@ -33,9 +33,9 @@ I den här kursen får du utföra följande uppgifter med hjälp av [Azure Searc
 > * Söka i indexet
 > * Visa indexerarkonfiguration i portalen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-* Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/). 
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure Search-tjänst. Information om hur du skapar en tjänst finns i [Skapa en söktjänst](search-create-service-portal.md).
 
@@ -269,21 +269,14 @@ Alla indexerare, inklusive den som du just har skapat programmässigt, visas i p
 
   ![Paneler för indexerare och datakällor](./media/search-indexer-tutorial/tiles-portal.png)
 
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte tänker använda dessa tjänster längre följer du stegen nedan för att ta bort alla resurser som du har skapat i den här självstudiekursen på Azure Portal. 
-
-1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade. 
-2. På resursgruppsidan klickar du på **Ta bort resursgrupp**, skriver namnet på resursen som ska tas bort i textrutan och klickar sedan på **Ta bort**.
+Det snabbaste sättet att rensa upp efter en självstudie är att ta bort resursgruppen som innehåller Azure Search-tjänsten. Du kan ta bort resursgruppen nu om du vill ta bort allt innehåll i den permanent. I portalen ser du resursgruppens namn på översiktssidan för Azure Search-tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information och specifika uppgifter för andra datakällor som stöds finns i följande artiklar:
+Du kan koppla AI-drivna algoritmer till en indexerarpipeline. I nästa steg fortsätter du med följande självstudie:
 
-* [Azure SQL Database (eller SQL Server på en virtuell Azure-dator)](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Azure Table Storage](search-howto-indexing-azure-tables.md)
-* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-* [Indexera CSV-blobbar med Azure Search Blob-indexeraren](search-howto-index-csv-blobs.md)
-* [Indexera JSON-blobbar med Azure Search Blob-indexeraren](search-howto-index-json-blobs.md)
-
+> [!div class="nextstepaction"]
+> [Indexera dokument i Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)

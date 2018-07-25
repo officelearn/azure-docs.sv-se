@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 04/13/2018
+ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: d87b27101b5bbb3fb589987865649e102d7835de
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 628a936d85eb94a1ee332205047527b0f9795d50
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639215"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990522"
 ---
 # <a name="azure-managed-applications-overview"></a>Översikt över Azure Managed Applications
 
@@ -25,7 +25,7 @@ Ett hanterat program liknar en lösningsmall i Marketplace med en viktig skillna
 
 ## <a name="advantages-of-managed-applications"></a>Fördelar med hanterade program
 
-Hanterade program minskar hindren för användare som använder dina lösningar. De behöver inga kunskaper om molninfrastruktur för att använda din lösning. Användare har begränsad åtkomst till viktiga resurser. De behöver inte oroa sig för att göra fel i hanteringen. 
+Hanterade program minskar hindren för användare som använder dina lösningar. De behöver inga kunskaper om molninfrastruktur för att använda din lösning. Användare har begränsad åtkomst till viktiga resurser. De behöver inte oroa sig för att göra misstag i hanteringen. 
 
 Med hanterade program kan du etablera en fortlöpande relation med dina användare. Du definierar villkoren för hanteringen av programmet och alla kostnader hanteras via Azure-fakturering.
 
@@ -41,7 +41,7 @@ Du kan publicera dina hanterade program externt eller internt.
 
 ### <a name="service-catalog"></a>Tjänstkatalog
 
-Tjänstkatalogen är en intern katalog med godkända lösningar för användare i en organisation. Du använder katalogen för att säkerställa kompatibilitet med vissa organisationsstandarder samtidigt som de tillhandahåller lösningar för organisationer. Anställda använder katalogen för att enkelt upptäcka den omfattande uppsättning program som rekommenderas och godkänts av sina IT-avdelningar. De ser de hanterade program som andra personer i organisationen delar med dem.
+Tjänstkatalogen är en intern katalog med godkända lösningar för användare i en organisation. Du använder katalogen för att säkerställa kompatibilitet med vissa organisationsstandarder samtidigt som de tillhandahåller lösningar för organisationer. De anställda kan använder katalogen till att enkelt hitta program som rekommenderas och godkänts av IT-avdelningen. De ser de hanterade program som andra personer i organisationen delar med dem.
 
 Information om att publicera en tjänstkatalog för hanterade program finns i [Skapa tjänstkatalogprogram](publish-service-catalog-app.md).
 
@@ -70,6 +70,10 @@ Användaren har fullständig åtkomst till resursgruppen och använder den för 
 Den här resursgruppen innehåller alla resurser som krävs av det hanterade programmet. Den här resursgruppen innehåller exempelvis lösningens virtuella datorer, lagringskonton och virtuella nätverk. Användaren har begränsad åtkomst till den här resursgruppen eftersom användaren inte hanterar de enskilda resurserna för det hanterade programmet. Utgivarens åtkomst till den här resursgruppen motsvarar rollen som anges i definitionen av hanterade program. Utgivaren kan till exempel begära ägar- eller deltagarroll för den här resursgruppen.
 
 När användaren tar bort det hanterade programmet tas även den hanterade resursgruppen bort.
+
+## <a name="azure-policy"></a>Azure Policy
+
+Du kan använda [Azure Policy](../azure-policy/azure-policy-introduction.md) för det hanterade programmet. Du kan tillämpa principer som ser till att distribuerade instanser av det hanterade programmet uppfyller data- och säkerhetskraven. Om programmet interagerar med känsliga data måste du ha utvärderat hur dessa data ska skyddas. Om programmet till exempel interagerar med data från Office 365 kan du använda en princip som ser till att datakryptering är aktiverad.
 
 ## <a name="next-steps"></a>Nästa steg
 

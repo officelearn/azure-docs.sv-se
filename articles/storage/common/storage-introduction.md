@@ -6,14 +6,14 @@ author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 04/05/2018
+ms.date: 07/11/2018
 ms.author: tamram
-ms.openlocfilehash: 0ae4e196c81e767b2bbee4340f5d99b9f803df3b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 30741e48adbdb621317c13ec286b419bed2f9ea1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653662"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001549"
 ---
 # <a name="introduction-to-azure-storage"></a>Introduktion till Azure Storage
 
@@ -122,7 +122,7 @@ Det här avsnittet tar upp två sätt att skydda lagringskontot och dess data. D
 
 ### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Skydda åtkomst till lagringskonton med hjälp av Azure AD
 
-Ett sätt att skydda åtkomst till dina lagringsdata är genom att kontrollera åtkomst till lagringskontonycklarna. Med rollbaserad åtkomstkontroll (RBAC) i Resource Manager kan du tilldela roller till användare, grupper eller program. Rollerna är knutna till en specifik uppsättning åtgärder som är tillåtna eller otillåtna. Om du använder RBAC för att bevilja åtkomst till ett lagringskonto hanteras endast hanteringsåtgärderna för det lagringskontot, till exempel ändring av åtkomstnivå. Du kan inte använda RBAC för att bevilja åtkomst till dataobjekt, till exempel en specifik behållare eller filresurs. Du kan dock använda RBAC för att bevilja åtkomst till lagringskontonycklarna, som sedan kan användas för att läsa dataobjekten.
+Ett sätt att skydda åtkomst till dina lagringsdata är genom att kontrollera åtkomst till lagringskontonycklarna. Med rollbaserad åtkomstkontroll (RBAC) i Resource Manager kan du tilldela roller till användare, grupper eller program. Rollerna är knutna till en specifik uppsättning åtgärder som är tillåtna eller otillåtna. Om du använder RBAC för att bevilja åtkomst till ett lagringskonto hanteras endast hanteringsåtgärderna för det lagringskontot, till exempel ändring av åtkomstnivå. Du kan inte använda RBAC för att bevilja åtkomst till dataobjekt, till exempel en specifik container eller filresurs. Du kan dock använda RBAC för att bevilja åtkomst till lagringskontonycklarna, som sedan kan användas för att läsa dataobjekten.
 
 ### <a name="securing-access-using-shared-access-signatures"></a>Skydda åtkomst med hjälp av signaturer för delad åtkomst
 
@@ -130,7 +130,7 @@ Du kan använda signaturer för delad åtkomst och lagrade åtkomstprinciper fö
 
 ### <a name="public-access-to-blobs"></a>Offentlig åtkomst till blobbar
 
-Med Blob Service kan du tillhandahålla offentlig åtkomst till en behållare och dess blobbar, eller en specifik blob. När du anger att en behållare eller blobb är offentlig kan alla läsa den anonymt; ingen autentisering krävs. Ett exempel på när du kan göra det är när du har en webbplats med bilder, video eller dokument från Blob Storage. Mer information finns i [Hantera anonym läsbehörighet till behållare och blobbar](../blobs/storage-manage-access-to-resources.md).
+Med Blob Service kan du tillhandahålla offentlig åtkomst till en container och dess blobar, eller en specifik blob. När du anger att en container eller blob är offentlig kan alla läsa den anonymt; ingen autentisering krävs. Ett exempel på när du kan göra det är när du har en webbplats med bilder, video eller dokument från Blob Storage. Mer information finns i [Hantera anonym läsbehörighet till containrar och blobar](../blobs/storage-manage-access-to-resources.md).
 
 ## <a name="encryption"></a>Kryptering
 
@@ -139,6 +139,7 @@ Det finns några grundläggande typer av kryptering för Storage-tjänsterna. Me
 ### <a name="encryption-at-rest"></a>Vilande kryptering
 
 Vilande Azure Storage Service-kryptering (SSE) stöder kryptering av vilande data och skyddar dina data så att din verksamhet uppfyller både interna och externa krav och åtaganden. Med den här funktionen krypterar Azure Storage automatiskt dina data för beständig lagring och dekrypterar dem före hämtning. Användarna har fullständig insyn i kryptering, dekryptering och nyckelhantering.
+
 
 SSE krypterar automatiskt data på alla prestandanivåer (Standard och Premium), alla distributionsmodeller (Azure Resource Manager och klassisk) och alla Azure Storage-tjänster (blob, kö, tabell och fil). SSE påverkar inte Azure Storage-prestanda.
 
@@ -168,6 +169,8 @@ Du kan använda kommandoradsverktyget AzCopy för att kopiera blob- och fildata 
 AzCopy är byggt ovanpå [biblioteket för Azure-dataflyttningar](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), som för närvarande är tillgängligt som en förhandsversion.
 
 Azure Import/Export-tjänsten kan användas för att importera eller exportera stora mängder blob-data till eller från ditt lagringskonto. Du förbereder och skickar flera hårddiskar per post till ett Azure-datacenter, där de överför data till/från hårddiskarna och skickar tillbaka hårddiskarna till dig. Mer information om tjänsten Import/Export finns i [Använda tjänsten Microsoft Azure Import/Export för att överföra data till Blob Storage](../storage-import-export-service.md).
+
+Om du vill ha ett snabbt, prisvärt och tillförlitligt sätt att importera stora mängder blobdata till ditt lagringskonto kan du använda Azure Data Box Disk. Microsoft kan leverera upp till 5 krypterade SSD-diskar med en kapacitet på 40 TB till ditt datacenter via regionala speditörer. Du kan snabbt konfigurera diskarna, kopiera data till diskarna via USB och sedan skicka tillbaka diskarna till Azure. I Azure-datacentret laddas dina data automatiskt upp från diskarna till molnet. Mer information om den här lösningen finns i [översikten över Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
 
 ## <a name="pricing"></a>Prissättning
 

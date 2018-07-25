@@ -7,22 +7,20 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: e3eff46299ecfbfe39b57bc2cf5ed4a655a6d7f1
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8dd630650498f3698fea3ed03882fe8c5c3d338e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088139"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004326"
 ---
-# <a name="quickstart-deploy-a-cloud-based-remote-monitoring-solution"></a>Snabbstart: Distribuera en molnbaserad fjärrövervakningslösning
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Snabbstart: Prova en molnbaserad fjärrövervakningslösning
 
-Den här snabbstarten visar hur du distribuerar Azure IoT-lösningsacceleratorn Fjärrövervakning som en molnbaserad fjärrövervakningslösning för dina IoT-enheter. När du har distribuerat lösningsacceleratorn använder du sidan **Instrumentpanel** för lösningen för att visualisera simulerade enheter på en karta, och sidan **Underhåll** svarar på en tryckvarning från ett simulerat kylaggregat.
+I den här snabbstarten får du lära dig att distribuera Azure IoT-lösningsacceleratorn Fjärrövervakning för körning av en simulerad molnbaserad fjärrövervakningslösning. När du har distribuerat lösningsacceleratorn använder du sidan **Instrumentpanel** för lösningen för att visualisera simulerade enheter på en karta, och sidan **Underhåll** svarar på en tryckvarning från ett simulerat kylaggregat. Du kan använda den här lösningsacceleratorn som utgångspunkt för en egen implementering eller som utbildningsverktyg.
 
-Standarddistributionen konfigurerar Fjärrövervakning-lösningsacceleratorn för ett företag med namnet Contoso. Contoso hanterar olika enheter, till exempel kylaggregat, som distribuerats i olika fysiska miljöer. Ett kylaggregat skickar telemetri om temperatur, luftfuktighet och tryck till Fjärrövervakning-lösningsacceleratorn.
-
-## <a name="prerequisites"></a>Krav
+I den initiala distributionen konfigureras lösningsacceleratorn Fjärrövervakning för ett företag med namnet Contoso. Contoso hanterar olika enheter, till exempel kylaggregat, som distribuerats i olika fysiska miljöer. Ett kylaggregat skickar telemetri om temperatur, luftfuktighet och tryck till Fjärrövervakning-lösningsacceleratorn.
 
 Du behöver en aktiv Azure-prenumeration för att kunna utföra den här snabbstarten.
 
@@ -42,9 +40,9 @@ På sidan **Skapa Fjärrövervakning-lösning** väljer du en **Basic**-distribu
 
 Välj **.NET** som språk. Java- och .NET-implementeringar har identiska funktioner.
 
-Ange ett unikt **lösningsnamn** för din Fjärrövervakning-lösningsaccelerator.
+Ange ett unikt **lösningsnamn** för din Fjärrövervakning-lösningsaccelerator. I den här snabbstarten kallar vi den för **contoso-rm2**.
 
-Välj den **prenumeration** och **region** du vill använda för att distribuera lösningsacceleratorn. Normalt väljer du regionen närmast dig. Du måste vara [global administratör eller användare](iot-accelerators-permissions.md) i prenumerationen.
+Välj den **prenumeration** och den **region** du vill använda för att distribuera lösningsacceleratorn. Normalt väljer du regionen närmast dig. I den här snabbstarten använder vi **Visual Studio Enterprise** och **Europa, västra**. Du måste vara [global administratör eller användare](iot-accelerators-permissions.md) i prenumerationen.
 
 Klicka på **Skapa lösning** för att inleda distributionen. Processen tar minst fem minuter att köra:
 
@@ -52,7 +50,7 @@ Klicka på **Skapa lösning** för att inleda distributionen. Processen tar mins
 
 ## <a name="sign-in-to-the-solution"></a>Logga in på lösningen
 
-När distributionen till din Azure-prenumeration är klar kan du logga in på instrumentpanelen för Fjärrövervakning-lösningsacceleratorn.
+När distributionen till Azure-prenumerationen är klar visas en grön bockmarkering och **Redo** på lösningspanelen. Du kan nu logga in på instrumentpanelen för lösningsacceleratorn Fjärrövervakning.
 
 På sidan **Etablerade lösningar** klickar du på Fjärrövervakning-lösningsacceleratorn:
 
@@ -68,7 +66,7 @@ Klicka på **Acceptera** för att acceptera begäran om behörigheter som Fjärr
 
 ## <a name="view-your-devices"></a>Visa dina enheter
 
-Lösningens instrumentpanel visar följande information om Contosos enheter:
+På lösningens instrumentpanel visas följande information om Contosos simulerade enheter:
 
 * **Enhetsstatistik** visar sammanfattningsinformation om aviseringar och totalt antal enheter. I standarddistributionen har Contoso 10 simulerade enheter av olika typ.
 
@@ -110,7 +108,7 @@ Värdet i statuskolumnen ändras till **Bekräftad**.
 
 [![Välj en enhet och schemalägg en åtgärd](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
 
-På panelen **Jobb** väljer du **Kör metod**, sedan metoden **EmergencyValveRelease**, lägger till jobbnamnet **ChillerPressureRelease** och klickar på **Använd**. Inställningarna skapar ett jobb som körs direkt.
+På panelen **Jobb** väljer du **Kör metod** och sedan metoden **EmergencyValveRelease**. Lägg till Jobbnamnet **ChillerPressureRelease** och klicka på **Använd**. Inställningarna skapar ett jobb som körs direkt.
 
 Om du vill se jobbstatusen går du tillbaka till sidan **Underhåll** och visar listan över jobb i vyn **Jobb**. Du kan behöva vänta i några sekunder innan du ser att jobbet har körts för att släppa ventiltrycket på kylaggregatet:
 
@@ -132,7 +130,7 @@ Värdet i statuskolumnen ändras till **Stängd**.
 
 Om du planerar att gå vidare till självstudierna låter du Fjärrövervakning-lösningsacceleratorn vara distribuerad.
 
-Om du inte längre behöver lösningsacceleratorn tar du bort den från sidan [Etablerade lösningar](https://www.azureiotsolutions.com/Accelerators#dashboard):
+Om du inte längre behöver lösningsacceleratorn tar du bort den från sidan [Etablerade lösningar](https://www.azureiotsolutions.com/Accelerators#dashboard) genom att välja den och sedan klicka på **Ta bort lösning**:
 
 ![Ta bort lösningen](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
@@ -140,7 +138,7 @@ Om du inte längre behöver lösningsacceleratorn tar du bort den från sidan [E
 
 I den här snabbstarten har du distribuerat Fjärrövervakning-lösningsacceleratorn och utfört en övervakningsuppgift med hjälp av de simulerade enheterna i Contoso-standarddistributionen.
 
-Information om hur du uppdaterar den inbyggda programvara i dina anslutna enheter och organiserar dina tillgångar i lösningsacceleratorn finns i nästa självstudiekurs.
+Fortsätt till nästa självstudie om du vill lära dig mer om lösningsaccelerator som använder simulerade enheter.
 
 > [!div class="nextstepaction"]
 > [Självstudier: Övervaka dina IoT-enheter](iot-accelerators-remote-monitoring-monitor.md)

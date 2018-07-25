@@ -7,24 +7,22 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: 3671f63b9e27cb6af55c31e3e61dc6d19932f54c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 65c10f393efbeaa111e2b413a0568da053c04567
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972921"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001135"
 ---
-# <a name="quickstart-deploy-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Snabbstart: Distribuera en molnbaserad lösning för att köra en analys av förutsägande underhåll på anslutna enheter
+# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Snabbstart: Prova en molnbaserad lösning för att analysera behovet av förutsägande underhåll på anslutna enheter
 
-Den här snabbstarten beskriver hur du distribuerar Azure IoT-lösningsacceleratorn för förutsägande underhåll för att använda den som en molnbaserad lösning för förutsägande underhåll för dina IoT-enheter. När du har distribuerat lösningsacceleratorn kan du köra en simulering med data för flygplansmotorer med hjälp av lösningens **instrumentpanel**.
+I den här snabbstarten får du lära dig att distribuera Azure IoT-lösningsacceleratorn för förutsägande underhåll och simulera ett molnbaserat förutsägande underhåll. När du har distribuerat lösningsacceleratorn kan du analysera behovet av förebyggande underhåll utifrån data om en simulerad flygplansmotor på sidan **Instrumentpanel** i lösningen. Du kan använda den här lösningsacceleratorn som utgångspunkt för en egen implementering eller som utbildningsverktyg.
 
-Fabrikam är ett regionalt flygbolag som fokuserar på bra kundupplevelser till konkurrenskraftiga priser. En orsak till flygförseningar är underhållsproblem, och flygplansmotorernas underhåll är särskilt krävande. Fabrikam måste till vilket pris som helst förhindra motorfel under flygningar och inspekterar därför regelbundet sina motorer och schemalägger underhåll med utgångspunkt i en plan. Flygplansmotorer slits dock inte alltid likadant. En del onödigt underhåll utförs på motorer. Dessutom kan det uppstå problem som gör att planet blir stående tills underhåll har utförts. Dessa problem bli extra kostsamma om ett flygplan finns på en plats där rätt tekniker eller reservdelar inte är tillgängliga.
+I den här simuleringen är Fabrikam ett regionalt flygbolag som fokuserar på bra kundupplevelser till konkurrenskraftiga priser. En orsak till flygförseningar är underhållsproblem, och flygplansmotorernas underhåll är särskilt krävande. Fabrikam måste till vilket pris som helst förhindra motorfel under flygningar och inspekterar därför regelbundet sina motorer och schemalägger underhåll med utgångspunkt i en plan. Flygplansmotorer slits dock inte alltid likadant. En del onödigt underhåll utförs på motorer. Dessutom kan det uppstå problem som gör att planet blir stående tills underhåll har utförts. Dessa problem bli extra kostsamma om ett flygplan finns på en plats där rätt tekniker eller reservdelar inte är tillgängliga.
 
 Motorerna i Fabrikams flygplan är utrustade med sensorer som övervakar motortillståndet under flygning. Fabrikams dataspecialister har under flera år samlat in data om motorernas drift och eventuella fel och har tagit fram en modell som kan förutse flygplansmotorernas återstående livslängd. Modellen använder en korrelation mellan data från fyra av motorsensorerna och motorförslitningar som med tiden leder till motorfel. Fabrikam fortsätter att utföra regelbundna inspektioner för att säkerställa säkerheten, men nu kan man använda modeller för att beräkna varje motors återstående livslängd efter varje flygning. Fabrikam kan nu förutsäga framtida driftstopp och planera för underhåll för att minimera flygplanens marktid och minska driftkostnaderna samtidigt som man säkerställer passagerarnas och flygplansbesättningens säkerhet.
-
-## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du behöver en aktiv Azure-prenumeration för att kunna utföra den här snabbstarten.
 
@@ -40,17 +38,17 @@ Klicka på **Testa nu** på panelen **Förutsägande underhåll**.
 
 ![Välj Förutsägande underhåll](./media/quickstart-predictive-maintenance-deploy/predictivemaintenance.png)
 
-På sidan **Create Predictive Maintenance solution** (Skapa lösning för förutsägande underhåll) anger du ett unikt **lösningsnamn** för utvecklingsacceleratorn för förutsägande underhåll.
+På sidan **Create Predictive Maintenance solution** (Skapa lösning för förutsägande underhåll) anger du ett unikt **lösningsnamn** för utvecklingsacceleratorn för förutsägande underhåll. I den här snabbstarten använder vi **MyPredictiveMaintenance**.
 
-Välj den **prenumeration** och **region** du vill använda för att distribuera lösningsacceleratorn. Normalt väljer du regionen närmast dig. Du måste vara [global administratör eller användare](iot-accelerators-permissions.md) i prenumerationen.
+Välj den **prenumeration** och den **region** du vill använda för att distribuera lösningsacceleratorn. Normalt väljer du regionen närmast dig. I den här snabbstarten använder vi **Visual Studio Enterprise** och **USA, östra**. Du måste vara [global administratör eller användare](iot-accelerators-permissions.md) i prenumerationen.
 
 Klicka på **Skapa lösning** för att inleda distributionen. Processen tar minst fem minuter att köra:
 
 ![Information om lösningen för förutsägande underhåll](./media/quickstart-predictive-maintenance-deploy/createform.png)
 
-## <a name="sign-in-to-the-solution"></a>Logga in till lösningen
+## <a name="sign-in-to-the-solution"></a>Logga in på lösningen
 
-När distributionen till din Azure-prenumeration är klar kan du logga in på instrumentpanelen för lösningsacceleratorn för förutsägande underhåll.
+När distributionen till Azure-prenumerationen är klar visas en grön bockmarkering och **Redo** på lösningspanelen. Nu kan du logga in på instrumentpanelen för lösningsacceleratorn för förutsägande underhåll.
 
 Klicka på den nya lösningsacceleratorn för förutsägande underhåll på sidan **Etablerade lösningar**. Du kan visa information om lösningsacceleratorn på panelen som visas. Välj **Lösningens instrumentpanel** för att visa lösningsacceleratorn för förutsägande underhåll:
 
@@ -78,7 +76,7 @@ Du kan stoppa simuleringen när du vill, men om du klickar på **Starta simuleri
 
 Om du vill utforska ytterligare låter du lösningsacceleratorn för förutsägande underhåll förbli distribuerad.
 
-Om du inte längre behöver lösningsacceleratorn tar du bort den från sidan [Etablerade lösningar](https://www.azureiotsolutions.com/Accelerators#dashboard):
+Om du inte längre behöver lösningsacceleratorn tar du bort den från sidan [Etablerade lösningar](https://www.azureiotsolutions.com/Accelerators#dashboard) genom att välja den och sedan klicka på **Ta bort lösning**:
 
 ![Ta bort lösningen](media/quickstart-predictive-maintenance-deploy/deletesolution.png)
 
@@ -86,7 +84,7 @@ Om du inte längre behöver lösningsacceleratorn tar du bort den från sidan [E
 
 I den här snabbstarten har du distribuerat lösningsacceleratorn för förutsägande underhåll och kört en simulering.
 
-Mer information om lösningsacceleratorn finns i artikeln.
+Fortsätt till nästa artikel om du vill lära dig mer om lösningsacceleratorn och de simulerade flygplansmotorerna.
 
 > [!div class="nextstepaction"]
 > [Översikt över lösningsaccelerator för förutsägande underhåll](iot-accelerators-predictive-walkthrough.md)

@@ -4,5 +4,5 @@ App Service-planer definierar följande:
 
 * Region (till exempel: Europa, norra; USA, östra; Asien, sydöstra m.m.)
 * Instansstorlek (liten, medel eller stor)
-* Skalningsantalet (1 till 10 instanser)
+* Skalningsantal (1 till 10 instanser)
 * SKU (Basic, Standard)

@@ -13,19 +13,19 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 10/22/2018
-ms.author: cfowler
+ms.date: 07/03/2018
+ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 744c5310e08066dcbbfbde55b8e6ecb6c9361855
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: c12297075e967446572898b94d3abbcaf79f9e84
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937306"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989068"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>Skapa en funktionsapp i en App Service plan
 
-Det här exempelskriptet i Azure Functions skapar en funktionsapp, vilket är en behållare för dina funktioner. Funktionsappen som skapas använder en dedikerad App Service plan, vilket innebär att dina serverresurser alltid är på.
+Det här exempelskriptet för Azure Functions skapar en funktionsapp som blir container åt dina funktioner. Funktionsappen som skapas använder en dedikerad App Service plan, vilket innebär att dina serverresurser alltid är på.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -47,10 +47,10 @@ Varje kommando i tabellen länkar till kommandospecifik dokumentation. I det hä
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Konfigurerar ett Azure Storage-konto. |
-| [az appservice plan create](https://docs.microsoft.com/en-us/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Skapar en App Service-plan. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_delete) | Skapar en Azure-funktionsapp. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Konfigurerar ett Azure Storage-konto. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) | Skapar en App Service-plan. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Skapar en funktionsapp i App Service-planen. |
 
 ## <a name="next-steps"></a>Nästa steg
 

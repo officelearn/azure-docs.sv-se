@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5346467dff40832aa35799ee3d532e99bf14d569
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5e0da540b2784ef13986c6089d31f22df992ee59
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38482082"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005823"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux x64-enhet
 
@@ -76,7 +76,7 @@ Den kostnadsfria nivån för IoT Hub fungerar för den här snabbstarten. Om du 
 1. Skapa en IoT Hub i din nya resursgrupp. Följande kod skapar en kostnadsfri **F1**-hubb i resursgruppen **IoTEdgeResources**. Ersätt *{hub_name}* med ett unikt namn för din IoT Hub.
 
    ```azurecli-interactive
-   az iot hub create --resource-group TestResources --name {hub_name} --sku F1 
+   az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
    Om du får ett felmeddelande eftersom det redan finns en kostnadsfri hubb i din prenumeration ändrar du SKU till **S1**. 
@@ -132,9 +132,9 @@ Stegen i det här avsnittet gäller enheter som kör **Ubuntu 16.04**. För att 
    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
    ```
 
-### <a name="install-a-container-runtime"></a>Installera en körmiljö för behållare
+### <a name="install-a-container-runtime"></a>Installera en körmiljö för containrar
 
-IoT Edge-körning är en uppsättning behållare, och den logik som du distribuerar till IoT Edge-enheten är paketerad som behållare. Förbered din enhet för dessa komponenter genom att installera en körmiljö för behållare.
+IoT Edge-körning är en uppsättning containrar, och den logik som du distribuerar till IoT Edge-enheten är paketerad som containrar. Förbered din enhet för dessa komponenter genom att installera en körmiljö för containrar.
 
 Uppdatera **apt-get**.
 
@@ -250,12 +250,11 @@ Om du vill fortsätta med IoT Edge-självstudierna kan du använda enheten du re
 
 Om du skapade den virtuella datorn och IoT-hubben i en ny resursgrupp kan du ta bort den gruppen och alla associerade resurser. Om det finns något i den resursgruppen som du vill behålla tar du bara bort de enskilda resurser som du vill rensa. 
 
-Om du vill ta bort en resursgrupp följer du dessa steg: 
+Ta bort gruppen **IoTEdgeResources**. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
-2. I textrutan **Filtrera efter namn ...** , skriver du namnet på resursgruppen som innehåller din IoT Hub. 
-3. Till höger av din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
-4. Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp igen för att bekräfta och klicka sedan på **Ta bort**. Efter en liten stund tas resursgruppen och resurser som finns i den bort.
+   ```azurecli-interactive
+   az group delete --name IoTEdgeResources 
+   ```
 
 ### <a name="remove-the-iot-edge-runtime"></a>Ta bort IoT Edge-körningen
 
@@ -281,7 +280,7 @@ Ta bort de containrar som skapades på enheten av IoT Edge-körningen. Ändra na
    sudo docker rm -f edgeAgent
    ```
 
-Ta bort körmiljön för behållaren.
+Ta bort körmiljön för containern.
 
    ```bash
    sudo apt-get remove --purge moby

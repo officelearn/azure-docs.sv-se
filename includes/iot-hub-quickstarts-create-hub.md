@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: ddecf2f75e80f95291b12d9c139a8da85f45ac94
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 63acf0297a694ff442d56e67d52fd9b4e49f812d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36288068"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008594"
 ---
 Det första steget är att använda Azure Portal till att skapa en IoT-hubb i din prenumeration. IoT-hubben gör att du kan mata in stora mängder telemetri i molnet från många enheter. Via hubben aktiveras sedan en eller flera servertjänster som körs i molnet, för läsning och bearbetning av telemetrin.
 
@@ -26,12 +26,9 @@ Det första steget är att använda Azure Portal till att skapa en IoT-hubb i di
 1. I rutan **IoT-hubb** anger du följande information för IoT-hubben:
 
    * **Prenumeration**: Välj den prenumeration som du vill använda för att skapa IoT-hubben.
-
-   * **Resursgrupp**: Skapa en resursgrupp som ska vara värd för IoT-hubben eller använd en befintlig. Genom att lägga relaterade resurser i en grupp, kan du hantera dem tillsammans. Till exempel tas alla resurser som ingår i gruppen bort om resursgruppen tas bort. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser][lnk-resource-groups].
-
-   * **Region**: Välj den plats som är närmast dig.
-
-   * **Namn**: Skapa ett namn för din IoT Hub. Om namnet som du anger är tillgängligt visas en grön bockmarkering.
+   * **Resursgrupp**: Skapa en resursgrupp som ska innehålla IoT-hubben eller använd en befintlig. Genom att lägga till alla relaterade resurser i en grupp, till exempel **TestResources**, kan du hantera dem allihop tillsammans. Till exempel tas alla resurser som ingår i gruppen bort om resursgruppen tas bort. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser][lnk-resource-groups].
+   * **Region**: Välj den plats som är närmast enheterna.
+   * **Namn**: Skapa ett unikt namn för din IoT-hubb. Om namnet som du anger är tillgängligt visas en grön bockmarkering.
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 

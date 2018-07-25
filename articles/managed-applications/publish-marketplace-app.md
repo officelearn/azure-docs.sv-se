@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 03/15/2018
+ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 39797bb4fe2b0576cd5696d7111826dcf807ff5c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 8f35bda8c6925bdc10097ac6d180f5998bd5cf1d
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304539"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989795"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Azure-hanterade program på Marketplace
 
@@ -42,8 +42,8 @@ Det finns även olika företagskrav. De är:
 För att kunna bli utgivare på Azure Marketplace måste du:
 
 1. Skapa ett Microsoft-ID – skapa ett Microsoft-konto med en e-postadress som tillhör företagets domän men inte en enskild användare. E-postadressen används för både Microsoft Developer Center och Cloud Partner Portal. Mer information finns i [Utgivarhandbok för Azure Marketplace](https://aka.ms/sellerguide).
-1. Skicka [nomineringsformuläret för Azure Marketplace](https://aka.ms/ampnomination) – För **Lösning som du vill publicera?** väljer du **Hanterat program**. När formuläret har skickats in granskar Marketplace Onboarding-teamet ditt program och verifierar begäran. Godkännandeprocessen kan ta upp till tre dagar. När din nominering har godkänts får du en kampanjkod som du använder för att undvika registreringsavgiften för Developer Center. Om du **inte** fyller i nomineringsformuläret för Marketplace betalar du en registreringsavgift på 99 USD.
-1. Registrera dig i [Developer Center](http://dev.windows.com/registration?accountprogram=azure) – Microsoft kontrollerar att din organisation är en giltig juridisk enhet med ett giltigt skatte-ID för det land där den är registrerad. Godkännandeprocessen kan ta 5 till 10 dagar. Använd kampanjkoden som du fick med e-post under nomineringsprocessen för att undvika registreringsavgift. Mer information finns i [Utgivarhandbok för Azure Marketplace](https://aka.ms/sellerguide).
+1. Skicka [nomineringsformuläret för Azure Marketplace](https://aka.ms/ampnomination) – För **Lösning som du vill publicera?** väljer du **Hanterat program**. När formuläret har skickats in granskar Marketplace Onboarding-teamet ditt program och verifierar begäran. Godkännandeprocessen kan ta upp till tre dagar. När din nominering har godkänts får du en kampanjkod som du använder för att undvika registreringsavgiften för Developer Center. Om du **inte** fyller i nomineringsformuläret för Marketplace får du betala en registreringsavgift på 99 USD.
+1. Registrera dig i [Developer Center](http://dev.windows.com/registration?accountprogram=azure) – Microsoft kontrollerar att din organisation är en giltig juridisk enhet med ett giltigt skatte-ID landet där enheten är registrerad. Godkännandeprocessen kan ta 5 till 10 dagar. Använd kampanjkoden som du fick med e-post under nomineringsprocessen för att undvika registreringsavgift. Mer information finns i [Utgivarhandbok för Azure Marketplace](https://aka.ms/sellerguide).
 1. Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com) – I utgivarprofilen kopplar du ditt Developer Center-konto till Marketplace-utgivarprofilen. Mer information finns i [Utgivarhandbok för Azure Marketplace](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Skapa ett nytt erbjudande för Azure-program
@@ -101,10 +101,11 @@ En SKU visas under det överordnade erbjudandet på Marketplace. Det visas som e
 
    Fyll i följande fält:
 
-   * **Aktuell version**: Ange version för det paket som du laddar upp. Versionsformatet ska vara `{number}.{number}.{number}{number}`.
-   * **Välj en paketfil**: det här paketet innehåller två nödvändiga filer som komprimerats till ett ZIP-paket. En av filerna är Resource Manager-mallen som definierar de resurser som ska distribueras för det hanterade programmet. Den andra filen definierar [användargränssnittet](create-uidefinition-overview.md) för konsumenter som distribuerar det hanterade programmet via portalen. I användargränssnittet anger du element som ger konsumenterna möjlighet att ange parametervärden.
+   * **Version**: Ange versionen för det paket du laddar upp. Versionsformatet ska vara `{number}.{number}.{number}{number}`.
+   * **Paketfil (.zip)**: Det här paketet innehåller två nödvändiga filer som komprimerats i ett .zip-paket. En av filerna är Resource Manager-mallen som definierar de resurser som ska distribueras för det hanterade programmet. Den andra filen definierar [användargränssnittet](create-uidefinition-overview.md) för konsumenter som distribuerar det hanterade programmet via portalen. I användargränssnittet anger du element som ger konsumenterna möjlighet att ange parametervärden.
    * **PrincipalId**: den här egenskapen är Azure Active Directory-ID (Azure AD-ID) för en användare, en användargrupp eller ett program som beviljas åtkomst till resurser i kundens prenumeration. Rolldefinitionen beskriver behörigheterna.
    * **Rolldefinition**: Den här egenskapen är en lista med alla inbyggda RBAC-roller (rollbaserade åtkomstkontroller) som tillhandahålls av Azure AD. Välj den roll som är mest lämplig för hantering av resurserna för kundens räkning.
+   * **Principinställningar**: Använd [Azure Policy](../azure-policy/azure-policy-introduction.md) på det hanterade programmet och ange efterlevnadskrav för de distribuerade lösningarna. Välj vilka principer du vill använda bland de tillgängliga alternativen. I fältet **Principparametrar** anger du en JSON-sträng med parametervärdena. Du kan läsa om principdefinitioner och parametervärdenas format i [Azure Policy-exempel](../azure-policy/json-samples.md).
 
 Du kan lägga till flera auktoriseringar. Vi rekommenderar att du skapar en AD-användargrupp och anger gruppens ID i **PrincipalId**. På det sättet kan du lägga till fler användare i användargruppen utan att behöva uppdatera SKU:n.
 

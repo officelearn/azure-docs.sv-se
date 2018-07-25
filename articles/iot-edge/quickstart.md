@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 11b2fccf3c02555f50f48252f2cd9968c9ec90d7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 19fd671514da0dbfb1704c37d4347e870763d41b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38632892"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091821"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snabbstart: Distribuera din första IoT Edge-modul från Azure Portal till en Windows.enhet – förhandsgranskning
 
@@ -46,7 +46,7 @@ Förbered följande på den dator som du använder för en IoT Edge-enhet:
    * Windows 10 eller senare
    * Windows Server 2016 eller senare
 2. Installera [Docker för Windows][lnk-docker] och kontrollera att den körs.
-3. Konfigurera Docker för att använda [Linux-behållare](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
+3. Konfigurera Docker för att använda [Linux-containrar](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -65,16 +65,16 @@ Starta snabbstarten genom att skapa din IoT Hub i Azure Portal.
 
 Den kostnadsfria nivån för IoT Hub fungerar för den här snabbstarten. Om du har använt IoT Hub tidigare och redan har skapat en kostnadsfri hubb kan du använda den. Varje prenumeration kan bara ha en kostnadsfri IoT Hub. 
 
-1. Skapa en resursgrupp i Azure Cloud Shell. I följande exempel skapas en resursgrupp med namnet **TestResources** i regionen **USA, västra**. Genom att lägga alla resurser för snabbstarten och självstudierna i en grupp kan du hantera dem tillsammans. 
+1. Skapa en resursgrupp i Azure Cloud Shell. I följande exempel skapas en resursgrupp med namnet **IoTEdgeResources** i regionen **USA, västra**. Genom att lägga alla resurser för snabbstarten och självstudierna i en grupp kan du hantera dem tillsammans. 
 
    ```azurecli-interactive
-   az group create --name TestResources --location westus
+   az group create --name IoTEdgeResources --location westus
    ```
 
-1. Skapa en IoT Hub i din nya resursgrupp. Följande kod skapar en kostnadsfri **F1**-hubb i resursgruppen **TestResources**. Ersätt *{hub_name}* med ett unikt namn för din IoT Hub.
+1. Skapa en IoT Hub i din nya resursgrupp. Följande kod skapar en kostnadsfri **F1**-hubb i resursgruppen **IoTEdgeResources**. Ersätt *{hub_name}* med ett unikt namn för din IoT Hub.
 
    ```azurecli-interactive
-   az iot hub create --resource-group TestResources --name {hub_name} --sku F1 
+   az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
 ## <a name="register-an-iot-edge-device"></a>Registrera en IoT Edge-enhet
@@ -108,7 +108,7 @@ IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponen
 >[!NOTE]
 >Installationsstegen i det här avsnittet görs manuellt under tiden ett installationsskript utvecklas. 
 
-Anvisningarna i det här avsnittet konfigurerar IoT Edge-körningen med Linux-behållare. Om du vill använda Windows-behållare, se informationen i avsnittet om att [installera Azure IoT Edge-körning i Windows för användning med Windows-behållare](how-to-install-iot-edge-windows-with-windows.md).
+Anvisningarna i det här avsnittet konfigurerar IoT Edge-körningen med Linux-containrar. Om du vill använda Windows-containrar, se informationen i avsnittet om att [installera Azure IoT Edge-körning i Windows för användning med Windows-containrar](how-to-install-iot-edge-windows-with-windows.md).
 
 ### <a name="download-and-install-the-iot-edge-service"></a>Ladda ned och installera IoT Edge-tjänsten
 
@@ -116,14 +116,15 @@ Anvisningarna i det här avsnittet konfigurerar IoT Edge-körningen med Linux-be
 
 2. Ladda ned IoT Edge service pack.
 
-  ```powershell
-  Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
-  Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
-  Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
-  rmdir C:\ProgramData\iotedge\iotedged-windows
-  $env:Path += ";C:\ProgramData\iotedge"
-  SETX /M PATH "$env:Path"
-  ```
+   ```powershell
+   Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
+   Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
+   Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
+   rmdir C:\ProgramData\iotedge\iotedged-windows
+   $sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+   $path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+   Set-ItemProperty -Path $sysenv -Name Path -Value $path
+   ```
 
 3. Installera vcruntime.
 
@@ -185,18 +186,11 @@ Konfigurera körningen med anslutningssträngen för IoT Edge-enheten som du kop
 
 5. Skapa en miljövariabel med namnet **IOTEDGE_HOST**, ersätt *\<ip_address\>* med IP-adressen för din IoT Edge-enhet. 
 
-  ```powershell
-  [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-  ```
-  
-  Bevara miljövariabeln mellan omstarter.
+   ```powershell
+   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+   ```
 
-  ```powershell
-  SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
-  ```
-
-
-6. Leta upp avsnittet för **anslutningsinställningar** i filen `config.yaml`. Uppdatera värdena för **management_uri** och **workload_uri** med de IP-adresser och portar som du öppnade i föregående avsnitt. Ersätt **\<GATEWAY_ADDRESS\>** med din IP-adress. 
+6. Leta upp avsnittet för **anslutningsinställningar** i filen `config.yaml`. Uppdatera värdena för **management_uri** och **workload_uri** med de IP-adresser och portar som du öppnade i föregående avsnitt. Ersätt **\<GATEWAY_ADDRESS\>** med IP-adressen för DockerNAT du kopierade. 
 
    ```yaml
    connect: 
@@ -212,7 +206,7 @@ Konfigurera körningen med anslutningssträngen för IoT Edge-enheten som du kop
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-8. Leta upp avsnittet med **körningsinställningar för Moby-behållare** och kontrollera att värdet för **nätverk** är satt till `nat`.
+8. Leta upp avsnittet med **körningsinställningar för Moby-containrar** och kontrollera att värdet för **nätverk** är satt till `nat`.
 
 9. Spara konfigurationsfilen. 
 
@@ -285,19 +279,55 @@ Du kan visa meddelanden som tas emot av din IoT Hub med [verktyget IoT Hub Explo
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan använda den simulerade enheten som du konfigurerade i denna snabbstart för att testa IoT Edge-självstudierna. Om du vill stoppa modulen tempSensor från att skicka data till din IoT Hub, använder du följande kommando för att stoppa IoT Edge-tjänsten och ta bort de behållare som har skapats på enheten. Kom ihåg att starta tjänsten när du vill använda din dator som en IoT Edge-enhet igen. 
+Om du vill fortsätta med IoT Edge-självstudierna kan du använda enheten du registrerade och konfigurerade i den här snabbstarten. I annat fall kan du ta bort de Azure-resurser som du skapade och ta bort IoT Edge-körningen från enheten. 
+
+### <a name="delete-azure-resources"></a>Ta bort Azure-resurser
+
+Om du skapade den virtuella datorn och IoT-hubben i en ny resursgrupp kan du ta bort den gruppen och alla associerade resurser. Om det finns något i den resursgruppen som du vill behålla tar du bara bort de enskilda resurser som du vill rensa. 
+
+Ta bort gruppen **IoTEdgeResources**. 
+
+   ```azurecli-interactive
+   az group delete --name IoTEdgeResources 
+   ```
+
+### <a name="remove-the-iot-edge-runtime"></a>Ta bort IoT Edge-körningen
+
+Om du planerar att använda IoT Edge-enheten för framtida testning men vill stoppa tempSensor-modulen från att skicka data till IoT-hubben använder du följande kommando för att stoppa IoT Edge-tjänsten. 
 
    ```powershell
    Stop-Service iotedge -NoWait
-   docker rm -f $(docker ps -aq)
    ```
 
-Du kan använda följande kommando för att ta bort resursgruppen som du skapade och alla resurser som är kopplade till den när du inte längre behöver Azure-resurserna som du skapade:
+Du kan starta om tjänsten när du är redo att börja testa igen
 
-   ```azurecli-interactive
-   az group delete --name TestResources
+   ```powershell
+   Start-Service iotedge
    ```
 
+Om du vill ta bort installationerna från din enhet kan du använda följande kommandon.  
+
+Ta bort IoT Edge-körningen.
+
+   ```powershell
+   cmd /c sc delete iotedge
+   rm -r c:\programdata\iotedge
+   ```
+
+När IoT Edge-körningen tas bort stoppas de containrar som den skapade, men de finns fortfarande kvar på enheten. Visa alla containrar.
+
+   ```powershell
+   docker ps -a
+   ```
+
+Ta bort de containrar som skapades på enheten av IoT Edge-körningen. Ändra namnet på containern tempSensor om du kallade den för något annat. 
+
+   ```powershell
+   docker rm -f tempSensor
+   docker rm -f edgeHub
+   docker rm -f edgeAgent
+   ```
+   
 ## <a name="next-steps"></a>Nästa steg
 
 I den här snabbstarten skapade du en ny IoT Edge-enhet och du använde molngränssnittet i Azure IoT Edge för att distribuera kod på enheten. Nu har du en testenhet som genererar rådata för sin miljö. 

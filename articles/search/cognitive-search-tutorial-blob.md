@@ -1,20 +1,20 @@
 ---
-title: 'Självstudie: Anropa API:er för kognitiv sökning i Azure Search | Microsoft Docs'
-description: Exempel på dataextrahering, naturligt språk och bearbetning av avbildnings-AI i Azure Search-indexering för dataextrahering och transformering.
+title: Självstudie om att anropa API:er för kognitiv sökning i Azure Search | Microsoft Docs
+description: I den här självstudien går vi igenom ett exempel på dataextrahering, naturliga språk och AI-bearbetning av bilder via Azure Search-indexering för dataextrahering och transformering.
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 0bca64675ed656373d6a73ca772fa713ad36a57e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 35295f00b9264e4b6fba2ff9d293772c22b91c50
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757578"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991981"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Självstudie: Lär dig att anropa API:er för kognitiv sökning (förhandsversion)
 
@@ -23,8 +23,8 @@ I den här självstudien har du lärt dig mekaniken bakom att programmera databe
 I den här självstudien gör du REST API-anrop för att utföra följande uppgifter:
 
 > [!div class="checklist"]
-> * Skapa en indexeringspipeline som berikar källdata i vägen till ett index
-> * Använd inbyggda kunskaper med exempeldata: entitetsigenkänning, språkidentifiering, textredigering och extrahering av viktiga fraser
+> * Skapa en indexeringspipeline som berikar källdata på väg till ett index
+> * Använd inbyggda färdigheter: entitetsigenkänning, språkidentifiering, textredigering och extrahering av viktiga fraser
 > * Lära dig att sammanlänka kunskaper genom att mappa indata till utdata i en kompetens
 > * Köra begäranden och granska resultatet
 > * Återställa index och indexerare för ytterligare utveckling
@@ -60,7 +60,7 @@ Börja med att registrera dig för Azure Search-tjänsten.
   En kostnadsfri tjänst är begränsad till 3 index, 16 MB maximal blobstorlek och 2 minuters indexering, vilket är otillräckligt för att dra full nytta av funktionerna i kognitiv sökning. Information om gränserna för olika nivåer finns i [Tjänstbegränsningar](search-limits-quotas-capacity.md).
 
   > [!NOTE]
-  > Kognitiv sökning är tillgängligt som en förhandsversion. För närvarande kan du köra kunskapsuppsättningar på alla nivåer, inklusive den kostnadsfria nivån. Priserna för den här funktionen kommer att meddelas längre fram.
+  > Kognitiv sökning är tillgängligt i en offentlig förhandsversion. För närvarande kan du köra kunskapsuppsättningar på alla nivåer, inklusive den kostnadsfria nivån. Priserna för den här funktionen kommer att meddelas längre fram.
 
 1. Fäst tjänsten vid instrumentpanelen för snabb åtkomst till tjänstinformation.
 
@@ -76,11 +76,11 @@ Berikningspipelinen hämtar data från Azure-datakällor. Källdata måste komma
 
 1. [Hämta exempeldata](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Exempeldata består av en liten filuppsättning av olika typer. 
 
-1. Registrera dig för Azure Blob Storage, skapa ett lagringskonto, logga in i Storage Explorer och skapa en behållare med namnet `basicdemo`. Anvisningar för alla steg finns i [snabbstarten för Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
+1. Registrera dig för Azure Blob Storage, skapa ett lagringskonto, logga in i Storage Explorer och skapa en container med namnet `basicdemo`. Anvisningar för alla steg finns i [snabbstarten för Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
-1. Använd Azure Storage Explorer och klicka på **Ladda upp** i `basicdemo`behållaren som du skapade för att ladda upp exempeldata.
+1. Använd Azure Storage Explorer och klicka på **Ladda upp** i containern `basicdemo` som du skapade för att ladda upp exempeldata.
 
-1. När exempelfilerna har lästs in hämtar du behållarens namn och en anslutningssträng för Blob Storage. Du kan göra det genom att gå till lagringskontot i Azure-portalen. Gå till **Åtkomstnycklar** och kopiera fältet **Anslutningssträng**.
+1. När exempelfilerna har lästs in hämtar du containerns namn och en anslutningssträng för Blob Storage. Det kan du göra genom att gå till lagringskontot i Azure Portal. Gå till **Åtkomstnycklar** och kopiera fältet **Anslutningssträng**.
 
   Anslutningssträngen ska vara en URL som ser ut ungefär så här:
 
@@ -94,7 +94,7 @@ Det finns andra sätt att ange anslutningssträngen, till exempel att ange en si
 
 Nu när dina tjänster och källfiler är förberedda kan du börja samla in komponenterna för din indexeringspipeline. Börja med ett [datakällobjekt](https://docs.microsoft.com/rest/api/searchservice/create-data-source) som talar om för Azure Search hur externa källdata ska hämtas.
 
-För den här självstudien använder du REST API och ett verktyg som kan formulera och skicka HTTP-förfrågningar som PowerShell, Postman eller Fiddler. I begärandehuvudet anger du tjänstnamnet du använde när du skapade Azure Search-tjänsten, och API-nyckeln du genererade för din söktjänst. Ange blob-behållaren och anslutningssträngen i frågans brödtext.
+För den här självstudien använder du REST API och ett verktyg som kan formulera och skicka HTTP-förfrågningar som PowerShell, Postman eller Fiddler. I begärandehuvudet anger du tjänstnamnet du använde när du skapade Azure Search-tjänsten, och API-nyckeln du genererade för din söktjänst. Ange blobcontainern och anslutningssträngen i frågans brödtext.
 
 ### <a name="sample-request"></a>Exempelförfrågan
 ```http
@@ -134,7 +134,8 @@ I det här steget definierar du en uppsättning med berikningssteg som du vill a
 
 + [Textuppdelning](cognitive-search-skill-textsplit.md) för att dela upp stort innehåll i mindre delar innan du anropar färdigheten extrahering av nyckelfraser. Extrahering av nyckelfraser accepterar indata på 50 000 tecken eller mindre. Några av exempelfilerna måste delas upp för att rymmas inom gränsen.
 
-+ [Igenkänning av namngiven enhet](cognitive-search-skill-named-entity-recognition.md) för extrahering av namnen och organisationerna från innehåll i blob-behållaren.
++ 
+  [Igenkänning av namngiven enhet](cognitive-search-skill-named-entity-recognition.md) för extrahering av namnen och organisationerna från innehåll i blobcontainern.
 
 + [Extrahering av nyckelfraser](cognitive-search-skill-keyphrases.md) för att hämta viktigaste nyckelfraserna. 
 
@@ -412,7 +413,7 @@ Content-Type: application/json
 
 Svaret anger om indexeraren körs. När indexeringen är klar använder du en annan HTTP GET till STATUS-slutpunkten (enligt ovan) för att se rapporter för eventuella fel och varningar som uppstod under berikandet.  
 
-Varningar är vanliga med vissa källfils- och kunskapskombinationer och är inte alltid tecken på problem. I den här självstudien är varningarna ofarliga (till exempel inga textindata från JPEG-filerna). Du kan granska statussvaren för utförlig information om varningar som har genererats under indexeringen.
+Varningar är vanliga med vissa källfils- och kunskapskombinationer och är inte alltid tecken på problem. I den här självstudien är varningarna ofarliga (till exempel inga textindata från JPEG-filerna). Du kan granska statussvaret om du vill ha utförlig information om varningar som har genererats under indexeringen.
  
 ## <a name="verify-content"></a>Kontrollera innehåll
 

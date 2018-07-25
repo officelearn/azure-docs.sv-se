@@ -13,19 +13,21 @@ ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 06/26/2018
+ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 7d3fc71bc53e85fa7555dbee5ee79b3f06f27fe8
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 0650fffeb54ebc4390c82fb2711d7c89e0ac4572
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960346"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989426"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Mappa en anpassad domän till en funktionsapp
 
-Det här skriptexemplet skapar en funktionsapp med relaterade resurser och mappar sedan `www.<yourdomain>` till den. När din funktionsapp finns i en [App Service-plan](../functions-scale.md#app-service-plan) kan du mappa en anpassad domän med antingen en CNAME-post eller en A-post. För funktionsappar i en [förbrukningsplan](../functions-scale.md#consumption-plan) stöds endast alternativet CNAME.
+I det här exempelskriptet skapar du en funktionsapp i en App Service-plan och mappar den till en anpassad domän du anger. När din funktionsapp finns i en [App Service-plan](../functions-scale.md#app-service-plan) kan du mappa en anpassad domän med antingen en CNAME-post eller en A-post. För funktionsappar i en [förbrukningsplan](../functions-scale.md#consumption-plan) stöds endast alternativet CNAME. I det här exemplet skapar du en App Service-plan, och det behövs en A-post till att mappa domänen. 
+
+Om du vill köra det här exempelskriptet måste du redan ha konfigurerat en A-post i din anpassade domän som pekar på standarddomännamnet för webbappen. Mer information finns i [Mappa instruktioner om anpassad domän till Azure App Service](https://aka.ms/appservicecustomdns). 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,14 +48,14 @@ Det här skriptet använder följande kommandon: varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Skapar ett lagringskonto som krävs av funktionsappen. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Skapar en App Service-plan som krävs för mappning av en anpassad domän. |
-| [az functionapp create]() | Skapar en funktionsapp. |
-| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Mappar en anpassad domän till en funktionsapp. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Skapar ett lagringskonto som krävs av funktionsappen. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) | Skapar en App Service-plan som krävs för mappning av en anpassad domän. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Skapar en funktionsapp i App Service-planen. |
+| [az functionapp config hostname add](https://docs.microsoft.com/cli/azure/functionapp/config/hostname#az-functionapp-config-hostname-add) | Mappar en anpassad domän till en funktionsapp. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare Functions CLI-skriptexempel för finns i [Azure Functions-dokumentationen]().
+Ytterligare Functions CLI-skriptexempel för finns i [Azure Functions-dokumentationen](../functions-cli-samples.md).

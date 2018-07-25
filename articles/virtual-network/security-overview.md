@@ -1,6 +1,6 @@
 ---
-title: Översikt över nätverkssäkerhet för Azure | Microsoft Docs
-description: Läs mer om säkerhetsalternativ för att styra flödet av nätverkstrafik mellan Azure-resurser.
+title: Översikt över säkerhetsgrupper i Azure | Microsoft Docs
+description: Lär dig om säkerhetsgrupper för nätverk och program. Med säkerhetsgrupper kan du filtrera nätverkstrafik mellan Azure-resurser.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 11178c574bcfa2224d15f81653f7d202ba88fb55
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e43f476c6f816a912e5739d5e2c13676cd1ca3e
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657595"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092687"
 ---
-# <a name="network-security"></a>Nätverkssäkerhet
+# <a name="network-and-application-security-groups"></a>Säkerhetsgrupper för nätverk och program
 
-Du kan begränsa nätverkstrafiken till resurser i ett virtuellt nätverk med hjälp av en nätverkssäkerhetsgrupp. En nätverkssäkerhetsgrupp innehåller en lista över säkerhetsregler som tillåter eller nekar inkommande eller utgående nätverkstrafik baserat på käll- eller mål-IP-adress, port och protokoll. 
+Du kan begränsa nätverkstrafiken till resurser i ett virtuellt nätverk med hjälp av säkerhetsgrupper för nätverk och program. En nätverkssäkerhetsgrupp innehåller en lista över säkerhetsregler som tillåter eller nekar inkommande eller utgående nätverkstrafik baserat på käll- eller mål-IP-adress, port och protokoll. I en programsäkerhetsgrupp kan du gruppera virtuella datorer med liknande funktioner, som webbservrar. Du kan ange en att en programsäkerhetsgrupp ska vara källa eller mål för en regel i en nätverkssäkerhetsgrupp.
 
 ## <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
 
-Varje nätverksgränssnitt har ingen, eller en, associerad nätverkssäkerhetsgrupp. Varje nätverksgränssnitt finns i ett [virtuellt nätverks](virtual-networks-overview.md) undernät. Varje undernät kan också ha ingen, eller en, associerad nätverkssäkerhetsgrupp. 
+Varje nätverksgränssnitt har ingen, eller en, associerad nätverkssäkerhetsgrupp. Varje nätverksgränssnitt finns i ett [virtuellt nätverks](virtual-networks-overview.md) undernät. Varje undernät kan också ha ingen, eller en, associerad nätverkssäkerhetsgrupp.
 
 När säkerhetsregler tillämpas för ett undernät tillämpas de för alla resurser i undernätet. Förutom nätverksgränssnitt kan du ha instanser av andra Azure-tjänster, till exempel HDInsight, VM-skalningsuppsättningar och tillämpningstjänstmiljöer, distribuerade i undernätet.
 
@@ -121,7 +121,8 @@ Du kan inte ta bort standardreglerna, men du kan åsidosätta dem genom att skap
  En tjänsttagg representerar en grupp IP-adressprefix och används i syfte att minska komplexiteten vid skapande av säkerhetsregler. Du kan inte skapa egna tjänsttaggar, och du kan inte heller ange vilka IP-adresser som ska finnas i en tagg. Microsoft hanterar adressprefix som omfattas av tjänsttaggen och uppdaterar automatiskt tjänsttaggen när adresserna ändras. Du kan använda tjänsttaggar i stället för specifika IP-adresser när du skapar säkerhetsregler. Du kan använda följande tjänsttaggar när du definierar säkerhetsregler. Namnen skiljer sig lite mellan olika [Azure-distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 * **VirtualNetwork** (**Resource Manager) (VIRTUAL_NETWORK** för klassisk): Den här taggen innehåller adressutrymmet för det virtuella nätverket (alla CIDR-intervall som har definierats för det virtuella nätverket), alla anslutna lokala adressutrymmen och [peer-kopplade](virtual-network-peering-overview.md) virtuella nätverk eller virtuella nätverk som anslutits till en [virtuell nätverksgateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** för klassisk): Den här taggen anger belastningsutjämnaren för Azures infrastruktur. Taggen översätts till en [IP-adress för Azure-datacentret](https://www.microsoft.com/download/details.aspx?id=41653) som Azures hälsoavsökning kommer från. Du kan åsidosätta den här regeln om du inte använder Azures belastningsutjämnare.
+* 
+  **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** för klassisk): Den här taggen anger lastbalanseraren för Azures infrastruktur. Taggen översätts till en [IP-adress för Azure-datacentret](https://www.microsoft.com/download/details.aspx?id=41653) som Azures hälsoavsökning kommer från. Du kan åsidosätta den här regeln om du inte använder Azures lastbalanserare.
 * **Internet** (Resource Manager) (**INTERNET** för klassisk): Den här taggen anger IP-adressutrymmet som är utanför det virtuella nätverket och som kan nås av det offentliga Internet. Adressintervallet omfattar det [offentliga IP-adressutrymmet som ägs av Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureTrafficManager** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för IP-avsökning i Azure Traffic Manager. Mer information om adresser för IP-avsökning i Traffic Manager finns i [Vanliga frågor och svar om Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs).
 * **Storage** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för tjänsten Azure Storage. Om du anger *Storage* som värde tillåts eller nekas trafik till lagringen. Om du bara vill tillåta åtkomst till lagring i en viss [region](https://azure.microsoft.com/regions) anger du regionen. Om du till exempel bara vill tillåta åtkomst till Azure Storage i regionen östra USA kan du ange *Storage.EastUS* som tjänsttagg. Taggen representerar tjänsten, men inte specifika instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure Storage, men inte ett specifikt Azure Storage-konto. Alla adressprefix som representeras av den här taggen är också representerade av taggen **Internet**.
@@ -157,9 +158,10 @@ Programmet säkerhetsgrupper har följande begränsningar:
 
 ## <a name="azure-platform-considerations"></a>Azure-plattformsöverväganden
 
-- **Värdnodens virtuella IP-adress**: Grundläggande infrastrukturtjänster som DHCP, DNS och hälsoövervakning tillhandahålls via de virtualiserade värd-IP-adresserna 168.63.129.16 och 169.254.169.254. De här offentliga IP-adresserna tillhör Microsoft och kommer att vara de enda virtualiserade IP-adresserna som används i alla regioner för det här ändamålet. Den här adressen mappar till den fysiska adressen för serverdatorn (värdnoden) som är värd för den virtuella datorn. Värdnoden agerar som ett DHCP-relä, rekursiv DNS-matchare och avsökningskälla för belastningsutjämnaren, hälsoavsökningen och datorhälsoavsökningen. Kommunikation till de här IP-adresserna är inte ett angrepp. Om du blockerar trafik till eller från dessa IP-adresser kanske den virtuella datorn inte fungerar korrekt.
+- **Värdnodens virtuella IP-adress**: Grundläggande infrastrukturtjänster som DHCP, DNS och hälsoövervakning tillhandahålls via de virtualiserade värd-IP-adresserna 168.63.129.16 och 169.254.169.254. De här offentliga IP-adresserna tillhör Microsoft och kommer att vara de enda virtualiserade IP-adresserna som används i alla regioner för det här ändamålet. Den här adressen mappar till den fysiska adressen för serverdatorn (värdnoden) som är värd för den virtuella datorn. Värdnoden agerar som ett DHCP-relä, rekursiv DNS-matchare och avsökningskälla för lastbalanseraren, hälsoavsökningen och datorhälsoavsökningen. Kommunikation till de här IP-adresserna är inte ett angrepp. Om du blockerar trafik till eller från dessa IP-adresser kanske den virtuella datorn inte fungerar korrekt.
 - **Licensiering (nyckelhanteringstjänsten):** Windows-avbildningar som kör på de virtuella datorerna ska vara licensierade. Licensieringen kontrolleras genom att en begäran skickas till nyckelhanteringstjänstens värdservrar som hanterar sådana frågor. Begäran är en utgående begäran via port 1688. För distributioner som använder konfigurationer med [standardflödet 0.0.0.0/0](virtual-networks-udr-overview.md#default-route), inaktiveras denna plattformsregel.
-- **Virtuella datorer i belastningsutjämnade pooler**: Källporten och adressintervallet som används kommer från den ursprungliga datorn, inte belastningsutjämnaren. Målporten och måladressutrymmet kommer från måldatorn, inte belastningsutjämnaren.
+- 
+  **Virtuella datorer i lastbalanserade pooler**: Källporten och adressintervallet som används kommer från den ursprungliga datorn, inte lastbalanseraren. Målporten och måladressutrymmet kommer från måldatorn, inte lastbalanseraren.
 - **Azure-tjänstinstanser**: Instanser av flera Azure-tjänster, till exempel HDInsight, tillämpningstjänstmiljöer och VM-skalningsuppsättningar distribueras i undernät för virtuella nätverk. En fullständig lista över tjänster som du kan distribuera till virtuella nätverk finns i [Virtuellt nätverk för Azure-tjänster](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Ta reda på portkraven för varje tjänst innan du tillämpar en nätverkssäkerhetsgrupp för det undernät som resursen är distribuerad i. Om du nekar åtkomst till portar som krävs för tjänsten kommer tjänsten inte att fungera korrekt.
 - **Skicka utgående e-post**: Microsoft rekommenderar att du använder autentiserade SMTP-relätjänster (ansluts vanligtvis, men inte alltid, via TCP-port 587) för att skicka e-post från Azure Virtual Machines. SMTP-relätjänsterna är specialiserade på avsändaromdöme för att minska möjligheten att externa e-postleverantörer avvisar meddelanden. SMTP-relätjänsterna omfattar, men är inte begränsade till, Exchange Online Protection och SendGrid. Användningen av SMTP-relätjänster är inte begränsad i Azure, oavsett vilken typ av prenumeration du har. 
 
@@ -167,10 +169,10 @@ Programmet säkerhetsgrupper har följande begränsningar:
 
      - **Enterprise-avtal**: Utgående kommunikation via port 25 tillåts. Du kan skicka utgående e-post direkt från virtuella datorer till externa e-postleverantörer utan begränsningar från Azure-plattformen. 
      - **Betala per användning:** Utgående kommunikation via port 25 blockeras från alla resurser. Om du behöver skicka e-post från en virtuell dator direkt till externa e-postleverantörer (inte använda ett autentiserat SMTP-relä) kan du skicka en begäran om att ta bort begränsningen. Förfrågningarna granskas och godkänns enligt Microsofts gottfinnande och beviljas endast efter att bedrägerikontroller utförts. Om du vill skicka en förfrågan öppnar du ett supportärende med ärendetypen *Teknisk*, *Virtuell nätverksanslutning*, *Det går inte att skicka e-post (SMTP/Port 25)*. I ditt supportärende anger du information om varför du (din prenumeration) behöver skicka e-post direkt till e-postleverantörer i stället för att gå via ett autentiserat SMTP-relä. Om din prenumeration undantas kan endast virtuella datorer som skapats efter undantagsdatumet använda utgående kommunikation via port 25.
-     - **Molntjänstleverantör (CSP), MSDN, Azure-pass, Azure i Open, Education, BizSpark och kostnadsfri utvärderingsversion**: Utgående kommunikation via port 25 blockeras från alla resurser. Det går inte att skicka förfrågningar om att ta bort begränsningen eftersom dessa inte beviljas. Om du behöver skicka e-post från din virtuella dator måste du använda en SMTP-relätjänst.
+     - **MSDN, Azure-pass, Azure i Open, Education, BizSpark och kostnadsfri utvärderingsversion**: Utgående kommunikation via port 25 blockeras från alla resurser. Det går inte att skicka förfrågningar om att ta bort begränsningen eftersom dessa inte beviljas. Om du behöver skicka e-post från din virtuella dator måste du använda en SMTP-relätjänst.
+     - **Molntjänstleverantör**: Kunder som förbrukar Azure-resurser via en molntjänstleverantör kan skapa ett supportärende hos molntjänstleverantören och begära ett avblockeringsärende om det inte går att använda ett säkert SMTP-relä.
 
-  Även om Azure tillåter att du skickar e-post via port 25 kan Microsoft inte garantera att e-postleverantörerna godkänner inkommande e-post från din virtuella dator. Om en viss leverantör avvisar e-post från din virtuella dator måste du kontakta leverantören direkt för att lösa problem med meddelandeleverans eller skräppostfiltrering, eller använda en autentiserad SMTP-relätjänst. 
-
+  Även om Azure tillåter att du skickar e-post via port 25 kan Microsoft inte garantera att e-postleverantörerna godkänner inkommande e-post från din virtuella dator. Om en viss leverantör avvisar e-post från din virtuella dator måste du kontakta leverantören direkt för att lösa problem med meddelandeleverans eller skräppostfiltrering, eller använda en autentiserad SMTP-relätjänst.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,16 +3,17 @@ title: 'Snabbstart: Skapa en pipeline för kognitiv sökning i Azure Search med 
 description: Kunskaper för dataextrahering, naturligt språk och bildbearbetning på Azure Portal med hjälp av exempeldata.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3dda4c330f2dc620662c476aa4e5dbfe3a60fa76
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640269"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003704"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snabbstart: Skapa en pipeline för kognitiv sökning med kunskaper och exempeldata
 
@@ -60,7 +61,7 @@ Börja med att registrera dig för Azure Search-tjänsten.
   En kostnadsfri tjänst är begränsad till 3 index, 16 MB maximal blobstorlek och 2 minuters indexering, vilket är otillräckligt för att dra full nytta av funktionerna i kognitiv sökning. Information om gränserna för olika nivåer finns i [Tjänstbegränsningar](search-limits-quotas-capacity.md).
 
   > [!NOTE]
-  > Kognitiv sökning är tillgängligt som en förhandsversion. För närvarande kan du köra kunskapsuppsättningar på alla nivåer, inklusive den kostnadsfria nivån. Priserna för den här funktionen kommer att meddelas längre fram.
+  > Kognitiv sökning är tillgängligt i en offentlig förhandsversion. För närvarande kan du köra kunskapsuppsättningar på alla nivåer, inklusive den kostnadsfria nivån. Priserna för den här funktionen kommer att meddelas längre fram.
 
 1. Fäst tjänsten vid instrumentpanelen för snabb åtkomst till tjänstinformation.
 
@@ -72,9 +73,9 @@ Berikningspipelinen hämtar data från Azure-datakällor som stöds av [Azure Se
 
 1. [Ladda ned exempeldata](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) som består av en liten filuppsättning med olika typer av data. 
 
-1. Registrera dig för Azure Blob Storage, skapa ett lagringskonto, logga in i Storage Explorer och skapa en behållare. Anvisningar för alla steg finns i [snabbstarten för Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
+1. Registrera dig för Azure Blob Storage, skapa ett lagringskonto, logga in i Storage Explorer och skapa en container. Anvisningar för alla steg finns i [snabbstarten för Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
-1. Använd Azure Storage Explorer och klicka på **Ladda upp** i behållaren som du skapade för att ladda upp exempeldata.
+1. Använd Azure Storage Explorer och klicka på **Ladda upp** i containern som du skapade för att ladda upp exempeldata.
 
   ![Källfiler i Azure Blob Storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 
@@ -84,7 +85,7 @@ Gå tillbaka till instrumentpanelsidan i Azure Search och klicka på **Importera
 
 ### <a name="step-1-create-a-data-source"></a>Steg 1: Skapa en datakälla
 
-I **Anslut till dina data** > **Azure Blob Storage** väljer du kontot och behållaren som du skapade. Namnge datakällan och lämna standardvärdena för resten av inställningarna. 
+I **Anslut till dina data** > **Azure Blob Storage** väljer du kontot och containern som du skapade. Namnge datakällan och lämna standardvärdena för resten av inställningarna. 
 
    ![Konfiguration av Azure-blob](./media/cognitive-search-quickstart-blob/blob-datasource.png)
 
@@ -148,9 +149,9 @@ Eftersom indexeringen och berikningen kan ta tid rekommenderar vi att du börjar
 
 ## <a name="query-in-search-explorer"></a>Fråga i Sökutforskaren
 
-När ett index har skapats kan du skicka frågor för att returnera dokument från indexet. På portalen använder du **Sökutforskaren** för att köra frågor och visa resultat. 
+När ett index har skapats kan du skicka frågor för att returnera dokument från indexet. Använd **Sökutforskaren** i portalen till att köra frågor och visa resultat. 
 
-1. Klicka på **Sökutforskaren** i kommandofältet på söktjänstens instrumentpanelsidan.
+1. Klicka på **Sökutforskaren** i kommandofältet på söktjänstens instrumentpanelsida.
 
 1. Välj **Ändra index** längst upp och välj det index som du skapade.
 

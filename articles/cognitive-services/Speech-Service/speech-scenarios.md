@@ -9,12 +9,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 1488f95296bcc11a55a45aff56cee83b7708a789
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9e6be3608f5aa5ec5d68e6bbefff6da6c23c62fd
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072222"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247962"
 ---
 # <a name="speech-scenarios"></a>Tal-scenarier
 
@@ -36,7 +36,7 @@ Om din app kommer att användas av allmänheten i miljöer där bakgrundsljud in
 
 ### <a name="voice-triggered-apps-with-custom-models"></a>Röst utlöses appar med anpassade modeller
 
-Om din app adresser en specifik domän, (say kemi, biologi eller särskilda intaget via behov) så kan du överväga för att anpassa en [språkmodellen](how-to-customize-language-model.md). Anpassning av en språkmodell Lär avkodaren om de vanligaste fraser och ord som används av din app. Kodaren kommer att kunna mer exakt transkribera röstindata för med en anpassad språkmodell för en viss domän i stället för baslinje. På samma sätt om bakgrundsljud var din app ska användas är framträdande kan du anpassa en akustisk modell. Utforska dokumentationen för andra fall där [språk anpassning](how-to-customize-language-model.md) och [akustisk anpassning](how-to-customize-acoustic-models.md) ange värde och gå till vår [anpassning portal](https://customspeech.ai) kick angivande upplevelse för modellen när du skapar. Liknar basmodeller, anpassade modeller anropas vår [tal SDK](speech-sdk.md) och följer relevant [exempel](quickstart-csharp-dotnet-windows.md).
+Om din app adresser en specifik domän, (say kemi, biologi eller särskilda intaget via behov) så kan du överväga för att anpassa en [språkmodellen](how-to-customize-language-model.md). Anpassning av en språkmodell Lär avkodaren om de vanligaste fraser och ord som används av din app. Kodaren kommer att kunna mer exakt transkribera röstindata för med en anpassad språkmodell för en viss domän i stället för baslinje. På samma sätt om bakgrundsljud var din app ska användas är framträdande kan du anpassa en akustisk modell. Utforska dokumentationen för andra fall där [språk anpassning](how-to-customize-language-model.md) och [akustisk anpassning](how-to-customize-acoustic-models.md) ange värde och gå till vår [anpassning portal](https://customspeech.ai) för kick-Starting upplevelse för modellen när du skapar. Liknar basmodeller, anpassade modeller anropas vår [tal SDK](speech-sdk.md) och följer relevant [exempel](quickstart-csharp-dotnet-windows.md).
 
 ## <a name="transcribe-call-center-audio-calls"></a>Transkribera anrop center ljud anrop
 

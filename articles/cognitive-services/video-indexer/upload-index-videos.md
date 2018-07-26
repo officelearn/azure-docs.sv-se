@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: juliako
-ms.openlocfilehash: df3ebdcb07980c297204d6d2959cac6a759b34e2
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 64c4c8e4df0179f1644f23f0ae489015222a4ffd
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347462"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258372"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -37,6 +37,12 @@ Använd den här parametern om raw eller externa inspelningar innehåller bakgru
 - `DefaultWithNoiseReduction` – Indexera och lyfta ut kunskaper från både ljud och video, samtidigt som du använder bruset minskning algoritmer på ljudström
 
 Priset beror på det valda alternativet för indexering.  
+
+### <a name="callbackurl"></a>callbackUrl
+
+En POST-URL för att meddela när indexering har slutförts. Video Indexer lägger till två fråga strängparametrar till den: id och tillstånd. Om webbadressen för återanrop är till exempel ”https://test.com/notifyme?projectName=MyProject', meddelandet ska skickas med ytterligare parametrar i'https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed'.
+
+Du kan också lägga till fler parametrar i URL: en innan du publicerar anropet till Video Indexer och dessa parametrar kommer att inkluderas i motringningen. Senare i koden kan du parsa frågesträngen och få tillbaka alla angivna parametrar i frågesträngen (data som du ursprungligen hade läggas till URL: en plus informationen som Video Indexer som tillhandahålls.) 
 
 ### <a name="streamingpereset"></a>streamingPereset
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: juliako
-ms.openlocfilehash: be94a508a10fdbbed194fb71e28fd7c3b72a080c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.openlocfilehash: 8b32b241c4122893bb07993402a22d2223053f3d
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989486"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115185"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Granska Video Indexer-utdata som genereras av v2 API
 
@@ -84,22 +84,13 @@ Det här avsnittet visas en sammanfattning av insikterna.
 |privacyMode|Din analys på detaljnivå kan ha ett av följande lägen: **privata**, **offentliga**. **Offentliga** -videon är synlig för alla i ditt konto och vem som helst som har en länk till videon. **Privata** -videon är synlig för alla i ditt konto.|
 |varaktighet|Innehåller en varaktighet som beskriver den tid som en insikt inträffade. Varaktighet är i sekunder.|
 |thumbnailUrl|Videons miniatyr fullständiga URL: en. Till exempel ”https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO.”. Observera att om videon är privat, URL: en innehåller en åtkomsttoken för en timme. Efter en timme URL: en kommer inte längre och du behöver hämta uppdelning igen med en ny url i den eller anropa GetAccessToken för att få en ny åtkomsttoken och skapa hela webbadressen manuellt (”https://www.videoindexer.ai/api/Thumbnail/[shortId] / [ThumbnailId]? accessToken = [accessToken]').|
-|ansikten|Kan innehålla en eller flera ansikten. Mer information finns i [ansikten](#faces).|
-|ämnen|Kan innehålla en eller flera avsnitt. Mer information finns i [ämnen](#topics).|
-|sentiment|Kan innehålla en eller flera sentiment. Mer information finns i [sentiment](#sentiments).|
-|audioEffects| Kan innehålla en eller flera audioEffects. Mer information finns i [audioEffects](#audioeffects).|
+|ansikten|Kan innehålla noll eller flera ansikten. Mer information finns i [ansikten](#faces).|
+|nyckelord|Kan innehålla noll eller flera nyckelord. Mer information finns i [nyckelord](#keywords).|
+|sentiment|Kan innehålla noll eller flera sentiment. Mer information finns i [sentiment](#sentiments).|
+|audioEffects| Kan innehålla noll eller flera audioEffects. Mer information finns i [audioEffects](#audioeffects).|
+|etiketter| Kan innehålla noll eller fler etiketter. Detaljerad information finns i [etiketter](#labels).|
 |varumärken| Kan innehålla noll eller flera varumärken. Mer information finns i [varumärken](#brands).|
 |statistik | Mer information finns i [statistik](#statistics).|
-
-### <a name="statistics"></a>statistik
-
-|Namn|Beskrivning|
-|---|---|
-|CorrespondenceCount|Antal svaren i videon.|
-|WordCount|Antalet ord per talare.|
-|SpeakerNumberOfFragments|Mängden fragment talaren har i en video.|
-|SpeakerLongestMonolog|Talarens längsta monolog. Om talaren har silences inuti monolog ingår den. Åsidosatt inaktivitet i början och slutet av monolog tas bort.| 
-|SpeakerTalkToListenRatio|Beräkningen baseras på den tid som ägnats åt talarens monolog (utan intervallet mellan) dividerat med den totala tiden för videon. Tiden avrundas till tredje decimaltecknet.|
 
 ## <a name="videos"></a>videor
 
@@ -116,7 +107,7 @@ Det här avsnittet visas en sammanfattning av insikterna.
 |externalUrl|Videons extern url (om det angetts av användaren).|
 |metadata|Videons externa metadata (om det angetts av användaren).|
 |isAdult|Anger om videon manuellt har granskat och identifieras som en video som är olämpligt för barn.|
-|insikter|Insights-objekt.|
+|insikter|Insights-objekt. Mer information finns i [insights](#insights).|
 |thumbnailUrl|Videons miniatyr fullständiga URL: en. Till exempel ”https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO.”. Observera att om videon är privat, URL: en innehåller en åtkomsttoken för en timme. Efter en timme URL: en kommer inte längre och du behöver hämta uppdelning igen med en ny url i den eller anropa GetAccessToken för att få en ny åtkomsttoken och skapa hela webbadressen manuellt (”https://www.videoindexer.ai/api/Thumbnail/[shortId] / [ThumbnailId]? accessToken = [accessToken]').|
 |publishedUrl|En url som används för att strömma videon.|
 |publishedUrlProxy|En url som används för att strömma video från (för Apple-enheter).|
@@ -166,7 +157,7 @@ Ett ansikte kan ha ett ID, ett namn, en miniatyrbild, andra metadata och en list
 |avskrift|Den [avskrift](#transcript) dimension.|
 |OCR|Den [ocr](#ocr) dimension.|
 |nyckelord|Den [nyckelord](#keywords) dimension.|
-| block|Kan innehålla en eller flera [block](#blocks)|
+|block|Kan innehålla en eller flera [block](#blocks)|
 |ansikten|Den [ansikten](#faces) dimension.|
 |etiketter|Den [etiketter](#labels) dimension.|
 |skärmbilder|Den [skärmbilder](#shots) dimension.|
@@ -201,16 +192,8 @@ Exempel:
 
 Attribut | Beskrivning
 ---|---
-id|ID för blocket.
-rader|Kan innehålla en eller flera [rader](#lines)
-sentimentIds|Den **sentimentIds** attributet är reserverad för framtida användning.
-thumbnailIds|Den **thumbnailIds** attributet är reserverad för framtida användning.
-sentiment|Attityden i blocket (0-1, negativt till positivt).
-ansikten|Kan innehålla en eller flera [ansikten](#faces).
-ocrs|Kan innehålla en eller flera [ocrs](#ocrs).
-audioEffectInstances|Kan innehålla en eller flera [audioEffectInstances](#audioEffectInstances).
-scener|Kan innehålla en eller flera [kulisserna](#scenes).
-anteckningar|Kan innehålla noll eller flera [anteckningar](#annotations).
+id|ID för blocket.|
+instanser|En lista över tidsintervall i det här blocket.|
 
 #### <a name="transcript"></a>avskrift
 
@@ -563,6 +546,16 @@ Företag och produkten namn har identifierats i tal till textavskrift och/eller 
 ]
 ```
 
+#### <a name="statistics"></a>statistik
+
+|Namn|Beskrivning|
+|---|---|
+|CorrespondenceCount|Antal svaren i videon.|
+|WordCount|Antalet ord per talare.|
+|SpeakerNumberOfFragments|Mängden fragment talaren har i en video.|
+|SpeakerLongestMonolog|Talarens längsta monolog. Om talaren har silences inuti monolog ingår den. Åsidosatt inaktivitet i början och slutet av monolog tas bort.| 
+|SpeakerTalkToListenRatio|Beräkningen baseras på den tid som ägnats åt talarens monolog (utan intervallet mellan) dividerat med den totala tiden för videon. Tiden avrundas till tredje decimaltecknet.|
+
 #### <a name="audioeffects"></a>audioEffects
 
 |Namn|Beskrivning|
@@ -599,12 +592,14 @@ Sentiment sammanställs efter deras sentimentType fält (positiv/Neutral/negativ
 |id|Sentiment-ID.|
 |Medel |Medelvärdet för samtliga värden i alla instanser av den typ av sentiment – positiv/Neutral/negativ|
 |instanser|En lista över tidsintervall där den här sentiment visades.|
+|sentimentType |Typen kan vara ”positiva', 'Neutral' eller 'Negativt”.|
 
 ```json
 "sentiments": [
 {
     "id": 0,
     "averageScore": 0.87,
+    "sentimentType": "Positive",
     "instances": [
     {
         "start": "00:00:23",
@@ -614,6 +609,7 @@ Sentiment sammanställs efter deras sentimentType fält (positiv/Neutral/negativ
 }, {
     "id": 1,
     "averageScore": 0.11,
+    "sentimentType": "Positive",
     "instances": [
     {
         "start": "00:00:13",

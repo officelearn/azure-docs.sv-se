@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 6d1002fd5131ca97f7bc1b9d081ae1471191a6cf
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d2f5ce97ee81deaf590771f4794af4adf0fdbd1b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076579"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248595"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Vanliga frågor om ansluten fabrik lösningsaccelerator
 
@@ -125,7 +125,7 @@ Du kan också logga in på den virtuella datorn via SSH och granska loggfilerna 
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Hur kan jag kontrollera om simuleringen skickar data till molnet?
 
-Med den [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) eller [iothub-explorer](https://github.com/azure/iothub-explorer) verktyg, kan du granska de data som skickas till IoT Hub från vissa enheter. Om du vill använda de här verktygen behöver du anslutningssträngen för IoT-hubb i din distribution. Se [hur tar jag reda på anslutningssträngen för IoT hub som används av min lösning?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+Med den [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) eller [Azure IoT CLI-tillägg övervaka-händelser](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-monitor-events) kommandot, du kan granska de data som skickas till IoT Hub från vissa enheter. Om du vill använda de här verktygen behöver du anslutningssträngen för IoT-hubb i din distribution. Se [hur tar jag reda på anslutningssträngen för IoT hub som används av min lösning?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
 Granska de data som skickas av en av enheterna som utgivare:
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8aebe6bef536840722d9b07c846687eaf6d195db
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1963c2f45bc37741a6d00c8dae985bfa5237ce7f
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051077"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259236"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Självstudier: Azure Active Directory-integration med ServiceNow
 
@@ -153,7 +153,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 9. För att konfigurera **ServiceNow** automatiskt i stegen nedan
 
-    a. Gå tillbaka till den **ServiceNow** Signle-inloggning i Azure-portalen.
+    a. Gå tillbaka till den **ServiceNow** enkel inloggning i Azure-portalen.
 
     b. Ett enda klick konfigurera tjänsten har angetts för ServiceNow det vill säga att Azure AD automatiskt konfigurera ServiceNow för SAML-baserad autentisering. Aktivera den här tjänsten genom att gå till **ServiceNow Configuration** klickar du på **konfigurera ServiceNow** öppna Konfigurera inloggnings-fönstret.
 

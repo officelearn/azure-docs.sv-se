@@ -46,6 +46,7 @@
 ## Hantera användare
 ### [Lägga till nya användare i Azure AD](fundamentals/add-users-azure-active-directory.md)
 ### [Hantera användarprofiler](fundamentals/active-directory-users-profile-azure-portal.md)
+### [Återställa användarlösenord](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Dela konton](active-directory-sharing-accounts.md)
 ### [Tilldela användare administrativa roller](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Återställa en borttagen användare](fundamentals/active-directory-users-restore.md)
@@ -113,26 +114,32 @@
 ### [Användare i riskzonen](active-directory-reporting-security-user-at-risk.md)
 ### [Riskfyllda inloggningar](active-directory-reporting-security-risky-sign-ins.md)
 ### [Riskhändelser](active-directory-reporting-risk-events.md)
+### [Övervaka loggar med Azure Monitor](reporting-azure-monitor-diagnostics-overview.md)
 ### [Vanliga frågor och svar](active-directory-reporting-faq.md)
+
 ### Uppgifter
 #### [Konfigurera namngivna platser](active-directory-named-locations.md)
 #### [Hitta aktivitetsrapporter](active-directory-reporting-migration.md)
-#### [Använd innehållspaketet för Azure Active Directory Power BI](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Använda Azure AD Power BI-innehållspaket](active-directory-reporting-power-bi-content-pack-how-to.md)
 #### [Åtgärda användare som har flaggats för risk](active-directory-report-security-user-at-risk-remediation.md)
+#### [Dirigera aktivitetsloggar till en Azure-händelsehubb](reporting-azure-monitor-diagnostics-azure-event-hub.md)
+#### [Arkivera aktivitetsloggar till ett Azure Storage-konto](reporting-azure-monitor-diagnostics-azure-storage-account.md)
+#### [Integrera aktivitetsloggar med Splunk med Azure Monitor](reporting-azure-monitor-diagnostics-splunk-integration.md)
+
 ### Referens
 #### [Kvarhållning](active-directory-reporting-retention.md)
 #### [Svarstider](active-directory-reporting-latencies-azure-portal.md)
 #### [Granska aktivitetsreferens](active-directory-reporting-activity-audit-reference.md)
 #### [Felkoder för inloggningsaktivitet](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
-
+#### [Tolka schemat för spårningsloggen i Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+#### [Tolka schemat för inloggningsloggen i Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
 ### Felsöka
 #### [Granskningsdata som saknas](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Data som saknas i nedladdningar](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Fel i innehållspaket för Azure Active Directory-aktivitetsloggar](active-directory-reporting-troubleshoot-content-pack.md)
-#### [Fel i API för Azure Active Directory-rapportering](active-directory-reporting-troubleshoot-graph-api.md)
-
+#### [Azure AD Activity loggar fel i innehållspaket ](active-directory-reporting-troubleshoot-
+#### [Fel i Azure AD Reporting-API:et](active-directory-reporting-troubleshoot-graph-api.md)
 
 ### [Programmässig åtkomst](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Förutsättningar](active-directory-reporting-api-prerequisites-azure-portal.md)
@@ -140,13 +147,11 @@
 #### [Inloggningsexempel](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Använda certifikat](active-directory-reporting-api-with-certificates.md)
 
-## Hantera lösenord (active-directory/authentication/concept-sspr-howitworks.md)
+## [Hantera lösenord](authentication/concept-sspr-howitworks.md)
 ### Användardokument
 #### [Återställ eller ändra ditt lösenord](user-help/active-directory-passwords-update-your-own-password.md)
-#### [Metodtips för lösenord](active-directory-secure-passwords.md)
 #### [Registrera för återställning av lösenord för självbetjäning](user-help/active-directory-passwords-reset-register.md)
-### IT-administratörer: Återställ lösenord
-#### [Azure-portalen](fundamentals/active-directory-users-reset-password-azure-portal.md)
+
 
 ## Hantera enheter
 ### [Introduktion](device-management-introduction.md)

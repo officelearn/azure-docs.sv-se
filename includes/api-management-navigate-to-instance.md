@@ -1,18 +1,18 @@
-## <a name="navigate-to-your-apim-instance"></a>Gå till din APIM-instans
-
-Du kommer till APIM-instansen genom att följa dessa steg:
+## <a name="go-to-your-api-management-instance"></a>Gå till API Management-instansen
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
-2. Välj **Alla tjänster** längst upp till vänster på skärmen.  
-3. Skriv ”api” i sökrutan.
-4. Klicka på **API Management-tjänster**.
+2. Välj **Alla tjänster**.  
+3. I sökrutan anger du **api**.
+4. I sökresultaten väljer du **API Management-tjänster**.
 
-    ![Navigera](./media/api-management-navigate-to-instance/navigate-to-api-management-services.png)
+    ![Välj API Management-tjänster i sökresultaten](./media/api-management-navigate-to-instance/navigate-to-api-management-services.png)
 
-5. Välj din APIM-tjänstinstans.
+5. Välj API Management-tjänstinstansen.
 
->[!TIP]
->Lägg till API Management (APIM) i dina favoriter på Azure Portal genom att klicka på stjärnan. <br/>När du gör det läggs APIM-ikonen till på menyn till vänster på portalen. Klicka på ikonen (![APIM-ikon](./media/api-management-navigate-to-instance/apim-icon.png)) om du vill visa alla dina APIM-tjänster.
+> [!TIP]
+> Om du vill lägga till API Management i dina favoriter på Azure-portalen markerar du stjärnan.
+>
+> Azure API Management-ikonen (![Azure API Management-ikonen](./media/api-management-navigate-to-instance/apim-icon.png)) visas nu på den vänstra menyn på portalen.
  
 
 

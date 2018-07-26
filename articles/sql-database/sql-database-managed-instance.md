@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: bonova
-ms.openlocfilehash: 698b02e1bad7da3f793a35184d634eaf5c948988
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: HT
+ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071585"
+ms.locfileid: "39092001"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad instans (förhandsversion)?
 
@@ -68,9 +68,9 @@ I följande tabell visar flera egenskaper som är tillgängliga via Transact-SQL
 
 ![Enkel inloggning](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model-preview"></a>vCore-baserad inköpsmodell (förhandsversion)
+## <a name="vcore-based-purchasing-model"></a>vCore-baserade inköpsmodellen
 
-Den vCore-baserade inköpsmodellen (förhandsversion) får du flexibilitet, kontroll, transparens, och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Den här modellen kan du skala beräkning, minne och lagring utifrån deras arbetsbelastningsbehov. VCore-modellen är också berättigade till upp till 30 procent med den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+Den vCore-baserade inköpsmodellen ger dig flexibilitet, kontroll, transparens och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Den här modellen kan du skala beräkning, minne och lagring utifrån deras arbetsbelastningsbehov. VCore-modellen är också berättigade till upp till 30 procent med den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 En virtuell kärna representerar en logisk CPU med möjligheten att välja mellan av maskinvara.
 - Logiska generation 4-CPU:er baseras på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer.

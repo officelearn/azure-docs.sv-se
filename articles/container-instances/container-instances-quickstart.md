@@ -9,15 +9,16 @@ ms.topic: quickstart
 ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: b68468cd8174d658d04d8e67433a8f18884493bd
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: da022af164af640c01c09a64ffcc64f2a67d25fc
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39163012"
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Snabbstart: Skapa din första behållare i Azure Container Instances
 
-Azure Container Instances gör det enkelt att skapa och hantera Docker-behållare i Azure, utan att behöva etablera virtuella datorer eller gå upp till en högre tjänstnivå. I den här snabbstarten skapar du en behållare i Azure och gör den tillgänglig på Internet med ett fullständigt kvalificerat domännamn (FQDN). Den här åtgärden utförs med ett enda kommando. Inom några sekunder visas det här i webbläsaren:
+Azure Container Instances gör det enkelt att skapa och hantera Docker-behållare i Azure, utan att behöva etablera virtuella datorer eller gå upp till en högre tjänstnivå. I den här snabbstarten skapar du en container i Azure och gör den tillgänglig på Internet med ett fullständigt kvalificerat domännamn (FQDN). Den här åtgärden utförs med ett enda kommando. Inom några sekunder visas det här i webbläsaren:
 
 ![App som distribuerats via Azure Container Instances visas i webbläsare][aci-app-browser]
 
@@ -25,7 +26,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][azure-acc
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att genomföra den här snabbstarten. Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.27 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0][azure-cli-install].
+Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att genomföra den här snabbstarten. Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.27 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -39,23 +40,23 @@ I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på plats
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-container"></a>Skapa en behållare
+## <a name="create-a-container"></a>Skapa en container
 
-Du kan skapa en behållare genom att ange ett namn, en dockeravbildning och en Azure-resursgrupp med kommandot [az container create][az-container-create]. Du kan också göra behållaren tillgänglig på Internet genom att ange en DNS-namnetikett. I den här snabbstarten distribuerar du en behållare som är värd för en liten webbapp som skrivits i [Node.js][node-js].
+Du kan skapa en behållare genom att ange ett namn, en dockeravbildning och en Azure-resursgrupp med kommandot [az container create][az-container-create]. Du kan också göra containern tillgänglig på Internet genom att ange en DNS-namnetikett. I den här snabbstarten distribuerar du en container som är värd för en liten webbapp som skrivits i [Node.js][node-js].
 
-Kör följande kommando för att starta en instans i behållaren. Värdet `--dns-name-label` måste vara unikt i den Azure-region där du skapar instansen, så du kan behöva ändra värdet för att det ska vara unikt.
+Kör följande kommando för att starta en instans av containern. Värdet `--dns-name-label` måste vara unikt i den Azure-region där du skapar instansen, så du kan behöva ändra värdet för att det ska vara unikt.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
 ```
 
-Om några sekunder bör du få ett svar på din begäran. Först har behållaren statusen **Creating** (skapas) men den bör starta inom några sekunder. Du kan kontrollera statusen med kommandot [az container show][az-container-show]:
+Om några sekunder bör du få ett svar på din begäran. Först har containern statusen **Creating** (skapas) men den bör starta inom några sekunder. Du kan kontrollera statusen med kommandot [az container show][az-container-show]:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
 ```
 
-När du kör kommandot visas behållarens fullständiga domännamn (FQDN) och dess etableringsstatus:
+När du kör kommandot visas containerns fullständiga domännamn (FQDN) och dess etableringsstatus:
 
 ```console
 $ az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
@@ -64,13 +65,13 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-När behållaren övergår i status **Lyckades** går du till dess FQDN i din webbläsare:
+När containern övergår till statusen **Lyckades** går du till dess FQDN i din webbläsare:
 
-![Skärmbild från webbläsaren som visar ett program som körs i en instans av Azure-behållaren][aci-app-browser]
+![Skärmbild från webbläsaren som visar ett program som körs i en instans av Azure-containern][aci-app-browser]
 
-## <a name="pull-the-container-logs"></a>Hämta behållarloggarna
+## <a name="pull-the-container-logs"></a>Hämta containerloggarna
 
-Att visa loggar för en behållarinstans är användbart när du felsöker problem med din behållare eller det program som den kör.
+Att visa loggar för en containerinstans är användbart när du felsöker problem med din container eller det program som den kör.
 
 Hämta behållarens loggar med kommandot [az container logs][az-container-logs]:
 
@@ -78,7 +79,7 @@ Hämta behållarens loggar med kommandot [az container logs][az-container-logs]:
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-Utdatan visar loggarna för behållaren och bör även visa de HTTP GET-förfrågningar som genererades när du granskade programmet i webbläsaren.
+Utdata visar loggarna för containern och bör även visa de HTTP GET-förfrågningar som genererades när du granskade programmet i webbläsaren.
 
 ```console
 $ az container logs --resource-group myResourceGroup -n mycontainer
@@ -89,7 +90,7 @@ listening on port 80
 
 ## <a name="attach-output-streams"></a>Ansluta utdataströmmar
 
-Förutom att eftersläpa loggarna kan du ansluta dina lokala standardströmmar för utdata och fel till behållarens dataström.
+Förutom att eftersläpa loggarna kan du ansluta dina lokala standardströmmar för utdata och fel till containerns dataström.
 
 Börja med att köra kommandot [az container attach][az-container-attach] för att ansluta din lokala konsol till behållarens utdataströmmar:
 
@@ -123,22 +124,22 @@ När du är klar med behållaren kan du ta bort den med kommandot [az container 
 az container delete --resource-group myResourceGroup --name mycontainer
 ```
 
-Kontrollera att behållaren har tagits bort genom att köra kommandot [az container list](/cli/azure/container#az_container_list):
+Kontrollera att behållaren har tagits bort genom att köra kommandot [az container list](/cli/azure/container#az-container-list):
 
 ```azurecli-interactive
 az container list --resource-group myResourceGroup --output table
 ```
 
-Behållaren **MinBehållare** ska inte visas i kommandots utdata. Om du inte har några andra behållare i resursgruppen visas inga utdata.
+Containern **MinContainer** ska inte visas i kommandots utdata. Om du inte har några andra containrar i resursgruppen visas inga utdata.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat en Azure-behållarinstans utifrån en avbildning som finns i det offentliga Docker Hub-registret. Om du vill skapa en behållare på egen hand och distribuera den till Azure Container Instances från ett privat Azure-behållarregister, går du vidare till självstudien för Azure Container Instances.
+I den här snabbstarten har du skapat en Azure-containerinstans utifrån en avbildning som finns i det offentliga Docker Hub-registret. Om du vill skapa en behållare på egen hand och distribuera den till Azure Container Instances från ett privat Azure-behållarregister, går du vidare till självstudien för Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances-självstudie](./container-instances-tutorial-prepare-app.md)
 
-Om du vill testa alternativ för att köra behållare i ett orkestreringssystem på Azure kan du gå vidare till snabbstarterna om [Service Fabric][service-fabric] eller [Azure Kubernetes Service (AKS)][container-service].
+Om du vill testa alternativ för att köra containrar i ett orkestreringssystem på Azure kan du gå vidare till snabbstarterna om [Service Fabric][service-fabric] eller [Azure Kubernetes Service (AKS)][container-service].
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
@@ -149,12 +150,12 @@ Om du vill testa alternativ för att köra behållare i ett orkestreringssystem 
 [node-js]: http://nodejs.org
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az_container_attach
-[az-container-create]: /cli/azure/container#az_container_create
-[az-container-delete]: /cli/azure/container#az_container_delete
-[az-container-list]: /cli/azure/container#az_container_list
-[az-container-logs]: /cli/azure/container#az_container_logs
-[az-container-show]: /cli/azure/container#az_container_show
+[az-container-attach]: /cli/azure/container#az-container-attach
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-delete]: /cli/azure/container#az-container-delete
+[az-container-list]: /cli/azure/container#az-container-list
+[az-container-logs]: /cli/azure/container#az-container-logs
+[az-container-show]: /cli/azure/container#az-container-show
 [az-group-create]: /cli/azure/group#az_group_create
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md

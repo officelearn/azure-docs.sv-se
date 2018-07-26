@@ -2,26 +2,26 @@
 title: 'Självstudie: Skapa och hantera ett Stream Analytics-jobb med Azure-portalen | Microsoft Docs'
 description: I den här självstudien finns en omfattande illustration av hur du använder Azure Stream Analytics för att analysera bedrägliga samtal i en telefonsamtalsström.
 services: stream-analytics
-author: SnehaGunda
-ms.author: sngun
+author: sidramadoss
+ms.author: sidram
 manager: kfile
 ms.service: stream-analytics
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 524b15747a275c76fec6c529e4f00d0da1b41420
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 39b39a1d00c91e0ff114a28c13da0d4b6920ec13
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32778197"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186238"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Skapa ett Stream Analytics-jobb för att analysera telefonsamtalsdata och visualisera resultat i en Power BI-instrumentpanel
-
+ 
 I den här självstudien visas hur du använder Azure Stream Analytics för att analysera ett exempeltelefonsamtal som genereras av ett klientprogram. Telefonsamtalsdata som genereras av klientprogrammet innehåller några bedrägliga samtal och vi kommer att definiera ett Stream Analytics-jobb för att filtrera sådana samtal.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Generera exempel på telefonsamtalsdata och skicka dem till Azure Event Hubs  

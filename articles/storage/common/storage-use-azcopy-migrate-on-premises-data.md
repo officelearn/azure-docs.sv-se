@@ -10,12 +10,12 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 3f9735a1e5a6973ab1c1c3f575cf3aa345a3a5a4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4e2d891705cbe4d51ddc6af6fe178257424220ab
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267455"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205331"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migrera lokala data till molnlagring med AzCopy
 
@@ -26,7 +26,7 @@ Du kan hämta två versioner av AzCopy:
 * [AzCopy på Linux](storage-use-azcopy-linux.md) har byggts med .NET Core Framework. Den är inriktad på Linux-plattformar och erbjuder kommandoradsalternativ av POSIX-typ. 
 * [AzCopy på Windows](storage-use-azcopy.md) har byggts med .NET Framework. Den tillhandahåller kommandoradsalternativ i Windows-format. 
  
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett lagringskonto. 
@@ -45,18 +45,18 @@ Slutför den här självstudien genom att ladda ned den senaste versionen av AzC
 >
 >
 
-## <a name="create-a-container"></a>Skapa en behållare
+## <a name="create-a-container"></a>Skapa en container
 
-Blobar laddas alltid upp till en behållare. Du kan använda behållare för att ordna blobgrupper på samma sätt som du ordnar filer i mappar på datorn. 
+Blobar laddas alltid upp till en container. Du kan använda containrar för att ordna blobgrupper på samma sätt som du ordnar filer i mappar på datorn. 
 
-Skapa en behållare genom att följa de här stegen:
+Skapa en container genom att följa de här stegen:
 
 1. Välj knappen **Lagringskonton** på huvudsidan och markera det lagringskonto som du har skapat.
-2. Välj **Blobar** under **Tjänster**, och välj sedan **Behållare**. 
+2. Välj **Blobar** under **Tjänster**, och välj sedan **Container**. 
 
-   ![Skapa en behållare](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
+   ![Skapa en container](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
-Behållarnamn måste börja med en bokstav eller siffra. De får bara innehålla bokstäver, siffror och bindestreck (-). Mer information om namngivning av blobar och behållare finns i [Namngivning och referens av behållare, blobbar och metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+Containernamn måste börja med en bokstav eller siffra. De får bara innehålla bokstäver, siffror och bindestreck (-). Mer information om namngivning av blobar och containrar finns i [Namngivning och referens av containrar, blobar och metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ## <a name="upload-all-files-in-a-folder-to-blob-storage"></a>Överför alla filer i en mapp till Blob Storage
 
@@ -70,10 +70,10 @@ Du kan överföra alla filer i en mapp till Blob Storage i [Windows](https://doc
         --recursive
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
 ---
 
-Ersätt `<key>` och `key` med din kontonyckel. I Azure Portal kan du hämta din kontonyckel genom att välja **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Välj en nyckel och klistra in den i AzCopy-kommandot. Om den angivna målbehållaren inte finns, så skapar AzCopy den och överför filen till den. Uppdatera sökvägen till datakatalogen och ersätt **mittkonto** i mål-URL:en med lagringskontots namn.
+Ersätt `<key>` och `key` med din kontonyckel. I Azure Portal kan du hämta din kontonyckel genom att välja **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Välj en nyckel och klistra in den i AzCopy-kommandot. Om den angivna målcontainern inte finns, så skapar AzCopy den och överför filen till den. Uppdatera sökvägen till datakatalogen och ersätt **mittkonto** i mål-URL:en med lagringskontots namn.
 
 Om du vill överföra den angivna katalogens innehåll till Blob Storage rekursivt, så ange alternativet `--recursive` (Linux) eller `/S` (Windows). När du kör AzCopy med något av följande alternativ, så överförs även alla undermappar och filer.
 
@@ -91,7 +91,7 @@ Om du bara vill kopiera källresurser som inte finns i målet, så ange båda pa
     --exclude-older
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S /XO
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S /XO
 ---
 
 ## <a name="create-a-scheduled-task-or-cron-job"></a>Skapa en schemalagd uppgift eller ett Cron-jobb 
@@ -104,7 +104,7 @@ Kopiera AzCopy-kommandot till en textredigerare. Uppdatera AzCopy-kommandots par
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
     cd C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
-    AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
+    AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
 ---
 
 AzCopy körs med det utförliga alternativet `--verbose` (Linux) eller `/V` (Windows). Utdata omdirigeras till en loggfil. 

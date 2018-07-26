@@ -8,22 +8,22 @@ ms.topic: tutorial
 ms.date: 07/13/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 1b61c335dec2c641862c08fd6f752d78b2ee5866
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ea36a3d4a2471cee6a18d70275aaf2e83ffc6f39
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056675"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159659"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan-preview"></a>Självstudie: Skapa en plats-till-plats-anslutning med Azure Virtual WAN (förhandsversion)
 
 Här förklarar vi hur du ansluter resurser i Azure via en IPsec/IKE (IKEv2) VPN-anslutning med Virtual WAN. Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats till en extern offentlig IP-adress. Mer information om virtuella WAN-nätverk finns i [översikten om virtuellt WAN](virtual-wan-about.md)
 
 > [!NOTE]
-> Om du har många webbplatser är det vanligast att använda en [virtuellt WAN-partner](https://aka.ms.virtualwan) för att skapa den här konfigurationen. Du kan dock skapa den här konfigurationen själv om du har erfarenhet av att arbeta med nätverk och är skicklig på konfigurera din egen VPN-enhet.
+> Om du har många webbplatser är det vanligast att använda en [virtuellt WAN-partner](https://aka.ms/virtualwan) för att skapa den här konfigurationen. Du kan dock skapa den här konfigurationen själv om du har erfarenhet av att arbeta med nätverk och är skicklig på konfigurera din egen VPN-enhet.
 >
 
-![Virtuellt WAN-diagram](./media/virtual-wan-about/virtualwan.png)
+![Virtual WAN-diagram](./media/virtual-wan-about/virtualwan.png)
 
 I den här guiden får du lära dig att:
 
@@ -39,7 +39,7 @@ I den här guiden får du lära dig att:
 > * Övervaka en anslutning
 
 > [!IMPORTANT]
-> Azure Virtual WAN är för närvarande en allmänt tillgänglig förhandsversion. Om du vill använda virtuellt WAN måste du [registrera dig för förhandsversionen](#enroll).
+> Azure Virtual WAN är för närvarande en allmänt tillgänglig förhandsversion. Om du vill använda Virtual WAN måste du [registrera dig för förhandsversionen](#enroll).
 >
 > Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

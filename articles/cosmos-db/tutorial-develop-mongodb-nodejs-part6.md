@@ -2,7 +2,7 @@
 title: Självstudiekurs om MongoDB, Angular och Node för Azure – del 6 | Microsoft Docs
 description: Del 6 i självstudieserien om hur du skapar en MongoDB-app med Angular och Node i Azure Cosmos DB med exakt samma API:er som du använder för MongoDB.
 services: cosmos-db
-author: SnehaGunda
+author: johnpapa
 manager: kfile
 editor: ''
 ms.service: cosmos-db
@@ -10,14 +10,14 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/17/2018
-ms.author: sngun
+ms.author: john.papa
 ms.custom: mvc
-ms.openlocfilehash: 2a437c02c9391b09cc2adfe84efe677d31f486b4
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bceb984a3f309ce1220204abf5f703cc166ddf82
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231669"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248156"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>Skapa en MongoDB-app med Angular och Azure Cosmos DB – del 6: Lägga till Post-, Put- och Delete-funktioner till appen
 

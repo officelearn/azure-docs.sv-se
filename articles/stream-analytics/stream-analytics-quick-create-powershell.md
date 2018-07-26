@@ -2,24 +2,24 @@
 title: Skapa ett Stream Analytics-jobb med hjälp av Azure PowerShell
 description: Den här snabbstarten beskriver hur du använder Azure PowerShell-modulen för att distribuera och köra ett Azure Stream Analytics-jobb.
 services: stream-analytics
-author: SnehaGunda
-ms.author: sngun
+author: sidramadoss
+ms.author: sidram
 ms.date: 05/14/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 2b5d8bfd6dbe36637a0c6873e941118e7ee71b80
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 18903dfbe187de73a6edb14196fa29e02d35dbca
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212440"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185388"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-azure-powershell"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure PowerShell
 
 Azure PowerShell-modulen används för att skapa och hantera Azure-resurser med hjälp av PowerShell-cmdletar eller -skript. Den här snabbstarten beskriver hur du använder Azure PowerShell-modulen för att distribuera och köra ett Azure Stream Analytics-jobb. 
-
+ 
 Exempeljobbet läser strömmande data från en blob i Azure blobblagring. Indata-filen som används i denna Snabbstart innehåller statiska data som endast är för illustration. I ett verkligt scenario använder du strömningsindata för en Stream Analytics-jobb. Därefter transformerar jobbet data med Stream Analytics-frågespråket för att beräkna medeltemperaturen när den är över 100 °. Slutligen skriver den resulterande utdatahändelser till en annan fil. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
@@ -50,7 +50,7 @@ Get-AzureRmSubscription -SubscriptionName "<your subscription name>" | Select-Az
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras.
+Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
 ```powershell
 $resourceGroup = "StreamAnalyticsRG"
@@ -264,7 +264,7 @@ New-AzureRmStreamAnalyticsTransformation `
 
 Starta jobbet med hjälp av cmdleten [Start-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0). Den här cmdleten tar jobbnamnet, resursgruppens namn, startläget för utdata och starttiden som parametrar. `OutputStartMode` godkänner värden för `JobStartTime`, `CustomTime` eller `LastOutputEventTime`. Mer information om vad dessa värden refererar till finns i avsnittet om [parametrar](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) i PowerShell-dokumentationen. I det här exemplet anger du läget som `CustomTime` och anger ett värde för `OutputStartTime`. 
 
-Som tidsvärde väljer du `2018-01-01`. Det här startdatumet är valt eftersom det kommer före tidsstämpeln för händelsen från exempeldata. När du har kört följande cmdlet returnerar den `True` som utdata om jobbet startar. En utdatamapp skapas i lagringsbehållaren med de data som har transformerats. 
+Som tidsvärde väljer du `2018-01-01`. Det här startdatumet är valt eftersom det kommer före tidsstämpeln för händelsen från exempeldata. När du har kört följande cmdlet returnerar den `True` som utdata om jobbet startar. En utdatamapp skapas i lagringscontainern med de data som har transformerats. 
 
 ```powershell
 Start-AzureRmStreamAnalyticsJob `

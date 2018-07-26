@@ -10,17 +10,17 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 07f22345d2bf8c481091652d9faa0bdd10205fdb
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: f3b181c8d65cf8618b7599a999b2b8edf20ed809
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072589"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259035"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C# under .NET Framework i Windows med hjälp av tal-SDK
 
 I den här artikeln får du lära dig hur du skapar ett C#-konsolprogram för .NET Framework på Windows med hjälp av Cognitive Services tal SDK för att transkribera tal till text.
-Programmet är baserad på den [Microsoft Cognitive Services tal SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017.
+Programmet har skapats med den [Microsoft Cognitive Services tal SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -47,9 +47,15 @@ Programmet är baserad på den [Microsoft Cognitive Services tal SDK NuGet-paket
 
     ![Installera NuGet-paketet för Microsoft.CognitiveServices.Speech](media/sdk/qs-csharp-dotnet-windows-03-nuget-install-0.5.0.png "installera Nuget-paketet")
 
-1. Acceptera licensvillkoren på skärmen som visas för licens:
+1. Acceptera licensvillkoren i dialogrutan som visas.
 
     ![Acceptera licensvillkoren](media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "acceptera licensvillkoren")
+
+1. Följande utdatarad visas i Package Manager-konsolen.
+
+   ```text
+   Successfully installed 'Microsoft.CognitiveServices.Speech 0.5.0' to helloworld
+   ```
 
 ## <a name="create-a-platform-configuration-matching-your-pc-architecture"></a>Skapa en plattformskonfiguration som matchar din PC-arkitektur
 
@@ -69,7 +75,7 @@ I det här avsnittet ska du lägga till en ny plattform den konfiguration som ma
 
 ## <a name="add-the-sample-code"></a>Lägg till exempelkoden
 
-1. I den `Program.cs` filen i Visual Studio-projektet och ersätt all kod med följande:
+1. Öppna `Program.cs` i din Visual Studio projektet och ersätt all kod i den här filen med följande.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
@@ -81,7 +87,7 @@ I det här avsnittet ska du lägga till en ny plattform den konfiguration som ma
 
 ## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
 
-1. Skapa programmet. Från menyraden väljer **skapa** > **skapa lösning**. Koden ska kompilera utan fel nu:
+1. Skapa programmet. Från menyraden väljer **skapa** > **skapa lösning**. Koden ska kompilera utan fel nu.
 
     ![Version](media/sdk/qs-csharp-dotnet-windows-08-build.png "version")
 
@@ -89,8 +95,7 @@ I det här avsnittet ska du lägga till en ny plattform den konfiguration som ma
 
     ![Starta appen i felsökning](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "starta appen into-felsökning")
 
-1. Ett konsolfönster öppnas, där du uppmanas att säga något (på engelska).
-   Resultatet av erkännande visas på skärmen.
+1. Ett konsolfönster visas där du uppmanas att säga något (på engelska). Den tolkade texten visas sedan i samma fönster.
 
     ![Konsolens utdata efter lyckad erkännande](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "konsolens utdata efter lyckad taligenkänning")
 

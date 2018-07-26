@@ -1,83 +1,83 @@
 ---
-title: Azure SQL-hanterade databasinstans ansluta program | Microsoft Docs
-description: Den här artikeln beskrivs hur du ansluter tillämpningsprogrammet till hanterade Azure SQL Database-instans.
+title: Anslut program för Azure SQL Database Managed Instance | Microsoft Docs
+description: Den här artikeln beskrivs hur du ansluter ditt program till Azure SQL Database Managed Instance.
 ms.service: sql-database
-author: srdjan-bozovic
+author: srdan-bozovic-msft
 manager: craigg
 ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: bea1dc88d66717717cdeacbc8504f5df7e37ba04
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c9d656908d265aeb6143e857b0ea4f635203bdd9
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647841"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258736"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Anslut ditt program till Azure SQL Database Managed Instance
 
-Idag finns det flera alternativ när du bestämmer hur och var du är värd för ditt program. 
+Idag har du flera alternativ när du bestämmer hur och var värd för ditt program. 
  
-Du kan välja att vara värd för programmet i molnet antingen med hjälp av Azure App Service eller vissa av Azures virtuella nätverk (VNet) integrerad alternativ som Skalningsuppsättning i Azure Apptjänst-miljön, virtuell dator, virtuell dator. Du kan också ta hybrid cloud-metoden och hålla ditt program lokalt. 
+Du kan välja att vara värd för program i molnet antingen med hjälp av Azure App Service eller vissa av Azures virtuella nätverk (VNet) integrerade alternativ som Azure App Service Environment, virtuell dator, Virtual Machine Scale Sets. Du kan också ta hybridmolnlösning och behålla ditt program lokalt. 
  
-Det alternativ som du valde ansluta du den till en hanterad-instans (förhandsversion).  
+Vilka alternativ som du valde ansluta du den till en hanterad instans (förhandsversion).  
 
-![Hög tillgänglighet](./media/sql-database-managed-instance/application-deployment-topologies.png)  
+![hög tillgänglighet](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
 ## <a name="connect-an-application-inside-the-same-vnet"></a>Ansluta ett program i samma virtuella nätverk 
 
-Det här scenariot är den enklaste. Virtuella datorer i det virtuella nätverket kan ansluta till varandra direkt även om de inte finns i olika undernät. Det innebär att allt du behöver ansluta program i en miljö för Azure-program eller en virtuell dator är att ange anslutningssträngen på lämpligt sätt.  
+Det här scenariot är enkel. Virtuella datorer i det virtuella nätverket kan ansluta till varandra direkt även om de finns i olika undernät. Det innebär att allt du behöver för att ansluta programmet i en miljö för Azure-program eller en virtuell dator är att ange anslutningssträngen på rätt sätt.  
  
-Om du inte kan upprätta anslutningen kan du kontrollera att du har en Nätverkssäkerhetsgrupp som angetts i programmet undernät. I det här fallet måste du öppna utgående anslutning på SQL-port 1433 som 11000 12000 portintervall för omdirigering. 
+Om du inte kan upprätta anslutningen, kan du kontrollera om du har en Nätverkssäkerhetsgrupp som angetts i programmet undernät. I så fall måste du öppna utgående anslutning på SQL-port 1433 samt 11000 12000 portintervall för omdirigering. 
 
 ## <a name="connect-an-application-inside-a-different-vnet"></a>Ansluta ett program i ett annat virtuellt nätverk 
 
-Det här scenariot är lite mer komplexa eftersom hanteras instansen har en privat IP-adress i sin egen virtuella nätverk. För att ansluta, behöver ett program tillgång till VNet där hanteras instans distribueras. Så först måste du upprätta en anslutning mellan programmet och VNet hanteras instans. Vnet inte finnas i samma prenumeration för det här scenariot ska fungera. 
+Det här scenariot är lite mer komplexa eftersom hanterad instans har privat IP-adress i ett eget virtuellt nätverk. För att ansluta, behöver åtkomst till det virtuella nätverket där hanterad instans har distribuerats i ett program. Så först måste du upprätta en anslutning mellan programmet och VNet hanterade instans. De virtuella nätverken behöver inte vara i samma prenumeration för det här scenariot ska fungera. 
  
-Det finns två alternativ för att ansluta Vnet: 
+Det finns två alternativ för att ansluta virtuella nätverk: 
 - [Azure Virtual Network-peering](../virtual-network/virtual-network-peering-overview.md) 
 - VNet-till-VNet VPN-gateway ([Azure-portalen](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)) 
  
-Alternativet peering är det bättre eftersom peering använder Microsoft stamnät network så ur anslutning finns det någon märkbar skillnad i fördröjning mellan virtuella datorer i peerkoppla VNet och i samma virtuella nätverk. VNet-peering är begränsad till nätverk i samma region.  
+Peering alternativet är det bättre eftersom peering använder Microsoft-stamnätverk så ur anslutningen finns det någon märkbar skillnad i fördröjning mellan virtuella datorer i peerkopplade virtuella nätverket och i samma virtuella nätverk. VNet-peering är begränsad till nätverk i samma region.  
  
 > [!IMPORTANT]
-> VNet-peering scenario för hanterade instansen är begränsad till nätverk i samma region på grund av att [begränsningarna för globala virtuella nätverk peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). 
+> VNet-peering scenario för Managed Instance är begränsad till nätverk i samma region på grund av [begränsningarna för Global Vnet-peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). 
 
 ## <a name="connect-an-on-premises-application"></a>Ansluta ett lokalt program 
 
-Hanterade instans kan endast nås via en privat IP-adress. För att komma åt den från lokala måste du skapa en plats-till-plats-anslutning mellan programmet och VNet hanteras instans. 
+Hanterad instans kan endast nås via en privat IP-adress. För att komma åt den från en lokal plats måste du upprätta en plats-till-plats-anslutning mellan programmet och VNet hanterad instans. 
  
-Det finns två alternativ ansluta lokalt till Azure VNet: 
+Det finns två alternativ för hur du ansluter en lokal till Azure VNet: 
 - Plats-till-plats VPN-anslutning ([Azure-portalen](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)) 
 - [ExpressRoute](../expressroute/expressroute-introduction.md) anslutning  
  
-Om du har skapat lokalt på Azure-anslutning har du inte kan upprätta anslutningen till instansen hanteras, måste du kontrollera brandväggen har öppen utgående anslutning för SQL-port 1433 som 11000 12000 portintervall för omdirigering. 
+Om du har skapat en lokal plats till Azure-anslutningen har och du kan inte upprätta anslutning till hanterad instans kan du kontrollera om din brandvägg har öppna utgående anslutningar på SQL-port 1433 samt 11000 12000 portintervall för omdirigering. 
 
-## <a name="connect-an-azure-app-service-hosted-application"></a>Ansluta ett program i Azure App Service finns 
+## <a name="connect-an-azure-app-service-hosted-application"></a>Ansluta ett program i Azure App Service som värd 
 
-Hanterad instans kan nås endast via en privat IP-adress så för att komma åt den från Azure App Service måste du först upprätta en anslutning mellan programmet och VNet hanteras instans. Se [integrera din app med Azure-nätverk](../app-service/web-sites-integrate-with-vnet.md).  
+Hanterad instans kan nås endast via en privat IP-adress så för att kunna komma åt den från Azure App Service måste du först att upprätta en anslutning mellan programmet och VNet hanterade instans. Se [integrera din app med Azure-nätverk](../app-service/web-sites-integrate-with-vnet.md).  
  
-Vid felsökning av [felsökning Vnet och program](../app-service/web-sites-integrate-with-vnet.md#troubleshooting). Om inte det går att upprätta en anslutning, försök [synkroniserar nätverkskonfigurationen](sql-database-managed-instance-sync-network-configuration.md). 
+Felsökning, finns i [felsökning av virtuella nätverk och program](../app-service/web-sites-integrate-with-vnet.md#troubleshooting). Om det går inte att upprätta en anslutning, försök [synkroniserar nätverkskonfigurationen](sql-database-managed-instance-sync-network-configuration.md). 
  
-Ett specialfall av Azure App Service som ansluter till hanterade instans är när du har integrerat Azure App Service till ett nätverk som är peerkopplat till hanterade instans virtuellt nätverk. Ärendet kräver att ställa in följande konfiguration: 
+Specialfall för att ansluta Azure App Service till Managed Instance är när du integrerade Azure App Service till ett nätverk peer-kopplas till hanterad instans VNet. Det här fallet kräver följande konfiguration konfigureras: 
 
-- Hanterade instans virtuellt nätverk får inte ha gateway  
-- Hanterade instans virtuella nätverk måste ha Använd remote gateways alternativuppsättning 
-- Peerkoppla virtuella nätverk måste ha Tillåt gateway överföring alternativuppsättning 
+- Hanterad instans virtuellt nätverk får inte ha någon gateway  
+- Hanterad instans virtuellt nätverk måste ha Använd fjärrgateway alternativuppsättning 
+- Peerkopplade virtuella nätverket måste ha Tillåt gateway överföring alternativuppsättning 
  
 Det här scenariot illustreras i följande diagram:
 
 ![integrerad app peering](./media/sql-database-managed-instance/integrated-app-peering.png)
  
-## <a name="connect-an-application-on-the-developers-box"></a>Ansluta ett program på rutan för utvecklare 
+## <a name="connect-an-application-on-the-developers-box"></a>Ansluta ett program på rutan utvecklare 
 
-Hanterad instans kan nås endast via en privat IP-adress så för att komma åt den från developer-rutan, måste du först att upprätta en anslutning mellan developer-rutan och VNet hanteras instans.  
+Hanterad instans kan bara nås via en privat IP-adress så för att komma åt den från developer-box, måste du först att upprätta en anslutning mellan developer-rutan och VNet hanterade instans.  
  
-Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med hjälp av inbyggda Azure certifikat autentisering artiklar ([Azure-portalen](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) visar i detalj hur Det kan göras.  
+Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikat autentisering artiklar ([Azure-portalen](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) innehåller detaljerad information om hur Det kan göras.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hanterade instansen finns [vad är en hanterad instans](sql-database-managed-instance.md).
-- En självstudiekurs visar hur du skapar en ny instans av hanterade finns [skapa en instans för hanterade](sql-database-managed-instance-create-tutorial-portal.md).
+- Information om Managed Instance finns i [vad är en hanterad instans](sql-database-managed-instance.md).
+- En självstudiekurs som visar hur du skapar en ny hanterad instans finns i [skapar en hanterad instans](sql-database-managed-instance-create-tutorial-portal.md).

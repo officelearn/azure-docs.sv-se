@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: ab73420d1bfe0dbddcf2a0e3c3dd34203e4bb2d7
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c435e21d85ae0ab35bc2fa99f7006e841eaecec0
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008424"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248787"
 ---
 # <a name="what-is-azure-importexport-service"></a>Vad är tjänsten Azure Import/Export?
 
@@ -71,13 +71,18 @@ Ett importjobb omfattar följande steg på hög nivå:
 1. De data som ska importeras, antalet enheter som du behöver, blob-målplatsen för dina data i Azure storage.
 2. Verktyget WAImportExport används för att kopiera data till diskenheter. Kryptera diskar med BitLocker.
 3. Skapa ett importjobb i mål-lagringskontot i Azure-portalen. Ladda upp journalfiler enhet.
-2. Ange avsändaradressen och transportföretagets kontonummer för enheterna på väg tillbaka till dig.
-3. Leverera diskenheter till leveransadressen som angavs under skapande av jobb.
-4. Uppdatera leveransen spårningsnummer i jobbinformation för import och skicka importjobbet.
-5. Enheter tas emot och bearbetas i Azure-datacentret.
-6. Enheter levereras med ditt operatör till avsändaradressen i importjobbet.
-  
-    ![Bild 1:Import jobbet flöde](./media/storage-import-export-service/importjob.png)
+4. Ange avsändaradressen och transportföretagets kontonummer för enheterna på väg tillbaka till dig.
+5. Leverera diskenheter till leveransadressen som angavs under skapande av jobb.
+6. Uppdatera leveransen spårningsnummer i jobbinformation för import och skicka importjobbet.
+7. Enheterna tas emot och bearbetas i Azure-datacentret.
+8. Enheterna levereras med ditt operatör till avsändaradressen i importjobbet.
+
+> [!NOTE]
+> Lokal (inom data center land) leveranser dela en inrikes transportföretagskonto 
+>
+> Utomlands (utanför data center land) leveranser dela en internationell transportföretagskonto
+
+ ![Bild 1:Import jobbet flöde](./media/storage-import-export-service/importjob.png)
 
 Stegvisa instruktioner om data Importera, gå till:
 
@@ -101,8 +106,13 @@ På hög nivå omfattar ett exportjobb följande steg:
 8. Enheterna tas emot och bearbetas i Azure-datacentret.
 9. Enheterna som är krypterade med BitLocker och nycklarna som är tillgängliga via Azure portal.  
 10. Enheterna levereras med ditt operatör till avsändaradressen i importjobbet.
+
+> [!NOTE]
+> Lokal (inom data center land) leveranser dela en inrikes transportföretagskonto 
+>
+> Utomlands (utanför data center land) leveranser dela en internationell transportföretagskonto
   
-    ![Bild 2:Export jobbet flöde](./media/storage-import-export-service/exportjob.png)
+ ![Bild 2:Export jobbet flöde](./media/storage-import-export-service/exportjob.png)
 
 Stegvisa anvisningar för export av data, går du till [exportera data från Azure Blobs](storage-import-export-data-from-blobs.md).
 

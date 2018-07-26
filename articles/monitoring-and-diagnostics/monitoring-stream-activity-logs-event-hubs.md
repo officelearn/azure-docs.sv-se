@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/02/2018
+ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 45352c1cf4aca9043c23bbe12e94ba770a38c01b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436713"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258006"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream Azure-aktivitetsloggen till Event Hubs
 Du kan strömma den [Azure-aktivitetsloggen](monitoring-overview-activity-logs.md) i nära realtid för program genom att antingen:
@@ -34,7 +34,7 @@ Om du inte har ett namnområde för Event Hubs, måste du först skapa ett. Om d
 
 Princip för delad åtkomst definierar de behörigheter som har mekanismen för direktuppspelning. Idag, strömma till Event Hubs kräver **hantera**, **skicka**, och **lyssna** behörigheter. Du kan skapa eller ändra principer för delad åtkomst för Event Hubs-namnområde i Azure-portalen under den **konfigurera** flik för Event Hubs-namnområdet. 
 
-Om du vill uppdatera aktivitetsloggen log profilen om du vill inkludera streaming, måste den användare som ansvarar för att göra ändringen ha behörigheten ListKey på den Event Hubs-auktoriseringsregeln. Event Hubs-namnområdet behöver inte vara i samma prenumeration som den prenumeration som genererar loggar, så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
+Om du vill uppdatera aktivitetsloggen log profilen om du vill inkludera streaming, måste den användare som ansvarar för att göra ändringen ha behörigheten ListKey på den Event Hubs-auktoriseringsregeln. Event Hubs-namnområdet behöver inte vara i samma prenumeration som den prenumeration som genererar loggar, så länge som den användare som konfigurerar inställningen har rätt RBAC åtkomst till båda prenumerationerna och båda prenumerationerna finns i samma AAD-klient.
 
 ### <a name="via-the-azure-portal"></a>Via Azure portal
 1. Bläddra till den **aktivitetsloggen** avsnittet med hjälp av den **alla tjänster** sökning på vänster sida av portalen.
@@ -53,8 +53,9 @@ Om du vill uppdatera aktivitetsloggen log profilen om du vill inkludera streamin
    > Om du väljer något annat än **alla regioner**, du kommer att sakna viktiga händelser som du förväntar dig att ta emot. Aktivitetsloggen är en global (icke-regionalt)-loggen, så de flesta händelser inte har en region som är associerade med dem. 
    >
 
-4. Välj **spara** dessa inställningar ska sparas. Inställningarna tillämpas omedelbart på din prenumeration.
-5. Om du har flera prenumerationer kan upprepa den här åtgärden och skicka alla data till samma event hub.
+4. Klicka på den **Azure Event Hubs** alternativet och välj ett namnområde för event hubs till vilka loggar ska skickas, klicka sedan på **OK**.
+5. Välj **spara** dessa inställningar ska sparas. Inställningarna tillämpas omedelbart på din prenumeration.
+6. Om du har flera prenumerationer kan upprepa den här åtgärden och skicka alla data till samma event hub.
 
 ### <a name="via-powershell-cmdlets"></a>Via PowerShell-cmdletar
 Om det finns redan en loggprofil, måste du först ta bort den befintliga log-profilen och sedan skapa en ny loggprofil.

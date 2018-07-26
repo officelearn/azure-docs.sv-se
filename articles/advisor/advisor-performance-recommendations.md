@@ -1,6 +1,6 @@
 ---
 title: Azure Advisor-rekommendationer | Microsoft Docs
-description: Använda Advisor för att optimera prestanda för din Azure-distributioner.
+description: Använd Advisor för att optimera prestandan för dina Azure-distributioner.
 services: advisor
 documentationcenter: NA
 author: KumudD
@@ -14,44 +14,50 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 00abb5aafc6f3aec2e2dd7326a307bee74d97cc1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3331c795cbb1c45820d4c86d287ef57b54f0ae6b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149363"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247652"
 ---
 # <a name="advisor-performance-recommendations"></a>Advisor-rekommendationer
 
-Azure Advisor-rekommendationer att förbättra hastighet och tillgänglighet för verksamhetskritiska program. Du kan få rekommendationer från Advisor på den **prestanda** på Advisor-instrumentpanelen.
+Azure Advisor-rekommendationer att förbättra hastighet och tillgänglighet för dina verksamhetskritiska program. Du kan hämta prestandarekommendationer från Advisor den **prestanda** fliken Advisor-instrumentpanelen.
 
-## <a name="improve-database-performance-with-sql-db-advisor"></a>Förbättra prestanda för databasen med SQL DB Advisor
+## <a name="reduce-dns-time-to-live-on-your-traffic-manager-profile-to-fail-over-to-healthy-endpoints-faster"></a>Minska tiden för DNS-TTL-värde på Traffic Manager-profilen att växla över till felfria slutpunkter snabbare
 
-Advisor ger en konsekvent konsoliderad vy över rekommendationer för alla dina Azure-resurser. Den kan integreras med SQL Database Advisor för att göra rekommendationer för att förbättra prestandan för din SQL Azure-databas. SQL Database Advisor utvärderar prestanda för SQL Azure-databaser genom att analysera din användningshistorik. Den erbjuder sedan rekommendationer som passar bäst för att köra databasens vanlig arbetsbelastning. 
+[Tid till Live (TTL) inställningar](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-performance-considerations) på din Traffic Manager-profil kan du ange hur snabbt växla slutpunkter om en viss slutpunkt slutar svara på frågor. Minska TTL-värden innebär att klienter kommer att dirigeras till fungerande slutpunkter snabbare.
+
+Azure Advisor identifierar Traffic Manager-profiler med ett längre TTL-värde som har konfigurerats och rekommenderar konfigurera TTL-värdet till 20 sekunder eller 60 sekunder beroende på om profilen som har konfigurerats för [snabb redundans](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
+
+## <a name="improve-database-performance-with-sql-db-advisor"></a>Förbättra databasens prestanda med SQL DB Advisor
+
+Advisor ger dig en konsekvent konsoliderad vy över rekommendationer för alla dina Azure-resurser. Det integreras med SQL Database Advisor för att ge dig rekommendationer för att förbättra prestandan för din SQL Azure-databas. SQL Database Advisor utvärderar prestanda för dina SQL Azure-databaser genom att analysera din användningshistorik. Den erbjuder sedan rekommendationer som passar bäst för att köra databasens normal belastning. 
 
 > [!NOTE]
-> För att få rekommendationer, en databas måste ha om en vecka för användning och som veckan måste det finnas vissa konsekvent aktivitet. SQL Database Advisor kan optimera enklare för konsekvent frågemönster än för slumpmässiga belastning för aktiviteten.
+> För att få rekommendationer, en databas måste ha om en veckas användning och inom den veckan måste det finnas viss konsekvent aktivitet. SQL Database Advisor kan optimera enklare för konsekvent frågemönster än för slumpmässiga ökningar av aktivitet.
 
-Mer information om SQL Database Advisor finns [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
+Läs mer om SQL Database Advisor [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
 
-## <a name="improve-redis-cache-performance-and-reliability"></a>Förbättra Redis-Cache-prestanda och tillförlitlighet
+## <a name="improve-redis-cache-performance-and-reliability"></a>Förbättra Redis Cache-prestanda och tillförlitlighet
 
-Advisor identifierar Redis-Cache instanser där prestanda kan påverkas negativt av hög minnesanvändning, serverbelastning, bandbredd i nätverket eller ett stort antal klientanslutningar. Advisor innehåller även metodtips rekommendationer som hjälper dig att undvika potentiella problem. Mer information om Redis-Cache rekommendationer finns [Redis-Cache Advisor](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor).
+Advisor identifierar Redis Cache-instanser där prestanda kan påverkas negativt av hög minnesanvändning, serverbelastningen, bandbredd i nätverket eller ett stort antal klientanslutningar. Advisor tillhandahåller också metodtips rekommendationer för att hjälpa dig att undvika potentiella problem. Läs mer om rekommendationer för Redis Cache, [Redis Cache Advisor](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor).
 
 
-## <a name="improve-app-service-performance-and-reliability"></a>Förbättra Apptjänst prestanda och tillförlitlighet
+## <a name="improve-app-service-performance-and-reliability"></a>Förbättra App Service-prestanda och tillförlitlighet
 
-Azure Advisor integrerar rekommendationer om bästa praxis för att förbättra din upplevelse Apptjänster och identifiera relevanta plattformsfunktioner. Exempel på Apptjänster rekommendationer är:
-* Identifiera instanser där minne eller CPU-resurserna är uttömda av app körningar med alternativ för lösning.
-* Identifiera instanser där collocating resurser som webbappar och databaser kan förbättra prestanda och den lägre kostnaden. 
+Azure Advisor integrerar rekommendationer om bästa praxis för att förbättra din upplevelse för App Services och identifiera relevanta plattformsfunktioner. Exempel på rekommendationer för App Services är:
+* Identifiering av instanser där minne eller CPU-resurser är slut genom appen körningar med alternativ för lösning.
+* Identifiering av instanser där collocating resurser som webbappar och databaser kan förbättra prestanda och lägre kostnader. 
 
-Mer information om Apptjänster rekommendationer finns [bästa praxis för Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
+Läs mer om rekommendationer för App Services, [Metodtips för Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
-## <a name="how-to-access-performance-recommendations-in-advisor"></a>Hur du kommer åt rekommendationer i Advisor
+## <a name="how-to-access-performance-recommendations-in-advisor"></a>Hur du kommer åt prestandarekommendationer i Advisor
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och sedan öppna [Advisor](https://aka.ms/azureadvisordashboard).
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna sedan [Advisor](https://aka.ms/azureadvisordashboard).
 
-2.  Advisor-instrumentpanelen, klicka på den **prestanda** fliken.
+2.  På Advisor-instrumentpanelen klickar du på den **prestanda** fliken.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -59,7 +65,7 @@ Mer information om Advisor-rekommendationer finns:
 
 * [Introduktion till Advisor](advisor-overview.md)
 * [Kom igång med Advisor](advisor-get-started.md)
-* [Kostnad Advisor-rekommendationer](advisor-performance-recommendations.md)
+* [Advisor kostnadsrekommendationer](advisor-performance-recommendations.md)
 * [Advisor-rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)
 * [Advisor säkerhetsrekommendationer](advisor-security-recommendations.md)
 

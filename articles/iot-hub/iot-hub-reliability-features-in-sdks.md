@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a318a1ef8b13b8fcb4f4401ac4d0e45037958d63
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 7717c026b4c09f47159fe62640f9a2eedf409d30
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127611"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247689"
 ---
 # <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Hur du hanterar anslutningar och tillförlitlig meddelandehantering med hjälp av SDK: er för Azure IoT Hub-enheter
 
@@ -111,3 +111,8 @@ Granska implementering dokumentationen nedan för andra språk.  Exempel som vis
 - [Java SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 - [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
+## <a name="next-steps"></a>Nästa steg
+- [Använd SDK:er för enhet och tjänst](.\iot-hub-devguide-sdks.md)
+- [Använd SDK för IoT-enhet för C](.\iot-hub-device-sdk-c-intro.md)
+- [Utveckla för begränsade enheter](.\iot-hub-devguide-develop-for-constrained-devices.md)
+- [Utveckla för mobila enheter](.\iot-hub-how-to-develop-for-mobile-devices.md)

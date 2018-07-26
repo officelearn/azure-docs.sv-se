@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 4da9696761747874395ec90cb3b446e3621650ba
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9c45b428a6d2060243f1eba9a284c7eb1b1b21c0
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113265"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259110"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integration runtime i Azure Data Factory  
 **Integreringskörningen** är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla olika funktioner för dataintegrering i olika nätverksmiljöer. Det finns tre typer av integration Runtime som erbjuds av Data Factory:
@@ -76,10 +76,18 @@ Följande tabell innehåller beskrivningar av övervakning av egenskaper för **
 | Ledigt minne | Tillgängligt minne på en lokal integration runtime-noden. Det här värdet är en nästan i realtid ögonblicksbild. | 
 | Processoranvändning | CPU-utnyttjande på en lokal integration runtime-noden. Det här värdet är en nästan i realtid ögonblicksbild. |
 | Nätverk (In/ut) | Nätverksanvändningen för en lokal integration runtime-noden. Det här värdet är en nästan i realtid ögonblicksbild. | 
-| Samtidiga jobb (körs / begränsa) | Antal jobb eller aktiviteter som körs på varje nod. Det här värdet är en nästan i realtid ögonblicksbild. Gränsen innebär det att maximalt antal samtidiga jobb för varje nod. Det här värdet definieras baserat på storleken på datorn. Du kan höja gränsen att skala upp samtidiga jobbkörning i avancerade scenarier där CPU/minne/nätverk är underutnyttjade, men Tidsgränsen nåddes för aktiviteter. Den här funktionen är också tillgängliga med en enda nod lokal integration runtime. |
+| Samtidiga jobb (körs / begränsa) | **Kör**. Antal jobb eller aktiviteter som körs på varje nod. Det här värdet är en nästan i realtid ögonblicksbild. <br/><br/>**Gränsen**. Gränsen innebär det att maximalt antal samtidiga jobb för varje nod. Det här värdet definieras baserat på storleken på datorn. Du kan höja gränsen att skala upp samtidiga jobbkörning i avancerade scenarier när tidsgränsen nåddes även när CPU, minne eller nätverket är underutnyttjade för aktiviteter. Den här funktionen är också tillgängliga med en enda nod lokal integration runtime. |
 | Roll | Det finns två typer av roller i ett flernodigt lokal integration runtime – dispatcher- och arbetsroller. Alla noder är arbetare, vilket innebär att de kan användas för att köra jobb. Det finns bara en dispatcher-noden som används för att hämta uppgifter/jobb från cloud services och skicka dem till olika arbetsnoder. Dispatcher-noden är också en underordnad nod. |
 
-Vissa inställningar i egenskaperna för att klarna mer när det finns två eller flera noder (skalar ut scenario) i den lokala integreringskörningen. 
+Vissa inställningar i egenskaperna för att klarna mer när det finns två eller flera noder i en lokal integration runtime (det vill säga i en skalbar scenariot).
+
+#### <a name="concurrent-jobs-limit"></a>Gräns för samtidiga jobb
+
+Standardvärdet för samtidiga jobb anges gränsen baserat på storleken på datorn. De faktorer som används för att beräkna det här värdet beror på mängden RAM-minne och antalet CPU-kärnor för datorn. Fler kärnor och mer minne, desto högre begränsa så standardvärdet av samtidiga jobb.
+
+Du skala ut genom att öka antalet noder. När du ökar antalet noder, samtidiga jobb gränsen är den summan av gränsvärdena för samtidiga jobb av alla tillgängliga noder.  Till exempel om en nod kan du köra upp till tolv samtidiga jobb, kan lägger till tre fler liknande noder du köra upp till 48 samtidiga jobb (4 x 12). Vi rekommenderar att du ökar gräns för samtidiga jobb bara när du ser låg Resursanvändning med standardvärdena på varje nod.
+
+Du kan åsidosätta beräknade standardvärdet i Azure-portalen. Välj Skapa > anslutningar > Integreringskörningar > Edi > noder > ändra värdet för samtidiga jobb per nod. Du kan också använda PowerShell [uppdatering azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/en-us/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) kommando.
   
 ### <a name="status-per-node"></a>Status (per nod)
 Följande tabell innehåller olika statusar en lokal integration runtime-noden:

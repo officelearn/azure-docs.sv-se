@@ -9,14 +9,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: e0de9a1494641fef87d11545b99e5e7275f6b614
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a9a02f9007c174024028305746682f9ac07dab22
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069271"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247218"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrering av SQL Server-instans till Azure SQL Database Managed Instance
 
@@ -24,7 +24,7 @@ I den här artikeln får du lära dig om metoder för att migrera en SQL Server 
 
 SQL Database Managed Instance är en utökning av den befintliga SQL Database-tjänsten som tillhandahåller ett tredje distributionsalternativ utöver enskilda databaser och elastiska pooler.  Den är satt så att databasen – flytta till en helt hanterad PaaS, utan att göra om programmet. SQL Database Managed Instance tillhandahåller hög kompatibilitet med programmeringsmodellen för lokalt installerad SQL Server och direkt stöd för en majoritet av SQL Server-funktionerna och medföljande verktyg och tjänster.
 
-På hög nivå ut programmet migreringsprocessen som i följande diagram:
+På en hög nivå migreringsprocessen program ser ut som:
 
 ![Migreringsprocessen](./media/sql-database-managed-instance-migration/migration-process.png)
 
@@ -105,7 +105,7 @@ Följande tabell innehåller mer information om de metoder som du kan använda b
 |Återställa från Azure Storage till hanterad instans|[ÅTERSTÄLLA från URL: en med SAS-AUTENTISERINGSUPPGIFTER](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> - När du migrerar en databas som skyddas av [Transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) till Azure SQL Managed Instance med hjälp av inbyggda återställningsalternativet, motsvarande certifikat från en lokal eller IaaS SQL Server måste migreras innan återställning av databasen. Detaljerade anvisningar finns i [migrera TDE-certifikat till hanterad instans](sql-database-managed-instance-migrate-tde-certificate.md)
+> - När du migrerar en databas som skyddas av [transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) till Azure SQL-hanterad instans med hjälp av det inbyggda återställningsalternativet måste det motsvarande certifikatet från en lokal server eller IaaS-SQL-server migreras före databasåterställningen. Detaljerade anvisningar finns i [migrera TDE-certifikat till hanterad instans](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Återställning av systemdatabaser stöds inte. Om du vill migrera nivå instansobjekt (lagras i master- eller msdb-databaser), rekommenderar vi att skriva ut dem och köra T-SQL-skript på mål-instans.
 
 En fullständig genomgång som innehåller återställer en säkerhetskopia av databasen till en hanterad instans med hjälp av SAS-autentiseringsuppgifter kan se [återställa från en säkerhetskopia till en hanterad instans](sql-database-managed-instance-restore-from-backup-tutorial.md).

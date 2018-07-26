@@ -1,24 +1,24 @@
 ---
-title: Skapa en indexerare Video-konto som är ansluten till Azure | Microsoft Docs
-description: Den här artikeln visar hur du skapar en Video indexeraren konto som är ansluten till Azure.
+title: Skapa en Video Indexer-konto som är ansluten till Azure | Microsoft Docs
+description: Den här artikeln visar hur du skapar en Video Indexer-konto som är ansluten till Azure.
 services: cognitive services
 documentationcenter: ''
 author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: ac9093d41a2e70905ea82c6d11f020696488ff27
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 849a8dde07c248b6d7b317de5908b3a46dfad777
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355866"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259018"
 ---
-# <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa en indexerare Video-konto som är ansluten till Azure
+# <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa en Video Indexer-konto som är ansluten till Azure
 
-När du använder ett kostnadsfritt utvärderingskonto Video indexerare, är du begränsad kvoten och antal videor som du kan indexera. Den här artikeln visar hur du skapar en Video indexeraren-konto som är kopplad till en Azure-prenumeration som behöver du inte dessa begränsningar och använder betalning per användning priser.
+När du använder ett kostnadsfritt utvärderingskonto Video Indexer kan är du begränsad av kvot och antal videor kan du indexera. Den här artikeln visar hur du skapar en Video Indexer-konto som är länkad till en Azure-prenumeration, som frikopplar dig från dessa gränser och som använder användningsbaserad betalning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -28,79 +28,79 @@ När du använder ett kostnadsfritt utvärderingskonto Video indexerare, är du 
 
 * En Azure Active Directory (AD)-domän. 
 
-    Om du inte har en Azure AD-domän, kan du skapa den här domänen med din Azure-prenumeration.
+    Om du inte har en Azure AD-domän kan du skapa den här domänen med Azure-prenumerationen. Mer information finns i [hantera anpassade domännamn i Azure Active Directory](../../active-directory/users-groups-roles/domains-manage.md)
 
-* En användare och medlemmar i din Azure AD-domän. När du ansluter Video indexeraren kontot till Azure ska du använda den här medlemmen.
+* En användare och medlemmar i din Azure AD-domän. När du ansluter ditt Video Indexer-konto till Azure ska du använda den här medlemmen.
 
-    Den här användaren ska uppfyller följande villkor:
+    Den här användaren ska uppfylla dessa kriterier:
 
-    * Vara en Azure AD-användare med ett arbets- eller skolkonto, inte ett personligt konto, till exempel outlook.com, live.com eller hotmail.com.
+    * Vara en Azure AD-användare med ett arbets eller skolkonto, inte ett personligt konto, till exempel outlook.com, live.com eller hotmail.com.
         
         ![alla AAD-användare](./media/create-account/all-aad-users.png)
 
-    *  Vara medlem i din Azure-prenumeration med en ägarrollen eller både deltagare och administratör för användaråtkomst roller.
+    *  Vara medlem i Azure-prenumerationen med en ägarrollen eller både deltagare och administratör för användaråtkomst roller. En användare kan läggas till två gånger, med 2-roller. En gång med deltagare och en gång med användaren administratör.
 
         ![Åtkomstkontroll](./media/create-account/access-control-iam.png)
 
 ## <a name="connect-to-azure"></a>Anslut till Azure
 
-1. Logga in med den aktuella användaren och klicka på den **Anslut till Azure** knappen:
+1. Logga in med den användaren och klicka på den **Anslut till Azure** knappen:
 
     ![Ansluta till Azure](./media/create-account/connect-to-azure.png)
 
 2. När listan över prenumerationer visas väljer du den prenumeration som du vill använda. 
 
-    ![ansluta Video indexeraren till Azure](./media/create-account/connect-vi-to-azure-subscription.png)
+    ![ansluta Video Indexer till Azure](./media/create-account/connect-vi-to-azure-subscription.png)
 
-3. Välj en Azure-region från platser som stöds: västra USA 2, Norra Europa eller Östasien.
-4. Under **Azure Media Services-konto**, väljer du något av följande alternativ:
+3. Välj en Azure-region från platser som stöds: västra USA 2, Norra Europa eller Asien.
+4. Under **Azure Media Services-konto**, Välj något av följande alternativ:
 
     * Om du vill skapa ett nytt Media Services-konto, Välj **Skapa ny resursgrupp**. Ange ett namn för resursgruppen.
 
-        Azure skapar ett nytt konto i din prenumeration, inklusive ett nytt Azure Storage-konto. Nytt Media Services-kontot har en inledande standardkonfigurationen med en strömmande slutpunkt och 10 S3 reserverade enheter.
-    * Om du vill använda ett befintligt konto för Media Services **använda befintliga resursen**. Välj kontot från kontolistan över.
+        Azure skapar det nya kontot i din prenumeration, inklusive ett nytt Azure Storage-konto. Ditt nya Media Services-konto har en inledande standardkonfigurationen med en slutpunkt för direktuppspelning och 10 Mediereserverade S3-enheter.
+    * Om du vill använda ett befintligt Media Services-konto, Välj **använda befintlig resurs**. Välj ditt konto från kontolistan över.
 
-        Media Services-kontot måste ha samma region som din Video indexeraren-kontot. För att minimera indexering varaktighet och låg genomströmning, justera typen och antalet reserverade enheter till **10 S3 reserverade enheter** i Media Services-kontot.
-    * Manuellt konfigurera anslutningen genom att klicka på den **växla till manuell konfiguration** länka och ange nödvändig information:
+        Media Services-kontot måste ha samma region som din Video Indexer-konto. För att minimera indexering varaktighet och lågt dataflöde, justera typen och antalet Mediereserverade enheter för att **10 S3 Mediereserverade enheter** i Media Services-kontot.
+    * För att manuellt konfigurera anslutningen, klickar du på den **växla till manuell konfiguration** länka och ange nödvändig information:
 
-    ![ansluta Video indexeraren till Azure](./media/create-account/connect-vi-to-azure-subscription-2.png)
+    ![ansluta Video Indexer till Azure](./media/create-account/connect-vi-to-azure-subscription-2.png)
 
-5. När du är klar väljer **Anslut**. Den här åtgärden kan ta några minuter. 
+5. När du är klar väljer **Connect**. Den här åtgärden kan ta några minuter. 
 
-    När du är ansluten till Azure kan visas ditt nya konto Video indexeraren i kontolistan:
+    När du är ansluten till Azure, visas det nya Video Indexer-kontot i kontolistan:
 
     ![nytt konto](./media/create-account/new-account.png)
 
 6. Bläddra till ditt nya konto: 
 
-    ![Video indexeraren konto](./media/create-account/vi-account.png)
+    ![Video Indexer-konto](./media/create-account/vi-account.png)
 
 ## <a name="considerations"></a>Överväganden
 
-Azure Media Services relaterade följande gäller:
+Följande gäller Azure Media Services relaterade:
 
-* Om du är ansluten till ett nytt Media Services-konto, visas en ny resursgrupp, Media Services-konto och ett lagringskonto i din Azure-prenumeration.
-* Om du är ansluten till ett nytt Media Services-konto, Video-indexeraren kommer ange media **reserverade enheter** till 10 S3 enheter:
+* Om du är ansluten till ett nytt Media Services-konto, visas en ny resursgrupp, Media Services-konto och ett lagringskonto i Azure-prenumerationen.
+* Om du är ansluten till ett nytt Media Services-konto, Video Indexer kommer ange media **reserverade enheter** till 10 S3-enheter:
 
     ![Media Services-reserverade enheter](./media/create-account/ams-reserved-units.png)
 
-* Om du är ansluten till ett befintligt Media Services-konto, Video indexeraren inte ändra befintliga media **reserverade enheter** konfiguration.
+* Om du har anslutit till ett befintligt konto för Media Services Video Indexer inte ändra befintliga media **reserverade enheter** konfiguration.
 
-    Du kan behöva justera typ och antal media **reserverade enheter**, enligt dina planerade belastningen. Tänk på att om din belastningen är hög och du inte har tillräckligt med enheter eller hastighet, videor bearbetning kan medföra timeout-fel.
+    Du kan behöva justera typ och antal media **reserverade enheter**, enligt planerad inläsningen. Tänk på att om din belastningen är hög och du inte har tillräckligt med enheter eller hastighet, videor bearbetning kan leda till timeout-fel.
 
-* Om du är ansluten till ett nytt Media Services-konto, Video indexeraren startar automatiskt en **Strömningsslutpunkt** i den:
+* Om du är ansluten till ett nytt Media Services-konto, Video Indexer startar automatiskt en **Strömningsslutpunkt** i den:
 
-    ![Media Services strömmande slutpunkt](./media/create-account/ams-streaming-endpoint.png)
+    ![Slutpunkten för direktuppspelning av Media Services](./media/create-account/ams-streaming-endpoint.png)
 
-* Om du är ansluten till ett befintligt Media Services-konto, ändras inte Video indexeraren strömmande slutpunkter konfigurationen. Om inga körs **Strömningsslutpunkt**, kommer du inte kunna titta på videor från Media Services-konto eller Video indexeraren.
+* Om du har anslutit till ett befintligt Media Services-konto, ändras inte Video Indexer strömmande slutpunkter konfigurationen. Om inga körs **Strömningsslutpunkt**, kommer du inte kunna titta på videor från Media Services-konto eller i Video Indexer.
 
-## <a name="use-video-indexer-apis-v2"></a>Använda Video indexeraren v2 API: er
+## <a name="use-video-indexer-apis-v2"></a>Använda Video Indexer API: er v2
 
-Du kan interagera med ditt konto och/eller med din Video indexeraren användarkonton som är anslutna till azure genom att följa anvisningarna i: [Använd API: er](video-indexer-use-apis.md).
+Du kan interagera med ditt utvärderingskonto och/eller med din Video Indexer-användarkonton som är anslutna till azure genom att följa anvisningarna i: [Använd API: er](video-indexer-use-apis.md).
 
 Du bör använda samma Azure AD-användare som du använde när du ansluter till Azure.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Granska information om resultatet JSON](video-indexer-output-json-v2.md).
+[Granska information om utdata JSON](video-indexer-output-json-v2.md).
 

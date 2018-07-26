@@ -12,21 +12,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 07/24/2018
 ms.author: juluk
-ms.openlocfilehash: 4ee02bc2a1956994da0ba49a24eefabf9608565c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 9588bebdc827760f0e0d3e2aadccbff5f24723f1
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856468"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258933"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Översikt över Azure Cloudshell
 Azure Cloud Shell är en interaktiv, tillgängligt via webbläsaren gränssnitt för att hantera Azure-resurser.
 Det ger dig flexibilitet att välja den skalupplevelse som passar bäst för ditt sätt att arbeta.
 Linux-användare kan välja Bash och Windows-användare kan välja PowerShell.
 
-Testa från shell.azure.com med den här knappen.
+Testa från shell.azure.com genom att klicka nedan.
 
 [![](https://shell.azure.com/images/launchcloudshell.png "Starta Azure Cloudshell")](https://shell.azure.com)
 
@@ -49,7 +49,12 @@ Linux-användare kan använda Bash i Cloud Shell, även om Windows-användare ka
 ### <a name="authenticated-and-configured-azure-workstation"></a>Autentiserade och konfigurerade Azure arbetsstation
 Cloudshell hanteras av Microsoft, så det levereras med populära kommandoradsverktyg och språk som stöds. Cloudshell är också på ett säkert sätt autentiserar automatiskt för omedelbar åtkomst till dina resurser via Azure CLI 2.0 eller Azure PowerShell-cmdletar.
 
-Visa hela [verktyg lista.](features.md#tools)
+Visa hela [lista över verktyg som installerats i Cloud Shell.](features.md#tools)
+
+### <a name="integrated-cloud-shell-editor"></a>Integrerad Cloud Shell-redigeraren
+Cloudshell tillhandahåller en integrerad grafiska textredigerare baserat på öppen källkod Monaco redigeraren. Helt enkelt skapa och redigera konfigurationsfiler genom att köra `code .` för sömlös distribution via Azure CLI 2.0 eller Azure PowerShell.
+
+[Läs mer om Cloud Shell-redigeraren](using-cloud-shell-editor.md).
 
 ### <a name="multiple-access-points"></a>Flera anslutningsplatser
 Cloudshell är ett flexibelt verktyg som kan användas från:

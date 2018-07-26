@@ -10,16 +10,21 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6b4c709f27a0c23c4fb977f64ef45e82df378d47
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: efc62243370ff2cc5214a4ae235139bdb5965486
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159482"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248227"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: återställning av lösenord för självbetjäning i Azure AD
 
 Hur lösenordsåterställning via självbetjäning (SSPR) arbete? Vad betyder det alternativet i gränssnittet? Fortsätt att läsa och lär dig mer om Azure Active Directory (Azure AD) SSPR.
+
+|     |
+| --- |
+| Mobilapp-meddelande och kod för mobilapp som metoder för lösenord för självbetjäning i Azure AD lösenordsåterställning är allmänt tillgänglig förhandsversionsfunktioner i Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+|     |
 
 ## <a name="how-does-the-password-reset-portal-work"></a>Hur lösenordsåterställning portal arbete?
 
@@ -54,6 +59,8 @@ Läs igenom följande steg för att lära dig om logiken bakom lösenordet för 
 
 Om SSPR är aktiverad, måste du välja minst en av följande alternativ för autentiseringsmetoder. Ibland hör du de här alternativen som kallas ”gates”. Vi rekommenderar starkt att som du **väljer minst två autentiseringsmetoder** så att användarna har mer flexibilitet om de inte går att komma åt en när de behöver den.
 
+* Mobilapp (förhandsversion)
+* Kod för mobilapp (förhandsversion)
 * E-post
 * Mobiltelefon
 * Arbetstelefon
@@ -70,6 +77,16 @@ Det här alternativet anger det minsta antalet tillgängliga autentiseringsmetod
 Användare kan välja att ange flera autentiseringsmetoder om administratören aktiverar som autentiseringsmetod.
 
 Om en användare inte har de minsta nödvändiga metoderna som registrerats, visas en felsida som uppmanar dem att begära att en administratör återställa sina lösenord.
+
+#### <a name="mobile-app-and-sspr-preview"></a>Mobilappen och SSPR (förhandsversion)
+
+När du använder en mobilapp som Microsoft Authenticator-appen som en metod för återställning av lösenord vara användare medveten om följande. Verifieringskoden är det enda alternativet som är tillgängliga för användare för lösenordsåterställning via självbetjäning när bara en av metoderna som krävs för återställning. När två metoder krävs användare kommer att kunna återställa med hjälp av **antingen** meddelande **eller** Verifieringskod utöver eventuella övriga aktiverat metoder.
+
+| Antal metoder som krävs för återställning | en | Två |
+| :---: | :---: | :---: |
+| Mobilapp-funktioner som är tillgängliga | Kod | Kod- eller Meddelandeinställningar |
+
+Användare kommer inte att ha möjlighet att registrera sina mobila app vid registrering av lösenordsåterställning via självbetjäning. I stället kan användare registrera sina mobila appar på aka.ms/mfasetup eller i security info registrering förhandsversionen, enligt aka.ms/setupsecurityinfo. 
 
 ### <a name="change-authentication-methods"></a>Ändra autentiseringsmetoder
 

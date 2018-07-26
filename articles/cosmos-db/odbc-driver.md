@@ -1,7 +1,7 @@
 ---
-title: Ansluta till Azure Cosmos-databasen med verktyg för BI analytics | Microsoft Docs
-description: Lär dig hur du använder Azure Cosmos DB ODBC-drivrutinen för att skapa tabeller och vyer så att normaliserade data kan visas i BI och data analytics-programvara.
-keywords: ODBC, odbc-drivrutinen
+title: Ansluta till Azure Cosmos DB med BI analysverktyg | Microsoft Docs
+description: Lär dig hur du använder Azure Cosmos DB ODBC-drivrutinen för att skapa tabeller och vyer så att normaliserade data kan ses i analysprogramvara i BI och data.
+keywords: ODBC, odbc-drivrutin
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -10,118 +10,121 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: e93b241c79a50380f4ef1538dfbf7615232e6c49
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ffd13f5077ca91537d8397c1940521f475133a03
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096517"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248880"
 ---
-# <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ansluta till Azure Cosmos-databasen med verktyg för analys av BI med ODBC-drivrutin
+# <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ansluta till Azure Cosmos DB med BI analysverktyg med ODBC-drivrutin
 
-Azure Cosmos DB ODBC-drivrutinen kan du ansluta till Azure Cosmos-databasen med BI analytics-verktyg som SQL Server Integration Services och Power BI Desktop Tableau så att du kan analysera och skapa visualiseringar av dina Azure Cosmos DB-data i dessa lösningar.
+Azure Cosmos DB ODBC-drivrutinen kan du ansluta till Azure Cosmos DB med hjälp av BI analytics-verktyg som SQL Server Integration Services och Power BI Desktop Tableau så att du kan analysera och skapa visualiseringar av dina Azure Cosmos DB-data i dessa lösningar.
 
-Azure Cosmos DB ODBC-drivrutinen är ODBC 3.8 kompatibel och stöder ANSI SQL-92-syntax. Drivrutinen erbjuder omfattande funktioner som hjälper dig att renormalize data i Azure Cosmos DB. Du kan använder drivrutinen för att representera data i Azure Cosmos DB som tabeller och vyer. Drivrutinen kan du utföra SQL-åtgärder mot de tabeller och vyer, inklusive frågor, infogar, uppdateringar, och tar bort.
+Azure Cosmos DB ODBC-drivrutinen är ODBC 3.8 kompatibel och stöder ANSI SQL-92-syntax. Drivrutinen erbjuder omfattande funktioner som hjälper dig renormera data i Azure Cosmos DB. Du kan med drivrutinen för att representera data i Azure Cosmos DB som tabeller och vyer. Drivrutinen kan du utföra SQL-åtgärder mot de tabeller och vyer inklusive Gruppera efter frågor, infogningar, uppdateringar, och tar bort.
 
-## <a name="why-do-i-need-to-normalize-my-data"></a>Varför måste normalisera Mina data?
-Azure Cosmos-DB är en schemalös databas så att den möjliggör snabb utveckling av appar genom att aktivera program för att iterera sina datamodellen direkt och inte begränsa dem till ett strikt schema. En enda Azure Cosmos-DB-databas kan innehålla olika strukturer JSON-dokument. Det är bra för snabb utveckling, men när du vill analysera och skapa rapporter för dina data med hjälp av dataanalys och BI-verktyg data behöver ofta förenklas och följa ett visst schema.
+> [!NOTE]
+> Ansluta till Azure Cosmos DB med ODBC-drivrutin stöds för närvarande för Azure Cosmos DB SQL API-konton.
 
-Det är där ODBC-drivrutinen kommer in. Med hjälp av ODBC-drivrutinen kan renormalize du nu data i Azure Cosmos DB i tabeller och vyer passning analys- och behov. Renormalized scheman har ingen inverkan på underliggande data och inte begränsa utvecklare att följa dem, kan du utnyttja ODBC-kompatibel verktyg för att komma åt data. Nu Azure Cosmos-DB-databas kommer inte bara vara en favorit för Utvecklingsteamet, men data analytikerna kommer gillar det för.
+## <a name="why-do-i-need-to-normalize-my-data"></a>Varför behöver jag normalisera Mina data?
+Azure Cosmos DB är en schemalös databas så att den möjliggör snabb utveckling av appar genom att aktivera program för att iterera sina datamodellen i farten och inte begränsa dem till ett strikt schema. En enda Azure Cosmos DB-databas kan innehålla JSON-dokument med olika strukturer. Detta är perfekt för snabb programutveckling, men om du vill att analysera och skapa rapporter om dina data med dataanalys och BI-verktyg kan data ska ofta förenklas och följer ett visst schema.
+
+Det här är här ODBC-drivrutinen kommer in. Med hjälp av ODBC-drivrutinen kan renormera du nu data i Azure Cosmos DB i tabeller och vyer som stämmer data analys- och efter behov. Renormalized scheman har ingen inverkan på underliggande data och inte begränsa utvecklare för att följa dem, kan du utnyttja ODBC-kompatibel verktyg för att komma åt data. Så nu Azure Cosmos DB-databas kommer inte bara att en favorit för din utvecklingsgrupp, men din dataanalytiker kommer att älska det för.
 
 Nu kan komma igång med ODBC-drivrutinen.
 
 ## <a id="install"></a>Steg 1: Installera Azure Cosmos DB ODBC-drivrutinen
 
-1. Hämta drivrutiner för din miljö:
+1. Hämta drivrutinerna för din miljö:
 
-    | Installer | Operativsystem som stöds| 
+    | Installationsprogrammet | Operativsystem som stöds| 
     |---|---| 
     |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) för 64-bitars Windows| 64-bitars versioner av Windows 8.1 eller senare, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 och Windows Server 2008 R2.| 
     |[Microsoft Azure Cosmos DB ODBC 32 x 64-bit.msi](https://aka.ms/documentdb-odbc-32x64) för 32-bitars på Windows 64-bitars| 64-bitars versioner av Windows 8.1 eller senare, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 och Windows Server 2003.| 
     |[Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) för 32-bitars Windows|32-bitars versioner av Windows 8.1 eller senare, Windows 8, Windows 7, Windows XP och Windows Vista.|
 
     Kör msi-filen lokalt, som startar den **installationsguiden för Microsoft Azure Cosmos DB ODBC-drivrutinen**. 
-2. Slutför guiden med standardinställningarna som indata för att installera ODBC-drivrutinen.
-3. Öppna den **ODBC Data source Administrator** appen på din dator och du kan göra detta genom att skriva **ODBC-datakällor** i Windows-sökrutan. 
-    Du kan bekräfta drivrutinen har installerats genom att klicka på den **drivrutiner** flik och se till att **ODBC-drivrutinen för Microsoft Azure Cosmos DB** visas.
+2. Slutför installationsguiden med att använda standardinställningarna är indata för att installera ODBC-drivrutinen.
+3. Öppna den **administratör för ODBC-datakällor** appen på din dator, du kan göra detta genom att skriva **ODBC-datakällor** i Windows-sökrutan. 
+    Du kan bekräfta drivrutinen har installerats genom att klicka på den **drivrutiner** fliken och försäkra dig om **ODBC-drivrutinen för Microsoft Azure Cosmos DB** visas.
 
-    ![Azure Cosmos DB ODBC Data Source Administrator](./media/odbc-driver/odbc-driver.png)
+    ![Azure Cosmos DB ODBC-datakälla](./media/odbc-driver/odbc-driver.png)
 
-## <a id="connect"></a>Steg 2: Anslut till din Azure Cosmos-DB-databas
+## <a id="connect"></a>Steg 2: Anslut till din Azure Cosmos DB-databas
 
-1. Efter [installera Azure Cosmos DB ODBC-drivrutinen](#install)i den **ODBC Data Source Administrator** -fönstret klickar du på **Lägg till**. Du kan skapa en användare eller System-DSN. I det här exemplet skapar du en användar-DSN.
+1. Efter [installerar Azure Cosmos DB ODBC-drivrutinen](#install)i den **ODBC Data Source Administrator** fönstret klickar du på **Lägg till**. Du kan skapa en användare eller System-DSN. I det här exemplet skapar du en användar-DSN.
 2. I den **Skapa ny datakälla** väljer **ODBC-drivrutinen för Microsoft Azure Cosmos DB**, och klicka sedan på **Slutför**.
-3. I den **SDN installationsprogram för Azure Cosmos DB ODBC-drivrutinen** Fyll i följande: 
+3. I den **SDN installationsprogrammet för Azure Cosmos DB ODBC-drivrutinen** Fyll i följande: 
 
-    ![Azure Cosmos DB ODBC-drivrutinen DSN inställningsfönstret](./media/odbc-driver/odbc-driver-dsn-setup.png)
-    - **Namn på datakälla**: egna eget namn för ODBC DSN. Det här namnet är unikt för ditt Azure DB som Cosmos-konto, så namnet på lämpligt sätt om du har flera konton.
-    - **Beskrivning**: en kort beskrivning av datakällan.
-    - **Värden**: URI för Azure DB som Cosmos-konto. Du kan hämta det från sidan Azure Cosmos DB nycklar i Azure-portalen som visas i följande skärmbild. 
-    - **Snabbtangent**: den primära eller sekundära, skrivskyddad eller skrivskyddad nyckeln från Azure Cosmos DB nycklar sidan i Azure-portalen som visas i följande skärmbild. Vi rekommenderar att du använder den skrivskyddade nyckeln om DSN används för skrivskyddade databehandling och rapportering.
-    ![Azure DB-nycklar för Cosmos-sida](./media/odbc-driver/odbc-driver-keys.png)
-    - **Kryptera åtkomstnyckeln för**: Välj det bästa valet baserat på användare för den här datorn. 
-4. Klicka på den **Test** för att kontrollera att du kan ansluta till ditt konto i Azure Cosmos DB. 
+    ![Azure Cosmos DB ODBC-drivrutinen DSN konfigurationsfönstret](./media/odbc-driver/odbc-driver-dsn-setup.png)
+    - **Namn på datakälla**: egna eget namn för ODBC DSN. Det här namnet är unikt för ditt Azure Cosmos DB-konto, så ger den namnet på lämpligt sätt om du har flera konton.
+    - **Beskrivning av**: en kort beskrivning av datakällan.
+    - **Värden**: URI för Azure Cosmos DB-kontot. Du kan hämta det från sidan nycklar för Azure Cosmos DB i Azure-portalen, enligt följande skärmbild. 
+    - **Få åtkomst till nyckeln**: primär eller sekundär, skrivskyddad eller skrivskyddade nyckeln från Azure Cosmos DB nycklar sidan i Azure portal enligt följande skärmbild. Vi rekommenderar att du använder den skrivskyddade nyckeln om DSN används för bearbetning av skrivskyddade och rapportering.
+    ![Sidan för Azure Cosmos DB-nycklar](./media/odbc-driver/odbc-driver-keys.png)
+    - **Kryptera åtkomstnyckel för**: Välj det bästa valet baserat på användare av den här datorn. 
+4. Klicka på den **Test** knappen för att kontrollera att du kan ansluta till ditt Azure Cosmos DB-konto. 
 5. Klicka på **avancerade alternativ** och ange följande värden:
-    - **Fråga konsekvenskontroll**: Välj den [konsekvensnivå](consistency-levels.md) för din verksamhet. Standardvärdet är Session.
-    - **Antal återförsök**: Ange hur många gånger ska försöka utföra en åtgärd om den ursprungliga begäranden inte slutföras på grund av tjänsten hastighetsbegränsning.
+    - **Fråga konsekvens**: Välj den [konsekvensnivå](consistency-levels.md) för din verksamhet. Standardvärdet är Session.
+    - **Antal återförsök**: Ange hur många gånger att försöka utföra en åtgärd om den första begäran inte slutförs på grund av begränsningar i tjänsten.
     - **Schemafilen**: du har ett antal alternativ här.
-        - Som standard, lämnar den här posten är (tom) söker drivrutinen första sidan data för alla samlingar att fastställa schemat för varje samling. Detta kallas samlingen mappning. Drivrutinen har att utföra sökningen för varje drivrutin session utan en schemafilen som definierats och kan resultera i en högre starttiden för ett program med hjälp av DSN. Vi rekommenderar att du alltid associerar en schemafil för en Datakälla.
-        - Om du redan har en schemafilen (eventuellt en som du skapat med hjälp av [schemat redigeraren](#schema-editor)), kan du klicka på **Bläddra**, navigera till filen, klicka på **spara**, och klicka sedan på **OK**.
-        - Om du vill skapa ett nytt schema, klickar du på **OK**, och klicka sedan på **schemat Editor** i huvudfönstret. Gå sedan vidare till den [schemat Editor](#schema-editor) information. När du har skapat den nya schemafilen, Kom ihåg att gå tillbaka till den **avancerade alternativ** fönstret ska omfatta schemafilen nyligen skapade.
+        - Som standard, lämna den här posten skick (tom), genomsöker drivrutinen första sidan data för alla samlingar att fastställa schemat för varje samling. Detta kallas mappning av samlingen. Utan en schemafil som definierats, drivrutinen måste utföra genomsökningen för varje drivrutin-session och kan resultera i en högre starttiden för ett program med hjälp av DSN. Vi rekommenderar att du alltid associera en schemafil för en Datakälla.
+        - Om du redan har en schemafil (eventuellt en som du skapat med hjälp av den [Schemaredigerare](#schema-editor)), kan du klicka på **Bläddra**, navigera till filen, klicka på **spara**, och klicka sedan på **OK**.
+        - Om du vill skapa ett nytt schema, klickar du på **OK**, och klicka sedan på **Schemaredigerare** i huvudfönstret. Gå sedan vidare till den [Schemaredigerare](#schema-editor) information. När du har skapat den nya schemafilen, Kom ihåg att gå tillbaka till den **avancerade alternativ** fönster för att inkludera den nyligen skapade schemafilen.
 
-6. När du slutför och stänger den **Azure Cosmos DB ODBC-drivrutinen DSN för** och den nya användaren DSN har lagts till i fliken användar-DSN.
+6. När du slutför och stänger den **Azure Cosmos DB ODBC-drivrutinen DSN för** kommer den nya användaren DSN har lagts till i fliken användar-DSN.
 
     ![Nya Azure Cosmos DB ODBC DSN på fliken användar-DSN](./media/odbc-driver/odbc-driver-user-dsn.png)
 
-## <a id="#collection-mapping"></a>Steg 3: Skapa schemadefinition med metoden samling mappning
+## <a id="#collection-mapping"></a>Steg 3: Skapa en schemadefinitionen med metoden samling mappning
 
-Det finns två typer av provtagningsmetoder som du kan använda: **samling mappning** eller **tabell avgränsare**. En provtagning session kan använda båda provtagningsmetoderna, men varje samling kan bara använda en specifik urvalsmetoden. Stegen nedan för att skapa ett schema för data i en eller flera samlingar med metoden samling mappning. Den här urvalsmetoden hämtar-data på sidan i en samling för att fastställa strukturen för data. Den transposes en samling till en tabell på ODBC-sida. Den här urvalsmetoden är effektivt och snabbt när data i en samling är homogen. Om en samling innehåller heterogena typ av data, rekommenderar vi du använder den [tabell avgränsare mappning metoden](#table-mapping) eftersom det ger en mer robusta urvalsmetoden för att fastställa datastrukturer i samlingen. 
+Det finns två typer av sampling metoder som du kan använda: **samling mappning** eller **tabell avgränsare**. En session för sampling kan använda båda metoderna för sampling, men varje samling kan bara använda en specifik samplingsmetoden. Stegen nedan skapar ett schema för data i en eller flera samlingar med metoden samling mappning. Den här samplingsmetoden hämtar-data på sidan i en samling att fastställa strukturen för data. Den flyttar kryptografi om en samling till en tabell på ODBC-sida. Den här samplingsmetoden är effektivt och snabbt när data i en samling är homogen. Om en samling innehåller heterogena typ av data, vi rekommenderar att du använder den [tabell avgränsare mappning metoden](#table-mapping) eftersom det ger dig en mer stabil samplingsmetoden för att fastställa datastrukturer i samlingen. 
 
-1. När du har slutfört steg 1 – 4 i [Anslut till Azure Cosmos DB databasen](#connect), klickar du på **schemat Editor** i den **Azure Cosmos DB ODBC-drivrutinen DSN för** fönster.
+1. När du har slutfört steg 1-4 i [Anslut till din Azure Cosmos DB-databas](#connect), klickar du på **Schemaredigerare** i den **Azure Cosmos DB ODBC-drivrutinen DSN för** fönster.
 
-    ![Schemat editor-knapp i fönstret DSN inställningar för Azure Cosmos DB ODBC-drivrutin](./media/odbc-driver/odbc-driver-schema-editor.png)
-2. I den **schemat Editor** -fönstret klickar du på **Skapa nytt**.
-    Den **generera schemat** fönstret visas alla samlingar i Azure DB som Cosmos-konto. 
+    ![Schemat redigerarens knapp i fönstret DSN inställningar för Azure Cosmos DB ODBC-drivrutin](./media/odbc-driver/odbc-driver-schema-editor.png)
+2. I den **Schemaredigerare** fönstret klickar du på **Skapa ny**.
+    Den **generera schemat** i fönstret visas alla samlingar i Azure Cosmos DB-kontot. 
 3. Välj en eller flera samlingar till exempel och klicka sedan på **exempel**. 
-4. I den **designvyn** fliken, databas, schema och tabellen representeras. I tabellvyn visar genomsökningen uppsättning egenskaper som är associerade med kolumnnamn (SQL-namn, namnet på datakällan, osv.).
-    För varje kolumn, kan du ändra kolumnnamnet för SQL, SQL-typ, SQL-längd (om tillämpligt), skala (om tillämpligt), Precision (om tillämpligt) och kan ha värdet null.
-    - Du kan ange **Dölj kolumn** till **SANT** om du vill utesluta kolumnen från frågeresultat. Kolumner markerad Dölj kolumn = true returneras inte för val och projektion, även om de fortfarande är en del av schemat. Du kan till exempel dölja alla Azure Cosmos DB krävs systemegenskaperna börjar med ”_”.
-    - Den **id** kolumn är det enda fält inte får vara dolda eftersom den används som primärnyckel i normaliserade schemat. 
+4. I den **designvyn** fliken, database, schema och tabellen representeras. I tabellvyn visar genomsökningen uppsättning egenskaper som är associerade med kolumnnamn (SQL-namn, namn på datakälla, osv.).
+    För varje kolumn, du kan ändra kolumnnamn för SQL, SQL-typ, SQL-längd (om tillämpligt), skalning (om tillämpligt), Precision (om tillämpligt) och kan ha värdet null.
+    - Du kan ange **Dölj kolumn** till **SANT** om du vill utesluta kolumnen från frågeresultat. Kolumner markerats Dölj kolumn = true returneras inte för val av och projektion, även om de fortfarande är en del av schemat. Du kan till exempel dölja alla Azure Cosmos DB-system som krävs för egenskaper som börjar med ”_”.
+    - Den **id** kolumnen är det enda fältet inte kan döljas eftersom den används som primärnyckel i normaliserade schemat. 
 5. När du har definierat schemat klickar du på **filen** | **spara**, gå till katalogen för att spara schemat och klicka sedan på **spara**.
 
-    Om du i framtiden vill använda det här schemat med en Datakälla öppna fönstret Azure Cosmos DB ODBC-drivrutinen DSN för (via ODBC Data Source Administrator), klicka på Avancerat och navigera till sparade schemat i rutan schemafilen. En schemafil sparas till en befintlig DSN ändrar DSN-anslutningen till scope till data och struktur som definieras av schemat.
+    Om du vill i framtiden att använda det här schemat med en DNS, öppna fönstret DSN installationsprogrammet för Azure Cosmos DB ODBC-drivrutinen (via den ODBC-datakälla), klickar du på Avancerade alternativ och navigera till det sparade schemat i rutan schemafilen. Spara en schemafil till en befintlig DSN ändrar DSN-anslutningen till scope till data och struktur som definieras av schemat.
 
-## <a id="table-mapping"></a>Steg 4: Skapa en schemadefinition med tabell-avgränsare mappning metod
+## <a id="table-mapping"></a>Steg 4: Skapa en schemadefinitionen med tabell-avgränsare mappning metod
 
-Det finns två typer av provtagningsmetoder som du kan använda: **samling mappning** eller **tabell avgränsare**. En provtagning session kan använda båda provtagningsmetoderna, men varje samling kan bara använda en specifik urvalsmetoden. 
+Det finns två typer av sampling metoder som du kan använda: **samling mappning** eller **tabell avgränsare**. En session för sampling kan använda båda metoderna för sampling, men varje samling kan bara använda en specifik samplingsmetoden. 
 
-Följande steg att skapa ett schema för data i en eller flera samlingar med hjälp av den **tabell avgränsare** mappning av metoden. Vi rekommenderar att du använder den här provtagningsmetoden när samlingar innehåller heterogena typ av data. Du kan använda den här metoden för att begränsa beräkningarna till en uppsättning attribut och dess motsvarande värden. Om ett dokument innehåller en egenskap för ”typ”, kan du definiera beräkningarna till värden i den här egenskapen. Slutresultatet för provtagning är en uppsättning tabeller för alla värden för typ som du har angett. Skriv till exempel = bil genererar en bil tabell vid typ = plan skulle skapa en plan tabell.
+Följande steg skapar ett schema för data i en eller flera samlingar med hjälp av den **tabell avgränsare** mappning av metoden. Vi rekommenderar att du använder den här samplingsmetoden när dina samlingar innehåller olika typer av data. Du kan använda den här metoden för att definiera omfattningen av sampling till en uppsättning attribut och dess motsvarande värden. Om ett dokument innehåller en ”Type”-egenskap, till exempel kan du begränsa sampling till värden i den här egenskapen. Slutresultatet av samplingen är en uppsättning tabeller för var och en av värdena för typ som du har angett. Skriv exempelvis = bil, skapas en bil tabell vid typ = plan resulterar i en plan-tabell.
 
-1. När du har slutfört steg 1 – 4 i [Anslut till Azure Cosmos DB databasen](#connect), klickar du på **schemat redigeraren** i fönstret DSN installationsprogram för Azure Cosmos DB ODBC-drivrutinen.
-2. I den **schemat Editor** -fönstret klickar du på **Skapa nytt**.
-    Den **generera schemat** fönstret visas alla samlingar i Azure DB som Cosmos-konto. 
-3. Markera en samling på den **Exempelvyn** fliken den **definitionen mappning** för samlingen, klickar du på **redigera**. I den **definitionen mappning** väljer **tabell avgränsare** metod. Gör något av följande:
+1. När du har slutfört steg 1-4 i [Anslut till din Azure Cosmos DB-databas](#connect), klickar du på **Schemaredigerare** i fönstret DSN installationsprogrammet för Azure Cosmos DB ODBC-drivrutinen.
+2. I den **Schemaredigerare** fönstret klickar du på **Skapa ny**.
+    Den **generera schemat** i fönstret visas alla samlingar i Azure Cosmos DB-kontot. 
+3. Välj en samling på den **exempelvy** fliken den **mappning Definition** kolumnen för insamling, klickar du på **redigera**. I den **mappning Definition** väljer **tabell avgränsare** metod. Gör något av följande:
 
-    a. I den **attribut** skriver namnet på en egenskap som avgränsare. Detta är en egenskap i dokumentet som du vill omfång provtagning till exempelvis ort och tryck på RETUR. 
+    a. I den **attribut** skriver du namnet på en egenskap för avgränsare. Det här är en egenskap som du vill begränsa sampling till exempelvis stad och tryck på RETUR. 
 
-    b. Välj attributet i rutan om du bara vill omfång provtagning till vissa värden för attributet som du angav och ange ett värde i den **värdet** rutan, till exempel Seattle och tryck på RETUR. Du kan fortsätta att lägga till flera värden för attributen. Se bara till att rätt attributet aktiveras när du anger värden.
+    b. Om du bara vill att omfatta sampling till vissa värden för attributet som du har angett väljer du attributet i rutan och sedan ange ett värde i den **värdet** box, till exempel Seattle och tryck på RETUR. Du kan fortsätta att lägga till flera värden för attributen. Se bara till att rätt attributet aktiveras när du har angett värden.
 
-    Om du inkluderar exempelvis en **attribut** värdet av ort, och du vill begränsa din tabell om du vill inkludera endast rader med ett värde för ort i New York och Dubai, anger du stad i rutan attribut, och New York och sedan Dubai i **Värden** rutan.
+    Exempel: Om du inkluderar en **attribut** värdet för stad, och du vill begränsa din tabell så att endast rader med ett värde för stad i New York och Dubai, anger du stad i rutan attribut, och New York och sedan Dubai i **Värden** box.
 4. Klicka på **OK**. 
-5. När du har slutfört mappning definitioner för samlingarna du vill prova i den **schemat Editor** -fönstret klickar du på **exempel**.
-     För varje kolumn, kan du ändra kolumnnamnet för SQL, SQL-typ, SQL-längd (om tillämpligt), skala (om tillämpligt), Precision (om tillämpligt) och kan ha värdet null.
-    - Du kan ange **Dölj kolumn** till **SANT** om du vill utesluta kolumnen från frågeresultat. Kolumner markerad Dölj kolumn = true returneras inte för val och projektion, även om de fortfarande är en del av schemat. Du kan till exempel dölja alla Azure Cosmos DB krävs systemegenskaperna från och med `_`.
-    - Den **id** kolumn är det enda fält inte får vara dolda eftersom den används som primärnyckel i normaliserade schemat. 
+5. När du har slutfört mappningsdefinitionerna för samlingarna du vill prova i den **Schemaredigerare** fönstret klickar du på **exempel**.
+     För varje kolumn, du kan ändra kolumnnamn för SQL, SQL-typ, SQL-längd (om tillämpligt), skalning (om tillämpligt), Precision (om tillämpligt) och kan ha värdet null.
+    - Du kan ange **Dölj kolumn** till **SANT** om du vill utesluta kolumnen från frågeresultat. Kolumner markerats Dölj kolumn = true returneras inte för val av och projektion, även om de fortfarande är en del av schemat. Du kan till exempel dölja alla Azure Cosmos DB systemkrav egenskaper från och med `_`.
+    - Den **id** kolumnen är det enda fältet inte kan döljas eftersom den används som primärnyckel i normaliserade schemat. 
 6. När du har definierat schemat klickar du på **filen** | **spara**, gå till katalogen för att spara schemat och klicka sedan på **spara**.
-7. I den **Azure Cosmos DB ODBC-drivrutinen DSN för** -fönstret klickar du på **avancerade alternativ**. I den **schemafilen** , navigera till den sparade schemafilen och klicka **OK**. Klicka på **OK** igen för att spara det DSN-namnet. Detta sparar det schema som du skapade det DSN-namnet. 
+7. I den **Azure Cosmos DB ODBC-drivrutinen DSN för** fönstret klickar du på **avancerade alternativ**. I den **schemafilen** , navigera till den sparade schemafilen och klickar på **OK**. Klicka på **OK** igen för att spara DSN. Detta sparar schemat som du skapade till DSN. 
 
-## <a name="optional-set-up-linked-server-connection"></a>(Valfritt) Konfigurera länkad server-anslutning
+## <a name="optional-set-up-linked-server-connection"></a>(Valfritt) Skapa länkad server-anslutning
 
-Du kan fråga Azure Cosmos DB från SQL Server Management Studio (SSMS) genom att skapa en länkad server-anslutning.
+Du kan fråga Azure Cosmos DB från SQL Server Management Studio (SSMS) genom att konfigurera en länkad server-anslutning.
 
-1. Skapa en datakälla för system som beskrivs i [steg 2](#connect)med namnet till exempel `SDS Name`.
+1. Skapa en systemdatakälla enligt beskrivningen i [steg 2](#connect)med namnet till exempel `SDS Name`.
 2. [Installera SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och ansluta till servern. 
-3. Skapa en länkad server-objekt i frågeredigeraren SSMS `DEMOCOSMOS` för datakällan med följande kommandon. Ersätt `DEMOCOSMOS` med namnet för den länkade servern och `SDS Name` med namnet på datakällan system.
+3. Skapa en länkad server-objekt i frågeredigeraren SSMS `DEMOCOSMOS` för datakällan med följande kommandon. Ersätt `DEMOCOSMOS` med namnet för den länkade servern, och `SDS Name` med namnet på datakällan system.
 
     ```sql
     USE [master]
@@ -134,19 +137,19 @@ Du kan fråga Azure Cosmos DB från SQL Server Management Studio (SSMS) genom at
     GO
     ```
     
-Uppdatera listan med länkade servrar om du vill visa det nya namnet för länkad server.
+Uppdatera listan med länkade servrar om du vill se det nya länkade servernamnet.
 
 ![Länkad Server i SSMS](./media/odbc-driver/odbc-driver-linked-server-ssms.png)
 
-### <a name="query-linked-database"></a>Fråga länkade databas
+### <a name="query-linked-database"></a>Fråga länkad databas
 
-Om du vill fråga länkade databasen anger du en fråga med SSMS. I det här exemplet väljer frågan från tabellen i samlingen med namnet `customers`:
+Ange en fråga med SSMS för att fråga den länkade databasen. I det här exemplet markerar frågan i tabellen i den samling som heter `customers`:
 
 ```sql
 SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
 ```
 
-Köra frågan. Resultatet bör vara ungefär så här:
+Kör frågan. Resultatet bör se ut ungefär så här:
 
 ```
 attachments/  1507476156    521 Bassett Avenue, Wikieup, Missouri, 5422   "2602bc56-0000-0000-0000-59da42bc0000"   2015-02-06T05:32:32 +05:00 f1ca3044f17149f3bc61f7b9c78a26df
@@ -157,7 +160,7 @@ attachments/  1507476156    570 Ruby Street, Spokane, Idaho, 9025       "2602c15
 ```
 
 > [!NOTE]
-> Den länkade Cosmos-DB-servern har inte stöd för namngivning av fyra delar. Ett fel returneras liknar följande meddelande:
+> Den länkade Cosmos DB-servern har inte stöd för namngivning av fyra delar. Ett fel returneras liknar följande meddelande:
 
 ```
 Msg 7312, Level 16, State 1, Line 44
@@ -166,31 +169,31 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 ``` 
 
 ## <a name="optional-creating-views"></a>(Valfritt) Skapa vyer
-Du kan definiera och skapa vyer som en del av processen provtagning. Dessa vyer är likvärdiga med SQL-vyer. De är skrivskyddade och scope valen och projektioner av Azure Cosmos-Databasens SQL definieras. 
+Du kan definiera och skapa vyer som en del av sampling. Dessa vyer är likvärdiga med SQL-vyer. De är skrivskyddade och inom omfånget valen och projektioner av Azure Cosmos DB SQL definierats. 
 
-Du skapar en vy för dina data i den **schemat Editor** fönster i den **vydefinitioner** kolumnen, klickar du på **Lägg till** på raden i samlingen till exempel. I den **vydefinitioner** fönster, gör du följande:
-1. Klicka på **ny**, ange ett namn för vyn, till exempel EmployeesfromSeattleView och klicka sedan på **OK**.
-2. I den **Redigera vy** och ange en Azure Cosmos DB-fråga. Detta måste vara en Azure Cosmos-Databasens SQL-fråga, till exempel`SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = “Seattle”`, och klicka sedan på **OK**.
+Du skapar en vy för dina data i den **Schemaredigerare** fönstret i den **vydefinitioner** kolumnen, klickar du på **Lägg till** på raden i samlingen som exempel. I den **vydefinitioner** fönstret gör du följande:
+1. Klicka på **New**, ange ett namn för vyn, till exempel EmployeesfromSeattleView och klicka sedan på **OK**.
+2. I den **Redigera vy** fönstret, ange en Azure Cosmos DB-fråga. Detta måste vara en Azure Cosmos DB SQL-fråga, till exempel`SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = “Seattle”`, och klicka sedan på **OK**.
 
-Du kan skapa flera vyer som du vill. När du är klar definierar vyerna som du kan sedan ta prov data. 
+Du kan skapa flera vyer som du vill. När du är klar Definiera vyer kan du kan sedan ta prov på data. 
 
 ## <a name="step-5-view-your-data-in-bi-tools-such-as-power-bi-desktop"></a>Steg 5: Visa dina data i BI-verktyg som Power BI Desktop
 
-Du kan använda din nya DSN för att ansluta DocumentADB med verktyg som ODBC-kompatibel – det här steget bara visar hur du ansluter till Power BI Desktop och skapa en Power BI-visualisering.
+Du kan använda din nya DSN ansluta DocumentADB med verktyg från någon ODBC-kompatibel – det här steget bara visar hur du ansluter till Power BI Desktop och skapa en Power BI-visualisering.
 
 1. Öppna Power BI Desktop.
 2. Klicka på **hämta Data**.
-3. I den **hämta Data** -fönstret klickar du på **andra** | **ODBC** | **Anslut**.
+3. I den **hämta Data** fönstret klickar du på **andra** | **ODBC** | **Connect**.
 4. I den **från ODBC** väljer du datakällan servernamnet du skapat och klicka sedan på **OK**. Du kan lämna den **avancerade alternativ** poster som är tom.
-5. I den **åtkomst till en datakälla med hjälp av en ODBC-drivrutin** väljer **standard eller anpassad** och klicka sedan på **Anslut**. Du behöver inte inkludera den **autentiseringsuppgifter anslutningssträngsegenskaper**.
-6. I den **Navigator** i den vänstra rutan i fönstret expanderar du databasen, schemat, och välj tabellen. Resultatfönstret innehåller data med det schema som du skapade.
-7. Om du vill visualisera data i Power BI desktop kryssrutan framför tabellnamnet och klicka sedan på **belastningen**.
-8. I Power BI Desktop längst till vänster, klicka på fliken Data ![Datafliken i Power BI Desktop](./media/odbc-driver/odbc-driver-data-tab.png) Bekräfta dina data importerades.
-9. Du kan nu skapa grafer med Power BI genom att klicka på fliken rapport ![fliken rapport i Power BI Desktop](./media/odbc-driver/odbc-driver-report-tab.png), klicka på **nya Visual**, och anpassa din panel. Mer information om hur du skapar visualiseringar i Power BI Desktop finns [visualiseringstyper i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
+5. I den **åtkomst till en datakälla med hjälp av en ODBC-drivrutin** väljer **standard eller anpassad** och klicka sedan på **Connect**. Du behöver inte inkludera den **egenskaper för Autenticeringsanslutningssträng**.
+6. I den **Navigator** i den vänstra rutan i fönstret expandera databasen, schemat, och välj sedan tabellen. Resultatfönstret omfattar alla data med hjälp av schemat som du skapade.
+7. Om du vill visualisera data i Power BI desktop, markera kryssrutan framför tabellnamnet och klicka sedan på **belastningen**.
+8. I Power BI Desktop, längst till vänster, Välj fliken Data ![Data-fliken i Power BI Desktop](./media/odbc-driver/odbc-driver-data-tab.png) Bekräfta dina data importerades.
+9. Nu kan du skapa visualiseringar med Power BI genom att klicka på fliken rapport ![fliken rapport i Power BI Desktop](./media/odbc-driver/odbc-driver-report-tab.png), klicka på **nya Visual**, och sedan anpassa din panel. Mer information om hur du skapar visualiseringar i Power BI Desktop finns i [visualiseringstyper i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om du får följande fel, se till att den **värden** och **åtkomstnyckeln** värden som du kopierade i Azure portal [steg 2](#connect) är korrekta och försök sedan igen. Använd knapparna kopiera till höger om den **värden** och **åtkomstnyckeln** värden i Azure portal för att kopiera värdena felfritt.
+Om du får följande fel, se till att den **värden** och **åtkomstnyckeln** värdena som du kopierade Azure-portalen i [steg 2](#connect) är korrekta och försök sedan igen. Använd kopieringsknapparna till höger om den **värden** och **åtkomstnyckel** värdena i Azure portal för att kopiera värdena felfritt.
 
     [HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}`
 

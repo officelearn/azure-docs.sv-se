@@ -3,8 +3,8 @@ title: Använd Data Lake Store med Hadoop i Azure HDInsight
 description: Lär dig mer om hur du frågar efter data från Azure Data Lake Store och lagrar resultatet av dina analyser.
 services: hdinsight,storage
 tags: azure-portal
-author: mumian
-ms.author: jgao
+author: jasonwhowell
+ms.author: jasonh
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
@@ -12,12 +12,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/23/2018
-ms.openlocfilehash: 8f81e04c1b80173868f068957b6ca7da6bfe19c1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 48b98e170601f80e8cd1348ccc9afa3b5fc0c4e1
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222897"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258039"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Använda Data Lake Store med Azure HDInsight-kluster
 
@@ -28,7 +28,7 @@ I den här artikeln får du lära dig hur Data Lake Store fungerar med HDInsight
 > [!NOTE]
 > Data Lake Store alltid är tillgängligt via en säker kanal så det finns inget `adls`-filsystemsschemanamn. Du använder alltid `adl`.
 > 
-> 
+
 
 ## <a name="availability-for-hdinsight-clusters"></a>Tillgänglighet för HDInsight-kluster
 
@@ -136,8 +136,8 @@ Använd länkarna nedan om du vill ha mer detaljerade instruktioner om hur du sk
 I följande exempel PowerShell-kod läser en lokal certifikatfil och uppdaterar ditt HDInsight-kluster med det nya certifikatet till Azure Data Lake Store. Ange dina egna HDInsight-klusternamnet och resursgruppens namn, prenumerations-ID, app-ID, lokal sökväg till certifikatet. Ange lösenordet när du uppmanas till detta.
 
 ```powershell-interactive
-$clusterName = 'MyCluster'
-$resourceGroupName = 'MyResourceGroup'
+$clusterName = '<clustername>'
+$resourceGroupName = '<resourcegroupname>'
 $subscriptionId = '01234567-8a6c-43bc-83d3-6b318c6c7305'
 $appId = '01234567-e100-4118-8ba6-c25834f4e938'
 $generateSelfSignedCert = $false

@@ -1,6 +1,6 @@
 ---
-title: Hämta Data för kompatibilitetsinställningar i Azure princip
-description: Azure princip utvärderingar och effekter bedöma efterlevnad. Lär dig mer om att hämta information om kompatibilitet.
+title: Hämta Efterlevnadsdata i Azure Policy
+description: Azure Policy-utvärderingar och effekterna avgör efterlevnad. Lär dig hur du hämtar information om kompatibilitet.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,40 +9,40 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: d36ecb18811901fb781e151c06badc0697c2d769
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 390935d80e903631287b1a4b9f1075e547298d99
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655398"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249649"
 ---
 # <a name="getting-compliance-data"></a>Hämta Data för kompatibilitetsinställningar
 
-En av de största fördelarna med Azure-principen är insikt och kontroller över resurser i en prenumeration eller [hanteringsgruppen](../azure-resource-manager/management-groups-overview.md) av prenumerationer. Den här kontrollen kan utföras på många olika sätt, till exempel förhindra resurser som skapas på fel plats framtvinga användning av gemensam och enhetlig taggen eller granska befintliga resurser för behov konfigurationer och inställningar. I samtliga fall data som genereras av en princip för att du ska förstå kompatibilitetsstatusen för din miljö.
+En av de största fördelarna med Azure Policy är insikter och kontroller över resurser i en prenumeration eller [hanteringsgruppen](../azure-resource-manager/management-groups-overview.md) av prenumerationer. Den här kontrollen kan utföras på många olika sätt, till exempel förhindrar resurser som skapas på fel plats, tillämpa gemensam och enhetlig taggen användning, eller granskning befintliga resurser för lämpliga konfigurationer och inställningar. I samtliga fall genereras data av en princip så att du kan förstå kompatibilitetsstatusen för din miljö.
 
-Det finns flera sätt att komma åt kompatibilitetsinformationen som genererats av din princip och initiativ tilldelningar:
+Det finns flera sätt att komma åt kompatibilitetsinformationen som genereras av din princip och initiativtilldelningar:
 
-- Med den [Azure-portalen](#portal)
+- Med hjälp av den [Azure-portalen](#portal)
 - Via [kommandoraden](#command_line) skript
 
-Innan du tittar på metoder för att rapportera om kompatibiliteten ska vi titta på när kompatibilitetsinformation uppdateras och frekvens och händelser som utlöser ett utvärderingscykel.
+Innan du tittar på metoder för att rapportera om efterlevnad, låt oss titta på när kompatibilitetsinformation uppdateras och frekvens och händelser som utlöser en utvärderingscykel för datorprincip.
 
-## <a name="evaluation-triggers"></a>Utvärdering av utlösare
+## <a name="evaluation-triggers"></a>Utvärderingen utlösare
 
-Resultatet av en slutförd utvärderingscykel återspeglas i den `Microsoft.PolicyInsights` Resursprovidern via `PolicyStates` och `PolicyEvents` åtgärder. Mer information om alternativen och funktionerna i princip insikter REST-API finns [princip insikter](/rest/api/policy-insights/).
+Resultatet av en slutförd utvärderingscykel för datorprincip avspeglas i den `Microsoft.PolicyInsights` Resource Provider via `PolicyStates` och `PolicyEvents` åtgärder. Mer information om alternativen och funktionerna för princip för Insights REST API finns i [Policy Insights](/rest/api/policy-insights/).
 
-Utvärderingen av principer som är tilldelade och initiativ sker till följd av olika händelser:
+Utvärderingar av tilldelade principer och initiativ inträffa till följd av olika händelser:
 
-- En princip eller initiativ tilldelas nyligen ett scope. När detta inträffar tar cirka 30 minuter för tilldelningen ska tillämpas på det angivna omfånget. När den används av utvärderingscykel börjar för resurser i omfattningen mot nytilldelade principen eller initiativ och beroende på de effekter som används av principen eller initiativ, resurser är markerade som kompatibla eller icke-kompatibla. En stor eller initiativ utvärderas mot en stor omfattning resurser kan ta tid, så det finns ingen fördefinierad förväntningen på när utvärderingscykeln slutförs. Uppdaterade kompatibilitetsresultat är tillgängliga i portalen och SDK: er när den är klar.
-- En princip eller initiativ som redan har tilldelats ett scope har uppdaterats. Utvärderingscykel och val av tidpunkt för det här scenariot är desamma som för en ny tilldelning till ett omfång.
-- En resurs har distribuerats i ett omfång med en tilldelning via Hanteraren för filserverresurser REST, Azure CLI eller Azure PowerShell. I det här scenariot händelsen gälla (lägga till, granska, neka, distribuera) och kompatibel statusinformation blir tillgänglig i portalen och SDK cirka 15 minuter senare.
-- Utvärderingscykel för standard kompatibilitet. En gång per dygn är tilldelningar automatiskt ny utvärdering. En stor eller initiativ utvärderas mot en stor omfattning resurser kan ta tid, så det finns ingen fördefinierad förväntningen på när utvärderingscykeln slutförs. Uppdaterade kompatibilitetsresultat är tillgängliga i portalen och SDK: er när den är klar.
+- En princip eller ett initiativ har nyligen tilldelats ett omfång. När detta inträffar kan tar det cirka 30 minuter innan tilldelningen börjar tillämpas på den definierade omfattningen. När den används omvärderingscykeln på börjar för resurser inom detta omfång mot den nyligen tilldelade princip eller ett initiativ och, beroende på de effekter som används av principen eller initiativ, resurser markeras som kompatibla eller inkompatibla. En stor princip eller ett initiativ utvärderas mot en stor omfattning av resurser kan ta tid, så det är fördefinierade förväntar när utvärderingen migreringscykel slutförs. När testet är klart är uppdaterade kompatibilitetsresultat tillgängliga i portalen och SDK: er.
+- En princip eller ett initiativ som redan har tilldelats till ett scope har uppdaterats. Utvärderingscykel för datorprincip och val av tidpunkt för det här scenariot är desamma som för en ny tilldelning till ett omfång.
+- En resurs har distribuerats till ett omfång med en tilldelning via Resource Manager, REST, Azure CLI eller Azure PowerShell. I det här scenariot händelsen effekt (lägga till, granska, neka, distribuera) och statusen kompatibel information blir tillgänglig i portalen och SDK: er ungefär 15 minuter senare.
+- Utvärderingscykel för standard efterlevnad. En gång per dygn är tilldelningar automatiskt ny utvärdering. En stor princip eller ett initiativ utvärderas mot en stor omfattning av resurser kan ta tid, så det är fördefinierade förväntar när utvärderingen migreringscykel slutförs. När testet är klart är uppdaterade kompatibilitetsresultat tillgängliga i portalen och SDK: er.
 
-## <a name="how-compliance-works"></a>Så här fungerar kompatibilitet
+## <a name="how-compliance-works"></a>Så här fungerar efterlevnad
 
-En resurs är icke-kompatibla om du inte följer principen eller initiativ regler för en tilldelning. Följande tabell visar hur olika principer effekter som fungerar med villkoret utvärderingsversionen för resulterande kompatibilitetsstatus:
+I en tilldelning är en resurs icke-kompatibel om den inte följa principen eller initiativ regler. I följande tabell visar hur olika effekter som fungerar med villkorsutvärderingen för resultatet av kompatibilitetstillståndet-princip:
 
-| Resource tillstånd | Verkan | Utvärderingen | Kompatibilitetsstatus |
+| Resurstillstånd | Verkan | Principutvärdering | Kompatibilitetstillstånd |
 | --- | --- | --- | --- |
 | Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Icke-kompatibel |
 | Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Kompatibel |
@@ -52,39 +52,39 @@ En resurs är icke-kompatibla om du inte följer principen eller initiativ regle
 \* För åtgärderna Append, DeployIfNotExist och AuditIfNotExist måste IF-instruktionen är TRUE.
 Åtgärderna kräver också att villkoret Finns är FALSE för att vara icke-kompatibla. När det är TRUE utlöser IF-villkoret utvärdering av villkoret Finns för de relaterade resurserna.
 
-För att bättre förstå hur resurser har flaggats som icke-kompatibla, ska vi använda princip tilldelningen exemplet skapade ovan.
+För att bättre förstå hur resurser är flaggade som icke-kompatibla, använder vi i princip tilldelningen exempel som skapades ovan.
 
-Anta att du har en resursgrupp – ContsoRG, med vissa storage-konton (markerat i rött) som exponeras för offentliga nätverk.
+Anta att du har en resursgrupp – ContsoRG, med vissa lagringskonton (markerat i rött) som exponeras för offentliga nätverk.
 
-![Storage-konton som exponeras för offentliga nätverk](media/policy-insights/resource-group01.png)
+![Storage-konton som är exponerade för offentliga nätverk](media/policy-insights/resource-group01.png)
 
-I det här exemplet behöver du vara försiktig med säkerhetsrisker. Nu när du har skapat en principtilldelning, utvärderas den för alla lagringskonton i resursgruppen ContosoRG. Den granskningar tre icke-kompatibla lagringskonton, därför ändra deras tillstånd att **icke-kompatibla.**
+I det här exemplet behöver du vara försiktig med säkerhetsrisker. Nu när du har skapat en principtilldelning utvärderas för alla lagringskonton i resursgruppen ContosoRG. Den granskar de tre icke-kompatibla storage-konton kan därmed ändra deras tillstånd att **icke-kompatibla.**
 
 ![Granskas icke-kompatibla storage-konton](media/policy-insights/resource-group03.png)
 
 ## <a name="portal"></a>Portalen
 
-Azure-portalen innehåller en grafisk upplevelse av att visualisera och förstå status för efterlevnad i din miljö. På den **princip** sidan den **översikt** alternativet innehåller information om tillgängliga scope på kompatibiliteten för både principer och initiativ. Förutom kompatibilitetsstatus och antal per tilldelning innehåller ett diagram över kompatibiliteten under de senaste sju dagarna. Den **kompatibilitet** sidan innehåller en stor del av samma information (utom diagram), men ger ytterligare filtrera och sortera alternativ.
+Azure-portalen visar en grafisk upplevelse av att visualisera och förstå tillståndet för efterlevnad i din miljö. På den **princip** kan den **översikt** alternativ innehåller information om tillgängliga scope på kompatibiliteten för både principer och initiativ. Förutom kompatibilitetsstatus och antal per tilldelning innehåller den ett diagram som visar efterlevnad under de senaste sju dagarna. Den **efterlevnad** sidan innehåller en stor del av samma information (utom diagram), men ger ytterligare filtrera och sortera alternativ.
 
-![Sidan för princip-kompatibilitet](media/policy-compliance/compliance-page.png)
+![Sidan för principen för efterlevnad](media/policy-compliance/compliance-page.png)
 
-Som en princip eller initiativ kan tilldelas till olika omfång, Observera du omfattningen för varje tilldelning och vilken sorts definition som har tilldelats detta scope i tabellen. Det finns också antalet principer för icke-kompatibla och icke-kompatibla resurser för varje tilldelning. Klicka på en princip eller initiativ i tabellen innehåller en djupare inblick i kompatibiliteten för den specifika tilldelningen.
+När en princip eller ett initiativ kan tilldelas till olika omfång, Observera att omfattningen för varje uppgift och vilken sorts definition som har tilldelats detta omfång i tabellen. Det finns också antalet icke-kompatibla principer och icke-kompatibla resurser för varje tilldelning. När du klickar på en princip eller ett initiativ i tabellen innehåller en närmare titt på kompatibilitet för den specifika tilldelningen.
 
-![Information om kompatibilitet](media/policy-compliance/compliance-details.png)
+![Information om efterlevnad](media/policy-compliance/compliance-details.png)
 
-När listan över resurser på den **icke-kompatibel resurser** fliken återspeglar status för utvärdering av befintliga resurser för den aktuella tilldelningen händelser (lägga till, granska, neka, distribuera) utlöses av en begäran att skapa en resurs är visas under den **händelser** fliken.
+När listan över resurser på den **icke-kompatibla resurser** fliken återspeglar utvärderingsstatus för befintliga resurser för den aktuella tilldelningen för händelser (lägga till, granska, neka, distribuera) utlöses av begäran om att skapa en resurs är visas under den **händelser** fliken.
 
-![Kompatibilitet Principhändelser](media/policy-compliance/compliance-events.png)
+![Efterlevnad Principhändelser](media/policy-compliance/compliance-events.png)
 
-Högerklicka på raden i den händelse som du vill samla in mer information om och välj **visa aktivitetsloggar**. Aktivitetsloggsidan öppnas och är före filtrerade i sökningen visar information om tilldelning och händelser. Aktivitetsloggen ger ytterligare kontext och information om dessa händelser.
+Högerklicka på raden i den händelse som du vill samla in mer information om och välj **visa aktivitetsloggar**. Aktivitetsloggsidan öppnas och är redan filtrerat till search som visar information för tilldelningen och händelser. Aktivitetsloggen innehåller ytterligare kontext och information om dessa händelser.
 
 ![Princip för efterlevnad aktivitetsloggen](media/policy-compliance/compliance-activitylog.png)
 
 ## <a name="command-line"></a>Kommandorad
 
-Samma information som är tillgänglig i portalen kan hämtas med hjälp av REST-API direkt (inklusive med [ARMClient](https://github.com/projectkudu/ARMClient)) eller Azure PowerShell med REST API. Fullständig information om REST-API finns i [princip insikter](/rest/api/policy-insights/) referens. Sidorna REST API-referens har en grön ' försök-knappen på varje åtgärd där du kan prova direkt i webbläsaren.
+Samma information som är tillgänglig i portalen kan hämtas med hjälp av REST API direkt (inklusive med [ARMClient](https://github.com/projectkudu/ARMClient)) eller Azure PowerShell med REST API. Fullständig information om REST API finns i den [Policy Insights](/rest/api/policy-insights/) referens. Referenssidor för REST API har en grön ”prova”-knapp på varje åtgärd som gör att du kan prova direkt i webbläsaren.
 
-Skapa ett autentiseringstoken med den här exempelkoden för att använda följande exempel i Azure PowerShell. Ersätt sedan $restUri med önskad strängen i exemplen att hämta en JSON-objekt som sedan kan parsas.
+Om du vill använda i följande exempel i Azure PowerShell skapar du en autentiseringstoken med den här koden för exemplet. Ersätt sedan $restUri med önskad strängen i exemplen för att hämta en JSON-objekt som sedan kan parsas.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzureRmAccount if not using Cloud Shell
@@ -111,13 +111,13 @@ $response
 
 ### <a name="summarize-results"></a>Sammanfatta resultat
 
-Sammanfattningen innehåller REST-API, kan utföras av hanteringsgruppen prenumeration, resursgrupp, resurs, initiativ, princip, tilldelning av prenumerationen eller resurstilldelning av grupp. Här är ett exempel på sammanfattning på prenumerationsnivån med princip Insight [sammanfatta för prenumerationen](/rest/api/policy-insights/policystates/summarizeforsubscription):
+Med hjälp av REST-API, kan sammanfattning utföras av hanteringsgruppen, prenumeration, resursgrupp, resurs, initiativ, princip, tilldelning av prenumeration eller resource group tilldelning. Här är ett exempel på sammanfattning på prenumerationsnivå med principen Insight [sammanfatta för prenumeration](/rest/api/policy-insights/policystates/summarizeforsubscription):
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04
 ```
 
-Utdata sammanfattas prenumerationen. I de exempel på utdata nedan sammanfattade kompatibiliteten är under **value.results.nonCompliantResources** och **value.results.nonCompliantPolicies**. Denna begäran ger ytterligare information, inklusive varje tilldelning som består av icke-kompatibla siffror och definitionsinformation för varje tilldelning. Varje princip för objekt i hierarkin innehåller en **queryResultsUri** som kan användas för att få ytterligare information på den nivån.
+Utdata innehåller en sammanfattning av prenumerationen. I de exempel på utdata nedan sammanfattande kompatibiliteten är **value.results.nonCompliantResources** och **value.results.nonCompliantPolicies**. Den här förfrågan innehåller ytterligare information, inklusive varje tilldelning som består av icke-kompatibla siffrorna och definitionsinformation för varje tilldelning. Varje princip för objekt i hierarkin innehåller en **queryResultsUri** som kan användas för att hämta ytterligare information på den nivån.
 
 ```json
 {
@@ -153,16 +153,16 @@ Utdata sammanfattas prenumerationen. I de exempel på utdata nedan sammanfattade
 }
 ```
 
-### <a name="query-for-resources"></a>Frågan för resurser
+### <a name="query-for-resources"></a>Fråga för resurser
 
-I exemplet ovan, **value.policyAssignments.policyDefinitions.results.queryResultsUri** försett oss med ett exempel på URI: N för att hämta alla icke-kompatibla resurser för en specifik princip-definition. Titta på den **$filter** IsCompliant är lika med (eq) till false, PolicyAssignmentId har angetts för principdefinitionen och PolicyDefinitionId sig själv.
-Orsaken till inklusive PolicyAssignmentId i filtret är att PolicyDefinitionId kan finnas i princip- eller initiativ tilldelningar med olika omfång. Genom att ange både PolicyAssignmentId och PolicyDefinitionId kan vara vi explicit i resultaten vi letar efter. Tidigare använde vi **senaste** för PolicyStates (endast tillåtet värde för **policyStatesSummaryResource** på operatorn sammanfatta för prenumeration), som anger automatiskt en  **från** och **till** tidsperioden för de senaste 24 timmarna.
+I exemplet ovan, **value.policyAssignments.policyDefinitions.results.queryResultsUri** gett oss ett exempel på URI: N för att hämta alla icke-kompatibla resurser för en specifik principdefinition. Titta på den **$filter** värdet, IsCompliant är lika med (eq) till false, PolicyAssignmentId har angetts för principdefinitionen, varefter PolicyDefinitionId själva.
+Orsaken för att inkludera PolicyAssignmentId i filtret är PolicyDefinitionId kan finnas i flera principen eller initiativtilldelningar med en rad olika omfång. Genom att ange både PolicyAssignmentId och PolicyDefinitionId kan vara vi explicit i resultaten som vi letar efter. Tidigare var vi använde **senaste** för PolicyStates (den enda tillåtna värdet för **policyStatesSummaryResource** på operatorn sammanfatta för prenumeration), som anger automatiskt en  **från** och **till** tidsfönstret för de senaste 24 timmarna.
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'
 ```
 
-Svaret exemplet nedan har tagits bort visar bara en enskild icke-kompatibla resurs planeringsaspekter (Observera att @odata.count är faktiskt 15 och matchar antal icke-kompatibla resurser från exemplet ovan). Detaljerad svaret innehåller flera delar av data om resursen, principen (eller initiativ), och tilldelningen. Observera att du kan också se vilka tilldelning parametrar skickades till principdefinitionen.
+Svaret exemplet nedan har varit tas bort bara visar en enskild icke-kompatibel resurs kortfattat (Observera att @odata.count är faktiskt 15 och matchar antalet icke-kompatibla resurser i exemplet ovan). Detaljerad svaret innehåller flera olika typer av data om resursen, principen (eller initiativ), och tilldelningen. Observera att du kan också se vilka tilldelning parametrar skickades till principdefinitionen.
 
 ```json
 {
@@ -202,7 +202,7 @@ Svaret exemplet nedan har tagits bort visar bara en enskild icke-kompatibla resu
 
 ### <a name="view-events"></a>Visa händelser
 
-När en resurs skapas eller uppdateras, skapas en utvärderingsresultat av principen. Resultaten kallas _Principhändelser_. Använd följande URI: N om du vill visa den senaste Principhändelser som är associerade med prenumerationen.
+När en resurs skapas eller uppdateras, genereras en utvärderingsresultat av principen. Resultaten kallas _Principhändelser_. Använd följande URI: N om du vill visa den senaste Principhändelser som är associerade med prenumerationen.
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2018-04-04
@@ -222,16 +222,15 @@ Ditt resultat liknar följande exempel:
 }
 ```
 
-Mer information om frågor Principhändelser finns i [Principhändelser](/rest/api/policy-insights/policyevents) referensartikeln.
+Mer information om hur du frågar Principhändelser finns i den [Principhändelser](/rest/api/policy-insights/policyevents) referensartikeln.
 
-### <a name="azure-powershell-preview"></a>Azure PowerShell (förhandsgranskning)
+### <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell-modulen för principen inte är ännu slutlig, men är tillgängliga på PowerShell-galleriet som en [Förhandsgranska versionen](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights).
-Om PowerShellGet är minst version 1.6.0 (krävs för att stödja förhands-objekt), kan du hämta preview version använder `Install-Module` (Kontrollera att du har senast [Azure PowerShell](/powershell/azure/install-azurerm-ps) installerad):
+Azure PowerShell-modulen för principen är tillgänglig på PowerShell-galleriet som [AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights). Med PowerShellGet kan du installera modulen med hjälp av `Install-Module -Name AzureRM.PolicyInsights` (Kontrollera att du har senast [Azure PowerShell](/powershell/azure/install-azurerm-ps) installerat):
 
 ```powershell
-# Download preview from PowerShell Gallery via PowerShellGet
-Install-Module -Name AzureRM.PolicyInsights -AllowPrerelease
+# Install from PowerShell Gallery via PowerShellGet
+Install-Module -Name AzureRM.PolicyInsights
 
 # Import the downloaded module
 Import-Module AzureRM.PolicyInsights
@@ -240,7 +239,7 @@ Import-Module AzureRM.PolicyInsights
 Connect-AzureRmAccount
 ```
 
-Modulen preview har tre cmdletar:
+Modulen har tre cmdletar:
 
 - `Get-AzureRmPolicyStateSummary`
 - `Get-AzureRmPolicyState`
@@ -257,7 +256,7 @@ PolicyAssignments     : {/subscriptions/{subscriptionId}/resourcegroups/RG-Tags/
                         oft.authorization/policyassignments/37ce239ae4304622914f0c77}
 ```
 
-Exempel: Hämta posten tillstånd för de nyligen utvärderas resurs (standard är av tidsstämpel i fallande ordning).
+Exempel: Hämta posten tillståndet för de nyligen utvärderat resurs (standard är efter tidsstämpel i fallande ordning).
 
 ```powershell
 PS > Get-AzureRmPolicyState -Top 1
@@ -283,7 +282,7 @@ PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
 ```
 
-Exempel: Hämta information för alla icke-kompatibla virtuella nätverksresurser.
+Exempel: Hämtning av information om alla inkompatibla virtuella nätverksresurser.
 
 ```powershell
 PS > Get-AzureRmPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
@@ -309,7 +308,7 @@ PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
 ```
 
-Exempel: Hämtningen av händelser relaterade till icke-kompatibla virtuella nätverksresurser som inträffade efter ett visst datum.
+Exempel: Hämta händelser relaterade till icke-kompatibla virtuella nätverksresurser som inträffade efter ett visst datum.
 
 ```powershell
 PS > Get-AzureRmPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
@@ -337,7 +336,7 @@ TenantId                   : {tenantId}
 PrincipalOid               : {principalOid}
 ```
 
-Den **PrincipalOid** fältet kan användas för att få en viss användare med Azure PowerShell-cmdleten `Get-AzureRmADUser`. Ersätt **{principalOid}** med svar du får från föregående exempel.
+Den **PrincipalOid** fältet kan användas för att få en viss användare med Azure PowerShell-cmdlet `Get-AzureRmADUser`. Ersätt **{principalOid}** med de svar du får från föregående exempel.
 
 ```powershell
 PS > (Get-AzureRmADUser -ObjectId {principalOid}).DisplayName
@@ -346,12 +345,12 @@ Trent Baker
 
 ## <a name="log-analytics"></a>Log Analytics
 
-Om du har en [logganalys](../log-analytics/log-analytics-overview.md) med den `AzureActivity` lösning som är knutna till din prenumeration och du kan också visa överträdelser resultat från utvärderingscykel med hjälp av enkla Kusto frågor och `AzureActivity` tabell. Med information om icke-kompatibilitet i logganalys innebär det också att aviseringar kan konfigureras för att bevaka bristande kompatibilitet på en specifik resurs, resursgrupp eller även ett tröskelvärde för icke-kompatibla objekt, till exempel fler än 10 under de senaste 24 timmarna.
+Om du har en [Log Analytics](../log-analytics/log-analytics-overview.md) arbetsyta med den `AzureActivity` lösning som är kopplad till din prenumeration och du kan också visa inkompatibilitet resultaten från utvärderingscykel med hjälp av enkla Kusto-frågor och `AzureActivity` tabell. Med inkompatibilitet information i Log Analytics innebär det också att aviseringar kan konfigureras för att titta på för icke-kompatibilitet på en specifik resurs, resursgrupp eller även ett tröskelvärde för icke-kompatibla artiklar, t.ex fler än 10 under de senaste 24 timmarna.
 
-![Princip för kompatibilitet med logganalys](media/policy-compliance/compliance-loganalytics.png)
+![Principefterlevnad använda Log Analytics](media/policy-compliance/compliance-loganalytics.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska de [definition principstruktur](policy-definition.md).
-- Granska [Förstå princip effekter](policy-effects.md).
-- Granska vad en hanteringsgrupp är med [ordna dina resurser med Azure-Hanteringsgrupper](../azure-resource-manager/management-groups-overview.md)
+- Granska [Policy-definitionsstrukturen](policy-definition.md).
+- Granska [Förstå policy-effekter](policy-effects.md).
+- Granska vilka en hanteringsgrupp är med [organisera dina resurser med Azure-hanteringsgrupper](../azure-resource-manager/management-groups-overview.md)

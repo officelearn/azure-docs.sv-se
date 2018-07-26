@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Reporting vanliga frågor och svar | Microsoft Docs
-description: Azure Active Directory reporting vanliga frågor och svar.
+title: Azure Active Directory-rapportering vanliga frågor och svar | Microsoft Docs
+description: Azure Active Directory-rapportering vanliga frågor och svar.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -15,117 +15,157 @@ ms.component: compliance-reports
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8d627abfe7b686eeeb5a65c4515e184f4ce62f4e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d069d0e74c1bc10baa4d14cdb91c137203495ae2
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335065"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247416"
 ---
-# <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory reporting vanliga frågor och svar
+# <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory-rapportering vanliga frågor och svar
 
-Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active Directory (AD Azure) reporting. Läs mer i informationen om [Azure Active Directory-rapportering](active-directory-reporting-azure-portal.md). 
+Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active Directory (Azure AD) reporting. Läs mer i informationen om [Azure Active Directory-rapportering](active-directory-reporting-azure-portal.md). 
 
-**F: Jag använder den https://graph.windows.net/&lt; innehavarens namn&gt;/reports/ endpoint-API: er pull Azure AD-granskning och integrerad programanvändning rapporter i vårt reporting system programmässigt. Vad bör jag växla till?**
+## <a name="getting-started"></a>Komma igång 
 
-**S:** Leta upp den [API-referensdokumentation](https://developer.microsoft.com/graph/) att se hur du kan använda de nya API: er för att komma åt [aktivitetsrapporter](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Den här slutpunkten har två rapporter (granskning och inloggningar) som innehåller alla data som du fick i den gamla API-slutpunkten. Den här nya slutpunkten har även en rapport för inloggningar med Azure AD Premium-licens som du kan använda för att få appanvändning, användning av enhet och logga in användarinformation.
+**F: Jag använder den https://graph.windows.net/&lt; klientnamn&gt;/reports/ endpoint API: er till pull Azure AD-gransknings- och integrerad programanvändning rapporterar i vår rapporteringssystem programmässigt. Vad ska jag växla till?**
 
+**S:** Leta upp den [API-referensdokumentation](https://developer.microsoft.com/graph/) att se hur du kan använda den nya API: er för att komma åt [aktivitetsrapporter](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Den här slutpunkten har två rapporter (gransknings- och inloggningar) som tillhandahåller de data som du fick i den gamla API-slutpunkten. Den här nya slutpunkten har också en inloggningar rapport med Azure AD Premium-licens som du kan använda för att hämta appanvändning, användning av enhet och logga in användarinformation.
 
 --- 
 
-**F: Jag använder den https://graph.windows.net/&lt; innehavarens namn&gt;/reports/ endpoint API: er kan hämta Azure AD-säkerhetsrapporter (vissa typer av identifieringar, till exempel läckta autentiseringsuppgifter eller inloggningar från anonyma IP-adresser) till våra reporting system programmässigt. Vad bör jag växla till?**
+**F: Jag använder den https://graph.windows.net/&lt; klientnamn&gt;/reports/ endpoint API: er för att hämta Azure AD-säkerhetsrapporter (vissa typer av identifieringar, till exempel läckta autentiseringsuppgifter eller inloggningar från anonyma IP-adresser) till våra reporting system programmässigt. Vad ska jag växla till?**
 
-**S:** du kan använda den [identitetsskydd riskhändelser API](active-directory-identityprotection-graph-getting-started.md) till access security identifieringar via Microsoft Graph. Detta nya format ger större flexibilitet i hur du kan fråga efter data med avancerade filter, val av fält och mycket mer och standardiserar riskhändelser till en typ för enklare integrering med siem-servrar och andra verktyg för insamling av data. Eftersom data är i ett annat format, kan du ersätta en ny fråga för dina gamla frågor. Dock [nya API: N använder Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), som är Microsoft standard för dessa API: er som O365 eller Azure AD. Så att arbetet som krävs kan antingen utöka din aktuella MS Graph investeringar eller hjälp kan du börja övergången till den här nya standard plattformen.
-
---- 
-
-**F: Vad är datalagring för aktivitetsloggar (granskning och inloggningar) i Azure portal?** 
-
-**S:** finns [för hur länge lagras insamlade data?](active-directory-reporting-retention.md#q-for-how-long-is-the-collected-data-stored) för ett svar på frågan.
+**S:** du kan använda den [Identity Protection riskhändelser API](active-directory-identityprotection-graph-getting-started.md) till säkerhetsidentifieringar för åtkomst via Microsoft Graph. Detta nya format ger större flexibilitet i hur du kan fråga efter data med avancerade filter, valda fält och mycket mer och standardiserar riskhändelser till en typ för enklare integrering till siem-servrar och andra verktyg för insamling av data. Eftersom data är i ett annat format, kan du ersätta en ny fråga för dina gamla frågor. Dock [nya API: et använder Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), vilket är Microsoft-standarden för dessa API: er som O365 eller Azure AD. Så att arbetet som krävs kan antingen utöka dina aktuella investeringar i MS Graph eller hjälp kan du börja dig vid övergången till den här nya standard-plattformen.
 
 --- 
 
-**F: hur lång tid tar det förrän aktivitetsdata visas när jag har slutfört min uppgiften?**
+**F: hur får jag en premiumlicens?**
 
-**S:** granskningsloggarna för aktivitet har en fördröjning mellan 15 minuter till en timme. Inloggningsaktivitet loggar kan ta 15 minuter till upp till två timmar för några poster.
-
----
-
-**F: måste jag vara en global administratör för att se de aktivitet inloggningarna till Azure-portalen eller hämta data via API: et?**
-
-**S:** Nej. Du måste vara en **säkerhet Reader**, **säkerhet Admin**, eller en **Global administratör** att hämta rapportdata i Azure-portalen eller via API.
+**S:** Se [komma igång med Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md) efter ett svar på den här frågan.
 
 ---
 
-**F: kan jag få logginformation för Office 365 aktiviteten via Azure portal?**
+**F: hur snart Se bör granska data när du har fått en premiumlicens?**
 
-**S:** även om aktiviteten för Office 365 och Azure AD aktivitet loggar resursen mycket directory-resurser om du vill att en fullständig överblick över aktivitetsloggar Office 365 bör du gå till Office 365 Admin Center få logginformation för Office 365-aktivitet.
+**S:** om du redan har data för aktiviteter som en kostnadsfri licens så du kan se samma data. Om du inte har några data, kan det ta en eller två dagar.
+
+---
+
+**F: kan jag se förra månadens data när du har skaffat en Azure AD premium-licens?**
+
+**S:** om du har nyligen har bytt till en Premium-version (inklusive en utvärderingsversion), kan du se data upp till 7 dagar från början. När en publiceringskonfiguration ackumuleras data, visas upp till 30 dagar.
+
+---
+
+**F: måste jag vara global administratör för att se aktiviteten inloggningar till Azure-portalen eller hämta data via API: et?**
+
+**S:** Nej. Du måste vara en **Säkerhetsläsare**, ett **säkerhetsadministratör**, eller en **Global administratör** att hämta rapportdata i Azure portal eller via API: et.
 
 ---
 
 
-**F: vilken API: er används för att få information om Office 365 aktivitetsloggar?**
+## <a name="activity-logs"></a>Aktivitetsloggar
 
-**S:** använda Office 365 Management-API: er för att komma åt den [Office 365 aktivitet loggar via ett API](https://msdn.microsoft.com/office-365/office-365-managment-apis-overview).
+
+**F: Vad är datakvarhållning aktivitetsloggar (gransknings- och inloggningar) i Azure-portalen?** 
+
+**S:** Se [för hur länge är insamlade data lagras?](active-directory-reporting-retention.md#q-for-how-long-is-the-collected-data-stored) efter ett svar på den här frågan.
+
+--- 
+
+**F: hur lång tid tar det innan jag kan se alla aktivitetsdata när jag har slutfört min uppgift?**
+
+**S:** granskningsloggar för aktivitet har en svarstid som sträcker sig från 15 minuter till en timme. Logga in aktivitetsloggar kan ta mellan 15 minuter till upp till 2 timmar för vissa poster.
+
+---
+
+
+**F: kan jag få information från aktivitetsloggen i Office 365 via Azure portal?**
+
+**S:** även om aktiviteten i Office 365 och Azure AD delar en massa directory-resurser, om du vill att en fullständig överblick över aktivitetsloggarna Office 365 bör du gå till Office 365 Admin Center för att hämta information från aktivitetsloggen i Office 365.
+
+---
+
+
+**F: vilka API: er ska jag använda för att få information om Office 365-aktivitetsloggar?**
+
+**S:** använda Office 365 Management-API: er för att komma åt den [Office 365 aktivitetsloggar via ett API](https://msdn.microsoft.com/office-365/office-365-managment-apis-overview).
 
 ---
 
 **F: hur många poster som jag kan hämta från Azure-portalen?**
 
-**S:** upp till 5 000 poster kan hämtas från Azure-portalen. Poster sorteras efter *senaste* och som standard får de senaste 5000 posterna.
+**S:** du kan hämta upp till 5 000 poster från Azure-portalen. Posterna sorteras efter *senaste* och som standard, du får de senaste 5 000 poster.
 
 ---
 
-**F: hur många poster kan fråga via aktiviteter API?**
+**F: hur många poster kan fråga genom aktiviteter API?**
 
-**S:** du kan fråga efter upp till 1 miljon poster (om du inte använder operatorn top som sorterar posten efter de senaste). Om du använder operatorn ”top”, kan du fråga upp till 500 kB poster. Du kan hitta Exempelfrågor för hur du använder API: et [här](active-directory-reporting-api-getting-started.md).
-
----
-
-**F: hur får jag en premium-licens?**
-
-**S:** finns [komma igång med Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md) för ett svar på frågan.
+**S:** du kan fråga efter upp till 1 miljon poster (om du inte använder top-operatorn som sorterar posten av de flesta senaste). Om du använder operatorn ”top”, kan du fråga upp till 500K poster. Du kan hitta exempelfrågor visar hur du använder API: et [här](active-directory-reporting-api-getting-started.md).
 
 ---
 
-**F: hur snart bör se aktiviteter data när en premium-licens?**
+## <a name="risky-sign-ins"></a>Riskfyllda inloggningar
 
-**S:** om du redan har data som aktiviteter som en kostnadsfri licens, så du kan se samma data. Om du inte har några data, tar en eller två dagar.
+**F: det finns en riskhändelse i Identity Protection men jag ser inte motsvarande inloggning i alla inloggningar. Förväntas detta?**
 
----
-
-**F: kan jag se senaste månaden data när en Azure AD premium-licens?**
-
-**S:** om du har nyligen bytt till en Premium-version (inklusive en utvärderingsversion), kan du se data upp till 7 dagar från början. När data ackumuleras visas upp till 30 dagar.
+**S:** Ja, Identity Protection utvärderar risken för alla autentiseringsflöden om interaktivt eller icke-interaktivt. Alla inloggningar endast rapporten innehåller dock endast de interaktiva inloggningarna.
 
 ---
 
-**F: det finns en risk händelse i Identity Protection men jag ser inte motsvarande inloggning i alla inloggningar. Förväntas detta?**
+**F: hur kan jag hämta rapporten ”användare som har flaggats för risk” i Azure-portalen?**
 
-**S:** Ja, identitetsskydd utvärderar risk för alla flöden för autentisering om interaktiv eller icke-interaktivt. Alla inloggningar endast rapporten innehåller dock bara de interaktiva inloggningarna.
-
----
-
-**F: hur kan jag hämta rapporten ”användare som flaggats för risk” i Azure-portalen?**
-
-**S:** alternativet för att hämta *användare som har flaggats för risk* rapporten läggs snart.
+**S:** alternativ för att hämta *användare som har flaggats för risk* rapporten kommer snart.
 
 ---
 
-**F: hur vet jag varför en inloggning eller en användare som har flaggats riskfyllda i Azure portal?**
+**F: hur kan jag se varför en inloggning eller en användare har flaggats riskfyllda i Azure-portalen?**
 
-**S:** Premium edition kunder kan läsa mer om de underliggande riskhändelser genom att klicka på användare i ”användare som flaggats för risk” eller genom att klicka på de ”riskfyllda inloggningarna”. Ledigt och grundläggande edition kunder få se vilka användare och inloggningar utan underliggande händelseinformation för risk.
-
----
-
-**F: hur beräknas IP-adresser i inloggningar och riskfyllda inloggningar rapporten?**
-
-**S:** IP-adresser utfärdas så att det finns ingen slutgiltiga anslutning mellan en IP-adress och där datorn med adressen finns fysiskt. Detta är komplicerade av faktorer, till exempel mobila providers och VPN-anslutningar utfärda IP-adresser från central pooler ofta mycket långt där klientenheten verkligen används. Ovanstående är, konverterar IP-adress till en fysisk plats en bästa prestanda baserat på spårningar, registerdata, omvänd sökningar och annan information. 
+**S:** Premium edition-kunder kan läsa mer om de underliggande riskhändelser genom att klicka på användaren i ”användare som har flaggats för risk” eller genom att klicka på ”riskfyllda inloggningar”. Kostnadsfri och Basic edition-kunder komma att se vilka användare och inloggningar utan att den underliggande informationen om identitetsriskhändelser.
 
 ---
 
-**F: Vad gör händelsen risk ”logga in med ytterligare risker som identifierats” obestämd?**
+**F: hur beräknas IP-adresser i inloggningar och rapporten över riskfyllda inloggningar?**
 
-**S:** för att ge en förklaring till alla de riskfyllda inloggningarna i din miljö, ”logga in med ytterligare risk upptäckte” fungerar som platshållare för inloggningar för identifieringar som är exklusiv för Azure AD Identity Protection-prenumeranter.
+**S:** IP-adresser utfärdas så att det finns ingen slutgiltiga koppling mellan en IP-adress och var datorn med den här adressen är fysiskt. Det är komplicerat av faktorer, till exempel mobila leverantörer och VPN-anslutningar utfärda IP-adresser från central pooler ofta mycket är långt från där klientenheten faktiskt används. Med ovanstående kan är konvertera IP-adress till en fysisk plats bästa förmåga baserat på spårningar, registerdata, omvänd sökningar och annan information. 
 
 ---
+
+**F: Vad gör riskhändelsen ”logga in med identifierad ytterligare risk” en obestämd?**
+
+**S:** för att ge dig en överblick över alla riskfyllda inloggningar i din miljö, ”logga in med ytterligare risk identifierats” fungerar som platshållare för inloggningar för identifieringar som är exklusivt för Azure AD Identity Protection-prenumeranter.
+
+---
+
+## <a name="conditional-access"></a>Villkorlig åtkomst
+
+**F: Vad är nytt med den här funktionen?**
+
+**S:** kunder kan nu felsöka principer för villkorlig åtkomst via rapporten för alla inloggningar. Kunder kan granska statusen för villkorlig åtkomst och genomgång av information om de principer som tillämpas på inloggningen och resultatet för varje princip.
+
+**F: hur kommer jag igång?**
+
+**S:** att komma igång:
+    * Gå till rapporten inloggningar i den [Azure-portalen](https://portal.azure.com). 
+    * Klicka på inloggning som du vill felsöka.
+    * Navigera till den **villkorlig åtkomst** fliken. Här kan visa du alla principer som påverkas inloggningen och resultatet för varje princip. 
+    
+**F: Vad är alla möjliga värden för statusen för villkorlig åtkomst?**
+
+**S:** statusen för villkorlig åtkomst kan ha följande värden:
+    * **Tillämpas inte**: Det innebär att det fanns ingen CA-princip med användaren och appen i omfånget. 
+    * **Lyckade**: Det innebär att det uppstod en CA-princip med användaren och appen i omfånget och CA-principer har uppfylls. 
+    * **Fel**: Det innebär att det uppstod en CA-princip med användaren och appen i omfånget och principer för CA: N inte har uppfyllts. 
+    
+**F: Vad är alla möjliga värden för villkorlig åtkomst princip resultatet?**
+
+**S:** principer för villkorlig åtkomst kan ha följande resultat:
+    * **Lyckade**: principen har uppfyllts.
+    * **Fel**: principen uppfylldes inte.
+    * **Tillämpas inte**: Det kan bero på Principvillkor inte uppfyllde.
+    * **Inte aktiverad**: Detta är p.g.a. principen i inaktiverat tillstånd. 
+    
+**F: på principnamnet i rapporten för alla inloggning matchar inte namnet på principen i CA: N. Varför?**
+
+**S:** på principnamnet i alla loggar in rapporten baseras på namnet på CA-principen vid tidpunkten för inloggningen. Detta kan inte överensstämmer med principens namn i CA: N om du har uppdaterat principnamnet senare, det vill säga efter inloggningen.

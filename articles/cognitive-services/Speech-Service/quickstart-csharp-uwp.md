@@ -10,22 +10,20 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 4599c3c4c69397a1ab1f65c246e4440085b8bb91
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 751736a4333932a68775589dddeb82ef6fa6f398
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072586"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258216"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i en UWP-app med hjälp av tal-SDK
 
 I den här artikeln får du lära dig hur du skapar en Universal Windows Platform (UWP)-program med hjälp av Cognitive Services tal SDK för att transkribera tal till text.
-Programmet är baserad på den [Microsoft Cognitive Services tal SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017.
+Programmet har skapats med den [Microsoft Cognitive Services tal SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017.
 
 > [!NOTE]
-> UWP-appar som skapats med SDK: N för tal ännu skickar inte Windows App Certification Kit (WACK).
-> Det är möjligt, skicka en app på Windows Store inte är separat inläsning av appar.
-> Detta kommer att åtgärdas i en kommande version.
+> Universell Windows-plattform kan du utveckla appar som körs på en enhet som stöder Windows 10, inklusive datorer, Xbox, Surface Hub och andra enheter. Appar med hjälp av tal SDK ännu skickar inte Windows App Certification Kit (WACK). Det går att läsa din app, men det inte kanske för närvarande skickas till Windows Store.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -46,12 +44,12 @@ Programmet är baserad på den [Microsoft Cognitive Services tal SDK NuGet-paket
 
     ![](media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 
-1. Om du kör på en 64-bitars Windows-installation, kan du växla build-plattformen för att `x64`:
+1. Om du kör på en 64-bitars Windows-installation, kan du växla build-plattformen för att `x64`.
 
    ![Växla build-plattform till x64](media/sdk/qs-csharp-uwp-03-switch-to-x64.png)
 
    > [!NOTE]
-   > För tillfället stöder inte tal SDK: N till mål ARM-processorer.
+   > För tillfället tal SDK har stöd för Intel-kompatibla processorer, men inte ARM.
 
 1. Installera och referera till den [tal NuGet-paketet SDK](https://aka.ms/csspeech/nuget). Högerklicka på lösningen i Solution Explorer och välj **hantera NuGet-paket för lösningen**.
 
@@ -61,11 +59,11 @@ Programmet är baserad på den [Microsoft Cognitive Services tal SDK NuGet-paket
 
     ![Installera NuGet-paketet för Microsoft.CognitiveServices.Speech](media/sdk/qs-csharp-uwp-05-nuget-install-0.5.0.png "installera Nuget-paketet")
 
-1. Acceptera licensvillkoren på skärmen som visas för licens:
+1. Acceptera licensvillkoren i dialogrutan som visas.
 
     ![Acceptera licensvillkoren](media/sdk/qs-csharp-uwp-06-nuget-license.png "acceptera licensvillkoren")
 
-1. Du bör se följande utdatarad i Package Manager-konsolen:
+1. Följande utdatarad visas i Package Manager-konsolen.
 
    ```text
    Successfully installed 'Microsoft.CognitiveServices.Speech 0.5.0' to helloworld
@@ -78,13 +76,14 @@ Programmet är baserad på den [Microsoft Cognitive Services tal SDK NuGet-paket
 
    ![](media/sdk/qs-csharp-uwp-07-capabilities.png)
 
-1. Redigera din app UI genom att dubbelklicka på `MainPage.xaml` i Solution Explorer.
-   I den designer XAML vyn infoga följande kodavsnitt i XAML i rutnätet taggen (mellan `<Grid>` och `</Grid>`):
+1. Redigera programmets användargränssnitt genom att dubbelklicka på `MainPage.xaml` i Solution Explorer. 
+
+    I designer XAML-vyn, infoga följande kodavsnitt i XAML i rutnätet taggen (mellan `<Grid>` och `</Grid>`).
 
    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml#StackPanel)]
 
 1. Redigera XAML bakomliggande kod genom att dubbelklicka på `MainPage.xaml.cs` i Solution Explorer (det är grupperade under den `MainPage.xaml` objekt).
-   Ersätt all kod med följande:
+   Ersätt all kod i den här filen med följande.
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml.cs#code)]
 
@@ -96,7 +95,7 @@ Programmet är baserad på den [Microsoft Cognitive Services tal SDK NuGet-paket
 
 ## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
 
-1. Skapa programmet. Från menyraden väljer **skapa** > **skapa lösning**. Koden ska kompilera utan fel nu:
+1. Skapa programmet. Från menyraden väljer **skapa** > **skapa lösning**. Koden ska kompilera utan fel nu.
 
     ![Version](media/sdk/qs-csharp-uwp-08-build.png "version")
 
@@ -108,8 +107,7 @@ Programmet är baserad på den [Microsoft Cognitive Services tal SDK NuGet-paket
 
     ![Starta appen i felsökning](media/sdk/qs-csharp-uwp-10-access-prompt.png "starta appen into-felsökning")
 
-1. Klicka sedan på den **taligenkänning med mikrofon indata** och talar ett kort fras i mikrofonen.
-   Igenkänningsresultatet tal ska visas i det grafiska Användargränssnittet.
+1. Klicka på den **taligenkänning med mikrofon indata** och talar ett kort fras i enhetens mikrofon. Den tolkade texten visas i fönstret.
 
     ![](media/sdk/qs-csharp-uwp-11-ui-result.png)
 

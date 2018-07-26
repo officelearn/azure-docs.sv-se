@@ -10,19 +10,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 07/24/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: a48dcff6eedc2aa6e8bb6cd5b0668af72259493b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e49da237584a48c01e72552abae01da2514da3c1
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869107"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248897"
 ---
-# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Skapa attributbaserade regler för dynamiskt gruppmedlemskap i Azure Active Directory
-Du kan skapa anpassade regler för att aktivera komplexa attributbaserade dynamiska medlemskap för grupper i Azure Active Directory (AD Azure). Den här artikeln beskriver de attribut och syntaxen för att skapa regler för dynamiskt medlemskap för användare eller enheter. Du kan skapa en regel för dynamiskt medlemskap för säkerhetsgrupper eller Office 365-grupper.
+# <a name="create-dynamic-groups-with-attribute-based-membership-in-azure-active-directory"></a>Skapa dynamiska grupper med attributbaserad medlemskap i Azure Active Directory
+
+I Azure Active Directory (AD Azure), kan du skapa komplexa attributbaserade regler för att aktivera dynamiskt medlemskap för grupper. Den här artikeln beskriver de attribut och syntaxen för att skapa regler för dynamiskt medlemskap för användare eller enheter. Du kan skapa en regel för dynamiskt medlemskap för säkerhetsgrupper eller Office 365-grupper.
 
 När ett attribut för en användare eller enhet ändras utvärderar systemet alla dynamiska gruppregler i en katalog för att se om ändringen ska utlösa någon grupp lägger till eller tar bort. Om en användare eller enhet uppfyller en regel i en grupp, läggs de som en medlem i gruppen. Om användaren inte längre uppfyller regeln tas bort.
 
@@ -34,8 +35,9 @@ När ett attribut för en användare eller enhet ändras utvärderar systemet al
 > För tillfället går inte att skapa en enhetsgrupp baserat på den ägande användaren attribut. Medlemskapsregler för enheten kan bara referera omedelbar attribut för enhetsobjekt i katalogen.
 
 ## <a name="to-create-an-advanced-rule"></a>Skapa en avancerad regel
+
 1. Logga in på den [Azure AD administratörscenter](https://aad.portal.azure.com) med ett konto som är en global administratör eller en Användaradministratör för kontot.
-2. Välj **användare och grupper**.
+2. Välj **Användare och grupper**.
 3. Välj **alla grupper**, och välj **ny grupp**.
 
    ![Lägg till ny grupp](./media/groups-dynamic-membership/new-group-creation.png)
@@ -58,6 +60,7 @@ Du kan se medlemskapet bearbetning av status och datum för senaste uppdatering 
 
 
 Följande statusmeddelanden kan visas för **medlemskap bearbetning** status:
+
 * **Utvärdera**: gruppändringen har tagits emot och uppdateringarna utvärderas.
 * **Bearbetning av**: uppdateringar som bearbetas.
 * **Uppdateringen är klar**: bearbetning har slutförts och alla tillämpliga uppdateringar har gjorts.
@@ -65,6 +68,7 @@ Följande statusmeddelanden kan visas för **medlemskap bearbetning** status:
 * **Uppdatera pausats**: dynamisk medlemsregel har pausats av administratören. MembershipRuleProcessingState anges som ”pausad”.
 
 Följande statusmeddelanden kan visas för **medlemskap senast uppdaterad** status:
+
 * &lt;**Datum och tid**&gt;: senast medlemskap har uppdaterats.
 * **Pågår**: uppdateringar pågår för tillfället.
 * **Okänd**: Det går inte att hämta den senaste uppdateringstiden. Det kan bero på gruppen som nyligen skapas.
@@ -74,6 +78,7 @@ Om det uppstår ett fel vid bearbetning av medlemskapsregeln för en viss grupp,
 ![felmeddelande för bearbetning](./media/groups-dynamic-membership/processing-error.png)
 
 ## <a name="constructing-the-body-of-an-advanced-rule"></a>Konstruera brödtexten i en avancerad regel
+
 Den avancerade regeln som du kan skapa för dynamiskt medlemskap för grupper är i stort sett en binär uttryck som består av tre delar och resulterar i ett sant eller FALSKT resultat. Det finns tre delar:
 
 * Vänstra parametern
@@ -96,6 +101,7 @@ Den totala längden på texten i avancerade regeln får inte överskrida 2048 te
 > Strängar som innehåller citattecken ”ska gås ur med-tecken, till exempel user.department - eq \`” försäljning ”.
 
 ## <a name="supported-expression-rule-operators"></a>Uttryck för stöds operatorer
+
 I följande tabell visas alla operatorer för stöds uttryck-regeln och deras syntax som ska användas i brödtexten i den avancerade regeln:
 
 | Operator | Syntax |
@@ -114,6 +120,7 @@ I följande tabell visas alla operatorer för stöds uttryck-regeln och deras sy
 ## <a name="operator-precedence"></a>Operatorer
 
 Alla operatörer listas nedan per prioritet från lägre till högre. Operatorer på samma rad är i samma prioritet:
+
 ````
 -any -all
 -or
@@ -121,15 +128,20 @@ Alla operatörer listas nedan per prioritet från lägre till högre. Operatorer
 -not
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 ````
+
 Alla operatörer kan användas med eller utan prefixet bindestreck. Parenteser behövs bara om prioritet inte uppfyller dina krav.
 Exempel:
+
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
+
 motsvarar att:
+
 ```
    (user.department –eq "Marketing") –and (user.country –eq "US")
 ```
+
 ## <a name="using-the--in-and--notin-operators"></a>Med hjälp av-i och - notIn operatörer
 
 Om du vill jämföra värdet för ett användarattribut mot ett antal olika värden kan du använda-i eller - notIn operatörer. Här är ett exempel med hjälp av-i operatorn:
@@ -140,6 +152,7 @@ Observera användningen av den ”[” och ”]” i början och slutet av lista
 
 
 ## <a name="query-error-remediation"></a>Fråga fel reparation
+
 I följande tabell visas vanliga fel och hur du åtgärdar dem
 
 | Frågan parsas | Fel vid användning | Korrigerad användning |
@@ -149,9 +162,11 @@ I följande tabell visas vanliga fel och hur du åtgärdar dem
 | Fel: Frågekompileringsfel. |1. (user.department - eq ”försäljning”) (user.department - eq ”marknadsföring”)<br/><br/>2. (user.userPrincipalName-matchar ”*@domain.ext”) |1. Operator saknas. Använd - och eller - eller två gå med i predikat<br/><br/>(user.department - eq ”försäljning”)- eller (user.department - eq ”marknadsföring”)<br/><br/>2. fel i reguljärt uttryck som används med - matcha<br/><br/>(user.userPrincipalName-matchar ”. *@domain.ext”), alternativt: (user.userPrincipalName-matchar ”\@domain.ext$”)|
 
 ## <a name="supported-properties"></a>Egenskaper som stöds
+
 Här följer alla användaregenskaper som du kan använda i dina avancerade regeln:
 
 ### <a name="properties-of-type-boolean"></a>Egenskaper för skriver booleskt värde
+
 Tillåtna operatörer
 
 * -eq
@@ -163,6 +178,7 @@ Tillåtna operatörer
 | dirSyncEnabled |SANT FALSKT |user.dirSyncEnabled - eq SANT |
 
 ### <a name="properties-of-type-string"></a>Egenskaper av typen sträng
+
 Tillåtna operatörer
 
 * -eq
@@ -179,9 +195,9 @@ Tillåtna operatörer
 | Egenskaper | Tillåtna värden | Användning |
 | --- | --- | --- |
 | city |Någon strängvärde eller *null* |(user.city - eq ”value”) |
-| land |Någon strängvärde eller *null* |(user.country - eq ”value”) |
+| Land |Någon strängvärde eller *null* |(user.country - eq ”value”) |
 | Företagsnamn | Någon strängvärde eller *null* | (user.companyName - eq ”value”) |
-| avdelning |Någon strängvärde eller *null* |(user.department - eq ”value”) |
+| Avdelning |Någon strängvärde eller *null* |(user.department - eq ”value”) |
 | displayName |Ett värde |(user.displayName - eq ”value”) |
 | employeeId |Ett värde |(user.employeeId - eq ”value”)<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Någon strängvärde eller *null* |(user.facsimileTelephoneNumber - eq ”value”) |
@@ -203,9 +219,10 @@ Tillåtna operatörer
 | telephoneNumber |Någon strängvärde eller *null* |(user.telephoneNumber - eq ”value”) |
 | usageLocation |Två bokstäver landskod |(user.usageLocation - eq ”US”) |
 | userPrincipalName |Ett värde |(user.userPrincipalName - eq ”alias@domain”) |
-| userType |medlem gäst *null* |(user.userType - eq ”medlem”) |
+| UserType |medlem gäst *null* |(user.userType - eq ”medlem”) |
 
 ### <a name="properties-of-type-string-collection"></a>Egenskaper av typen sträng samling
+
 Tillåtna operatörer
 
 * -innehåller
@@ -217,6 +234,7 @@ Tillåtna operatörer
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses-innehåller ”SMTP: alias@domain”) |
 
 ## <a name="multi-value-properties"></a>Egenskaper för flera värden
+
 Tillåtna operatörer
 
 * -alla (uppfyllt när minst ett objekt i samlingen matchar villkoret)
@@ -225,6 +243,7 @@ Tillåtna operatörer
 | Egenskaper | Värden | Användning |
 | --- | --- | --- |
 | assignedPlans |Varje objekt i samlingen visar egenskaperna för följande sträng: capabilityStatus, tjänst, servicePlanId |user.assignedPlans-alla (assignedPlan.servicePlanId - eq ”efb87545-963c-4e0d-99df-69c6916d9eb0”- och assignedPlan.capabilityStatus - eq ”Enabled”) |
+| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses-alla (\_ -innehåller ”contoso”)) |
 
 Egenskaper för flera värden är samlingar av objekt av samma typ. Du kan använda - alla och -alla operatörer att tillämpa ett villkor för en eller alla objekt i samlingen, respektive. Exempel:
 
@@ -234,7 +253,7 @@ assignedPlans är en egenskap för flera värden som visar en lista över alla t
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-(Guid-identifierare identifierar tjänstprenumerationen Exchange Online (Plan 2).)
+(GUID-identifierare identifierar tjänstprenumerationen Exchange Online (Plan 2).)
 
 > [!NOTE]
 > Detta är användbart om du vill identifiera alla användare som en Office 365 (eller andra Microsoft-onlinetjänst) funktionen har aktiverats, till exempel för att rikta dem med en viss uppsättning principer.
@@ -242,6 +261,16 @@ user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df
 Följande uttryck väljer alla användare som har alla service-plan som är associerad med Intune-tjänsten (som identifieras av tjänstnamn ”SCO”):
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+### <a name="using-the-underscore--syntax"></a>Med understreck (\_) syntax
+
+Understreck (\_) syntax matchar förekomster av ett specifikt värde i ett flervärdesattribut strängegenskaper samling att lägga till användare eller enheter i en dynamisk grupp. Den används med-ansvariga för några eller -alla.
+
+Här är ett exempel på hur du använder understreck (\_) i en regel för att lägga till medlemmar baserat på user.proxyAddress (det fungerar på samma sätt för user.otherMails). Den här regeln lägger till alla användare med proxyadress som innehåller ”contoso” i gruppen.
+
+```
+(user.proxyAddresses -any (_ -contains "contoso"))
 ```
 
 ## <a name="use-of-null-values"></a>Användning av Null-värden
@@ -256,14 +285,17 @@ Tilläggsattribut och anpassade attribut som stöds i regler för dynamiskt medl
 
 Tilläggsattribut synkroniseras från den lokala Windows Server AD och vidta formatet för ”ExtensionAttributeX”, där X är lika med 1 – 15.
 Ett exempel på en regel som använder ett tilläggsattribut är
+
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
-Anpassade attribut som synkroniseras från en lokal Windows Server AD eller från ett anslutna SaaS-program och format för ”user.extension_[GUID]\__ [attribut]”, där [GUID] är den unika identifieraren i AAD för det program som skapats i attributet i AAD och [attribut] är namnet på attributet eftersom den har skapats.
-Ett exempel på en regel som använder ett anpassat attribut är
+
+Anpassade attribut som synkroniseras från en lokal Windows Server AD eller från ett anslutna SaaS-program och format för ”user.extension_[GUID]\__ [attribut]”, där [GUID] är den unika identifieraren i AAD för det program som skapats i attribut i Azure AD och [attribut] är namnet på attributet eftersom den har skapats. Ett exempel på en regel som använder ett anpassat attribut är
+
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 ```
+
 Anpassade attributets namn finns i katalogen genom att fråga en användare är attributet med hjälp av Graph-testaren och söka efter attributets namn.
 
 ## <a name="direct-reports-rule"></a>”Direktrapporter” regel
@@ -405,8 +437,8 @@ ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.display
 ## <a name="next-steps"></a>Nästa steg
 Dessa artiklar innehåller ytterligare information om grupper i Azure Active Directory.
 
-* [Se befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Visa befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Skapa en ny grupp och lägga till medlemmar](../fundamentals/active-directory-groups-create-azure-portal.md)
-* [Hantera inställningarna för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
+* [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Hantera medlemskap i en grupp](../fundamentals/active-directory-groups-membership-azure-portal.md)
 * [Hantera dynamiska regler för användare i en grupp](groups-dynamic-membership.md)

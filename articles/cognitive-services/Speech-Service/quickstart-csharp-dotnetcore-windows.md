@@ -10,17 +10,20 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f00653d0c58f52c73126693422ab0a485540dd7a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 50cf1bbbe529b30da6bfe39281d11eee1c788dd8
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072601"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259168"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C# under .NET Core för Windows med hjälp av tal-SDK
 
 I den här artikeln får du lära dig hur du skapar ett C#-konsolprogram för .NET Core för Windows med hjälp av Cognitive Services tal SDK för att transkribera tal till text.
-Programmet är baserad på den [Microsoft Cognitive Services tal SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017.
+Programmet har skapats med den [Microsoft Cognitive Services tal SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017.
+
+> [!NOTE]
+> .NET core är en plattform med öppen källkod, plattformsoberoende .NET implementera den [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) specifikationen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -45,13 +48,13 @@ Programmet är baserad på den [Microsoft Cognitive Services tal SDK NuGet-paket
 
     ![Installera NuGet-paketet för Microsoft.CognitiveServices.Speech](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-0.5.0.png "installera Nuget-paketet")
 
-1. Acceptera licensvillkoren på skärmen som visas för licens:
+1. Acceptera licensvillkoren i dialogrutan som visas.
 
     ![Acceptera licensvillkoren](media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "acceptera licensvillkoren")
 
 ## <a name="add-the-sample-code"></a>Lägg till exempelkoden
 
-1. I den `Program.cs` filen i Visual Studio-projektet och ersätt all kod med följande:
+1. Öppna `Program.cs` i din Visual Studio projektet och ersätt all kod i den här filen med följande.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore-windows/helloworld/Program.cs#code)]
 
@@ -63,16 +66,15 @@ Programmet är baserad på den [Microsoft Cognitive Services tal SDK NuGet-paket
 
 ## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
 
-1. Skapa programmet. Från menyraden väljer **skapa** > **skapa lösning**. Koden ska kompilera utan fel nu:
+1. Skapa programmet. På menyraden väljer **skapa** > **skapa lösning**. Koden ska kompilera utan fel nu.
 
     ![Version](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "version")
 
-1. Starta programmet. Från menyraden väljer **felsöka** > **Starta felsökning**, eller tryck på **F5**.
+1. Starta programmet. På menyraden väljer **felsöka** > **Starta felsökning**, eller tryck på **F5**.
 
     ![Starta appen i felsökning](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "starta appen into-felsökning")
 
-1. Ett konsolfönster öppnas, där du uppmanas att säga något (på engelska).
-Resultatet av erkännande visas på skärmen.
+1. Ett konsolfönster visas där du uppmanas att säga något (på engelska). Den tolkade texten visas sedan i samma fönster.
 
     ![Konsolens utdata efter lyckad erkännande](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "konsolens utdata efter lyckad taligenkänning")
 

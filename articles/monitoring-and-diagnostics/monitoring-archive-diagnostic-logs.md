@@ -5,22 +5,22 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: a0146c0bf2b5a10f27cb59e32978aa6dff8f5982
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 266404a69c691cfbbfabc49e4d78deb11db74b52
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916334"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249163"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arkivera Azure diagnostikloggar
 
 I den här artikeln visar vi hur du kan använda Azure portal, PowerShell-Cmdlets, CLI eller REST API för att arkivera dina [Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md) i ett lagringskonto. Det här alternativet är användbart om du vill behålla dina diagnostikloggar med en princip för valfri kvarhållningstid för granskning, statiska analys eller säkerhetskopiering. Storage-kontot behöver inte finnas i samma prenumeration som resursen loggarna så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
 
 > [!WARNING]
-> Formatet för loggdata i storage-kontot ändras till JSON-rader 1 november 2018. [Se den här artikeln för en beskrivning av inverkan och hur du uppdaterar ditt verktyg för att hantera det nya formatet.](./monitor-diagnostic-logs-append-blobs.md) 
+> Formatet för loggdata i lagringskontot ändras till JSON Lines den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
@@ -33,7 +33,7 @@ Innan du börjar måste du [skapa ett lagringskonto](../storage/storage-create-s
 
 ## <a name="diagnostic-settings"></a>Diagnostikinställningar
 
-För att arkivera dina diagnostiska loggar med någon av metoderna nedan som du anger en **diagnostikinställning** för en viss resurs. En diagnostikinställning för en resurs definierar kategorier av loggar och måttdata som skickas till ett mål (storage-konto, Event Hubs-namnområdet eller Log Analytics). Den definierar även bevarandeprincipen (antal dagar) för händelser med varje loggkategori och måttdata som lagras i ett lagringskonto. Om en kvarhållningsprincip har angetts till noll lagras händelser för den loggkategori på obestämd tid (det vill säga att säga alltid). En bevarandeprincip kan annars vara valfritt antal dagar mellan 1 och 2147483647. [Du kan läsa mer om diagnostikinställningar här](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar innan loggarna som ska tas bort från ditt lagringskonto. 
+För att arkivera dina diagnostiska loggar med någon av metoderna nedan som du anger en **diagnostikinställning** för en viss resurs. En diagnostikinställning för en resurs definierar kategorier av loggar och måttdata som skickas till ett mål (storage-konto, Event Hubs-namnområdet eller Log Analytics). Den definierar även bevarandeprincipen (antal dagar) för händelser med varje loggkategori och måttdata som lagras i ett lagringskonto. Om en kvarhållningsprincip har angetts till noll lagras händelser för den loggkategori på obestämd tid (det vill säga att säga alltid). En bevarandeprincip kan annars vara valfritt antal dagar mellan 1 och 2147483647. [Du kan läsa mer om diagnostikinställningar här](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings). Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort. Ta bort börjar vid midnatt UTC-tid, men Observera att det kan ta upp till 24 timmar innan loggarna som ska tas bort från ditt lagringskonto. 
 
 > [!NOTE]
 > Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
@@ -163,4 +163,5 @@ Varje händelse som lagras i filen pt1h.JSON i matrisen ”poster” efter det h
 
 * [Ladda ned blobar för analys](../storage/storage-dotnet-how-to-use-blobs.md)
 * [Stream diagnostikloggar till Event Hubs-namnområdet](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Arkivera loggar för Azure Active Directory med Azure Monitor](../active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md)
 * [Läs mer om diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs mått i Azure-Monitor (förhandsversion) | Microsoft Docs
-description: Använda Azure-övervakning för att övervaka Händelsehubbar
+title: Azure Event Hubs-mått i Azure Monitor (förhandsversion) | Microsoft Docs
+description: Använda Azure-övervakning för att övervaka Event Hubs
 services: event-hubs
 documentationcenter: .NET
 author: ShubhaVijayasarathy
@@ -14,106 +14,106 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2018
 ms.author: sethm
-ms.openlocfilehash: 445b439ff77a88a4b7783427f5fab0e40a485542
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f25900ddffd9d8be008abbb3672a3f6a2eabd481
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405148"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248121"
 ---
-# <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Azure Event Hubs mått i Azure-Monitor (förhandsgranskning)
+# <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Azure Event Hubs-mått i Azure Monitor (förhandsversion)
 
-Event Hubs mått får tillståndet för Händelsehubbar resurser i din Azure-prenumeration. Med ett stort utbud av mätvärdesdata kan du utvärdera den övergripande hälsan för dina händelsehubbar inte bara på namnområdesnivån, utan också på nivån entitet. Statistiken kan vara viktigt eftersom de hjälper dig att övervaka status för din händelsehubbar. Mått kan också hjälpa till att felsöka problem med grundorsaken utan att behöva kontakta Azure-supporten.
+Event Hubs mått ger dig tillståndet för Event Hubs-resurser i Azure-prenumerationen. Med en omfattande uppsättning mätvärden, kan du utvärdera den övergripande hälsan för händelsehubbar inte bara på namnområdesnivå, utan även på enhetsnivå. Statistiken kan vara viktigt eftersom de hjälper dig att övervaka status för dina event hubs. Mått kan också hjälpa till att felsöka problem med grundorsaken utan att behöva kontakta Azure-supporten.
 
-Azure-Monitor ger enhetlig användargränssnitt för övervakning över olika Azure-tjänster. Mer information finns i [övervakning i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) och [hämta Azure-Monitor mått med .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) på GitHub.
+Azure Monitor innehåller enhetligt användargränssnitt för övervakning över olika Azure-tjänster. Mer information finns i [övervakning i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) och [hämta Azure Monitor-mått med .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) i GitHub.
 
 ## <a name="access-metrics"></a>Åtkomst-mått
 
-Azure-Monitor finns flera sätt att åtkomst mått. Du kan antingen åtkomst mätvärden via den [Azure-portalen](https://portal.azure.com), eller Använd Azure övervakaren API: er (REST och .NET) och lösningar för analys, till exempel åtgärden Management Suite och Händelsehubbar. Mer information finns i [Azure-Monitor mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Azure Monitor innehåller flera sätt att åtkomst mått. Du kan antingen åtkomst mätvärden via den [Azure-portalen](https://portal.azure.com), eller använda Azure Monitor-API: er (REST och .NET) och lösningar för dataanalys, till exempel Operations Management Suite och Event Hubs. Mer information finns i [Azure Monitor metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
-Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna av data. Du kan arkivera mått data till ett Azure Storage-konto om du vill behålla data under en längre tidsperiod. Detta är konfigurerat i [diagnostikinställningar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) i Azure-Monitor.
+Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Detta är konfigurerat i [diagnostikinställningar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) i Azure Monitor.
 
-## <a name="access-metrics-in-the-portal"></a>Åtkomst mått i portalen
+## <a name="access-metrics-in-the-portal"></a>Åtkomst-mått i portal
 
-Du kan övervaka mått över tid i den [Azure-portalen](https://portal.azure.com). I följande exempel visas hur du visar lyckade begäranden och inkommande begäranden på kontonivå:
+Du kan övervaka mått med tiden i den [Azure-portalen](https://portal.azure.com). I följande exempel visas hur du visar lyckade begäranden och inkommande begäranden på kontonivå:
 
 ![][1]
 
-Du kan också komma åt mått direkt via namnområdet. Om du vill göra det, Välj namnområdet och klicka sedan på **mått (Peview)**. Om du vill visa mått som har filtrerats till händelsehubben omfattning, Välj händelsehubben och klicka sedan på **mått (förhandsgranskning)**.
+Du kan också komma åt mått direkt via namnområdet. Ditt namnområde för att göra det, och klicka sedan på **mått (Peview)**. Välj event hub för att visa mått som filtrerats till i omfånget för event hub, och klicka sedan på **mått (förhandsgranskning)**.
 
-För statistik som stöd för dimensioner, måste du filtrera med värdet för önskade dimensionen som visas i följande exempel:
+För mätvärden som stöd för dimensioner, måste du filtrera med önskad dimension-värde som visas i följande exempel:
 
 ![][2]
 
 ## <a name="billing"></a>Fakturering
 
-Med hjälp av mätvärden i Azure-Monitor är för närvarande gratis när i förhandsgranskningen. Om du använder ytterligare lösningar som infognings-mätvärdesdata kan debiteras du dock av dessa lösningar. Till exempel debiteras du av Azure Storage om du arkiverar mått data till ett Azure Storage-konto. Du debiteras också av Azure om du strömma mätvärdesdata till logganalys för avancerad analys.
+Använda mått i Azure Monitor är för närvarande kostnadsfritt i förhandsversionen. Om du använder ytterligare lösningar som mata in måttdata kan debiteras du dock av dessa lösningar. Exempelvis debiteras du per Azure Storage om du arkiverar måttdata till ett Azure Storage-konto. Du debiteras också av Azure om du strömma mätvärden till Log Analytics för avancerad analys.
 
 Följande mått ger dig en översikt över hälsotillståndet för din tjänst. 
 
 > [!NOTE]
-> Vi sluta flera mått som de flyttas under ett annat namn. Detta kräver att du uppdaterar din referenser. Mått som markerats med nyckelordet ”föråldrade” kommer inte att stödjas framöver.
+> Vi avvecklar flera mått när de flyttas under ett annat namn. Detta kräver att du uppdaterar dina referenser. Mått som markerats med nyckelordet ”inaktuell” stöds inte framöver.
 
-Alla mätvärden-värden skickas till Azure-Monitor varje minut. Tidskornighet definierar det tidsintervall som mått värden anges. Tidsintervallet som stöds för alla Händelsehubbar mått är 1 minut.
+Alla mått-värden skickas till Azure Monitor varje minut. Tidskornighet definierar tidsintervallet som mått visas. Tidsintervallet som stöds för alla Event Hubs-mått är 1 minut.
 
-## <a name="request-metrics"></a>Begäran mått
+## <a name="request-metrics"></a>Begäran-mått
 
-Räknar antalet begäranden om data och hantering av åtgärder.
-
-| Måttnamn | Beskrivning |
-| ------------------- | ----------------- |
-| Inkommande begäranden (förhandsgranskning) | Antalet begäranden som görs till Händelsehubbar i Azure-tjänsten under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName |
-| Lyckade begäranden (förhandsgranskning)   | Antal slutförda förfrågningar som görs till Händelsehubbar i Azure-tjänsten under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName |
-| Fel (förhandsgranskning) | Antalet begäranden som inte bearbetas på grund av ett fel i Händelsehubbar i Azure-tjänsten under en angiven period. <br/><br/>Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName |
-|Fel (förhandsgranskning)|Antalet begäranden som inte bearbetas på grund av fel under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
-|Begränsad begäranden (förhandsgranskning)|Antalet begäranden som har begränsats eftersom genomströmning enhet användning har överskridits.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
-|Kvoten överskreds fel (förhandsgranskning)|Antalet begäranden överskrider tillgänglig kvot. Se [i den här artikeln](event-hubs-quotas.md) för mer information om Händelsehubbar kvoter.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
-
-## <a name="throughput-metrics"></a>Genomflödesmått
+Räknar antalet förfrågningar om data och hantering av åtgärder.
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|Begränsad begäranden (förhandsgranskning)|Antalet begäranden som har begränsats eftersom genomströmning enhet användning har överskridits.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
+| Inkommande förfrågningar (förhandsversion) | Antal begäranden som görs till Azure Event Hubs-tjänsten under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName |
+| Lyckade begäranden (förhandsversion)   | Antal lyckade begäranden som görs till Azure Event Hubs-tjänsten under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName |
+| Fel (förhandsversion) | Antal begäranden som inte bearbetas på grund av ett fel i tjänsten Azure Event Hubs under en angiven period. <br/><br/>Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName |
+|Användarfel (förhandsversion)|Antal begäranden som inte bearbetas på grund av användarfel under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|Begränsade begäranden (förhandsversion)|Antal begäranden som har begränsats eftersom enhet datadataflödesanvändning överskreds.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|Kvoten har överskridits-fel (förhandsversion)|Antalet begäranden överskred tillgänglig kvot. Se [i den här artikeln](event-hubs-quotas.md) för mer information om Event Hubs-kvoter.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+
+## <a name="throughput-metrics"></a>Mått för dataflöde
+
+| Måttnamn | Beskrivning |
+| ------------------- | ----------------- |
+|Begränsade begäranden (förhandsversion)|Antal begäranden som har begränsats eftersom enhet datadataflödesanvändning överskreds.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
 
 ## <a name="message-metrics"></a>Meddelande-mått
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|Inkommande meddelanden (förhandsgranskning)|Antal händelser eller meddelanden som skickas till Händelsehubbar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
-|Utgående meddelanden (förhandsgranskning)|Antal händelser eller meddelanden som har hämtats från Event Hubs under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
-|Inkommande byte (förhandsgranskning)|Antal byte som skickas till tjänsten Azure Event Hubs under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
-|Utgående byte (förhandsgranskning)|Antalet byte som hämtas från tjänsten Azure Event Hubs under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
+|Inkommande meddelanden (förhandsversion)|Antal händelser eller meddelanden som skickas till Event Hubs under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|Utgående meddelanden (förhandsversion)|Antal händelser eller meddelanden hämtas från Event Hubs under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|Inkommande byte (förhandsversion)|Antal byte som skickas till Azure Event Hubs-tjänsten under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|Utgående byte (förhandsversion)|Antalet byte som hämtas från Azure Event Hubs-tjänsten under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
 
-## <a name="connection-metrics"></a>Anslutningen mått
-
-| Måttnamn | Beskrivning |
-| ------------------- | ----------------- |
-|ActiveConnections (förhandsgranskning)|Antal aktiva anslutningar på ett namnområde eller en entitet.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
-|Anslutningar Opened (förhandsgranskning)|Antalet öppna anslutningar.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
-|Anslutningar stängd (förhandsgranskning)|Antal avslutade anslutningar.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
-
-## <a name="event-hubs-capture-metrics"></a>Event Hubs avbilda mått
-
-När du aktiverar funktionen avbildning för event hubs kan du övervaka Event Hubs avbilda mått. Följande mått beskrivs vad du kan övervaka med avbilda aktiverad.
+## <a name="connection-metrics"></a>Anslutningsmått
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|Avbilda eftersläpning (förhandsgranskning)|Antal byte som ännu sparas till det valda målet.<br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
-|Fångade meddelanden (förhandsgranskning)|Antalet meddelanden och händelser som har hämtats till det valda målet under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
-|Hämtade byte (förhandsgranskning)|Antal byte som har hämtats till det valda målet under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
+|ActiveConnections (förhandsversion)|Antal aktiva anslutningar för ett namnområde och på en entitet.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|Öppnade anslutningar (förhandsversion)|Antal öppna anslutningar.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|Anslutningar stängd (förhandsversion)|Antal stängda anslutningar.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+
+## <a name="event-hubs-capture-metrics"></a>Event Hubs Capture mått
+
+Du kan övervaka Event Hubs Capture mått när du aktiverar avbildningsfunktionen för händelsehubbar. Följande mått beskrivs vad du kan övervaka med avbildningsfunktionen aktiverad.
+
+| Måttnamn | Beskrivning |
+| ------------------- | ----------------- |
+|Hämta kvarvarande uppgifter (förhandsversion)|Antal byte som ännu samlas in till det valda målet.<br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|Hämtade meddelanden (förhandsversion)|Antal meddelanden eller händelser som har hämtats till det valda målet under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|Hämtade byte (förhandsversion)|Antal byte som har hämtats till det valda målet under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
 
 ## <a name="metrics-dimensions"></a>Mått dimensioner
 
-Händelsehubbar i Azure stöder följande dimensioner för mått i Azure-Monitor. Det är valfritt att lägga till dimensioner till din statistik. Om du inte lägger till dimensioner, har mått angetts på namnområdesnivån. 
+Azure Event Hubs stöder följande dimensioner för mått i Azure Monitor. Det är valfritt att lägga till dimensioner i dina mått. Om du inte lägger till dimensioner, har mått angetts på namnområdesnivå. 
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|EntityName| Händelsehubbar stöder event hub entiteter i namnområdet.|
+|EntityName| Händelsehubbar har stöd för event hub-enheter i namnområdet.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Finns det [Azure övervakning-översikt](../monitoring-and-diagnostics/monitoring-overview.md).
-* [Hämta Azure-Monitor mått med .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) på GitHub. 
+* Se den [Azure övervakning-översikt](../monitoring-and-diagnostics/monitoring-overview.md).
+* [Hämta Azure Monitor-mått med .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) i GitHub. 
 
 Besök följande länkar för mer utförlig information om Event Hubs:
 

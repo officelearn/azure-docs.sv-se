@@ -11,20 +11,43 @@ ms.topic: article
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: c5224422c88690ccf063a27b053963ebde622a1e
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b2ef450a429b26843cf770a6243c6f4de932de43
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172110"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247337"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
 Den här guiden innehåller information om vanliga problem som du kan ha när du använder Azure Dev blanksteg.
 
+## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Felet ”Det gick inte att skapa Azure Dev blanksteg controller'
+
+Det här felet kan uppstå när något går fel med skapandet av kontrollanten. Om det är ett tillfälligt fel, korrigerar ta bort och återskapa kontrollanten den.
+
+### <a name="try"></a>Prova:
+
+Använda Azure Dev blanksteg CLI för att ta bort kontrollanten. Det går inte att göra det i Visual Studio eller Cloud Shell. Om du vill installera CLI AZDS först installera Azure CLI och kör sedan det här kommandot:
+
+```cmd
+az aks use-dev-spaces -g <resource group name> -n <cluster name>
+```
+
+Och kör sedan detta kommando för att ta bort kontrollanten:
+
+```cmd
+azds remove -g <resource group name> -n <cluster name>
+```
+
+Återskapa kontrollanten kan du göra detta från CLI eller Visual Studio. Följ instruktionerna i självstudier som om startar för första gången.
+
+
 ## <a name="error-service-cannot-be-started"></a>Fel-tjänsten kan inte startas ”.
 
 Det här felet kan uppstå när koden för tjänsten inte startar. Orsaken är ofta i användarkod. För att få diagnostisk information, göra följande ändringar i dina kommandon och inställningar:
+
+### <a name="try"></a>Prova:
 
 På kommandoraden:
 

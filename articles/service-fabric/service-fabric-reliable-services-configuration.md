@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: c320f27dd53f0545ff5074d2d4f5a7bdd445fd89
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: f2af7c65d42cbbec28fd511be18c72a6cd3c3d0c
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866186"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249027"
 ---
 # <a name="configure-stateful-reliable-services"></a>Konfigurera tillståndskänsliga reliable services
 Det finns två uppsättningar med konfigurationsinställningarna för reliable services. En uppsättning är globala för alla reliable services i klustret medan den andra uppsättningen är specifik för en viss tillförlitlig tjänst.
@@ -124,6 +124,7 @@ ReplicatorConfig
 | SharedLogId |GUID |"" |Anger ett unikt GUID för att använda för att identifiera den delade loggfil som används med den här repliken. Tjänster ska normalt inte använda den här inställningen. Men om SharedLogId anges måste sedan SharedLogPath också anges. |
 | SharedLogPath |Fullständig sökväg |"" |Anger den fullständigt kvalificerade sökvägen där delade loggfilen för den här repliken ska skapas. Tjänster ska normalt inte använda den här inställningen. Men om SharedLogPath anges måste sedan SharedLogId också anges. |
 | SlowApiMonitoringDuration |Sekunder |300 |Anger Övervakningsintervall för hanterade API-anrop. Exempel: användaren har angett säkerhetskopiering återanropsfunktion. Efter intervallet skickas hälsorapport en varning till Health Manager. |
+| LogTruncationIntervalSeconds |Sekunder |0 |Konfigurerbara intervall på vilka log trunkering initieras på varje replik. Används för att se till att loggen har trunkerats även baserat på tid i stället för bara loggstorleken. Den här inställningen tvingar även rensning av borttagna poster i tillförlitlig ordlista. Därför användas det för att se till att borttagna objekt rensas vid rätt tidpunkt. |
 
 ### <a name="sample-configuration-via-code"></a>Exempelkonfiguration via kod
 ```csharp

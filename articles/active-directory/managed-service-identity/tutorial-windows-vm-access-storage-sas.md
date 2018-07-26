@@ -1,6 +1,6 @@
 ---
-title: Använd en virtuell MSI-dator för Windows för att få åtkomst till Azure Storage med SAS-autentiseringsuppgifter
-description: En självstudie som visar hur du använder en Windows VM hanterad tjänstidentitet (MSI) för att få åtkomst till Azure Storage, med hjälp av SAS-autentiseringsuppgifter i stället för en åtkomstnyckel för lagringskontot.
+title: Använda en Windows VM hanterad identitet för åtkomst till Azure Storage med SAS-autentiseringsuppgifter
+description: En självstudiekurs som visar hur du använder en Windows VM hanterad tjänstidentitet för att komma åt Azure Storage, med hjälp av SAS-autentiseringsuppgifter i stället för en åtkomstnyckel för lagringskontot.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 89bbf0bff107cd297f69c0bf5a4017959ea238cd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 983cecdcdb95dca398f728dbdbe5feac69075d6a
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043983"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248378"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudier: Använda en Windows VM hanterad tjänstidentitet för åtkomst till Azure Storage via SAS-autentiseringsuppgifter
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien visar hur du aktiverar hanterad tjänstidentitet (MSI) för en Windows-dator och sedan använda MSI för att hämta autentiseringsuppgift för signatur för delad åtkomst (SAS) storage. Mer specifikt, en [autentiseringsuppgift för tjänst-SAS](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Den här självstudien Lär dig att aktivera hanterad tjänstidentitet för en Windows-dator och sedan använda den hanterade tjänstidentiteten för att hämta autentiseringsuppgift för signatur för delad åtkomst (SAS) storage. Mer specifikt, en [autentiseringsuppgift för tjänst-SAS](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
-En SAS för tjänst ger möjlighet att bevilja begränsad åtkomst till objekt i ett lagringskonto under begränsad tid och en specifik tjänst (i vårt fall blob service), utan att exponera en åtkomstnyckel. Du kan en använda SAS-autentiseringsuppgift som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. Den här självstudien visar vi överföra och ladda ned en blob med hjälp av PowerShell för Azure Storage. Du lär dig att göra följande:
+En SAS för tjänst ger möjlighet att bevilja begränsad åtkomst till objekt i ett lagringskonto under begränsad tid och en specifik tjänst (i vårt fall blob service), utan att exponera en åtkomstnyckel. Du kan en använda SAS-autentiseringsuppgift som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. Den här självstudien visar vi överföra och ladda ned en blob med hjälp av PowerShell för Azure Storage. Du lär dig hur du:
 
 
 > [!div class="checklist"]
-> * Aktivera MSI på en Windows-dator 
+> * Aktivera hanterad tjänstidentitet på en virtuell Windows-dator 
 > * Ge den virtuella datorn åtkomst till en SAS för lagringskonton i Resource Manager 
 > * Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använde den när du hämtar SAS:en från Resource Manager 
 
@@ -47,85 +47,85 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Windows-dator i en ny resursgrupp
 
-I den här självstudiekursen skapar vi en ny virtuell Windows-dator. Du kan även aktivera MSI på en befintlig virtuell dator.
+I den här självstudien ska vi skapa en ny virtuell Windows-dator. Du kan också aktivera hanterad tjänstidentitet på en befintlig virtuell dator.
 
-1.  Klicka på knappen **+/Skapa ny tjänst** som finns i övre vänstra hörnet i Azure-portalen.
+1.  Klicka på knappen **+/Skapa ny tjänst** som finns i det övre vänstra hörnet på Azure Portal.
 2.  Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
 3.  Ange informationen för den virtuella datorn. **Användarnamnet** och **lösenordet** som skapas här är de autentiseringsuppgifter som du använder när du loggar in på den virtuella datorn.
-4.  Välj rätt **prenumeration** för den virtuella datorn i listrutan.
+4.  Välj lämplig **prenumeration** för den virtuella datorn i listrutan.
 5.  Välj en ny **Resursgrupp** som den virtuella datorn ska skapas i genom att klicka på **Skapa ny**. När du är klar klickar du på **OK**.
 6.  Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Acceptera alla standardvärden på bladet Inställningar och klicka på **OK**.
 
     ![Alternativ bildtext](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn
+## <a name="enable-managed-service-identity-on-your-vm"></a>Aktivera hanterad tjänstidentitet på den virtuella datorn
 
-Med en MSI för virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. Under försättsbladen, när du aktiverar MSI gör två saker: registrerar den virtuella datorn med Azure Active Directory för att skapa dess hanterad identitet och konfigurerar identiteten på den virtuella datorn.
+En virtuell dator hanterad tjänstidentitet kan du hämta åtkomsttoken från Azure AD utan att du behöver att placera autentiseringsuppgifter i din kod. Under försättsbladen, aktiverar hanterad tjänstidentitet gör två saker: registrerar den virtuella datorn med Azure Active Directory för att skapa dess hanterad identitet och konfigurerar identiteten på den virtuella datorn.
 
-1. Gå till den nya virtuella datorns resursgrupp och välj den virtuella dator som du skapade i förra steget.
+1. Gå till den nya virtuella datorns resursgrupp och välj den virtuella dator som du skapade i föregående steg.
 2. Under den virtuella datorn ”inställningar” i den vänstra rutan klickar du på **Configuration**.
-3. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej.
-4. Klicka på **Spara** om du vill spara konfigurationen.
+3. För att registrera och aktivera den hanterade tjänstidentiteten, Välj **Ja**, om du vill inaktivera det, väljer du Nej.
+4. Klicka på **Spara** för att spara konfigurationen.
 
     ![Alternativ bildtext](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto 
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 
-Nu skapar du ett lagringskonto, om du inte redan har ett. Du kan även hoppa över detta steg och ge din VM MSI åtkomst till SAS-autentiseringsuppgifter för ett befintligt lagringskonto. 
+Nu skapar du ett lagringskonto, om du inte redan har ett. Du kan även hoppa över detta steg och ge din VM hanterad tjänstidentitet åtkomst till SAS-autentiseringsuppgifter för ett befintligt lagringskonto. 
 
-1. Klicka på knappen **+/Skapa ny tjänst** som finns i övre vänstra hörnet i Azure-portalen.
-2. Fönstret Skapa lagringskonto visas om du klickar på **Lagring** och sedan **Lagringskonto**.
-3. Ange ett namn för storage-konto som du ska använda senare.  
+1. Klicka på knappen **+/Skapa ny tjänst** som finns i det övre vänstra hörnet på Azure Portal.
+2. Klicka på **Lagring** och sedan på **Lagringskonto**. Panelen ”Skapa lagringskonto” visas.
+3. Ange ett namn för lagringskontot. Du ska använda namnet senare.  
 4. **Distributionsmodell** och **Typ av konto** ska vara inställda på Resurshanterare respektive Generell användning. 
-5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** stämmer överens med den du angav när du skapade den virtuella datorn i förra steget.
+5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** matchar informationen som du angav när du skapade den virtuella datorn i föregående steg.
 6. Klicka på **Skapa**.
 
-    ![Skapa nytt lagringskonto](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Skapa ett nytt lagringskonto](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-in-the-storage-account"></a>Skapa en blob-container i lagringskontot
 
-Senare laddar vi upp och ned en fil i det nya lagringskontot. Vi skapar en blob-container att lagra filen i, eftersom filer kräver blob-lagring.
+Senare ska vi ladda upp och ned en fil till det nya lagringskontot. Eftersom filer kräver blob-lagring måste vi skapa en blob-container som filen ska lagras i.
 
 1. Gå tillbaka till det lagringskonto du nyss skapade.
 2. Klicka på länken **Containers** i vänstra panelen, under Blob Service.
 3. När du klickar på **+Container** högst upp på sidan visas fönstret Ny container.
-4. Ge containern ett namn, välj en åtkomstnivå och klicka sedan på **OK**. Namnet du angav används senare i självstudien. 
+4. Ge containern ett namn, välj en åtkomstnivå och klicka sedan på **OK**. Du ska använda det här namnet senare i självstudien. 
 
-    ![Skapa lagringscontainer](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Skapa en lagringscontainer](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-msi-access-to-use-a-storage-sas"></a>Ge den virtuella datorns MSI behörighet att använda en lagrings-SAS 
+## <a name="grant-your-vms-managed-service-identity-access-to-use-a-storage-sas"></a>Ge din virtuella dator hanterad tjänstidentitet åtkomst för att använda en SAS-lagring 
 
-Azure Storage har inte inbyggt stöd för Azure Active Directory-autentisering.  Du kan dock använda en MSI för att hämta en SAS-lagring från Resource Manager och sedan använda SAS åtkomst till lagring.  I det här steget ger du din virtuella dators MSI åtkomst till SAS:en för lagringskontot.   
+Azure Storage har inte inbyggt stöd för Azure AD-autentisering.  Du kan dock använda en hanterad tjänstidentitet för att hämta en SAS-lagring från Resource Manager och sedan använda SAS åtkomst till lagring.  I det här steget ska ge du din hanterad tjänstidentitet för VM-åtkomst till ditt lagringskonto SAS.   
 
-1. Gå tillbaka till det lagringskonto du nyss skapade.   
-2. Klicka på länken **åtkomstkontroll (IAM)** i vänstra panelen.  
+1. Gå tillbaka till det lagringskonto som du nyss skapade.   
+2. Klicka på länken **Åtkomstkontroll (IAM)** på den vänstra panelen.  
 3. Klicka på **+Lägg till** högst upp på sidan om du vill lägga till en ny rolltilldelning för din virtuella dator
 4. Ställ in Lagringskontodeltagare som **Roll**, till höger på sidan.  
 5. I nästa listruta väljer du resursen Virtuell dator under **Tilldela behörighet till**.  
-6. Kontrollera sedan att rätt prenumeration är inställd i listrutan **Prenumeration**. Välj Alla resursgrupper under **Resursgrupper**.  
-7. Slutligen går **Välj** väljer din Windows-dator i listrutan och klickar sedan på **spara**. 
+6. Kontrollera sedan att rätt prenumeration visas i listrutan **Prenumeration**. Välj Alla resursgrupper under **Resursgrupper**.  
+7. Under **Välj** väljer du sedan din virtuella Windows-dator i listrutan och klickar på **Spara**. 
 
     ![Alternativ bildtext](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Skaffa en åtkomsttoken med hjälp av den virtuella datorns identitet, och använd den och anropa Azure Resource Manager 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använd den för att anropa Azure Resource Manager 
 
-Under resten av självstudien arbetar vi från den virtuella datorn som vi skapade tidigare.
+Under resten av självstudiekursen arbetar vi från den virtuella datorn som vi skapade tidigare.
 
-Du behöver använda Azure Resource Managers PowerShell-cmdlets i den här delen.  Om du inte har installerats, [hämta den senaste versionen](https://docs.microsoft.com/powershell/azure/overview) innan du fortsätter.
+Du måste använda Azure Resource Manager PowerShell-cmdletar i den här delen.  Om du inte har installerat det [hämtar du den senaste versionen](https://docs.microsoft.com/powershell/azure/overview) innan du fortsätter.
 
-1. I Azure-portalen går du till **virtuella datorer**går du till Windows virtuella datorn, sedan från den **översikt** klickar du på **Connect** högst upp.
-2. Ange i din **användarnamn** och **lösenord** för som du har lagt till när du skapade den virtuella Windows-datorn. 
+1. Gå till **Virtuella datorer** på Azure Portal, gå till din virtuella Windows-dator och klicka sedan på **Anslut** längst upp på sidan **Översikt**.
+2. Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn. 
 3. Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn öppnar du PowerShell i fjärrsessionen. 
-4. Med hjälp av Powershell-Invoke-WebRequest, skicka en förfrågan till den lokala MSI-slutpunkten för att hämta en åtkomsttoken för Azure Resource Manager.
+4. Med hjälp av Powershell-Invoke-WebRequest, skicka en förfrågan till den lokala slutpunkten för hanterad tjänstidentitet att hämta en åtkomsttoken för Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]
-    > Värdet för ”resource”-parametern måste vara en exakt matchning för vad som förväntas av Azure AD. När du använder resurs-ID:t för Azure Resource Manager måste du ta med det avslutande snedstrecket i URI:n.
+    > Värdet för parametern ”resource” måste vara en exakt matchning av vad som förväntas av Azure AD. När du använder Azure Resource Manager-resurs-ID:t måste du ta med det avslutande snedstrecket i URI:n.
     
-    Extrahera sedan elementet ”innehåll”, som lagras som en JavaScript Object Notation (JSON)-formaterad sträng i $response-objektet. 
+    Extrahera sedan elementet ”Content”, som lagras som en JSON-formaterad sträng (JavaScript Object Notation) i $response-objektet. 
     
     ```powershell
     $content = $response.Content | ConvertFrom-Json
@@ -165,7 +165,7 @@ $jsonParams = $params | ConvertTo-Json
 $sasResponse = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE-ACCOUNT-NAME>/listServiceSas/?api-version=2017-06-01 -Method POST -Body $jsonParams -Headers @{Authorization="Bearer $ArmToken"}
 ```
 > [!NOTE] 
-> URL: en är skiftlägeskänsligt, så se till att du används på exakt samma sätt som använde tidigare, när du med namnet på resursgruppen, inklusive versaler ”G” i ”resourceGroups”. 
+> Eftersom URL:en är skiftlägeskänslig måste du använda exakt samma skiftläge som du använde tidigare när du namngav resursgruppen, inklusive versalt ”G” i ”resourceGroups”. 
 
 Nu kan vi extrahera SAS-autentiseringsuppgifter från svaret:
 
@@ -181,13 +181,13 @@ PS C:\> $sasCred
 sv=2015-04-05&sr=c&spr=https&se=2017-09-23T00%3A00%3A00Z&sp=rcw&sig=JVhIWG48nmxqhTIuN0uiFBppdzhwHdehdYan1W%2F4O0E%3D
 ```
 
-Därefter skapar vi en fil med namnet ”test.txt”. Använder SAS-autentiseringsuppgifter för att autentisera den `New-AzureStorageContent` cmdlet, ladda upp filen till vår blob-behållare och sedan ladda ned filen.
+Nu ska vi skapa en fil med namnet ”test.txt”. Använder SAS-autentiseringsuppgifter för att autentisera den `New-AzureStorageContent` cmdlet, ladda upp filen till vår blob-behållare och sedan ladda ned filen.
 
 ```bash
 echo "This is a test text file." > test.txt
 ```
 
-Var noga med att installera Azure Storage-cmdletar först med `Install-Module Azure.Storage`. Ladda upp blob som du just skapade med den `Set-AzureStorageBlobContent` PowerShell-cmdlet:
+Se till att installera alla Azure Storage-cmdlets först med hjälp av `Install-Module Azure.Storage`. Ladda upp bloben som du precis skapat med hjälp av PowerShell-cmdleten `Set-AzureStorageBlobContent`:
 
 ```powershell
 $ctx = New-AzureStorageContext -StorageAccountName <STORAGE-ACCOUNT-NAME> -SasToken $sasCred
@@ -208,7 +208,7 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-Du kan också ladda ned bloben du laddade upp, med hjälp av den `Get-AzureStorageBlobContent` PowerShell-cmdlet:
+Du kan också ladda ned bloben som du precis laddade upp med hjälp av PowerShell-cmdleten `Get-AzureStorageBlobContent`:
 
 ```powershell
 Get-AzureStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx

@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ecd19acdeba57a29a28187d42783bbf146095190
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eb185a83ea154025e94c01c7b142a8d16fce91ab
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001913"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258355"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 
@@ -21,7 +21,7 @@ Om du får problem med att köra Azure IoT Edge i din miljö kan du använda den
 
 ## <a name="standard-diagnostic-steps"></a>Standarddiagnostikåtgärder 
 
-När det uppstår ett problem kan du läsa mer om IoT Edge-enhetens tillstånd genom att granska behållarloggarna och meddelandena som skickas till och från enheten. Använd kommandona och verktygen i det här avsnittet för att samla in information. 
+När det uppstår ett problem kan du läsa mer om IoT Edge-enhetens tillstånd genom att granska containerloggarna och meddelandena som skickas till och från enheten. Använd kommandona och verktygen i det här avsnittet för att samla in information. 
 
 ### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Kontrollera status för IoT Edge Security Manager och dess loggfiler:
 
@@ -99,7 +99,7 @@ I Windows:
 
 ### <a name="check-container-logs-for-issues"></a>Kontrollera behållarloggarna för problem
 
-När IoT Edge Security Daemon körs kan du titta på loggarna för behållarna för att identifiera problem. Börja med dina distribuerade behållare och titta på behållarna som utgör IoT Edge-körningen: Edge-agent och Edge Hub. Edge-agentloggarna ger vanligtvis information om livscykeln för varje behållare. Edge Hub-loggarna ger information om meddelanden och routning. 
+När IoT Edge Security Daemon körs kan du titta på loggarna för behållarna för att identifiera problem. Börja med dina distribuerade containrar och titta på containrarna som utgör IoT Edge-körningen: Edge-agent och Edge Hub. Edge-agentloggarna ger vanligtvis information om livscykeln för varje container. Edge Hub-loggarna ger information om meddelanden och routning. 
 
    ```cmd
    iotedge logs <container name>
@@ -194,7 +194,7 @@ Exempel på Edge-agentloggar:
 ### <a name="root-cause"></a>Rotorsak
 En nätverkskonfiguration på värdnätverket förhindrar att Edge-agenten kan ansluta till nätverket. Agenten försöker ansluta via AMQP (port 5671) först. Om det misslyckas provar agenten websockets (port 443).
 
-IoT Edge-körningen ställer in ett nätverk för varje modul att kommunicera på. På Linux är nätverket en nätverksbrygga. I Windows använder den NAT. Det här problemet är vanligare på Windows-enheter som använder Windows-behållare som använder NAT-nätverket. 
+IoT Edge-körningen ställer in ett nätverk för varje modul att kommunicera på. På Linux är nätverket en nätverksbrygga. I Windows använder den NAT. Det här problemet är vanligare på Windows-enheter som använder Windows-containrar som använder NAT-nätverket. 
 
 ### <a name="resolution"></a>Lösning
 Kontrollera att det finns en väg till internet för IP-adresserna som är tilldelade till den här nätverksbryggan/NAT-nätverket. Ibland åsidosätter en VPN-konfiguration på värden IoT Edge-nätverket. 
@@ -217,7 +217,7 @@ Några andra processer på värddatorn har bundit port 443. Edge Hub mappar port
 Hitta och stoppa processen som använder port 443. Den här processen är vanligtvis en webbserver.
 
 ## <a name="edge-agent-cant-access-a-modules-image-403"></a>Edge-agenten kan inte få åtkomst till en moduls avbildning (403)
-En behållare kan inte köras, och Edge-agentloggarna visar ett 403-fel. 
+En container kan inte köras, och Edge-agentloggarna visar ett 403-fel. 
 
 ### <a name="root-cause"></a>Rotorsak
 Edge-agenten har inte behörighet för att få åtkomst till en moduls avbildning. 
@@ -292,6 +292,24 @@ I manifestet distribution:
       }
     },
 ```
+## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>Det går inte att hämta IoT Edge daemon loggar på Windows
+Om du får en EventLogException när du använder `Get-WinEvent` på Windows, kontrollerar du din registerposter.
+
+### <a name="root-cause"></a>Rotorsak
+Den `Get-WinEvent` PowerShell-kommandot är beroende av en registerpost för att hitta loggarna genom att en specifik `ProviderName`.
+
+### <a name="resolution"></a>Lösning
+Ange en registerpost för IoT Edge-daemon. Skapa en **iotedge.reg** filen med följande innehåll och importera i Windows-registret genom att dubbelklicka på den eller använda den `reg import iotedge.reg` kommando:
+
+```
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
+"CustomSource"=dword:00000001
+"EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
+"TypesSupported"=dword:00000007
+```
+
 
 ## <a name="next-steps"></a>Nästa steg
 Tror du att du har hittat ett fel i IoT Edge-plattformen? [Skicka in ett problem](https://github.com/Azure/iotedge/issues) så att vi kan fortsätta att förbättra oss. 

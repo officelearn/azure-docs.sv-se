@@ -1,6 +1,6 @@
 ---
-title: Säkerhetskopiera SQL Server-databas till Azure | Microsoft Docs
-description: Den här självstudien beskrivs säkerhetskopiering av SQL Server till Azure. Den här artikeln beskriver också återställning av SQL Server.
+title: Säkerhetskopiera SQL Server-databaser till Azure | Microsoft Docs
+description: Den här självstudien beskrivs hur du säkerhetskopierar SQL Server till Azure. Den här artikeln beskriver också återställning av SQL Server.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -16,39 +16,41 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 249f473d7318051e0ce27bcc47a9fde080c4c8f6
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 3d19b42e339e9776d0fdbbf7cfcfba07d69549ad
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160323"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249088"
 ---
-# <a name="back-up-sql-server-database-in-azure"></a>Säkerhetskopiera SQL Server-databas i Azure
+# <a name="back-up-sql-server-databases-to-azure"></a>Säkerhetskopiera SQL Server-databaser till Azure
 
-SQL Server-databaser är verksamhetskritiska arbetsbelastningar som kräver låg mål för återställningspunkt (RPO) och långsiktig kvarhållning. Azure Backup är en lösning för säkerhetskopiering SQL Server som kräver ingen infrastruktur, vilket innebär att ingen komplexa säkerhetskopieringsserver, ingen hanteringsagent eller lagring av säkerhetskopior att hantera. Azure Backup tillhandahåller centraliserad hantering av dina säkerhetskopior på alla SQL-servrar, eller med olika arbetsbelastningar.
+SQL Server-databaser är kritiska arbetsbelastningar som kräver ett lågt mål för återställningspunkt (RPO) och långsiktig kvarhållning. Azure Backup är en lösning för säkerhetskopiering SQL Server som kräver ingen infrastruktur: ingen komplexa säkerhetskopieringsserver, ingen hanteringsagent och ingen lagring av säkerhetskopior för att hantera. Azure Backup tillhandahåller centraliserad hantering av dina säkerhetskopior på alla servrar som kör SQL Server eller med olika arbetsbelastningar.
 
- I den här artikeln lär du dig:
+I den här artikeln lär du dig:
 
 > [!div class="checklist"]
-> * Förutsättningar för att säkerhetskopiera SQL Server till Azure
-> * Skapa och använda ett Recovery Services-valv
-> * Konfigurera säkerhetskopieringar för SQL Server-databas
-> * Skapa en princip för säkerhetskopiering (eller kvarhållning) för återställningspunkterna
-> * Så här återställer du databasen
+> * Förutsättningar för säkerhetskopiering av en SQL Server-instans till Azure.
+> * Så här skapar och använder ett Recovery Services-valv.
+> * Så här konfigurerar du SQL Server-databasen säkerhetskopieras.
+> * Så här anger du en princip för säkerhetskopiering (eller kvarhållning) för återställningspunkterna.
+> * Hur du återställer databasen.
 
-Innan du startar procedurerna i den här artikeln bör du ha en SQL-Server som körs i Azure. [Du kan använda virtuella datorer med SQL marketplace för att snabbt skapa en SQL Server](../sql-database/sql-database-get-started-portal.md).
+Innan du börjar procedurerna i den här artikeln bör du ha en SQL Server-instans som körs i Azure. [Använda SQL Marketplace virtuella datorer och skapa snabbt en SQL Server-instans](../sql-database/sql-database-get-started-portal.md).
 
 ## <a name="public-preview-limitations"></a>Offentliga begränsningar i förhandsversionen
 
-Följande är kända begränsningar för den offentliga förhandsversionen.
+Följande är kända begränsningar för den offentliga förhandsversionen:
 
-- SQL-dator kräver Internetanslutning för att komma åt Azure offentliga IP-adresser. Mer information finns i avsnittet [nätverksanslutningen](backup-azure-sql-database.md#establish-network-connectivity).
-- Du kan skydda upp till 2 000 SQL-databaser i ett Recovery Services-valv. Ytterligare SQL-databaser ska lagras i separata Recovery Services-valvet.
-- [Distribuerade tillgänglighet grupper säkerhetskopiering har begränsningar](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017).
-- SQL Failover Cluster Instances (FCI) stöds inte.
-- Använd Azure-portalen för att konfigurera Azure Backup för att skydda SQL Server-databaser. Stöd för Azure PowerShell, CLI och REST API: er är inte tillgänglig.
+- SQL virtuell dator (VM) kräver en Internetanslutning för att komma åt Azure offentliga IP-adresser. Mer information finns i [nätverksanslutningen](backup-azure-sql-database.md#establish-network-connectivity).
+- Skydda upp till 2 000 SQL-databaser i ett Recovery Services-valv. Ytterligare SQL-databaser ska lagras i separata Recovery Services-valvet.
+- [Säkerhetskopior av distribuerade Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) har begränsningar.
+- SQL Server alltid på Redundansklusterinstanser (FCIs) stöds inte.
+- Använd Azure-portalen för att konfigurera Azure Backup för att skydda SQL Server-databaser. Azure PowerShell, Azure CLI och REST-API: er stöds inte för närvarande.
 
-## <a name="supported-azure-geos"></a>Azure-regioner som stöds
+## <a name="support-for-azure-geos"></a>Stöd för Azure-regioner
+
+Azure Backup stöds för följande regioner:
 
 - Australien, sydöstra (ASE) 
 - Brasilien, södra (BRS)
@@ -59,10 +61,10 @@ Följande är kända begränsningar för den offentliga förhandsversionen.
 - Australien, östra (AE) 
 - USA, östra (EUS)
 - USA, östra 2 (EUS2)
-- Japan, östra (JPE)
-- Japan, västra (JPW)
 - Indien, centrala (INC) 
 - Indien, södra (INS)
+- Japan, östra (JPE)
+- Japan, västra (JPW)
 - Korea, centrala (KRC)
 - Korea, södra (KRS)
 - USA, norra centrala (NCUS) 
@@ -71,14 +73,14 @@ Följande är kända begränsningar för den offentliga förhandsversionen.
 - Asien, sydöstra (SEA)
 - Storbritannien, södra (UKS) 
 - Storbritannien, västra (UKW) 
+- USA, västra centrala (WCUS)
 - Europa, västra (WE) 
 - USA, västra (WUS)
-- USA, västra centrala (WCUS)
 - USA, västra 2 (WUS 2) 
 
-## <a name="supported-operating-systems-and-versions-of-sql-server"></a>Operativsystem som stöds och versioner av SQLServer
+## <a name="support-for-operating-systems-and-sql-server-versions"></a>Stöd för operativsystem och SQL Server-versioner
 
-Följande operativsystem stöds. SQL-marketplace Azure-datorer och inte finns på marketplace-datorer (där SQL Server är manuellt installerad), stöds.
+Det här avsnittet beskrivs Azure Backup stöd för operativsystem och versioner av SQL Server. SQL Marketplace Azure virtuella datorer och inte finns på Marketplace-datorer (där SQL Server manuellt installeras) stöds.
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 
@@ -86,548 +88,561 @@ Följande operativsystem stöds. SQL-marketplace Azure-datorer och inte finns p�
 - Windows Server 2012 R2
 - Windows Server 2016
 
-Linux stöds för närvarande inte.
+Linux stöds inte för närvarande.
 
-### <a name="supported-versionseditions-of-sql-server"></a>Stöds versioner av SQL Server
+### <a name="supported-sql-server-versions-and-editions"></a>SQL Server-versioner och utgåvor som stöds
 
-- SQL 2012 Enterprise, Standard, webb, Developer, Express
-- SQL 2014 Enterprise, Standard, webb, Developer, Express
-- SQL 2016 Enterprise, Standard, webb, Developer, Express
-- SQL 2017 Enterprise, Standard, webb, Developer, Express
+- SQL Server 2012 Enterprise, Standard, webb, Developer, Express
+- SQL Server 2014 Enterprise, Standard, webb, Developer, Express
+- SQL Server 2016 Enterprise, Standard, webb, Developer, Express
+- SQL Server 2017 Enterprise, Standard, webb, Developer, Express
 
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites-for-using-azure-backup-to-protect-sql-server"></a>Krav för att använda Azure Backup för att skydda SQL Server 
+Innan du säkerhetskopierar SQL Server-databasen kan du kontrollera följande villkor:
 
-Kontrollera att följande villkor innan du kan säkerhetskopiera SQL Server-databasen. :
-
-- Identifiera eller [skapar ett Recovery Services-valv](backup-azure-sql-database.md#create-a-recovery-services-vault) i samma region eller språk, som den virtuella datorn som är värd för SQL Server.
-- [Kontrollera behörigheterna för den virtuella datorn](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) behövs för att säkerhetskopiera SQL-databaser.
-- [SQL-dator är ansluten till nätverket](backup-azure-sql-database.md#establish-network-connectivity).
+- Identifiera eller [skapar ett Recovery Services-valv](backup-azure-sql-database.md#create-a-recovery-services-vault) i samma region eller språk som den virtuella datorn som är värd för SQL Server-instansen.
+- [Kontrollera behörigheterna för den virtuella datorn](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) som behövs för att säkerhetskopiera SQL-databaser.
+- Kontrollera att den [SQL-dator är ansluten till nätverket](backup-azure-sql-database.md#establish-network-connectivity).
 
 > [!NOTE]
-> Du kan ha endast en lösning för säkerhetskopiering åt gången för att säkerhetskopiera SQL Server-databaser. Inaktivera andra SQL-säkerhetskopiering innan du använder den här funktionen, annan säkerhetskopieringar ska påverka och misslyckas. Du kan aktivera Azure Backup för IaaS VM tillsammans med SQL-säkerhetskopiering utan eventuella konflikter 
+> Du kan ha endast en lösning för säkerhetskopiering åt gången för att säkerhetskopiera SQL Server-databaser. Inaktivera alla andra SQL-säkerhetskopior innan du använder den här funktionen; i annat fall kommer säkerhetskopieringarna påverka och misslyckas. Du kan aktivera Azure Backup tillsammans med SQL-säkerhetskopiering utan någon konflikt för IaaS VM.
 >
 
-Om dessa villkor finns i din miljö, fortsätter du till avsnittet [konfigurera valvet för att skydda en SQL-databas](backup-azure-sql-database.md#configure-your-vault-to-protect-a-sql-database). Om några av krav inte finns, kan du fortsätta läsa det här avsnittet.
+Om dessa villkor finns i din miljö, fortsätter du till [Konfigurera säkerhetskopiering för SQL Server-databaser](backup-azure-sql-database.md#configure-backup-for-sql-server-databases). Om några av krav inte finns, Fortsätt att läsa.
 
 
 ## <a name="establish-network-connectivity"></a>Upprätta nätverksanslutning
 
-SQL-dator ha anslutning till Azure offentliga IP-adresser för alla åtgärder. SQL VM-åtgärder (till exempel databasidentifiering, konfigurera säkerhetskopieringen, schemalagda säkerhetskopieringar, återställa återställningspunkter och så vidare) misslyckas utan anslutning till offentliga IP-adresser. Använd något av följande alternativ för att tillhandahålla ett tydligt sätt för säkerhetskopieringstrafik:
+SQL-dator ha anslutning till Azure offentliga IP-adresser för alla åtgärder. SQL VM-åtgärder (till exempel databasidentifiering, säkerhetskopieringar, schemalägga säkerhetskopieringar, återställa återställningspunkter och så vidare) misslyckas utan anslutning till offentliga IP-adresser. Använd något av följande alternativ för att tillhandahålla ett tydligt sätt för säkerhetskopieringstrafik:
 
-- Lista över tillåtna Azure datacenter IP-intervall – godkänna Azure datacenter IP-intervall, Använd den [center hämtningssidan för information om IP-intervall och instruktioner](https://www.microsoft.com/download/details.aspx?id=41653). 
-- Distribuera en HTTP-proxyserver dirigeras trafiken – när du säkerhetskopierar en SQL-databas på en virtuell dator, tillägget på den virtuella datorn använder HTTPS-API: er för att skicka kommandon för hantering av Azure Backup och data till Azure Storage. Säkerhetskopieringstillägget använder också Azure Active Directory (AAD) för autentisering. Dirigera säkerhetskopieringstillägget-trafik för dessa tre tjänster via HTTP-proxy, eftersom det är den enda komponenten som konfigurerats för åtkomst till det offentliga internet.
+- Lista över tillåtna Azure datacenter IP-intervall: godkänna Azure datacenter IP-adressintervall, använda den [Download Center-sidan för information om IP-intervall och instruktioner](https://www.microsoft.com/download/details.aspx?id=41653). 
+- Distribuera en HTTP-proxyserver kan dirigera trafik: när du säkerhetskopierar en SQL-databas på en virtuell dator tillägget på den virtuella datorn använder HTTPS-API: er för att skicka kommandon för hantering av Azure Backup och data till Azure Storage. Säkerhetskopieringstillägget använder också Azure Active Directory (Azure AD) för autentisering. Dirigera säkerhetskopieringstillägget trafik för dessa tre tjänster via HTTP-proxy. Tillägget är den enda komponenten som är konfigurerad för åtkomst till det offentliga internet.
 
-Rätt balans mellan alternativen är: hanterbarhet, detaljerad kontroll och kostnad.
+Rätt balans mellan alternativen är hanterbarhet, detaljerad kontroll och kostnad.
 
 > [!NOTE]
->Tjänsttaggar för Azure Backup ska vara tillgänglig vid allmän tillgänglighet.
+> Tjänsttaggar för Azure Backup ska vara tillgänglig vid allmän tillgänglighet.
 >
 
 | Alternativ | Fördelar | Nackdelar |
 | ------ | ---------- | ------------- |
-| Whitelist IP-intervall | Ingen extra kostnad. <br/> Använd för att öppna åtkomst i en NSG **Set-AzureNetworkSecurityRule** cmdlet. | Komplext för att hantera som den berörda IP-intervall ändras med tiden. <br/>Ger åtkomst till hela Azure, inte bara lagring.|
+| Whitelist IP-intervall | Ingen extra kostnad. <br/> För åtkomst till öppna i en NSG måste använda den **Set-AzureNetworkSecurityRule** cmdlet. | Komplicerat att hantera eftersom de berörda IP-intervallen ändras över tid. <br/>Ger åtkomst till hela Azure, inte bara Azure Storage.|
 | Använda en HTTP-proxy   | Detaljerad kontroll i proxyn över lagringen URL: er tillåts. <br/>Enskild punkt för internet-åtkomst till virtuella datorer. <br/> Inte kan komma att ändras för Azure-IP-adress. | Ytterligare kostnader för att köra en virtuell dator med proxy-programvara. |
 
-## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Ange behörigheter för virtuella datorer inte finns i marketplace med SQL
+## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Ange behörigheter för icke - SQL virtuella datorer på Marketplace
 
-Om du vill säkerhetskopiera en virtuell dator, Azure Backup kräver den **AzureBackupWindowsWorkload** att installera tillägget. Om du använder Azure marketplace-datorer kan gå vidare till [identifiera SQL server-databaser](backup-azure-sql-database.md#discover-sql-server-databases). Om den virtuella datorn som är värd för dina SQL-databaser inte har skapats från Azure marketplace, slutför du följande avsnitt för att installera tillägget och ange lämpliga behörigheter. Förutom den **AzureBackupWindowsWorkload** tillägg, Azure Backup kräver SQL sysadmin-behörighet för att skydda SQL-databaser. Vid identifiering av databaser på den virtuella datorn, skapar ett konto, NT Service\AzureWLBackupPluginSvc i Azure Backup. För Azure Backup för att identifiera SQL-databaser, NT Service\AzureWLBackupPluginSvc-kontot måste ha SQL och SQL sysadmin-behörighet. Följande procedur beskriver hur du anger dessa behörigheter.
+Om du vill säkerhetskopiera en virtuell dator, Azure Backup kräver den **AzureBackupWindowsWorkload** tillägget installeras. Om du använder Azure Marketplace-datorer kan fortsätta att [identifiera SQL Server-databaser](backup-azure-sql-database.md#discover-sql-server-databases). Om den virtuella datorn som är värd för dina SQL-databaser inte är skapade från Azure Marketplace, Slutför följande procedur för att installera tillägget och ange lämpliga behörigheter. Förutom den **AzureBackupWindowsWorkload** tillägg, Azure Backup kräver SQL sysadmin-behörighet för att skydda SQL-databaser. För att identifiera databaser på den virtuella datorn, Azure Backup skapar kontot **NT Service\AzureWLBackupPluginSvc**. För Azure Backup för att identifiera SQL-databaser, den **NT Service\AzureWLBackupPluginSvc** kontot måste ha SQL och SQL sysadmin-behörighet. Följande procedur beskriver hur du anger dessa behörigheter.
 
 Konfigurera behörigheter:
 
-1. I den [Azure-portalen](https://portal.azure.com), öppna Recovery Services-valvet som du använder för att skydda SQL-databaser.
-2. I valvets instrumentpanel klickar du på **+ säkerhetskopiera** att öppna den **säkerhetskopieringsmål** menyn.
+1. I den [Azure-portalen](https://portal.azure.com), öppna Recovery Services-valvet som används för att skydda SQL-databaser.
 
-   ![Klicka på + säkerhetskopiering för att öppna menyn säkerhetskopiering mål](./media/backup-azure-sql-database/open-backup-menu.png)
+2. På den **Recovery Services-valv** instrumentpanelen, väljer **Backup**. Den **säkerhetskopieringsmål** menyn öppnas.
 
-3. På den **säkerhetskopieringsmål** menyn i den **var körs din arbetsbelastning?** menyn lämna **Azure** som standard.
+   ![Välj säkerhetskopia för att öppna menyn säkerhetskopieringsmål](./media/backup-azure-sql-database/open-backup-menu.png)
 
-4. På den **vad vill du säkerhetskopiera** menyn Expandera den nedrullningsbara menyn och välj **SQL Server i Azure VM**.
+3. På den **säkerhetskopieringsmål** menyn och ange **var körs din arbetsbelastning** standardinställning: **Azure**.
 
-    ![Klicka på + säkerhetskopiering för att öppna menyn säkerhetskopiering mål](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
+4. Expandera den **vad vill du säkerhetskopiera** nedrullningsbara listrutan och välj **SQL Server i Azure VM**.
 
-    Den **säkerhetskopieringsmål** menyn visas två nya steg: **identifiera databaser i virtuella datorer** och **Konfigurera säkerhetskopiering**. **Identifiera databaser i virtuella datorer** startar en sökning efter Azure-datorer.
+    ![Välj SQL Server i virtuell Azure-dator för säkerhetskopiering](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    ![Visar de nya säkerhetskopiering mål stegen](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
+    Den **säkerhetskopieringsmål** menyn visas två steg: **identifiera databaser i virtuella datorer** och **Konfigurera säkerhetskopiering**. Den **identifiera databaser i virtuella datorer** steg startar en sökning efter Azure-datorer.
 
-5. Klicka på **Starta identifiering** att söka efter oskyddade virtuella datorer i prenumerationen. Beroende på antalet oskyddade virtuella datorer i prenumerationen kan ta det en stund att gå igenom alla virtuella datorer.
+    ![Gå igenom stegen för två säkerhetskopieringsmål](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
-    ![Säkerhetskopiering väntar](./media/backup-azure-sql-database/discovering-sql-databases.png)
+5. Under **identifiera databaser i virtuella datorer**väljer **Starta identifiering** att söka efter oskyddade virtuella datorer i prenumerationen. Det kan ta en stund att söka igenom alla de virtuella datorerna. Söktiden beror på hur många över oskyddade virtuella datorer i prenumerationen.
+
+    ![Säkerhetskopiering väntar vid sökning efter databaser i virtuella datorer](./media/backup-azure-sql-database/discovering-sql-databases.png)
  
-    När en virtuell dator i oskyddade identifieras så visas det i listan. Oskyddade virtuella datorer visas efter deras VM-namn och resursgrupp grupp. Det är möjligt för flera virtuella datorer har samma namn. Men virtuella datorer med samma namn som hör till olika resursgrupper. Om en virtuell dator i förväntade inte visas i listan, kan du se om den virtuella datorn redan skyddas till ett valv.
+    När en virtuell dator i oskyddade identifieras så visas den i listan. Oskyddade virtuella datorer visas efter deras VM-namn och resursgrupp grupp. Det är möjligt för flera virtuella datorer har samma namn. Men virtuella datorer med samma namn som hör till olika resursgrupper. Om en virtuell dator i förväntade inte visas kan du se om den virtuella datorn redan skyddas i ett valv.
 
-6. Från listan över virtuella datorer, väljer du den virtuella datorn som innehåller SQL-databasen som du vill säkerhetskopiera klicka sedan på **identifiera databaser**. 
+6. I listan över virtuella datorer, väljer du den virtuella datorn med SQL-databas om du vill säkerhetskopiera och välj sedan **identifiera databaser**. 
 
-    Identifieringsprocessen installerar den **AzureBackupWindowsWorkload** tillägget på den virtuella datorn. Tillägget kan kommunicera med den virtuella datorn så att du kan säkerhetskopiera SQL-databaser med Azure Backup-tjänsten. När tillägget-installerar Azure Backup skapar Windows virtuellt tjänstkonto, **NT Service\AzureWLBackupPluginSvc**, på den virtuella datorn. Det virtuella tjänstkontot kräver SQL sysadmin-behörighet. När virtuella konto installeras, om du ser felet, **UserErrorSQLNoSysadminMembership**, finns i avsnittet [åtgärda SQL sysadmin-behörighet](backup-azure-sql-database.md#fixing-sql-sysadmin-permissions).
+    Identifieringsprocessen installerar den **AzureBackupWindowsWorkload** tillägget på den virtuella datorn. Tillägget kan kommunicera med den virtuella datorn så att du kan säkerhetskopiera SQL-databaser med Azure Backup-tjänsten. När tillägget installeras Azure Backup skapar det virtuella Windows-tjänstkontot **NT Service\AzureWLBackupPluginSvc** på den virtuella datorn. Det virtuella tjänstkontot kräver SQL sysadmin-behörighet. När virtuella konto installeras, om du får felet `UserErrorSQLNoSysadminMembership`, se [åtgärda SQL sysadmin-behörighet](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
-    Meddelandefältet visar förloppet för identifieringen för databasen. Beroende på hur många databaser finns på den virtuella datorn, kan det ta en stund innan jobbet är klart. När valda databaser har identifierats, visas ett meddelande.
+    Den **meddelanden** området visar förloppet för identifieringen för databasen. Det kan ta en stund innan jobbet är klart. Jobbtiden beror på hur många databaser som finns på den virtuella datorn. När de valda databaserna identifieras, visas ett meddelande.
 
-    ![meddelande för lyckad distribution](./media/backup-azure-sql-database/notifications-db-discovered.png)
+    ![Meddelande för distribution](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-När du kopplar databasen med Recovery Services-valvet, nästa steg är att [konfigurera säkerhetskopieringen](backup-azure-sql-database.md#configure-your-vault-to-protect-a-sql-database).
+När du kopplar databasen med Recovery Services-valvet, nästa steg är att [konfigurera säkerhetskopieringsjobbet](backup-azure-sql-database.md#configure-backup-for-sql-server-databases).
 
-### <a name="fixing-sql-sysadmin-permissions"></a>Åtgärda SQL sysadmin-behörighet
+### <a name="fix-sql-sysadmin-permissions"></a>Åtgärda SQL sysadmin-behörighet
 
-Under installationen, om du ser felet, **UserErrorSQLNoSysadminMembership**, använda ett konto med SQL sysadmin-behörighet för att logga in till SQL Server Management Studio (SSMS). Om du inte behöver särskilda behörigheter, ska Windows-autentisering fungera.
+Under installationen, om du får felet `UserErrorSQLNoSysadminMembership`, använda ett konto med SQL Server sysadmin-behörighet för att logga in till SQL Server Management Studio (SSMS). Om du inte behöver särskilda behörigheter, ska Windows-autentisering fungera.
 
-1. På SQL-Server öppnar du den **Security/inloggningar** mapp.
+1. Öppna mappen Security/inloggningar på SQL-servern.
 
-    ![Öppna mapparna SQL Server- och säkerhets- och logga in om du vill se konton](./media/backup-azure-sql-database/security-login-list.png)
+    ![Öppna mappen Security/inloggningar för att se konton](./media/backup-azure-sql-database/security-login-list.png)
 
-2. Högerklicka på mappen inloggningar och välj **ny inloggning**, och i inloggning - ny dialogrutan klickar du på **sökning**
+2. Högerklicka på mappen inloggningar och välj **ny inloggning**. I den **inloggning – ny** dialogrutan **Search**.
 
-    ![Öppna dialogrutan för sökning i inloggning – ny](./media/backup-azure-sql-database/new-login-search.png)
+    ![Välj i inloggning - ny dialogrutan Sök](./media/backup-azure-sql-database/new-login-search.png)
 
-3. Eftersom Windows virtuellt tjänstkonto, **NT Service\AzureWLBackupPluginSvc** redan har skapats under registrering av virtuell dator och SQL-identifieringsfas, anger du namn som det visas i den  **Ange ett objektnamn att välja** dialogrutan. Klicka på **Kontrollera namn** att matcha namnet. 
+3. De virtuella Windows-tjänstkontot **NT Service\AzureWLBackupPluginSvc** skapades under registrering av virtuell dator och SQL-identifieringsfas. Ange kontonamnet som visas i den **ange objektnamn att välja** rutan. Välj **Kontrollera namn** att matcha namnet. 
 
-    ![Klicka på Kontrollera namn för att lösa okänd tjänstens namn](./media/backup-azure-sql-database/check-name.png)
+    ![Välj Kontrollera namn för att matcha namnet okänd tjänst](./media/backup-azure-sql-database/check-name.png)
 
-4. Klicka på **OK** att stänga dialogrutan Välj användare eller grupp.
+4. Välj **OK** att stänga dialogrutan.
 
-5. I den **serverroller** dialogrutan, se till att den **sysadmin** roll har valts. Klicka sedan på **OK** att Stäng **inloggning – ny**.
+5. I den **serverroller** , ser du till den **sysadmin** roll har valts. Välj **OK** att stänga dialogrutan.
 
     ![Kontrollera att serverrollen sysadmin har valts](./media/backup-azure-sql-database/sysadmin-server-role.png)
 
     Behörigheterna som krävs ska nu finnas.
 
-6. Även om du har åtgärdat felet behörigheter behöver du fortfarande koppla databasen till Recovery Services-valvet. I Azure-portalen **skyddade servrar** listan, högerklicka på servern i fel och välj **identifiera databaser**.
+6. Även om du har åtgärdat felet behörigheter måste du koppla databasen till Recovery Services-valvet. I Azure-portalen i den **skyddade servrar** högerklickar du på den server som är ett felaktigt tillstånd och välj **identifiera databaser**.
 
-    ![Kontrollera att servern har de behörigheter som krävs](./media/backup-azure-sql-database/check-erroneous-server.png)
+    ![Kontrollera att servern har rätt behörighet](./media/backup-azure-sql-database/check-erroneous-server.png)
 
-    Meddelandefältet visar förloppet för identifieringen för databasen. Beroende på hur många databaser finns på den virtuella datorn, kan det ta en stund innan jobbet är klart. När valda databaser har hittats, visas ett meddelande i meddelandefältet.
+    Den **meddelanden** området visar förloppet för identifieringen för databasen. Det kan ta en stund innan jobbet är klart. Jobbtiden beror på hur många databaser som finns på den virtuella datorn. När de valda databaserna hittas, visas ett meddelande.
 
-    ![meddelande för lyckad distribution](./media/backup-azure-sql-database/notifications-db-discovered.png)
+    ![Meddelande för distribution](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-När du kopplar databasen med Recovery Services-valvet, nästa steg är att [konfigurera säkerhetskopieringen](backup-azure-sql-database.md#configure-your-vault-to-protect-a-sql-database).
+När du kopplar databasen med Recovery Services-valvet, nästa steg är att [konfigurera säkerhetskopieringsjobbet](backup-azure-sql-database.md#configure-backup-for-sql-server-databases).
 
-[!INCLUDE [Section explaining how to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-sql-server-databases"></a>Identifiera SQL Server-databaser
 
-Azure Backup kan identifiera alla databaser på en SQL Server-instansen så att du kan skydda dem per dina behov för säkerhetskopiering. Använd följande procedur för att identifiera den virtuella datorn som är värd för SQL-databaser. När du har identifierat den virtuella datorn installerar Azure Backup ett enkelt tillägg för att identifiera SQL server-databaser.
+Azure Backup identifierar alla databaser på en SQL Server-instans. Du kan skydda databaserna enligt dina behov för säkerhetskopiering. Använd följande procedur för att identifiera den virtuella datorn som är värd för SQL-databaser. När du har identifierat den virtuella datorn installerar Azure Backup ett enkelt tillägg för att identifiera SQL Server-databaser.
 
 1. Logga in på din prenumeration i den [Azure-portalen](https://portal.azure.com/).
-2. I den vänstra menyn och väljer **alla tjänster**.
 
-    ![Välj alternativet för alla tjänster i huvudmenyn](./media/backup-azure-sql-database/click-all-services.png) <br/>
+2. På menyn till vänster väljer **alla tjänster**.
 
-3. I dialogrutan för alla tjänster, Skriv *återställningstjänster*. När du börjar skriva, filtrerar listan över resurser i dina indata. När du ser det väljer **Recovery Services-valv**.
+    ![Välj alla tjänster](./media/backup-azure-sql-database/click-all-services.png) <br/>
 
-    ![Skriv återställningstjänster i dialogrutan för alla tjänster](./media/backup-azure-sql-database/all-services.png) <br/>
+3. I den **alla tjänster** dialogrutan anger **återställningstjänster**. När du skriver filtrerar listan över resurser i dina indata. Välj **Recovery Services-valv** i listan.
+
+    ![Ange och välj Recovery Services-valv](./media/backup-azure-sql-database/all-services.png) <br/>
 
     Listan över Recovery Services-valv i prenumerationen visas. 
 
-4. Från listan över Recovery Services-valv, väljer du valvet som du vill använda för att skydda din SQL-databaser.
+4. I listan över Recovery Services-valv, väljer du valvet för att använda för att skydda din SQL-databaser.
 
-5. I valvets instrumentpanel klickar du på **+ säkerhetskopiera** att öppna den **säkerhetskopieringsmål** menyn.
+5. På den **Recovery Services-valv** instrumentpanelen, väljer **Backup**. Den **säkerhetskopieringsmål** menyn öppnas.
 
-   ![Klicka på + säkerhetskopiering för att öppna menyn säkerhetskopiering mål](./media/backup-azure-sql-database/open-backup-menu.png)
+   ![Välj säkerhetskopia för att öppna menyn säkerhetskopieringsmål](./media/backup-azure-sql-database/open-backup-menu.png)
 
-6. På den **säkerhetskopieringsmål** menyn i den **var körs din arbetsbelastning?** menyn lämna **Azure** som standard.
+6. På den **säkerhetskopieringsmål** menyn och ange **var körs din arbetsbelastning** standardinställning: **Azure**.
 
-7. På den **vad vill du säkerhetskopiera** menyn Expandera den nedrullningsbara menyn och välj **SQL Server i Azure VM**.
+7. Expandera den **vad vill du säkerhetskopiera** nedrullningsbara listrutan och välj **SQL Server i Azure VM**.
 
-    ![Klicka på + säkerhetskopiering för att öppna menyn säkerhetskopiering mål](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
+    ![Välj SQL Server i virtuell Azure-dator för säkerhetskopiering](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    När den **säkerhetskopieringsmål** menyn visas två steg: identifiera databaser i virtuella datorer och konfigurera säkerhetskopiering. 
+    Den **säkerhetskopieringsmål** menyn visas två steg: **identifiera databaser i virtuella datorer** och **Konfigurera säkerhetskopiering**.
+    
+    ![Gå igenom stegen för två säkerhetskopieringsmål](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
-    ![Visar de nya säkerhetskopiering mål stegen](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
+8. Under **identifiera databaser i virtuella datorer**väljer **Starta identifiering** att söka efter oskyddade virtuella datorer i prenumerationen. Det kan ta en stund att söka igenom alla virtuella datorer. Söktiden beror på hur många över oskyddade virtuella datorer i prenumerationen.
 
-8. Klicka på **Starta identifiering** att söka efter oskyddade virtuella datorer i prenumerationen. Beroende på antalet oskyddade virtuella datorer i prenumerationen kan ta det en stund att gå igenom alla virtuella datorer.
-
-    ![Säkerhetskopiering väntar](./media/backup-azure-sql-database/discovering-sql-databases.png)
+    ![Säkerhetskopiering väntar vid sökning efter databaser i virtuella datorer](./media/backup-azure-sql-database/discovering-sql-databases.png)
  
-    När en virtuell dator i oskyddade identifieras så visas det i listan. Flera virtuella datorer kan ha samma namn. Dock flera virtuella datorer med samma namn som hör till olika resursgrupper. De oskyddade virtuella datorerna visas efter deras VM-namn och resursgrupp grupp. Om en virtuell dator i förväntade inte visas kan du se om den virtuella datorn redan skyddas i ett valv.
+    När en virtuell dator i oskyddade identifieras så visas den i listan. Flera virtuella datorer kan ha samma namn. Men virtuella datorer med samma namn som hör till olika resursgrupper. Oskyddade virtuella datorer visas efter deras VM-namn och resursgrupp grupp. Om en virtuell dator i förväntade inte visas kan du se om den virtuella datorn redan skyddas i ett valv.
 
-9. Från listan över virtuella datorer, markerar du kryssrutan för den virtuella datorn som innehåller SQL-databaser som du vill skydda och klickar på **identifiera databaser**.
+9. I listan över virtuella datorer, väljer du den virtuella datorn med SQL-databas om du vill säkerhetskopiera och välj sedan **identifiera databaser**.
 
-    Azure Backup identifierar alla SQL-databaser på den virtuella datorn. Information om vad som händer under fasen för identifiering av databasen finns i avsnittet nedan [Backend-åtgärder när identifiering av SQL-databaser](backup-azure-sql-database.md#backend-operations-when-discovering-sql-databases). Efter identifiering av SQL-databaser, är det dags att [konfigurera säkerhetskopieringsjobbet](backup-azure-sql-database.md#configure-your-vault-to-protect-a-sql-database).
+    Azure Backup identifierar alla SQL-databaser på den virtuella datorn. Information om vad som händer under fasen för identifiering av databasen finns i [Background operations](backup-azure-sql-database.md#background-operations). När SQL-databaser har identifierats, är du redo att [konfigurera säkerhetskopieringsjobbet](backup-azure-sql-database.md#configure-backup-for-sql-server-databases).
 
-### <a name="backend-operations-when-discovering-sql-databases"></a>Backend-åtgärder när identifiering av SQL-databaser
+### <a name="background-operations"></a>Bakgrundsåtgärder
 
 När du använder den **identifiera databaser** verktyg, Azure Backup utförs följande åtgärder i bakgrunden:
 
-- registrerar den virtuella datorn med Recovery Services-valv för säkerhetskopiering av arbetsbelastning. Alla databaser på den registrerade virtuella datorn kan endast säkerhetskopieras till Recovery Services-valvet. 
+- Registrera den virtuella datorn med Recovery Services-valv för säkerhetskopiering av arbetsbelastning. Alla databaser på den registrerade virtuella datorn kan säkerhetskopieras till endast den här Recovery Services-valv. 
 
-- installerar de **AzureBackupWindowsWorkload** tillägget på den virtuella datorn. Säkerhetskopiering av en SQL-databas är en lösning för utan Agent, det vill säga med tillägget är installerat på den virtuella datorn även ingen agent är installerad på SQL-databasen.
+- Installera den **AzureBackupWindowsWorkload** tillägget på den virtuella datorn. Säkerhetskopiera från en SQL-databas är en agentlös lösning. Tillägget har installerats på den virtuella datorn och ingen agent installerad på SQL-databasen.
 
-- skapar tjänstkonto, **NT Service\AzureWLBackupPluginSvc**, på den virtuella datorn. Alla åtgärder för säkerhetskopiering och återställning använder kontot. **NT Service\AzureWLBackupPluginSvc** måste SQL sysadmin-behörighet. Alla virtuella datorer för SQL Marketplace medföljer SqlIaaSExtension installerad och AzureBackupWindowsWorkload använder SQLIaaSExtension för att automatiskt få behörigheter som krävs. Om den virtuella datorn har inte installerats SqlIaaSExtension, identifiera DB åtgärden misslyckas och du får felmeddelandet **UserErrorSQLNoSysAdminMembership**. Om du vill lägga till sysadmin-behörighet för säkerhetskopiering, följer du anvisningarna i [ställa in Azure Backup behörigheter för virtuella datorer inte finns i marketplace med SQL](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms).
+- Skapa kontot **NT Service\AzureWLBackupPluginSvc** på den virtuella datorn. Alla åtgärder för säkerhetskopiering och återställning använder kontot. **NT Service\AzureWLBackupPluginSvc** måste SQL sysadmin-behörighet. Alla SQL Marketplace virtuella datorer som medföljer den **SqlIaaSExtension** installerad. Den **AzureBackupWindowsWorkload** tillägget använder den **SQLIaaSExtension** att automatiskt få behörigheterna som krävs. Om den virtuella datorn inte har den **SqlIaaSExtension** installerat, identifiera DB åtgärden misslyckas med felmeddelandet `UserErrorSQLNoSysAdminMembership`. Om du vill lägga till sysadmin-behörighet för säkerhetskopiering, följer du anvisningarna i [konfigurera Azure Backup behörigheter för icke - SQL virtuella datorer på Marketplace](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms).
 
     ![Välj den virtuella datorn och databasen](./media/backup-azure-sql-database/registration-errors.png)
 
-## <a name="configure-backup-for-sql-server-database"></a>Konfigurera säkerhetskopiering för SQL Server-databas
+## <a name="configure-backup-for-sql-server-databases"></a>Konfigurera säkerhetskopiering för SQL Server-databaser 
 
 Azure Backup tillhandahåller hanteringstjänster för att skydda SQL Server-databaser och hantera säkerhetskopieringsjobb. Hanterings- och övervakningsfunktioner beror på Recovery Services-valvet. 
 
 > [!NOTE]
-> Du kan ha endast en lösning för säkerhetskopiering åt gången för att säkerhetskopiera SQL Server-databaser. Inaktivera andra SQL-säkerhetskopiering innan du använder den här funktionen, annan säkerhetskopieringar ska påverka och misslyckas. Du kan aktivera Azure Backup för IaaS VM tillsammans med SQL-säkerhetskopiering utan eventuella konflikter 
+> Du kan ha endast en lösning för säkerhetskopiering åt gången för att säkerhetskopiera SQL Server-databaser. Inaktivera alla andra SQL-säkerhetskopior innan du använder den här funktionen; i annat fall kommer säkerhetskopieringarna påverka och misslyckas. Du kan aktivera Azure Backup tillsammans med SQL-säkerhetskopiering utan någon konflikt för IaaS VM.
 >
 
-Konfigurera skydd för SQL-databasen:
+Konfigurera skydd för en SQL-databas:
 
-1. Öppna Recovery Services-valvet som är registrerad med SQL-dator.
+1. Öppna Recovery Services-valvet som har registrerats hos SQL-dator.
 
-2. I valvets instrumentpanel klickar du på **+ säkerhetskopiera** att öppna den **säkerhetskopieringsmål** menyn.
+2. På den **Recovery Services-valv** instrumentpanelen, väljer **Backup**. Den **säkerhetskopieringsmål** menyn öppnas.
 
-    ![Klicka på + säkerhetskopiering för att öppna menyn säkerhetskopiering mål](./media/backup-azure-sql-database/open-backup-menu.png)
+   ![Välj säkerhetskopia för att öppna menyn säkerhetskopieringsmål](./media/backup-azure-sql-database/open-backup-menu.png)
 
-3. På den **säkerhetskopieringsmål** menyn i den **var körs din arbetsbelastning?** menyn lämna **Azure** som standard.
+3. På den **säkerhetskopieringsmål** menyn och ange **var körs din arbetsbelastning** standardinställning: **Azure**.
 
-4. På den **vad vill du säkerhetskopiera** menyn Expandera den nedrullningsbara menyn och välj **SQL Server i Azure VM**.
+4. Expandera den **vad vill du säkerhetskopiera** nedrullningsbara listrutan och välj **SQL Server i Azure VM**.
 
-    ![Klicka på + säkerhetskopiering för att öppna menyn säkerhetskopiering mål](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
+    ![Välj SQL Server i virtuell Azure-dator för säkerhetskopiering](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    När den **säkerhetskopieringsmål** menyn visas två steg: identifiera databaser i virtuella datorer och konfigurera säkerhetskopiering. Om du har gått igenom den här artikeln i ordning, har du redan upptäckt oskyddade virtuella datorer och det här valvet har registrerats med en virtuell dator. Nu är du redo att konfigurera skydd för SQL-databaser.
+    Den **säkerhetskopieringsmål** menyn visas två steg: **identifiera databaser i virtuella datorer** och **Konfigurera säkerhetskopiering**.
+    
+    Om du har slutfört stegen i den här artikeln i ordning, har du hittat oskyddade virtuella datorer och det här valvet har registrerats med en virtuell dator. Nu är du redo att konfigurera skydd för SQL-databaser.
+    
+5. På den **säkerhetskopieringsmål** menyn och välj **Konfigurera säkerhetskopiering**.
 
-5. Klicka på menyn säkerhetskopieringsmål **Konfigurera säkerhetskopiering**.
+    ![Välj Konfigurera säkerhetskopiering](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-    ![Visar de nya säkerhetskopiering mål stegen](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
-
-    Azure Backup-tjänsten visar alla SQL-instanser med fristående databaser samt SQL AlwaysOn-Tillgänglighetsgrupper. Klicka på ikonen bredvid namnet på instansen för att visa databaserna för att visa de fristående databaserna i SQL-instansen. Följande bilder visar exempel på en fristående instans och en Always On-tillgänglighetsgrupp.
+    Azure Backup-tjänsten visar alla SQL Server-instanser med fristående databaser och SQL Server Always On-Tillgänglighetsgrupper. Om du vill visa de fristående databaserna i SQL Server-instansen, väljer du på ikonen till vänster om namnet på instansen. Följande bilder visar exempel på en fristående instans och en Always On-tillgänglighetsgrupp.
 
     > [!NOTE]
-    > När det gäller SQL Always On Availability Group respekterar vi inställning för SQL-säkerhetskopiering. Men på grund av en SQL-plattformsbegränsning fullständiga och differentiella säkerhetskopieringar måste göras från den primära noden. Säkerhetskopiering av loggen kan göras baserat på din inställning för säkerhetskopiering. På grund av den här begränsningen måste den primära noden alltid registreras för Tillgänglighetsgrupper.
+    > Säkerhetskopieringsinställningen för SQL är användas för en SQL Server Always On i tillgänglighetsgruppen. Men på grund av en SQL-plattformsbegränsning fullständiga och differentiella säkerhetskopieringar måste göras från den primära noden. Log tillbaka sker upp enligt din inställning för säkerhetskopiering. På grund av den här begränsningen måste den primära noden alltid registreras för Tillgänglighetsgrupper.
     >
 
-    ![Lista över databaser i SQL-instans](./media/backup-azure-sql-database/discovered-databases.png)
+    ![Lista över databaser i SQL-instansen](./media/backup-azure-sql-database/discovered-databases.png)
 
-    Klicka på ikonen bredvid AlwaysOn-Tillgänglighetsgrupper för att visa listan över databaser.
+    Välj ikonen till vänster om Always On availability-gruppen att visa listan över databaser.
 
-    ![Lista över databaser i AlwaysOn-tillgänglighetsgrupp](./media/backup-azure-sql-database/discovered-database-availability-group.png)
+    ![Lista över databaser i Always On availability-gruppen](./media/backup-azure-sql-database/discovered-database-availability-group.png)
 
-6. I listan över databaser, väljer du alla som du vill skydda och klickar på **OK**.
+6. Välj alla databaser att skydda och välj sedan i listan över databaser, **OK**.
 
-    ![Välj flera databaser att skydda dem](./media/backup-azure-sql-database/select-multiple-database-protection.png)
+    ![Välj flera databaser för att skydda](./media/backup-azure-sql-database/select-multiple-database-protection.png)
 
-    Du kan välja upp till 50 databaser i taget. Om du vill skydda fler än 50 databaser kan se flera pass. När du skyddar de första 50 databaserna kan du upprepa det här steget om du vill skydda en uppsättning databaser.
+    Välj upp till 50 databaser i taget. Skydda fler än 50 databaser, se flera pass. När du skyddar de första 50 databaserna kan du upprepa det här steget om du vill skydda en uppsättning databaser.
+
     > [!Note] 
     > För att optimera säkerhetskopierade belastning, delar Azure Backup upp stora säkerhetskopieringsjobb i flera batchar. Det maximala antalet databaser i en säkerhetskopiering är 50.
     >
     >
 
-7. Att skapa eller välj en princip för säkerhetskopiering, i den **säkerhetskopiering** menyn och välj **säkerhetskopieringspolicy**, för att öppna menyn.
+7. Att skapa eller välj en säkerhetskopieringsprincip på den **säkerhetskopiering** menyn och välj **säkerhetskopieringspolicy**. Den **säkerhetskopieringspolicy** menyn öppnas.
 
-    ![Välj alternativet för princip för säkerhetskopiering](./media/backup-azure-sql-database/select-backup-policy.png)
+    ![Välj princip för säkerhetskopiering](./media/backup-azure-sql-database/select-backup-policy.png)
 
-8. Från den **Välj säkerhetskopieringspolicy** nedrullningsbara menyn, Välj en princip för säkerhetskopiering och klicka på **OK**. Information om hur du skapar en egen princip för säkerhetskopiering finns i avsnittet [definierar en säkerhetskopieringspolicy](backup-azure-sql-database.md#define-a-backup-policy).
+8. I den **Välj säkerhetskopieringspolicy** nedrullningsbara listrutan väljer du en princip för säkerhetskopiering och välj sedan **OK**. Information om hur du skapar en princip för säkerhetskopiering finns i [definierar en säkerhetskopieringspolicy](backup-azure-sql-database.md#define-a-backup-policy).
 
-    ![Välj en princip för säkerhetskopiering från den nedrullningsbara menyn](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
+    ![Välj en princip för säkerhetskopiering i listan](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
 
-    I menyn säkerhetskopieringspolicy, från den **Välj säkerhetskopieringspolicy** nedrullningsbara menyn som du kan välja: 
-    - standardprincipen för HourlyLogBackup 
-    - en befintlig säkerhetskopieringspolicy som har skapats för SQL,
-    - att [definiera en ny princip](backup-azure-sql-database.md#define-a-backup-policy) utifrån dina mål för återställningspunkt (RPO) och Kvarhållningsintervall. 
+    På den **säkerhetskopieringspolicy** menyn i den **Välj säkerhetskopieringspolicy** nedrullningsbara listrutan kan du: 
+    - Välj principen: **HourlyLogBackup**.
+    - Välj en befintlig säkerhetskopieringspolicy som har skapats för SQL.
+    - [Definiera en ny princip](backup-azure-sql-database.md#define-a-backup-policy) baserat på din RPO och kvarhållning. 
 
     > [!Note]
-    > Azure Backup stöder långsiktig kvarhållning baserat på farfar-far-son säkerhetskopiering schemat att optimera serverdelen lagringsanvändningen samtidigt som du uppfyller efterlevnadskrav.
+    > Azure Backup stöder långsiktig kvarhållning som baseras på farfar-far-son säkerhetskopiering schemat. Schemat optimerar användningen av lagringsutrymme för backend-medan möte efterlevnad behöver.
     >
 
-9. När du har valt en princip för säkerhetskopiering, i den **säkerhetskopieringsmenyn** klickar du på **Aktivera säkerhetskopiering**.
+9. När du har valt en säkerhetskopieringsprincip på den **säkerhetskopieringsmenyn**väljer **Aktivera säkerhetskopiering**.
 
     ![Aktivera den valda säkerhetskopieringsprincipen](./media/backup-azure-sql-database/enable-backup-button.png)
 
-    Du kan spåra konfigurationsförloppet i meddelandefältet på portalen.
+    Spåra konfigurationsförloppet i den **meddelanden** området i portalen.
 
-    ![Visa meddelandefältet](./media/backup-azure-sql-database/notifications-area.png)
+    ![Meddelandefält](./media/backup-azure-sql-database/notifications-area.png)
 
 
 ### <a name="define-a-backup-policy"></a>definierar en säkerhetskopieringspolicy
 
-En princip för säkerhetskopiering definierar en matris över när säkerhetskopiorna tas och hur länge säkerhetskopiorna ska bevaras. Du kan använda Azure Backup för att schemalägga tre typer av säkerhetskopiering för SQL-databaser:
+En princip för säkerhetskopiering definierar en matris över när säkerhetskopior tas och hur länge de är kvar. Använda Azure Backup för att schemalägga tre typer av säkerhetskopiering för SQL-databaser:
 
-* Fullständig säkerhetskopiering – en fullständig säkerhetskopia säkerhetskopierar hela databasen. En fullständig säkerhetskopia innehåller alla data i en specifik databas eller uppsättning filgrupper eller filer och tillräckligt med loggfiler att återställa dessa data. Du kan endast utlösa en fullständig säkerhetskopiering per dag. Du kan välja att ta en fullständig säkerhetskopiering med dagliga och veckovisa intervall. 
-* Differentiell säkerhetskopiering – en differentiell säkerhetskopiering baseras på den senaste, föregående fullständig säkerhetskopieringen. En differentiell säkerhetskopiering fångar endast de data som har ändrats sedan den fullständiga säkerhetskopian. Du kan endast utlösa en differentiell säkerhetskopiering per dag. Du kan inte konfigurera en fullständig säkerhetskopia och en differentiell säkerhetskopiering på samma dag.
-* Säkerhetskopiering av transaktionsloggen – en säkerhetskopiering av loggen kan point-in-time-återställning upp till en specifik sekund. Du kan högst, konfigurera transaktionell loggsäkerhetskopior var 15: e minut.
+* Fullständig säkerhetskopiering: en fullständig säkerhetskopia säkerhetskopierar hela databasen. En fullständig säkerhetskopia innehåller alla data i en specifik databas eller en uppsättning filgrupper eller filer och tillräckligt med loggen för att återställa dessa data. Du kan endast utlösa en fullständig säkerhetskopiering per dag. Du kan välja att ta en fullständig säkerhetskopiering med dagliga och veckovisa intervall. 
+* Differentiell säkerhetskopiering: en differentiell säkerhetskopiering baseras på den senaste, föregående fullständig säkerhetskopieringen. En differentiell säkerhetskopiering fångar endast de data som ändrats sedan den fullständiga säkerhetskopian. Du kan endast utlösa en differentiell säkerhetskopiering per dag. Du kan inte konfigurera en fullständig säkerhetskopia och en differentiell säkerhetskopiering på samma dag.
+* Säkerhetskopiering av transaktionsloggen: en loggsäkerhetskopiering gör det möjligt för point-in-time-återställning upp till en specifik sekund. Du kan högst, konfigurera transaktionell loggsäkerhetskopior var 15: e minut.
 
-Principen har skapats på Recovery Services-valvet nivå. Om du har flera valv valv kan använda samma säkerhetskopieringsprincip, men du måste använda principen för säkerhetskopiering för varje valv. När du skapar en princip för säkerhetskopiering, varje dag, är fullständig säkerhetskopiering standardinställningen. Du kan lägga till en differentiell säkerhetskopiering, men endast om du växlar fullständiga säkerhetskopieringar ska göras varje vecka. Följande procedur beskriver hur du skapar en princip för säkerhetskopiering för en SQLServer i virtuella Azure-datorer.
+Principens Skapad Recovery Services-valvet nivå. Flera valv kan använda samma säkerhetskopieringsprincip, men du måste använda principen för säkerhetskopiering för varje valv. När du skapar en princip för säkerhetskopiering, används den dagliga fullständiga säkerhetskopian som standard. Du kan lägga till en differentiell säkerhetskopiering, men endast om du konfigurerar fullständiga säkerhetskopieringar ska göras varje vecka. Följande procedur beskriver hur du skapar en princip för säkerhetskopiering för en SQL Server-instans i Azure-datorer.
 
-Skapa en princip för säkerhetskopiering
+Skapa en princip för säkerhetskopiering:
 
-1. På menyn säkerhetskopieringspolicy, från den **Välj säkerhetskopieringspolicy** nedrullningsbara menyn och välj **Skapa ny**.
+1. På den **säkerhetskopieringspolicy** menyn i den **Välj säkerhetskopieringspolicy** nedrullningsbara listrutan **Skapa ny**.
 
-   ![Skapa ny säkerhetskopieringsprincip](./media/backup-azure-sql-database/create-new-backup-policy.png)
+   ![Skapa en ny säkerhetskopieringsprincip](./media/backup-azure-sql-database/create-new-backup-policy.png)
 
-    Menyn säkerhetskopieringspolicy växlar ange fälten som krävs för en ny säkerhetskopieringsprincip för SQL server.
+    Den **säkerhetskopieringspolicy** menyn visar fälten som krävs för en ny säkerhetskopieringsprincip för SQL Server.
 
    ![den nya principen för säkerhetskopiering fält](./media/backup-azure-sql-database/blank-new-policy.png)
 
-2. I **principnamn**, ange ett namn. 
+2. I den **principnamn** anger du ett namn.
 
-3. En fullständig säkerhetskopia är obligatoriskt. Du kan acceptera standardvärdena för fullständig säkerhetskopiering eller klicka på **fullständig säkerhetskopiering** att redigera principen.
+3. En fullständig säkerhetskopia är obligatoriskt. Acceptera standardvärdena för fullständig säkerhetskopiering eller välj **fullständig säkerhetskopiering** att redigera principen.
 
     ![den nya principen för säkerhetskopiering fält](./media/backup-azure-sql-database/full-backup-policy.png)
 
-    Välj dagliga eller veckovisa för frekvensen i principen fullständig säkerhetskopiering. Om du väljer varje dag, väljer du timme och tidszon när jobbet börjar. Om du väljer dagliga fullständiga säkerhetskopior kan skapa du inte differentiella säkerhetskopieringar.
+    I den **princip för fullständig säkerhetskopiering** menyn för **säkerhetskopieringsfrekvens**, Välj **dagliga** eller **veckovisa**. För **dagliga**, väljer en timme och tidszonen när jobbet börjar. Du kan inte skapa differentiella säkerhetskopieringar för dagliga fullständiga säkerhetskopieringar.
 
    ![inställningen för varje dag](./media/backup-azure-sql-database/daily-interval.png)
 
-    Om du väljer varje vecka, väljer du dagen i veckan, timme och tidszonen när jobbet börjar.
+    För **veckovisa**, välja dagen i veckan, timme och tidszon när jobbet börjar.
 
    ![inställningen för varje vecka](./media/backup-azure-sql-database/weekly-interval.png)
 
-4. Som standard markeras alla alternativ för Kvarhållningsintervallet (dagliga, veckovisa, månatliga och årliga). Avmarkera alla kvarhållningsintervallet som du inte vill och ange intervall för att använda. I menyn fullständig säkerhetskopiering principen klickar du på **OK** att acceptera inställningarna.
+4. Som standard alla **Kvarhållningsintervall** alternativen är markerade: dagliga, veckovisa, månatliga och årliga. Avmarkera eventuella oönskade kvarhållning intervallet gränser. Ange intervall för att använda. I den **princip för fullständig säkerhetskopiering** menyn och välj **OK** att acceptera inställningarna.
 
-   ![kvarhållningsinställning intervallet intervall](./media/backup-azure-sql-database/retention-range-interval.png)
+   ![Kvarhållningsinställningar intervallet intervall](./media/backup-azure-sql-database/retention-range-interval.png)
 
-    Återställningspunkter är taggade för kvarhållning, baserat på deras Kvarhållningsintervall. Exempel: Om du väljer en daglig utlöses fullständig säkerhetskopiering endast en fullständig säkerhetskopiering varje dag. Beroende på din kvarhållning av veckovis, specifik dag säkerhetskopiering taggade och bevaras baserat på veckovisa kvarhållningsintervallet. Månatliga och årliga Kvarhållningsintervall fungerar på samma sätt.
+    Återställningspunkter är taggade för kvarhållning av säkerhetskopior baserat på deras Kvarhållningsintervall. Exempel: Om du väljer en daglig fullständig säkerhetskopiering utlöses endast en fullständig säkerhetskopiering varje dag. Säkerhetskopiering baserat för en viss dag är märkta och bevaras på veckovisa kvarhållningsintervallet och din veckovisa kvarhållningsinställning. Månatliga och årliga Kvarhållningsintervall fungerar på liknande sätt.
 
-5. Om du vill lägga till en princip för differentiell säkerhetskopiering, klickar du på **differentiell säkerhetskopiering** menyn öppnas. 
+5. Om du vill lägga till en princip för differentiell säkerhetskopiering, Välj **differentiell säkerhetskopiering**. Den **princip för differentiell säkerhetskopiering** menyn öppnas. 
 
-   ![Öppna differentiell princip](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
+   ![Öppna menyn princip för differentiell säkerhetskopiering](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
-    I menyn differentiell säkerhetskopiering princip väljer **aktivera** att öppna kontrollerna frekvens och kvarhållning. Du kan endast utlösa en differentiell säkerhetskopiering per dag.
+    På den **princip för differentiell säkerhetskopiering** menyn och välj **aktivera** att öppna kontrollerna frekvens och kvarhållning. Du kan endast utlösa en differentiell säkerhetskopiering per dag.
+    
     > [!Important] 
-    > Mest kan differentiella säkerhetskopieringar bevaras i 180 dagar. Om du behöver längre kvarhållning, måste du använda fullständiga säkerhetskopieringar kan du använda inte differentiella säkerhetskopieringar.
+    > Differentiella säkerhetskopieringar kan behållas i upp till 180 dagar. Om du behöver längre kvarhållning, måste du använda fullständiga säkerhetskopieringar.
     >
 
-   ![Redigera differentiell princip](./media/backup-azure-sql-database/enable-differential-backup-policy.png)
+   ![Redigera princip för differentiell säkerhetskopiering](./media/backup-azure-sql-database/enable-differential-backup-policy.png)
 
-    Klicka på **OK** att spara principen och återgå till huvudmenyn i Backup-principen.
+    Välj **OK** att spara principen och återgå till huvudsidan **säkerhetskopieringspolicy** menyn.
 
-6. Om du vill lägga till en transaktionell princip för säkerhetskopiering av loggen, klickar du på **Loggsäkerhetskopiering** menyn öppnas. I menyn Loggsäkerhetskopiering väljer **aktivera**, och Ställ in frekvensen och kvarhållning kontroller. Loggsäkerhetskopior kan ske så ofta som var 15: e minut och kan behållas i upp till 35 dagar. Klicka på **OK** att spara principen och återgå till huvudmenyn i Backup-principen.
+6. Om du vill lägga till en princip för säkerhetskopiering av transaktionella log, Välj **Loggsäkerhetskopior**. Den **Loggsäkerhetskopiering** menyn öppnas.
 
-   ![Redigera princip för säkerhetskopiering av loggen](./media/backup-azure-sql-database/log-backup-policy-editor.png)
+    I den **Loggsäkerhetskopiering** menyn och välj **aktivera**, och Ställ in frekvensen och kvarhållning kontroller. Loggsäkerhetskopior kan ske så ofta som var 15: e minut och kan behållas i upp till 35 dagar. Välj **OK** att spara principen och återgå till huvudsidan **säkerhetskopieringspolicy** menyn.
 
-7. Välj om du vill aktivera komprimering av SQL-säkerhetskopiering. Komprimering är inaktiverad som standard.
+   ![Redigera log-principen för säkerhetskopiering](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-    På serversidan använder Azure Backup SQL native säkerhetskopieringskomprimering.
+7. På den **säkerhetskopieringspolicy** menyn, Välj om du vill aktivera **komprimering av SQL-säkerhetskopiering**. Komprimering är inaktiverad som standard.
 
-8. När du har gjort alla ändringar till princip för säkerhetskopiering, klickar du på **OK**. 
+    På backend-servern använder Azure Backup SQL native säkerhetskopieringskomprimering.
 
-   ![Acceptera ny princip](./media/backup-azure-sql-database/backup-policy-click-ok.png)
+8. När du har slutfört redigeringar i säkerhetskopieringsprincipen väljer **OK**. 
+
+   ![Acceptera den nya principen för säkerhetskopiering](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>Återställa en SQL-databas
 
-Azure Backup innehåller funktioner för att återställa enskilda databaser till ett visst datum eller tid, upp till en specifik andra med säkerhetskopieringar av transaktionsloggen. Baserat på återställningstiderna som du anger kan Azure Backup bestämmer automatiskt de aktuella fullständig, differentiell och kedja av loggsäkerhetskopior som krävs för att återställa dina data.
+Azure Backup innehåller funktioner för att återställa enskilda databaser till ett visst datum eller tid (till andra) med hjälp av säkerhetskopieringar av transaktionsloggen. Azure Backup anger automatiskt lämpliga fullständig differentiella och kedja av säkerhetskopior som krävs för att återställa dina data baserat på din återställningstiderna.
 
-Du kan även välja en fullständig eller Differentiell säkerhetskopia att återställa till en specifik återställningspunkt i stället för en viss tid.
+Du kan också välja en fullständig eller Differentiell säkerhetskopia att återställa till en specifik återställningspunkt i stället för en viss tid.
  > [!Note]
- > Innan du aktiverar återställning av ”master”-databasen starta SQL Server i enanvändarläge med startalternativ ”-m AzureWorkloadBackup”. Argumentet för -m är namnet på klienten, endast den här klienten ska tillåtas att öppna anslutningen. Stoppa tjänsten SQL Agent innan du aktiverar återställning för alla systemdatabaser (modell, master, msdb). Stäng alla program som kan försöka stjäla en anslutning till någon av dessa databaser.
+ > Innan du utlöser en återställning av ”master”-databasen, starta SQL Server-instansen i enanvändarläge med startalternativ `-m AzureWorkloadBackup`. Argumentet för den `-m` alternativet är namnet på klienten. Endast den här klienten tillåts att öppna anslutningen. Stoppa tjänsten SQL Agent för alla systemdatabaser (modell, master, msdb) innan du utlöser återställningen. Stäng alla program som kan försöka stjäla en anslutning till någon av dessa databaser.
 >
 
-Du återställer en databas
+Du återställer en databas:
 
-1. Öppna Recovery Services-valvet som är registrerad med SQL-dator.
+1. Öppna Recovery Services-valvet som har registrerats hos SQL-dator.
 
-2. I instrumentpanelen för valvet väljer **användning** Säkerhetskopieringsobjekt för att öppna menyn Säkerhetskopieringsobjekt.
+2. På den **Recovery Services-valv** instrumentpanelen under **användning**väljer **Säkerhetskopieringsobjekt** att öppna den **Säkerhetskopieringsobjekt** menyn.
 
-    ![Klicka på + säkerhetskopiering för att öppna menyn säkerhetskopiering mål](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
+    ![Öppna menyn Säkerhetskopieringsobjekt](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
 
-3. I den **Säkerhetskopieringsobjekt** menyn, Välj typ av säkerhetskopieringshantering **SQL i Azure VM**. 
+3. På den **Säkerhetskopieringsobjekt** menyn under **typ av Säkerhetskopieringshantering**väljer **SQL i Azure VM**. 
 
-    ![Klicka på + säkerhetskopiering för att öppna menyn säkerhetskopiering mål](./media/backup-azure-sql-database/sql-restore-backup-items.png)
+    ![Välj SQL i Azure VM](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
-    I listan med Säkerhetskopieringsobjekt justeras för att visa listan över SQL-databaser. 
+    Den **Säkerhetskopieringsobjekt** menyn visar en lista över SQL-databaser. 
 
-4. Välj den databas som du vill återställa från listan över SQL-databaser.
+4. I listan över SQL-databaser, väljer du databasen som ska återställas.
 
-    ![Välj SQL i Azure VM från listan](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
+    ![Välj databas för att återställa](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
 
-    När du väljer databasen, öppnar menyn. Den här menyn visar säkerhetskopiering information för databasen, inklusive:
+    När du väljer databasen, öppnar menyn. Menyn visar säkerhetskopiering information för databasen, inklusive:
 
-    * den äldsta och de senaste återställningspunkter
-    * Logga Säkerhetskopieringsstatus för de senaste 24 timmarna (för databaser i Full- och samtidigt loggas återställningsmodellen, om konfigurerad för transaktionell loggsäkerhetskopior)
+    * Den äldsta och de senaste återställningspunkter.
+    * Logga Säkerhetskopieringsstatus för de senaste 24 timmarna (för databaser i fullständiga och massloggade återställningsmodellen, om konfigurerad för transaktionell loggsäkerhetskopior).
 
-5. I den valda databas-menyn klickar du på **återställa DB** att öppna menyn återställning.
+5. Välj på menyn för den valda databasen **återställa DB**. Den **återställa** menyn öppnas.
 
-    ![Välj Återställ databas](./media/backup-azure-sql-database/restore-db-button.png)
+    ![Välj Återställ databasen](./media/backup-azure-sql-database/restore-db-button.png)
 
-    Den **återställa** öppnas och så gör den **återställa konfigurationen** menyn. Den **återställa konfigurationen** menyn är det första steget i att konfigurera återställningen. I den här menyn väljer du var du vill återställa data. Alternativen är:
-    * Alternativ plats – Använd det här alternativet om du vill återställa databasen till en alternativ plats utan att försämra analysera.
-    * Skriv över DB – återställer data till samma SQL Server-instans som den ursprungliga källan. Effekten av detta är du skriva över den ursprungliga databasen.
+    När den **återställa** menyn öppnas den **återställa konfigurationen** menyn öppnas också. Den **återställa konfigurationen** menyn är det första steget för att konfigurera återställningen. Använd den här menyn för att välja var du vill återställa data. Alternativen är:
+    - **Alternativ plats**: återställa databasen till en annan plats och behålla den ursprungliga källdatabasen.
+    - **Åsidosätt databas**: återställa data till samma SQL Server-instans som den ursprungliga källan. Effekten av det här alternativet är att skriva över den ursprungliga databasen.
 
     > [!Important]
-    > Om den valda databasen tillhör en Always On-tillgänglighetsgrupp, tillåter inte SQL databasen kan skrivas över. I det här fallet bara den **alternativ plats** är aktiverat.
+    > Om den valda databasen tillhör en Always On-tillgänglighetsgrupp, tillåter inte SQL Server att databasen kan skrivas över. I det här fallet bara den **alternativ plats** är aktiverat.
     >
 
-    ![Klicka på Konfigurera för att öppna menyn för konfiguration av återställning](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
+    ![Återställ konfigurationen menyn](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
 
 ### <a name="restore-to-an-alternate-location"></a>Återställ till en alternativ plats
 
-Den här proceduren beskriver återställer data till en annan plats. Om du vill skriva över databasen när du återställer går du vidare till avsnittet [återställa och skriva över databasen](backup-azure-sql-database.md#restore-and-overwrite-the-database). Den här proceduren förutsätter att du har ditt Recovery Services-valv är öppet och finns på menyn återställa konfigurationen. Om du inte börja med avsnittet [återställa en SQL database](backup-azure-sql-database.md#restore-a-sql-database).
+Den här proceduren beskriver hur du återställer data till en annan plats. Om du vill skriva över databasen under återställningen fortsätter att [återställa och skriva över databasen](backup-azure-sql-database.md#restore-and-overwrite-the-database). I det här skedet Recovery Services-valvet är öppen och **återställa konfigurationen** menyn är synlig. Om du inte är i det här skedet, börjar du med [återställer en SQL-databas](backup-azure-sql-database.md#restore-a-sql-database).
 
 > [!NOTE]
-> Du kan återställa databasen till en SQL-Server i samma Azure-region och målservern måste vara registrerad till Recovery Services-valvet. 
+> Du kan återställa databasen till en instans av en SQL-Server i samma Azure-region. Målservern måste vara registrerad för Recovery Services-valvet. 
 >
 
-Den **Server** nedrullningsbara menyn visar bara de SQL-servrar som registrerats med Recovery Services-valvet. Om den server som inte är i den **Server** listan, finns i avsnittet [identifiera SQL server-databaser](backup-azure-sql-database.md#discover-sql-server-databases) att hitta servern. Under identifieringsprocessen för databasen är nya servrar registrerade på Recovery Services-valvet.
+På den **återställa konfigurationen** menyn den **Server** nedrullningsbara listrutan visas endast de SQL Server-instanser som har registrerats med Recovery Services-valvet. Om den server som du vill inte finns i listan, se [identifiera SQL Server-databaser](backup-azure-sql-database.md#discover-sql-server-databases) att hitta servern. Under lagringsidentifieringen kan är nya servrar registrerade på Recovery Services-valvet.
 
 1. I den **återställa konfigurationen** menyn:
 
-    * Välj **alternativ plats**,
-    * för **Server**, väljer du den SQLServer där du vill återställa databasen.
-    * i den **instans** nedrullningsbara menyn, Välj en SQL-instans
-    * i den **återställt databasnamn** dialogrutan, ange namnet på måldatabasen.
-    * Om så är tillämpligt, Välj **Åsidosätt om databasen med samma namn finns redan på den valda SQL-instansen**.
-    * Klicka på **OK** slutförts konfigurera mål och flytta till att välja en återställningspunkt.
+    * Under **var du vill återställa**väljer **alternativ plats**.
+    * Öppna den **Server** listrutan och väljer SQL Server-instansen för att återställa databasen.
+    * Öppna den **instans** listrutan och väljer en SQL Server-instans.
+    * I den **återställt databasnamn** anger du namnet på måldatabasen.
+    * Beroende, Välj **Åsidosätt om databasen med samma namn finns redan på den valda SQL-instansen**.
+    * Välj **OK** att slutföra konfigurationen av målservern och fortsätt med att välja en återställningspunkt.
 
-    ![Välj alternativ plats, instans och namn på menyn för återställning-konfiguration](./media/backup-azure-sql-database/restore-configuration-menu.png)
+    ![Ange värden för menyn Återställ konfiguration](./media/backup-azure-sql-database/restore-configuration-menu.png)
 
-2. I den **: Välj återställningspunkt** menyn kan du välja antingen en loggar (tidpunkt) eller fullständig och differentiell återställningspunkt. Om du vill återställa till en viss point-in-time-loggning, fortsätter du med det här steget. Om du vill återställa en fullständig eller differentiell återställningspunkt kan du gå vidare till steg 3.
+2. På den **: Välj återställningspunkt** menyn, Välj **loggar (tidpunkt)** eller **fullständig och differentiell** som återställningspunkt. Om du vill återställa till en specifik point-in-time-logg, fortsätter du med det här steget. Om du vill återställa en återställningspunkt med fullständiga och differentiella, fortsätter du till steg 3.
 
     ![Välj Återställ point-menyn](./media/backup-azure-sql-database/recovery-point-menu.png)
 
-    Punkten tidpunkt för återställning är bara tillgängligt för säkerhetskopieringar för databaser med fullständig & Bulk logged återställningsmodellen. Att återställa till en viss punkt i tid:
+    Point-in-time-återställning finns tillgängligt endast för säkerhetskopieringar för databaser med en fullständiga och massloggade återställningsmodellen. Att återställa till en viss tidpunkt:
 
-    1. Välj **loggar (tidpunkt)** som alternativ för återställning.
+    1. Välj **loggar (tidpunkt)** som typ av återställning.
 
         ![Välj typ av återställning](./media/backup-azure-sql-database/recovery-point-logs.png)
 
-    2. Under **återställa datum/tid**, klickar du på kalenderikonen för att öppna kalendern. Datum i fetstil innehålla återställningspunkter det aktuella datumet är markerat. Välj ett datum i kalendern med återställningspunkter. Du kan inte välja datum med några återställningspunkter.
+    2. Under **återställa datum/tid**, Välj mini kalender för att öppna den **kalender**. På den **kalender**, datumen i fetstil har återställningspunkter och det aktuella datumet är markerat. Välj ett datum med återställningspunkter. Datum utan återställningspunkter kan inte väljas.
 
-        ![Öppna kalender](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
+        ![Öppna kalendern](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
 
         När du har valt ett datum visar i tidslinjen diagrammet tillgängliga återställningspunkter intill varandra.
 
-    3. Med tidslinjediagram eller dialogruta i, ange en viss tidpunkt för återställningspunkten och klicka på **OK** att utföra steget återställningspunkt.
+    3. Använd tidslinje graph eller **tid** om du vill ange en viss tidpunkt för återställningspunkten. Välj **OK** att slutföra återställningspunkt steget.
     
-       ![Öppna kalender](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
+       ![Öppna kalendern](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
 
         Den **: Välj återställningspunkt** menyn har stängts och **Advanced Configuration** menyn öppnas.
 
        ![menyn för avancerad konfiguration](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
 
-    4. Från den **Advanced Configuration** menyn:
+    4. På den **Advanced Configuration** menyn:
 
-        * Att ha databasen inte kan användas efter återställning, på den **Återställ med NORECOVERY** menyn och välj **aktiverad**.
-        * Om du vill ändra återställningsplatsen på målservern, ange en ny sökväg i den **Target** kolumn.
-        * Klicka på **OK** att godkänna inställningarna och Stäng **Advanced Configuration**.
+        * Om du vill behålla databasen inte kan användas efter återställningen, ange **Återställ med NORECOVERY** till **aktiverad**.
+        * Om du vill ändra plats för databasfilåterställning på målservern, ange en ny sökväg i den **Target** kolumn.
+        * Välj **OK** godkänna inställningarna. Stäng den **Advanced Configuration** menyn.
 
-    5. På den **återställa** -menyn klickar du på **återställa** att starta återställningsjobbet. Du kan följa förloppet i området för meddelanden. Du kan också spåra förloppet i återställningsjobb för databasen.
+    5. På den **återställa** menyn och välj **återställa** att starta återställningsjobbet. Spåra förloppet för återställning i den **meddelanden** området eller välj **återställningsjobb** på databas-menyn.
 
-       ![menyn för avancerad konfiguration](./media/backup-azure-sql-database/restore-job-notification.png)
+       ![Förlopp för återställningsjobb](./media/backup-azure-sql-database/restore-job-notification.png)
 
-3. I den **: Välj återställningspunkt** menyn, Välj en återställningspunkt. Du kan välja antingen en loggar (tidpunkt) eller fullständig och differentiell. Om du vill återställa en point-in-time-logg, går du tillbaka till steg 2. Det här steget återställs en specifik fullständig eller differentiell återställningspunkt. Med det här alternativet kan du se alla fullständig och differentiell återställningspunkter under de senaste 30 dagarna. Om du vill se återställningspunkter som är äldre än 30 dagar, klickar du på **Filter** att öppna den **Filter återställningspunkter** menyn. Om du väljer en differentiell återställningspunkt måste Azure Backup först återställer lämplig fullständig återställningspunkt och tillämpar sedan den valda differentiella återställningspunkten.
+3. På den **: Välj återställningspunkt** menyn, Välj **loggar (tidpunkt)** eller **fullständig och differentiell** som återställningspunkt. Gå tillbaka till steg 2 om du vill återställa en point-in-time-logg. Det här steget återställs en specifik fullständig eller differentiell återställningspunkt. Du kan se alla fullständiga och differentiella återställningspunkterna för de senaste 30 dagarna. Om du vill se återställningspunkter som är äldre än 30 dagar, **Filter** att öppna den **Filter återställningspunkter** menyn. Azure Backup för en differentiell återställningspunkt först att återställa den lämpliga fullständig återställningspunkten och tillämpar sedan den valda differentiella återställningspunkten.
 
     ![Välj Återställ point-menyn](./media/backup-azure-sql-database/recovery-point-menu.png)
 
     1. I den **: Välj återställningspunkt** menyn, Välj **fullständig och differentiell**.
 
-       ![Välj Återställ point-menyn](./media/backup-azure-sql-database/recovery-point-logs-fd.png)
+       ![Välj fullständig och differentiell](./media/backup-azure-sql-database/recovery-point-logs-fd.png)
 
-        Lista över tillgängliga återställningspunkter visas.
+        På menyn visas listan över tillgängliga återställningspunkter.
 
-    2. Välj en återställningspunkt i listan med återställningspunkter och klicka på **OK** Slutför proceduren återställningspunkt. 
+    2. Välj en återställningspunkt i listan och välj **OK** Slutför återställningspunkt proceduren. 
 
-        ![Välj fullständig återställningspunkt](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
+        ![Välj en fullständig återställningspunkt](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
 
         Den **återställningspunkt** menyn har stängts och **Advanced Configuration** menyn öppnas.
 
-        ![menyn för avancerad konfiguration](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
+        ![Avancerad konfiguration meny](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
 
-    3. Från den **Advanced Configuration** menyn:
+    3. På den **Advanced Configuration** menyn:
 
-        * Att ha databasen inte kan användas efter återställning, på den **Återställ med NORECOVERY** menyn och välj **aktiverad**. **Återställ med NORECOVERY** är inaktiverad som standard.
-        * Om du vill ändra återställningsplatsen på målservern, ange en ny sökväg i den **Target** kolumn.
-        * Klicka på **OK** att godkänna inställningarna och Stäng **Advanced Configuration**.
+        * Om du vill behålla databasen inte kan användas efter återställningen, ange **Återställ med NORECOVERY** till **aktiverad**. **Återställ med NORECOVERY** är inaktiverad som standard.
+        * Om du vill ändra plats för databasfilåterställning på målservern, ange en ny sökväg i den **Target** kolumn.
+        * Välj **OK** godkänna inställningarna. Stäng den **Advanced Configuration** menyn.
 
-    4. På den **återställa** -menyn klickar du på **återställa** att starta återställningsjobbet. Du kan följa förloppet i området för meddelanden. Du kan också spåra förloppet i återställningsjobb för databasen.
+    4. På den **återställa** menyn och välj **återställa** att starta återställningsjobbet. Spåra förloppet för återställning i den **meddelanden** området eller välj **återställningsjobb** på databas-menyn.
 
-       ![menyn för avancerad konfiguration](./media/backup-azure-sql-database/restore-job-notification.png)
+       ![Förlopp för återställningsjobb](./media/backup-azure-sql-database/restore-job-notification.png)
 
 ### <a name="restore-and-overwrite-the-database"></a>Återställa och skriva över databasen
 
-Den här proceduren beskriver återställning av data och skriva över databasen. Om du vill återställa till en annan plats går du vidare till avsnittet [återställa till en alternativ plats](backup-azure-sql-database.md#restore-to-an-alternate-location). Den här proceduren förutsätter att du har ditt Recovery Services-valv är öppet och finns på den **återställa konfigurationen** menyn (se följande bild). Om du inte börja med avsnittet [återställa en SQL database](backup-azure-sql-database.md#restore-a-sql-database).
+Den här proceduren vägleder dig genom återställning av data och skriver över en databas. Om du vill återställa till en annan plats, även i fortsättningen [återställa till en alternativ plats](backup-azure-sql-database.md#restore-to-an-alternate-location). I det här skedet Recovery Services-valvet är öppen och **återställa konfigurationen** menyn är synliga (se följande bild). Om du inte är i det här skedet, börjar du med [återställer en SQL-databas](backup-azure-sql-database.md#restore-a-sql-database).
 
-![Klicka på Konfigurera för att öppna menyn för konfiguration av återställning](./media/backup-azure-sql-database/restore-overwrite-db.png)
+![Återställ konfigurationen menyn](./media/backup-azure-sql-database/restore-overwrite-db.png)
 
-Den **Server** nedrullningsbara menyn visar bara de SQL-servrar som registrerats med Recovery Services-valvet. Om den server som inte är i den **Server** listan, finns i avsnittet [identifiera SQL server-databaser](backup-azure-sql-database.md#discover-sql-server-databases) att hitta servern. Under identifieringsprocessen för databasen är nya servrar registrerade på Recovery Services-valvet.
+På den **återställa konfigurationen** menyn den **Server** nedrullningsbara listrutan visas endast de SQL Server-instanser som har registrerats med Recovery Services-valvet. Om den server som du vill inte finns i listan, se [identifiera SQL Server-databaser](backup-azure-sql-database.md#discover-sql-server-databases) att hitta servern. Under lagringsidentifieringen kan är nya servrar registrerade på Recovery Services-valvet.
 
-1. I den **återställa konfigurationen** menyn och välj **skriva över DB** och klicka på **OK** att slutföra konfigurera mål. 
+1. I den **återställa konfigurationen** menyn och välj **skriva över DB**, och välj sedan **OK** att slutföra konfigurationen av målservern. 
 
-   ![Klicka på Skriv över DB](./media/backup-azure-sql-database/restore-configuration-overwrite-db.png)
+   ![Välj Åsidosätt databas](./media/backup-azure-sql-database/restore-configuration-overwrite-db.png)
 
-    Den **Server**, **instans**, och **återställt databasnamn** dialogrutor krävs inte.
+    Den **Server**, **instans**, och **återställt databasnamn** inställningarna är inte nödvändigt.
 
-2. I den **: Välj återställningspunkt** menyn kan du välja antingen en loggar (tidpunkt) eller fullständig och differentiell återställningspunkt. Om du vill återställa en point-in-time-logg kan fortsätta med det här steget. Om du vill återställa en fullständig och differentiell återställningspunkt kan du gå vidare till steg 3.
+2. På den **: Välj återställningspunkt** menyn, Välj **loggar (tidpunkt)** eller **fullständig och differentiell** som återställningspunkt. Om du vill återställa till en specifik point-in-time-logg, fortsätter du med det här steget. Om du vill återställa en återställningspunkt med fullständiga och differentiella, fortsätter du till steg 3.
 
     ![Välj Återställ point-menyn](./media/backup-azure-sql-database/recovery-point-menu.png)
 
-    Punkten tidpunkt för återställning är bara tillgängligt för säkerhetskopieringar för databaser med fullständig & Bulk logged återställningsmodellen. Att välja en tidpunkt för återställning till en viss andra:
+    Point-in-time-återställning finns tillgängligt endast för säkerhetskopieringar för databaser med en fullständiga och massloggade återställningsmodellen. Så här återställer till en specifik andra:
 
-    1. Välj **loggar (tidpunkt)** som alternativ för återställning.
+    1. Välj **loggar (tidpunkt)** som återställningspunkt.
 
         ![Välj typ av återställning](./media/backup-azure-sql-database/recovery-point-logs.png)
 
-    2. Under **återställa datum/tid**, klickar du på kalenderikonen för att öppna kalendern. Datum i fetstil innehålla återställningspunkter det aktuella datumet är markerat. Välj ett datum i kalendern med återställningspunkter. Du kan inte välja datum med några återställningspunkter.
+    2. Under **återställa datum/tid**, Välj mini kalender för att öppna den **kalender**. På den **kalender**, datumen i fetstil har återställningspunkter och det aktuella datumet är markerat. Välj ett datum med återställningspunkter. Datum utan återställningspunkter kan inte väljas.
 
-        ![Öppna kalender](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
+        ![Öppna kalendern](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
 
         När du har valt ett datum visas i tidslinjen diagrammet tillgängliga återställningspunkter.
 
-    3. Med tidslinjediagram eller dialogruta i, ange en viss tidpunkt för återställningspunkten och klicka på **OK** att utföra steget återställningspunkt.
+    3. Använd tidslinje graph eller **tid** om du vill ange en viss tidpunkt för återställningspunkten. Välj **OK** att slutföra återställningspunkt steget.
     
-       ![Öppna kalender](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
+       ![Öppna kalendern](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
 
         Den **: Välj återställningspunkt** menyn har stängts och **Advanced Configuration** menyn öppnas.
 
        ![menyn för avancerad konfiguration](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
 
-    4. Från den **Advanced Configuration** menyn:
+    4. På den **Advanced Configuration** menyn:
 
-        * Att ha databasen inte kan användas efter återställning, på den **Återställ med NORECOVERY** menyn och välj **aktiverad**.
-        * Om du vill ändra återställningsplatsen på målservern, ange en ny sökväg i den **Target** kolumn.
-        * Klicka på **OK** att godkänna inställningarna och Stäng **Advanced Configuration**.
+        * Om du vill behålla databasen inte kan användas efter återställningen, ange **Återställ med NORECOVERY** till **aktiverad**.
+        * Om du vill ändra plats för databasfilåterställning på målservern, ange en ny sökväg i den **Target** kolumn.
+        * Välj **OK** godkänna inställningarna. Stäng den **Advanced Configuration** menyn.
 
-    5. På den **återställa** -menyn klickar du på **återställa** att starta återställningsjobbet. Du kan följa förloppet i området för meddelanden. Du kan också spåra förloppet i återställningsjobb för databasen.
+    5. På den **återställa** menyn och välj **återställa** att starta återställningsjobbet. Spåra förloppet för återställning i den **meddelanden** området eller välj **återställningsjobb** på databas-menyn.
 
-       ![menyn för avancerad konfiguration](./media/backup-azure-sql-database/restore-job-notification.png)
+       ![Förlopp för återställningsjobb](./media/backup-azure-sql-database/restore-job-notification.png)
 
-3. I den **: Välj återställningspunkt** menyn, Välj en återställningspunkt. Du kan välja antingen en loggar (tidpunkt) eller fullständig och differentiell. Om du vill återställa en point-in-time-logg, går du tillbaka till steg 2. Det här steget återställs en specifik fullständig eller differentiell återställningspunkt. Med det här alternativet kan du se alla fullständig och differentiell återställningspunkter under de senaste 30 dagarna. Om du vill se återställningspunkter som är äldre än 30 dagar, klickar du på **Filter** att öppna den **Filter återställningspunkter** menyn. Om du väljer en differentiell återställningspunkt måste Azure Backup först återställer lämplig fullständig återställningspunkt och tillämpar sedan den valda differentiella återställningspunkten.
+3. På den **: Välj återställningspunkt** menyn, Välj **loggar (tidpunkt)** eller **fullständig och differentiell** som återställningspunkt. Gå tillbaka till steg 2 om du vill återställa en point-in-time-logg. Det här steget återställs en specifik fullständig eller differentiell återställningspunkt. Du kan se alla fullständiga och differentiella återställningspunkterna för de senaste 30 dagarna. Om du vill se återställningspunkter som är äldre än 30 dagar, **Filter** att öppna den **Filter återställningspunkter** menyn. Azure Backup för en differentiell återställningspunkt först att återställa den lämpliga fullständig återställningspunkten och tillämpar sedan den valda differentiella återställningspunkten.
 
     ![Välj Återställ point-menyn](./media/backup-azure-sql-database/recovery-point-menu.png)
 
     1. I den **: Välj återställningspunkt** menyn, Välj **fullständig och differentiell**.
 
-       ![Välj Återställ point-menyn](./media/backup-azure-sql-database/recovery-point-logs-fd.png)
+       ![Välj fullständig och differentiell](./media/backup-azure-sql-database/recovery-point-logs-fd.png)
 
-        Lista över tillgängliga återställningspunkter visas.
+        På menyn visas listan över tillgängliga återställningspunkter.
 
-    2. Välj en återställningspunkt i listan med återställningspunkter och klicka på **OK** Slutför proceduren återställningspunkt. 
+    2. Välj en återställningspunkt i listan och välj **OK** Slutför återställningspunkt proceduren. 
 
-        ![Välj fullständig återställningspunkt](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
+        ![Välj en fullständig återställningspunkt](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
 
         Den **återställningspunkt** menyn har stängts och **Advanced Configuration** menyn öppnas.
 
-        ![menyn för avancerad konfiguration](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
+        ![Avancerad konfiguration meny](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
 
-    3. Från den **Advanced Configuration** menyn:
+    3. På den **Advanced Configuration** menyn:
 
-        * Att ha databasen inte kan användas efter återställning, på den **Återställ med NORECOVERY** menyn och välj **aktiverad**. **Återställ med NORECOVERY** är inaktiverad som standard.
-        * Om du vill ändra återställningsplatsen på målservern, ange en ny sökväg i den **Target** kolumn.
-        * Klicka på **OK** att godkänna inställningarna och Stäng **Advanced Configuration**.
+        * Om du vill behålla databasen inte kan användas efter återställningen, ange **Återställ med NORECOVERY** till **aktiverad**. **Återställ med NORECOVERY** är inaktiverad som standard.
+        * Om du vill ändra plats för databasfilåterställning på målservern, ange en ny sökväg i den **Target** kolumn.
+        * Välj **OK** godkänna inställningarna. Stäng den **Advanced Configuration** menyn.
 
-    4. På den **återställa** -menyn klickar du på **återställa** att starta återställningsjobbet. Du kan följa förloppet i området för meddelanden. Du kan också spåra förloppet i återställningsjobb för databasen.
+    4. På den **återställa** menyn och välj **återställa** att starta återställningsjobbet. Spåra förloppet för återställning i den **meddelanden** området eller genom att välja **återställningsjobb** på databas-menyn.
 
-       ![menyn för avancerad konfiguration](./media/backup-azure-sql-database/restore-job-notification.png)
-
+       ![Förlopp för återställningsjobb](./media/backup-azure-sql-database/restore-job-notification.png)
 
 ## <a name="manage-azure-backup-operations-for-sql-on-azure-vms"></a>Hantera Azure Backup-åtgärder för SQL på Azure Virtual Machines
 
-Det här avsnittet innehåller information om de olika Azure Backup hanteringsåtgärderna tillgänglig för SQL på Azure virtual machines. Följande avancerade åtgärder finns:
+Det här avsnittet innehåller information om de olika Azure Backup-hanteringsåtgärder som är tillgängliga för SQL på Azure virtual machines. Följande avancerade åtgärder finns:
 
 * Övervaka jobb
 * Säkerhetskopieringsaviseringar
 * Stoppa skydd på en SQL-databas
 * Återuppta skyddet av en SQL-databas
-* Utlösa en adhoc-säkerhetskopieringsjobb
-* Avregistrera en SQL-server
+* Utlös en ad hoc-säkerhetskopiering
+* Avregistrera en server som kör SQL Server
 
-### <a name="monitor-jobs"></a>Övervaka jobb
-Azure Backup är en lösning för klassen innehåller avancerade säkerhetskopiering aviseringar och meddelanden efter fel (Se säkerhetskopiering aviseringar nedan). Om du vill övervaka specifika jobb kan du använda någon av följande alternativ efter behov:
+### <a name="monitor-backup-jobs"></a>Övervaka säkerhetskopieringsjobb
+Azure Backup är en lösning för klassen som tillhandahåller avancerade aviseringar om säkerhetskopiering och meddelanden om eventuella fel. (Se [Visa aviseringar om säkerhetskopiering](backup-azure-sql-database.md#view-backup-alerts).) För att övervaka specifika jobb, använder du någon av följande alternativ baserat på dina krav.
 
-#### <a name="use-azure-portal-for-all-adhoc-operations"></a>Använd Azure-portalen för alla ad hoc-åtgärder
-Azure Backup visar utlöses alla manuellt eller ad hoc,-jobb i portalen för Backup-jobb. Jobb som är tillgängliga i portalen Inkluderingen: alla konfigurera säkerhetskopieringsåtgärder manuellt utlöses säkerhetskopieringsåtgärder, återställningsåtgärder, registrering och identifiera databasåtgärder och stoppa säkerhetskopiering. 
-![menyn för avancerad konfiguration](./media/backup-azure-sql-database/jobs-list.png)
+#### <a name="use-the-azure-portal-for-adhoc-operations"></a>Använda Azure-portalen för ad hoc-åtgärder
+Azure Backup visar alla manuellt utlösta eller ad hoc,-jobb i den **säkerhetskopieringsjobb** portal. De jobb som är tillgängliga i den **säkerhetskopieringsjobb** portal omfattar:
+- Alla konfigurera säkerhetskopieringsåtgärder.
+- Utlöses manuellt säkerhetskopieringsåtgärder.
+- Återställning.
+- Registrering och identifiera databasåtgärder.
+- Stoppa säkerhetskopiering. 
+
+![Säkerhetskopieringsjobb portal](./media/backup-azure-sql-database/jobs-list.png)
 
 > [!NOTE]
-> Alla schemalagda säkerhetskopieringsjobb inklusive fullständiga, differentiella och Loggbaserade säkerhetskopiering kommer inte att visas i portalen och kan övervakas med SQL Server Management Studio enligt beskrivningen nedan.
+> Alla schemalagda säkerhetskopieringsjobb, inklusive fullständig, differentiell och säkerhetskopiering av loggen, visas inte i den **säkerhetskopieringsjobb** portal. Använda SQL Server Management Studio för att övervaka schemalagda säkerhetskopieringsjobb, enligt beskrivningen i nästa avsnitt.
 >
 
 #### <a name="use-sql-server-management-studio-for-backup-jobs"></a>Använd SQL Server Management Studio för säkerhetskopieringsjobb
-Azure Backup använder SQL interna API: er för alla säkerhetskopieringsåtgärder. Med inbyggda API: er, kan du hämta alla jobbinformation från den [SQL-tabell för säkerhetskopian](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) i msdb-databasen.
+Azure Backup använder SQL interna API: er för alla säkerhetskopieringsåtgärder. Använda interna API: er för att hämta alla jobbinformation från den [SQL-tabell för säkerhetskopian](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) i msdb-databasen.
 
-I följande exempel är en fråga för att hämta alla säkerhetskopieringsjobb för en databas med namnet, **DB1**. Anpassa frågan för mer avancerad övervakning.
+I följande exempel är en fråga som hämtar alla säkerhetskopieringsjobb för en databas med namnet **DB1**. Anpassa frågan för avancerad övervakning.
+
 ```
 select CAST (
 Case type
@@ -649,141 +664,147 @@ backup_size AS BackupSizeInBytes
  
 ```
 
-### <a name="backup-alerts"></a>Säkerhetskopieringsaviseringar
+### <a name="view-backup-alerts"></a>Visa aviseringar om säkerhetskopiering
 
-Med säkerhetskopieringar sker var 15: e minut, kan det vara tidsödande att ibland övervakning säkerhetskopieringsjobben. Azure Backup planerat för den här potentiellt tedious situationen genom att tillhandahålla e-postaviseringar som utlöses av alla Säkerhetskopieringsfel. Aviseringar konsolideras på databasnivå med hjälp av felkoder. Om en databas har flera Säkerhetskopieringsfel, i stället för att ta emot en avisering för varje fel får till exempel e-post till första felet. Du kan logga in på Azure portal att övervaka efterföljande försök för den här databasen. 
+Eftersom loggsäkerhetskopior sker varje kvart, ibland kan övervaka säkerhetskopieringsjobb kan vara tråkigt. Azure Backup innehåller hjälp i det här fallet. E-postaviseringar initieras för alla Säkerhetskopieringsfel. Aviseringar konsolideras på databasnivå med hjälp av felkoder. En e-postavisering skickas endast för det första säkerhetskopieringen har misslyckandet för en databas. Logga in på Azure-portalen att övervaka alla fel för en databas. 
 
 Övervaka aviseringar om säkerhetskopiering:
 
 1. Logga in på Azure-prenumerationen i den [Azure-portalen](https://portal.azure.com).
 
-2. Öppna Recovery Services-valvet som är registrerad med SQL-dator.
+2. Öppna Recovery Services-valvet som har registrerats hos SQL-dator.
 
-3. I menyn Recovery Services-valv väljer **aviseringar och händelser**. 
+3. På den **Recovery Services-valv** instrumentpanelen, väljer **aviseringar och händelser**. 
 
-   ![menyn för avancerad konfiguration](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
+   ![Välj aviseringar och händelser](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
 
-4. I den **aviseringar och händelser** menyn och välj **säkerhetskopiering aviseringar** att visa listan över aviseringar.
+4. På den **aviseringar och händelser** menyn och välj **säkerhetskopiering aviseringar** att visa listan över aviseringar.
 
-   ![menyn för avancerad konfiguration](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
+   ![Välj Säkerhetskopieringsaviseringar](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
 
-### <a name="stop-protection-on-a-sql-server-database"></a>Stoppa skydd på en SQL Server-databas
+### <a name="stop-protection-for-a-sql-server-database"></a>Sluta skydda en SQL Server-databas
 
-Om du slutar skydda en SQL Server-databas, frågar Azure Backup om du vill behålla återställningspunkterna. Det finns två sätt att sluta skydda SQL-databas:
+När du slutar skydda en SQL Server-databas, Azure Backup-begäranden om du vill behålla återställningspunkterna. Det finns två sätt att sluta skydda en SQL-databas:
 
-* Stoppa alla framtida säkerhetskopieringsjobb och ta bort alla återställningspunkter
-* Stoppa alla framtida säkerhetskopieringsjobb, men lämna kvar återställningspunkterna 
+* Stoppa alla framtida säkerhetskopieringsjobb och ta bort alla återställningspunkter.
+* Stoppa alla framtida säkerhetskopieringsjobb, men lämna kvar återställningspunkterna.
 
-Lämna kvar återställningspunkterna innebär en kostnad som återställningspunkter för SQL har den skyddade SQL-instansen priser kostnad, plus förbrukad lagring. Läs mer om Azure Backup priser för SQL, den [sidan med prissättning för Azure Backup](https://azure.microsoft.com/pricing/details/backup/). Stoppa skyddet av databasen:
+Det finns en kostnad för att lämna kvar återställningspunkterna. Återställningspunkter för SQL debiteras för den skyddade SQL-instansen priser kostnad, plus förbrukad lagring. Läs mer om Azure Backup priser för SQL, den [sidan med prissättning för Azure Backup](https://azure.microsoft.com/pricing/details/backup/). 
 
-1. Öppna Recovery Services-valvet som är registrerad med SQL-dator.
+Sluta skydda en databas:
 
-2. I instrumentpanelen för valvet väljer **användning** Säkerhetskopieringsobjekt för att öppna menyn Säkerhetskopieringsobjekt.
+1. Öppna Recovery Services-valvet som har registrerats hos SQL-dator.
 
-    ![Klicka på + säkerhetskopiering för att öppna menyn säkerhetskopiering mål](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
+2. På den **Recovery Services-valv** instrumentpanelen under **användning**väljer **Säkerhetskopieringsobjekt** att öppna den **Säkerhetskopieringsobjekt** menyn.
 
-3. I den **Säkerhetskopieringsobjekt** menyn, Välj typ av säkerhetskopieringshantering **SQL i Azure VM**. 
+    ![Öppna menyn Säkerhetskopieringsobjekt](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
 
-    ![Klicka på + säkerhetskopiering för att öppna menyn säkerhetskopiering mål](./media/backup-azure-sql-database/sql-restore-backup-items.png)
+3. På den **Säkerhetskopieringsobjekt** menyn under **typ av Säkerhetskopieringshantering**väljer **SQL i Azure VM**. 
 
-    I listan med Säkerhetskopieringsobjekt justeras för att visa listan över SQL-databaser. 
+    ![Välj SQL i Azure VM](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
-4. Välj den databas du vill sluta skydda från listan över SQL-databaser.
+    Den **Säkerhetskopieringsobjekt** menyn visar en lista över SQL-databaser. 
 
-    ![Välj SQL i Azure VM från listan](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
+4. I listan över SQL-databaser, väljer du databasen för att stoppa skyddet.
 
-    När du väljer databasen, öppnar menyn. 
+    ![Den databas du sluta skydda](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
 
-5. I den valda databas-menyn klickar du på **stoppa säkerhetskopiering** att sluta skydda databasen.
+    När du väljer databasen, öppnar menyn.
 
-    ![Välj Återställ databas](./media/backup-azure-sql-database/stop-db-button.png)
+5. Välj på menyn för den valda databasen **stoppa säkerhetskopiering**. 
+
+    ![Välj Avbryt säkerhetskopiering](./media/backup-azure-sql-database/stop-db-button.png)
 
     Den **stoppa säkerhetskopiering** menyn öppnas.
 
-6. I den **stoppa säkerhetskopiering** menyn välja att Behåll säkerhetskopieringsdata eller ta bort säkerhetskopieringsdata. Alternativt kan du ange ett skäl för att stoppa skydd och en kommentar.
+6. På den **stoppa säkerhetskopiering** menyn välja att **Behåll säkerhetskopieringsdata** eller **ta bort säkerhetskopieringsdata**. Ange ett skäl för att stoppa skyddet och en kommentar som ett alternativ.
 
-    ![Välj Återställ databas](./media/backup-azure-sql-database/stop-backup-button.png)
+    ![Stoppa Backup-menyn](./media/backup-azure-sql-database/stop-backup-button.png)
 
-7. Klicka på **stoppa säkerhetskopiering** upphöra med skyddet på databasen. 
+7. Välj **stoppa säkerhetskopiering** upphöra med skyddet på databasen. 
 
 ### <a name="resume-protection-for-a-sql-database"></a>Återuppta skyddet av en SQL-databas
 
-Om den **Behåll säkerhetskopieringsdata** alternativet valdes när stoppa skydd för SQL-databas, är det möjligt att återuppta skyddet. Om den säkerhetskopierade data inte har kvar, kan inte skyddet återuppta. 
+Om den **Behåll säkerhetskopieringsdata** alternativet valdes när skydd för SQL-databasen har stoppats, du kan återuppta skyddet. Om du säkerhetskopierade data inte behålls kan inte protection återuppta. 
 
-1. Om du vill återuppta skyddet av SQL-databasen, öppna säkerhetskopieringsobjektet och klicka på **återuppta säkerhetskopiering**.
+1. Om du vill återuppta skyddet av SQL-databasen, öppnar du säkerhetskopieringsobjektet och väljer **återuppta säkerhetskopiering**.
 
-    ![återuppta databasskyddet](./media/backup-azure-sql-database/resume-backup-button.png)
+    ![Välj återuppta säkerhetskopiering till återuppta databasskyddet](./media/backup-azure-sql-database/resume-backup-button.png)
 
-   Menyn säkerhetskopieringspolicy öppnas.
+   Den **säkerhetskopieringspolicy** menyn öppnas.
 
-2. Från den **Säkerhetskopieringspolicyn** menyn, Välj en princip och klicka på **spara**.
+2. På den **säkerhetskopieringspolicy** menyn, Välj en princip och välj sedan **spara**.
 
 ### <a name="trigger-an-adhoc-backup"></a>Utlös en ad hoc-säkerhetskopiering
 
-Du kan utlösa en ad hoc-säkerhetskopiering när som helst. Det finns fyra typer av ad hoc-säkerhetskopiering. Mer information om varje typ finns i artikeln [typer av SQL-säkerhetskopior](https://docs.microsoft.com/sql/relational-databases/backup-restore/backup-overview-sql-server?view=sql-server-2017#types-of-backups).
+Aktivera ad hoc-säkerhetskopiering efter behov. Det finns fyra typer av ad hoc-säkerhetskopiering:
 
 * Fullständig säkerhetskopiering
-* Kopiera bara fullständig säkerhetskopia
+* Fullständig säkerhetskopiering med endast kopiering
 * Differentiell säkerhetskopia
 * Loggsäkerhetskopia
 
-### <a name="unregister-a-sql-server"></a>Avregistrera en SQL-Server
+Mer information om varje typ finns [typer av SQL-säkerhetskopior](https://docs.microsoft.com/sql/relational-databases/backup-restore/backup-overview-sql-server?view=sql-server-2017#types-of-backups).
 
-Avregistrera en SQLServer när du tar bort skydd, men innan du tar bort valvet
+### <a name="unregister-a-sql-server-instance"></a>Avregistrera en SQL Server-instans
 
-1. Öppna Recovery Services-valvet som är registrerad med SQL-dator.
+Avregistrera en SQL Server-instansen när du ta bort skyddet, men innan du tar bort valvet:
 
-2. I den **hantera** avsnittet vault-menyn klickar du på **infrastruktur för säkerhetskopiering**.  
+1. Öppna Recovery Services-valvet som har registrerats hos SQL-dator.
 
-   ![återuppta databasskyddet](./media/backup-azure-sql-database/backup-infrastructure-button.png)
+2. På den **Recovery Services-valv** instrumentpanelen under **hantera**väljer **infrastruktur för säkerhetskopiering**.  
 
-3. I den **hanteringsservrar** klickar du på **skyddade servrar**.
+   ![Välj en infrastruktur för säkerhetskopiering](./media/backup-azure-sql-database/backup-infrastructure-button.png)
 
-   ![återuppta databasskyddet](./media/backup-azure-sql-database/protected-servers.png)
+3. Under **hanteringsservrar**väljer **skyddade servrar**.
 
-    Skyddade servrar-menyn öppnas. 
+   ![Välj skyddade servrar](./media/backup-azure-sql-database/protected-servers.png)
 
-4. I den **skyddade servrar** menyn väljer du den server som du vill avregistrera. Om du vill ta bort valvet måste du avregistrera alla servrar.
+    Den **skyddade servrar** menyn öppnas. 
 
-5. Högerklicka på den skyddade servern på skyddade servrar-menyn och välj **ta bort**. 
+4. På den **skyddade servrar** menyn väljer du servern du avregistrera. Om du vill ta bort valvet måste du avregistrera alla servrar.
 
-   ![återuppta databasskyddet](./media/backup-azure-sql-database/delete-protected-server.png)
+5. På den **skyddade servrar** menyn, högerklicka på den skyddade servern och välj **ta bort**. 
 
-## <a name="sql-database-backup-faq"></a>SQL database säkerhetskopiering vanliga frågor och svar
+   ![Välj Ta bort](./media/backup-azure-sql-database/delete-protected-server.png)
+
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 Följande avsnitt innehåller ytterligare information om säkerhetskopiering för SQL-databas.
 
-### <a name="can-i-throttle-the-speed-of-the-sql-backup-policy-so-it-minimizes-impact-on-the-sql-server"></a>Jag kan begränsa hastigheten på SQL-principen för säkerhetskopiering så att den minimerar påverkan på SQLServer
+### <a name="can-i-throttle-the-speed-of-the-sql-server-backup-policy"></a>Kan jag begränsa hastigheten på SQL Server-principen för säkerhetskopiering?
 
-Ja, kan du begränsa den hastighet med vilken principen för säkerhetskopiering körs. Ändra inställningen:
+Ja. Du kan begränsa den hastighet som principen för säkerhetskopiering körs för att minimera effekten på en SQL Server-instans.
 
-1. På SQL-Server i den `C:\Program Files\Azure Workload Backup\bin` mappen öppnar **TaskThrottlerSettings.json**.
+Ändra inställningen:
 
-2. I den **TaskThrottlerSettings.json** filen, ändra **DefaultBackupTasksThreshold** till ett lägre värde, till exempel 5.
+1. Öppna på SQL Server-instansen i mappen c:\Program\Microsoft Files\Azure arbetsbelastning Backup\bin den **TaskThrottlerSettings.json** fil.
 
-3. Spara ändringarna och stäng filen.
+2. I filen TaskThrottlerSettings.json ändrar den **DefaultBackupTasksThreshold** till ett lägre värde (till exempel 5).
 
-4. Öppna Aktivitetshanteraren på SQL-Server och starta om den **Azure Backup arbetsbelastning Coordinator-tjänsten**.
+3. Spara ändringarna. Stäng filen.
 
-### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Jag kan köra en fullständig säkerhetskopiering från en sekundär replik
+4. Öppna på SQL Server-instansen **Aktivitetshanteraren**. Starta om den **tjänsten för Azure Backup-arbetsbelastning Coordinator**.
 
-Nej, den här funktionen stöds inte.
+### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Kan jag köra en fullständig säkerhetskopiering från en sekundär replik?
 
-### <a name="do-successful-backup-jobs-create-alerts"></a>Skapar lyckad säkerhetskopieringsjobb aviseringar
+Nej. Den här funktionen stöds inte.
 
-Nej. Lyckade jobb genererar inte aviseringar. Aviseringar skickas bara för säkerhetskopieringsjobb som misslyckas.
+### <a name="do-successful-backup-jobs-create-alerts"></a>Skapar lyckad säkerhetskopieringsjobb aviseringar?
 
-### <a name="are-scheduled-backup-job-details-shown-in-the-jobs-menu"></a>Information om schemalagda säkerhetskopieringsjobb visas i menyn jobb
+Nej. Lyckad säkerhetskopieringsjobb generera inte aviseringar. Aviseringar skickas bara för säkerhetskopieringsjobb som misslyckas.
 
-Nej. Menyn jobb visar information om ad hoc, men visar inte schemalagda säkerhetskopieringsjobb. Om alla schemalagda säkerhetskopieringsjobb misslyckas, hittar du all information i aviseringar för misslyckade jobbet. Om du vill övervaka alla schemalagda och adhoc-säkerhetskopieringsjobb, [använder SQL Server Management Studio](backup-azure-sql-database.md#use-sql-server-management-studio-for-backup-jobs).
+### <a name="can-i-see-details-for-scheduled-backup-jobs-in-the-jobs-menu"></a>Kan jag se information om schemalagda säkerhetskopieringsjobb på menyn jobb?
 
-### <a name="if-i-select-a-sql-server-will-future-databases-automatically-be-added"></a>Om jag väljer en SQLServer framtida databaser automatiskt till
+Nej. Den **säkerhetskopieringsjobb** menyn visar information om ad hoc, men inte schemalagda säkerhetskopieringsjobb. Om alla schemalagda säkerhetskopieringsjobb misslyckas, finns information i aviseringar för misslyckade jobbet. För att övervaka alla schemalagda och adhoc-säkerhetskopieringsjobb, använda [SQL Server Management Studio](backup-azure-sql-database.md#use-sql-server-management-studio-for-backup-jobs).
 
-Nej. När du konfigurerar skydd för en SQL-server om du markerar kryssrutan på servernivå, läggs alla databaser. Men om du lägger till databaser till SQLServer när du har konfigurerat skyddet, du måste manuellt lägga till nya databaser för att skydda dem. Databaserna finns inte inkluderas i det konfigurera skyddet.
+### <a name="when-i-select-a-sql-server-instance-are-future-databases-automatically-added"></a>När jag väljer en SQL Server-instansen är framtida databaser som läggs till automatiskt?
 
-### <a name="if-i-change-the-recovery-model-how-do-i-restart-protection"></a>Hur startar jag skydd om jag ändrar återställningsmodellen
+Nej. När du konfigurerar skydd för en SQL Server-instans, om du väljer alternativet för server, läggs alla databaser. Om du lägger till databaser till en SQL Server-instansen när du konfigurerar skydd måste du lägga till nya databaser för att skydda dem manuellt. Databaserna är inte inkluderas i det konfigurera skyddet.
 
-Om du ändrar återställningsmodellen kan aktivera en fullständig säkerhetskopiering och säkerhetskopieringar börjar som förväntat.
+### <a name="if-i-change-the-recovery-model-how-do-i-restart-protection"></a>Hur startar jag skydd om jag ändrar återställningsmodellen?
+
+Aktivera en fullständig säkerhetskopiering. Loggsäkerhetskopior börjar som förväntat.
 
 ### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>Jag kan skydda SQL Always On-Tillgänglighetsgrupper där den primära repliken är lokalt
 
@@ -791,7 +812,7 @@ Nej. Azure Backup skyddar SQL-servrar som körs i Azure. Om tillgänglighet grup
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill läsa mer om Azure Backup kan du ta en titt på PowerShell-exemplet för att säkerhetskopiera krypterade virtuella datorer.
+Läs mer om Azure Backup i Azure PowerShell-exemplet för att säkerhetskopiera krypterade virtuella datorer.
 
 > [!div class="nextstepaction"]
-> [Säkerhetskopiera krypterade virtuella datorer](./scripts/backup-powershell-sample-backup-encrypted-vm.md)
+> [Säkerhetskopiera en krypterad virtuell dator](./scripts/backup-powershell-sample-backup-encrypted-vm.md)

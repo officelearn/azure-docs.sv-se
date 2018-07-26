@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: d8b8aee508ff1b243bf40261819071fc2a5194a3
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: cb23db13d67047225102c6888e27e8f79a3e5abf
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237622"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259321"
 ---
-# <a name="configure-managed-service-identity-msi-on-an-azure-vm-using-azure-cli"></a>Konfigurera hanterad tjänstidentitet (MSI) på en Azure-dator med Azure CLI
+# <a name="configure-managed-service-identity-on-an-azure-vm-using-azure-cli"></a>Konfigurera hanterad tjänstidentitet på en Azure-dator med Azure CLI
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -105,7 +105,7 @@ Om du har en virtuell dator som inte längre behöver systemtilldelad identitet 
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Ta bort MSI VM-tillägg, användaren `-n ManagedIdentityExtensionForWindows` eller `-n ManagedIdentityExtensionForLinux` växla (beroende på vilken typ av virtuell dator) med [az vm-tillägget delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
+Att ta bort tillägget Managed Service Identity VM användaren `-n ManagedIdentityExtensionForWindows` eller `-n ManagedIdentityExtensionForLinux` växla (beroende på vilken typ av virtuell dator) med [az vm-tillägget delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -119,7 +119,7 @@ I det här avsnittet får lära du dig att lägga till och ta bort Användartill
 
 Det här avsnittet vägleder dig genom skapandet av en virtuell dator med tilldelningen av en Användartilldelad identitet. Om du redan har en virtuell dator som du vill använda kan du hoppa över det här avsnittet och gå vidare till nästa.
 
-1. Du kan hoppa över det här steget om du redan har en resursgrupp som du vill använda. Skapa en [resursgrupp](~/articles/azure-resource-manager/resource-group-overview.md#terminology) för inneslutning och distribution av din MSI med [az gruppen skapa](/cli/azure/group/#az_group_create). Ersätt parametervärdena `<RESOURCE GROUP>` och `<LOCATION>` med dina egna värden. :
+1. Du kan hoppa över det här steget om du redan har en resursgrupp som du vill använda. Skapa en [resursgrupp](~/articles/azure-resource-manager/resource-group-overview.md#terminology) för inneslutning och distribution av din hanterade tjänstidentitet, med hjälp av [az gruppen skapa](/cli/azure/group/#az_group_create). Ersätt parametervärdena `<RESOURCE GROUP>` och `<LOCATION>` med dina egna värden. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -165,7 +165,7 @@ Det här avsnittet vägleder dig genom skapandet av en virtuell dator med tillde
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
-Svaret innehåller information om användaren som har tilldelats MSI som skapats, liknar följande. Resursen `id` värde som tilldelats Användartilldelad identitet som ska användas i följande steg.
+Svaret innehåller information om användaren som har tilldelats hanterad identitet som har skapats, liknar följande. Resursen `id` värde som tilldelats Användartilldelad identitet som ska användas i följande steg.
 
    ```json
    {

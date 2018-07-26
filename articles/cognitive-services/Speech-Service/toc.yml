@@ -98,7 +98,7 @@
         - name: Vanliga frågor och svar om Text till tal
           href: faq-text-to-speech.md
         - name: Vanliga frågor och svar om Translator
-          href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
+          href: 'https://www.microsoft.com/translator/faq.aspx'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: UserVoice

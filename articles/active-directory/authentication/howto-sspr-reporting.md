@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 91ed8a073dd95ddf37e4a71bfd7c3ab1dcb94f09
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 2560296c088491b7ae0cd414f88ae337c1383c9a
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161369"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258804"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Alternativ för Azure AD-lösenordshantering
 
@@ -54,6 +54,10 @@ Vi har förbättrat sättet du kan visa återställning av lösenord och löseno
 6. Om du vill filtrera den här vyn om du vill visa endast de lösenord-återställning-relaterade händelserna, Välj den **Filter** längst upp i fönstret.
 7. Från den **Filter** menyn och välj den **kategori** nedrullningsbara listan och ändra det till den **Self-service lösenordshantering** kategorityp.
 8. Du kan också filtrera listan ytterligare genom att välja specifikt **aktivitet** du är intresserad av.
+
+### <a name="converged-registration-preview"></a>Konvergerade registrering (förhandsversion)
+
+Om ditt deltagande i den offentliga förhandsversionen av konvergerade registrering, information om användaraktivitet i granskningsloggarna finns under kategorin **autentiseringsmetoder**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Beskrivning av rapportkolumner i Azure portal
 

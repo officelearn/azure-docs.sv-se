@@ -7,21 +7,23 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/20/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 669ac28302275c07365acad18cbd6cabebca5637
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 07c17d248d78313f1c5f6f1025ae06a623b75944
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239176"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259355"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Översikt: Active geo-replikering och automatisk redundans-grupper
 Aktiv geo-replikering är utformad som en företagslösning för affärskontinuitet som kan utföra snabb katastrofåterställning vid avbrott på datacentret skala programmet. Om geo-replikering är aktiverad, kan programmet initiera redundans till en sekundär databas i en annan Azure-region. Upp till fyra sekundära databaser stöds i samma eller olika regioner och de sekundära databaser kan också användas för skrivskyddad åtkomst frågor. Redundansväxlingen måste initieras manuellt av programmet eller användaren. Efter redundansväxlingen har den nya primärt slutpunkt för en annan anslutning. 
+
 > [!NOTE]
 > Aktiv geo-replikering är tillgänglig för alla databaser på alla tjänstnivåer i alla regioner.
 >  
+
 Automatisk redundans grupper är en utökning av aktiv geo-replikering. Det är utformat för att hantera redundans för flera geo-replikerade databaser sumultaneously med hjälp av ett program som initierade växling vid fel eller genom att delegera redundansväxling görs av tjänsten SQL Database som baseras på ett villkor som definierats. Det senare kan du återställa flera relaterade databaser i en sekundär region automatiskt efter ett oåterkalleligt fel eller oplanerad händelse som leder till fullständig eller partiell förlust av tillgänglighet för SQL Database-tjänsten i den primära regionen. Du kan dessutom använda läsbara sekundära databaser för att avlasta skrivskyddad frågearbetsbelastningar. Eftersom automatisk redundans grupper omfatta flera databaser, måste databaserna konfigureras på den primära servern. Både primära och sekundära servrar för databaser i redundansgruppen måste vara i samma prenumeration. Automatisk redundans grupper stöd för replikering av alla databaser i gruppen att endast en sekundär server i en annan region.
 
 > [!NOTE]
@@ -62,15 +64,15 @@ Aktiv geo-replikering-funktionen ger följande viktiga funktioner:
 * **Automatisk asynkron replikering**: du kan bara skapa en sekundär databas genom att lägga till en befintlig databas. Sekundärt kan skapas i en Azure SQL Database-server. När du skapat fylls den sekundära databasen med de data som kopieras från den primära databasen. Den här processen kallas seeding. När sekundära databasen har skapats och angetts, replikeras uppdateringar till den primära databasen asynkront till den sekundära databasen automatiskt. Asynkron replikering innebär att transaktionerna sparas på den primära databasen innan de replikeras till den sekundära databasen. 
 * **Läsbara sekundära databaser**: ett program kan komma åt en sekundär databas för skrivskyddade åtgärder med hjälp av samma eller olika säkerhetsobjekt används för åtkomst till den primära databasen. Den sekundära databasen fungera i ögonblicksbilden isoleringsläge för att säkerställa att replikeringen av uppdateringar av primärt (log repetitionsattacker) inte försenas av frågor som körs på sekundärt.
 
-   > [!NOTE]
-   > Log-repetitionsattacker är försenad på den sekundära databasen om det finns schemauppdateringar på primärt. Det senare kräver ett schemalås på den sekundära databasen. 
-   > 
+> [!NOTE]
+> Log-repetitionsattacker är försenad på den sekundära databasen om det finns schemauppdateringar på primärt. Det senare kräver ett schemalås på den sekundära databasen. 
+> 
 
 * **Flera läsbara sekundära databaser**: två eller flera sekundära databaser öka redundans och nivå av skydd för den primära databasen och programmet. Om det finns flera sekundära databaser, förblir programmet skyddat även om en av de sekundära databaserna misslyckas. Om det finns bara en sekundär databas och misslyckas, visas programmet högre risk tills en ny sekundär databas skapas.
 
-   > [!NOTE]
-   > Om du använder aktiv geo-replikering och skapa ett globalt distribuerade program som du kan behöva ange skrivskyddad åtkomst till data i fler än fyra regioner, kan du skapa sekundära av en sekundär (en process som kallas länkning). På så sätt kan du uppnå praktiskt taget obegränsade skala för databasreplikering. Dessutom minskar länkning kostnaderna för replikeringen från den primära databasen. En kompromiss är ökad replikeringsfördröjning för löv – de flesta sekundära databaser. 
-   >
+> [!NOTE]
+> Om du använder aktiv geo-replikering och skapa ett globalt distribuerade program som du kan behöva ange skrivskyddad åtkomst till data i fler än fyra regioner, kan du skapa sekundära av en sekundär (en process som kallas länkning). På så sätt kan du uppnå praktiskt taget obegränsade skala för databasreplikering. Dessutom minskar länkning kostnaderna för replikeringen från den primära databasen. En kompromiss är ökad replikeringsfördröjning för löv – de flesta sekundära databaser. 
+>
 
 * **Stöd för elastisk pool databaser**: varje replik kan separat delta i en elastisk Pool eller inte är i en elastisk pool alls. Pool-alternativ för varje replik är separat och är inte beroende av konfigurationen för andra replikeringar (antingen primär eller sekundär). Varje elastisk Pool ingår i en enda region, flera repliker i samma topologi kan därför aldrig dela en elastisk Pool.
 * **Konfigurerbara prestandanivå för den sekundära databasen**: både primära och sekundära databaser måste ha samma tjänstenivå. Du kan skapa en sekundär databas med lägre prestandanivå (dtu: er) än primärt. Det här alternativet rekommenderas inte för program med hög skrivning Databasaktivitet eftersom den ökade replikeringsfördröjning ökar risken för avsevärd dataförlust efter en redundansväxling. Efter en redundansväxling påverkas programmets prestanda dessutom tills den nya primärt uppgraderas till en högre prestandanivå. Logg-i/o procent diagrammet i Azure-portalen ger en bra sätt att beräkna minimal prestandanivå för den sekundära som krävs för att upprätthålla belastningen för replikering. Exempel: om din primära databas är P6 (1000 DTU) och dess loggen IO-procent är 50% sekundär måste vara minst P4 (500 DTU). Du kan också hämta log-i/o-data med hjälp av [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) eller [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) databasen vyer.  Mer information om SQL Database-prestandanivåer finns [vad är SQL Database-servicenivåerna](sql-database-service-tiers.md). 
@@ -86,9 +88,9 @@ Automatisk redundans med funktionen ger en kraftfull abstraktion av aktiv geo-re
 * **Sekundär server**: en server som är värd för de sekundära databaserna i redundansgruppen. Den sekundära servern kan inte vara i samma region som den primära servern.
 * **Att lägga till databaser i redundansgruppen**: du kan placera flera databaser inom en server eller en elastisk pool i samma redundansgruppen. Om du lägger till en fristående databas i gruppen skapas automatiskt en sekundär databas med hjälp av samma version och prestandanivå. Om den primära databasen är i en elastisk pool, skapas automatiskt sekundärt i den elastiska poolen med samma namn. Om du lägger till en databas som redan har en sekundär databas i den sekundära servern ärvs att geo-replikering av gruppen.
 
-   > [!NOTE]
-   > När du lägger till en databas som redan har en sekundär databas på en server som inte är en del av redundansgruppen, skapas en ny sekundär i den sekundära servern. 
-   >
+> [!NOTE]
+> När du lägger till en databas som redan har en sekundär databas på en server som inte är en del av redundansgruppen, skapas en ny sekundär i den sekundära servern. 
+>
 
 * **Redundans skrivskyddad lyssnare**: ett DNS CNAME-post formaterad som  **&lt;redundansgruppsnamnet-&gt;. database.windows.net** som pekar på den aktuella primära server-URL. Tillåter Läs-och SQL-program kan transparent återansluta till den primära databasen när primärt ändras efter redundans. 
 * **Redundans skrivskyddad lyssnare**: ett DNS CNAME-post formaterad som  **&lt;redundansgruppsnamnet-&gt;. secondary.database.windows.net** som pekar på den sekundära servern URL: en. Det gör att skrivskyddade SQL-programmen för transparent anslutning till den sekundära databasen med hjälp av de angivna reglerna för belastningsutjämning. 
@@ -97,17 +99,16 @@ Automatisk redundans med funktionen ger en kraftfull abstraktion av aktiv geo-re
 * **Manuell redundans**: du kan initiera redundans manuellt när som helst oavsett automatisk redundans-konfiguration. Om automatisk redundans principen inte är konfigurerad, krävs manuell redundans för att återställa databaser i redundansgruppen. Du kan initiera framtvingad eller eget redundans (med fullständig synkronisering). Det senare kan användas för att flytta den aktiva servern till den primära regionen. När redundansväxlingen är klar, uppdateras automatiskt DNS-poster för att kontrollera nätverksanslutningen till rätt server.
 * **Respitperiod med dataförlust**: eftersom de primära och sekundära databaserna synkroniseras med asynkron replikering, redundans kan resultera i dataförlust. Du kan anpassa principen för automatisk redundans så att den återspeglar ditt programs tolerans för dataförlust. Genom att konfigurera **lade**, du kan styra hur länge systemet ska vänta innan du påbörjar redundans som troligen kommer att resultatet data går förlorade. 
 
-   > [!NOTE]
-   > När systemet identifierar att databaserna i gruppen är fortfarande online (till exempel driftstörningarna endast påverkas kontrollplanet service), redundans med Fullständig datasynkronisering (eget redundans) aktiveras omedelbart oavsett vilket värde som angetts av  **Lade**. Det här beteendet garanteras att det finns inga data går förlorade under återställningen. Respittiden gäller endast när ett eget redundans inte är möjligt. Om avbrottet har mildras innan respittiden upphör att gälla, aktiveras inte växling vid fel.
-   >
+> [!NOTE]
+> När systemet identifierar att databaserna i gruppen är fortfarande online (till exempel driftstörningarna endast påverkas kontrollplanet service), redundans med Fullständig datasynkronisering (eget redundans) aktiveras omedelbart oavsett vilket värde som angetts av  **Lade**. Det här beteendet garanteras att det finns inga data går förlorade under återställningen. Respittiden gäller endast när ett eget redundans inte är möjligt. Om avbrottet har mildras innan respittiden upphör att gälla, aktiveras inte växling vid fel.
+>
 
 * **Flera redundansgrupper**: du kan konfigurera flera redundansgrupper för samma par av servrar för att styra skalan för redundans. Varje grupp växlas över oberoende av varandra. Om ditt program med flera innehavare använder elastiska pooler, kan du använda den här funktionen för att blanda primära och sekundära databaser i varje pool. Det här sättet du kan minska effekten av ett avbrott till endast hälften av klienterna.
 
-## <a name="best-practices-of-building-highly-available-service"></a>Metodtips för att skapa tjänst med hög tillgänglighet
+## <a name="best-practices-of-using-failover-groups-for-business-continuity"></a>Bästa praxis att använda grupper för växling vid fel för affärskontinuitet
+När du utformar en tjänst med verksamhetskontinuitet i åtanke bör du följa dessa riktlinjer:
 
-Om du vill skapa en mycket tillgänglig tjänst som använder Azure SQL database, bör du följa dessa riktlinjer:
-
-- **Använd redundansgruppen**: en eller flera redundansgrupper kan skapas mellan två servrar i olika regioner (primära och sekundära servrar). Varje grupp kan innehålla en eller flera databaser som återställs som en enhet om alla eller vissa primära databaser blir otillgänglig på grund av ett avbrott i den primära regionen. Redundansgruppen skapar geo-sekundär databas med samma tjänstmålet som primär. Om du lägger till en befintlig relation för geo-replikering i redundansgruppen, kontrollera att geo-secondary har konfigurerats med samma servicenivåmålet som primär.
+- **Använda en eller flera grupper för växling vid fel för att hantera redundans för flera databaser**: en eller flera redundansgrupper kan skapas mellan två servrar i olika regioner (primära och sekundära servrar). Varje grupp kan innehålla en eller flera databaser som återställs som en enhet om alla eller vissa primära databaser blir otillgänglig på grund av ett avbrott i den primära regionen. Redundansgruppen skapar geo-sekundär databas med samma tjänstmålet som primär. Om du lägger till en befintlig relation för geo-replikering i redundansgruppen, kontrollera att geo-secondary har konfigurerats med samma servicenivåmålet som primär.
 - **Använd Skriv-lyssnare för OLTP-arbetsbelastning**: när du utför åtgärder för OLTP, använda  **&lt;redundansgruppsnamnet-&gt;. database.windows.net** som servern URL och anslutningar är Omdirigerad automatiskt till primärt. Denna URL ändras inte efter redundansen. Obs växling vid fel innebär att uppdatera DNS-posten så klientanslutningarna omdirigeras till den nya primärt först när klienten DNS-cacheminnet har uppdaterats.
 - **Använd skrivskyddade lyssnare för skrivskyddade arbetsbelastningar**: Om du har en logiskt avskild skrivskyddad arbetsbelastning som är tolerant för vissa föråldring av data kan du använda den sekundära databasen i programmet. Skrivskyddad sessioner, använda  **&lt;redundansgruppsnamnet-&gt;. secondary.database.windows.net** som servern URL och anslutningen automatiskt dirigeras till sekundärt. Vi rekommenderar också att du anger i anslutningssträngen läsa avsikten med hjälp av **ApplicationIntent = ReadOnly**. 
 - **Förberedas för perf försämring**: SQL redundans beslut är fristående från resten av programmet eller andra tjänster som används. Programmet får ”blandas” med vissa komponenter i en region och vissa i en annan. För att undvika att försämringen, se till att redundanta programdistributionen i regionen för Haveriberedskap och följer du instruktionerna i den här artikeln. Obs programmet i regionen för Haveriberedskap behöver inte använda en annan anslutningssträng.  
@@ -115,6 +116,44 @@ Om du vill skapa en mycket tillgänglig tjänst som använder Azure SQL database
 
 > [!IMPORTANT]
 > Elastiska pooler med 800 eller mindre dtu: er och fler än 250 databaser med hjälp av geo-replikering kan stöta på problem och längre planerade redundansväxlingar och sämre prestanda.  Dessa problem är mer sannolikt kan förekomma för skrivning krävande arbetsbelastningar ger när geo-replikering slutpunkter är långt från varandra efter geografi, eller när flera sekundära slutpunkter som används för varje databas.  Symtomen för de här problemen anges när geo-replikeringsfördröjning ökar med tiden.  Den här fördröjningen kan övervakas med [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Om de här problemen uppstår är åtgärder ökar antalet pool-dtu: er eller minska antalet geo-replikerade databaser i samma pool.
+
+## <a name="failover-groups-and-network-security"></a>Redundansgrupper och nätverkssäkerhet 
+
+För vissa program säkerhetsreglerna kräver att nätverksåtkomsten till datanivån är begränsad till en viss komponent eller komponenter, till exempel en virtuell dator, webbtjänsten osv. Det här kravet visas några utmaningar för företag affärskontinuitet design och användning av redundansgrupperna. När du implementerar sådana begränsad åtkomst bör du överväga följande alternativ.
+
+### <a name="using-failover-groups-and-virtual-network-rules"></a>Med redundansgrupper och virtuella Nätverksregler
+
+Om du använder [tjänstslutpunkter i virtuella nätverk och regler](sql-database-vnet-service-endpoint-rule-overview.md) för att begränsa åtkomst till din SQL-databas, Tänk på att varje virtuellt nätverk tjänstslutpunkt gäller för endast en Azure-region. Slutpunkten kan inte andra regioner att godta kommunikation från undernätet. Eftersom växling vid fel leder till SQL-klientsessioner som dirigeras om till servern i regionen för olika (sekundär), misslyckas sessionerna om kommer från en klient utanför den regionen. Därför kan inte automatisk redundans principen aktiveras om deltagande servrar som ingår i de virtuella nätverksreglerna. Följ dessa steg för att stödja manuell växling vid fel:
+
+1.  Etablera redundanta kopior av klientdelen komponenterna i ditt program (web service, VM etc.) i den sekundära regionen
+2.  Konfigurera den [virtuella Nätverksregler](sql-database-vnet-service-endpoint-rule-overview.md) individuellt för primära och sekundära servern
+3.  Aktivera den [frontend redundans med hjälp av en Traffic manager-konfigurationen](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
+4.  Initiera manuell växling vid fel när avbrottet har identifierats
+
+Det här alternativet är optimerad för program som kräver konsekvent fördröjning mellan klient och datanivå och har stöd för återställning när klientdel, datanivå eller båda som påverkas av felet. 
+
+> [!NOTE]
+> Om du använder den **skrivskyddad lyssnare** att belastningsutjämna en skrivskyddad arbetsbelastning, se till att den här arbetsbelastningen körs i en virtuell dator eller andra resorce i den sekundära regionen så att den kan ansluta till den sekundära databasen.
+>
+
+ ### <a name="using-failover-groups-and-sql-database-firewall-rules"></a>Med redundansgrupper och SQL database-brandväggsregler
+
+Om din affärskontinuitetsplan kräver redundans med hjälp av grupper med automatisk redundans, kan du begränsa åtkomsten till din SQL-databas med hjälp av de traditionella brandväggsreglerna.  Följ dessa steg för att stödja automatisk växling vid fel:
+
+1.  [Skapa en offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) 
+2.  [Skapa en offentlig belastningsutjämnare](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-a-basic-load-balancer) och tilldela offentliga IP-Adressen till den. 
+3.  [Skapa ett virtuellt nätverk och de virtuella datorerna](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-back-end-servers) för frontend-komponenterna 
+4.  [Skapa nätverkssäkerhetsgrupp](../virtual-network/security-overview.md) och konfigurera inkommande anslutningar. 
+5. Se till att de utgående anslutningarna är öppen för Azure SQL-databas med hjälp av 'Sql' [servicetagg](../virtual-network/security-overview.md#service-tags). 
+5.  Skapa en [brandväggsregel för SQL database](sql-database-firewall-configure.md) som tillåter inkommande trafik från den offentliga IP-adressen som du skapar i steg 1. 
+
+Mer information om hur du konfigurerar utgående åtkomst och vilka IP-adress till att använda i brandväggsreglerna Se [läsa in belastningsutjämnare utgående anslutningar](../load-balancer/load-balancer-outbound-connections.md).
+
+Konfigurationen ovan säkerställer att automatisk redundans inte blockerar anslutningar från frontend-komponenterna och förutsätter att programmet kan tolerera fel längre fördröjning mellan klienten och datanivå.
+
+> [!IMPORTANT]
+> För att garantera driftskontinuitet för regionala avbrott måste du kontrollera geografisk redundans för både frontend-komponenterna och databaserna. 
+>
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Uppgradera eller nedgradera en primär databas
 Du kan uppgradera eller nedgradera en primär databas till en annan prestandanivå (inom samma tjänstenivå) utan att koppla från alla sekundära databaser. När du uppgraderar, rekommenderar vi att du först uppgraderar den sekundära databasen och sedan uppgradera primärt. När du nedgraderar, i omvänd ordning: Nedgradera primärt först och sedan nedgraderar sekundär. När du uppgraderar eller nedgraderar databasen till en annan tjänstnivå, tillämpas den här rekommendationen. 

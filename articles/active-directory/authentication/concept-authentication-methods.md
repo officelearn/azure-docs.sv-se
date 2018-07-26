@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 48f3a77d2aa81cda62f8206709268bae8e7c8737
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 9141658c25ea3051d8e7c866f523c54afb7d6e18
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39164022"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248352"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
@@ -30,10 +30,17 @@ Microsoft rekommenderar starkt att administratörer aktivera användare att väl
 | Lösenord | MFA och SSPR |
 | Säkerhetsfrågor | Endast SSPR |
 | E-postadress | Endast SSPR |
-| Microsoft Authenticator-appen | Endast MFA |
+| Microsoft Authenticator-appen | MFA och förhandsversion för SSPR |
 | SMS | MFA och SSPR |
 | Röstsamtal | MFA och SSPR |
 | Applösenord | MFA endast i vissa fall |
+
+![Autentiseringsmetoder som används på skärmen inloggning](media/concept-authentication-methods/overview-login.png)
+
+|     |
+| --- |
+| Mobilapp-meddelande och kod för mobilapp som metoder för lösenord för självbetjäning i Azure AD lösenordsåterställning är allmänt tillgänglig förhandsversionsfunktioner i Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+|     |
 
 ## <a name="password"></a>Lösenord
 
@@ -116,13 +123,27 @@ Microsoft Authenticator-appen innehåller en extra nivå av säkerhet för din A
 
 Microsoft Authenticator-appen finns för [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) och [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
+> [!NOTE]
+> Användare kommer inte att ha möjlighet att registrera sina mobila app vid registrering av lösenordsåterställning via självbetjäning. I stället användare kan registrera sina mobila appar på [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) eller i security info registrering förhandsversionen, enligt [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
+>
+
 ### <a name="notification-through-mobile-app"></a>Meddelande via mobilapp
 
 Microsoft Authenticator-appen kan hjälpa att förhindra obehörig åtkomst till konton och stoppa olagliga transaktioner genom att skicka ett meddelande till din smartphone eller surfplatta. Användare visa meddelandet och välj kontrollera om det är tillförlitligt. I annat fall kan de välja neka.
 
+> [!WARNING]
+> För lösenordsåterställning via självbetjäning när bara en av metoderna som krävs för återställning, är verifieringskoden det enda alternativet som är tillgängliga för användare.
+>
+> När två metoder krävs användare kommer att kunna återställa med hjälp av **antingen** meddelande **eller** Verifieringskod utöver eventuella övriga aktiverat metoder.
+>
+
 ### <a name="verification-code-from-mobile-app"></a>Verifieringskod från mobilapp
 
-Microsoft Authenticator-appen eller andra appar från tredje part kan användas som en programvarutoken för att skapa en OAuth-Verifieringskod. När du har angett ditt användarnamn och lösenord, kan du ange koden som tillhandahålls av appen i inloggning-skärmen. Verifieringskoden ger ett andra formen av autentisering.
+Microsoft Authenticator-appen eller andra appar från tredje part kan användas som en programvarutoken för att generera en OATH-Verifieringskod. När du har angett ditt användarnamn och lösenord, kan du ange koden som tillhandahålls av appen i inloggning-skärmen. Verifieringskoden ger ett andra formen av autentisering.
+
+> [!WARNING]
+> Verifieringskoden är det enda alternativet som är tillgängliga för användare för lösenordsåterställning via självbetjäning när bara en av metoderna som krävs för återställning.
+>
 
 ## <a name="mobile-phone"></a>Mobiltelefon
 

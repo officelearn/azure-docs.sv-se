@@ -1,6 +1,6 @@
 ---
-title: Konfigurera MSI för en Azure VM-skalningsuppsättning med en mall
-description: Stegvisa instruktioner för att konfigurera en hanterad tjänstidentitet (MSI) på en Azure-VMSS, med en Azure Resource Manager-mall.
+title: Konfigurera hanterad tjänstidentitet på en Azure VM-skalningsuppsättning med en mall
+description: Stegvisa instruktioner för att konfigurera en hanterad tjänstidentitet på en Azure-VMSS, med en Azure Resource Manager-mall.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: b4fa875c71869dc3fd671f5dc4b801934c27f0ff
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 562bf5e5239114a8dad16727089f94f378db82ff
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237204"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258872"
 ---
 # <a name="configure-managed-service-identity-on-virtual-machine-scale-using-a-template"></a>Konfigurera hanterad tjänstidentitet på VM-skalningsuppsättning med en mall
 
@@ -49,7 +49,7 @@ Precis som med Azure-portalen och skript, [Azure Resource Manager](../../azure-r
    - Med hjälp av en lokal [JSON-redigerare (till exempel VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), överföring och distribution med hjälp av PowerShell eller CLI.
    - Med Visual Studio [Azure-resursgruppsprojekt](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) att både skapa och distribuera en mall.  
 
-Oavsett vilket alternativ som väljs, är densamma under den första distributionen och omdistribution i mallens syntax. När du aktiverar MSI på en ny eller befintlig virtuell dator görs på samma sätt. Dessutom som standard Azure Resource Manager har en [inkrementell uppdatering](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) till distributioner.
+Oavsett vilket alternativ som väljs, är densamma under den första distributionen och omdistribution i mallens syntax. Aktiverar hanterad tjänstidentitet på en ny eller befintlig virtuell dator görs på samma sätt. Dessutom som standard Azure Resource Manager har en [inkrementell uppdatering](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) till distributioner.
 
 ## <a name="system-assigned-identity"></a>Systemtilldelad identitet
 
@@ -69,7 +69,7 @@ I det här avsnittet ska du aktivera och inaktivera systemtilldelad identitet me
    },
    ```
 
-3. (Valfritt) Lägga till VM-skalningsuppsättningen MSI-tillägget som en `extensionsProfile` element. Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS)-identiteten för att hämta token samt.  Använd följande syntax:
+3. (Valfritt) Lägga till VM-skalningsuppsättningen hanterad tjänstidentitet tillägg som en `extensionsProfile` element. Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS)-identiteten för att hämta token samt.  Använd följande syntax:
 
    >[!NOTE] 
    > I följande exempel förutsätter att en Windows VM scale Sets tillägget (`ManagedIdentityExtensionForWindows`) som ska distribueras. Du kan också konfigurera för Linux med hjälp av `ManagedIdentityExtensionForLinux` i stället för den `"name"` och `"type"` element.

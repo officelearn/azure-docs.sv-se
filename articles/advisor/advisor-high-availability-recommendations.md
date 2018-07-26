@@ -1,6 +1,6 @@
 ---
-title: Azure hög tillgänglighet för Advisor-rekommendationer | Microsoft Docs
-description: Använda Azure Advisor för att förbättra tillgängligheten för din Azure-distributioner.
+title: Rekommendationer för Azure Advisor hög tillgänglighet | Microsoft Docs
+description: Använda Azure Advisor för att förbättra tillgängligheten för dina Azure-distributioner.
 services: advisor
 documentationcenter: NA
 author: KumudD
@@ -14,57 +14,71 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 23764b476f01c30b1755c507a0cfa5ead27be91e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 297a213fe4219b834187f977e3281eb939352f60
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736559"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249071"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Advisor-rekommendationer för hög tillgänglighet
 
-Azure Advisor hjälper dig att kontrollera och förbättra kontinuiteten i dina verksamhetskritiska program. Du kan få rekommendationer för hög tillgänglighet av Advisor från den **hög tillgänglighet** på Advisor-instrumentpanelen.
+Azure Advisor hjälper dig att kontrollera och förbättra affärskontinuitet för dina verksamhetskritiska program. Du kan få rekommendationer för hög tillgänglighet av Advisor från den **hög tillgänglighet** fliken Advisor-instrumentpanelen.
 
-## <a name="ensure-virtual-machine-fault-tolerance"></a>Se till att virtuella feltolerans
+## <a name="ensure-virtual-machine-fault-tolerance"></a>Att skapa feltolerans för virtuell dator
 
-För att ge ditt program redundans rekommenderar vi att du grupperar två eller flera virtuella datorer i en tillgänglighetsuppsättning. Advisor identifierar virtuella datorer som inte är en del av en tillgänglighetsuppsättning och rekommenderar flytta dem till en tillgänglighetsuppsättning. Den här konfigurationen garanterar att minst en virtuell dator under antingen en planerad eller oplanerad underhållshändelse, är tillgänglig och uppfyller SLA för Azure-dator. Du kan välja att skapa en tillgänglighetsuppsättning för den virtuella datorn eller lägga till den virtuella datorn till en befintlig tillgänglighetsuppsättning.
+För att ge ditt program redundans rekommenderar vi att du grupperar två eller flera virtuella datorer i en tillgänglighetsuppsättning. Advisor identifierar virtuella datorer som inte är en del av en tillgänglighetsuppsättning och rekommenderar att flytta dem till en tillgänglighetsuppsättning. Den här konfigurationen garanterar att minst en virtuell dator under antingen en planerad eller oplanerad underhållshändelse är tillgänglig och uppfyller serviceavtalet för Azure-dator. Du kan välja att skapa en tillgänglighetsuppsättning för den virtuella datorn eller lägga till den virtuella datorn till en befintlig tillgänglighetsuppsättning.
 
 > [!NOTE]
-> Om du väljer att skapa en tillgänglighetsuppsättning måste du lägga till minst en virtuell dator för mer till den. Vi rekommenderar att du grupperar två eller flera virtuella datorer i en tillgänglighetsgrupp anger att se till att minst en dator som är tillgänglig under ett avbrott.
+> Om du vill skapa en tillgänglighetsuppsättning måste du lägga till minst en virtuell dator till den. Vi rekommenderar att du grupperar två eller flera virtuella datorer i en tillgänglighetsuppsättning som angetts för att se till att minst en dator är tillgänglig under ett avbrott.
 
-## <a name="ensure-availability-set-fault-tolerance"></a>Kontrollera tillgänglighet feltolerans 
+## <a name="ensure-availability-set-fault-tolerance"></a>Se till att tillgänglighetsuppsättningen feltolerans 
 
-För att ge ditt program redundans rekommenderar vi att du grupperar två eller flera virtuella datorer i en tillgänglighetsuppsättning. Advisor identifierar tillgänglighetsuppsättningar som innehåller en enda virtuell dator och rekommenderas att lägga till en eller flera virtuella datorer. Den här konfigurationen garanterar att minst en virtuell dator under antingen en planerad eller oplanerad underhållshändelse, är tillgänglig och uppfyller SLA för Azure-dator. Du kan välja att skapa en virtuell dator eller lägga till en befintlig virtuell dator i tillgänglighetsuppsättningen.  
+För att ge ditt program redundans rekommenderar vi att du grupperar två eller flera virtuella datorer i en tillgänglighetsuppsättning. Advisor identifierar tillgänglighetsuppsättningar som innehåller en enda virtuell dator och att du lägger till en eller flera virtuella datorer till den. Den här konfigurationen garanterar att minst en virtuell dator under antingen en planerad eller oplanerad underhållshändelse är tillgänglig och uppfyller serviceavtalet för Azure-dator. Du kan välja att skapa en virtuell dator eller lägga till en befintlig virtuell dator i tillgänglighetsuppsättningen.  
 
-## <a name="ensure-application-gateway-fault-tolerance"></a>Se till att programmet gateway feltolerans
-För att garantera kontinuitet för verksamhetskritiska program som tillhandahålls av programgatewayer, Advisor identifierar programmet gateway-instanser som inte är konfigurerade för feltolerans och åtgärder som du kan vidta föreslås. Advisor identifierar medelstora eller stora enkelinstansprogram gateways och rekommenderar att lägga till minst en mer instansen. Den identifierar en eller flera instance små programgatewayer och rekommenderar att du migrerar till medelstora eller stora SKU: er. Advisor rekommenderar dessa åtgärder för att se till att din gateway programinstanser konfigureras för att uppfylla de SLA krav som ställs för dessa resurser.
+## <a name="ensure-application-gateway-fault-tolerance"></a>Att skapa feltolerans för application gateway
+För att säkerställa kontinuitet för företag för verksamhetskritiska program som drivs av programgatewayer Advisor identifierar application gateway-instanser som inte är konfigurerade för feltolerans och den föreslår åtgärder som du kan vidta. Advisor identifierar medelstora eller stora enkelinstansprogram gatewayer och den rekommenderar att lägga till minst en mer instans. Den identifierar en eller flera instance små programgatewayer och rekommenderar att du migrerar till medelstora eller stora SKU: er. Advisor rekommenderar dessa åtgärder för att kontrollera att din application gateway-instanser är konfigurerade för att uppfylla de aktuella SLA-krav för dessa resurser.
 
-## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks"></a>Förbättra prestanda och tillförlitlighet för virtuella diskar
+## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks"></a>Förbättra säkerheten och tillförlitligheten för virtuella diskar
 
-Advisor identifierar virtuella datorer med standarddiskar och rekommenderar att du uppgraderar till premiumdiskar.
+Advisor identifierar virtuella datorer med standarddiskar och rekommenderar att du uppgraderar till premium-diskar.
  
-Azure Premium Storage ger stöd för virtuella datorer som körs I/O-intensiva arbetsbelastningar diskar med hög prestanda, låg latens. Virtuella diskar som använder premiumlagringskonton data som lagras på SSD-enheter (SSD). För bästa prestanda för ditt program rekommenderar vi att du migrerar alla virtuella diskar som kräver hög IOPS till premium-lagring. 
+Azure Premium Storage tillhandahåller högpresterande och låg latens disksupport för virtuella datorer som kör I/O-intensiva arbetsbelastningar. Virtuella diskar som använder premium storage-konton kan du lagra data på SSD (solid-state drive). För bästa prestanda för ditt program rekommenderar vi att du migrerar alla virtuella diskar som kräver hög IOPS till premium storage. 
 
-Om diskarna inte behöver höga IOPS, kan du begränsa kostnader genom att hålla dem i standardlagring. Standardlagring lagrar data för virtuell disk på hårddiskar (HDD) i stället för SSD-enheter. Du kan välja att migrera dina virtuella datordiskar till premiumdiskar. Premiumdiskar stöds i de flesta virtuella SKU: er. Dock i vissa fall kan behöva om du vill använda premiumdiskar kan du uppgradera den virtuella datorn SKU: er samt.
+Om diskarna inte behöver hög IOPS, kan du begränsa kostnaderna genom att underhålla dem. i standard-lagring. Standard storage lagrar diskdata för virtuell dator på hårddiskar (HDD) i stället för SSD-enheter. Du kan välja att migrera dina virtuella datordiskar till premium-diskar. Premium-diskar stöds i de flesta VM SKU: er. Men i vissa fall kan behöva om du vill använda premium disks kan du uppgradera den virtuella datorn SKU: er samt.
 
-## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>Skydda dina data för virtuell dator tas bort av misstag
-Konfigurera säkerhetskopiering av virtuella datorer garanterar tillgängligheten för affärskritiska data och ger skydd mot oavsiktlig borttagning eller skadade data.  Advisor identifierar virtuella datorer där säkerhetskopiering inte har aktiverats och rekommenderar att aktivera säkerhetskopiering. 
+## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>Skydda dina data för virtuella datorer tas bort av misstag
 
-## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Kontrollera att du har åtkomst till Azure-molnet experter när du behöver det.
-När en verksamhetskritiska körning, är det viktigt att ha åtkomst till teknisk support vid behov. Advisor identifierar potentiella verksamhetskritiska prenumerationer som inte har teknisk support ingår i deras supportavtal och rekommenderar att du uppgraderar till ett alternativ som innehåller teknisk support.
+Konfigurera säkerhetskopiering av virtuella datorer garanterar tillgängligheten för dina verksamhetskritiska data och ger skydd mot oavsiktlig borttagning eller skadade data.  Advisor identifierar virtuella datorer där säkerhetskopiering inte är aktiverat, och den rekommenderar att aktivera säkerhetskopiering. 
+
+## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Kontrollera att du har åtkomst till Azure-molnexperter när du behöver det.
+
+När du kör en verksamhetskritiska arbetsbelastning, är det viktigt att ha tillgång till teknisk support när det behövs. Advisor identifierar potentiella affärskritisk prenumerationer som inte har teknisk support ingår i deras supportavtal och rekommenderar att du uppgraderar till en alternativ som omfattar teknisk support.
+
+## <a name="create-azure-service-health-alerts-to-be-notified-when-azure-issues-affect-you"></a>Skapa Azure Service Health-aviseringar som ska meddelas när Azure problem påverkar dig
+
+Vi rekommenderar att du konfigurerar Azure Service Health-aviseringar kan meddelas när du påverkas av problem i Azure-tjänsten. [Azure Service Health](https://azure.microsoft.com/features/service-health/) är en kostnadsfri tjänst som ger anpassad vägledning och support när du påverkas av ett problem med Azure-tjänsten. Advisor identifierar prenumerationer som inte har aviseringar har konfigurerats och rekommenderar att skapa en.
+
+## <a name="configure-traffic-manager-endpoints-for-resiliency"></a>Konfigurera Traffic Manager-slutpunkter för återhämtning
+
+Traffic Manager-profiler med mer än en slutpunkt uppleva högre tillgänglighet om alla angivna slutpunkten misslyckas. Placera slutpunkter i olika regioner ytterligare förbättrar tjänstpålitligheten. Advisor identifierar Traffic Manager-profiler där det finns endast en slutpunkt och rekommenderar att lägga till minst en mer slutpunkt i en annan region.
+
+Om alla slutpunkter i en Traffic Manager-profil som är konfigurerad för närhet routning finns i samma region, avbrott användare från andra regioner i anslutningen. Att lägga till eller flytta en slutpunkt till en annan region förbättra prestandan och få bättre tillgänglighet om inte alla slutpunkter i en region. Advisor identifierar Traffic Manager-profiler som konfigurerats för närhet routning där alla slutpunkterna är i samma region och rekommenderar att lägga till eller flytta en slutpunkt till en annan Azure-region.
+
+Om en Traffic Manager-profil har konfigurerats för geografisk routning för dirigeras trafiken till slutpunkterna baserat på definierade regioner. Om det inte går att en region, finns det inga fördefinierade redundans. Med en slutpunkt där Regional gruppering konfigureras att ”alla (världen)” undvika trafik som förloras och förbättra tjänstens tillgänglighet. Advisor identifierar Traffic Manager-profiler som konfigurerats för geografisk routning där det finns ingen slutpunkt som konfigurerats för att ha Regional gruppering som ”alla (världen)” och rekommenderar att göra den konfigurationsändringen.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Hur du kommer åt rekommendationer för hög tillgänglighet i Advisor
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och sedan öppna [Advisor](https://aka.ms/azureadvisordashboard).
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna sedan [Advisor](https://aka.ms/azureadvisordashboard).
 
-2.  Advisor-instrumentpanelen, klicka på den **hög tillgänglighet** fliken.
+2.  På Advisor-instrumentpanelen klickar du på den **hög tillgänglighet** fliken.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Advisor-rekommendationer finns:
 * [Introduktion till Azure Advisor](advisor-overview.md)
 * [Kom igång med Advisor](advisor-get-started.md)
-* [Kostnad Advisor-rekommendationer](advisor-performance-recommendations.md)
+* [Advisor kostnadsrekommendationer](advisor-performance-recommendations.md)
 * [Advisor-rekommendationer](advisor-performance-recommendations.md)
 * [Advisor säkerhetsrekommendationer](advisor-security-recommendations.md)
 

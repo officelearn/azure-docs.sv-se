@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: protection
-ms.date: 07/14/2018
+ms.date: 07/24/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 6c329554b5854f113fb216f874fa5a918110f9c5
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ffac7768fefece24cb69789558ce500e1ff64d98
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059783"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257913"
 ---
 # <a name="email-notifications-in-azure-ad-pim"></a>E-postaviseringar i Azure AD PIM
 
@@ -32,7 +32,7 @@ När viktiga händelser inträffar i Azure AD Privileged Identity Management (PI
 - När en privilegierad roll tilldelas
 - När Azure AD PIM är aktiverat
 
-Med början vid slutet av juli 2018, har e-postmeddelanden som skickas via PIM en ny avsändarens e-postadress och en ny visuell design. Den här uppdateringen påverkar både PIM för Azure AD och PIM för Azure-resurser. Alla händelser som tidigare utlösts ett e-postmeddelande kommer att fortsätta att skicka ett e-postmeddelande. Den här uppdateringen är enbart en visuella ändringen utan ändringar i funktionalitet.
+Med början vid slutet av juli 2018, har e-postmeddelanden som skickas via PIM en ny avsändarens e-postadress och en ny visuell design. Den här uppdateringen påverkar både PIM för Azure AD och PIM för Azure-resurser. Alla händelser som tidigare utlösts ett e-postmeddelande kommer att fortsätta att skicka ett e-postmeddelande. E-postmeddelanden har uppdaterat innehåll att tillhandahålla mer riktad information.
 
 ## <a name="sender-email-address"></a>Avsändarens e-postadress
 
@@ -45,6 +45,12 @@ Tidigare hade e-postaviseringar följande adress:
 
 - E-postadress:  **azureadnotifications@microsoft.com**
 - Visningsnamn: Microsoft Azure AD-meddelandetjänst
+
+## <a name="email-subject-line"></a>Ämnesraden för e-post
+
+Med början vid slutet av juli 2018, e-postmeddelanden för både Azure AD och Azure-resursroller har en **PIM** prefix i ämnesraden. Här är ett exempel:
+
+- PIM: Alain Charon tilldelades permanent läsarroll för säkerhetskopiering.
 
 ## <a name="pim-emails-for-azure-ad-roles"></a>PIM-e-postmeddelanden för Azure AD-roller
 

@@ -2,19 +2,19 @@
 title: Stöd för lokalisering med LUIS-appar i Azure | Microsoft Docs
 description: Läs mer om de språk som har stöd för LUIS.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2017
-ms.author: cahann
-ms.openlocfilehash: f2c9514f03019a742044dc077b395025d7d698e3
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: d2c479445aabe05013470724c623978402abeb9d
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927765"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248425"
 ---
 # <a name="culture-specific-understanding-in-luis-apps"></a>Kultur-specifika kunskaper i LUIS-appar
 

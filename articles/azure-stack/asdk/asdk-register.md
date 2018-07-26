@@ -1,6 +1,6 @@
 ---
 title: Registrera ASDK med Azure | Microsoft Docs
-description: Beskriver hur du registrerar Azure stacken med Azure för att aktivera marketplace syndikering och användningsrapportering.
+description: Beskriver hur du registrerar Azure Stack med Azure för att möjliggöra marketplace-syndikering och användningsrapportering.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -11,43 +11,45 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/25/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 08a300d0e2d1565428f282a2073d91b5dd08c060
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 19fb5d3cb793b6e1e8e715c41edf8cde5746278b
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017007"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257930"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack-registrering
-Du kan registrera installationen av Azure Stack Development Kit (ASDK) med Azure att hämta marketplace-objekt från Azure och Ställ in commerce rapporterar tillbaka till Microsoft. Registrering krävs för att stödja fullständig Azure Stack-funktioner, inklusive marketplace-syndikeringsfeed. Registrering rekommenderas eftersom du kan testa viktiga Azure Stack-funktioner som marketplace syndikering och användningsrapportering. När du har registrerat Azure Stack rapporterat användning till Azure handel. Du kan se den under den prenumeration som du använde för registrering. Dock debiteras inte ASDK användare för användning rapporterar.
+Du kan registrera din Azure Stack Development Kit (ASDK)-installation med Azure kan du hämta marketplace från Azure och du ställer in handelsdata rapporterar tillbaka till Microsoft. Registrering krävs för att stödja fullständig Azure Stack-funktioner, inklusive marketplace syndikering. Registrering rekommenderas eftersom det gör att du kan testa viktiga Azure Stack-funktioner som marketplace-syndikering och användningsrapportering. När du har registrerat Azure Stack rapporteras användning till Azure commerce. Du kan se den prenumeration som du använde för registrering. ASDK användare debiteras dock inte för eventuell användning av rapporterar.
 
-Om du inte registrerar din ASDK, kan du se en **-aktivering krävs** varning om att registrera din Azure-stacken Development Kit. Det är förväntat.
+Om du inte registrerar din ASDK, kan du se en **aktivering krävs** varning om att registrera din Azure Stack Development Kit. Det här beteendet är förväntat.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Innan du använder dessa instruktioner för att registrera ASDK med Azure, se till att du har installerat Azure Stack PowerShell och hämta Azure Stack-verktyg som beskrivs i den [efter distributionskonfiguration](asdk-post-deploy.md) artikel.
+Innan du använder dessa instruktioner för att registrera ASDK med Azure, se till att du har installerat Azure Stack PowerShell och ned Azure Stack-verktyg som beskrivs i den [konfigurationen efter distribution](asdk-post-deploy.md) artikeln.
 
-Dessutom PowerShell språk läge måste anges till **FullLanguageMode** på den dator som används för att registrera ASDK med Azure. Kontrollera att det aktuella läget för språket är inställd på fullständig, öppna ett upphöjt PowerShell-fönster och kör följande PowerShell-kommandon:
+Dessutom språkläge PowerShell måste anges till **FullLanguageMode** på den dator som används för att registrera ASDK med Azure. För att verifiera att det aktuella språkläget har angetts till full, öppna en upphöjd PowerShell-fönster och kör följande PowerShell-kommandon:
 
-```powershell
+```PowerShell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-Kontrollera utdata returnerar **FullLanguageMode**. Om något annat språk läge returneras, registreringen måste köras på en annan dator eller språk-läge måste anges till **FullLanguageMode** innan du fortsätter.
+Kontrollera utdata returnerar **FullLanguageMode**. Om något annat språkläge returneras, registreringen måste köras på en annan dator eller språkläget måste anges till **FullLanguageMode** innan du fortsätter.
 
-## <a name="register-azure-stack-with-azure"></a>Registrera Azure stacken med Azure
+## <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 Följ dessa steg för att registrera ASDK med Azure.
 
 > [!NOTE]
-> De här stegen måste köras från en dator som har åtkomst till Privilegierade slutpunkten. För ASDK är som värddator för development kit.
+> De här stegen måste köras från en dator som har åtkomst till privilegierad slutpunkt. För ASDK är som värddator för development kit.
 
-1. Öppna ett PowerShell-konsolen som administratör.  
+1. Öppna en PowerShell-konsol som administratör.  
 
-2. Kör följande PowerShell-kommandon för att registrera ASDK-installationen med Azure. Du måste logga in på både Azure-prenumerationen och den lokala ASDK-installationen. Om du inte har en Azure-prenumeration, men du kan [skapa ett kostnadsfritt Azure-konto här](https://azure.microsoft.com/free/?b=17.06). Registrera Azure Stack ådrar sig utan kostnad på din Azure-prenumeration.
+2. Kör följande PowerShell-kommandon för att registrera din ASDK-installation med Azure. Du behöver att logga in på både Azure-prenumerationen och den lokala ASDK-installationen. Om du inte har en Azure-prenumeration än kan du [skapa ett kostnadsfritt konto här](https://azure.microsoft.com/free/?b=17.06). Registrera Azure Stack medför utan kostnad på din Azure-prenumeration.
 
-  ```powershell
+    Om du kör skriptet registrering på fler än en instans av Azure Stack med samma Azure-prenumerationens ID, ange ett unikt namn för registrering när du kör den **Set-AzsRegistration** cmdlet. Den **RegistrationName** parametern har ett standardvärde på **AzureStackRegistration**. Om du använder samma namn på fler än en instans av Azure Stack kan misslyckas skriptet.
+
+  ```PowerShell  
   # Add the Azure cloud subscription environment name. Supported environment names are AzureCloud or, if using a China Azure Subscription, AzureChinaCloud.
   Add-AzureRmAccount -EnvironmentName "AzureCloud"
 
@@ -60,17 +62,19 @@ Följ dessa steg för att registrera ASDK med Azure.
   #Register Azure Stack
   $AzureContext = Get-AzureRmContext
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+  $RegistrationName = "<unique-registration-name>"
   Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01 `
       -BillingModel Development
+      -RegistrationName $RegistrationName
   ```
-3. När skriptet har slutförts ska du se meddelandet: **din miljö är nu registrerad och aktiverad med de angivna parametrarna.**
+3. När skriptet har slutförts bör du se det här meddelandet: **miljön är nu registrerad och aktiverad med hjälp av de angivna parametrarna.**
 
-    ![](media/asdk-register/1.PNG)
+    ![Din miljö är nu registrerad](media/asdk-register/1.PNG)
 
-## <a name="verify-the-registration-was-successful"></a>Kontrollera registreringen lyckades
-Följ dessa steg om du vill verifiera att registreringen ASDK med Azure lyckades.
+## <a name="verify-the-registration-was-successful"></a>Kontrollera registreringen har lyckats
+Följ stegen nedan för att verifiera att det lyckades ASDK registreringen med Azure.
 
 1. Logga in på den [Azure Stack-administrationsportalen](https://adminportal.local.azurestack.external).
 
@@ -83,4 +87,4 @@ Följ dessa steg om du vill verifiera att registreringen ASDK med Azure lyckades
     ![](media/asdk-register/3.PNG)
 
 ## <a name="next-steps"></a>Nästa steg
-[Lägg till ett Azure-stacken marketplace-objekt](.\.\azure-stack-marketplace.md)
+[Lägg till ett Azure Stack marketplace-objekt](.\.\azure-stack-marketplace.md)

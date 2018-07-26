@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 6c308205c5adb05f4c7e1668c67adea414020ea2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c0d88f0eaacaadbb508519f2e6804b9b311408c2
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232969"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259338"
 ---
 # <a name="azure-redis-cache-faq"></a>Vanliga frågor och svar för Azure Redis Cache
 Lär dig svar på vanliga frågor, mönster och metodtips för Azure Redis Cache.
@@ -139,7 +139,7 @@ Vi kan rita följande slutsatser från den här tabellen:
 | C0 |250 MB |Delad |100 / 12.5 |15,000 |7 500 |
 | C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
-| C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
+| C3 |6 GB |4 |1000 / 125 |100 000 |90,000 |
 | C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
 | C5 |26 GB |4 |1,000 / 125 |102 000 kr |93,000 |
 | C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
@@ -358,7 +358,7 @@ Följande kommandon ger ett exempel på hur du använder redis-benchmark.exe. K�
 ### <a name="important-details-about-threadpool-growth"></a>Viktig information om arbetstråd tillväxt
 CLR-arbetstråd har två typer av trådar - ”Worker” och ”i/o-slutförandeport” (även kallat iocp skulle öppnas) trådar.
 
-* Trådar som används när till exempel för bearbetning av `Task.Run(…)` eller `ThreadPool.QueueUserWorkItem(…)` metoder. Dessa trådar används också av olika komponenter i CLR när arbete måste ske i en bakgrundstråd.
+* Trådar som används för bearbetning av den `Task.Run(…)`, eller `ThreadPool.QueueUserWorkItem(…)` metoder. Dessa trådar används också av olika komponenter i CLR när arbete måste ske i en bakgrundstråd.
 * Iocp skulle öppnas trådar används när asynkrona i/o händer (t.ex. läsning från nätverket).
 
 Trådpoolen ger nya trådar eller trådar för i/o-slutförande på begäran (utan någon begränsning) tills den når inställningen ”minst” för varje typ av tråd. Som standard anges det minsta antalet trådar till antalet processorer på ett system.

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 011358e223db419f31e0181b05ce6f89479dba81
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 7c4abb6832a030c2cb3cc2088dc5d0f1350a6ab8
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070951"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258855"
 ---
 # <a name="creating-custom-voice-fonts"></a>Skapa anpassade rösttyper
 
@@ -29,7 +29,7 @@ Röst anpassning är tillgängliga för amerikansk engelska (en-US) och fastland
 
 Text till tal röst anpassning av funktionen är för tillfället i privat förhandsvisning. [Fyll i formuläret programmet](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) övervägas för åtkomst.
 
-Du behöver också en Azure-konto och en prenumeration på Speech-tjänsten. [Skapa ett] (https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) om du inte redan har gjort. Anslut din prenumeration till anpassad Voice-portalen på följande sätt.
+Du behöver också en Azure-konto och en prenumeration på Speech-tjänsten. [Skapa en](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) om du inte redan har gjort. Anslut din prenumeration till anpassad Voice-portalen på följande sätt.
 
 1. Logga in på den [anpassad röst portal](https://customvoice.ai) med samma Microsoft-konto som du använde för att tillämpa för åtkomst.
 
@@ -208,21 +208,21 @@ När du fyller i textrutan och bekräftar läget som indata, klickar du på **Ja
 
 När du har skapat och testat din röst-modell, distribuerar du den i en anpassad Text till tal-slutpunkt. Du kan sedan använda den här slutpunkten i stället för slutpunkten som vanligt när Text till tal-förfrågningar via REST API. Din anpassade slutpunkt kan anropas bara av den prenumeration som du använde för att distribuera teckensnittet.
 
-Om du vill skapa en ny anpassad slutpunkt, Välj **slutpunkter** anpassade röst-menyn längst upp på sidan. Sidan distributionen visas med sin tabell av den aktuella anpassade röst slutpunkter, om sådana.
+Om du vill skapa en ny anpassad slutpunkt, Välj **slutpunkter** anpassade röst-menyn längst upp på sidan. Sidan Mina distribueras röster visas med sin tabell av den aktuella anpassade röst slutpunkter, om sådana. De aktuella nationella inställningarna visas i den första raden i tabellen. Ändra det visade språket om du vill skapa en distribution för ett annat språk. (Det måste matcha röst du distribuerar.)
 
-Klicka på den **distribuera röster** för att skapa en ny slutpunkt. I skapa slutpunkten ”sidan de aktuella nationella inställningarna visas i den första raden i tabellen. Ändra det visade språket om du vill skapa en distribution för ett annat språk. (Det måste matcha röst du distribuerar.) Ange namn och beskrivning av din anpassade slutpunkt.
+Klicka på den **distribuera röster** för att skapa en ny slutpunkt. Ange namn och beskrivning av din anpassade slutpunkt.
 
 Välj den prenumeration som du vill använda på menyn prenumeration. Kostnadsfria användare kan ha endast en modell som distribuerats i taget. Standard användare kan skapa upp till 20 slutpunkter, var och en med sin egen anpassade röst.
 
 ![Skapa slutpunkt](media/custom-voice/create-endpoint.png)
 
-När du har valt modellen distribueras, klickar du på **skapa**. Sidan distributionen igen nu innehåller en post för din nya slutpunkt. Det kan ta några minuter att skapa en instans av en ny slutpunkt. När statusen för distributionen är slutfört är slutpunkten redo att användas.
+När du har valt modellen distribueras, klickar du på **skapa**. Sidan Mina distribueras röster igen nu innehåller en post för din nya slutpunkt. Det kan ta några minuter att skapa en instans av en ny slutpunkt. När statusen för distributionen är slutfört är slutpunkten redo att användas.
 
 ![Min distribuerade röster](media/custom-voice/my-deployed-voices.png)
 
-När distributionsstatusen är slutfört slutpunkten för din distribuerade rösttyp visas i den distribuerade röster tabellen. Du kan använda den här URI: N direkt i en HTTP-begäran.
+När distributionsstatusen är slutfört visas slutpunkten för din distribuerade rösttyp i tabellen Mina distribueras röster. Du kan använda den här URI: N direkt i en HTTP-begäran.
 
-Online testning av slutpunkten är också tillgängligt via portalen anpassade röst. Om du vill testa din slutpunkt, Välj **slutpunkter testning** anpassad röst nedrullningsbara menyn. Slutpunkten testning sida visas. Välj en röst som du har distribuerat och ange vilken text som ska läsas (i oformaterad text eller SSML format) i textrutan.
+Online testning av slutpunkten är också tillgängligt via portalen anpassade röst. Om du vill testa din slutpunkt, Välj **slutpunkter testning** anpassad röst nedrullningsbara menyn. Slutpunkten testning sida visas. Välj en distribuerade anpassade röst och ange vilken text som ska läsas (i oformaterad text eller SSML format) i textrutan.
 
 > [!NOTE] 
 > När du använder SSML, den `<voice>` taggen måste ange det namn du gav din anpassade röst när du skapade den.

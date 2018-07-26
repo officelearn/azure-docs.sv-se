@@ -4,14 +4,14 @@ description: Översikt över utvärderingsberäkningar i Azure Migrate-tjänsten
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/24/2018
+ms.date: 07/25/2018
 ms.author: raynew
-ms.openlocfilehash: af832cb3791f0175b38aad16526acd51509bbe52
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7900a02ba9112b910589d04850a4cd5d52e044d2
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223692"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249197"
 ---
 # <a name="assessment-calculations"></a>Utvärderingsberäkningar
 
@@ -58,7 +58,8 @@ Windows Server 2016 och alla Service Pack | Azure tillhandahåller fullständig 
 Windows Server 2012 R2 och alla Service Pack | Azure tillhandahåller fullständig support. | Redo för Azure
 Windows Server 2012 och alla Service Pack | Azure tillhandahåller fullständig support. | Redo för Azure
 Windows Server 2008 R2 med alla Service Pack | Azure tillhandahåller fullständig support.| Redo för Azure
-Windows Server 2003-2008 | De här operativsystemen har klarat sitt slut supportperioden och du behöver en [anpassad stöder avtal (CSA)](https://aka.ms/WSosstatement) för support på Azure. | Villkorligt redo för Azure bör du överväga att uppgradera datorns operativsystem innan du migrerar till Azure.
+Windows Server 2008 (32-bitars och 64-bitars) | Azure tillhandahåller fullständig support. | Redo för Azure
+Windows Server 2003, 2003 R2 | De här operativsystemen har klarat sitt slut supportperioden och du behöver en [anpassad stöder avtal (CSA)](https://aka.ms/WSosstatement) för support på Azure. | Villkorligt redo för Azure bör du överväga att uppgradera datorns operativsystem innan du migrerar till Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | De här operativsystemen har klarat sitt slut supportperioden, datorn kan starta i Azure, men någon OS-support tillhandahålls av Azure. | Villkorligt redo för Azure, rekommenderar vi att du uppgradera Operativsystemet innan du migrerar till Azure.
 Klienten för Windows 7, 8 och 10 | Azure ger stöd med Visual Studio-prenumeration. | Villkorligt redo för Azure
 Windows Vista, XP Professional | De här operativsystemen har klarat sitt slut supportperioden, datorn kan starta i Azure, men någon OS-support tillhandahålls av Azure. | Villkorligt redo för Azure, rekommenderar vi att du uppgradera Operativsystemet innan du migrerar till Azure.

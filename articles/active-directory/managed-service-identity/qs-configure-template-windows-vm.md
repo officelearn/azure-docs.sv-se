@@ -1,6 +1,6 @@
 ---
-title: Hur du konfigurerar MSI på en Azure-dator med hjälp av en mall
-description: Stegvisa instruktioner för att konfigurera en hanterad tjänstidentitet (MSI) på en Azure-dator med en Azure Resource Manager-mall.
+title: Hur du konfigurerar hanterad tjänstidentitet på en Azure-dator med hjälp av en mall
+description: Stegvisa instruktioner för att konfigurera en hanterad tjänstidentitet på en Azure-dator med en Azure Resource Manager-mall.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 703595bbc13fb859f406e7c9fa422a9c573957ab
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 15a743f524c58e56247ec46fee27611b33595bad
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237255"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258702"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Konfigurera en virtuell dator hanterad tjänstidentitet med hjälp av en mall
 
@@ -73,7 +73,7 @@ I det här avsnittet ska du aktivera och inaktivera en systemtilldelad identitet
    },
    ```
 
-4. (Valfritt) Lägg till VM MSI-tillägget som en `resources` element. Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS) identitet slutpunkten, för att hämta token samt.  Använd följande syntax:
+4. (Valfritt) Lägg till hanterad tjänstidentitet för VM-tillägget som en `resources` element. Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS) identitet slutpunkten, för att hämta token samt.  Använd följande syntax:
 
    >[!NOTE] 
    > I följande exempel förutsätter att en Windows VM-tillägg (`ManagedIdentityExtensionForWindows`) som ska distribueras. Du kan också konfigurera för Linux med hjälp av `ManagedIdentityExtensionForLinux` i stället för den `"name"` och `"type"` element.

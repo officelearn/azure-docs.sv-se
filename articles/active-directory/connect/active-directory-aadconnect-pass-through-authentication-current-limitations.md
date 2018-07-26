@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2fff52a7909a1f3c59ebe4944386e096bd1a8d95
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e549293bf09781363e74c85ae689869d35de3092
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213426"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258294"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory-direktautentisering: Aktuella begränsningar
 
@@ -35,7 +35,7 @@ Följande scenarier stöds:
 - Användarinloggningar till Outlook-klienter med äldre protokoll, till exempel Exchange ActiveSync-, EAS-, SMTP-, POP- och IMAP.
 - Användarinloggningar till äldre Office-program och Office-program som stöder [modern autentisering](https://aka.ms/modernauthga): Office 2010, 2013 och 2016-versioner.
 - Användarinloggningar till äldre protokoll program, till exempel PowerShell version 1.0 och andra.
-- Azure AD-domän som kopplar ihop för Windows 10-enheter.
+- Azure AD kopplar för Windows 10-enheter.
 - Applösenord för Multifaktorautentisering.
 
 ## <a name="unsupported-scenarios"></a>Scenarier som inte stöds
@@ -47,7 +47,7 @@ Följande scenarier är _inte_ stöds:
 - Direktautentisering är inte integrerat med [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 >[!IMPORTANT]
->Som en lösning för scenarier som inte stöds _endast_, aktivera synkronisering av Lösenordshash på den [valfria funktioner](active-directory-aadconnect-get-started-custom.md#optional-features) sida i Azure AD Connect-guiden. När användarna loggar in på program i listan i den ”stöds inte scenarier” avsnittet dessa specifika inloggningsförfrågningar är _inte_ hanteras av direktautentisering Autentiseringsagenter och därför inte registreras i [ Direktautentisering loggar](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
+>Som en lösning för scenarier som inte stöds _endast_ (med undantag för Azure AD Connect Health-integration), aktivera synkronisering av Lösenordshash på den [valfria funktioner](active-directory-aadconnect-get-started-custom.md#optional-features) sida i Azure AD Connect-guiden. När användarna loggar in på program i listan i den ”stöds inte scenarier” avsnittet dessa specifika inloggningsförfrågningar är _inte_ hanteras av direktautentisering Autentiseringsagenter och därför inte registreras i [ Direktautentisering loggar](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
 
 >[!NOTE]
 Aktiverar synkronisering av Lösenordshash ger dig möjlighet att redundans-autentisering om din lokala infrastruktur avbryts. Den här redundansen från direktautentisering till synkronisering av Lösenordshash sker inte automatiskt. Du måste växla inloggningsmetod manuellt med hjälp av Azure AD Connect. Om den server som kör Azure AD Connect stängs av, kommer du behöver hjälp från Microsoft Support att stänga av direktautentisering.

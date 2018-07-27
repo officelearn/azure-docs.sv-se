@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/22/2018
+ms.date: 07/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 6ba45de8ef41c8a57ca9c042a304e323a4fac263
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: babfc2f82e17f3745af1d940df89763170a002bd
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081701"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929594"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>Självstudie: 5. Lägg till hierarkisk entitet
 I den här självstudien skapar du en app som visar hur det går till att hitta relaterade datadelar baserat på kontext. 
@@ -27,10 +27,10 @@ I den här självstudien skapar du en app som visar hur det går till att hitta 
 > * Träna och publicera app
 > * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar inklusive hierarkiska underordnade element 
 
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto][LUIS] för att kunna redigera LUIS-programmet.
+För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#luis-website) för att kunna redigera LUIS-programmet.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har appen Human Resources (Personalfrågor) från självstudien om [list entities](luis-quickstart-intent-and-list-entity.md) (listentiteter) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json)-GitHub-lagringsplatsen.
+Om du inte har appen Human Resources (Personalfrågor) från självstudien om [list entities](luis-quickstart-intent-and-list-entity.md) (listentiteter) ska du [importera](luis-how-to-start-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json)-GitHub-lagringsplatsen.
 
 Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `hier`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
 
@@ -64,12 +64,12 @@ Om du vill se hela yttrandet och märka de underordnade delarna i hierarkin kan 
     [ ![Skärmbild på LUIS-appen med knappen Entities (Entiteter) markerad på menyn till vänster](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
 
 
-3. Välj de tre punkterna (...) till höger om nummerentiteten i listan. Välj **Ta bort**. 
+3. Välj ellipsknappen (***...***) till höger om nummerentiteten i listan. Välj **Ta bort**. 
 
     [ ![Skärmbild på LUIS-appen med sidan för entitetslistan, och borttagningsknappen för den fördefinierade nummerentiteten markerad](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
 
 
-## <a name="add-utterances-to-findform-intent"></a>Lägga till yttranden till avsikten FindForm
+## <a name="add-utterances-to-moveemployee-intent"></a>Lägga till yttranden till avsikten MoveEmployee
 
 1. Välj **Intents** (Avsikter) på den vänstra menyn.
 
@@ -268,12 +268,8 @@ Din chattrobot har nu tillräckligt med information för att bestämma den prim�
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och data från entiteten för att gå vidare. LUIS utför inte detta programmässiga arbete för roboten eller det anropande programmet. LUIS tar endast reda på vad användarens avsikt är. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. För att göra det väljer du menyn med tre punkter (...) till höger om appnamnet i applistan och väljer **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+Ta bort LUIS-appen när den inte längre behövs. För att göra det väljer du ellipsknappen (***...***) till höger om appnamnet i applistan och väljer **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 
-> [Lär dig hur du lägger till en listentitet](luis-quickstart-intent-and-list-entity.md) 
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
+> [Lär dig hur du lägger till en sammansatt entitet](luis-tutorial-composite-entity.md) 

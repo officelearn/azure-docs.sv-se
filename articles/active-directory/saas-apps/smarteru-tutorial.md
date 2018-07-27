@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 32feac32af01e518ad6cede43cc4b4f00c097d3b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e07ed8f131697d6340b899ef76c988aed215556b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041288"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283419"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Självstudier: Azure Active Directory-integration med SmarterU
 
@@ -126,11 +126,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 7. I verktygsfältet högst upp, klickar du på **kontoinställningar**.
    
-    ![Kontoinställningar](./media/smarteru-tutorial/IC777326.png "kontoinställningar")
+    ![Kontoinställningar](./media/smarteru-tutorial/accountsettings.png)
 
 8. Utför följande steg på sidan för konfiguration:
    
-    ![Externa auktorisering](./media/smarteru-tutorial/IC777327.png "externa auktorisering") 
+    ![Externa auktorisering](./media/smarteru-tutorial/externalauthorizationconfiguration.png) 
  
       a. Välj **Aktivera externa auktorisering**.
   
@@ -138,11 +138,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
   
       c. I den **standard användarinloggning** väljer den **SmarterU** fliken.
   
-      d. Välj **aktivera Okta**.
+      d. Välj **aktivera SAML**.
   
-      e. Kopiera innehållet i den hämtade metadatafilen och klistra in den i den **Okta Metadata** textrutan.
+      e. Kopiera innehållet i den hämtade metadatafilen och klistra in den i den **IdP Metadata** textrutan.
+      
+      f. Välj en **identifierare attributet/krav**.
   
-      f. Klicka på **Spara**.
+      g. Klicka på **Spara**.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -193,7 +195,7 @@ När SmarterU, etablering är en manuell aktivitet.
 
 3. I avsnittet användare utför du följande steg:
    
-    ![Ny användare](./media/smarteru-tutorial/IC777329.png "ny användare")  
+    ![Ny användare](./media/smarteru-tutorial/adduser.png)  
 
     a. Klicka på **+ användare**.
     

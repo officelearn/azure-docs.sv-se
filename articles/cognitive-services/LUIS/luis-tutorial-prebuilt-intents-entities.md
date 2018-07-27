@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 075cb270641ca995eec95aa6aa8986c90077148a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 387f20d2080a67041c90ec1af93e791716839dd9
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112208"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929057"
 ---
 # <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Självstudie: 2. Lägg till fördefinierade avsikter och entiteter
 Lägg till fördefinierade avsikter och entiteter i Human Resources-självstudieappen för att snabbt få avsiktsförutsägelse och dataextrahering. 
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 * fråga LUIS och få svar på förutsägelser
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har appen Human Resources (Personalfrågor) från den föregående självstudien [custom domain](luis-quickstart-intents-only.md) (anpassad domän) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website) från [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json)-GitHub-lagringsplatsen.
+Om du inte har appen Human Resources (Personalfrågor) från den föregående självstudien [custom domain](luis-quickstart-intents-only.md) (anpassad domän) ska du [importera](luis-how-to-start-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website) från [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json)-GitHub-lagringsplatsen.
 
 Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `prebuilts`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
 
@@ -87,7 +87,7 @@ LUIS har flera fördefinierade entiteter för extrahering av data.
     Du behöver inte skapa en LUIS-slutpunktsnyckel i Azure-portalen innan du publicerar eller testar slutpunktens URL. Varje LUIS-app har en kostnadsfri startnyckel för redigering. Det ger dig obegränsad redigering och [några slutpunktsanrop](luis-boundaries.md#key-limits). 
 
 ## <a name="query-endpoint-with-an-utterance"></a>Skicka fråga till slutpunkten med ett yttrande
-På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunkts-URL i adressfältet. Gå till slutet av URL:en i adressen och ange `I want to cancel on March 3`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
+På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunktens URL i adressfältet. Gå till slutet av URL:en i adressen och ange `I want to cancel on March 3`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
 
 Resultatet förutsåg avsikten Utilities.Cancel (Verktyg.Avbryt) och extraherade datumet March 3 (3 mars) och numret 3. 
 
@@ -171,7 +171,7 @@ Det finns två värden för March 3 (3 mars) eftersom yttrande inte anger om Mar
 Genom att enkelt och snabbt lägga till fördefinierade avsikter och entiteter kan klientprogrammet lägga till konversationshantering och extrahera vanliga datatyper. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. Det gör du genom att välja **My apps** (Mina appar) på menyn längst upp till vänster. Välj menyn med tre punkter (...) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+Ta bort LUIS-appen när den inte längre behövs. Det gör du genom att välja **My apps** (Mina appar) på menyn längst upp till vänster. Välj ellipsen (***...***) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 ## <a name="next-steps"></a>Nästa steg
 

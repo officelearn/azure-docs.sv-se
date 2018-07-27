@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: fea311eb36c0654b45b2354cb283f1699be7257c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 0668ba050a6918995deb42d8feea5afbbab3b010
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109349"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865819"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Självstudie: 1. Skapa en app med en anpassad domän
 I den här självstudien skapar du en app som visar hur du använder **avsikter** för att ta reda på användarens _avsikt_ baserat på yttrandet (texten) de skickar till appen. När du är klar har du en LUIS-slutpunkt som körs i molnet.
@@ -188,7 +188,7 @@ JSON-resultatet identifierar avsikten med högst poäng. Alla poäng är mellan 
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan ta topScoringIntent-resultatet och antingen hitta information (som inte lagras i LUIS) för att besvara frågan eller avsluta konversationen. Det här är programmatiska alternativ för roboten eller det anropande programmet. LUIS utför inte det arbetet. LUIS tar endast reda på vad användarens avsikt är. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. Det gör du genom att välja **My apps** (Mina appar) på menyn längst upp till vänster. Välj menyn med tre punkter (...) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+Ta bort LUIS-appen när den inte längre behövs. Det gör du genom att välja **My apps** (Mina appar) på menyn längst upp till vänster. Välj ellipsen (***...***) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: jeedes
-ms.openlocfilehash: a8478436bfae20ee729ce41bcb134bd3a77fb26e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c8ec2b8e312b9bedbd19cb203c0a59177c7fd6a5
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053479"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265020"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Självstudier: Azure Active Directory-integration med G Suite
 
@@ -133,7 +133,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![G Suite-domän och URL: er med enkel inloggning för information](./media/google-apps-tutorial/tutorial_googleapps_urlgmail.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL-URL med hjälp av följande mönster: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: 
     | |
@@ -150,7 +150,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![G Suite-domän och URL: er med enkel inloggning för information](./media/google-apps-tutorial/tutorial_googleapps_url1.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL-URL med hjälp av följande mönster: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
     b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: 
     | |

@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e2b8b1f63e4c23c0beeaff6fd246fa2ba8afe106
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036759"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265072"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Valfria anspråk i Azure AD (förhandsversion)
 
@@ -31,7 +31,7 @@ Den här funktionen används av programutvecklare för att ange vilka anspråk s
 -   Lägg till och få åtkomst till anpassade anspråk för ditt program. 
 
 > [!Note]
-> Den här funktionen är för närvarande i offentlig förhandsversion. Var beredd på att återställa eller ta bort eventuella ändringar. Funktionen är tillgänglig i alla Azure AD-prenumeration allmänt tillgängliga förhandsversionen. När funktionen blir allmänt tillgänglig, kan vissa aspekter av funktionen kräver en Azure AD premium-prenumeration.
+> Den här funktionen är för närvarande i offentlig förhandsversion. Observera att du kan behöva återställa eller ta bort eventuella ändringar. Funktionen är tillgänglig i alla Azure AD-prenumeration allmänt tillgängliga förhandsversionen. När funktionen blir allmänt tillgänglig, kan vissa aspekter av funktionen kräver en Azure AD premium-prenumeration.
 
 Lista över standard anspråk och hur de används i token, finns i den [grunderna för token som utfärdas av Azure AD](active-directory-token-and-claims.md). 
 
@@ -41,8 +41,8 @@ Ett av målen med den [v2.0 Azure AD-slutpunkten](active-directory-appmodel-v2-o
 
 | Kontotyp | V1.0 slutpunkt                      | V2.0-slutpunkten  |
 |--------------|------------------------------------|----------------|
-| MSA          | Ej tillämpligt – RPS biljetter som används i stället | Stöd kommer |
-| AAD          | Stöds                          | Stöds      |
+| Personligt Microsoft-konto  | Ej tillämpligt – RPS biljetter som används i stället | Stöd kommer |
+| Azure AD-konto          | Stöds                          | Stöds      |
 
 ## <a name="standard-optional-claims-set"></a>Standard valfria anspråk set
 Uppsättningen med valfria anspråk som är tillgängliga som standard att användas av program finns nedan.  Om du vill lägga till anpassade valfria anspråk för ditt program, se [Katalogtillägg](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)nedan. 
@@ -214,7 +214,7 @@ Det finns flera alternativ för att uppdatera egenskaperna på ett programs iden
 3.  Välj **Azure AD-tillägget** från det vänstra navigeringsfönstret och klicka på **Appregistreringar**.
 4.  Hitta det program du vill konfigurera valfria anspråk för i listan och klicka på den.
 5.  Programsidan klickar du på **Manifest** att öppna redigeraren infogade manifest. 
-6.  Du kan redigera manifestet med den här redigeraren direkt. Manifestet följer schemat för den [program entitet](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), och automatisk-format manifestet sparas en gång. Nya elemets kommer att läggas till i `OptionalClaims` egenskapen.
+6.  Du kan redigera manifestet med den här redigeraren direkt. Manifestet följer schemat för den [program entitet](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), och automatisk-format manifestet sparas en gång. Nya element ska läggas till i `OptionalClaims` egenskapen.
 
       ```json
       "optionalClaims": 

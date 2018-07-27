@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: c5408d20a736f262e95ce7014c385b50521967ad
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: da0491aae571f085a8cbe3cd372f905202e9db9b
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127863"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931073"
 ---
 # <a name="tutorial-4-add-list-entity"></a>Självstudie: 4. Lägg till listentitet
 I den här självstudien skapar du en app som visar hur det går till att hämta data som matchar en fördefinierad lista. 
@@ -30,7 +30,7 @@ I den här självstudien skapar du en app som visar hur det går till att hämta
 För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#luis-website) för att kunna redigera LUIS-programmet.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har appen Human Resources (Personalfrågor) från självstudien om [regex-entiteten](luis-quickstart-intents-regex-entity.md) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json)-GitHub-lagringsplatsen.
+Om du inte har appen Human Resources (Personalfrågor) från självstudien om [regex-entiteten](luis-quickstart-intents-regex-entity.md) ska du [importera](luis-how-to-start-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json)-GitHub-lagringsplatsen.
 
 Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `list`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
 
@@ -296,7 +296,7 @@ Din chattrobot har nu tillräckligt med information för att bestämma den prim�
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och data från entiteten för att gå vidare. LUIS utför inte detta programmässiga arbete för roboten eller det anropande programmet. LUIS tar endast reda på vad användarens avsikt är. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. Välj **My apps** (Mina appar) i menyn längst upp till vänster. Välj menyn med tre punkter (...) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+Ta bort LUIS-appen när den inte längre behövs. Välj **My apps** (Mina appar) i menyn längst upp till vänster. Välj ellipsen (***...***) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 ## <a name="next-steps"></a>Nästa steg
 

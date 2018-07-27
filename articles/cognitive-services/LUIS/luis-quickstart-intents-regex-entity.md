@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 522d24c1c03a338633c340502087300c890d1771
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: f51c296b39fda08d0bcc704fb974e71465385d67
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128453"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929379"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>Självstudie: 3. Lägg till entitet för reguljära uttryck
 I den här självstudien skapar du en app som visar hur det går till att extrahera konsekvent formaterade data från ett yttrande med hjälp av entiteten **Regular Expression** (Reguljärt uttryck).
@@ -31,7 +31,7 @@ I den här självstudien skapar du en app som visar hur det går till att extrah
 För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#luis-website) för att kunna redigera LUIS-programmet.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har appen Human Resources (Personalfrågor) från självstudien om [fördefinierade entiteter](luis-tutorial-prebuilt-intents-entities.md) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website) från [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json)-GitHub-lagringsplatsen.
+Om du inte har appen Human Resources (Personalfrågor) från självstudien om [fördefinierade entiteter](luis-tutorial-prebuilt-intents-entities.md) ska du [importera](luis-how-to-start-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website) från [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json)-GitHub-lagringsplatsen.
 
 Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `regex`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
 
@@ -253,7 +253,7 @@ Din chattrobot har nu tillräckligt med information för att bestämma den prim�
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och formulärnumren för att söka ett tredjeparts-API. LUIS utför inte det arbetet. LUIS tar endast reda på vad användarens avsikt är och extraherar data om den avsikten. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. Välj **My apps** (Mina appar) på menyn längst upp till vänster. Välj menyn med tre punkter (...) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+Ta bort LUIS-appen när den inte längre behövs. Välj **My apps** (Mina appar) på menyn längst upp till vänster. Välj ellipsen (***...***) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 ## <a name="next-steps"></a>Nästa steg
 

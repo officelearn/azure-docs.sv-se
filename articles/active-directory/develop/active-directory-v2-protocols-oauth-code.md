@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0b8471f77fd36b03a74e9312833cc6cb8a8a71ec
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 83ac97d1e1860ed9a385563f98318bd5db493b22
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226585"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263580"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0-protokoll – OAuth 2.0-Auktoriseringskodflöde
 OAuth 2.0-auktoriseringskod kan användas i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel webb-API: er. Med app model v2.0 implementering av OAuth 2.0 kan du lägga till logga in och API-åtkomst till dina appar och program. Den här handboken är språkoberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda någon av de [Azure open source-autentiseringsbibliotek](active-directory-authentication-libraries.md).
@@ -153,7 +153,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | omfång         | obligatorisk              | En blankstegsavgränsad lista med omfattningar. Omfattningar som efterfrågas i det här ben måste vara motsvarar eller en delmängd av scope som efterfrågas i det första ben. Om omfattningar som angetts i den här begäran sträcker sig över flera resursservern, returnerar en token för den resurs som angetts i det första omfånget v2.0-slutpunkten. En mer detaljerad förklaring av omfång finns [behörigheter och samtycke scope](active-directory-v2-scopes.md). |
 | Kod          | obligatorisk              | Authorization_code som du har köpt i den första delen i flödet.                                                                                                                                                                                                                                                                                                                                                                   |
 | redirect_uri  | obligatorisk              | Samma redirect_uri värde som används för att hämta authorization_code.                                                                                                                                                                                                                                                                                                                                                             |
-| client_secret | krävs för web apps | Programhemlighet som du skapade i portalen för registrering av app för din app. Den bör inte användas i en inbyggd app eftersom client_secrets inte lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er som har möjlighet att lagra client_secret på ett säkert sätt på serversidan.                                                                                                                      |
+| client_secret | krävs för web apps | Programhemlighet som du skapade i portalen för registrering av app för din app. Den bör inte användas i en inbyggd app eftersom client_secrets inte lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er som har möjlighet att lagra client_secret på ett säkert sätt på serversidan.  Klienthemlighet måste vara URL-kodat innan de skickas.                                                                                                                    |
 | code_verifier | valfri              | Den samma code_verifier som användes för att hämta authorization_code. Krävs om PKCE har använts i auktoriseringsbegäran kod bevilja. Mer information finns i den [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
 #### <a name="successful-response"></a>Lyckat svar
 Ett lyckat svar för token kommer att se ut:

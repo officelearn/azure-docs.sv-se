@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: e6ab9d1db0144ffa68fe9dc3381ba31d57aa0cae
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a4bf63b7a2fbbb26b8c121f5360aea0a5ca8a687
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130902"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952393"
 ---
-# <a name="tutorial-6-add-simple-entity-and-phrase-list"></a>Självstudie: 6. Lägg till en enkel entitet och fraslista
+# <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Självstudie: 7. Lägg till en enkel entitet och fraslista
 I den här självstudien skapar du en app som visar hur det går till att extrahera maskininlärningsdata från ett yttrande med hjälp av entiteten **Simple** (Enkel).
 
 <!-- green checkmark -->
@@ -32,7 +32,7 @@ I den här självstudien skapar du en app som visar hur det går till att extrah
 För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#luis-website) för att kunna redigera LUIS-programmet.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har appen Human Resources (Personalfrågor) från självstudien om [hierarchical entity](luis-quickstart-intent-and-hier-entity.md) (hierarkisk entitet) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json)-GitHub-lagringsplatsen.
+Om du inte har appen Human Resources (Personalfrågor) från självstudien om [composite entity](luis-tutorial-composite-entity.md) (sammansatt entitet) ska du [importera](luis-how-to-start-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json)-GitHub-lagringsplatsen.
 
 Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `simple`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen.  
 
@@ -366,7 +366,7 @@ Eftersom ett namn kan vara vad som helst förutsäger LUIS-appen entiteter mer k
     ```
 
 ## <a name="phrase-lists"></a>Fraslistor
-Genom att lägga till fraslistan förbättrades listordens extrahering, men de är **inte** exakta matchningar. Fraslistan har flera jobb med det första ordet `lead` och med jobbet `welder`, men inte jobbet `lead welder`. Den här fraslistan över jobb behöver kanske kompletteras. Allt eftersom du [granskar slutpunktsyttranden](label-suggested-utterances.md) och hittar andra jobbord, lägger du till dem i fraslistan. Träna sedan appen igen och publicera om.
+Genom att lägga till fraslistan förbättrades listordens extrahering, men de är **inte** exakta matchningar. Fraslistan har flera jobb med det första ordet `lead` och med jobbet `welder`, men inte jobbet `lead welder`. Den här fraslistan över jobb behöver kanske kompletteras. Allt eftersom du [granskar slutpunktsyttranden](luis-how-to-review-endoint-utt.md) och hittar andra jobbord, lägger du till dem i fraslistan. Träna sedan appen igen och publicera om.
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Vad har den här LUIS-appen åstadkommit?
 Med hjälp av en enkel entitet och en fraslista har den här appen identifierat en frågeavsikt i naturligt språk och returnerat jobbdata. 
@@ -377,7 +377,7 @@ Din chattrobot har nu tillräckligt med information för att bestämma den prim�
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och data från entiteten för att skicka jobbinformation till någon på personalavdelningen via ett tredjeparts-API. Om det finns andra programmässiga alternativ för roboten eller det anropande programmet utför inte LUIS det arbetet. LUIS tar endast reda på vad användarens avsikt är. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. Välja **My apps** (Mina appar) på menyn längst upp till vänster. Välj menyn med tre punkter (...) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+Ta bort LUIS-appen när den inte längre behövs. Välja **My apps** (Mina appar) på menyn längst upp till vänster. Välj ellipsen (***...***) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 ## <a name="next-steps"></a>Nästa steg
 

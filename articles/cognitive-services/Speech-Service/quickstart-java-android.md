@@ -1,21 +1,20 @@
 ---
-title: 'Snabbstart: Känna igen tal i Java på Android med hjälp av Cognitive Services tal SDK | Microsoft Docs'
+title: 'Snabbstart: Känna igen tal i Java på Android med hjälp av Cognitive Services tal SDK'
 titleSuffix: Microsoft Cognitive Services
 description: Lär dig att känna igen tal i Java på Android med hjälp av Cognitive Services tal SDK
 services: cognitive-services
 author: fmegen
-manager: wolfma
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: fb52bc3fa398cbe5ba4cbea7c1908ee1fece876e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 585728d95db800f32d98d71cf0c64e689845794f
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114710"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285518"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Java på Android med hjälp av tal-SDK
 

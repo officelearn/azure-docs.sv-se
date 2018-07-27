@@ -1,5 +1,5 @@
 ---
-title: Använda Azure AD v2.0 åtkomst till säker resurser utan användaråtgärder | Microsoft Docs
+title: Använda Azure AD v2.0 att komma åt säkra resurser utan användaråtgärder | Microsoft Docs
 description: Skapa webbprogram med hjälp av Azure AD-implementeringen av OAuth 2.0-autentiseringsprotokollet.
 services: active-directory
 documentationcenter: ''
@@ -17,62 +17,62 @@ ms.date: 01/07/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b71cac474c915d0ebcc9beed29551fbce8b515ea
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: f406c63ddd326b819219e72ad304d6052c65106d
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319004"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264617"
 ---
-# <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 och OAuth 2.0-klientautentiseringsuppgifter
-Du kan använda den [OAuth 2.0 klientens autentiseringsuppgifter bevilja](http://tools.ietf.org/html/rfc6749#section-4.4) anges i RFC 6749, kallas ibland *tvåledade OAuth*, åtkomst till web-värdbaserade resurser med hjälp av identiteten för ett program. Den här typen av bevilja ofta används för server-till-server-interaktioner som måste köras i bakgrunden utan direkt interaktion med användaren. Dessa typer av program som ofta kallas *daemons* eller *tjänstkonton*.
+# <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0- och OAuth 2.0 flödet
+Du kan använda den [beviljande av autentiseringsuppgifter för OAuth 2.0-klient](http://tools.ietf.org/html/rfc6749#section-4.4) anges i RFC 6749, även kallad *tvåledade OAuth*, för att få åtkomst till webb-värdbaserade resurser med hjälp av identiteten för ett program. Den här typen av ge ofta används för server-till-server-interaktioner som måste köras i bakgrunden utan direkt interaktion med en användare. Dessa typer av program som ofta kallas *daemons* eller *tjänstkonton*.
 
 > [!NOTE]
-> V2.0-slutpunkten stöder inte alla Azure Active Directory-scenarier och funktioner. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten [v2.0 begränsningar](active-directory-v2-limitations.md).
+> V2.0-slutpunkten stöder inte alla Azure Active Directory-scenarier och funktioner. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [v2.0 begränsningar](active-directory-v2-limitations.md).
 >
 >
 
-I en normal *treledade OAuth*, ett klientprogram har beviljats behörighet att komma åt en resurs för en viss användares räkning. Behörigheten är delegerad från användaren till programmet, vanligtvis under den [medgivande](active-directory-v2-scopes.md) process. Men i klientautentiseringsuppgifter behörigheter direkt till programmet. När appen med en token för en resurs måste resursen tillämpar som en enkel själva appen har behörighet att utföra en åtgärd och inte som har användaren behörighet.
+I en typisk *treledade OAuth*, ett klientprogram som har beviljats behörighet att komma åt en resurs för en viss användares räkning. Behörigheten har delegerats från användaren till programmet, vanligtvis under den [godkänna](active-directory-v2-scopes.md) processen. I flödet, men beviljas behörigheter direkt till själva programmet. När appen anger hur många en token till en resurs måste resursen tillämpar som själva appen har behörighet att utföra en åtgärd och inte som har användaren behörighet.
 
 ## <a name="protocol-diagram"></a>Protokollet diagram
-Hela klientautentiseringsuppgifter liknar nästa diagrammet. Varje steg senare i den här artikeln beskrivs.
+Hela flödet ser ut ungefär så i nästa diagram. Vi beskriver varje steg nedan.
 
-![Klientautentiseringsuppgifter](../../media/active-directory-v2-flows/convergence_scenarios_client_creds.png)
+![Flödet](../../media/active-directory-v2-flows/convergence_scenarios_client_creds.png)
 
-## <a name="get-direct-authorization"></a>Hämta direkt auktorisering
-En app vanligtvis tar emot direkt behörighet att komma åt en resurs i ett av två sätt: via en åtkomstkontrollista (ACL) för resursen eller programmet behörighetstilldelningen i Azure Active Directory (AD Azure). Dessa metoder är de vanligaste i Azure AD, och vi rekommenderar dem för klienter och resurser för klientens autentiseringsuppgifter flödet. En resurs kan välja att tillåta klienter på andra sätt, men. Varje resursservern kan välja den metod som är bäst för sina program.
+## <a name="get-direct-authorization"></a>Få direkt behörighet
+En app vanligtvis tar emot direkta tillstånd att komma åt en resurs i ett av två sätt: via en åtkomstkontrollista (ACL) på resursen eller behörighet programtilldelning i Azure Active Directory (AD Azure). Dessa två metoder är de vanligaste i Azure AD, och vi rekommenderar dem för klienter och resurser för klienten flödet. En resurs kan välja att ge sina kunder på annat sätt, men. Varje resurs-server kan välja den metod som passar bäst för sina program.
 
 ### <a name="access-control-lists"></a>Listor för åtkomstkontroll
-En resursleverantör kan tvinga en kontroll av tillståndet baserat på en lista över program-ID som den vet och ger en viss nivå av åtkomst till. När resursen får en token från v2.0-slutpunkten, det kan avkoda token och extrahera klientens program-ID från den `appid` och `iss` anspråk. Den jämför sedan programmet mot en ACL som den upprätthåller. ACL granularitet och metod kan variera avsevärt mellan resurser.
+En resursprovider kan tvinga en kontroll av auktorisering baserat på en lista med program-ID som den vet och ger en viss nivå av åtkomst till. När resursen tar emot en token från v2.0-slutpunkten, den kan avkoda token och extrahera klientens program-ID från den `appid` och `iss` anspråk. Den jämför sedan programmet mot en ACL som den upprätthåller. ACL granularitet och metoden kan variera avsevärt mellan resurser.
 
-Ett vanligt användningsfall är att använda en ACL ska kunna köra tester för ett webbprogram eller för en webb-API. Webb-API kan ge en delmängd av fullständig behörighet till en viss klient. Skapa en Testklient som hämtar token från v2.0-slutpunkten och skickar dem till API: et för att köra tester för slutpunkt till slutpunkt på API: et. API: et söker ACL för test-klientens program-ID för fullständig åtkomst till hela den API-funktioner. Om du använder den här typen av ACL, måste du verifiera inte bara anroparens `appid` värde. Kontrollera också att det `iss` värdet för token är betrodd.
+Ett vanligt användningsfall är att använda en ACL ska kunna köra tester för ett webbprogram eller för ett webb-API. Webb-API kan bevilja endast en delmängd av fullständig behörighet till en viss klient. Skapa en Testklient som skaffar token från v2.0-slutpunkten och skickar dem till API: et för att köra slutpunkt till slutpunkt-testerna på API: et. API: et kontrollerar sedan Åtkomstkontrollistan för test-klientens program-ID för fullständig åtkomst till API: ets hela funktioner. Om du använder den här typen av ACL, måste du verifiera inte bara anroparens `appid` värde. Kontrollera också att den `iss` värdet av token är betrodd.
 
-Den här typen av auktorisering är vanligt för Daemon och tjänstkonton som behöver åtkomst till data som ägs av konsumentanvändare med personliga Microsoft-konton. För data som ägs av organisationer rekommenderar vi att du får nödvändiga tillståndet via behörigheter för program.
+Den här typen av auktorisering är vanligt för Daemon och tjänstkonton som behöver komma åt data som ägs av konsumentanvändare med personliga Microsoft-konton. För data som ägs av organisationer, rekommenderar vi att du får nödvändiga auktoriseringen via behörigheter för programmet.
 
-### <a name="application-permissions"></a>Behörigheter för program
-Du kan använda API: er för att exponera en uppsättning behörigheter för program i stället för med ACL: er. Ett program behörighet tilldelas till ett program av en organisations administratör och kan användas endast för att komma åt data som ägs av den organisationen och dess anställda. Till exempel visar Microsoft Graph flera applikationen behörighet att göra följande:
+### <a name="application-permissions"></a>Programbehörigheter
+Du kan använda API: er för att exponera en uppsättning behörigheter för programmet istället för att använda ACL: er. Ett program behörighet har beviljats till ett program av en organisations administratör och kan användas endast för att komma åt data som ägs av organisationen och deras anställda. Microsoft Graph visar till exempel flera behörigheter för programmet att göra följande:
 
 * Läsa e-post i alla postlådor
 * Läsa och skriva e-post i alla postlådor
 * Skicka e-post som valfri användare
 * Läsa katalogdata
 
-Mer information om behörigheter för program går du till [Microsoft Graph](https://graph.microsoft.io).
+Mer information om behörigheter för programmet går du till [Microsoft Graph](https://graph.microsoft.io).
 
-Om du vill använda behörigheter för program i din app, gör det diskuterar vi i nästa avsnitt.
+Gör stegen som beskrivs i nästa avsnitt för att använda behörigheter för programmet i din app.
 
-#### <a name="request-the-permissions-in-the-app-registration-portal"></a>Begär behörighet i portalen för registrering av appen
+#### <a name="request-the-permissions-in-the-app-registration-portal"></a>Begär behörighet i portalen för registrering av app
 1. Gå till ditt program i den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), eller [skapa en app](active-directory-v2-app-registration.md), om du inte redan har gjort. Du måste använda minst en Programhemlighet när du skapar din app.
-2. Leta upp den **Microsoft Graph behörigheter** avsnittet och Lägg sedan till den **programbehörigheter** som kräver att din app.
-3. **Spara** appregistrering.
+2. Leta upp den **Microsoft Graph-behörigheter** , och lägger sedan till den **programbehörigheter** som din app kräver.
+3. **Spara** appregistreringen.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Rekommenderat: Logga in användaren till din app
-När du skapar ett program som använder behörigheter för program kräver normalt appen en sida eller vy som administratören godkänner appens behörigheter. Den här sidan kan vara en del av appens inloggning flödet, en del av appinställningar, eller det kan vara ett dedikerat ”ansluta” flöde. I många fall klokt det för appen att visa detta ”ansluta” Visa endast när en användare har loggat in med ett arbets- eller skolkonto Microsoft-konto.
+När du skapar ett program som använder behörigheter för programmet kräver normalt appen en sida eller vy som administratören har godkänt dess behörigheter. Den här sidan kan vara en del av appens inloggning flöde, en del av appens inställningar, eller så kan vara ett dedikerat ”ansluta”-flöde. I många fall kan det vara bra för appen ska visa detta ”ansluta” Visa endast när en användare har loggat in med ett arbets- eller din skola Microsoft-konto.
 
-Om du logga in användaren till din app kan du identifiera organisationen som användaren tillhör innan du be användaren att godkänna behörigheter för program. Även om det inte är absolut nödvändigt, hjälper som dig att skapa en mer intuitiv upplevelse för användarna. Om du vill registrera användaren i Följ våra [v2.0-protokollet självstudier](active-directory-v2-protocols.md).
+Om du logga in användaren till din app kan du identifiera organisationen som användaren tillhör innan du be användaren att godkänna behörigheterna som programmet. Även om de inte är absolut nödvändigt, det kan hjälpa dig att skapa en mer intuitiv upplevelse för användarna. Om du vill registrera användare i följa våra [v2.0-protokollet självstudier](active-directory-v2-protocols.md).
 
-#### <a name="request-the-permissions-from-a-directory-admin"></a>Begära behörigheter från en katalogadministratör
-När du är redo att begära behörigheter från organisationens administratör kan du omdirigera användaren till v2.0 *medgivande adminslutpunkten*.
+#### <a name="request-the-permissions-from-a-directory-admin"></a>Begär behörigheter från en directory-administratör
+När du är redo att begära behörighet från organisationens administratör kan du omdirigera användaren till v2.0 *medgivande adminslutpunkten*.
 
 ```
 // Line breaks are for legibility only.
@@ -93,12 +93,12 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
-| klient |Krävs |Directory-klient som du vill begära tillstånd från. Detta kan vara i GUID- eller format för eget namn. Om du inte vet vilken klient som användaren tillhör och du vill låta dem logga in med en klient använder `common`. |
-| client_id |Krävs |Programmet ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
-| redirect_uri |Krävs |Omdirigerings-URI där du vill att svar skickas för att hantera din app. Den måste matcha en omdirigerings-URI: er som du har registrerat i portalen, förutom att det måste vara URL-kodade och det kan ha ytterligare sökvägssegment. |
-| state |Rekommenderas |Ett värde som ingår i begäran som också returneras i token svaret. Det kan vara en sträng med innehåll som du vill använda. Tillståndet för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
+| klient |Krävs |Directory-klient som du vill begära behörighet från. Detta kan vara i GUID eller eget namnformat. Om du inte vet vilken klient som användaren tillhör och du vill låta dem logga in med valfri klient, Använd `common`. |
+| client_id |Krävs |Programmet med ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
+| redirect_uri |Krävs |Omdirigerings-URI där du vill att svaret skickas för din app för att hantera. Den måste exakt matcha någon av omdirigerings-URI: er som du registrerade i portalen, förutom att det måste vara URL-kodad och kan ha ytterligare sökvägssegment. |
+| state |Rekommenderas |Ett värde som ingår i den begäran som också returneras i token-svaret. Det kan vara en sträng med innehåll som du vill. Tillståndet används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
 
-Azure AD tillämpar nu att endast en Innehavaradministratör kan logga in att slutföra begäran. Administratören blir ombedd att godkänna alla direkt tillämpning behörigheter som du har begärt för din app i portalen för registrering av app.
+Nu tillämpar Azure AD att endast en Innehavaradministratör kan logga in att slutföra begäran. Administratören blir ombedd att godkänna alla direkt tillämpning-behörigheter som du har begärt för din app i portalen för registrering av appen.
 
 ##### <a name="successful-response"></a>Lyckat svar
 Om administratören godkänner behörigheter för ditt program, lyckat svar som ser ut så här:
@@ -110,11 +110,11 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 | Parameter | Beskrivning |
 | --- | --- | --- |
 | klient |Directory-klient som beviljats de behörigheter som den begärda i GUID-format för ditt program. |
-| state |Ett värde som ingår i begäran som också returneras i token svaret. Det kan vara en sträng med innehåll som du vill använda. Tillståndet för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
-| admin_consent |Ange till **SANT**. |
+| state |Ett värde som ingår i den begäran som också returneras i token-svaret. Det kan vara en sträng med innehåll som du vill. Tillståndet används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
+| admin_consent |Ange **SANT**. |
 
 ##### <a name="error-response"></a>Felsvar
-Om administratören inte godkänner behörigheter för ditt program, misslyckade svaret ser ut så här:
+Om administratören inte godkänner behörigheter för ditt program, misslyckat svar som ser ut så här:
 
 ```
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
@@ -122,15 +122,15 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 | Parameter | Beskrivning |
 | --- | --- | --- |
-| fel |Koden felsträng som du kan använda för att klassificera typer av fel, och som du kan använda för att ta hänsyn till fel. |
-| error_description |Ett felmeddelande som kan hjälpa dig att identifiera orsaken till felet. |
+| fel |En felsträng kod som du kan använda för att klassificera typer av fel, och som du kan använda för att reagera på fel. |
+| error_description |Ett felmeddelande som kan hjälpa dig att identifiera de grundläggande orsakerna till ett fel. |
 
-När du har fått ett lyckat svar från slutpunkten för app-etablering, har din app fått direkt programbehörigheter begärda. Nu kan du begära en token för den resurs som du vill använda.
+När du har fått ett lyckat svar från slutpunkten för app-etablering, kan din app har fått de direkta programbehörigheter begärda. Nu kan du begära en token för den resurs som du vill.
 
 ## <a name="get-a-token"></a>Hämta en token
-När du har skaffat nödvändiga tillståndet för programmet, fortsätter du med erhålla åtkomsttoken för API: er. För att få en token med hjälp av klienten autentiseringsuppgifter bevilja kan skicka en POST-begäran till den `/token` v2.0-slutpunkten:
+När du har köpt den nödvändiga auktoriseringen för ditt program kan du fortsätta med att hämta åtkomsttoken för API: er. För att få en token med hjälp av klienten klientautentiseringsuppgifter kan skicka en POST-begäran till den `/token` v2.0-slutpunkten:
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Först fall: token åtkomst-begäran med en delad hemlighet
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Först för användningsfall: begäran om åtkomsttoken med en delad hemlighet
 
 ```
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
@@ -149,13 +149,13 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
-| klient |Krävs | Directory-klient programmet planerar att arbeta mot i GUID eller domännamn format. |
-| client_id |Krävs |Programmet ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
-| omfång |Krävs |Värdet som skickas den `scope` parameter i den här begäran ska vara Resursidentifieraren (program-ID URI) av den resurs du vill, har den `.default` suffix. Värdet är för Microsoft Graph-exempel `https://graph.microsoft.com/.default`. Det här värdet informerar om att det ska utfärda en token för de som associerats med resursen som du vill använda för alla direkt tillämpning behörigheter som du har konfigurerat för din app, v2.0-slutpunkten. |
-| client_secret |Krävs |Den hemlighet som programmet som du skapade för din app i portalen för registrering av app. |
-| grant_type |Krävs |Måste vara `client_credentials`. |
+| klient |Krävs | Directory-klient programmet planerar att arbeta mot, i GUID eller domännamn format. |
+| client_id |Krävs |Programmet med ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
+| omfång |Krävs |Det värde som angavs den `scope` parameter i den här begäran ska vara resursidentifierare (program-ID-URI) av den resurs som du vill, har den `.default` suffix. Microsoft Graph-exemplet är värdet `https://graph.microsoft.com/.default`. Det här värdet informerar v2.0-slutpunkten att den över alla direkt tillämpning behörigheter som du har konfigurerat för din app, bör utfärda en token för de som hör till resursen som du vill använda. |
+| client_secret |Krävs |Programhemlighet som du skapade för din app i portalen för registrering av appen. Klienthemlighet måste vara URL-kodat innan de skickas.|
+| _typ av beviljande |Krävs |Måste vara `client_credentials`. |
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: token åtkomst-begäran med ett certifikat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fallet: begäran om åtkomsttoken med ett certifikat
 
 ```
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
@@ -171,17 +171,17 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 | Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
-| klient |Krävs | Directory-klient programmet planerar att arbeta mot i GUID eller domännamn format. |
-| client_id |Krävs |Programmet ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
-| omfång |Krävs |Värdet som skickas den `scope` parameter i den här begäran ska vara Resursidentifieraren (program-ID URI) av den resurs du vill, har den `.default` suffix. Värdet är för Microsoft Graph-exempel `https://graph.microsoft.com/.default`. Det här värdet informerar om att det ska utfärda en token för de som associerats med resursen som du vill använda för alla direkt tillämpning behörigheter som du har konfigurerat för din app, v2.0-slutpunkten. |
+| klient |Krävs | Directory-klient programmet planerar att arbeta mot, i GUID eller domännamn format. |
+| client_id |Krävs |Programmet med ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
+| omfång |Krävs |Det värde som angavs den `scope` parameter i den här begäran ska vara resursidentifierare (program-ID-URI) av den resurs som du vill, har den `.default` suffix. Microsoft Graph-exemplet är värdet `https://graph.microsoft.com/.default`. Det här värdet informerar v2.0-slutpunkten att den över alla direkt tillämpning behörigheter som du har konfigurerat för din app, bör utfärda en token för de som hör till resursen som du vill använda. |
 | client_assertion_type |obligatorisk |Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |obligatorisk | Ett intyg (en JSON Web Token) som du behöver för att skapa och registrera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs mer om [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig att registrera ditt certifikat och format för kontrollen.|
-| grant_type |Krävs |Måste vara `client_credentials`. |
+| client_assertion |obligatorisk | Ett intyg (en JSON Web Token) som du behöver för att skapa och signera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs mer om [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig hur du registrerar ditt certifikat och format för kontrollen.|
+| _typ av beviljande |Krävs |Måste vara `client_credentials`. |
 
-Observera att parametrarna är nästan desamma som i fallet med begäran från delad hemlighet förutom att client_secret-parameter har ersatts av två parametrar: en client_assertion_type och client_assertion.
+Observera att parametrarna är nästan samma sätt som i fallet med begäran från delad hemlighet förutom att parametern client_secret ersätts av två parametrar: en client_assertion_type och client_assertion.
 
 ### <a name="successful-response"></a>Lyckat svar
-Ett lyckat svar ser ut så här:
+Ett lyckat svar ut så här:
 
 ```
 {
@@ -193,8 +193,8 @@ Ett lyckat svar ser ut så här:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| access_token |Den begärda åtkomst-token. Appen kan använda denna token för att autentisera till den skyddade resursen som för en webb-API. |
-| token_type |Anger värdet för token-typer. Den enda typen som har stöd för Azure AD är `bearer`. |
+| access_token |Den begärda åtkomst-token. Appen kan använda den här token för att autentisera till den skyddade resursen, till exempel till ett webb-API. |
+| token_type |Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är `bearer`. |
 | expires_in |Hur länge den åtkomst-token är giltig (i sekunder). |
 
 ### <a name="error-response"></a>Felsvar
@@ -215,15 +215,15 @@ Ett felsvar ser ut så här:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| fel |Ett felkod sträng som du kan använda för att klassificera typer av fel som inträffar och att ta hänsyn till fel. |
-| error_description |Ett felmeddelande som kan hjälpa dig identifiera orsaken till ett autentiseringsfel. |
-| error_codes |En lista över STS-specifika felkoder som kan hjälpa dig med diagnostik. |
-| tidsstämpel |Tiden då felet inträffade. |
-| trace_id |En unik identifierare för den begäran som kan hjälpa dig med diagnostik. |
-| correlation_id |En unik identifierare för den begäran som kan hjälpa dig med diagnostik för komponenter. |
+| fel |En felkodsträngen som du kan använda för att klassificera typer av fel som inträffar och reagera på fel. |
+| error_description |Ett felmeddelande som kan hjälpa dig att identifiera de grundläggande orsakerna till ett autentiseringsfel. |
+| error_codes |En lista över STS-specifika felkoder som kan underlätta diagnostik. |
+| tidsstämpel |Den tid då felet inträffade. |
+| trace_id |En unik identifierare för begäran som kan underlätta diagnostik. |
+| correlation_id |En unik identifierare för begäran som kan underlätta diagnostik för komponenter. |
 
 ## <a name="use-a-token"></a>Använda en token
-Nu när du har skaffat en token kan du använda token för att göra förfrågningar till resursen. När token upphör att gälla Upprepa begäran till den `/token` slutpunkten för att få en ny åtkomsttoken.
+Nu när du har skaffat en token, kan du använda token för att göra begäranden till resursen. När token upphör att gälla, upprepa begäran till den `/token` slutpunkt för att hämta en ny åtkomsttoken.
 
 ```
 GET /v1.0/me/messages
@@ -240,4 +240,4 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 ```
 
 ## <a name="code-sample"></a>Kodexempel
-Ett exempel på ett program som implementerar klientens autentiseringsuppgifter ger med hjälp av administratören godkänna endpoint finns i vår [v2.0 daemon kodexemplet](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+Ett exempel på ett program som implementerar beviljande av klientautentiseringsuppgifter för med hjälp av administratören godkänna slutpunkt finns i vår [v2.0-kodexempel som daemon](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

@@ -1,104 +1,473 @@
 ---
-title: Arbetsflödet utlösare och åtgärder - Azure Logic Apps | Microsoft Docs
-description: Lär dig mer om utlösare och åtgärder i arbetsflödesdefinitioner för Logic Apps i Azure
+title: Utlösare och åtgärd skriver referens – Azure Logic Apps | Microsoft Docs
+description: Lär dig mer om typer av utlösare och åtgärd i Azure Logic Apps, enligt beskrivningen av schemat Definitionsspråk för arbetsflödet
 services: logic-apps
-author: kevinlam1
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: reference
-ms.date: 5/8/2018
-ms.author: klam; LADocs
-ms.openlocfilehash: f44de1a316a8375618cfef2e4a98d40c2b21e019
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 06/22/2018
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 98d023f801ab4864e01a7dba32b5700b2d52e604
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300155"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264325"
 ---
-# <a name="triggers-and-actions-for-workflow-definitions-in-azure-logic-apps"></a>Utlösare och åtgärder för arbetsflödesdefinitioner i Azure Logic Apps
+# <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Utlösare och åtgärd typer-referens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
-I [Azure Logikappar](../logic-apps/logic-apps-overview.md), alla logik app arbetsflöden som startar med utlösare följt av åtgärder. Den här artikeln beskriver utlösare och åtgärder som du kan använda för att skapa logikappar för automatiskt business arbetsflöden eller processer i lösningar för katalogintegrering. Du kan skapa logikappar visuellt med Logic Apps Designer eller genom direkt redigering av underliggande arbetsflödesdefinitioner med den [språk i arbetsflödesdefinitionen](../logic-apps/logic-apps-workflow-definition-language.md). Du kan använda Azure-portalen eller Visual Studio. Lär dig hur [priser fungerar för utlösare och åtgärder](../logic-apps/logic-apps-pricing.md).
+I [Azure Logic Apps](../logic-apps/logic-apps-overview.md), alla logikapparbetsflöden börjar med utlösare följt av åtgärder. Den här artikeln beskriver vilka utlösare och åtgärd som du kan använda när du skapar logikappar för att automatisera uppgifter, processer och arbetsflöden. Du kan skapa logic app-arbetsflöden med Logic Apps Designer visuellt eller genom att redigera de underliggande arbetsflödesdefinitioner med den [Definitionsspråk för arbetsflödet](../logic-apps/logic-apps-workflow-definition-language.md). Du kan skapa logikappar i Azure-portalen eller Visual Studio. Den underliggande definitionen för hela arbetsflödet, inklusive utlösare och åtgärder, använder Javascript Object Notation (JSON).
 
 <a name="triggers-overview"></a>
 
 ## <a name="triggers-overview"></a>Utlösare: översikt
 
-Alla logikappar börja med en utlösare, vilket definierar de anrop som kan skapa en instans av och starta ett arbetsflöde för logik app. Här följer typerna av utlösare som du kan använda:
+Alla logikappar börjar med en utlösare som definierar de anrop som kan skapa en instans av och starta en logikappens arbetsflöde. Här följer allmänna utlösaren kategorier:
 
-* En *avsökning* utlösare som kontrollerar HTTP-slutpunkten för en tjänst med jämna mellanrum
-* En *push* utlösa, som anropar den [arbetsflöde Service REST API](https://docs.microsoft.com/rest/api/logic/workflows)
- 
-Alla utlösare har de översta elementen, även om vissa är valfria:  
+* En *avsökning* utlösare som kontrollerar en tjänstslutpunkt med jämna mellanrum
+
+* En *push* utlösare, som skapar en prenumeration på en slutpunkt och tillhandahåller en *Motringnings-URL för* så att slutpunkten kan meddela utlösaren när den angivna händelsen inträffar eller data är tillgängliga. Utlösaren väntar sedan slutpunkten svaret innan den utlösts. 
+
+Utlösare har de här översta elementen, även om vissa är valfria:  
   
 ```json
-"<triggerName>": {
-   "type": "<triggerType>",
-   "inputs": { "<trigger-behavior-settings>" },
+"<trigger-name>": {
+   "type": "<trigger-type>",
+   "inputs": { "<trigger-inputs>" },
    "recurrence": { 
-      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
-      "interval": "<recurrence-interval-based-on-frequency>"
+      "frequency": "<time-unit>",
+      "interval": <number-of-time-units>
    },
-   "conditions": [ <array-with-required-conditions> ],
-   "splitOn": "<property-used-for-creating-runs>",
-   "operationOptions": "<optional-trigger-operations>"
+   "conditions": [ "<array-with-conditions>" ],
+   "runtimeConfiguration": { "<runtime-config-options>" },
+   "splitOn": "<splitOn-expression>",
+   "operationOptions": "<operation-option>"
+},
+```
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*Utlösarens namn*> | Sträng | Namnet på utlösaren | 
+| <*typ av utlösare*> | Sträng | Typ av utlösare, till exempel ”Http” eller ”ApiConnection” | 
+| <*Utlösarens indata*> | JSON-objekt | Indata som definierar utlösarens beteende | 
+| <*tidsenhet*> | Sträng | Tidsenheten som beskriver hur ofta utlösaren utlöses: ”andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month” | 
+| <*Antal--tid-enheter*> | Integer | Ett värde som anger hur ofta utlösaren utlöses baserat på åtkomstfrekvensen, vilket är antalet tidsenheter ska vänta tills den utlöses igen <p>Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dagars: 1 – 500 dagar </br>-Timme: 1-12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
+|||| 
+
+*Valfritt*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*matris med villkor*> | Matris | En matris som innehåller en eller flera [villkor](#trigger-conditions) som avgör om du vill köra arbetsflödet | 
+| <*Runtime-konfigurationsalternativ*> | JSON-objekt | Du kan ändra utlösaren runtime beteendet genom att ange `runtimeConfiguration` egenskaper. Mer information finns i [Runtime konfigurationsinställningar](#runtime-config-options). | 
+| <*splitOn-uttrycket*> | Sträng | Du kan ange ett uttryck för utlösare som returnerar en matris, som [delar upp eller *debatches* ](#split-on-debatch) matrisen objekt till flera arbetsflödesinstanser för bearbetning. | 
+| <*åtgärden-alternativet*> | Sträng | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
+|||| 
+
+## <a name="trigger-types-list"></a>Lista över typer av utlösare
+
+Varje Utlösartyp av har ett annat gränssnitt och indata som definierar utlösarens beteende. 
+
+### <a name="built-in-triggers"></a>Inbyggda utlösare
+
+| Utlösartyp | Beskrivning | 
+|--------------|-------------| 
+| [**HTTP**](#http-trigger) | Kontrollerar eller *enkäter* valfri slutpunkt. Den här slutpunkten måste följa en utlösare kontrakt med hjälp av en ”202” asynkront mönster eller genom att returnera en matris. | 
+| [**HTTPWebhook**](#http-webhook-trigger) | Skapar en anropningsbara slutpunkt för din logikapp men anropar den angivna URL: en för att registrera eller avregistrera. |
+| [**Upprepning**](#recurrence-trigger) | Utlöses enligt ett definierat schema. Du kan ange ett framtida datum och tid för aktiveringen av den här utlösaren. Baserat på åtkomstfrekvensen, du kan också ange tider och dagar för att köra arbetsflödet. | 
+| [**Begäran**](#request-trigger)  | Skapar en anropningsbara slutpunkt för din logikapp och kallas även en ”manuell” utlösare. Se exempelvis [anropa, utlösare, eller kapsla arbetsflöden med HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md). | 
+||| 
+
+### <a name="managed-api-triggers"></a>Hanterade API-utlösare
+
+| Utlösartyp | Beskrivning | 
+|--------------|-------------| 
+| [**ApiConnection**](#apiconnection-trigger) | Kontrollerar eller *polls* en slutpunkt med hjälp av [Microsoft-hanterade API: er](../connectors/apis-list.md). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Skapar en anropningsbara slutpunkt för din logikapp genom att anropa [Microsoft-hanterade API: er](../connectors/apis-list.md) ska prenumerera på och avbryta prenumerationen. | 
+||| 
+
+## <a name="triggers---detailed-reference"></a>Utlösare – detaljerad
+
+<a name="apiconnection-trigger"></a>
+
+### <a name="apiconnection-trigger"></a>APIConnection utlösare  
+
+Den här utlösaren kontrollerar eller *polls* en slutpunkt med hjälp av [Microsoft-hanterade API: er](../connectors/apis-list.md) så parametrarna för den här utlösaren kan skilja sig åt baserat på slutpunkten. Många avsnitt i den här utlösardefinition är valfria. Utlösarens beteende beror på om huruvida avsnitt är infogade.
+
+```json
+"<APIConnection_trigger_name>": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>']['connectionId']"
+         }
+      },
+      "method": "<method-type>",
+      "path": "/<api-operation>",
+      "retryPolicy": { "<retry-behavior>" },
+      "queries": { "<query-parameters>" }
+   },
+   "recurrence": { 
+      "frequency": "<time-unit>",
+      "interval": <number-of-time-units>
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <max-runs>,
+         "maximumWaitingRuns": <max-runs-queue>
+      }
+   },
+   "splitOn": "<splitOn-expression>",
+   "operationOptions": "<operation-option>"
 }
 ```
 
 *Krävs*
 
-| Elementnamn | Typ | Beskrivning | 
-| ------------ | ---- | ----------- | 
-| <*Utlösarnamn*> | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
-| typ | Sträng | Utlösaren Skriv till exempel: ”Http” eller ”ApiConnection” | 
-| inmatningar | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
-| recurrence | JSON-objekt | Frekvensen och intervall som beskriver hur ofta utlösaren utlöses |  
-| frequency | Sträng | Tidsenhet som beskriver hur ofta utlösaren utlöses ”: andra”, ”minuter”, ”timmar”, ”dag”, ”vecka” eller ”månad” | 
-| interval | Integer | Ett positivt heltal som beskriver hur ofta utlösaren utlöses baserat på hur ofta. <p>Här är de minsta och största intervall: <p>-Månad: 1-16 månader </br>-Dagars: 1-500 dagar </br>-Timmars: 1-12 000 timmar </br>-Minuters: 1-72,000 minuter </br>-Andra: 1-9,999,999 sekunder<p>Om intervallet är 6, och hur ofta är ”månad”, är upprepningen var sjätte månad. | 
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*APIConnection_trigger_name*> | Sträng | Namnet på utlösaren | 
+| <*Anslutningens namn*> | Sträng | Namn för anslutningen till den hanterade API: N som används i arbetsflödet | 
+| <*metodtyp*> | Sträng | HTTP-metoden för att kommunicera med hanterade API: ”hämta”, ”PUT”, ”POST”, ”uppdatera”, ”ta bort” | 
+| <*API-åtgärden*> | Sträng | API-åtgärden att anropa | 
+| <*tidsenhet*> | Sträng | Tidsenheten som beskriver hur ofta utlösaren utlöses: ”andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month” | 
+| <*Antal--tid-enheter*> | Integer | Ett värde som anger hur ofta utlösaren utlöses baserat på åtkomstfrekvensen, vilket är antalet tidsenheter ska vänta tills den utlöses igen <p>Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dagars: 1 – 500 dagar </br>-Timme: 1-12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
 |||| 
 
-*Valfria*
+*Valfritt*
 
-| Elementnamn | Typ | Beskrivning | 
-| ------------ | ---- | ----------- | 
-| [Villkor](#trigger-conditions) | Matris | Ett eller flera villkor som avgör om att köra arbetsflödet eller inte | 
-| [splitOn](#split-on-debatch) | Sträng | Ett uttryck som delar upp, eller *debatches*, matrisen objekt till flera arbetsflödesinstanser för bearbetning. Det här alternativet är tillgängligt för utlösare som returnerar en matris och endast när du arbetar direkt i kodvy. | 
-| [operationOptions](#trigger-operation-options) | Sträng | Vissa utlösare ger ytterligare alternativ som kan du ändra standardfunktioner för utlösare | 
-||||| 
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*Funktionssätt för återförsök*> | JSON-objekt | Anpassar återförsöksbeteendet för tillfälliga fel, som har 408, 429, och 5XX-statuskoden och eventuella undantag. Mer information finns i [Återförsöksprinciper](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
+| <*frågeparametrar*> | JSON-objekt | Alla frågeparametrar ska inkluderas med API-anrop. Till exempel den `"queries": { "api-version": "2018-01-01" }` objektet lägger till `?api-version=2018-01-01` till anropet. | 
+| <*Maximalt antal körningar*> | Integer | Som standard arbetsflödesinstanser för logic app körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra utlösaren samtidighet](#change-trigger-concurrency). | 
+| <*Max-körningar-kö*> | Integer | När logikappen körs redan det maximala antalet instanser, som du kan ändra baserat på den `runtimeConfiguration.concurrency.runs` egenskapen några nya körningar sätts i den här kön den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). | 
+| <*splitOn-uttrycket*> | Sträng | För utlösare som returnerar matriser, refererar det här uttrycket till matrisen att använda så att du kan skapa och köra en arbetsflödesinstans av för varje objekt i matrisen i stället använda en ”för var och en”-loop. <p>Det här uttrycket representerar till exempel ett objekt i matrisen som returneras i utlösarens brödtext: `@triggerbody()?['value']` |
+| <*åtgärden-alternativet*> | Sträng | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
+||||
 
-## <a name="trigger-types-and-details"></a>Typer av utlösare och information  
+*Utdata*
+ 
+| Element | Typ | Beskrivning |
+|---------|------|-------------| 
+| rubriker | JSON-objekt | Rubrikerna från svaret | 
+| brödtext | JSON-objekt | Text från svaret | 
+|||| 
 
-Varje typ av utlösare har olika gränssnitt och indata som definierar utlösarens beteende. 
+*Exempel*
 
-| Typ av utlösare | Beskrivning | 
-| ------------ | ----------- | 
-| [**Upprepning**](#recurrence-trigger) | Utlöses baserat på ett definierat schema. Du kan ange ett framtida datum och tid för startar den här utlösaren. Baserat på hur ofta du kan också ange tider och dagar för att köra arbetsflödet. | 
-| [**Begäran**](#request-trigger)  | Gör din logikapp i en anropsbar slutpunkt, även kallat en ”manuell” utlösare. Se exempelvis [anropa utlösare eller kapsla arbetsflöden med HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md). | 
-| [**HTTP**](#http-trigger) | Kontrollerar, eller *polls*, en HTTP-slutpunkt för webbprogram. HTTP-slutpunkten måste motsvara en utlösare kontrakt med hjälp av en ”202” asynkront mönster eller returnerar en matris. | 
-| [**ApiConnection**](#apiconnection-trigger) | Fungerar som HTTP-utlösare, men använder [Microsoft-hanterade API: er](../connectors/apis-list.md). | 
-| [**HTTPWebhook**](#httpwebhook-trigger) | Fungerar som utlösare för begäran, men en angiven URL-anrop för registrering och avregistrering. |
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Fungerar som HTTPWebhook utlösaren, men använder [Microsoft-hanterade API: er](../connectors/apis-list.md). | 
-||| 
+Den här utlösardefinitionen som kontrollerar för e-post varje dag i Inkorgen för ett Office 365 Outlook-konto: 
+
+```json
+"When_a_new_email_arrives": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['office365']['connectionId']"
+         }     
+      },
+      "method": "get",
+      "path": "/Mail/OnNewEmail",
+      "queries": {
+          "fetchOnlyWithAttachment": false,
+          "folderPath": "Inbox",
+          "importance": "Any",
+          "includeAttachments": false
+      }
+   },
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
+}
+```
+
+<a name="apiconnectionwebhook-trigger"></a>
+
+### <a name="apiconnectionwebhook-trigger"></a>ApiConnectionWebhook utlösare
+
+Den här utlösaren skickar begäran om en prenumeration till en slutpunkt med hjälp av en [Microsoft-hanterade API: et](../connectors/apis-list.md), ger en *Motringnings-URL för* där slutpunkten kan skicka ett svar och väntar på slutpunkten så att den svarar. Mer information finns i [Endpoint prenumerationer](#subscribe-unsubscribe).
+
+```json
+"<ApiConnectionWebhook_trigger_name>": {
+   "type": "ApiConnectionWebhook",
+   "inputs": {
+      "body": {
+          "NotificationUrl": "@{listCallbackUrl()}"
+      },
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>']['connectionId']"
+         }
+      },
+      "retryPolicy": { "<retry-behavior>" },
+      "queries": "<query-parameters>"
+   },
+   "runTimeConfiguration": {
+      "concurrency": {
+         "runs": <max-runs>,
+         "maximumWaitingRuns": <max-run-queue>
+      }
+   },
+   "splitOn": "<splitOn-expression>",
+   "operationOptions": "<operation-option>"
+}
+```
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*Anslutningens namn*> | Sträng | Namn för anslutningen till den hanterade API: N som används i arbetsflödet | 
+| <*brödtext i e-*> | JSON-objekt | Alla meddelandeinnehållet att skicka som nyttolast hanterade API: et | 
+|||| 
+
+*Valfritt*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*Funktionssätt för återförsök*> | JSON-objekt | Anpassar återförsöksbeteendet för tillfälliga fel, som har 408, 429, och 5XX-statuskoden och eventuella undantag. Mer information finns i [Återförsöksprinciper](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
+| <*frågeparametrar*> | JSON-objekt | Alla frågeparametrar ska inkluderas med API-anrop <p>Till exempel den `"queries": { "api-version": "2018-01-01" }` objektet lägger till `?api-version=2018-01-01` till anropet. | 
+| <*Maximalt antal körningar*> | Integer | Som standard arbetsflödesinstanser för logic app körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra utlösaren samtidighet](#change-trigger-concurrency). | 
+| <*Max-körningar-kö*> | Integer | När logikappen körs redan det maximala antalet instanser, som du kan ändra baserat på den `runtimeConfiguration.concurrency.runs` egenskapen några nya körningar sätts i den här kön den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). | 
+| <*splitOn-uttrycket*> | Sträng | För utlösare som returnerar matriser, refererar det här uttrycket till matrisen att använda så att du kan skapa och köra en arbetsflödesinstans av för varje objekt i matrisen i stället använda en ”för var och en”-loop. <p>Det här uttrycket representerar till exempel ett objekt i matrisen som returneras i utlösarens brödtext: `@triggerbody()?['value']` |
+| <*åtgärden-alternativet*> | Sträng | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
+|||| 
+
+*Exempel*
+
+Den här utlösardefinition prenumererar på Office 365 Outlook-API, ger en Motringnings-URL för API-slutpunkten och väntar tills slutpunkten som svarar när ett nytt e-postmeddelande.
+
+```json
+"When_a_new_email_arrives_(webhook)": {
+   "type": "ApiConnectionWebhook",
+   "inputs": {
+      "body": {
+         "NotificationUrl": "@{listCallbackUrl()}" 
+      },
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['office365']['connectionId']"
+         }
+      },
+      "path": "/MailSubscription/$subscriptions",
+      "queries": {
+          "folderPath": "Inbox",
+          "hasAttachment": "Any",
+          "importance": "Any"
+      }
+   },
+   "splitOn": "@triggerBody()?['value']"
+}
+```
+
+<a name="http-trigger"></a>
+
+### <a name="http-trigger"></a>HTTP-utlösare
+
+Den här utlösaren kontrollerar eller genomsöker den angivna slutpunkten baserat på angivna upprepningsschemat. Slutpunktens svaret anger om arbetsflödet körs.
+
+```json
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "<method-type>",
+      "uri": "<endpoint-URL>",
+      "headers": { "<header-content>" },
+      "body": "<body-content>",
+      "authentication": { "<authentication-method>" },
+      "retryPolicy": { "<retry-behavior>" },
+      "queries": "<query-parameters>"
+   },
+   "recurrence": {
+      "frequency": "<time-unit>",
+      "interval": <number-of-time-units>
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <max-runs>,
+         "maximumWaitingRuns": <max-runs-queue>
+      }
+   },
+   "operationOptions": "<operation-option>"
+}
+```
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*metodtyp*> | Sträng | HTTP-metod som ska användas för avsökning av den angivna slutpunkten: ”hämta”, ”PUT”, ”POST”, ”uppdatera”, ”ta bort” | 
+| <*slutpunkt-URL*> | Sträng | HTTP eller HTTPS-URL för slutpunkten för att göra en avsökning <p>Maximal strängens storlek: 2 KB | 
+| <*tidsenhet*> | Sträng | Tidsenheten som beskriver hur ofta utlösaren utlöses: ”andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month” | 
+| <*Antal--tid-enheter*> | Integer | Ett värde som anger hur ofta utlösaren utlöses baserat på åtkomstfrekvensen, vilket är antalet tidsenheter ska vänta tills den utlöses igen <p>Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dagars: 1 – 500 dagar </br>-Timme: 1-12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
+|||| 
+
+*Valfritt*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*huvud-innehåll*> | JSON-objekt | Rubriker ska skicka med begäran <p>Till exempel vill ange språk och typ för en begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| <*brödtext i e-*> | Sträng | Meddelandeinnehållet att skicka som nyttolasten med begäran | 
+| <*metod för autentisering*> | JSON-objekt | Metoden begäran används för autentisering. Mer information finns i [utgående autentisering i Scheduler](../scheduler/scheduler-outbound-authentication.md). Utöver Scheduler, den `authority` egenskapen stöds. Om inget värde anges är standardvärdet `https://login.windows.net`, men du kan använda ett annat värde, till exempel`https://login.windows\-ppe.net`. |
+| <*Funktionssätt för återförsök*> | JSON-objekt | Anpassar återförsöksbeteendet för tillfälliga fel, som har 408, 429, och 5XX-statuskoden och eventuella undantag. Mer information finns i [Återförsöksprinciper](../logic-apps/logic-apps-exception-handling.md#retry-policies). |  
+ <*frågeparametrar*> | JSON-objekt | Alla frågeparametrar ska ingå i begäran <p>Till exempel den `"queries": { "api-version": "2018-01-01" }` objektet lägger till `?api-version=2018-01-01` på begäran. | 
+| <*Maximalt antal körningar*> | Integer | Som standard arbetsflödesinstanser för logic app körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra utlösaren samtidighet](#change-trigger-concurrency). | 
+| <*Max-körningar-kö*> | Integer | När logikappen körs redan det maximala antalet instanser, som du kan ändra baserat på den `runtimeConfiguration.concurrency.runs` egenskapen några nya körningar sätts i den här kön den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). | 
+| <*åtgärden-alternativet*> | Sträng | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
+|||| 
+
+*Utdata*
+
+| Element | Typ | Beskrivning |
+|---------|------|-------------| 
+| rubriker | JSON-objekt | Rubrikerna från svaret | 
+| brödtext | JSON-objekt | Text från svaret | 
+|||| 
+
+*Krav för inkommande begäranden*
+
+För att fungera bra med din logikapp måste slutpunkten följer ett mönster för utlösare eller kontrakt och känna igen de här egenskaperna:  
+  
+| Svar | Krävs | Beskrivning | 
+|----------|----------|-------------|  
+| Statuskod | Ja | Den ”200 OK”-statuskod: startar en körning. Alla andra statuskod Påbörja inte en körning. | 
+| Rubrik för återförsök | Nej | Antalet sekunder tills logikappen söker slutpunkten igen | 
+| Location-huvudet | Nej | URL till anropa vid nästa avsökningsintervall. Om den inte anges används den ursprungliga URL: en. | 
+|||| 
+
+*Exempel beteenden för olika förfrågningar*
+
+| Statuskod | Försök igen efter | Beteende | 
+|-------------|-------------|----------|
+| 200 | {Ingen} | Köra arbetsflödet och Sök igen efter mer data när du har definierat upprepningen. | 
+| 200 | 10 sekunder | Köra arbetsflödet och Sök igen efter mer data efter 10 sekunder. |  
+| 202 | 60 sekunder | Inte utlösa arbetsflödet. Nästa försök sker i en minut, omfattas av definierade upprepningen. Om definierade upprepningen är mindre än en minut, företräde sidhuvudet retry-after. I annat fall används definierade upprepningen. | 
+| 400 | {Ingen} | Felaktig begäran inte köra arbetsflödet. Om ingen `retryPolicy` definieras standardprincipen används. När antalet försök har uppnåtts, kontrollerar utlösaren igen data när du har definierat upprepningen. | 
+| 500 | {Ingen}| Serverfel, inte köra arbetsflödet. Om ingen `retryPolicy` definieras standardprincipen används. När antalet försök har uppnåtts, kontrollerar utlösaren igen data när du har definierat upprepningen. | 
+|||| 
+
+<a name="http-webhook-trigger"></a>
+
+### <a name="httpwebhook-trigger"></a>HTTPWebhook utlösare  
+
+Den här utlösaren gör logikappen anropningsbara genom att skapa en slutpunkt som kan registrera en prenumeration genom att anropa angivna slutpunkts-URL. När du skapar den här utlösaren i ditt arbetsflöde gör en utgående begäran anropet för att registrera prenumerationen. På så sätt kan utlösaren kan börja lyssna efter händelser. När en åtgärd gör att den här utlösaren är ogiltigt, gör en utgående begäran automatiskt anropet för att säga upp prenumerationen. Mer information finns i [Endpoint prenumerationer](#subscribe-unsubscribe).
+
+Du kan också ange [asynkrona gränser](#asynchronous-limits) på en **HTTPWebhook** utlösaren.
+Utlösarens beteende beror på de avsnitt som du använder eller utelämna. 
+
+```json
+"HTTP_Webhook": {
+   "type": "HttpWebhook",
+   "inputs": {
+      "subscribe": {
+         "method": "<method-type>",
+         "uri": "<endpoint-subscribe-URL>",
+         "headers": { "<header-content>" },
+         "body": "<body-content>",
+         "authentication": { "<authentication-method>" },
+         "retryPolicy": { "<retry-behavior>" }
+         },
+      },
+      "unsubscribe": {
+         "method": "<method-type>",
+         "url": "<endpoint-unsubscribe-URL>",
+         "headers": { "<header-content>" },
+         "body": "<body-content>",
+         "authentication": { "<authentication-method>" }
+      }
+   },
+   "runTimeConfiguration": {
+      "concurrency": {
+         "runs": <max-runs>,
+         "maximumWaitingRuns": <max-runs-queue>
+      }
+   },
+   "operationOptions": "<operation-option>"
+}
+```
+
+Vissa värden, till exempel <*metodtyp*>, är tillgängliga för både den `"subscribe"` och `"unsubscribe"` objekt.
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*metodtyp*> | Sträng | HTTP-metoden ska användas för prenumerationsbegäran: ”hämta” ”TOP”, ”efter”, ”uppdatera” eller ”ta bort” | 
+| <*slutpunkt-prenumerera-URL*> | Sträng | Slutpunkts-URL att skicka prenumerationsbegäran | 
+|||| 
+
+*Valfritt*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*metodtyp*> | Sträng | HTTP-metoden för begäran om annullering: ”hämta” ”TOP”, ”efter”, ”uppdatera” eller ”ta bort” | 
+| <*slutpunkt-avbryta prenumerationen-URL*> | Sträng | Slutpunkts-URL att skicka begäran om annullering | 
+| <*brödtext i e-*> | Sträng | Alla meddelanden som innehåll när du vill skicka i prenumeration eller avbryta begäran | 
+| <*metod för autentisering*> | JSON-objekt | Metoden begäran används för autentisering. Mer information finns i [utgående autentisering i Scheduler](../scheduler/scheduler-outbound-authentication.md). |
+| <*Funktionssätt för återförsök*> | JSON-objekt | Anpassar återförsöksbeteendet för tillfälliga fel, som har 408, 429, och 5XX-statuskoden och eventuella undantag. Mer information finns i [Återförsöksprinciper](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
+| <*Maximalt antal körningar*> | Integer | Som standard arbetsflödesinstanser för logic app körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra utlösaren samtidighet](#change-trigger-concurrency). | 
+| <*Max-körningar-kö*> | Integer | När logikappen körs redan det maximala antalet instanser, som du kan ändra baserat på den `runtimeConfiguration.concurrency.runs` egenskapen några nya körningar sätts i den här kön den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). | 
+| <*åtgärden-alternativet*> | Sträng | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
+|||| 
+
+*Utdata* 
+
+| Element | Typ | Beskrivning |
+|---------|------|-------------| 
+| rubriker | JSON-objekt | Rubrikerna från svaret | 
+| brödtext | JSON-objekt | Text från svaret | 
+|||| 
+
+*Exempel*
+
+Den här utlösaren skapar en prenumeration på den angivna slutpunkten, tillhandahåller en unik Motringnings-URL och väntar på teknik för nyligen publicerade artiklar.
+
+```json
+"HTTP_Webhook": {
+   "type": "HttpWebhook",
+   "inputs": {
+      "subscribe": {
+         "method": "POST",
+         "uri": "https://pubsubhubbub.appspot.com/subscribe",
+         "body": {
+            "hub.callback": "@{listCallbackUrl()}",
+            "hub.mode": "subscribe",
+            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+         },
+      },
+      "unsubscribe": {
+         "method": "POST",
+         "url": "https://pubsubhubbub.appspot.com/subscribe",
+         "body": {
+            "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
+            "hub.mode": "unsubscribe",
+            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+         }
+      }
+   }
+}
+```
 
 <a name="recurrence-trigger"></a>
 
-## <a name="recurrence-trigger"></a>Utlösare för upprepning  
+### <a name="recurrence-trigger"></a>Utlösare för upprepning  
 
-Den här utlösaren körs baserat på angivet intervall och schema och ger ett enkelt sätt för att regelbundet köra ett arbetsflöde. 
-
-Här är utlösardefinition:
+Den här utlösaren körs baserat på angivna upprepningsschemat och ger ett enkelt sätt för att skapa ett arbetsflöde som körs regelbundet. 
 
 ```json
 "Recurrence": {
    "type": "Recurrence",
    "recurrence": {
-      "frequency": "Second | Minute | Hour | Day | Week | Month",
-      "interval": <recurrence-interval-based-on-frequency>,
+      "frequency": "<time-unit>",
+      "interval": <number-of-time-units>,
       "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
       "timeZone": "<time-zone>",
       "schedule": {
@@ -112,43 +481,42 @@ Här är utlösardefinition:
    },
    "runtimeConfiguration": {
       "concurrency": {
-         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+         "runs": <max-runs>,
+         "maximumWaitingRuns": <max-runs-queue>
       }
    },
-   "operationOptions": "singleInstance"
+   "operationOptions": "<operation-option>"
 }
 ```
+
 *Krävs*
 
-| Elementnamn | Typ | Beskrivning | 
-| ------------ | ---- | ----------- | 
-| Upprepning | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
-| typ | Sträng | Typen av utlösare som är ”återkommande” | 
-| inmatningar | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
-| recurrence | JSON-objekt | Frekvensen och intervall som beskriver hur ofta utlösaren utlöses |  
-| frequency | Sträng | Tidsenhet som beskriver hur ofta utlösaren utlöses ”: andra”, ”minuter”, ”timmar”, ”dag”, ”vecka” eller ”månad” | 
-| interval | Integer | Ett positivt heltal som beskriver hur ofta utlösaren utlöses baserat på hur ofta. <p>Här är de minsta och största intervall: <p>-Månad: 1-16 månader </br>-Dagars: 1-500 dagar </br>-Timmars: 1-12 000 timmar </br>-Minuters: 1-72,000 minuter </br>-Andra: 1-9,999,999 sekunder<p>Om intervallet är 6, och hur ofta är ”månad”, är upprepningen var sjätte månad. | 
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*tidsenhet*> | Sträng | Tidsenheten som beskriver hur ofta utlösaren utlöses: ”andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month” | 
+| <*Antal--tid-enheter*> | Integer | Ett värde som anger hur ofta utlösaren utlöses baserat på åtkomstfrekvensen, vilket är antalet tidsenheter ska vänta tills den utlöses igen <p>Här är de minsta och största intervall: <p>-Månad: 1 – 16 månader </br>-Dagars: 1 – 500 dagar </br>-Timme: 1-12 000 timmar </br>-Minut: 1-72,000 minuter </br>-Sekund: 1-9,999,999 sekunder<p>Om intervallet är 6 och frekvensen är ”Month”, är upprepningen var sjätte månad. | 
 |||| 
 
-*Valfria*
+*Valfritt*
 
-| Elementnamn | Typ | Beskrivning | 
-| ------------ | ---- | ----------- | 
-| startTime | Sträng | Datum och tid i det här formatet: <p>ÅÅÅÅ-MM-ddTHH om du anger en tidszon <p>ELLER <p>ÅÅÅÅ-MM-ddTHH om du inte anger en tidszon <p>Exempelvis om du vill 18 September 2017 2:00 PM, anger du ”2017-09-18T14:00:00” och ange en tidszon, till exempel ”Pacific Standard Time”, eller ange ”2017-09-18T14:00:00Z” utan en tidszon. <p>**Obs:** starttiden måste följa den [ISO 8601 dag tidsangivelse](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum tidsformat](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutningen](https://en.wikipedia.org/wiki/UTC_offset). Om du inte anger en tidszon, måste du lägga till Bokstaven ”Z” i slutet utan blanksteg. ”Z” refererar till motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkel scheman starttiden är den första förekomsten medan för komplexa scheman utlösaren inte utlösa en snabbare än starttiden. Läs mer om startdatum och gånger [skapa och aktiviteter som körs regelbundet schema](../connectors/connectors-native-recurrence.md). | 
-| Tidszon | Sträng | Gäller endast när du anger en starttid eftersom utlösaren inte acceptera [UTC-förskjutningen](https://en.wikipedia.org/wiki/UTC_offset). Ange den tidszon som du vill använda. | 
-| hours | Heltal eller heltalsmatris | Om du anger ”dag” eller ”vecka” för `frequency`, kan du ange en eller flera heltal mellan 0 och 23, avgränsade med kommatecken, som tidpunkter på dagen när du vill köra arbetsflödet. <p>Till exempel, om du anger ”10”, ”12” och ”14”, får du 10 AM och 12 PM 14: 00 som timme markerar. | 
-| minutes | Heltal eller heltalsmatris | Om du anger ”dag” eller ”vecka” för `frequency`, kan du ange en eller flera heltal mellan 0 och 59, avgränsade med kommatecken, minuter för den när du vill köra arbetsflödet. <p>Exempelvis kan du ange ”30” som minut märket och använder det föregående exemplet för tidpunkter på dagen, du får 10:30 AM, 12:30 PM och 2:30 PM. | 
-| weekDays | Sträng eller strängmatris | Om du anger ”vecka” för `frequency`, kan du ange en eller flera dagar, avgränsade med kommatecken, när du vill köra arbetsflödet: ”måndag”, ”tisdag”, ”onsdag”, ”torsdag”, ”fredag”, ”lördag” och ”söndag” | 
-| Concurrency | JSON-objekt | Det här objektet anger återkommande och avsökning utlösare, maximalt antal arbetsflödesinstanser som kan köras samtidigt. Använd det här värdet om du vill begränsa förfrågningar som tar emot serverdelssystem. <p>Detta värde anger gränsen för samtidighet till 10 instanser: `"concurrency": { "runs": 10 }` | 
-| operationOptions | Sträng | Den `singleInstance` alternativet anger att utlösaren Utlöses efter att alla aktiva körs är klar. Se [utlösare: eller endast när active körs Slutför](#single-instance). | 
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Sträng | Datum och tid i följande format: <p>ÅÅÅÅ-MM-ddTHH om du anger en tidszon <p>ELLER <p>ÅÅÅÅ-MM-: ssZ om du inte anger en tidszon <p>Till exempel om du vill 18 September 2017 kl 2:00, sedan ange ”2017-09-18T14:00:00” och ange en tidszon, till exempel ”Pacific Standard Time”, eller ange ”2017-09-18T14:00:00Z” utan en tidszon. <p>**Obs:** starttiden måste följa den [ISO 8601 datum tidsangivelse](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [tidsformat för UTC-datum](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte anger en tidszon, måste du lägga till Bokstaven ”Z” i slutet utan blanksteg. Den här ”Z” avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>Starttiden är den första förekomsten för enkla scheman och för komplexa scheman inte utlösaren utlöses alla snabbare än starttiden. Läs mer om startdatum och tider, [skapa och schemalägga aktiviteter som körs regelbundet](../connectors/connectors-native-recurrence.md). | 
+| <*tidszon*> | Sträng | Gäller endast när du anger en starttid eftersom den här utlösaren inte acceptera [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Ange den tidszon som du vill använda. | 
+| <*ett-eller-fler-timma-märken*> | Heltal eller heltalsmatris | Om du anger ”Day” eller ”Week” för `frequency`, kan du ange en eller flera heltal mellan 0 och 23, avgränsade med kommatecken, som timmar på dagen när du vill köra arbetsflödet. <p>Exempel: Om du anger ”10”, ”12” och ”14”, får du 10 AM, 12 PM och 14: 00 som timme markerar. | 
+| <*ett-eller-fler-minut-märken*> | Heltal eller heltalsmatris | Om du anger ”Day” eller ”Week” för `frequency`, kan du ange en eller flera heltal mellan 0 och 59, avgränsade med kommatecken, minuter på den timma som när du vill köra arbetsflödet. <p>Exempelvis kan du ange ”30” som minut mark och använder exemplet ovan för timmar på dagen, får du 10:30 AM, 12:30:00 och 14:30:00. | 
+| weekDays | Sträng eller strängmatris | Om du anger ”Week” för `frequency`, kan du ange en eller flera dagar, avgränsade med kommatecken, när du vill köra arbetsflödet: ”måndag”, ”tisdag”, ”onsdag”, ”torsdag”, ”fredag”, ”lördag” och ”Sunday” | 
+| <*Maximalt antal körningar*> | Integer | Som standard arbetsflödesinstanser för logic app körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra utlösaren samtidighet](#change-trigger-concurrency). | 
+| <*Max-körningar-kö*> | Integer | När logikappen körs redan det maximala antalet instanser, som du kan ändra baserat på den `runtimeConfiguration.concurrency.runs` egenskapen några nya körningar sätts i den här kön den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). | 
+| <*åtgärden-alternativet*> | Sträng | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
 |||| 
 
 *Exempel 1*
 
-Den här grundläggande upprepning utlösaren körs dagligen:
+Den här grundläggande återkommande utlösaren körs varje dag:
 
 ```json
-"recurrenceTriggerName": {
+"Recurrence": {
    "type": "Recurrence",
    "recurrence": {
       "frequency": "Day",
@@ -159,10 +527,10 @@ Den här grundläggande upprepning utlösaren körs dagligen:
 
 *Exempel 2*
 
-Du kan ange ett startdatum och tidpunkt för startar utlösaren. Den här utlösaren upprepning startar på det angivna datumet och sedan utlöses varje dag:
+Du kan ange ett startdatum och starttid för aktiveringen av utlösaren. Den här upprepningsutlösare startar på det angivna datumet och sedan utlöses varje dag:
 
 ```json
-"recurrenceTriggerName": {
+"Recurrence": {
    "type": "Recurrence",
    "recurrence": {
       "frequency": "Day",
@@ -174,10 +542,10 @@ Du kan ange ett startdatum och tidpunkt för startar utlösaren. Den här utlös
 
 *Exempel 3*
 
-Återkommande utlösaren startar på 9 September 2017 på 2:00 PM och utlöses varje vecka varje måndag 10:30 AM, 12:30:00 och 14:30:00 Pacific, normaltid:
+Den här upprepningsutlösare startar den 9 September 2017 kl 2:00 och utlöses varje vecka varje måndag kl. 10:30, 12:30:00 och 14:30:00 Pacific Standard Time:
 
 ``` json
-"myRecurrenceTrigger": {
+"Recurrence": {
    "type": "Recurrence",
    "recurrence": {
       "frequency": "Week",
@@ -193,67 +561,75 @@ Du kan ange ett startdatum och tidpunkt för startar utlösaren. Den här utlös
 }
 ```
 
-Mer information och exempel på den här utlösaren finns [skapa och aktiviteter som körs regelbundet schema](../connectors/connectors-native-recurrence.md).
+Mer information och exempel för den här utlösaren finns i [skapa och schemalägga aktiviteter som körs regelbundet](../connectors/connectors-native-recurrence.md).
 
 <a name="request-trigger"></a>
 
-## <a name="request-trigger"></a>Begäran utlösare
+### <a name="request-trigger"></a>Begäran-utlösare
 
-Den här utlösaren gör din logikapp callable genom att skapa en slutpunkt som kan ta emot inkommande HTTP-begäranden. För att anropa den här utlösaren, måste du använda den `listCallbackUrl` API i den [arbetsflöde Service REST API](https://docs.microsoft.com/rest/api/logic/workflows). Information om hur du använder den här utlösaren som en HTTP-slutpunkt finns [anropa utlösare eller kapsla arbetsflöden med HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md).
+Den här utlösaren gör logikappen anropningsbara genom att skapa en slutpunkt som kan acceptera inkommande begäranden. Ange en JSON-schema som beskriver och verifierar nyttolast eller indata som utlösaren tar emot från den inkommande begäranden för den här utlösaren. Schemat är även egenskaper för utlösare enklare referensen från senare åtgärder i arbetsflödet. 
+
+För att anropa den här utlösaren, måste du använda den `listCallbackUrl` API, som beskrivs i den [REST API för arbetsflödet](https://docs.microsoft.com/rest/api/logic/workflows). Läs hur du använder den här utlösaren som en HTTP-slutpunkt i [anropa, utlösare, eller kapsla arbetsflöden med HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md).
 
 ```json
 "manual": {
    "type": "Request",
    "kind": "Http",
    "inputs": {
-      "method": "GET | POST | PUT | PATCH | DELETE | HEAD",
+      "method": "<method-type>",
       "relativePath": "<relative-path-for-accepted-parameter>",
       "schema": {
          "type": "object",
          "properties": { 
-            "<propertyName>": {
+            "<property-name>": {
                "type": "<property-type>"
             }
          },
          "required": [ "<required-properties>" ]
       }
-   }
+   },
+   "runTimeConfiguration": {
+      "concurrency": {
+         "runs": <max-runs>,
+         "maximumWaitingRuns": <max-run-queue>
+      },
+   },
+   "operationOptions": "<operation-option>"
 }
 ```
 
 *Krävs*
 
-| Elementnamn | Typ | Beskrivning | 
-| ------------ | ---- | ----------- | 
-| Manuell | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
-| typ | Sträng | Typen av utlösare som är ”begär” | 
-| typ | Sträng | Typ av begäran som är ”Http” | 
-| inmatningar | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*egenskapsnamn*> | Sträng | Namnet på en egenskap i JSON-schema som beskriver nyttolasten | 
+| <*typ vlastnosti*> | Sträng | Egenskapens typ | 
 |||| 
 
-*Valfria*
+*Valfritt*
 
-| Elementnamn | Typ | Beskrivning | 
-| ------------ | ---- | ----------- | 
-| metod | Sträng | Metoden som begäranden måste använda för att anropa utlösaren: ”GET”, ”PLACERA”, ”publicera”, ”uppdatera”, ”ta bort” eller ”gå” |
-| RelativePath | Sträng | Den relativa sökvägen för den parameter som accepterar HTTP-slutpunktens URL | 
-| Schemat | JSON-objekt | JSON-schema som beskriver och validerar nyttolasten eller indata som utlösaren tar emot från den inkommande begäranden. Det här schemat kan efterföljande arbetsflödesåtgärder veta vilka egenskaper som ska referera till. | 
-| properties | JSON-objekt | En eller flera egenskaper i JSON-schema som beskriver nyttolasten | 
-| obligatorisk | Matris | En eller flera egenskaper som kräver att värden | 
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*metodtyp*> | Sträng | Den metod som inkommande begäranden måste använda för att anropa logikappen: ”hämta”, ”PUT”, ”POST”, ”uppdatera”, ”ta bort” |
+| <*relativ--för-godkänt – sökvägsparameter*> | Sträng | Den relativa sökvägen för den parameter som kan acceptera din slutpunkts-URL | 
+| <*obligatoriska egenskaper*> | Matris | En eller flera egenskaper som kräver värden | 
+| <*Maximalt antal körningar*> | Integer | Som standard arbetsflödesinstanser för logic app körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra utlösaren samtidighet](#change-trigger-concurrency). | 
+| <*Max-körningar-kö*> | Integer | När logikappen körs redan det maximala antalet instanser, som du kan ändra baserat på den `runtimeConfiguration.concurrency.runs` egenskapen några nya körningar sätts i den här kön den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). | 
+| <*åtgärden-alternativet*> | Sträng | Du kan ändra standardinställningen genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
 |||| 
 
 *Exempel*
 
-Den här begäran utlösaren anger att en inkommande begäran använder HTTP POST-metoden för att anropa utlösaren och ett schema som validerar indata från den inkommande begäranden: 
+Den här utlösaren anger att en inkommande begäran måste använda HTTP POST-metoden för att anropa utlösaren och innehåller ett schema som verifierar indata från den inkommande begäranden: 
 
 ```json
-"myRequestTrigger": {
+"manual": {
    "type": "Request",
    "kind": "Http",
    "inputs": {
       "method": "POST",
       "schema": {
-         "type": "Object",
+         "type": "object",
          "properties": {
             "customerName": {
                "type": "String"
@@ -262,505 +638,115 @@ Den här begäran utlösaren anger att en inkommande begäran använder HTTP POS
                "type": "Object",
                "properties": {
                   "streetAddress": {
-                     "type": "String"
+                     "type": "string"
                   },
                   "city": {
-                     "type": "String"
+                     "type": "string"
                   }
                }
             }
          }
       }
    }
-} 
-```
-
-<a name="http-trigger"></a>
-
-## <a name="http-trigger"></a>HTTP-utlösare  
-
-Den här utlösaren genomsöker den angivna slutpunkten och kontrollerar svaret. Svaret avgör om arbetsflödet ska köras eller inte. Den `inputs` JSON-objekt innehåller och kräver den `method` och `uri` parametrar som krävs för att konstruera HTTP-anropet:
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
-      "uri": "<HTTP-or-HTTPS-endpoint-to-poll>",
-      "queries": "<query-parameters>",
-      "headers": { "<headers-for-request>" },
-      "body": { "<payload-to-send>" },
-      "authentication": { "<authentication-method>" },
-      "retryPolicy": {
-          "type": "<retry-policy-type>",
-          "interval": "<retry-interval>",
-          "count": <number-retry-attempts>
-      }
-   },
-   "recurrence": {
-      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
-      "interval": <recurrence-interval-based-on-frequency>
-   },
-   "runtimeConfiguration": {
-      "concurrency": {
-         "runs": <maximum-number-for-concurrently-running-workflow-instances>
-      }
-   },
-   "operationOptions": "singleInstance"
 }
 ```
-
-*Krävs*
-
-| Elementnamn | Typ | Beskrivning | 
-| ------------ | ---- | ----------- | 
-| HTTP | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
-| typ | Sträng | Typen av utlösare som är ”Http” | 
-| inmatningar | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
-| metod | Ja | Sträng | HTTP-metoden för avsökning av den angivna slutpunkten: ”GET”, ”PLACERA”, ”publicera”, ”uppdatera”, ”ta bort” eller ”gå” | 
-| URI | Ja| Sträng | HTTP eller HTTPS slutpunkts-URL som utlösaren söker eller avsöker <p>Maximal strängens storlek: 2 KB | 
-| recurrence | JSON-objekt | Frekvensen och intervall som beskriver hur ofta utlösaren utlöses |  
-| frequency | Sträng | Tidsenhet som beskriver hur ofta utlösaren utlöses ”: andra”, ”minuter”, ”timmar”, ”dag”, ”vecka” eller ”månad” | 
-| interval | Integer | Ett positivt heltal som beskriver hur ofta utlösaren utlöses baserat på hur ofta. <p>Här är de minsta och största intervall: <p>-Månad: 1-16 månader </br>-Dagars: 1-500 dagar </br>-Timmars: 1-12 000 timmar </br>-Minuters: 1-72,000 minuter </br>-Andra: 1-9,999,999 sekunder<p>Om intervallet är 6, och hur ofta är ”månad”, är upprepningen var sjätte månad. | 
-|||| 
-
-*Valfria*
-
-| Elementnamn | Typ | Beskrivning | 
-| ------------ | ---- | ----------- | 
-| frågor | JSON-objekt | Alla frågeparametrar som du vill ta med URL-Adressen <p>Till exempel lägger till i det här elementet i `?api-version=2015-02-01` frågesträng till URL: <p>`"queries": { "api-version": "2015-02-01" }` <p>Resultat: `https://contoso.com?api-version=2015-02-01` | 
-| rubriker | JSON-objekt | En eller flera sidhuvuden att skicka till begäran <p>Till exempel ange språk och typ för en begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| brödtext | JSON-objekt | Nyttolasten (data) att skicka till slutpunkten | 
-| autentisering | JSON-objekt | Den metod som den inkommande begäranden ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). Utöver Scheduler, den `authority` egenskapen stöds. Om inget värde anges är standardvärdet `https://login.windows.net`, men du kan använda ett annat värde som`https://login.windows\-ppe.net`. | 
-| retryPolicy | JSON-objekt | Det här objektet anpassar beteendet för återkommande fel som har 4xx eller 5xx statuskoder försök igen. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
-| Concurrency | JSON-objekt | Det här objektet anger återkommande och avsökning utlösare, maximalt antal arbetsflödesinstanser som kan köras samtidigt. Använd det här värdet om du vill begränsa förfrågningar som tar emot serverdelssystem. <p>Detta värde anger gränsen för samtidighet till 10 instanser: <p>`"concurrency": { "runs": 10 }` | 
-| operationOptions | Sträng | Den `singleInstance` alternativet anger att utlösaren Utlöses efter att alla aktiva körs är klar. Se [utlösare: eller endast när active körs Slutför](#single-instance). | 
-|||| 
-
-Om du vill arbeta med din logikapp, kräver HTTP-utlösaren att HTTP-API som överensstämmer med ett specifikt mönster. HTTP-utlösaren identifierar dessa egenskaper:  
-  
-| Svar | Krävs | Beskrivning | 
-| -------- | -------- | ----------- |  
-| Statuskod | Ja | Den ”200 OK” statuskod startar en körning. Andra statuskod starta inte en körning. | 
-| Försök igen efter rubrik | Nej | Antalet sekunder tills logikappen avsöker slutpunkten igen | 
-| Platshuvud | Nej | URL till anropa vid nästa avsökningsintervall. Om inget anges används den ursprungliga URL: en. | 
-|||| 
-
-*Exempel beteenden för olika begäranden*
-
-| Statuskod | Försök igen efter | Beteende | 
-| ----------- | ----------- | -------- | 
-| 200 | {Ingen} | Köra arbetsflödet och Sök igen efter mer data efter den definierade upprepningen. | 
-| 200 | 10 sekunder | Köra arbetsflödet och Sök igen efter mer data efter 10 sekunder. |  
-| 202 | 60 sekunder | Inte Utlös arbetsflödet. Nästa försök sker i en minut, kan den definierade upprepningen. Om den definierade upprepningen är mindre än en minut, företräde försök igen efter huvudet. Annars används den definierade upprepningen. | 
-| 400 | {Ingen} | Felaktig begäran inte köra arbetsflödet. Om inget `retryPolicy` definieras standardprincipen används. När antalet försök har nåtts kontrollerar utlösaren igen data efter den definierade upprepningen. | 
-| 500 | {Ingen}| Serverfel, inte köra arbetsflödet. Om inget `retryPolicy` definieras standardprincipen används. När antalet försök har nåtts kontrollerar utlösaren igen data efter den definierade upprepningen. | 
-|||| 
-
-### <a name="http-trigger-outputs"></a>HTTP-utlösaren matar ut
-
-| Elementnamn | Typ | Beskrivning |
-| ------------ | ---- | ----------- |
-| rubriker | JSON-objekt | Huvuden från HTTP-svar | 
-| brödtext | JSON-objekt | Text från HTTP-svar | 
-|||| 
-
-<a name="apiconnection-trigger"></a>
-
-## <a name="apiconnection-trigger"></a>APIConnection utlösare  
-
-Den här utlösaren fungerar som den [HTTP-utlösaren](#http-trigger), men använder [Microsoft-hanterade API: er](../connectors/apis-list.md) så skiljer sig åt parametrar för den här utlösaren. 
-
-Här är utlösardefinition, även om många avsnitt är valfria, så den utlösaren beteende beror på om huruvida avsnitt är infogade:
-
-```json
-"<APIConnectionTriggerName>": {
-   "type": "ApiConnection",
-   "inputs": {
-      "host": {
-         "api": {
-            "runtimeUrl": "<managed-API-endpoint-URL>"
-         },
-         "connection": {
-            "name": "@parameters('$connections')['<connection-name>'].name"
-         },
-      },
-      "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
-      "queries": "<query-parameters>",
-      "headers": { "<headers-for-request>" },
-      "body": { "<payload-to-send>" },
-      "authentication": { "<authentication-method>" },
-      "retryPolicy": {
-          "type": "<retry-policy-type>",
-          "interval": "<retry-interval>",
-          "count": <number-retry-attempts>
-      }
-   },
-   "recurrence": {
-      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
-      "interval": "<recurrence-interval-based-on-frequency>"
-   },
-   "runtimeConfiguration": {
-      "concurrency": {
-         "runs": <maximum-number-for-concurrently-running-workflow-instances>
-      }
-   },
-   "operationOptions": "singleInstance"
-}
-```
-
-*Krävs*
-
-| Elementnamn | Typ | Beskrivning | 
-| ------------ | ---- | ----------- | 
-| *APIConnectionTriggerName* | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
-| typ | Sträng | Typen av utlösare som är ”ApiConnection” | 
-| inmatningar | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
-| värd | JSON-objekt | JSON-objekt som beskriver värden gateway och -ID för den hanterade API <p>Den `host` JSON-objekt har dessa element: `api` och `connection` | 
-| api | JSON-objekt | Slutpunkts-URL för den hanterade API: <p>`"runtimeUrl": "<managed-API-endpoint-URL>"` | 
-| anslutning | JSON-objekt | Namn för den hanterade API-anslutningen som används i arbetsflödet, som måste innehålla en referens till en parameter med namnet `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>'].name"` | 
-| metod | Sträng | HTTP-metoden för att kommunicera med hanterade API: ”GET”, ”PLACERA”, ”publicera”, ”uppdatera”, ”ta bort” eller ”gå” | 
-| recurrence | JSON-objekt | Frekvensen och intervall som beskriver hur ofta utlösaren utlöses |  
-| frequency | Sträng | Tidsenhet som beskriver hur ofta utlösaren utlöses ”: andra”, ”minuter”, ”timmar”, ”dag”, ”vecka” eller ”månad” | 
-| interval | Integer | Ett positivt heltal som beskriver hur ofta utlösaren utlöses baserat på hur ofta. <p>Här är de minsta och största intervall: <p>-Månad: 1-16 månader </br>-Dagars: 1-500 dagar </br>-Timmars: 1-12 000 timmar </br>-Minuters: 1-72,000 minuter </br>-Andra: 1-9,999,999 sekunder<p>Om intervallet är 6, och hur ofta är ”månad”, är upprepningen var sjätte månad. | 
-|||| 
-
-*Valfria*
-
-| Elementnamn | Typ | Beskrivning | 
-| ------------ | ---- | ----------- | 
-| frågor | JSON-objekt | Alla frågeparametrar som du vill ta med URL-Adressen <p>Till exempel lägger till i det här elementet i `?api-version=2015-02-01` frågesträng till URL: <p>`"queries": { "api-version": "2015-02-01" }` <p>Resultat: `https://contoso.com?api-version=2015-02-01` | 
-| rubriker | JSON-objekt | En eller flera sidhuvuden att skicka till begäran <p>Till exempel ange språk och typ för en begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| brödtext | JSON-objekt | I JSON-objekt som beskriver nyttolasten (data) att skicka till hanterade API: et | 
-| autentisering | JSON-objekt | Den metod som en inkommande begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
-| retryPolicy | JSON-objekt | Det här objektet anpassar försök beteendet för återkommande fel som har 4xx eller 5xx statuskoder: <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
-| Concurrency | JSON-objekt | Det här objektet anger återkommande och avsökning utlösare, maximalt antal arbetsflödesinstanser som kan köras samtidigt. Använd det här värdet om du vill begränsa förfrågningar som tar emot serverdelssystem. <p>Detta värde anger gränsen för samtidighet till 10 instanser: `"concurrency": { "runs": 10 }` | 
-| operationOptions | Sträng | Den `singleInstance` alternativet anger att utlösaren Utlöses efter att alla aktiva körs är klar. Se [utlösare: eller endast när active körs Slutför](#single-instance). | 
-||||
-
-*Exempel*
-
-```json
-"Create_daily_report": {
-   "type": "ApiConnection",
-   "inputs": {
-      "host": {
-         "api": {
-            "runtimeUrl": "https://myReportsRepo.example.com/"
-         },
-         "connection": {
-            "name": "@parameters('$connections')['<connection-name>'].name"
-         }     
-      },
-      "method": "POST",
-      "body": {
-         "category": "statusReports"
-      }  
-   },
-   "recurrence": {
-      "frequency": "Day",
-      "interval": 1
-   }
-}
-```
-
-### <a name="apiconnection-trigger-outputs"></a>APIConnection utlösaren utdata
- 
-| Elementnamn | Typ | Beskrivning |
-| ------------ | ---- | ----------- |
-| rubriker | JSON-objekt | Huvuden från HTTP-svar | 
-| brödtext | JSON-objekt | Text från HTTP-svar | 
-|||| 
-
-<a name="httpwebhook-trigger"></a>
-
-## <a name="httpwebhook-trigger"></a>HTTPWebhook utlösare  
-
-Den här utlösaren fungerar som den [begäran utlösaren](#request-trigger) genom att skapa en anropsbar slutpunkten för din logikapp. Den här utlösaren anropar dock också en viss slutpunkts-URL för registrering eller avregistrering av en prenumeration. Du kan ange gränserna på en webhook-utlösare på samma sätt som [HTTP asynkron gränser](#asynchronous-limits). 
-
-Här är utlösardefinition, även om många avsnitt är valfria och utlösarens beteende beror på de avsnitt som du använder eller utelämna:
-
-```json
-"HTTP_Webhook": {
-    "type": "HttpWebhook",
-    "inputs": {
-        "subscribe": {
-            "method": "POST",
-            "uri": "<subscribe-to-endpoint-URL>",
-            "headers": { "<headers-for-request>" },
-            "body": {
-                "hub.callback": "@{listCallbackUrl()}",
-                "hub.mode": "subscribe",
-                "hub.topic": "<subscription-topic>"
-            },
-            "authentication": {},
-            "retryPolicy": {}
-        },
-        "unsubscribe": {
-            "method": "POST",
-            "url": "<unsubscribe-from-endpoint-URL>",
-            "body": {
-                "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
-                "hub.mode": "unsubscribe",
-                "hub.topic": "<subscription-topic>"
-            },
-            "authentication": {}
-        }
-    },
-}
-```
-
-*Krävs*
-
-| Elementnamn | Typ | Beskrivning | 
-| ------------ | ---- | ----------- | 
-| HTTP_Webhook | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
-| typ | Sträng | Typen av utlösare som är ”HttpWebhook” | 
-| inmatningar | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
-| prenumerera på | JSON-objekt| Utgående begäran att anropa och utföra registreringen när utlösaren har skapats. Det här anropet sker så att utlösaren kan börja lyssna på händelser på slutpunkten. Mer information finns i [prenumerera och avbryta prenumerationen](#subscribe-unsubscribe). | 
-| metod | Sträng | HTTP-metod som används för prenumerationsbegäran: ”GET”, ”PLACERA”, ”publicera”, ”uppdatera”, ”ta bort” eller ”gå” | 
-| URI | Sträng | Slutpunkts-URL att skicka prenumerationsbegäran | 
-|||| 
-
-*Valfria*
-
-| Elementnamn | Typ | Beskrivning | 
-| ------------ | ---- | ----------- | 
-| avbryta prenumerationen | JSON-objekt | De utgående begäran om att anropa automatiskt och avbryta prenumerationen när en åtgärd gör utlösaren är ogiltig. Mer information finns i [prenumerera och avbryta prenumerationen](#subscribe-unsubscribe). | 
-| metod | Sträng | HTTP-metoden ska användas för begäran om att avbryta: ”GET”, ”PLACERA”, ”publicera”, ”uppdatera”, ”ta bort” eller ”gå” | 
-| URI | Sträng | Slutpunkts-URL för att skicka begäran om att avbryta | 
-| brödtext | JSON-objekt | JSON-objekt som beskriver nyttolasten (data) för prenumerationen eller avbryta begäran | 
-| autentisering | JSON-objekt | Den metod som en inkommande begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
-| retryPolicy | JSON-objekt | Det här objektet anpassar försök beteendet för återkommande fel som har 4xx eller 5xx statuskoder: <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
-|||| 
-
-*Exempel*
-
-```json
-"myAppSpotTrigger": {
-   "type": "HttpWebhook",
-   "inputs": {
-      "subscribe": {
-         "method": "POST",
-         "uri": "https://pubsubhubbub.appspot.com/subscribe",
-         "headers": {},
-         "body": {
-            "hub.callback": "@{listCallbackUrl()}",
-            "hub.mode": "subscribe",
-            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
-         },
-      },
-      "unsubscribe": {
-         "method": "POST",
-         "url": "https://pubsubhubbub.appspot.com/subscribe",
-         "body": {
-            "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
-            "hub.mode": "unsubscribe",
-            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
-         },
-      }
-   },
-}
-```
-
-<a name="subscribe-unsubscribe"></a>
-
-### <a name="subscribe-and-unsubscribe"></a>`subscribe` och `unsubscribe`
-
-Den `subscribe` anrop sker när arbetsflödet ändras på något sätt, till exempel när autentiseringsuppgifter förnyas eller utlösaren input parametrar ändringen. Anropet använder samma parametrar som standard HTTP-åtgärder. 
- 
-Den `unsubscribe` anrop sker automatiskt när en åtgärd gör HTTPWebhook utlösaren ogiltig, till exempel:
-
-* Ta bort eller inaktivera utlösaren. 
-* Ta bort eller inaktivera arbetsflödet. 
-* Ta bort eller inaktivera prenumerationen. 
-
-Att stödja dessa anrop av `@listCallbackUrl()` returnerar funktionen ett unikt ”återanrop URL” för den här utlösaren. Denna URL representerar en unik identifierare för slutpunkter som använder tjänstens REST API. Parametrarna för den här funktionen är samma som HTTP-utlösaren.
-
-### <a name="httpwebhook-trigger-outputs"></a>HTTPWebhook utlösaren utdata
-
-| Elementnamn | Typ | Beskrivning |
-| ------------ | ---- | ----------- |
-| rubriker | JSON-objekt | Huvuden från HTTP-svar | 
-| brödtext | JSON-objekt | Text från HTTP-svar | 
-|||| 
-
-<a name="apiconnectionwebhook-trigger"></a>
-
-## <a name="apiconnectionwebhook-trigger"></a>ApiConnectionWebhook utlösare
-
-Den här utlösaren fungerar som den [HTTPWebhook utlösaren](#httpwebhook-trigger), men använder [Microsoft-hanterade API: er](../connectors/apis-list.md). 
-
-Här är utlösardefinition:
-
-```json
-"<ApiConnectionWebhookTriggerName>": {
-   "type": "ApiConnectionWebhook",
-   "inputs": {
-      "host": {
-         "connection": {
-            "name": "@parameters('$connections')['<connection-name>']['connectionId']"
-         }
-      },        
-      "body": {
-          "NotificationUrl": "@{listCallbackUrl()}"
-      },
-      "queries": "<query-parameters>"
-   }
-}
-```
-
-*Krävs*
-
-| Elementnamn | Typ | Beskrivning | 
-| ------------ | ---- | ----------- | 
-| <*ApiConnectionWebhookTriggerName*> | JSON-objekt | Namn för trigger, vilket är ett objekt som beskrivs i Javascript Object Notation (JSON)-format  | 
-| typ | Sträng | Typen av utlösare som är ”ApiConnectionWebhook” | 
-| inmatningar | JSON-objekt | Utlösarens indata som definierar utlösarens beteende | 
-| värd | JSON-objekt | JSON-objekt som beskriver värden gateway och -ID för den hanterade API <p>Den `host` JSON-objekt har dessa element: `api` och `connection` | 
-| anslutning | JSON-objekt | Namn för den hanterade API-anslutningen som används i arbetsflödet, som måste innehålla en referens till en parameter med namnet `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>']['connectionId']"` | 
-| brödtext | JSON-objekt | I JSON-objekt som beskriver nyttolasten (data) att skicka till hanterade API: et | 
-| NotificationUrl | Sträng | Returnerar en unik ”återanrop URL” för denna utlösare som kan använda för hanterade API: et | 
-|||| 
-
-*Valfria*
-
-| Elementnamn | Typ | Beskrivning | 
-| ------------ | ---- | ----------- | 
-| frågor | JSON-objekt | Alla frågeparametrar som du vill ta med URL-Adressen <p>Till exempel lägger till i det här elementet i `?folderPath=Inbox` frågesträng till URL: <p>`"queries": { "folderPath": "Inbox" }` <p>Resultat: `https://<managed-API-URL>?folderPath=Inbox` | 
-|||| 
 
 <a name="trigger-conditions"></a>
 
-## <a name="triggers-conditions"></a>Utlösare: villkor
+## <a name="trigger-conditions"></a>Utlösarvillkor
 
-Du kan inkludera en matris med en eller flera villkor som avgör om arbetsflödet ska köras för alla utlösare. I det här exemplet rapporten utlösaren utlöses endast när arbetsflödets `sendReports` parameter är angiven till true. 
+Du kan inkludera en matris som innehåller en eller flera uttryck för villkor som bestämmer om arbetsflödet ska köras för en utlösare. Att lägga till den `conditions` egenskap till logikappen, öppna logikappen i kodredigeraren för vyn.
+
+Du kan till exempel ange att en utlösaren utlöses när en webbplats returnerar endast ett internt serverfel genom att referera till utlösarens-statuskod i den `conditions` egenskapen:
 
 ```json
-"myDailyReportTrigger": {
+"Recurrence": {
    "type": "Recurrence",
-   "conditions": [ {
-      "expression": "@parameters('sendReports')"
-   } ],
    "recurrence": {
-      "frequency": "Day",
+      "frequency": "Hour",
       "interval": 1
-   }
+   },
+   "conditions": [ {
+      "expression": "@equals(triggers().code, 'InternalServerError')"
+   } ]
 }
 ```
 
-Villkor kan också referera utlösarens statuskod. Anta att du vill starta ett arbetsflöde endast när din webbplats returnerar statuskod ”500”:
+Som standard en utlösaren aktiveras endast när en ”200 OK” svar. När ett uttryck som refererar till en utlösare statuskod, ersätts utlösarens standardbeteendet. Därför måste du inkludera det här uttrycket som villkoret om du vill att utlösaren ska för mer än en statuskod, till exempel ”200” och ”201” statuskod: 
 
-``` json
-"conditions": [ {
-   "expression": "@equals(triggers().code, 'InternalServerError')"  
-} ]  
-```  
-
-> [!NOTE]
-> Som standard utlöses en utlösare bara på Ta emot en ”200 OK” svar. När ett uttryck som refererar till en utlösare statuskod på något sätt, ersätts utlösarens standardbeteendet. Om du vill att utlösaren att utlösas för flera statuskoder, till exempel statuskod 200 och statuskod 201, så måste du inkludera den här instruktionen som dina villkor: 
->
-> `@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
+`@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
 
 <a name="split-on-debatch"></a>
 
-## <a name="triggers-split-an-array-into-multiple-runs"></a>Utlösare: Dela en matris i flera körs
+## <a name="trigger-multiple-runs"></a>Utlösa flera körningar
 
-Om utlösaren returnerar en matris för din logikapp att bearbeta kan ibland ”för var och en” loop ta lång tid att bearbeta varje element i matrisen. Använd i stället de **SplitOn** egenskap i utlösaren till *debatch* matrisen. 
-
-Debatching delar upp matris-objekt och startar en ny instans av logik app som körs för varje element i matrisen. Den här metoden är användbar, till exempel när du vill söka en slutpunkt som kan returnera flera nya objekt mellan avsökningsintervall.
-För det maximala antalet matris objekt som **SplitOn** kan bearbeta enkel logik app körs, se [gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md). 
+Om utlösaren returnerar en matris för din logikapp att bearbeta, ta ibland ”för var och en” loop för lång tid att bearbeta varje objekt i matrisen. Använd i stället de **SplitOn** -egenskapen i utlösaren till *debatch* matrisen. Debatching delar upp matrisobjekt och startar en ny logikappinstans som körs för varje objekt i matrisen. Den här metoden är användbar, till exempel när du vill fråga en slutpunkt som kan returnera flera nya objekt mellan frågeintervallen.
+För det maximala antalet matris objekt som **SplitOn** kan bearbeta i en enda logic app-körning, se [gränser och konfigurering](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
 
 > [!NOTE]
-> Du kan lägga till **SplitOn** bara till utlösare manuellt definiera eller åsidosätta i kodvy för din logikapp JSON-definitionen. Du kan inte använda **SplitOn** när du vill implementera ett mönster för synkron svar. Alla arbetsflöden som använder **SplitOn** och innehåller ett svar åtgärd körs asynkront och skickar omedelbart en `202 ACCEPTED` svar.
+> Du kan inte använda **SplitOn** med ett mönster för synkron svar. Alla arbetsflöden som använder **SplitOn** och innehåller ett svar åtgärd körs asynkront och omedelbart skickar en `202 ACCEPTED` svar.
 
-Om din utlösaren Swagger-fil som beskriver en nyttolast som är en matris av **SplitOn** egenskapen läggs automatiskt till utlösaren. Lägg till den här egenskapen i svar-nyttolast som har den matris som du vill debatch annars. 
+Om din utlösare Swagger-fil som beskriver en nyttolast som är en matris, den **SplitOn** egenskapen läggs automatiskt till utlösaren. Annars lägger du till den här egenskapen i svarets nyttolast som har den matris som du vill debatch. 
 
-Anta att du har en API som returnerar svaret: 
+*Exempel*
+
+Anta att du har ett API som returnerar svaret: 
   
 ```json
 {
-    "Status": "Succeeded",
-    "Rows": [ 
-        { 
-            "id": 938109380,
-            "name": "customer-name-one"
-        },
-        {
-            "id": 938109381,
-            "name": "customer-name-two"
-        }
-    ]
+   "Status": "Succeeded",
+   "Rows": [ 
+      { 
+         "id": 938109380,
+         "name": "customer-name-one"
+      },
+      {
+         "id": 938109381,
+         "name": "customer-name-two"
+      }
+   ]
 }
 ```
-  
-Din logikapp behöver bara innehåll från `Rows`, så du kan skapa en utlösare som det här exemplet.
+ 
+Logikappen behöver bara innehåll från en matris i `Rows`, så att du kan skapa en utlösare som i följande exempel:
 
 ``` json
-"myDebatchTrigger": {
-    "type": "Http",
-    "recurrence": {
-        "frequency": "Second",
-        "interval": 1
-    },
+"HTTP_Debatch": {
+   "type": "Http",
     "inputs": {
         "uri": "https://mydomain.com/myAPI",
         "method": "GET"
+    },
+   "recurrence": {
+      "frequency": "Second",
+      "interval": 1
     },
     "splitOn": "@triggerBody()?.Rows"
 }
 ```
 
 > [!NOTE]
-> Om du använder den `SplitOn` kommandot, du inte kan hämta de egenskaper som är utanför matrisen. Så i det här exemplet kan du hämta den `status` i svaret som returnerades från API: et.
+> Om du använder den `SplitOn` kommandot, du inte kan hämta de egenskaper som är utanför matrisen. Så det här exemplet som du inte kan hämta den `status` -egenskapen i svaret som returnerades från API: et.
 > 
-> Att undvika ett fel om den `Rows` egenskapen finns inte, det här exemplet används den `?` operator.
+> Att undvika ett fel om de `Rows` egenskapen finns inte, det här exemplet används den `?` operator.
 
-Nu kan du använda din arbetsflödesdefinitionen `@triggerBody().name` att hämta `customer-name-one` från den första körningen och `customer-name-two` från andra kör. Därför utlösaren matar ut utseende som de här exemplen:
+Nu kan du använda din arbetsflödesdefinitionen `@triggerBody().name` att hämta den `name` värden för `"customer-name-one"` från den första körningen och `"customer-name-two"` från den andra körningen. Därför utlösaren matar ut utseende som de här exemplen:
 
 ```json
 {
-    "body": {
-        "id": 938109380,
-        "name": "customer-name-one"
-    }
+   "body": {
+      "id": 938109380,
+      "name": "customer-name-one"
+   }
 }
 ```
 
 ```json
 {
-    "body": {
-        "id": 938109381,
-        "name": "customer-name-two"
-    }
-}
-```
-
-<a name="trigger-operation-options"></a>
-
-## <a name="triggers-operation-options"></a>Utlösare: Åtgärden alternativ
-
-Dessa utlösare tillhandahåller flera alternativ som kan du ändra standardbeteendet.
-
-| Utlösare | Åtgärden alternativet | Beskrivning |
-|---------|------------------|-------------|
-| [Återkommande](#recurrence-trigger), <br>[HTTP](#http-trigger), <br>[ApiConnection](#apiconnection-trigger) | singleInstance | Fire körs endast när alla aktiva utlösaren har slutförts. |
-||||
-
-<a name="single-instance"></a>
-
-### <a name="triggers-fire-only-after-active-runs-finish"></a>Utlösare: Eller endast när active körs Slutför
-
-Du kan ange att utlösaren brand körs endast när alla aktiva är klar för utlösare där du kan ange återkommande. Om en schemalagd upprepning händer när en arbetsflödesinstans som körs, hoppar över utlösaren och väntar tills nästa schemalagda upprepning innan kontrollen igen. Exempel:
-
-```json
-"myRecurringTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "Hour",
-        "interval": 1,
-    },
-    "operationOptions": "singleInstance"
+   "body": {
+      "id": 938109381,
+      "name": "customer-name-two"
+   }
 }
 ```
 
@@ -768,802 +754,1484 @@ Du kan ange att utlösaren brand körs endast när alla aktiva är klar för utl
 
 ## <a name="actions-overview"></a>Översikt över åtgärder
 
-Det finns många typer av åtgärder med unika beteende. Varje åtgärd har olika indata som definierar beteendet för en åtgärd. Åtgärder för samlingen kan innehålla flera andra åtgärder i själva. 
+Azure Logic Apps ger olika åtgärdstyper – var och en med olika indata som definierar hur en åtgärd. 
 
-### <a name="standard-actions"></a>Standardåtgärder  
+Åtgärder ha elementen på hög nivå om vissa är valfria:
+
+```json
+"<action-name>": {
+   "type": "<action-type>",
+   "inputs": { 
+      "<input-name>": { "<input-value>" },
+      "retryPolicy": "<retry-behavior>" 
+   },
+   "runAfter": { "<previous-trigger-or-action-status>" },
+   "runtimeConfiguration": { "<runtime-config-options>" },
+   "operationOptions": "<operation-option>"
+},
+```
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------|
+| <*Åtgärdens namn*> | Sträng | Namn för åtgärden | 
+| <*typ av åtgärd*> | Sträng | Åtgärdstyp, till exempel ”Http” eller ”ApiConnection”| 
+| <*indata-name*> | Sträng | Namnet på indata som definierar beteendet för den åtgärden | 
+| <*indata-värde*> | Olika | Indatavärdet, vilket kan vara en sträng, heltal, JSON-objekt och så vidare | 
+| <*föregående-utlösare-eller-åtgärd-status*> | JSON-objekt | Namn och resulterande status för utlösaren eller åtgärden som måste köras omedelbart innan åtgärden aktuella kan köra | 
+|||| 
+
+*Valfritt*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------|
+| <*Funktionssätt för återförsök*> | JSON-objekt | Anpassar återförsöksbeteendet för tillfälliga fel, som har 408, 429, och 5XX-statuskoden och eventuella undantag. Mer information finns i [Återförsöksprinciper](#retry-policies). | 
+| <*Runtime-konfigurationsalternativ*> | JSON-objekt | För vissa åtgärder, kan du ändra åtgärdens beteende under körning med `runtimeConfiguration` egenskaper. Mer information finns i [Runtime konfigurationsinställningar](#runtime-config-options). | 
+| <*åtgärden-alternativet*> | Sträng | För vissa åtgärder, kan du ändra standardbeteendet genom att ange den `operationOptions` egenskapen. Mer information finns i [åtgärdsalternativen](#operation-options). | 
+|||| 
+
+## <a name="action-types-list"></a>Listan över typer
+
+Här följer några vanliga åtgärdstyper: 
+
+* [Inbyggda åtgärdstyper](#built-in-actions) som de här exemplen och mer: 
+
+  * [**HTTP** ](#http-action) för att anropa slutpunkter via HTTP eller HTTPS
+
+  * [**Svaret** ](#response-action) för att svara på begäranden
+
+  * [**Funktionen** ](#function-action) för att anropa Azure Functions
+
+  * Åtgärden dataåtgärder som [ **ansluta**](#join-action), [ **Compose**](#compose-action), [ **tabell** ](#table-action), [ **Välj**](#select-action), och andra som skapar eller Transformera data från olika indata
+
+  * [**Arbetsflödet** ](#workflow-action) för att anropa en annan logikappens arbetsflöde
+
+* [Hanterade API: et åtgärdstyper](#managed-api-actions) som [ **ApiConnection** ](#apiconnection-action) och [ **ApiConnectionWebHook** ](#apiconnectionwebhook-action) som anropar olika kopplingar och API: er hanteras av Microsoft, till exempel Azure Service Bus, Office 365 Outlook, Powerbi, Azure Blob Storage, OneDrive, GitHub och mer
+
+* [Kontrollera åtgärdstyper för arbetsflödet](#control-workflow-actions) som [ **om**](#if-action), [ **Foreach**](#foreach-action), [ **växel**  ](#switch-action), [ **Omfång**](#scope-action), och [ **tills**](#until-action), som innehåller andra åtgärder och hjälper dig att organisera arbetsflödeskörning
+
+<a name="built-in-actions"></a>
+
+### <a name="built-in-actions"></a>Inbyggda åtgärder
 
 | Åtgärdstyp | Beskrivning | 
-| ----------- | ----------- | 
-| **HTTP** | Anropar en HTTP-slutpunkt för webbprogram. | 
-| **ApiConnection**  | Fungerar som HTTP-åtgärden, men använder [Microsoft-hanterade API: er](https://docs.microsoft.com/azure/connectors/apis-list). | 
-| **ApiConnectionWebhook** | Fungerar som HTTPWebhook, men använder Microsoft-hanterade API: er. | 
-| **Svar** | Anger svaret på ett inkommande samtal. | 
-| **Skriva** | Skapar ett godtyckligt objekt från åtgärdens indata. | 
-| **Funktionen** | Representerar en Azure-funktion. | 
-| **Vänta** | Väntar på ett fast belopp tid eller tills en viss tid. | 
-| **Arbetsflöde** | Representerar ett inkapslat arbetsflöde. | 
-| **Skriva** | Skapar ett godtyckligt objekt från åtgärdens indata. | 
-| **Fråga** | Filtrerar en matris baserat på ett villkor. | 
-| **Välj** | Projekt varje element i en matris till ett nytt värde. Exempelvis kan du konvertera en matris av talen i en matris med objekt. | 
-| **Tabell** | Konverterar en matris med-objekt till en CSV- eller HTML-tabell. | 
-| **Avsluta** | Stoppar köra ett arbetsflöde. | 
-| **Vänta** | Väntar på ett fast belopp tid eller tills en viss tid. | 
-| **Arbetsflöde** | Representerar ett inkapslat arbetsflöde. | 
+|-------------|-------------|  
+| [**Compose**](#compose-action) | Skapar ett enda utflöde från indata som kan ha olika typer. | 
+| [**Funktionen**](#function-action) | Anropar en Azure-funktion. | 
+| [**HTTP**](#http-action) | Anropar en HTTP-slutpunkt. | 
+| [**Anslut till**](#join-action) | Skapar en sträng från alla objekt i en matris och delar upp dessa objekt med ett tecken för angiven avgränsare. | 
+| [**Parsa JSON**](#parse-json-action) | Skapar användarvänliga token från egenskaper i JSON-innehåll. Du kan sedan referera dessa egenskaper genom att inkludera token i din logikapp. | 
+| [**Fråga**](#query-action) | Skapar en matris av objekt i en annan matris baserat på ett villkor eller filter. | 
+| [**Svar**](#response-action) | Skapar ett svar på ett inkommande samtal eller begäran. | 
+| [**Välj**](#select-action) | Skapar en matris med JSON-objekt genom att transformera objekt från en annan matris baserat på den angivna mappningen. | 
+| [**Tabell**](#table-action) | Skapar en CSV- eller HTML-tabell från en matris. | 
+| [**Avsluta**](#terminate-action) | Stoppar ett arbetsflöde som aktivt som körs. | 
+| [**Vänta**](#wait-action) | Pausar ditt arbetsflöde under en angiven period eller tills angivet datum och tid. | 
+| [**Arbetsflöde**](#workflow-action) | Omsluter ett arbetsflöde i ett annat arbetsflöde. | 
 ||| 
 
-### <a name="collection-actions"></a>Åtgärder för samlingen
+<a name="managed-api-actions"></a>
+
+### <a name="managed-api-actions"></a>Hanterade API-åtgärder
 
 | Åtgärdstyp | Beskrivning | 
-| ----------- | ----------- | 
-| **Om** | Utvärderar ett uttryck och baserat på resultatet, Kör grenen motsvarande. | 
-| **växel** | Utför olika åtgärder baserat på specifika värden i ett objekt. | 
-| **ForEach** | Åtgärden slingor upprepas i en matris och utför interna åtgärder på varje element i matrisen. | 
-| **fram till** | Inre åtgärder utförs i åtgärden slinga tills ett villkor resultatet till true. | 
-| **Omfång** | Används för att gruppera logiskt andra åtgärder. | 
+|-------------|-------------|  
+| [**ApiConnection**](#apiconnection-action) | Anropar en HTTP-slutpunkt med hjälp av en [Microsoft-hanterade API: et](../connectors/apis-list.md). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Fungerar som HTTP-Webhook, men använder en [Microsoft-hanterade API: et](../connectors/apis-list.md). | 
+||| 
+
+<a name="control-workflow-actions"></a>
+
+### <a name="control-workflow-actions"></a>Kontrollen arbetsflödesåtgärder
+
+De här åtgärderna hjälper dig att kontrollera arbetsflödeskörning och innehålla andra åtgärder. Från utanför en kontroll i arbetsflödesåtgärd referera du direkt till åtgärder i den kontrollen arbetsflödesåtgärden. Exempel: Om du har en `Http` åtgärd inuti ett omfång kan du referera till den `@body('Http')` uttryck var som helst i arbetsflödet. Åtgärder som finns i en kontroll arbetsflödesåtgärd kan dock endast ”köra” andra åtgärder som finns i samma kontroll Arbetsflödesstruktur.
+
+| Åtgärdstyp | Beskrivning | 
+|-------------|-------------| 
+| [**ForEach**](#foreach-action) | Kör samma åtgärder i en loop för alla objekt i en matris. | 
+| [**Om**](#if-action) | Kör åtgärder baserat på om det angivna villkoret är SANT eller FALSKT. | 
+| [**Omfång**](#scope-action) | Kör åtgärder baserat på Gruppstatus för från en uppsättning åtgärder. | 
+| [**Växel**](#switch-action) | Köra åtgärder som är ordnade i fall när värden från uttryck, objekt eller token matchar de värden som anges av varje fall. | 
+| [**Tills**](#until-action) | Kör åtgärder i en loop tills det angivna villkoret är sant. | 
 |||  
 
-## <a name="http-action"></a>HTTP-åtgärd  
+## <a name="actions---detailed-reference"></a>Åtgärder – detaljerad
 
-En HTTP-åtgärd anropar den angivna slutpunkten och kontrollerar svaret för att avgöra om arbetsflödet ska köras eller inte. Exempel:
-  
-```json
-"myLatestNewsAction": {
-    "type": "Http",
-    "inputs": {
-        "method": "GET",
-        "uri": "https://mynews.example.com/latest"
-    }
-}
-```
+<a name="apiconnection-action"></a>
 
-Här är den `inputs` objektet följer dessa parametrar som krävs för att konstruera ett HTTP-anrop: 
+### <a name="apiconnection-action"></a>APIConnection åtgärd
 
-| Elementnamn | Krävs | Typ | Beskrivning | 
-| ------------ | -------- | ---- | ----------- | 
-| metod | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
-| URI | Ja| Sträng | HTTP eller HTTPs slutpunkten som söker av utlösaren. Maximal strängens storlek: 2 KB | 
-| frågor | Nej | JSON-objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| rubriker | Nej | JSON-objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| brödtext | Nej | JSON-objekt | Representerar nyttolasten som skickas till slutpunkten. | 
-| retryPolicy | Nej | JSON-objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | Nej | Sträng | Definierar de särskilda beteenden att åsidosätta. | 
-| autentisering | Nej | JSON-objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). <p>Utöver Scheduler, är en mer stöds egenskap: `authority`. Det här värdet är som standard `https://login.windows.net` om anges, men du kan använda ett annat värde som`https://login.windows\-ppe.net`. | 
-||||| 
-
-HTTP- och APIConnection åtgärder stöder *försök principer*. En återförsöksprincip som gäller för återkommande fel som betecknas som HTTP-statuskoder 408 och 429 5xx utöver eventuella undantag. Du kan definiera principen med den `retryPolicy` objekt som visas här:
-  
-```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
-}
-```
-
-Det här exemplet HTTP-åtgärden försöker hämta de senaste nyheterna två gånger om återkommande fel för totalt tre körningar och en fördröjning på 30 sekunder mellan varje försök:
-  
-```json
-"myLatestNewsAction": {
-    "type": "Http",
-    "inputs": {
-        "method": "GET",
-        "uri": "https://mynews.example.com/latest",
-        "retryPolicy": {
-            "type": "fixed",
-            "interval": "PT30S",
-            "count": 2
-        }
-    }
-}
-```
-
-Intervallet anges i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601). Det här intervallet har standard och minst 20 sekunder medan det maximala värdet är en timme. Standard- och maximalt antal för nya försök är fyra timmar. Om du inte anger ett nytt försök principdefinitionen en `fixed` strategi som används med försök antal och intervall standardvärden. Om du vill inaktivera återförsöksprincipen sägs dess typ `None`.
-
-### <a name="asynchronous-patterns"></a>Asynkront mönster
-
-Som standard stöder alla HTTP-baserade åtgärder mönstret standard asynkron åtgärd. Så om fjärrservern anger att begäran är godkänd för behandling med ett ”202 godkända” svar, behåller Logic Apps motorn avsöker den URL som anges i svarshuvud plats tills ett avslutat tillstånd, vilket är ett icke-202 svar.
-  
-För att inaktivera den asynkrona som beskrevs tidigare ange `operationOptions` till `DisableAsyncPattern` i indata för åtgärden. I det här fallet är åtgärdens utdata baserad på det första 202 svaret från servern. Exempel:
-  
-```json
-"invokeLongRunningOperationAction": {
-    "type": "Http",
-    "inputs": {
-        "method": "POST",
-        "uri": "https://host.example.com/resources"
-    },
-    "operationOptions": "DisableAsyncPattern"
-}
-```
-
-<a name="asynchronous-limits"></a>
-
-#### <a name="asynchronous-limits"></a>Asynkron gränser
-
-Du kan begränsa hur länge ett asynkront mönster för ett visst tidsintervall. Om tidsintervallet långa utan att ett avslutat tillstånd åtgärdens status är markerat `Cancelled` med en `ActionTimedOut` kod. Begränsa tidsgränsen har angetts i ISO 8601-format. Det här exemplet visar hur du kan ange gränserna:
-
+Den här åtgärden skickar en HTTP-begäran till en [Microsoft-hanterade API: et](../connectors/apis-list.md) och kräver information om API: et och parametrar plus en referens till en giltig anslutning. 
 
 ``` json
 "<action-name>": {
-    "type": "Workflow|Webhook|Http|ApiConnectionWebhook|ApiConnection",
-    "inputs": { },
-    "limit": {
-        "timeout": "PT10S"
-    }
-}
-```
-  
-## <a name="apiconnection-action"></a>APIConnection åtgärd
-
-Den här åtgärden refererar till en Microsoft-hanterad koppling som kräver en referens till en giltig anslutning och information om API och parametrar. Här är ett exempel APIConnection åtgärd:
-
-```json
-"Send_Email": {
-    "type": "ApiConnection",
-    "inputs": {
-        "host": {
-            "api": {
-                "runtimeUrl": "https://logic-apis-df.azure-apim.net/apim/office365"
-            },
-            "connection": {
-                "name": "@parameters('$connections')['office365']['connectionId']"
-            }
-        },
-        "method": "POST",
-        "body": {
-            "Subject": "New tweet from @{triggerBody()['TweetedBy']}",
-            "Body": "@{triggerBody()['TweetText']}",
-            "To": "me@example.com"
-        },
-        "path": "/Mail"
-    },
-    "runAfter": {}
-}
-```
-
-| Elementnamn | Krävs | Typ | Beskrivning | 
-| ------------ | -------- | ---- | ----------- | 
-| värd | Ja | JSON-objekt | Representerar connector information som den `runtimeUrl` och referens till connection-objektet. | 
-| metod | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
-| sökväg | Ja | Sträng | Sökvägen för API-åtgärd | 
-| frågor | Nej | JSON-objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| rubriker | Nej | JSON-objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| brödtext | Nej | JSON-objekt | Representerar nyttolasten som skickas till slutpunkten. | 
-| retryPolicy | Nej | JSON-objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | Nej | Sträng | Definierar de särskilda beteenden att åsidosätta. | 
-| autentisering | Nej | JSON-objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
-||||| 
-
-En återförsöksprincip som gäller för återkommande fel som betecknas som HTTP-statuskoder 408 och 429 5xx utöver eventuella undantag. Du kan definiera principen med den `retryPolicy` objekt som visas här:
-
-```json
-"retryPolicy": {
-    "type": "<retry-policy-type>",
-    "interval": <retry-interval>,
-    "count": <number-of-retry-attempts>
-}
-```
-
-## <a name="apiconnection-webhook-action"></a>APIConnection webhook åtgärd
-
-Åtgärden APIConnectionWebhook refererar till en Microsoft-hanterad koppling. Den här åtgärden kräver en referens till en giltig anslutning och information om API och parametrar. Du kan ange gränserna på en webhook-åtgärd på samma sätt som [HTTP asynkron gränser](#asynchronous-limits).
-
-```json
-"Send_approval_email": {
-    "type": "ApiConnectionWebhook",
-    "inputs": {
-        "host": {
-            "api": {
-                "runtimeUrl": "https://logic-apis-df.azure-apim.net/apim/office365"
-            },
-            "connection": {
-                "name": "@parameters('$connections')['office365']['connectionId']"
-            }
-        },
-        "body": {
-            "Message": {
-                "Subject": "Approval Request",
-                "Options": "Approve, Reject",
-                "Importance": "Normal",
-                "To": "me@email.com"
-            }
-        },
-        "path": "/approvalmail",
-        "authentication": "@parameters('$authentication')"
-    },
-    "runAfter": {}
-}
-```
-
-| Elementnamn | Krävs | Typ | Beskrivning | 
-| ------------ | -------- | ---- | ----------- | 
-| värd | Ja | JSON-objekt | Representerar connector information som den `runtimeUrl` och referens till connection-objektet. | 
-| sökväg | Ja | Sträng | Sökvägen för API-åtgärd | 
-| frågor | Nej | JSON-objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| rubriker | Nej | JSON-objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| brödtext | Nej | JSON-objekt | Representerar nyttolasten som skickas till slutpunkten. | 
-| retryPolicy | Nej | JSON-objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | Nej | Sträng | Definierar de särskilda beteenden att åsidosätta. | 
-| autentisering | Nej | JSON-objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
-||||| 
-
-## <a name="response-action"></a>Svaret åtgärd  
-
-Den här åtgärden innehåller hela svaret nyttolast från en HTTP-begäran och ett `statusCode`, `body`, och `headers`:
-  
-```json
-"myResponseAction": {
-    "type": "Response",
-    "inputs": {
-        "statusCode": 200,
-        "body": {
-            "contentFieldOne": "value100",
-            "anotherField": 10.001
-        },
-        "headers": {
-            "x-ms-date": "@utcnow()",
-            "Content-type": "application/json"
-        }
-    },
-    "runAfter": {}
-}
-```
-
-Instruktionen svar har särskilda begränsningar som inte gäller för andra åtgärder, speciellt:  
-  
-* Du kan inte ha responsåtgärder i parallella grenar inom en definition av logik appen eftersom den inkommande begäranden kräver en deterministisk svar.
-  
-* Om arbetsflödet når en svar åtgärd när den inkommande begäranden redan fått något svar, anses svar-åtgärd misslyckades eller i konflikt. Därför logikappen kör markeras `Failed`.
-  
-* Ett arbetsflöde med responsåtgärder kan inte använda den `splitOn` kommandot i definitionen för utlösaren eftersom anropet skapar flera körs. Kontrollera därför för det här fallet när arbetsflödesåtgärden PLACERAS och returnerar svaret ”felaktig begäran”.
-
-## <a name="compose-action"></a>Skriv åtgärd
-
-Den här åtgärden kan du skapa ett godtyckligt objekt och utdata är ett resultat av utvärderingen av åtgärdens indata. 
-
-> [!NOTE]
-> Du kan använda den `Compose` åtgärd för att konstruera inga utdata, inklusive objekt, matriser och andra typer som stöds av logikappar som XML och binary.
-
-Du kan till exempel använda den `Compose` åtgärd för sammanslagning utdata från flera åtgärder:
-
-```json
-"composeUserRecordAction": {
-    "type": "Compose",
-    "inputs": {
-        "firstName": "@actions('getUser').firstName",
-        "alias": "@actions('getUser').alias",
-        "thumbnailLink": "@actions('lookupThumbnail').url"
-    }
-}
-```
-
-## <a name="function-action"></a>Funktionen åtgärd
-
-Den här åtgärden kan du representerar och anropa ett [Azure funktionen](../azure-functions/functions-overview.md), till exempel:
-
-```json
-"<my-Azure-Function-name>": {
-   "type": "Function",
-    "inputs": {
-        "function": {
-            "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/sites/<your-Azure-function-app-name>/functions/<your-Azure-function-name>"
-        },
-        "queries": {
-            "extrafield": "specialValue"
-        },  
-        "headers": {
-            "x-ms-date": "@utcnow()"
-        },
-        "method": "POST",
-        "body": {
-            "contentFieldOne": "value100",
-            "anotherField": 10.001
-        }
-    },
-    "runAfter": {}
-}
-```
-
-| Elementnamn | Krävs | Typ | Beskrivning | 
-| ------------ | -------- | ---- | ----------- |  
-| funktionen id | Ja | Sträng | Resurs-ID för Azure-funktionen som du vill anropa. | 
-| metod | Nej | Sträng | HTTP-metoden som används för att anropa funktionen. Om inget anges är ”POST” standardmetoden. | 
-| frågor | Nej | JSON-objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| rubriker | Nej | JSON-objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| brödtext | Nej | JSON-objekt | Representerar nyttolasten som skickas till slutpunkten. | 
-|||||
-
-När du sparar din logikapp utför Logic Apps motorn vissa kontroller på den angivna funktionen:
-
-* Du måste ha åtkomst till funktionen.
-* Du kan använda en standard HTTP-utlösare eller allmänna JSON Webhook-utlösare.
-* Funktionen får inte ha någon väg som har definierats.
-* Endast ”funktionen” och ”anonym” åtkomstnivåer tillåts.
-
-> [!NOTE]
-> Motorn för Logic Apps hämtar och cachelagrar utlösaren URL-Adressen som används vid körning. Så om någon åtgärd upphäver den cachelagra URL, misslyckas åtgärden under körning. Undvik problemet genom att spara logikappen igen, vilket gör att logikappen du hämtar och cachelagrar utlösaren URL: en igen.
-
-## <a name="select-action"></a>Välj åtgärd
-
-Du kan projicera varje element i en matris till ett nytt värde. Det här exemplet konverterar en matris av talen i en matris av objekt:
-
-```json
-"selectNumbersAction": {
-    "type": "Select",
-    "inputs": {
-        "from": [ 1, 3, 0, 5, 4, 2 ],
-        "select": { "number": "@item()" }
-    }
-}
-```
-
-| Namn | Krävs | Typ | Beskrivning | 
-| ---- | -------- | ---- | ----------- | 
-| från | Ja | Matris | Källmatrisen |
-| välj | Ja | Alla | Projektionen som tillämpas på varje element i källmatrisen |
-||||| 
-
-Utdata från den `select` åtgärden är en matris som har samma kardinalitet som matrisen som indata. Varje element omvandlas som definieras av den `select` egenskapen. Om indata är en tom matris, är utdata också en tom matris.
-
-## <a name="terminate-action"></a>Åtgärden Avbryt
-
-Den här åtgärden stoppar ett arbetsflöde kör avbryta alla åtgärder pågår och hoppa över eventuella återstående åtgärder. Åtgärden Avsluta påverkar inte redan utförda åtgärder.
-
-Till exempel för att stoppa en körning som har `Failed` status:
-
-```json
-"HandleUnexpectedResponse": {
-    "type": "Terminate",
-    "inputs": {
-        "runStatus": "Failed",
-        "runError": {
-            "code": "UnexpectedResponse",
-            "message": "Received an unexpected response",
-        }
-    }
-}
-```
-
-| Namn | Krävs | Typ | Beskrivning | 
-| ---- | -------- | ---- | ----------- | 
-| runStatus | Ja | Sträng | Målet kör har status, vilket antingen är `Failed` eller `Cancelled` |
-| runError | Nej | JSON-objekt | Felinformation. Stöds endast när `runStatus` är inställd på `Failed`. |
-| runError kod | Nej | Sträng | Det kör felkod: |
-| runError meddelande | Nej | Sträng | Det kör felmeddelande | 
-||||| 
-
-## <a name="query-action"></a>Frågeåtgärden
-
-Den här åtgärden kan du filtrera en matris baserat på ett villkor. 
-
-> [!NOTE]
-> Du kan inte använda åtgärden Skriv för att konstruera inga utdata, inklusive objekt, matriser och andra typer som stöds av logikappar som XML och binary.
-
-Till exempel välja tal som är större än två:
-
-```json
-"filterNumbersAction": {
-    "type": "Query",
-    "inputs": {
-        "from": [ 1, 3, 0, 5, 4, 2 ],
-        "where": "@greater(item(), 2)"
-    }
-}
-```
-
-| Namn | Krävs | Typ | Beskrivning | 
-| ---- | -------- | ---- | ----------- | 
-| från | Ja | Matris | Källmatrisen |
-| där | Ja | Sträng | Villkoret som kopplas till varje element från källmatrisen. Om inga värden uppfyller de `where` villkoret, resultatet är en tom matris. |
-||||| 
-
-Utdata från den `query` åtgärden är en matris som har element från Indatamatrisen som uppfyller villkoret.
-
-## <a name="table-action"></a>Åtgärden för tabellen
-
-Du kan konvertera en matris till en CSV- eller HTML-tabell. 
-
-```json
-"ConvertToTable": {
-    "type": "Table",
-    "inputs": {
-        "from": "<source-array>",
-        "format": "CSV | HTML"
-    }
-}
-```
-
-| Namn | Krävs | Typ | Beskrivning | 
-| ---- | -------- | ---- | ----------- | 
-| från | Ja | Matris | Källmatrisen. Om den `from` egenskapsvärdet är en tom matris, utdata är en tom tabell. | 
-| Format | Ja | Sträng | Tabellformatet som du vill ”CSV” eller ”HTML” | 
-| Kolumner | Nej | Matris | De tabellkolumner som du vill använda. Används för att åsidosätta standard tabellform. | 
-| kolumnrubrik | Nej | Sträng | Kolumnrubriken | 
-| värde i kolumnen | Ja | Sträng | Värdet i kolumnen | 
-||||| 
-
-Anta att du definierar en tabell åtgärder som det här exemplet:
-
-```json
-"convertToTableAction": {
-    "type": "Table",
-    "inputs": {
-        "from": "@triggerBody()",
-        "format": "HTML"
-    }
-}
-```
-
-Och använda denna matris för `@triggerBody()`:
-
-```json
-[ {"ID": 0, "Name": "apples"},{"ID": 1, "Name": "oranges"} ]
-```
-
-Här är utdata från det här exemplet:
-
-<table><thead><tr><th>ID</th><th>Namn</th></tr></thead><tbody><tr><td>0</td><td>Äpplen</td></tr><tr><td>1</td><td>orange</td></tr></tbody></table>
-
-Om du vill anpassa den här tabellen, kan du ange vilka kolumner explicit, till exempel:
-
-```json
-"ConvertToTableAction": {
-    "type": "Table",
-    "inputs": {
-        "from": "@triggerBody()",
-        "format": "html",
-        "columns": [ 
-            {
-                "header": "Produce ID",
-                "value": "@item().id"
-            },
-            {
-              "header": "Description",
-              "value": "@concat('fresh ', item().name)"
-            }
-        ]
-    }
-}
-```
-
-Här är utdata från det här exemplet:
-
-<table><thead><tr><th>Skapa ID</th><th>Beskrivning</th></tr></thead><tbody><tr><td>0</td><td>ny äpplen</td></tr><tr><td>1</td><td>ny orange</td></tr></tbody></table>
-
-## <a name="wait-action"></a>Vänta åtgärd  
-
-Den här åtgärden pausar körningen av arbetsflödet för det angivna intervallet. Det här exemplet körs arbetsflödet 15 minuter:
-  
-```json
-"waitForFifteenMinutesAction": {
-    "type": "Wait",
-    "inputs": {
-        "interval": {
-            "unit": "minute",
-            "count": 15
-        }
-    }
-}
-```
-  
-Om du vill vänta tills en särskild tidpunkt, kan du också använda det här exemplet:
-  
-```json
-"waitUntilOctoberAction": {
-    "type": "Wait",
-    "inputs": {
-        "until": {
-            "timestamp": "2017-10-01T00:00:00Z"
-        }
-    }
-}
-```
-  
-> [!NOTE]  
-> Du kan ange varaktigheten vänta med antingen den `interval` objekt eller `until` objekt, men inte båda.
-
-| Elementnamn | Krävs | Typ | Beskrivning | 
-| ------------ | -------- | ---- | ----------- | 
-| tills | Nej | JSON-objekt | Vänta varaktighet baserat på en punkt i tiden | 
-| tills tidsstämpel | Ja | Sträng | Tidpunkten i [UTC-datum tidsformat](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) när väntetiden upphör att gälla | 
-| interval | Nej | JSON-objekt | Vänta varaktighet baserat på intervall och antalet | 
-| intervall | Ja | Sträng | Tidsenhet. Använd bara ett av följande värden: ”andra”, ”minuter”, ”timmar”, ”dag”, ”vecka” eller ”månad” | 
-| intervall för antal | Ja | Integer | Ett positivt heltal som representerar antalet intervallenheter som används för vänta varaktighet | 
-||||| 
-
-## <a name="workflow-action"></a>Arbetsflödesåtgärd
-
-Den här åtgärden låter dig kapsla ett arbetsflöde. Logic Apps-motorn utför en åtkomstkontroll på underordnade arbetsflödet, mer specifikt utlösaren, så du måste ha åtkomst till det underordnade arbetsflödet. Exempel:
-
-```json
-"<my-nested-workflow-action-name>": {
-    "type": "Workflow",
-    "inputs": {
-        "host": {
-            "id": "/subscriptions/<my-subscription-ID>/resourceGroups/<my-resource-group-name>/providers/Microsoft.Logic/<my-nested-workflow-action-name>",
-            "triggerName": "mytrigger001"
-        },
-        "queries": {
-            "extrafield": "specialValue"
-        },  
-        "headers": {
-            "x-ms-date": "@utcnow()",
-            "Content-type": "application/json"
-        },
-        "body": {
-            "contentFieldOne": "value100",
-            "anotherField": 10.001
-        }
-    },
-    "runAfter": {}
-}
-```
-
-| Elementnamn | Krävs | Typ | Beskrivning | 
-| ------------ | -------- | ---- | ----------- |  
-| värd-id | Ja | Sträng| Resurs-ID för det arbetsflöde som du vill anropa | 
-| värden Utlösarnamn | Ja | Sträng | Namnet på det som du vill anropa utlöser | 
-| frågor | Nej | JSON-objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| rubriker | Nej | JSON-objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| brödtext | Nej | JSON-objekt | Representerar nyttolasten som skickas till slutpunkten. | 
-||||| 
-
-Den här åtgärden utdata är baserat på vad du anger i den `Response` åtgärd för arbetsflöden. Om arbetsflöden som inte definierar en `Response` , utdata är tom.
-
-## <a name="collection-actions-overview"></a>Samling åtgärder översikt
-
-För att du kan styra arbetsflödeskörning, åtgärder för samlingen kan innehålla andra åtgärder. Du kan direkt referera till refererar till åtgärder i en samling utanför samlingen. Till exempel om du definierar en `Http` åtgärden i en omfattning `@body('http')` fortfarande är giltigt var som helst i ett arbetsflöde. Dessutom kan åtgärder i en samling endast ”kör” andra åtgärder i samma samling.
-
-## <a name="if-action"></a>Om åtgärden
-
-Den här åtgärden, vilket är en villkorlig programsats, kan du utvärdera ett villkor och köra en gren baserat på om uttrycket utvärderas som SANT. Om villkoret har utvärderas som SANT, är villkoret markerad med ”Succeeded” status. Åtgärder som är den `actions` eller `else` objekt utvärderas till dessa värden:
-
-* ”Lyckades” när de körs och lyckas
-* ”Misslyckades” när de körs och misslyckas
-* ”Hoppas över” när grenen respektive kan inte köras
-
-Lär dig mer om [villkorssatser i logikappar](../logic-apps/logic-apps-control-flow-conditional-statement.md).
-
-``` json
-"<my-condition-name>": {
-  "type": "If",
-  "expression": "<condition>",
-  "actions": {
-    "if-true-run-this-action": {
-      "type": <action-type>,
-      "inputs": {},
-      "runAfter": {}
-    }
-  },
-  "else": {
-    "actions": {
-        "if-false-run-this-action": {
-            "type": <action-type>,
-            "inputs": {},
-            "runAfter": {}
-        }
-    }
-  },
-  "runAfter": {}
-}
-```
-
-| Namn | Krävs | Typ | Beskrivning | 
-| ---- | -------- | ---- | ----------- | 
-| åtgärder | Ja | JSON-objekt | De inre åtgärderna för att köras när `expression` utvärderas till `true` | 
-| uttryck | Ja | Sträng | Uttrycket som ska utvärderas |
-| annan | Nej | JSON-objekt | De inre åtgärderna för att köras när `expression` utvärderas till `false` |
-||||| 
-
-Exempel:
-
-```json
-"myCondition": {
-    "type": "If",
-    "actions": {
-        "if-true-check-this-website": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://this-url"
-            },
-            "runAfter": {}
-        }
-    },
-    "else": {
-        "actions": {
-            "if-false-check-this-other-website": {
-                "type": "Http",
-                "inputs": {
-                    "method": "GET",
-                    "uri": "http://this-other-url"
-                },
-                "runAfter": {}
-            }
-        }
-    }
-}
-```  
-
-### <a name="how-conditions-can-use-expressions-in-actions"></a>Hur villkor kan använda uttryck i åtgärder
-
-Här följer några exempel på hur du kan använda uttryck i villkor:
-  
-| JSON-uttryck | Resultat | 
-| --------------- | ------ | 
-| `"expression": "@parameters('hasSpecialAction')"` | Ett värde som utvärderas som SANT gör detta villkor att skicka. Stöder endast booleska uttryck. Om du vill konvertera andra typer till Boolean använder dessa funktioner: `empty` eller `equals` | 
-| `"expression": "@greater(actions('action1').output.value, parameters('threshold'))"` | Stöder funktioner för jämförelse. I det här exemplet åtgärden endast körs när utdata från action1 är större än tröskelvärdet. | 
-| `"expression": "@or(greater(actions('action1').output.value, parameters('threshold')), less(actions('action1').output.value, 100))"` | Stöder funktioner för logik för att skapa kapslade booleska uttryck. I det här exemplet körs åtgärden när utdata från action1 är mer än tröskelvärdet eller under 100. | 
-| `"expression": "@equals(length(actions('action1').outputs.errors), 0))"` | Om du vill kontrollera om en matris har alla objekt som kan du använda matrisen. I det här exemplet körs åtgärden när fel matrisen är tom. | 
-| `"expression": "parameters('hasSpecialAction')"` | Det här uttrycket orsakar ett fel och är inte ett giltigt villkor. Villkor måste använda den ”@” symbol. | 
-||| 
-
-## <a name="switch-action"></a>Växla åtgärd
-
-Den här åtgärden som är en switch-instruktionen, utför olika åtgärder baserat på specifika värden för ett objekt, uttryck eller token. Den här åtgärden utvärderar objektet, uttryck eller token, väljer fallet som matchar resultatet och kör åtgärder för endast detta. När aldrig matchar resultatet, körs standardåtgärden. När switch-instruktionen körs ska bara ett fall matcha resultatet. Lär dig mer om [växla instruktioner i logikappar](../logic-apps/logic-apps-control-flow-switch-statement.md).
-
-``` json
-"<my-switch-statement-name>": {
-   "type": "Switch",
-   "expression": "<evaluate-this-object-expression-token>",
-   "cases": {
-      "myCase1": {
-         "actions": {
-           "myAction1": {}
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['<api-name>']['connectionId']"
          },
-         "case": "<result1>"
+         "<other-action-specific-input-properties>"        
       },
-      "myCase2": {
-         "actions": {
-           "myAction2": {}
-         },
-         "case": "<result2>"
-      }
+      "method": "<method-type>",
+      "path": "/<api-operation>",
+      "retryPolicy": "<retry-behavior>",
+      "queries": { "<query-parameters>" },
+      "<other-action-specific-properties>"
+    },
+    "runAfter": {}
+}
+```
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*Åtgärdens namn*> | Sträng | Namnet på den åtgärd som tillhandahålls av anslutningen | 
+| <*API-namn*> | Sträng | Namnet på Microsoft-hanterade API: et som används för anslutningen | 
+| <*metodtyp*> | Sträng | HTTP-metoden för att anropa API: et: ”hämta” ”TOP”, ”efter”, ”uppdatera” eller ”ta bort” | 
+| <*API-åtgärden*> | Sträng | API-åtgärden att anropa | 
+|||| 
+
+*Valfritt*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*andra-åtgärd-specifika-indata-properties*> | JSON-objekt | Andra indata egenskaper som gäller för den här specifika åtgärden | 
+| <*Funktionssätt för återförsök*> | JSON-objekt | Anpassar återförsöksbeteendet för tillfälliga fel, som har 408, 429, och 5XX-statuskoden och eventuella undantag. Mer information finns i [Återförsöksprinciper](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
+| <*frågeparametrar*> | JSON-objekt | Alla frågeparametrar ska inkluderas med API-anrop. <p>Till exempel den `"queries": { "api-version": "2018-01-01" }` objektet lägger till `?api-version=2018-01-01` till anropet. | 
+| <*andra-åtgärd-specifika-properties*> | JSON-objekt | Andra egenskaper som gäller för den här specifika åtgärden | 
+|||| 
+
+*Exempel*
+
+Den här definitionen beskrivs den **skicka ett e-postmeddelande** åtgärd för Office 365 Outlook-anslutningstjänsten, som är ett Microsoft-hanterade API: 
+
+```json
+"Send_an_email": {
+   "type": "ApiConnection",
+   "inputs": {
+      "body": {
+         "Body": "Thank you for your membership!",
+         "Subject": "Hello and welcome!",
+         "To": "Sophie.Owen@contoso.com"
+      },
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['office365']['connectionId']"
+         }
+      },
+      "method": "POST",
+      "path": "/Mail"
+    },
+    "runAfter": {}
+}
+```
+
+<a name="apiconnection-webhook-action"></a>
+
+### <a name="apiconnectionwebhook-action"></a>APIConnectionWebhook åtgärd
+
+Den här åtgärden skickar en begäran om prenumeration via HTTP till en slutpunkt med hjälp av en [Microsoft-hanterade API: et](../connectors/apis-list.md), ger en *Motringnings-URL för* där slutpunkten kan skicka ett svar och väntar på slutpunkten till svara. Mer information finns i [Endpoint prenumerationer](#subscribe-unsubscribe).
+
+```json
+"<action-name>": {
+   "type": "ApiConnectionWebhook",
+   "inputs": {
+      "subscribe": {
+         "method": "<method-type>",
+         "uri": "<api-subscribe-URL>",
+         "headers": { "<header-content>" },
+         "body": "<body-content>",
+         "authentication": { "<authentication-method>" },
+         "retryPolicy": "<retry-behavior>",
+         "queries": { "<query-parameters>" },
+         "<other-action-specific-input-properties>"
+      },
+      "unsubscribe": {
+         "method": "<method-type>",
+         "uri": "<api-unsubscribe-URL>",
+         "headers": { "<header-content>" },
+         "body": "<body-content>",
+         "authentication": { "<authentication-method>" },
+         "<other-action-specific-properties>"
+      },
    },
-   "default": {
-      "actions": {
-          "myDefaultAction": {}
+   "runAfter": {}
+}
+```
+
+Vissa värden, till exempel <*metodtyp*>, är tillgängliga för både den `"subscribe"` och `"unsubscribe"` objekt.
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*Åtgärdens namn*> | Sträng | Namnet på den åtgärd som tillhandahålls av anslutningen | 
+| <*metodtyp*> | Sträng | HTTP-metoden ska användas för prenumerera eller prenumerationen på en slutpunkt: ”hämta” ”TOP”, ”efter”, ”uppdatera” eller ”ta bort” | 
+| <*API-prenumerera-URL*> | Sträng | URI: N ska användas för att prenumerera på API: et | 
+|||| 
+
+*Valfritt*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*API-avbryta prenumerationen-URL*> | Sträng | URI: N för prenumerationen på API: et | 
+| <*huvud-innehåll*> | JSON-objekt | Alla rubriker för att skicka i begäran <p>Till exempel vill ange språket och på en begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| <*brödtext i e-*> | JSON-objekt | Alla meddelandeinnehållet att skicka i begäran | 
+| <*metod för autentisering*> | JSON-objekt | Metoden begäran används för autentisering. Mer information finns i [utgående autentisering i Scheduler](../scheduler/scheduler-outbound-authentication.md). |
+| <*Funktionssätt för återförsök*> | JSON-objekt | Anpassar återförsöksbeteendet för tillfälliga fel, som har 408, 429, och 5XX-statuskoden och eventuella undantag. Mer information finns i [Återförsöksprinciper](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
+| <*frågeparametrar*> | JSON-objekt | Alla frågeparametrar ska inkluderas med API-anrop <p>Till exempel den `"queries": { "api-version": "2018-01-01" }` objektet lägger till `?api-version=2018-01-01` till anropet. | 
+| <*andra-åtgärd-specifika-indata-properties*> | JSON-objekt | Andra indata egenskaper som gäller för den här specifika åtgärden | 
+| <*andra-åtgärd-specifika-properties*> | JSON-objekt | Andra egenskaper som gäller för den här specifika åtgärden | 
+|||| 
+
+Du kan också ange gränser på en **ApiConnectionWebhook** åtgärd på samma sätt som [HTTP asynkrona gränser](#asynchronous-limits).
+
+<a name="compose-action"></a>
+
+### <a name="compose-action"></a>Åtgärden Skriv
+
+Den här åtgärden skapar ett enda utflöde från flera inmatningar, inklusive uttryck. Både indata och utdata kan ha någon typ som Azure Logic Apps har inbyggt stöd, till exempel matriser, JSON-objekt, XML och binära.
+Du kan sedan använda åtgärdens utdata i andra åtgärder. 
+
+```json
+"Compose": {
+   "type": "Compose",
+   "inputs": "<inputs-to-compose>",
+   "runAfter": {}
+},
+```
+
+*Krävs* 
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*indata till compose*> | Alla | Indata för att skapa ett enda utflöde | 
+|||| 
+
+*Exempel 1*
+
+Den här åtgärdsdefinitionen sammanfogar `abcdefg ` med ett avslutande blanksteg och värdet `1234`:
+
+```json
+"Compose": {
+   "type": "Compose",
+   "inputs": "abcdefg 1234",
+   "runAfter": {}
+},
+```
+
+Här är utdata som den här åtgärden skapar:
+
+`abcdefg 1234`
+
+*Exempel 2*
+
+Den här åtgärdsdefinitionen sammanfogar en strängvariabel som innehåller `abcdefg` och en heltalsvariabel som innehåller `1234`:
+
+```json
+"Compose": {
+   "type": "Compose",
+   "inputs": "@{variables('myString')}@{variables('myInteger')}",
+   "runAfter": {}
+},
+```
+
+Här är utdata som den här åtgärden skapar:
+
+`"abcdefg1234"`
+
+<a name="function-action"></a>
+
+### <a name="function-action"></a>Funktionen åtgärd
+
+Den här åtgärden anropar en tidigare skapad [Azure-funktion](../azure-functions/functions-create-first-azure-function.md).
+
+```json
+"<Azure-function-name>": {
+   "type": "Function",
+   "inputs": {
+     "function": {
+        "id": "<Azure-function-ID>"
+      },
+      "method": "<method-type>",
+      "headers": { "<header-content>" },
+      "body": { "<body-content>" },
+      "queries": { "<query-parameters>" } 
+   },
+   "runAfter": {}
+}
+```
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------|  
+| <*Azure-funktion-ID*> | Sträng | Resurs-ID för Azure-funktion som du vill anropa. Här är formatet för det här värdet:<p>”/subscriptions/ <*azure-prenumerations-ID*> /resourceGroups/ <*Azure-resursgrupp*> /providers/Microsoft.Web/sites/ <*Azure function-appens namn-*> /Functions/ <*azure funktionsnamn*> ” | 
+| <*metodtyp*> | Sträng | HTTP-metod som ska användas för att anropa funktionen: ”hämta” ”TOP”, ”efter”, ”uppdatera” eller ”ta bort” <p>Om inte anges är standardvärdet ”POST”-metoden. | 
+||||
+
+*Valfritt*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------|  
+| <*huvud-innehåll*> | JSON-objekt | Rubriker ska skicka med anropet <p>Till exempel vill ange språket och på en begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| <*brödtext i e-*> | JSON-objekt | Alla meddelandeinnehållet att skicka i begäran | 
+| <*frågeparametrar*> | JSON-objekt | Alla frågeparametrar ska inkluderas med API-anrop <p>Till exempel den `"queries": { "api-version": "2018-01-01" }` objektet lägger till `?api-version=2018-01-01` till anropet. | 
+| <*andra-åtgärd-specifika-indata-properties*> | JSON-objekt | Andra indata egenskaper som gäller för den här specifika åtgärden | 
+| <*andra-åtgärd-specifika-properties*> | JSON-objekt | Andra egenskaper som gäller för den här specifika åtgärden | 
+||||
+
+När du sparar din logikapp utför de här kontrollerna på den angivna funktionen Logic Apps-motorn:
+
+* Arbetsflödet måste ha åtkomst till funktionen.
+
+* Ditt arbetsflöde kan använda endast en standard HTTP-utlösare eller en generisk JSON webhook-utlösaren. 
+
+  Logic Apps-motorn hämtar och cachelagrar utlösarens URL som används vid körning. Men om alla åtgärder som upphäver den cachelagra URL, den **funktionen** åtgärden misslyckas vid körning. För att åtgärda problemet, spara logikappen igen så att logikappen hämtar och cachelagrar utlösaren URL: en igen.
+
+* Funktionen kan inte ha någon väg som definierats.
+
+* Endast ”funktionen” och ”anonym” åtkomstnivåer tillåts. 
+
+*Exempel*
+
+Den här åtgärdsdefinitionen anropar funktionen tidigare skapade ”GetProductID”:
+
+```json
+"GetProductID": {
+   "type": "Function",
+   "inputs": {
+     "function": {
+        "id": "/subscriptions/<XXXXXXXXXXXXXXXXXXXX>/resourceGroups/myLogicAppResourceGroup/providers/Microsoft.Web/sites/InventoryChecker/functions/GetProductID"
+      },
+      "method": "POST",
+      "headers": { 
+          "x-ms-date": "@utcnow()"
+       },
+      "body": { 
+          "Product_ID": "@variables('ProductID')"
       }
    },
    "runAfter": {}
 }
 ```
 
-| Namn | Krävs | Typ | Beskrivning | 
-| ---- | -------- | ---- | ----------- | 
-| uttryck | Ja | Sträng | Objektet, uttryck eller token för att utvärdera | 
-| fall | Ja | JSON-objekt | Innehåller uppsättningar med inre åtgärder som körs baserat på uttryckresultatet. | 
-| Ärende | Ja | Sträng | Värdet som stämmer överens med resultatet | 
-| åtgärder | Ja | JSON-objekt | De inre åtgärder som körs för fall matchar uttryckresultatet | 
-| standard | Nej | JSON-objekt | De inre åtgärder som körs när inga fall matchar resultatet | 
-||||| 
+<a name="http-action"></a>
 
-Exempel:
+### <a name="http-action"></a>HTTP-åtgärd
+
+Den här åtgärden skickar en begäran till den angivna slutpunkten och kontrollerar svaret för att avgöra om arbetsflödet ska köras. 
+
+```json
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "<method-type>",
+      "uri": "<HTTP-or-HTTPS-endpoint-URL>"
+   },
+   "runAfter": {}
+}
+```
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*metodtyp*> | Sträng | Metoden som ska användas för att skicka begäran: ”hämta” ”TOP”, ”efter”, ”uppdatera” eller ”ta bort” | 
+| <*HTTP-eller-HTTPS-slutpunkt-URL*> | Sträng | HTTP eller HTTPS-slutpunkt att anropa. Maximal strängens storlek: 2 KB | 
+|||| 
+
+*Valfritt*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*huvud-innehåll*> | JSON-objekt | Rubriker ska skicka med begäran <p>Till exempel vill ange språk och typ: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| <*brödtext i e-*> | JSON-objekt | Alla meddelandeinnehållet att skicka i begäran | 
+| <*Funktionssätt för återförsök*> | JSON-objekt | Anpassar återförsöksbeteendet för tillfälliga fel, som har 408, 429, och 5XX-statuskoden och eventuella undantag. Mer information finns i [Återförsöksprinciper](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
+| <*frågeparametrar*> | JSON-objekt | Alla frågeparametrar ska ingå i begäran <p>Till exempel den `"queries": { "api-version": "2018-01-01" }` objektet lägger till `?api-version=2018-01-01` till anropet. | 
+| <*andra-åtgärd-specifika-indata-properties*> | JSON-objekt | Andra indata egenskaper som gäller för den här specifika åtgärden | 
+| <*andra-åtgärd-specifika-properties*> | JSON-objekt | Andra egenskaper som gäller för den här specifika åtgärden | 
+|||| 
+
+*Exempel*
+
+Åtgärdsdefinitionen för den här hämtar de senaste nyheterna genom att skicka en begäran till den angivna slutpunkten:
+
+```json
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "https://mynews.example.com/latest"
+   }
+}
+```
+
+<a name="join-action"></a>
+
+### <a name="join-action"></a>Ansluta till åtgärd
+
+Den här åtgärden skapar en sträng från alla objekt i en matris och delar upp dessa objekt med angiven avgränsare tecknet. 
+
+```json
+"Join": {
+   "type": "Join",
+   "inputs": {
+      "from": <array>,
+      "joinWith": "<delimiter>"
+   },
+   "runAfter": {}
+}
+```
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*Matris*> | Matris | Den matris eller ett uttryck som ger källobjekt. Om du anger ett uttryck, skriva uttrycket med dubbla citattecken. | 
+| <*avgränsare*> | Enkel teckensträng | Tecknet som åtskiljer varje objekt i strängen | 
+|||| 
+
+*Exempel*
+
+Anta att du har en tidigare skapad ”myIntegerArray”-variabel som innehåller den här heltalsmatris: 
+
+`[1,2,3,4]` 
+
+Den här åtgärdsdefinitionen får värdena från variabeln genom att använda den `variables()` fungera i ett uttryck och skapar den här strängen med de värden som är avgränsade med semikolon: `"1,2,3,4"`
+
+```json
+"Join": {
+   "type": "Join",
+   "inputs": {
+      "from": "@variables('myIntegerArray')",
+      "joinWith": ","
+   },
+   "runAfter": {}
+}
+```
+
+<a name="parse-json-action"></a>
+
+### <a name="parse-json-action"></a>Parsa JSON-åtgärd
+
+Den här åtgärden skapar användarvänliga fält eller *token* från egenskaper i JSON-innehåll. Du kan sedan komma åt dessa egenskaper i din logikapp med hjälp av token i stället. Till exempel när du vill använda JSON-utdata från tjänster som Azure Service Bus och Azure Cosmos DB kan inkludera du den här åtgärden i din logikapp så att du enkelt kan referera till data i dessa utdata. 
+
+```json
+"Parse_JSON": {
+   "type": "ParseJson",
+   "inputs": {
+      "content": "<JSON-source>",
+         "schema": { "<JSON-schema>" }
+      },
+      "runAfter": {}
+},
+```
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*JSON-källa*> | JSON-objekt | JSON-innehåll som du vill parsa | 
+| <*JSON-schema*> | JSON-objekt | JSON-schema som beskriver den underliggande JSON-innehåll som åtgärden använder för parsning av källan JSON-innehåll. <p>**Tips**: I Logic Apps Designer går du kan antingen ange schemat eller ange en exempelnyttolast så att åtgärden kan generera schemat. | 
+|||| 
+
+*Exempel*
+
+Den här åtgärdsdefinitionen skapar dessa token som du kan använda i ditt logikapparbetsflöde, men endast i åtgärder att köra följande den **parsa JSON** åtgärd: 
+
+`FirstName`, `LastName`, och `Email`
+
+```json
+"Parse_JSON": {
+   "type": "ParseJson",
+   "inputs": {
+      "content": {
+         "Member": {
+            "Email": "Sophie.Owen@contoso.com",
+            "FirstName": "Sophie",
+            "LastName": "Owen"
+         }
+      },
+      "schema": {
+         "type": "object",
+         "properties": {
+            "Member": {
+               "type": "object",
+               "properties": {
+                  "Email": {
+                     "type": "string"
+                  },
+                  "FirstName": {
+                     "type": "string"
+                  },
+                  "LastName": {
+                     "type": "string"
+                  }
+               }
+            }
+         }
+      }
+   },
+   "runAfter": { }
+},
+```
+
+I det här exemplet anger egenskapen ”innehåll” för åtgärden att parsa JSON-innehåll. Du kan också ange det här JSON-innehållet som exempelnyttolast för att generera schemat.
+
+```json
+"content": {
+   "Member": { 
+      "FirstName": "Sophie",
+      "LastName": "Owen",
+      "Email": "Sophie.Owen@contoso.com"
+   }
+},
+```
+
+Egenskapen ”schema” anger JSON-schema används för att beskriva JSON-innehåll:
+
+```json
+"schema": {
+   "type": "object",
+   "properties": {
+      "Member": {
+         "type": "object",
+         "properties": {
+            "FirstName": {
+               "type": "string"
+            },
+            "LastName": {
+               "type": "string"
+            },
+            "Email": {
+               "type": "string"
+            }
+         }
+      }
+   }
+}
+```
+
+<a name="query-action"></a>
+
+### <a name="query-action"></a>Frågeåtgärden
+
+Den här åtgärden skapar en matris från objekten i en annan matris baserat på ett angivet villkor eller filter.
+
+```json
+"Filter_array": {
+   "type": "Query",
+   "inputs": {
+      "from": <array>,
+      "where": "<condition-or-filter>"
+   },
+   "runAfter": {}
+}
+```
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*Matris*> | Matris | Den matris eller ett uttryck som ger källobjekt. Om du anger ett uttryck, skriva uttrycket med dubbla citattecken. |
+| <*villkor eller filter*> | Sträng | Villkor som används för att filtrera objekt i matrisen källa <p>**Obs**: Om inga värden uppfyller villkoret, åtgärden skapar en tom matris. |
+|||| 
+
+*Exempel*
+
+Åtgärdsdefinitionen för den här skapar en matris med värden som är större än det angivna värdet är två:
+
+```json
+"Filter_array": {
+   "type": "Query",
+   "inputs": {
+      "from": [ 1, 3, 0, 5, 4, 2 ],
+      "where": "@greater(item(), 2)"
+   }
+}
+```
+
+<a name="response-action"></a>
+
+### <a name="response-action"></a>Svarsåtgärd  
+
+Den här åtgärden skapar nyttolast för svar på en HTTP-begäran. 
+
+```json
+"Response" {
+    "type": "Response",
+    "kind": "http",
+    "inputs": {
+        "statusCode": 200,
+        "headers": { <response-headers> },
+        "body": { <response-body> }
+    },
+    "runAfter": {}
+},
+```
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*Svarets statuskod*> | Integer | HTTP-statuskoden som skickas till den inkommande begäranden. Standardkoden ”200 OK”, men kod som kan vara valfri giltig statuskod som börjar med 2xx, 4xx eller 5xx, men inte med 3xxx. | 
+|||| 
+
+*Valfritt*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*svarshuvuden*> | JSON-objekt | En eller flera sidhuvuden som ska ingå i svaret | 
+| <*brödtext för svar*> | Olika | Svarstexten, vilket kan vara en sträng, JSON-objekt eller även binärt innehåll från en tidigare åtgärd | 
+|||| 
+
+*Exempel*
+
+Åtgärdsdefinitionen för den här skapar ett svar till en HTTP-begäran med den angivna statuskoden och meddelandetexten meddelandehuvudena:
+
+```json
+"Response": {
+   "type": "Response",
+   "inputs": {
+      "statusCode": 200,
+      "body": {
+         "ProductID": 0,
+         "Description": "Organic Apples"
+      },
+      "headers": {
+         "x-ms-date": "@utcnow()",
+         "content-type": "application/json"
+      }
+   },
+   "runAfter": {}
+}
+```
+
+*Begränsningar*
+
+Till skillnad från andra åtgärder i **svar** åtgärd har särskilda begränsningar: 
+
+* Ditt arbetsflöde kan använda den **svar** åtgärd bara när arbetsflödet som börjar med en HTTP-begäran-utlösare, vilket innebär att ditt arbetsflöde måste aktiveras via en HTTP-begäran.
+
+* Ditt arbetsflöde kan använda den **svar** åtgärden var som helst *utom* inuti **Foreach** loopar **tills** slingor, inklusive sekventiella slingor och parallella grenar. 
+
+* Den ursprungliga HTTP-begäran får ditt arbetsflöde svar endast när alla åtgärder som krävs av den **svar** åtgärd är färdiga inom den [tidsgränsen för HTTP-begäran](../logic-apps/logic-apps-limits-and-config.md#request-limits).
+
+  Men om ditt arbetsflöde anrop till en annan logikapp som ett kapslat arbetsflöde kan väntar det överordnade arbetsflödet du tills det inkapslade arbetsflödet har slutförts, oavsett hur lång tid tar innan det inkapslade arbetsflödet har slutförts.
+
+* När arbetsflödet använder den **svar** åtgärden och ett mönster för synkron svar arbetsflödet också kan inte använda den **splitOn** kommandot i utlösardefinitionen eftersom kommandot skapar flera körningar. Kontrollera för det här fallet när PUT-metoden används och om värdet är true och returnerar ett ”felaktig begäran”-svar.
+
+  Om arbetsflödet använder den **splitOn** kommandot och en **svar** åtgärd, arbetsflödet körs asynkront och returnerar omedelbart ett svar med ”202-ACCEPTERAD”.
+
+* När din arbetsflödeskörning når den **svar** åtgärd, men den inkommande begäranden redan har tagit emot ett svar på **svar** åtgärd har markerats som ”misslyckades” på grund av konflikten. Och därmed logikappen körs också att markeras med statusen ”misslyckades”.
+
+<a name="select-action"></a>
+
+### <a name="select-action"></a>Välj åtgärd
+
+Den här åtgärden skapar en matris med JSON-objekt genom att transformera objekt från en annan matris baserat på den angivna mappningen. Utdata matris och källmatris har alltid samma antal objekt. Men du inte kan ändra antalet objekt i matrisen utdata, kan du lägga till eller ta bort egenskaper och deras värden för dessa objekt. Den `select` egenskap anger minst ett nyckel / värde-par som definierar kartan för omvandling av objekt i matrisen källa. Ett nyckel / värde-par representerar en egenskap och dess värde för alla objekt i matrisen utdata. 
+
+```json
+"Select": {
+   "type": "Select",
+   "inputs": {
+      "from": <array>,
+      "select": { 
+          "<key-name>": "<expression>",
+          "<key-name>": "<expression>"        
+      }
+   },
+   "runAfter": {}
+},
+```
+
+*Krävs* 
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*Matris*> | Matris | Den matris eller ett uttryck som ger källobjekt. Kontrollera att du skriva ett uttryck med dubbla citattecken. <p>**Obs**: om källmatrisen är tom åtgärden skapar en tom matris. | 
+| <*nyckel-name*> | Sträng | Egenskapsnamnet som tilldelats resultatet från <*uttryck*> <p>Om du vill lägga till en ny egenskap för alla objekt i matrisen utdata, ger en <*nyckelnamn*> för den egenskapen och en <*uttryck*> för egenskapens värde. <p>Ta bort en egenskap från alla objekt i matrisen genom att utelämna den <*nyckelnamn*> för den egenskapen. | 
+| <*uttryck*> | Sträng | Det uttryck som omvandlar objekt i matrisen källa och tilldelar resultat som ska <*-nyckelnamn*> | 
+|||| 
+
+Den **Välj** åtgärden skapar en matris som utdata, så att alla åtgärder som vill använda denna utdata måste antingen acceptera en matris eller måste du konvertera matrisen till den typ som accepterar konsument-åtgärd. Till exempel om du vill konvertera utdata-matris till en sträng, du kan skicka den matrisen till den **Compose** åtgärd, och sedan referera till utdata från den **Compose** åtgärd i dina andra åtgärder.
+
+*Exempel*
+
+Åtgärdsdefinitionen för den här skapar en JSON-matris för objekt från en heltalsmatris. Åtgärden upprepas källmatris, får varje heltalsvärde genom att använda den `@item()` uttryck och tilldelar varje värde till den ”`number`”-egenskapen i varje JSON-objekt: 
+
+```json
+"Select": {
+   "type": "Select",
+   "inputs": {
+      "from": [ 1, 2, 3 ],
+      "select": { 
+         "number": "@item()" 
+      }
+   },
+   "runAfter": {}
+},
+```
+
+Här är den matris som den här åtgärden skapar:
+
+`[ { "number": 1 }, { "number": 2 }, { "number": 3 } ]`
+
+Om du vill använda denna matris som utdata i andra åtgärder, skicka dessa utdata till en **Compose** åtgärd:
+
+```json
+"Compose": {
+   "type": "Compose",
+   "inputs": "@body('Select')",
+   "runAfter": {
+      "Select": [ "Succeeded" ]
+   }
+},
+```
+
+Du kan sedan använda utdata från den **Compose** åtgärd i dina andra åtgärder, till exempel den **Office 365 Outlook – skicka ett e-postmeddelande** åtgärd:
+
+```json
+"Send_an_email": {
+   "type": "ApiConnection",
+   "inputs": {
+      "body": {
+         "Body": "@{outputs('Compose')}",
+         "Subject": "Output array from Select and Compose actions",
+         "To": "<your-email@domain>"
+      },
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['office365']['connectionId']"
+         }
+      },
+      "method": "post",
+      "path": "/Mail"
+   },
+   "runAfter": {
+      "Compose": [ "Succeeded" ]
+   }
+},
+```
+
+<a name="table-action"></a>
+
+### <a name="table-action"></a>Åtgärden-tabell
+
+Den här åtgärden skapar en CSV- eller HTML-tabell från en matris. För matriser med JSON-objekt skapar den här åtgärden automatiskt kolumnrubrikerna från objektens egenskapsnamn. Du måste ange kolumnrubriker och värden för matriser med andra datatyper. Den här matrisen innehåller till exempel egenskaperna ”ID” och ”Product_Name” som den här åtgärden kan använda för kolumnrubrikerna:
+
+`[ {"ID": 0, "Product_Name": "Apples"}, {"ID": 1, "Product_Name": "Oranges"} ]` 
+
+```json
+"Create_<CSV | HTML>_table": {
+   "type": "Table",
+   "inputs": {
+      "format": "<CSV | HTML>",
+      "from": <array>,
+      "columns": [ 
+         {
+            "header": "<column-name>",
+            "value": "<column-value>"
+         },
+         {
+            "header": "<column-name>",
+            "value": "<column-value>"
+         } 
+      ]
+   },
+   "runAfter": {}
+}
+```
+
+*Krävs* 
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| < CSV *eller* HTML >| Sträng | Formatet för den tabell som du vill skapa | 
+| <*Matris*> | Matris | Den matris eller ett uttryck som ger källobjekt för tabellen <p>**Obs**: om källmatrisen är tom åtgärden skapar en tom tabell. | 
+|||| 
+
+*Valfritt*
+
+Om du vill ange eller anpassa kolumnrubriker och värden, använder de `columns` matris. När `header-value` par har samma rubriknamn, deras värden visas i samma kolumn under det rubriknamnet. I annat fall definierar varje unik sidhuvud en unik kolumn.
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*kolumnnamn*> | Sträng | Rubriknamn för en kolumn | 
+| <*Kolumnvärde*> | Alla | Värdet i kolumnen | 
+|||| 
+
+*Exempel 1*
+
+Anta att du har en tidigare skapad ”myItemArray”-variabel som innehåller den här matrisen: 
+
+`[ {"ID": 0, "Product_Name": "Apples"}, {"ID": 1, "Product_Name": "Oranges"} ]`
+
+Åtgärdsdefinitionen för den här skapar en CSV-tabell från variabeln ”myItemArray”. Uttrycket som används av den `from` egenskapen hämtar matrisen från ”myItemArray” med hjälp av den `variables()` funktionen: 
+
+```json
+"Create_CSV_table": {
+   "type": "Table",
+   "inputs": {
+      "format": "CSV",
+      "from": "@variables('myItemArray')"
+   },
+   "runAfter": {}
+}
+```
+
+Här är den CSV-tabell som den här åtgärden skapar: 
+
+```
+ID,Product_Name 
+0,Apples 
+1,Oranges 
+```
+
+*Exempel 2*
+
+Åtgärdsdefinitionen för den här skapar en HTML-tabell från variabeln ”myItemArray”. Uttrycket som används av den `from` egenskapen hämtar matrisen från ”myItemArray” med hjälp av den `variables()` funktionen: 
+
+```json
+"Create_HTML_table": {
+   "type": "Table",
+   "inputs": {
+      "format": "HTML",
+      "from": "@variables('myItemArray')"
+   },
+   "runAfter": {}
+}
+```
+
+Här är den HTML-tabell som den här åtgärden skapar: 
+
+<table><thead><tr><th>ID</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Äpplen</td></tr><tr><td>1</td><td>Apelsiner</td></tr></tbody></table>
+
+*Exempel 3*
+
+Åtgärdsdefinitionen för den här skapar en HTML-tabell från variabeln ”myItemArray”. Men det här exemplet åsidosätter standard kolumnrubrikerna med ”Stock_ID” och ”beskrivning” och lägger till ordet ”organisk” för värdena i kolumnen ”Beskrivning”.
+
+```json
+"Create_HTML_table": {
+   "type": "Table",
+   "inputs": {
+      "format": "HTML",
+      "from": "@variables('myItemArray')",
+      "columns": [ 
+         {
+            "header": "Stock_ID",
+            "value": "@item().ID"
+         },
+         {
+            "header": "Description",
+            "value": "@concat('Organic ', item().Product_Name)"
+         }
+      ]
+    },
+   "runAfter": {}
+},
+```
+
+Här är den HTML-tabell som den här åtgärden skapar: 
+
+<table><thead><tr><th>Stock_ID</th><th>Beskrivning</th></tr></thead><tbody><tr><td>0</td><td>Organisk äpplen</td></tr><tr><td>1</td><td>Organisk apelsiner</td></tr></tbody></table>
+
+<a name="terminate-action"></a>
+
+### <a name="terminate-action"></a>Avbryt
+
+Den här åtgärden stoppar körningen av arbetsflödesinstansen för logic app, avbryter alla åtgärder som pågår, hoppar över alla återstående åtgärder och returnerar angiven status. Du kan till exempel använda den **avsluta** åtgärd när din logikapp måste avsluta helt från ett feltillstånd. Den här åtgärden påverkar inte redan utförda åtgärder och kan inte förekomma inuti **Foreach** och **tills** slingor, inklusive sekventiella slingor. 
+
+```json
+"Terminate": {
+   "type": "Terminate",
+   "inputs": {
+       "runStatus": "<status>",
+       "runError": {
+            "code": "<error-code-or-name>",
+            "message": "<error-message>"
+       }
+   },
+   "runAfter": {}
+}
+```
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*Status*> | Sträng | Status för att returnera för körningen: ”misslyckades”, ”annullerad” eller ”Succeeded” |
+|||| 
+
+*Valfritt*
+
+Egenskaper för objektet ”runStatus” gäller endast när egenskapen ”runStatus” anges till statusen ”misslyckades”.
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*fel-kod-eller-name*> | Sträng | Kod eller namn för felet |
+| <*ett felmeddelande*> | Sträng | Meddelande- eller text som beskriver felet och åtgärder som appanvändaren kan ta | 
+|||| 
+
+*Exempel*
+
+Den här åtgärdsdefinitionen stoppar ett arbetsflöde kör anger körningsstatusen till ”misslyckades” och returnerar status, en felkod och ett felmeddelande visas:
+
+```json
+"Terminate": {
+    "type": "Terminate",
+    "inputs": {
+        "runStatus": "Failed",
+        "runError": {
+            "code": "Unexpected response",
+            "message": "The service received an unexpected response. Please try again."
+        }
+   },
+   "runAfter": {}
+}
+```
+
+<a name="wait-action"></a>
+
+### <a name="wait-action"></a>Vänta åtgärd  
+
+Den här åtgärden pausar arbetsflödeskörning för det angivna intervallet, eller tills den angivna tiden, men inte båda. 
+
+*Angivet intervall*
+
+```json
+"Delay": {
+   "type": "Wait",
+   "inputs": {
+      "interval": {
+         "count": <number-of-units>,
+         "unit": "<interval>"
+      }
+   },
+   "runAfter": {}
+},
+```
+
+*Angiven tid*
+
+```json
+"Delay_until": {
+   "type": "Wait",
+   "inputs": {
+      "until": {
+         "timestamp": "<date-time-stamp>"
+      }
+   },
+   "runAfter": {}
+},
+```
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*Antal enheter*> | Integer | För den **fördröjning** åtgärd, hur många enheter vänta | 
+| <*intervall*> | Sträng | För den **fördröjning** åtgärd, intervall vänta: ”andra”, ”minut”, ”Hour”, ”Day”, ”Week”, ”Month” | 
+| <*datum, tidsstämpel*> | Sträng | För den **fördröjning tills** åtgärd, datum och tid att återuppta körningen. Det här värdet måste använda den [tidsformat för UTC-datum](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
+|||| 
+
+*Exempel 1*
+
+Den här åtgärdsdefinitionen stoppar arbetsflödet i 15 minuter:
+
+```json
+"Delay": {
+   "type": "Wait",
+   "inputs": {
+      "interval": {
+         "count": 15,
+         "unit": "Minute"
+      }
+   },
+   "runAfter": {}
+},
+```
+
+*Exempel 2*
+
+Den här åtgärdsdefinitionen stoppar arbetsflödet fram till den angivna tiden:
+
+```json
+"Delay_until": {
+   "type": "Wait",
+   "inputs": {
+      "until": {
+         "timestamp": "2017-10-01T00:00:00Z"
+      }
+   },
+   "runAfter": {}
+},
+```
+
+<a name="workflow-action"></a>
+
+### <a name="workflow-action"></a>Arbetsflödesåtgärden
+
+Den här åtgärden anropar en annan tidigare skapade logic app, vilket innebär att du kan inkludera och återanvända andra logikappens arbetsflöde. Du kan också använda utdata från underordnat eller *kapslade* logikapp i åtgärder som följer kapslad logikapp, förutsatt att logikappen underordnade returnerar ett svar.
+
+Logic Apps-motorn kontrollerar åtkomst till utlösaren som du vill anropa, så se till att du kan komma åt den utlösaren. Kapslad logikapp måste också uppfylla dessa kriterier:
+
+* En utlösare gör kapslad logikapp anropningsbara, till exempel en [begära](#request-trigger) eller [HTTP](#http-trigger) utlösare
+
+* Samma Azure-prenumeration som din logikapp för överordnad
+
+* Om du vill använda utdata från kapslad logikapp i logikappen överordnade kapslad logikapp måste ha en [svar](#response-action) åtgärd 
+
+```json
+"<nested-logic-app-name>": {
+   "type": "Workflow",
+   "inputs": {
+      "body": { "<body-content" },
+      "headers": { "<header-content>" },
+      "host": {
+         "triggerName": "<trigger-name>",
+         "workflow": {
+            "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group>/providers/Microsoft.Logic/<nested-logic-app-name>"
+         }
+      }
+   },
+   "runAfter": {}
+}
+```
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*kapslade logic-appens namn*> | Sträng | Namn för logikappen som du vill anropa | 
+| <*Utlösarens namn*> | Sträng | Namnet för utlösaren i kapslade logikappen som du vill anropa | 
+| <*Azure-prenumerations-ID*> | Sträng | Kapslade logic app-ID i Azure-prenumeration |
+| <*Azure-resursgrupp*> | Sträng | Azure resursgruppens namn för kapslad logikapp |
+| <*kapslade logic-appens namn*> | Sträng | Namn för logikappen som du vill anropa |
+||||
+
+*Valfritt*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------|  
+| <*huvud-innehåll*> | JSON-objekt | Rubriker ska skicka med anropet | 
+| <*brödtext i e-*> | JSON-objekt | Alla meddelandeinnehåll ska skicka med anropet | 
+||||
+
+*Utdata*
+
+Utdata för den här åtgärden varierar beroende på den kapslad logikapp svarsåtgärd. Om kapslad logikapp inte innehåller en svarsåtgärd kan är utdata tomma.
+
+*Exempel*
+
+När ”Start_search”-åtgärd har slutförts anropar en annan logic app med namnet ”Get_product_information” som passerar i angivna indata i den här åtgärden arbetsflödesdefinitionen: 
+
+```json
+"actions": {
+   "Start_search": { <action-definition> },
+   "Get_product_information": {
+      "type": "Workflow",
+      "inputs": {
+         "body": {
+            "ProductID": "24601",
+         },
+         "host": {
+            "id": "/subscriptions/XXXXXXXXXXXXXXXXXXXXXXXXXX/resourceGroups/InventoryManager-RG/providers/Microsoft.Logic/Get_product_information",
+            "triggerName": "Find_product"
+         },
+         "headers": {
+            "content-type": "application/json"
+         }
+      },
+      "runAfter": { 
+         "Start_search": [ "Succeeded" ]
+      }
+   }
+},
+```
+
+## <a name="control-workflow-action-details"></a>Information om åtgärd för kontroll arbetsflöde
+
+<a name="foreach-action"></a>
+
+### <a name="foreach-action"></a>Foreach-åtgärd
+
+Den här slingan åtgärden upprepas en matris och utför åtgärder på varje objekt i matrisen. Som standard ”för var och en”-loop som körs parallellt upp till ett högsta antal loopar. Den här maximum, se [begränsningar och konfigurationer](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Lär dig [skapa ”för var och en” slingor](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
+
+```json
+"For_each": {
+   "type": "Foreach",
+   "actions": { 
+      "<action-1>": { "<action-definition-1>" },
+      "<action-2>": { "<action-definition-2>" }
+   },
+   "foreach": "<for-each-expression>",
+   "runAfter": {},
+   "runtimeConfiguration": {
+      "concurrency": {
+         "repetitions": <count>
+      }
+    },
+    "operationOptions": "<operation-option>"
+}
+```
+
+*Krävs* 
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*åtgärd-1... n*> | Sträng | Namnen på de åtgärder som körs på varje matrisen | 
+| <*åtgärd-definition-1... n*> | JSON-objekt | Definitioner av åtgärder som körs | 
+| <*för varje uttryck*> | Sträng | Det uttryck som refererar till varje objekt i den angivna matrisen | 
+|||| 
+
+*Valfritt*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*Antal*> | Integer | Som standard ”för var och en” loop som iterationer körs samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ändra den här gränsen genom att ange en ny <*antal*> värde, se [ändra ”för var och en” loop samtidighet](#change-for-each-concurrency). | 
+| <*åtgärden-alternativet*> | Sträng | Om du vill köra en ”för var och en” loop sekventiellt i stället parallellt, ange antingen <*åtgärdsalternativ*> till `Sequential` eller <*antal*> till `1`, men inte båda. Mer information finns i [kör ”för var och en” loopar sekventiellt](#sequential-for-each). | 
+|||| 
+
+*Exempel*
+
+Den här ”för var och en” loop skickar ett e-postmeddelande för varje objekt i den matris som innehåller bifogade filer från ett inkommande e-postmeddelande. Loopen skickar ett e-postmeddelande, inklusive den bifogade filen till en person som går igenom den bifogade filen.
+
+```json
+"For_each": {
+   "type": "Foreach",
+   "actions": {
+      "Send_an_email": {
+         "type": "ApiConnection",
+         "inputs": {
+            "body": {
+               "Body": "@base64ToString(items('For_each')?['Content'])",
+               "Subject": "Review attachment",
+               "To": "Sophie.Owen@contoso.com"
+                },
+            "host": {
+               "connection": {
+                  "id": "@parameters('$connections')['office365']['connectionId']"
+               }
+            },
+            "method": "post",
+            "path": "/Mail"
+         },
+         "runAfter": {}
+      }
+   },
+   "foreach": "@triggerBody()?['Attachments']",
+   "runAfter": {}
+}
+```
+
+Om du vill ange en matris som skickas som utdata från utlösaren hämtar det här uttrycket i <*matrisnamnet*> matris från brödtexten i utlösaren. För att undvika ett fel om matrisen inte finns kan uttrycket använder den `?` operator:
+
+`@triggerBody()?['<array-name>']` 
+
+<a name="if-action"></a>
+
+### <a name="if-action"></a>Om åtgärden
+
+Den här åtgärden, vilket är en *villkorlig instruktionen*, utvärderar ett uttryck som representerar ett villkor och kör en annan gren baserat på om villkoret är SANT eller FALSKT. Om villkoret är SANT markeras villkoret med ”Succeeded” status. Lär dig [så här skapar du villkorssatser](../logic-apps/logic-apps-control-flow-conditional-statement.md).
 
 ``` json
-"myApprovalEmailAction": {
+"Condition": {
+   "type": "If",
+   "expression": { "<condition>" },
+   "actions": {
+      "<action-1>": { "<action-definition>" }
+   },
+   "else": {
+      "actions": {
+        "<action-2>": { "<action-definition" }
+      }
+   },
+   "runAfter": {}
+}
+```
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*Villkor*> | JSON-objekt | Villkoret, vilket kan vara ett uttryck att utvärdera | 
+| <*åtgärd 1*> | JSON-objekt | Åtgärden som ska köras när <*villkor*> utvärderas till SANT | 
+| <*åtgärd-definition*> | JSON-objekt | Definitionen för åtgärden | 
+| <*åtgärd 2*> | JSON-objekt | Åtgärden som ska köras när <*villkor*> utvärderas till false | 
+|||| 
+
+Åtgärder i den `actions` eller `else` objekt får dessa statusar:
+
+* ”Lyckades” när de körs och lyckas
+* ”Misslyckades” när de körs och misslyckas
+* ”Skipped” när grenen respektive inte körs
+
+*Exempel*
+
+Det här tillståndet anger att arbetsflödet när heltalsvariabeln har ett värde som är större än noll, kontrollerar en webbplats. Om variabeln är noll eller mindre, kontrollerar arbetsflödet en annan webbplats.
+
+```json
+"Condition": {
+   "type": "If",
+   "expression": {
+      "and": [ {
+         "greater": [ "@variables('myIntegerVariable')", 0 ] 
+      } ]
+   },
+   "actions": { 
+      "HTTP - Check this website": {
+         "type": "Http",
+         "inputs": {
+         "method": "GET",
+            "uri": "http://this-url"
+         },
+         "runAfter": {}
+      }
+   },
+   "else": {
+      "actions": {
+         "HTTP - Check this other website": {
+            "type": "Http",
+            "inputs": {
+               "method": "GET",
+               "uri": "http://this-other-url"
+            },
+            "runAfter": {}
+         }
+      }
+   },
+   "runAfter": {}
+}
+```  
+
+#### <a name="how-conditions-use-expressions"></a>Hur villkor använda uttryck
+
+Här följer några exempel som visar hur du kan använda uttryck i villkor:
+  
+| JSON | Resultat | 
+|------|--------| 
+| ”uttryck” ”:@parameters('<*hasSpecialAction*>”) ” | För booleska uttryck uppfylls villkoret för alla värden som utvärderas till SANT. <p>Andra typer konvertera till booleskt värde med dessa funktioner: `empty()` eller `equals()`. | 
+| ”uttryck” ”:@greater(actions('<*action*>').output.value, parametrar (” <*tröskelvärdet*> ”))” | För jämförelse av funktioner, åtgärden körs endast när utdata från <*åtgärd*> är mer än den <*tröskelvärdet*> värde. | 
+| ”uttryck” ”:@or(större (actions('<*action*>').output.value, parametrar (” <*tröskelvärdet*> ”)), mindre (åtgärder ('<*samma åtgärd*>').Output.Value 100)) ” | För logiska funktioner och skapa kapslade booleska uttryck, åtgärden körs när utdata från <*åtgärd*> är mer än den <*tröskelvärdet*> värde eller under 100. | 
+| ”uttryck” ”:@equals(längd (actions('<*action*>').outputs.errors), 0))” | Du kan använda matrisfunktioner för att kontrollera om matrisen har alla objekt. Åtgärden körs när den `errors` matrisen är tom. | 
+||| 
+
+<a name="scope-action"></a>
+
+### <a name="scope-action"></a>Scope-åtgärd
+
+Den här åtgärden logiskt grupperar åtgärder i *scope*, som får sina egna status när åtgärderna eftersom omfånget slutföras. Du kan sedan använda scopets status för att avgöra om andra åtgärder ska köras. Lär dig [så här skapar du scope](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md).
+
+```json
+"Scope": {
+   "type": "Scope",
+   "actions": {
+      "<inner-action-1>": {
+         "type": "<action-type>",
+         "inputs": { "<action-inputs>" },
+         "runAfter": {}
+      },
+      "<inner-action-2>": {
+         "type": "<action-type>",
+         "inputs": { "<action-inputs>" },
+         "runAfter": {}
+      }
+   }
+}
+```
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------|  
+| <*inre-åtgärd-1... n*> | JSON-objekt | En eller flera åtgärder som körs inom |
+| <*indata för åtgärden*> | JSON-objekt | Indata för varje åtgärd |
+|||| 
+
+<a name="switch-action"></a>
+
+### <a name="switch-action"></a>Switch-åtgärden
+
+Den här åtgärden, även känt som en *växla instruktionen*, organiserar andra åtgärder i *fall*, och tilldelar ett värde till varje fall såvida standard om en sådan finns. När arbetsflödet körs, **växel** åtgärd jämför värdet från ett uttryck, objekt eller token mot de värden som anges för varje scenario. Om den **växel** åtgärden hittar en matchande fallet, arbetsflödet körs bara åtgärder för detta. Varje gång den **växel** körs, vilket endast en matchande fall finns eller om inga matchningar finns. Om inga matchningar finns den **växel** åtgärden körs standardåtgärderna som. Lär dig [så här skapar du switch-satser](../logic-apps/logic-apps-control-flow-switch-statement.md).
+
+``` json
+"Switch": {
+   "type": "Switch",
+   "expression": "<expression-object-or-token>",
+   "cases": {
+      "Case": {
+         "actions": {
+           "<action-name>": { "<action-definition>" }
+         },
+         "case": "<matching-value>"
+      },
+      "Case_2": {
+         "actions": {
+           "<action-name>": { "<action-definition>" }
+         },
+         "case": "<matching-value>"
+      }
+   },
+   "default": {
+      "actions": {
+         "<default-action-name>": { "<default-action-definition>" }
+      }
+   },
+   "runAfter": {}
+}
+```
+
+*Krävs*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*uttryck-objekt-eller-token*> | Varierar | Det uttryck, JSON-objekt eller token för att utvärdera | 
+| <*Åtgärdens namn*> | Sträng | Namnet på åtgärden som ska köras för matchande | 
+| <*åtgärd-definition*> | JSON-objekt | Definitionen för åtgärden som ska köras för matchande | 
+| <*matchande värde*> | Varierar | Värde att jämföra med det beräknade resultatet | 
+|||| 
+
+*Valfritt*
+
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*standard åtgärdsnamn*> | Sträng | Namnet på standardåtgärden som körs när inget matchande fall finns | 
+| <*åtgärden standarddefinition*> | JSON-objekt | Definitionen för åtgärden som ska köras när det finns inget matchande fall | 
+|||| 
+
+*Exempel*
+
+Den här åtgärdsdefinitionen utvärderar huruvida den person som svarar på e-post för godkännande begäran valde alternativet ”Godkänn” eller ”avvisa”-alternativet. Baserat på det här alternativet den **växel** åtgärden kör åtgärderna för det matchande ärendet, vilket är att skicka en annan e-postmeddelande till svarande men med olika formulering i båda fallen. 
+
+``` json
+"Switch": {
    "type": "Switch",
    "expression": "@body('Send_approval_email')?['SelectedOption']",
    "cases": {
       "Case": {
          "actions": {
-           "Send_an_email": {...}
+            "Send_an_email": { 
+               "type": "ApiConnection",
+               "inputs": {
+                  "Body": "Thank you for your approval.",
+                  "Subject": "Response received", 
+                  "To": "Sophie.Owen@contoso.com"
+               },
+               "host": {
+                  "connection": {
+                     "name": "@parameters('$connections')['office365']['connectionId']"
+                  }
+               },
+               "method": "post",
+               "path": "/Mail"
+            },
+            "runAfter": {}
          },
          "case": "Approve"
       },
       "Case_2": {
          "actions": {
-           "Send_an_email_2": {...}
+            "Send_an_email_2": { 
+               "type": "ApiConnection",
+               "inputs": {
+                  "Body": "Thank you for your response.",
+                  "Subject": "Response received", 
+                  "To": "Sophie.Owen@contoso.com"
+               },
+               "host": {
+                  "connection": {
+                     "name": "@parameters('$connections')['office365']['connectionId']"
+                  }
+               },
+               "method": "post",
+               "path": "/Mail"
+            },
+            "runAfter": {}     
          },
          "case": "Reject"
       }
    },
    "default": {
-      "actions": {}
+      "actions": { 
+         "Send_an_email_3": { 
+            "type": "ApiConnection",
+            "inputs": {
+               "Body": "Please respond with either 'Approve' or 'Reject'.",
+               "Subject": "Please respond", 
+               "To": "Sophie.Owen@contoso.com"
+            },
+            "host": {
+               "connection": {
+                  "name": "@parameters('$connections')['office365']['connectionId']"
+               }
+            },
+            "method": "post",
+            "path": "/Mail"
+         },
+         "runAfter": {} 
+      }
    },
    "runAfter": {
-      "Send_approval_email": [
+      "Send_approval_email": [ 
          "Succeeded"
       ]
    }
 }
 ```
 
-## <a name="foreach-action"></a>Foreach-åtgärd
+<a name="until-action"></a>
 
-Åtgärden slingor upprepas i en matris och utför interna åtgärder på varje element i matrisen. Som standard körs Foreach-loop parallellt. För det maximala antalet parallella cykler som ”för varje” slingor kan köra, se [gränser och config](../logic-apps/logic-apps-limits-and-config.md). Om du vill köra varje cykel sekventiellt i `operationOptions` parameter till `Sequential`. Lär dig mer om [Foreach körs i en loop i logikappar](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
+### <a name="until-action"></a>Fram till åtgärd
+
+Åtgärden loopen innehåller åtgärder som körs tills villkoret är sant. Loopen utvärderas villkoret som det sista steget när alla andra åtgärder har körts. Du kan inkludera mer än en åtgärd i den `"actions"` objektet och åtgärden måste ange minst en gräns. Lär dig [så här skapar du ”till” slingor](../logic-apps/logic-apps-control-flow-loops.md#until-loop). 
 
 ```json
-"<my-forEach-loop-name>": {
-    "type": "Foreach",
-    "actions": {
-        "myInnerAction1": {
-            "type": "<action-type>",
-            "inputs": {}
-        },
-        "myInnerAction2": {
-            "type": "<action-type>",
-            "inputs": {}
-        }
-    },
-    "foreach": "<array>",
-    "runAfter": {}
+ "Until": {
+   "type": "Until",
+   "actions": {
+      "<action-name>": {
+         "type": "<action-type>",
+         "inputs": { "<action-inputs>" },
+         "runAfter": {}
+      },
+      "<action-name>": {
+         "type": "<action-type>",
+         "inputs": { "<action-inputs>" },
+         "runAfter": {}
+      }
+   },
+   "expression": "<condition>",
+   "limit": {
+      "count": <loop-count>,
+      "timeout": "<loop-timeout>"
+   },
+   "runAfter": {}
 }
 ```
 
-| Namn | Krävs | Typ | Beskrivning | 
-| ---- | -------- | ---- | ----------- | 
-| åtgärder | Ja | JSON-objekt | Inre åtgärder för att köra i den här slingan | 
-| foreach | Ja | Sträng | Matrisen för att gå igenom | 
-| operationOptions | Nej | Sträng | Anger åtgärden alternativ för att anpassa beteende. Stöder för närvarande endast `Sequential` för att köra sekventiellt iterationer där standardbeteendet är parallellt. |
-||||| 
+| Värde | Typ | Beskrivning | 
+|-------|------|-------------| 
+| <*Åtgärdens namn*> | Sträng | Namn för åtgärden som du vill köra i den här slingan | 
+| <*typ av åtgärd*> | Sträng | Åtgärdstyp som du vill köra | 
+| <*indata för åtgärden*> | Olika | Indata för åtgärden att köra | 
+| <*Villkor*> | Sträng | Villkoret eller uttryck som ska utvärderas när alla åtgärder i loopen slutföras | 
+| <*Antal loopar*> | Integer | Gränsen för flest antal loopar som åtgärden kan köras. Standard `count` värdet är 60. | 
+| <*loop-timeout*> | Sträng | Gränsen för den längsta tid som loopen kan köras. Standard `timeout` värdet är `PT1H`, vilket är de nödvändiga [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601). |
+|||| 
 
-Exempel:
+*Exempel*
 
-```json
-"forEach_EmailAction": {
-    "type": "Foreach",
-    "foreach": "@body('email_filter')",
-    "actions": {
-        "Send_email": {
-            "type": "ApiConnection",
-            "inputs": {
-                "body": {
-                    "to": "@item()",
-                    "from": "me@contoso.com",
-                    "message": "Hello, thank you for ordering"
-                },
-                "host": {
-                    "connection": {
-                        "id": "@parameters('$connections')['office365']['connection']['id']"
-                    }
-                }
-            }
-        }
-    },
-    "foreach": "@body('email_filter')",
-    "runAfter": {
-        "email_filter": [ "Succeeded" ]
-    }
-}
-```
+Den här slingan åtgärdsdefinitionen skickar en HTTP-begäran till den angivna URL: en tills någon av dessa villkor är uppfyllt: 
 
-## <a name="until-action"></a>Förrän åtgärden
-
-Åtgärden slingor körs inre åtgärder tills ett villkor utvärderas som SANT. Lär dig mer om [”till” loopar i logikappar](../logic-apps/logic-apps-control-flow-loops.md#until-loop).
+* Begäran får ett svar med den ”200 OK”-statuskod.
+* Loopen har körts 60 gånger.
+* Loopen har körts under en timme.
 
 ```json
- "<my-Until-loop-name>": {
-    "type": "Until",
-    "actions": {
-        "myActionName": {
-            "type": "<action-type>",
-            "inputs": {},
-            "runAfter": {}
-        }
-    },
-    "expression": "<myCondition>",
-    "limit": {
-        "count": 1000,
-        "timeout": "PT1H"
-    },
-    "runAfter": {}
-}
-```
-
-| Namn | Krävs | Typ | Beskrivning | 
-| ---- | -------- | ---- | ----------- | 
-| åtgärder | Ja | JSON-objekt | Inre åtgärder för att köra i den här slingan | 
-| uttryck | Ja | Sträng | Uttrycket som ska utvärderas efter varje iteration | 
-| Gränsen | Ja | JSON-objekt | Gränser för loopen. Måste ange minst en gräns. | 
-| antal | Nej | Integer | Gränsen för antalet iterationer för att utföra | 
-| timeout | Nej | Sträng | Timeout-gränsen i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) som anger hur länge slingan ska köras |
-||||| 
-
-Exempel:
-
-```json
- "runUntilSucceededAction": {
+ "Run_until_loop_succeeds_or_expires": {
     "type": "Until",
     "actions": {
         "Http": {
@@ -1575,41 +2243,316 @@ Exempel:
             "runAfter": {}
         }
     },
-    "expression": "@equals(outputs('Http')['statusCode', 200)",
+    "expression": "@equals(outputs('Http')['statusCode', 200])",
     "limit": {
-        "count": 100,
+        "count": 60,
         "timeout": "PT1H"
     },
     "runAfter": {}
 }
 ```
 
-## <a name="scope-action"></a>Scope-åtgärd
+<a name="subscribe-unsubscribe"></a>
 
-Den här åtgärden kan du logiskt gruppera åtgärder i ett arbetsflöde. Omfånget också hämtar sin egen status när alla åtgärder i detta scope Slutför körs. Lär dig mer om [scope](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md).
+## <a name="webhooks-and-subscriptions"></a>Webhooks och prenumerationer
 
-```json
-"<my-scope-action-name>": {
-    "type": "Scope",
-    "actions": {
-        "myInnerAction1": {
-            "type": "<action-type>",
-            "inputs": {}
-        },
-        "myInnerAction2": {
-            "type": "<action-type>",
-            "inputs": {}
-        }
-    }
+Webhook-baserade utlösare och åtgärder regelbundet kontrollera inte slutpunkter, men vänta i stället för specifika händelser eller data på dessa slutpunkter. Dessa utlösare och åtgärder *prenumerera* till slutpunkterna genom att tillhandahålla en *Motringnings-URL för* där slutpunkten kan skicka svar.
+
+Den `subscribe` anrop sker när arbetsflödet ändras på något sätt, till exempel när autentiseringsuppgifter förnyas, eller när indataparametrarna som ändras för en utlösare eller åtgärd. Det här anropet använder samma parametrar som standard HTTP-åtgärder. 
+
+Den `unsubscribe` anrop sker automatiskt när en åtgärd gör utlösaren eller åtgärden ogiltig, till exempel:
+
+* Ta bort eller inaktivera utlösaren. 
+* Ta bort eller inaktivera arbetsflödet. 
+* Ta bort eller inaktivera prenumerationen. 
+
+Stöd för dessa anrop den `@listCallbackUrl()` uttrycket returnerar ett unikt ”Motringnings-URL” utlösaren eller åtgärden. Denna URL representerar en unik identifierare för slutpunkter som använder tjänstens REST API. Parametrarna för den här funktionen är samma som webhooksutlösaren eller åtgärden.
+
+<a name="asynchronous-limits"></a>
+
+## <a name="change-asynchronous-duration"></a>Ändra asynkron varaktighet
+
+För både utlösare och åtgärder du kan begränsa hur länge asynkront mönster till ett visst tidsintervall genom att lägga till den `limit.timeout` egenskapen. På så sätt kan om åtgärden inte har slutförts när intervallet-uppnås åtgärdens status har markerats som `Cancelled` med den `ActionTimedOut` kod. Den `timeout` egenskapen använder [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). 
+
+``` json
+"<trigger-or-action-name>": {
+   "type": "Workflow | Webhook | Http | ApiConnectionWebhook | ApiConnection",
+   "inputs": {},
+   "limit": {
+      "timeout": "PT10S"
+   },
+   "runAfter": {}
 }
 ```
 
-| Namn | Krävs | Typ | Beskrivning | 
-| ---- | -------- | ---- | ----------- |  
-| åtgärder | Ja | JSON-objekt | Inre åtgärder för att köra inuti scope |
+<a name="runtime-config-options"></a>
+
+## <a name="runtime-configuration-settings"></a>Runtime-konfigurationsinställningar
+
+Du kan ändra standardinställningen för utlösare och åtgärder med dessa runtime `runtimeConfiguration` egenskaper i definitionen för utlösare eller åtgärd.
+
+| Egenskap  | Typ | Beskrivning | Utlösare eller åtgärd | 
+|----------|------|-------------|-------------------| 
+| `runtimeConfiguration.concurrency.runs` | Integer | Ändra den [ *Standardgräns* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) på antalet logic app-instanser som kan köras samtidigt eller parallellt. Det här värdet kan hjälpa att begränsa antalet begäranden som tar emot backend-system. <p>Ange den `runs` egenskap `1` fungerar på samma sätt som den `operationOptions` egenskap `SingleInstance`. Du kan ange antingen egenskap, men inte båda. <p>Om du vill ändra Standardgränsen [ändra utlösaren samtidighet](#change-trigger-concurrency) eller [utlösa instanser sekventiellt](#sequential-trigger). | Alla utlösare | 
+| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Ändra den [ *Standardgräns* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) på antalet logic app-instanser som kan vänta med att köra när logikappen körs redan det högsta antalet samtidiga instanser. Du kan ändra samtidighetsgräns i den `concurrency.runs` egenskapen. <p>Om du vill ändra Standardgränsen [ändring väntar körningar begränsa](#change-waiting-runs). | Alla utlösare | 
+| `runtimeConfiguration.concurrency.repetitions` | Integer | Ändra den [ *Standardgräns* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) på antalet ”för var och en” loop iterationer som kan köras samtidigt eller parallellt. <p>Ange den `repetitions` egenskap `1` fungerar på samma sätt som den `operationOptions` egenskap `SingleInstance`. Du kan ange antingen egenskap, men inte båda. <p>Om du vill ändra Standardgränsen [ändra ”för var och en” samtidighet](#change-for-each-concurrency) eller [kör ”för var och en” loopar sekventiellt](#sequential-for-each). | Åtgärd: <p>[Foreach](#foreach-action) | 
 ||||| 
+
+<a name="operation-options"></a>
+
+## <a name="operation-options"></a>Alternativ för åtgärden
+
+Du kan ändra standardinställningen för utlösare och åtgärder med den `operationOptions` egenskapen i definitionen för utlösare eller åtgärd.
+
+| Åtgärdsvärdet | Typ | Beskrivning | Utlösare eller åtgärd | 
+|------------------|------|-------------|-------------------| 
+| `DisableAsyncPattern` | Sträng | Kör HTTP-baserade åtgärder synkront, snarare än asynkront. <p><p>Om du vill ange det här alternativet, se [kör åtgärder synkront](#asynchronous-patterns). | Åtgärder: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Svar](#response-action) | 
+| `OptimizedForHighThroughput` | Sträng | Ändra den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) för antalet körningar per 5 minuter till den [maxgränsen](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Om du vill ange det här alternativet, se [körs med högt dataflöde](#run-high-throughput-mode). | Alla åtgärder | 
+| `Sequential` | Sträng | Kör ”för var och en” loop iterationer en i taget, i stället för på samma gång parallellt. <p>Det här alternativet fungerar på samma sätt som den `runtimeConfiguration.concurrency.repetitions` egenskap `1`. Du kan ange antingen egenskap, men inte båda. <p><p>Om du vill ange det här alternativet, se [kör ”för var och en” loopar sekventiellt](#sequential-for-each).| Åtgärd: <p>[Foreach](#foreach-action) | 
+| `SingleInstance` | Sträng | Köra utlösaren för varje logikappinstans sekventiellt och vänta tills den tidigare active körningen ska slutföras innan du aktiverar den nästa logic app-instansen. <p><p>Det här alternativet fungerar på samma sätt som den `runtimeConfiguration.concurrency.runs` egenskap `1`. Du kan ange antingen egenskap, men inte båda. <p>Om du vill ange det här alternativet, se [utlösa instanser sekventiellt](#sequential-trigger). | Alla utlösare | 
+||||
+
+<a name="change-trigger-concurrency"></a>
+
+### <a name="change-trigger-concurrency"></a>Ändra utlösaren samtidighet
+
+Som standard logic app-instanserna körs på samma gång samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Varje instans som utlösaren utlöses så innan körning är klar med den tidigare active logic app-instansen. Den här gränsen kan du styra hur många begäranden som tar emot backend-system. 
+
+Om du vill ändra Standardgränsen, du kan använda antingen kod Vyredigeraren eller Logic Apps Designer eftersom ändra inställningen för samtidighet via designern lägger till eller uppdaterar den `runtimeConfiguration.concurrency.runs` egenskapen i den underliggande utlösardefinitionen och vice versa. Den här egenskapen styr det maximala antalet logic app-instanser som kan köras parallellt. 
+
+> [!NOTE] 
+> Om du ställer in att utlösaren ska köras sekventiellt antingen med hjälp av designern eller visa Kodredigeraren inte ställer in utlösarens `operationOptions` egenskap `SingleInstance` i kodredigeraren för vyn. Annars kan få du ett valideringsfel. Mer information finns i [utlösa instanser sekventiellt](#sequential-trigger).
+
+#### <a name="edit-in-code-view"></a>Redigera i kodvy 
+
+I den underliggande utlösa definition, lägga till eller uppdatera den `runtimeConfiguration.concurrency.runs` egenskap med ett värde mellan `1` och `50` portintervallet.
+
+Här är ett exempel som begränsar samtidiga körningar till 10 instanser:
+
+```json
+"<trigger-name>": {
+   "type": "<trigger-name>",
+   "recurrence": {
+      "frequency": "<time-unit>",
+      "interval": <number-of-time-units>,
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": 10
+      }
+   }
+}
+```
+
+#### <a name="edit-in-logic-apps-designer"></a>Redigera i Logic Apps Designer
+
+1. I utlösarens övre högra hörnet väljer du ellipserna (...)-knappen och väljer sedan **inställningar**.
+
+2. Under **samtidighetskontroll**anger **åsidosätta standard** till **på**. 
+
+3. Dra den **grad av parallellitet** skjutreglaget till önskat värde. 
+
+<a name="change-for-each-concurrency"></a>
+
+### <a name="change-for-each-concurrency"></a>Ändra ”för var och en” samtidighet
+
+Som standard ”för var och en” loop iterationer körs samtidigt eller parallellt, upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du vill ändra Standardgränsen, du kan använda antingen kod Vyredigeraren eller Logic Apps Designer eftersom ändra inställningen för samtidighet via designern lägger till eller uppdaterar den `runtimeConfiguration.concurrency.repetitions` -egenskapen i den underliggande åtgärd ”för var och en” definition och tvärtom. Den här egenskapen styr det maximala antalet upprepningar som kan köras parallellt.
+
+> [!NOTE] 
+> Om du anger ”för var och en”-åtgärd att köra sekventiellt antingen med hjälp av designern eller visa Kodredigeraren, inte anger åtgärdens `operationOptions` egenskap `Sequential` i kodredigeraren för vyn. Annars kan få du ett valideringsfel. Mer information finns i [kör ”för var och en” loopar sekventiellt](#sequential-for-each).
+
+#### <a name="edit-in-code-view"></a>Redigera i kodvy 
+
+I den underliggande ”för var och en” definition, lägga till eller uppdatera den `runtimeConfiguration.concurrency.repetitions` egenskap med ett värde mellan `1` och `50` portintervallet. 
+
+Här är ett exempel som begränsar samtidiga körningar till 10 iterationer:
+
+```json
+"For_each" {
+   "type": "Foreach",
+   "actions": { "<actions-to-run>" },
+   "foreach": "<for-each-expression>",
+   "runAfter": {},
+   "runtimeConfiguration": {
+      "concurrency": {
+         "repetitions": 10
+      }
+   }
+}
+```
+
+#### <a name="edit-in-logic-apps-designer"></a>Redigera i Logic Apps Designer
+
+1. I den **för var och en** åtgärdens övre högra hörnet väljer du ellipserna (...)-knappen och välj sedan **inställningar**.
+
+2. Under **samtidighetskontroll**anger **åsidosätta standard** till **på**. 
+
+3. Dra den **grad av parallellitet** skjutreglaget till önskat värde. 
+
+<a name="change-waiting-runs"></a>
+
+### <a name="change-waiting-runs-limit"></a>Ändra väntar på gränsen för körningar
+
+Som standard logic app-instanserna körs på samma gång samtidigt eller parallellt upp till den [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Varje instans som utlösaren utlöses innan körning är klar med den tidigare active logic app-instansen. Även om du kan [ändra den här Standardgräns](#change-trigger-concurrency), när antalet logic app-instanserna når den nya gränsen för samtidighet, nya instanser måste vänta med att köra. 
+
+Antal körningar som kan vänta har också en [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits), som du kan ändra. Men när logikappen når gränsen för att vänta körningar, accepterar Logic Apps-motorn inte längre nya körningar. Begäran och webhook-utlösare returnera 429-fel och återkommande utlösare starta hoppar över avsökningen försök.
+
+Om du vill ändra Standardgräns för att vänta körs i den underliggande utlösa definition, Lägg till och ange den `runtimeConfiguration.concurency.maximumWaitingRuns` egenskap med ett värde mellan `0` och `100`. 
+
+```json
+"<trigger-name>": {
+   "type": "<trigger-name>",
+   "recurrence": {
+      "frequency": "<time-unit>",
+      "interval": <number-of-time-units>,
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "maximumWaitingRuns": 50
+      }
+   }
+}
+```
+
+<a name="sequential-trigger"></a>
+
+### <a name="trigger-instances-sequentially"></a>Utlösa instanser sekventiellt
+
+Om du vill köra varje logic ange app-instansen endast efter föregående instans har slutförts kör, att utlösaren ska köras sekventiellt. Du kan använda antingen kod Vyredigeraren eller Logic Apps Designer eftersom också ändra inställningen för samtidighet via designer lägger till eller uppdaterar den `runtimeConfiguration.concurrency.runs` egenskapen i den underliggande utlösardefinitionen och vice versa. 
+
+> [!NOTE] 
+> När du ställer in en utlösare för att köra sekventiellt antingen med hjälp av designern eller visa Kodredigeraren inte ställer in utlösarens `operationOptions` egenskap `Sequential` i kodredigeraren för vyn. Annars kan få du ett valideringsfel. 
+
+#### <a name="edit-in-code-view"></a>Redigera i kodvy
+
+Ange något av dessa egenskaper, men inte båda i definitionen för utlösare. 
+
+Ange den `runtimeConfiguration.concurrency.runs` egenskap `1`:
+
+```json
+"<trigger-name>": {
+   "type": "<trigger-name>",
+   "recurrence": {
+      "frequency": "<time-unit>",
+      "interval": <number-of-time-units>,
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": 1
+      }
+   }
+}
+```
+
+*- eller -*
+
+Ange den `operationOptions` egenskap `SingleInstance`:
+
+```json
+"<trigger-name>": {
+   "type": "<trigger-name>",
+   "recurrence": {
+      "frequency": "<time-unit>",
+      "interval": <number-of-time-units>,
+   },
+   "operationOptions": "SingleInstance"
+}
+```
+
+#### <a name="edit-in-logic-apps-designer"></a>Redigera i Logic Apps Designer
+
+1. I utlösarens övre högra hörnet väljer du ellipserna (...)-knappen och väljer sedan **inställningar**.
+
+2. Under **samtidighetskontroll**anger **åsidosätta standard** till **på**. 
+
+3. Dra den **grad av parallellitet** skjutreglaget för hur många `1`. 
+
+<a name="sequential-for-each"></a>
+
+### <a name="run-for-each-loops-sequentially"></a>Kör ”för var och en” loopar sekventiellt
+
+Om du vill köra en ”för var och en” loop anger körs, iteration förrän den föregående iterationen är klar ”för var och en”-åtgärd att köra sekventiellt. Du kan använda antingen kod Vyredigeraren eller Logic Apps Designer eftersom också ändra åtgärdens samtidighet via designer lägger till eller uppdaterar den `runtimeConfiguration.concurrency.repetitions` egenskapen i den underliggande åtgärdsdefinitionen och vice versa. 
+
+> [!NOTE] 
+> När du anger en ”för var och en”-åtgärd för att köra sekventiellt antingen genom att använda designer eller visa Kodredigerare kan inte ange åtgärdens `operationOptions` egenskap `Sequential` i kodredigeraren för vyn. Annars kan få du ett valideringsfel. 
+
+#### <a name="edit-in-code-view"></a>Redigera i kodvy
+
+Ange något av dessa egenskaper, men inte båda i åtgärdsdefinitionen av. 
+
+Ange den `runtimeConfiguration.concurrency.repetitions` egenskap `1`:
+
+```json
+"For_each" {
+   "type": "Foreach",
+   "actions": { "<actions-to-run>" },
+   "foreach": "<for-each-expression>",
+   "runAfter": {},
+   "runtimeConfiguration": {
+      "concurrency": {
+         "repetitions": 1
+      }
+   }
+}
+```
+
+*- eller -*
+
+Ange den `operationOptions` egenskap `Sequential`:
+
+```json
+"For_each" {
+   "type": "Foreach",
+   "actions": { "<actions-to-run>" },
+   "foreach": "<for-each-expression>",
+   "runAfter": {},
+   "operationOptions": "Sequential"
+}
+```
+
+#### <a name="edit-in-logic-apps-designer"></a>Redigera i Logic Apps Designer
+
+1. I den **för var och en** åtgärdens övre högra hörnet väljer du ellipserna (...)-knappen och välj sedan **inställningar**.
+
+2. Under **samtidighetskontroll**anger **åsidosätta standard** till **på**. 
+
+3. Dra den **grad av parallellitet** skjutreglaget för hur många `1`. 
+
+<a name="asynchronous-patterns"></a>
+
+### <a name="run-actions-synchronously"></a>Kör åtgärder synkront
+
+Som standard följer alla HTTP-baserade åtgärder standard asynkron åtgärd mönster. Det här mönstret anger att när en HTTP-baserade åtgärd skickar en begäran till den angivna slutpunkten, fjärrservern skickar tillbaka ett svar med ”202-ACCEPTERAD”. Det här svaret innebär att servern har accepterat för bearbetning. Logic Apps-motorn kontrollerar den URL som anges av svarets platsrubrik förrän bearbetningen stoppas, vilket är alla icke-202-svaret.
+
+Dock förfrågningar har en tidsgräns som begränsar, vilket för långvariga åtgärder, kan du inaktivera asynkrona beteendet genom att lägga till och ställa in den `operationOptions` egenskap `DisableAsyncPattern` under åtgärdens indata.
+  
+```json
+"<some-long-running-action>": {
+   "type": "Http",
+   "inputs": { "<action-inputs>" },
+   "operationOptions": "DisableAsyncPattern",
+   "runAfter": {}
+}
+```
+
+<a name="run-high-throughput-mode"></a>
+
+### <a name="run-in-high-throughput-mode"></a>Kör i läget för hög genomströmning
+
+För en enkel logikapp-körningen, antalet åtgärder som utförs var femte minut har en [Standardgräns](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Att höja gränsen till den [maximala](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) möjliga, ange den `operationOptions` egenskap `OptimizedForHighThroughput`. Den här inställningen placerar logikappen i ”dataflöden” läge. 
+
+> [!NOTE]
+> Högt dataflöde läge finns i förhandsversion. Du kan även distribuera en arbetsbelastning i mer än en logikapp efter behov.
+
+```json
+"<action-name>": {
+   "type": "<action-type>",
+   "inputs": { "<action-inputs>" },
+   "operationOptions": "OptimizedForHighThroughput",
+   "runAfter": {}
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [språk i arbetsflödesdefinitionen](../logic-apps/logic-apps-workflow-definition-language.md)
-* Lär dig mer om [arbetsflöde REST API](https://docs.microsoft.com/rest/api/logic/workflows)
+* Läs mer om [Definitionsspråk för arbetsflödet](../logic-apps/logic-apps-workflow-definition-language.md)

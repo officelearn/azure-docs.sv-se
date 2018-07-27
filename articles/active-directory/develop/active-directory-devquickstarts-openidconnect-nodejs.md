@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: a98a23de3ea58af5c4a63958f554de1e002ec456
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 8bba58c3493bc8adc17c5d4bca103326808d5b8b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248323"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283734"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD-Node.js-webbapp, komma igång
 Här kan vi använda Passport för att:
@@ -150,115 +150,111 @@ Här kan konfigurera vi Express för att använda autentiseringsprotokollet Open
     }
     ));
     ```
-Passport använder ett liknande mönster för alla dess strategier (Twitter, Facebook och så vidare) som alla strategiskrivare följer. Granskar strategin kan se du att vi skickar den en funktion som har en token och klar som parametrar. Strategin kommer tillbaka till oss när detta är gjort sitt arbete. Sedan vill vi lagra användaren och token så att vi inte behöver fråga efter den igen.
+   Passport använder ett liknande mönster för alla dess strategier (Twitter, Facebook och så vidare) som alla strategiskrivare följer. Granskar strategin kan se du att vi skickar den en funktion som har en token och klar som parametrar. Strategin kommer tillbaka till oss när detta är gjort sitt arbete. Sedan vill vi lagra användaren och token så att vi inte behöver fråga efter den igen.
 
-> [!IMPORTANT]
-Den tidigare koden tar alla användare som sker att autentisera vår server. Detta kallas för automatisk registrering. Vi rekommenderar att du inte låta alla autentisera till servrar i produktionsmiljö utan att behöva dem registreras via en process som du väljer. Detta är oftast det mönster du ser i konsumentappar, där du kan registrera dig med Facebook men du be dig att ange ytterligare information. Om detta inte ett exempelprogram, kan vi har extraherat användarens e-postadress från tokenobjektet som returneras och sedan uppmanas användaren att fylla i ytterligare information. Eftersom detta är en testserver kan vi lägga till dem i InMemory-databasen.
+   > [!IMPORTANT]
+   > Den tidigare koden tar alla användare som sker att autentisera vår server. Detta kallas för automatisk registrering. Vi rekommenderar att du inte låta alla autentisera till servrar i produktionsmiljö utan att behöva dem registreras via en process som du väljer. Detta är oftast det mönster du ser i konsumentappar, där du kan registrera dig med Facebook men du be dig att ange ytterligare information. Om detta inte ett exempelprogram, kan vi har extraherat användarens e-postadress från tokenobjektet som returneras och sedan uppmanas användaren att fylla i ytterligare information. Eftersom detta är en testserver kan vi lägga till dem i InMemory-databasen.
 
 
 4. Nu ska vi lägga till de metoder som gör det möjligt för oss att spåra inloggade användare som krävs av Passport. De här metoderna omfattar serialisering och avserialisering av användarens information.
 
     ```JavaScript
+    // Passport session setup. (Section 2)
 
-            // Passport session setup. (Section 2)
+    //   To support persistent sign-in sessions, Passport needs to be able to
+    //   serialize users into the session and deserialize them out of the session. Typically,
+    //   this is done simply by storing the user ID when serializing and finding
+    //   the user by ID when deserializing.
+    passport.serializeUser(function(user, done) {
+        done(null, user.email);
+    });
 
-            //   To support persistent sign-in sessions, Passport needs to be able to
-            //   serialize users into the session and deserialize them out of the session. Typically,
-            //   this is done simply by storing the user ID when serializing and finding
-            //   the user by ID when deserializing.
-            passport.serializeUser(function(user, done) {
-                done(null, user.email);
-            });
+    passport.deserializeUser(function(id, done) {
+        findByEmail(id, function (err, user) {
+            done(err, user);
+        });
+    });
 
-            passport.deserializeUser(function(id, done) {
-                findByEmail(id, function (err, user) {
-                    done(err, user);
-                });
-            });
+    // array to hold signed-in users
+    var users = [];
 
-            // array to hold signed-in users
-            var users = [];
-
-            var findByEmail = function(email, fn) {
-                for (var i = 0, len = users.length; i < len; i++) {
-                    var user = users[i];
-                    log.info('we are using user: ', user);
-                    if (user.email === email) {
-                        return fn(null, user);
-                    }
-                }
-                return fn(null, null);
-            };
+    var findByEmail = function(email, fn) {
+        for (var i = 0, len = users.length; i < len; i++) {
+            var user = users[i];
+            log.info('we are using user: ', user);
+            if (user.email === email) {
+                return fn(null, user);
+            }
+        }
+        return fn(null, null);
+    };
     ```
 
 5. Nu ska vi lägga till kod för att läsa in Express-motorn. Använder här vi standard /views och /routes mönster som Express tillhandahåller.
 
     ```JavaScript
+    // configure Express (section 2)
 
-        // configure Express (section 2)
-
-            var app = express();
-            app.configure(function() {
-          app.set('views', __dirname + '/views');
-          app.set('view engine', 'ejs');
-          app.use(express.logger());
-          app.use(express.methodOverride());
-          app.use(cookieParser());
-          app.use(expressSession({ secret: 'keyboard cat', resave: true, saveUninitialized: false }));
-          app.use(bodyParser.urlencoded({ extended : true }));
-          // Initialize Passport!  Also use passport.session() middleware, to support
-          // persistent login sessions (recommended).
-          app.use(passport.initialize());
-          app.use(passport.session());
-          app.use(app.router);
-          app.use(express.static(__dirname + '/../../public'));
-        });
-
+        var app = express();
+        app.configure(function() {
+      app.set('views', __dirname + '/views');
+      app.set('view engine', 'ejs');
+      app.use(express.logger());
+      app.use(express.methodOverride());
+      app.use(cookieParser());
+      app.use(expressSession({ secret: 'keyboard cat', resave: true, saveUninitialized: false }));
+      app.use(bodyParser.urlencoded({ extended : true }));
+      // Initialize Passport!  Also use passport.session() middleware, to support
+      // persistent login sessions (recommended).
+      app.use(passport.initialize());
+      app.use(passport.session());
+      app.use(app.router);
+      app.use(express.static(__dirname + '/../../public'));
+    });
     ```
 
 6. Slutligen ska vi lägga till de vägar som lämnar in de faktiska inloggningsförfrågningarna till den `passport-azure-ad` motor:
 
     ```JavaScript
+    // Our Auth routes (section 3)
 
-        // Our Auth routes (section 3)
+    // GET /auth/openid
+    //   Use passport.authenticate() as route middleware to authenticate the
+    //   request. The first step in OpenID authentication involves redirecting
+    //   the user to their OpenID provider. After authenticating, the OpenID
+    //   provider redirects the user back to this application at
+    //   /auth/openid/return.
+    app.get('/auth/openid',
+    passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+    function(req, res) {
+        log.info('Authentication was called in the Sample');
+        res.redirect('/');
+    });
 
-        // GET /auth/openid
-        //   Use passport.authenticate() as route middleware to authenticate the
-        //   request. The first step in OpenID authentication involves redirecting
-        //   the user to their OpenID provider. After authenticating, the OpenID
-        //   provider redirects the user back to this application at
-        //   /auth/openid/return.
-        app.get('/auth/openid',
-        passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
-        function(req, res) {
-            log.info('Authentication was called in the Sample');
-            res.redirect('/');
-        });
+    // GET /auth/openid/return
+    //   Use passport.authenticate() as route middleware to authenticate the
+    //   request. If authentication fails, the user is redirected back to the
+    //   sign-in page. Otherwise, the primary route function is called,
+    //   which, in this example, redirects the user to the home page.
+    app.get('/auth/openid/return',
+      passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+      function(req, res) {
+        log.info('We received a return from AzureAD.');
+        res.redirect('/');
+      });
 
-        // GET /auth/openid/return
-        //   Use passport.authenticate() as route middleware to authenticate the
-        //   request. If authentication fails, the user is redirected back to the
-        //   sign-in page. Otherwise, the primary route function is called,
-        //   which, in this example, redirects the user to the home page.
-        app.get('/auth/openid/return',
-          passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
-          function(req, res) {
-            log.info('We received a return from AzureAD.');
-            res.redirect('/');
-          });
-
-        // POST /auth/openid/return
-        //   Use passport.authenticate() as route middleware to authenticate the
-        //   request. If authentication fails, the user is redirected back to the
-        //   sign-in page. Otherwise, the primary route function is called,
-        //   which, in this example, redirects the user to the home page.
-        app.post('/auth/openid/return',
-          passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
-          function(req, res) {
-            log.info('We received a return from AzureAD.');
-            res.redirect('/');
-          });
-     ```
+    // POST /auth/openid/return
+    //   Use passport.authenticate() as route middleware to authenticate the
+    //   request. If authentication fails, the user is redirected back to the
+    //   sign-in page. Otherwise, the primary route function is called,
+    //   which, in this example, redirects the user to the home page.
+    app.post('/auth/openid/return',
+      passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+      function(req, res) {
+        log.info('We received a return from AzureAD.');
+        res.redirect('/');
+      });
+    ```
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Steg 4: Använda Passport för att utfärda inloggnings- och utloggningsförfrågningar till Azure AD
@@ -267,29 +263,27 @@ Din app är nu korrekt konfigurerad för att kommunicera med slutpunkten med hj�
 1. Först ska vi lägga till den standard, inloggning, konto och utloggningsmetoderna i vår `app.js` fil:
 
     ```JavaScript
+    //Routes (section 4)
 
-        //Routes (section 4)
+    app.get('/', function(req, res){
+      res.render('index', { user: req.user });
+    });
 
-        app.get('/', function(req, res){
-          res.render('index', { user: req.user });
-        });
+    app.get('/account', ensureAuthenticated, function(req, res){
+      res.render('account', { user: req.user });
+    });
 
-        app.get('/account', ensureAuthenticated, function(req, res){
-          res.render('account', { user: req.user });
-        });
+    app.get('/login',
+      passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+      function(req, res) {
+        log.info('Login was called in the Sample');
+        res.redirect('/');
+    });
 
-        app.get('/login',
-          passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
-          function(req, res) {
-            log.info('Login was called in the Sample');
-            res.redirect('/');
-        });
-
-        app.get('/logout', function(req, res){
-          req.logout();
-          res.redirect('/');
-        });
-
+    app.get('/logout', function(req, res){
+      req.logout();
+      res.redirect('/');
+    });
     ```
 
 2. Nu ska vi se dessa i detalj:
@@ -302,25 +296,22 @@ Din app är nu korrekt konfigurerad för att kommunicera med slutpunkten med hj�
 3. För den sista delen av `app.js`, ska vi lägga till den **EnsureAuthenticated** metod som används i `/account`, som visades tidigare.
 
     ```JavaScript
+    // Simple route middleware to ensure user is authenticated. (section 4)
 
-        // Simple route middleware to ensure user is authenticated. (section 4)
-
-        //   Use this route middleware on any resource that needs to be protected. If
-        //   the request is authenticated (typically via a persistent sign-in session),
-        //   the request proceeds. Otherwise, the user is redirected to the
-        //   sign-in page.
-        function ensureAuthenticated(req, res, next) {
-          if (req.isAuthenticated()) { return next(); }
-          res.redirect('/login')
-        }
+    //   Use this route middleware on any resource that needs to be protected. If
+    //   the request is authenticated (typically via a persistent sign-in session),
+    //   the request proceeds. Otherwise, the user is redirected to the
+    //   sign-in page.
+    function ensureAuthenticated(req, res, next) {
+      if (req.isAuthenticated()) { return next(); }
+      res.redirect('/login')
+    }
     ```
 
 4. Nu ska vi skapa slutligen själva servern i `app.js`:
 
 ```JavaScript
-
-        app.listen(3000);
-
+app.listen(3000);
 ```
 
 
@@ -330,25 +321,25 @@ Nu `app.js` har slutförts. Vi behöver bara lägga till vägarna och vyerna som
 1. Skapa `/routes/index.js`-vägen under rotkatalogen.
 
     ```JavaScript
-                /*
-                 * GET home page.
-                 */
+    /*
+     * GET home page.
+     */
 
-                exports.index = function(req, res){
-                  res.render('index', { title: 'Express' });
-                };
+    exports.index = function(req, res){
+      res.render('index', { title: 'Express' });
+    };
     ```
 
 2. Skapa `/routes/user.js`-vägen under rotkatalogen.
 
     ```JavaScript
-                /*
-                 * GET users listing.
-                 */
+    /*
+     * GET users listing.
+     */
 
-                exports.list = function(req, res){
-                  res.send("respond with a resource");
-                };
+    exports.list = function(req, res){
+      res.send("respond with a resource");
+    };
     ```
 
  Dessa skicka vidare begäran till vår vyer, inklusive användaren om den är tillgänglig.

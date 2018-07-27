@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: b06a179459a449762555879669d177f811cb9560
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 4135bd66e839037d7db694cb3c6df8f3905222e6
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090885"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283112"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Implementera haveriberedskap med hjälp av service-säkerhetskopiering och återställning i Azure API Management
 
@@ -76,6 +76,7 @@ Alla aktiviteter som du kan utföra på resurser med hjälp av Azure Resource Ma
 
 7. Klicka på **delegerade behörigheter** bredvid det nyligen tillagda programmet, markera kryssrutan för **åtkomst till Azure Service Management (förhandsversion)**.
 8. Tryck på **Välj**.
+9. Klicka på **bevilja Permisssions**.
 
 ### <a name="configuring-your-app"></a>Konfigurera din app
 
@@ -92,7 +93,7 @@ namespace GetTokenResourceManagerRequests
         static void Main(string[] args)
         {
             var authenticationContext = new AuthenticationContext("https://login.microsoftonline.com/{tenant id}");
-            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+            var result = authenticationContext.AcquireTokenAsync("https://management.azure.com/", "{application id}", new Uri("{redirect uri}"), new PlatformParameters(PromptBehavior.Auto)).Result;
 
             if (result == null) {
                 throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -123,6 +124,8 @@ Ersätt `{tentand id}`, `{application id}`, och `{redirect uri}` att följa dess
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Anropa åtgärder för säkerhetskopiering och återställning
 
+REST-API: er är [Api Management-tjänsten – Backup](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/backup) och [Api Management-tjänsten – återställning](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/restore).
+
 Ställ in begärandehuvudet auktorisering för REST-anrop innan du anropar ”säkerhetskopiering och återställning” åtgärderna som beskrivs i följande avsnitt.
 
 ```csharp
@@ -132,24 +135,27 @@ request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ### <a name="step1"> </a>Säkerhetskopiera en API Management-tjänsten
 Säkerhetskopiera ett problem med API Management-tjänsten följande HTTP-begäran:
 
-`POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}`
+```
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
+```
 
 Där:
 
 * `subscriptionId` -ID: t för prenumerationen som innehåller API Management-tjänsten som du försöker säkerhetskopiera
 * `resourceGroupName` – namnet på resursgruppen för Azure API Management-tjänsten
 * `serviceName` – namnet på API Management-tjänsten du gör en säkerhetskopia av anges vid tidpunkten för den har skapandet
-* `api-version` – Ersätt med `2014-02-14`
+* `api-version` – Ersätt med `2018-06-01-preview`
 
 Ange mål Azure storage-kontonamn, åtkomstnyckel, blob-behållarnamn och namn på säkerhetskopia i brödtexten för begäran:
 
-```
-'{  
-    storageAccount : {storage account name for the backup},  
-    accessKey : {access key for the account},  
-    containerName : {backup container name},  
-    backupName : {backup blob name}  
-}'
+
+```json
+{
+  "storageAccount": "{storage account name for the backup}",
+  "accessKey": "{access key for the account}",
+  "containerName": "{backup container name}",
+  "backupName": "{backup blob name}"
+}
 ```
 
 Ange värdet för den `Content-Type` begärandehuvudet till `application/json`.
@@ -168,24 +174,26 @@ Observera följande begränsningar när du gör en begäran om säkerhetskopieri
 ### <a name="step2"> </a>Återställa en API Management-tjänsten
 Om du vill återställa en API Management-tjänsten från en tidigare skapad säkerhetskopia gör följande HTTP-begäran:
 
-`POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}`
+```
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
+```
 
 Där:
 
 * `subscriptionId` -ID: t för prenumerationen som innehåller API Management-tjänsten som du återställer en säkerhetskopia i
 * `resourceGroupName` – en sträng med formatet ”API - Default-{tjänsten region}' där `service-region` identifierar Azure-regionen där API Management-tjänsten som du återställer en säkerhetskopia till värd, till exempel `North-Central-US`
 * `serviceName` – namnet på det API service håller på att återställas till anges vid tidpunkten för den har skapandet
-* `api-version` – Ersätt med `2014-02-14`
+* `api-version` – Ersätt med `2018-06-01-preview`
 
 Ange Säkerhetskopians plats som är, Azure storage-kontonamn, åtkomstnyckel, blob-behållarnamn och namn på säkerhetskopia i brödtexten för begäran:
 
-```
-'{  
-    storageAccount : {storage account name for the backup},  
-    accessKey : {access key for the account},  
-    containerName : {backup container name},  
-    backupName : {backup blob name}  
-}'
+```json
+{
+  "storageAccount": "{storage account name for the backup}",
+  "accessKey": "{access key for the account}",
+  "containerName": "{backup container name}",
+  "backupName": "{backup blob name}"
+}
 ```
 
 Ange värdet för den `Content-Type` begärandehuvudet till `application/json`.

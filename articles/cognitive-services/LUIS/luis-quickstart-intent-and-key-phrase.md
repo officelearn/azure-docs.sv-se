@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: f3808620c4527f2971d8eb6d53a09c893b162b59
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: ccefb4c2890d74978f340778cfab7cad979c9802
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340959"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929568"
 ---
-# <a name="tutorial-7-add-keyphrase-entity"></a>Självstudie: 7. Lägga till keyPhrase-entitet 
+# <a name="tutorial-8-add-keyphrase-entity"></a>Självstudie: 8. Lägga till keyPhrase-entitet 
 I den här självstudien använder du en app som visar hur det går till att extrahera nyckelämnen från yttranden.
 
 <!-- green checkmark -->
@@ -30,7 +30,7 @@ I den här självstudien använder du en app som visar hur det går till att ext
 För den här artikeln kan du använda ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#publishing-regions) för att kunna redigera LUIS-programmet.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Om du inte har appen Human Resources (Personalfrågor) från självstudien om [simple entity](luis-quickstart-primary-and-secondary-data.md) (enkel entitet) ska du [importera](create-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json)-GitHub-lagringsplatsen.
+Om du inte har appen Human Resources (Personalfrågor) från självstudien om [simple entity](luis-quickstart-primary-and-secondary-data.md) (enkel entitet) ska du [importera](luis-how-to-start-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json)-GitHub-lagringsplatsen.
 
 Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `keyphrase`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
 
@@ -201,10 +201,9 @@ Din chattrobot har nu tillräckligt med information för att avgöra nästa steg
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och keyPhrase-data från yttrandet för att gå vidare. LUIS utför inte detta programmässiga arbete för roboten eller det anropande programmet. LUIS tar endast reda på vad användarens avsikt är. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. Välja **My apps** (Mina appar) på menyn längst upp till vänster. Välj menyn med tre punkter (...) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+Ta bort LUIS-appen när den inte längre behövs. Välja **My apps** (Mina appar) på menyn längst upp till vänster. Välj ellipsknappen (***...***) till höger om appnamnet i applistan och väljer **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [Lägga till sentimentanalys i appen](luis-quickstart-intent-and-sentiment-analysis.md)
-

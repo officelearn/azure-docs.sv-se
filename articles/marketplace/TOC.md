@@ -16,8 +16,9 @@
 #### [Virtual Machines](./marketplace-virtual-machines.md)
 #### [Azure-appar: lösningsmallar](./marketplace-solution-templates.md)
 #### [Azure-appar: Managed Applications](./marketplace-managed-apps.md)
-#### [Publiceringsguide för SaaS-app](./marketplace-saas-applications-technical-publishing-guide.md) 
-#### [Containrar](./marketplace-containers.md)
+#### [SaaS-app](./marketplace-saas-applications-technical-publishing-guide.md) 
+#### 
+  [Containrar](./marketplace-containers.md)
 #### [Konsulttjänst](./consulting-services.md)  
 #### [AppSource-appar](./appsource-offer-publishing-guide.md)
 #### [Aktivera din utvärderingsversion av Marketplace med Azure Active Directory](./enable-trial-using-azure-ad.md)

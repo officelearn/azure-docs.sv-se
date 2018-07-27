@@ -6,7 +6,7 @@
       href: overview.md
 - name: Snabbstarter
   items:
-    - name: Använd en virtuell MSI-dator för att få åtkomst till Azure Resource Manager
+    - name: Komma åt Azure Resource Manager med en hanterad identitet för virtuell dator
       items:
         - name: Virtuell Windows-dator
           href: tutorial-windows-vm-access-arm.md
@@ -49,11 +49,11 @@
         - name: Få åtkomst till Azure Resource Manager med en användartilldelad identitet
           href: msi-tutorial-linux-vm-access-arm.md
     - name: Azure Service Bus
-      href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/context/msi-context
+      href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/managed-service-identity/context/msi-context
     - name: Azure App Service och Functions
-      href: /azure/app-service/app-service-managed-service-identity?context=azure/active-directory/context/msi-context
+      href: /azure/app-service/app-service-managed-service-identity?context=azure/active-directory/managed-service-identity/context/msi-context
     - name: Azure Event Hubs
-      href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/context/msi-context
+      href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/managed-service-identity/context/msi-context
 - name: Instruktionsguider
   items:
     - name: Konfigurera identitet för en virtuell Azure-dator
@@ -82,7 +82,7 @@
           href: qs-configure-template-windows-vmss.md
         - name: REST
           href: qs-configure-rest-vmss.md
-    - name: Använda en virtuell MSI-dator
+    - name: Använda en hanterad identitet för virtuell dator
       items:
         - name: Hämta en åtkomsttoken
           href: how-to-use-vm-token.md

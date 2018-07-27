@@ -312,9 +312,9 @@
     - name: Definitionsspråk för arbetsflödesschema
       href: logic-apps-workflow-definition-language.md
       items:
-        - name: Åtgärder och utlösare för arbetsflöde
+        - name: Referens för utlösar- och åtgärdstyper
           href: logic-apps-workflow-actions-triggers.md
-        - name: Definitionsspråk för arbetsflödesfunktioner
+        - name: Funktionsreferens
           href: workflow-definition-language-functions-reference.md
         - name: Allmän tillgänglighet – schemahistorik
           href: logic-apps-schema-2016-04-01.md

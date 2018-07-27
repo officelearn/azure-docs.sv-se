@@ -138,9 +138,9 @@
           items:
             - name: Långsiktig kvarhållning av säkerhetskopior
               href: sql-database-long-term-retention.md
-            - name: Konfigurera långsiktig kvarhållning av säkerhetskopior – SQL-lagring
+            - name: Konfigurera med Azure Blob Storage
               href: sql-database-long-term-backup-retention-configure.md
-            - name: Konfigurera långsiktig kvarhållning av säkerhetskopior – Azure-valv (inaktuellt)
+            - name: Konfigurera med Azure-valv (inaktuellt)
               href: sql-database-long-term-backup-retention-configure-vault.md
         - name: Redundansgrupper och geo-replikering
           items:

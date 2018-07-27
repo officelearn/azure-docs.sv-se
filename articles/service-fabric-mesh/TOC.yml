@@ -45,6 +45,12 @@
       href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
     - name: Oberoende skalning av mikrotjänster i en app
       href: service-fabric-mesh-howto-app-scale-out.md
+- name: Referens
+  items:
+    - name: 'REST API:er för Service Fabric Mesh-resursprovider'
+      href: /rest/api/servicefabric/sfmeshrp-index
+    - name: 'REST API:er för Service Fabric-klientresurs'
+      href: '/rest/api/servicefabric/sfclient-index#service-fabric-resource-model'
 - name: Resurser
   items:
     - name: Vanliga frågor

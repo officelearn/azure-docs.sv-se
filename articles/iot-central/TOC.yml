@@ -43,6 +43,8 @@
           href: howto-administer.md
         - name: Exportera dina data
           href: howto-export-data.md
+        - name: Visualisera dina data i Power BI
+          href: howto-connect-powerbi.md
     - name: Builder
       items:
         - name: Konfigurera enhetsmallen

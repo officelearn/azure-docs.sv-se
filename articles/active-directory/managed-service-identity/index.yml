@@ -1,10 +1,16 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 7649d78e764c547f2211d8993514a1b793d76609
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264056"
 documentType: LandingData
 title: Dokumentation om Hanterad tjänstidentitet i Azure Active Directory
 metadata:
   document_id: 
   title: Dokumentation om Hanterad tjänstidentitet i Azure Active Directory
-  description: Lär dig hur du använder Hanterad tjänstidentitet (Managed Service Identity – MSI) för att autentisera säkert till Azure-molntjänster utan att behöva ha autentiseringsuppgifterna i källkoden.
+  description: Lär dig hur du använder Hanterad tjänstidentitet för att autentisera säkert till Azure-molntjänster utan att behöva ha autentiseringsuppgifterna i källkoden.
   services: active-directory
   ms.component: msi
   author: daveba
@@ -15,19 +21,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/16/2018
   ms.author: daveba
-  ms.openlocfilehash: ca90d9d2bb3fffb65d2cefe156d0425de9634bdd
-  ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 05/20/2018
-  ms.locfileid: "34354290"
 abstract:
-  description: Hanterad tjänstidentitet (Managed Service Identity – MSI) tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering utan att behöva ha några autentiseringsuppgifter i koden.  Lär dig hur du skapar och hanterar hanterade tjänstidentiteter med våra snabbstarter och självstudier.
+  description: Hanterad tjänstidentitet tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering utan att behöva ha några autentiseringsuppgifter i koden.  Lär dig hur du skapar och hanterar hanterade tjänstidentiteter med våra snabbstarter och självstudier.
 sections:
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: Lär dig hur du använder Hanterad tjänstidentitet (MSI) för att få åtkomst till API:et för Azure Resource Manager
+    text: Lär dig hur du använder Hanterad tjänstidentitet för att få åtkomst till API:et för Azure Resource Manager
   - type: list
     style: unordered
     items:
@@ -36,7 +36,7 @@ sections:
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: Lär dig hur du använder Hanterad tjänstidentitet (MSI) för att få säker åtkomst till Azure-resurser
+    text: Lär dig hur du använder Hanterad tjänstidentitet för att få säker åtkomst till Azure-resurser
   - type: paragraph
     text: Windows VM/VMSS
   - type: list

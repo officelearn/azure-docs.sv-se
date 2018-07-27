@@ -7,17 +7,17 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa behållare – CLI
+    - name: Skapa container – CLI
       href: container-instances-quickstart.md
-    - name: Skapa behållare – Portal
+    - name: Skapa container – Portal
       href: container-instances-quickstart-portal.md
-    - name: Skapa behållare – PowerShell
+    - name: Skapa container – PowerShell
       href: container-instances-quickstart-powershell.md
 - name: Självstudier
   items:
-    - name: 1 – Skapa behållaravbildning
+    - name: 1 – Skapa containeravbildning
       href: container-instances-tutorial-prepare-app.md
-    - name: 2 – Skapa behållarregister
+    - name: 2 – Skapa containerregister
       href: container-instances-tutorial-prepare-acr.md
     - name: 3 – Distribuera program
       href: container-instances-tutorial-deploy-app.md
@@ -33,7 +33,7 @@
       href: container-instances-quotas.md
     - name: Relation till dirigeringsverktyg
       href: container-instances-orchestrator-relationship.md
-    - name: Behållargrupper
+    - name: Containergrupper
       href: container-instances-container-groups.md
 - name: Instruktionsguider
   items:
@@ -59,7 +59,7 @@
           href: container-instances-log-analytics.md
     - name: Köra arbetsbelastningar
       items:
-        - name: Köra behållarbaserade uppgifter
+        - name: Köra uppgifter med omstartsprincip
           href: container-instances-restart-policy.md
         - name: Jenkins-versionsagenter på ACI
           href: container-instances-jenkins.md
@@ -75,7 +75,7 @@
           href: container-instances-volume-secret.md
     - name: Felsöka
       items:
-        - name: Hämta behållarloggar och händelser
+        - name: Hämta containerloggar och händelser
           href: container-instances-get-logs.md
         - name: Felsök vanliga problem
           href: container-instances-troubleshooting.md

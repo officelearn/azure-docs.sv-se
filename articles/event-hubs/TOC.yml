@@ -4,9 +4,10 @@
   items:
     - name: Vad är Event Hubs?
       href: event-hubs-about.md
-    - name: Jämföra meddelandetjänster
-      href: ../event-grid/compare-messaging-services.md
-      maintainContext: true
+    - name: Event Hubs för Apache Kafka
+      href: event-hubs-for-kafka-ecosystem-overview.md
+    - name: Event Hubs Capture
+      href: event-hubs-capture-overview.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -16,14 +17,31 @@
       href: event-hubs-quickstart-cli.md
     - name: Bearbeta hädelseströmmar – Azure PowerShell
       href: event-hubs-quickstart-powershell.md
+    - name: Strömma till Event Hubs för Apache Kafka
+      href: event-hubs-quickstart-kafka-enabled-event-hubs.md
 - name: Självstudier
   items:
     - name: Visualisera dataavvikelser på Event Hubs-dataströmmar
       href: event-hubs-tutorial-visualize-anomalies.md
+    - name: Strömma stordata till ett datalager
+      href: ../event-grid/event-grid-event-hubs-integration.md
+      maintainContext: true
+    - name: Strömma data i Azure Databricks med Event Hubs
+      href: ../azure-databricks/databricks-stream-from-eventhubs.md
+    - name: Event Hubs för Apache Kafka
+      items:
+        - name: Apache Kafka MirrorMaker med Event Hubs
+          href: event-hubs-kafka-mirror-maker-tutorial.md
+        - name: Apache Flink med Event Hubs
+          href: event-hubs-kafka-flink-tutorial.md
+        - name: Akka Streams med Event Hubs
+          href: event-hubs-kafka-akka-streams-tutorial.md
 - name: Exempel
   href: event-hubs-samples.md
 - name: Begrepp
   items:
+    - name: Event Hubs-funktioner
+      href: event-hubs-features.md
     - name: Översikt över händelsebearbetningsvärd
       href: event-hubs-event-processor-host.md
     - name: IP-anslutningsfilter
@@ -35,8 +53,6 @@
     - name: Integrera med Event Grid
       href: ../event-grid/event-grid-event-hubs-integration.md
       maintainContext: true
-    - name: Event Hubs-funktioner
-      href: event-hubs-features.md
     - name: Hanterad tjänstidentitet (förhandsgranskning)
       href: event-hubs-managed-service-identity.md
     - name: Rollbaserad åtkomstkontroll (förhandsgranskning)
@@ -64,20 +80,10 @@
       href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Ta emot händelser med hjälp av .NET Framework
       href: event-hubs-dotnet-framework-getstarted-receive-eph.md
-    - name: Event Hubs för Kafka
+    - name: Event Hubs för Apache Kafka
       items:
-        - name: Event Hubs för översikt av Kafka Ecosystem
-          href: event-hubs-for-kafka-ecosystem-overview.md
-        - name: Skapa Kafka-aktiverade Event Hubs
+        - name: Skapa Apache Kafka-aktiverade Event Hubs
           href: event-hubs-create-kafka-enabled.md
-        - name: Strömma till Event Hubs för Kafka Ecosystem
-          href: event-hubs-quickstart-kafka-enabled-event-hubs.md
-        - name: Självstudie för Kafka MirrorMaker med Event Hubs
-          href: event-hubs-kafka-mirror-maker-tutorial.md
-        - name: Självstudie för Apache Flink med Event Hubs
-          href: event-hubs-kafka-flink-tutorial.md
-        - name: Självstudie för Akka Streams med Event Hubs
-          href: event-hubs-kafka-akka-streams-tutorial.md
     - name: 'Tillgängliga API:er'
       href: event-hubs-api-overview.md
       items:
@@ -113,12 +119,8 @@
           href: event-hubs-metrics-azure-monitor.md
         - name: Event Hubs-hanteringsbibliotek
           href: event-hubs-management-libraries.md
-        - name: Capture
-          items:
-            - name: Event Hubs Capture
-              href: event-hubs-capture-overview.md
-            - name: Samla in Event Hubs-data med hjälp av Python
-              href: event-hubs-capture-python.md
+        - name: Samla in Event Hubs-data med hjälp av Python
+          href: event-hubs-capture-python.md
         - name: Strömma Azure Diagnostics-data med Event Hubs
           href: event-hubs-streaming-azure-diags-data.md
         - name: Skapa och distribuera en händelsehubb med en Resource Manager-mall

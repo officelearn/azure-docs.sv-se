@@ -55,6 +55,8 @@
       href: container-registry-get-started-docker-cli.md
     - name: Visa lagringsplatser
       href: container-registry-repositories.md
+    - name: Ta bort containeravbildningar
+      href: container-registry-delete.md
     - name: Uppgradera ett klassiskt register
       href: container-registry-upgrade.md
     - name: Använda ACR-webhooks

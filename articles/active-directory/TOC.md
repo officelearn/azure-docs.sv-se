@@ -138,7 +138,7 @@
 ### Felsöka
 #### [Granskningsdata som saknas](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Data som saknas i nedladdningar](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Azure AD Activity loggar fel i innehållspaket ](active-directory-reporting-troubleshoot-
+#### [Fel i innehållspaket för Azure Active Directory-aktivitetsloggar](active-directory-reporting-troubleshoot-content-pack.md)
 #### [Fel i Azure AD Reporting-API:et](active-directory-reporting-troubleshoot-graph-api.md)
 
 ### [Programmässig åtkomst](active-directory-reporting-api-getting-started-azure-portal.md)
@@ -222,11 +222,13 @@
 #### [Felsöka](manage-apps/application-proxy-troubleshoot.md)
 
 ### Hantera företagets appar
+#### [Lägga till ett program](manage-apps/add-application-portal.md)
+#### [Visa klientorganisationsappar](manage-apps/view-applications-portal.md)
 #### [Tilldela användare](manage-apps/assign-user-or-group-access-portal.md)
 #### [Anpassa profilering](manage-apps/change-name-or-logo-portal.md)
 #### [Inaktivera användarinloggningar](manage-apps/disable-user-sign-in-portal.md)
 #### [Ta bort användare](manage-apps/remove-user-or-group-access-portal.md)
-#### [Visa alla mina appar](manage-apps/view-applications-portal.md)
+
 #### [Hantera användarens kontoetablering](manage-apps/configure-automatic-user-provisioning-portal.md)
 #### [Hantera enkel inloggning för företagsappar](manage-apps/configure-single-sign-on-portal.md)
 #### [Avancerad certifikatsignering för SAML-appar](manage-apps/certificate-signing-options.md)

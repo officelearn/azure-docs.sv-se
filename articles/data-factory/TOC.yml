@@ -387,24 +387,26 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Kör SSIS-paket i Azure
       items:
-        - name: Anslut Azure-SSIS IR till ett virtuellt nätverk
-          href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Aktivera Azure AD-autentisering för Azure-SSIS IR
-          href: enable-aad-authentication-azure-ssis-ir.md
-        - name: Konfigurera höga prestanda för Azure-SSIS IR
-          href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Etablera Enterprise Edition för Azure-SSIS IR
-          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-        - name: Anpassa konfiguration för Azure-SSIS IR
-          href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Installera licensierade komponenter för Azure-SSIS IR
-          href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: Köra SSIS-paket med aktiviteten Kör SSIS-paket
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: Köra SSIS-paket med en lagrad proceduraktivitet
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Schemalägga Azure SSIS Integration Runtime
           href: how-to-schedule-azure-ssis-integration-runtime.md
+        - name: Anslut Azure-SSIS IR till ett virtuellt nätverk
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Aktivera Azure AD-autentisering för Azure-SSIS IR
+          href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Etablera Enterprise Edition för Azure-SSIS IR
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Anpassa konfiguration för Azure-SSIS IR
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Installera licensierade komponenter för Azure-SSIS IR
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
+        - name: Konfigurera höga prestanda för Azure-SSIS IR
+          href: configure-azure-ssis-integration-runtime-performance.md
+        - name: Konfigurera haveriberedskap för Azure-SSIS IR
+          href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Skapa utlösare
       items:
         - name: Skapa en schemautlösare

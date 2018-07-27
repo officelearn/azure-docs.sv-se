@@ -133,6 +133,8 @@
               href: devtest-lab-manage-formulas.md
         - name: Hantera artefakter
           items:
+            - name: Ange obligatoriska artefakter
+              href: devtest-lab-mandatory-artifacts.md
             - name: Skapa anpassade artefakter
               href: devtest-lab-artifact-author.md
             - name: Diagnostisera fel i artefakter

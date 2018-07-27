@@ -2,19 +2,19 @@
 title: Skapa en enkel app med två avsikter – Azure | Microsoft Docs
 description: I den här självstudien får du lära dig hur du skapar du en enkel LUIS-app med två avsikter (inga entiteter) för att identifiera användaryttranden.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: 0668ba050a6918995deb42d8feea5afbbab3b010
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: diberry
+ms.openlocfilehash: 4be36e9d5b34c46138a657429680689014d0fd3d
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865819"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237782"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Självstudie: 1. Skapa en app med en anpassad domän
 I den här självstudien skapar du en app som visar hur du använder **avsikter** för att ta reda på användarens _avsikt_ baserat på yttrandet (texten) de skickar till appen. När du är klar har du en LUIS-slutpunkt som körs i molnet.

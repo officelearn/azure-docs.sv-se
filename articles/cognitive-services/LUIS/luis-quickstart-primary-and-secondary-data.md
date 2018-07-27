@@ -2,19 +2,19 @@
 title: Självstudie om att skapa en LUIS-app för att extrahera data – Azure | Microsoft Docs
 description: I den här självstudien skapar du en enkel LUIS-app med hjälp av avsikter och en enkel entitet för att extrahera maskininlärningsdata.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
-ms.openlocfilehash: a4bf63b7a2fbbb26b8c121f5360aea0a5ca8a687
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: aafbf7d1b4a624d42e2caa96f9d3ebdfaee4efe6
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952393"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238013"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Självstudie: 7. Lägg till en enkel entitet och fraslista
 I den här självstudien skapar du en app som visar hur det går till att extrahera maskininlärningsdata från ett yttrande med hjälp av entiteten **Simple** (Enkel).

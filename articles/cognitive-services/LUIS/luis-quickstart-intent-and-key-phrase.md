@@ -2,19 +2,19 @@
 title: Självstudie om att skapa en LUIS-app som returnerar nyckelfraser – Azure | Microsoft Docs
 description: I den här självstudien lägger du till och returnerar keyPhrase-entiteten i din LUIS-app för att analysera yttranden för nyckelämnen.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: ccefb4c2890d74978f340778cfab7cad979c9802
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 1cafca2433cd96c0595a6124df82856d0c491a49
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929568"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224270"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>Självstudie: 8. Lägga till keyPhrase-entitet 
 I den här självstudien använder du en app som visar hur det går till att extrahera nyckelämnen från yttranden.

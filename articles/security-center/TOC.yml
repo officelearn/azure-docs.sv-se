@@ -169,7 +169,9 @@
 - name: Referens
   items:
     - name: 'REST API:er'
-      href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'
+      href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=security-center'
 - name: Resurser
   items:
     - name: Hantera användardata

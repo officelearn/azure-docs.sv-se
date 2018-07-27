@@ -1,64 +1,63 @@
 ---
-title: Skapa en anpassad aktivering word | Microsoft Docs
-description: Skapa en anpassad aktivering word för tal enheter SDK.
+title: Skapa ett anpassat wake ord
+description: Skapa en anpassad aktivering word för tal Devices SDK.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 2575ed24bb931ca4da05dd6663b976406af590e6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 615a901c70fff92141442699ea6e4b8fce1c9ace
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355668"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282581"
 ---
-# <a name="create-a-custom-wake-word-using-speech-service"></a>Skapa en anpassad aktivering word tal-tjänsten
+# <a name="create-a-custom-wake-word-using-speech-service"></a>Skapa ett anpassat wake ord med Speech-tjänsten
 
-Enheten lyssnar alltid för ett wake word (eller en fras). Till exempel är ”artikel från Hey Cortana” ett wake word för assistenten Cortana. När användaren säger wake word, startar enheten skickar alla efterföljande ljud till molnet förrän användaren slutar talar. Anpassa wake-word är ett effektivt sätt att skilja mellan enheten och förbättra din anpassning.
+Din enhet lyssnar alltid för ett wake ord (eller ett uttryck). Till exempel är ”Hey Cortana” ett wake word för Cortana-Installationsassistenten. När användaren säger wake ordet, startar enheten skickar alla efterföljande ljud till molnet tills användaren slutar talar. Anpassa ditt wake ord är ett effektivt sätt att skilja mellan enheten och Stärk din företagsanpassning.
 
-Lär dig hur du skapar en anpassad aktivering word för din enhet i den här artikeln.
+I den här artikeln får du lära dig hur du skapar en anpassad aktivering word för din enhet.
 
-## <a name="choosing-an-effective-wake-word"></a>Om du väljer en effektiv wake word
+## <a name="choosing-an-effective-wake-word"></a>Välja ett gällande wake ord
 
-Tänk på följande när du väljer ett ord för aktivering.
+Tänk på följande när du väljer ett wake ord.
 
-* Wake-ord ska ett ord eller en fras. Det bör ta längre än två sekunder för att säga.
+* Wake-word ska vara ett ord eller en fras. Det bör ta högst två sekunder för att säga.
 
-* Ord av 4 – 7 stavelser fungerar bäst. ”Artikel från Hey, datorn” är till exempel ett bra wake ord, även om bara ”Hey” är en dålig.
+* Ord av 4 – 7 stavelser fungerar bäst. Till exempel är ”Hey, datorn” ett bra wake ord, medan bara ”Hey” är en dålig.
 
-* Wake ord bör följa den gemensamma engelska uttal regler.
+* Wake ord bör följa den vanliga engelska uttal av regler.
 
-* Ett unikt eller även sydda ord som följer reglerna för vanliga engelska uttal kan minska falska positiva identifieringar. ”Computerama” kan till exempel vara en bra wake word.
+* Ett unikt eller även sydda ord som följer den vanliga engelska uttal av reglerna kan du minska falska positiva identifieringar. ”Computerama” kan till exempel vara en bra wake word.
 
-* Välj inte vanliga ord. Till exempel ”äta” och ”gå” är ord som det ofta sägs i vanlig konversationen. De kan vara false utlösare för din enhet.
+* Välj inte ett vanligt ord. Till exempel ”äta” och ”gå” är ord som personer säga ofta i vanlig konversationen. De kan vara falskt utlösare för din enhet.
 
-* Undvik att använda wake ord som kan ha alternativa uttal. Användare måste känna till att enheten ska svara ”höger” uttal. Till exempel ”509” kan vara i samband med ”fem noll nio” ”, fem OJ nio”, eller ”fem hundratals och nio”. ”R.E.I.” Det gick uttalas som ”R E jag” eller ”Ray”. ”Live” gick uttalas som [līv] eller [liv].
+* Undvik att använda ett wake-ord som kan ha alternativ uttal. Användare behöver veta ”höger” uttal att få sin enhet för att svara. Till exempel ”509” kan vara i samband med ”fem noll nio” ”, fem ojsan nio”, eller ”fem hundra och nio”. ”R.E.I.” Det gick att uttalas ”R E jag” eller ”Ray”. ”Live” kan vara uttalas [līv] eller [liv].
 
-* Använd inte specialtecken, symboler och siffror. Till exempel skulle ”gå #” och ”20 + katt” inte bra wake ord. Dock ”gå skarpa” eller ”20 plus katt” kan fungera. Du kan fortfarande använda symbolerna i din företagsanpassning och använda dokumentationen och marknadsföring för att förstärka rätt uttal.
+* Använd inte specialtecken, symboler och siffror. Till exempel skulle ”Go #” och ”20 + katt” inte vara bra wake orden. Dock ”gå sharp” eller ”tjugo plus katt” skulle kunna fungera. Du kan fortfarande använda symbolerna i din företagsanpassning och använder marknadsföring och dokumentation för att säkerställa rätt uttal.
 
 > [!NOTE]
-> Om du väljer ett varumärkesskyddat ord som wake-word Glöm inte att du äger den varumärken, eller så har behörighet från varumärke ägare till den. Microsoft ansvarar inte för eventuella juridiska problem som kan uppstå i valet av wake word.
+> Om du väljer ett varumärkesskyddat ord som wake-word, Tänk på att du äger den varumärken, eller så har behörighet från varumärke som ägare till den. Microsoft ansvarar inte för eventuella juridiska problem som kan uppstå i ditt val av wake word.
 
-## <a name="creating-your-wake-word"></a>Skapa wake-word
+## <a name="creating-your-wake-word"></a>Skapa ditt wake ord
 
-Innan du kan använda en anpassad aktivering word med din enhet, måste du skapa den med hjälp av tjänsten Microsoft anpassade Wake Word Generation. När du har angett ett wake ord, tjänsten ger en fil som distribuerar du sedan till ditt dev kit för att aktivera din wake word på enheten.
+Innan du kan använda ett anpassat wake ord med din enhet, måste du skapa den med hjälp av tjänsten Microsoft anpassade Wake Word Generation. När du har angett ett ord på wake, tjänsten ger en fil som distribuerar du sedan till ditt dev kit för att aktivera din wake word på enheten.
 
-1. Gå till den [anpassade tal tjänstportalen](https://cris.ai/).
+1. Gå till den [Custom Speech Service portal](https://cris.ai/).
 
-2. Skapa ett nytt konto med den e-postadress som du fick inbjudan för Azure Active Directory. 
+2. Skapa ett nytt konto med den e-postadress som du har fått inbjudan för Azure Active Directory. 
 
     ![Skapa nytt konto](media/speech-devices-sdk/wake-word-1.png)
  
-3.  Efter loggat in kan fylla i formuläret och klicka sedan på **starta transporten.**
+3.  När du loggat in, Fyll i formuläret och klicka sedan på **starta vägen.**
 
-    ![loggat in](media/speech-devices-sdk/wake-word-3.png)
+    ![lyckades logga in](media/speech-devices-sdk/wake-word-3.png)
  
-4. Den **anpassad Wake Word** sidan är inte tillgänglig för allmänheten, så det finns ingen länk som tar dig det. Klicka på eller klistra in i den här länken i stället: https://cris.ai/customkws.
+4. Den **anpassad Wake Word** sidan är inte tillgänglig för allmänheten, så det finns ingen länk som leder det. Klicka på eller klistra in i den här länken i stället: https://cris.ai/customkws.
 
     ![dold sida](media/speech-devices-sdk/wake-word-4.png)
  
@@ -66,18 +65,18 @@ Innan du kan använda en anpassad aktivering word med din enhet, måste du skapa
 
     ![Ange ditt wake ord](media/speech-devices-sdk/wake-word-5.png)
  
-7. Det kan ta några minuter för filer som ska genereras. En snurrande cirkel visas på fliken i din webbläsare. Efter en stund visas ett informationsfält där du kan ladda ned en `.zip` fil.
+7. Det kan ta några minuter för filer som ska genereras. En snurrande cirkel visas på fliken i webbläsaren. Efter en stund visas ett informationsfält där du kan ladda ned en `.zip` fil.
 
-    ![ta emot ZIP-fil](media/speech-devices-sdk/wake-word-6.png)
+    ![ta emot .zip-fil](media/speech-devices-sdk/wake-word-6.png)
 
-8. Spara den `.zip` filen till datorn. Du behöver den här filen för att distribuera en anpassad aktivering word development Kit följa anvisningarna i [Kom igång med tal enheter SDK](speech-devices-sdk-qsg.md).
+8. Spara den `.zip` filen till datorn. Du behöver den här filen för att distribuera anpassade wake ordet i development Kit följa anvisningarna i [Kom igång med tal enheter SDK](speech-devices-sdk-qsg.md).
 
 9. Du kan nu **logga ut.**
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång genom att hämta en [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) och registrera dig för tal enheter SDK.
+Kom igång genom att hämta en [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) och registrera dig för tal Devices SDK.
 
 > [!div class="nextstepaction"]
-> [Registrera dig för tal enheter SDK](get-speech-devices-sdk.md)
+> [Registrera dig för tal Devices SDK](get-speech-devices-sdk.md)
 

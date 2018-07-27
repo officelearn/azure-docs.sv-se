@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/31/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e808d4bf116dcab344308c3dd2aa06c72e0318ba
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1b14e1460eec54e89046f204be8f0c3a8f929881
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049525"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264600"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -30,12 +30,50 @@ Den här artikeln är utformad för att hålla reda på de versioner som har lan
 
 Den här tabellen är en lista över närliggande ämnen:
 
-Ämne |  Information
+Avsnitt |  Information
 --------- | --------- |
 Steg för att uppgradera från Azure AD Connect | Olika metoder för att [uppgradera från en tidigare version till senast](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect-versionen.
 Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppdatering, se [konton och behörigheter](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Ladda ned | [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="118800"></a>1.1.880.0
+
+### <a name="release-status"></a>Versionsstatus
+
+7/20/2018: släppts för automatisk uppgradering. Versionen för att ladda ned följer inom kort.
+
+### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
+
+- Ping federera-integrering i Azure AD Connect är nu tillgängligt för allmän tillgänglighet. [Mer information om hur du federerade Azure AD med Ping federera](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
+- Säkerhetskopiering av Azure AD-förtroendet i AD FS skapar nu i Azure AD Connect varje gång en uppdatering görs och lagrar den i en separat fil för enkel återställning om det behövs. [Lär dig mer om nya funktioner och Azure AD litar management i Azure AD Connect ](https://aka.ms/fedtrustinaadconnect).
+- Nya verktyg för felsökning kan du felsöka ändrar primära e-postadress och dölja konto från den globala adresslistan
+- Azure AD Connect har uppdaterats för att inkludera den senaste SQL Server 2012 Native Client
+- När du växlar användare logga in till Hashsynkronisering för lösenord eller direktautentisering i aktiviteten ”ändra användarinloggning” är kryssrutan sömlös enkel inloggning aktiverat som standard.
+- Stöd har lagts till för Windows Server Essentials 2019
+- Azure AD Connect Health-agenten har uppdaterats till den senaste versionen 3.1.7.0
+- Vid en uppgradering om installationsprogrammet identifierar ändringar av Synkroniseringsregler standard ombeds administratören med en varning innan du skriver över de ändrade reglerna. Detta gör att användarna att vidta åtgärder och återuppta senare. Gamla beteendet: Om det fanns ingen ändrade out-of-box-regel sedan manuell uppgradering skriver över dessa regler utan att ge alla varningar för användaren och synkroniseringsschemaläggaren inaktiverades utan att meddela användaren. Nya beteendet: Användaren uppmanas med varning innan du skriver över de ändrade out-of-box Synkroniseringsregler. Användaren har möjlighet att uppgraderingen och återupptas senare efter att vidta korrigerande åtgärder.
+- Ge en bättre hantering av FIPS-kompatibilitetsproblem, vilket ger ett felmeddelande för genereringen av hashvärden för MD5 i en FIPS-kompatibel miljö och en länk till dokumentationen som tillhandahåller en lösning för det här problemet.
+- Användargränssnittet uppdatera för att förbättra federation uppgifter i guiden, som nu finns under en separat sub-grupp för federation. 
+- Alla ytterligare uppgifter för federation är nu grupperade under en enda undermeny för enkel användning.
+- En ny gjort om ADSyncConfig Posh modulen (AdSyncConfig.psm1) med den nya AD-behörigheter funktioner flyttas från den gamla ADSyncPrep.psm1 (som kan vara inaktuell snart)
+
+### <a name="fixed-issues"></a>Åtgärdade problem 
+
+- Ett fel som skulle periodvis producerar ett felmeddelande visas för ett automatiskt löst SQL deadlock problem har åtgärdats
+- Åtgärdat problem med flera för Regelredigeraren synkronisering och synkronisering av Service Manager  
+- Ett fel har åtgärdats där Azure AD Connect inte kan få inställningsinformation för registret
+- En bugg som skapade problem när användaren går framåt/tillbaka i guiden
+- Ett fel för att förhindra att ett fel som sker på grund av felaktig multi tråd vid i guiden har åtgärdats
+- När gruppen Synkroniseringsfiltrering sidan påträffar ett LDAP-fel när löses säkerhetsgrupper, returnerar undantag med fullständig exakthet nu i Azure AD Connect.  Den grundläggande orsaken för hänvisning undantaget är fortfarande okänd och kommer att åtgärdas av ett annat fel.
+-  Ett fel har åtgärdats där behörigheter för STK och NGC nycklar (msDS-KeyCredentialLink attribut för användare/enhet objekt för WHfB) har inte ställts in korrekt.     
+- Ett fel har åtgärdats där ”Set-ADSyncRestrictedPermissions' anropades inte korrekt
+-  Lägger till stöd för beviljar på tillbakaskrivning av grupp i installationsguiden för Aadconnects behörighet
+- När du ändrar inloggningen metod från Lösenordshashsynkronisering till AD FS, har lösenordets Hash-synkronisering inte inaktiverats.
+- Har lagts till verifiering för IPv6-adresser i AD FS-konfiguration
+- Uppdatera meddelande om att det finns en befintlig konfiguration.
+- Tillbakaskrivning av enhet inte kan upptäcka behållare i ej betrodd skog. Detta har uppdaterats för att ge ett bättre felmeddelande visas och en länk till motsvarande dokumentation
+- Avmarkera en Organisationsenhet och synkronisering/tillbakaskrivning av motsvarar att OU ger ett allmänt synkroniseringsfel. Detta har ändrats för att skapa ett mer begriplig felmeddelande.
 
 ## <a name="118190"></a>1.1.819.0
 
@@ -209,7 +247,7 @@ Låsa åtkomsten till AD DS-kontot genom att implementera följande behörighets
 *   Ta bort alla åtkomstkontrollposter på specifika objekt, utom åtkomstkontrollposter som är specifika för SJÄLVBETJÄNINGSPORTALEN. Vi vill hålla standardbehörigheterna intakt när det gäller att själv.
 *   Tilldela specifika behörigheter:
 
-Typ     | Namn                          | Åtkomst               | Gäller
+Typ     | Namn                          | Access               | Gäller
 ---------|-------------------------------|----------------------|--------------|
 Tillåt    | SYSTEM                        | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Företagsadministratörer             | Fullständig behörighet         | Det här objektet  |

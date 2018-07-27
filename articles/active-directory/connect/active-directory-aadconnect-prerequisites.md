@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Krav och maskinvara | Microsoft Docs'
-description: Det här avsnittet beskrivs kraven och maskinvarukraven för Azure AD Connect
+description: Det här avsnittet beskriver kraven och maskinvarukrav för Azure AD Connect
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -15,72 +15,72 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 23d2c858fc51e35948bf83c6b5824b35020cb2e9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9341c3bcbe90788318c9b20ccc6988461e972347
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593375"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264546"
 ---
-# <a name="prerequisites-for-azure-ad-connect"></a>Krav för Azure AD Connect
-Det här avsnittet beskrivs kraven och maskinvarukraven för Azure AD Connect.
+# <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
+Det här avsnittet beskriver kraven och maskinvarukrav för Azure AD Connect.
 
 ## <a name="before-you-install-azure-ad-connect"></a>Innan du installerar Azure AD Connect
 Innan du installerar Azure AD Connect, finns det några saker som du behöver.
 
 ### <a name="azure-ad"></a>Azure AD
-* En Azure-prenumeration eller en [Azure-provprenumeration](https://azure.microsoft.com/pricing/free-trial/). Den här prenumerationen har bara krävs för åtkomst till Azure portal och inte med Azure AD Connect. Om du använder PowerShell eller Office 365, behöver du inte ha en Azure-prenumeration att använda Azure AD Connect. Om du har en licens för Office 365 kan du också använda Office 365-portalen. Med en betald Office 365-licens kan du också få till Azure portal från Office 365-portalen.
+* En Azure-prenumeration eller en [Azure-utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/). Den här prenumerationen har bara krävs för att komma åt Azure-portalen och inte med Azure AD Connect. Om du använder PowerShell eller Office 365 kan behöver du inte en Azure-prenumeration du använder Azure AD Connect. Om du har en Office 365-licens, kan du också använda Office 365-portalen. Med en betald Office 365-licens kan du också få in på Azure portal från Office 365-portalen.
   * Du kan också använda den [Azure-portalen](https://portal.azure.com). Den här portalen kräver inte en Azure AD-licens.
-* [Lägg till och verifiera domänen](../active-directory-domains-add-azure-portal.md) du planerar att använda i Azure AD. Om du planerar att använda contoso.com för din användare och sedan kontrollera att den här domänen har verifierats och du bara använder inte contoso.onmicrosoft.com standarddomän.
-* En Azure AD-klient kan av standardobjekt 50 kB. När du verifierar din domän ökas gränsen på 300 k-objekt. Om du behöver ännu mer objekt i Azure AD, måste du öppna ett supportärende så att den har ökat ytterligare gränsen. Om du behöver mer än 500 kB objekt behöver du en licens, till exempel Office 365, Azure AD Basic, Azure AD Premium eller Enterprise Mobility and Security.
-* ADSyncPrep är en modul för PowerShell-skript som innehåller funktioner som används för att förbereda Active Directory-miljön för Azure AD Connect.  ADSyncPrep kräver den [Azure AD Microsoft Online v1.1 PowerShell-modulen](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  Version 2 fungerar inte.  Du kan installeras modul med det `Install-Module` cmdlet.  Mer information finns i länken.
+* [Lägga till och verifiera domänen](../active-directory-domains-add-azure-portal.md) du planerar att använda i Azure AD. Om du planerar att använda contoso.com för dina användare och sedan kontrollera att den här domänen har verifierats och du bara använder inte standarddomän contoso.onmicrosoft.com.
+* En Azure AD-klient kan som 50k-standardobjekt. När du verifierar din domän, ökat gränsen på 300 kB-objekt. Om du behöver ännu fler objekt i Azure AD, måste du öppna ett supportärende om du vill att den har höjts ytterligare. Om du behöver fler än 500 k-objekt kan behöver du en licens, till exempel Office 365, Azure AD Basic, Azure AD Premium eller Enterprise Mobility and Security.
+* ADSyncPrep är en modul för PowerShell-skript som innehåller funktioner som används för att förbereda Active Directory-miljön för Azure AD Connect.  ADSyncPrep kräver den [Azure AD Microsoft Online v1.1 PowerShell-modulen](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  Version 2 fungerar inte.  Du kan installera modulen med hjälp av den `Install-Module` cmdlet.  Mer information finns i länken.
 
 ### <a name="prepare-your-on-premises-data"></a>Förbereda dina lokala data
-* Använd [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) identifiera fel, till exempel dubbletter och formatering problem i din katalog innan du synkroniserar till Azure AD och Office 365.
-* Granska [valfria sync-funktioner som du kan aktivera i Azure AD](active-directory-aadconnectsyncservice-features.md) och utvärdera vilka funktioner som du bör aktivera.
+* Använd [reparationsverktyg](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) identifiera fel, till exempel dubbletter och formateringsproblem i katalogen innan du synkroniserar till Azure AD och Office 365.
+* Granska [valfritt synkroniseringsfunktioner som du kan aktivera i Azure AD](active-directory-aadconnectsyncservice-features.md) och utvärdera vilka funktioner som du bör aktivera.
 
 ### <a name="on-premises-active-directory"></a>Lokalt Active Directory
-* AD-schemat version och skogens funktionsnivå måste vara Windows Server 2003 eller senare. Domänkontrollanter kan köra någon version förutsatt att schema- och nivå kraven är uppfyllda.
-* Om du planerar att använda funktionen **tillbakaskrivning av lösenord**, domänkontrollanter måste vara på Windows Server 2008 (med senaste SP) eller senare. Om din domänkontrollanter är 2008 (pre-R2) och du måste också använda [snabbkorrigering KB2386717](http://support.microsoft.com/kb/2386717).
-* Domänkontrollanten som används av Azure AD måste vara skrivbar. Det är **stöds inte** för att använda en RODC (skrivskyddad domänkontrollant) och Azure AD Connect inte följer någon skrivåtgärder omdirigeringar.
-* Det är **stöds inte** att använda lokala skogar och domäner med SLDs (enkel etikett domäner).
-* Det är **stöds inte** att använda lokala skogar och domäner med ”prickad” (med en punkt i namnet ””.) NetBIOS-namn.
+* AD-schemat version och skogens funktionsnivå måste vara Windows Server 2003 eller senare. Domänkontrollanter kan köra någon version så länge schemat och skog nivå krav är uppfyllda.
+* Om du planerar att använda funktionen **tillbakaskrivning av lösenord**, domänkontrollanterna måste vara i Windows Server 2008 (med senaste SP) eller senare. Om dina domänkontrollanter som är på 2008 (pre-R2) så du måste också använda [snabbkorrigering KB2386717](http://support.microsoft.com/kb/2386717).
+* Domänkontrollanten som används av Azure AD måste vara skrivbar. Det är **stöds inte** för att använda en skrivskyddad Domänkontrollant (skrivskyddade domänkontrollanten) och Azure AD Connect inte följer alla skrivåtgärder omdirigeringar.
+* Det är **stöds inte** att använda lokala skogar/domäner med SLDs (enkla domännamn utan toppdomän).
+* Det är **stöds inte** att använda lokala skogar/domäner med ”prickade” (namn innehåller en punkt ””.) NetBIOS-namn.
 * Det rekommenderas att [aktivera Active Directory-Papperskorgen](active-directory-aadconnectsync-recycle-bin.md).
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect-servern
-* Azure AD Connect kan inte installeras på Small Business Server eller Windows Server Essentials. Servern måste använda Windows Server standard eller bättre.
-* Azure AD Connect-servern måste ha ett fullständigt grafiskt användargränssnitt installerat. Det är **stöds inte** att installera på server core.
-* Azure AD Connect måste installeras på Windows Server 2008 eller senare. Den här servern kan vara en domänkontrollant eller en medlemsserver när du använder standardinställningar. Om du använder anpassade inställningar, servern kan också vara fristående och behöver inte vara ansluten till en domän.
-* Om du installerar Azure AD Connect på Windows Server 2008 eller Windows Server 2008 R2, kontrollera att tillämpa de senaste snabbkorrigeringarna från Windows Update. Installationen kan inte börja med en okorrigerade server.
-* Om du planerar att använda funktionen **Lösenordssynkronisering**, Azure AD Connect-servern måste vara Windows Server 2008 R2 SP1 eller senare.
-* Om du planerar att använda en **grupp Hanterat tjänstkonto**, Azure AD Connect-servern måste vara Windows Server 2012 eller senare.
+* Azure AD Connect kan inte installeras på Small Business Server eller Windows Server Essentials. Servern måste använda Windows Server standard- eller bättre.
+* Azure AD Connect-servern måste ha ett fullständigt grafiskt användargränssnitt installerad. Det är **stöds inte** att installera på server core.
+* Azure AD Connect måste installeras på Windows Server 2008 eller senare. Den här servern kan vara en domänkontrollant eller en medlemsserver när med standardinställningar. Om du använder anpassade inställningar, servern kan också vara fristående och behöver inte vara ansluten till en domän.
+* Om du installerar Azure AD Connect på Windows Server 2008 eller Windows Server 2008 R2, se till att tillämpa de senaste snabbkorrigeringarna från Windows Update. Installationen kan inte börja med en okorrigerad server.
+* Om du planerar att använda funktionen **Lösenordssynkronisering**, Azure AD Connect-servern måste vara i Windows Server 2008 R2 SP1 eller senare.
+* Om du planerar att använda en **grupphanterat tjänstkonto**, Azure AD Connect-servern måste vara i Windows Server 2012 eller senare.
 * Azure AD Connect-servern måste ha [.NET Framework 4.5.1](#component-prerequisites) eller senare och [Microsoft PowerShell 3.0](#component-prerequisites) eller senare installerat.
-* Azure AD Connect-servern får inte ha PowerShell skrivfel Grupprincip har aktiverats.
+* Azure AD Connect-servern får inte ha PowerShell avskrift grupp principen är aktiverad.
 * Om Active Directory Federation Services distribueras de servrar där AD FS eller Web Application Proxy är installerade måste vara Windows Server 2012 R2 eller senare. [Windows fjärrhantering](#windows-remote-management) måste vara aktiverat på dessa servrar för fjärrinstallation.
 * Om Active Directory Federation Services distribueras måste [SSL-certifikat](#ssl-certificate-requirements).
-* Om Active Directory Federation Services distribueras, så måste du konfigurera [namnmatchning](#name-resolution-for-federation-servers).
-* Om dina globala administratörer har MFA aktiverat får URL: en **https://secure.aadcdn.microsoftonline-p.com** måste finnas i listan med betrodda platser. Du uppmanas att lägga till den här platsen i listan med betrodda platser när du tillfrågas om MFA-kontrollen och har inte lagt till innan. Du kan använda Internet Explorer för att lägga till dina betrodda webbplatser.
+* Om Active Directory Federation Services distribueras så måste du konfigurera [namnmatchning](#name-resolution-for-federation-servers).
+* Om dina globala administratörer har MFA aktiverad, sedan URL: en **https://secure.aadcdn.microsoftonline-p.com** måste finnas i listan med betrodda platser. Du uppmanas att lägga till den här platsen i listan med betrodda platser när du ombeds ange en MFA-kontrollen och det inte lagts till innan du. Du kan använda Internet Explorer för att lägga till den till dina betrodda platser.
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server som används av Azure AD Connect
-* Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. En SQL Server 2012 Express LocalDB (enkel version av SQL Server Express) installeras som standard. SQL Server Express har en 10GB storleksgräns som gör att du kan hantera cirka 100 000 objekt. Om du behöver hantera ett ökat antal katalogobjekt måste du peka installationsguiden till en annan installation av SQL Server.
-* Om du använder en separat SQL Server, gäller dessa krav:
-  * Azure AD Connect stöder alla versioner av Microsoft SQL Server från SQL Server 2008 (med senaste Service Pack) till SQL Server 2016 SP1. Microsoft Azure SQL Database är **stöds inte** som en-databas.
-  * Du måste använda en icke skiftlägeskänslig sortering i SQL. Dessa sorteringar identifieras med en \_CI_ i sina namn. Det är **stöds inte** att använda en skiftlägeskänslig sortering som identifieras av \_CS_ i sina namn.
+* Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. En SQL Server 2012 Express LocalDB (ett ljust version av SQL Server Express) installeras som standard. SQL Server Express har en gräns på 10GB storlek som hjälper dig att hantera cirka 100 000 objekt. Om du behöver hantera ett ökat antal katalogobjekt, måste du peka guiden Installera på en annan installation av SQL Server.
+* Om du använder en separat SQL Server gäller dessa krav:
+  * Azure AD Connect stöder alla versioner av Microsoft SQL Server från SQL Server 2008 (med senaste Service Pack) till SQL Server 2016 SP1. Microsoft Azure SQL Database är **stöds inte** som en databas.
+  * Du måste använda en icke skiftlägeskänslig sortering i SQL. Dessa sorteringar identifieras med en \_CI_ i sina namn. Det är **stöds inte** att använda en skiftlägeskänslig sortering, identifieras av \_CS_ i sina namn.
   * Du kan bara ha en Synkroniseringsmotorn per SQL-instans. Det är **stöds inte** att dela en SQL-instans med FIM/MIM-synkronisering, DirSync eller Azure AD Sync.
 
 ### <a name="accounts"></a>Konton
-* En Global administratör för Azure AD-konto för Azure AD-klient som du vill integrera med. Det här kontot måste vara en **Skol- eller organisation konto** och kan inte vara en **Microsoft-konto**.
-* Om du använder standardinställningar eller uppgradera från DirSync måste du ha ett Enterprise-administratörskonto för din lokala Active Directory.
+* En Global administratör för Azure AD-konto för Azure AD-klient som du vill integrera med. Det här kontot måste vara en **school-eller organisationskonto** och får inte vara en **microsoftkonto**.
+* Om du använder standardinställningar eller uppgradera från DirSync, måste du ha ett Enterprise-administratörskonto för din lokala Active Directory.
 * [Konton i Active Directory](active-directory-aadconnect-accounts-permissions.md) om du använder anpassade inställningar installationssökvägen.
 
 ### <a name="connectivity"></a>Anslutning
-* Azure AD Connect-servern behöver DNS-matchning för både intranät och internet. DNS-servern måste kunna matcha namn både till din lokala Active Directory och Azure AD-slutpunkter.
-* Om du har brandväggar på intranätet och du måste öppna portar mellan Azure AD Connect-servrarna och domänkontrollanterna och sedan se [Azure AD Connect-portar](active-directory-aadconnect-ports.md) för mer information.
-* Om proxyservern eller brandväggen begränsa vilka webbadresser som kan nås och URL: erna som beskrivs i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) måste öppnas.
-  * Om du använder Microsoft-Cloud i Tyskland eller Microsoft Azure Government-molnet, se [Azure AD Connect-synkroniseringstjänsten instanser överväganden](active-directory-aadconnect-instances.md) för URL: er.
-* Azure AD Connect (version 1.1.614.0 och efter) används TLS 1.2 som standard för att kryptera kommunikationen mellan Synkroniseringsmotorn och Azure AD. Om TLS 1.2 är inte tillgänglig för det underliggande operativsystemet, använder Azure AD Connect inkrementellt till äldre protokoll (TLS 1.1 och TLS 1.0). Till exempel använder TLS 1.0 i Azure AD Connect körs på Windows Server 2008 eftersom Windows Server 2008 inte stöder TLS 1.1 och TLS 1.2.
-* Före version 1.1.614.0 använder TLS 1.0 i Azure AD Connect som standard för att kryptera kommunikationen mellan Synkroniseringsmotorn och Azure AD. Om du vill ändra TLS 1.2, följer du stegen i [Aktivera TLS 1.2 för Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
-* Om du använder en utgående proxy för att ansluta till Internet, följande inställning i den **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** filen måste läggas till för installationsguiden och Azure AD Connect-synkronisering för att kunna ansluta till Internet och Azure AD. Den här texten måste anges längst ned i filen. I den här koden &lt;PROXYADRESS&gt; representerar faktiska proxyserverns IP-adressen eller värdnamnet namn.
+* Azure AD Connect-servern måste DNS-matchning för både intranät och internet. DNS-server måste kunna matcha namn både till din lokala Active Directory och Azure AD-slutpunkter.
+* Om du har brandväggar på intranätet och du måste öppna portarna mellan Azure AD Connect-servrar och domänkontrollanter och sedan se [Azure AD Connect portar](active-directory-aadconnect-ports.md) för mer information.
+* Om proxyservern eller brandväggen begränsa vilka webbadresser som kan nås så URL: erna som beskrivs i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) måste öppnas.
+  * Om du använder Microsoft Cloud i Tyskland eller Microsoft Azure Government-molnet, läser [Azure AD Connect-synkroniseringstjänsten instanser överväganden](active-directory-aadconnect-instances.md) för URL: er.
+* Azure AD Connect (version 1.1.614.0 och efter) använder TLS 1.2 som standard för att kryptera kommunikationen mellan Synkroniseringsmotorn och Azure AD. Om TLS 1.2 är inte tillgängligt i det underliggande operativsystemet, använder Azure AD Connect stegvis till äldre protokoll (TLS 1.1 och TLS 1.0). Till exempel använder TLS 1.0 i Azure AD Connect som körs på Windows Server 2008 eftersom Windows Server 2008 inte har stöd för TLS 1.1 eller TLS 1.2.
+* Före version 1.1.614.0 använder TLS 1.0 i Azure AD Connect som standard för att kryptera kommunikationen mellan Synkroniseringsmotorn och Azure AD. Om du vill ändra till TLS 1.2, följer du stegen i [Aktivera TLS 1.2 för Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
+* Om du använder en utgående proxy för att ansluta till Internet, med följande inställning i den **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** fil måste läggas till för installationsguiden och Azure AD Connect-synkronisering för att kunna ansluta till Internet och Azure AD. Den här texten måste anges längst ned i filen. I den här koden &lt;PROXYADRESS&gt; representerar faktiska proxy IP-adressen eller värdnamnet namnet.
 
 ```
     <system.net>
@@ -94,7 +94,7 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
     </system.net>
 ```
 
-* Om proxyservern kräver autentisering, sedan [tjänstkonto](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) måste finnas i domänen och du måste använda installationssökvägen anpassade inställningar för att ange en [anpassade tjänstkonto](active-directory-aadconnect-get-started-custom.md#install-required-components). Du måste också en annan ändring i machine.config. Med den här ändringen i machine.config installationen guiden och sync motorn svara på begäranden om autentisering från proxyservern. I alla guidesidor för installation, förutom de **konfigurera** sidan den signerade i användarens autentiseringsuppgifter används. På den **konfigurera** sida i slutet av installationsguiden kontexten växlas till den [tjänstkonto](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) som har skapats av dig. Avsnittet machine.config bör se ut så här.
+* Om proxyservern kräver autentisering, kommer [tjänstkontot](active-directory-aadconnect-accounts-permissions.md#adsync-service-account) måste finnas i domänen och du måste använda installationssökvägen anpassade inställningar för att ange en [anpassade tjänstkonto](active-directory-aadconnect-get-started-custom.md#install-required-components). Du behöver också en annan ändring i machine.config. Med den här ändringen i machine.config: installationen guiden och synkronisera motor svara på begäranden om autentisering från proxyservern. I alla guidesidor för installation, förutom den **konfigurera** sidan den signerade i användarens autentiseringsuppgifter som ska användas. På den **konfigurera** sidan i slutet av installationsguiden kontexten växlas till den [tjänstkontot](active-directory-aadconnect-accounts-permissions.md#adsync-service-account) som har skapats av dig. Avsnittet machine.config bör se ut så här.
 
 ```
     <system.net>
@@ -108,33 +108,33 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
     </system.net>
 ```
 
-* När Azure AD Connect skickar en webbegäran till Azure AD som en del av katalogsynkronisering, kan Azure AD ta upp till 5 minuter att svara. Det är vanligt för proxyservrar ha Anslutningskonfiguration för timeout för inaktivitet. Kontrollera att konfigurationen är inställd på minst 6 minuter eller mer.
+* När Azure AD Connect skickar en webbegäran till Azure AD som en del av katalogsynkronisering, kan Azure AD ta upp till 5 minuter att svara. Det är vanligt att proxyservrar ska ha Anslutningskonfiguration för timeout för inaktivitet. Kontrollera att konfigurationen är inställd på minst 6 minuter eller mer.
 
 Mer information finns i MSDN den [standard proxy elementet](https://msdn.microsoft.com/library/kd3cf2ex.aspx).  
-Mer information om du har problem med anslutningen finns [Felsöka anslutningsproblem](active-directory-aadconnect-troubleshoot-connectivity.md).
+Läs mer om när du har problem med anslutningen [Felsöka anslutningsproblem](active-directory-aadconnect-troubleshoot-connectivity.md).
 
 ### <a name="other"></a>Annat
-* Valfritt: Ett test användarkonto att verifiera synkronisering.
+* Valfritt: Ett testanvändarkonto att verifiera synkronisering.
 
-## <a name="component-prerequisites"></a>Förutsättningar för komponent
+## <a name="component-prerequisites"></a>Komponent-krav
 ### <a name="powershell-and-net-framework"></a>PowerShell och .net Framework
-Azure AD Connect är beroende av Microsoft PowerShell och .NET Framework 4.5.1. Du behöver den här versionen eller en senare version installerad på servern. Beroende på din Windows Server-version, gör du följande:
+Azure AD Connect är beroende av Microsoft PowerShell och .NET Framework 4.5.1. Du behöver den här versionen eller senare installerat på servern. Beroende på din Windows Server-version kan du göra följande:
 
 * Windows Server 2012R2
   * Microsoft PowerShell installeras som standard. Ingen åtgärd krävs.
-  * .NET framework 4.5.1 eller senare versioner erbjuds via Windows Update. Kontrollera att du har installerat de senaste uppdateringarna till Windows Server på Kontrollpanelen.
+  * .NET framework 4.5.1 eller senare versioner erbjuds via Windows Update. Kontrollera att du har installerat de senaste uppdateringarna till Windows Server i Kontrollpanelen.
 * Windows Server 2008R2 och Windows Server 2012
-  * Den senaste versionen av Microsoft PowerShell finns i **Windows Management Framework 4.0**, tillgänglig på [Microsoft Download Center](http://www.microsoft.com/downloads).
+  * Den senaste versionen av Microsoft PowerShell finns i **Windows Management Framework 4.0**är tillgängligt på [Microsoft Download Center](http://www.microsoft.com/downloads).
   * .NET framework 4.5.1 och senare versioner är tillgängliga på [Microsoft Download Center](http://www.microsoft.com/downloads).
 * Windows Server 2008
-  * Den senaste versionen av PowerShell finns i **Windows Management Framework 3.0**, tillgänglig på [Microsoft Download Center](http://www.microsoft.com/downloads).
+  * Den senaste versionen av PowerShell finns i **Windows Management Framework 3.0**är tillgängligt på [Microsoft Download Center](http://www.microsoft.com/downloads).
   * .NET framework 4.5.1 och senare versioner är tillgängliga på [Microsoft Download Center](http://www.microsoft.com/downloads).
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Aktivera TLS 1.2 för Azure AD Connect
-Före version 1.1.614.0 använder TLS 1.0 i Azure AD Connect som standard för att kryptera kommunikationen mellan motorn synkroniseringsserver och Azure AD. Du kan ändra detta genom att konfigurera .net-program att använda TLS 1.2 som standard på servern. Mer information om TLS 1.2 kan hittas i [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).
+Före version 1.1.614.0 använder TLS 1.0 i Azure AD Connect som standard för att kryptera kommunikationen mellan synkronisering engine-server och Azure AD. Du kan ändra detta genom att konfigurera .net-program att använda TLS 1.2 som standard på servern. Mer information om TLS 1.2 finns i [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).
 
-1. TLS 1.2 kan inte aktiveras på Windows Server 2008. Du behöver Windows Server 2008R2 eller senare. Se till att .net 4.5.1 snabbkorrigeringen installerad för ditt operativsystem kan du se [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). Du kanske snabbkorrigeringen eller en senare version redan installerat på servern.
-2. Om du använder Windows Server 2008R2 Kontrollera TLS 1.2 är aktiverad. På Windows Server 2012-server och senare versioner, vara TLS 1.2 redan aktiverat.
+1. TLS 1.2 kan inte aktiveras på Windows Server 2008. Du behöver Windows Server 2008R2 eller senare. Se till att du har .net 4.5.1 snabbkorrigeringen installeras för ditt operativsystem, se [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). Du kan ha den här snabbkorrigeringen eller en senare version redan installerat på servern.
+2. Om du använder Windows Server 2008R2, kontrollera att TLS 1.2 är aktiverad. TLS 1.2 måste redan vara aktiverat på servern för Windows Server 2012 och senare versioner.
    ```
    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
@@ -145,56 +145,56 @@ Före version 1.1.614.0 använder TLS 1.0 i Azure AD Connect som standard för a
    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
    "SchUseStrongCrypto"=dword:00000001
    ```
-4. Om du vill aktivera TLS 1.2 mellan motorn synkroniseringsserver och en fjärransluten SQL Server och sedan kontrollera att du har de operativsystemversioner som krävs för [TLS 1.2-stöd för Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
+4. Om du vill aktivera TLS 1.2 mellan synkronisering engine-server och en fjärransluten SQL Server och sedan kontrollera att du har de nödvändiga versionerna som installerats för [TLS 1.2-stöd för Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
 
 ## <a name="prerequisites-for-federation-installation-and-configuration"></a>Krav för federation installation och konfiguration
 ### <a name="windows-remote-management"></a>Windows Remote Management
-När du använder Azure AD Connect för att distribuera Active Directory Federation Services eller Web Application Proxy, kontrollera dessa krav:
+När du använder Azure AD Connect för att distribuera Active Directory Federation Services eller Web Application Proxy kan du kontrollera dessa krav:
 
-* Om målservern är ansluten till en domän, kontrollera att Windows Remote hanteras är aktiverad
-  * I ett upphöjt PSH kommando-fönster kommandot `Enable-PSRemoting –force`
-* Om målservern är en icke-domänanslutna WAP-dator och det finns ett antal ytterligare krav
+* Om målservern är domänansluten ser du till att Windows Remote hanterade är aktiverat
+  * I en upphöjd PSH kommandofönstret använder du kommandot `Enable-PSRemoting –force`
+* Om målservern är en icke-domänanslutna WAP-datorn och sedan det finns ett antal ytterligare krav
   * På måldatorn (WAP-dator):
     * Kontrollera att winrm (Windows Remote Management / WS-Management) tjänsten körs via snapin-modulen tjänster
-    * I ett upphöjt PSH kommando-fönster kommandot `Enable-PSRemoting –force`
-  * På den dator där guiden körs (om måldatorn är icke-domän domänansluten eller ej betrodd domän):
-    * Använd kommandot i ett upphöjt PSH kommando-fönster `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
+    * I en upphöjd PSH kommandofönstret använder du kommandot `Enable-PSRemoting –force`
+  * På den dator där guiden körs (om måldatorn är inte tillhör en domän domänansluten eller ej betrodd domän):
+    * Använd kommandot i en upphöjd PSH kommandofönster `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
     * I Serverhanteraren:
-      * Lägg till en värd i Perimeternätverket WAP datorpool (Serverhanteraren -> Hantera -> Lägg till servrar... Använd fliken DNS)
-      * Fliken Serverhanteraren alla servrar: Högerklicka på server för WAP och välj Hantera som..., ange inloggningsuppgifter för lokala (inte domän) för WAP-dator
-      * Att verifiera fjärråtkomst PSH anslutningarna i fliken Serverhanteraren alla servrar: server för WAP Högerklicka och välj Windows PowerShell. En fjärrsession PSH ska öppnas för att säkerställa PowerShell fjärrsessioner kan upprättas.
+      * lägger till DMZ WAP-värd i datorpoolen (Serverhanteraren -> Hantera -> Lägg till servrar... DNS-fliken)
+      * Fliken Serverhanteraren alla servrar: Högerklicka på WAP-servern och välj Hantera som..., ange inloggningsuppgifter för lokal (inte domän) för WAP-datorn
+      * Validera fjärranslutningar för PSH, på fliken Serverhanteraren alla servrar: Högerklicka på WAP-servern och välj Windows PowerShell. En fjärrsession PSH ska öppna för att säkerställa fjärrsessioner i PowerShell kan upprättas.
 
-### <a name="ssl-certificate-requirements"></a>Kraven för SSL-certifikat
-* Det starkt rekommenderar vi för att använda samma certifikat för SSL över alla noder i AD FS-gruppen och alla proxyservrar för webbprogram.
-* Certifikatet måste vara X509 certifikat.
-* Du kan använda ett självsignerat certifikat på federationsservrar i en testmiljö. För en produktionsmiljö rekommenderar vi dock att du hämtar certifikatet från en offentlig Certifikatutfärdare.
-  * Om du använder ett certifikat som inte är betrodd offentlig, kontrollera att certifikatet installeras på varje server Web Application Proxy är betrott på både den lokala servern och på alla federationsservrar
+### <a name="ssl-certificate-requirements"></a>SSL-certifikatskrav
+* Vi rekommenderar starkt att du använder samma SSL-certifikat på alla noder i AD FS-gruppen och alla Web Application proxy-servrar.
+* Certifikatet måste vara en X509 certifikat.
+* Du kan använda ett självsignerat certifikat på federationsservrar i en testmiljö. För en produktionsmiljö rekommenderar vi dock att du skaffar certifikatet från en offentlig Certifikatutfärdare.
+  * Om du använder ett certifikat som inte är offentligt betrott, kontrollera att certifikatet installeras på varje Web Application Proxy-server är betrott på både den lokala servern och på alla federationsservrar
 * Identiteten för certifikatet måste matcha federationstjänstens namn (t.ex, sts.contoso.com).
-  * Identiteten är antingen ett ämne alternativt namn (SAN)-tillägg av typen dNSName eller om det finns inget SAN-transaktioner, ämnesnamnet angetts som ett eget namn.  
-  * Flera poster för SAN-nätverk kan finnas i certifikatet, under förutsättning att en av dem matchar federationstjänstens namn.
-  * Om du planerar att använda Anslut till arbetsplats, krävs en ytterligare SAN med värdet **enterpriseregistration.** följt av suffixet UPN (User Principal Name) för din organisation, till exempel **företagsregistrering.contoso.com**.
-* Certifikat som baseras på CryptoAPI nästa generation (CNG) nycklar och nyckellagring stöds inte. Detta innebär att du måste använda ett certifikat som baseras på en CSP (cryptographic service provider) och inte en KSP (key storage provider).
-* Jokertecken certifikat som stöds.
+  * Identiteten är antingen ett ämne alternativt namn (SAN)-tillägg av typen dNSName eller om det finns inga poster i SAN, namn på certifikatmottagare anges som eget namn.  
+  * Flera SAN-poster kan finnas i certifikatet, förutsatt att en av dem matchar federationstjänstens namn.
+  * Om du tänker använda Anslut till arbetsplats, krävs en ytterligare SAN med värdet **enterpriseregistration.** följt av UPN User Principal Name ()-suffix i din organisation, till exempel **enterpriseregistration.contoso.com**.
+* Certifikat som baseras på CryptoAPI nästa generations (CNG)-nycklar och nyckellagrings-providers stöds inte. Det innebär att du måste använda ett certifikat baserat på en CSP (cryptographic service provider) och inte en KSP (key storage provider).
+* Jokertecken certifikat stöds.
 
 ### <a name="name-resolution-for-federation-servers"></a>Namnmatchning för federationsservrar
-* Konfigurera DNS-poster för AD FS federationstjänstens namn (till exempel sts.contoso.com) för både (interna DNS-servern) för intranät och extranät (offentliga DNS via din domänregistrator). Se till att du använder en för intranät DNS-posten poster och inte CNAME-poster. Detta krävs för windows-autentisering ska fungera korrekt från en domänansluten dator.
-* Om du distribuerar flera AD FS-servern eller webbprogramproxyservern kontrollerar du att du har konfigurerat din belastningsutjämnare och att DNS-posterna för AD FS federationstjänstens namn (till exempel sts.contoso.com) pekar på belastningsutjämnaren.
-* Se till att AD FS federationstjänstens namn (till exempel sts.contoso.com) har lagts till i intranätzonen i Internet Explorer för windows-integrerad autentisering ska fungera för webbläsarprogram som använder Internet Explorer i intranätet. Detta kan kontrolleras via en Grupprincip och distribueras till alla domänanslutna datorer.
+* Konfigurera DNS-poster för AD FS federationstjänstens namn (t.ex. sts.contoso.com) för både intranät (din interna DNS-server) och extranät (offentlig DNS via din domänregistrator). Om intranätets DNS-post, kontrollera att du använder A-poster och inte CNAME-poster. Detta krävs för windows-autentisering ska fungera korrekt från din domänansluten dator.
+* Om du distribuerar flera AD FS-servern eller Web Application Proxy server kontrollerar du att du har konfigurerat belastningsutjämnaren och att DNS-posterna för AD FS-federationstjänstens namn (t.ex. sts.contoso.com) pekar på belastningsutjämnaren.
+* Se till att AD FS-federationstjänstens namn (t.ex. sts.contoso.com) har lagts till i intranätzonen i Internet Explorer för windows-integrerad autentisering ska fungera för webbläsarbaserade program med hjälp av Internet Explorer i intranätet. Detta kan styras via grupprinciper och distribueras till alla domänanslutna datorer.
 
 ## <a name="azure-ad-connect-supporting-components"></a>Azure AD Connect stöder komponenter
-Följande är en lista över komponenter som Azure AD Connect installeras på den server där Azure AD Connect är installerat. Den här listan är för en grundläggande Expressinstallation. Om du väljer att använda en annan SQL Server på sidan Installera synkronisering är sedan SQL Express LocalDB inte installerad lokalt.
+Här följer en lista över komponenter som Azure AD Connect installerar på den server där Azure AD Connect är installerad. Den här listan är för en grundläggande Expressinstallation. Om du vill använda en annan SQL Server på sidan Installera synkronisering har sedan SQL Express LocalDB inte installerats lokalt.
 
 * Azure AD Connect Health
-* Microsoft Online Services-inloggningsassistent för IT-proffs (installerad men inga beroende)
+* Microsoft Online Services-inloggningsassistent för IT-proffs (installerad men inget beroende på den)
 * Microsoft SQL Server 2012-kommandoradsverktyg
 * Microsoft SQL Server 2012 Express LocalDB
 * Microsoft SQL Server 2012 Native Client
-* Microsoft Visual C++ 2013 omfördelning paketet
+* Microsoft Visual C++ 2013 Vidaredistribution paket
 
 ## <a name="hardware-requirements-for-azure-ad-connect"></a>Maskinvarukrav för Azure AD Connect
-Tabellen nedan visar de lägsta kraven för Azure AD Connect sync-dator.
+Tabellen nedan visar de lägsta kraven för Azure AD Connect sync-datorn.
 
-| Antal objekt i Active Directory | Processor | Minne | Hårddiskstorlek |
+| Antalet objekt i Active Directory | Processor | Minne | Hårddiskstorlek |
 | --- | --- | --- | --- |
 | Färre än 10 000 |1,6 GHz |4 GB |70 GB |
 | 10,000–50,000 |1,6 GHz |4 GB |70 GB |
@@ -204,9 +204,9 @@ Tabellen nedan visar de lägsta kraven för Azure AD Connect sync-dator.
 | 300,000–600,000 |1,6 GHz |32 GB |450 GB |
 | Mer än 600 000 |1,6 GHz |32 GB |500 GB |
 
-De lägsta kraven för datorer som kör AD FS eller webbprogramservrar är följande:
+De lägsta kraven för datorer som kör AD FS eller Webbprogramservrarna är följande:
 
-* Processor: Dual core 1,6 GHz eller snabbare
+* Processor: Dual core 1,6 GHz eller högre
 * MINNE: 2 GB eller högre
 * Azure VM: A2-konfiguration eller högre
 

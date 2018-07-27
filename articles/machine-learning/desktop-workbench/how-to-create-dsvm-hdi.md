@@ -1,54 +1,54 @@
 ---
-title: Hur du skapar DSVM och HDI som beräkna mål för Azure ML
-description: Skapa DSVM och HDI Spark-kluster som compute mål för Azure ML experiment.
+title: Hur du skapar DSVM och HDI som beräkningsmål för Azure ML
+description: Skapa DSVM och HDI Spark-kluster som beräkningsmål för Azure ML-experimentering.
 services: machine-learning
 author: hning86
 ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 40711c424d3d552253deba85110b0c4447f4ec62
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 18cf885cd71822c2c24791f3c6f55835c3204d35
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831035"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285832"
 ---
-# <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Skapa DSVM och HDI Spark-kluster som compute mål
+# <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Skapa DSVM och HDI Spark-kluster som beräkningsmål
 
-Du kan enkelt skala upp eller ut machine learning-experiment genom att lägga till ytterligare beräknings-mål, till exempel Ubuntu-baserade DSVM (datavetenskap virtuell dator) och Apache Spark för Azure HDInsight-kluster. Den här artikeln får du hjälp med att skapa dessa compute mål i Azure. Mer information om Azure ML beräkning mål avser [översikt över Azure Machine Learning-experiment tjänsten](experimentation-service-configuration.md).
+Du kan enkelt skala upp eller skala ut din machine learning-experiment genom att lägga till ytterligare beräkningsmål som Ubuntu-baserad DSVM (Data Science Virtual Machine) och Apache Spark för Azure HDInsight-kluster. Den här artikeln får du hjälp med att skapa dessa beräkningsmål i Azure. Mer information om Azure ML beräkningsmål som avser [översikt över Azure Machine Learning-experimentering](experimentation-service-configuration.md).
 
 >[!NOTE]
->Du måste kontrollera att du har rätt behörighet för att skapa resurser, till exempel virtuell dator och HDI-kluster i Azure innan du fortsätter. Båda dessa resurser kan också använda många beräkning kärnor beroende på din konfiguration. Kontrollera att din prenumeration har tillräckligt med kapacitet för de virtuella CPU-kärnorna. Du kan alltid få kontakt med Azure-supporten att öka det maximala antalet kärnor i prenumerationen.
+>Du måste se till att du har behörighet att skapa resurser, till exempel virtuella datorer och HDI-kluster i Azure innan du fortsätter. Båda dessa resurser kan också använda många beräkningskärnor beroende på din konfiguration. Kontrollera att din prenumeration har tillräckligt med kapacitet för de virtuella CPU-kärnorna. Du kan alltid hitta kontakten med Azure-supporten för att öka det maximala antalet kärnor som tillåts i din prenumeration.
 
 ## <a name="create-an-ubuntu-dsvm-in-azure-portal"></a>Skapa en Ubuntu DSVM i Azure-portalen
 
 Du kan skapa en DSVM från Azure-portalen. 
 
-1. Logga in på Azure portal https://portal.azure.com
-2. Klicka på den **+ ny** länk, och Sök efter ”datavetenskap virtuell dator för Linux”.
+1. Logga in på Azure portal från https://portal.azure.com
+2. Klicka på den **+ ny** länk och Sök efter ”data science virtual machine för Linux”.
     ![Ubuntu](media/how-to-create-dsvm-hdi/ubuntu_dsvm.png)
-4. Välj **datavetenskap virtuell dator för Linux (Ubuntu)** i listan och följ de på skärmen instruktioner för att skapa DSVM.
+4. Välj **Data Science Virtual Machine för Linux (Ubuntu)** i listan och följ de anvisningarna på skärmen instruktioner för att skapa DSVM.
 
 >[!IMPORTANT]
 >Se till att välja **lösenord** som den _autentiseringstyp_.
 
-![Använd pwd](media/how-to-create-dsvm-hdi/use_pwd.png)
+![använda pwd](media/how-to-create-dsvm-hdi/use_pwd.png)
 
-## <a name="create-an-ubuntu-dsvm-using-azure-cli"></a>Skapa en Ubuntu DSVM med hjälp av azure cli
+## <a name="create-an-ubuntu-dsvm-using-azure-cli"></a>Skapa en Ubuntu DSVM med azure cli
 
-Du kan också använda en mall för Azure-resurs management för att distribuera en DSVM.
+Du kan också använda en Azure resource management-mall för att distribuera en DSVM.
 
 >[!NOTE]
->Alla följande kommandon antas vara utfärdat från rotmappen för ett Azure ML-projekt.
+>Alla följande kommandon antas vara utfärdat från rotmappen på ett Azure ML-projekt.
 
-Skapa först en `mydsvm.json` filen med hjälp av valfri textredigerare i den `docs` mapp. (Om du inte har en `docs` mapp i rotmappen projekt skapar du en.) Vi använder den här filen för att konfigurera några grundläggande parametrar för management-mall för Azure-resurs. 
+Börja med att skapa en `mydsvm.json` med valfri textredigerare på den `docs` mapp. (Om du inte har en `docs` mapp i rotmappen för projektet, skapa en.) Vi använder den här filen för att konfigurera några grundläggande parametrar för Azure resource management-mall. 
 
-Kopiera och klistra in JSON följande kodavsnitt i den `mydsvm.json` filen och Fyll i lämpliga värden:
+Kopiera och klistra in följande JSON-kodfragmentet i den `mydsvm.json` filen och Fyll i lämpliga värden:
 
 ```json
 {
@@ -63,33 +63,33 @@ Kopiera och klistra in JSON följande kodavsnitt i den `mydsvm.json` filen och F
 }
 ```
 
-För den _vmSize_ fältet som du kan använda alla de stöds VM-storlek som anges i den [Ubuntu DSVM Azure resource management-mallen](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/multiazuredeploywithext.json). Vi rekommenderar att du använder någon av de nedan storlekar som beräkna mål för Azure ML. 
+För den _vmSize_ fält, som du kan använda alla de stöds VM-storlekar som anges i den [Ubuntu DSVM Azure resource management-mall](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/multiazuredeploywithext.json). Vi rekommenderar att du använder en av de nedan storlekar som beräkningsmål för Azure ML. 
 
 
 >[!TIP]
-> För [djup learning arbetsbelastningar](how-to-use-gpu.md) du kan distribuera till GPU påslagen virtuella datorer.
+> För [deep learning arbetsbelastningar](how-to-use-gpu.md) du kan distribuera till GPU-baserade virtuella datorer.
 
-- [Generella virtuella datorer](/virtual-machines/linux/sizes-general.md)
+- [Generell användning virtuella datorer](/virtual-machines/linux/sizes-general.md)
   - Standard_DS2_v2 
   - Standard_DS3_v2 
   - Standard_DS4_v2 
   - Standard_DS12_v2 
   - Standard_DS13_v2 
   - Standard_DS14_v2 
-- [GPU påslagen virtuella datorer](/virtual-machines/linux/sizes-gpu.md)
+- [GPU-baserade virtuella datorer](/virtual-machines/linux/sizes-gpu.md)
   - Standard_NC6 
   - Standard_NC12 
   - Standard_NC24 
  
 
-Läs mer om dessa [storlekar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/sizes.md) och deras [prisinformation](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+Läs mer om dessa [storlekar för Linux-datorer i Azure](../../virtual-machines/linux/sizes.md) och deras [prisinformation](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-Öppna CLI fönster från Azure ML-arbetsstationen appen genom att klicka på **filen** --> **öppnar du kommandotolken**, eller **öppna PowerShell** menyalternativet. 
+Starta CLI-fönstret från appen Azure ML Workbench genom att klicka på **filen** --> **öppna Kommandotolken**, eller **öppna PowerShell** menyalternativ. 
 
 >[!NOTE]
->Du kan också göra detta i en kommandoradsmiljö där du har installerat az-cli.
+>Du kan också göra detta i alla kommandoradsmiljö där du har installerat az-cli.
 
-I fönstret för att ange den nedan kommandon:
+I fönstret Kommandotolken anger du den nedan kommandon:
 
 ```azurecli
 # first make sure you have a valid Azure authentication token
@@ -121,8 +121,8 @@ $ az vm show -g <resource group name> -n <vm name> --query "fqdns"
 # find the IP address of the VM just created
 $ az vm show -g <resource group name> -n <vm name> --query "publicIps"
 ```
-## <a name="attach-a-dsvm-compute-target"></a>Koppla ett DSVM beräknings-mål
-När du har skapat DSVM kan nu du koppla den till din Azure ML-projekt.
+## <a name="attach-a-dsvm-compute-target"></a>Bifoga beräkningsmål DSVM
+När DSVM har skapats kan koppla du nu det till ditt Azure ML-projekt.
 
 ```azurecli
 # attach the DSVM compute target
@@ -135,7 +135,7 @@ $ az ml experiment prepare -c <compute target name>
 Nu bör du vara redo att köra experiment på den här DSVM.
 
 ## <a name="deallocate-a-dsvm-and-restart-it-later"></a>Frigöra en DSVM och starta om senare
-När du är klar beräknings-uppgifter från Azure ML frigör du DSVM. Detta stänger av den virtuella datorn startar om beräkningsresurserna, men den bevarar de virtuella diskarna. Du debiteras inte för beräkning kostnaden när den virtuella datorn har frigjorts.
+När du är klar beräknings-uppgifter från Azure ML kan du frigöra DSVM. Den här åtgärden stänger av den virtuella datorn startar om beräkningsresurserna, men den bevarar de virtuella diskarna. Du debiteras inte för beräkningskostnaden när Virtuellt datorn frigörs.
 
 Att frigöra en virtuell dator:
 
@@ -149,31 +149,31 @@ Om du vill ge den virtuella datorn tillbaka liv, använda den `az ml start` komm
 $ az vm start -g <resource group name> -n <vm name>
 ```
 
-## <a name="expand-the-dsvm-os-disk"></a>Expandera DSVM OS-disk
-Ubuntu DSVM levereras med en disk på 50GB OS och disk på 100GB data. Docker lagrar bilderna på datadisken som mer utrymme finns tillgängliga. När det används som beräkna mål för Azure ML användas disken av Docker-motorn dra nedåt Docker-bilder och bygga conda lager ovanpå den. Du kan behöva expandera disk disken till en större storlek (till exempel 200 GB) för att undvika fel ”disken är full” när du är mitt i en körning. Referens [så att utöka virtuella hårddiskar på en Linux-VM med Azure CLI](../../virtual-machines/linux/expand-disks.md) att lära dig hur du gör det enkelt från azure cli. 
+## <a name="expand-the-dsvm-os-disk"></a>Expandera DSVM Operativsystemets disk
+Ubuntu DSVM levereras med en OS-disk 50GB och 100GB data-disk. Docker lagrar dess bilder på datadisk, som mer utrymme finns det. När detta används som beräkningsmål för Azure ML kan kan den här disken användas av Docker-motorn dra nedåt Docker-avbildningar och skapa conda lager ovanpå den. Du kan behöva expandera disk till en större storlek (till exempel 200 GB) för att undvika ”disken är full”-fel när du är mitt i en körning. Referens [hur du expanderar virtuella hårddiskar på en Linux VM med Azure CLI](../../virtual-machines/linux/expand-disks.md) information om hur du enkelt göra detta från azure cli. 
 
-## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Skapa ett Apache Spark i Azure HDInsight-kluster i Azure-portalen
+## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Skapa ett Apache Spark för Azure HDInsight-kluster i Azure portal
 
-Om du vill köra skalbar Spark jobb, måste du skapa ett Apache Spark i Azure HDInsight-kluster i Azure-portalen.
+Om du vill köra skala ut Spark-jobb, måste du skapa ett Apache Spark för Azure HDInsight-kluster i Azure-portalen.
 
-1. Logga in på Azure portal https://portal.azure.com
-2. Klicka på den **+ ny** länk, och Sök efter ”HDInsight”.
+1. Logga in på Azure portal från https://portal.azure.com
+2. Klicka på den **+ ny** länk och Sök efter ”HDInsight”.
 
     ![hitta hdi](media/how-to-create-dsvm-hdi/hdi.png)
     
-3. Välj **HDInsight** i listan och klicka på den **skapa** knappen.
-4. I den **grunderna** skärm för konfiguration av **kluster typen** inställningar, se till att välja **Spark** som den _kluster typen_, **Linux** som den _operativsystemet_, och **Spark 2.1.0 (HDI 3,6)** som _Version.
+3. Välj **HDInsight** i listan och sedan klicka på den **skapa** knappen.
+4. I den **grunderna** skärm för konfiguration av **Klustertyp** inställningar, se till att välja **Spark** som den _Klustertyp_, **Linux** som den _operativsystemet_, och **Spark 2.1.0 (HDI 3.6)** som _Version.
 
     ![Konfigurera hdi](media/how-to-create-dsvm-hdi/configure_hdi.png)
 
     >[!IMPORTANT]
-    >Meddelande i skärmbilden ovan klustret har en _klustret inloggning användarnamn_ fältet och en _SSH (Secure Shell) användarnamn_ fältet. Det här är två olika användaridentiteter trots att du kan ange samma lösenord för båda inloggningar i informationssyfte. Den _klustret inloggning användarnamn_ används för att logga in på management webbgränssnittet för HDI-klustret. Den _SSH-inloggning användarnamn_ används för att logga in till huvudnod i klustret, och det här är vad som behövs för Azure ML att skicka Spark jobb.
+    >Meddelande i skärmbilden ovan klustret har en _användarnamnet för klusterinloggning_ fält och en _Secure Shell (SSH)-användarnamn_ fält. Det här är två olika användarnas identiteter, även om för att underlätta kan du ange samma lösenord för båda inloggningar. Den _användarnamnet för klusterinloggning_ används för att logga in på management-Webbgränssnittet för HDI-kluster. Den _SSH-användarnamn för klusterinloggning_ används för att logga in på huvudnoden för klustret, och det här är vad som behövs för Azure ML att skicka ut Spark-jobb.
 
-5. Välj klusterstorleken och nodstorlek du behöver och slutför guiden Skapa. Det kan ta upp till 30 minuter för att klustret ska Slutför etablering. 
+5. Välj klusterstorlek och nodstorlek du behöver och slutför guiden Skapa. Det kan ta upp till 30 minuter innan klustret för att slutföra etableringen. 
 
-## <a name="attach-an-hdi-spark-cluster-compute-target"></a>Koppla ett HDI Spark-kluster beräknings-mål
+## <a name="attach-an-hdi-spark-cluster-compute-target"></a>Koppla ett beräkningsmål för HDI Spark-kluster
 
-När Spark HDI-klustret har skapats kan koppla du nu den till din Azure ML-projekt.
+När HDI Spark-klustret har skapats kan kan nu du koppla den till ditt Azure ML-projekt.
 
 ```azurecli
 # attach the HDI compute target
@@ -182,12 +182,12 @@ $ az ml computetarget attach cluster --name <compute target name> --address <clu
 # prepare the conda environment on HDI
 $ az ml experiment prepare -c <compute target name>
 ```
-Nu bör du vara redo att köra experiment på Spark-kluster.
+Nu bör du vara redo att köra experiment i Spark-kluster.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om:
-- [Översikt över tjänsten för Azure Machine Learning-experiment](experimentation-service-configuration.md)
-- [Azure Machine Learning arbetsstationen experiment service configuration-filer](experimentation-service-configuration-reference.md)
-- [Apache Spark i Azure HDInsight-kluster](https://azure.microsoft.com/services/hdinsight/apache-spark/)
-- [Datavetenskap virtuell dator](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
+- [Översikt över Azure Machine Learning-experimentering](experimentation-service-configuration.md)
+- [Azure Machine Learning Workbench experimentering service configuration-filer](experimentation-service-configuration-reference.md)
+- [Apache Spark för Azure HDInsight-kluster](https://azure.microsoft.com/services/hdinsight/apache-spark/)
+- [Virtuell dator för datavetenskap](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

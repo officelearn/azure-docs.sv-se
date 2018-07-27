@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1cc58832d5f863f5bbfa6fc20d38b4be81ddad8f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: cfb09718c545d55b31250070fed0c8adff9d3fed
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089969"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263954"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Automatisk uppgradering
 Den här funktionen introducerades i version [1.1.105.0 (publicerad februari 2016)](active-directory-aadconnect-version-history.md#111050).  Den här funktionen har uppdaterats i [skapa 1.1.561](active-directory-aadconnect-version-history.md#115610) och har nu stöd för fler scenarier som tidigare inte stöds.
@@ -39,7 +39,7 @@ Det aktuella tillståndet för automatisk uppgradering kan visas med PowerShell-
 | Status | Kommentar |
 | --- | --- |
 | Enabled |Automatisk uppgradering är aktiverat. |
-| Inaktiverad |Ange endast i systemet. Systemet inte längre är berättigade att ta emot automatiska uppgraderingar. |
+| Tillfälligt avbruten |Ange endast i systemet. Systemet inte längre är berättigade att ta emot automatiska uppgraderingar. |
 | Disabled |Automatisk uppgradering har inaktiverats. |
 
 Du kan ändra mellan **aktiverad** och **inaktiverad** med `Set-ADSyncAutoUpgrade`. Endast systemet bör ställa in tillståndet **pausad**.
@@ -95,8 +95,8 @@ Här är en lista över de vanligaste meddelanden som du hittar. Visar alla inte
 | UpgradeNotSupportedInvalidPersistedState |Installationen är inte en standardinställningar eller en DirSync-uppgradering. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |Du har fler än 100 000 objekt i metaversum. |
 | UpgradeNotSupportedMultiForestSetup |Du ansluter till mer än en skog. Snabbinstallation av ansluter bara till en skog. |
-| UpgradeNotSupportedNonLocalDbInstall |Du använder inte en SQL Server Express LocalDB-databas. |
-| UpgradeNotSupportedNonMsolAccount |Den [AD-anslutningskontot](active-directory-aadconnect-accounts-permissions.md#active-directory-account) inte är standardkontot för MSOL_ längre. |
+| UpgradeNotSupportedNonLocalDbInstall |Du använder inte en SQL Server Express LocalDB-databas. |d
+| UpgradeNotSupportedNonMsolAccount |Den [AD DS-anslutningskontot](active-directory-aadconnect-accounts-permissions.md#ad-ds-connector-account) inte är standardkontot för MSOL_ längre. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | När du konfigurerar AAD Connect som du har valt *inte konfigurerar* vid val av inloggnings-metod. | 
 | UpgradeNotSupportedPtaSignInMethod | Du har valt direktautentisering som metod för inloggning. |
 | UpgradeNotSupportedStagingModeEnabled |Servern har angetts i [mellanlagringsläge](active-directory-aadconnectsync-operations.md#staging-mode). |

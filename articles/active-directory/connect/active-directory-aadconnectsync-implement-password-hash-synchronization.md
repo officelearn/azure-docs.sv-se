@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5d62eb4d5f43625b336ade68532cf734ef0cde6a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: af9a2e47a5e91d9b32a787f8f40ba06b5a1596e7
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214701"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265054"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering
 Den här artikeln innehåller information du behöver för att synkronisera dina lösenord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory (Azure AD)-instans.
@@ -173,3 +173,4 @@ Om du har problem med synkronisering av lösenordshash, se [Felsök synkroniseri
 ## <a name="next-steps"></a>Nästa steg
 * [Azure AD Connect-synkronisering: anpassa synkroniseringsalternativ](active-directory-aadconnectsync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md)
+* [Hämta en stegvis distributionsplan för att migrera från AD FS till synkronisering av Lösenordshash](https://aka.ms/authenticationDeploymentPlan)

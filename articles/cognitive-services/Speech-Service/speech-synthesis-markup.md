@@ -1,21 +1,20 @@
 ---
-title: Tal syntes Markup Language | Microsoft Docs
+title: Tal syntes Markup Language
 description: Använder tal syntes märkspråk för att styra uttal och prosody i text till tal.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 4074ba91f5029d6c132982d1d81a4888a5e42721
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: ed085bcd92c4ef550ee596a3aefea3af9bfef104
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071223"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283950"
 ---
 # <a name="speech-synthesis-markup-language"></a>Tal syntes Markup Language
 

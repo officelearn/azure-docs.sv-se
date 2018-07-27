@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: diberry
-ms.openlocfilehash: ace4aa48d3bfce5f88bce8947ab568f0990d67fa
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b0b5852a223a77e33a288bb8061c1ce374018ec1
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226619"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282287"
 ---
 # <a name="entities-in-luis"></a>Entiteter i LUIS
 
@@ -70,7 +70,7 @@ LUIS erbjuder många typer av enheter. färdiga entiteter, anpassad dator lärt 
 | **Enkel** <br/>[Datorn lärt dig](#machine-learned) | ✔ | **Definition**<br>En enkel enhet är en allmän entitet som beskriver ett enda koncept och lära sig från datorn lärt dig kontext. Kontexten innehåller word val, word placering och uttryck längd.<br/><br/>Det här är en bra entitet efter ord eller fraser som inte är konsekvent formaterade men visar samma sak. <br/><br/>[Snabbstart](luis-quickstart-primary-and-secondary-data.md)<br/>[Exempel på ett svar för entitet](luis-concept-data-extraction.md#simple-entity-data)|  
 | **Lista** <br/>[Exakt matchning](#exact-match)|| **Definition**<br>Lista över entiteter representerar en fast, stängda uppsättning närstående ord tillsammans med deras synoymns i systemet. <br><br>Varje lista entitet kan ha ett eller flera formulär. Bäst för en känd uppsättning av varianter på sätt att representera detsamma.<br/><br/>LUIS identifierar inte ytterligare värden för listan över entiteter. Använd den **rekommenderar** funktionen för att se förslag för nya ord baserat på den aktuella listan.<br/><br>Om det finns mer än en entitet i listan med samma värde, returneras varje entitet i frågan slutpunkt. <br/><br/>[Snabbstart](luis-quickstart-intent-and-list-entity.md)<br>[Exempel på ett svar för entitet](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[Blandat](#mixed) | ✔|**Definition**<br>Patterns.any är en platshållare för variabel längd som används endast i ett mönster mall uttryck för att markera där entiteten börjar och slutar.  <br><br>**Exempel**<br>Med ett uttryck letar böcker baserat på rubriken kan extraherar pattern.any fullständig rubriken. En mall-uttryck med hjälp av pattern.any är `Who wrote {BookTitle}[?]`.<br/><br/>[Självstudie](luis-tutorial-pattern.md)<br>[Exempel på ett svar för entitet](luis-concept-data-extraction.md#composite-entity-data)|  
-| **Sammansatta** <br/>[Datorn lärt dig](#machine-learned) | ✔|**Definition**<br>En sammansatt entitet består av andra enheter, till exempel förskapade entiteter, enkel, regex, lista, hierarkiska. Separata entiteter utgör en helhet. Lista över entiteter är inte tillåtna i sammansatt entiteter. <br><br>**Exempel**<br>En sammansatt entitet med namnet PlaneTicketOrder kan ha underordnade entiteter fördefinierade `number` och `ToLocation`. <br/><br/>[Självstudie](luis-tutorial-composite-entity.md)<br>[Exempel på ett svar för entitet](luis-concept-data-extraction.md#composite-entity-data)|  
+| **Sammansatta** <br/>[Datorn lärt dig](#machine-learned) | ✔|**Definition**<br>En sammansatt entitet består av andra enheter, till exempel förskapade entiteter, enkel, regex, lista, hierarkiska. Separata entiteter utgör en helhet. <br><br>**Exempel**<br>En sammansatt entitet med namnet PlaneTicketOrder kan ha underordnade entiteter fördefinierade `number` och `ToLocation`. <br/><br/>[Självstudie](luis-tutorial-composite-entity.md)<br>[Exempel på ett svar för entitet](luis-concept-data-extraction.md#composite-entity-data)|  
 | **Hierarkisk** <br/>[Datorn lärt dig](#machine-learned) |✔ | **Definition**<br>En hierarkisk entitet är en viss kategori av sammanhangsmässigt inlärda enkla enheter.<br><br>**Exempel**<br>Får en hierarkisk entitet av `Location` med underordnade `ToLocation` och `FromLocation`, varje underordnad kan bestämmas utifrån den **kontext** inom uttryck. I uttryck, `Book 2 tickets from Seattle to New York`, `ToLocation` och `FromLocation` skiljer sig sammanhangsmässigt baserat orden runtom. <br/><br/>**Använd inte om**<br>Om du letar efter en entitet som har exakt denna matchningar för underordnade oavsett kontexten, bör du använda en entitet i listan. Om du letar efter en överordnad-underordnad-relation med andra typer av enheter, bör du använda sammansatta entiteten.<br/><br/>[Snabbstart](luis-quickstart-intent-and-hier-entity.md)<br>[Exempel på ett svar för entitet](luis-concept-data-extraction.md#hierarchical-entity-data)|
 
 <a name="prebuilt"></a>

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 88869fbeef0475f2c674e0f154a3624545182363
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 41e75fcfd0b88d5c37bb8dd6fcc16b1767b34dba
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213239"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285365"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sömlös enkel inloggning
 
@@ -30,12 +30,12 @@ Azure Active Directory sömlös enkel inloggning (Azure AD sömlös SSO) loggar 
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Sömlös enkel inloggning kan kombineras med antingen den [Lösenordshashsynkronisering](active-directory-aadconnectsync-implement-password-hash-synchronization.md) eller [direktautentisering](active-directory-aadconnect-pass-through-authentication.md) inloggning metoder.
+Sömlös enkel inloggning kan kombineras med antingen den [Lösenordshashsynkronisering](active-directory-aadconnectsync-implement-password-hash-synchronization.md) eller [direktautentisering](active-directory-aadconnect-pass-through-authentication.md) inloggning metoder. Sömlös SSO är _inte_ tillämpliga till Active Directory Federation Services (ADFS).
 
 ![Sömlös enkel inloggning](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!IMPORTANT]
->Sömlös SSO är _inte_ tillämpliga till Active Directory Federation Services (ADFS).
+>Sömlös enkel inloggning måste användarens enhet ska vara **domänanslutna**, men behöver inte enheten behöver [Azure AD har anslutits](../active-directory-azureadjoin-overview.md).
 
 ## <a name="key-benefits"></a>Viktiga fördelar
 
@@ -76,7 +76,9 @@ Sömlös enkel inloggning kan kombineras med antingen den [Lösenordshashsynkron
 ## <a name="next-steps"></a>Nästa steg
 
 - [**Snabbstart** ](active-directory-aadconnect-sso-quick-start.md) – komma igång och köra sömlös enkel inloggning för den Azure AD.
+- [**Distributionsplan** ](https://aka.ms/AuthenticationDeploymentPlan) -stegvisa distributionsplan.
 - [**Teknisk djupdykning** ](active-directory-aadconnect-sso-how-it-works.md) -förstår hur den här funktionen fungerar.
 - [**Vanliga frågor och svar** ](active-directory-aadconnect-sso-faq.md) -svar på vanliga frågor och svar.
 - [**Felsöka** ](active-directory-aadconnect-troubleshoot-sso.md) – Lär dig att lösa vanliga problem med funktionen.
 - [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – för att skicka in nya funktionbegäran.
+

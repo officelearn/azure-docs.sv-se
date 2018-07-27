@@ -1,5 +1,5 @@
 ---
-title: Multimaster på global skala med Azure Cosmos DB | Microsoft Docs
+title: Flera huvudservrar i global skala med Azure Cosmos DB | Microsoft Docs
 description: ''
 services: cosmos-db
 author: rimman
@@ -9,130 +9,130 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: cc66b2f506d81a7ba10b26c3b24287472e890682
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: 4911a302bf9055948827a72f2e631663b8be741e
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724915"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39266052"
 ---
-# <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Flera master i global skala med Azure Cosmos DB 
+# <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Multimaster i global skala med Azure Cosmos DB 
  
-Utveckla globalt distribuerade program som svarar med lokala fördröjning när det är svårt problem att upprätthålla konsekvent vyer av data över hela världen. Kunder använder globalt distribuerade databaser, eftersom de behöver för att förbättra svarstiden för åtkomst av data, uppnå hög tillgänglighet, kontrollera garanterad katastrofåterställning och för att uppfylla sina affärsbehov. Flera master i Azure Cosmos DB ger hög tillgänglighet (99,999%), en siffra millisekunders latens att skriva data och skalbarhet med stöd för inbyggda omfattande och flexibelt konflikt lösning. Dessa funktioner avsevärt förenklar utvecklingen av globalt distribuerade program. Stöd för flera master är avgörande för globalt distribuerade program. 
+Utveckla globalt distribuerade program som svarar med lokala fördröjning medan upprätthålla konsekvent vyer av data över hela världen är utmanande problem. Kunder använder globalt distribuerade databaser, eftersom de behöver för att förbättra svarstiden för åtkomst av data, uppnå hög tillgänglighet, se till att garanterad haveriberedskap och för att uppfylla sina affärsbehov. Multimaster i Azure Cosmos DB ger hög tillgänglighet (99,999%), latensvärden svarstid att skriva data och skalbarhet med inbyggda omfattande och flexibel konflikt matchningsstöd. Dessa funktioner kan avsevärt förenkla utvecklingen av globalt distribuerade program. Stöd för flera huvudservrar är avgörande för globalt distribuerade program. 
 
-![Multimaster-arkitektur](./media/multi-region-writers/multi-master-architecture.png)
+![Arkitektur för flera huvudservrar](./media/multi-region-writers/multi-master-architecture.png)
 
-Du kan utföra skrivningar med stöd för Azure Cosmos DB multimaster på behållare för data (till exempel samlingar, diagram, tabeller) distribueras var som helst i världen. Du kan uppdatera data i en region som är kopplad till ditt konto. Uppdateringarna data kan spridas asynkront. Förutom att tillhandahålla snabb åtkomst och skrivfördröjningen till dina data är med flera master också en praktisk lösning för redundans och belastningsutjämning problem. Sammanfattningsvis med Azure Cosmos DB får du skrivfördröjningen för < 10 ms vid 99th percentilen var som helst i världen, 99,999% skrivning och Läs tillgänglighet var som helst i världen, och möjligheten att skala både skriva och läsa genomströmning var som helst i världen.   
+Med flera huvudservrar stöd för Azure Cosmos DB kan utföra du skrivåtgärder på behållare av data (till exempel samlingar, diagram, tabeller) distribuerade var som helst i världen. Du kan uppdatera data i valfri region som är associerad med ditt databaskonto. Uppdateringarna data kan spridas asynkront. Förutom att ge snabb åtkomst och skrivfördröjningen till dina data, är multimaster också en praktisk lösning för redundans och belastningsutjämning. Sammanfattningsvis med Azure Cosmos DB får du skrivfördröjningen av < 10 ms i den 99: e percentilen var som helst i världen, 99,999% skrivning och lästillgänglighet var som helst i världen och möjlighet att skala både Skriv- och läsningsdataflöde som var som helst i världen.   
 
 > [!IMPORTANT]
-> Multimaster stöd är i privat förhandsvisning att använda förhandsversionen, [registrering](#sign-up-for-multi-master-support) nu.
+> Stöd för flera huvudservrar finns i privat förhandsgranskning, som använder förhandsversion, [registrera](#sign-up-for-multi-master-support) nu.
 
-## <a name="sign-up-for-multi-master-support"></a>Registrera dig för multimaster-stöd
+## <a name="sign-up-for-multi-master-support"></a>Registrera dig för stöd för flera huvudservrar
 
-Om du redan har en Azure-prenumeration kan registrera du dig att ansluta till multimaster förhandsgranskningsprogrammet i Azure-portalen. Om du har använt Azure registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free) där du får 12 månader gratis tillgång till Azure Cosmos DB. Utför följande steg om du vill begära åtkomst till multimaster förhandsgranskningsprogrammet.
+Om du redan har en Azure-prenumeration kan registrera du dig att ansluta till flera huvudservrar förhandsvisningsprogrammet i Azure-portalen. Om Azure är nytt för dig, kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free) där du får 12 månaders gratis åtkomst till Azure Cosmos DB. Utför följande steg för att begära åtkomst till flera huvudservrar förhandsvisningsprogrammet.
 
-1. I den [Azure-portalen](https://portal.azure.com), klickar du på **skapar du en resurs** > **databaser** > **Azure Cosmos DB**.  
+1. I [Azure-portalen](https://portal.azure.com), klickar du på **Skapa en resurs** > **Databaser** > **Azure Cosmos DB**.  
 
-2. Ange ett namn för ditt konto i Azure Cosmos DB på sidan nytt konto, Välj API, prenumeration, resursgrupp och plats.  
+2. På sidan nytt konto, ange ett namn för ditt Azure Cosmos DB-konto, Välj API, prenumeration, resursgrupp och plats.  
 
-3. Sedan väljer du **registrera dig för förhandsgranskning i dag** under fältet Multi Mater förhandsgranskning.  
+3. Sedan väljer du **registrera dig för förhandsgranskning i dag** under fältet med flera Master-förhandsversion.  
 
-   ![Registrera dig för multimaster förhandsversionen](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
+   ![Registrera dig för förhandsversionen av flera huvudservrar](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
 
-4. I den **registrera dig för förhandsgranskning i dag** rutan klickar du på **OK**. När du skickar din begäran status ändras till **godkännande** i bladet konto skapas.  
+4. I den **registrera dig för förhandsgranskning i dag** fönstret klickar du på **OK**. När du har skickat förfrågan status ändras till **väntar på godkännande** i bladet för att skapa kontot.  
 
-När du skickar din begäran får du ett e-postmeddelande att din begäran har godkänts. På grund av stora mängder begäranden, bör du få meddelande inom en vecka. Du behöver inte skapa ett supportärende för att slutföra begäran. Begäranden granskas i den ordning de mottogs.
+När du skickar din begäran får du ett e-postmeddelande att din begäran har godkänts. På grund av stora mängder begäranden, bör du få ett meddelande inom en vecka. Du behöver inte skapa ett supportärende för att slutföra begäran. Begäranden granskas i den ordning de tas emot.
 
-## <a name="a-simple-multi-master-example--content-publishing"></a>Publicering av ett enkelt multimaster exempel – innehåll  
+## <a name="a-simple-multi-master-example--content-publishing"></a>Publicering av ett enkelt flera huvudservrar exempel – innehåll  
 
-Nu ska vi titta på ett verkligt scenario som beskriver hur du använder multimaster support med Azure Cosmos DB. Överväg att en innehåll publishing plattform som bygger på Azure Cosmos DB. Här följer några krav som den här plattformen måste uppfylla för en bra användarupplevelse för både utgivare och konsumenter. 
+Låt oss titta på ett verkligt scenario som beskriver hur du använder flera huvudservrar stöd med Azure Cosmos DB. Överväg en publishing innehållsplattform som bygger på Azure Cosmos DB. Här följer några krav som den här plattformen måste uppfylla för en bättre användarupplevelse för både utgivare och konsumenter. 
 
-* Både författare och prenumeranter sprids över hela världen.  
+* Både redigerare och prenumeranter är fördelade över hela världen.  
 
-* Författare måste publicera (skriva) artiklar på sin lokala (närmaste) region.  
+* Författare måste publicera artiklar (skriva) till deras lokala (närmaste) region.  
 
-* Författare har läsare-/ prenumeranter sina artiklar som distribueras över hela världen.  
+* Författare har läsare-/ prenumeranter av artiklarna som distribueras över hela världen.  
 
 * Prenumeranter bör få ett meddelande när nya artiklar publiceras.  
 
-* Prenumeranter måste kunna läsa artiklar från sin lokala region. De bör också kunna lägga till granskningar till dessa artiklar.  
+* Prenumeranter måste kunna läsa artiklarna från deras lokala region. De bör också att kunna lägga till recensioner i dessa artiklar.  
 
-* Alla inklusive författaren av artiklarna ska kunna visa alla omdömen anslutna till artiklar från region med en lokal.  
+* Vem som helst, inklusive författaren av artiklarna ska kunna visa alla granskningar som är anslutna till artiklar från en lokal region.  
 
-Under förutsättning att miljontals användare och utgivare med miljarder artiklar, snart vi behöver ta itu med problem för skala tillsammans med garanterar ort åtkomst. Ett användningsfall är en perfekt kandidat för Azure Cosmos DB flera master. 
+Om vi antar att miljoner konsumenter och utgivare med flera miljarder artiklar, snart måste vi ta itu med problemen med skalas tillsammans, vilket ger ort av åtkomst. Ett användningsfall är en perfekt kandidat för Azure Cosmos DB multimaster. 
 
-## <a name="benefits-of-having-multi-master-support"></a>Fördelarna med att ha stöd för flera master 
+## <a name="benefits-of-having-multi-master-support"></a>Fördelarna med att ha stöd för flera huvudservrar 
 
-Multimaster-stöd är nödvändigt för globalt distribuerade program. Flera master består av [flera master regioner](distribute-data-globally.md) som lika deltar i en skrivning var som helst modell (aktiv-aktiv mönster) och används för att säkerställa att data är tillgängliga när som helst där det behövs. Uppdateringar som görs i en enskild region sprids asynkront till alla andra regioner (som i sin tur master regioner på sina egna). Azure DB Cosmos-regioner som fungerar som hanterare regioner i en konfiguration för multimaster automatiskt fungerar för att Konvergera alla data för alla repliker och se till att [globala konsekvens och dataintegritet](consistency-levels.md). Följande bild visar läsning och skrivning replikering för ett enda ställe och mult master.
+Stöd för flera huvudservrar är nödvändigt för globalt distribuerade program. Multimaster består av [flera master regioner](distribute-data-globally.md) som lika delta i en skrivning var som helst-modell (aktiv-aktiv mönster) och används för att säkerställa att data är tillgängliga när som helst där du behöver den. Uppdateringar som görs till en enskild region sprids asynkront till alla andra regioner (som i sin tur är master regioner i sina egna). Azure Cosmos DB-regioner som fungerar som master regioner i en konfiguration med flera huvudservrar automatiskt fungerar för att Konvergera data över alla repliker och se till att [global konsekvens och dataintegritet](consistency-levels.md). Följande bild visar Läs/Skriv-replikering för en enskild och Multi-Master.
 
-![Single master och multimaster](./media/multi-region-writers/single-vs-multi-master.png)
+![Enskild och flera huvudservrar](./media/multi-region-writers/single-vs-multi-master.png)
 
-Implementera flera master på egen hand lägger till belastningen på utvecklare. Storskalig kunder som försöker implementera flera master på egen hand tillbringar hundratals timmar att konfigurera och testa en globalt multimaster-konfiguration, och många har en särskild uppsättning tekniker som arbetar med enda är att övervaka och underhålla flera master replikering. Skapa och hantera multimaster installationen på egen hand tar tid, resurser från införa i programmet och ger mycket högre kostnader. Azure Cosmos-DB multimaster stöder ”out-of-the-box” och tar bort det här arbetet utvecklare.  
+Implementerar multimaster på egen hand lägger till belastningen på utvecklare. Storskaliga kunder som försöker implementera multimaster på egen hand tillbringar hundratals timmar konfigurera och testa en världen över flera huvudservrar konfiguration, och många har en dedikerad uppsättning tekniker som arbetar med enda är att övervaka och underhålla flera master replikering. Skapa och hantera konfiguration med flera huvudservrar på egen hand tar tid, resurser från utveckling i själva programmet och resulterar i mycket högre kostnader. Azure Cosmos DB har stöd för flera huvudservrar ”out-of the box” och tar bort det här arbetet utvecklare.  
 
-Sammanfattningsvis ger flera master följande fördelar:
+Sammanfattningsvis ger multimaster följande fördelar:
 
-* **Bättre katastrofåterställning, skriva tillgänglighet och redundans**-flera master kan användas för att bevara hög tillgänglighet för en verksamhetskritiska databas i större utsträckning. Till exempel kan flera master-databasen replikera data från en till en region för växling vid fel när den primära regionen blir otillgänglig på grund av ett avbrott eller en regional katastrofåterställning. Sådan växling vid fel region fungerar som en fullt fungerande master region som stöd för programmet. Flera master ger större ”överlevnads” skydd med avseende på naturkatastrof, strömavbrott, eller sabotage av anläggningen eller båda eftersom återstående regioner kan vara i ett geografiskt olika flera original med en garanterad skrivåtgärder tillgänglighet > 99,999%. 
+* **Bättre haveriberedskap, skriva tillgänglighet och redundans**-multimaster kan användas för att bevara hög tillgänglighet för en verksamhetskritiska databas i större utsträckning. Till exempel kan flera master-databasen replikera data från en region till en region för växling vid fel när den primära regionen blir otillgänglig på grund av ett avbrott eller ett regionalt haveri. Sådana redundansregion kommer att fungera som en helt funktionella master region programmet. Multimaster ger större ”överlevnads” skydd för naturkatastrofer, strömavbrott eller sabotage, eftersom återstående regioner kan använder geografiskt olika flera huvudservrar med ett ha garanterad tillgänglighet > 99,999%. 
 
-* **Förbättrad skrivfördröjningen för slutanvändare** - närmare dina data (som du hanterar) är till slutanvändare, desto bättre blir upplevelsen. Till exempel om du har användare i Europa men databasen är i USA eller Australien tillagda svarstiden är cirka 140 ms och 300 ms för respektive regioner. Fördröjningar är acceptabelt att börja med för många populära spel, banktjänster krav eller interaktiva program (web eller mobile). Latens spelar en stor del i kundens uppfattning av en hög kvalitet och har visat för att påverka beteendet för användare i några märkbara utsträckning. Som förbättrar teknik och särskilt med ankomsten av AR, VR och MR, måste som kräver ytterligare djupare och verklighetstrogna upplevelser utvecklare nu du skapa programvarusystem med strikta fördröjning. Därför är har lokalt tillgängliga program och data (innehåll för program) viktigare. Prestanda är lika snabbt som regelbundet lokala läser och skriver och förbättrad globalt av geo-distribution med flera master i Azure Cosmos DB.  
+* **Förbättrad skrivfördröjningen för slutanvändare** – ju närmare dina data (som du hanterar) är för slutanvändarna, desto bättre blir upplevelsen. Till exempel om du har användare i Europa, men databasen är i USA eller Australien, har lagts till svarstiden är cirka 140 ms och 300 ms för respektive regioner. Fördröjningar är acceptabel att börja med för många populära spel, bank krav eller interaktiva program (webb- eller mobile). Svarstid spelar en stor del i kundens uppfattning av en upplevelse av hög kvalitet och har visat sig påverka beteendet för användare i några märkbara utsträckning. Som förbättrar teknik och särskilt med ankomsten av AR, VR och MR måste kräver ännu mer uppslukande och verklighetstrogna upplevelser utvecklare nu du skapa programvarusystem med strikta svarstidskrav. Därför är med lokalt tillgängliga program och data (innehåll för appar) viktigare. Prestanda är lika snabbt som vanlig lokal läsningar och skrivningar och förbättrad globalt med geo-replikering med Multi-Master i Azure Cosmos DB.  
 
-* **Förbättrad skalbarhet för skrivning och genomströmning för skrivning** – flera master ger högre genomströmning och större användning samtidigt som den erbjuder flera konsekvenskontroll modeller med är korrekt garanterar och backas upp av SLA: er. 
+* **Förbättrad skalbarhet för skrivning och genomströmning för skrivning** – multimaster ger högre dataflöde och större användning och erbjuder flera konsekvensmodeller med är korrekt garanterar och backas upp av serviceavtal. 
 
-  ![Skalning genomströmning för skrivning med flera master](./media/multi-region-writers/scale-write-throughput.png)
+  ![Skalning av dataflöden i skrivning med Multi-Master](./media/multi-region-writers/scale-write-throughput.png)
 
-* **Bättre stöd för frånkopplade miljöer (till exempel gränsenheterna)** -flera master gör att användarna kan replikera alla eller en delmängd av data från en insticksenhet till en närmaste region i en frånkopplad miljö. Det här scenariot är typiska för säljarna automatiseringssystem, där en person bärbar dator (en frånkopplad enhet) lagrar en delmängd av data som rör enskilda säljare. Master regioner i molnet som finns var som helst i världen kan användas som mål för kopiera från de fjärranslutna enheterna.  
+* **Bättre stöd för frånkopplade miljöer (till exempel edge-enheter)** -multimaster gör det möjligt för användarna att replikera alla eller en delmängd av data från en edge-enhet till en närmaste region i en frånkopplad miljö. Det här scenariot är typiska för säljarna automatiseringssystem, där en enskild persons bärbar dator (en frånkopplad enhet) lagrar en delmängd av data som är relaterade till enskilda säljare. Master-regioner i molnet som är placerade var som helst i världen kan fungera som mål för kopiering från fjärranslutna edge-enheter.  
 
-* **Belastningsutjämning** -med flera master belastningen över programmet kan genomförs genom att flytta användare/arbetsbelastningar från en tungt belastad region till regioner där belastningen fördelas jämnt. Skriva kapacitet kan enkelt utökas genom att lägga till en ny region och sedan växla vissa skrivningar till den nya regionen. 
+* **Belastningsutjämning** -med multimaster, belastning över programmet kan genomförs genom att flytta användare/arbetsbelastningar från en tungt belastad region till regioner där belastningen jämnt fördelad. Skriva kapacitet enkelt kan utökas genom att lägga till en ny region och sedan växla vissa skrivningar till det nya området. 
 
-* **Bättre användning av etablerad kapacitet** – med flera master för skrivintensiv och blandade arbetsbelastningar, kan du fylla etablerad kapacitet över flera regioner...  I vissa fall som du kan distribuera läsningar och skrivningar mer lika, så att den kräver färre genomströmning till etableras och leder till en mer besparingar för kunder.  
+* **Bättre användning av etablerad kapacitet** – med multimaster, för hög och blandade arbetsbelastningar, kan du fylla etablerad kapacitet i flera regioner...  I vissa fall som du kan distribuera om läsningar och skrivningar mer lika, så att det kräver mindre dataflöde som ska etableras och leder till fler besparingar för kunder.  
 
-* **Enklare och mer robust apparkitekturer** -program som flyttar till multimaster configuration få garanterat data återhämtning.  Med Azure Cosmos-DB dölja alla komplexitet, förenkla den avsevärt programdesign och arkitektur. 
+* **Enklare och mer robust apparkitekturer** -program flyttar till flera huvudservrar configuration garanterad dataåterhämtning.  Med Azure Cosmos DB dölja alla komplexiteten, kan den avsevärt förenkla programdesignen och arkitektur. 
 
-* **Risk utan testning av redundans** -testning av redundans kommer inte har någon försämring på genomströmning för skrivning. Med flera master är alla andra regioner fullständig huvudservrar så redundans inte har mycket inverkan på genomströmning för skrivning.  
+* **Riskfritt testning av redundans** -testning av redundans inte har någon prestandaförsämring på genomströmning för skrivning. Med multimaster är alla andra regioner fullständig huvudservrar så redundans inte har mycket inverkan på genomströmning för skrivning.  
 
-* **Lägre totala kostnaden Ownership(TCO) och DevOps** -möte skalbarhet, prestanda, global distributionsplatsen återställningstiden kostar ofta på grund av dyra tillägg eller underhålla en infrastruktur för säkerhetskopiering som är vilande tills katastrofåterställning träffar. Med Azure Cosmos DB flera master säkerhetskopierats av branschledande serviceavtal, utvecklare längre kräver skapa och underhålla ”backend ibland sammanlänkande logik” sig själva och blir en sinnesro sina verksamhetskritiska arbetsbelastningar som körs. 
+* **Lägre Total kostnad Ownership(TCO) och DevOps** -uppfyller skalbarhet, prestanda, global distribution, mål för återställningstid är ofta dyra på grund av dyra tillägg eller underhålla en infrastruktur för säkerhetskopiering som är vilande tills haveriberedskap under katastrofsituationer. Med Azure Cosmos DB multimaster backas upp av branschledande serviceavtal, utvecklare längre kräver att bygga och underhålla den ”sammanlänkande serverdelslogik” själva och blir en lugn och ro sina verksamhetskritiska arbetsbelastningar. 
 
-## <a name="use-cases-where-multi-master-support-is-needed"></a>Användningsfall där multimaster stöd krävs
+## <a name="use-cases-where-multi-master-support-is-needed"></a>Användningsfall där flera huvudservrar support behövs
 
-Det finns flera användningsområden för flera master i Azure Cosmos-databasen: 
+Det finns många användningsområden för flera master i Azure Cosmos DB: 
 
-* **IoT** -Azure Cosmos DB flera master tillåter förenklad distribuerade implementering av IoT databearbetning. Fördelade edge-distributioner som använder CRDT konflikt utan replikerade data typer ofta behöver spåra tid series-data från flera platser. Varje enhet kan vara homed till någon av de närmaste regionerna, och en enhet kan förflytta sig (t.ex, en bil) och kan dynamiskt rehomed för att skriva till en annan region.  
+* **IoT** – Azure Cosmos DB multimaster möjliggör förenklad distribuerade implementeringen av IoT databearbetning. GEO-distribuerad edge-distributioner som använder CRDT konflikt kostnadsfria replikerade data typer ofta behöver spåra time series-data från flera platser. Varje enhet kan vara homed till närmaste regioner och en enhet kan reser (till exempel en bil) och kan dynamiskt rehomed för att skriva till en annan region.  
 
-* **E-handel** -så bra användarupplevelse i e-handel scenarier kräver hög tillgänglighet och återhämtning för scenarier. Om det inte går att en region, vill användarsessioner shopping Datorvagnar, aktiva listor behöver sömlöst tas upp av en annan region utan tillstånd. Under tiden kan uppdateringar som görs av användaren måste hanteras på rätt sätt (exempelvis lägger till och tar bort från kundvagnen måste överföra). Med flera master kan Azure Cosmos DB hantera dessa scenarier avslutas, med en smidig övergång mellan active regioner samtidigt som en konsekvent vy från användarens synvinkel. 
+* **E-handel** -avveckla fantastiska användarupplevelse i e-handel scenarier behöver hög tillgänglighet och flexibilitet till felscenarier. Om det inte går att en region, vill användarsessioner shopping kundvagnar, aktiva listor behöver sömlöst hämtas av en annan region utan att förlora tillstånd. Under tiden kan uppdateringar som görs av användaren måste hanteras på rätt sätt (till exempel lägger till och tar bort från kundvagnen måste överför via). Med multimaster, kan Azure Cosmos DB hantera sådana scenarier ett smidigt sätt, med en smidig övergång mellan aktiva regioner samtidigt som en enhetlig vy baserat på användarens av. 
 
-* **Bedrägeri/Avvikelseidentifiering** -ofta program som övervakar användaraktivitet eller kontoaktivitet distribueras globalt och måste hålla reda på flera händelser samtidigt. När du skapar och underhålla poängen för en användare, uppdatera åtgärder från olika geografiska regioner samtidigt resultat för att hålla risken mått infogad. Azure Cosmos-DB kan garantera utvecklare inte behöver hantera konflikt scenarier på programnivå. 
+* **Identifiering av bedrägerier/avvikelser** -ofta program som övervakar användaraktivitet eller kontoaktivitet distribueras globalt och måste hålla reda på flera händelser samtidigt. När du skapar och underhålla poäng för en användare, uppdatera åtgärder från olika geografiska regioner samtidigt resultat för att hålla risken mått direkt. Azure Cosmos DB kan garantera att utvecklare inte behöver hantera konflikt scenarier på programnivå. 
 
-* **Samarbete** – för program som skolorna utifrån popularitet artiklar, till exempel varor på försäljning eller media som ska konsumeras osv. Spåra popularitet över geografiska regioner kan få komplicerad, särskilt när royalty måste vara betald eller verkliga reklam beslut görs. Rangordning, sortering och rapportering över flera regioner över hela världen, i realtid med Azure Cosmos DB gör att utvecklare kan tillhandahålla funktioner med mycket ansträngning och utan att kompromissa med svarstider. 
+* **Samarbete** – för program som rangordning utifrån popularitet artiklar, till exempel varor på försäljning eller media som ska konsumeras osv. Spåra popularitet i olika geografiska områden kan bli komplicerade, särskilt om royalty måste vara betald eller verklig tid reklam beslut om. Rangordning, sortering och rapportering i många regioner över hela världen, i realtid med Azure Cosmos DB gör att utvecklare kan leverera funktioner utan besvär och utan att kompromissa med svarstider. 
 
-* **Avläsning** - inventering och reglerar användningen (till exempel API-anrop, transaktioner per sekund minuter används) kan implementeras globalt med enkelhet med hjälp av Azure Cosmos DB flera master. Inbyggda konfliktlösning säkerställer båda noggrannhet i antal och förordning i realtid. 
+* **Avläsning av** – inventering och reglerar användning (till exempel API-anrop, transaktioner/sekund, minut används) kan implementeras globalt enkelt med Azure Cosmos DB multimaster. Inbyggda konfliktlösning säkerställer båda noggrannhet för förordning i realtid. 
 
-* **Anpassning** – om du underhålla geografiskt distribuerade räknare som utlöser åtgärder, till exempel förmåner pekar priser eller implementera anpassade användarsession vyer, hög tillgänglighet och förenklad geodistribuerad inventering som tillhandahålls av Azure Cosmos DB kan program ger hög prestanda med enkelhet. 
+* **Anpassning** – om du hanterar geografiskt distribuerade räknare som utlösa åtgärder, till exempel lojalitet pekar awards eller implementera anpassade användarsession vyer, hög tillgänglighet och förenklad geo-distribuerad Räkna tillhandahålls av Azure Cosmos DB kan program ger hög prestanda med enkelhet. 
 
-## <a name="conflict-resolution-with-multi-master"></a>Konfliktlösning med flera master 
+## <a name="conflict-resolution-with-multi-master"></a>Konfliktlösning med Multi-Master 
 
-Med flera master är det en utmaningen ofta att två (eller fler) repliker av samma post samtidigt kan uppdateras av olika skrivare i två eller flera olika regioner. Samtidiga skrivningar kan leda till att två olika versioner av samma post och utan inbyggda konfliktlösning och programmet måste utföra konfliktlösning för att lösa det här inkonsekvens.  
+Med multimaster är den stora utmaningen ofta att två (eller fler) repliker av samma post kan uppdateras samtidigt av olika skrivare i minst två olika regioner. Samtidiga skrivningar kan leda till två olika versioner av samma post och utan inbyggda konfliktlösning och själva programmet måste utföra konfliktlösning för att lösa det här inkonsekvens.  
 
-**Exempel** -vi antar att du använder Azure Cosmos DB som det beständiga arkivet för ett kundvagnsprogram och det här programmet har distribuerats i två områden: östra USA och västra USA.  Om ungefär på samma gång en användare i San Francisco lägger till ett objekt i sin kundvagn (till exempel en bok) när en process för hantering av inventering i östra USA upphäver ett annat i kundvagn objekt (t.ex, ett nytt telefonnummer) för samma användare som svar på en s meddelande om upplier som lanseringsdatumet har fördröjts. Vid tiden T1 är shopping kundvagn posterna i två regioner olika. Databasen använder dess replikering och konflikt upplösning mekanism för att lösa det här inkonsekvens och slutligen ett av de två versionerna av kundvagnen markeras. Med konflikt upplösning heuristik som oftast används av multimaster databaser (till exempel senaste skrivning wins) är det möjligt för användaren eller programmet att förutsäga vilken version som ska väljas. I båda fallen data förloras eller oväntat kan inträffa. Om den region Öst-versionen är markerad sedan användarens val av ett nytt köp-objekt (det vill säga en bok) går förlorad och väljer region Väst, sedan det tidigare valda objektet (det vill säga phone) är fortfarande i vagnen. Oavsett hur information går förlorad. En annan process undersöks den shopping kundvagn slutligen mellan tid T1 och T2 ska se samt icke-deterministiska beteende. Bakgrunden som väljer automatiserat datalager och uppdaterar kundvagn leverans kostnader skulle exempelvis gav inga resultat som står i konflikt med eventuell innehållet i vagnen. Om processen körs i region Väst och alternativ 1 blir verkligheten, skulle den beräkna leveranskostnader för två objekt även om vagnen snart har bara ett objekt, boken. 
+**Exempel** -antar vi att du använder Azure Cosmos DB som det beständiga arkivet för ett kundvagnsprogram och det här programmet distribueras i två regioner: östra USA och västra USA.  Om ungefär på samma gång en användare i San Francisco lägger till ett objekt till hans kundvagn (till exempel en bok) när en process för hantering av inventering i östra USA upphäver ett annat i kundvagnen objekt (till exempel en ny telefon) för användaren som svar på en s meddelande om upplier som lanseringsdatumet har fördröjts. Vid tiden T1 skiljer i kundvagnen posterna i två regioner. Databasen använder dess replikering och mekanism för lösning av konflikt för att lösa det här inkonsekvens och slutligen en av de två versionerna av kundvagnen kommer att markeras. Med hjälp av konflikt upplösning heuristik som oftast används av flera huvudservrar databaser (till exempel senaste skrivning wins), är det omöjligt för användaren eller programmet att förutsäga vilken version som ska väljas. I båda fallen data förloras eller oväntade problem kan uppstå. Om East region version väljs, sedan användarens val av ett nytt köp-objekt (det vill säga en bok) går förlorad och väljer region Väst, sedan det tidigare valda objektet (det vill säga phone) är fortfarande i i kundvagnen. I båda fallen information tas bort. En annan process som granskar den shopping kundvagn slutligen mellan T1 och T2 kommer att se samt icke-deterministisk beteende. En bakgrundsprocess som markeras betjäna lagret och uppdateras i kundvagnen leveranskostnader skulle till exempel ge resultat som står i konflikt med eventuell innehållet i i kundvagnen. Om processen körs i region Väst och alternativ 1 blir verklighet, skulle den compute leveranskostnader för två objekt, även om i kundvagnen snart har bara ett objekt, boken. 
 
-Azure Cosmos-DB implementerar logik för att hantera motstridiga skrivningar i databasmotorn sig själv. Azure Cosmos-DB erbjuder **omfattande och flexibelt konflikt matchningsstöd** genom att erbjuda flera konflikt upplösning modeller, inklusive automatisk (CRDT konflikt utan replikerad datatyper), senaste skriva Wins (LWW) och anpassade ( Lagrade proceduren) för automatisk konfliktlösning. Konflikt upplösning modeller ge garantier är korrekt och konsekvent och ta bort belastningen från utvecklare behöver tänka på konsekvens, tillgänglighet, prestanda, replikeringsfördröjning och komplicerade kombinationer av händelser under geo-redundans och konflikter mellan region skrivåtgärder.  
+Azure Cosmos DB implementerar logiken för hantering av motstridiga skrivningar i databasmotorn själva. Azure Cosmos DB erbjuder **omfattande och flexibel konflikt matchningsstöd** genom att erbjuda flera konflikt upplösning modeller, inklusive automatisk (CRDT konflikt kostnadsfria replikerad datatyper), senaste skriva Wins (LWW) och anpassade ( Lagrad procedur) för automatisk lösning. Konflikt upplösning modeller ger garantier är korrekt och konsekvens och tar bort belastningen från utvecklare att bekymra dig om konsekvens, tillgänglighet, prestanda, replikeringsfördröjning och komplexa kombinationer av händelser under geo-redundans och skrivkonflikter i över flera regioner.  
 
-  ![Mult master konfliktlösning](./media/multi-region-writers/multi-master-conflict-resolution-blade.png)
+  ![Mult-master konfliktlösning](./media/multi-region-writers/multi-master-conflict-resolution-blade.png)
 
-Du måste 3 typer av konflikt upplösning modeller som erbjuds av Azure Cosmos DB. Semantiken för konflikt upplösning modeller är följande: 
+Har du 3 typer av konflikt upplösning modeller som erbjuds av Azure Cosmos DB. Semantiken för konflikt upplösning modeller är följande: 
 
-**Automatisk** -detta är standardprincipen konflikt lösning. Att välja den här principen gör Azure Cosmos-Databsen ska automatiskt lösa Motstridiga uppdateringar på serversidan och ger stark-eventuell-konsekvens garanterar. Internt, implementerar Azure Cosmos DB automatisk konfliktlösning genom att utnyttja konflikt-kostnadsfri-replikerade-datatyper (CRDTs) i databasmotorn.  
+**Automatisk** – det här är standardprincipen för konfliktlösning. Att välja den här principen gör Azure Cosmos DB att automatiskt lösa Motstridiga uppdateringar på serversidan och ge garanterar stark--konsekvens. Internt, implementerar Azure Cosmos DB automatisk konfliktlösning genom att använda konflikt-kostnadsfri-replikerade-datatyper (CRDTs) i databasmotorn.  
 
-**Senaste skrivning Wins (LWW)** – om du väljer den här principen kan du lösa konflikter baserat på något som definieras synkroniseras tidsstämpel-egenskapen eller en anpassad egenskap definierats på poster i konflikt version. Konfliktlösningen sker på serversidan och version med den senaste tidsstämpeln är markerad som vinnaren.  
+**Senaste-Write-Wins (LWW)** – välja den här principen gör att du kan lösa konflikter baserat på något som definieras synkroniseras tidsstämpelsegenskapen eller en anpassad egenskap definierats på konfliktversionen poster. Konfliktlösningen sker på serversidan och version med den senaste tidsstämpeln är markerad som vinnare.  
 
-**Anpassad** -du kan registrera en definierad konflikt upplösning programlogik genom att registrera en lagrad procedur. Den lagrade proceduren kommer hämta anropas vid identifiering av Uppdateringskonflikter av en databastransaktion på serversidan. Om du väljer alternativet men inte det gick att registrera en lagrad procedur (eller om den lagrade proceduren genererar ett undantag vid körning), du kan använda alla filversioner via konflikter Feed och Lös dem individuellt.  
+**Anpassad** – du kan registrera ett definierat konflikt upplösning programlogiken genom att registrera en lagrad procedur. Den lagrade proceduren kommer få anropas vid identifiering av Uppdateringskonflikter inom ramen för en databastransaktion på serversidan. Om du väljer alternativet men inte det gick att registrera en lagrad procedur (eller om den lagrade proceduren genererar ett undantag vid körning), du kan använda alla filversioner via konflikter Feed och Lös dem individuellt.  
 
 ## <a name="next-steps"></a>Nästa steg  
 
-I den här artikeln upptäckt använda globalt distribuerade flera master med Azure Cosmos DB. Ta en titt på följande resurser: 
+I den här artikeln lärt dig hur du använder globalt distribuerade multimaster med Azure Cosmos DB. Nu ska ta en titt på följande resurser: 
 
-* [Lär dig mer om hur Azure Cosmos DB stöder global distributionsplatsen](distribute-data-globally.md)  
+* [Lär dig mer om hur Azure Cosmos DB stöder global distribution](distribute-data-globally.md)  
 
 * [Lär dig mer om automatisk redundans i Azure Cosmos DB](regional-failover.md)  
 
-* [Lär dig mer om globala konsekvens med Azure Cosmos DB](consistency-levels.md)  
+* [Lär dig mer om global konsekvens med Azure Cosmos DB](consistency-levels.md)  
 
-* Utveckla med flera områden med Azure Cosmos-DB - [SQL API](tutorial-global-distribution-sql-api.md), [MongoDB API](tutorial-global-distribution-mongodb.md), eller [tabell-API](tutorial-global-distribution-table.md)  
+* Utveckla med flera regioner med Azure Cosmos DB - [SQL API](tutorial-global-distribution-sql-api.md), [MongoDB API](tutorial-global-distribution-mongodb.md), eller [tabell-API](tutorial-global-distribution-table.md)  

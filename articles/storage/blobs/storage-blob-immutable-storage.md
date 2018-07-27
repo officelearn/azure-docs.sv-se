@@ -1,38 +1,37 @@
 ---
-title: Oföränderlig lagringsfunktion i Azure Blob Storage (förhandsversion) | Microsoft Docs
-description: Azure Storage erbjuder WORM-stöd för Blob storage-objektet som gör det möjligt att lagra data i ett tillstånd som inte kan raderas och inte kan ändras under en användardefinierad tidsperiod. Den här funktionen gör det möjligt för organisationer i många reglerade branscher, särskilt mäklarorganisationer, att lagra data på ett sätt som är kompatibelt med SEC 17a-4(f) och andra regleringar.
+title: Oföränderlig lagring för Azure Blob storage (förhandsversion) | Microsoft Docs
+description: Azure Storage erbjuder mask (Skriv en gång, Läs många) support för lagring av Blob (objekt) som gör att användarna kan lagra data i ett bevarandeintervallet, icke-ändringsbart tillstånd för ett användardefinierade tidsintervall. MASK stöd för Azure Blob-lagring gör det möjligt för organisationer i många reglerade branscher, särskilt broker-återförsäljare organisationer att lagra data på ett sätt som är kompatibla med sek 17a-4(f) och andra bestämmelser.
 services: storage
 author: sangsinh
-manager: twooley
-ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
+ms.topic: article
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 04e88725c04fc88a8394bafd455d25ea13718f7d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: HT
+ms.component: blobs
+ms.openlocfilehash: a69d26b8c60f25b5710e48500cc727421d9e5c9a
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070016"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263335"
 ---
-# <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Oföränderlig lagringsfunktion i Azure Blob Storage (förhandsversion)
+# <a name="store-business-critical-data-in-azure-blob-storage-preview"></a>Store verksamhetskritiska data i Azure Blob storage (förhandsversion)
 
-Oföränderlig lagringsfunktion för Azure BLOB-funktionen gör att du kan lagra affärskritiska data i Azure Blob Storage i ett WORM-läge (Write Once Read Many). Det här tillståndet kan inte raderas och kan inte ändras under en användardefinierad tidsperiod. Blobbar kan skapas och läsas, men inte ändras eller tas bort under kvarhållningsintervallet.
+Oföränderlig lagring för Azure-blobblagringen (objekt) gör det möjligt för användare att lagra sina verksamhetskritiska data i Azure blob storage med tillståndet mask (Skriv en gång, Läs många). Det här tillståndet kan inte raderas och kan inte ändras under en användardefinierad tidsperiod. Blobar kan skapas och läsa, men inte ändras eller tas bort under Kvarhållningsintervall.
 
 ## <a name="overview"></a>Översikt
 
-Oföränderlig lagringsfunktion gör det möjligt för organisationer i många reglerade branscher, särskilt mäklarorganisationer, att lagra data på ett sätt som är kompatibelt med SEC 17a-4(f) och andra regleringar.
+Oföränderlig storage gör det möjligt för organisationer i många reglerade branscher, särskilt broker-återförsäljare organisationer att lagra data på ett sätt som är kompatibla med sek 17a-4(f) och andra bestämmelser.
 
 Vanliga program innehåller:
 
-- **Regelefterlevnad**: Oföränderlig lagringsfunktion för Azure BLOB-funktionen är avsedd att hjälpa finansiella institutioner och relaterade branscher att åtgärda SEC 17a-4(f), CFTC 1.31©-(d), FINRA etc.
+- **Regelefterlevnad**: oföränderligt lagring för Azure Blob storage har utformats för att hjälpa finansiella institutioner och relaterade branscher åtgärda sek 17a-4(f), CFTC 1.31©-(d) FINRA osv.
 
-- **Säker dokumentkvarhållning**: Användare får maximalt dataskydd eftersom Blob Storage-tjänsten garanterar att data inte kan ändras eller tas bort av någon användare, även de med administrativ behörighet.
+- **Skydda dokumentet kvarhållning**: användare får maximalt dataskydd som Blob-lagring garanterar att data inte ändras eller tas bort av någon användare, inklusive de som har administrativ behörighet.
 
-- **Bevarande av juridiska skäl**: Oföränderlig lagringsfunktion för Azure BLOB gör att användarna kan lagra känslig information som är viktig för en rättstvist eller straffrättslig undersökning osv. i ett manipuleringssäkert tillstånd under önskad varaktighet.
+- **Bevarande av juridiska skäl**: oföränderligt lagring för Azure Blob storage gör att användarna kan lagra känslig information som är viktiga för en tvister eller brottsutredning etc. manipuleringssäker statusen för den önskade varaktigheten.
 
-Oföränderlig lagringsfunktion möjliggör:
+Oföränderlig storage möjliggör:
 
 - **Stöd för tidsbaserad bevarandeprincip:** Användare anger principer för att lagra data under ett angivet tidsintervall.
 
@@ -46,11 +45,11 @@ Oföränderlig lagringsfunktion möjliggör:
 - 
   **Stöd för granskningsloggning:** Varje container innehåller en granskningslogg som visar upp till fem tidsbaserade kvarhållningskommandon för låsta tidsbaserade bevarandeprinciper med högst tre loggar för tillägg av kvarhållningsintervall.  För tidsbaserat bevarande innehåller loggen användar-ID, kommandotyp, tidsstämplar och kvarhållningsintervall. För bevarande av juridiska skäl innehåller loggen användar-ID, kommandotyp, tidsstämplar och taggar för bevarande av juridiska skäl. Den här loggfilen finns kvar under containerns livslängd enligt SEC 17a-4(f) reglerande föreskrifter. En mer omfattande logg över alla aktiviteter i kontrollplanen finns i [Azure-aktivitetsloggen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Det är användarens ansvar att lagra dessa loggar beständigt såsom krävs för reglerande eller andra ändamål.
 
- Funktionen är aktiverad i alla offentliga Azure-regioner.
+Oföränderlig lagring är aktiverat i alla offentliga Azure-regioner.
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-Oföränderlig lagringsfunktion för Azure Blobs har stöd för två typer av WORM- eller oföränderliga principer: tidsbaserad kvarhållning och bevarande av juridiska skäl. Mer information om hur du skapar principerna som inte kan ändras finns i avsnittet [Komma igång](#Getting-started).
+Oföränderlig lagring för Azure Blob storage stöder två typer av mask eller inte kan ändras principer: tidsbaserat bevarande och bevarande av juridiska skäl. Mer information om hur du skapar principerna som inte kan ändras finns i avsnittet [Komma igång](#Getting-started).
 När en bevarandeprincip som baseras på tidpunkt eller bevarande av juridiska skäl används i en container, flyttas alla befintliga blobbar till det oåterkalleliga (skriv- och ta bort-skyddat) tillståndet. Alla nya blobbar som har överförts till containern flyttas också till det oåterkalleliga tillståndet.
 
 > [!IMPORTANT]
@@ -81,7 +80,7 @@ Referera till informationen om [Azure Blob Service-API](https://docs.microsoft.c
 
 > [!NOTE]
 > De första placera Blob- och placera blockeringslista- och placera blockerings-åtgärderna som krävs för att skapa en blob tillåts i de första två scenarierna från tabellen ovan, alla efterföljande åtgärder tillåts inte.
-> Oföränderlig lagringsfunktion är endast tillgänglig i GPv2 och blob storage-konton och måste skapas via [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> Oföränderlig storage är endast tillgänglig i GPv2- och blob storage-konton och måste skapas via den [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="pricing"></a>Prissättning
 
@@ -96,7 +95,7 @@ Följande begränsningar gäller under den offentliga förhandsversionen:
 
 ## <a name="getting-started"></a>Komma igång
 
-Azure oföränderlig lagring för Azure Blob stöds på de senaste versionerna av [Azure Portal](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
+Azure Storage som inte kan ändras för Azure Blob-lagring stöds på de senaste versionerna av [Azure-portalen](http://portal.azure.com)Azure [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), och Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -134,7 +133,7 @@ Azure oföränderlig lagring för Azure Blob stöds på de senaste versionerna a
 
 Installera [CLI-tillägget](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) med `az extension add -n storage-preview`
 
-Om du redan har installerat tillägget använder du följande kommando för att aktivera funktionen oföränderlig lagring: `az extension update -n storage-preview`
+Om du redan har installerat tillägget använder du följande kommando för att aktivera oföränderligt lagring: `az extension update -n storage-preview`
 
 Funktionen ingår i följande kommandogrupper (kör ”-h” på dem för att visa kommandona): `az storage container immutability-policy` och `az storage container legal-hold`.
 
@@ -152,7 +151,7 @@ Ett PowerShell-kodexempel illustrerar hur funktionen tillhandahålls nedan.
 
 ## <a name="client-libraries"></a>Klientbibliotek
 
-Oföränderlig lagringen för Azure Blob-funktionen stöds i följande versioner av klientbibliotek
+Oföränderlig lagring för Azure Blob storage har stöd för följande versioner av klienten bibliotek
 
 - [.NET-klientbibliotek (version 7.2.0-förhandsversion och senare](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
 - [node.js-klientbiblioteket (version 4.0.0 och senare)](https://www.npmjs.com/package/azure-arm-storage)
@@ -172,11 +171,11 @@ Oföränderlig lagringen för Azure Blob-funktionen stöds i följande versioner
 
 **Avser funktionen endast blockeringsblobbar eller sid- och tilläggsblobbar också?**
 
-Funktionen oföränderlig lagringsfunktion för blobbar kan användas med alla blob-datatyper.  Observera dock att det rekommenderas att funktionen främst används för blockeringsblobbar. Till skillnad från blockeringsblobbar, behöver sidblobbar och tilläggsblobbar skapas utanför en WORM-container och sedan kopieras in.  Då de kopierats in till en WORM-container tillåts inte fler *tillägg* till en tilläggsblob eller ändringar av en sidblob.
+Oföränderlig lagring för blobbar kan användas med alla blob-typer.  Observera dock att det rekommenderas att funktionen främst används för blockeringsblobbar. Till skillnad från blockeringsblobbar, behöver sidblobbar och tilläggsblobbar skapas utanför en WORM-container och sedan kopieras in.  Då de kopierats in till en WORM-container tillåts inte fler *tillägg* till en tilläggsblob eller ändringar av en sidblob.
 
 **Behöver jag alltid skapa ett nytt lagringskonto för att använda den här funktionen?**
 
-Du kan använda funktionen för oföränderliga lagring med alla befintliga GPv2-konton eller på nya lagrings-konton om typen är GPv2. Den här funktionen är endast tillgänglig med blob storage.
+Du kan använda lagring som inte kan ändras med eventuella befintliga GPv2-konton eller på nya storage-konton om typen är GPv2. Den här funktionen är endast tillgänglig med blob storage.
 
 
   **Vad händer om jag försöker ta bort en container med en *låst* tidsbaserade bevarandeprincip eller bevarande av juridiska skäl?**
@@ -190,7 +189,7 @@ Borttagningen av lagringskontot misslyckas om det finns minst en WORM-container 
 
 **Kan jag flytta data över olika blob-nivåer (frekvent, lågfrekvent, kall) när blobben är i oförändrat tillstånd?**
 
-Ja, du kan använda kommandot Ange Blob-nivå för att flytta data över blob-nivåer samtidigt som data bevaras i oföränderligt tillstånd. Funktionen för oföränderligt tillstånd stöds på blob-nivåerna frekvent, lågfrekvent och kall.
+Ja, du kan använda kommandot Ange Blob-nivå för att flytta data över blob-nivåer samtidigt som data bevaras i oföränderligt tillstånd. Oföränderlig lagring stöds på nivåerna för frekvent, lågfrekvent och kalla blob.
 
 **Vad händer om jag inte betalat och mitt kvarhållningsintervall inte har gått ut?**
 
@@ -202,7 +201,7 @@ Ja, när en tidsbaserad bevarandeprincip skapas första gången, är det i ett *
 
 **Är funktionen tillgänglig i nationella och offentliga moln?**
 
-Funktionen för oföränderlig lagring finns för närvarande bara i offentliga Azure-regioner. E-post azurestoragefeedback@microsoft.com rörande intresse för ett visst nationellt moln.
+Oföränderlig storage finns för närvarande endast i offentliga Azure-regioner. E-post azurestoragefeedback@microsoft.com rörande intresse för ett visst nationellt moln.
 
 ## <a name="sample-code"></a>Exempelkod
 

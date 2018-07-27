@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 81a404a19dc1604f0aa87ef86883d0c18edac5cd
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: bb2210619e481189fc88ca3bb6b8044a8f5d7e14
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224895"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262956"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Aktivera enterprise tillståndsväxling i Azure Active Directory
 Enterprise State Roaming är tillgänglig för alla företag med en Azure AD Premium eller Enterprise Mobility + Security (EMS)-licens. Mer information om hur du hämtar en Azure AD-prenumeration finns i den [produktsidan för Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -56,7 +56,7 @@ Följ dessa steg om du vill visa en statusrapport för per användare enheten sy
 
 1. Logga in på [Azure AD administratörscenter](https://aad.portal.azure.com/).
 
-2. Välj **Azure Active Directory** &gt; **användare och grupper** &gt; **alla användare**.
+2. Välj **Azure Active Directory** &gt; **användare** &gt; **alla användare**.
 
 3. Välj användaren och välj sedan **enheter**.
 

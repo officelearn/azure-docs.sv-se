@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7a1b6aa9afd26116253482a2e1a9c6a25bdf3c55
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 57d017e2320e5cfea15f1716bc3b6518606e2ea4
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441581"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282260"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Använda portalen för att skapa ett Azure Active Directory-program och tjänstens huvudnamn som kan komma åt resurser
 
-När du har kod som behöver åtkomst till eller ändra resurser kan ställa du in ett Azure Active Directory (AD)-program. Du kan tilldela behörigheterna som krävs för att AD-program. Den här metoden är bättre att köra appen enligt dina autentiseringsuppgifter eftersom du kan tilldela behörigheter till appen identiteten som skiljer sig från dina egna behörigheter. Vanligen är dessa behörigheter begränsade till exakt vad appen behöver göra.
+När du har kod som behöver åtkomst till eller ändra resurser kan ställa du in ett Azure Active Directory (AD)-program. Du kan sedan tilldela behörigheterna som krävs för AD-programmet. Den här metoden är bättre att köra appen enligt dina autentiseringsuppgifter eftersom du kan tilldela behörigheter till appen identiteten som skiljer sig från dina egna behörigheter. Vanligen är dessa behörigheter begränsade till exakt vad appen behöver göra.
 
 Den här artikeln visar hur du utför de här stegen via portalen. Den fokuserar på en enda klient program där programmet är avsett att köras i endast en organisation. Du använder vanligtvis enda klient program för line-of-business-program som körs i din organisation.
 
@@ -156,7 +156,7 @@ Du kan ange omfånget för den prenumerationen, resursgruppen eller resursen. Be
 
    ![Välj Lägg till](./media/resource-group-create-service-principal-portal/select-add.png)
 
-1. Välj den roll som du vill tilldela till programmet. Följande bild visar den **läsare** roll.
+1. Välj den roll som du vill tilldela till programmet. För att köra programmet åtgärder som att **omstart**, **starta** och **stoppa** instanser, du måste ha att välja rollen **deltagare**. Följande bild visar den **läsare** roll.
 
    ![Välj roll](./media/resource-group-create-service-principal-portal/select-role.png)
 

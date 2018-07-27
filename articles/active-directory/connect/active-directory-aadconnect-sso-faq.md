@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d49164748079346f24aeeebe216b2668a4e3aed
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9c59db56ad78818d9b6165d27fd2e64f0bfd902c
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258508"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283231"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sömlös enkel inloggning: vanliga frågor och svar
 
@@ -94,10 +94,8 @@ Följ dessa steg på den lokala servern där du kör Azure AD Connect:
 
 1. Anropa `$creds = Get-Credential`. När du uppmanas, anger du inloggningsuppgifterna för domänadministratören för den avsedda AD-skogen.
 
->[!NOTE]
->Vi använder den domänadministratör, det tillhandahållna användarnamnet i User Principal namn (UPN) (johndoe@contoso.com)-format eller domän kvalificerade sam-konto (contoso\johndoe eller contoso.com\johndoe) namnformatet, att hitta rätt AD-skogen. Om du använder domän kvalificerade sam-kontonamnet som vi använder domändelen i användarnamnet för att [hitta domänkontrollant av domänadministratören med hjälp av DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Om du använder UPN i stället vi [översätta det till en domän kvalificerade sam-kontonamnet](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) innan du hitta rätt domänkontrollanten.
-
-använda UPN-namn, vi översätta 
+    >[!NOTE]
+    >Vi använder den domänadministratör, det tillhandahållna användarnamnet i User Principal namn (UPN) (johndoe@contoso.com)-format eller domän kvalificerade sam-konto (contoso\johndoe eller contoso.com\johndoe) namnformatet, att hitta rätt AD-skogen. Om du använder domän kvalificerade sam-kontonamnet som vi använder domändelen i användarnamnet för att [hitta domänkontrollant av domänadministratören med hjälp av DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Om du använder UPN i stället vi [översätta det till en domän kvalificerade sam-kontonamnet](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) innan du hitta rätt domänkontrollanten.
 
 2. Anropa `Update-AzureADSSOForest -OnPremCredentials $creds`. Det här kommandot uppdaterar dekrypteringsnyckel Kerberos för den `AZUREADSSOACC` datorkonto i den här specifika AD-skogen och uppdaterar den i Azure AD.
 3. Upprepa föregående steg för varje AD-skog som du har ställt in funktionen på.
@@ -107,17 +105,36 @@ använda UPN-namn, vi översätta
 
 ## <a name="how-can-i-disable-seamless-sso"></a>Hur kan jag inaktivera sömlös enkel inloggning?
 
-Du kan inaktivera sömlös enkel inloggning med Azure AD Connect.
+### <a name="step-1-disable-the-feature-on-your-tenant"></a>Steg 1. Inaktivera funktionen på din klient
 
-Kör Azure AD Connect, Välj ”Ändra användare på inloggningssidan” och klicka på ”Nästa”. Avmarkera sedan alternativet ”Aktivera enkel inloggning”. Fortsätt genom guiden. När du har slutfört guiden har sömlös enkel inloggning inaktiverats på din klient.
+#### <a name="option-a-disable-using-azure-ad-connect"></a>Alternativ A: inaktivera med Azure AD Connect
 
-Dock visas ett meddelande på skärmen som lyder som följer:
+1. Kör Azure AD Connect, Välj **ändra användare på inloggningssidan** och klicka på **nästa**.
+2. Avmarkera den **aktivera enkel inloggning** alternativet. Fortsätt genom guiden.
+
+När du har slutfört guiden för inaktiveras sömlös SSO på din klient. Dock visas ett meddelande på skärmen som lyder som följer:
 
 ”Enkel inloggning har inaktiverats, men det finns ytterligare manuella steg för att utföra för att slutföra rensningen. Läs mer ”
 
-För att slutföra processen, gör du följande manuella på den lokala servern där du kör Azure AD Connect:
+Om du vill slutföra rensningen, följer du steg 2 och 3 på den lokala servern där du kör Azure AD Connect.
 
-### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Steg 1. Hämta lista över AD-skogar där sömlös enkel inloggning har aktiverats
+#### <a name="option-b-disable-using-powershell"></a>Alternativ B: inaktivera med hjälp av PowerShell
+
+Kör följande steg på den lokala servern där du kör Azure AD Connect:
+
+1. Först, hämta och installera den [Microsoft Online Services-inloggningsassistent](http://go.microsoft.com/fwlink/?LinkID=286152).
+2. Hämta och installera sedan den [64-bitars Azure Active Directory-modulen för Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+3. Gå till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
+4. Importera sömlös SSO-PowerShell-modulen med hjälp av det här kommandot: `Import-Module .\AzureADSSO.psd1`.
+5. Kör PowerShell som administratör. I PowerShell, anropa `New-AzureADSSOAuthenticationContext`. Det här kommandot bör ge dig ett fönster för att ange autentiseringsuppgifterna för Global administratör för din klient.
+6. Anropa `Enable-AzureADSSO -Enable $false`.
+
+>[!IMPORTANT]
+>Inaktivera sömlös SSO ändrar med hjälp av PowerShell inte status i Azure AD Connect. Sömlös SSO ska visas som aktiverat i den **ändra användarinloggning** sidan.
+
+### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Steg 2. Hämta lista över AD-skogar där sömlös enkel inloggning har aktiverats
+
+Följ steg 1 till 5 nedan om du har inaktiverat sömlös enkel inloggning med Azure AD Connect. Om du har inaktiverat sömlös SSO med hjälp av PowerShell i stället kan du gå vidare till steg 6 nedan.
 
 1. Först, hämta och installera den [Microsoft Online Services-inloggningsassistent](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. Hämta och installera sedan den [64-bitars Azure Active Directory-modulen för Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
@@ -126,7 +143,7 @@ För att slutföra processen, gör du följande manuella på den lokala servern 
 5. Kör PowerShell som administratör. I PowerShell, anropa `New-AzureADSSOAuthenticationContext`. Det här kommandot bör ge dig ett fönster för att ange autentiseringsuppgifterna för Global administratör för din klient.
 6. Anropa `Get-AzureADSSOStatus`. Det här kommandot innehåller en lista över AD-skogar (titt på listan ”domäner”) på som den här funktionen har aktiverats.
 
-### <a name="step-2-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Steg 2. Ta manuellt bort de `AZUREADSSOACCT` datorkontot från varje AD-skog i listan.
+### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Steg 3. Ta manuellt bort de `AZUREADSSOACCT` datorkontot från varje AD-skog i listan.
 
 ## <a name="next-steps"></a>Nästa steg
 

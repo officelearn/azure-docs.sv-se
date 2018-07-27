@@ -2,18 +2,18 @@
 title: Reagera på Azure Blob storage-händelser | Microsoft Docs
 description: Använd Azure Event Grid för att prenumerera på Blob Storage-händelser.
 services: storage,event-grid
-keywords: ''
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 68d722338562d21d59dd720250a62b8603c8af43
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.component: blobs
+ms.openlocfilehash: 6f3afa22a50728070c42cd6e2eff0cc148815fbc
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076548"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262692"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagera på Blob storage-händelser
 
@@ -42,7 +42,7 @@ BLOB storage-händelser innehåller all information du behöver för att svara p
 > |Egenskap |Typ|Beskrivning|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |ämne|sträng|Fullständig Azure Resource Manager-id för det lagringskonto som genererar händelsen.|
-> |ämne|sträng|Relativ resurssökväg till objektet som omfattas av händelsen, med samma utökade Azure Resource Manager-format som vi använder för att beskriva storage-konton, tjänster och behållare för Azure RBAC.  Det här formatet innehåller ett bevara blobnamn.|
+> |Ämne|sträng|Relativ resurssökväg till objektet som omfattas av händelsen, med samma utökade Azure Resource Manager-format som vi använder för att beskriva storage-konton, tjänster och behållare för Azure RBAC.  Det här formatet innehåller ett bevara blobnamn.|
 > |eventTime|sträng|Datum/tid som händelsen har genererats i ISO 8601-format|
 > |Händelsetyp|sträng|”Microsoft.Storage.BlobCreated” eller ”Microsoft.Storage.BlobDeleted”|
 > |Id|sträng|Unik identifierare om den här händelsen|

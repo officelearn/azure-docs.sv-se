@@ -1,5 +1,5 @@
 ---
-title: Skapa Kafka aktiverat Azure Event Hubs | Microsoft Docs
+title: Skapa Apache Kafka aktiverat Azure Event Hubs | Microsoft Docs
 description: Skapa en Kafka aktiverat Event Hubs-namnområde med Azure portal
 services: event-hubs
 documentationcenter: .net
@@ -10,18 +10,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: shvija
-ms.openlocfilehash: 7a05a89fdf99efb6470ee9c8695f349cf22b8ebb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 79b6b879bd2332c044ce871e2c9a938c6b9c900c
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442135"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285096"
 ---
-# <a name="create-kafka-enabled-event-hubs"></a>Skapa Kafka aktiverat händelsehubbar
+# <a name="create-apache-kafka-enabled-event-hubs"></a>Skapa Apache Kafka aktiverat händelsehubbar
 
 Azure Event Hubs är en stor Dataströmningsplattform som en tjänst (PaaS) som matar in miljontals händelser per sekund och ger mindre fördröjning och högt dataflöde för analys i realtid och visualisering.
 
-Azure Event Hubs för Kafka ekosystem ger dig en slutpunkt. Den här slutpunkten kan Event Hubs-namnområdet att förstå internt [Apache Kafka](https://kafka.apache.org/intro) meddelande protokoll och API: er. Med den här funktionen kan du kommunicera med dina event hubs precis som med Kafka-avsnitt utan att ändra protokoll-klienter eller ditt eget kluster som körs. Händelsehubbar för Kafka ekosystem stöder [Apache Kafka versioner 1.0](https://kafka.apache.org/10/documentation.html) och senare.
+Händelsehubbar i Azure ger dig en Kafka-slutpunkt. Den här slutpunkten kan Event Hubs-namnområdet att förstå internt [Apache Kafka](https://kafka.apache.org/intro) meddelande protokoll och API: er. Med den här funktionen kan du kommunicera med dina event hubs precis som med Kafka-avsnitt utan att ändra protokoll-klienter eller ditt eget kluster som körs. Har stöd för Händelsehubbar [Apache Kafka versioner 1.0](https://kafka.apache.org/10/documentation.html) och senare.
 
 Den här artikeln beskriver hur du skapar ett namnområde för Event Hubs och hämta anslutningssträngen som krävs för att ansluta Kafka-program till Kafka-aktiverade event hubs.
 
@@ -58,7 +58,7 @@ Du kan nu strömma händelser från dina program som använder Kafka-protokollet
 Mer information om Händelsehubbar finns i följande länkar:
 
 * [Stream till Event Hubs från Kafka-program](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-* [Läs om Event Hubs för Kafka-ekosystem](event-hubs-for-kafka-ecosystem-overview.md)
+* [Läs om Event Hubs för Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * [Läs om Event Hubs](event-hubs-what-is-event-hubs.md)
 
 

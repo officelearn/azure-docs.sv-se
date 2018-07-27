@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d30006fae8a0d495909b9a53cf0bffb5cc824433
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 793a65347552782c4a3482b29d10e4c94ef85663
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38295404"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263239"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Felsökning av anslutningsproblem med Azure AD Connect
 Den här artikeln förklarar hur anslutningar mellan Azure AD Connect och Azure AD fungerar och hur du felsöker problem med nätverksanslutningen. Dessa problem är mest sannolikt ska synas i en miljö med en proxyserver.
@@ -52,7 +52,7 @@ I följande tabell är det absoluta minst för att kunna ansluta till Azure AD p
 | \*.microsoftonline.com |HTTPS/443 |Används för att konfigurera Azure AD-katalogen och importera/exportera data. |
 
 ## <a name="errors-in-the-wizard"></a>Fel i guiden
-Installationsguiden använder två olika kontexter. På sidan **Anslut till Azure AD**, den använder den för tillfället inloggade användaren. På sidan **konfigurera**, ändras till den [konto som kör tjänsten för Synkroniseringsmotorn](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). Om det finns ett problem, visas den mest sannolika redan på den **Anslut till Azure AD** sidan i guiden eftersom proxykonfigurationen är globala.
+Installationsguiden använder två olika kontexter. På sidan **Anslut till Azure AD**, den använder den för tillfället inloggade användaren. På sidan **konfigurera**, ändras till den [konto som kör tjänsten för Synkroniseringsmotorn](active-directory-aadconnect-accounts-permissions.md#adsync-service-account). Om det finns ett problem, visas den mest sannolika redan på den **Anslut till Azure AD** sidan i guiden eftersom proxykonfigurationen är globala.
 
 Följande är de vanligaste fel som uppstår i installationsguiden.
 
@@ -161,28 +161,28 @@ Nätverks- och proxyinställningar konfigurationsproblem. Nätverket kan inte n�
 ### <a name="user-password-expired"></a>Användarens lösenord har upphört att gälla
 Dina autentiseringsuppgifter har upphört att gälla. Ändra lösenordet.
 
-### <a name="authorizationfailure"></a>AuthorizationFailure
-Okänd orsak.
+### <a name="authorization-failure"></a>Auktoriseringen misslyckades
+Det gick inte att auktorisera användare att utföra åtgärden i Azure AD.
 
 ### <a name="authentication-cancelled"></a>Autentisering har avbrutits
 Multifaktorautentisering (MFA) utmaningen avbröts.
 
-### <a name="connecttomsonline"></a>ConnectToMSOnline
+### <a name="connect-to-ms-online-failed"></a>Ansluta till MS Online misslyckades
 Autentiseringen lyckades, men Azure AD PowerShell har ett problem med autentisering.
 
-### <a name="azurerolemissing"></a>AzureRoleMissing
-Autentiseringen lyckades. Du är inte en global administratör.
+### <a name="azure-ad-global-admin-role-needed"></a>Rollen som Global administratör i en Azure AD och behövs
+Användaren autentiserades har. Men användaren inte har tilldelats rollen som global administratör. Det här är [hur du kan tilldela rollen som global administratör](../users-groups-roles/directory-assign-admin-roles.md) för användaren. 
 
-### <a name="privilegedidentitymanagement"></a>PrivilegedIdentityManagement
+### <a name="privileged-identity-management-enabled"></a>Privileged Identity Management-aktiverade
 Autentiseringen lyckades. Privileged identity management har aktiverats och du är för närvarande inte en global administratör. Mer information finns i [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
-### <a name="companyinfounavailable"></a>CompanyInfoUnavailable
+### <a name="company-information-unavailable"></a>Företagsinformation som är inte tillgänglig
 Autentiseringen lyckades. Det gick inte att hämta företagets information från Azure AD.
 
-### <a name="retrievedomains"></a>RetrieveDomains
+### <a name="domain-information-unavailable"></a>Inte tillgänglig domäninformation
 Autentiseringen lyckades. Det gick inte att hämta domäninformation från Azure AD.
 
-### <a name="unexpected-exception"></a>Oväntat undantag
+### <a name="unspecified-authentication-failure"></a>Ospecificerad autentiseringsfel
 Visas som ett oväntat fel inträffade i installationsguiden. Kan inträffa om du försöker använda en **Account** snarare än en **school-eller organisationskonto**.
 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Felsökning för tidigare versioner.

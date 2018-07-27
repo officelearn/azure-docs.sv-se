@@ -16,12 +16,12 @@ ms.date: 07/09/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: f1d85b031abda73c6ca41d6d2551db9d9cd36f1f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ac338283bfe123e70697b0301fdccca886653c42
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092162"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285307"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>SaaS-programintegration med Azure Active Directory
 
@@ -33,7 +33,7 @@ En uttömmande lista med SaaS-appar som är förintegrerade i Azure AD finns i d
 
 ## <a name="non-alphabetic"></a>Icke-alfabetiska
 
-| Logo | Självstudiekursen för enkel inloggning | Självstudiekursen för etableringen av användare |
+| Logotyp | Självstudiekursen för enkel inloggning | Självstudiekursen för etableringen av användare |
 | :---: | :--- | :--- |
 | ![logotyp](./media/tutorial-list/active-directory-saas-andfrankly-tutorial.png)| [& sanningen](andfrankly-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-10000ftplans-tutorial.png)| [10 000 fot planer](10000ftplans-tutorial.md)|
@@ -45,7 +45,7 @@ En uttömmande lista med SaaS-appar som är förintegrerade i Azure AD finns i d
 
 ## <a name="a"></a>A
 
-| Logo | Självstudiekursen för enkel inloggning | Självstudiekursen för etableringen av användare |
+| Logotyp | Självstudiekursen för enkel inloggning | Självstudiekursen för etableringen av användare |
 | :---: | :--- | :--- |
 | ![logotyp](./media/tutorial-list/active-directory-saas-abintegro-tutorial.png)| [Abintegro](abintegro-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-absorblms-tutorial.png)| [Absorbera LMS](absorblms-tutorial.md)|
@@ -90,7 +90,7 @@ En uttömmande lista med SaaS-appar som är förintegrerade i Azure AD finns i d
 
 ## <a name="b"></a>B
 
-| Logo | Självstudiekursen för enkel inloggning | Självstudiekursen för etableringen av användare |
+| Logotyp | Självstudiekursen för enkel inloggning | Självstudiekursen för etableringen av användare |
 | :---: | :--- | :--- |
 | ![logotyp](./media/tutorial-list/active-directory-saas-bamboo-hr-tutorial.png)| [BambooHR](bamboo-hr-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-bambubysproutsocial-tutorial.png)| [Bambu av huvudet Social](bambubysproutsocial-tutorial.md)|
@@ -120,7 +120,7 @@ En uttömmande lista med SaaS-appar som är förintegrerade i Azure AD finns i d
 
 ## <a name="c"></a>C
 
-| Logo | Självstudiekursen för enkel inloggning | Självstudiekursen för etableringen av användare |
+| Logotyp | Självstudiekursen för enkel inloggning | Självstudiekursen för etableringen av användare |
 | :---: | :--- | :--- |
 | ![logotyp](./media/tutorial-list/active-directory-saas-cappm-tutorial.png)| [CA-PPM](cappm-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-canvas-lms-tutorial.png)| [Arbetsytan Lms](canvas-lms-tutorial.md)|
@@ -164,7 +164,7 @@ En uttömmande lista med SaaS-appar som är förintegrerade i Azure AD finns i d
 
 ## <a name="d---e"></a>D - E
 
-| Logo | Självstudiekursen för enkel inloggning | Självstudiekursen för etableringen av användare |
+| Logotyp | Självstudiekursen för enkel inloggning | Självstudiekursen för etableringen av användare |
 | :---: | :--- | :--- |
 | ![logotyp](./media/tutorial-list/active-directory-saas-databasics-tutorial.png)| [DATABASICS](databasics-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-datahug-tutorial.png)| [Datahug](datahug-tutorial.md)|
@@ -203,7 +203,7 @@ En uttömmande lista med SaaS-appar som är förintegrerade i Azure AD finns i d
 
 ## <a name="f---g"></a>F - G
 
-| Logo | Självstudiekursen för enkel inloggning | Självstudiekursen för etableringen av användare |
+| Logotyp | Självstudiekursen för enkel inloggning | Självstudiekursen för etableringen av användare |
 | :---: | :--- | :--- |
 | ![logotyp](./media/tutorial-list/active-directory-saas-factset-tutorial.png)| [FactSet](factset-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-fidelitynetbenefits-tutorial.png)| [Återgivning NetBenefits](fidelitynetbenefits-tutorial.md)|
@@ -330,7 +330,7 @@ En uttömmande lista med SaaS-appar som är förintegrerade i Azure AD finns i d
 | ![logotyp](./media/tutorial-list/active-directory-saas-lifesize-cloud-tutorial.png)| [Lifesize molnet](lifesize-cloud-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-worksmobile-tutorial.png)| [RAD FUNGERAR](worksmobile-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-linkedinelevate-tutorial.png)| [LinkedIn höjer](linkedinelevate-tutorial.md)|[Utöka LinkedIn - användaren etablering](linkedinelevate-provisioning-tutorial.md)|
-| ![logotyp](./media/tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](linkedinlearning-tutorial.md)|[LinkedIn Learning - etableringen av användare](linkedinlearning-provisioning-tutorial.md)|
+| ![logotyp](./media/tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](linkedinlearning-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-linkedinsalesnavigator-tutorial.png)| [LinkedIn Sales Navigator](linkedinsalesnavigator-tutorial.md)|  [LinkedIn Sales Navigator - etableringen av användare](linkedinsalesnavigator-provisioning-tutorial.md)| 
 | ![logotyp](./media/tutorial-list/active-directory-saas-liquidfiles-tutorial.png)| [LiquidFiles](liquidfiles-tutorial.md)|
 | ![logotyp](./media/tutorial-list/active-directory-saas-litmos-tutorial.png)| [Litmos](litmos-tutorial.md)|

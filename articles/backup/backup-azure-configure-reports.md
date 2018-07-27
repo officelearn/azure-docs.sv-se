@@ -6,15 +6,15 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/10/2017
+ms.date: 07/26/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81653f9125b9cc4411e5cfe358bd602f92c5bf89
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: bd6228b6cb7409144a0cd16d6c9617b7127c3624
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448374"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264969"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 Den här artikeln handlar om åtgärder för att konfigurera rapporter för Azure Backup med Recovery Services-valvet och till dessa rapporter med Power BI. När du har utfört dessa steg kan du direkt Gå till Power BI för att visa alla rapporter, anpassa och skapa rapporter. 
@@ -24,7 +24,6 @@ Den här artikeln handlar om åtgärder för att konfigurera rapporter för Azur
 2. Rapporter för Azure SQL, DPM och Azure Backup Server stöds inte just nu.
 3. Du kan visa rapporter över valv och mellan prenumerationer, om samma lagringskonto har konfigurerats för varje valv. Valda lagringskontot ska vara i samma region som recovery services-valv.
 4. Frekvensen för schemalagd uppdatering för rapporterna är 24 timmar i Power BI. Du kan också utföra en ad hoc-uppdatering av rapporter i Power BI, i vilket fall senaste data i kundens lagringskonto används för återgivning av rapporter. 
-5. Azure Backup-rapporter stöds inte för närvarande i nationella moln.
 
 ## <a name="prerequisites"></a>Förutsättningar
 1. Skapa en [Azure storage-konto](../storage/common/storage-create-storage-account.md#create-a-storage-account) konfigureras för rapporter. Det här lagringskontot används för att lagra relaterade data i rapporter.
@@ -75,7 +74,7 @@ Använd följande steg för att konfigurera storage-konto för recovery services
 ## <a name="view-reports-in-power-bi"></a>Visa rapporter i Power BI 
 När du konfigurerar lagringskontot för rapporter med hjälp av recovery services-valv, tar det cirka 24 timmar för rapporteringsdata att börjar flöda. Använd följande steg för att visa rapporter i Power BI efter 24 timmar för att ställa in storage-konto:
 1. [Logga in](https://powerbi.microsoft.com/landing/signin/) till Powerbi.
-2. Klicka på **hämta Data** och klicka på **hämta** under **Services** i innehållsbiblioteket Pack. Använd åtgärderna som nämns i [Power BI-dokumentationen för att komma åt Innehållspaketet](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/).
+2. Klicka på **hämta Data** och klicka på **hämta** under **Services** i innehållsbiblioteket Pack. Använd åtgärderna som nämns i [Power BI-dokumentationen för att komma åt Innehållspaketet](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
 
      ![Importera Innehållspaketet](./media/backup-azure-configure-reports/content-pack-import.png)
 3. Typ **Azure Backup** i sökfältet och klicka på **Hämta nu**.

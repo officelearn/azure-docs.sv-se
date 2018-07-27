@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e56b6f9360bdbfe2c5dcb2e81862cb80310bf54c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6b5cc1eff5c6d080854754ec5b3b62068f1cbb9c
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928740"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264723"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (och svar FAQ) 
 Den här sidan får du svar på vanliga frågor om Azure Active Directory (Azure AD) B2C. Kontrollera tillbaka för uppdateringar.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Varför kan jag inte använda Azure AD B2C-tillägget i Azure-portalen?
-Det finns två vanliga orsaker till varför Azure AD-extesion inte fungerar för dig.  Azure AD B2C kräver din användarroll i katalogen är global administratör.  Kontakta administratören om du tror att du ska ha åtkomst.  Om du har behörigheter som global administratör kan du kontrollera att du är i en Azure AD B2C-katalog och inte en Azure Active Directory-katalog.  Du kan se anvisningar för [skapar en Azure AD B2C-katalog här](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
+Det finns två vanliga orsaker till varför Azure AD-tillägget inte fungerar för dig.  Azure AD B2C kräver din användarroll i katalogen är global administratör.  Kontakta administratören om du tror att du ska ha åtkomst.  Om du har behörigheter som global administratör kan du kontrollera att du är i en Azure AD B2C-katalog och inte en Azure Active Directory-katalog.  Du kan se anvisningar för [skapar en Azure AD B2C-katalog här](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Kan jag använda Azure AD B2C-funktioner i min befintliga, anställd-baserad Azure AD-klient?
 Azure AD och Azure AD B2C är separata produkterbjudanden och kan inte finnas i samma klient.  En Azure AD-klient representerar en organisation.  En Azure AD B2C-klient representerar en samling med identiteter som ska användas med förlitande parters program.  Azure AD B2C kan federera Azure AD att tillåta autentisering av anställda i en organisation med anpassade principer (i allmänt tillgänglig förhandsversion).
@@ -118,7 +118,7 @@ Följ dessa steg för att ta bort din Azure AD B2C-klient:
 1. Nu logga in på den [Azure-portalen](https://portal.azure.com/) som administratör för prenumerationen. (Använd samma arbets- eller skolkonto eller samma Microsoft-konto som användes för att registrera dig för Azure.)
 1. Växla till Azure AD B2C-klient som du vill ta bort.
 2. Gå till Active Directory-menyn till vänster.
-3. Välj **användare och grupper**.
+3. Välj **Användare och grupper**.
 4. Markera varje användare i sin tur (Uteslut du för närvarande är inloggad som administratör för prenumerationen användaren). Klicka på **ta bort** längst ned på sidan och klicka på **Ja** när du tillfrågas.
 5. Klicka på den **appregistreringar**.
 6. Välj program, kallat **b2c-extensions-app**. Klicka på **ta bort** och klicka på **Ja** när du tillfrågas.

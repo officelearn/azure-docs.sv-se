@@ -1,21 +1,20 @@
 ---
-title: Exempel för taligenkänning | Microsoft Docs
+title: Exempel för taligenkänning
 titleSuffix: Microsoft Cognitive Services
 description: Här är ett exempel för taligenkänning.
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 3e9afc990d6bfa73eb045e7ed76dfd194df309c6
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: a0d1575787b83b95a52a2097f59a06e3c5b5bc6f
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213215"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285113"
 ---
 # <a name="sample-for-intent-recognition"></a>Exempel för taligenkänning
 

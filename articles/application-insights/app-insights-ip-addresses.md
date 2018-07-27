@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: d96fbac6ae09e8b6611ff615ba1f95fc1a084f89
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 306cb1fde67e877ccfd7c4d6dee093492e72d0a7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205739"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285324"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-adresser som används av Application Insights och Log Analytics
 Den [Azure Application Insights](app-insights-overview.md) tjänsten använder ett antal IP-adresser. Du kan behöva veta dessa adresser om den app som du övervakar finns bakom en brandvägg.
@@ -28,12 +28,17 @@ Den [Azure Application Insights](app-insights-overview.md) tjänsten använder e
 > 
 > 
 
+> [!TIP]
+> Prenumerera på den här sidan som en RSS-flöde genom att lägga till https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/application-insights/app-insights-ip-addresses.md.atom för läsaren favorit RSS-/ ATOM för att få ett meddelande om de senaste ändringarna.
+> 
+> 
+
 ## <a name="outgoing-ports"></a>Utgående portar
 Du måste öppna vissa utgående portar i serverns Brandvägg för att Application Insights SDK och/eller statusövervakaren att skicka data till portalen:
 
 | Syfte | URL | IP-adress | Portar |
 | --- | --- | --- | --- |
-| Telemetri |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
+| Telemetri |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54 | 443 |
 | Live Metrics Stream |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
 
 ## <a name="status-monitor"></a>Statusövervakaren

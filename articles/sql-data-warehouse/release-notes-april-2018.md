@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 05/28/2018
+ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: ae3d4c3e732024baae29f75fda6f6e821af701a2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 77f0444915a845a409f15d4533fe9593730e9bbb
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630351"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282642"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-april-2018"></a>Vad är nytt i Azure SQL Data Warehouse? April 2018
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i April 2018.
@@ -55,3 +55,23 @@ Mer information finns i den [frågor](https://docs.microsoft.com/azure/sql-data-
 
 ## <a name="removed-the-syspdwdatabasemappings-view-behavior-change"></a>Ta bort SYS. PDW_DATABASE_MAPPINGS vy (Funktionsändring)
 Detta `sys.pdw_database_mappings` vyn kan inte används i SQL Data Warehouse. Tidigare var en väljer i den här vyn skulle inga resultat returneras. Vyn har tagits bort. 
+
+## <a name="next-steps"></a>Nästa steg
+Nu när du vet lite om SQL Data Warehouse, lär du dig hur du snabbt [skapa ett SQL Data Warehouse] [skapa ett SQL Data Warehouse] och [läsa in exempeldata] [läsa in exempeldata]. Om du är nybörjare på Azure kan vara i [Azure-ordlistan] [Azure-ordlistan] vara till hjälp eftersom du stöta på ny terminologi. Eller så kan du se över några av de övriga SQL Data Warehouse-resurserna.  
+
+* [Kundernas framgångsberättelser]
+* [Bloggar]
+* [Funktionsbegäranden]
+* [Videoklipp]
+* [Customer Advisory Team-bloggar]
+* [Stack Overflow-forum]
+* [Twitter]
+
+
+[Bloggar]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[Customer Advisory Team-bloggar]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Kundernas framgångsberättelser]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
+[Funktionsbegäranden]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Twitter]: https://twitter.com/hashtag/SQLDW
+[Videoklipp]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse

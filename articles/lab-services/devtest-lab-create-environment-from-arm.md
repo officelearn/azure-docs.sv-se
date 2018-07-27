@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: f73b6f594403ce51fcff4d757990afb3ce4a82bc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5ae7a0d3aa0606fd02bfbaa0dcebdfaed5d11eb7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004854"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283109"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Skapa miljöer för flera virtuella datorer och PaaS-resurser med Azure Resource Manager-mallar
 
-Den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040) kan du enkelt [skapar och lägger till en virtuell dator till ett labb](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Detta fungerar bra för att skapa en virtuell dator i taget. Men om miljön innehåller flera virtuella datorer kan måste varje virtuell dator individuellt skapas. För scenarier, till exempel en webbapp för flera nivåer eller en SharePoint-servergrupp krävs en mekanism för att tillåta för att skapa flera virtuella datorer i ett enda steg. Med hjälp av Azure Resource Manager-mallar kan du nu definierar infrastruktur och konfiguration av din Azure-lösning och upprepade gånger distribuera flera virtuella datorer i ett konsekvent tillstånd. Den här funktionen ger följande fördelar:
+Den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040) kan du enkelt [lägga till en virtuell dator i taget till ett labb](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Men om miljön innehåller flera virtuella datorer kan måste varje virtuell dator individuellt skapas. För scenarier, till exempel en webbapp för flera nivåer eller en SharePoint-servergrupp krävs en mekanism för att tillåta för att skapa flera virtuella datorer i ett enda steg. Med hjälp av Azure Resource Manager-mallar kan du nu definierar infrastruktur och konfiguration av din Azure-lösning och upprepade gånger distribuera flera virtuella datorer i ett konsekvent tillstånd. Den här funktionen ger följande fördelar:
 
 - Azure Resource Manager-mallar har lästs in direkt från centrallagret för källkontroll (GitHub eller Team Services Git).
 - När du konfigurerat dina användare kan skapa en miljö genom att välja en Azure Resource Manager-mall från Azure portal, precis som med andra typer av [VM-databaser](./devtest-lab-comparing-vm-base-image-types.md).
@@ -43,6 +43,8 @@ Mer information om många [fördelarna med att använda Resource Manager-mallar]
 
 Som en av de bästa metoderna med infrastruktur som kod och konfiguration som kod, ska miljömallar hanteras i källkontrollen. Azure DevTest Labs följer den här övningen och läser in alla Azure Resource Manager-mallar direkt från GitHub eller VSTS Git-lagringsplatser. Resource Manager-mallar kan därför användas över hela lanseringen-livscykel, från testmiljö till produktionsmiljön.
 
+Se vilka mallar som skapats av DevTest Labs-teamet i den [offentliga GitHub-lagringsplatsen](https://github.com/Azure/azure-devtestlab/tree/master/Environments). I den här offentliga databasen, kan du visa mallar som delas av andra att du kan använda direkt eller anpassa dem efter dina behov. När du har skapat mallen kan du lagra den i den här lagringsplatsen att dela den med andra. Du kan också ställa in din egen Git-lagringsplats med mallar som kan användas för att konfigurera miljöer i molnet. 
+
 Det finns några regler för att följa för att organisera dina Azure Resource Manager-mallar i en databas:
 
 - Master mallfilen måste ha namnet `azuredeploy.json`. 
@@ -50,18 +52,18 @@ Det finns några regler för att följa för att organisera dina Azure Resource 
     ![Nyckeln Azure Resource Manager-mallfiler](./media/devtest-lab-create-environment-from-arm/master-template.png)
 
 - Om du vill använda parametervärden som definierats i en parameterfil parameterfilen måste ha namnet `azuredeploy.parameters.json`.
-- Du kan använda parametrarna `_artifactsLocation` och `_artifactsLocationSasToken` så att DevTest Labs för automatisk hantering av kapslade mallar för att konstruera parametersLink URI-värdet. Se [hur Azure DevTest Labs underlättar kapslade resurshanteraren malldistributioner för testmiljöer](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/) för mer information.
+- Du kan använda parametrarna `_artifactsLocation` och `_artifactsLocationSasToken` så att DevTest Labs för automatisk hantering av kapslade mallar för att konstruera parametersLink URI-värdet. Mer information finns i [hur Azure DevTest Labs underlättar kapslade resurshanteraren malldistributioner för testmiljöer](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/).
 - Metadata kan definieras för att ange Mallens visningsnamn och beskrivning. Dessa metadata måste finnas i en fil med namnet `metadata.json`. Metadatafilen följande exempel visar hur du kan ange namn och beskrivning: 
 
-```json
-{
+    ```json
+    {
  
-"itemDisplayName": "<your template name>",
+        "itemDisplayName": "<your template name>",
  
-"description": "<description of the template>"
+        "description": "<description of the template>"
  
-}
-```
+    }
+    ```
 
 Följande steg beskriver hur du lägger till en lagringsplats till ditt labb med hjälp av Azure portal. 
 
@@ -150,7 +152,7 @@ När du har sparat en Resource Manager-mall och anpassade efter dina behov kan a
 
 - De flesta principer utvärderas inte när du distribuerar Resource Manager-mallar.
 
-   Du kan till exempel ha en lab princip som anger att en användare kan bara skapa fem virtuella datorer. Men om du distribuerar en Resource Manager-mall som skapar dussintals virtuella datorer, som är tillåtet. Principer som inte utvärderas omfattar:
+   Du kan till exempel ha en lab princip som anger att en användare kan bara skapa fem virtuella datorer. En användare kan dock distribuera en Resource Manager-mall som skapar dussintals virtuella datorer. Principer som inte utvärderas omfattar:
 
    - Antalet virtuella datorer per användare
    - Antalet virtuella datorer i premium per labb användare

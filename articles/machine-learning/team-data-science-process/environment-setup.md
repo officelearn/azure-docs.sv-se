@@ -1,6 +1,6 @@
 ---
-title: Ställ in datavetenskap miljöer i Azure | Microsoft Docs
-description: Ställ in data vetenskap miljöer i Azure för användning i Team av vetenskapliga data.
+title: Konfigurera data science-miljöer i Azure | Microsoft Docs
+description: Ställ in data science-miljöer i Azure för användning i Team Data Science Process.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,22 +15,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 46dd8b84202e6f534456afa4c92a8decced895e8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6c28a64830afeb19c6a9264888b296c3b99990d1
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836995"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262573"
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Konfigurera datavetenskapsmiljöer för användning i Team Data Science Process
-Team av vetenskapliga data använder olika datavetenskap miljöer för lagring, bearbetning och analys av data. De omfattar Azure Blob Storage, flera typer av virtuella Azure-datorer, HDInsight (Hadoop)-kluster och Azure Machine Learning arbetsytor. Beslutet om vilka miljön ska använda beror på typen och mängden data till modelleras och målområdet för data i molnet. 
+Team Data Science Process använder olika data science-miljöer för lagring, bearbetning och analys av data. De inkluderar Azure Blob Storage, flera typer av virtuella Azure-datorer, kluster för HDInsight (Hadoop) och Azure Machine Learning-arbetsytor. Beslut om vilken miljö som ska använda beror på typen och mängden data till modelleras och målområdet för dessa data i molnet. 
 
-* Information om saker att tänka på när du gör detta beslut finns [planera din Azure Machine Learning vetenskap datamiljö](plan-your-environment.md). 
-* En katalog på några av de scenarier som kan uppstå när du gör avancerade analyser finns [scenarier för Team av vetenskapliga data](plan-sample-scenarios.md)
+* Anvisningar för saker att tänka på när du gör det här beslutet finns i [planera din Azure Machine Learning Datavetenskapsmiljö](plan-your-environment.md). 
+* En katalog med några av de scenarier som kan uppstå när du gör avancerad analys, se [scenarier för Team Data Science Process](plan-sample-scenarios.md)
 
-Den här menyn innehåller länkar till avsnitt som beskriver hur du ställer in de olika datavetenskap miljöer som används av Team av vetenskapliga data.
+Den här menyn innehåller länkar till avsnitt som beskriver hur du ställer in datavetenskapsmiljöer för olika data som används av Team Data Science Process.
 
 [!INCLUDE [data-science-environment-setup](../../../includes/cap-setup-environments.md)]
 
-Den **Microsoft Data vetenskap virtuell dator (DSVM)** är också tillgänglig som en virtuell Azure-dator (VM)-bild. Den här virtuella datorn före installeras och konfigureras med flera populära verktyg som används för dataanalys och maskininlärning. DSVM är tillgänglig på Windows- och Linux. Mer information finns i [introduktion till den molnbaserade datavetenskap virtuella för Linux och Windows](../data-science-virtual-machine/overview.md).
+Den **Microsoft Data Science Virtual Machine (DSVM)** är också tillgängligt som en avbildning i Azure-dator (VM). Den här virtuella datorn har redan installerats och konfigurerats med flera populära verktyg som vanligen används för dataanalys och maskininlärning. DSVM finns på både Windows och Linux. Mer information finns i [introduktion till den molnbaserade Data Science Virtual Machine för Linux och Windows](../data-science-virtual-machine/overview.md).
 
+Lär dig hur du skapar:
+
+- [Windows DSVM](../data-science-virtual-machine/provision-vm.md)
+- [Ubuntu DSVM](../data-science-virtual-machine/dsvm-ubuntu-intro.md)
+- [CentOS DSVM](../data-science-virtual-machine/linux-dsvm-intro.md)
+- [Virtuell dator för djupinlärning](../data-science-virtual-machine/provision-deep-learning-dsvm.md)

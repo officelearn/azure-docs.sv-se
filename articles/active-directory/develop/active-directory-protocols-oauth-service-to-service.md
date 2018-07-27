@@ -1,6 +1,6 @@
 ---
-title: Azure AD tjänster Auth med OAuth2.0 | Microsoft Docs
-description: Den här artikeln beskriver hur du använder HTTP-meddelanden för att implementera tjänster autentisering med hjälp av OAuth2.0 bevilja klientautentiseringsuppgifter.
+title: Azure AD tjänst till tjänst-autentisering med hjälp av OAuth2.0 | Microsoft Docs
+description: Den här artikeln beskriver hur du använder HTTP-meddelanden för att implementera tjänst till tjänst-autentisering med hjälp av OAuth2.0 bevilja flödet.
 services: active-directory
 documentationcenter: .net
 author: CelesteDG
@@ -17,51 +17,51 @@ ms.date: 02/08/2017
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 1a4da1af61be4b632b51f5b8f921f6f48e925559
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 7de567b3aaa5719a123a58c172548a4c0bffca64
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158201"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283248"
 ---
-# <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Tjänsten med hjälp av klientens autentiseringsuppgifter (delad hemlighet eller certifikat)-anrop
-OAuth 2.0 klientens autentiseringsuppgifter bevilja flöda tillåter en webbtjänst (*konfidentiell klienten*) kan använda sina egna autentiseringsuppgifter i stället för att personifiera en användare för att autentisera när du anropar en annan webbtjänst. I det här scenariot är klienten vanligtvis en webbtjänst på mellannivå, en daemon tjänst eller webbplats. Azure AD kan även anropa tjänsten att använda ett certifikat (i stället för en delad hemlighet) som en referens för en högre säkerhetsnivå.
+# <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Tjänst till tjänst-anrop med klientautentiseringsuppgifter (delad hemlighet eller certifikat)
+Den OAuth 2.0-klientautentiseringsuppgifter tillåter en webbtjänst (*konfidentiell klient*) att använda sina egna autentiseringsuppgifter i stället för att personifiera en användare för att autentisera vid anrop av en annan webbtjänst. I det här scenariot är klienten vanligtvis en webbtjänst på mellannivå, en daemon-tjänst eller webbplats. Azure AD kan också anropa tjänsten att använda ett certifikat (i stället för en delad hemlighet) som en autentiseringsuppgift för en högre säkerhetsnivå.
 
-## <a name="client-credentials-grant-flow-diagram"></a>Klientens autentiseringsuppgifter bevilja flödesdiagram
-Följande diagram förklarar hur klientens autentiseringsuppgifter bevilja flödet fungerar i Azure Active Directory (AD Azure).
+## <a name="client-credentials-grant-flow-diagram"></a>Flödesdiagram för beviljande av klientautentiseringsuppgifter för
+Diagrammet nedan förklaras hur med klientens autentiseringsuppgifter bevilja flow fungerar i Azure Active Directory (AD Azure).
 
-![OAuth2.0 bevilja för klientautentiseringsuppgifter](media/active-directory-protocols-oauth-service-to-service/active-directory-protocols-oauth-client-credentials-grant-flow.jpg)
+![OAuth2.0 bevilja flödet](media/active-directory-protocols-oauth-service-to-service/active-directory-protocols-oauth-client-credentials-grant-flow.jpg)
 
-1. Klientprogrammet autentiserar till Azure AD utfärdande slutpunkten och begär en åtkomst-token.
-2. Utfärdande-slutpunkten för Azure AD utfärdar åtkomst-token.
-3. Åtkomst-token används för att autentisera till den skyddade resursen.
-4. Data från den skyddade resursen returneras till webbprogrammet.
+1. Klientprogrammet autentiserar till Azure AD-slutpunkten för utfärdande och begär en åtkomsttoken.
+2. Azure AD-slutpunkten för utfärdande utfärdar en åtkomsttoken.
+3. Åtkomsttoken för att autentisera till den skyddade resursen.
+4. Data från den skyddade resursen returneras till klientprogrammet.
 
-## <a name="register-the-services-in-azure-ad"></a>Registrera tjänster i Azure AD
-Registrera både anropa tjänsten och den mottagande tjänsten i Azure Active Directory (AD Azure). Detaljerade instruktioner finns [integrera program med Azure Active Directory](active-directory-integrating-applications.md).
+## <a name="register-the-services-in-azure-ad"></a>Registrera tjänsterna i Azure AD
+Registrera både den anropande tjänsten och den mottagande tjänsten i Azure Active Directory (AD Azure). Detaljerade anvisningar finns i [integrera program med Azure Active Directory](active-directory-integrating-applications.md).
 
-## <a name="request-an-access-token"></a>Begär en åtkomst-Token
-Om du vill begära en åtkomst-token, använder du en HTTP POST till klient-specifika Azure AD-slutpunkten.
+## <a name="request-an-access-token"></a>Begär en åtkomsttoken
+Om du vill begära en åtkomsttoken, använder du en HTTP POST till klient-specifika Azure AD-slutpunkten.
 
 ```
 https://login.microsoftonline.com/<tenant id>/oauth2/token
 ```
 
-## <a name="service-to-service-access-token-request"></a>Begäran för tjänst-till-tjänst åtkomst-token
-Det finns två fall beroende på om klientprogrammet väljer att skyddas av en delad hemlighet, eller ett certifikat.
+## <a name="service-to-service-access-token-request"></a>Tjänst-till-tjänst begäran om åtkomsttoken
+Det finns två fall beroende på om klientprogrammet väljer att skyddas av en delad hemlighet eller ett certifikat.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Först fall: token åtkomst-begäran med en delad hemlighet
-När du använder en delad hemlighet, innehåller en tjänst-till-tjänst åtkomst tokenbegäran följande parametrar:
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Först för användningsfall: begäran om åtkomsttoken med en delad hemlighet
+När du använder en delad hemlighet, innehåller en tjänst-till-tjänst begäran om åtkomsttoken följande parametrar:
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| grant_type |obligatorisk |Anger den begärda grant-typen. Värdet måste vara i ett klient autentiseringsuppgifter Grant-flöde **client_credentials**. |
-| client_id |obligatorisk |Anger Azure AD-klient-id för uppringande webbtjänsten. Att hitta det anropande programmet klient-ID i den [Azure-portalen](https://portal.azure.com), klickar du på **Azure Active Directory**, klickar du på **App registreringar**, klicka på programmet. Client_id är den *program-ID* |
-| client_secret |obligatorisk |Ange en nyckel som registrerats för anropa tjänsten eller daemon webbprogrammet i Azure AD. Klicka för att skapa en nyckel i Azure portal **Azure Active Directory**, klickar du på **App registreringar**, klicka på programmet, **inställningar**, klickar du på **nycklar** , och lägga till en nyckel.|
-| resurs |obligatorisk |Ange URI för App-ID för mottagande webbtjänsten. Om du vill hitta URI: N för App-ID i Azure-portalen klickar du på **Azure Active Directory**, klickar du på **App registreringar**, klicka på tjänstprogrammet och klicka sedan på **inställningar** och  **Egenskaper för**. |
+| _typ av beviljande |obligatorisk |Anger den begärda beviljandetypen. Värdet måste vara i ett flöde för klientautentiseringsuppgifter, **client_credentials**. |
+| client_id |obligatorisk |Anger Azure AD-klient-id för uppringande webbtjänsten. Du hittar klient-ID för det anropande programmet gå den [Azure-portalen](https://portal.azure.com), klickar du på **Azure Active Directory**, klickar du på **appregistreringar**, klickar du på programmet. Client_id är den *program-ID* |
+| client_secret |obligatorisk |Ange en nyckel som har registrerats för det anropande tjänste- eller daemonappar webbprogrammet i Azure AD. Om du vill skapa en nyckel i Azure portal, klickar du på **Azure Active Directory**, klickar du på **appregistreringar**, klickar du på programmet, klickar du på **inställningar**, klickar du på **nycklar** , och Lägg till en nyckel.  URL-koda det här hemliga när du anger den. |
+| resurs |obligatorisk |Ange App-ID-URI för den mottagande webbtjänsten. För att hitta URI: N för App-ID i Azure portal, klickar du på **Azure Active Directory**, klickar du på **appregistreringar**, klickar du på tjänstprogrammet och klicka sedan på **inställningar** och  **Egenskaper för**. |
 
 #### <a name="example"></a>Exempel
-Följande HTTP POST-begäran som en åtkomsttoken för den https://service.contoso.com/ webbtjänsten. Den `client_id` identifierar det webbtjänsttillägg som begär åtkomst-token.
+Följande HTTP POST begär en åtkomsttoken för den https://service.contoso.com/ webbtjänsten. Den `client_id` identifierar det webbtjänsttillägg som begär åtkomst-token.
 
 ```
 POST /contoso.com/oauth2/token HTTP/1.1
@@ -71,21 +71,21 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&client_secret=qkDwDJlDfig2IpeuUZYKH1Wb8q1V0ju6sILxQQqhJ+s=&resource=https%3A%2F%2Fservice.contoso.com%2F
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: token åtkomst-begäran med ett certifikat
-En token-tjänster åtkomst-begäran med ett certifikat innehåller följande parametrar:
+### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fallet: begäran om åtkomsttoken med ett certifikat
+En begäran för tjänst-till-tjänst åtkomst-token med ett certifikat innehåller följande parametrar:
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| grant_type |obligatorisk |Anger den begärda svarstypen. Värdet måste vara i ett klient autentiseringsuppgifter Grant-flöde **client_credentials**. |
-| client_id |obligatorisk |Anger Azure AD-klient-id för uppringande webbtjänsten. Att hitta det anropande programmet klient-ID i den [Azure-portalen](https://portal.azure.com), klickar du på **Azure Active Directory**, klickar du på **App registreringar**, klicka på programmet. Client_id är den *program-ID* |
+| _typ av beviljande |obligatorisk |Anger den efterfrågade svarstypen. Värdet måste vara i ett flöde för klientautentiseringsuppgifter, **client_credentials**. |
+| client_id |obligatorisk |Anger Azure AD-klient-id för uppringande webbtjänsten. Du hittar klient-ID för det anropande programmet gå den [Azure-portalen](https://portal.azure.com), klickar du på **Azure Active Directory**, klickar du på **appregistreringar**, klickar du på programmet. Client_id är den *program-ID* |
 | client_assertion_type |obligatorisk |Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |obligatorisk | Ett intyg (en JSON Web Token) som du behöver för att skapa och registrera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs mer om [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig att registrera ditt certifikat och format för kontrollen.|
-| resurs | obligatorisk |Ange URI för App-ID för mottagande webbtjänsten. Om du vill hitta URI: N för App-ID i Azure-portalen klickar du på **Azure Active Directory**, klickar du på **App registreringar**, klicka på tjänstprogrammet och klicka sedan på **inställningar** och  **Egenskaper för**. |
+| client_assertion |obligatorisk | Ett intyg (en JSON Web Token) som du behöver för att skapa och signera med certifikatet du registrerad som autentiseringsuppgifter för ditt program. Läs mer om [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig hur du registrerar ditt certifikat och format för kontrollen.|
+| resurs | obligatorisk |Ange App-ID-URI för den mottagande webbtjänsten. För att hitta URI: N för App-ID i Azure portal, klickar du på **Azure Active Directory**, klickar du på **appregistreringar**, klickar du på tjänstprogrammet och klicka sedan på **inställningar** och  **Egenskaper för**. |
 
-Observera att parametrarna är nästan desamma som i fallet med begäran från delad hemlighet förutom att client_secret-parameter har ersatts av två parametrar: en client_assertion_type och client_assertion.
+Observera att parametrarna är nästan samma sätt som i fallet med begäran från delad hemlighet förutom att parametern client_secret ersätts av två parametrar: en client_assertion_type och client_assertion.
 
 #### <a name="example"></a>Exempel
-Följande HTTP POST-begäran som en åtkomsttoken för den https://service.contoso.com/ webbtjänst med ett certifikat. Den `client_id` identifierar det webbtjänsttillägg som begär åtkomst-token.
+Följande HTTP POST begär en åtkomsttoken för den https://service.contoso.com/ webbtjänst med ett certifikat. Den `client_id` identifierar det webbtjänsttillägg som begär åtkomst-token.
 
 ```
 POST /<tenant_id>/oauth2/token HTTP/1.1
@@ -101,12 +101,12 @@ Ett lyckat svar innehåller ett JSON OAuth 2.0-svar med följande parametrar:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| access_token |Den begärda åtkomst-token. Anropa webbtjänsten kan använda den här variabeln för att autentisera till mottagande webbtjänsten. |
-| token_type |Anger värdet för token-typer. Den enda typen som har stöd för Azure AD är **ägar**. Läs mer om ägar-token i [OAuth 2.0 auktorisering Framework: ägar-Token användning (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| access_token |Den begärda åtkomst-token. Anropa webbtjänsten kan använda denna token för att autentisera till mottagande webbtjänsten. |
+| token_type |Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är **ägar**. Mer information om ägar-token finns i den [Framework för OAuth 2.0-auktorisering: ägar-Token användning (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
 | expires_in |Hur länge den åtkomst-token är giltig (i sekunder). |
-| expires_on |Tiden då den åtkomst-token upphör att gälla. Representeras som antalet sekunder från 1970-01-01T0:0:0Z UTC tills förfallotid. Det här värdet används för att fastställa livslängden för cachelagrade token. |
-| not_before |Den tid som blir den åtkomst-token kan användas. Representeras som antalet sekunder från 1970-01-01T0:0:0Z UTC förrän giltighetstiden för token.|
-| resurs |App-ID URI för mottagande webbtjänsten. |
+| expires_on |Den tid då den åtkomst-token upphör att gälla. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills de upphör att gälla. Det här värdet används för att fastställa livslängd för cachelagrade token. |
+| not_before |Den tid som åtkomsttoken blir kan användas. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills giltighetstiden för token.|
+| resurs |App-ID URI för den mottagande webbtjänsten. |
 
 #### <a name="example-of-response"></a>Exempel på svaret
 I följande exempel visas ett lyckat svar på en begäran om en åtkomst-token till en webbtjänst.
@@ -123,4 +123,4 @@ I följande exempel visas ett lyckat svar på en begäran om en åtkomst-token t
 
 ## <a name="see-also"></a>Se också
 * [OAuth 2.0 i Azure AD](active-directory-protocols-oauth-code.md)
-* [Exemplet i C# för tjänst-till-anrop med en delad hemlighet](https://github.com/Azure-Samples/active-directory-dotnet-daemon) och [exemplet i C# för tjänst-till-anrop med ett certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
+* [Exemplet i C# i tjänst till tjänst-anrop med en delad hemlighet](https://github.com/Azure-Samples/active-directory-dotnet-daemon) och [exemplet i C# i tjänst till tjänst-anrop med ett certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)

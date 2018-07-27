@@ -1,6 +1,6 @@
 ---
-title: Kopiera eller flytta data till Azure Storage med AzCopy på Linux | Microsoft Docs
-description: Använd AzCopy på Linux-verktyget för att flytta eller kopiera data till och från blob- och innehåll. Kopiera data till Azure Storage från lokala filer eller kopiera data inom eller mellan lagringskonton. Enkelt migrera dina data till Azure Storage.
+title: Kopiera eller flytta data till Azure Storage med AzCopy i Linux | Microsoft Docs
+description: Använda AzCopy på Linux-verktyget för att flytta eller kopiera data till och från blob- och innehåll. Kopiera data till Azure Storage från lokala filer eller kopiera data inom eller mellan lagringskonton. Migrera enkelt dina data till Azure Storage.
 services: storage
 documentationcenter: ''
 author: seguler
@@ -14,54 +14,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
-ms.openlocfilehash: 3ed449912df1e16b5c8f1dfa3c83b81eaf635227
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f45630a99d9045d0909e11d4ccc1517782d39779
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036427"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284473"
 ---
-# <a name="transfer-data-with-azcopy-on-linux"></a>Överföra data med AzCopy på Linux
+# <a name="transfer-data-with-azcopy-on-linux"></a>Överföra data med AzCopy i Linux
 
-AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Microsoft Azure-Blob och fillagring med enkla kommandon som utformats för optimala prestanda. Du kan kopiera data mellan ett filsystem och ett lagringskonto, eller mellan lagringskonton.  
+AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Microsoft Azure Blob- och storage med hjälp av enkla kommandon som är utformad för bästa prestanda. Du kan kopiera data mellan ett filsystem och ett lagringskonto, eller mellan lagringskonton.  
 
-Det finns två versioner av AzCopy som du kan hämta. AzCopy på Linux riktar sig till Linux-plattformar som erbjuder POSIX format kommandoradsalternativ. [AzCopy på Windows](../storage-use-azcopy.md) erbjuder kommandoradsalternativ för Windows-formatet. Den här artikeln beskriver AzCopy på Linux. 
+Det finns två versioner av AzCopy som du kan hämta. AzCopy i Linux riktar sig till Linux-plattformar och erbjuder POSIX style kommandoradsalternativ. [AzCopy i Windows](../storage-use-azcopy.md) erbjuder kommandoradsalternativ för Windows-format. Den här artikeln beskriver AzCopy i Linux. 
 
 > [!NOTE]  
-> Från och med version AzCopy 7.2 paketeras .NET Core beroenden med AzCopy-paketet. Om du använder 7,2 version eller senare, behöver du inte längre installera .NET Core som ett krav.
+> Från och med versionen av AzCopy 7.2, paketeras .NET Core-beroenden med AzCopy-paketet. Om du använder 7,2 versionen eller senare, behöver du inte längre installera .NET Core som ett krav.
 
-## <a name="download-and-install-azcopy"></a>Hämta och installera AzCopy
+## <a name="download-and-install-azcopy"></a>Ladda ned och installera AzCopy
 
 ### <a name="installation-on-linux"></a>Installation på Linux
 
 > [!NOTE]
-> Du kan behöva installera .NET Core 2.1 beroenden som är markerat i den här [.NET Core förutsättningar artikel](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) beroende på din distribution. 
+> Du kan behöva installera .NET Core 2.1 beroenden markerat i den här [förutsättningar för .NET Core artikeln](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) beroende på din distribution. 
 >
 > Installera ICU och libunwind beroenden för RHEL 7 distributioner: ```yum install -y libunwind icu```
 
-Installera AzCopy på Linux (v7.2 eller senare) är lika enkelt som extraherar tar-paketet och kör installationsskriptet. 
+Installera AzCopy i Linux (v7.2 eller senare) är lika enkelt som extraherar tar-paketet och kör installationsskriptet. 
 
-**RHEL 6 baserade distributioner**: [Hämta länk](https://aka.ms/downloadazcopylinuxrhel6)
+**RHEL 6 baserade distributioner**: [nedladdningslänk](https://aka.ms/downloadazcopylinuxrhel6)
 ```bash
 wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinuxrhel6
 tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-**Alla andra Linux-distributioner**: [Hämta länk](https://aka.ms/downloadazcopylinux64)
+**Alla andra Linux-distributioner**: [nedladdningslänk](https://aka.ms/downloadazcopylinux64)
 ```bash
 wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
 tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-Du kan ta bort de extraherade filerna när AzCopy på Linux har installerats. Alternativt, om du inte har superanvändare du kan också köra `azcopy` använder azcopy för shell-skript i den extraherade mappen.
+Du kan ta bort de extrahera filerna när AzCopy i Linux har installerats. Du kan också om du inte har behörigheter för superanvändare du kan också köra `azcopy` med hjälp av azcopy för shell-skript i den extrahera mappen.
 
 ### <a name="alternative-installation-on-ubuntu"></a>Alternativ Installation på Ubuntu
 
 **Ubuntu 14.04**
 
-Lägg till lgh källa för Microsoft Linux produkten lagringsplatsen och installera AzCopy:
+Lägg till apt-källa för Microsofts Linux produkten lagringsplats och installera AzCopy:
 
 ```bash
 sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
@@ -76,7 +76,7 @@ sudo apt-get install azcopy
 
 **Ubuntu 16.04**
 
-Lägg till lgh källa för Microsoft Linux produkten lagringsplatsen och installera AzCopy:
+Lägg till apt-källa för Microsofts Linux produkten lagringsplats och installera AzCopy:
 
 ```bash
 echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
@@ -89,14 +89,14 @@ sudo apt-get update
 sudo apt-get install azcopy
 ```
 
-## <a name="writing-your-first-azcopy-command"></a>Skriva ditt första AzCopy-kommandot
-Den grundläggande syntaxen för AzCopy kommandon är:
+## <a name="writing-your-first-azcopy-command"></a>Skriva din första AzCopy-kommandot
+Grundläggande syntax för AzCopy-kommandon är:
 
 ```azcopy
 azcopy --source <source> --destination <destination> [Options]
 ```
 
-Följande exempel visar olika scenarier för att kopiera data till och från Microsoft Azure-BLOB och filer. Referera till den `azcopy --help` menyn för en detaljerad förklaring av de parametrar som används i varje prov.
+Följande exempel visar olika scenarier för att kopiera data till och från Microsoft Azure-Blobbar och filer. Referera till den `azcopy --help` menyn för en detaljerad förklaring av de parametrar som används i varje exempel.
 
 ## <a name="blob-download"></a>BLOB: ladda ned
 ### <a name="download-single-blob"></a>Hämta en enda blob
@@ -108,9 +108,9 @@ azcopy \
     --source-key <key> 
 ```
 
-Om mappen `/mnt/myfiles` finns inte, AzCopy skapar den och hämtar `abc.txt ` till den nya mappen. 
+Om mappen `/mnt/myfiles` finns inte, AzCopy skapas den och laddar ned `abc.txt ` till den nya mappen. 
 
-### <a name="download-single-blob-from-secondary-region"></a>Hämta en enda blob från sekundär region
+### <a name="download-single-blob-from-secondary-region"></a>Ladda ned en blob från sekundär region
 
 ```azcopy
 azcopy \
@@ -119,9 +119,9 @@ azcopy \
     --source-key <key>
 ```
 
-Observera att du måste ha läsbehörighet geo-redundant lagring aktiverad.
+Observera att du måste ha läsåtkomst till geografiskt redundant lagring aktiveras.
 
-### <a name="download-all-blobs"></a>Hämta alla BLOB
+### <a name="download-all-blobs"></a>Ladda ned alla blobar
 
 ```azcopy
 azcopy \
@@ -131,7 +131,7 @@ azcopy \
     --recursive
 ```
 
-Anta följande blobbar finns i den angivna behållaren:  
+Anta för följande blobar finns i den angivna behållaren:  
 
 ```
 abc.txt
@@ -151,9 +151,9 @@ När hämtningen katalogen `/mnt/myfiles` innehåller följande filer:
 /mnt/myfiles/vd1/abcd.txt
 ```
 
-Om du inte anger alternativet `--recursive`, ingen blob som ska hämtas.
+Om du inte anger alternativet `--recursive`, ingen blob laddas ned.
 
-### <a name="download-blobs-with-specified-prefix"></a>Ladda ned blobbar med angivna prefix
+### <a name="download-blobs-with-specified-prefix"></a>Ladda ned blobar med angivet prefix
 
 ```azcopy
 azcopy \
@@ -164,7 +164,7 @@ azcopy \
     --recursive
 ```
 
-Anta att följande blobbar finns i den angivna behållaren. Alla blobbar som börjar med prefixet `a` hämtas.
+Anta för följande blobar finns i den angivna behållaren. Alla blobar som börjar med prefixet `a` laddas ned.
 
 ```
 abc.txt
@@ -183,9 +183,9 @@ När hämtningen mappen `/mnt/myfiles` innehåller följande filer:
 /mnt/myfiles/abc2.txt
 ```
 
-Prefixet som gäller för den virtuella katalogen, som utgör den första delen av blobbnamnet. I exemplet ovan, matchar den virtuella katalogen inte det angivna prefixet, så inga blob hämtas. Dessutom, om alternativet `--recursive` anges AzCopy inte hämta alla blobbar.
+Prefixet gäller för den virtuella katalogen, som utgör den första delen av blobbnamnet. I exemplet som visas ovan, matchar den virtuella katalogen inte det angivna prefixet, så inga blob hämtas. Dessutom, om alternativet `--recursive` har angetts, AzCopy inte ladda ned alla blobbar.
 
-### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>Ange last-modified-tid med exporterade filer som ska vara densamma som källan BLOB
+### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>Ange tid för senaste ändring av exporterade filerna vara samma som käll-blobar
 
 ```azcopy
 azcopy \
@@ -195,7 +195,7 @@ azcopy \
     --preserve-last-modified-time
 ```
 
-Du kan också utesluta blobbar från hämtningen baserat på deras tid för senaste ändring. Till exempel om du vill undanta blobbar vars senast ändrad är samma som eller nyare än målfilen och lägga till den `--exclude-newer` alternativ:
+Du kan också utesluta blobar från hämtningen utifrån deras tid för senaste ändring. Till exempel om du vill undanta blobar vars senast ändrad är samma eller nyare än målfilen och lägga till den `--exclude-newer` alternativet:
 
 ```azcopy
 azcopy \
@@ -206,7 +206,7 @@ azcopy \
     --exclude-newer
 ```
 
-Eller om du vill undanta blobbar vars senast ändrad är samma eller äldre än målfilen och lägga till den `--exclude-older` alternativ:
+Oavsett om du vill undanta blobar vars senast ändrad är samma eller äldre än målfilen och lägga till den `--exclude-older` alternativet:
 
 ```azcopy
 azcopy \
@@ -217,8 +217,8 @@ azcopy \
     --exclude-older
 ```
 
-## <a name="blob-upload"></a>BLOB: Överför
-### <a name="upload-single-file"></a>Överför en fil
+## <a name="blob-upload"></a>BLOB: ladda upp
+### <a name="upload-single-file"></a>Ladda upp en fil
 
 ```azcopy
 azcopy \
@@ -227,9 +227,9 @@ azcopy \
     --dest-key <key>
 ```
 
-Om den angivna målbehållaren inte finns, så skapar AzCopy den och överför filen till den.
+Om den angivna målcontainern inte finns, så skapar AzCopy den och överför filen till den.
 
-### <a name="upload-single-file-to-virtual-directory"></a>Överför en fil till virtuell katalog
+### <a name="upload-single-file-to-virtual-directory"></a>Ladda upp en fil till virtuell katalog
 
 ```azcopy
 azcopy \
@@ -238,7 +238,7 @@ azcopy \
     --dest-key <key>
 ```
 
-Om den angivna virtuella katalogen inte finns, AzCopy överför filen så att den virtuella katalogen i blob-namnet (*t.ex.*, `vd/abc.txt` i exemplet ovan).
+Om den angivna virtuella katalogen inte finns, AzCopy Överför fil för att inkludera den virtuella katalogen i blobnamnet (*t.ex.*, `vd/abc.txt` i exemplet ovan).
 
 ### <a name="redirect-from-stdin"></a>Omdirigera från stdin
 
@@ -248,7 +248,7 @@ gzip myarchive.tar -c | azcopy \
     --dest-key <key>
 ```
 
-### <a name="upload-all-files"></a>Ladda upp alla filer
+### <a name="upload-all-files"></a>Överför alla filer
 
 ```azcopy
 azcopy \
@@ -258,7 +258,7 @@ azcopy \
     --recursive
 ```
 
-Om du anger alternativet `--recursive` Överför innehållet i den angivna katalogen till Blob storage rekursivt, vilket innebär att alla undermappar och filer överförs också. Anta exempelvis att följande filer finns i mappen `/mnt/myfiles`:
+Om du anger alternativet `--recursive` Överför innehållet i den angivna katalogen till Blob storage rekursivt, vilket innebär att alla undermappar och filer överförs även. Anta exempelvis att följande filer finns i mappen `/mnt/myfiles`:
 
 ```
 /mnt/myfiles/abc.txt
@@ -268,7 +268,7 @@ Om du anger alternativet `--recursive` Överför innehållet i den angivna katal
 /mnt/myfiles/subfolder/abcd.txt
 ```
 
-När överföringen innehåller behållaren följande filer:
+Efter överföringen innehåller följande filer i behållaren:
 
 ```
 abc.txt
@@ -278,7 +278,7 @@ subfolder/a.txt
 subfolder/abcd.txt
 ```
 
-När alternativet `--recursive` anges endast följande tre filer överförs:
+När alternativet `--recursive` inte anges endast följande tre filer har laddats upp:
 
 ```
 abc.txt
@@ -286,7 +286,7 @@ abc1.txt
 abc2.txt
 ```
 
-### <a name="upload-files-matching-specified-pattern"></a>Överföra filer som matchar angivna mönstret
+### <a name="upload-files-matching-specified-pattern"></a>Ladda upp filer som matchar angivna mönstret
 
 ```azcopy
 azcopy \
@@ -308,7 +308,7 @@ Anta att följande filer finns i mappen `/mnt/myfiles`:
 /mnt/myfiles/subfolder/abcd.txt
 ```
 
-När överföringen innehåller behållaren följande filer:
+Efter överföringen innehåller följande filer i behållaren:
 
 ```
 abc.txt
@@ -318,7 +318,7 @@ subfolder/a.txt
 subfolder/abcd.txt
 ```
 
-När alternativet `--recursive` anges AzCopy hoppar över filer som finns i underkataloger:
+När alternativet `--recursive` inte anges AzCopy hoppar över filer som finns i undermappar:
 
 ```
 abc.txt
@@ -326,8 +326,8 @@ abc1.txt
 abc2.txt
 ```
 
-### <a name="specify-the-mime-content-type-of-a-destination-blob"></a>Ange MIME content-type för en mål-blob
-Som standard anges AzCopy innehållstypen för en mål-blob till `application/octet-stream`. Du kan dock uttryckligen ange content-type via alternativet `--set-content-type [content-type]`. Den här syntaxen anger content-type för alla blobbar i en överföringen.
+### <a name="specify-the-mime-content-type-of-a-destination-blob"></a>Ange MIME-innehållstyp en mål-blob
+Som standard AzCopy anger innehållstypen för en mål-blob till `application/octet-stream`. Men du kan uttryckligen ange innehållstyp via alternativet `--set-content-type [content-type]`. Den här syntaxen anger innehållstypen för alla blobbar i en överföringen.
 
 ```azcopy
 azcopy \
@@ -338,7 +338,7 @@ azcopy \
     --set-content-type "video/mp4"
 ```
 
-Om alternativet `--set-content-type` anges utan värde, och sedan AzCopy anger varje blob eller filens innehållstyp enligt dess filnamnstillägg.
+Om alternativet `--set-content-type` har angetts utan ett värde, AzCopy anger varje blob eller filens innehållstyp enligt dess filnamnstillägg.
 
 ```azcopy
 azcopy \
@@ -349,8 +349,11 @@ azcopy \
     --set-content-type
 ```
 
+### <a name="customizing-the-mime-content-type-mapping"></a>Anpassa MIME-innehållstyp mappning
+AzCopy använder en konfigurationsfil som innehåller en mappning av filnamnstillägg som innehållstyp. Du kan anpassa den här mappningen och lägga till nya par efter behov. Mappningen finns i  ```/usr/lib/azcopy/AzCopyConfig.json```
+
 ## <a name="blob-copy"></a>BLOB: kopiera
-### <a name="copy-single-blob-within-storage-account"></a>Kopiera enda blob inom lagringskonto
+### <a name="copy-single-blob-within-storage-account"></a>Enkel kopiering av blob Storage-konto
 
 ```azcopy
 azcopy \
@@ -360,9 +363,9 @@ azcopy \
     --dest-key <key>
 ```
 
-När du kopierar en blobb utan--synkroniserad kopia alternativet en [serversidan kopiera](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) åtgärden utförs.
+När du kopierar en blob utan--synkroniserad kopia alternativet en [serversidan kopia](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) åtgärden utförs.
 
-### <a name="copy-single-blob-across-storage-accounts"></a>Kopiera enda blob på Storage-konton
+### <a name="copy-single-blob-across-storage-accounts"></a>Enkel kopiering av blob Storage-konton
 
 ```azcopy
 azcopy \
@@ -372,7 +375,7 @@ azcopy \
     --dest-key <key2>
 ```
 
-När du kopierar en blobb utan--synkroniserad kopia alternativet en [serversidan kopiera](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) åtgärden utförs.
+När du kopierar en blob utan--synkroniserad kopia alternativet en [serversidan kopia](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) åtgärden utförs.
 
 ### <a name="copy-single-blob-from-secondary-region-to-primary-region"></a>Kopiera enda blob från sekundär region till primär region
 
@@ -384,7 +387,7 @@ azcopy \
     --dest-key <key2>
 ```
 
-Observera att du måste ha läsbehörighet geo-redundant lagring aktiverad.
+Observera att du måste ha läsåtkomst till geografiskt redundant lagring aktiveras.
 
 ### <a name="copy-single-blob-and-its-snapshots-across-storage-accounts"></a>Kopiera enda blob och dess ögonblicksbilder på Storage-konton
 
@@ -398,7 +401,7 @@ azcopy \
     --include-snapshot
 ```
 
-Efter kopieringen innehåller Målbehållaren blob och dess ögonblicksbilder. Behållaren innehåller följande blob och dess ögonblicksbilder:
+Efter kopieringen innehåller en målbehållare blob och dess ögonblicksbilder. Behållaren innehåller följande blob och dess ögonblicksbilder:
 
 ```
 abc.txt
@@ -406,10 +409,10 @@ abc (2013-02-25 080757).txt
 abc (2014-02-21 150331).txt
 ```
 
-### <a name="synchronously-copy-blobs-across-storage-accounts"></a>Kopiera synkront blobar på lagringskonton
-AzCopy som standard kopierar data mellan två slutpunkter för lagring asynkront. Kopiera åtgärden körs i bakgrunden med hjälp av ledig bandbreddskapacitet som har inga SLA vad gäller hur snabbt en blob kopieras. 
+### <a name="synchronously-copy-blobs-across-storage-accounts"></a>Synkront kopiera blobar över lagringskonton
+AzCopy som standard kopierar data mellan två storage slutpunkter asynkront. Därför kopieras kopia åtgärden körs i bakgrunden med hjälp av ledig bandbredd kapaciteten som har inget serviceavtal när det gäller hur snabbt en blob. 
 
-Den `--sync-copy` alternativet ser du till att kopieringen hämtar konsekvent hastighet. AzCopy utför synkron kopian genom att hämta blobbarna att kopiera från den angivna källan till lokalt minne och överför dem till Blob-lagringsplats.
+Den `--sync-copy` alternativet ser du till att kopieringen hämtar konsekvent hastighet. AzCopy utför synkrona kopian genom att hämta BLOB att kopiera från den angivna källan till lokalt minne och överför dem till Blob storage-mål.
 
 ```azcopy
 azcopy \
@@ -421,10 +424,10 @@ azcopy \
     --sync-copy
 ```
 
-`--sync-copy` kan skapa ytterligare utgång kostnaden jämfört med asynkron kopia. Den rekommenderade metoden är att använda det här alternativet i en Azure VM, som finns i samma region som ditt källa storage-konto för att undvika kostnader för utgående trafik.
+`--sync-copy` kan generera ytterligare utgående kostnader jämfört med asynkron kopia. Den rekommenderade metoden är att använda det här alternativet i en Azure virtuell dator som är i samma region som din källagringskontot för att undvika kostnader för utgående trafik.
 
 ## <a name="file-download"></a>Fil: ladda ned
-### <a name="download-single-file"></a>Hämta en fil
+### <a name="download-single-file"></a>Hämta enstaka fil
 
 ```azcopy
 azcopy \
@@ -433,9 +436,9 @@ azcopy \
     --source-key <key>
 ```
 
-Om den angivna källan är en Azure-filresurs och sedan måste du antingen ange det exakta filnamnet (*t.ex.* `abc.txt`) att hämta en fil eller ange alternativet `--recursive` att ladda ned alla filer i resursen rekursivt. Försök att ange både filmönstret och alternativet `--recursive` tillsammans resulterar i ett fel.
+Om den angivna källan är en Azure-filresurs så måste du antingen ange det exakta filnamnet (*t.ex.* `abc.txt`) att hämta en enda fil eller ange alternativet `--recursive` att ladda ned alla filer i filresursen rekursivt. Försök att ange ett filmönster och ett alternativet `--recursive` tillsammans uppstår ett fel.
 
-### <a name="download-all-files"></a>Hämta alla filer
+### <a name="download-all-files"></a>Ladda ned alla filer
 
 ```azcopy
 azcopy \
@@ -447,8 +450,8 @@ azcopy \
 
 Observera att alla tomma mappar inte laddas ned.
 
-## <a name="file-upload"></a>Fil: Överför
-### <a name="upload-single-file"></a>Överför en fil
+## <a name="file-upload"></a>Fil: ladda upp
+### <a name="upload-single-file"></a>Ladda upp en fil
 
 ```azcopy
 azcopy \
@@ -457,7 +460,7 @@ azcopy \
     --dest-key <key>
 ```
 
-### <a name="upload-all-files"></a>Ladda upp alla filer
+### <a name="upload-all-files"></a>Överför alla filer
 
 ```azcopy
 azcopy \
@@ -467,9 +470,9 @@ azcopy \
     --recursive
 ```
 
-Observera att alla tomma mappar inte upp.
+Observera att alla tomma mappar inte laddas upp.
 
-### <a name="upload-files-matching-specified-pattern"></a>Överföra filer som matchar angivna mönstret
+### <a name="upload-files-matching-specified-pattern"></a>Ladda upp filer som matchar angivna mönstret
 
 ```azcopy
 azcopy \
@@ -491,7 +494,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-När du kopierar en fil på filresurser, en [serversidan kopiera](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) åtgärden utförs.
+När du kopierar en fil i filresurser, en [serversidan kopia](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) åtgärden utförs.
 
 ### <a name="copy-from-file-share-to-blob"></a>Kopiera från filresursen till blob
 
@@ -503,7 +506,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-När du kopierar en fil från filresursen till blob, en [serversidan kopiera](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) åtgärden utförs.
+När du kopierar en fil från filresursen till blob, en [serversidan kopia](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) åtgärden utförs.
 
 ### <a name="copy-from-blob-to-file-share"></a>Kopiera från blob till filresurs
 
@@ -515,10 +518,10 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-När du kopierar en fil från blob till filresurs, en [serversidan kopiera](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) åtgärden utförs.
+När du kopierar en fil från blob till filresurs, en [serversidan kopia](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) åtgärden utförs.
 
 ### <a name="synchronously-copy-files"></a>Synkront kopiera filer
-Du kan ange den `--sync-copy` alternativet för att kopiera data från lagring av filer till File Storage, från fillagring till Blob Storage och från Blob Storage till File Storage synkront. AzCopy körs åtgärden genom att hämta källdata till lokalt minne och överföra den till målet. I det här fallet gäller standard utgång kostnaden.
+Du kan ange den `--sync-copy` alternativet för att kopiera data från lagring av filer till File Storage, File Storage till Blob Storage och Blob Storage till fillagring synkront. AzCopy körs åtgärden genom att hämta källdata till lokalt minne och överföra den till målet. I det här fallet gäller standard utgående kostnaden.
 
 ```azcopy
 azcopy \
@@ -530,13 +533,13 @@ azcopy \
     --sync-copy
 ```
 
-När du kopierar från fillagring till Blob Storage blob standardtypen är blockblob, kan användaren ange alternativet `--blob-type page` att ändra typen av mål-blob. Tillgängliga typer är `page | block | append`.
+När du kopierar från fillagring till Blob Storage, blob standardtypen är blockblob, användaren kan ange alternativet `--blob-type page` ändra blob måltypen. Tillgängliga typer är `page | block | append`.
 
-Observera att `--sync-copy` kan skapa ytterligare utgång kostnad jämföra den asynkrona kopia. Den rekommenderade metoden är att använda det här alternativet i en Azure VM, som finns i samma region som ditt källa storage-konto för att undvika kostnader för utgående trafik.
+Observera att `--sync-copy` kan generera ytterligare utgående kostnad jämföra för asynkron kopia. Den rekommenderade metoden är att använda det här alternativet i en Azure virtuell dator som är i samma region som din källagringskontot för att undvika kostnader för utgående trafik.
 
 ## <a name="other-azcopy-features"></a>Andra AzCopy-funktioner
-### <a name="only-copy-data-that-doesnt-exist-in-the-destination"></a>Endast kopiera data som inte finns i målet
-Den `--exclude-older` och `--exclude-newer` parametrar kan du exkludera resurser som tidigare eller senare från att kopieras respektive. Om du bara vill kopiera käll-resurser som inte finns i målet kan du ange båda parametrarna i AzCopy-kommandot:
+### <a name="only-copy-data-that-doesnt-exist-in-the-destination"></a>Kopiera endast data som inte finns i målet
+Den `--exclude-older` och `--exclude-newer` parametrar kan du exkludera resurser som är äldre eller nyare källa från att kopieras respektive. Om du bara vill kopiera källresurser som inte finns i målet, kan du ange båda parametrarna i AzCopy-kommandot:
 
     --source http://myaccount.blob.core.windows.net/mycontainer --destination /mnt/myfiles --source-key <sourcekey> --recursive --exclude-older --exclude-newer
 
@@ -550,9 +553,9 @@ Den `--exclude-older` och `--exclude-newer` parametrar kan du exkludera resurser
 azcopy --config-file "azcopy-config.ini"
 ```
 
-Du kan inkludera eventuella kommandoradsparametrar för AzCopy i en konfigurationsfil. AzCopy bearbetar parametrarna i filen som om de hade angetts på kommandoraden, utför en direkt ersättning med innehållet i filen.
+Du kan inkludera eventuella kommandoradsparametrar med AzCopy i en konfigurationsfil. AzCopy bearbetar parametrarna i filen som om de hade angetts på kommandoraden, utföra en direkt ersättning med innehållet i filen.
 
-Anta en fil med namnet `copyoperation`, som innehåller följande rader. Varje AzCopy-parameter kan anges på en enda rad.
+Anta att en fil med namnet `copyoperation`, som innehåller följande rader. Varje AzCopy-parameter kan anges på en enda rad.
 
     --source http://myaccount.blob.core.windows.net/mycontainer --destination /mnt/myfiles --source-key <sourcekey> --recursive --quiet
 
@@ -564,7 +567,7 @@ eller på separata rader:
     --recursive
     --quiet
 
-AzCopy misslyckas om du vill dela parametern på två rader som visas här för den `--source-key` parameter:
+AzCopy misslyckas om du dela upp parametern på två rader som visas här för den `--source-key` parameter:
 
     http://myaccount.blob.core.windows.net/mycontainer
     /mnt/myfiles
@@ -583,7 +586,7 @@ azcopy \
     --dest-sas <SAS2>
 ```
 
-Du kan också ange en SAS för URI-behållaren:
+Du kan också ange en SAS URI-behållaren:
 
 ```azcopy
 azcopy \
@@ -592,10 +595,10 @@ azcopy \
     --recursive
 ```
 
-### <a name="journal-file-folder"></a>Ändringsjournalen mapp
-Varje gång du utfärda ett kommando till AzCopy, kontrollerar den om en journal-fil finns i standardmappen eller om den finns i en mapp som du har angett via det här alternativet. Om journalfilen inte finns på någon plats, behandlar åtgärden som nya AzCopy och genererar en ny journalfil.
+### <a name="journal-file-folder"></a>Ändringsjournalen filmapp
+Varje gång du utfärda ett kommando till AzCopy, kontrollerar den om en journalfil finns i standardmappen eller om den finns i en mapp som du har angett via det här alternativet. Om journalfilen inte finns på någon plats, AzCopy behandlar åtgärden som nya och genererar en ny journalfil.
 
-Om journalfilen finns kontrollerar AzCopy om den kommandorad som du matar in matchar kommandoraden i journal-fil. Om två kommandorader matchar återupptar AzCopy ofullständiga igen. Om de inte matchar uppmanas AzCopy användaren att antingen skriva över journalfilen att starta en ny åtgärd eller Avbryt den aktuella åtgärden.
+Om journalfilen finns kontrollerar AzCopy om den kommandorad som du anger matchar kommandoraden i journal-fil. Om två kommandorader matchar, återupptar AzCopy i åtgärden slutfördes inte. Om de inte matchar uppmanar AzCopy användaren att antingen skriva över journalfil att starta en ny åtgärd eller för att avbryta den aktuella åtgärden.
 
 Om du vill använda standardplatsen för journalfilen:
 
@@ -607,7 +610,7 @@ azcopy \
     --resume
 ```
 
-Om du utelämnar alternativet `--resume`, eller ange alternativet `--resume` utan sökvägen till mappen som du ser ovan, AzCopy journalfilen skapas i standardplatsen, som är `~\Microsoft\Azure\AzCopy`. Om ändringsjournalen filen redan finns återupptas AzCopy igen baserat på journal-fil.
+Om du tar bort alternativet `--resume`, eller ange alternativet `--resume` utan mappsökvägen, enligt ovan, AzCopy skapar journal-fil på standardplatsen, vilket är `~\Microsoft\Azure\AzCopy`. Om ändringsjournalen filen redan finns, fortsätter igen baserat på journalfilen med AzCopy.
 
 Om du vill ange en anpassad plats för journalfilen:
 
@@ -619,15 +622,15 @@ azcopy \
     --resume "/mnt/myjournal"
 ```
 
-Det här exemplet skapar journal-fil om den inte redan finns. Om den finns, återupptar AzCopy igen baserat på journal-fil.
+Det här exemplet skapar journal-fil om den inte redan finns. Om den finns, fortsätter igen baserat på journalfilen med AzCopy.
 
-Upprepa samma kommando om du vill fortsätta AzCopy. AzCopy på Linux sedan uppmanas att bekräfta:
+Upprepa samma kommando om du vill återuppta en AzCopy-åtgärd. AzCopy i Linux sedan uppmanas bekräfta:
 
 ```azcopy
 Incomplete operation with same command line detected at the journal directory "/home/myaccount/Microsoft/Azure/AzCopy", do you want to resume the operation? Choose Yes to resume, choose No to overwrite the journal to start a new operation. (Yes/No)
 ```
 
-### <a name="output-verbose-logs"></a>Detaljerade loggarna för utdata
+### <a name="output-verbose-logs"></a>Utförliga utdata-loggar
 
 ```azcopy
 azcopy \
@@ -637,17 +640,17 @@ azcopy \
     --verbose
 ```
 
-### <a name="specify-the-number-of-concurrent-operations-to-start"></a>Ange antalet samtidiga åtgärder att starta
-Alternativet `--parallel-level` anger antalet samtidiga kopieringsåtgärd. Som standard startar AzCopy antalet samtidiga åtgärder att öka genomflödet data transfer. Antalet samtidiga åtgärder är lika åtta gånger antalet processorer som du har. Om du använder AzCopy över ett nätverk med låg bandbredd, kan du ange ett lägre värde--parallell-nivå för att undvika misslyckades på grund av konkurrens om resurser.
+### <a name="specify-the-number-of-concurrent-operations-to-start"></a>Ange hur många samtidiga åtgärder för att starta
+Alternativet `--parallel-level` anger hur många samtidiga kopieringsåtgärder. Som standard startar AzCopy ett visst antal samtidiga åtgärder för att öka dataflödet för överföring. Antalet samtidiga åtgärder är lika med åtta gånger antalet processorer som du har. Om du kör AzCopy i ett nätverk med låg bandbredd, kan du ange ett lägre värde--parallellt på servernivå för att undvika misslyckades på grund av en resurs.
 
 >[!TIP]
->Om du vill visa en fullständig lista över AzCopy parametrar kolla 'azcopy--Hjälp-menyn.
+>Om du vill visa den fullständiga listan med AzCopy parametrar, Kolla in 'azcopy--Hjälp-menyn.
 
-## <a name="installation-steps-for-azcopy-71-and-earlier-versions"></a>Installationsstegen för AzCopy 7.1 och tidigare versioner
+## <a name="installation-steps-for-azcopy-71-and-earlier-versions"></a>Installationssteg för AzCopy 7.1 och tidigare versioner
 
-AzCopy på Linux (v7.1 och tidigare) kräver .NET Core framework. Installationsinstruktioner som är tillgängliga på den [.NET Core-installation](https://www.microsoft.com/net/core#linuxubuntu) sidan.
+AzCopy i Linux (v7.1 och tidigare) kräver .NET Core-framework. Installationsinstruktioner finns på den [.NET Core-installation](https://www.microsoft.com/net/core#linuxubuntu) sidan.
 
-Till exempel börja med att installera .NET Core på Ubuntu 16,10. Senaste installationsguiden finns [.NET Core på Linux](https://www.microsoft.com/net/core#linuxubuntu) installationssidan.
+Till exempel börja med att installera .NET Core på Ubuntu 16,10. Installationsguide för senaste besök [.NET Core på Linux](https://www.microsoft.com/net/core#linuxubuntu) installationssidan.
 
 
 ```bash
@@ -665,26 +668,26 @@ tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-Du kan ta bort de extraherade filerna när AzCopy på Linux har installerats. Du kan också om du inte har superanvändare, du kan också köra `azcopy` använder azcopy för shell-skript i den extraherade mappen.
+Du kan ta bort de extrahera filerna när AzCopy i Linux har installerats. Du kan också om du inte har behörighet som administratör kan du kan också köra `azcopy` med hjälp av azcopy för shell-skript i den extrahera mappen.
 
 ## <a name="known-issues-and-best-practices"></a>Kända problem och bästa praxis
 ### <a name="error-installing-azcopy"></a>Fel vid installation av AzCopy
-Om du får problem med installation av AzCopy kan du försöker köra AzCopy använda bash-skript på den extraherade `azcopy` mapp.
+Om du stöter på problem med AzCopy-installationen kan du försöka kör AzCopy med bash-skript i den extraherade `azcopy` mapp.
 
 ```bash
 cd azcopy
 ./azcopy
 ```
 
-### <a name="limit-concurrent-writes-while-copying-data"></a>Begränsa samtidiga skrivningar vid kopiering av data
-När du kopierar blobar eller filer med AzCopy, Tänk på att ett annat program kan ändra data när du kopierar den. Kontrollera om det är möjligt att du kopierar data inte ändras under kopieringen. Till exempel när du kopierar en virtuell Hårddisk som är kopplad till en virtuell Azure-dator, kontrollera att inga andra program för tillfället skrivning till den virtuella Hårddisken. Ett bra sätt att göra detta är genom leasing resurs som ska kopieras. Alternativt kan du skapa en ögonblicksbild av den virtuella Hårddisken först och sedan kopiera ögonblicksbilden.
+### <a name="limit-concurrent-writes-while-copying-data"></a>Gräns för samtidiga skrivningar vid kopiering av data
+När du kopierar blobar eller filer med AzCopy, Kom ihåg att ett annat program kan ändra data när du kopierar den. Kontrollera om det är möjligt att du kopierar data inte ändras under kopieringen. Till exempel när du kopierar en virtuell Hårddisk som är associerade med virtuella Azure-datorer, se till att inga andra program för närvarande skrivning till den virtuella Hårddisken. Det är ett bra sätt att göra detta genom leasing resursen som ska kopieras. Alternativt kan du först skapa en ögonblicksbild av den virtuella Hårddisken och sedan kopiera ögonblicksbilden.
 
-Om du inte hindra andra program från att skriva till filer eller blobbar när de kopieras sedan Kom ihåg att när jobbet har slutförts, kopiera resurserna kan inte längre har fullständig paritet med resurserna som källa.
+Om du inte hindra andra program från att skriva till BLOB-objekt eller filer när de kopieras sedan Kom ihåg att när jobbet har slutförts, de kopierade resurserna kan inte längre ha fullständig paritet med resurserna som källa.
 
 ### <a name="running-multiple-azcopy-processes"></a>Flera AzCopy processer som körs
-Du kan köra flera AzCopy processer på en enskild klient att ange att du använder olika journalmappar. Med en enda journalmapp för flera AzCopy-processer stöds inte.
+Du kan köra flera AzCopy processer på en enda klient att ange att du använder olika journalmappar. Med en enda journalmapp för flera AzCopy-processer stöds inte.
 
-1 process:
+1 processen:
 ```azcopy
 azcopy \
     --source /mnt/myfiles1 \
@@ -693,7 +696,7 @@ azcopy \
     --resume "/mnt/myazcopyjournal1"
 ```
 
-2 process:
+2 processen:
 ```azcopy
 azcopy \
     --source /mnt/myfiles2 \
@@ -705,23 +708,23 @@ azcopy \
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure Storage och AzCopy finns i följande resurser:
 
-### <a name="azure-storage-documentation"></a>Azure Storage-dokumentation:
+### <a name="azure-storage-documentation"></a>Dokumentation om Azure Storage:
 * [Introduktion till Azure Storage](../storage-introduction.md)
 * [Skapa ett lagringskonto](../storage-create-storage-account.md)
 * [Hantera blobar med Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
-* [Med hjälp av Azure CLI 2.0 med Azure Storage](../storage-azure-cli.md)
-* [Hur du använder Blob storage från C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [Använda Azure CLI 2.0 med Azure Storage](../storage-azure-cli.md)
+* [Använda Blob storage från C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Använda Blob Storage från Java](../blobs/storage-java-how-to-use-blob-storage.md)
 * [Använda Blob Storage från Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)
 * [Använda Blob Storage från Python](../blobs/storage-python-how-to-use-blob-storage.md)
 
-### <a name="azure-storage-blog-posts"></a>Azure Storage blogginlägg:
-* [Om AzCopy på Linux-Preview](https://azure.microsoft.com/en-in/blog/announcing-azcopy-on-linux-preview/)
-* [Introduktion till Azure Storage Data Movement Library Preview](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+### <a name="azure-storage-blog-posts"></a>Azure Storage-blogginlägg:
+* [Vi presenterar AzCopy i Linux-förhandsvisningen](https://azure.microsoft.com/en-in/blog/announcing-azcopy-on-linux-preview/)
+* [Introduktion till Azure Storage Data Movement Library förhandsversion](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 * [AzCopy: Introduktion till synkron kopia och anpassade innehållstyp](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy: Om allmän tillgänglighet AzCopy 3.0 plus förhandsversionen av AzCopy 4.0 med tabell- och support](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy: Optimerade för storskaliga kopiera scenarier](http://go.microsoft.com/fwlink/?LinkId=507682)
-* [AzCopy: Stöd för geo-redundant lagring med läsbehörighet](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+* [AzCopy: Meddelande om allmän tillgänglighet av AzCopy 3.0 plus förhandsversionen av AzCopy 4.0 med stöd för tabell och fil](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+* [AzCopy: Optimerats för storskaliga kopia scenarier](http://go.microsoft.com/fwlink/?LinkId=507682)
+* [AzCopy: Stöd för läsåtkomst till geografiskt redundant lagring](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
 * [AzCopy: Överföra data med omstartsläge och SAS-token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy: Använder mellan konto kopiera Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Överför/hämta filer för Azure-BLOB](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [AzCopy: Med hjälp av flera konto kopiering av Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy: Ladda upp/ned filer för Azure-Blobar](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

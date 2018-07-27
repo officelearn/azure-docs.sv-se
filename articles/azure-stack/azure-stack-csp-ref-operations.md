@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 18b34af8dc383cfa86017162ec48782f156156bc
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: efd1c1eafbff8bf56b16131e44cff6b03ce7338a
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39093125"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264818"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Hantera klienten registrering i Azure Stack
 
@@ -35,6 +35,13 @@ Du kan också använda den här åtgärden om du vill ändra den prenumeration s
 
 Observera att endast en Azure-prenumeration kan associeras med en klient. Om du försöker lägga till en andra prenumerationen till en befintlig klient, är den första prenumerationen skrivas över. 
 
+### <a name="use-api-profiles"></a>Använd API-profiler
+
+Cmdletar i den här artikeln kräver att du anger en API-profil när du kör PowerShell. API-profiler representerar en uppsättning Azure resursprovidrar och deras API-versioner. De hjälper dig att använda rätt version av API: et när du interagerar med flera Azure-moln, till exempel när du arbetar med globala Azure och Azure Stack. Profiler definieras av ett namn som matchar deras lanseringsdatum. Med den här artikeln kommer du behöva använda den **2017-09-03** profil.
+
+Läs mer om Azure Stack och API-profiler, [hantera API-versionsprofiler i Azure Stack](user/azure-stack-version-profiles.md). Anvisningar för att konfigurera och komma igång med API-profilen med PowerShell finns i [Använd API-versionsprofiler för PowerShell i Azure Stack](user/azure-stack-version-profiles-powershell.md).
+
+### <a name="parameters"></a>Parametrar
 
 | Parameter                  | Beskrivning |
 |---                         | --- |

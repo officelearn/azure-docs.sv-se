@@ -15,12 +15,12 @@ ms.prod: vs-devops-alm
 ms.date: 03/02/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: ce587fcbc3bcbea129db1d3d9d0fb60cebdf8e0e
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 2c8cd5cb837787db7bd6cb0d76bdf734b7d7bc0f
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972374"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285382"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar på Azure
 Med Visual Studio på en förkonfigurerad Azure-dator (VM) är ett snabbt, enkelt sätt att gå från inget till en upp-igång-utvecklingsmiljö. Systemavbildningar med olika konfigurationer för Visual Studio finns i den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -33,7 +33,7 @@ Avbildningar för de senaste huvudversioner, Visual Studio 2017 och Visual Studi
 | Slutversionen                                              | Utgåvor                     |     Produktversion     |
 |:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
 | Visual Studio 2017: Senaste (Version 15.7)                    |    Enterprise, Community     |      Version 15.7.5     |
-| Visual Studio 2017: Senaste förhandsversionen av (Version 15.8, förhandsversion 4) |    Enterprise, Community     |      Version 15.8.4     |
+| Visual Studio 2017: Senaste förhandsversionen av (Version 15.8 Preview 5) |    Enterprise, Community     |      Version 15.8.5     |
 |         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Version 15.0.15    |
 |   Visual Studio 2015: Senaste (Aktualizace 3)                      |    Enterprise, Community     |  Version 14.0.25431.01  |
 |         Visual Studio 2015: RTW                              |             Ingen             | (Har gått ut för att underhålla) |

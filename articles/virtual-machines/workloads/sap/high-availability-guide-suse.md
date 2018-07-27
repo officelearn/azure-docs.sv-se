@@ -1,6 +1,6 @@
 ---
 title: Azure virtuella datorer hög tillgänglighet för SAP NetWeaver på SUSE Linux Enterprise Server för SAP-program | Microsoft Docs
-description: Hög tillgänglighet guide för SAP NetWeaver på SUSE Linux Enterprise Server för SAP-program
+description: Guide för hög tillgänglighet för SAP NetWeaver på SUSE Linux Enterprise Server för SAP-program
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: 9d6c56f96c085de60b7cc05e4cc16b57867f6a7d
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 935b501964435e80172ef3e147f777bf47119b48
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308368"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285130"
 ---
-# <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på Azure Virtual Machines på SUSE Linux Enterprise Server för SAP-program
+# <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -52,50 +52,50 @@ ms.locfileid: "36308368"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-Den här artikeln beskriver hur du distribuerar virtuella datorer, konfigurera virtuella datorer, installera kluster framework och installera en högtillgänglig SAP NetWeaver 7,50.
-I exempelkonfigurationer installationskommandon osv. ASCS instansnummer 00 ÄNDARE instansen nummer 02 och SAP System-ID NW1 används. Namnen på de resurser (till exempel virtuella datorer, virtuella nätverk) i exemplet förutsätter att du har använt den [konvergerat mallen] [ template-converged] med SAP system-ID NW1 att skapa resurser.
+Den här artikeln beskriver hur du distribuerar de virtuella datorerna, konfigurera virtuella datorer, installera kluster framework och installera en högtillgänglig SAP NetWeaver 7,50 system.
+I exempelkonfigurationer installationskommandon osv. ASCS instansnummer 00, antal 02 instanser ÄNDARE och SAP System-ID: T NW1 används. Namnen på resurserna (till exempel virtuella datorer, virtuella nätverk) i det här exemplet förutsätter att du har använt den [konvergerat mallen] [ template-converged] med SAP-system-ID: T NW1 att skapa resurser.
 
-Läs följande SAP anteckningar och papper först
+Läs följande SAP Notes och papers först
 
-* SAP-kommentar [1928533], som innehåller:
-  * Lista över Azure VM-storlekar som stöds för distribution av program
+* SAP-kommentar [1928533], som har:
+  * Lista över Azure VM-storlekar som stöds för distribution av SAP-program
   * Viktiga kapacitetsinformation för Azure VM-storlekar
-  * Stöds SAP-programvara och operativsystem (OS) och kombinationer av databasen
-  * SAP kernel version som krävs för Windows och Linux i Microsoft Azure
+  * SAP-program som stöds, och operativsystem (OS) och kombinationer av databas
+  * Nödvändiga SAP kernel-version för Windows och Linux på Microsoft Azure
 
-* SAP-kommentar [2015553] listar kraven för stöd för SAP SAP programvarudistributioner i Azure.
-* SAP-kommentar [2205917] har rekommenderat OS-inställningar för SUSE Linux Enterprise Server för SAP-program
+* SAP-kommentar [2015553] visar en lista över kraven för distribution av SAP-stöd för SAP-programvara i Azure.
+* SAP-kommentar [2205917] rekommenderar OS-inställningar för SUSE Linux Enterprise Server för SAP-program
 * SAP-kommentar [1944799] har SAP HANA riktlinjer för SUSE Linux Enterprise Server för SAP-program
-* SAP-kommentar [2178632] innehåller detaljerad information om all övervakning mått som rapporterats för SAP i Azure.
+* SAP-kommentar [2178632] mer information om all övervakning mått som rapporterats för SAP i Azure.
 * SAP-kommentar [2191498] har Värdagenten för SAP-version som krävs för Linux i Azure.
 * SAP-kommentar [2243692] har licensieringsinformation SAP på Linux i Azure.
 * SAP-kommentar [1984787] har allmän information om SUSE Linux Enterprise Server 12.
 * SAP-kommentar [1999351] innehåller ytterligare felsökningsinformation för Azure förbättrad övervakning av tillägget för SAP.
-* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP anteckningar för Linux.
-* [Azure virtuella datorer planering och implementering för SAP på Linux][planning-guide]
-* [Distribution av Azure virtuella datorer för SAP på Linux (den här artikeln)][deployment-guide]
-* [Azure virtuella datorer DBMS-distribution för SAP på Linux][dbms-guide]
-* [SUSE SAP HA bästa praxis guider] [ suse-ha-guide] guiderna innehåller all nödvändig information för att ställa in Netweaver hög tillgänglighet och SAP HANA System replikering på lokalt. Använd detta hjälper som utgångspunkt Allmänt. De ger mycket mer detaljerad information.
-* [Hög NFS lagringsutrymme med DRBD och Pacemaker] [ suse-drbd-guide] guiden innehåller all nödvändig information för att ställa in en NFS-server med hög tillgänglighet. Använd den här guiden som utgångspunkt.
+* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP Notes för Linux.
+* [Azure virtuella datorer, planering och implementering av SAP på Linux][planning-guide]
+* [Azure Virtual Machines-distribution för SAP på Linux (den här artikeln)][deployment-guide]
+* [Azure Virtual Machines DBMS-distribution för SAP på Linux][dbms-guide]
+* [SUSE SAP HA Regelverksguider] [ suse-ha-guide] guiderna innehåller all nödvändig information för att ställa in Netweaver hög tillgänglighet och SAP HANA-Systemreplikering på plats. . Använd detta hjälper som en allmän baslinje. De ger mycket mer detaljerad information.
+* [Mycket tillgängliga NFS-lagring med DRBD och Pacemaker] [ suse-drbd-guide] guiden innehåller all nödvändig information för att ställa in en NFS-server med hög tillgänglighet. Använd den här guiden som utgångspunkt.
 
 
 ## <a name="overview"></a>Översikt
 
-För att uppnå hög tillgänglighet kräver SAP NetWeaver NFS-servern. NFS-servern är konfigurerad i separata kluster och kan användas av flera SAP-system.
+För att uppnå hög tillgänglighet kräver SAP NetWeaver NFS-servern. NFS-servern har konfigurerats i ett separat kluster och kan användas av flera SAP-system.
 
 ![Översikt över SAP NetWeaver hög tillgänglighet](./media/high-availability-guide-suse/img_001.png)
 
-NFS-servern, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ÄNDARE och SAP HANA-databas ska du använda virtuella värdnamn och virtuella IP-adresser. På Azure krävs en belastningsutjämnare för att använda en virtuell IP-adress. I följande lista visar konfigurationen av (A) SCS och ÄNDARE belastningsutjämnare.
+NFS-server, SAP NetWeaver ASCS, SAP NetWeaver SCS, ÄNDARE för SAP NetWeaver och SAP HANA-databas använda virtuella värdnamn och virtuella IP-adresser. På Azure måste en belastningsutjämnare använda en virtuell IP-adress. I följande lista visas konfigurationen av (A) SCS och ÄNDARE belastningsutjämnare.
 
 ### <a name="ascs"></a>(A) SCS
 
 * Konfiguration för klientdel
   * IP-adress 10.0.0.7
 * Backend-konfiguration
-  * Ansluten till primära nätverksgränssnitt för alla virtuella datorer som ska ingå i (A) SCS/ÄNDARE kluster
+  * Ansluten till primära nätverksgränssnitt för alla virtuella datorer som ska vara en del av (A) SCS/ÄNDARE kluster
 * Avsökningsport
   * Port 620**&lt;nr&gt;**
-* Regler för belastningsutjämning
+* Med regler
   * 32**&lt;nr&gt;**  TCP
   * 36**&lt;nr&gt;**  TCP
   * 39**&lt;nr&gt;**  TCP
@@ -109,10 +109,10 @@ NFS-servern, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ÄNDARE och SA
 * Konfiguration för klientdel
   * IP-adress 10.0.0.8
 * Backend-konfiguration
-  * Ansluten till primära nätverksgränssnitt för alla virtuella datorer som ska ingå i (A) SCS/ÄNDARE kluster
+  * Ansluten till primära nätverksgränssnitt för alla virtuella datorer som ska vara en del av (A) SCS/ÄNDARE kluster
 * Avsökningsport
   * Port 621**&lt;nr&gt;**
-* Regler för belastningsutjämning
+* Med regler
   * 33**&lt;nr&gt;**  TCP
   * 5**&lt;nr&gt;** 13 TCP
   * 5**&lt;nr&gt;** 14 TCP
@@ -120,89 +120,89 @@ NFS-servern, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ÄNDARE och SA
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Hur du konfigurerar en NFS-server med hög tillgänglighet
 
-SAP NetWeaver kräver en delad lagring för katalogen transport och profil. Läs [hög tillgänglighet för NFS på Azure Virtual Machines på SUSE Linux Enterprise Server] [ nfs-ha] på hur du konfigurerar en NFS-server för SAP NetWeaver.
+SAP NetWeaver kräver delad lagring för katalogen transport och profil. Läs [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server] [ nfs-ha] om hur du konfigurerar en NFS-server för SAP NetWeaver.
 
-## <a name="setting-up-ascs"></a>Skapa (A) SCS
+## <a name="setting-up-ascs"></a>Konfigurationen av (A) SCS
 
-Du kan antingen använda en Azure-mall från github för att distribuera alla nödvändiga Azure-resurser, inklusive de virtuella datorerna, tillgänglighet ange och belastningsutjämnare eller du kan distribuera resurserna manuellt.
+Du kan antingen använda en Azure-mall från github för att distribuera alla nödvändiga Azure-resurser, inklusive de virtuella datorerna, tillgänglighet och belastningsutjämning eller du kan distribuera resurserna manuellt.
 
 ### <a name="deploy-linux-via-azure-template"></a>Distribuera Linux via Azure-mall
 
-Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP program 12 som du kan använda för att distribuera nya virtuella datorer. Marketplace-avbildning innehåller resurs-agent för SAP NetWeaver.
+Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP-program 12 som du kan använda för att distribuera nya virtuella datorer. Marketplace-avbildningen innehåller resurs-agenten för SAP NetWeaver.
 
-Du kan använda en av quickstart mallar på github för att distribuera alla nödvändiga resurser. Mallen distribuerar virtuella datorer, belastningsutjämnare, tillgänglighetsuppsättning osv. Följ dessa steg om du vill distribuera mallen:
+Du kan använda en av snabbstartsmallarna på github för att distribuera alla nödvändiga resurser. Mallen distribuerar virtuella datorer, belastningsutjämnare, tillgänglighetsuppsättning osv. Följ dessa steg om du vill distribuera mallen:
 
-1. Öppna den [ASCS/SCS Multi SID-mall] [ template-multisid-xscs] eller [konvergerat mallen] [ template-converged] på Azure-portalen i ASCS/SCS endast skapas på belastningsutjämning regler för SAP NetWeaver ASCS/SCS och ÄNDARE (endast Linux) instanser medan mallen konvergerade skapar även reglerna för belastningsutjämning för en databas (till exempel Microsoft SQL Server eller SAP HANA). Om du planerar att installera ett SAP NetWeaver baserat system och du även vill installera databasen på samma datorer använder den [konvergerat mallen][template-converged].
+1. Öppna den [ASCS/SCS Multi-SID mallen] [ template-multisid-xscs] eller [konvergerat mallen] [ template-converged] på Azure portal på ASCS/SCS mallen skapar endast den regler för belastningsutjämning för SAP NetWeaver ASCS/SCS och ÄNDARE instanser (endast Linux) medan konvergerade mallen skapar även belastningsutjämningsregler för en databas (till exempel Microsoft SQL Server eller SAP HANA). Om du planerar att installera ett SAP NetWeaver-baserade system och du även vill installera databasen på samma datorer använder den [konvergerat mallen][template-converged].
 1. Ange följande parametrar
-   1. Resursen Prefix (endast mall ASCS/SCS Multi SID)  
-      Ange det prefix som du vill använda. Värdet används som ett prefix för de resurser som har distribuerats.
+   1. Resurs-Prefix (endast ASCS/SCS Multi-SID-mall)  
+      Ange det prefix som du vill använda. Värdet används som ett prefix för de resurser som distribueras.
    3. SAP System-ID (endast konvergerade mall)  
-      Ange ID för SAP-system för SAP-system som du vill installera. ID som används som ett prefix för de resurser som har distribuerats.
+      Ange ID för SAP-system för SAP-system som du vill installera. ID: T används som ett prefix för de resurser som distribueras.
    4. Stack-typ  
-      Välj typ för SAP NetWeaver stack
-   5. OS-typen  
-      Välj en av Linux-distributioner. Det här exemplet väljer du SLES 12 BYOS
+      Välj typ för SAP NetWeaver-stack
+   5. OS-typ  
+      Välj en av Linux-distributioner. I det här exemplet väljer du SLES 12 BYOS
    6. DB-typ  
       Välj HANA
    7. Storlek för SAP-System  
-      Mängden SAP som innehåller det nya systemet. Om du inte vet hur många SAP systemet kräver, be din SAP-teknikpartner eller systemintegreraren
+      Mängden SAP som innehåller det nya systemet. Om du inte vet hur många SAP kräver att systemet, be din SAP-teknikpartner eller systemintegratör
    8. Systemets tillgänglighet  
       Välj hög tillgänglighet
-   9. Användarnamn och lösenord för Admin administratör  
+   9. Administratörens användarnamn och lösenord för serveradministratören  
       En ny användare skapas som kan användas för att logga in på datorn.
    10. Undernät-ID  
-   ID för det undernät som de virtuella datorerna ska anslutas till.  Lämna tomt om du vill skapa ett nytt virtuellt nätverk eller Välj samma undernät som du användas eller skapas som en del av distributionen av NFS-servern. ID som ser oftast ut så /subscriptions/**&lt;prenumerations-ID&gt;**/resourceGroups/**&lt;resursgruppnamn&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;virtuella nätverksnamnet&gt;**/subnets/**&lt;undernätsnamn&gt;**
+   ID för det undernät som de virtuella datorerna ska anslutas till.  Lämna tomt om du vill skapa ett nytt virtuellt nätverk eller Välj samma undernät som du användas eller skapas som en del av NFS-serverdistribution. ID: T ser oftast ut så /subscriptions/**&lt;prenumerations-ID&gt;**/resourceGroups/**&lt;Resursgruppsnamn&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;virtuella nätverksnamnet&gt;**/subnets/**&lt;undernätsnamn&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuera Linux manuellt via Azure-portalen
 
-Du måste först skapa virtuella datorer för det här NFS-klustret. Därefter kan du skapa en belastningsutjämnare och använder de virtuella datorerna i backend-pooler.
+Du måste först skapa de virtuella datorerna för det här NFS-klustret. Därefter kan du skapa en belastningsutjämnare och använder du virtuella datorer i backend-pooler.
 
 1. Skapa en resursgrupp
 1. Skapa ett virtuellt nätverk
 1. Skapa en Tillgänglighetsuppsättning  
-   Ange högsta uppdateringsdomän
+   Ställ in max uppdateringsdomän
 1. Skapa virtuell dator 1   
-   Använd minst SLES4SAP 12 SP1, i det här exemplet SLES4SAP 12 SP1-bild https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
-   SLES för SAP program 12 SP1 används  
+   Använd minst SLES4SAP 12 SP1, i den här exempelbild SLES4SAP 12 SP1 https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
+   SLES för SAP-program 12 SP1 används  
    Välj Tillgänglighetsuppsättning skapade tidigare  
 1. Skapa virtuell dator 2   
-   Använd minst SLES4SAP 12 SP1, i det här exemplet SLES4SAP 12 SP1-bild https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
-   SLES för SAP program 12 SP1 används  
+   Använd minst SLES4SAP 12 SP1, i den här exempelbild SLES4SAP 12 SP1 https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
+   SLES för SAP-program 12 SP1 används  
    Välj Tillgänglighetsuppsättning skapade tidigare  
-1. Lägg till minst en datadisk till både virtuella datorer  
-   Datadiskar som användsför/usr/sap/`<SAPSID`> directory
+1. Lägga till minst en datadisk till båda de virtuella datorerna  
+   På diskar som används förusr/sap/`<SAPSID`> directory
 1. Skapa en belastningsutjämnare (internt)  
-   1. Skapa IP-adresser för klientdel
+   1. Skapa frontend-IP-adresser
       1. IP-adress 10.0.0.7 för ASCS
-         1. Öppna belastningsutjämnaren, Välj klientdelens IP-pool och klicka på Lägg till
-         1. Ange namnet på den nya klientdelens IP-poolen (till exempel **nw1-ascs-klientdel**)
-         1. Ange tilldelningen som statisk och ange IP-adress (till exempel **10.0.0.7**)
+         1. Öppna belastningsutjämnaren, Välj IP-adresspool på klientdelen och klicka på Lägg till
+         1. Ange namnet på den nya frontend IP-poolen (till exempel **nw1-ascs-klientdel**)
+         1. Ange tilldelningen till statiskt och ange IP-adressen (till exempel **10.0.0.7**)
          1. Klicka på OK
       1. IP-adress 10.0.0.8 för ASCS ERS
          * Upprepa stegen ovan för att skapa en IP-adress för ÄNDARE (till exempel **10.0.0.8** och **nw1-aers-backend**)
-   1. Skapa backend-pooler
+   1. Skapa backend-adresspooler
       1. Skapa en serverdelspool för ASCS
          1. Öppna belastningsutjämnaren, Välj serverdelspooler och klicka på Lägg till
-         1. Ange namnet på den nya serverdelspoolen (till exempel **nw1-ascs-backend**)
+         1. Ange namnet på den nya backend-poolen (till exempel **nw1-ascs-backend**)
          1. Klicka på Lägg till en virtuell dator.
-         1. Välj Tillgänglighetsuppsättningen som du skapade tidigare
-         1. Välj de virtuella datorerna i (A) SCS kluster
+         1. Välj Tillgänglighetsuppsättning som du skapade tidigare
+         1. Välj de virtuella datorerna av (A) SCS-kluster
          1. Klicka på OK
       1. Skapa en serverdelspool för ASCS ERS
          * Upprepa stegen ovan för att skapa en serverdelspool för ÄNDARE (till exempel **nw1-aers-backend**)
-   1. Skapa hälsoavsökningar
+   1. Skapa hälsoavsökningarna
       1. Port 620**00** för ASCS
          1. Öppna belastningsutjämnaren, Välj hälsoavsökningar och klicka på Lägg till
          1. Ange namnet på den nya hälsoavsökningen (till exempel **nw1-ascs-hp**)
-         1. Välj TCP som protokoll, port 620**00**, hålla intervallet 5 och tröskelvärde för ohälsosamt värde 2
+         1. Välj TCP som protokoll, port 620**00**, se till att intervallet 5 och tröskelvärde för ej felfri 2
          1. Klicka på OK
       1. Port 621**02** för ASCS ÄNDARE
-         * Upprepa stegen ovan för att skapa en hälsoavsökningen för ÄNDARE (till exempel 621**02** och **nw1-aers-hp**)
-   1. Regler för belastningsutjämning
+         * Upprepa stegen ovan för att skapa en hälsoavsökning för ÄNDARE (till exempel 621**02** och **nw1-aers-hp**)
+   1. Med regler
       1. 32**00** TCP för ASCS
          1. Öppna belastningsutjämnaren, Välj regler för belastningsutjämning och klicka på Lägg till
-         1. Ange namnet på den nya regeln för belastningsutjämnare (till exempel **nw1-lb-3200**)
-         1. Välj klientdelens IP-adress, serverdelspool och hälsoavsökningen som du skapade tidigare (till exempel **nw1-ascs-klientdel**)
+         1. Ange namnet på den nya belastningsutjämningsregeln (till exempel **nw1-lb-3200**)
+         1. Välj klientdelens IP-adress, serverdelspool och hälsoavsökning som du skapade tidigare (till exempel **nw1-ascs-klientdel**)
          1. Behåll protokollet **TCP**, ange port **3200**
          1. Öka tidsgränsen för inaktivitet till 30 minuter
          1. **Se till att aktivera flytande IP**
@@ -218,15 +218,35 @@ Följ stegen i [konfigurerar Pacemaker på SUSE Linux Enterprise Server i Azure]
 
 ### <a name="installation"></a>Installation
 
-Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]** – gäller endast för nod 1 eller **[2]** – gäller endast för nod 2.
+Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1]** – gäller endast för nod 1 eller **[2]** – gäller endast för nod 2.
 
 1. **[A]**  Installera SUSE Connector
    
    <pre><code>
-   sudo zypper install sap_suse_cluster_connector
+   sudo zypper install sap-suse-cluster-connector
    </code></pre>
 
-1. **[A]**  Uppdatering SAP resurs agenter  
+   Se till att du installerat den nya versionen av SAP SUSE-klusterkoppling. Gamla anropades sap_suse_cluster_connector och den nya servern kallas **sap-suse-kluster-connector**.
+
+   <pre><code>
+   sudo zypper info sap-suse-cluster-connector
+   
+   Information for package sap-suse-cluster-connector:
+   ---------------------------------------------------
+   Repository     : SLE-12-SP3-SAP-Updates
+   Name           : sap-suse-cluster-connector
+   <b>Version        : 3.0.0-2.2</b>
+   Arch           : noarch
+   Vendor         : SUSE LLC <https://www.suse.com/>
+   Support Level  : Level 3
+   Installed Size : 41.6 KiB
+   <b>Installed      : Yes</b>
+   Status         : up-to-date
+   Source package : sap-suse-cluster-connector-3.0.0-2.2.src
+   Summary        : SUSE High Availability Setup for SAP Products
+   </code></pre>
+
+1. **[A]**  Update SAP resource agenter  
    
    En korrigering för resurs-agenter paket krävs för att använda den nya konfigurationen som beskrivs i den här artikeln. Du kan kontrollera, om uppdateringen redan är installerad med följande kommando
 
@@ -234,13 +254,13 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
    sudo grep 'parameter name="IS_ERS"' /usr/lib/ocf/resource.d/heartbeat/SAPInstance
    </code></pre>
 
-   Resultatet bör likna
+   Utdata bör likna
 
    <pre><code>
    &lt;parameter name="IS_ERS" unique="0" required="0"&gt;
    </code></pre>
 
-   Om kommandot grep inte hittar parametern IS_ERS, måste du installera uppdateringen på [SUSE hämtningssidan](https://download.suse.com/patch/finder/#bu=suse&familyId=&productId=&dateRange=&startDate=&endDate=&priority=&architecture=&keywords=resource-agents)
+   Om kommandot grep inte hittar parametern IS_ERS, måste du installera uppdateringen på [hämtningssidan för SUSE](https://download.suse.com/patch/finder/#bu=suse&familyId=&productId=&dateRange=&startDate=&endDate=&priority=&architecture=&keywords=resource-agents)
 
    <pre><code>
    # example for patch for SLES 12 SP1
@@ -249,16 +269,16 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
    sudo zypper in -t patch SUSE-SLE-HA-12-SP2-2017-886=1
    </code></pre>
 
-1. **[A]**  Installationsprogrammet värdnamnsmatchning   
+1. **[A]**  Konfigurera matcha värdnamn   
 
-   Du kan använda en DNS-server, eller så kan du ändra de/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adressen och värdnamnet i följande kommandon
 
    <pre><code>
    sudo vi /etc/hosts
    </code></pre>
    
-   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet som matchar din miljö   
+   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö   
    
    <pre><code>
    # IP address of the load balancer frontend configuration for NFS
@@ -271,7 +291,7 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
    <b>10.0.0.13 nw1-db</b>
    </code></pre>
 
-## <a name="prepare-for-sap-netweaver-installation"></a>Förbereda för SAP NetWeaver installation
+## <a name="prepare-for-sap-netweaver-installation"></a>Förbereda för installation av SAP NetWeaver
 
 1. **[A]**  Skapa delade kataloger
 
@@ -312,7 +332,7 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
    /usr/sap/<b>NW1</b>/ERS<b>02</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/ASCSERS
    </code></pre>
 
-   Starta om autofs montera nya resurser
+   Starta om autofs för att montera de nya resurserna
 
    <pre><code>
    sudo systemctl enable autofs
@@ -343,7 +363,7 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
 
 ### <a name="installing-sap-netweaver-ascsers"></a>Installera SAP NetWeaver ASCS/ÄNDARE
 
-1. **[1]**  Skapa en virtuell IP-resurs och hälsoavsökningen för ASCS-instans
+1. **[1]**  Skapa en virtuell IP-resurs och en hälsoavsökning för ASCS-instans
 
    <pre><code>
    sudo crm node standby <b>nw1-cl-1</b>
@@ -360,7 +380,7 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
       meta resource-stickiness=3000
    </code></pre>
 
-   Kontrollera att klustret status är ok och att alla resurser har startats. Det är inte viktigt i vilken nod som använder resurserna.
+   Kontrollera att klusterstatusen är ok och att alla resurser har startats. Det är inte viktigt i vilken nod som resurserna som körs.
 
    <pre><code>
    sudo crm_mon -r
@@ -379,22 +399,22 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
 
 1. **[1]**  Installera SAP NetWeaver ASCS  
 
-   Installera SAP NetWeaver ASCS som rot på den första noden med hjälp av ett virtuellt värdnamn som mappar till IP-adressen för klientdel belastningsutjämningskonfigurationen för ASCS, till exempel <b>nw1 ascs</b>, <b>10.0.0.7</b> och instansen tal som du använde för avsökning av belastningsutjämnare, till exempel <b>00</b>.
+   Installera SAP NetWeaver ASCS som rot på den första noden med hjälp av ett virtuellt värdnamn som mappar till IP-adressen för klientdel belastningsutjämningskonfigurationen för ASCS, till exempel <b>nw1 ascs</b>, <b>10.0.0.7</b> och antal som du använde för avsökning av belastningsutjämnare, till exempel instanser <b>00</b>.
 
-   Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER för att tillåta en rot-användare att ansluta till sapinst.
+   Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER så att en icke-begränsande användare att ansluta till sapinst.
 
    <pre><code>
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-   Om installationen misslyckas med att skapa en undermapp i/usr/sap/**NW1**/ASCS**00**, försök med ägaren och gruppen av ASCS**00** mappen och försök igen.
+   Om installationen inte kan skapa en undermapp i/usr/sap/**NW1**/ASCS**00**, försök att ange ägare och grupp med ASCS**00** mappen och försök igen.
 
    <pre><code>
    chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    chgrp sapsys /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    </code></pre>
 
-1. **[1]**  Skapa en virtuell IP-resurs och hälsoavsökningen för ÄNDARE-instans
+1. **[1]**  Skapa en virtuell IP-resurs och en hälsoavsökning för ÄNDARE-instans
 
    <pre><code>
    sudo crm node online <b>nw1-cl-1</b>
@@ -414,7 +434,7 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
    sudo crm configure group g-<b>NW1</b>_ERS nc_<b>NW1</b>_ERS vip_<b>NW1</b>_ERS
    </code></pre>
  
-   Kontrollera att klustret status är ok och att alla resurser har startats. Det är inte viktigt i vilken nod som använder resurserna.
+   Kontrollera att klusterstatusen är ok och att alla resurser har startats. Det är inte viktigt i vilken nod som resurserna som körs.
 
    <pre><code>
    sudo crm_mon -r
@@ -436,18 +456,18 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
 
 1. **[2]**  Installera SAP NetWeaver ÄNDARE  
 
-   Installera SAP NetWeaver ÄNDARE som rot på den andra noden med hjälp av ett virtuellt värdnamn som mappar till IP-adressen för klientdel belastningsutjämningskonfigurationen för ÄNDARE, till exempel <b>nw1 aers</b>, <b>10.0.0.8</b> och instansen tal som du använde för avsökning av belastningsutjämnare, till exempel <b>02</b>.
+   Installera SAP NetWeaver ÄNDARE som rot på den andra noden med hjälp av ett virtuellt värdnamn som mappar till IP-adressen för klientdel belastningsutjämningskonfigurationen för ÄNDARE, till exempel <b>nw1 aers</b>, <b>10.0.0.8</b> och antal som du använde för avsökning av belastningsutjämnare, till exempel instanser <b>02</b>.
 
-   Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER för att tillåta en rot-användare att ansluta till sapinst.
+   Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER så att en icke-begränsande användare att ansluta till sapinst.
 
    <pre><code>
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
    > [!NOTE]
-   > Använd SWPM SP 20 PL 05 eller högre. Lägre versioner anger inte behörigheter på rätt sätt och installationen misslyckas.
+   > Använd SWPM SP 20 PL 05 eller högre. Lägre versioner anger inte behörigheterna som korrekt och installationen misslyckas.
 
-   Om installationen misslyckas med att skapa en undermapp i/usr/sap/**NW1**/ERS**02**, försök med ägaren och gruppen av ÄNDARE**02** mappen och försök igen.
+   Om installationen inte kan skapa en undermapp i/usr/sap/**NW1**/ERS**02**, försök att ange ägare och grupp med ÄNDARE**02** mappen och försök igen.
 
    <pre><code>
    chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
@@ -455,7 +475,7 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
    </code></pre>
    > 
 
-1. **[1]**  Adapt ASCS/SCS och ÄNDARE instansen profiler
+1. **[1]**  Adapt ASCS/SCS och ÄNDARE instans profiler
  
    * ASCS/SCS-profil
 
@@ -485,9 +505,9 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
    </code></pre>
 
 
-1. **[A]**  Konfigurera Keep-Alive
+1. **[A]**  Konfigurera Keep Alive
 
-   Kommunikationen mellan SAP NetWeaver programservern och ASCS/SCS dirigeras via en belastningsutjämnare för programvara. Belastningsutjämnaren kopplar från inaktiva anslutningar efter en konfigurerbar tidsgräns. För att förhindra detta måste du ange en parameter i profilen för SAP NetWeaver ASCS/SCS och ändra inställningar för Linux-system. Läs [SAP Obs 1410736] [ 1410736] för mer information.
+   Kommunikationen mellan SAP NetWeaver-programserver och ASCS/SCS dirigeras via en belastningsutjämnare för programvara. Belastningsutjämnaren kopplar från inaktiva anslutningar när du har en tidsgräns som kan konfigureras. Om du vill förhindra detta måste du anger en parameter i SAP NetWeaver ASCS/SCS-profil och ändra inställningarna för Linux-system. Läs [SAP anteckning 1410736] [ 1410736] för mer information.
    
    Den ASCS/SCS profil parametern placera/encni/set_so_keepalive har redan lagts till i det sista steget.
 
@@ -503,7 +523,7 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
    sudo usermod -aG haclient <b>nw1</b>adm   
    </code></pre>
 
-1. **[1]**  Lägg till ASCS och ÄNDARE SAP-tjänster i filen sapservice
+1. **[1]**  Till ASCS och ÄNDARE SAP-tjänster i filen sapservice
 
    Lägg till ASCS tjänsten post till den andra noden och kopiera posten ÄNDARE tjänsten till den första noden.
 
@@ -512,7 +532,7 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
    sudo ssh <b>nw1-cl-1</b> "cat /usr/sap/sapservices" | grep ERS<b>02</b> | sudo tee -a /usr/sap/sapservices
    </code></pre>
 
-1. **[1]**  Skapa klusterresurser SAP
+1. **[1]**  Skapa SAP-klusterresurser
 
    <pre><code>
    sudo crm configure property maintenance-mode="true"   
@@ -541,7 +561,7 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-   Kontrollera att klustret status är ok och att alla resurser har startats. Det är inte viktigt i vilken nod som använder resurserna.
+   Kontrollera att klusterstatusen är ok och att alla resurser har startats. Det är inte viktigt i vilken nod som resurserna som körs.
 
    <pre><code>
    sudo crm_mon -r
@@ -562,20 +582,20 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
    #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-0</b>
    </code></pre>
 
-## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>Förberedelse av SAP NetWeaver programmet server
+## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>SAP NetWeaver application server förberedelse
 
-Vissa databaser kräver att instansen databasinstallation körs på en programserver. Förbered application server-datorer för att kunna använda dem i dessa fall.
+Vissa databaser kräver att instansen databasinstallation körs på en programserver. Förbereda programmet server-datorer för att kunna använda dem i dessa fall.
 
-Stegen nedan förutsätter att du installerar application server på en annan server än ASCS/SCS och HANA-servrar. Annars behövs vissa av stegen nedan (t.ex. Konfigurera värdnamnsmatchning) inte.
+Stegen nedan förutsätter att du installerar application server på en annan server än ASCS/SCS- och HANA-servrar. Annars behövs vissa av stegen nedan (t.ex. Konfigurera värdnamnsmatchning) inte.
 
-1. Konfigurera värdnamnsmatchning
+1. Konfigurera matcha värdnamn
 
-   Du kan använda en DNS-server, eller så kan du ändra de/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adressen och värdnamnet i följande kommandon
    ```bash
    sudo vi /etc/hosts
    ```
-   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet som matchar din miljö    
+   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö    
     
    <pre><code>
    # IP address of the load balancer frontend configuration for NFS
@@ -621,14 +641,14 @@ Stegen nedan förutsätter att du installerar application server på en annan se
    /usr/sap/trans -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/trans
    </code></pre>
 
-   Starta om autofs montera nya resurser
+   Starta om autofs för att montera de nya resurserna
 
    <pre><code>
    sudo systemctl enable autofs
    sudo service autofs restart
    </code></pre>
 
-1. Konfigurera växlingsfilen
+1. Konfigurera växlingsfil
  
    <pre><code>
    sudo vi /etc/waagent.conf
@@ -649,15 +669,15 @@ Stegen nedan förutsätter att du installerar application server på en annan se
    sudo service waagent restart
    </code></pre>
 
-## <a name="install-database"></a>Installera databasen
+## <a name="install-database"></a>Installera databas
 
-I det här exemplet är SAP NetWeaver installerad på SAP HANA. Du kan använda varje databas som stöds för den här installationen. Mer information om hur du installerar SAP HANA i Azure finns [hög tillgänglighet för SAP HANA på Azure Virtual Machines (virtuella datorer)][sap-hana-ha]. En lista över databaser som stöds, se [SAP Obs 1928533][1928533].
+I det här exemplet installeras SAP NetWeaver på SAP HANA. Du kan använda varje databas som stöds för den här installationen. Mer information om hur du installerar SAP HANA i Azure finns i [hög tillgänglighet för SAP HANA på Azure Virtual Machines (VM)][sap-hana-ha]. En lista över databaser som stöds finns i [SAP anteckning 1928533][1928533].
 
-1. Kör installationen instans SAP-databas
+1. Kör SAP-databasinstallation för instans
 
-   Installera SAP NetWeaver-databasinstans som rot med hjälp av ett virtuellt värdnamn som mappar till IP-adressen för klientdel belastningsutjämningskonfigurationen för databasen, till exempel <b>nw1 db</b> och <b>10.0.0.13</b>.
+   Installera SAP NetWeaver-databasinstans som rot med hjälp av ett virtuellt värdnamn som mappar till IP-adressen för klientdel belastningsutjämningskonfigurationen för databasen till exempel <b>nw1 db</b> och <b>10.0.0.13</b>.
 
-   Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER för att tillåta en rot-användare att ansluta till sapinst.
+   Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER så att en icke-begränsande användare att ansluta till sapinst.
 
    <pre><code>
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
@@ -665,32 +685,32 @@ I det här exemplet är SAP NetWeaver installerad på SAP HANA. Du kan använda 
 
 ## <a name="sap-netweaver-application-server-installation"></a>SAP NetWeaver application server-installation
 
-Följ dessa steg om du vill installera en SAP-programserver. 
+Följ dessa steg om du vill installera en programserver för SAP. 
 
 1. Förbereda programserver
 
-Följ stegen i kapitlet [SAP NetWeaver programmet server förberedelse](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) ovan för att förbereda servern för programmet.
+Följ stegen i kapitlet [SAP NetWeaver application server förberedelse](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) ovan för att förbereda servern för programmet.
 
-1. Installera SAP NetWeaver programserver
+1. Installera SAP NetWeaver-programserver
 
-   Installera en primär eller ytterligare SAP NetWeaver programserver.
+   Installera en primär eller ytterligare SAP NetWeaver-programserver.
 
-   Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER för att tillåta en rot-användare att ansluta till sapinst.
+   Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER så att en icke-begränsande användare att ansluta till sapinst.
 
    <pre><code>
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-1. Uppdatera SAP HANA säker lagringstjänst
+1. Uppdatera säker lagring för SAP HANA
 
-   Uppdatera SAP HANA säker lagringstjänst att peka till det virtuella namnet på installationsprogrammet för SAP HANA System replikering.
+   Uppdatera arkivet SAP HANA säkert att den pekar på det virtuella namnet på SAP HANA System Replication-installationen.
 
-   Kör följande kommando för att visa en lista med poster
+   Kör följande kommando för att lista poster
    <pre><code>
    hdbuserstore List
    </code></pre>
 
-   Detta bör innehålla alla poster och bör likna
+   Detta bör lista alla poster och bör se ut ungefär som
    <pre><code>
    DATA FILE       : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.DAT
    KEY FILE        : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.KEY
@@ -701,7 +721,7 @@ Följ stegen i kapitlet [SAP NetWeaver programmet server förberedelse](high-ava
      DATABASE: HN1
    </code></pre>
 
-   Utdata visar att IP-adressen för standard-posten pekar till den virtuella datorn och inte till belastningsutjämnarens IP-adress. Den här posten måste ändras för att peka till virtuella värdnamn för belastningsutjämnaren. Se till att använda samma port (**30313** i resultatet ovan)!
+   Utdata visar att IP-adressen för standardalternativet pekar till den virtuella datorn och inte till belastningsutjämnarens IP-adress. Den här posten måste ändras för att peka till det virtuella värdnamnet för belastningsutjämnaren. Se till att använda samma port (**30313** i utdata ovan)!
 
    <pre><code>
    su - <b>nw1</b>adm
@@ -709,8 +729,8 @@ Följ stegen i kapitlet [SAP NetWeaver programmet server förberedelse](high-ava
    </code></pre>
 
 ## <a name="next-steps"></a>Nästa steg
-* [Azure virtuella datorer planering och implementering för SAP][planning-guide]
-* [Distribution av Azure virtuella datorer för SAP][deployment-guide]
-* [Azure virtuella datorer DBMS-distribution för SAP][dbms-guide]
-* Information om hur du upprättar och planera för katastrofåterställning för SAP HANA i Azure (stora instanser) med hög tillgänglighet finns [SAP HANA (stora instanser) hög tillgänglighet och katastrofåterställning recovery på Azure](hana-overview-high-availability-disaster-recovery.md).
-* Information om hur du upprättar och planera för katastrofåterställning för SAP HANA på virtuella Azure-datorer med hög tillgänglighet finns [hög tillgänglighet för SAP HANA på Azure Virtual Machines (virtuella datorer)][sap-hana-ha]
+* [Azure virtuella datorer, planering och implementering av SAP][planning-guide]
+* [Azure Virtual Machines-distribution för SAP][deployment-guide]
+* [Azure Virtual Machines DBMS-distribution för SAP][dbms-guide]
+* Läs hur du etablerar hög tillgänglighet och planera för katastrofåterställning av SAP HANA på Azure (stora instanser) i [SAP HANA (stora instanser) hög tillgänglighet och katastrofåterställning recovery på Azure](hana-overview-high-availability-disaster-recovery.md).
+* Läs hur du etablerar hög tillgänglighet och planera för katastrofåterställning av SAP HANA på Azure Virtual Machines i [hög tillgänglighet för SAP HANA på Azure Virtual Machines (VM)][sap-hana-ha]

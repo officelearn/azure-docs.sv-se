@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f215136c5d07eca098d68d882d22f6c9dd14b0b9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e63f07e7819d464b4ee430571d8c5a05259c8df5
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214684"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282042"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Så här: Kräv hanterade enheter för åtkomst till molnet appen med villkorlig åtkomst
 
@@ -64,7 +64,7 @@ Om du vill ha en enhet har registrerats med Azure AD har du tre alternativ:
 
 - **[Azure AD-anslutna enheter](device-management-introduction.md#azure-ad-joined-devices)**  – om du vill hämta en organisations Windows 10-enhet som inte är ansluten till en lokal AD-registrerade med Azure AD. 
 
-- **[Azure AD-anslutna hybridenheter](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  – om du vill hämta en Windows 10-enhet som är ansluten till en lokal AD-registrerade med Azure AD.
+- **[Azure AD-anslutna hybridenheter](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  – om du vill hämta en Windows 10 eller stöd äldre enheter som är ansluten till en lokal AD-registrerade med Azure AD.
 
 Om du vill bli en hanterad enhet, en registrerad enhet måste vara antingen en **Hybrid Azure AD-ansluten enhet** eller en **enhet som har markerats som kompatibel**.  
 
@@ -77,7 +77,7 @@ I princip för villkorlig åtkomst kan du välja **Kräv Hybrid Azure AD-domäna
 
 ![Enhetsbaserad villkor](./media/active-directory-conditional-access-policy-connected-applications/10.png)
 
-Den här inställningen gäller endast Windows 10-enheter som är anslutna till en lokal AD. Du kan bara registrera enheterna med Azure AD med en Hybrid Azure AD-anslutning, vilket är en [automatiserad process](device-management-hybrid-azuread-joined-devices-setup.md) att hämta en Windows 10-enhet som har registrerats. 
+Den här inställningen gäller endast Windows 10 eller äldre enheter, till exempel Windows 7 eller Windows 8 som är anslutna till en lokal AD. Du kan bara registrera enheterna med Azure AD med en Hybrid Azure AD-anslutning, vilket är en [automatiserad process](device-management-hybrid-azuread-joined-devices-setup.md) att hämta en Windows 10-enhet som har registrerats. 
 
 ![Enhetsbaserad villkor](./media/active-directory-conditional-access-policy-connected-applications/45.png)
 

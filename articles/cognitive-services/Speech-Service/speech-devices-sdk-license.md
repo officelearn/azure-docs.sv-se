@@ -1,96 +1,95 @@
 ---
-title: Licensavtalet för tal enheter SDK | Microsoft Docs
-description: Tal licensavtal i enheter SDK.
+title: Licensavtal för tal Devices SDK
+description: Licensavtal för tal Devices SDK.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a601c0307045ef3db8666c705e5b24fb365f532d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5d9fd0669302dbfbd4f1c3082643d6c03abc7019
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354144"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281971"
 ---
-# <a name="speech-devices-sdk-license-agreement"></a>Tal enheter SDK licensavtalet (EULA)
+# <a name="speech-devices-sdk-license-agreement"></a>Licensavtal för tal Devices SDK
 
 ## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>LICENSVILLKOR FÖR PROGRAMVARA FRÅN MICROSOFT<br>TAL ENHETER SOFTWARE DEVELOPMENT KIT (SDK) 
 
-> OM DU BOR I (ELLER ÄR ETT FÖRETAG MED DIN PRINCIPAL ETABLERAD I) USA, LÄS AVSNITTET ”BINDNING SKILJEDOM OCH KLASSEN ÅTGÄRD AVSTÅENDE” NEDAN. DEN PÅVERKAR HUR TVISTER TOLKAS.
+> OM DU BOR (ELLER HAR ETT FÖRETAG MED DIN HUVUDNAMN ETABLERAD I) USA, LÄS AVSNITTET ”BINDANDE SKILJEFÖRFARANDE OCH FRISKRIVNING FRÅN GRUPPTALAN” NEDAN. DEN PÅVERKAR HUR TVISTER SKA LÖSAS.
 
-Dessa licensvillkor utgör ett avtal mellan dig och Microsoft Corporation (eller någon av dess koncernbolag). De gäller för ovanstående programvara och alla Microsoft-tjänster eller program uppdateringar (förutom i utsträckning som sådana tjänster eller uppdateringar åtföljs av en ny eller ytterligare villkor, i vilket fall de olika gäller framåtriktat Användarvillkor inte ändrar dina eller Microsofts rättigheter som är relaterade till före uppdaterad programvara eller tjänster). **OM DU UPPFYLLER VILLKOREN I LICENSAVTALET HAR FÖLJANDE RÄTTIGHETER.**
+Dessa licensvillkor utgör ett avtal mellan dig och Microsoft Corporation (eller något av dess koncernbolag). De gäller för ovanstående programvara och alla Microsoft-tjänster och programvara uppdateringar (förutom i utsträckning sådana tjänster eller uppdateringar åtföljs av nya eller ytterligare villkor, villkoren i så fall de olika gäller avseende föruppdaterad och förändrar inte dina eller Microsofts rättigheter till programvara eller tjänster). **OM DU FÖLJER DESSA LICENSVILLKOR HAR DU FÖLJANDE RÄTTIGHETER.**
 
 **1\. INSTALLATIONS- OCH ANVÄNDNINGSRÄTTIGHETER.**
 
-en) Allmänt. Du kan installera och använda valfritt antal kopior av programvaran på dina enheter endast att utvärdera och testa för din interna företagsändamål. Du får inte använda programvaran i en levande driftsmiljö om inte Microsoft kan du göra det under ett annat avtal.
+(a) Allmänt. Du får installera och använda valfritt antal kopior av programvaran på dina enheter, enbart för att utvärdera och testa den för din interna företagsändamål. Du kan inte använda programvaran på en live-operativsystemmiljö såvida inte Microsoft tillåter dig att göra det i ett annat avtal.
 
-b) med Microsoft-program. Programvaran kan innehålla andra Microsoft-program. Licensvillkoren gäller för programmen med eventuella såvida inte andra licensvillkoren tillhandahålls med andra Microsoft-program.
+(b) med Microsoft-program. Programvaran kan innehålla andra Microsoft-program. Dessa licensvillkor gäller för de inkluderade program, om sådana finns, om andra licensvillkor tillhandahålls med andra Microsoft-program.
 
-c) tredjeparts-komponenter. Programvaran kan innehålla komponenter från tredje part med separat juridisk information eller omfattas av andra avtal som kan vara av meddelanden om tredje part-filer som medföljer programvaran.
+c) från tredje part-komponenter. Programvaran kan innehålla komponenter från tredje part med separata juridisk information eller omfattas av andra avtal, som kan beskrivas i filen meddelanden om tredje part som medföljer programvaran.
 
-d) paketet chefer. Programvaran kan innehålla paketet chefer, som NuGet, som ger dig möjlighet att hämta andra Microsoft och tredje parts programvarupaket som ska användas med ditt program. Dessa paket är under sina egna licenser och inte det här avtalet. Microsoft inte distribuera licens eller garantier för paket från tredje part.
+d) pakethanterare. Programvaran kan innehålla pakethanterare, som NuGet, som ger dig möjlighet att ladda ned andra Microsoft och tredje parts programvarupaket som ska användas med ditt program. Dessa paket är under sina egna licenser och inte detta avtal. Microsoft varken distribuera licens eller ge garantier för någon av paket från tredje part.
 
-e) om du är en direkt konkurrenter och komma åt eller använda programvaran för konkurrerande prestandamätningar, analys eller intelligence samla in kan du avstå från mot Microsoft, dess dotterbolag och dess anknutna företag (inklusive framåtriktat) alla konkurrenskraftiga användning, åtkomst och prestandamätningar test begränsningar i villkoren för programvaran i den utsträckning som är dina villkor för användning, eller att vara mer restriktiv än Microsofts villkor. Om du inte avstå från sådana påstådd begränsningar i villkoren för programmet, du kan inte komma åt eller använda den här programvaran och göra inte det.
+(e) om du är en direkt konkurrent och komma åt eller använda programvaran för konkurrenskraftiga prestandamätningar, analys eller intelligence samla in kan du avstår mot Microsoft, dess dotterbolag och dess koncernbolag (inklusive avseende föruppdaterad) alla konkurrenskraftiga användning, åtkomst och prestandamätningar test begränsningar i villkoren som reglerar din programvara i den utsträckning som dina användningsvillkor är, eller att vara mer restriktiva än Microsofts villkoren. Om du inte avstå från sådana påstådd begränsningar i villkoren som reglerar din programvara, du tillåts inte att öppna eller använda den här programvaran och gör det inte.
 
 **2\. OMFATTNINGEN AV LICENS. Programvaran är licensierad, inte såld. Microsoft förbehåller sig alla andra rättigheter. Såvida inte gällande lagstiftning ger dig ytterligare rättigheter trots denna begränsning får du inte (och har inte rättighet att):**
 
-a) kringgå tekniska begränsningar i programvaran som endast tillåter att du använder det på vissa sätt;
+a) kringgå eventuella tekniska begränsningar i programvaran som endast tillåter att du använder den på vissa sätt;
 
-b) bakåtkompilera, dekompilera eller ta isär koden programvara.
+b) bakåtkompilera, dekompilera eller dela upp programvaran;
 
-c) ta bort, minimera, blockera eller ändra meddelanden av Microsoft eller dess leverantörer i programvara.
+c) ta bort, minimera, blockera eller ändra meddelanden från Microsoft eller dess leverantörer i programvaran;
 
-d) använda programvaran på något sätt som är mot lag eller för att skapa eller sprida skadlig kod, eller
+(d) använda programvaran på något sätt som är mot lagen eller för att skapa eller sprida skadlig kod; eller
 
-e) delar, publicera, eller låna ut programvaran (utom distribuerbara kod och sedan tillämpliga villkoren ovan), tillhandahåller programvaran som en fristående värd för andra eller överföra programvaran eller detta avtal till tredje part.
+(e) dela, publicera, eller låna ut programvaran (förutom distribuerbar kod och sedan omfattas av de tillämpliga villkoren ovan), tillhandahålla programvaran som en fristående värdlösning för andra eller överföra programvaran eller detta avtal till tredje part.
 
-f) du måste använda programmet bara i kombination med Microsoft Azure kognitiva Services tal service
+f) du måste använda programvaran endast i kombination med Microsoft Azure Cognitive Services, tal-tjänst
 
-**3\. INSAMLING AV DATA.** Det här programmet kan samverka med andra Microsoft-produkter som samlar in data som överförs till Microsoft. Läs mer om hur Microsoft processer personuppgifter som vi samlar in finns i sekretesspolicyn för Microsoft på http://go.microsoft.com/fwlink/?LinkId=248681.
+**3\. INSAMLING AV DATA.** Det här programmet kan interagera med andra Microsoft-produkter som samlar in data som överförs till Microsoft. Mer information om hur Microsoft processer personliga data vi samlar in finns i sekretesspolicyn för Microsoft på http://go.microsoft.com/fwlink/?LinkId=248681.
 
-**4\. FÖRHANDSVERSIONEN.** Programvaran är en förhandsversion. Det kanske inte fungerar korrekt. Det kan skilja sig från den kommersiellt utgivna versionen.
+**4\. FÖRHANDSVERSIONEN.** Programvaran är en förhandsversion. Det kanske inte fungerar korrekt. Det kan skilja sig från den kommersiella versionen.
 
-**5\. FEEDBACK.** Om du lämnar feedback om programmet till Microsoft ger du Microsoft, utan kostnad, rätten att använda, dela och kommersialisera din feedback på valfritt sätt och för något ändamål. Du lämnar inte feedback som är underställd en licens som kräver att Microsoft licensierar sin programvara eller dokumentation till tredje part att Microsoft inkluderar din feedback i dessa. Dessa rättigheter fortsätter att gälla efter detta avtal.
+**5\. FEEDBACK.** Om du ger feedback om programvaran till Microsoft så ger du Microsoft, utan kostnad, rätten att använda, dela och kommersialisera din feedback på valfritt sätt och oavsett ändamål. Du lämnar inte feedback som omfattas av en licens som kräver att Microsoft licensierar sin programvara eller dokumentation till tredje man, eftersom Microsoft inkluderar din feedback på dem. Dessa rättigheter överlever detta avtal.
 
-**6\. PERIOD.** Det här avtalet börjar gälla på ditt godkännande och avslutas av du eller Microsoft när som helst. 
+**6\. PERIOD.** Detta avtal börjar gälla på ditt godkännande och kan avslutas av dig eller Microsoft när som helst. 
 
-**7\. AVSLUTNING.** Utan att det påverkar andra rättigheter avsluta Microsoft det här avtalet om du inte uppfyller något av dess villkor eller villkor. I sådana fall kan förstöra du alla kopior av programvaran och alla dess komponenter.
+**7\. UPPSÄGNING.** Utan att det påverkar andra rättigheter, kan Microsoft säga upp detta avtal om du inte uppfyller något av dess villkor eller villkor. I dessa fall måste du förstöra alla exemplar av programvaran och alla dess komponenter.
 
-**8\.EXPORTRESTRIKTIONER.** Du måste följa alla nationella och internationella exportlagar och -förordningar som gäller för programvaran, som omfattar begränsningar gällande destinationer, slutanvändare och slutanvändning. Mer information om exportrestriktioner finns (aka.ms/exporting).
+**8\.EXPORTRESTRIKTIONER.** Du måste följa alla nationella och internationella exportlagar och förordningar som gäller för programvaran, inklusive restriktioner för destinationer, slutanvändare och slutanvändning. Ytterligare information om exportrestriktioner finns (aka.ms/exporting).
 
-**9\. SUPPORTTJÄNSTER.** Microsoft är inte skyldig enligt detta avtal till alla supporttjänster för programvaran. Stöd som ges är ”i befintligt skick”, ”med alla fel” och utan garanti av något slag.
+**9\. SUPPORTTJÄNSTER.** Microsoft är inte skyldig enligt detta avtal att erbjuda några supporttjänster för programvaran. Support som ges är ”i befintligt skick”, ”med alla fel” och utan garanti av något slag.
 
-**10\. UPPDATERINGAR.** Programvaran kan regelbundet söka efter uppdateringar, och hämta och installera dem åt dig. Du kan hämta uppdateringar från Microsoft eller auktoriserade källor. Microsoft kan behöva uppdatera datorn för att ge dig med uppdateringar. Du accepterar dessa automatiska uppdateringar utan någon extra meddelande. Uppdateringar kan inte innehålla eller stöd för alla befintliga funktioner, tjänster eller kringutrustning.
+**10\. UPPDATERINGAR.** Programvaran kan regelbundet söka efter uppdateringar, och ladda ned och installera dem åt dig. Du kan enbart hämta uppdateringar från Microsoft eller auktoriserade källor. Microsoft kan behöva uppdatera datorn så att du får uppdateringar. Du samtycker till att ta emot dessa automatiska uppdateringar utan någon ytterligare föregående meddelande. Uppdateringar kan inte innehålla eller stöd för alla befintliga funktioner, tjänster eller kringutrustning.
 
-**11\. BINDNING SKILJEDOM OCH KLASSEN ÅTGÄRDEN AVSTÅENDE.** Det här avsnittet gäller om du bor i (eller om ett företag är ditt huvudsakliga verksamhet i) USA.  Om dig och Microsoft har en tvister, accepterar dig och Microsoft att försöka lösa den informellt i 60 dagar. Om dig och Microsoft kan samtycker du och Microsoft till bindning enskilda skiljedom innan American skiljedom associationen under Federal skiljedom Act (”FAA”) och inte stämma i domstol framför en lämpad eller juryn. I stället besluta en neutral skiljeman. Klassen åtgärd rättegångar, klassen hela arbitrations, privata jurist allmänna åtgärder och andra förfarande som där någon fungerar i en representativ kapacitet är inte tillåtna; inte heller kombinera enskilda förfaranden utan tillstånd för alla parter. Fullständig skiljedom avtalet innehåller flera villkor och på aka.ms-arb-avtalet-1. Dig och Microsoft godkänner villkoren.
+**11\. BINDANDE SKILJEFÖRFARANDE OCH FRISKRIVNING FRÅN KLASSEN ÅTGÄRD AVSTÅENDE FRÅN RÄTTIGHET.** Det här avsnittet gäller om du bor (eller om ett företag har sin huvudsakliga verksamhet är i) USA.  Om du och Microsoft har en tvist, accepterar du och Microsoft att försöka lösa den informellt inom 60 dagar. Om du och Microsoft godkänner du och Microsoft bindande skiljeförfarande inför American Arbitration-Association under Federal Arbitration Act FAA (”) och att ingen stämning sker i domstol misslyckas med detta. I stället medlare en neutral. Klass åtgärd rättstvister, klass skiljedomsförfaranden, privata åtgärder och andra förfaranden där någon agerar i en representativ är inte tillåtna, inte heller kombinera enskilda åtal utan medgivande från alla parter. Det fullständiga Skiljedomsavtalet innehåller flera villkor och är i aka.ms/arb-avtal-1. Du och Microsoft godkänner villkoren.
 
-**12\. HELA AVTALET.** Det här avtalet, och eventuella villkor som Microsoft kan tillhandahålla för tillägg, uppdateringar och program från tredje part, är hela avtalet för programvaran.
+**12\. HELA AVTALET.** Det här avtalet, och eventuella andra villkor som Microsoft kan ha för tillägg, uppdateringar och program från tredje part, utgör hela avtalet för programvaran.
 
-**13\. TILLÄMPLIG LAG OCH PLATS FÖR ATT LÖSA TVISTER.** Om du har förvärvat programvaran i USA eller Kanada lagstiftningen i den region eller provins där du bor, (eller om ett företag där din huvudsakliga verksamhet finns) styr tolkning av det här avtalet, anspråk för dess brott och alla andra anspråk) inklusive konsumentskydd, otillbörlig konkurrens och kränkning anspråk), oavsett lagvalsprinciper, förutom att FAA styr allt rör skiljedom. Om du har förvärvat programvaran i andra länder tillämpas sina lagar, men FAA styr allt som rör skiljedom. Om det inte finns behörighet för USA federal medgivande dig och Microsoft till exklusiv behörighet i den rätten finner i bestämmer delstaten Washington, alla tvister hörde i domstol (exklusive skiljedom). Om inte, dig och Microsoft samtycker till exklusiv behörighet i den högsta domstolen bestämmer region, Washington alla tvister hörde i domstol (exklusive skiljedom).
+**13\. TILLÄMPLIG LAG OCH PLATS FÖR ATT LÖSA TVISTER.** Om du har förvärvat programvaran i USA eller Kanada lagstiftningen i din delstat eller region där du bor (eller, om ett företag, där dina huvudsakliga verksamhet finns) styr tolkningen av detta avtal, anspråk med avseende, och alla andra anspråk) inklusive konsumentskydd, otillbörlig konkurrens och kränkning anspråk), oavsett lagvalsprinciper, förutom att FAA reglerar allt som rör skiljedomar. Om du har förvärvat programvaran i något annat land gäller lagar, förutom att FAA reglerar allt som rör skiljedomar. Om amerikansk federal jurisdiktion, godkänner du den exklusiva jurisdiktionen och platsen för federal domstol i King County, Washington, USA för alla tvister i domstol (exklusive skiljedomar). Om inte, godkänner du den exklusiva jurisdiktionen och platsen i den Överrätten i King County, Washington, USA för alla tvister i domstol (exklusive skiljedomar).
 
-**14\. RÄTTIGHETER SOM KONSUMENT; REGIONAL VARIATIONER.** Detta avtal beskriver vissa juridiska rättigheter. Du kan ha andra rättigheter, inklusive rättigheter som konsument enligt lagstiftningen i ditt tillstånd, region eller land. Separata och förutom din relation med Microsoft kan du också ha rättigheter i förhållande till den part som du har förvärvat programvaran. Detta avtal ändrar inte dessa andra rättigheter om lagstiftningen i ditt tillstånd, region eller land inte tillåter detta. Om du har förvärvat programvaran i något av de nedan regioner eller obligatoriska exempelvis land lag gäller och följande villkor gäller dig:
+**14\. KONSUMENTRÄTTIGHETER; REGIONALA VARIATIONER.** Detta avtal beskriver vissa juridiska rättigheter. Du kan ha andra rättigheter, inklusive konsumenträttigheter enligt lagstiftningen i din, provins eller land. Separera och förutom din relation med Microsoft kan du också ha rättigheter i förhållande till den part som du har köpt programvaran. Detta avtal ändrar inte dessa rättigheter om lagstiftningen i din, provins eller land inte tillåter detta. Exempel: Om du har förvärvat programvaran i någon av nedanstående regioner, eller obligatorisk gällande nationell lag tillämpas, och sedan gäller följande villkor dig:
 
-en) Australien. Du har lagstadgade garantier under australisk Konsumentlag och ingenting i detta avtal är avsedda att påverka dessa rättigheter.
+(a) Australien. Du har lagstadgade garantier under australisk Konsumentlag och ingenting i detta avtal är avsedda att påverka dessa rättigheter.
 
-b) Kanada. Om du har förvärvat programvaran i Kanada du slutar få uppdateringar genom att inaktivera funktionen för automatisk uppdatering koppla bort enheten från Internet (om och när du ansluter igen till Internet, men programvaran återupptas söker efter och installera uppdateringar) eller avinstallera programmet. I produktdokumentationen kan eventuella också specificera hur du stänger av uppdateringar för specifika enheten eller programvaran.
+(b) Kanada. Om du har förvärvat programvaran i Kanada du sluta ta emot uppdateringar genom att stänga av funktionen för automatisk uppdatering, koppla bort enheten från Internet (om och när du ansluter igen till Internet, dock programvaran fortsätta söka efter och installera uppdateringar) eller avinstallera programmet. I produktdokumentationen, kan om sådana finns, även ange hur du stänger av uppdateringar för din specifika enhet eller programvara.
 
-c) Tyskland och Finland.
+(c) Tyskland och Österrike.
 
-> (i) garanti. Korrekt licensierad programvara utför avsevärt som beskrivs i Microsoft material som medföljer programvaran. Microsoft ger dock ingen garanti för avtal i förhållande till den licensierade programvaran.
+> (i) garanti. Korrekt licensierad programvara utför enligt beskrivningen i Microsofts material som medföljer programvaran. Microsoft ger dock ingen avtalsmässig garanti avseende den licensierade programvaran.
 
-> (ii) ansvarsbegränsning. Microsoft är ansvariga enligt lag lagstadgade vid avsiktlig utförandet, bruttomarginal försumlighet, anspråk baserat på produkten ansvar Act, såväl som, vid död eller personliga eller fysisk skada.
+> (ii) ansvarsbegränsning. Microsoft är ansvariga enligt lagstadgade lag vid avsiktligt beteende, grov vårdslöshet, krav som baseras på Product Liability Act, samt, vid dödsfall, personlig eller fysisk skada.
 
-> Föremål föregående instruktionen (ii) kan Microsoft endast hållas ansvariga för ringa försumlighet om Microsoft i avtalsbrott sådana material, utförande som underlätta på grund av det här avtalet, överträdelser som skulle äventyra syftet med det här avtalet och kompatibiliteten med som en part ständigt förtroende i (så kallade ”kardinalkurvelementets skyldigheter”). I annat fall ringa försumlighet ansvarar Microsoft inte för ringa försumlighet.
+> Omfattas av föregående instruktionen (ii) hållas Microsoft endast ansvariga för ringa försumlighet om Microsoft bryter mot sådana väsentliga avtalsmässiga skyldigheter, som underlättar fullgörelser i detta avtal, överträdelser som skulle äventyra syftet med det här avtalet och efterlevnaden som en part ha ständigt förtroende för (så kallade ”väsentliga skyldigheter”). Microsoft kan inte hållas ansvariga för ringa försumlighet i andra fall av ringa försumlighet.
 
-**15\. FRISKRIVNING FRÅN GARANTIANSVAR. PROGRAMVARAN LICENSIERAS ”I BEFINTLIGT SKICK”. DU BÄR RISKEN MED ATT ANVÄNDA DEN. MICROSOFT GER INGA GARANTIER, GARANTIER ELLER VILLKOR. I DEN UTSTRÄCKNING SOM TILLÅTS ENLIGT TILLÄMPLIG LAGSTIFTNING UTESLUTER MICROSOFT ALLA UNDERFÖRSTÅDD GARANTI, INKLUSIVE SÄLJBARHET, LÄMPLIGHET FÖR ETT SÄRSKILT ÄNDAMÅL OCH FRÅNVARO AV INTRÅNG.**
+**15\. FRISKRIVNING FRÅN GARANTIANSVAR. PROGRAMVARAN LICENSIERAS ”I BEFINTLIGT SKICK”. DU BÄR RISKEN FÖR ANVÄNDNINGEN AV DEN. MICROSOFT LÄMNAR INGA UTTRYCKLIGA GARANTIER, GARANTIER ELLER VILLKOR. I DEN UTSTRÄCKNING SOM TILLÅTS ENLIGT GÄLLANDE LAGSTIFTNING UTESLUTER MICROSOFT ALLA UNDERFÖRSTÅDDA GARANTIER INKLUSIVE SÄLJBARHET, LÄMPLIGHET FÖR ETT SÄRSKILT ÄNDAMÅL OCH FRÅNVARO AV INTRÅNG.**
 
-**16\. BEGRÄNSNING AV OCH FRISKRIVNING FÖR SKADOR. OM DU HAR NÅGON GRUND FÖR ATT ÅTERSTÄLLA SKADOR TROTS FÖREGÅENDE FRISKRIVNING FRÅN GARANTIANSVAR, KAN DU ÅTERSTÄLLA FRÅN MICROSOFT OCH DESS LEVERANTÖRER ENDAST DIREKTA SKADOR UPP TILL USD 5,00. DU KAN INTE ÅTERSTÄLLA ANDRA SKADOR, INKLUSIVE FÖLJDSKADOR, UTEBLIVEN VINST, SÄRSKILDA, INDIREKTA ELLER OFÖRUTSEDDA SKADOR.**
+**16\. BEGRÄNSNING FÖR SKADOR. OM DU HAR GRUND FÖR ATT ÅTERSTÄLLA SKADOR TROTS FÖREGÅENDE FRISKRIVNING FRÅN GARANTIANSVAR, KAN DU ÅTERSTÄLLA FRÅN MICROSOFT OCH DESS LEVERANTÖRER ENBART DIREKTA SKADOR UPP TILL 5,00 USD. DU KAN INTE ÅTERSTÄLLA ANDRA SKADOR, INKLUSIVE FÖLJDSKADOR, UTEBLIVEN VINST, SÄRSKILDA, INDIREKTA ELLER OFÖRUTSEDDA SKADOR.**
 
-**Den här begränsningen gäller (a) allt som rör program, tjänster, innehållet (inklusive kod) på tredjepartswebbplatser eller program från tredje part. och (b) anspråk vid brott mot kontrakt, garanti, garanti eller villkor. strikt ansvar, försumlighet eller andra kränkningar; eller andra anspråk; i varje fall i den utsträckning som tillåts enligt gällande lagstiftning.**
+**Den här begränsningen gäller (a) allt som rör programvaran, tjänster, innehållet (inklusive kod) på tredjepartswebbplatser eller program från tredje part; och (b) anspråk vid brott mot kontrakt, garanti, eller skick. strikt ansvar, försumlighet eller annat utomkontraktuellt; eller andra anspråk; i båda fallen i den utsträckning som tillåts enligt gällande lagstiftning.**
 
-**Den gäller även om Microsoft kände till eller borde ha känt till risken för skador. Ovanstående begränsningar och undantag kanske inte gäller dig eftersom ditt tillstånd, region eller land inte tillåter undantag eller begränsning av ansvar för skador, följdskador eller andra skador.**
+**Det gäller även om Microsoft kände till eller borde ha känt till risken för skador. Ovanstående begränsningar och undantag kanske inte gäller dig eftersom din, provins eller land inte tillåter undantag eller begränsning av skador, följdskador eller andra skador.**

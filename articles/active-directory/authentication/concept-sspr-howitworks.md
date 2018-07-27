@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: efc62243370ff2cc5214a4ae235139bdb5965486
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: de8957864502b8c3ec6d9a43a8134fdb8dac6069
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248227"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283528"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: återställning av lösenord för självbetjäning i Azure AD
 
@@ -80,13 +80,16 @@ Om en användare inte har de minsta nödvändiga metoderna som registrerats, vis
 
 #### <a name="mobile-app-and-sspr-preview"></a>Mobilappen och SSPR (förhandsversion)
 
-När du använder en mobilapp som Microsoft Authenticator-appen som en metod för återställning av lösenord vara användare medveten om följande. Verifieringskoden är det enda alternativet som är tillgängliga för användare för lösenordsåterställning via självbetjäning när bara en av metoderna som krävs för återställning. När två metoder krävs användare kommer att kunna återställa med hjälp av **antingen** meddelande **eller** Verifieringskod utöver eventuella övriga aktiverat metoder.
+När du använder en mobilapp som Microsoft Authenticator-appen som en metod för återställning av lösenord, bör du vara medveten om följande:
+
+* När administratörer behöver en metod används för att återställa ett lösenord, verifieringskoden är det enda tillgängliga alternativet.
+* När administratörer kräver två metoder används för att återställa ett lösenord, användare ska kunna använda **antingen** meddelande **eller** Verifieringskod utöver eventuella övriga aktiverat metoder.
 
 | Antal metoder som krävs för återställning | en | Två |
 | :---: | :---: | :---: |
 | Mobilapp-funktioner som är tillgängliga | Kod | Kod- eller Meddelandeinställningar |
 
-Användare kommer inte att ha möjlighet att registrera sina mobila app vid registrering av lösenordsåterställning via självbetjäning. I stället kan användare registrera sina mobila appar på aka.ms/mfasetup eller i security info registrering förhandsversionen, enligt aka.ms/setupsecurityinfo. 
+Användarna behöver inte alternativet för att registrera sina mobila app när du registrerar dig för lösenordsåterställning via självbetjäning från [ https://aka.ms/ssprsetup ](https://aka.ms/ssprsetup). Användare kan registrera sina mobila appar på [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup), eller i den nya förhandsversionen vid registrering för information av security [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
 
 ### <a name="change-authentication-methods"></a>Ändra autentiseringsmetoder
 

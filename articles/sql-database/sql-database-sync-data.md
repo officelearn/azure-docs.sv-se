@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 81616522f479175dc58188bd6acc4db4f9007756
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 042db9bcadb470b2dc5e0095072e4ca06747ec5d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069394"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283632"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synkronisera data i flera moln och lokala databaser med SQL Data Sync
 
@@ -117,7 +117,9 @@ Etablering och borttagning under synkroniseringsgruppen, uppdatering och borttag
 
 -   En tabell kan inte ha en identity-kolumn som inte är den primära nyckeln.
 
--   En primär nyckel kan inte ha datatypen datetime.
+-   En primär nyckel får inte ha följande datatyper: sql_variant, binary, varbinary, bild, xml. 
+
+-   Var försiktig när du använder följande datatyper som en primär nyckel eftersom stöds precisionen är endast till andra: tid, datetime, datetime2, datetimeoffset.
 
 -   Namnen på objekten (databaser, tabeller och kolumner) kan inte innehålla utskrivbara tecken punkt (.), vänster hakparentes ([) eller fyrkantiga höger hakparentes (]).
 
@@ -131,7 +133,7 @@ Etablering och borttagning under synkroniseringsgruppen, uppdatering och borttag
 
 -   XMLSchemaCollection (XML stöds)
 
--   Markören, tidsstämpel, Hierarchyid
+-   Markören RowVersion, tidsstämpel, Hierarchyid
 
 #### <a name="unsupported-column-types"></a>Stöds inte kolumntyper
 

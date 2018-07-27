@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: dfea1587cddbf7440771ca7007928f7e4054f61a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 46ab4a177cc7d86e5d967ff8e219dae96f82a0dc
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092298"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263154"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -33,7 +33,7 @@ I följande tabell jämförs ERT och RPO för varje tjänstnivå för de tre van
 | --- | --- | --- | --- |--- |--- |
 | Återställning till tidpunkt från säkerhetskopia |En återställningspunkt inom 7 dagar |En återställningspunkt inom 35 dagar |En återställningspunkt inom 35 dagar |En återställningspunkt inom konfigurerade period (upp till 35 dagar)|En återställningspunkt inom konfigurerade period (upp till 35 dagar)|
 | GEO-återställning från geo-replikerade säkerhetskopior |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme|ERT < 12 timme, RPO < 1 timme|
-| Återställning från Azure Backup Vault |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka|ERT < 12 timme, RPO < 1 vecka|
+| Återställa från långsiktig kvarhållning i SQL |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka|ERT < 12 timme, RPO < 1 vecka|
 | Aktiv geo-replikering |ERT < 30 sekunder, RPO < 5 sekunder |ERT < 30 sekunder, RPO < 5 sekunder |ERT < 30 sekunder, RPO < 5 sekunder |ERT < 30 sekunder, RPO < 5 sekunder|ERT < 30 sekunder, RPO < 5 sekunder|
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Använd point-in-time-återställning för att återställa en databas
@@ -102,7 +102,7 @@ Mer information och detaljerade anvisningar som beskriver hur du återställer e
 
 ### <a name="restore-backups-from-long-term-retention"></a>Återställa säkerhetskopior från långsiktig kvarhållning
 
-Om dataförlusten inträffade utanför den aktuella kvarhållningsperioden för automatiska säkerhetskopior och databasen har konfigurerats för långsiktig kvarhållning, kan du återställa från en fullständig säkerhetskopia i LTR-lagring till en ny databas. I detta läge kan du antingen ersätta den ursprungliga databasen med den återställda databasen eller kopiera nödvändiga data från den återställda databasen till den ursprungliga databasen. Om du vill hämta en äldre version av databasen innan en stor uppgradering, uppfylla en begäran från revisorer eller juridiska krav, kan du skapa en databas med en fullständig säkerhetskopia som sparats i Azure Backup Vault.  Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
+Om dataförlusten inträffade utanför den aktuella kvarhållningsperioden för automatiska säkerhetskopior och databasen har konfigurerats för långsiktig kvarhållning av säkerhetskopior med Azure blob-lagring, kan du återställa från en fullständig säkerhetskopiering i Azure blob storage till en ny databas. I detta läge kan du antingen ersätta den ursprungliga databasen med den återställda databasen eller kopiera nödvändiga data från den återställda databasen till den ursprungliga databasen. Om du vill hämta en äldre version av databasen innan en stor uppgradering, uppfylla en begäran från revisorer eller juridiska krav, kan du skapa en databas med en fullständig säkerhetskopia som sparats i Azure blob storage.  Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Återställa en databas till en annan region från ett avbrott på ett regionalt Azure-datacenter
 <!-- Explain this scenario -->

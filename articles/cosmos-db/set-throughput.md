@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6d37ae9eb5aa5961c5da2e4cce0e79679f1e65ac
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444281"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283650"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Ange och hämta dataflöde för Azure Cosmos DB-behållare och databasen
 
 Du kan ange dataflödet för en Azure Cosmos DB-behållare eller en uppsättning behållare med hjälp av Azure-portalen eller med hjälp av klienten SDK: er. 
 
-**Etablera dataflöde för en enskild behållare:** när du etablerar dataflödet för en uppsättning behållare måste alla de här behållarna dela det etablerade dataflödet. Etablering genomströmning för enskilda behållare garanterar att reservationen av dataflöde för den specifika behållaren. När du tilldelar RU/sek på enskilda behållarenivån, behållarna som kan skapas som *fast* eller *obegränsad*. Behållare med fast storlek har en maxgräns på 10 GB och en genomströmning på 10 000 RU/s. Om du vill skapa en obegränsad behållare, måste du ange ett minsta dataflöde på 1 000 RU/s och en [partitionsnyckel](partition-data.md). Eftersom dina data kan behöva delas upp på flera partitioner, är det nödvändigt att välja en partitionsnyckel som har en hög kardinalitet (100 till miljontals distinkta värden). Genom att välja en partitionsnyckel med många distinkta värden kan du se till att dina behållare/tabell/diagram och begäranden kan skalas enhetligt av Azure Cosmos DB. 
+**Etablera dataflöde för en enskild behållare:** när du etablerar dataflödet för en uppsättning behållare måste alla de här behållarna dela det etablerade dataflödet. Etablering genomströmning för enskilda behållare garanterar att reservationen av dataflöde för den specifika behållaren. När du tilldelar RU/sek på enskilda behållarenivån, behållarna som kan skapas som *fast* eller *obegränsad*. Containrar med fast storlek har en maxgräns på 10 GB och en genomströmning på 10 000 RU/s. Om du vill skapa en obegränsad behållare, måste du ange ett minsta dataflöde på 1 000 RU/s och en [partitionsnyckel](partition-data.md). Eftersom dina data kan behöva delas upp på flera partitioner, är det nödvändigt att välja en partitionsnyckel som har en hög kardinalitet (100 till miljontals distinkta värden). Genom att välja en partitionsnyckel med många distinkta värden kan du se till att dina behållare/tabell/diagram och begäranden kan skalas enhetligt av Azure Cosmos DB. 
 
 **Etablera dataflöde för en uppsättning behållare eller en databas:** etablering dataflödet för en databas kan du dela dataflödet mellan alla behållare som hör till den här databasen. Du kan ha en uppsättning behållare som delar dataflöde samt behållare som kan ha dedikerade dataflöde i en Azure Cosmos DB-databas. När du tilldelar RU/sek i en behållare, behållare som hör till den här uppsättningen behandlas som *obegränsad* behållare och måste ange en partitionsnyckel.
 
@@ -153,7 +153,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>Ange dataflöde på den för en uppsättning behållare eller på databasnivå
+### <a name="set-throughput-for-a-set-of-containers-at-the-database-level"></a>Ställa in dataflöde för en uppsättning behållare på databasnivå
 
 Här är ett kodfragment för etablering 100 000 enheter för programbegäran per sekund i en behållare med hjälp av SQL-API .NET SDK:
 

@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: eaf05d44a4d77f1a294664485e38c6f5719ce238
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: d153fa495c82103460dd8e4e2aae6000e49eb3eb
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238319"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283597"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Begränsningar och konfigurationsinformation för Azure Logic Apps
 
@@ -52,7 +52,7 @@ Här följer begränsningarna för en enkel logikapp-körningen:
 | Namn | Gräns | Anteckningar | 
 |------|-------|-------| 
 | Varaktighet för körning | 90 dagar | Om du vill ändra den här gränsen, se [ändra körningens varaktighet](#change-duration). | 
-| Kvarhållning | Starttid för 90 dagar från kör | Om du vill ändra den här gränsen, se [ändra kvarhållning](#change-retention). | 
+| Kvarhållning | Starttid för 90 dagar från kör | Om du vill ändra den här gränsen till ett värde mellan 7 dagar och 90 dagar, se [ändra kvarhållning](#change-retention). | 
 | Minsta Upprepningsintervall | 1 sekund | | 
 | Maximal Upprepningsintervall | 500 dagar | | 
 |||| 
@@ -62,7 +62,7 @@ Här följer begränsningarna för en enkel logikapp-körningen:
 
 ### <a name="change-run-duration-and-storage-retention"></a>Ändra omgången varaktigheten och lagringen
 
-Du kan ändra den här gränsen till ett värde mellan 7 dagar och 90 dagar. Att gå över gränsvärdet, [Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina behov.
+Följ dessa steg om du vill ändra Standardgränsen för mellan 7 dagar och 90 dagar. Om du vill gå över gränsvärdet, [Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina behov.
 
 1. I Azure-portalen på logikappens meny väljer **arbetsflödesinställningarna**. 
 
@@ -72,16 +72,18 @@ Du kan ändra den här gränsen till ett värde mellan 7 dagar och 90 dagar. Att
 
 <a name="looping-debatching-limits"></a>
 
-## <a name="looping-and-debatching-limits"></a>Loopning och ombatchningsgränser
+## <a name="concurrency-looping-and-debatching-limits"></a>Samtidighet, loopning och ombatchningsgränser
 
 Här följer begränsningarna för en enkel logikapp-körningen:
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
-| Until-iterationer | 5 000 | | 
-| ForEach-objekt | 100 000 | Du kan använda den [frågeåtgärd](../connectors/connectors-native-query.md) att filtrera större matriser efter behov. | 
-| ForEach-parallellitet | 50 | Standardvärdet är 20. <p>Du kan ändra den här standardnivån i en ForEach-loop, ange den `runtimeConfiguration` -egenskapen i den `foreach` åtgärd. <p>Om du vill köra sekventiellt en ForEach-loop, den `operationOptions` egenskap ”sekventiellt” i den `foreach` åtgärd. | 
+| Utlösaren samtidighet | 50 | Standardgränsen är 20. Den här gränsen beskriver det maximala antalet logic app-instanser som kan köras samtidigt eller parallellt. <p><p>Om du vill ändra Standardgränsen till ett värde mellan 1 och 50 portintervallet [ändra utlösaren samtidighet](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) eller [utlösa instanser sekventiellt](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Den maximala väntetiden körningar | 100 | Standardgränsen är 10. Den här gränsen beskriver det maximala antalet logic app-instanser som kan vänta med att köra när logikappen körs redan det högsta antalet samtidiga instanser. <p><p>Om du vill ändra Standardgränsen till ett värde mellan 0 och 100 portintervallet [ändring väntar körningar begränsa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Foreach-objekt | 100 000 | Den här gränsen beskriver det maximala antalet matrisobjekt som en ”för var och en”-loop kan bearbeta. <p><p>Du kan använda för att filtrera större matriser, den [frågeåtgärd](../connectors/connectors-native-query.md). | 
+| Foreach-iterationer | 50 | Standardgränsen är 20. Den här gränsen beskriver det maximala antalet ”för var och en” loop iterationer som kan köras samtidigt eller parallellt. <p><p>Om du vill ändra Standardgränsen till ett värde mellan 1 och 50 portintervallet [ändra ”för var och en” samtidighet](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) eller [kör ”för var och en” loopar sekventiellt](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
 | SplitOn-objekt | 100 000 | | 
+| Until-iterationer | 5 000 | | 
 |||| 
 
 <a name="throughput-limits"></a>
@@ -91,14 +93,14 @@ Här följer begränsningarna för en enkel logikapp-körningen:
 Här följer begränsningarna för en enkel logikapp-körningen:
 
 | Namn | Gräns | Anteckningar | 
-| ----- | ----- | ----- | 
-| Åtgärder körningar per 5 minuter | 100 000 | Om du vill höja gränsen till 300 000, du kan köra en logikapp i `High Throughput` läge. Konfigurera hög genomströmning-läge under den `runtimeConfiguration` för resursen i arbetsflödet, den `operationOptions` egenskap `OptimizedForHighThroughput`. <p>**Obs**: läge för hög genomströmning är en förhandsversion. Du kan också distribuera en arbetsbelastning i fler än en app efter behov. | 
-| Åtgärder samtidiga utgående samtal | ~2,500 | Minska antalet samtidiga begäranden eller minska varaktigheten efter behov. | 
-| Runtime-slutpunkten: samtidiga inkommande samtal | ~1,000 | Minska antalet samtidiga begäranden eller minska varaktigheten efter behov. | 
-| Runtime-slutpunkten: läsa anrop per 5 minuter  | 60,000 | Kan fördela belastningen över fler än en app efter behov. | 
-| Runtime-slutpunkten: anropa anrop per 5 minuter| 45,000 | Kan fördela belastningen över fler än en app efter behov. |
-| Innehåll dataflöde per 5 minuter | 600 MB | Kan fördela belastningen över fler än en app efter behov. |  
-||||| 
+| ---- | ----- | ----- | 
+| Åtgärd: Körningar per 5 minuter | 300,000 | Standardgränsen är 100 000. Om du vill ändra Standardgränsen [kör logikappen i ”hög” genomflödesläge](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), vilket är i förhandsversion. Eller du kan distribuera arbetsbelastningen över flera logikapp efter behov. | 
+| Åtgärd: Samtidiga utgående samtal | ~2,500 | Du kan minska antalet samtidiga begäranden eller minska varaktigheten efter behov. | 
+| Runtime-slutpunkten: samtidiga inkommande samtal | ~1,000 | Du kan minska antalet samtidiga begäranden eller minska varaktigheten efter behov. | 
+| Runtime-slutpunkten: läsa anrop per 5 minuter  | 60,000 | Du kan fördela belastningen över fler än en app efter behov. | 
+| Runtime-slutpunkten: anropa anrop per 5 minuter | 45,000 | Du kan fördela belastningen över fler än en app efter behov. | 
+| Innehåll dataflöde per 5 minuter | 600 MB | Du kan fördela belastningen över fler än en app efter behov. | 
+|||| 
 
 Att gå över dessa gränser i normala bearbetningen eller köra belastningstest som kan gå över dessa gränser [Logic Apps-teamet](mailto://logicappsemail@microsoft.com) hjälp med dina behov.
 
@@ -278,7 +280,7 @@ Alla logikappar i en region använder samma intervall av IP-adresser. Stöd för
 | Västra Japan | 40.74.140.173, 40.74.81.13, 40.74.85.215 |
 | Norra centrala USA | 168.62.249.81, 157.56.12.202, 65.52.211.164 |
 | Norra Europa | 13.79.173.49, 52.169.218.253, 52.169.220.174 |
-| Södra centrala USA | 52.172.9.47, 52.172.49.43, 52.172.51.140 |
+| Södra centrala USA | 13.65.98.39, 13.84.41.46, 13.84.43.45 |
 | Södra Indien | 52.172.9.47, 52.172.49.43, 52.172.51.140 |
 | Sydostasien | 52.163.93.214, 52.187.65.81, 52.187.65.155 |
 | Västra centrala USA | 52.161.26.172, 52.161.8.128, 52.161.19.82 |

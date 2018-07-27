@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 545766aa6c39fe678113297e584422872a6ded87
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 1897f2c5d532c030b2711a35eabeefd889f560c8
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008152"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265003"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect – vanliga frågor och svar
 
@@ -54,7 +54,7 @@ Det enklaste sättet att göra detta är att använda SQL Server Management Stud
 3. Installera Azure AD Connect mot de befintliga [fjärranslutna SQL-databas](active-directory-aadconnect-existing-database.md).
    Artikeln visar hur du migrerar till med hjälp av en lokal SQL-databas. Om du migrerar till att använda en fjärransluten SQL-databas i steg 5 i processen måste du också ange ett befintligt tjänstkonto som använder Windows-synkroniseringstjänsten. Den här synkroniseringstjänstkontot för motor som beskrivs här:
    
-      **Använd ett befintligt tjänstkonto**: som standard använder Azure AD Connect ett virtuellt tjänstkonto av synkroniseringstjänsterna för att använda. Om du använder en fjärransluten SQL Server-instans eller använder en proxyserver som kräver autentisering, Använd ett hanterat tjänstkonto eller ett tjänstkonto i domänen och känna till lösenordet. I detta fall anger du det konto som ska användas. Se till att användare som kör installationen är administratörer i SQL så att inloggningsuppgifterna för tjänstkontot kan skapas. Mer information finns i [Azure AD Connect: konton och behörigheter](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). 
+      **Använd ett befintligt tjänstkonto**: som standard använder Azure AD Connect ett virtuellt tjänstkonto av synkroniseringstjänsterna för att använda. Om du använder en fjärransluten SQL Server-instans eller använder en proxyserver som kräver autentisering, Använd ett hanterat tjänstkonto eller ett tjänstkonto i domänen och känna till lösenordet. I detta fall anger du det konto som ska användas. Se till att användare som kör installationen är administratörer i SQL så att inloggningsuppgifterna för tjänstkontot kan skapas. Mer information finns i [Azure AD Connect: konton och behörigheter](active-directory-aadconnect-accounts-permissions.md#adsync-service-account). 
    
       Med den senaste versionen kan SQL-administratören nu distribuera databasen ”out of band” och därefter kan den installeras av Azure AD Connect-administratören med databasägarrättigheter. Mer information finns i [installera Azure AD Connect med hjälp av SQL-delegerade administratörsbehörigheter](active-directory-aadconnect-sql-delegation.md).
 

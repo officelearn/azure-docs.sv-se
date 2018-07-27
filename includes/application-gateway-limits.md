@@ -8,13 +8,15 @@
 | HTTP-lyssnare |20 | |
 | Regler för HTTP-belastningsutjämning |200 |Antal HTTP-lyssnare * n, n = 10 standard |
 | HTTP-inställningar för backend |20 |1 per backend-adresspool |
-| Instanser per gateway |10 | Öppna supportärende för flera instanser |
+| Instanser per gateway |10 | För flera instanser, öppna supportärende |
 | SSL-certifikat |20 |1 per HTTP-lyssnare |
 | Autentiseringscertifikat |5 | Högst 10 |
-| Tidsgränsen nåddes för min för begäran |1 sekund | |
-| Maximal tidsgräns för begäran |24 timmar | |
+| Minsta timeout för begäran |1 sekund | |
+| Högsta timeout för begäran |24 timmar | |
 | Antal platser |20 |1 per HTTP-lyssnare |
 | URL-mappningar per lyssnare |1 | |
+|Maximal URL-längd|8000|
 | Maximala storleken för filöverföring Standard |2 GB | |
-| Maximal överför storlek Brandvägg |100 MB| |
+| Maximal uppladdning storlek WAF |100 MB| |
+|Storleksgräns för WAF brödtext (utan-filer)|128 KB|
 

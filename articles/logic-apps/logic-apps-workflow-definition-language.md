@@ -1,29 +1,25 @@
 ---
-title: Arbetsflöde för arbetsflödesschema – Azure Logic Apps | Microsoft Docs
+title: Schemareferens för Definitionsspråk för arbetsflödet – Azure Logic Apps | Microsoft Docs
 description: Skriva anpassade arbetsflödesdefinitioner för Azure Logic Apps med Definitionsspråk för arbetsflödet
 services: logic-apps
-author: ecfan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: reference
 ms.date: 04/30/2018
-ms.author: estfan
-ms.openlocfilehash: babe21db6acc2f7154857b4eb0a02356e89a8ca7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 9268ca3db6c99c4e660690e25a2331a1fa1cdf96
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060581"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263682"
 ---
-# <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Definitioner för Logic Apps-arbetsflöde med schemat Definitionsspråk för arbetsflödet
+# <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Schemareferens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
-När du skapar ett logic app-arbetsflöde med [Azure Logic Apps](../logic-apps/logic-apps-overview.md), ditt arbetsflöde underliggande definitionen beskrivs den faktiska logik som körs i din logikapp. Den här beskrivningen följer en struktur som har definierats och godkänts av schemat Definitionsspråk för arbetsflödet som använder [JavaScript Object Notation (JSON)](https://www.json.org/) format. 
+När du skapar ett logic app-arbetsflöde med [Azure Logic Apps](../logic-apps/logic-apps-overview.md), ditt arbetsflöde underliggande definitionen beskrivs den faktiska logik som körs i din logikapp. Den här beskrivningen följer en struktur som har definierats och godkänts av schemat Definitionsspråk för arbetsflödet som använder [JavaScript Object Notation (JSON)](https://www.json.org/). 
   
 ## <a name="workflow-definition-structure"></a>Arbetsflöde-definitionsstruktur
 
@@ -47,7 +43,7 @@ Här är den övergripande strukturen för en arbetsflödesdefinition:
 | definition | Ja | Från elementet för din arbetsflödesdefinition | 
 | $schema | Endast när externt refererar till en arbetsflödesdefinition | Plats för schemat JSON-fil som beskriver den Definitionsspråk för arbetsflödet-versionen som du hittar här: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |   
 | contentVersion | Nej | Versionsnumret för din arbetsflödesdefinitionen som är ”1.0.0.0” som standard. Ange ett värde som ska användas för att identifiera och verifiera rätt definitionen när du distribuerar ett arbetsflöde. | 
-| parametrar | Nej | Definitioner för en eller flera parametrar som skickar data i ditt arbetsflöde <p><p>Maximal parametrar: 50 | 
+| parameters | Nej | Definitioner för en eller flera parametrar som skickar data i ditt arbetsflöde <p><p>Maximal parametrar: 50 | 
 | utlösare | Nej | Definitioner för en eller flera utlösare som instansierar arbetsflödet. Du kan definiera mer än en utlösare, men endast med Definitionsspråk för arbetsflödet, inte visuellt med Logikappdesignern. <p><p>Maximal utlösare: 10 | 
 | Åtgärder | Nej | Definitioner för en eller flera åtgärder att köra vid körning av arbetsflödet <p><p>Antal åtgärder: 250 | 
 | utdata | Nej | Definitioner för utdata som returneras från ett arbetsflöde som kör <p><p>Maximal utdata: 10 |  
@@ -208,7 +204,7 @@ När du är klar uttrycket visas för motsvarande egenskap i din arbetsflödesde
 
 I [uttryck](#expressions) och [functions](#functions), operatorer för att utföra specifika uppgifter, till exempel en egenskap eller ett värde i en matris. 
 
-| Operator | Uppgift | 
+| Operator | Aktivitet | 
 |----------|------|
 | ' | Om du vill använda en strängliteral som indata eller i uttryck och funktioner, omsluta strängen bara med enkla citattecken, till exempel `'<myString>'`. Använd inte dubbla citattecken (””), som står i konflikt med JSON-formatering runt ett helt uttryck. Exempel: <p>**Ja**: length('Hello') </br>**Inte**: length("Hello") <p>När du skickar matriser eller siffror, behöver du inte wrapping skiljetecken. Exempel: <p>**Ja**: längden ([1, 2, 3]) </br>**Inte**: längden (”[1, 2, 3]”) | 
 | [] | Om du vill referera till ett värde på en specifik plats (index) i en matris, använder du hakparenteser. Till exempel för att hämta objektet på andra i en matris: <p>`myArray[1]` | 
@@ -218,15 +214,15 @@ I [uttryck](#expressions) och [functions](#functions), operatorer för att utfö
 
 <a name="functions"></a>
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
 Vissa uttryck få deras värden från runtime-åtgärder som inte kanske finns ännu när en logikapp börjar köras. Du kan använda för att referera till eller arbeta med dessa värden i uttryck, [ *functions*](../logic-apps/workflow-definition-language-functions-reference.md). Exempel: du kan använda matematiska funktioner för beräkningar, till exempel den [Add ()](../logic-apps/workflow-definition-language-functions-reference.md#add) som returnerar summan från heltal eller flyttal. Detaljerad information om varje funktion finns i den [alfabetisk referensartikeln](../logic-apps/workflow-definition-language-functions-reference.md).
 Eller lära dig mer om funktioner och deras generell användning.
 
 Här är bara några exempel på uppgifter som du kan utföra med functions: 
 
-| Uppgift | Funktionens syntax | Resultat | 
-| ---- | --------------- | -------------- | 
+| Aktivitet | Funktionens syntax | Resultat | 
+| ---- | --------------- | ------ | 
 | Returnera en sträng i gemener format. | toLower ('<*text*> ”) <p>Till exempel: toLower('Hello') | ”hello” | 
 | Returnera en globalt unik identifierare (GUID). | GUID() |”c2ecc88d-88c8-4096-912c-d6f2e2b138ce” | 
 |||| 
@@ -239,7 +235,7 @@ Det här exemplet visar hur du kan hämta värdet från den `customerName` param
 
 Följande är några andra allmänna metoder som du kan använda funktioner i uttryck:
 
-| Uppgift | Funktionens syntax i ett uttryck | 
+| Aktivitet | Funktionens syntax i ett uttryck | 
 | ---- | -------------------------------- | 
 | Utföra arbete till ett objekt genom att skicka objekt till en funktion. | ”\@<*functionName*> (<*objekt*>)” | 
 | 1. Hämta den *parameterName*'s värde med hjälp av den kapslade `parameters()` funktion. </br>2. Utföra arbete med resultatet genom att skicka detta värde till *functionName*. | ”\@<*functionName*> (parametrar (” <*parameterName*> ”))” | 
@@ -270,7 +266,7 @@ Eller lära dig mer om funktioner baserat på deras generell användning.
 
 Om du vill arbeta med strängar, du kan använda dessa strängfunktioner och även vissa [samling funktioner](#collection-functions). Strängfunktioner fungerar endast för strängar. 
 
-| Strängfunktion | Uppgift | 
+| Strängfunktion | Aktivitet | 
 | --------------- | ---- | 
 | [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Kombinera två eller flera strängar och returnera den kombinerade strängen. | 
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Kontrollera om en sträng som slutar med den angivna delsträngen. | 
@@ -292,7 +288,7 @@ Om du vill arbeta med strängar, du kan använda dessa strängfunktioner och äv
 
 Du kan använda dessa funktioner för samlingen om du vill arbeta med samlingar, vanligtvis matriser, strängar och ibland ordlistor. 
 
-| Funktionen för samlingen | Uppgift | 
+| Funktionen för samlingen | Aktivitet | 
 | ------------------- | ---- | 
 | [innehåller](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Kontrollera om en samling har ett specifikt objekt. |
 | [tom](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Kontrollera om en samling är tom. | 
@@ -308,11 +304,11 @@ Du kan använda dessa funktioner för samlingen om du vill arbeta med samlingar,
 
 <a name="comparison-functions"></a>
 
-### <a name="comparison-functions"></a>Jämförelse av funktioner
+### <a name="comparison-functions"></a>Jämförelsefunktioner
 
 För att arbeta med villkor, jämför värden och uttryck resultat eller utvärdera olika typer av logik, kan du använda dessa jämförelsefunktioner. Fullständig referens om varje funktion finns i [alfabetisk referensartikeln](../logic-apps/workflow-definition-language-functions-reference.md).
 
-| Jämförelse av funktion | Uppgift | 
+| Jämförelse av funktion | Aktivitet | 
 | ------------------- | ---- | 
 | [och](../logic-apps/workflow-definition-language-functions-reference.md#and) | Kontrollera om alla uttryck utvärderas som true. | 
 | [är lika med](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Kontrollera om båda värdena är likvärdiga. | 
@@ -331,7 +327,7 @@ För att arbeta med villkor, jämför värden och uttryck resultat eller utvärd
 
 Om du vill ändra ett värde svarstyp eller, kan du använda dessa konverteringsfunktioner. Du kan till exempel ändra ett värde från ett booleskt värde till ett heltal. Läs hur Logikappar hanterar innehållstyper vid konvertering i [hantera innehållstyper](../logic-apps/logic-apps-content-type.md). Fullständig referens om varje funktion finns i [alfabetisk referensartikeln](../logic-apps/workflow-definition-language-functions-reference.md).
 
-| Konverteringsfunktion | Uppgift | 
+| Konverteringsfunktion | Aktivitet | 
 | ------------------- | ---- | 
 | [Matris](../logic-apps/workflow-definition-language-functions-reference.md#array) | Returnera en matris från en enda som angetts som indata. Flera inmatningar Se [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). | 
 | [Base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Returnera den base64-kodad versionen efter en sträng. | 
@@ -363,7 +359,7 @@ Om du vill ändra ett värde svarstyp eller, kan du använda dessa konverterings
 
 Du kan använda dessa matematiska funktioner för att fungera med heltal och flyttal. Fullständig referens om varje funktion finns i [alfabetisk referensartikeln](../logic-apps/workflow-definition-language-functions-reference.md).
 
-| Matematiska funktion | Uppgift | 
+| Matematiska funktion | Aktivitet | 
 | ------------- | ---- | 
 | [Lägg till](../logic-apps/workflow-definition-language-functions-reference.md#add) | Returnera resultatet från att lägga till två tal. | 
 | [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | Returnera resultatet från divisionen av två tal. | 
@@ -383,7 +379,7 @@ Du kan använda dessa matematiska funktioner för att fungera med heltal och fly
 Du kan använda dessa funktioner för datum och tid om du vill arbeta med datum och tid.
 Fullständig referens om varje funktion finns i [alfabetisk referensartikeln](../logic-apps/workflow-definition-language-functions-reference.md).
 
-| Funktionen för datum och tid | Uppgift | 
+| Funktionen för datum och tid | Aktivitet | 
 | --------------------- | ---- | 
 | [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Lägga till ett antal dagar till en tidsstämpel. | 
 | [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Lägga till ett antal timmar till en tidsstämpel. | 
@@ -419,7 +415,7 @@ Med hjälp av dessa arbetsflödesfunktioner kan du:
 
 Du kan till exempel refererar till utdatan från en åtgärd och använda dessa data i en senare åtgärd. Fullständig referens om varje funktion finns i [alfabetisk referensartikeln](../logic-apps/workflow-definition-language-functions-reference.md).
 
-| Arbetsflödesfunktion | Uppgift | 
+| Arbetsflödesfunktion | Aktivitet | 
 | ----------------- | ---- | 
 | [Åtgärd](../logic-apps/workflow-definition-language-functions-reference.md#action) | Returnera den aktuella åtgärden utdata vid körning, eller värden från andra JSON-namn och värde-par. Se även [åtgärder](../logic-apps/workflow-definition-language-functions-reference.md#actions). | 
 | [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Returnerar en åtgärd `body` utdata vid körning. Se även [brödtext](../logic-apps/workflow-definition-language-functions-reference.md#body). | 
@@ -449,7 +445,7 @@ Du kan till exempel refererar till utdatan från en åtgärd och använda dessa 
 
 Om du vill arbeta med uniform resource Identifier (URI: er) och få olika värden för dessa URI: er, kan du använda dessa URI-parsningsfunktioner. Fullständig referens om varje funktion finns i [alfabetisk referensartikeln](../logic-apps/workflow-definition-language-functions-reference.md).
 
-| URI: N parsning av funktionen | Uppgift | 
+| URI: N parsning av funktionen | Aktivitet | 
 | -------------------- | ---- | 
 | [uriHost](../logic-apps/workflow-definition-language-functions-reference.md#uriHost) | Returnera den `host` värde för en uniform resource identifier (URI). | 
 | [uriPath](../logic-apps/workflow-definition-language-functions-reference.md#uriPath) | Returnera den `path` värde för en uniform resource identifier (URI). | 
@@ -465,7 +461,7 @@ Om du vill arbeta med uniform resource Identifier (URI: er) och få olika värde
 
 Om du vill arbeta med JSON-objekt och XML-noder måste använda du dessa funktioner för datahantering. Fullständig referens om varje funktion finns i [alfabetisk referensartikeln](../logic-apps/workflow-definition-language-functions-reference.md).
 
-| Datahanteringsfunktion | Uppgift | 
+| Datahanteringsfunktion | Aktivitet | 
 | --------------------- | ---- | 
 | [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | Lägg till en egenskap och dess värde eller namn / värde-par, ett JSON-objekt och returnera det uppdaterade objektet. | 
 | [Slå samman](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Returnera det första icke-null-värdet från en eller flera parametrar. | 

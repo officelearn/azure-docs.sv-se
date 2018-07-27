@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 2/06/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c1bebe46832226e822d9eeb002cb555b72a1d7fa
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e008fb87b57b92f8f7e914e6b4344b52d42f9ef8
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441615"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263937"
 ---
 # <a name="azure-active-directory-b2c-disable-email-verification-during-consumer-sign-up"></a>Azure Active Directory B2C: Inaktivera e-Postverifiering under konsument registrering
 När aktiverat kan Azure Active Directory (Azure AD) B2C en konsument att registrera dig för program genom att tillhandahålla en e-postadress och skapa ett lokalt konto. Azure AD B2C säkerställer giltiga e-postadresser genom att kräva att konsumenterna kan kontrollera dem när du registrerade dig. Det förhindrar också en skadlig automatiserad process genererar falska konton för programmen.
@@ -26,13 +26,14 @@ Som standard har registreringsprinciper e-Postverifiering aktiveras. Använd fö
 
 1. [Följ dessa steg för att gå till B2C-funktionsbladet på Azure portal](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. Klicka på **registreringsprinciper** eller **registrerings-eller logga in** beroende på vad du har konfigurerat för registrering.
-3. Klicka på principen (till exempel ”B2C_1_SiUp”) för att öppna den. Klicka på **redigera** överst på bladet.
-4. Klicka på **anpassning av SID-UI**.
-5. Klicka på **registreringssida för lokalt konto**.
-6. Klicka på **e-postadress** i den **namn** kolumnen under den **registreringsattribut** avsnittet.
-7. Visa/Dölj de **Kräv verifiering** alternativet att **nr**.
-8. Klicka på **OK** längst ned på sidan tills du når den **redigera principen** bladet.
-9. Klicka på **spara** överst på bladet. Du är klar!
+3. Klicka på principen (till exempel ”B2C_1_SiUp”) för att öppna den. 
+4. Klicka på **redigera** överst på bladet.
+5. Klicka på **anpassning av SID-UI**.
+6. Klicka på **registreringssida för lokalt konto**.
+7. Klicka på **e-postadress** i den **namn** kolumnen under den **registreringsattribut** avsnittet.
+8. Visa/Dölj de **Kräv verifiering** alternativet att **nr**.
+9. Klicka på **OK** längst ned på sidan tills du når den **redigera principen** bladet.
+10. Klicka på **spara** överst på bladet. Du är klar!
 
 > [!NOTE]
 > Inaktivera e-Postverifiering i registreringsprocessen kan leda till att skicka meddelanden. Om du inaktiverar standardvärdet, rekommenderar vi att lägga till egna verifieringssystem.

@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: d0d72694fe2d88e257a8684dc37a250bc0ad7f3f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7acf18c4624373dff8994a1996e9082770b90270
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970997"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283695"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välja rätt autentiseringsmetod för din Azure Active Directory-hybrididentitetslösning 
 
@@ -106,9 +106,9 @@ Referera till [implementera synkronisering av lösenordshash](https://docs.micro
 
     Det finns en annan fördel att distribuera synkronisering av lösenordshash förutom direktautentisering. Den fungerar som en metod för säkerhetskopiering autentisering när den primära autentiseringsmetoden är inte längre tillgänglig.
 
-* **Överväganden**. Du kan använda synkronisering av lösenordshash som en säkerhetskopiering autentiseringsmetod för direktautentisering och agenterna kan inte verifiera en användares autentiseringsuppgifter. Redundans till synkronisering av lösenordshash sker inte sedan automatiskt. Växla metoden inloggning manuellt med hjälp av Azure AD Connect. 
+* **Överväganden**. Du kan använda synkronisering av lösenordshash som en säkerhetskopiering autentiseringsmetod för direktautentisering, när agenterna inte kan verifiera en användares autentiseringsuppgifter på grund av en betydande lokalt fel skulle uppstå. Redundans till synkronisering av lösenordshash sker inte automatiskt och du måste använda Azure AD Connect för att växla metoden inloggning manuellt. 
 
-    Direktautentisering har endast stöd för molnappar som använder modern autentisering och vissa Exchange Online-protokoll. Vissa protokoll är ActiveSync, POP3 och IMAP4. Till exempel Microsoft Office 2013 och senare stöd för modern autentisering, men tidigare versioner inte. Mer information om stöd för Office-appar finns i [uppdateras Office 365 modern autentisering](https://blogs.office.com/en-us/2015/11/19/updated-office-365-modern-authentication-public-preview/). Stöd för andra överväganden vid direktautentisering, inklusive alternativ-ID finns i [vanliga frågor och svar](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq).
+    Stöd för andra överväganden vid direktautentisering, inklusive alternativ-ID finns i [vanliga frågor och svar](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq).
 
 Referera till [implementera direktautentisering](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication) distributionsanvisningar.
 

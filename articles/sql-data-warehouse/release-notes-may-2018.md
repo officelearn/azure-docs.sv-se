@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 05/28/2018
+ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: ddcb985c370baf224d451aa6c1ec9b796e0140de
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 81e3fd7183e97358b3d936045909ad5dc40612ff
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561412"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281998"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Vad är nytt i Azure SQL Data Warehouse? Maj 2018 
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i maj 2018. 
@@ -127,3 +127,23 @@ The ORDER BY clause is invalid in views, CREATE TABLE AS SELECT, INSERT SELECT, 
 
 ## <a name="set-parseonly-on-query-status-behavior-change"></a>Ange PARSEONLY på fråga status (Funktionsändring)
 Med hjälp av den `SET PARSEONLY ON` syntax kan användaren ha SQL Data Warehouse-motorn granska syntaxen för varje T-SQL-instruktionen och returnerar eventuella felmeddelanden utan att kompilera eller instruktionen körs. Tidigare i den [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) systemvy, förblir statusen för dessa instruktioner i den `Running` tillstånd. Den `sys.dm_pdw_exec_requests` Visa nu returnerar status som `Complete`.
+
+## <a name="next-steps"></a>Nästa steg
+Nu när du vet lite om SQL Data Warehouse, lär du dig hur du snabbt [skapa ett SQL Data Warehouse] [skapa ett SQL Data Warehouse] och [läsa in exempeldata] [läsa in exempeldata]. Om du är nybörjare på Azure kan vara i [Azure-ordlistan] [Azure-ordlistan] vara till hjälp eftersom du stöta på ny terminologi. Eller så kan du se över några av de övriga SQL Data Warehouse-resurserna.  
+
+* [Kundernas framgångsberättelser]
+* [Bloggar]
+* [Funktionsbegäranden]
+* [Videoklipp]
+* [Customer Advisory Team-bloggar]
+* [Stack Overflow-forum]
+* [Twitter]
+
+
+[Bloggar]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[Customer Advisory Team-bloggar]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Kundernas framgångsberättelser]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
+[Funktionsbegäranden]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Twitter]: https://twitter.com/hashtag/SQLDW
+[Videoklipp]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse

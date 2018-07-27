@@ -1,5 +1,5 @@
 ---
-title: Utforma tjänst med hög tillgänglighet med Azure SQL Database | Microsoft Docs
+title: Utforma globalt tillgängliga tjänster som använder Azure SQL Database | Microsoft Docs
 description: Läs mer om programmets design för hög tillgänglighet med Azure SQL Database-tjänster.
 keywords: molnbaserad haveriberedskap, lösningar för haveriberedskap, säkerhetskopiering av data för appen, geo-replikering, business continuity planering
 services: sql-database
@@ -8,19 +8,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/26/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: f1c228802bd0a2e65321a3abe47b87845f5f86a0
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 88a6e1a66390b2b317e1e30a71455ad693e6d7df
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092621"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264662"
 ---
-# <a name="designing-highly-available-services-using-azure-sql-database"></a>Utforma tjänster med hög tillgänglighet med Azure SQL Database
+# <a name="designing-globally-available-services-using-azure-sql-database"></a>Designa globalt tillgängliga tjänster som använder Azure SQL Database
 
-När du skapar och distribuerar tjänster med hög tillgänglighet på Azure SQL Database, som du använder [redundans grupper och aktiv geo-replikering](sql-database-geo-replication-overview.md) att tillhandahålla återhämtning till regionalt avbrott och kritiska fel. Dessutom kan snabb återställning till den sekundära databasen. Den här artikeln fokuserar på vanliga mönster och beskriver fördelarna och nackdelarna med varje alternativ. Information om aktiv geo-replikering med elastiska pooler finns i [elastisk Pool strategier för haveriberedskap](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+När du skapar och distribuerar cloud services med Azure SQL Database, som du använder [redundans grupper och aktiv geo-replikering](sql-database-geo-replication-overview.md) att tillhandahålla återhämtning till regionalt avbrott och kritiska fel. Samma funktion kan du skapa globalt distribuerade program som är optimerade för lokal åtkomst till data. Den här artikeln beskriver vanliga mönster, inklusive fördelarna och nackdelarna med varje alternativ. 
 
 > [!NOTE]
 > Om du använder Premium- eller affärskritiska databaser och elastiska pooler kan du dem elastiska regionala avbrott genom att konvertera dem till zonen redundant distributionskonfiguration. Se [redundantzonen databaser](sql-database-high-availability.md).  

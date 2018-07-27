@@ -1,21 +1,20 @@
 ---
-title: Omvandla tal med taltjänster | Microsoft Docs
+title: Omvandla tal med Speech services
 description: Lär dig hur du använder Talöversättning i Speech-tjänsten.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6acfcf0ae8ab4c63e6cc943f93da6b947f3d118c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d539fe5a1a031c196c0d40e989d83575715b278a
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071104"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285269"
 ---
 # <a name="translate-speech-using-speech-service"></a>Omvandla tal med Speech-tjänsten
 

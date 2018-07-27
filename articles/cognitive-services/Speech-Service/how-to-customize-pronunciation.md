@@ -1,20 +1,19 @@
 ---
-title: Azure Cognitive Services Speech Service | Microsoft Docs
+title: Tjänsten för Azure Cognitive Services tal
 description: Lär dig hur du anpassar uttal med Speech Service Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: f926bf8686a279c93d8f1ed03e8a0ecf3f4a9632
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c7c06fc2f33baa7357fd5f945414daf2bc6e4858
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347451"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284946"
 ---
 # <a name="enable-custom-pronunciation"></a>Aktivera anpassad uttal
 Anpassade uttal kan du definiera fonetiska, formulär och visning av ett ord eller en term. Det är användbart för att hantera anpassade villkor, till exempel produktnamn eller förkortningar. Allt du behöver är en uttal-fil (en enkel txt-fil).

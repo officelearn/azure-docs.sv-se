@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 280d62f127c333ff195e921de380721170fd6a96
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 3389fed86fba8059db82816a6fc752f5374369a7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214990"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283376"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory-direktautentisering: Snabbstart för
 
@@ -73,7 +73,7 @@ Se till att följande krav är uppfyllda.
 Aktivera direktautentisering via [Azure AD Connect](active-directory-aadconnect.md).
 
 >[!IMPORTANT]
->Du kan aktivera direktautentisering på Azure AD Connect primär eller fristående server. Vi rekommenderar att du aktiverar det från den primära servern.
+>Du kan aktivera direktautentisering på Azure AD Connect primär eller fristående server. Vi rekommenderar starkt att du aktiverar det från den primära servern. Om du ställer in en Azure AD Connect-mellanlagringsserver i framtiden kommer du **måste** Fortsätt med att välja direktautentisering som alternativet inloggning, välja ett annat alternativ kommer **inaktivera** Direktautentisering på klient- och åsidosättning inställningen i den primära servern.
 
 Om du installerar Azure AD Connect för första gången, väljer du den [anpassade installationssökväg](active-directory-aadconnect-get-started-custom.md). På den **användarinloggning** väljer **direktautentisering** som den **inloggningsmetod**. Åtgärden lyckades, är en Autentiseringsagenten för direktautentisering installerad på samma server som Azure AD Connect. Dessutom är funktionen direktautentisering aktiverad på klienten.
 

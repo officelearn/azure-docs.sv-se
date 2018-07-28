@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 65525114f46002c5b9300f6bbabcee06cc27ef3a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: af48af596e86e0eb09fe45deabe13beedef57cd2
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091146"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307933"
 ---
 # <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Komma åt Kubernetes-instrumentpanelen med Azure Kubernetes Service (AKS)
 
@@ -38,12 +38,14 @@ Det här kommandot skapar en proxy mellan utvecklingssystemet och Kubernetes-API
 
 ### <a name="for-rbac-enabled-clusters"></a>För RBAC-aktiverade kluster
 
-Om AKS-klustret använder RBAC, en *ClusterRoleBinding* måste skapas innan du har korrekt åtkomst till instrumentpanelen. Du kan skapa en bindning med den [kubectl skapa clusterrolebinding] [ kubectl-create-clusterrolebinding] kommandot som visas i följande exempel. 
+Om AKS-klustret använder RBAC, en *ClusterRoleBinding* måste skapas innan du har korrekt åtkomst till instrumentpanelen. Som standard Kubernetes-instrumentpanelen har distribuerats med minimal läsbehörighet och visar RBAC åtkomstfel. Kubernetes-instrumentpanelen stöder för närvarande inte användaren tillhandahåller autentiseringsuppgifter för att avgöra vilken åtkomstnivå, i stället används de roller som beviljats till kontot. En Klusteradministratör kan välja att ge ytterligare åtkomst till den *kubernetes-instrumentpanelen* tjänstkonto, men det kan vara en vektor för eskalering. Du kan också integrera Azure Active Directory-autentisering för att ge en mer detaljerad nivå av åtkomst.
+
+Du kan skapa en bindning med den [kubectl skapa clusterrolebinding] [ kubectl-create-clusterrolebinding] kommandot som visas i följande exempel. 
 
 > [!WARNING]
 > Det här exemplet bindningen gäller inte några ytterligare autentisering-komponenter och kan leda till osäkert användning. Kubernetes-instrumentpanelen är öppen för alla med åtkomst till URL: en. Exponera inte Kubernetes-instrumentpanelen offentligt.
 >
-> Du kan använda metoder, till exempel ägar-token eller ett användarnamn/lösenord för att styra vem som kan komma åt instrumentpanelen och vilka behörigheter de har. Det möjliggör säkrare användning av instrumentpanelen. Mer information om hur du använder de olika autentiseringsmetoderna finns i wiki för Kubernetes-instrumentpanelen på [åtkomstkontroller][dashboard-authentication].
+> Mer information om hur du använder de olika autentiseringsmetoderna finns i wiki för Kubernetes-instrumentpanelen på [åtkomstkontroller][dashboard-authentication].
 
 ```console
 kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard

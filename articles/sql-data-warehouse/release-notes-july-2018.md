@@ -7,19 +7,33 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 07/23/2018
+ms.date: 07/27/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 86aadcbdd8d7168440726d6dbed996629cad3ff7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b410722ff444c19572f61996c4a4d059ae831f5f
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285341"
+ms.locfileid: "39326089"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Vad är nytt i Azure SQL Data Warehouse? Juli 2018
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i juli 2018.
 
+## <a name="lightning-fast-query-performance"></a>Blixtrande snabbt frågeprestanda
+[Azure SQL Data Warehouse](https://aka.ms/sqldw) anger nya prestandamått med introduktionen av direktåtkomst till Data som förbättrar blanda åtgärder. Direktåtkomst till Data minskar CPU-användningen för dataflyttningsåtgärder genom att använda direkt SQL-Server till SQL Server native dataåtgärder. Integrering med SQL Server-motorn direkt för dataförflyttning innebär det att SQL Data Warehouse är nu **67% snabbare än Amazon Redshift** genom att använda en arbetsbelastning fås från välkänd branschstandard [TPC Benchmark™ H (TPC-H)](http://www.tpc.org/tpch/).
+
+![Azure SQL Data Warehouse är snabbare och billigare än Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/eb3b908a-464d-4847-b384-9f296083a737.png)
+<sub>källa: [Gigaom Forskningsrapport analytiker: datalager i molnet-Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
+
+Utöver runtime-prestanda i [Gigaom Research](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) rapporten också mäts prisprestanda förhållandet för att kvantifiera USD kostnaden för specifika arbetsbelastningar. SQL Data Warehouse har **minst 23 procent mindre** än Redshift för 30 TB arbetsbelastningar. Med SQL Data Warehouse möjligheten att Elastiskt skala databearbetning och pausa och återuppta arbetsbelastningar kan kunderna betalar bara när tjänsten är i användning, ytterligare minska sina kostnader.
+![Azure SQL Data Warehouse är snabbare och billigare än Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
+<sub>källa: [Gigaom Forskningsrapport analytiker: datalager i molnet-Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
+
+###<a name="query-concurrency"></a>Fråga samtidighet
+SQL Data Warehouse innebär också att data är tillgängliga i ditt företag. Microsoft har förbättrats tjänsten för att stödja 128 samtidiga frågor så att fler användare kan söka i samma databasen och inte blockeras av andra förfrågningar. Däremot begränsar Amazon Redshift maximalt antal samtidiga frågor till 50, begränsa åtkomst till data i organisationen.
+
+SQL Data Warehouse ger fråga prestanda och fråga samtidighet fördelarna utan någon prisökning och bygga på dess unika arkitektur med fristående lagringsutrymme och databearbetning.
 
 ## <a name="finer-granularity-for-cross-region-and-server-restores"></a>Mer detaljerad information mellan regioner och server återställningar
 Du kan nu återställa i regioner och servrar med hjälp av valfri återställningspunkt istället för att välja geo-redundanta säkerhetskopieringar som vidtas var 24: e timme. Mellan regioner och server återställning har stöd för både en användardefinierad eller automatisk återställningspunkter som aktiverar finare granularitet för ytterligare dataskydd. Med flera återställningspunkter är tillgängliga, du kan vara säker på att ditt informationslager är logiskt konsekvent när du återställer i olika regioner.
@@ -59,9 +73,56 @@ parameter_ordinal | name | suggested_system_type_id | suggested_system_type_name
 --------------------------------------------------------------------------------
 1                 | @id  | 56                       | int
 ```
+## <a name="sprefreshsqlmodule"></a>SP_REFRESHSQLMODULE
+Den [sp_refreshsqlmodule](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-refreshsqlmodule-transact-sql) lagrade proceduren uppdaterar metadata för ett databasobjekt om underliggande metadata har blivit föråldrade på grund av ändringar av underliggande objekt. Detta kan inträffa om bastabeller för en vy ändras och vyn inte har återskapats. Detta sparar steget i att släppa och återskapa beroende objekt.
+
+Exemplet nedan visar en vy som blir inaktuella på grund av den underliggande tabellen ändringen. Här ser du att informationen är korrekt för den första kolumn ändringen (1 till Mollie) men kolumnnamnet är ogiltigt och den andra kolumnen finns inte. 
+```sql
+CREATE TABLE base_table (Id INT);
+GO
+
+INSERT INTO base_table (Id) VALUES (1);
+GO
+
+CREATE VIEW base_view AS SELECT * FROM base_table;
+GO
+
+SELECT * FROM base_view;
+GO
+
+-- Id
+-- ----
+-- 1
+
+DROP TABLE base_table;
+GO
+
+CREATE TABLE base_table (fname VARCHAR(10), lname VARCHAR(10));
+GO
+
+INSERT INTO base_table (fname, lname) VALUES ('Mollie', 'Gallegos');
+GO
+
+SELECT * FROM base_view;
+GO
+
+-- Id
+-- ----------
+-- Mollie
+
+EXEC sp_refreshsqlmodule @Name = 'base_view';
+GO
+
+SELECT * FROM base_view;
+GO
+
+-- fname     | lname
+-- ---------- ----------
+-- Mollie    | Gallegos
+```
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du vet lite om SQL Data Warehouse, lär du dig hur du snabbt [skapa ett SQL Data Warehouse] [skapa ett SQL Data Warehouse] och [läsa in exempeldata] [läsa in exempeldata]. Om du är nybörjare på Azure kan vara i [Azure-ordlistan] [Azure-ordlistan] vara till hjälp eftersom du stöta på ny terminologi. Eller så kan du se över några av de övriga SQL Data Warehouse-resurserna.  
+Nu när du vet lite om SQL Data Warehouse, lär du dig hur du snabbt [skapa ett SQL Data Warehouse][create a SQL Data Warehouse]. Om du inte har erfarenhet av Azure kan [Azure-ordlistan][Azure glossary] vara till hjälp om du stöter på ny terminologi. Eller så kan du se över några av de övriga SQL Data Warehouse-resurserna.  
 
 * [Kundernas framgångsberättelser]
 * [Bloggar]
@@ -79,3 +140,5 @@ Nu när du vet lite om SQL Data Warehouse, lär du dig hur du snabbt [skapa ett 
 [Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videoklipp]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md

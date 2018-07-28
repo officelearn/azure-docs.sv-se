@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 464eb9bde689aa947a5b1e2900ae0fc4670fed6e
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ba6710c8b5b8de1c63fa6778ea3853ab52365254
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285484"
+ms.locfileid: "39325344"
 ---
 # <a name="about-the-speech-to-text-api"></a>Om tal till Text API
 
@@ -50,4 +50,5 @@ Vissa funktioner i den **tal till Text** API: et är inte tillgängliga via REST
 ## <a name="next-steps"></a>Nästa steg
 
 * [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
-* [Se hur du kan känna igen tal i C#](quickstart-csharp-dotnet-windows.md)
+* [Snabbstart: känna igen tal i C#](quickstart-csharp-dotnet-windows.md)
+* [Se hur du identifierar intentioner från tal i C#](how-to-recognize-intents-from-speech-csharp.md)

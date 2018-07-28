@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7495ac8b1414412dba9d62d0fb5668c6db364997
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f954bc3be01d7ac1698e21ac3e3f038fe931541d
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215058"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325487"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
@@ -123,20 +123,7 @@ _Det är bäst att ange SKU: erna explicit, även om det inte är ännu obligato
 >[!IMPORTANT]
 >Standard Load Balancer är en ny produkt i belastningsutjämnaren och i stort sett en supermängd Basic Load Balancer. Det finns viktiga och avsiktlig skillnaderna mellan de här två produkterna. Alla slutpunkt till slutpunkt-scenario som är möjligt med Basic Load Balancer kan även skapas med Standard Load Balancer. Om du redan är van att Basic Load Balancer, bör du bekanta dig med Standard Load Balancer för att förstå de senaste ändringarna i beteendet mellan Standard och Basic och deras inverkan. Granska det här avsnittet noggrant.
 
-| | Standard-SKU | Grundläggande SKU |
-| --- | --- | --- |
-| Backend-pool-storlek | upp till 1000 instanser | upp till 100 instanser |
-| Slutpunkter för backend-pool | alla virtuella datorer i ett enda virtuellt nätverk, inklusive blandning av virtuella datorer, tillgänglighetsuppsättningar, VM-skalningsuppsättningar. | virtuella datorer i en enda tillgänglighet eller en virtuell dator skala |
-| Tillgänglighetszoner | zonredundant och zonindelade klienter för inkommande och utgående, utgående flöden mappningar överleva zon fel, belastningsutjämning mellan zoner | / |
-| Diagnostik | Azure Monitor flerdimensionella mått, till exempel byte och paket räknare, hälsa avsökning status, anslutningsförsök (TCP SYN), utgående anslutning health (SNAT lyckade och misslyckade flöden), aktiva data plan mätning av faktisk användning | Azure Log Analytics för offentlig belastningsutjämnare, SNAT överbelastning avisering, backend-pool hälsotillstånd antal |
-| Hög tillgänglighet portar | den interna belastningsutjämnaren | / |
-| Säker som standard | standard stängd för offentliga IP-adress och belastningsutjämnare slutpunkter och en nätverkssäkerhetsgrupp måste användas för att uttryckligen lista över tillåtna för trafik kan flöda | standard öppen nätverkssäkerhetsgrupp valfritt |
-| [Utgående anslutningar](load-balancer-outbound-connections.md) | Flera klienter med per avanmälan av regeln för belastningsutjämning. Ett scenario för utgående _måste_ uttryckligen skapas för den virtuella datorn för att kunna använda utgående anslutning.  [VNet-tjänstslutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md) kan nås utan utgående anslutning och räknas inte mot data som bearbetas.  Alla offentliga IP-adresser, inklusive Azure PaaS-tjänster som är inte tillgängligt som VNet-tjänstslutpunkter, måste uppnås via utgående anslutning och antal för data som bearbetas. Utgående anslutningar via standard SNAT är inte tillgängliga när bara en intern belastningsutjämnare fungerar som värd för en virtuell dator. Utgående SNAT-programmering är transportprotokollet specifika baserat på protokollet av inkommande regel för belastningsutjämning. | Enkel klientdel, slumpmässigt valda när det finns flera klienter.  När endast den interna belastningsutjämnaren fungerar som värd för en virtuell dator, används standardvärdet SNAT. |
-| [Flera klienter](load-balancer-multivip-overview.md) | Inkommande och [utgående](load-balancer-outbound-connections.md) | Endast inkommande |
-| [Hälsoavsökning ned beteende](load-balancer-custom-probe-overview.md) | TCP-anslutningarna förblir aktiva på instansen avsökning av __och__ på alla avsökningar av | TCP-anslutningarna förblir aktiva på instansen avsökningen ned. Alla TCP-anslutningar avslutas på alla avsökningar av |
-| Hanteringsåtgärder | De flesta åtgärder < 30 sekunder | 60 – 90 sekunder vanliga |
-| SLA | 99,99% för sökvägen med två felfria virtuella datorer | Implicit i VM-serviceavtal | 
-| Prissättning | Debiteras baserat på antalet regler kan data som bearbetas för inkommande eller utgående som är associerad med resurs  | utan kostnad |
+[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
 Mer information finns i [tjänstbegränsningar för belastningsutjämnaren](https://aka.ms/lblimits). Standard Load Balancer information finns i [översikt](load-balancer-standard-overview.md), [priser](https://aka.ms/lbpricing), och [SLA](https://aka.ms/lbsla).
 

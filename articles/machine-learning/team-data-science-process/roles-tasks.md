@@ -1,10 +1,11 @@
 ---
-title: Koppla datavetenskap Process roller och uppgifter - Azure | Microsoft Docs
-description: En översikt över viktiga komponenter, personal roller och tillhörande uppgifter för en datavetenskap team projekt.
+title: Team Data Science Process roller och uppgifter – Azure | Microsoft Docs
+description: En översikt över i viktiga komponenter, personal-roller och tillhörande uppgifter för ett projekt i teamform data science.
 documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
+services: machine-learning
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -14,129 +15,139 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 275c1d1dad9030da776900c4e2b97152c8d2d581
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8cec2c2b72b88a27c4a6c15b197e859b879bef43
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839140"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308532"
 ---
-# <a name="team-data-science-process-roles-and-tasks"></a>Team datavetenskap Process roller och aktiviteter
+# <a name="team-data-science-process-roles-and-tasks"></a>Roller för team Data Science Process och uppgifter
 
-Team av vetenskapliga data är ett ramverk som utvecklats av Microsoft som innehåller en strukturerad metod för att skapa förutsägelseanalyslösningar och intelligent program effektivt. Den här artikeln beskrivs rollerna personal och förknippade aktiviteter som hanteras av en datavetenskap team standardisera på den här processen. 
+Team Data Science Process är ett ramverk som utvecklats av Microsoft och som tillhandahåller en strukturerad metod för att skapa prediktiva Analyslösningar och intelligenta program effektivt. Den här artikeln beskrivs rollerna som personal och förknippade aktiviteter som hanteras av data science team standardisera om den här processen. 
 
-Den här introduktion länkar till självstudier som innehåller instruktioner om hur du ställer in TDSP miljön för hela vetenskap datagruppen, datavetenskap team och projekt. Vi ger detaljerad information med Visual Studio Team Services VSTS () i självstudierna vår kod värd plattform och verktyg för flexibel planering att hantera team uppgifter, styra åtkomst och hantera databaser. 
+Den här introduktionen innehåller länkar till självstudier som innehåller instruktioner om hur du ställer in miljön för TDSP för hela data science-grupp, data science team och projekt. Det ger detaljerad vägledning med hjälp av Visual Studio Team Services (VSTS) i självstudier.  VSTS innehåller en kodvärd plattformen och flexibel planering verktyg för att hantera gruppaktiviteter, styra åtkomst och hantera databaser. 
 
-Du kommer även att kunna använda den här informationen för att implementera TDSP på din egen kod-värd och flexibel verktyg för planering. 
+Du kan använda den här informationen för att implementera TDSP på din egen värd för kod och flexibel planeringsverktyg. 
 
-## <a name="structures-of-data-science-groups-and-teams"></a>Vetenskap grupper och grupper
-Datavetenskap funktioner i företag kan ofta ordnas i följande hierarki:
+## <a name="structures-of-data-science-groups-and-teams"></a>Data science grupper och team
 
-1. ***Datavetenskap grupp/s***
+Data science-funktioner i företag kan ofta ordnas i följande hierarki:
 
-2. ***Datavetenskap team/s inom gruppen/s***
+1. ***Data science grupp/s***
 
-Det kommer är grupp i sådan struktur och teamet leads. Vanligtvis ett projekt för datavetenskap görs genom ett datavetenskap team som kan bestå av projektet leads (för projektet styrning uppgifter och) och datavetare eller tekniker (enskilda deltagare / teknisk personal) som körs i datavetenskap data och tekniska delar av projektet. Innan den körs görs installation och styrning genom leads grupp, team eller projekt.
+2. ***Data science-teamet/s i grupp/s***
 
-## <a name="definition-of-four-tdsp-roles"></a>Definition av fyra TDSP roller
-Med ovan förutsätter angett vi fyra olika roller för vår team-personal:
+I en struktur finns grupp och team leads. Vanligtvis ett datavetenskapsprojekt görs genom ett datavetenskapliga team, vilket kan bestå av projektet leads (för hantering och styrning projektaktiviteter) och datavetare eller tekniker (enskilda deltagare / tekniska personal) som ska köra datavetenskap och data tekniska delar av projektet. Före körning görs installation och styrning av gruppen, team eller projekt leads.
 
-1. ***Gruppansvarig***. Gruppansvarig är ansvarig för hela dataenheten vetenskap i ett företag. En dataenhet vetenskap kan ha flera team, som arbetar på flera datavetenskap projekt i olika företag lodräta annonser. En grupp Manager kan delegera sina uppgifter till ett surrogat, men de uppgifter som är associerade med rollen ändras inte.
+## <a name="definition-of-four-tdsp-roles"></a>Definitionen av fyra TDSP-roller
+Med ovanstående antagandet att det finns fyra olika roller för team-personal:
 
-2. ***Teamet Lead***. Ett team lead hanterar ett team i vetenskap dataenheten på ett företag. En grupp består av flera datavetare. För en dataenhet vetenskap med bara ett fåtal data forskare vara Group Manager och Team leda samma person.
+1. ***Gruppansvarig***. Gruppansvarig är ansvarig för alla data science-enhet i ett företag. En data science-enhet kan ha flera team som arbetar med flera dataforskningsprojekt i olika företag branscher. Gruppchef kan delegera sina uppgifter till en surrogate, men ändra inte de uppgifter som är associerade med rollen.
 
-3. ***Projektet Lead***. Ett projekt lead hanterar dagliga aktiviteter enskilda forskare med ett projekt för vetenskap specifika data.
+2. ***Team Lead***. Gruppledare hanterar ett team för data science-enheten på ett företag. Ett team består av flera dataexperter. För data science-enhet med endast ett litet antal dataexperter vara Gruppansvarig och den gruppledare samma person.
 
-4. ***Projektet enskilda deltagare***. Data forskare, affärsanalytiker, Data-tekniker, systemarkitekter och så vidare. Projektet enskilda deltagare kör en datavetenskap. 
+3. ***Projektet Lead***. En projektledare hanterar dagliga aktiviteter för enskilda datapersonal i en specifik datavetenskapsprojekt.
+
+4. ***Projektet enskilda deltagare***. Dataforskare, affärsanalytiker, Data-tekniker, Architect, osv. En enskild deltagare projektet körs ett datavetenskapsprojekt. 
 
 
-**[AZURE.NOTE]**: En enskild person kan spela flera roller beroende på struktur i ett företag, eller det kan finnas mer än en person som arbetar på en roll. Det kan ofta vara fallet i små företag eller företag med ett litet antal personal i organisationen datavetenskap.
+> [!NOTE]
+> Beroende på strukturen i ett företag, en enskild person kan spela upp mer än en roll eller det kan finnas mer än en person som arbetar på en roll. Det kan ofta vara skiftläget för små företag eller företag med ett litet antal personal i deras organisation, data science.
 
 ## <a name="tasks-to-be-completed-by-four-personnel"></a>Aktiviteter som ska slutföras av fyra personal
 
-Följande bild visar de översta uppgifterna för personal efter roll i att anta och genomföra Team vetenskap av data som conceptualized av Microsoft. 
+Följande bild visar de översta uppgifterna för personal efter roll i att anta och genomföra Team Data Science Process som conceptualized av Microsoft. 
 
-![Översikt över roller och aktiviteter](./media/roles-tasks/overview-tdsp-top-level.png)
+![Översikt över roller och uppgifter](./media/roles-tasks/overview-tdsp-top-level.png)
 
-Det här schemat och följande, mer detaljerad beskrivning av uppgifter som är kopplade till varje roll i TDSP hjälper dig att välja rätt kursen baserat på dina ansvarsområden i organisationen.
+Det här schemat och följande, mer detaljerad översikt över aktiviteter som är kopplade till varje roll i TDSP hjälper dig att välja den aktuella självstudien baserat på dina ansvarsområden i organisationen.
 
->[AZURE.NOTE] I följande anvisningar visar vi hur du ställer in en TDSP miljö och utföra andra uppgifter vetenskap uppgifter i Visual Studio Team Services VSTS (). Anger vi hur du utför dessa uppgifter med VSTS eftersom det är vad vi använder för att implementera TDSP på Microsoft. VSTS underlättar samarbete genom att integrera hanteringen av arbetsobjekt som spårar aktiviteter och koden värdtjänsten används för att dela verktyg, ordna versioner och ge rollbaserad säkerhet. Du kan välja andra plattformar, om du föredrar att implementera de uppgifter som beskrivs av TDSP. Men beroende på din plattform vissa funktioner som vi använder från VSTS kanske inte tillgänglig. 
+> [!NOTE]
+> I följande anvisningar visas hur du ställer in en TDSP-miljö och utföra andra uppgifter för data science i Visual Studio Team Services (VSTS). Vi anger hur du utför dessa uppgifter med VSTS eftersom det är vad vi använder för att implementera TDSP på Microsoft. VSTS underlättar samarbete genom att integrera hanteringen av arbetsobjekt som spårar aktiviteter och en värdtjänst för kod som används för att dela verktyg, ordna versioner och tillhandahålla rollbaserad säkerhet. Du kan välja andra plattformar, om du föredrar att utföra uppgifter som beskrivs av TDSP. Men beroende på din plattform, vissa funktioner som utnyttjas från VSTS kanske inte tillgänglig. 
 >
->Vi använder också den [Data vetenskap virtuell dator (DSVM)](http://aka.ms/dsvm) på Azure cloud som analytics skrivbordet med flera populära datavetenskap verktyg förkonfigurerade och integrerats med olika Microsoft-programvara och Azure-tjänster. Du kan använda DSVM eller andra utvecklingsmiljö för att implementera TDSP. 
+>Instruktionerna här också använda den [Data Science Virtual Machine (DSVM)](http://aka.ms/dsvm) på Azure moln som analys-skrivbordet med flera populära verktyg för datavetenskap som redan har konfigurerats och integreras med olika Microsoft-programvara och Azure tjänster. Du kan använda DSVM eller någon annan utvecklingsmiljö för att implementera TDSP. 
 
 
-## <a name="group-manager-tasks"></a>Gruppen Manager-uppgifter
+## <a name="group-manager-tasks"></a>Gruppansvarig uppgifter
 
-Följande åtgärder har utförts av Gruppansvarig (eller avsedda TDSP systemadministratör) för att införa TDSP:
+Följande åtgärder har utförts av Gruppansvarig (eller en utsedd administratör för TDSP-system) för att införa TDSP:
 
-- Skapa en **gruppkontot** om en värd plattform (till exempel Github, Git, VSTS eller andra)
-- Skapa en **projekt mallen databasen** på gruppkontot och seed från projektet mallen databasen har utvecklats av Microsoft TDSP team. TDSP projekt mallen databasen från Microsoft tillhandahåller en **standardiserade katalogstruktur** inklusive kataloger för data, kod och dokument och ger en uppsättning **standardiserade mallar** att hjälpa en effektiv datavetenskap process. 
-- Skapa en **verktyget databasen**, och dirigera från Verktyg-databasen som utvecklats av Microsoft TDSP team. Verktyget TDSP databasen från Microsoft tillhandahåller en uppsättning användbara verktyg för effektiviserar arbetet med en data-forskare, inklusive verktyg för interaktiv datagranskning, analys och rapportering och för baslinje modellering och rapportering.
-- Ställ in den **kontroll säkerhetsprincip** av de två databaserna på ditt gruppkonto.  
+- Skapa en **gruppkontot** på en kod som är värd för plattform (till exempel Github, Git, VSTS eller andra)
+- Skapa en **projekt mallagret** på gruppkonto och dirigering från malldatabasen projekt har utvecklats av Microsoft TDSP-team. TDSP-projekt malldatabasen från Microsoft 
+    - tillhandahåller en **standardiserade katalogstruktur** inklusive kataloger för data, kod och dokument, 
+    - innehåller en uppsättning **standardiserade mallar** att vägleda en effektiv data science process. 
+- Skapa en **verktyget databasen**, och dirigera från Verktyg-databasen som har utvecklats av Microsoft TDSP-team. Databaser för TDSP-verktyg från Microsoft innehåller 
+    - en uppsättning användbara verktyg för att göra verk som tillhör en dataexpert effektivare, inklusive verktyg för interaktiv datagranskning, analys och rapportering och för baslinjen modellering och rapportering.
+- Konfigurera den **kontroll säkerhetsprincip** av de två databaserna på ditt gruppkonto.  
 
-Detaljerade stegvisa anvisningar finns i [Gruppansvarig uppgifter för ett datavetenskap team](group-manager-tasks.md). 
+Detaljerade stegvisa anvisningar finns i [Gruppansvarig uppgifter för team data science](group-manager-tasks.md). 
 
 
-## <a name="team-lead-tasks"></a>Lead gruppuppgifter
+## <a name="team-lead-tasks"></a>Gruppaktiviteter för Lead
 
-Följande åtgärder har utförts av Team leda eller en avsedda team projekt-administratör att införa TDSP:
+Följande åtgärder har utförts av teamet leda (eller en projektadministratör avsedda team) att införa TDSP:
 
-- Om VSTS väljs ska koden Värdplattformen för versionshantering och samarbete, skapar du en **grupprojekt** på gruppens VSTS server. I annat fall kan den här aktiviteten hoppas över.
-- Skapa den **team projekt mallen databasen** under grupprojekt och seed det från grupp projekt mallen databasen har ställts in av grupp-manager eller en delegat av hanteraren. 
-- Skapa den **team verktyget databasen**, och Lägg till team-specifika verktyg i databasen. 
-- (Valfritt) Skapa **[Azure file storage](https://azure.microsoft.com/services/storage/files/)** som används för att lagra datatillgångar som kan vara användbara för hela gruppen. Andra gruppmedlemmar kan montera den här delade molnarkivet för filen på skrivbordet analytics.
-- (Valfritt) Montera Azure file storage till den **datavetenskap virtuella** (DSVM) för teamet leda och Lägg till datatillgångar på den.
-- Ställ in den **säkerhetskontroll** genom att lägga till teammedlemmar och konfigurera sina privilegier. 
+- Om VSTS väljs vara kod värdplattform för versionshantering och samarbete, skapa en **grupprojekt** på gruppens VSTS-servern. I annat fall kan den här aktiviteten hoppas över.
+- Skapa den **team projekt mallagret** under grupprojekt och dirigering från malldatabasen grupp projekt som konfigurerats av din gruppchef eller delegerat av hanteraren för. 
+- Skapa den **team verktyget databasen**, och Lägg till team-specifika verktyg på lagringsplatsen. 
+- (Valfritt) Skapa **[Azure-fillagring](https://azure.microsoft.com/services/storage/files/)** som används för att lagra datatillgångar som kan vara användbara för hela gruppen. Andra gruppmedlemmar kan montera den här delade molnet filarkiv på sina datorer för analys.
+- (Valfritt) Montera Azure file storage för att den **Data Science Virtual Machine** (DSVM) för teamet leda och Lägg till datatillgångar på den.
+- Konfigurera den **säkerhetskontroll** genom att lägga till gruppmedlemmar och konfigurera sina privilegier. 
 
-Detaljerade stegvisa anvisningar finns i [Team leda uppgifter för ett datavetenskap team](team-lead-tasks.md).  
+Detaljerade stegvisa anvisningar finns i [gruppledare uppgifter för team data science](team-lead-tasks.md).  
 
 
 ## <a name="project-lead-tasks"></a>Project Lead-aktiviteter
 
-Följande åtgärder har utförts av projektet leda till att införa TDSP:
+Följande åtgärder har utförts genom att införa TDSP projektbeskrivning:
 
-- Skapa en **projekt databasen** under grupprojekt och seed från teamet projektet mall-databasen. 
-- (Valfritt) Skapa **Azure file storage** som används för att lagra datatillgångar i projektet. 
-- (Valfritt) Montera Azure file storage till den **datavetenskap virtuella** (DSVM) av projektet leda och lägga till projektet datatillgångar på den.
-- Ställ in den **säkerhetskontroll** genom att lägga till projektmedlemmar och konfigurera sina privilegier. 
+- Skapa en **projektets lagringsplats** under grupprojekt och dirigering från teamet projektet mallagret. 
+- (Valfritt) Skapa **Azure-fillagring** som används för att lagra datatillgångar i projektet. 
+- (Valfritt) Montera Azure file storage för att den **Data Science Virtual Machine** (DSVM) projektets leda och lägga till projektet datatillgångar på den.
+- Konfigurera den **säkerhetskontroll** genom att lägga till projektmedlemmar och konfigurera sina privilegier. 
 
-Detaljerade stegvisa anvisningar finns i [projekt leda uppgifter för ett datavetenskap team](project-lead-tasks.md). 
+Detaljerade stegvisa anvisningar finns i [projektbeskrivning uppgifter för team data science](project-lead-tasks.md). 
 
-## <a name="project-individual-contributor-tasks"></a>Projektet enskilda deltagare uppgifter
+## <a name="project-individual-contributor-tasks"></a>Enskild deltagare projektaktiviteter
 
-Följande åtgärder har utförts av projektet enskilda deltagare (vanligtvis en Data-forskare) att genomföra datavetenskap projektet med TDSP:
+Följande åtgärder har utförts av projektet enskilda deltagare (vanligtvis inom Data Science) att göra data science-projekt med TDSP:
 
-- Klona den **projekt databasen** ställa in genom projektet lead. 
-- (Valfritt) Montera den delade **Azure file storage** team och projekt på sina **datavetenskap virtuella** (DSVM).
+- Klona den **projektets lagringsplats** ställa in genom ditt projekt lead. 
+- (Valfritt) Montera den delade **Azure-fillagring** team och projekt på sina **Data Science Virtual Machine** (DSVM).
 - Köra projektet. 
 
  
-Stegvisa anvisningar för på-boarding till ett projekt, se [projekt enskilda deltagare för ett datavetenskap team](project-ic-tasks.md). 
+Detaljerade stegvisa anvisningar för registreringen till ett projekt, se [projekt enskilda deltagare för team data science](project-ic-tasks.md). 
 
 
-## <a name="data-science-project-execution"></a>Datavetenskap projektet körning
+## <a name="data-science-project-execution"></a>Data science projektkörning
  
-Genom att följa de relevanta uppsättningen instruktioner kan dataanalytiker, projekt lead och team leads skapa arbetsobjekt om du vill spåra alla aktiviteter och steg som krävs för ett projekt från början till dess slut. Med git också främjar samarbetet mellan datavetare och ser till att artefakter som skapas under körning av projektet är version kontrolleras och delas av alla projektmedlemmar.
+Genom att följa de relevanta uppsättningen anvisningar, skapa dataexperter och projektledare gruppledare arbetsobjekt för att spåra alla aktiviteter och steg som krävs för ett projekt från början till dess slut. Med hjälp av git också främjar samarbete mellan dataforskare och garanterar att de artefakter som genereras under projektkörning är version kontrollerade och delas av alla projektmedlemmar.
 
-Anvisningarna för projektet körningen har utvecklats baserat på antagandet att båda arbetsobjekt och projektet git databaser finns i VSTS. Om du använder VSTS för både kan du länka dina arbetsuppgifter med Git grenarna i ditt projekt-databaser. På så sätt kan spåra du enkelt vad som har gjorts för ett arbetsobjekt. 
+Instruktioner för projektkörning av har utvecklats baserat på antagandet att båda dina arbetsuppgifter och projektet lagringsplatserna finns på VSTS git. Med VSTS för både kan du länka dina arbetsuppgifter med Git-grenar av ditt projekt-databaser. På så sätt kan spåra du lätt vad som har gjorts för ett arbetsobjekt. 
 
-Följande bild visar arbetsflödet för projektet körning med hjälp av TDSP.
+Följande bild visar arbetsflödet för projektkörning av med TDSP.
 
-![Vanliga vetenskap projektet körning](./media/roles-tasks/overview-project-execute.png)
+![Typiska Data Science Projektkörning](./media/roles-tasks/overview-project-execute.png)
 
 Arbetsflödet innehåller steg som kan grupperas i tre aktiviteter:
 
-- Skriv ut planera (projekt leda)
-- Utveckla artefakter på git-grenar kan hantera arbetsobjekt (Data forskare)
-- Granska koden och sammanslagning filialer med master filialer (projekt leda eller andra gruppmedlemmar)
+- Sprint planera (projektbeskrivning)
+- Utveckla artefakter på git-grenar kan hantera arbetsobjekt (Data Science)
+- Kodgranskning och slå samman grenar med master grenar (projektbeskrivning eller andra gruppmedlemmar)
 
-Detaljerade stegvisa anvisningar i projektet körning av arbetsflödet finns [körning av datavetenskap projekt](project-execution.md).
+Detaljerade stegvisa instruktioner om arbetsflöde för verkställande av projektet, se [körningen av dataforskningsprojekt](project-execution.md).
+
+## <a name="project-structure"></a>Projektstruktur
+
+Använd det här [projekt mallagret](https://github.com/Azure/Azure-TDSP-ProjectTemplate) för effektiv projektkörning och samarbete. Den här lagringsplatsen ger en standardiserad directory struktur och dokumentet mallar som du kan använda för dina egna TDSP-projekt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Här är länkar till mer detaljerade beskrivningar av de roller och aktiviteter som definierats av Team av vetenskapliga data:
+Utforska mer detaljerade beskrivningar av de roller och uppgifter som definieras av Team Data Science Process:
 
-- [Gruppera Manager aktiviteter för en datavetenskap-teamet](group-manager-tasks.md)
-- [Gruppuppgifter Lead för ett datavetenskap team](team-lead-tasks.md)
-- [Projektet Lead uppgifter för ett datavetenskap team](project-lead-tasks.md)
-- [Projektet enskilda deltagare för ett datavetenskap team](project-ic-tasks.md)
+- [Gruppansvarig uppgifter för team data science](group-manager-tasks.md)
+- [Lead gruppaktiviteter för team data science](team-lead-tasks.md)
+- [Lead projektaktiviteter för team data science](project-lead-tasks.md)
+- [Projektet enskilda deltagare för team data science](project-ic-tasks.md)

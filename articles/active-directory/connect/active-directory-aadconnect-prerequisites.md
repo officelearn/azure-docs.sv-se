@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9341c3bcbe90788318c9b20ccc6988461e972347
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 22751d7ab38717fefdebe107e7a7d6fc10dda4c4
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264546"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326198"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 Det här avsnittet beskriver kraven och maskinvarukrav för Azure AD Connect.
@@ -43,7 +43,6 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
 * AD-schemat version och skogens funktionsnivå måste vara Windows Server 2003 eller senare. Domänkontrollanter kan köra någon version så länge schemat och skog nivå krav är uppfyllda.
 * Om du planerar att använda funktionen **tillbakaskrivning av lösenord**, domänkontrollanterna måste vara i Windows Server 2008 (med senaste SP) eller senare. Om dina domänkontrollanter som är på 2008 (pre-R2) så du måste också använda [snabbkorrigering KB2386717](http://support.microsoft.com/kb/2386717).
 * Domänkontrollanten som används av Azure AD måste vara skrivbar. Det är **stöds inte** för att använda en skrivskyddad Domänkontrollant (skrivskyddade domänkontrollanten) och Azure AD Connect inte följer alla skrivåtgärder omdirigeringar.
-* Det är **stöds inte** att använda lokala skogar/domäner med SLDs (enkla domännamn utan toppdomän).
 * Det är **stöds inte** att använda lokala skogar/domäner med ”prickade” (namn innehåller en punkt ””.) NetBIOS-namn.
 * Det rekommenderas att [aktivera Active Directory-Papperskorgen](active-directory-aadconnectsync-recycle-bin.md).
 

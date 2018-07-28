@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 9c0519181ec03394e7d732a8eb608501d6dd6657
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5928896ab3c89972b7912f686be045afc988b1cd
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161838"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308883"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Förhandsversion: Distribuera Azure AD-lösenordsskydd
 
@@ -56,7 +56,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd s
 
 1. Välj en eller flera servrar som värd för Azure AD lösenord protection proxy-tjänsten.
    * Varje sådan tjänst kan endast ange lösenordsprinciper för en enda skog och värddatorn måste vara domänansluten till en domän (rot- och underordnade både lika stöds) i den skogen. För Azure AD lösenord protection proxy-tjänsten att utföra sitt uppdrag, måste det finnas nätverksanslutning mellan minst en Domänkontrollant i varje domän i skogen och värddatorn för Azure AD lösenord protection Proxy.
-   * Det finns stöd för att installera och köra Azure AD lösenord protection proxy-tjänsten på en domänkontrollant i testsyfte men kräver Internetanslutning.
+   * Det finns stöd för att installera och köra Azure AD lösenord protection proxy-tjänsten på en domänkontrollant för att testa syften men domänkontrollanten och kräver en Internetanslutning.
 
    > [!NOTE]
    > Den offentliga förhandsversionen stöder högst två (2) proxy-servrar per skog.
@@ -110,6 +110,9 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd s
 
    > [!NOTE]
    > Registrering av Active Directory-skogen förväntas vara ett enstaka steg i livslängden för skogen. Domain controller-agenter som körs i skogen utför automatiskt andra nödvändiga maintainenance från och med nu och senare. När den har slutförts för en viss skog ytterligare funktionsanrop i `Register-AzureADPasswordProtectionForest` fortsätta att lyckas men är onödiga.
+
+   > [!NOTE]
+   > För att `Register-AzureADPasswordProtectionForest` ska lyckas minst en Windows Server 2012 eller senare domain controller måste finnas i proxyserverns domän. Det finns dock inget krav på att DC klientprogrammet installeras på alla domänkontrollanter före det här steget.
 
 6. Valfritt: Konfigurera Azure AD lösenord protection proxy-tjänsten för att lyssna på en specifik port.
    * RPC via TCP används av Azure AD-lösenordsskydd DC-agentprogramvaran på domänkontrollanterna för att kommunicera med Azure AD lösenord protection proxy-tjänsten. Azure AD-lösenordsskydd lösenord princip Proxy-tjänsten lyssnar på alla tillgängliga dynamiska RPC-slutpunkt som standard. Om det behövs på grund av nätverkets topologi eller krav på Brandvägg för konfigureras tjänsten i stället för att lyssna på en specifik TCP-port.

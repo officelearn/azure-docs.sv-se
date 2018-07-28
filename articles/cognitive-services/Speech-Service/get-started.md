@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a9972d19d33c69ea2eb1b0e00512f37a315b92d8
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ff9a258d42f25ded82545909cdeade119548148e
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285024"
+ms.locfileid: "39325215"
 ---
 # <a name="try-the-speech-service-for-free"></a>Prova Speech Service kostnadsfritt
 
@@ -129,10 +129,8 @@ Följ dessa steg för att lägga till en resurs för tal-tjänst på Azure-konto
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ladda ned en SDK och exempelkod för att uppleva Speech-tjänsten.
+Gör något av våra snabbstarter på 10 minuter eller Kolla in våra SDK-exempel.
 
 > [!div class="nextstepaction"]
-> [SDK: er för taligenkänning](speech-sdk.md)
-
-> [!div class="nextstepaction"]
-> [Exempelkod](samples.md)
+> [Snabbstart: känna igen tal i C#](quickstart-csharp-dotnet-windows.md)
+> [tal SDK-exempel](speech-sdk.md#get-the-samples)

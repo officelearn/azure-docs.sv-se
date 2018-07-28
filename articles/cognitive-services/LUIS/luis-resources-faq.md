@@ -7,14 +7,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 8e0d834b94ff902eb0c1e0ada2fb32d374cee12b
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 75159319e25ac63907e0d8a2cbf044cf9a854785
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239125"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308753"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding vanliga frågor och svar
 
@@ -147,6 +147,12 @@ Om du använder din logg för förutsägande analys kan du inte skapa test yttra
 * Du kan ta bort yttranden från listan över användare yttranden som LUIS föreslår i den **granska endpoint yttranden** sidan. Tar bort yttranden i den här listan förhindrar du att de ska visas som förslag, men ta bort inte dem från loggar.
 * Om du tar bort ett konto raderas alla appar, och deras exempel yttranden och loggar. Dessa data är kvar på servrarna i 60 dagar innan de tas bort permanent.
 
+### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Har Microsoft tillgång till min LUIS AppData för sina egna ändamål, till exempel för att förbättra LUIS eller Microsoft i allmänhet? 
+
+Nej. LUIS-app-datamodellen är inte används av LUIS för att förbättra LUIS som en plattform eller används av Microsoft på något sätt. Varje AppData är separat och ägs endast av användar- och medarbetare. 
+
+Läs mer om [Användarsekretess](luis-reference-gdpr.md), [ytterligare säkerhet följs](luis-concept-security.md#security-compliance), och [datalagring](luis-concept-data-storage.md).
+
 ## <a name="language-and-translation-support"></a>Stöd för språk och översättning 
 
 ### <a name="i-have-an-app-in-one-language-and-want-to-create-a-parallel-app-in-another-language-what-is-the-easiest-way-to-do-so"></a>Jag har en app på ett språk och vill skapa en parallell app i ett annat språk. Vad är det enklaste sättet att göra detta?
@@ -175,20 +181,6 @@ Om du väljer en LUIS-mall och välj den **Välj** knappen i panelen fönstret v
 ### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>Är LUIS tillgängligt lokalt eller i privata moln?
 Nej. 
 
-## <a name="changes-to-the-docs"></a>Ändringar i Docs
-
-### <a name="where-did-the-tutorials-go"></a>Var finns självstudier? 
-Artiklar som tidigare fanns i delen av självstudiekursen är nu i avsnittet How-to i dokumenten. 
-
-|Självstudier|
-|--|
-|Integrera LUIS med en bot med [C#](luis-csharp-tutorial-build-bot-framework-sample.md) och [Node.js](luis-nodejs-tutorial-build-bot-framework-sample.md)|
-|Lägg till Application Insights till en Bot med [C#](luis-tutorial-bot-csharp-appinsights.md) och [Node.js](luis-tutorial-function-appinsights.md)|
-|Skapa en LUIS-app genom programmering med [Node.js](luis-tutorial-node-import-utterances-csv.md)|
-|Använd [sammansatt entitet](luis-tutorial-composite-entity.md) att extrahera grupperade data|
-|Lägg till [lista entitet](luis-tutorial-list-entity.md) för ökad entitet med hjälp av Node.js|
-|Förbättra förutsägelsefunktionen med en [frasen lista](luis-quickstart-primary-and-secondary-data.md), [mönster](luis-tutorial-pattern.md), och [batch testning](luis-tutorial-batch-testing.md)|
-|[Stavningskontroll](luis-tutorial-batch-testing.md) med API för stavningskontroll i Bing v7
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Jag har hört talas om en funktion för Language Understanding eller demo men jag inte kommer ihåg vad den anropades på Build-konferensen för 2018? 
 

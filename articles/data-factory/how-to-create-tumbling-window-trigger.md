@@ -1,6 +1,6 @@
 ---
-title: Skapa rullande fönster utlösare i Azure Data Factory | Microsoft Docs
-description: Lär dig hur du skapar en utlösare i Azure Data Factory som kör en pipeline på en rullande fönster.
+title: Skapa utlösare för rullande fönster i Azure Data Factory | Microsoft Docs
+description: Lär dig hur du skapar en utlösare i Azure Data Factory som kör en pipeline på ett rullande fönster.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -11,22 +11,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 07/27/2018
 ms.author: shlo
-ms.openlocfilehash: 02f84047d0e1d3e73fac991250da814176f3995d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c42d6235af8a5ab27fbd550b63c301fd9c6f15b1
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049932"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325041"
 ---
-# <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Skapa en utlösare som kör en pipeline på en rullande fönster
-Den här artikeln innehåller steg för att skapa, starta och övervaka en rullande fönster utlösare. Allmän information om utlösare och typerna som stöds finns [Pipeline körning och utlösare](concepts-pipeline-execution-triggers.md).
+# <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Skapa en utlösare som kör en pipeline på ett rullande fönster
+Den här artikeln innehåller steg för att skapa, starta och övervaka en utlösare för rullande fönster. Allmän information om utlösare och typerna som stöds finns i [Pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md).
 
-Utlösare för rullande fönster är en typ av utlösare som går igång med jämna tidsintervall från en angiven starttid och behåller sitt tillstånd. Rullande fönster är en serie sammanhängande tidsintervall med fast storlek som inte överlappar. En rullande fönster utlösare har en 1: 1-relation med en rörledning och kan bara referera till en enkel rörledning.
+Utlösare för rullande fönster är en typ av utlösare som går igång med jämna tidsintervall från en angiven starttid och behåller sitt tillstånd. Rullande fönster är en serie sammanhängande tidsintervall med fast storlek som inte överlappar. En utlösare för rullande fönster har ett förhållande med en pipeline och kan bara referera till en enda pipeline.
 
-## <a name="tumbling-window-trigger-type-properties"></a>Rullande fönster utlösaren egenskaper
-En rullande fönster har följande egenskaper för typen av utlösare:
+## <a name="data-factory-ui"></a>Data Factory-användargränssnitt
+
+Om du vill skapa en utlösare för rullande fönster i Azure portal, Välj **utlösare > rullande fönster > nästa**, och sedan konfigurera de egenskaper som definierar rullande fönster.
+
+![Skapa en utlösare för rullande fönster i Azure portal](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
+
+## <a name="tumbling-window-trigger-type-properties"></a>Rullande fönster Typegenskaper för utlösare
+Ett rullande fönster har följande egenskaper för typ av utlösare:
 
 ```  
 {
@@ -68,24 +74,24 @@ En rullande fönster har följande egenskaper för typen av utlösare:
 }
 ```  
 
-Följande tabell innehåller en översikt över viktiga JSON-element som är relaterade till upprepning och schemaläggning av en rullande fönster utlösare:
+Följande tabell innehåller en översikt över de viktigaste JSON-element som är relaterade till upprepning och schemaläggning i en utlösare för rullande fönster:
 
 | JSON-element | Beskrivning | Typ | Tillåtna värden | Krävs |
 |:--- |:--- |:--- |:--- |:--- |
 | **typ** | Typ av utlösaren. Typen är det fasta värdet ”TumblingWindowTrigger”. | Sträng | "TumblingWindowTrigger" | Ja |
-| **runtimeState** | Det aktuella tillståndet för utlösaren körtid.<br/>**Obs**: det här elementet har \<readOnly >. | Sträng | ”Starta”, stoppades ””, ”inaktiverad” | Ja |
-| **frequency** | En sträng som representerar frekvens enhet (minuter eller timmar) att utlösaren ska återkomma. Om den **startTime** datumvärden är mer detaljerad än den **frekvens** värde, den **startTime** datum anses när fönstret gränser beräknas. Till exempel om den **frekvens** värdet är varje timme och **startTime** värdet är 2016-04-01T10:10:10Z, det första fönstret är (2017-09-01T10:10:10Z 2017-09-01T11:10:10Z). | Sträng | ”minuter”, ”timmar”  | Ja |
-| **interval** | Ett positivt heltal som anger intervallet för värdet för **frequency** och som avgör hur ofta utlösaren körs. Till exempel om den **intervall** är 3 och **frekvens** är ”timme” utlösaren återkommer var 3: e timme. | Integer | Ett positivt heltal. | Ja |
+| **runtimeState** | Körningstiden för det aktuella tillståndet för utlösaren.<br/>**Obs**: det här elementet har \<readOnly >. | Sträng | ”Started”, Stoppad ”” ”inaktiverad” | Ja |
+| **frequency** | En sträng som representerar frekvens (minuter eller timmar) att utlösaren ska återkomma. Om den **startTime** datumvärden är större än den **frekvens** värde, den **startTime** datum anses när fönstret gränserna beräknas. Till exempel om den **frekvens** värdet är per timme och **startTime** värdet är 2016-04-01T10:10:10Z, det första fönstret är (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Sträng | ”minut”, ”hour”  | Ja |
+| **interval** | Ett positivt heltal som anger intervallet för värdet för **frequency** och som avgör hur ofta utlösaren körs. Till exempel om den **intervall** är 3 och **frekvens** är ”hour” utlösaren återkommer var tredje timme. | Integer | Ett positivt heltal. | Ja |
 | **startTime**| Den första förekomsten, vilket kan vara i förflutna. Den första utlösaren är (**startTime**, **startTime** + **intervall**). | DateTime | Ett DateTime-värde. | Ja |
 | **endTime**| Den sista förekomsten, vilket kan vara i förflutna. | DateTime | Ett DateTime-värde. | Ja |
-| **fördröjning** | Hur lång tid att fördröja starten av databearbetningen för fönster. Pipelinen körs startas efter att den förväntade tiden för körningen plus mängden **fördröjning**. Den **fördröjning** definierar hur länge utlösaren ska vänta efter förfallotiden innan ett nytt kör. Den **fördröjning** påverkar inte fönstret **startTime**. Till exempel en **fördröjning** värdet 00:10:00 innebär en fördröjning på 10 minuter. | Tidsintervall  | Ett tidsvärde där standardvärdet är 00:00:00. | Nej |
-| **maxConcurrency** | Antalet samtidiga utlösaren körs som aktiverats för windows som är klara. Om du vill säkerhetskopiera fill körs exempelvis varje timme i 24 windows igår resultat. Om **maxConcurrency** = 10, utlösare händelser skickas endast för de första 10 windows (01 00:00:00 - 09:00-10:00). När de första 10 utlösta pipelinen körs är klart, utlöses utlösaren körs för nästa 10 windows (10:00-11:00 – 19:00-20:00). Fortsätter med det här exemplet på **maxConcurrency** = 10, om det finns 10 windows redo, det finns 10 totala pipelinen körs. Om det finns endast 1 fönstret redo, är det bara 1 pipeline kör. | Integer | Ett heltal mellan 1 och 50. | Ja |
-| **retryPolicy: antal** | Antalet försök innan du kör pipeline har markerats som ”misslyckades”.  | Integer | Ett heltal, där standardvärdet är 0 (inga nya försök). | Nej |
-| **retryPolicy: intervalInSeconds** | Fördröjning mellan försök i sekunder. | Integer | Antal sekunder, där standardvärdet är 30. | Nej |
+| **fördröjning** | Hur lång tid att fördröja starten av databearbetningen för fönstret. Pipelinekörningen startas efter den förväntade tiden för körningen plus det **fördröjning**. Den **fördröjning** definierar hur länge utlösaren väntar tidigare förfallotiden innan du utlöser ett nytt kör. Den **fördröjning** påverkar inte fönstret **startTime**. Till exempel en **fördröjning** värdet 00:10:00 innebär en fördröjning på 10 minuter. | Tidsintervall  | Ett tidsvärde där standardvärdet är 00:00:00. | Nej |
+| **maxConcurrency** | Antal samtidiga utlösarkörningar som aktiverats för windows som är klara. Om du vill Bakgrundsfyllning körs till exempel varje timme för igår resultat i 24 windows. Om **maxConcurrency** = 10, utlösare händelser skickas endast för de första 10 windows (00:00-01:00 - 09:00-10:00). När de första 10 utlösta pipelinekörningarna har slutförts kan utlösta utlösarkörningar för nästa 10 windows (10:00-11:00 – 19:00-20:00). Du fortsätter med det här exemplet på **maxConcurrency** = 10, om det finns 10 windows som är redo, det finns 10 totala pipelinekörningar. Om det finns bara 1 fönstret redo, finns bara 1 pipeline-körning. | Integer | Ett heltal mellan 1 och 50. | Ja |
+| **retryPolicy: antal** | Antalet försök innan pipeline-körning har markerats som ”misslyckades”.  | Integer | Ett heltal, där standardvärdet är 0 (inga nya försök). | Nej |
+| **retryPolicy: intervalInSeconds** | Fördröjningen mellan återförsök som anges i sekunder. | Integer | Antal sekunder, där standardvärdet är 30. | Nej |
 
 ### <a name="windowstart-and-windowend-system-variables"></a>WindowStart och WindowEnd systemvariabler
 
-Du kan använda den **WindowStart** och **WindowEnd** systemvariabler rullande fönster utlösare i din **pipeline** definition (det vill säga för en del av en fråga). Skicka systemvariabler som parametrar till din pipeline i den **utlösaren** definition. I följande exempel visas hur du skickar dessa variabler som parametrar:
+Du kan använda den **WindowStart** och **WindowEnd** systemvariabler av utlösare för rullande fönster i din **pipeline** definition (det vill säga för en del av en fråga). Skicka systemvariablerna som parametrar till din pipeline i den **utlösaren** definition. I följande exempel visar hur du skickar dessa variabler som parametrar:
 
 ```  
 {
@@ -114,16 +120,16 @@ Du kan använda den **WindowStart** och **WindowEnd** systemvariabler rullande f
 }
 ```  
 
-Att använda den **WindowStart** och **WindowEnd** system variabelvärden i pipeline-definitionen använda parametrarna ”MyWindowStart” och ”MyWindowEnd”, i enlighet med detta.
+Du använder den **WindowStart** och **WindowEnd** system variabelvärdena i pipeline-definition använder parametrarna ”MyWindowStart” och ”MyWindowEnd”, i enlighet med detta.
 
-### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Körningsordning av windows i ett scenario med fyller
-När det finns flera fönster för körning (särskilt i ett scenario med fyller), är ordningen för körningen för windows deterministisk från äldsta till nyaste intervall. Det här beteendet kan för närvarande inte ändras.
+### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Körningsordning för Windows i ett scenario med återfyller
+När det finns flera fönster för körning (särskilt i ett scenario med återfyller), är ordningen för körningen för windows deterministisk från äldsta till nyaste intervall. Det här beteendet kan för närvarande kan inte ändras.
 
 ### <a name="existing-triggerresource-elements"></a>Befintliga TriggerResource element
 Följande punkter gäller för befintliga **TriggerResource** element:
 
-* Om värdet för den **frekvens** element (eller fönsterstorleken) utlösaren ändringar, tillståndet för windows som redan har behandlats är *inte* återställa. Utlösaren fortsätter att för windows från det sista fönstret som den kördes med hjälp av den nya fönsterstorleken.
-* Om värdet för den **endTime** elementet utlösaren ändringar (läggs till eller uppdateras), tillståndet för windows som redan har behandlats är *inte* återställa. Utlösaren godkänner den nya **endTime** värde. Om den nya **endTime** värdet är innan windows som redan körs stoppar för utlösare. Annars utlösaren slutar när den nya **endTime** värde har påträffats.
+* Om värdet för den **frekvens** element (eller fönsterstorleken) av utlösaren ändringarna, tillståndet för windows som redan har behandlats är *inte* återställa. Utlösaren fortsätter att för windows från fönstret senaste som den körs med hjälp av det nya fönstrets storleken.
+* Om värdet för den **endTime** element i utlösaren ändringarna (läggs till eller uppdateras), tillståndet för windows som redan har behandlats är *inte* återställa. Utlösaren godkänner den nya **endTime** värde. Om den nya **endTime** värdet är innan windows som redan körs, stoppas för utlösaren. I annat fall utlösaren stannar när den nya **endTime** värde har påträffats.
 
 ## <a name="sample-for-azure-powershell"></a>Exempel för Azure PowerShell
 Det här avsnittet visar hur du använder Azure PowerShell för att skapa, starta och övervaka en utlösare.
@@ -131,7 +137,7 @@ Det här avsnittet visar hur du använder Azure PowerShell för att skapa, start
 1. Skapa en JSON-fil med namnet **MyTrigger.json** i mappen C:\ADFv2QuickStartPSH\ med följande innehåll:
 
    > [!IMPORTANT]
-   > Innan du sparar JSON-fil, ange värdet för den **startTime** elementet så att den aktuella UTC-tid. Ange värdet för den **endTime** element till en timme efter den aktuella UTC-tid.
+   > Innan du sparar JSON-fil, ange värdet för den **startTime** elementet så att den aktuella UTC-tiden. Ange värdet för den **endTime** element till en timme efter den aktuella UTC-tiden.
 
     ```json   
     {
@@ -164,37 +170,37 @@ Det här avsnittet visar hur du använder Azure PowerShell för att skapa, start
     }
     ```  
 
-2. Skapa en utlösare med hjälp av den **Set AzureRmDataFactoryV2Trigger** cmdlet:
+2. Skapa en utlösare med hjälp av den **Set-AzureRmDataFactoryV2Trigger** cmdlet:
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
     
-3. Bekräfta att status för utlösaren är **stoppad** med hjälp av den **Get-AzureRmDataFactoryV2Trigger** cmdlet:
+3. Kontrollera att statusen för utlösaren är **stoppad** med hjälp av den **Get-AzureRmDataFactoryV2Trigger** cmdlet:
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Starta utlösaren med hjälp av den **Start AzureRmDataFactoryV2Trigger** cmdlet:
+4. Starta utlösaren med hjälp av den **Start-AzureRmDataFactoryV2Trigger** cmdlet:
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Bekräfta att status för utlösaren är **igång** med hjälp av den **Get-AzureRmDataFactoryV2Trigger** cmdlet:
+5. Kontrollera att statusen för utlösaren är **startad** med hjälp av den **Get-AzureRmDataFactoryV2Trigger** cmdlet:
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6. Get-utlösaren körs i Azure PowerShell med hjälp av den **Get-AzureRmDataFactoryV2TriggerRun** cmdlet. Kör följande kommando med jämna mellanrum för att få information om utlösaren körs. Uppdatering av **TriggerRunStartedAfter** och **TriggerRunStartedBefore** värden som stämmer med värdena i utlösardefinition:
+6. Hämta som utlösaren körs i Azure PowerShell med hjälp av den **Get-AzureRmDataFactoryV2TriggerRun** cmdlet. Kör följande kommando med jämna mellanrum för att få information om utlösaren körs. Uppdatera den **TriggerRunStartedAfter** och **TriggerRunStartedBefore** värdena för att matcha värdena i utlösarens definition:
 
     ```powershell
     Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
-Övervaka utlösaren körs och pipeline körs i Azure-portalen, se [övervakaren pipeline körs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+Övervaka utlösarkörningar och pipeline som körs i Azure portal, se [övervaka pipelinekörningar](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## <a name="next-steps"></a>Nästa steg
-Detaljerad information om utlösare finns [Pipeline körning och utlösare](concepts-pipeline-execution-triggers.md#triggers).
+Detaljerad information om utlösare finns i [Pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md#triggers).

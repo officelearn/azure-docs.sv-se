@@ -9,14 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f66917ed49393988a378de0a55525105c5d19b7c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7790920b6553ba0e2738d693710bfc3a1d3b4f89
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282382"
+ms.locfileid: "39325109"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C# under .NET Core för Windows med hjälp av tal-SDK
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 I den här artikeln får du lära dig hur du skapar ett C#-konsolprogram för .NET Core för Windows med hjälp av Cognitive Services tal SDK för att transkribera tal till text.
 Programmet har skapats med den [Microsoft Cognitive Services tal SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017.
@@ -82,6 +84,6 @@ Leta efter det här exemplet i den `quickstart/csharp-dotnetcore-windows` mapp.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Omvandla tal](how-to-translate-speech.md)
+- [Omvandla tal](how-to-translate-speech-csharp.md)
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
 - [Anpassa språkmodeller](how-to-customize-language-model.md)

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/09/2018
+ms.date: 7/26/2018
 ms.author: rithorn
-ms.openlocfilehash: c8152a6c12c776806d9a17c5e434d825d6c91165
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f9554c058fbebc215aa61979fa03280553597afc
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38466651"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308324"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organisera dina resurser med Azure-hanteringsgrupper
 
@@ -45,14 +45,6 @@ Genom att skapa en hierarki som är grupperade efter avdelningar, kan du tilldel
 - Varje hanteringsgrupp kan ha flera underordnade objekt.
 - Alla prenumerationer och hanteringsgrupper ingår i en hierarki i varje katalog. Se [viktiga fakta om hanteringsgruppen rot](#important-facts-about-the-root-management-group) för undantag i förhandsversionen.
 
-### <a name="preview-subscription-visibility-limitation"></a>Preview prenumeration synlighet-begränsning
-
-Det finns för närvarande en begränsning i förhandsgranskningen där du inte kan komma att visa prenumerationer som du har ärvd åtkomst till. Ärvs åtkomst till prenumerationen, men Azure Resource Manager inte kan ta hänsyn till medägarens arv åtkomst ännu.  
-
-Med REST API för att få information om prenumerationen returnerar information som du har åtkomst, men i Azure portal och Azure Powershell prenumerationerna visas inte.
-
-Det här objektet arbetades på och kommer att lösas innan grupper har meddelats vara ”Allmänt”.  
-
 ### <a name="cloud-solution-provider-csp-limitation-during-preview"></a>Cloud Solution Provider (CSP)-begränsning i förhandsversionen
 
 Det finns en aktuell begränsning för Cloud Solution Provider (CSP)-partner där de inte kan du skapa och hantera sina kunders hanteringsgrupper i sina kunders directory.  
@@ -76,7 +68,7 @@ Varje katalog får en enskild översta hanteringsgrupp som kallas ”rot”-hant
   - Ingen får åtkomst till rot-hanteringsgruppen. Directorys globala administratörer är de bara användare som kan utöka själva för att få åtkomst.  När de har åtkomst till kan directory-administratörer tilldela alla RBAC-roller till andra användare att hantera.  
 
 >[!NOTE]
->Om din katalog har startats med hjälp av hanteringstjänsten för grupper innan du 6/25/2018 kan din katalog inte konfigureras med alla prenumerationer i hierarkin. Gruppen ledningen uppdaterar retroaktivt alla kataloger som startats med hjälp av hanteringsgrupper i Public Preview före det datumet i juli 2018. Alla prenumerationer i kataloger kommer att göras barn under roten hanteringsgruppen tidigare.  
+>Om din katalog har startats med hjälp av hanteringstjänsten för grupper innan du 6/25/2018 kan din katalog inte konfigureras med alla prenumerationer i hierarkin. Gruppen ledningen uppdaterar retroaktivt alla kataloger som startats med hjälp av hanteringsgrupper i Public Preview före det datumet i juli/augusti 2018. Alla prenumerationer i kataloger kommer att göras barn under roten hanteringsgruppen tidigare.  
 >
 >Om du har frågor om den här retroaktiv processen kan du kontakta: managementgroups@microsoft.com  
   
@@ -97,9 +89,13 @@ Följande diagram visar en lista över roller och åtgärder som stöds på hant
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
 |Ägare                       | X      | X      | X    | X      | X             |               | X     |
 |Deltagare                 | X      | X      | X    | X      |               |               | X     |
+|MG deltagare *             | X      | X      | X    | X      |               |               | X     |
 |Läsare                      |        |        |      |        |               |               | X     |
+|MG läsare *                  |        |        |      |        |               |               | X     |
 |Deltagare för resursprincip |        |        |      |        |               | X             |       |
 |Administratör för användaråtkomst   |        |        |      |        | X             |               |       |
+
+*: MG-deltagare och läsare MG endast tillåta användare att utföra dessa åtgärder på management-Gruppomfång.  
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>Anpassad RBAC-rolldefinition och tilldelning
 

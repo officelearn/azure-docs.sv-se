@@ -8,12 +8,12 @@ ms.date: 07/16/2018
 ms.topic: article
 ms.prod: microsoft-iot-central
 manager: peterpr
-ms.openlocfilehash: 1298ba85a221368d9153fea4f0311935dd51ff0f
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 85c0432bceef3e94b32fa9b4a2803276b3efee17
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285868"
+ms.locfileid: "39324331"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualisera och analysera dina Azure IoT Central-data i en Power BI-instrumentpanel
 
@@ -33,9 +33,9 @@ Den här lösningsmallen ställer in den pipeline som hämtar data i Azure Blob 
 ## <a name="prerequisites"></a>Förutsättningar
 Konfigurera mallen kräver följande:
 - Åtkomst till en Azure-prenumeration
-- Exporterade data med hjälp av [löpande dataexport](howto-export-data.md) från din IoT Central-app. Vi rekommenderar att du aktiverar på mått, enheter och enheten mall-strömmarna för att hämta - ut mest av Power BI-instrumentpanelen.
+- Exporterade data med hjälp av [löpande dataexport](howto-export-data.md) från din IoT Central-app. Vi rekommenderar att du aktiverar mått, enheter och enheten mall-strömmarna för att få ut mest av Power BI-instrumentpanelen.
 - Power BI Desktop (senaste versionen)
-- Power BI Pro (om du vill dela mallen med andra)
+- Power BI Pro (om du vill dela instrumentpanelen med andra)
 
 ## <a name="reports"></a>Rapporter
 

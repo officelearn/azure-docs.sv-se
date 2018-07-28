@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 5d4062ff2c21deeb56eb4ae6e8386452608f85fa
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: fa6048800aad04b45b72c4da61ad9e8b94541502
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158812"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308484"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Förhandsversion: Använda Azure AD-lösenordsskydd för Windows Server Active Directory
 
@@ -37,6 +37,7 @@ Det finns tre programvarukomponenter som utgör Azure AD-lösenordsskydd:
 ## <a name="requirements"></a>Krav
 
 * Alla datorer där Azure AD lösenord protection komponenter är installerade, inklusive domänkontrollanter måste köra Windows Server 2012 eller senare.
+* Alla datorer där Azure AD lösenord protection komponenter är installerade, inklusive domänkontrollanter måste ha den universella C som är installerad. Detta åstadkoms helst genom att helt åtgärda datorn via Windows Update. I annat fall ett lämpligt operativsystemspecifika uppdateringspaketet vara installerat – Se [uppdatera för Universal C-körning i Windows](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)
 * Nätverksanslutning måste det finnas mellan minst en domänkontrollant i varje domän och minst en server som är värd för Azure AD lösenord protection proxy-tjänsten.
 * Alla Active Directory-domän som kör domänkontrollanten agentprogramvaran för tjänsten måste använda DFSR för sysvol-replikering.
 * Ett globalt administratörskonto för att registrera Azure AD lösenord protection proxy-tjänsten med Azure AD.
@@ -48,7 +49,7 @@ Fördelarna med listan över globala förbjudna lösenord gäller för alla anv�
 
 Lista med anpassade förbjudna lösenord kräver Azure AD Basic-licenser.
 
-Azure AD-lösenordsskydd för Windows Server Active Directory kräver Azure AD Premium-licenser. 
+Azure AD-lösenordsskydd för Windows Server Active Directory kräver Azure AD Premium-licenser.
 
 Ytterligare information om licenser går inklusive kostnader, kan hittas på den [priser platsen för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -61,7 +62,7 @@ Det finns två nödvändiga installationsprogram för Azure AD-lösenordsskydd s
 * Ingen Internetanslutning krävs från domänkontrollanterna. Datorer som kör Azure AD lösenord protection proxy-tjänsten är endast datorer som kräver Internetanslutning.
 * Inga nätverksportarna öppnas på domänkontrollanter.
 * Det krävs inga ändringar för Active Directory-schemat.
-   * Programvaran använder befintliga Active Directory-behållare och serviceConnectionPoint schemaobjekt.
+* Programvaran använder befintliga Active Directory-behållare och serviceConnectionPoint schemaobjekt.
 * Det finns inga Active Directory-domän eller skogens funktionella nivå (DFL\FFL) minimikrav.
 * Programvaran inte skapar eller kräver några konton i Active Directory-domäner som den skyddar.
 * Stegvis distribution stöds med kompromiss att lösenordsprinciper gäller endast där domain controller-agenten är installerad.

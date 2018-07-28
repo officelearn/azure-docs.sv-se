@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: luisca
-ms.openlocfilehash: dd9bb4cb2622651c2d1979166ad838b3b337d583
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: b428e6e7738c8a9052c3fcfe2ad5284bfd5293d6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342970"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308001"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Exempel: Skapa en anpassad kunskap med hjälp av översätta Text-API
 
@@ -244,6 +244,13 @@ När du är nöjd med funktionsbeteende, kan du publicera den.
 
 1. I den [Azure-portalen](https://portal.azure.com), navigera till resursgruppen och leta efter funktionen översätta du publicerat. Under den **hantera** avsnittet bör du se Värdnycklar. Välj den **kopia** ikonen för den *standard* värdnyckel.  
 
+## <a name="update-ssl-settings"></a>Uppdatera SSL-inställningar
+
+Alla Azure-funktioner som skapats efter den 30 juni 2018 har inaktiverat TLS 1.0, som inte är kompatibel med anpassade funktioner.
+
+1. I den [Azure-portalen](https://portal.azure.com), navigera till resursgruppen och leta efter funktionen översätta du publicerat. Under den **plattformsfunktioner** avsnittet bör du se SSL.
+
+1. När du har valt SSL, bör du ändra den **minsta TLS-version** 1,0. TLS 1.2-funktioner stöds inte ännu som anpassade funktioner.
 
 ## <a name="test-the-function-in-azure"></a>Testa funktionen i Azure
 

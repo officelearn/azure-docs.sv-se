@@ -14,12 +14,12 @@ ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 34b56c7435e2995f806828dce34f3d6bf425ca75
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 73ffb1ab9c91794325725bb3b99b210a06979443
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450332"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325521"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -98,7 +98,7 @@ Följande administratörsroller är tillgängliga:
   | --- | --- |
   | Identity Protection Center  |<ul><li>Alla behörigheter för rollen Säkerhetsläsare.<li>Dessutom möjlighet att utföra alla IPC åtgärder förutom för återställning av lösenord. |
   | Privileged Identity Management |<ul><li>Alla behörigheter för rollen Säkerhetsläsare.<li>**Det går inte att** hantera rollmedlemskap för Azure AD eller inställningar. |
-  | <p>Övervakare för Office 365 Service Health</p><p>Och Efterlevnadscenter för Office 365-säkerhet |<ul><li>Alla behörigheter för rollen Säkerhetsläsare.<li>Kan konfigurera alla inställningar i funktionen Advanced Threat Protection (skydd för skadlig kod och virus, skadliga URL-config, URL: en spårning osv.). |
+  | <p>Övervakare för Office 365 Service Health</p><p>Säkerhets- och efterlevnadscenter för Office 365 |<ul><li>Alla behörigheter för rollen Säkerhetsläsare.<li>Kan konfigurera alla inställningar i funktionen Advanced Threat Protection (skydd för skadlig kod och virus, skadliga URL-config, URL: en spårning osv.). |
   
 * **[Säkerhetsläsare](#security-reader)**: användare med den här rollen har global skrivskyddad åtkomst, inklusive all information i Azure Active Directory, Identity Protection, Privileged Identity Management, samt möjlighet att läsa Azure Active Directory logga in rapporter och granskningsloggar. Rollen ger även skrivskyddad behörighet i Office 365 säkerhets- och Efterlevnadscenter. Mer information om behörigheter för Office 365 finns på [behörigheter i Office 365 säkerhets- och Efterlevnadscenter](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
@@ -106,7 +106,7 @@ Följande administratörsroller är tillgängliga:
   | --- | --- |
   | Identity Protection Center  |Läsa alla säkerhetsrapporter och inställningsinformation för säkerhetsfunktioner<ul><li>Skydd mot skräppost<li>Kryptering<li>Skydd mot dataförlust<li>Mot skadlig kod<li>Avancerat skydd<li>Mot nätfiske<li>Mailflow regler |
   | Privileged Identity Management |<p>Har skrivskyddad åtkomst till all information som visas i Azure AD PIM: principer och rapporter för Azure AD-rolltilldelningar security granskar och i framtiden skrivskyddad åtkomst till principdata och rapporter för scenarier utöver Azure AD-rolltilldelning.<p>**Det går inte att** registrera dig för Azure AD PIM eller göra några ändringar. I PIM'S portal eller via PowerShell kan någon i den här rollen aktivera ytterligare roller (till exempel Global administratör eller privilegierad Rolladministratör), om användaren är en kandidat för dessa. |
-  | <p>Övervakare för Office 365 Service Health</p><p>Och Efterlevnadscenter för Office 365-säkerhet</p> |<ul><li>Läsa och hantera aviseringar<li>Läs in säkerhetsprinciper<li>Läsa hotinformation, Cloud App Discovery och karantän sökning och undersök<li>Läsa alla rapporter |
+  | <p>Övervakare för Office 365 Service Health</p><p>Säkerhets- och efterlevnadscenter för Office 365</p> |<ul><li>Läsa och hantera aviseringar<li>Läs in säkerhetsprinciper<li>Läsa hotinformation, Cloud App Discovery och karantän sökning och undersök<li>Läsa alla rapporter |
 
 * **[Tjänstesupportsadministratören](#service-support-administrator)**: användare med den här rollen kan öppna supportbegäranden med Microsoft för Azure och Office 365-tjänster och visa tjänstinstrumentpanelen och meddelandecenter i datacentret i Azure-portalen och Office 365-administrationsportalen. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -267,11 +267,6 @@ Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar f�
 Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använde Azure AD-identiteter. I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”företagets administratör”. Det är ”Global administratör” i den [Azure-portalen](https://portal.azure.com).
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
-  > [!NOTE]
   > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
   >
   >
@@ -389,13 +384,8 @@ Medlemmar i den här rollen har lagts till i gruppen lokala administratörer på
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 
-### <a name="directory-reader"></a>Directory läsare
+### <a name="directory-readers"></a>Katalogläsare
 Kan läsa grundläggande kataloginformation. För att bevilja åtkomst till program
-
-  > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
@@ -449,11 +439,6 @@ Kan läsa grundläggande kataloginformation. För att bevilja åtkomst till prog
 ### <a name="directory-synchronization-accounts"></a>Konton för katalogen katalogsynkronisering
 Endast används av Azure AD Connect-tjänsten.
 
-  > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.aad.directory/Policy/Create | Skapa principer i Azure Active Directory. |
@@ -482,11 +467,6 @@ Endast används av Azure AD Connect-tjänsten.
 
 ### <a name="directory-writer"></a>Directory-skrivare
 Kan läsa och skriva grundläggande kataloginformation. För att bevilja åtkomst till program
-
-  > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
@@ -783,6 +763,25 @@ Kan hantera rolltilldelningar i Azure AD
 | microsoft.aad.directory/DirectoryRole/Update | Uppdatera standardegenskaper för DirectoryRoles i Azure Active Directory. |
 | microsoft.aad.privilegedrolemanagement/AllEntities/AllActions | Hantera alla aspekter av tjänsten för hantering av privilegierad roll. |
 
+### <a name="reports-reader"></a>Rapportläsare
+Kan läsa inloggnings- och granskningsrapporter.
+
+  > [!NOTE]
+  > Den här rollen ärver behörigheterna från katalogläsarrollen.
+  >
+  >
+
+  > [!NOTE]
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  >
+  >
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.aad.reports/AllEntities/Read | Läsa Azure AD-rapporter. |
+| microsoft.aad.servicehealth/AllEntities/AllActions | Läsa och konfigurera Office 365 Service Health. |
+| Microsoft.Office365.usagereports/AllEntities/Read | Läs Office 365-användningsrapporter. |
+
 ### <a name="security-administrator"></a>Säkerhetsadministratör
 Kan läsa säkerhetsinformation och rapporter
 
@@ -810,25 +809,6 @@ Kan läsa säkerhetsinformation och rapporter
 | microsoft.aad.privilegedrolemanagement/AllEntities/Read | Läsa alla aspekter av Privileged Identity Management. |
 | microsoft.protectioncenter/AllEntities/Read | Läsa alla aspekter av Office 365-säkerhetscenter. |
 | microsoft.protectioncenter/AllEntities/Update | Hantera Office 365-säkerhetscenter. |
-
-### <a name="reports-reader"></a>Rapportläsare
-Kan läsa inloggnings- och granskningsrapporter.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
-  > [!NOTE]
-  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
-  >
-  >
-
-| **Åtgärder** | **Beskrivning** |
-| --- | --- |
-| microsoft.aad.reports/AllEntities/Read | Läsa Azure AD-rapporter. |
-| microsoft.aad.servicehealth/AllEntities/AllActions | Läsa och konfigurera Office 365 Service Health. |
-| Microsoft.Office365.usagereports/AllEntities/Read | Läs Office 365-användningsrapporter. |
 
 ### <a name="security-reader"></a>Säkerhetsläsare
 Kan läsa säkerhetsinformation och rapporter i Azure AD och Office 365.

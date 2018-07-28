@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 81e3fd7183e97358b3d936045909ad5dc40612ff
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 01b571beba012ae0a1fa27d03f5e0e5454f62aa5
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281998"
+ms.locfileid: "39324963"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Vad är nytt i Azure SQL Data Warehouse? Maj 2018 
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i maj 2018. 
@@ -129,7 +129,7 @@ The ORDER BY clause is invalid in views, CREATE TABLE AS SELECT, INSERT SELECT, 
 Med hjälp av den `SET PARSEONLY ON` syntax kan användaren ha SQL Data Warehouse-motorn granska syntaxen för varje T-SQL-instruktionen och returnerar eventuella felmeddelanden utan att kompilera eller instruktionen körs. Tidigare i den [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) systemvy, förblir statusen för dessa instruktioner i den `Running` tillstånd. Den `sys.dm_pdw_exec_requests` Visa nu returnerar status som `Complete`.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du vet lite om SQL Data Warehouse, lär du dig hur du snabbt [skapa ett SQL Data Warehouse] [skapa ett SQL Data Warehouse] och [läsa in exempeldata] [läsa in exempeldata]. Om du är nybörjare på Azure kan vara i [Azure-ordlistan] [Azure-ordlistan] vara till hjälp eftersom du stöta på ny terminologi. Eller så kan du se över några av de övriga SQL Data Warehouse-resurserna.  
+Nu när du vet lite om SQL Data Warehouse, lär du dig hur du snabbt [skapa ett SQL Data Warehouse][create a SQL Data Warehouse]. Om du inte har erfarenhet av Azure kan [Azure-ordlistan][Azure glossary] vara till hjälp om du stöter på ny terminologi. Eller så kan du se över några av de övriga SQL Data Warehouse-resurserna.  
 
 * [Kundernas framgångsberättelser]
 * [Bloggar]
@@ -147,3 +147,5 @@ Nu när du vet lite om SQL Data Warehouse, lär du dig hur du snabbt [skapa ett 
 [Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videoklipp]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md

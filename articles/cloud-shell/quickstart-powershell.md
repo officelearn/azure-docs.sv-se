@@ -1,6 +1,6 @@
 ---
-title: PowerShell i Snabbstart i Azure-molnet Shell (förhandsversion) | Microsoft Docs
-description: Snabbstart för PowerShell i molnet Shell
+title: PowerShell i snabbstarten för Azure Cloud Shell (förhandsversion) | Microsoft Docs
+description: Snabbstart för PowerShell i Cloudshell
 services: Azure
 documentationcenter: ''
 author: maertendmsft
@@ -12,42 +12,45 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 07/27/2018
 ms.author: damaerte
-ms.openlocfilehash: a85d718d1c524a240f4b59b4db5004595fe1902f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: adae7ea79ada9247382c88e58f1ba5331007985b
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608618"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324501"
 ---
-# <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Snabbstart för PowerShell i Azure-molnet Shell (förhandsgranskning)
+# <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Snabbstart för PowerShell i Azure Cloudshell (förhandsversion)
 
-Det här dokumentet beskriver hur du använder PowerShell i molnet Shell i den [Azure-portalen](https://aka.ms/PSCloudPreview).
+Det här dokumentet beskriver hur du använder PowerShell i Cloud Shell i den [Azure-portalen](https://aka.ms/PSCloudPreview).
 
 > [!NOTE]
-> En [Bash i Azure Cloud Shell](quickstart.md) Quickstart är också tillgänglig.
+> En [Bash i Azure Cloud Shell](quickstart.md) Snabbstart finns också.
 
-## <a name="start-cloud-shell"></a>Starta molnet Shell
+## <a name="start-cloud-shell"></a>Starta Cloudshell
 
-1. Klicka på **moln Shell** knappen från övre navigeringsfältet i Azure-portalen
+1. Klicka på **Cloud Shell** knappen från det övre navigeringsfältet i Azure Portal
 
   ![](media/quickstart-powershell/shell-icon.png)
 
-2. Välj i listrutan PowerShell-miljö och du kan i Azure-enheten `(Azure:)`
+2. Välj PowerShell-miljö från listrutan och du kan i Azure-enheten `(Azure:)`
 
   ![](media/quickstart-powershell/environment-ps.png)
 
 ## <a name="run-powershell-commands"></a>Kör PowerShell-kommandon
 
-Kör vanliga PowerShell-kommandon i molnet-gränssnittet som:
+Kör till exempel vanliga PowerShell-kommandon i Cloud Shell:
 
-```PowerShell
+```azurepowershell-interactive
 PS Azure:\> Get-Date
-Monday, September 25, 2017 08:55:09 AM
+
+# Expected Output
+Friday, July 27, 2018 7:08:48 AM
 
 PS Azure:\> Get-AzureRmVM -Status
 
+# Expected Output
 ResourceGroupName       Name       Location                VmSize   OsType     ProvisioningState  PowerState
 -----------------       ----       --------                ------   ------     -----------------  ----------
 MyResourceGroup2        Demo        westus         Standard_DS1_v2  Windows    Succeeded           running
@@ -57,24 +60,24 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
 
 ## <a name="navigate-azure-resources"></a>Navigera Azure-resurser
 
- 1. Visa en lista över dina prenumerationer
+ 1. Lista över alla prenumerationer från `Azure` enhet
 
-    ``` PowerShell
+    ```azurepowershell-interactive
     PS Azure:\> dir
     ```
 
- 2. `cd` prenumerationen prioriterade
+ 2. `cd` till din önskade prenumeration
 
-    ``` PowerShell
+    ```azurepowershell-interactive
     PS Azure:\> cd MySubscriptionName
     PS Azure:\MySubscriptionName>
     ```
 
  3. Visa alla dina Azure-resurser under den aktuella prenumerationen
- 
-    Typen `dir` att lista flera vyer i Azure-resurser.
- 
-    ``` PowerShell
+
+    Typ `dir` visa en lista över flera vyer i dina Azure-resurser.
+
+    ```azurepowershell-interactive
     PS Azure:\MySubscriptionName> dir
 
         Directory: azure:\MySubscriptionName
@@ -86,18 +89,21 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     +    StorageAccounts
     +    VirtualMachines
     +    WebApps
-     ```
+    ```
 
-### <a name="allresources-view"></a>AllResources vy 
-Typen `dir` under `AllResources` directory för att visa dina Azure-resurser.
-    
-    PS Azure:\MySubscriptionName> dir AllResources
+### <a name="allresources-view"></a>AllResources vy
+
+Typ `dir` under `AllResources` directory för att visa dina Azure-resurser.
+
+```azurepowershell-interactive
+PS Azure:\MySubscriptionName> dir AllResources
+```
 
 ### <a name="explore-resource-groups"></a>Utforska resursgrupper
 
- Du kan gå till den `ResourceGroups` katalog och inom en viss resursgrupp hittar virtuella datorer.
+ Du kan gå till den `ResourceGroups` katalogen och i en specifik resursgrupp du hittar virtuella datorer.
 
-``` PowerShell
+```azureowershell-interactive
 PS Azure:\MySubscriptionName> cd ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
 
 PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines> dir
@@ -110,46 +116,40 @@ VMName    Location   ProvisioningState VMSize          OS            SKU        
 ------    --------   ----------------- ------          --            ---             --------- -------------  --------------------
 TestVm1   westus     Succeeded         Standard_DS2_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo371
 TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo271
-
 ```
+
 > [!NOTE]
-> Du kan märka som den andra gången när du skriver `dir`, moln-gränssnittet är att visa objekt som är mycket snabbare.
+> Du kanske ser som den andra gången när du skriver `dir`, cloudshell kan visa objekt som är mycket snabbare.
 > Det beror på att de underordnade objekten cachelagras i minnet för en bättre användarupplevelse.
-Du kan alltid använda `dir -Force` att uppdatera data.
+Men du kan alltid använda `dir -Force` att uppdatera data.
 
 ### <a name="navigate-storage-resources"></a>Navigera lagringsresurser
-    
-Genom att ange i den `StorageAccounts` directory som du kan enkelt navigera dina lagringsresurser
-    
-``` PowerShell 
+
+Genom att ange i den `StorageAccounts` katalogen, du kan enkelt navigera dina lagringsresurser
+
+```azureowershell-interactive
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
 
     Directory: Azure:\MySubscriptionNameStorageAccounts\MyStorageAccountName\Files
-
 
 Name          ConnectionString
 ----          ----------------
 MyFileShare1  \\MyStorageAccountName.file.core.windows.net\MyFileShare1;AccountName=MyStorageAccountName AccountKey=<key>
 MyFileShare2  \\MyStorageAccountName.file.core.windows.net\MyFileShare2;AccountName=MyStorageAccountName AccountKey=<key>
 MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountName=MyStorageAccountName AccountKey=<key>
-
-
 ```
 
-Du kan använda följande kommando för att montera resursen Azure-filer med anslutningssträngen.
-        
-``` PowerShell
+Med anslutningssträngen kan du använda följande kommando för att montera Azure Files-resurs.
+
+```azurepowershell-interactive
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
-
-
 ```
 
-Mer information finns i [montera en resurs i Azure-filer och få åtkomst till resursen i Windows][azmount].
+Mer information finns i [montera en Azure Files-resurs och få åtkomst till resursen i Windows][azmount].
 
-Du kan också navigera kataloger under Azure Files-resursen på följande sätt:
+Du kan också navigera till kataloger under Azure Files-resurs på följande sätt:
 
-            
-``` PowerShell
+```azurepowershell-interactive
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> cd .\MyFileShare1\
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files\MyFileShare1> dir
 
@@ -157,15 +157,13 @@ Mode  Name
 ----  ----
 +     TestFolder
 .     hello.ps1
-
-    
 ```
 
 ### <a name="interact-with-virtual-machines"></a>Interagera med virtuella datorer
 
-Du kan söka efter alla virtuella datorer under den aktuella prenumerationen via `VirtualMachines` directory.
-    
-``` PowerShell
+Du kan hitta alla virtuella datorer under den aktuella prenumerationen via `VirtualMachines` directory.
+
+```azurepowershell-interactive
 PS Azure:\MySubscriptionName\VirtualMachines> dir
 
     Directory: Azure:\MySubscriptionName\VirtualMachines
@@ -176,29 +174,27 @@ Name       ResourceGroupName  Location  VmSize          OsType              NIC 
 TestVm1    MyResourceGroup1   westus    Standard_DS2_v2 Windows       my2008r213         Succeeded     stopped
 TestVm2    MyResourceGroup1   westus    Standard_DS1_v2 Windows          jpstest         Succeeded deallocated
 TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest         Succeeded     running
-
-
 ```
 
-#### <a name="invoke-powershell-script-across-remote-vms"></a>Starta PowerShell-skript över remote virtuella datorer
+#### <a name="invoke-powershell-script-across-remote-vms"></a>Anropa PowerShell-skript för fjärranslutna virtuella datorer
 
  > [!WARNING]
- > Se [felsökning fjärrhantering av virtuella datorer i Azure](troubleshooting.md#troubleshooting-remote-management-of-azure-vms).
+ > Se [felsökning fjärrhantering av virtuella Azure-datorer](troubleshooting.md#troubleshooting-remote-management-of-azure-vms).
 
-  Anta att du har en virtuell dator, MyVM1, använder vi `Invoke-AzureRmVMCommand` att anropa ett PowerShell-skriptblock på fjärrdatorn.
+  Om vi antar att du har en virtuell dator, MyVM1, använder vi `Invoke-AzureRmVMCommand` att anropa ett PowerShell-skriptblock på fjärrdatorn.
 
-  ``` Powershell
+  ```azurepowershell-interactive
   Invoke-AzureRmVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
   ```
-  Du kan också gå till katalogen för VirtualMachines först och köra `Invoke-AzureRmVMCommand` på följande sätt.
 
-  ``` PowerShell
+  Du kan också gå till katalogen för virtuella datorer först och köra `Invoke-AzureRmVMCommand` på följande sätt.
+
+  ```azurepowershell-interactive
   PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
   PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock {Get-ComputerInfo}
-  ```
-  Du kan se utdata som liknar följande:
 
-  ``` PowerShell
+  # You will see output similar to the following:
+
   PSComputerName                                          : 65.52.28.207
   RunspaceId                                              : 2c2b60da-f9b9-4f42-a282-93316cb06fe1
   WindowsBuildLabEx                                       : 14393.1066.amd64fre.rs1_release_sec.170327-1835
@@ -212,37 +208,34 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
    ...
   ```
 
-#### <a name="interactively-log-on-to-a-remote-vm"></a>Logga in interaktivt till en fjärransluten VM
+#### <a name="interactively-log-on-to-a-remote-vm"></a>Logga in interaktivt på en fjärransluten virtuell dator
 
 Du kan använda `Enter-AzureRmVM` att interaktivt logga in på en virtuell dator som körs i Azure.
 
-  ``` PowerShell
-  Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
+  ```azurepowershell-interactive
+  PS Azure:\> Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
   ```
 
-Du kan också navigera till den `VirtualMachines` directory första och kör `Enter-AzureRmVM` enligt följande
+Du kan också navigera till den `VirtualMachines` directory första och kör `Enter-AzureRmVM` på följande sätt
 
-  ``` PowerShell
+  ```azurepowershell-interactive
  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
  ```
 
 ### <a name="discover-webapps"></a>Identifiera Webbappar
 
-Genom att ange i den `WebApps` directory som du kan enkelt navigera resurserna web apps
+Genom att ange i den `WebApps` katalogen, du kan enkelt navigera dina webbresurser för appar
 
-``` PowerShell
+```azurepowershell-interactive
 PS Azure:\MySubscriptionName> dir .\WebApps\
 
     Directory: Azure:\MySubscriptionName\WebApps
-
 
 Name            State    ResourceGroup      EnabledHostNames                  Location
 ----            -----    -------------      ----------------                  --------
 mywebapp1       Stopped  MyResourceGroup1   {mywebapp1.azurewebsites.net...   West US
 mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   West Europe
 mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
-
-
 
 # You can use Azure cmdlets to Start/Stop your web apps
 PS Azure:\MySubscriptionName\WebApps> Start-AzureRmWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
@@ -256,61 +249,35 @@ PS Azure:\MySubscriptionName\WebApps> dir -Force
 
     Directory: Azure:\MySubscriptionName\WebApps
 
-
 Name            State    ResourceGroup      EnabledHostNames                  Location
 ----            -----    -------------      ----------------                  --------
 mywebapp1       Running  MyResourceGroup1   {mywebapp1.azurewebsites.net...   West US
 mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   West Europe
 mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
-
 ```
 
 ## <a name="ssh"></a>SSH
 
-[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) är tillgänglig i PowerShell-gränssnittet för molnet.
-Generera nyckelpar för privat-offentligt moln Shell för att autentisera till servrar eller virtuella datorer med hjälp av SSH och publicera den offentliga nyckeln till `authorized_keys` på fjärrdatorn, t.ex `/home/user/.ssh/authorized_keys`.
+[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) är tillgänglig i PowerShell Cloud Shell.
+För att autentisera till servrar eller virtuella datorer med SSH, generera offentligt / privat nyckelpar i Cloud Shell och publicera den offentliga nyckeln till `authorized_keys` på fjärrdatorn, till exempel `/home/user/.ssh/authorized_keys`.
 
 > [!NOTE]
-> Du kan skapa SSH privat-offentliga nycklar med hjälp av `ssh-keygen` och publicera dem till `$env:USERPROFILE\.ssh` i molnet Shell.
-
-### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>Med hjälp av en anpassad profil för att bevara GIT och SSH-inställningar
-
-Eftersom sessioner inte sparas vid utloggning spara din `$env:USERPROFILE\.ssh` katalogen `clouddrive` eller skapa en symlink molnet Shell hämtar startades.
-Lägg till följande kodfragment i din profile.ps1 för att skapa en symlink till `clouddrive`.
-
-``` PowerShell
-# Check if the .ssh directory exists
-if( -not (Test-Path $home\clouddrive\.ssh)){
-    mkdir $home\clouddrive\.ssh
-}
-
-# .ssh path relative to this script
-$script:sshFolderPath = Join-Path $PSScriptRoot .ssh
-
-# Create a symlink to .ssh in user's $home
-if(Test-Path $script:sshFolderPath){
-   if(-not (Test-Path (Join-Path $HOME .ssh ))){
-        New-Item -ItemType SymbolicLink -Path $HOME -Name .ssh -Value $script:sshFolderPath
-   }
-}
-
-```
+> Du kan skapa SSH-privata offentliga nycklar med `ssh-keygen` och publicerar dem `$env:USERPROFILE\.ssh` i Cloud Shell.
 
 ### <a name="using-ssh"></a>Med hjälp av SSH
 
-Följ anvisningarna [här](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) att skapa en ny VM-konfiguration med AzureRM cmdlets.
-Innan anrop till `New-AzureRmVM` för att kick-off distributionen, lägga till offentliga SSH-nyckeln i VM-konfiguration.
-Den nyligen skapade virtuella datorn innehåller den offentliga nyckeln i den `~\.ssh\authorized_keys` plats, så att autentiseringsuppgifter utan SSH-session till den virtuella datorn.
+Följ instruktionerna [här](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) att skapa en ny VM-konfiguration med hjälp av AzureRM-cmdletar.
+Tidigare anrop till `New-AzureRmVM` för att sätta igång distributionen, lägga till offentlig SSH-nyckel i VM-konfigurationen.
+Den nya virtuella datorn innehåller den offentliga nyckeln i den `~\.ssh\authorized_keys` plats, vilket innebär att autentiseringsuppgifter är kostnadsfria SSH-session till den virtuella datorn.
 
-``` PowerShell
-
+```azurepowershell-interactive
 # Create VM config object - $vmConfig using instructions on linked page above
 
 # Generate SSH keys in Cloud Shell
 ssh-keygen -t rsa -b 2048 -f $HOME\.ssh\id_rsa 
 
 # Ensure VM config is updated with SSH keys
-$sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
+$sshPublicKey = Get-Content "$HOME\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 # Create a virtual machine
@@ -318,15 +285,13 @@ New-AzureRmVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM 
 
 # SSH to the VM
 ssh azureuser@MyVM.Domain.Com
-
 ```
 
+## <a name="list-available-commands"></a>Lista tillgängliga kommandon
 
-## <a name="list-available-commands"></a>Lista över tillgängliga kommandon
+Under `Azure` enhet, Skriv `Get-AzureRmCommand` att hämta sammanhangsberoende Azure-kommandon.
 
-Under `Azure` enhet, Skriv `Get-AzureRmCommand` få sammanhangsberoende Azure kommandon.
-
-Du kan alltid använda `Get-Command *azurerm* -Module AzureRM.*` ta reda på de tillgängliga Azure kommandona.
+Du kan alltid använda `Get-Command *azurerm* -Module AzureRM.*` att ta reda på tillgängliga Azure-kommandon.
 
 ## <a name="install-custom-modules"></a>Installera anpassade moduler
 
@@ -334,65 +299,50 @@ Du kan köra `Install-Module` installera moduler från den [PowerShell-galleriet
 
 ## <a name="get-help"></a>Get-Help
 
-Typen `Get-Help` att hämta information om PowerShell i Azure Cloud-gränssnittet.
+Typ `Get-Help` att hämta information om PowerShell i Azure Cloud Shell.
 
-``` PowerShell
-PS Azure:\> Get-Help
+```azurepowershell-interactive
+Get-Help
 ```
 
-För ett specifikt kommando som du fortfarande kan göra `Get-Help` följt av en cmdlet.
+För ett visst kommando kan du fortfarande göra `Get-Help` följt av en cmdlet.
 
-``` PowerShell
-PS Azure:\> Get-Help Get-AzureRmVM
+```azurepowershell-interactive
+Get-Help Get-AzureRmVM
 ```
 
-## <a name="use-azure-files-to-store-your-data"></a>Använda Azure-filer för att lagra dina data
+## <a name="use-azure-files-to-store-your-data"></a>Använda Azure Files för att lagra dina data
 
-Du kan skapa ett skript, säg `helloworld.ps1`, och spara den till din `clouddrive` att använda över shell-sessioner.
+Du kan skapa ett skript, exempelvis `helloworld.ps1`, och spara den i din `clouddrive` kan använda den shell-sessioner.
 
-``` PowerShell
-cd C:\users\ContainerAdministrator\clouddrive
-PS C:\users\ContainerAdministrator\clouddrive> vim .\helloworld.ps1
+```azurepowershell-interactive
+cd $HOME\clouddrive
+code .\helloworld.ps1
 # Add the content, such as 'Hello World!'
-PS C:\users\ContainerAdministrator\clouddrive> .\helloworld.ps1
+.\helloworld.ps1
 Hello World!
 ```
 
-Nästa gång när du använder PowerShell molnet Shell, den `helloworld.ps1` filen kommer att finnas den `clouddrive` katalog som monterar filer för Azure-resurs.
+Nästa gång när du använder PowerShell i Cloud Shell den `helloworld.ps1` filen kommer att finnas den `$HOME\clouddrive` katalog som monterar Azure Files-resurs.
 
 ## <a name="use-custom-profile"></a>Använd anpassad profil
 
-Du kan anpassa din PowerShell-miljö genom att skapa PowerShell eller profilerna - `profile.ps1` eller `Microsoft.PowerShell_profile.ps1`. Spara den under den `clouddrive` så att den kan läsas in i varje PowerShell-session när du startar gränssnittet molnet.
+Du kan anpassa din PowerShell-miljö genom att skapa PowerShell profil(er) - `profile.ps1` (eller `Microsoft.PowerShell_profile.ps1`).
+Spara den under `$profile.CurrentUserAllHosts` (eller `$profile.CurrentUserAllHosts`), så att den kan läsas in i varje PowerShell i Cloud Shell-sessionen.
 
 Hur du skapar en profil avser [om profiler][profile].
 
-## <a name="use-git"></a>Använda Git
+## <a name="use-git"></a>Använd Git
 
-Om du vill klona en Git-lagringsplatsen i molnet-gränssnittet, måste du skapa en [personlig åtkomsttoken] [ githubtoken] och använda den som användarnamnet. När du har skapat din token, klona databasen på följande sätt:
+Om du vill klona en Git-lagringsplats i Cloud Shell måste du skapa en [personlig åtkomsttoken] [ githubtoken] och använda den som användarnamnet. När du har din token, klona databasen på följande sätt:
 
- ``` PowerShell
+```azurepowershell-interactive
   git clone https://<your-access-token>@github.com/username/repo.git
-
 ```
-Eftersom sessioner i molnet Shell inte sparas när du loggar ut eller sessionen gör timeout, finns inte i konfigurationsfilen Git vid nästa inloggning. Om du vill bevara Git config, måste du spara dina .gitconfig till din `clouddrive` och kopiera den eller skapa en symlink molnet Shell hämtar startades. Använd följande kodavsnitt i din profile.ps1 för att skapa en symlink till `clouddrive`.
 
- ``` PowerShell
- 
-# .gitconfig path relative to this script
-$script:gitconfigPath = Join-Path $PSScriptRoot .gitconfig
-
-# Create a symlink to .gitconfig in user's $home
-if(Test-Path $script:gitconfigPath){
-
-    if(-not (Test-Path (Join-Path $home .gitconfig ))){
-         New-Item -ItemType SymbolicLink -Path $home -Name .gitconfig -Value $script:gitconfigPath
-    }
-}
-
-```
 ## <a name="exit-the-shell"></a>Lämna gränssnittet
 
-Typen `exit` att avsluta sessionen.
+Typ `exit` att avsluta sessionen.
 
 [bashqs]:quickstart.md
 [gallery]:https://www.powershellgallery.com/

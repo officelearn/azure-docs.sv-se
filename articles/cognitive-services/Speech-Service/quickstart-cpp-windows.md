@@ -9,14 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 928018483eb727febd15d8e1c22bba53ba2aaedc
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7c93f9f450cc2d244a0d716401171cde02abf70b
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285041"
+ms.locfileid: "39324579"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C++ Windows-skrivbordet med hjälp av tal-SDK
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Vi beskriver hur du skapar en C++-baserad konsol-program för Windows-skrivbord som använder SDK: N för tal.
 Programmet är baserad på den [Microsoft Cognitive Services tal SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017.
@@ -93,4 +95,4 @@ Leta efter det här exemplet i den `quickstart/cpp-windows` mapp.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Gå till den [sidan med kodexempel](samples.md) ytterligare exempel.
+* [Hämta våra exempel](speech-sdk.md#get-the-samples)

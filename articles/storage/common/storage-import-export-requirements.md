@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 68e31f6b88a772ad67e3c58e11925f46f1cc37e9
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a86d5c1513594f5bc0df03b8ca7671a1f9541b4d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188808"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308062"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export-systemkrav
 
@@ -30,13 +30,12 @@ Förbereda hårddiskar med verktyget WAImportExport följande **64-bitars operat
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 
-
 ## <a name="supported-storage-accounts"></a>Stöds storage-konton
 
-Azure Import/Export-tjänsten har stöd för följande Azure storage-konton.
-- Klassisk
+Azure Import/Export-tjänsten har stöd för följande [Azure storage-konton](storage-account-options.md).
+- Allmänt syfte v1-lagringskonton (både klassiska eller Azure Resource Manager distributioner)
 - Blob Storage-konton
-- Allmänt syfte v1-lagringskonton. 
+- Generell användning v2 storage-konton
 
 Varje jobb kan användas för att överföra data till eller från endast en storage-konto. Med andra ord kan inte en enda import/export-jobbet omfatta över flera lagringskonton. Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-create-storage-account.md#create-a-storage-account).
 
@@ -48,10 +47,10 @@ Varje jobb kan användas för att överföra data till eller från endast en sto
 Följande lista över lagringstyper stöds med Azure Import/Export-tjänsten.
 
 
-|Jobb  |Storage  |Stöds  |Stöds inte  |
+|Jobb  |Storage-tjänst |Stöds  |Stöds inte  |
 |---------|---------|---------|---------|
-|Importera     |  Azure Blob storage. <br>Blockblobar, sidblobar som stöds. <br> Azure-filer stöds.       |         |
-|Exportera     |   Azure Blob storage. <br>Blockblobar, sidblobar och Lägg till blobbar som stöds.       | Azure filer som inte stöds.        |
+|Importera     |  Azure Blob Storage <br><br> Azure-fillagring       | Blockblobbar och sidblobbar som stöds <br><br> Filer som stöds          |
+|Exportera     |   Azure Blob Storage       | Blockblobar, sidblobar och Lägg till blobbar som stöds         | Azure Files som inte stöds
 
 
 ## <a name="supported-hardware"></a>Maskinvara som stöds 

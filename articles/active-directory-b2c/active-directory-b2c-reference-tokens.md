@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: adb78f04c0fd5ba175bb31c9a81ad58b3b03fb42
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 46e4956aa145aa082de86191ede4adaf9a43fca9
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447327"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309034"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Token-referens
 
@@ -72,7 +72,7 @@ Observera att anspråk i ID-token inte returneras i någon särskild ordning. De
 
 | Namn | Begär | Exempelvärde | Beskrivning |
 | --- | --- | --- | --- |
-| Målgrupp |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |En målgrupp anspråket identifierar den avsedda mottagaren av token. Målgruppen är appens program-ID, som tilldelats din app i portalen för registrering av appen för Azure AD B2C. Din app ska verifiera det här värdet och avvisa token om det inte matchar. |
+| Målgrupp |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |En målgrupp anspråket identifierar den avsedda mottagaren av token. Målgruppen är appens program-ID, som tilldelats din app i portalen för registrering av appen för Azure AD B2C. Din app ska verifiera det här värdet och avvisa token om det inte matchar. Målgruppen är synonyma med resursen. |
 | Utfärdare |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Det här anspråket identifierar den säkerhetstokentjänst (STS) som skapar och returnerar token. Den identifierar också Azure AD-katalog där användaren autentiserades. Din app bör verifiera utfärdare anspråk så att token kom från Azure Active Directory v2.0-slutpunkten. |
 | Utfärdat på |`iat` |`1438535543` |Det här kravet är den tid då token utfärdats, representeras i epoktid. |
 | Förfallotid |`exp` |`1438539443` |Förfallotiden anspråk är den tid då token blir ogiltig, som representeras i epoktid. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |

@@ -1,10 +1,11 @@
 ---
-title: Team datavetenskap Process projektet planera - Azure | Microsoft Docs
-description: Microsoft Project och Excel-mallar som hjälper dig planera och hantera datavetenskap projekt.
+title: Team Data Science Process projektplanering – Azure | Microsoft Docs
+description: Microsoft Project och Excel-mallar som hjälper dig att planera och hantera dataforskningsprojekt.
 documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
+services: machine-learning
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -14,50 +15,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: deguhath
-ms.openlocfilehash: aaa965c507faba344ca717a76b3fb3a0a01fa0ee
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1ebd640191ffbb1b3ea70ca07081522b370e4e2d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838576"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308195"
 ---
-# <a name="team-data-science-process-project-planning"></a>Teamet datavetenskap Process projektplanering
+# <a name="team-data-science-process-project-planning"></a>Team Data Science Process projektplanering
 
-Team Data vetenskap processen (TDSP) ger en livscykel för att strukturera utvecklingen av dina datavetenskap projekt. Den här artikeln innehåller länkar till Microsoft Project och Excel-mallar som hjälper dig planera och hantera dessa steg för projektet.
+Team Data Science Process (TDSP) innehåller en livscykel för att strukturera utvecklingen av dina data science-projekt. Den här artikeln innehåller länkar till Microsoft Project och Excel-mallar som hjälper dig att planera och hantera dessa projektstadier.
 
-Livscykeln beskrivs viktiga steg som projekt vanligtvis köra, ofta upprepade gånger:
+Livscykeln beskrivs de viktigaste stegen som projekt vanligtvis köra, ofta upprepade gånger:
 
 - Förståelse för verksamheten
-- Datainsamling och förstå
+- Data förvärv och förståelse av
 - Modellering
 - Distribution
-- Kundens godkännande
+- Kundgodkännande
 
-Beskrivningar av var och en av dessa steg finns [Team vetenskap-processen livscykel](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle).
+Beskrivningar av var och en av dessa steg finns i [Team Data Science Process-livscykeln](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle).
 
  
 ## <a name="microsoft-project-template"></a>Microsoft Project-mall
 
-Microsoft Project mallen för Team av vetenskapliga data finns här: [Microsoft Project-mall](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
+Microsoft Project-mallen för Team Data Science Process finns här: [Microsoft Project-mall](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
 
-När du öppnar planen klickar du på länken till vänster för TDSP. Ändra namn och beskrivning och Lägg sedan till i alla andra teamresurser som du behöver. Beräkna datumen krävs från din upplevelse.
+När du öppnar planen, klicka på länken så långt till vänster för TDSP. Ändra namn och beskrivning och sedan lägga till i andra teamresurser du behöver. Beräkna datum som krävs från din upplevelse.
 
 ![1](./media/team-data-science-process-project-templates/ms-project-templates.png)
 
-Varje aktivitet har en anteckning. Öppna uppgifterna om du vill se vilka resurser som redan har skapats för dig.
+Varje aktivitet har en anteckning. Öppna aktiviteterna för att se vilka resurser har redan skapats för dig.
 
 ![2](./media/team-data-science-process-project-templates/ms-project-template-task.png)
 
 
 ## <a name="excel-template"></a>Excel-mall
 
-Om inte har åtkomst till Microsoft Project, ett Excel-kalkylblad med samma data kan också hämtas här: [Excel-mallen](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx) dra den till de verktyg som du föredrar att använda.
+Om inte har åtkomst till Microsoft Project, ett Excel-kalkylblad med samma data kan också hämtas här: [Excel-mall](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx) du kan hämta den till de verktyg du föredrar att använda.
 
-Använd dessa mallar på egen risk. Den [vanliga FRISKRIVNINGAR](https://www.gnu.org/licenses/gpl-3.0.en.html) tillämpas.
+Använd dessa mallar på egen risk. Den [vanligt ansvarsfriskrivningar](https://www.gnu.org/licenses/gpl-3.0.en.html) gäller.
+
+## <a name="repository-template"></a>Databasmall för
+
+Använd det här [projekt mallagret](https://github.com/Azure/Azure-TDSP-ProjectTemplate) för effektiv projektkörning och samarbete. Den här lagringsplatsen ger en standardiserad directory struktur och dokumentet mallar som du kan använda för dina egna TDSP-projekt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Flexibel utveckling av datavetenskap projekt](agile-development.md) det här dokumentet beskrivs hur du kör en vetenskap dataprojektet i en systematiskt, version kontrollerade och samarbetsfunktioner sätt en projektteamet genom Team av vetenskapliga data.
+[Smidig utveckling av dataforskningsprojekt](agile-development.md) det här dokumentet beskriver för att köra ett datavetenskapsprojekt i en systematisk, version kontrolleras och samarbetsfunktioner sätt inom en projektgrupp med hjälp av Team Data Science Process.
 
-Genomgång som visar alla steg i processen för **specifika scenarier** tillhandahålls också. De anges och är kopplad till miniatyr beskrivningar i den [exempel genomgång](walkthroughs.md) avsnittet. De visar hur du kombinerar moln, lokala verktyg och tjänster i ett arbetsflöde eller en rörledning för att skapa ett intelligent program. 
+Genomgångar som visar alla steg i processen för **specifika scenarier** tillhandahålls också. De visas och som är kopplad till miniatyrbilder beskrivningarna i den [exempel genomgångar](walkthroughs.md) artikeln. De visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program. 
 

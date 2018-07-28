@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e4f2bf4303d2a6f52f6dac7e8d71eca24800f53
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 6c43a52309a6f41d73ead19fc5f5b7df2f06d6f6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092077"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308821"
 ---
 # <a name="sql-database-faq"></a>Vanliga frågor om SQL Database
 
@@ -90,7 +90,7 @@ Ja, du kan oberoende välja nivå av beräkning ditt program behöver och förhi
 Du kan konfigurera den kvarhållning av säkerhetskopior för PITR mellan 7 och 35 dagar. Lagring för säkerhetskopior debiteras separat utifrån den faktiska lagringsanvändningen om det överskrider lagringsutrymmet som är lika med maxstorleken för data. I förhandsversion, är PITR kvarhållningsperioden som standard till 7 dagar. I många fall räcker maxstorleken för data för att lagra säkerhetskopiorna i 7 dagar.
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>Varför du för att välja den maskinvara generationen för beräkning?
-Vårt mål är att aktivera maximal flexibilitet så att du kan välja en prestandakonfiguration som stämmer överens för programmet. Tabellen ovan visar skillnaderna mellan Gen4 och Gen5. I synnerhet erbjuder Gen4 maskinvara betydligt mer minne per vCore. Gen5 maskinvara kan du skala upp beräkningsresurserna som är mycket högre. Vi vill göra dessa skillnader transparent så att du kan uppnå bästa möjliga pris/prestanda förhållandet för ditt program.
+Vårt mål är att aktivera maximal flexibilitet så att du kan välja en prestandakonfiguration som stämmer överens för programmet. Gen4 maskinvara erbjuder betydligt mer minne per vCore. Gen5 maskinvara kan du skala upp beräkningsresurserna som är mycket högre. Mer information finns i [vCore inköpsmodell](sql-database-service-tiers-vcore.md)
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>Måste jag ta mitt program offline för att konvertera från en DTU-baserad databas till en vCore-baserad tjänstenivå? 
 De nya tjänstenivåerna erbjuder en enkel konverteringsmetod online som liknar den befintliga processen att uppgradera databaser från tjänstenivån Standard till Premium och vice versa. Den här konverteringen kan inledas med Azure portal, PowerShell, Azure CLI, T-SQL eller REST API. Se [Hantera enkla databaser](sql-database-single-database-scale.md) och [hantera elastiska pooler](sql-database-elastic-pool.md).

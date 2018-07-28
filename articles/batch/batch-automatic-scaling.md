@@ -1,6 +1,6 @@
 ---
-title: Automatiskt skala compute-noder i en Azure Batch-pool | Microsoft Docs
-description: Aktivera automatisk skalning på poolen moln att dynamiskt justera antalet beräkningsnoder i poolen.
+title: Skala beräkningsnoder automatiskt i en Azure Batch-pool | Microsoft Docs
+description: Aktivera automatisk skalning för en cloud-pool för att dynamiskt justera antalet beräkningsnoder i poolen.
 services: batch
 documentationcenter: ''
 author: dlepow
@@ -15,53 +15,53 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1114ea90ae6976a3bc3580ebae5fd853de0274a1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ab41211fb0b0b6360bdbc255e367d0492c2438ed
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30317029"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39331083"
 ---
-# <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en automatisk skalning formel för att skala beräkningsnoder i en Batch-pool
+# <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en formel för automatisk skalning för att skala beräkningsnoder i en Batch-pool
 
-Azure Batch skala automatiskt poolerna baserat på parametrarna som du definierar. Automatisk skalning Batch lägger till dynamiskt noder i en pool som aktiviteten krav och tar bort compute-noder som de minska. Du kan spara både tid och pengar genom att automatiskt justera antalet datornoderna används av Batch-program. 
+Azure Batch kan automatiskt skala poolerna baserat på parametrar som du definierar. Batch lägger till dynamiskt noder till poolen som aktiviteten behov öka med automatisk skalning och tar bort compute-noder som de minskar. Du kan spara både tid och pengar genom att automatiskt justera antalet beräkningsnoder som används av ett Batch-program. 
 
-Du aktiverar automatisk skalning på en pool av datornoderna genom att associera med en *Autoskala formeln* som du definierar. Batch-tjänsten använder Autoskala formel för att bestämma antalet compute-noder som behövs för att köra din arbetsbelastning. Compute-noder kan vara dedikerade noder eller [låg prioritet noder](batch-low-pri-vms.md). Batch svarar tjänsten mått data som samlas in regelbundet. Med den här mätvärdesdata kan justerar Batch antalet beräkningsnoder i poolen baserat på din formel och en konfigurerbar intervall.
+Du aktiverar automatisk skalning i en pool med beräkningsnoder genom att associera med den en *autoskalningsformel* som du definierar. Batch-tjänsten använder formeln för automatisk skalning för att avgöra antalet beräkningsnoder som behövs för att köra din arbetsbelastning. Compute-noder kan vara dedikerade noder eller [lågprioritetsnoder](batch-low-pri-vms.md). Batch svarar på service-mätvärden som samlats in med jämna mellanrum. Batch justerar med hjälp av den här mätvärden, antalet beräkningsnoder i poolen baserat på din formel och ett konfigurerbart intervall.
 
-Du kan aktivera automatisk skalning när poolen har skapats, eller på en befintlig adresspool. Du kan även ändra en befintlig formel på en pool som har konfigurerats för autoskalning. Batch gör det möjligt att utvärdera dina formler innan du tilldelar dem till pooler och övervaka statusen för automatisk skalning körs.
+Du kan aktivera automatisk skalning när poolen skapas, eller på en befintlig pool. Du kan också ändra en befintlig formel på en pool som är konfigurerad för automatisk skalning. Batch kan du utvärdera dina formler innan du tilldelar dem till pooler och för att övervaka status för automatisk skalning körs.
 
-Den här artikeln beskrivs de olika enheter som utgör ditt Autoskala formler, inklusive variabler, operatorer, funktioner och funktioner. Diskuterar vi hur du skaffar olika beräknings-resurs- och mått i Batch. Du kan använda de här måtten för att justera antalet för din pool-noder baserat på resursen användnings- och status. Sedan beskrivs hur du skapar en formel och aktiverar automatisk skalning på en pool med hjälp av både .NET-API: erna och Batch REST. Slutligen vi med några formler.
+Den här artikeln beskrivs de olika entiteter som utgör din Autoskala formler, inklusive variabler, operatörer, åtgärder och funktioner. Diskuterar vi hur du skaffar olika compute-resurs- och mått i Batch. Du kan använda de här måtten för att justera din pool nodantal baserat på resursstatus för användning och aktivitet. Sedan beskrivs hur du konstruerar en formel och aktivera automatisk skalning för en pool med hjälp av både Batch REST och .NET API: er. Slutligen kan avslutar vi med några formler.
 
 > [!IMPORTANT]
-> När du skapar ett Batch-konto kan du ange den [kontokonfigurationen](batch-api-basics.md#account), som bestämmer om pooler tilldelas i en prenumeration på tjänsten Batch (standard) eller i din prenumeration för användaren. Om du har skapat Batch-kontot med standardkonfiguration för Batch-tjänsten sedan är ditt konto begränsad till ett maximalt antal kärnor som kan användas för bearbetning. Batch-tjänsten skalas datornoderna bara upp till core gränsen. Därför nå Batch-tjänsten inte målet antalet compute-noder som anges av en Autoskala formel. Se [kvoter och gränser för Azure Batch-tjänsten](batch-quota-limit.md) information för att visa och öka kvoter för ditt konto.
+> När du skapar ett Batch-konto kan du ange den [kontokonfigurationen](batch-api-basics.md#account), som bestämmer om pooler allokeras i en prenumeration på tjänsten Batch (standard) eller i din användarprenumeration. Om du har skapat ditt Batch-konto med standardkonfiguration för Batch-tjänsten sedan är ditt konto begränsad till ett högsta antal kärnor som kan användas för bearbetning. Batch-tjänsten skalas beräkningsnoder bara upp till den gränsen för kärnor. Därför kanske Batch-tjänsten inte når antalet beräkningsnoder som anges av en autoskalningsformel. Se [kvoter och begränsningar för Azure Batch-tjänsten](batch-quota-limit.md) information om hur du visar och ökar dina kvoter för kontot.
 >
->Om du har skapat ditt konto med användarens prenumeration konfigurationen delar ditt konto i kärnkvot för prenumerationen. Mer information finns i [Virtual Machines limits](../azure-subscription-service-limits.md#virtual-machines-limits) (Gränser för virtuella datorer) i [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md) (Prenumerations- och tjänstgränser, kvoter och begränsningar i Azure).
+>Om du har skapat ditt konto med kontokonfigurationen för Användarprenumeration sedan ditt konto delar kärnkvoten för prenumerationen. Mer information finns i [Virtual Machines limits](../azure-subscription-service-limits.md#virtual-machines-limits) (Gränser för virtuella datorer) i [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md) (Prenumerations- och tjänstgränser, kvoter och begränsningar i Azure).
 >
 >
 
 ## <a name="automatic-scaling-formulas"></a>Automatisk skalning formler
-En automatisk skalning formeln är ett strängvärde som du definierar som innehåller en eller flera instruktioner. Autoskala formeln är tilldelad till en pool [autoScaleFormula] [ rest_autoscaleformula] element (Batch REST) eller [CloudPool.AutoScaleFormula] [ net_cloudpool_autoscaleformula] Egenskapen (Batch .NET). Batch-tjänsten använder din formel för att fastställa målet antalet beräkningsnoder i poolen för nästa intervall för bearbetning. Formeln strängen får inte överskrida 8 KB, kan innehålla upp till 100 rapporter som är avgränsade med semikolon och kan innehålla radbrytningar och kommentarer.
+En formel för automatisk skalning är ett strängvärde som du definierar som innehåller en eller flera instruktioner. Formel för automatisk skalning är tilldelad till en pool [autoScaleFormula] [ rest_autoscaleformula] element (Batch REST) eller [CloudPool.AutoScaleFormula] [ net_cloudpool_autoscaleformula] Egenskapen (Batch .NET). Batch-tjänsten använder formeln för att bestämma antalet beräkningsnoder i poolen för nästa intervall av bearbetning. Formeln strängen får inte överskrida 8 KB, kan innehålla upp till 100 rapporter som är avgränsade med semikolon och kan innehålla radbrytningar och kommentarer.
 
-Du kan se automatisk skalning formler som en Batch Autoskala ”språk”. Formeln satser är kostnadsfri utformad uttryck som kan innehålla både tjänsten användardefinierade variabler (variabler som definieras av Batch-tjänsten) och användardefinierade variabler (variabler som du definierar). De kan utföra olika åtgärder på dessa värden med hjälp av inbyggda typer, operatorer och funktioner. En instruktion kan till exempel ha följande format:
+Du kan tänka dig automatisk skalning formler som Batch-Autoskala ”language”. Formeln satser är kostnadsfria formaterad uttryck som kan innehålla både tjänstdefinierade variabler (variabler som definieras av Batch-tjänsten) och användardefinierade variabler (variabler som du definierar). De kan utföra olika åtgärder på dessa värden med hjälp av inbyggda typer, operatorer och funktioner. En instruktion kan till exempel ha följande format:
 
 ```
 $myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);
 ```
 
-Formler innehåller vanligtvis flera instruktioner som utför åtgärder på värden som hämtas i tidigare rapporter. Till exempel först vi hämta ett värde för `variable1`, överför den till en funktion för att fylla i `variable2`:
+Formler innehåller vanligtvis flera instruktioner som utför åtgärder på värden som hämtas i tidigare rapporter. Exempelvis kan vi hämtar du först ett värde för `variable1`, skickar den till en funktion för att fylla i `variable2`:
 
 ```
 $variable1 = function1($ServiceDefinedVariable);
 $variable2 = function2($OtherServiceDefinedVariable, $variable1);
 ```
 
-Med de här uttrycken i din Autoskala formel för att få fram ett mål som antal compute-noder. Dedikerad noder och låg prioritet noder har sina egna Målinställningar så att du kan definiera ett mål för varje nod. En Autoskala formel kan innehålla ett målvärde för dedikerade noder, ett målvärde för låg prioritet noder eller båda.
+Inkludera dessa instruktioner i din formel för automatisk skalning att komma till ett som målantal compute-noder. Dedikerade noder och noder med låg prioritet har sina egna Målinställningar så att du kan definiera ett mål för varje typ av nod. En formel för automatisk skalning kan innehålla ett målvärde för dedikerade noder, ett målvärde för lågprioriterade virtuella noder eller båda.
 
-Antalet noder som mål kan vara högre, lägre eller samma som det aktuella antalet noder av typen i poolen. Batch utvärderar en pool Autoskala formel med ett specifikt intervall (se [autoskalning intervall](#automatic-scaling-interval)). Batch justerar antalet mål för varje typ av noden i poolen till det tal som Autoskala formeln anger vid tiden för utvärderingen.
+Antalet noder kan vara högre, lägre eller samma som det aktuella antalet noder av den typen i poolen. Batch utvärderar autoskalningsformel för en pool med jämna mellanrum (se [för automatisk skalning intervall](#automatic-scaling-interval)). Batch justerar antalet varje typ av nod i poolen för hur många som din formel för automatisk skalning anger vid tidpunkten för utvärdering.
 
-### <a name="sample-autoscale-formula"></a>Autoskala formeln
+### <a name="sample-autoscale-formula"></a>Exemplet autoskalningsformel
 
-Här är ett exempel på en formel för Autoskala som kan justeras för att fungera för de flesta scenarier. Variablerna `startingNumberOfVMs` och `maxNumberofVMs` i exempel formeln kan justeras efter dina behov. Den här formeln skalas dedikerade noder, men kan ändras om du vill tillämpa skala låg prioritet noder. 
+Här är ett exempel på en formel för automatisk skalning som kan ställas in för att fungera för de flesta scenarier. Variablerna `startingNumberOfVMs` och `maxNumberofVMs` i det här exemplet formel kan justeras efter dina behov. Den här formeln kan skalas dedikerade noder, men kan ändras för att tillämpa på skala lågprioriterade noder. 
 
 ```
 startingNumberOfVMs = 1;
@@ -71,72 +71,72 @@ pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($
 $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 ```
 
-Med den här formeln Autoskala skapas poolen med en enda virtuell dator. Den `$PendingTasks` mått definierar antalet aktiviteter som körs eller står i kö. Formeln söker efter det genomsnittliga antalet väntande uppgifter i de senaste 180 sekunder och anger den `$TargetDedicatedNodes` variabeln därefter. Formeln säkerställer att målet antalet dedicerade noder aldrig överstiger 25 virtuella datorer. När nya aktiviteter skickas växer poolen automatiskt. Som slutförda uppgifter, virtuella datorer blir ledigt i taget och autoskalning formeln krymper poolen.
+Med den här autoskalningsformel skapas poolen med en enda virtuell dator. Den `$PendingTasks` mått definierar antalet aktiviteter som körs eller står i kö. Formeln hittar det genomsnittliga antalet väntande aktiviteter i de senaste 180 sekunder och anger den `$TargetDedicatedNodes` variabeln därefter. Formeln säkerställer att antalet dedikerade noder aldrig överstiger 25 virtuella datorer. När nya aktiviteter skickas växer automatiskt i poolen. Som aktiviteterna slutförs kan virtuella datorer blir kostnadsfria en i taget och formel för automatisk skalning minskar storleken på poolen.
 
 ## <a name="variables"></a>Variabler
-Du kan använda båda **tjänst definierade** och **användardefinierade** variabler i Autoskala formlerna. Tjänst-definierade variabler är inbyggda i Batch-tjänsten. Några variabler som definieras av tjänsten är skrivskyddad och vissa är skrivskyddad. Användardefinierade variabler är variabler som du definierar. I exemplet formeln som visas i föregående avsnitt, `$TargetDedicatedNodes` och `$PendingTasks` är variabler som definieras av tjänsten. Variabler `startingNumberOfVMs` och `maxNumberofVMs` är användardefinierade variabler.
+Du kan använda båda **tjänstdefinierade** och **användardefinierade** variabler i dina formler för automatisk skalning. Definierade-variabler är inbyggda i Batch-tjänsten. Vissa definierade variabler är skrivskyddade och vissa är skrivskyddad. Användardefinierade variabler är variabler som du definierar. I exempel-formeln som visas i det föregående avsnittet `$TargetDedicatedNodes` och `$PendingTasks` är definierade variabler. Variabler `startingNumberOfVMs` och `maxNumberofVMs` användardefinierade variabler.
 
 > [!NOTE]
-> Tjänst-definierade variabler föregås alltid av ett dollartecken ($). För användardefinierade variabler är ett dollartecken valfritt.
+> Definierade variabler föregås alltid av ett dollartecken ($). För användardefinierade variabler är dollartecknet valfritt.
 >
 >
 
-Följande tabeller visar både läs-och skrivbara och skrivskyddade variabler som definieras av Batch-tjänsten.
+I följande tabeller visas både läs-och skrivbara och skrivskyddade variabler som definieras av Batch-tjänsten.
 
-Du kan hämta och ange värdena för variablerna tjänst definierade hantera antal compute-noder i en pool:
+Du kan hämta och ange värdena för variablerna definierade för att hantera antalet beräkningsnoder i en pool:
 
-| Läsa / skriva-tjänst-definierade variabler | Beskrivning |
+| Läs-och definierade variabler | Beskrivning |
 | --- | --- |
-| $TargetDedicatedNodes |Mål antalet dedicerade compute-noder för poolen. Antalet dedicerade noder har angetts som mål eftersom en pool inte kan alltid kan uppnå önskat antal noder. Till exempel om mål antalet dedicerade noder har ändrats av en Autoskala utvärdering innan poolen har nått det ursprungliga målet kan sedan poolen inte nå målet. <br /><br /> En pool i ett konto som har skapats med konfigurationen av Batch-tjänsten kan inte uppnå målet om målet är längre än en nod eller core batchkonton. En pool i ett konto som har skapats med användarens prenumeration konfigurationen kan inte uppnå målet om målet överskrider kvoten delade kärnor för prenumerationen.|
-| $TargetLowPriorityNodes |Mål för antalet låg prioritet compute-noder för poolen. Antalet noder med låg prioritet har angetts som mål eftersom en pool inte kan alltid kan uppnå önskat antal noder. Till exempel om mål antalet noder för låg prioritet ändras av en Autoskala utvärdering innan poolen har nått det ursprungliga målet, kan sedan poolen inte nå målet. En pool kan också inte uppnå målet om målet är längre än en nod eller core batchkonton. <br /><br /> Mer information på låg prioritet datornoder finns [använda VM med låg prioritet med Batch (förhandsgranskning)](batch-low-pri-vms.md). |
-| $NodeDeallocationOption |Vad som händer när datornoderna tas bort från poolen. Möjliga värden:<ul><li>**meddelanden**--avslutar aktiviteter omedelbart och placerar dem på jobbkön så att de schemaläggs.<li>**Avsluta**--avslutar aktiviteter omedelbart och tar bort dem från jobbkön.<li>**taskcompletion**--väntar för pågående aktiviteter för att avsluta och sedan tar bort noden från poolen.<li>**retaineddata**--väntar på att alla lokala uppgift behålls data på noden som ska rensas innan du tar bort noden från poolen.</ul> |
+| $TargetDedicatedNodes |Antalet dedikerade beräkningsnoder för poolen. Antal dedikerade noder har angetts som mål eftersom poolen inte kan alltid når det önskade antalet noder. Till exempel om antalet dedikerade noder ändras av en automatisk skalning utvärdering innan poolen har nått det ursprungliga målet, kan sedan poolen inte nå målet. <br /><br /> En pool i ett konto som skapats med konfigurationen av Batch-tjänsten kan inte få sitt mål om målet överskrider en nod- eller core batchkonton. En pool i ett konto som skapats med kontokonfigurationen för Användarprenumeration kan inte få sitt mål om målet överskrider delad kärna-kvot för prenumerationen.|
+| $TargetLowPriorityNodes |Antalet lågprioriterade beräkningsnoder för poolen. Antalet noder med låg prioritet har angetts som mål eftersom poolen inte kan alltid når det önskade antalet noder. Till exempel om antalet noder med låg prioritet ändras av en automatisk skalning utvärdering innan poolen har nått det ursprungliga målet, kan sedan poolen inte nå målet. En pool kan också inte uppnå sitt mål om målet överskrider en nod- eller core batchkonton. <br /><br /> Läs mer på beräkningsnoder med låg prioritet [använda virtuella datorer med låg prioritet med Batch (förhandsversion)](batch-low-pri-vms.md). |
+| $NodeDeallocationOption |Vad som händer när compute-noder tas bort från poolen. Möjliga värden:<ul><li>**ny kö**– avslutar uppgifter direkt och placerar dem tillbaka i jobbkön så att de schemaläggs.<li>**Avsluta**– avslutar uppgifter direkt och tar bort dem från jobbkön.<li>**taskcompletion**--väntar för pågående aktiviteter för att avsluta och tar bort noden från poolen.<li>**retaineddata**--väntar tills alla lokala uppgift kvarhållna data på noden kan rensas innan du tar bort noden från poolen.</ul> |
 
-Du kan hämta värdet för dessa variabler som definieras av tjänsten för justeringar som baseras på mått för Batch-tjänsten:
+Du kan hämta värdet för dessa definierade variabler för justeringar som baseras på mått från Batch-tjänsten:
 
-| Skrivskyddade tjänst definierade variabler | Beskrivning |
+| Skrivskyddade definierade variabler | Beskrivning |
 | --- | --- |
 | $CPUPercent |Den genomsnittliga procentandelen av CPU-användning. |
-| $WallClockSeconds |Antal sekunder som används. |
+| $WallClockSeconds |Hur många sekunder som förbrukas. |
 | $MemoryBytes |Genomsnittligt antal megabyte som används. |
-| $DiskBytes |Genomsnittligt antal gigabyte som används på de lokala diskarna. |
-| $DiskReadBytes |Antal lästa byte. |
+| $DiskBytes |Genomsnittligt antal GB som används på de lokala diskarna. |
+| $DiskReadBytes |Antalet lästa byte. |
 | $DiskWriteBytes |Antalet skrivna byte. |
-| $DiskReadOps |Antal lästa diskåtgärder som utförs. |
-| $DiskWriteOps |Antal skrivåtgärder på disken utförs. |
+| $DiskReadOps |Totalt antal Läs diskåtgärder som utförs. |
+| $DiskWriteOps |Totalt antal skrivåtgärder disk som utförs. |
 | $NetworkInBytes |Antal inkommande byte. |
 | $NetworkOutBytes |Antal utgående byte. |
-| $SampleNodeCount |Antal compute-noder. |
-| $ActiveTasks |Antal aktiviteter som är redo att köra men ännu inte körs. Antalet $ActiveTasks innehåller alla aktiviteter som är aktiv och vars förutsättningar är uppfyllda. Alla uppgifter som är aktiv men vars beroenden är inte uppfyllda undantas från antalet $ActiveTasks.|
+| $SampleNodeCount |Antal beräkningsnoder. |
+| $ActiveTasks |Antal aktiviteter som är redo att köra men ännu inte körs. Antalet $ActiveTasks innehåller alla aktiviteter som är aktiv och vars förutsättningar är uppfyllda. Alla aktiviteter som finns i aktivt läge men vars beroenden är inte uppfyllda undantas från antalet $ActiveTasks.|
 | $RunningTasks |Antal aktiviteter körs. |
 | $PendingTasks |Summan av $ActiveTasks och $RunningTasks. |
-| $SucceededTasks |Antal åtgärder som har slutförts. |
-| $FailedTasks |Antal aktiviteter som har misslyckats. |
-| $CurrentDedicatedNodes |Aktuellt antal dedikerade compute-noder. |
-| $CurrentLowPriorityNodes |Det aktuella antalet låg prioritet compute-noder, inklusive alla noder som är försenat. |
-| $PreemptedNodeCount | Antalet noder i poolen som är i tillståndet försenat. |
+| $SucceededTasks |Antal aktiviteter som har slutförts. |
+| $FailedTasks |Antalet uppgifter som misslyckats. |
+| $CurrentDedicatedNodes |Det aktuella antalet dedikerade beräkningsnoder. |
+| $CurrentLowPriorityNodes |Det aktuella antalet lågprioriterade beräkningsnoder, inklusive alla noder som har återtas. |
+| $PreemptedNodeCount | Antalet noder i poolen som är i tillståndet återtas. |
 
 > [!TIP]
-> Skrivskyddad, tjänst-definierade variabler som visas i föregående tabell är *objekt* som tillhandahåller olika metoder för att komma åt data som är associerade med varje. Mer information finns i [Hämta exempeldata](#getsampledata) senare i den här artikeln.
+> De variabler som skrivskyddad, definierade som visas i föregående tabell är *objekt* som ger olika metoder för att komma åt data som hör till var och en. Mer information finns i [Hämta exempeldata](#getsampledata) senare i den här artikeln.
 >
 >
 
 ## <a name="types"></a>Typer
 Dessa typer stöds i en formel:
 
-* dubbla
+* double
 * doubleVec
 * doubleVecList
 * sträng
 * tidsstämpel--tidsstämpel är en sammansatt struktur som innehåller följande medlemmar:
 
   * år
-  * månaden (1-12)
+  * månad (1-12)
   * dag (1-31)
-  * veckodag (i formatet för tal, till exempel 1 för måndag)
-  * timme (i 24-timmarsformat format, till exempel 13 innebär 1 PM)
-  * minuter (00-59)
-  * andra (00-59)
-* timeinterval
+  * WEEKDAY (i formatet för tal, till exempel 1 för måndag)
+  * timme (i 24-timmarsformat talformatet; exempelvis 13 innebär 1 PM)
+  * minut (00-59)
+  * sekund (00-59)
+* TimeInterval
 
   * TimeInterval_Zero
   * TimeInterval_100ns
@@ -150,62 +150,62 @@ Dessa typer stöds i en formel:
   * TimeInterval_Year
 
 ## <a name="operations"></a>Åtgärder
-Dessa åtgärder är tillåtna för de typer som anges i föregående avsnitt.
+Dessa är tillåtet för de typer som anges i föregående avsnitt.
 
-| Åtgärd | Stöds operatorer | Typ av resultat |
+| Åtgärd | Operatorer som stöds | Resultattyp |
 | --- | --- | --- |
-| dubbla *operatorn* dubbla |+, -, *, / |dubbla |
-| dubbla *operatorn* timeinterval |* |timeinterval |
+| dubbla *operatorn* dubbla |+, -, *, / |double |
+| dubbla *operatorn* timeinterval |* |TimeInterval |
 | doubleVec *operatorn* dubbla |+, -, *, / |doubleVec |
 | doubleVec *operatorn* doubleVec |+, -, *, / |doubleVec |
-| TimeInterval *operatorn* dubbla |*, / |timeinterval |
-| TimeInterval *operatorn* timeinterval |+, - |timeinterval |
+| TimeInterval *operatorn* dubbla |*, / |TimeInterval |
+| TimeInterval *operatorn* timeinterval |+, - |TimeInterval |
 | TimeInterval *operatorn* tidsstämpel |+ |tidsstämpel |
 | tidsstämpel *operatorn* timeinterval |+ |tidsstämpel |
-| tidsstämpel *operatorn* tidsstämpel |- |timeinterval |
-| *operatorn*dubbla |-, ! |dubbla |
-| *operator*timeinterval |- |timeinterval |
-| dubbla *operatorn* dubbla |<, <=, ==, >=, >, != |dubbla |
-| strängen *operatorn* sträng |<, <=, ==, >=, >, != |dubbla |
-| tidsstämpel *operatorn* tidsstämpel |<, <=, ==, >=, >, != |dubbla |
-| TimeInterval *operatorn* timeinterval |<, <=, ==, >=, >, != |dubbla |
-| dubbla *operatorn* dubbla |&&, &#124;&#124; |dubbla |
+| tidsstämpel *operatorn* tidsstämpel |- |TimeInterval |
+| *operatorn*dubbla |-, ! |double |
+| *operatorn*timeinterval |- |TimeInterval |
+| dubbla *operatorn* dubbla |<, <=, ==, >=, >, != |double |
+| sträng *operatorn* sträng |<, <=, ==, >=, >, != |double |
+| tidsstämpel *operatorn* tidsstämpel |<, <=, ==, >=, >, != |double |
+| TimeInterval *operatorn* timeinterval |<, <=, ==, >=, >, != |double |
+| dubbla *operatorn* dubbla |&&, &#124;&#124; |double |
 
-När du testar ett double med en ternär operator (`double ? statement1 : statement2`) inte är noll är **SANT**, och noll är **FALSKT**.
+När du testar ett double-värde med en ternär operator (`double ? statement1 : statement2`) inte är noll är **SANT**, och noll är **FALSKT**.
 
-## <a name="functions"></a>Funktioner
-De här fördefinierade **funktioner** är tillgängliga som du kan använda för att definiera en automatisk skalning formel.
+## <a name="functions"></a>Functions
+Dessa fördefinierade **functions** är tillgängliga som du kan använda för att definiera en formel för automatisk skalning.
 
 | Funktion | Returtyp | Beskrivning |
 | --- | --- | --- |
-| avg(doubleVecList) |dubbla |Returnerar medelvärdet för alla värden i doubleVecList. |
-| len(doubleVecList) |dubbla |Returnerar längden på vektorn som skapas från doubleVecList. |
-| LG(Double) |dubbla |Returnerar loggen bas 2 i double. |
-| lg(doubleVecList) |doubleVec |Returnerar component-wise loggen bas 2 i doubleVecList. En vec(double) måste uttryckligen skickades för parametern. I annat fall antas den dubbla lg(double)-versionen. |
-| LN(Double) |dubbla |Returnerar dubbla naturlig log. |
-| ln(doubleVecList) |doubleVec |Returnerar component-wise loggen bas 2 i doubleVecList. En vec(double) måste uttryckligen skickades för parametern. I annat fall antas den dubbla lg(double)-versionen. |
-| log(Double) |dubbla |Returnerar loggen bas 10 av dubbla. |
-| log(doubleVecList) |doubleVec |Returnerar component-wise loggen bas 10 av doubleVecList. En vec(double) måste uttryckligen skickades för den enda dubbla parametern. I annat fall antas den dubbla log(double)-versionen. |
-| max(doubleVecList) |dubbla |Returnerar det största värdet i doubleVecList. |
-| min(doubleVecList) |dubbla |Returnerar det minsta värdet i doubleVecList. |
-| norm(doubleVecList) |dubbla |Returnerar två normen för vektorn som skapas från doubleVecList. |
-| percentil (doubleVec v dubbla p) |dubbla |Returnerar elementet percentil för vektorn v. |
-| rand() |dubbla |Returnerar ett slumpmässigt värde mellan 0,0 och 1,0. |
-| range(doubleVecList) |dubbla |Returnerar skillnaden mellan lägsta och högsta värden i doubleVecList. |
-| std(doubleVecList) |dubbla |Returnerar standardavvikelsen för urvalet av värdena i doubleVecList. |
-| Stop) | |Stoppar utvärderingen av uttrycket för autoskalning. |
-| sum(doubleVecList) |dubbla |Returnerar summan av alla komponenter i doubleVecList. |
-| time(string dateTime="") |tidsstämpel |Returnerar tidsstämpeln för den aktuella tiden om inga parametrar skickas eller tidsstämpeln för dateTime-sträng om den skickas. Stöds dateTime-format är W3C DTF och RFC 1123. |
-| val (doubleVec v dubbla i) |dubbla |Returnerar värdet för det element som är på plats i i vector v, med startIndex noll. |
+| AVG(doubleVecList) |double |Returnerar medelvärdet för alla värden i doubleVecList. |
+| Len(doubleVecList) |double |Returnerar längden på vektor som skapas från doubleVecList. |
+| LG(Double) |double |Returnerar loggen bas 2 av på dubbel. |
+| LG(doubleVecList) |doubleVec |Returnerar component-wise loggen bas 2 av doubleVecList. En vec(double) måste uttryckligen angavs för parametern. I annat fall antas den dubbla lg(double)-versionen. |
+| LN(Double) |double |Returnerar den naturliga loggen av på dubbel. |
+| LN(doubleVecList) |doubleVec |Returnerar component-wise loggen bas 2 av doubleVecList. En vec(double) måste uttryckligen angavs för parametern. I annat fall antas den dubbla lg(double)-versionen. |
+| log(Double) |double |Returnerar loggen bas 10 av på dubbel. |
+| log(doubleVecList) |doubleVec |Returnerar component-wise loggen bas 10 för doubleVecList. En vec(double) måste vara explicit angavs för parametern för enkel dubbla. I annat fall antas den dubbla log(double)-versionen. |
+| Max(doubleVecList) |double |Returnerar det största värdet i doubleVecList. |
+| min(doubleVecList) |double |Returnerar det minsta värdet i doubleVecList. |
+| norm(doubleVecList) |double |Returnerar de två normen för vektor som skapas från doubleVecList. |
+| : e percentilen (doubleVec v dubbla p) |double |Returnerar elementet: e percentilen i vektor v. |
+| SLUMP() |double |Returnerar ett slumpmässigt värde mellan 0,0 och 1,0. |
+| Range(doubleVecList) |double |Returnerar skillnaden mellan lägsta och högsta värden i doubleVecList. |
+| Std(doubleVecList) |double |Returnerar standardavvikelsen för urvalet av värdena i doubleVecList. |
+| Stop) | |Stoppar utvärderingen av uttrycket för automatisk skalning. |
+| SUM(doubleVecList) |double |Returnerar summan av alla komponenter i doubleVecList. |
+| tid (string dateTime = ””) |tidsstämpel |Returnerar tidsstämpeln för den aktuella tiden om inga parametrar skickas eller tidsstämpeln för dateTime-strängen om den skickas. Stöds dateTime-format är W3C-DTF och RFC 1123. |
+| val (doubleVec v dubbla i) |double |Returnerar värdet för det element som är på plats i i vektor v, med ett startIndex noll. |
 
 Några av de funktioner som beskrivs i föregående tabell kan acceptera en lista som ett argument. Kommaavgränsad lista är en kombination av *dubbla* och *doubleVec*. Exempel:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-Den *doubleVecList* värdet konverteras till en enda *doubleVec* för utvärdering. Till exempel om `v = [1,2,3]`, sedan anropa `avg(v)` motsvarar anropar `avg(1,2,3)`. Anropar `avg(v, 7)` motsvarar anropar `avg(1,2,3,7)`.
+Den *doubleVecList* värde konverteras till en enda *doubleVec* innan utvärderingen. Till exempel om `v = [1,2,3]`, sedan anropa `avg(v)` motsvarar att anropa `avg(1,2,3)`. Anropa `avg(v, 7)` motsvarar att anropa `avg(1,2,3,7)`.
 
 ## <a name="getsampledata"></a>Hämta exempeldata
-Autoskala formler fungerar på mätvärdesdata (exempel) som tillhandahålls av Batch-tjänsten. En formel förstoras eller förminskas poolstorlek baserat på de värden som hämtas från tjänsten. Tjänst-definierade variablerna som beskrivs är tidigare objekt som ger olika metoder för att komma åt data som är associerade med objektet. Följande uttryck visar exempelvis en begäran om att hämta de senaste fem minuterna av CPU-användning:
+Automatisk skalning formler fungerar på måttdata (exempel) som tillhandahålls av Batch-tjänsten. En formel förstoras eller förminskas poolstorlek baserat på de värden som den hämtar från tjänsten. De definierade variabler som beskrivs ovan är som tillhandahåller olika metoder för att komma åt data som är associerade med objektet. Följande uttryck visar exempelvis en begäran att hämta de senaste fem minuterna av CPU-användning:
 
 ```
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
@@ -213,58 +213,58 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 | Metod | Beskrivning |
 | --- | --- |
-| GetSample() |Den `GetSample()` metoden returnerar en vector av insamlade data.<br/><br/>Ett exempel är 30 sekunder värt mått data. Med andra ord hämtas exempel var 30: e sekund. Men som anges nedan, det finns en fördröjning mellan när ett exempel som samlas in och när den är tillgänglig för en formel. Därför kanske inte alla prover för en viss tidsperiod för utvärdering av en formel.<ul><li>`doubleVec GetSample(double count)`<br/>Anger antalet exempel som att hämta från de senaste samplingarna som samlades in.<br/><br/>`GetSample(1)` Returnerar den senaste tillgängliga insamlingen. För mått som `$CPUPercent`, men detta bör inte användas eftersom det är omöjligt att veta *när* provet samlades in. Det kan vara senaste eller på grund av problem med systemet, kan det vara mycket äldre. Det är bättre i sådana fall att använda ett tidsintervall som visas nedan.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Anger en tid för att samla in exempeldata. Du kan också anger den också procentandelen exempel som måste vara tillgängliga i den begärda tidsperioden.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` Returnerar 20 prov om alla prover för de senaste 10 minuterna finns i CPUPercent historiken. Om den senaste minuten tidigare inte var tillgänglig, men skulle endast 18 exempel returneras. I det här fallet:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` misslyckas eftersom endast 90 procent av exemplen är tillgängliga.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` fungerar.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Anger en tid för att samla in data med både en starttid och en sluttid.<br/><br/>Som nämnts ovan är det en fördröjning mellan när ett exempel som samlas in och när den är tillgänglig för en formel. Tänk fördröjningen när du använder den `GetSample` metoden. Se `GetSamplePercent` nedan. |
-| GetSamplePeriod() |Returnerar antal prover som har tagits i historiska data exempeldata. |
-| Count() |Returnerar det totala antalet prov i historiken för mått. |
-| HistoryBeginTime() |Returnerar tidsstämpeln för den äldsta tillgängliga datasampel för måttet. |
-| GetSamplePercent() |Returnerar procentandelen av prov som är tillgängliga för ett visst tidsintervall. Exempel:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Eftersom den `GetSample` metoden misslyckas om procentandelen exempel returneras är mindre än den `samplePercent` anges som du kan använda den `GetSamplePercent` metod för att kontrollera först. Du kan sedan utföra åtgärden alternativ om det finns inte tillräckligt prover, utan att stoppa automatisk skalning utvärderingen. |
+| GetSample() |Den `GetSample()` metoden returnerar en vektor med insamlade data.<br/><br/>Ett exempel är 30 sekunder värt av mätvärden. Med andra ord hämtas exempel med 30 sekunders mellanrum. Men enligt nedan, det finns en fördröjning mellan när ett exempel som samlas in och när den är tillgänglig på en formel. Därför kanske inte alla exempel för en viss tidsperiod för utvärdering av en formel.<ul><li>`doubleVec GetSample(double count)`<br/>Anger antalet exempel som att hämta från de senaste exempel som samlades in.<br/><br/>`GetSample(1)` Returnerar det senaste tillgängliga exemplet. För mått som `$CPUPercent`, men detta bör inte användas eftersom det är omöjligt att veta *när* exemplet samlades in. Det kan vara senaste eller på grund av systemproblem, kan det vara mycket äldre. Det är bättre i sådana fall att använda ett tidsintervall som visas nedan.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Anger en tidsram för att samla in exempeldata. Du kan också anger den också procentandelen exempel som måste vara tillgängliga under den begärda tidsperioden.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` Returnerar 20 prov om alla exempel för de senaste 10 minuterna finns i CPUPercent historiken. Om den sista minuten av tidigare inte var tillgänglig, men skulle endast 18 exempel returneras. I det här fallet:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` misslyckas eftersom 90 procent av exempel som är tillgängliga.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` fungerar.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Anger en tidsram för att samla in data med både en starttid och en sluttid.<br/><br/>Som nämnts ovan är finns det en fördröjning mellan när ett exempel som samlas in och när den är tillgänglig på en formel. Överväg att den här fördröjningen när du använder den `GetSample` metoden. Se `GetSamplePercent` nedan. |
+| GetSamplePeriod() |Returnerar perioden på exemplen som utförts i en uppsättning historiska exempeldata. |
+| Antal() |Returnerar det totala antalet exempel i historiken för måttet. |
+| HistoryBeginTime() |Returnerar tidsstämpeln för den äldsta tillgängliga datasamplingen för måttet. |
+| GetSamplePercent() |Returnerar procentandelen exempel som är tillgängliga för ett angivet tidsintervall. Exempel:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Eftersom den `GetSample` metoden inte fungerar om procentandelen exempel returneras är mindre än värdet `samplePercent` anges som du kan använda den `GetSamplePercent` metoden för att kontrollera först. Du kan sedan utföra en annan åtgärd om otillräckligt exemplen finns, utan att stoppa automatisk skalning utvärderingen. |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>Exempel, exempel procent och *GetSample()* metod
-Grundläggande drift av en Autoskala formel är att hämta aktivitets- och mätvärden och justera sedan poolstorlek baserat på dessa data. Därför är det viktigt att ha en förståelse för hur Autoskala formler interagera med mätvärdesdata (exempel).
+Grundläggande drift av en autoskalningsformel är att hämta aktivitets- och måttdata och sedan justera poolstorlek baserat på dessa data. Det är därför viktigt att ha en förståelse för hur automatisk skalning formler interagerar med mätvärden (exempel).
 
 **Exempel**
 
-Batch-tjänsten med jämna mellanrum tar prover av aktivitets- och mått och gör dem tillgängliga i Autoskala formlerna. Exemplen är registrerade med 30 sekunders mellanrum av Batch-tjänsten. Det finns dock vanligtvis en fördröjning mellan när de exempel som har registrerats och när de görs tillgängliga för (och kan läsas av) Autoskala formler. På grund av olika faktorer, till exempel nätverks- eller andra problem infrastruktur kan dessutom prover inte registreras för ett visst intervall.
+Batch-tjänsten med jämna mellanrum tar exempel aktivitets- och mått och gör dem tillgängliga för automatisk skalning formler. Dessa exempel registreras med 30 sekunders mellanrum av Batch-tjänsten. Men det tar normalt en fördröjning mellan när dessa exempel har registrerats och när de är tillgängliga för (och kan läsas av) Autoskala formler. På grund av olika faktorer, till exempel nätverks- eller andra problem med infrastruktur, kan dessutom exempel inte registreras för ett visst intervall.
 
-**Exempel procent**
+**Exemplet procent**
 
-När `samplePercent` har överförts till den `GetSample()` metod eller `GetSamplePercent()` metoden anropas _procent_ refererar till en jämförelse mellan det totala antalet prov som är registrerade av Batch-tjänsten och antalet exempel som är tillgängliga för din Autoskala formel.
+När `samplePercent` skickas till den `GetSample()` metod eller `GetSamplePercent()` metoden anropas _procent_ refererar till en jämförelse mellan det totala antalet exempel som registreras av Batch-tjänsten och antalet exempel som är tillgängliga för din formel för automatisk skalning.
 
-Nu ska vi titta på timespan 10 minuters som exempel. Eftersom prover har registrerats med 30 sekunders mellanrum inom timespan 10 minuters, är det maximala totala antalet prov som registreras av Batch 20 prov (2 per minut). På grund av inbyggd svarstiden för mekanismen för rapportering och andra problem i Azure, kan det dock endast 15 prover som är tillgängliga för Autoskala formeln för läsning. Så, till exempel för den 10-minutersperioden endast 75% av det totala antalet prov som registrerats vara tillgängliga för din formel.
+Nu ska vi titta på timespan 10: e minut som exempel. Eftersom exempel har registrerats med 30 sekunders mellanrum inom timespan 10: e minut, är det maximala antalet exempel som registreras av Batch 20 prov (2 per minut). Men på grund av den inneboende latensen för mekanismen för rapportering och andra problem i Azure, kan det finnas endast 15-exempel som är tillgängliga för din formel för automatisk skalning för läsning. Så till exempel vara för den 10-minutersperioden, endast 75% av det totala antalet exempel som registreras tillgängliga för din formel.
 
-**Intervall för GetSample() och exempel**
+**Exempel och GetSample() intervall**
 
-Autoskala formlerna ska växande och minska storleken på din pooler &mdash; att lägga till noder eller ta bort noder. Eftersom noder kostar pengar, som du vill kontrollera att dina formler använder ett intelligent sätt att analys som baseras på uppgifter. Därför rekommenderar vi att du använder en trender typen analys i formler. Den här typen växer och krymper din poolerna baserat på ett intervall av insamlade prover.
+Automatisk skalning formler ska växer och minska storleken på dina pooler &mdash; att lägga till noder eller ta bort noder. Eftersom noder kostar pengar, som du vill kontrollera att dina formler använder en intelligent metod för analys som baseras på uppgifter. Därför rekommenderar vi att du använder en trendanalys-type-analys i formeln. Den här typen ökar och minskar dina pooler baserat på ett antal insamlade exempel.
 
-Det gör du genom att använda `GetSample(interval look-back start, interval look-back end)` att returnera en vector prover:
+Du gör detta genom att använda `GetSample(interval look-back start, interval look-back end)` att returnera en vektor med exempel:
 
 ```
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-När ovanstående rad utvärderas av Batch returnerar en uppsättning exempel som en vektor med värden. Exempel:
+När ovanstående rad utvärderas av Batch och returnerar ett antal exempel som en vektor med värden. Exempel:
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
 ```
 
-När du har lagrat vector prover, kan du använda funktioner som `min()`, `max()`, och `avg()` att härleda meningsfulla värden från insamlade intervallet.
+När du har lagrat vektor exempel, du kan sedan använda funktioner som `min()`, `max()`, och `avg()` att härleda meningsfulla värden från insamlade intervallet.
 
-För ytterligare säkerhet kan du tvinga en formel utvärdering misslyckas om mindre än en viss procentandel av exemplet är tillgänglig för en viss tidsperiod. Om du framtvingar en formel utvärdering misslyckas instruera Batch att upphöra ytterligare utvärdering av formeln om den angivna procentandelen av prover inte är tillgänglig. Ingen ändring görs i det här fallet poolstorleken. Om du vill ange nödvändiga procent av exempel för utvärdering ska lyckas, ange den som den tredje parametern `GetSample()`. Här är har ett krav för 75 procent av prover angetts:
+För ytterligare säkerhet kan du tvinga Formelutvärdering misslyckas om mindre än en viss procentandel i exemplet är tillgänglig för en viss tidsperiod. När du tvinga Formelutvärdering misslyckas, kan du instruera Batch att upphöra ytterligare utvärdering av formeln om den angivna procentandelen av exemplen inte är tillgänglig. Ingen ändring görs i det här fallet poolstorleken. Om du vill ange en obligatorisk procentandel-exempel för utvärderingen ska lyckas, ange den som tredje parameter ska `GetSample()`. Här är har ett krav i 75 procent av exempel angetts:
 
 ```
 $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
 ```
 
-Eftersom det kan finnas en fördröjning i exempel tillgänglighet, är det viktigt att alltid ange ett tidsintervall med föregående titt starttid som är äldre än en minut. Det tar ungefär en minut efter exempel spridas genom systemet, så exempel i intervallet `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` kanske inte tillgänglig. Igen och du kan använda parametern procentandel av `GetSample()` att tvinga ett visst exempel procentandel krav.
+Eftersom det kan uppstå en fördröjning i exempel tillgänglighet, är det viktigt att alltid ange ett tidsintervall med titt bak starttid som är äldre än en minut. Det tar ungefär en minut efter exempel ska spridas genom systemet, så exemplen i intervallet `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` kanske inte tillgänglig. Igen, du kan använda parametern procent av `GetSample()` att tvinga ett visst exempel procent krav.
 
 > [!IMPORTANT]
-> Vi **rekommenderar** som du **förlita dig inte *endast* på `GetSample(1)` i Autoskala formlerna**. Detta beror på att `GetSample(1)` i stort sett säger till Batch-tjänsten ”ge mig senaste exempel du har, oavsett hur länge sedan den hämtades”. Eftersom det är bara ett exempel på en enda, och det kan vara ett äldre prov, kanske inte representativ för större bild av aktivitet eller resource tillstånd. Om du använder `GetSample(1)`, se till att det är en del av en större instruktion och inte bara datapunkten som är beroende av din formel.
+> Vi **rekommenderar** som du **förlita dig inte *endast* på `GetSample(1)` i formlerna Autoskala**. Detta beror på `GetSample(1)` i stort sett säger till Batch-tjänsten ”ge mig senaste exempel du har, oavsett hur länge sedan du hämtade”. Eftersom det är bara ett enda exempel och det kan vara ett exempel på äldre, kanske inte representativ för större bilden för senaste aktivitet eller -resursens tillstånd. Om du använder `GetSample(1)`, se till att det är en del av ett större uttryck och inte bara datapunkten som din formel förlitar sig på.
 >
 >
 
 ## <a name="metrics"></a>Mått
-Du kan använda både resurs- och mått när du definierar en formel. Du justera antalet dedicerade noder i poolen baserat på de mått som du vill hämta och utvärdera mål. Finns det [variabler](#variables) avsnittet ovan för mer information om varje mått.
+Du kan använda både resurs- och mått när du definierar en formel. Du kan justera antalet dedikerade noder i poolen baserat på mätvärden som du får och utvärdera. Se den [variabler](#variables) ovan för mer information om varje mått.
 
 <table>
   <tr>
@@ -273,8 +273,8 @@ Du kan använda både resurs- och mått när du definierar en formel. Du justera
   </tr>
   <tr>
     <td><b>Resurs</b></td>
-    <td><p>Resursen mått baseras på Processorn, bandbredd, minnesanvändningen för compute-noder och antalet noder.</p>
-        <p> Dessa definieras av tjänsten variabler är användbara för att göra justeringar baserat på antalet noder:</p>
+    <td><p>Resursmått baseras på CPU, bandbredd, minnesanvändningen för compute-noder och antalet noder.</p>
+        <p> Dessa definierade variabler är användbara för att göra justeringar baserat på antalet noder:</p>
     <p><ul>
             <li>$TargetDedicatedNodes</li>
             <li>$TargetLowPriorityNodes</li>
@@ -283,7 +283,7 @@ Du kan använda både resurs- och mått när du definierar en formel. Du justera
             <li>$preemptedNodeCount</li>
             <li>$SampleNodeCount</li>
     </ul></p>
-    <p>Dessa definieras av tjänsten variabler är användbara för att göra justeringar baserat på noden Resursanvändning:</p>
+    <p>Dessa definierade variabler är användbara för att göra justeringar baserat på Resursanvändning för noden:</p>
     <p><ul>
       <li>$CPUPercent</li>
       <li>$WallClockSeconds</li>
@@ -298,7 +298,7 @@ Du kan använda både resurs- och mått när du definierar en formel. Du justera
   </tr>
   <tr>
     <td><b>Aktivitet</b></td>
-    <td><p>Uppgiften mått baserat på status för aktiviteter, till exempel aktiv, väntar, och slutförs. Följande tjänst definierade variabler är användbara för att göra poolstorleken justeringar baserat på uppgiften mått:</p>
+    <td><p>Uppgiften mått baserat på status för aktiviteter, till exempel aktiv, väntar, och slutförs. Följande definierade variabler är användbara för att göra justeringar för pool-storlek baserat på aktivitet mått:</p>
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
@@ -309,16 +309,16 @@ Du kan använda både resurs- och mått när du definierar en formel. Du justera
   </tr>
 </table>
 
-## <a name="write-an-autoscale-formula"></a>Skriv en Autoskala formel
-Du skapa en formel Autoskala genom instruktioner som använder komponenterna som ovan och sedan kombinera dessa instruktioner till en fullständig formel. I det här avsnittet skapar vi ett exempel Autoskala formeln som kan utföra vissa verkliga skalning beslut.
+## <a name="write-an-autoscale-formula"></a>Skriva en formel för automatisk skalning
+Du skapar en autoskalningsformel genom instruktioner som använder de ovanstående komponenterna och sedan kombinera dessa instruktioner i en fullständig formel. I det här avsnittet ska skapa vi en autoskalningsformel för exempel som kan utföra vissa verkliga skalning beslut.
 
-Först ska vi definiera krav för vår nya Autoskala formel. Formeln måste:
+Först ska vi definiera kraven för vår nya formel för automatisk skalning. Formeln bör:
 
-1. Öka antalet mål för dedikerade beräkningsnoder i poolen om CPU-användningen är hög.
-2. Färre mål dedikerade beräkningsnoder i en pool när CPU-användningen är låg.
-3. Begränsa alltid det maximala antalet noder dedikerade till 400.
+1. Öka antalet dedikerade beräkningsnoder i en pool om processoranvändningen är hög.
+2. Minska antalet dedikerade beräkningsnoder i en pool när CPU-användningen är låg.
+3. Alltid begränsa det maximala antalet dedikerade noder till 400.
 
-Definiera den instruktion som fyller på en användardefinierad variabel om du vill öka antalet noder under hög CPU-användning (`$totalDedicatedNodes`) med ett värde som är 110 procent av målet antalet dedicerade noder, men bara om den minsta Genomsnittlig CPU-användningen under den senaste 10 minuterna översteg 70 procent. Annars använder du värdet för det aktuella antalet dedicerade noder.
+Om du vill öka antalet noder under hög CPU-användning, definiera instruktionen som fyller på en användardefinierad variabel (`$totalDedicatedNodes`) med ett värde som är 110 procent av det aktuella antalet dedikerade noder, men bara om den minsta Genomsnittlig CPU-användningen under den senaste 10 minuterna översteg 70 procent. Annars använder du värdet för det aktuella antalet dedikerade noder.
 
 ```
 $totalDedicatedNodes =
@@ -326,7 +326,7 @@ $totalDedicatedNodes =
     ($CurrentDedicatedNodes * 1.1) : $CurrentDedicatedNodes;
 ```
 
-Att *minska* antalet dedicerade noder under låg CPU-användning, nästa instruktionen i vår formel anger samma `$totalDedicatedNodes` variabeln och 90 procent av aktuellt rikta antalet dedicerade noder om Genomsnittlig CPU-användningen i förflutna 60 minuter var under 20 procent. Annars kan använda det aktuella värdet för `$totalDedicatedNodes` som vi har fyllts i instruktionen ovan.
+Att *minska* antalet dedikerade noder under låg CPU-användning, nästa utdrag i vår formel anger samma `$totalDedicatedNodes` variabeln och 90 procent av aktuellt antal dedikerade noder om Genomsnittlig CPU-användning under senaste 60 minuter var under 20 procent. Annars kan du använda det aktuella värdet för `$totalDedicatedNodes` som vi har fyllts i ovan-instruktionen.
 
 ```
 $totalDedicatedNodes =
@@ -334,13 +334,13 @@ $totalDedicatedNodes =
     ($CurrentDedicatedNodes * 0.9) : $totalDedicatedNodes;
 ```
 
-Nu antalet mål dedikerade compute-noder till högst 400:
+Nu begränsa antalet dedikerade beräkningsnoder till högst 400:
 
 ```
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 ```
 
-Här är klar formeln:
+Här är fullständig formel:
 
 ```
 $totalDedicatedNodes =
@@ -352,22 +352,22 @@ $totalDedicatedNodes =
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 ```
 
-## <a name="create-an-autoscale-enabled-pool-with-net"></a>Skapa en pool med Autoskala-aktiverade med .NET
+## <a name="create-an-autoscale-enabled-pool-with-net"></a>Skapa en pool med automatisk skalning aktiverat med .NET
 
-Följ dessa steg om du vill skapa en pool med autoskalning aktiverat i .NET:
+Följ dessa steg om du vill skapa en pool med automatisk skalning aktiverat i .NET:
 
 1. Skapa poolen med [BatchClient.PoolOperations.CreatePool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
-2. Ange den [CloudPool.AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) egenskapen `true`.
-3. Ange den [CloudPool.AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) egenskap med Autoskala-formel.
+2. Ange den [CloudPool.AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) egenskap `true`.
+3. Ange den [CloudPool.AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) egenskap med din formel för automatisk skalning.
 4. (Valfritt) Ange den [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) egenskapen (standardvärdet är 15 minuter).
-5. Genomför pool med [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) eller [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
+5. Genomför poolen med [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) eller [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
-Följande kodavsnitt skapar en pool med Autoskala-aktiverade i .NET. Poolens Autoskala formeln anger målet antalet noder som är dedikerad till 5 på måndagen och 1 för varje dag i veckan. Den [intervall för automatisk skalning](#automatic-scaling-interval) har angetts till 30 minuter. I det här och andra C# fragmenten i den här artikeln `myBatchClient` är en korrekt initierad instans av den [BatchClient] [ net_batchclient] klass.
+Följande kodfragment skapar en pool för automatisk skalning aktiverat i .NET. Poolens autoskalningsformel anger antalet dedikerade noder till 5 på måndagar och 1 på varannan dag i veckan. Den [intervall för automatisk skalning](#automatic-scaling-interval) är inställd på 30 minuter. I den här och andra C# fragmenten i den här artikeln `myBatchClient` är en korrekt initierad instans av den [BatchClient] [ net_batchclient] klass.
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
                     poolId: "mypool",
-                    virtualMachineSize: "small", // single-core, 1.75 GB memory, 225 GB disk
+                    virtualMachineSize: "standard_d1_v2",
                     cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));    
 pool.AutoScaleEnabled = true;
 pool.AutoScaleFormula = "$TargetDedicatedNodes = (time().weekday == 1 ? 5:1);";
@@ -376,47 +376,47 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> När du skapar en pool med Autoskala-aktiverade inte anger den _targetDedicatedComputeNodes_ parametern eller _targetLowPriorityComputeNodes_ parameter i anropet till **CreatePool** . I stället anger den **AutoScaleEnabled** och **AutoScaleFormula** egenskaper för poolen. Värden för dessa egenskaper avgör i vilket mål för varje typ av noden. Dessutom att manuellt ändra storlek på en Autoskala-aktiverade pool (med exempelvis [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), första **inaktivera** automatisk skalning på den poolen och sedan ändrar den.
+> När du skapar en pool med automatisk skalning aktiverat kan inte anger den _targetDedicatedComputeNodes_ parametern eller _targetLowPriorityComputeNodes_ parameter i anropet till **CreatePool** . Ange i stället den **AutoScaleEnabled** och **AutoScaleFormula** egenskaper för poolen. Värden för dessa egenskaper fastställa antalet varje typ av nod. Dessutom att manuellt ändra storlek på en autoskalning-aktiverat pool (till exempel med [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), första **inaktivera** automatisk skalning på den lagringspoolen och sedan ändra storlek på den.
 >
 >
 
-Förutom Batch .NET, kan du använda någon av de andra [Batch SDK](batch-apis-tools.md#azure-accounts-for-batch-development), [Batch REST](https://docs.microsoft.com/rest/api/batchservice/), [Batch PowerShell-cmdlets](batch-powershell-cmdlets-get-started.md), och [Batch CLI](batch-cli-get-started.md) till Konfigurera autoskalning.
+Förutom Batch .NET kan du använda någon av de andra [Batch SDK: erna](batch-apis-tools.md#azure-accounts-for-batch-development), [Batch REST](https://docs.microsoft.com/rest/api/batchservice/), [Batch PowerShell-cmdlets](batch-powershell-cmdlets-get-started.md), och [Batch CLI](batch-cli-get-started.md) till Konfigurera automatisk skalning.
 
 
 ### <a name="automatic-scaling-interval"></a>Intervall för automatisk skalning
-Som standard justeras Batch-tjänsten poolstorlek enligt dess Autoskala formel var 15: e minut. Intervallet kan konfigureras med hjälp av följande egenskaper för programpoolen:
+Som standard justerar Batch-tjänsten en poolstorlek enligt dess autoskalningsformel var 15: e minut. Det här intervallet kan konfigureras med hjälp av följande egenskaper för poolen:
 
-* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
-* [autoScaleEvaluationInterval] [ rest_autoscaleinterval] (REST-API)
+* [CloudPool.AutoScaleEvaluationInterval] [ net_cloudpool_autoscaleevalinterval] (Batch .NET)
+* [autoScaleEvaluationInterval] [ rest_autoscaleinterval] (REST API)
 
-Det minsta intervallet är fem minuter och högsta är 168 timmar. Om ett intervall som är utanför intervallet har angetts returnerar en felaktig begäran (400) fel i Batch-tjänsten.
+Den minsta är fem minuter och högsta är 168 timmar. Om ett intervall utanför det här intervallet har angetts returnerar Batch-tjänsten en felaktig begäran (400) fel.
 
 > [!NOTE]
-> Autoskalning är inte avsedd att svara på ändringar i mindre än en minut, men i stället är avsedd att justera storleken på din pool gradvis som du kör en arbetsbelastning.
+> Automatisk skalning är inte avsedd att svara på ändringar i mindre än en minut, men i stället är avsedd att justera storleken på din pool gradvis som du kör en arbetsbelastning.
 >
 >
 
-## <a name="enable-autoscaling-on-an-existing-pool"></a>Aktivera autoskalning på en befintlig adresspool
+## <a name="enable-autoscaling-on-an-existing-pool"></a>Aktivera automatisk skalning på en befintlig pool
 
-Varje Batch-SDK är ett sätt att aktivera autoskalning. Exempel:
+Varje Batch-SDK är ett sätt att aktivera automatisk skalning. Exempel:
 
 * [BatchClient.PoolOperations.EnableAutoScaleAsync] [ net_enableautoscaleasync] (Batch .NET)
-* [Aktivera automatisk skalning på poolen] [ rest_enableautoscale] (REST-API)
+* [Aktivera automatisk skalning för en pool] [ rest_enableautoscale] (REST API)
 
-När du aktiverar autoskalning på en befintlig adresspool, Tänk på följande saker övervägas:
+När du aktiverar automatisk skalning på en befintlig pool, Tänk på följande saker övervägas:
 
-* Om automatisk skalning är inaktiverat på poolen när du skickar en begäran att aktivera autoskalning, måste du ange en giltig Autoskala formel när du skickar en begäran. Du kan också ange ett intervall för utvärdering av Autoskala. Om du inte anger ett intervall, används standardvärdet 15 minuter.
-* Om Autoskala är aktiverat i poolen, kan du ange en formel Autoskala, ett intervall för utvärdering eller båda. Du måste ange minst en av dessa egenskaper.
+* Om automatisk skalning är inaktiverat på poolen när du skickar förfrågan om att aktivera automatisk skalning, måste du ange en giltig autoskalningsformel när du skickar ut begäran. Du kan du ange en skala automatiskt utvärderingsintervall. Om du inte anger ett intervall, används standardvärdet 15 minuter.
+* Om automatisk skalning är aktiverat i poolen, kan du ange en autoskalningsformel, en utvärderingsintervall eller båda. Du måste ange minst en av de här egenskaperna.
 
-  * Om du anger ett nytt Autoskala utvärdering intervall befintliga utvärderingsschema stoppas och startas ett nytt schema. Det nya schemat är start den tid då en begäran att aktivera autoskalning har utfärdats.
-  * Om du utelämnar Autoskala formeln eller intervallet utvärdering, Batch-tjänsten fortsätter att använda det aktuella värdet för den här inställningen.
+  * Om du anger en ny skala automatiskt utvärderingsintervall befintliga utvärderingsschema har stoppats och ett nytt schema har startats. Starttid för det nya schemat är den tid då begäran om att aktivera automatisk skalning har utfärdats.
+  * Om du utelämnar formel för automatisk skalning eller utvärderingsintervall, Batch-tjänsten fortsätter att använda det aktuella värdet för den här inställningen.
 
 > [!NOTE]
-> Om du har angett värden för den *targetDedicatedComputeNodes* eller *targetLowPriorityComputeNodes* parametrarna för den **CreatePool** metoden när du skapade poolen i .NET, eller jämförbar med parametrarna i ett annat språk sedan ignoreras när automatisk skalning formeln utvärderas.
+> Om du har angett värden för den *targetDedicatedComputeNodes* eller *targetLowPriorityComputeNodes* parametrarna för den **CreatePool** metoden när du skapade poolen i .NET, eller för parametrarna jämförbara på ett annat språk sedan ignoreras dessa värden när automatisk skalningsformel utvärderas.
 >
 >
 
-Den här C#-kodstycke använder den [Batch .NET] [ net_api] biblioteket för att aktivera autoskalning på en befintlig adresspool:
+Det här kodfragmentet för C# använder den [Batch .NET] [ net_api] -biblioteket för att aktivera automatisk skalning på en befintlig pool:
 
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
@@ -429,9 +429,9 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
     autoscaleFormula: myAutoScaleFormula);
 ```
 
-### <a name="update-an-autoscale-formula"></a>Uppdatera en Autoskala formel
+### <a name="update-an-autoscale-formula"></a>Uppdatera en formel för automatisk skalning
 
-Om du vill uppdatera formeln på en befintlig Autoskala-aktiverade adresspool anropa åtgärden för att aktivera autoskalning igen med den nya formeln. Om exempelvis autoskalning är redan aktiverat på `myexistingpool` när följande .NET-kod körs dess Autoskala formel ersätts med innehållet i `myNewFormula`.
+Om du vill uppdatera formel på en befintlig pool för automatisk skalning aktiverat, kan du anropa åtgärden för att aktivera automatisk skalning igen med den nya formeln. Exempel: om automatisk skalning är redan aktiverat på `myexistingpool` när följande .NET-kod körs en formel för automatisk skalning ersätts med innehållet i `myNewFormula`.
 
 ```csharp
 await myBatchClient.PoolOperations.EnableAutoScaleAsync(
@@ -439,9 +439,9 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
     autoscaleFormula: myNewFormula);
 ```
 
-### <a name="update-the-autoscale-interval"></a>Uppdateringsintervall Autoskala
+### <a name="update-the-autoscale-interval"></a>Intervall för automatisk skalning
 
-Om du vill uppdatera Autoskala-intervallet för utvärdering av en befintlig Autoskala-aktiverade pool anropa åtgärden för att aktivera autoskalning igen med ett nytt intervall. Till exempel ange intervallet för utvärdering Autoskala till 60 minuter för en pool som redan är aktiverat Autoskala i .NET:
+Om du vill uppdatera skala automatiskt utvärderingsintervall av en befintlig pool för automatisk skalning aktiverat, kan du anropa åtgärden om du vill aktivera automatisk skalning igen med nytt intervall. Till exempel vill ange skala automatiskt utvärderingsintervall till 60 minuter för en pool som redan är aktiverat automatisk skalning i .NET:
 
 ```csharp
 await myBatchClient.PoolOperations.EnableAutoScaleAsync(
@@ -449,21 +449,21 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
     autoscaleEvaluationInterval: TimeSpan.FromMinutes(60));
 ```
 
-## <a name="evaluate-an-autoscale-formula"></a>Utvärdera en Autoskala formel
+## <a name="evaluate-an-autoscale-formula"></a>Utvärdera en formel för automatisk skalning
 
-Du kan utvärdera en formel innan den tillämpas på en pool. På så sätt kan testa du formel för att se hur rapporterna utvärdera innan du placerar formeln till produktionen.
+Du kan utvärdera en formel innan den tillämpas på en pool. På så sätt kan testa du formeln för att se hur dess uttryck utvärderas innan du placerar formeln till produktion.
 
-Om du vill utvärdera en Autoskala formel, måste du först aktivera autoskalning i poolen med en giltig formel. Testa en formel i en pool som ännu inte har aktiverat autoskalning med en rad formeln `$TargetDedicatedNodes = 0` när du först aktivera autoskalning. Använd sedan någon av följande för att utvärdera formeln som du vill testa:
+Om du vill utvärdera en autoskalningsformel, måste du först aktivera automatisk skalning för poolen med en giltig formel. Testa en formel på en pool som ännu inte har automatisk skalning aktiverat genom att använda en rad formel `$TargetDedicatedNodes = 0` när du först aktiverar automatisk skalning. Sedan använder du något av följande för att utvärdera formeln som du vill testa:
 
 * [BatchClient.PoolOperations.EvaluateAutoScale](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) eller [EvaluateAutoScaleAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
 
-    Metoderna Batch .NET kräver ID för en befintlig adresspool och en sträng som innehåller Autoskala formeln att utvärdera.
+    Dessa Batch .NET-metoder kräver ID för en befintlig pool och en sträng som innehåller autoskalningsformel som ska utvärderas.
 
-* [Utvärdera en automatisk skalning formel](https://docs.microsoft.com/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
+* [Utvärdera en formel för automatisk skalning](https://docs.microsoft.com/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
 
-    Ange pool-ID i URI: N och Autoskala formeln i i denna REST API-begäran den *autoScaleFormula* element i begärandetexten. Svaret från åtgärden innehåller information om eventuella fel som kan vara relaterad till formeln.
+    I det här REST API-begäran anger pool-ID i URI: N och autoskalningsformel i den *autoScaleFormula* element i begärandetexten. Svaret på åtgärden innehåller information om eventuella fel som kan vara relaterade till formeln.
 
-I det här [Batch .NET] [ net_api] kodfragmentet vi utvärderar en Autoskala formel. Om poolen inte har aktiverats autoskalning, aktivera vi det först.
+I det här [Batch .NET] [ net_api] kodfragmentet, vi utvärderar en formel för automatisk skalning. Om poolen inte har automatisk skalning aktiverat, aktivera vi det först.
 
 ```csharp
 // First obtain a reference to an existing pool
@@ -476,7 +476,7 @@ if (pool.AutoScaleEnabled == false)
     // We need a valid autoscale formula to enable autoscaling on the
     // pool. This formula is valid, but won't resize the pool:
     await pool.EnableAutoScaleAsync(
-        autoscaleFormula: "$TargetDedicatedNodes = {pool.CurrentDedicatedNodes};",
+        autoscaleFormula: "$TargetDedicatedNodes = $CurrentDedicatedNodes;",
         autoscaleEvaluationInterval: TimeSpan.FromMinutes(5));
 
     // Batch limits EnableAutoScaleAsync calls to once every 30 seconds.
@@ -529,7 +529,7 @@ if (pool.AutoScaleEnabled == true)
 }
 ```
 
-Lyckad utvärdering av formeln som visas i det här kodstycket ger resultat som liknar:
+Lyckad utvärderingen av formeln som visas i det här kodfragmentet skapar resultat som liknar:
 
 ```
 AutoScaleRun.Results:
@@ -541,19 +541,19 @@ AutoScaleRun.Results:
     $workHours=0
 ```
 
-## <a name="get-information-about-autoscale-runs"></a>Hämta information om Autoskala körs
+## <a name="get-information-about-autoscale-runs"></a>Få information om automatisk skalning körningar
 
-För att säkerställa att din formel fungerar som förväntat, rekommenderar vi att du regelbundet kontrollera resultatet av autoskalning körs som Batch utför på din pool. Att göra så, hämta (eller uppdatera) en referens till poolen, och kontrollera egenskaperna för dess sista Autoskala kör.
+För att säkerställa att din formel fungerar som förväntat, rekommenderar vi att du regelbundet kontrollerar resultaten av automatisk skalning körningar som Batch utför på din pool. Att göra så få (eller uppdatera) en referens till i poolen och kontrollera egenskaperna för dess senaste Autoskala kör.
 
-I Batch .NET den [CloudPool.AutoScaleRun](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) -egenskap har flera egenskaper som innehåller information om den senaste autoskalning kör utförs på poolen:
+I Batch .NET den [CloudPool.AutoScaleRun](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) egenskapen har flera egenskaper som innehåller information om den senaste autoskalning köra utförs på poolen:
 
 * [AutoScaleRun.Timestamp](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
 * [AutoScaleRun.Results](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
 * [AutoScaleRun.Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
-I REST-API i [få information om poolen](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) begäran returnerar information om poolen, som innehåller den senaste autoskalning körs information den [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool#bk_autrun) egenskapen.
+I REST-API i [få information om en pool](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) begäran returnerar information om poolen, som innehåller den senaste automatisk skalning som kör information i den [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool#bk_autrun) egenskapen.
 
-Följande C# kodfragment använder Batch .NET-biblioteket för att skriva ut information om senaste autoskalning körs på poolen _myPool_:
+I följande C#-kodavsnitt använder Batch .NET-biblioteket för att skriva ut information om den senaste autoskalning som körs på poolen _myPool_:
 
 ```csharp
 await Cloud pool = myBatchClient.PoolOperations.GetPoolAsync("myPool");
@@ -562,7 +562,7 @@ Console.WriteLine("Result:" + pool.AutoScaleRun.Results.Replace("$", "\n  $"));
 Console.WriteLine("Error: " + pool.AutoScaleRun.Error);
 ```
 
-Utdata från den föregående fragment:
+Exempel på utdata från föregående fragment:
 
 ```
 Last execution: 10/14/2016 18:36:43
@@ -576,13 +576,13 @@ Result:
 Error:
 ```
 
-## <a name="example-autoscale-formulas"></a>Autoskala formler
-Nu ska vi titta på några formler som visar olika sätt att justera beräkningsresurser i poolen.
+## <a name="example-autoscale-formulas"></a>Automatisk skalning formler
+Nu ska vi titta på några formler som visar olika sätt att justera mängden beräkningsresurser i en pool.
 
 ### <a name="example-1-time-based-adjustment"></a>Exempel 1: Tidsbaserade justering
-Anta att du vill justera poolstorleken baserat på dag i veckan och tid på dagen. Det här exemplet visar hur du öka eller minska antalet noder i poolen i enlighet med detta.
+Anta att du vill justera poolstorleken baserat på dagen i veckan och tid på dagen. Det här exemplet visar hur du öka eller minska antalet noder i poolen på lämpligt sätt.
 
-Formeln först hämtar den aktuella tiden. Om det är en vardag (1-5) och inom arbetstid (8: 00 till 18: 00) har poolstorleken mål angetts till 20 noder. Annars är den inställd till 10 noder.
+Formeln hämtar först den aktuella tiden. Om det är en vardag (1-5) och inom arbetstimmar (8: 00 till 18: 00), har poolstorlek mål angetts till 20 noder. I annat fall är den inställd på 10 noder.
 
 ```
 $curTime = time();
@@ -593,7 +593,7 @@ $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 ```
 
 ### <a name="example-2-task-based-adjustment"></a>Exempel 2: Uppgiftsbaserade justering
-I det här exemplet justeras poolstorleken baserat på antalet aktiviteter i kön. Både kommentarer och radbrytningar accepteras i formeln strängar.
+I det här exemplet justeras poolstorleken beroende på antalet aktiviteter i kön. Både kommentarer och radbrytningar accepteras i formeln strängar.
 
 ```csharp
 // Get pending tasks for the past 15 minutes.
@@ -611,8 +611,8 @@ $TargetDedicatedNodes = max(0, min($targetVMs, 20));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-3-accounting-for-parallel-tasks"></a>Exempel 3: Redovisning för parallella aktiviteter
-Det här exemplet ändrar poolstorleken baserat på antalet aktiviteter. Den här formeln också tar hänsyn till den [MaxTasksPerComputeNode] [ net_maxtasks] värdet som har angetts för poolen. Den här metoden är användbar i situationer där [parallell körning av aktiviteten](batch-parallel-node-tasks.md) har aktiverats på din pool.
+### <a name="example-3-accounting-for-parallel-tasks"></a>Exempel 3: Redovisning för parallella uppgifter
+Det här exemplet justerar poolstorleken baserat på antalet uppgifter. Den här formeln tar även hänsyn till den [MaxTasksPerComputeNode] [ net_maxtasks] värde som har ställts in för poolen. Den här metoden är användbar i situationer där [parallell körning av aktiviteten](batch-parallel-node-tasks.md) har aktiverats på din pool.
 
 ```csharp
 // Determine whether 70 percent of the samples have been recorded in the past
@@ -632,16 +632,16 @@ $TargetDedicatedNodes = max(0,min($targetVMs,3));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-4-setting-an-initial-pool-size"></a>Exempel 4: Ange ett inledande poolstorlek
-Det här exemplet illustrerar ett C# kodstycke med en Autoskala formeln som anger poolstorleken till ett angivet antal noder för en inledande tidsperiod. Sedan justeras den poolstorleken baserat på antalet körs och aktiva aktiviteter efter den ursprungliga tidsperioden har löpt ut.
+### <a name="example-4-setting-an-initial-pool-size"></a>Exempel 4: Ange en inledande poolstorlek
+Det här exemplet visar ett C# kodfragment med en autoskalningsformel som anger poolstorleken till ett angivet antal noder för en inledande tidsperiod. Sedan justeras den pool-storlek baserat på antalet körs och aktiva uppgifter när den inledande tidsperioden har gått ut.
 
 Formeln i följande kodavsnitt:
 
 * Anger den första poolstorleken till fyra noder.
-* Justeras inte poolstorleken inom 10 minuter på poolens livscykel.
-* Hämtar värdet för max antal efter 10 minuter körs och aktiva aktiviteter inom de senaste 60 minuterna.
-  * Om båda värdena är 0 (som anger att inga aktiviteter körs eller aktiv under de senaste 60 minuterna), ange poolstorleken till 0.
-  * Ingen ändring görs om antingen värdet är större än noll.
+* Går inte att justera poolstorleken inom de första 10 minuterna av poolens livscykel.
+* Hämtar maxvärdet för antalet efter 10 minuter som körs och aktiva uppgifter inom de senaste 60 minuterna.
+  * Om båda värdena är 0 (som anger att inga uppgifter har aktiv eller aktiv under de senaste 60 minuterna), anges poolstorleken till 0.
+  * Om antingen värdet är större än noll, har ingen ändring gjorts.
 
 ```csharp
 string now = DateTime.UtcNow.ToString("r");
@@ -657,8 +657,8 @@ string formula = string.Format(@"
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Maximera Azure Batch beräkning Resursanvändning med samtidiga nod uppgifter](batch-parallel-node-tasks.md) innehåller information om hur du kan köra flera aktiviteter samtidigt på datornoderna i din pool. Förutom autoskalning, kan den här funktionen hjälpa för att sänka jobbet varaktighet för vissa arbetsbelastningar, spara pengar.
-* Se till att tillämpningsprogrammet Batch frågar Batch-tjänsten på ett optimalt sätt för en annan effektivitet booster. Se [fråga Azure Batch-tjänsten effektivt](batch-efficient-list-queries.md) information om hur du begränsar hur mycket data som passerar kabeln när du frågar status för tusentals compute-noder eller uppgifter.
+* [Maximera resursanvändningen för Azure Batch compute med samtidiga nodaktiviteter](batch-parallel-node-tasks.md) innehåller information om hur du kan köra flera uppgifter samtidigt på beräkningsnoderna i poolen. Förutom automatisk skalning och kan den här funktionen hjälpa till att sänka varaktighet för jobb för vissa arbetsbelastningar, vilket sparar pengar.
+* En annan effektivitet booster-paket, se till att ditt Batch-program frågar Batch-tjänsten på bästa sätt. Se [fråga Azure Batch-tjänsten effektivt](batch-efficient-list-queries.md) information om hur du begränsar hur mycket data som överförs när du har frågat tusentals beräkningsnoder eller uppgifter.
 
 [net_api]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
 [net_batchclient]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient

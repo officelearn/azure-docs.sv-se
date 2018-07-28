@@ -4,15 +4,15 @@ description: Översikt över insamlingsprogrammet och hur du konfigurerar den.
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 07/27/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 8cc5863489c58a0603d8aa464911031a22dba8f3
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c99d0f74dbb8cc28cabebae60fe10645f4bdb3b6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951047"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308467"
 ---
 # <a name="collector-appliance"></a>Insamlingsprogrammet
 
@@ -188,7 +188,7 @@ Vi rekommenderar också följande steg för att skydda din installation
 
 Du kan uppgradera insamlaren till den senaste versionen utan att hämta ova-filen igen.
 
-1. Hämta senaste [uppgraderingspaketet](https://aka.ms/migrate/col/upgrade_9_11) (version 1.0.9.11).
+1. Hämta senaste [uppgraderingspaketet](https://aka.ms/migrate/col/upgrade_9_13) (version 1.0.9.13).
 2. För att säkerställa att den nedladdade snabbkorrigeringen är säker, Öppna kommandofönster för administratör och kör följande kommando för att generera en hash för ZIP-filen. Den genererade hashen måste matcha med hash nämns mot den specifika versionen:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
@@ -199,6 +199,16 @@ Du kan uppgradera insamlaren till den senaste versionen utan att hämta ova-file
 5. Högerklicka på Setup.ps1 och välj kör med PowerShell och följ anvisningarna på skärmen för att installera uppdateringen.
 
 ### <a name="list-of-updates"></a>Listan över uppdateringar
+
+#### <a name="upgrade-to-version-10913"></a>Uppgradera till version 1.0.9.13
+
+Hash-värden för uppgradering [paketera 1.0.9.13](https://aka.ms/migrate/col/upgrade_9_13)
+
+**Algoritm** | **Hash-värde**
+--- | ---
+MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
+SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
+SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
 
 #### <a name="upgrade-to-version-10911"></a>Uppgradera till version 1.0.9.11
 

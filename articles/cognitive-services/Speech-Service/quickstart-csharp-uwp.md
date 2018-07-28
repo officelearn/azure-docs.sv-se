@@ -9,14 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: be15c8ca37e11f10c31c1fa8738d2b57308a00f2
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 549a8fd29cf1f986da0af1ae49dbf0e5335603bd
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283756"
+ms.locfileid: "39325708"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i en UWP-app med hjälp av tal-SDK
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 I den här artikeln får du lära dig hur du skapar en Universal Windows Platform (UWP)-program med hjälp av Cognitive Services tal SDK för att transkribera tal till text.
 Programmet har skapats med den [Microsoft Cognitive Services tal SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017.
@@ -115,6 +117,6 @@ Leta efter det här exemplet i den `quickstart/csharp-uwp` mapp.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Omvandla tal](how-to-translate-speech.md)
+- [Omvandla tal](how-to-translate-speech-csharp.md)
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
 - [Anpassa språkmodeller](how-to-customize-language-model.md)

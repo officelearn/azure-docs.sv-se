@@ -7,19 +7,19 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 07/16/2018
+ms.date: 07/27/2018
 ms.author: ninarn
 ms.topic: conceptual
-ms.openlocfilehash: a5d5c29b30f746c5507e45ecbee6c5ab9aff56f3
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d350678d80497b44cdd854baf958926150867c01
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091950"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326106"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Hjälper dig att hantera och skala flera Azure SQL-databaser för elastiska pooler
 
-Elastiska pooler i SQL Database är en enkel och kostnadseffektiv lösning för att hantera och skala flera databaser som har varierande och oförutsägbara krav för användning. Databaser i en elastisk pool är på en enskild Azure SQL Database-server och dela ett bestämt antal resurser på ett fast pris. Med elastiska pooler i Azure SQL Database kan SaaS-utvecklare optimera prisprestanda för en grupp med databaser inom en fastställd budget samtidigt som de levererar flexibla prestanda för varje databas.
+Elastiska pooler i SQL Database är en enkel och kostnadseffektiv lösning för att hantera och skala flera databaser med varierande och oförutsägbara användningskrav. Databaser i en elastisk pool är på en enskild Azure SQL Database-server och dela ett bestämt antal resurser på ett fast pris. Med elastiska pooler i Azure SQL Database kan SaaS-utvecklare optimera prisprestanda för en grupp med databaser inom en fastställd budget samtidigt som de levererar flexibla prestanda för varje databas.
 
 ## <a name="what-are-sql-elastic-pools"></a>Vad är elastiska SQL-pooler?
 
@@ -36,6 +36,9 @@ Elastiska pooler löser det här problemet genom att se till att databaserna få
 Elastiska pooler gör att utvecklare kan köpa resurser för en pool som delas av flera databaser för att därigenom hantera oförutsägbara perioder av användning av enskilda databaser. Du kan konfigurera resurser för poolen baserat antingen på den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). Resurskrav för poolen bestäms av den sammanlagda användningen av dess databaser. Mängden resurser som är tillgängligt för poolen beror på utvecklarens budget. Utvecklaren bara lägger till databaser i poolen, anger de lägsta och högsta resurserna för databaserna (antingen lägsta och högsta dtu: er eller lägsta eller högsta vCores beroende på ditt val av resourcing modellen), och ställer sedan resurser på poolen baserat på sina budget. Med hjälp av pooler kan utvecklare sömlöst expandera sina tjänster från en idé till en mogen affärsverksamhet som bara fortsätter att växa.
 
 I poolen kan de enskilda databaserna skalas automatiskt inom fastställda parametrar. Vid hög belastning använda en databas fler resurser för att möta efterfrågan. Databaser under lätta laster förbrukar mindre, och databaser utan belastning förbrukar inga resurser. Genom att etablera resurser för hela poolen i stället för enskilda databaser kan du förenkla dina hanteringsuppgifter. Dessutom kan ha du en förutsägbar budget för poolen. Ytterligare resurser kan läggas till en befintlig pool utan något avbrott i databasen, förutom att databaserna kan behöva flyttas för att ge ytterligare beräkningsresurser för den nya eDTU-reservationen. På samma sätt, om extra resurser inte längre behövs de kan tas bort från en befintlig pool när som helst i tid. Och du kan lägga till eller ta bort databaser i poolen. Om du vet att en databas underförbrukar resurser tar du bort den.
+
+> [!NOTE]
+> När du flyttar databaser till eller från en elastisk pool, finns det inget avbrott utom en kort tidsperiod (i storleksordningen sekunder) i slutet av åtgärden när databasanslutningar ignoreras.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>När ska du tänka på en SQL Database-elastisk pool?
 

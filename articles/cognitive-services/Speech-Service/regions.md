@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: c026c636030b397da612b3c1409b80f0ff970f57
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 082002b25b02e1e496221f4686d0e636630dd438
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284752"
+ms.locfileid: "39324399"
 ---
 # <a name="regions-of-the-speech-service"></a>Med taltjänsten-regioner
 
@@ -31,6 +31,8 @@ Se [REST API: er](rest-apis.md) mer information.
 
 I den [tal SDK](speech-sdk.md), regioner har angetts som en sträng (till exempel som en parameter till [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) i tal SDK för C#).
 
+### <a name="regions-for-speech-recognition-and-translation"></a>Regioner för taligenkänning och översättning
+
 Tabellen nedan visar en lista över tillgängliga regioner för **taligenkänning** och **translation**:
 
 Region| Värde för parametern region i tal-SDK
@@ -38,6 +40,8 @@ Region| Värde för parametern region i tal-SDK
 Västra USA| `westus`
 Östasien| `eastasia`
 Norra Europa| `northeurope`
+
+### <a name="regions-for-intent-recognition"></a>Regioner för taligenkänning
 
 Tillgängliga regioner för **avsiktsigenkänning** via tal SDK finns i den [Language Understanding Tjänstesida region](/azure/cognitive-services/luis/luis-reference-regions).
 För varje publishing-region som visas, bestäms parametern motsvarande tal SDK region som den första delen av domännamnet för slutpunkten.

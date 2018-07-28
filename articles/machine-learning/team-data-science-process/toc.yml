@@ -26,8 +26,6 @@
       href: project-lead-tasks.md
     - name: Enskild deltagare
       href: project-ic-tasks.md
-- name: Projektstruktur
-  href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
 - name: Projektplanering
   href: team-data-science-process-project-templates.md
 - name: Utveckling
@@ -94,9 +92,6 @@
       href: team-data-science-process-for-devops.md
 - name: Gör så här för att
   items:
-    - name: Använda TDSP i Azure ML
-      href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
-      maintainContext: true
     - name: Konfigurera datavetenskapsmiljöer
       href: environment-setup.md
       items:
@@ -218,6 +213,9 @@
               maintainContext: true
     - name: Distribuera modeller i produktion
       href: deploy-models-in-production.md
+    - name: Använda TDSP i Azure ML
+      href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
+      maintainContext: true
 - name: Relaterat
   items:
     - name: Azure Machine Learning – AML
@@ -235,28 +233,26 @@
           href: cortana-intelligence-appsource-evaluation-tool.md
     - name: Cortana Analytics
       items:
-        - name: 'API:er'
+        - name: Avvikelseidentifiering
+          href: apps-anomaly-detection-api.md
+        - name: Cognitive Services
+          href: 'https://docs.microsoft.com/azure/cognitive-services/'
+        - name: Förebyggande underhåll
           items:
-            - name: Avvikelseidentifiering
-              href: apps-anomaly-detection-api.md
-            - name: Cognitive Services
-              href: 'https://docs.microsoft.com/azure/cognitive-services/'
-            - name: Förebyggande underhåll
-              items:
-                - name: Översikt
-                  href: cortana-analytics-playbook-predictive-maintenance.md
-                - name: Arkitektur
-                  href: cortana-analytics-architecture-predictive-maintenance.md
-                - name: Teknisk guide
-                  href: cortana-analytics-technical-guide-predictive-maintenance.md
-            - name: Fordonstelemetri
-              items:
-                - name: Översikt
-                  href: cortana-analytics-playbook-vehicle-telemetry.md
-                - name: Playbook
-                  href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
-                - name: Konfiguration
-                  href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
+            - name: Översikt
+              href: cortana-analytics-playbook-predictive-maintenance.md
+            - name: Arkitektur
+              href: cortana-analytics-architecture-predictive-maintenance.md
+            - name: Teknisk guide
+              href: cortana-analytics-technical-guide-predictive-maintenance.md
+        - name: Fordonstelemetri
+          items:
+            - name: Översikt
+              href: cortana-analytics-playbook-vehicle-telemetry.md
+            - name: Playbook
+              href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
+            - name: Konfiguration
+              href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
 - name: Resurser
   items:
     - name: Bloggar
@@ -279,8 +275,6 @@
           href: 'https://newsignature.com/services/professional-services/advanced-analytics/'
         - name: Blue Granite
           href: 'https://www.blue-granite.com/blog/getting-more-from-your-data-science-teams-organization-and-process-considerations'
-        - name: Microsoft-konsulttjänster
-          href: 'https://www.microsoft.com/en-us/microsoftservices/business-analytics.aspx'
     - name: Relaterade Microsoft-resurser
       items:
         - name: MSDN-forum

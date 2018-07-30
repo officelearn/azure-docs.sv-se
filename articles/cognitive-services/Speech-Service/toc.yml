@@ -3,50 +3,86 @@
   href: index.yml
 - name: Översikt
   items:
+    - name: Tal-scenarier
+      href: speech-scenarios.md
     - name: Vad är Speech Service?
       href: overview.md
       expanded: true
-    - name: Tal-scenarier
-      href: speech-scenarios.md
+    - name: Speech SDK
+      href: speech-sdk.md
+      displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'
+    - name: Speech Devices SDK
+      href: speech-devices-sdk.md
+      displayName: 'roobo, speech devices sdk'
 - name: Snabbstarter
   items:
     - name: Prova Speech Service kostnadsfritt
       href: get-started.md
-    - name: 'Identifiera tal i C# (.NET på Windows)'
-      href: quickstart-csharp-dotnet-windows.md
-      displayName: 'recognize speech, speech recognition, speech to text'
-    - name: 'Identifiera tal i C# (.NET Core på Windows)'
-      href: quickstart-csharp-dotnetcore-windows.md
-      displayName: 'recognize speech, speech recognition, speech to text'
-    - name: Identifiera tal i en UWP-app
-      href: quickstart-csharp-uwp.md
-      displayName: 'recognize speech, speech recognition, speech to text, C#'
-    - name: Identifiera tal i C++ för Windows
-      href: quickstart-cpp-windows.md
-      displayName: 'recognize speech, speech recognition, speech to text'
-    - name: Identifiera tal i C++ för Linux
-      href: quickstart-cpp-linux.md
-      displayName: 'recognize speech, speech recognition, speech to text'
-    - name: Identifiera tal i Java för Android
-      href: quickstart-java-android.md
-      displayName: 'recognize speech, speech recognition, speech to text'
+      displayName: 'get started, subscription key'
+    - name: 'C#'
+      items:
+        - name: 'Identifiera tal i C# (.NET på Windows)'
+          href: quickstart-csharp-dotnet-windows.md
+          displayName: 'recognize speech, speech recognition, speech to text, stt'
+        - name: 'Identifiera tal i C# (.NET Core på Windows)'
+          href: quickstart-csharp-dotnetcore-windows.md
+          displayName: 'recognize speech, speech recognition, speech to text, stt'
+        - name: Identifiera tal i en UWP-app
+          href: quickstart-csharp-uwp.md
+          displayName: 'recognize speech, speech recognition, speech to text, stt, C#'
+    - name: C++
+      items:
+        - name: Identifiera tal i C++ för Windows
+          href: quickstart-cpp-windows.md
+          displayName: 'recognize speech, speech recognition, speech to text, stt'
+        - name: Identifiera tal i C++ för Linux
+          href: quickstart-cpp-linux.md
+          displayName: 'recognize speech, speech recognition, speech to text, stt'
+    - name: Java
+      items:
+        - name: Identifiera tal i Java för Android
+          href: quickstart-java-android.md
+          displayName: 'recognize speech, speech recognition, speech to text, stt'
     - name: Komma igång med Speech Devices SDK
       href: speech-devices-sdk-qsg.md
       displayName: 'roobo, speech devices sdk'
 - name: Instruktionsguider
   items:
     - name: Identifiera tal
-      href: how-to-speech-to-text.md
-      displayName: 'recognize speech, speech recognition, speech to text'
-    - name: Syntetisera tal
+      displayName: 'recognize speech, speech recognition, speech to text, stt'
+      items:
+        - name: 'C#'
+          href: how-to-recognize-speech-csharp.md
+        - name: C++
+          href: how-to-recognize-speech-cpp.md
+        - name: Java
+          href: how-to-recognize-speech-java.md
+        - name: REST
+          href: how-to-recognize-speech-rest.md
+    - name: Syntetisera tal (REST)
       href: how-to-text-to-speech.md
-      displayName: 'synthesize speech, speech synthesis, text to speech'
+      displayName: 'synthesize speech, speech synthesis, text to speech, tts'
+    - name: Identifiera avsikter från tal
+      displayName: 'recognize intent, intent recognition, language understanding service, luis'
+      items:
+        - name: 'C#'
+          href: how-to-recognize-intents-from-speech-csharp.md
+        - name: C++
+          href: how-to-recognize-intents-from-speech-cpp.md
+        - name: Java
+          href: how-to-recognize-intents-from-speech-java.md
     - name: Översätt tal
-      href: how-to-translate-speech.md
-      displayName: 'translate speech, speech translation, translator'
-    - name: Batch-transkription
+      displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
+      items:
+        - name: 'C#'
+          href: how-to-translate-speech-csharp.md
+        - name: C++
+          href: how-to-translate-speech-cpp.md
+        - name: Java
+          href: how-to-translate-speech-java.md
+    - name: Batch-transkription (REST)
       href: batch-transcription.md
-      displayName: 'recognize speech, speech recognition, speech to text'
+      displayName: 'recognize speech, speech recognition, speech to text, stt'
     - name: Hämta Speech Devices SDK
       href: get-speech-devices-sdk.md
       displayName: 'roobo, speech devices sdk, download'
@@ -69,36 +105,17 @@
     - name: Anpassa väckningsord för enhet (Devices SDK)
       href: speech-devices-sdk-create-kws.md
       displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
-- name: Exempel
-  items:
-    - name: Ladda ned exempel
-      href: samples.md
-    - name: Taligenkänning
-      href: speech-to-text-sample.md
-      displayName: 'recognize speech, speech recognition, speech to text'
-    - name: Avsiktsigenkänning
-      href: intent.md
-      displayName: 'recognize intent, intent recognition, language understanding service, luis'
-    - name: Översättning
-      href: translation.md
-      displayName: 'translate speech, speech translation, translator'
 - name: Begrepp
   items:
     - name: Tal till text
       href: speech-to-text.md
-      displayName: 'recognize speech, speech recognition, speech to text'
+      displayName: 'recognize speech, speech recognition, speech to text, stt'
     - name: Text till tal
       href: text-to-speech.md
-      displayName: 'synthesize speech, speech synthesis, text to speech'
+      displayName: 'synthesize speech, speech synthesis, text to speech, tts'
     - name: Talöversättning
       href: speech-translation.md
-      displayName: 'translate speech, speech translation, translator'
-    - name: Speech SDK
-      href: speech-sdk.md
-      displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, download'
-    - name: Speech Devices SDK
-      href: speech-devices-sdk.md
-      displayName: 'roobo, speech devices sdk'
+      displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
 - name: Referens
   items:
     - name: Språk som stöds
@@ -112,42 +129,48 @@
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
     - name: Pålägg för talsyntes
       href: speech-synthesis-markup.md
-      displayName: 'synthesize speech, speech synthesis, text to speech'
+      displayName: 'synthesize speech, speech synthesis, text to speech, tts'
 - name: Resurser
   items:
-    - name: Viktig information om Speech SDK
-      href: releasenotes.md
     - name: VANLIGA FRÅGOR OCH SVAR
       items:
         - name: Vanliga frågor och svar om tal till text
           href: faq-stt.md
-          displayName: 'recognize speech, speech recognition, speech to text'
+          displayName: 'recognize speech, speech recognition, speech to text, stt'
         - name: Vanliga frågor och svar om Text till tal
           href: faq-text-to-speech.md
-          displayName: 'synthesize speech, speech synthesis, text to speech'
+          displayName: 'synthesize speech, speech synthesis, text to speech, tts'
         - name: Vanliga frågor och svar om Translator
           href: 'https://www.microsoft.com/translator/faq.aspx'
-          displayName: 'translate speech, speech translation, translator'
+          displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
+    - name: Speech SDK
+      items:
+        - name: Ladda ned
+          href: 'speech-sdk.md#get-the-sdk'
+        - name: Exempel
+          href: 'speech-sdk.md#get-the-samples'
+        - name: Leverera ditt program
+          href: ship-application.md
+        - name: Viktig information
+          href: releasenotes.md
+        - name: Licens
+          href: license.md
+        - name: Meddelanden om tredje part
+          href: third-party-notices.md
+    - name: Speech Devices SDK
+      items:
+        - name: Licens
+          href: speech-devices-sdk-license.md
+          displayName: 'roobo, speech devices sdk'
+        - name: Meddelanden om tredje part
+          href: devices-sdk-third-party-notices.md
+          displayName: 'roobo, speech devices sdk'
     - name: Felsökning
       href: troubleshooting.md
     - name: Support
       href: support.md
-    - name: Leverera ditt program
-      href: ship-application.md
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
-    - name: Licens / Juridisk information
-      items:
-        - name: Speech SDK-licens
-          href: license.md
-        - name: Meddelanden om tredje part för Speech SDK
-          href: third-party-notices.md
-        - name: Speech Devices SDK-licens
-          href: speech-devices-sdk-license.md
-          displayName: 'roobo, speech devices sdk'
-        - name: Meddelanden om tredje part för Devices SDK
-          href: devices-sdk-third-party-notices.md
-          displayName: 'roobo, speech devices sdk'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Sekretess och cookies

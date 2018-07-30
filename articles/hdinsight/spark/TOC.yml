@@ -209,6 +209,8 @@
       items:
         - name: Hantera klusterresurser
           href: apache-spark-resource-manager.md
+        - name: Hantera Spark-program med hjälp av den utökade historikservern
+          href: apache-azure-spark-history-server.md
         - name: Konfigurera Spark-inställningar
           href: apache-spark-settings.md
         - name: Optimera Spark-jobb

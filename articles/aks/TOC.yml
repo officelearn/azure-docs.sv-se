@@ -89,6 +89,10 @@
         - name: Hälsolösning för Azure-containrar
           href: ../monitoring/monitoring-container-health.md
           maintainContext: true
+        - name: Visa loggar för huvudkomponenten
+          href: view-master-logs.md
+        - name: Visa kubelet-loggarna
+          href: kubelet-logs.md
     - name: Utveckla och köra program
       items:
         - name: Köra program med Helm
@@ -121,8 +125,6 @@
       items:
         - name: Åtkomst till SSH-noden
           href: aks-ssh.md
-        - name: Hämta kubelet-loggar
-          href: kubelet-logs.md
 - name: Referens
   items:
     - name: Azure CLI

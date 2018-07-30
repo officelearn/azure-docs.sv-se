@@ -83,6 +83,7 @@
 
 ## Hantera Federation Services
 ### [Hantera och anpassa](active-directory-aadconnect-federation-management.md)
+### [Hantera AD FS-förtroende med Azure AD med hjälp av Azure AD Connect](active-directory-azure-ad-connect-azure-ad-trust.md)
 ### [Federera flera instanser av Azure AD med en enda instans av AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 

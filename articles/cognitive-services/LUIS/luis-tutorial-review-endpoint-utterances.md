@@ -2,19 +2,19 @@
 title: Självstudie om att granska slutpunktsyttranden i Language Understanding (LUIS) – Azure | Microsoft Docs
 description: I den här självstudien lär du dig hur du granskar slutpunktsyttranden i HR-domänen i LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 07/03/2018
-ms.author: v-geberr
-ms.openlocfilehash: cd8374b3804594f96212dbe741f99ba22d33a4e8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.author: diberry
+ms.openlocfilehash: 1f1e3310e0d02983aaecc3f87ba9c116d65b751b
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970514"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237221"
 ---
 # <a name="tutorial-review-endpoint-utterances"></a>Självstudie: Granska slutpunktsyttranden
 I den här självstudien förbättrar du appförutsägelser genom att verifiera eller korrigera yttranden som tas emot via LUIS HTTP-slutpunkt. 
@@ -123,7 +123,7 @@ För att få en den uppdaterade modellen av LUIS-appen i en chattrobot eller i e
 ## <a name="query-the-endpoint-with-an-utterance"></a>Skicka fråga till slutpunkten med ett yttrande
 Prova ett yttrande som liknar det korrigerade yttrandet. 
 
-1. På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunkts-URL i adressfältet. 
+1. På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunktens URL i adressfältet. 
 
 2. Gå till slutet av URL:en i adressen och ange `Are there any natural language processing jobs in my department right now?`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
 
@@ -224,7 +224,7 @@ Prova ett yttrande som liknar det korrigerade yttrandet.
 }
 ```
 
-Den korrekta avsikten förutsades med en hög poäng, och entiteten **Job** (Jobb) identifieras som `natural language processing`. 
+Den korrekta avsikten förutsades med en hög poäng och entiteten **Job** (Jobb) identifieras som `natural language processing`. 
 
 ## <a name="can-reviewing-be-replaced-by-adding-more-utterances"></a>Går det att ersätta granskning genom att lägga till fler yttranden? 
 Du undrar kanske varför man inte bara kan lägga till fler exempelyttranden. Vad är syftet med att granska slutpunktsyttranden? I en riktig LUIS-app kommer slutpunktsyttranden från användare med ordval och ordningsföljd som du inte har använt än. Om du hade använt samma ordval och ordningsföljd skulle den ursprungliga förutsägelsen ha haft ett högre procenttal. 

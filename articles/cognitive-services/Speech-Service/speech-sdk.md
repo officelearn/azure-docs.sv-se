@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 20fe0c3501e562584cd7762555479457a34a9297
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: c7eaa2aa37b05bd0e125e1841357979af4f6763a
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281331"
+ms.locfileid: "39326067"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>Om Cognitive Services tal SDK
 
@@ -24,11 +24,13 @@ Den Cognitive Services tal Software Development Kit (SDK) ger dina program inbyg
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="get-the-windows-sdk"></a>Hämta Windows SDK
+## <a name="get-the-sdk"></a>Hämta SDK
+
+### <a name="get-the-windows-sdk"></a>Hämta Windows SDK
 
 Windows-versionen av tal SDK innehåller 32-bitars och 64-bitars C/C++-klientbibliotek som hanterade (.NET)-bibliotek för användning med C#. SDK: N kan installeras i Visual Studio med hjälp av NuGet; Sök bara efter `Microsoft.CognitiveServices.Speech`.
 
-## <a name="get-the-linux-sdk"></a>Hämta SDK för Linux
+### <a name="get-the-linux-sdk"></a>Hämta SDK för Linux
 
 Kontrollera att du har de nödvändiga kompilatorn och bibliotek genom att köra följande shell-kommandon:
 
@@ -52,7 +54,7 @@ Sedan [ladda ned SDK](https://aka.ms/csspeech/linuxbinary) och packa upp filerna
 
 Om du vill skapa ett program, kopiera eller flytta nödvändiga binärfiler (och bibliotek) i din utvecklingsmiljö och lägga till dem som krävs i utvecklingsprocessen.
 
-## <a name="get-the-java-sdk"></a>Hämta Java SDK
+### <a name="get-the-java-sdk"></a>Hämta Java SDK
 
 Java SDK för Android kommer som ett [AAR (Android-biblioteket)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek samt Android behörigheter som krävs för att använda den.
 Den finns i ett Maven-centrallager på `https://csspeechstorage.blob.core.windows.net/maven/` som paket `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`.
@@ -71,6 +73,8 @@ Förbruka paketet från Android Studio-projekt gör följande ändringar:
   ```
 
 Java SDK är också en del av den [tal Devices SDK](speech-devices-sdk.md).
+
+[!include[Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

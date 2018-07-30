@@ -9,14 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: 585728d95db800f32d98d71cf0c64e689845794f
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ad1bf15f198529487dbed92d8f8639704b0c5fc7
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285518"
+ms.locfileid: "39325133"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Java på Android med hjälp av tal-SDK
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 I den här artikeln lär du dig att skapa ett Java-program för Android med hjälp av Cognitive Services tal SDK för att transkribera tal till text.
 Programmet är baserad på Microsoft Cognitive Services tal SDK Maven-paketet, version 0.5.0 och Android Studio 3.1.
@@ -157,4 +159,4 @@ Leta efter det här exemplet i den `quickstart/java-android` mapp.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Gå till den [sidan med kodexempel](samples.md) ytterligare exempel.
+* [Hämta våra exempel](speech-sdk.md#get-the-samples)

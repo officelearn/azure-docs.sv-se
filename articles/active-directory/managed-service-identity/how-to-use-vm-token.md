@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: e564f48b4b90cfcaa72ed51d5f210a71a4980360
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ee4702733e775051cbbcace109bd1a7ffdf50e9c
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902953"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325463"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Hur du använder en Azure VM hanterad tjänstidentitet (MSI) för tokenförvärv 
 
@@ -49,6 +49,7 @@ Ett klientprogram kan begära en hanterad tjänstidentitet [appspecifika åtkoms
 |  |  |
 | -------------- | -------------------- |
 | [Hämta en token via HTTP](#get-a-token-using-http) | Information om protokoll för MSI tokenslutpunkten |
+| [Hämta en token med hjälp av Microsoft.Azure.Services.AppAuthentication-klientbiblioteket för .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Exempel på hur du använder biblioteket Microsoft.Azure.Services.AppAuthentication från en .NET-klient
 | [Hämta en token med C#](#get-a-token-using-c) | Exempel på att använda MSI REST-slutpunkt från en C#-klient |
 | [Hämta en token med hjälp av Go](#get-a-token-using-go) | Exempel på att använda MSI REST-slutpunkt från en Go-klient |
 | [Hämta en token med Azure PowerShell](#get-a-token-using-azure-powershell) | Exempel på att använda MSI REST-slutpunkt från en PowerShell-klient |
@@ -73,7 +74,9 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `http://169.254.169.254/metadata/identity/oauth2/token` | MSI-slutpunkt för Instance Metadata Service. |
 | `api-version`  | En frågesträngsparameter som anger API-version för IMDS-slutpunkten. Använd API-versionen `2018-02-01` eller större. |
 | `resource` | En frågesträngsparameter som anger App-ID-URI för målresursen. Den visas också i de `aud` (målgrupp) anspråk i utfärdade token. Det här exemplet begär en token för att få åtkomst till Azure Resource Manager, som har en App-ID-URI för https://management.azure.com/. |
-| `Metadata` | En HTTP-begäran med huvud anger krävs av MSI som en minskning mot angrepp Server sida begäran förfalskning (SSRF). Det här värdet måste anges till ”true”, i gemener.
+| `Metadata` | En HTTP-begäran med huvud anger krävs av MSI som en minskning mot angrepp Server sida begäran förfalskning (SSRF). Det här värdet måste anges till ”true”, i gemener. |
+| `object_id` | (Valfritt) En frågesträngsparameter som anger object_id för den hanterade identitet som token för. Krävs om den virtuella datorn har flera användare som tilldelats hanterade identiteter.|
+| `client_id` | (Valfritt) En frågesträngsparameter som anger client_id för den hanterade identitet som token för. Krävs om den virtuella datorn har flera användare som tilldelats hanterade identiteter.|
 
 Exempel på begäran med hjälp av hanterad tjänstidentitet (MSI) VM-tillägget slutpunkt *(för att bli inaktuell)*:
 
@@ -87,7 +90,9 @@ Metadata: true
 | `GET` | HTTP-verbet, vilket innebär att du vill hämta data från slutpunkten. I det här fallet en OAuth åtkomsttoken. | 
 | `http://localhost:50342/oauth2/token` | MSI slutpunkten, där 50342 är standardporten och kan konfigureras. |
 | `resource` | En frågesträngsparameter som anger App-ID-URI för målresursen. Den visas också i de `aud` (målgrupp) anspråk i utfärdade token. Det här exemplet begär en token för att få åtkomst till Azure Resource Manager, som har en App-ID-URI för https://management.azure.com/. |
-| `Metadata` | En HTTP-begäran med huvud anger krävs av MSI som en minskning mot angrepp Server sida begäran förfalskning (SSRF). Det här värdet måste anges till ”true”, i gemener.
+| `Metadata` | En HTTP-begäran med huvud anger krävs av MSI som en minskning mot angrepp Server sida begäran förfalskning (SSRF). Det här värdet måste anges till ”true”, i gemener.|
+| `object_id` | (Valfritt) En frågesträngsparameter som anger object_id för den hanterade identitet som token för. Krävs om den virtuella datorn har flera användare som tilldelats hanterade identiteter.|
+| `client_id` | (Valfritt) En frågesträngsparameter som anger client_id för den hanterade identitet som token för. Krävs om den virtuella datorn har flera användare som tilldelats hanterade identiteter.|
 
 
 Exempelsvaret:
@@ -115,6 +120,26 @@ Content-Type: application/json
 | `not_before` | Timespan när åtkomsttoken träder i kraft och kan godkännas. Det datum då representeras som hur många sekunder från ”1970-01-01T0:0:0Z UTC” (motsvarar token `nbf` anspråk). |
 | `resource` | Resursen åtkomsttoken har begärts för som matchar den `resource` frågesträngparametern för begäran. |
 | `token_type` | Typ av token, som är en ”ägar” åtkomsttoken, vilket innebär att resursen kan ge åtkomst till innehavare av denna token. |
+
+## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Hämta en token med hjälp av Microsoft.Azure.Services.AppAuthentication-klientbiblioteket för .NET
+
+För .NET-program och funktioner är det enklaste sättet att arbeta med hanterade tjänstidentiteter via Microsoft.Azure.Services.AppAuthentication-paketet. Det här biblioteket gör också att du kan testa din kod lokalt på utvecklingsdatorn, använder användarkontot från Visual Studio, den [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), eller Active Directory-integrerad autentisering. Mer information om alternativ för lokal utveckling med det här biblioteket finns i [Microsoft.Azure.Services.AppAuthentication referens]. Det här avsnittet visar hur du kommer igång med biblioteket i din kod.
+
+1. Lägg till referenser till den [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) och [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet-paket till ditt program.
+
+2.  Lägg till följande kod i ditt program:
+
+    ```csharp
+    using Microsoft.Azure.Services.AppAuthentication;
+    using Microsoft.Azure.KeyVault;
+    // ...
+    var azureServiceTokenProvider = new AzureServiceTokenProvider();
+    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
+    // OR
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+    ```
+    
+Läs mer om Microsoft.Azure.Services.AppAuthentication och vilka åtgärder som den exponerar i den [Microsoft.Azure.Services.AppAuthentication referens](/azure/key-vault/service-to-service-authentication) och [App Service och KeyVault med MSI-.NET exemplet](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ## <a name="get-a-token-using-c"></a>Hämta en token med C#
 

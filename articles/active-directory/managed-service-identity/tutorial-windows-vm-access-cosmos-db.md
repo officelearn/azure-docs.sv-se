@@ -1,6 +1,6 @@
 ---
-title: Använda en MSI på en virtuell Windows-dator för att få åtkomst till Azure Cosmos DB
-description: En självstudiekurs som beskriver steg för steg hur du använder en systemtilldelad hanterad tjänstidentitet (MSI) på en virtuell Windows-dator för att få åtkomst till Azure Cosmos DB.
+title: Använda en hanterad tjänstidentitet på en virtuell Windows-dator och komma åt Azure Cosmos DB
+description: En självstudiekurs som beskriver steg för steg hur du använder en systemtilldelad hanterad tjänstidentitet på en virtuell Windows-dator för att få åtkomst till Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: cee3a1425d7c3ad8f680394831175165203b4839
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 05b31dffbe51dcbcd76c13a17f6ecc640b63569b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005653"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248976"
 ---
-# <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Självstudie: Använda en MSI på en virtuell Windows-dator för att få åtkomst till Azure Cosmos DB
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-cosmos-db"></a>Självstudie: Använda en hanterad tjänstidentitet på en virtuell Windows-dator och komma åt Azure Cosmos DB
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudiekursen beskriver hur du skapar och använder en MSI på en virtuell Windows-dator för att få åtkomst till Cosmos DB. Lär dig att:
+Den här självstudiekursen beskriver hur du skapar och använder en hanterad tjänstidentitet på en virtuell Windows-dator för att få åtkomst till Cosmos DB. Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en MSI-aktiverad virtuell Windows-dator 
+> * Skapa en virtuell Windows-dator som är aktiverad för hanterad tjänstidentitet 
 > * Skapa ett Cosmos DB-konto
-> * Ge den virtuella Windows-datorns MSI åtkomst till åtkomstnycklarna för Cosmos DB-kontot
-> * Hämta en åtkomsttoken med hjälp av den virtuella Windows-datorns MSI och anropa Azure Resource Manager
+> * Ge den virtuella Windows-datorns hanterade tjänstidentitet åtkomst till åtkomstnycklarna för Cosmos DB-kontot
+> * Hämta en åtkomsttoken med hjälp av den virtuella Windows-datorns hanterade tjänstidentitet och anropa Azure Resource Manager
 > * Hämta åtkomstnycklar från Azure Resource Manager för att göra Cosmos DB-anrop
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -47,7 +47,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Windows-dator i en ny resursgrupp
 
-I den här självstudien ska vi skapa en ny virtuell Windows-dator.  Du kan även aktivera MSI på en befintlig virtuell dator.
+I den här självstudien ska vi skapa en ny virtuell Windows-dator.  Du kan även aktivera hanterad tjänstidentitet på en befintlig virtuell dator.
 
 1. Klicka på knappen **Skapa en resurs** längst upp till vänster i Azure Portal.
 2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
@@ -58,11 +58,11 @@ I den här självstudien ska vi skapa en ny virtuell Windows-dator.  Du kan äve
 
    ![Alternativ bildtext](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn 
+## <a name="enable-managed-service-identity-on-your-vm"></a>Aktivera hanterad tjänstidentitet på en virtuell dator 
 
-Med en MSI för virtuell dator kan du få åtkomsttoken från Azure AD utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar MSI på en virtuell dator via Azure-portalen händer två saker: din virtuella dator registreras med Azure AD för att skapa en hanterad identitet och identiteten i den virtuella datorn konfigureras.
+Med en hanterad tjänstidentitet på en virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar hanterad tjänstidentitet på en virtuell dator via Azure-portalen sker två saker: din virtuella dator registreras med Azure Active Directory och skapar en hanterad identitet, och identiteten konfigureras på den virtuella datorn.
 
-1. Välj den **virtuella dator** som du vill aktivera MSI på.  
+1. Välj den **virtuella dator** som du vill aktivera hanterad tjänstidentitet på.  
 2. Klicka på **Konfiguration** i det vänstra navigeringsfältet. 
 3. **Hanterad tjänstidentitet** visas. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej. 
 4. Klicka på **Spara** för att spara konfigurationen.  
@@ -85,20 +85,20 @@ Lägg till en datasamling till Cosmos DB-kontot som du kan skicka frågor mot i 
 
 1. Gå till Cosmos DB-kontot som du precis skapat.
 2. Klicka på knappen **+/Lägg till samling** på fliken **Översikt**. Panelen ”Lägg till samling” visas.
-3. Tilldela samlingen ett databas-ID och ett samlings-ID, välj en lagringskapacitet, ange en partitionsnyckel, ange ett värde för dataflöde och klicka sedan på **OK**.  I den här självstudien kan du använda ”Test” som databas-ID och samlings-ID, välja en fast lagringskapacitet och det lägsta dataflöde (400 RU/s).  
+3. Tilldela samlingen ett databas-ID och ett samlings-ID, välj en lagringskapacitet, ange en partitionsnyckel, ange ett värde för dataflöde och klicka sedan på **OK**.  I den här självstudien räcker det att du använder ”Test” som databas-ID och samlings-ID, väljer en fast lagringskapacitet och det lägsta dataflödet (400 RU/s).  
 
-## <a name="grant-windows-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>Ge den virtuella Windows-datorns MSI åtkomst till åtkomstnycklarna för Cosmos DB-kontot
+## <a name="grant-windows-vm-managed-service-identity-access-to-the-cosmos-db-account-access-keys"></a>Ge den virtuella Windows-datorns hanterade tjänstidentitet åtkomst till åtkomstnycklarna för Cosmos DB-kontot
 
-Cosmos DB har inte inbyggt stöd för Azure AD-autentisering. Du kan emellertid använda en MSI för att hämta en åtkomstnyckel för Cosmos DB från Resource Manager och sedan använda nyckeln för att komma åt Cosmos DB. I det här steget ger du MSI-identiteten åtkomst till nycklarna till Cosmos DB-kontot.
+Cosmos DB har inte inbyggt stöd för Azure AD-autentisering. Du kan emellertid använda en hanterad tjänstidentitet för att hämta en åtkomstnyckel för Cosmos DB från Resource Manager och sedan använda nyckeln för att komma åt Cosmos DB. I det här steget ger du den hanterade tjänstidentiteten åtkomst till nycklarna till Cosmos DB-kontot.
 
-Om du ska ge MSI-identiteten åtkomst till Cosmos DB-kontot i Azure Resource Manager med hjälp av PowerShell uppdaterar du värdet för `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` och `<COSMOS DB ACCOUNT NAME>` för din miljö. Ersätt `<MSI PRINCIPALID>` med `principalId`-egenskapen som returnerades av kommandot `az resource show` i [Hämta principalID för den virtuella Linux-datorns MSI](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB stöder två detaljnivåer när åtkomstnycklar används: läs- och skrivåtkomst till kontot samt skrivskyddad åtkomst till kontot.  Tilldela rollen `DocumentDB Account Contributor` om du vill använda läs-/skrivnycklar för kontot, eller rollen `Cosmos DB Account Reader Role` om du vill använda skrivskyddade nycklar för kontot:
+Om du ska ge den hanterade tjänstidentiteten åtkomst till Cosmos DB-kontot i Azure Resource Manager med hjälp av PowerShell uppdaterar du värdet för `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` och `<COSMOS DB ACCOUNT NAME>` för din miljö. Ersätt `<MSI PRINCIPALID>` med `principalId`-egenskapen som returnerades av kommandot `az resource show` i [Hämta principalID för den virtuella Linux-datorns MSI](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB stöder två detaljnivåer när åtkomstnycklar används: läs- och skrivåtkomst till kontot samt skrivskyddad åtkomst till kontot.  Tilldela rollen `DocumentDB Account Contributor` om du vill använda läs-/skrivnycklar för kontot, eller rollen `Cosmos DB Account Reader Role` om du vill använda skrivskyddade nycklar för kontot:
 
 ```azurepowershell
 $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
 New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
 ```
 
-## <a name="get-an-access-token-using-the-windows-vms-msi-to-call-azure-resource-manager"></a>Hämta en åtkomsttoken med hjälp av den virtuella Windows-datorns MSI och anropa Azure Resource Manager
+## <a name="get-an-access-token-using-the-windows-vms-managed-service-identity-to-call-azure-resource-manager"></a>Hämta en åtkomsttoken med hjälp av den virtuella Windows-datorns hanterade tjänstidentitet och anropa Azure Resource Manager
 
 Under resten av självstudien arbetar vi från den virtuella datorn som vi skapade tidigare. 
 
@@ -109,7 +109,7 @@ Du måste även installera den senaste versionen av [Azure CLI 2.0](https://docs
 1. Gå till **Virtuella datorer** i Microsoft Azure-portalen, gå till den virtuella Windows-datorn och klicka sedan på **Anslut** under **Översikt** längst upp. 
 2. Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn. 
 3. Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn öppnar du PowerShell i fjärrsessionen.
-4. Använd PowerShells Invoke-WebRequest och skicka en förfrågan till den lokala MSI-slutpunkten för att hämta en åtkomsttoken för Azure Resource Manager.
+4. Använd PowerShells Invoke-WebRequest och skicka en begäran till den lokala slutpunkten för hanterad tjänstidentitet för att hämta en åtkomsttoken för Azure Resource Manager.
 
     ```powershell
         $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

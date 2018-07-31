@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e39e5861c0606c43a869fe02a7de2dc9b6f489ea
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ad6812f25ee33bf723ed86d4ec32ca6898d01774
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125661"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186746"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>Självstudie: Felsöka ett Service Fabric Mesh-webbprogram
 
@@ -75,8 +75,8 @@ När den lokala distributionen är klar och Visual Studio kör din app öppnas e
 **Felsökningstips**
 
 * Om du får felet **No Service Fabric local cluster is running** (Inget lokalt Service Fabric-kluster körs) ska du se till att SLCM (Service Local Custer Manager) körs och högerklicka på SLCM-ikonen i uppgiftsfältet. Klicka på **Starta lokalt kluster**. När starten är klar återgår du till Visual Studio och trycker på **F5**.
-* Om du får ett fel av typen **404** när appen startar innebär det förmodligen att miljövariablerna i **service.yaml** är felaktiga. Se till att `AppName`, `ApiHostPort` och `ServiceName` är rätt inställda enligt instruktionerna i dokumentationen kring att [ställa in miljövariabler](#set-environment-variables).
-* Om det uppstår kompileringsfel i **service.yaml** kontrollerar du att blanksteg används för att dra in linjerna. Det går inte att använda tabbar.
+* Om du får ett fel av typen **404** när appen startar innebär det förmodligen att miljövariablerna i **service.yaml** är felaktiga. Se till att `ApiHostPort` och `ServiceName` är rätt inställda enligt instruktionerna i dokumentationen om att [skapa miljövariabler](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
+* Om det uppstår kompileringsfel i **service.yaml** kontrollerar du att blanksteg används för att dra in linjerna. Det går inte att använda tabbar. För närvarande måste du skapa appen med engelska som nationella inställningar.
 
 ### <a name="debug-in-visual-studio"></a>Felsökning i Visual Studio
 

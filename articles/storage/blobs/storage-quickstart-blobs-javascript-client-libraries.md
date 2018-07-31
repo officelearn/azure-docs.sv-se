@@ -10,12 +10,12 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8bde281eab22fc720e2e2420f22ff4eb0a610b93
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31419115"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216605"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -49,7 +49,7 @@ Härnäst använder du Azure-molnskalet och skapar en säkerhetstoken.
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-shared-access-signature"></a>Skapa en signatur för delad åtkomst
-SAS, eller signatur för delad åtkomst, används av den kod som körs i webbläsaren för att autentisera begäranden till bloblagring. Med hjälp av SAS kan klienten autentisera utan att ha åtkomstnyckel eller anslutningssträng för kontot. Mer information om SAS finns i [Använda signaturer för delad åtkomst (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md).
+SAS, eller signatur för delad åtkomst, används av den kod som körs i webbläsaren för att auktorisera begäranden till bloblagring. Med hjälp av SAS kan klienten auktorisera åtkomst till lagringsresurser utan att ha åtkomstnyckel eller anslutningssträng för kontot. Mer information om SAS finns i [Använda signaturer för delad åtkomst (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md).
 
 Du kan skapa en SAS med hjälp av Azure CLI via Azure-molnskalet eller med Azure Storage Explorer. I följande tabell beskrivs de parametrar du behöver ange värden för om du vill skapa en SAS med CLI.
 
@@ -78,13 +78,13 @@ Du kan kanske uppleva serien med värden efter varje parameter som lite kryptisk
 | Parameter        | Värde   | Beskrivning  |
 |------------------|---------|---------|
 | *permissions*    | racwdl  | Den här signaturen för delad åtkomst (SAS) kan *läsa*, *bifoga*, *skapa*, *skriva*, *ta bort* och *lista*  funktioner. |
-| *resource-types* | sco     | De resurser som påverkas av signaturen för delad åtkomst (SAS) är *tjänst*, *behållare* och *objekt*. |
+| *resource-types* | sco     | De resurser som påverkas av signaturen för delad åtkomst (SAS) är *tjänst*, *container* och *objekt*. |
 | *tjänster*       | b       | Den tjänst som påverkas av signaturen för delad åtkomst är *blob*-tjänsten. |
 
 Nu när signaturen för delad åtkomst genereras kopierar du det värde som returneras i konsolen till en textredigerare. Du ska använda det här värdet i ett kommande steg.
 
 > [!IMPORTANT]
-> Under produktionen ska du alltid skicka SAS-token med SSL. SAS-token bör dessutom genereras på servern och skickas till HTML-sidan för att återgå till Azure Blob Storage. En metod du kan överväga är att använda en serverlös funktion när du genererar SAS-tokenenheter. I Azure-portalen finns funktionsmallar som ger möjligheten att generera en SAS med en JavaScript-funktion.
+> Under produktionen ska du alltid skicka SAS-token med SSL. SAS-token bör dessutom genereras på servern och skickas till HTML-sidan för att återgå till Azure Blob Storage. En metod du kan överväga är att använda en serverlös funktion när du genererar SAS-tokens. I Azure-portalen finns funktionsmallar som ger möjligheten att generera en SAS med en JavaScript-funktion.
 
 ## <a name="implement-the-html-page"></a>Implementera HTML-sidan
 
@@ -145,7 +145,7 @@ Skapa en HTML-sida i roten på mappen *azure-blobs-javascript* och döp den till
 Sen här markeringen lägger till följande på sidan:
 
 - en referens till *scripts/azure-storage.blob.js*
-- knappar för att skapa en behållare, ladda upp, lista och ta bort blobar
+- knappar för att skapa en container, ladda upp, lista och ta bort blobar
 - ett *INPUT*-element (indata) som använd till att ladda upp en fil
 - en platshållare för lagringsspecifik kod
 
@@ -162,8 +162,8 @@ const blobUri = 'https://' + account.name + '.blob.core.windows.net';
 const blobService = AzureStorage.Blob.createBlobServiceWithSas(blobUri, account.sas);
 ```
 
-### <a name="create-a-blob-container"></a>Skapa en blobbehållare
-När du har skapat blobtjänsten kan du nu skapa en ny behållare där du kan lagra en uppladdad blob. Metoden [createContainerIfNotExists](https://azure.github.io/azure-storage-node/BlobService.html#createContainerIfNotExists__anchor) skapar en ny behållare och ger inget felmeddelande om behållaren redan finns.
+### <a name="create-a-blob-container"></a>Skapa en blobcontainer
+När du har skapat blobtjänsten kan du nu skapa en ny container där du kan lagra en uppladdad blob. Metoden [createContainerIfNotExists](https://azure.github.io/azure-storage-node/BlobService.html#createContainerIfNotExists__anchor) skapar en ny behållare och ger inget felmeddelande om behållaren redan finns.
 
 ```javascript
 document.getElementById('create-button').addEventListener('click', () => {
@@ -203,10 +203,10 @@ document.getElementById('upload-button').addEventListener('click', () => {
 });
 ```
 
-Metoden [createBlockBlobFromBrowserFile](https://azure.github.io/azure-storage-node/BlobService.html#createBlockBlobFromBrowserFile__anchor) använder webbläsarfilen direkt för att ladda upp till en blobbehållare.
+Metoden [createBlockBlobFromBrowserFile](https://azure.github.io/azure-storage-node/BlobService.html#createBlockBlobFromBrowserFile__anchor) använder webbläsarfilen direkt för att ladda upp till en blobcontainer.
 
 ### <a name="list-blobs"></a>Lista blobar
-När du har överfört en fil till blobbehållaren kommer du åt en lista över blobar i behållaren med hjälp av metoden [listBlobsSegmented](https://azure.github.io/azure-storage-node/BlobService.html#listBlobsSegmented__anchor).
+När du har överfört en fil till blobcontainern kommer du åt en lista över blobar i containern med hjälp av metoden [listBlobsSegmented](https://azure.github.io/azure-storage-node/BlobService.html#listBlobsSegmented__anchor).
 
 ```javascript
 document.getElementById('list-button').addEventListener('click', () => {
@@ -254,4 +254,4 @@ Om du vill rensa de resurser som skapades under den här snabbstarten öppnar du
 Titta på exemplen och lär dig hur du laddar ned blobar och rapporterar förlopp under filöverföringar.
 
 > [!div class="nextstepaction"]
-> [Klientbibliotek för bloblagring](https://github.com/Azure/azure-storage-node/tree/master/browser)
+> [Bloblagringsklientbibliotek](https://github.com/Azure/azure-storage-node/tree/master/browser)

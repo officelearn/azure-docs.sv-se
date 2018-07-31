@@ -12,19 +12,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/26/2017
+ms.date: 07/23/2018
 ms.author: barclayn
-ms.openlocfilehash: 1fd39cf6363cb028b2f933934c95ea2b635b754a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: b34b05ae86aed199d80a86c8e1a073cb54b5e75f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089313"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226721"
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
+
 Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Med Key Vault kan du kryptera nycklar och hemligheter (till exempel autentiseringsnycklar, lagringskontonycklar, datakrypteringsnycklar, PFX-filer och lösenord) med hjälp av nycklar som skyddas av maskinvarusäkerhetsmoduler (HSM). För ytterligare säkerhet kan du importera eller generera nycklar i HSM-moduler. Om du väljer att göra det bearbetar Microsoft dina nycklar i FIPS 140-2 Level 2-verifierade HSM-moduler (maskinvara och inbyggd programvara).  
 
 Key Vault förenklar nyckelhanteringen och låter dig behålla kontrollen över nycklar som kommer åt och krypterar data. Utvecklare kan skapa nycklar för utveckling och testning på några minuter och sedan sömlöst migrera dem till produktionsnycklar. Säkerhetsadministratörer kan bevilja (och återkalla) behörighet till nycklar efter behov.
+
+## <a name="basic-concepts"></a>Grundläggande begrepp
+
+Azure Key Vault är ett verktyg för att lagra och komma åt hemligheter på ett säkert sätt. En hemlighet är något som du vill begränsa åtkomst till, till exempel API-nycklar, lösenord eller certifikat.
+Här följer några viktiga begrepp:
+- **Klientorganisation** – en klientorganisation är den organisation som äger och hanterar en specifik instans av Microsoft-molntjänster. Den används oftast på ett exakt sätt för att referera till uppsättningen med Azure- och Office 365-tjänster för en organisation
+- **Valvägare** – kan skapa ett nyckelvalv och får fullständig åtkomst och kontroll över det. Valvägaren kan även konfigurera granskning för att logga vem som kommer åt hemligheter och nycklar. Administratörer kan styra nyckelns livscykel. De kan distribuera till en ny version av nyckeln, säkerhetskopiera den osv.
+- **Valvkonsument** – kan utföra åtgärder på tillgångarna i nyckelvalvet när valvägaren ger personen åtkomst som är beroende av de behörigheter som beviljas.
+- **[Azure Active Directory](../active-directory/active-directory-whatis.md)** är Azure AD-tjänsten för en viss klientorganisation. Varje katalog har en eller flera domäner. En katalog kan ha många prenumerationer som är associerade med den, men endast en klientorganisation. 
+- **Azure-klientorganisations-ID** – detta är ett unikt sätt att identifiera en Azure Active Directory inom en Azure-prenumeration. 
+- **Hanterad tjänstidentitet** – Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. Hanterad tjänstidentitet (MSI) löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till Key Vault eller alla tjänster som stöder Azure AD-autentisering utan att behöva ha några autentiseringsuppgifter i koden. Läs mer om MSI [här](../active-directory/managed-service-identity/overview.md)
+
+## <a name="key-vault-roles"></a>Nyckelvalvroller
 
 Använd följande tabell för att bättre förstå hur Key Vault kan hjälpa utvecklare och säkerhetsadministratörer.
 
@@ -49,6 +63,7 @@ Administratören kan sedan ge utvecklare URI:er som de kan anropa från sina pro
 Utvecklare kan också hantera nycklar direkt, med hjälp av API:er. Mer information finns i [guiden för Key Vault-utvecklare](key-vault-developers-guide.md).
 
 ## <a name="next-steps"></a>Nästa steg
+
 En Komma igång-självstudiekurs för administratörer finns i [Komma igång med Azure Key Vault](key-vault-get-started.md).
 
 Mer information om av användningsloggning för Key Vault finns i avsnittet om [Azure Key Vault-loggning](key-vault-logging.md).

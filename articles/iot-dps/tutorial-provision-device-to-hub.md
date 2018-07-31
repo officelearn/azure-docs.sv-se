@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 453159e51473b76d8a95b98237796ac490f8ed6a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c4355d6bebe00650a6fb4e2f2a6e400be30722b2
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630144"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145136"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Etablera enheten till en IoT-hubb med tjänsten Azure IoT Hub Device Provisioning
 
@@ -49,7 +49,7 @@ I det här steget ska du lägga till enhetens unika säkerhetsartefakter till en
 
 Det finns två sätt att registrera enheten till enhetsetableringstjänsten:
 
-- **Registreringsgrupper** Det här representerar en grupp med enheter som delar en specifik attesteringsmekanism. Vi rekommenderar att du använder en registreringsgrupp för ett stort antal enheter som delar en önskad inledande konfiguration, eller för enheter som ska till samma klient.
+- **Registreringsgrupper** Det här representerar en grupp med enheter som delar en specifik attesteringsmekanism. Vi rekommenderar att du använder en registreringsgrupp för ett stort antal enheter som delar en önskad inledande konfiguration, eller för enheter som ska till samma klient. Mer information om identitetsattestering för registreringsgrupper finns i [Säkerhet](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
     [![Lägga till gruppregistrering för X.509-attestering i portalen](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 
@@ -67,26 +67,29 @@ Nu registrerar du enheten med enhetsetableringstjänstens instans, med de säker
 
 Efter registreringen väntar etableringstjänsten tills enheten har startats och ansluter till den vid en senare tidpunkt. När enheten startar för första gången interagerar klient-SDK-biblioteket med din krets för att extrahera säkerhetsuppgifter från enheten och verifierar registreringen med enhetsetableringstjänsten. 
 
-## <a name="start-the-device"></a>Starta enheten
+## <a name="start-the-iot-device"></a>Starta IoT-enheten
 
-Följande inställningar är nu klara för registrering av enheten:
+IoT-enheten kan vara en riktig enhet eller en simulerad enhet. Eftersom IoT-enheten nu har registrerats med en instans av enhetsetableringstjänsten kan enheten nu starta och anropa etableringstjänsten för att identifieras med hjälp av attesteringsmetoden. När etableringstjänsten har identifierat enheten tilldelas den till en IoT-hubb. 
 
-1. Din enhet eller enhetsgrupp har registrerats till enhetsetableringstjänsten, och 
-2. Din enhet är klar och har konfigurerade attesteringsmekanismer och är åtkomlig via programmet med klient-SDK:n för enhetsetableringstjänsten.
+Exempel av simulerade enheter, med både TPM- och X.509-attestering, ingår för C, Java, C#, Node.js och Python. Till exempel skulle en simulerad enhet med TPM och [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) följa den process som beskrivs i avsnittet om att [simulera den första startsekvensen för en enhet](quick-create-simulated-device.md#simulate-first-boot-sequence-for-the-device). För samma enhet som använder X.509-certifikatattestering skulle det här avsnittet om [startsekvens](quick-create-simulated-device-x509.md#simulate-first-boot-sequence-for-the-device) gälla.
 
-Starta enheten för att låta klientprogrammet starta registreringen med din enhetsetableringstjänst.  
+Se [instruktionsguiden för MXChip Iot DevKit](how-to-connect-mxchip-iot-devkit.md) för ett exempel på en riktig enhet.
+
+Starta enheten för att låta enhetens klientprogram starta registreringen med din enhetsetableringstjänst.  
 
 ## <a name="verify-the-device-is-registered"></a>Kontrollera att enheten är registrerad
 
-När enheten startar ska följande åtgärder utföras. Se exemplet på TPM-simulatorprogrammet [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) för mer information. 
+När enheten startar ska följande åtgärder utföras:
 
 1. Enheten skickar en registreringsbegäran till enhetsetableringstjänsten.
 2. För TPM-enheten skickar enhetsetableringstjänsten tillbaka en registreringskontroll som enheten svarar på. 
 3. Om registringen har lyckats skickar enhetsetableringstjänsten tillbaka IoT-hubbens URI, enhets-ID och den krypterade nyckeln till enheten. 
 4. IoT Hub-klientprogrammet på enheten ansluter därefter till hubben. 
-5. Om anslutningen till hubben lyckas ska du se enheten i IoT-hubbens **Device Explorer**. 
+5. Om anslutningen till hubben lyckas bör enheten visas i IoT-hubbens utforskare för **IoT-enheter**. 
 
     ![Lyckad anslutning till hubben i portalen](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
+
+Mer information finns i exempelprogrammet för TPM-simulator [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c). 
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen lärde du dig att:

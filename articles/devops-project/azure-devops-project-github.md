@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 8c92b45cd3949e56515286c963b035e3c449835b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 192992917432a64c2f9f81761e22bf7d9205703a
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967449"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205569"
 ---
 # <a name="create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Skapa en CI/CD-pipeline för din befintliga kod med Azure DevOps-projektet
 
@@ -89,23 +89,23 @@ Nu är du redo att samarbeta med ett team på din app med en CI/CD-process som a
 
 Azure DevOps-projektet konfigurerade automatiskt en fullständig VSTS-CI/CD-pipeline i VSTS-kontot.  Utforska och anpassa pipelinen efter behov.  Följ stegen nedan för att bekanta dig med VSTS-versionen och versionsdefinitioner.
 
-1. Välj **Skapa pipelines** från **längst upp** på instrumentpanelen för Azure DevOps-projektet.  Den här länken öppnar en flik i webbläsaren och öppnar VSTS versionsdefinition för det nya projektet.
+1. Välj **Skapa pipelines** **längst upp** på instrumentpanelen för Azure DevOps-projektet.  Den här länken öppnar en flik i webbläsaren och öppnar VSTS-versionsdefinitionen för det nya projektet.
 
-1. Flytta markören till höger om versionsdefinition bredvid fältet **Status**. Välj **ellipsen** som visas.  Den här åtgärden öppnar en meny där du kan starta flera aktiviteter, till exempel att lägga till en ny version i en kö, pausa en version och redigera versionsdefinitionen.
+1. Flytta markören till höger om versionsdefinition bredvid fältet **Status**. Välj den **ellips** som visas.  Den här åtgärden öppnar en meny där du kan starta flera aktiviteter, till exempel att lägga till en ny version i en kö, pausa en version och redigera versionsdefinitionen.
 
 1. Välj **Redigera**.
 
-1. **Granska de olika uppgifterna** för versionsdefinition från den här vyn.  Versionen utför olika uppgifter som att hämta källor från Git-lagringsplatsen, återställa beroenden och publicera utdata för distributioner.
+1. Från den här vyn **granskar du de olika uppgifterna** för versionsdefinitionen.  Versionen utför olika uppgifter som att hämta källor från Git-lagringsplatsen, återställa beroenden och publicera utdata för distributioner.
 
 1. Längst upp i versionsdefinitionen väljer du **build definition name** (namn på versionsdefinitionen).
 
-1. Ändra **namnet** på din versionsdefinition till något mer beskrivande.  Välj **Save & queue** (Spara och köa) och välj sedan **spara**.
+1. Ändra **namnet** på din versionsdefinition till något mer beskrivande.  Välj **Save & queue** (Spara och köa) och välj sedan **Spara**.
 
-1. Under ditt versionsdefinitionsnamn väljer du **historik**.  Du kan se en spårningslogg över de senaste ändringarna för versionen.  VSTS spårar alla ändringar som görs på versionsdefinition vilket gör att du kan jämföra versioner.
+1. Under ditt versionsdefinitionsnamn väljer du **Historik**.  Du kan se en spårningslogg över de senaste ändringarna för versionen.  VSTS spårar alla ändringar som görs på versionsdefinition, vilket gör att du kan jämföra versioner.
 
-1. Välj **utlösare**.  Azure DevOps-projektet skapade automatiskt en CI-utlösare och varje incheckning till lagringsplatsen startar en ny version.  Du kan välja att inkludera eller exkludera grenar från CI-processen.
+1. Välj **Utlösare**.  Azure DevOps-projektet skapade automatiskt en CI-utlösare, och varje incheckning till lagringsplatsen startar en ny version.  Du kan välja att inkludera eller exkludera grenar från CI-processen.
 
-1. Välj **kvarhållning**.  Du kan ange principer för att behålla eller ta bort ett visst antal versioner baserat på ditt scenario.
+1. Välj **Kvarhållning**.  Baserat på ditt scenario kan du ange principer för att behålla eller ta bort ett visst antal versioner.
 
 1. Välj **Build and Release** (Build-versioner och versioner) och sedan **Versioner**.  Azure DevOps-projektet skapade en VSTS-versionsdefinition för att hantera distributioner till Azure.
 
@@ -141,8 +141,8 @@ Med Azure Application Insights kan du enkelt övervaka ett programs prestanda oc
 
 1. Ange ett **namn** för aviseringen.
 
-1. Välj listrutan för **Source Alter on** (Ändring av källa: På).  Välj din **App Service-resurs**.
-
+1. Välj listrutan för **Source Alter on** (Ändring av källa: På).  Välj din **App Service-resurs.**
+<!-- Could you please confirm if this should be "Source Alter on" instead of "Source Alert on"? -->
 1. Standardaviseringen är för en **serversvarstid som är större än 1 sekund**.  Välj listrutan **Statistik** för att undersöka statistik om aviseringar.  Du kan enkelt konfigurera en mängd olika aviseringar för att förbättra övervakningsfunktionerna i din app.
 
 1. Välj kryssrutan för att **meddela e-postägare, deltagare och läsare**.  Alternativt kan du utföra ytterligare åtgärder när en avisering utlöses genom att köra Azure-logikapp.

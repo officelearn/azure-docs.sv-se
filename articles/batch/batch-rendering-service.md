@@ -8,18 +8,18 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: f07b3ce85641f34462c97d16bbed8cf9e2e50652
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: cdec9c29d7f4f2832e175153ec50e400a735211a
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114549"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172280"
 ---
 # <a name="get-started-with-batch-rendering"></a>Kom igång med Batch Rendering 
 
 Med Azure Batch Rendering får du renderingsfunktioner i molnskala med betalning per användning. Batch Rendering hanterar jobbschemaläggning och jobbköer, med funktioner för felhantering, omförsök och automatisk skalning för renderingsjobb. Batch Rendering har stöd för renderingsappar som [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) och [V-Ray](https://www.chaosgroup.com/vray/maya). Med Batch-plugin-programmet för Maya 2017 kan du enkelt starta ett renderingsjobb i Azure direkt från skrivbordet.
 
-Med Maya och 3ds Max kan du köra jobb med datorprogrammet [BatchLabs](https://github.com/Azure/BatchLabs) eller [CLI för Batch-mallar](batch-cli-templates.md). Med Azure Batch CLI kan du köra Batch-jobb utan att skriva kod. Istället kan du använda mallfilerna för att skapa Batch-pooler, -jobb och -uppgifter. Mer information finns i [Använda Azure Batch CLI-mallar och filöverföring](batch-cli-templates.md).
+Med Maya och 3ds Max kan du köra jobb med skrivbordsprogrammet [Batch Explorer](https://github.com/Azure/BatchExplorer) eller [CLI för Batch-mallar](batch-cli-templates.md). Med Azure Batch CLI kan du köra Batch-jobb utan att skriva kod. Istället kan du använda mallfilerna för att skapa Batch-pooler, -jobb och -uppgifter. Mer information finns i [Använda Azure Batch CLI-mallar och filöverföring](batch-cli-templates.md).
 
 
 ## <a name="supported-applications"></a>Program som stöds
@@ -55,7 +55,7 @@ Om du vill använda Batch Rendering behöver du:
 - **Azure Batch-konto.** Anvisningar för hur du skapar ett Batch-konto på Azure-portalen finns i [Skapa ett Batch-konto med Azure-portalen](batch-account-create-portal.md).
 - **Azure Storage-konto.** De resurser som används för dina återgivningsjobb lagras vanligtvis i Azure Storage. Du kan skapa ett lagringskonto automatiskt när du skapar ditt Batch-konto. Du kan också använda ett befintligt lagringskonto. För olika alternativ för lagringskonton, se [Översikt över Batch-funktionen](batch-api-basics.md#azure-storage-account).
 - **Miljövariabler.** Om din lösning ändrar miljövariabler kontrollerar du att värdena för `AZ_BATCH_ACCOUNT_URL` och `AZ_BATCH_SOFTWARE_ENTITLEMENT_TOKEN` hålls intakta och tillgängliga när något av ovanstående licensierade program anropas. Annars är det troligt att det uppstår aktiveringsproblem med programvaran.
-- **BatchLabs** (valfritt). [BatchLabs](https://azure.github.io/BatchLabs) är ett kostnadsfritt, fristående klientverktyg med omfattande funktioner för att skapa, felsöka och övervaka Azure Batch-program. Även om det inte krävs för att använda renderingstjänsten så är det användbart för att utveckla och felsöka dina Batch-lösningar.
+- **Batch Explorer** (valfritt). [Batch Explorer](https://azure.github.io/BatchExplorer) (hette förut BatchLabs) är ett kostnadsfritt, fristående klientverktyg med omfattande funktioner för att skapa, felsöka och övervaka Azure Batch-program. Även om det inte krävs för att använda renderingstjänsten så är det användbart för att utveckla och felsöka dina Batch-lösningar.
 
 För att använda Batch-plugin-programmet för Maya behöver du:
 
@@ -76,7 +76,7 @@ Mer information om Batch-pooler och beräkningsnoder finns i avsnitten [Pool](ba
 
 Ett Batch-**jobb** är en samling uppgifter som körs på beräkningsnoderna i en pool. När du skickar ett renderingsjobb delar Batch upp jobbet i olika uppgifter och distribuerar uppgifterna till beräkningsnoderna i poolen som ska köra dem.
 
-Från [Azure Portal](https://ms.portal.azure.com/) kan du övervaka jobb och diagnostisera uppgifter som misslyckats genom att hämta programloggarna och genom att fjärransluta till enskilda virtuella datorer med RDP eller SSH. Du kan också hantera, övervaka och felsöka med hjälp av [BatchLabs-verktyget](https://azure.github.io/BatchLabs).
+Från [Azure Portal](https://ms.portal.azure.com/) kan du övervaka jobb och diagnostisera uppgifter som misslyckats genom att hämta programloggarna och genom att fjärransluta till enskilda virtuella datorer med RDP eller SSH. Du kan även hantera, övervaka och felsöka med hjälp av [Batch Explorer-verktyget](https://azure.github.io/BatchExplorer).
 
 Mer information om Batch-jobb finns i avsnittet [Jobb](batch-api-basics.md#job) i [Utveckla storskaliga parallella beräkningslösningar med Batch](batch-api-basics.md).
 
@@ -86,9 +86,9 @@ Flera program kan krävas för att återge ett jobb, t.ex. en kombination av May
 
 ### <a name="pre-configured-vm-images"></a>Förkonfigurerade VM-avbildningar
 
-Azure tillhandahåller Windows- och Linux-avbildningar med en förinstallerad version av Maya 3ds Max och Arnold V-Ray som är klar att användas. Du kan välja de här avbildningarna i [Azure Portal](https://portal.azure.com), Maya-plugin-programmet eller [BatchLabs](https://azure.github.io/BatchLabs) när du skapar en pool.
+Azure tillhandahåller Windows- och Linux-avbildningar med en förinstallerad version av Maya 3ds Max och Arnold V-Ray som är klar att användas. Du kan välja de här avbildningarna på [Azure-portalen](https://portal.azure.com), Maya-plugin-programmet eller [Batch Explorer](https://azure.github.io/BatchExplorer) när du skapar en pool.
 
-I Azure Portal och i BatchLabs kan du installera någon av VM-avbildningarna med de förinstallerade programmen enligt följande: I avsnittet pooler på ditt Batch-konto väljer du **nytt** och i **lägg till pool** väljer du **grafik och rendering (Linux/Windows)** från listrutan **avbildningstyp**:
+På Azure Portal och i Batch Explorer kan du installera någon av VM-avbildningarna med de förinstallerade programmen enligt följande: I avsnittet Pooler i dit Batch-konto väljer du **Nytt**, och i **Lägg till pool** väljer du **Grafik och återgivning (Linux/Windows)** från listrutan **Avbildningstyp**:
 
 ![Välj avbildningstyp för Batch-kontot](./media/batch-rendering-service/add-pool.png)
 
@@ -111,17 +111,17 @@ Beroende på vilket 3D-program du använder finns det olika alternativ för att 
 Med Maya kan du använda:
 
 - [Batch-plugin-programmet för Maya](https://docs.microsoft.com/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
-- [BatchLabs](https://azure.github.io/BatchLabs)-datorprogrammet
+- Skrivbordsprogrammet [Batch Explorer](https://azure.github.io/BatchExplorer)
 - [CLI för Batch-mallar](batch-cli-templates.md)
 
 ### <a name="3ds-max"></a>3ds Max
 
 Med 3ds Max kan du använda:
 
-- [BatchLabs](https://azure.github.io/BatchLabs)-datorprogrammet (se [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) för hjälp med att använda 3ds Max BatchLabs-mallar)
+- Skrivbordsprogrammet [Batch Explorer](https://azure.github.io/BatchExplorer) (se [BatchExplorer-data](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/3dsmax) för hjälp med att använda 3ds Max-mallar)
 - [CLI för Batch-mallar](batch-cli-templates.md)
 
-Med 3ds Max Batch Labs-mallar kan du återge VRay- och Arnold-bakgrunder med Batch Rendering. Det finns två varianter av mallen för VRay och Arnold, en för standardbakgrunder och en för mer komplexa bakgrunder som kräver en 3ds Max-sökvägsfil till tillgångar och strukturer (.mxp-fil). Mer information om 3ds Max BatchLabs-mallar finns i lagringsplatsen [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) på GitHub.
+Med 3ds Max Batch Labs-mallar kan du återge VRay- och Arnold-bakgrunder med Batch Rendering. Det finns två varianter av mallen för VRay och Arnold, en för standardbakgrunder och en för mer komplexa bakgrunder som kräver en 3ds Max-sökvägsfil till tillgångar och strukturer (.mxp-fil). Mer information om 3ds Max-mallar finns i lagringsplatsen [BatchExplorer-data](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/3dsmax) på GitHub.
 
 Du kan också använda [Batch Python SDK](/python/api/overview/azure/batch) för att integrera renderingen med din befintliga pipeline.
 

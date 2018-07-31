@@ -1,54 +1,64 @@
 ---
-title: "Översikt över Azure DNS | Microsoft Docs"
-description: "Översikt över DNS-värdtjänsten på Microsoft Azure. Värd för din domän i Microsoft Azure."
-services: dns
-documentationcenter: na
-author: KumudD
+title: Vad är Azure DNS?
+description: Översikt över DNS-värdtjänst på Microsoft Azure. Värd för din domän på Microsoft Azure.
+author: vhorne
 manager: jeconnoc
-editor: 
-ms.assetid: 68747a0d-b358-4b8e-b5e2-e2570745ec3f
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/18/2017
-ms.author: kumud
-ms.openlocfilehash: f255fd9621ff90bfbb3ad193faa64495acf7ecd7
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.topic: overview
+ms.date: 6/7/2018
+ms.author: victorh
+ms.openlocfilehash: e95617664ee30f1b9253f1892176fd39649ee2c2
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174640"
 ---
-# <a name="azure-dns-overview"></a>Översikt över Azure DNS
+# <a name="what-is-azure-dns"></a>Vad är Azure DNS?
 
-Domain Name System- eller DNS, ansvarar för att översätta (eller lösa) en webbplats eller tjänst namn till dess IP-adress. Azure DNS är värdtjänsten för DNS-domäner som tillhandahåller namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster. Azure DNS stöder nu också privata DNS-domäner. Mer information finns i [med hjälp av Azure DNS för privata domäner](private-dns-overview.md).
+Azure DNS är en värdtjänst för DNS-domäner som ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster.
 
-![Översikt över DNS](./media/dns-overview/scenario.png)
+Du kan inte använda Azure DNS för att köpa ett domännamn. För en årlig avgift kan du köpa ett domännamn med hjälp av [Azure Web Apps](https://docs.microsoft.com/en-us/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) eller en domännamnsregistrator från tredje part. Dina domäner kan sedan hanteras i Azure DNS för posthantering. Mer information finns i [Delegera en domän till Azure DNS](dns-domain-delegation.md).
 
-## <a name="features"></a>Funktioner
+Följande funktioner ingår med Azure DNS:
 
-* **Tillförlitlighet och prestanda** -DNS-domäner i Azure DNS finns på Azures globalt nätverk av DNS-namnservrar. Azure DNS använder Anycast nätverk så att varje DNS-frågan besvaras närmaste tillgängliga DNS-servern. Detta ger både snabb prestanda och hög tillgänglighet för din domän.
+## <a name="reliability-and-performance"></a>Tillförlitlighet och prestanda
 
-* **Sömlös integration** -Azure DNS-tjänsten kan användas för att hantera DNS-posterna för din Azure-tjänster och kan användas för att tillhandahålla DNS för din externa resurser. Azure DNS är integrerat i Azure-portalen och använder samma autentiseringsuppgifter, fakturering och support-kontrakt som andra Azure-tjänster.
+DNS-domäner i Azure DNS finns på Azures globala nätverk med DNS-namnservrar. Azure DNS använder anycast-nätverk så att varje DNS-fråga besvaras av den närmast tillgängliga DNS-servern. Detta ger både snabb prestanda och hög tillgänglighet för din domän.
 
-* **Säkerhet** -Azure DNS-tjänsten är baserad på Azure Resource Manager. Därför fördelar från Resource Manager-funktioner, till exempel rollbaserad åtkomstkontroll, granskningsloggar och låsa resurs. Dina domäner och poster kan hanteras via Azure-portalen, Azure PowerShell-cmdlets och plattformsoberoende Azure CLI. Program som kräver automatisk DNS-hantering kan integreras med via REST-API och SDK-tjänsten.
+## <a name="security"></a>Säkerhet
 
-Azure DNS stöder för närvarande inte köp av domännamn. Om du vill köpa domäner måste du använda en tredje parts domännamnsregistratorn. Registratorn debiterar vanligtvis en liten årlig avgift. Domänerna kan finnas i Azure DNS för för hantering av DNS-poster. Se [delegera en domän till Azure DNS](dns-domain-delegation.md) mer information.
+Azure DNS-tjänsten bygger på Azure Resource Manager. Därmed får du Resource Manager-funktioner som:
 
-## <a name="pricing"></a>Prissättning
+* [rollbaserad åtkomstkontroll](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#access-control) – för att kontrollera vem som har åtkomst till specifika åtgärder för din organisation.
 
-DNS-fakturering baseras på antalet DNS-zoner i Azure och av antal DNS-frågor. Mer information om priser finns [priser för Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
+* [aktivitetsloggar](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#activity-logs) – för att övervaka hur en användare i organisationen ändrar en resurs eller hitta ett fel vid felsökning.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+* [resurslåsning](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources) – för att låsa en prenumeration, resursgrupp eller resurs för att förhindra att andra användare i organisationen av misstag tar bort eller ändrar viktiga resurser.
 
-Vanliga frågor och svar om Azure DNS, finns det [Azure DNS vanliga frågor om](dns-faq.md).
+Mer information finns i [Så skyddar du DNS-zoner och -poster](dns-protect-zones-recordsets.md). 
+
+
+## <a name="ease-of-use"></a>Användbarhet
+
+Azure DNS-tjänsten kan hantera DNS-poster för dina Azure-tjänster och kan även tillhandahålla DNS för din externa resurser. Azure DNS är integrerat i Azure-portalen och använder samma autentiseringsuppgifter, supportkontrakt och fakturering som dina andra Azure-tjänster. 
+
+DNS-debitering baseras på det antal DNS-zoner som tillhandahålls i Azure och på antalet DNS-frågor. Mer information om prissättning finns på sidan om [prisinformation för Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
+
+Dina domäner och poster kan hanteras med hjälp av Azure-portalen, Azure PowerShell-cmdlets och plattformsoberoende Azure CLI. Program som kräver automatisk DNS-hantering kan integreras med tjänsten med hjälp av REST API och SDK:er.
+
+## <a name="customizable-virtual-networks-with-private-domains"></a>Anpassningsbara virtuella nätverk med privata domäner
+
+Azure DNS stöder även privata DNS-zoner, som för närvarande är i förhandsversion. På så sätt kan du använda dina egna anpassade domännamn i dina privata virtuella nätverk i stället för de namn som tillhandahålls av Azure och är tillgängliga i dag.
+
+Mer information finns på sidan om att [använda Azure DNS för privata domäner](private-dns-overview.md).
+
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om DNS-zoner och poster genom att besöka: [DNS-zoner och innehåller en översikt över](dns-zones-records.md).
+* Läs mer om DNS-zoner och poster: [översikt över DNS-zoner och poster](dns-zones-records.md).
 
-Lär dig hur du [skapa en DNS-zon](./dns-getstarted-create-dnszone-portal.md) i Azure DNS.
+* Lär dig hur du skapar en zon i Azure DNS: [Skapa en DNS-zon](./dns-getstarted-create-dnszone-portal.md).
 
-Lär dig mer om de andra viktiga [nätverksfunktionerna](../networking/networking-overview.md) i Azure.
+* Vanliga frågor om Azure DNS finns i [vanliga frågor och svar för Azure DNS](dns-faq.md).
 

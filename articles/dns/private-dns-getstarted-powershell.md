@@ -1,177 +1,214 @@
 ---
-title: Komma igång med privata Azure DNS-zoner med PowerShell | Microsoft Docs
-description: Läs om hur du skapar en privat DNS-zon och en DNS-post i Azure DNS. Det här är en steg-för-steg-guide om hur du skapar och hanterar din första privata DNS-zon och DNS-post med PowerShell.
+title: Självstudie – Skapa en privat Azure DNS-zon med hjälp av Azure PowerShell
+description: I den här självstudien skapar och testar du en privat DNS-zon och post i Azure DNS. Det här är en steg-för-steg-guide om hur du skapar och hanterar din första privata DNS-zon och DNS-post med Azure PowerShell.
 services: dns
-documentationcenter: na
-author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: vhorne
 ms.service: dns
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/20/2017
-ms.author: kumud
-ms.openlocfilehash: d9e5c9b8caa5349fbcda9b71f7524fb9e99b976c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.topic: tutorial
+ms.date: 7/24/2018
+ms.author: victorh
+ms.openlocfilehash: 872227e0521bd54e6bf7fdbe3626dfca34170863
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30177662"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257733"
 ---
-# <a name="get-started-with-azure-dns-private-zones-using-powershell"></a>Komma igång med privata Azure DNS-zoner med PowerShell
+# <a name="tutorial-create-an-azure-dns-private-zone-using-azure-powershell"></a>Självstudie: Skapa en privat Azure DNS-zon med hjälp av Azure PowerShell
 
-Den här artikeln visar hur du skapar din första privata DNS-zon och DNS-post med Azure PowerShell.
+Den här självstudien visar hur du skapar din första privata DNS-zon och DNS-post med Azure PowerShell.
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
-En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  Vi kallar dessa ”virtuella lösningsnätverk”.  Du kan även ange ett virtuellt nätverk där Azure DNS ska bibehålla värddatorposter varje gång en virtuell dator skapas, ändrar IP-adress eller förstörs.  Vi kallar detta ett ”virtuellt registreringsnätverk”.
+En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  De här kallas *virtuella lösningsnätverk*. Du kan även ange ett virtuellt nätverk där Azure DNS ska bibehålla värddatorposter varje gång en virtuell dator skapas, ändrar IP-adress eller tas bort.  Det här kallas *virtuellt registreringsnätverk*.
 
-# <a name="get-the-preview-powershell-modules"></a>Hämta förhandsversionen av PowerShell-modulen
-Dessa instruktioner förutsätter att du redan har installerat och loggat in på Azure PowerShell, och även försäkrat dig om att du har de moduler som krävs för privatzonsfunktionen. 
+I den här guiden får du lära dig att:
 
-[!INCLUDE [dns-powershell-setup](../../includes/dns-powershell-setup-include.md)]
+> [!div class="checklist"]
+> * Skapa en privat DNS-zon
+> * Skapa virtuella testdatorer
+> * Skapa en ytterligare DNS-post
+> * Testa den privata zonen
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+Om du vill kan du slutföra den här självstudiekursen med [Azure CLI](private-dns-getstarted-cli.md).
+
+<!--- ## Get the Preview PowerShell modules
+These instructions assume you have already installed and signed in to Azure PowerShell, including ensuring you have the required modules for the Private Zone feature. -->
+
+<!---[!INCLUDE [dns-powershell-setup](../../includes/dns-powershell-setup-include.md)] -->
+
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 ## <a name="create-the-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp som ska innehålla DNS-zonen innan du skapar DNS-zonen. Kommandot visas i följande exempel.
+Först skapar du en resursgrupp som ska innehålla DNS-zonen: 
 
-```powershell
-New-AzureRMResourceGroup -name MyResourceGroup -location "westus"
+```azurepowershell
+New-AzureRMResourceGroup -name MyAzureResourceGroup -location "eastus"
 ```
 
 ## <a name="create-a-dns-private-zone"></a>Skapa en privat DNS-zon
 
-Du skapar en DNS-zon med hjälp av `New-AzureRmDnsZone` -cmdleten tillsammans med värdet ”Private” för parametern ZoneType. I följande exempel skapas en DNS-zon med namnet *contoso.local* i resursgruppen som heter *MyResourceGroup* och det gör DNS-zonen tillgänglig för det virtuella nätverket som heter *MyAzureVnet*. Använd exemplet när du vill skapa en DNS-zon, och ersätt värdena med dina egna.
+Du skapar en DNS-zon med hjälp av `New-AzureRmDnsZone` -cmdleten med värdet *Private* för parametern **ZoneType**. I följande exempel skapas en DNS-zon med namnet **contoso.local** i resursgruppen som heter **MyAzureResourceGroup** och det gör DNS-zonen tillgänglig för det virtuella nätverket som heter **MyAzureVnet**.
 
-Observera att om ZoneType-parametern utelämnas skapas zonen som en offentlig zon. Med andra ord krävs den om du vill skapa en privat zon. 
+Om parametern **ZoneType** utelämnas skapas zonen som en offentlig zon. Med andra ord krävs den om du vill skapa en privat zon. 
 
-```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name MyAzureVnet -ResourceGroupName VnetResourceGroup
-New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup -ZoneType Private -ResolutionVirtualNetworkId @($vnet.Id)
+```azurepowershell
+$backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName MyAzureResourceGroup `
+  -Location eastus `
+  -Name myAzureVNet `
+  -AddressPrefix 10.2.0.0/16 `
+  -Subnet $backendSubnet
+
+New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup `
+   -ZoneType Private `
+   -RegistrationVirtualNetworkId @($vnet.Id)
 ```
 
-Om du vill att Azure ska skapa värdnamnsposter i zonen automatiskt använder du parametern *RegistrationVirtualNetworkId* i stället för *ResolutionVirtualNetworkId*.  Registrering av virtuella nätverk är automatiskt aktiverad för lösning.
+Om du vill skapa en zon bara för namnmatchning (ingen automatisk generering av värddatornamn) använder du parametern *ResolutionVirtualNetworkId* i stället för parametern *RegistrationVirtualNetworkId*.
 
-```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name MyAzureVnet -ResourceGroupName VnetResourceGroup
-New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup -ZoneType Private -RegistrationVirtualNetworkId @($vnet.Id)
-```
+> [!NOTE]
+> Du kommer inte att kunna se de automatiskt skapade posterna för värddatornamn. Senare kommer du dock att testa för att säkerställa att de finns.
 
-## <a name="create-a-dns-record"></a>Skapa en DNS-post
-
-Du skapar postuppsättningar med hjälp av cmdleten `New-AzureRmDnsRecordSet`. I följande exempel skapas en post med det relativa namnet "db" i resursgruppen "MyResourceGroup" i DNS-zonen "contoso.local". Postuppsättningens fullständigt kvalificerade namn är ”db.contoso.local”. Posttypen är ”A” , IP-adressen är 10.0.0.4 och TTL är 3600 sekunder.
-
-```powershell
-New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "10.0.0.4")
-```
-
-Information om andra posttyper, postuppsättningar med fler än en post och ändring av befintliga poster finns i [Hantera DNS-poster och postuppsättningar med Azure PowerShell](dns-operations-recordsets.md). 
-
-## <a name="view-records"></a>Visa poster
-
-Om du vill visa en lista med DNS-poster i din zon använder du:
-
-```powershell
-Get-AzureRmDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyResourceGroup
-```
-
-# <a name="list-dns-private-zones"></a>Lista privata DNS-zoner
+### <a name="list-dns-private-zones"></a>Lista privata DNS-zoner
 
 Genom att utelämna zonnamnet från `Get-AzureRmDnsZone` kan du räkna upp alla zoner i en resursgrupp. Den här åtgärden returnerar en matris med zonobjekt.
 
-```powershell
-$zoneList = Get-AzureRmDnsZone -ResourceGroupName MyAzureResourceGroup
+```azurepowershell
+Get-AzureRmDnsZone -ResourceGroupName MyAzureResourceGroup
 ```
 
 Genom att utelämna både zonnamnet och resursgruppsnamnet från `Get-AzureRmDnsZone` kan du räkna upp alla zoner i Azure-prenumerationen.
 
-```powershell
-$zoneList = Get-AzureRmDnsZone
+```azurepowershell
+Get-AzureRmDnsZone
 ```
 
-## <a name="update-a-dns-private-zone"></a>Uppdatera en privat DNS-zon
+## <a name="create-the-test-virtual-machines"></a>Skapa de virtuella testdatorerna
 
-Du kan göra ändringar i en DNS-zonresurs med `Set-AzureRmDnsZone`. Den här cmdleten uppdaterar inte någon av DNS-postuppsättningarna i zonen (mer information finns i [Hantera DNS-poster](dns-operations-recordsets.md)). Den används endast för att uppdatera zonresursens egenskaper. De skrivbara zonegenskaperna är för tillfället begränsade till [Azure Resource Manager-taggar för zonresursen](dns-zones-records.md#tags) liksom parametrarna RegistrationVirtualNetworkId och ResolutionVirtualNetworkId för privata zoner.
+Nu skapar du två virtuella datorer så att du kan testa din privata DNS-zon:
 
-Exemplet nedan ersätter det virtuella nätverk för registrering som är länkat till en zon med ett nytt MyNewAzureVnet.
+```azurepowershell
+New-AzureRmVm `
+    -ResourceGroupName "myAzureResourceGroup" `
+    -Name "myVM01" `
+    -Location "East US" `
+    -subnetname backendSubnet `
+    -VirtualNetworkName "myAzureVnet" `
+    -addressprefix 10.2.0.0/24 `
+    -OpenPorts 3389
 
-Observera att du inte behöver ange parametern ZoneType vid uppdatering, till skillnad från när du skapar nytt. 
-
-```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name MyNewAzureVnet -ResourceGroupName MyResourceGroup
-Set-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup -RegistrationVirtualNetworkId @($vnet.Id)
+New-AzureRmVm `
+    -ResourceGroupName "myAzureResourceGroup" `
+    -Name "myVM02" `
+    -Location "East US" `
+    -subnetname backendSubnet `
+    -VirtualNetworkName "myAzureVnet" `
+    -addressprefix 10.2.0.0/24 `
+    -OpenPorts 3389
 ```
 
-Exemplet nedan ersätter det virtuella lösningsnätverk som är länkat till en zon med ett nytt, som heter MyNewAzureVnet.
+Det här kan ta några minuter.
 
-```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name MyNewAzureVnet -ResourceGroupName MyResourceGroup
-Set-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup -ResolutionVirtualNetworkId @($vnet.Id)
+## <a name="create-an-additional-dns-record"></a>Skapa en ytterligare DNS-post
+
+Du skapar postuppsättningar med hjälp av cmdleten `New-AzureRmDnsRecordSet`. I följande exempel skapas en post med det relativa namnet **db** i DNS-zonen **contoso.local** i resursgruppen **MyAzureResourceGroup**. Postuppsättningens fullständigt kvalificerade namn är **db.contoso.local**. Posttypen är ”A” med IP-adressen ”10.2.0.4”, och TTL är 3600 sekunder.
+
+```azurepowershell
+New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
+   -ResourceGroupName MyAzureResourceGroup -Ttl 3600 `
+   -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "10.2.0.4")
 ```
 
-## <a name="delete-a-dns-private-zone"></a>Ta bort en privat DNS-zon
+### <a name="view-dns-records"></a>Visa DNS-poster
 
-Du kan ta bort privata DNS-zoner med `Remove-AzureRmDnsZone`-cmdleten, precis som med offentliga zoner.
+Om du vill visa en lista med DNS-poster i din zon kör du:
 
-> [!NOTE]
-> Om du tar bort en DNS-zon så tar du även bort DNS-posterna i zonen. Du kan inte ångra den här åtgärden. Om DNS-zonen används, så misslyckas de tjänster som använder zonen när zonen tas bort.
->
->Hur du gör för att förebygga oavsiktlig zonborttagning beskrivs i [Skydda DNS-zoner och poster](dns-protect-zones-recordsets.md).
-
-Använd något av följande två sätt när du ska ta bort en DNS-zon:
-
-### <a name="specify-the-zone-using-the-zone-name-and-resource-group-name"></a>Ange zonen med zonnamnet och resursgruppens namn
-
-```powershell
-Remove-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup
+```azurepowershell
+Get-AzureRmDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup
 ```
+Kom ihåg att du inte automatiskt kommer att se den skapade A-posten för dina två virtuella testdatorer.
 
-### <a name="specify-the-zone-using-a-zone-object"></a>Ange zonen med ett $zone-objekt
+## <a name="test-the-private-zone"></a>Testa den privata zonen
 
-Du kan ange zonen som ska tas bort med hjälp av ett `$zone`-objekt som returnerats av `Get-AzureRmDnsZone`.
+Nu kan du testa namnmatchning för din privata zon **contoso.local**.
 
-```powershell
-$zone = Get-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup
-Remove-AzureRmDnsZone -Zone $zone
-```
+### <a name="configure-vms-to-allow-inbound-icmp"></a>Konfigurera virtuella datorer för att tillåta inkommande ICMP
 
-Zonobjektet kan även pipas i stället för att skickas som en parameter:
+Du kan använda ping-kommandot för att testa namnmatchning. Konfigurera därför brandväggen på båda de virtuella datorerna att tillåta inkommande ICMP-paket.
 
-```powershell
-Get-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup | Remove-AzureRmDnsZone
+1. Anslut till myVM01 och öppna ett Windows PowerShell-fönster med administratörsbehörighet.
+2. Kör följande kommando:
 
-```
+   ```powershell
+   New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+   ```
 
-## <a name="confirmation-prompts"></a>Bekräftelsemeddelanden
+Upprepa för myVM02.
 
-Cmdletarna `New-AzureRmDnsZone`, `Set-AzureRmDnsZone` och `Remove-AzureRmDnsZone` stöder alla bekräftelsemeddelanden.
+### <a name="ping-the-vms-by-name"></a>Pinga de virtuella datorerna efter namn
 
-Både `New-AzureRmDnsZone` och `Set-AzureRmDnsZone` frågar efter bekräftelse om `$ConfirmPreference` PowerShell-inställningsvariabeln har värdet `Medium` eller lägre. På grund av den potentiellt höga effekten av att ta bort en DNS-zon så uppmanar `Remove-AzureRmDnsZone`-cmdleten dig att bekräfta att `$ConfirmPreference` PowerShell-variabeln har något värde annat än `None`.
+1. Från Windows PowerShell-kommandotolken för myVM02 pingar du myVM01 med hjälp av det automatiskt registrerade värddatornamnet:
+   ```
+   ping myVM01.contoso.local
+   ```
+   Du bör se utdata som liknar följande:
+   ```
+   PS C:\> ping myvm01.contoso.local
 
-Eftersom standardvärdet för `$ConfirmPreference` är `High`, så frågar endast `Remove-AzureRmDnsZone` om bekräftelse som standard.
+   Pinging myvm01.contoso.local [10.2.0.4] with 32 bytes of data:
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time=1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
 
-Du kan åsidosätta den aktuella `$ConfirmPreference`-inställningen med hjälp av parametern `-Confirm`. Om du anger `-Confirm` eller `-Confirm:$True`, så uppmanar cmdleten dig att bekräfta detta innan den körs. Om du anger `-Confirm:$False`, som ber cmdleten dig inte om bekräftelse.
+   Ping statistics for 10.2.0.4:
+       Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+   Approximate round trip times in milli-seconds:
+       Minimum = 0ms, Maximum = 1ms, Average = 0ms
+   PS C:\>
+   ```
+2. Nu pingar du det **db**-namn som du skapade tidigare:
+   ```
+   ping db.contoso.local
+   ```
+   Du bör se utdata som liknar följande:
+   ```
+   PS C:\> ping db.contoso.local
 
-Mer information om `-Confirm` och `$ConfirmPreference` finns i [Om inställningsvariabler](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
+   Pinging db.contoso.local [10.2.0.4] with 32 bytes of data:
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
 
+   Ping statistics for 10.2.0.4:
+       Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+   Approximate round trip times in milli-seconds:
+       Minimum = 0ms, Maximum = 0ms, Average = 0ms
+   PS C:\>
+   ```
 
 ## <a name="delete-all-resources"></a>Ta bort alla resurser
 
-Så här tar du bort alla resurser som skapats i den här artikeln:
+När resursgruppen **MyAzureResourceGroup** inte längre behövs kan du ta bort den för att ta bort de resurser som skapades i den här självstudien.
 
-```powershell
-Remove-AzureRMResourceGroup -Name MyResourceGroup
+```azurepowershell
+Remove-AzureRMResourceGroup -Name MyAzureResourceGroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om privata DNS-zoner finns i [Using Azure DNS for private domains](private-dns-overview.md) (Använda Azure DNS för privata domäner).
+I den här självstudien distribuerade du en privat DNS-zon, skapade en DNS-post och testade zonen.
+Härnäst kan du läsa mer om privata DNS-zoner.
 
-Läsa mer om några vanliga scenarier [privatzonsscenarier](./private-dns-scenarios.md) som kan genomföras med privata zoner i Azure DNS.
+> [!div class="nextstepaction"]
+> [Använda Azure DNS för privata domäner](private-dns-overview.md)
 
-Mer information om hur du hanterar DNS-poster i Azure DNS finns i [Hantera DNS-poster och postuppsättningar i Azure DNS med PowerShell](dns-operations-recordsets.md).
+
+
 

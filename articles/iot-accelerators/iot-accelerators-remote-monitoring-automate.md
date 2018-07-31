@@ -1,20 +1,20 @@
 ---
-title: Identifiera problem med enheter i en Azure-baserad fjärrövervakningslösning | Microsoft Docs
+title: Självstudie om att identifiera problem med enheter i en Azure-baserad fjärrövervakningslösning | Microsoft Docs
 description: I den här självstudien får du lära dig att använda regler och åtgärder till att automatiskt identifiera problem med tröskelvärden i lösningen för fjärrövervakning.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/08/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 1e3eaeec1d2eae3c36f285a3e4c536657504cbb8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 29d4289f5b83e37cddec652b976aeb5aa255ed4c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098489"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158885"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Självstudie: Identifiera problem med enheter som är anslutna till din övervakningslösning
 
@@ -24,7 +24,7 @@ I självstudiekursen använder vi regler och aviseringar för ett simulerat kyla
 
 Du har också blivit ombedd att skapa en kritisk avisering för ett kylaggregat när den genomsnittliga luftfuktigheten i enheten varit högre än 80 % och enhetens temperatur varit högre än 75 grader fahrenheit under de senaste fem minuterna.
 
-I den här kursen får du:
+I den här kursen för du göra följande:
 
 >[!div class="checklist"]
 > * Visa regler i din lösning
@@ -33,29 +33,19 @@ I den här kursen får du:
 > * Redigera en befintlig regel
 > * Aktivera och inaktivera regler
 
-## <a name="prerequisites"></a>Förutsättningar
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Om du vill följa den här självstudien behöver du en distribuerad instans av lösningsacceleratorn Fjärrövervakning i Azure-prenumerationen.
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
-Om du inte har distribuerat lösningsacceleratorn Fjärrövervakning ännu bör du genomföra snabbstarten [Deploy a cloud-based remote monitoring solution](quickstart-remote-monitoring-deploy.md) (Distribuera en molnbaserad fjärrövervakningslösning).
-
-## <a name="view-the-existing-rules"></a>Visa befintliga regler
+## <a name="review-the-existing-rules"></a>Granska befintliga regler
 
 På sidan **Regler** i lösningsacceleratorn visas en lista med aktuella regler:
 
 [![Sidan Regler](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-expanded.png#lightbox)
 
-Om du bara vill visa regler som gäller för kylaggregat kan du använda ett filter:
-
-[![Filtrera listan med regler](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-expanded.png#lightbox)
-
-Du kan visa mer information om en regel och redigera den när du väljer den i listan:
+Om du bara vill visa regler som gäller för kylaggregat kan du använda ett filter. Du kan visa mer information om en regel och redigera den när du väljer den i listan:
 
 [![Visa regelinformation](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-expanded.png#lightbox)
-
-Om du vill inaktivera eller aktivera en eller flera regler markerar du dem i listan:
-
-[![Markera flera regler](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-expanded.png#lightbox)
 
 ## <a name="create-a-rule"></a>Skapa en regel
 
@@ -80,7 +70,7 @@ Du kan se när regeln utlöses på sidan **Regler** eller på **instrumentpanele
 
 [![Utlöst varningsregel](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
 
-## <a name="create-a-rule-with-multiple-conditions"></a>Skapa en regel med flera villkor
+## <a name="create-an-advanced-rule"></a>Skapa en avancerad regel
 
 Om du vill skapa en regel med flera villkor som genererar en kritisk varning när den genomsnittliga luftfuktigheten har varit högre än 80 % och medeltemperaturen varit högre än 75 grader fahrenheit under de senaste fem minuterna klickar du på **Ny regel** . Skapa regeln med följande värden:
 
@@ -89,7 +79,7 @@ Om du vill skapa en regel med flera villkor som genererar en kritisk varning nä
 | Regelnamn        | Kritisk luftfuktighet och temperatur för kylaggregat    |
 | Beskrivning      | Luftfuktighet och temperatur har kritiska värden |
 | Enhetsgrupp     | **Kylaggregatets** enhetsgrupp             |
-| Beräkning      | Genomsnitt                               |
+| Beräkning      | Medel                               |
 | Tidsperiod      | 5                                     |
 | Villkor 1 fält| luftfuktighet                              |
 | Villkor 1 operator | Större än                      |
@@ -128,23 +118,7 @@ Om du tillfälligt vill inaktivera en regel kan du göra det i listan med regler
 
 Du kan aktivera och inaktivera flera regler på samma gång genom att markera flera regler i listan.
 
-<!-- ## Delete a rule
-
-To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
-
-You can delete multiple rules at the same time if you select multiple rules in the list.-->
-
-## <a name="clean-up-resources"></a>Rensa resurser
-
-Om du planerar att gå vidare till nästa självstudie lämnar du den distribuerade lösningsacceleratorn Fjärrövervakning. Du kan minska kostnaden för att köra lösningsacceleratorn när du inte använder den genom att stoppa de simulerade enheterna på inställningspanelen:
-
-[![Pausa telemetri](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-expanded.png#lightbox)
-
-Du kan starta om de simulerade enheterna när du är redo att starta nästa självstudie.
-
-Om du inte längre behöver lösningsacceleratorn tar du bort den från sidan [Etablerade lösningar](https://www.azureiotsolutions.com/Accelerators#dashboard):
-
-![Ta bort lösningen](media/iot-accelerators-remote-monitoring-automate/deletesolution.png)
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

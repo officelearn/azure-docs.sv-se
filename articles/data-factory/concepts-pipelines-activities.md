@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 1a713d23a385723517ba1fe924f9ec54d81eade5
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 4cf62e609505487961dbfbab3f46c37d54e8f50b
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857898"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259062"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -97,7 +97,7 @@ Så här definieras en pipeline i JSON-format:
 
 Tagga | Beskrivning | Typ | Krävs
 --- | ----------- | ---- | --------
-namn | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, en siffra eller ett understreck (_)</li><li>•   Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | Sträng | Ja
+namn | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, en siffra eller ett understreck (_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\”</li></ul> | Sträng | Ja
 beskrivning | Ange texten som beskriver vad pipeline används till. | Sträng | Nej
 activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. I avsnittet [Aktivitets-JSON](#activity-json) finns information om aktivitets-JSON-elementet. | Matris | Ja
 parameters | Avsnittet **parameters** kan ha en eller flera definierade parametrar i pipeline, vilket gör pipeline flexibel för återanvändning. | Visa lista | Nej
@@ -344,7 +344,7 @@ I följande exempel på pipeline finns det en aktivitet av typen **HDInsightHive
 Observera följande punkter:
 
 - I activities-avsnittet finns det bara en aktivitet vars **typ** anges till **HDInsightHive**.
-- Hive-skriptfilen **partitionweblogs.hql** lagras i Azure-lagringskontot (anges med scriptLinkedService, kallas AzureStorageLinkedService), och i mappen skript i behållaren `adfgetstarted`.
+- Hive-skriptfilen **partitionweblogs.hql** lagras i Azure-lagringskontot (anges med scriptLinkedService, kallas AzureStorageLinkedService), och i mappen skript i containern `adfgetstarted`.
 - Avsnittet `defines` används för att ange körningsinställningar som skickas till Hive-skriptet som Hive-konfigurationsvärden (till exempel $`{hiveconf:inputtable}`, `${hiveconf:partitionedtable}`.
 
 Avsnittet **typeProperties** är olika för varje transformeringsaktivitet. Om du vill ha mer information om vilka typegenskaper som stöds för en transformeringsaktivitet klickar du på transformeringsaktiviteten i [Datatransformeringsaktiviteter](#data-transformation-activities).

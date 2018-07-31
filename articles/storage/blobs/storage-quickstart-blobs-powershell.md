@@ -1,6 +1,6 @@
 ---
 title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av PowerShell | Microsoft Docs
-description: I den här snabbstarten använder du Azure PowerShell i objektlagring (Blob). Sedan använder du PowerShell och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
+description: I den här snabbstarten använder du Azure PowerShell i objektlagring (Blob). Sedan använder du PowerShell och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en container.
 services: storage
 author: roygara
 manager: jeconnoc
@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: f028d37a98cecf14706773a2eb7cb601481435d1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2ae0fee410c93911546e5cbeef1378e6f7ebbc39
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307923"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205205"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Azure PowerShell
 
@@ -26,24 +26,24 @@ Den här snabbstarten kräver Azure PowerShell-modul version 3.6 eller senare. K
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
-## <a name="create-a-container"></a>Skapa en behållare
+## <a name="create-a-container"></a>Skapa en container
 
-Blobar laddas alltid upp till en behållare. Du kan ordna grupper av blobar på samma sätt som du ordnar filer i mappar på datorn.
+Blobar laddas alltid upp till en container. Du kan ordna grupper av blobar på samma sätt som du ordnar filer i mappar på datorn.
 
-Ange behållarnamnet på och sedan skapa behållaren med hjälp av [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer). Ange behörigheterna till blob för att tillåta offentlig åtkomst till filerna. Behållarens namn i det här exemplet är *quickstartblobs*.
+Ange behållarnamnet på och sedan skapa behållaren med hjälp av [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer). Ange behörigheterna till blob för att tillåta offentlig åtkomst till filerna. Containerns namn i det här exemplet är *quickstartblobs*.
 
 ```powershell
 $containerName = "quickstartblobs"
 New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 ```
 
-## <a name="upload-blobs-to-the-container"></a>Ladda upp blobar i behållaren
+## <a name="upload-blobs-to-the-container"></a>Ladda upp blobar i containern
 
 Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. VHD-filer som används för att backa upp virtuella datorer i IaaS är sidblobar. Tilläggsblobar används för loggning, till exempel när du vill skriva till en fil och sedan fortsätta att lägga till mer information. De flesta filer som lagras i Blob Storage är blockblobar. 
 
-Om du vill ladda upp en fil till en blockblob ska du hämta en referens för behållaren och sedan hämta en referens för blockbloben i den behållaren. När du har en blobreferensen kan du ladda upp data till den med hjälp av [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Den här åtgärden skapar bloben om den inte redan finns, eller skriver över den om den finns.
+Om du vill ladda upp en fil till en blockblob ska du hämta en referens för containern och sedan hämta en referens för blockbloben i den containern. När du har en blobreferensen kan du ladda upp data till den med hjälp av [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Den här åtgärden skapar bloben om den inte redan finns, eller skriver över den om den finns.
 
-I följande exempel laddas Image001.jpg och Image002.png upp från mappen D:\\_TestImages på den lokala disken till behållaren som du skapade.
+I följande exempel laddas Image001.jpg och Image002.png upp från mappen D:\\_TestImages på den lokala disken till containern som du skapade.
 
 ```powershell
 # upload a file
@@ -61,9 +61,9 @@ Set-AzureStorageBlobContent -File "D:\_TestImages\Image002.png" `
 
 Ladda upp så många filer som du vill innan du fortsätter.
 
-## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
+## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Hämta en lista över blobar i behållaren med hjälp av [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob). Det här exemplet visar bara namnen på de blobar som har laddats upp.
+Hämta en lista över blobar i containern med hjälp av [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob). Det här exemplet visar bara namnen på de blobar som har laddats upp.
 
 ```powershell
 Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name 
@@ -113,13 +113,15 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage. Om du vill veta mer om att arbeta med Blob Storage kan du fortsätta till anvisningarna om Blob Storage.
+I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage. Lär dig mer om att arbeta med Blob-lagring med hjälp av PowerShell genom att fortsätta till avsnittet om att använda Azure PowerShell med Azure Storage.
 
 > [!div class="nextstepaction"]
-> [Anvisningar för Blob Storage-åtgärder](storage-how-to-use-blobs-powershell.md)
+> [Använd Azure PowerShell med Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets-reference"></a>Referens för Microsoft Azure PowerShell Storage-cmdletar
+
 * [Storage PowerShell cmdletar](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
+
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 07/17/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: a66d845fcf7507613cda475bbc96225f8a7cc7eb
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: bb0e3ee685d5a52a9f372e99d97f3608f67c17c0
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126871"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185405"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Snabbstart: Skapa Azure Resource Manager-mallar genom att använda Visual Studio Code
 
@@ -144,7 +144,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig hur du skapar en mall med hjälp av Visual Studio Code samt hur du distribuerar mallen med hjälp av Azure-portalens Cloud Shell. Den mall som används i den här snabbstarten innehåller bara en Azure-resurs.  I nästa självstudie utvecklar du en mall med flera resurser.  Några av resurserna har beroende resurser.
+I den här självstudien lärde du dig hur du skapar en mall med hjälp av Visual Studio Code samt hur du distribuerar mallen med hjälp av Azure-portalens Cloud Shell. I nästa självstudie lär du dig mer om hur du utvecklar en mall och hur du använder mallreferensen.
 
 > [!div class="nextstepaction"]
-> [Skapa mallar med hjälp av Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+> [Skapa ett krypterat lagringskonto](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

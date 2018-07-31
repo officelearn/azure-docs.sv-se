@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 23b5373f4986c4a3d113baebe9e04ce65b9a9df0
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ab6fdbcd3d1a6a5e611809ccee2343fced05d1e0
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39062907"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39189521"
 ---
 Hittills har du kört programmets kod som om du var den enda utvecklaren som arbetade med appen. I det här avsnittet lär du dig hur Azure Dev Spaces förenklar utvecklingen i ett team:
 * Göra det möjligt för ett utvecklarteam att arbeta i samma miljö, genom att arbeta i en delad utvecklarmiljö eller i särskilda utvecklarmiljöer efter behov..
@@ -48,13 +48,14 @@ När du utvecklar kod för en tjänst är koden sällan perfekt förrän du väl
 Låt oss ta en närmare titt på var tjänsterna körs. Kör kommandot `azds list-up` så ser du ett resultat som liknar följande:
 
 ```
-Name         Space     Chart              Ports   Updated     Access Points
------------  --------  -----------------  ------  ----------  -------------------------
-mywebapi     default  mywebapi-0.1.0     80/TCP  2m ago     <not attached>
-webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     http://webfrontend-contosodev.1234abcdef.eastus.aksapp.io
+Name                          DevSpace  Type     Updated      Status
+----------------------------  --------  -------  -----------  ----------------
+mywebapi                      default   Service  10m 1s ago   Running
+mywebapi-54f9cf5b59-bjnkm     default   Pod      10m 4s ago   Running
+webfrontend-5b697958d6-b6v96  default   Pod      26m 38s ago  Init:1/3:mindaro-build
 ```
 
-Utrymmeskolumnen visar att båda tjänsterna körs i ett utrymme som heter `default`. Om någon öppnar den offentliga URL:en och navigerar till webbprogrammet anropas kodsökvägen som du tidigare skrev som körs via båda tjänsterna. Anta nu att du vill fortsätta utveckla `mywebapi`. Hur kan du göra kodändringar och testa dem utan att störa andra utvecklare som använder utvecklarmiljön? Det gör du genom att konfigurera ett eget utrymme.
+DevSpace-kolumnen visar att båda tjänsterna körs i ett utrymme som heter `default`. Om någon öppnar den offentliga URL:en och navigerar till webbprogrammet anropas kodsökvägen som du tidigare skrev som körs via båda tjänsterna. Anta nu att du vill fortsätta utveckla `mywebapi`. Hur kan du göra kodändringar och testa dem utan att störa andra utvecklare som använder utvecklarmiljön? Det gör du genom att konfigurera ett eget utrymme.
 
 ### <a name="create-a-dev-space"></a>Skapa en utvecklarmiljö
 För att köra din egen version av `mywebapi` i ett annat utrymme än `default` kan du skapa ett eget utrymme med följande kommando:

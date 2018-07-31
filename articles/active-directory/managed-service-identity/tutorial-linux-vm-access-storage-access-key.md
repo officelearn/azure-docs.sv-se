@@ -1,6 +1,6 @@
 ---
-title: Komma åt Azure Storage med en MSI för virtuell Linux-dator
-description: En självstudie som går igenom hur du kommer åt Azure Storage med hjälp av en hanterad tjänstidentitet (MSI) för virtuell Linux-dator.
+title: Använda en hanterad tjänstidentitet i en virtuell Linux-dator för åtkomst till Azure Storage
+description: En självstudie som går igenom hur du kommer åt Azure Storage med hjälp av en hanterad tjänstidentitet för virtuell Linux-dator.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: eee0787518a17826d6256cb9b7dad8f4547f5663
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: aa0736452d7dc06c5a1a6c2710024a5fdc626af1
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048852"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258719"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Självstudier: Komma åt Azure Storage via åtkomstnyckel med en hanterad tjänstidentitet för virtuell Linux-dator
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien visar hur du aktiverar hanterad tjänstidentitet (MSI) för en virtuell Linux-dator and sedan hämtar åtkomstnycklar för lagringskonton med hjälp av identiteten. Du kan använda en lagringsåtkomstnyckel som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien laddar vi upp och ned blobbar med hjälp av Azure CLI. Du lär dig att göra följande:
+Den här självstudien visar hur du aktiverar hanterad tjänstidentitet för en virtuell Linux-dator and sedan hämtar åtkomstnycklar för lagringskonton med hjälp av identiteten. Du kan använda en lagringsåtkomstnyckel som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien laddar vi upp och ned blobbar med hjälp av Azure CLI. Du lär dig hur du:
 
 > [!div class="checklist"]
-> * Aktivera MSI på en virtuell Linux-dator 
-> * Ge din virtuella dator åtkomst till åtkomstnycklar för lagringskonton i Resource Manager 
+> * Aktivera hanterad tjänstidentitet på en virtuell Linux-dator 
+> * Ger den virtuella datorn åtkomst till åtkomstnycklar för lagringskonton i Resource Manager 
 > * Få en åtkomsttoken med hjälp av den virtuella datorns identitet, och använda den och hämta lagringsåtkomstnycklarna från Resource Manager  
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -44,7 +44,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Linux-dator i en ny resursgrupp
 
-I den här självstudien skapar vi en ny virtuell Linux-dator. Du kan även aktivera MSI på en befintlig virtuell dator.
+I den här självstudien skapar vi en ny virtuell Linux-dator. Du kan även aktivera hanterad tjänstidentitet på en befintlig virtuell dator.
 
 1. Klicka på knappen **+/Skapa ny tjänst** som finns i det övre vänstra hörnet på Azure Portal.
 2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
@@ -56,9 +56,9 @@ I den här självstudien skapar vi en ny virtuell Linux-dator. Du kan även akti
 5. Välj en ny **resursgrupp** som den virtuella datorn ska skapas i genom att klicka på **Skapa ny**. När du är klar klickar du på **OK**.
 6. Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller ändrar filtret för disktyper som stöds. Acceptera alla standardvärden på bladet Inställningar och klicka på **OK**.
 
-## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn
+## <a name="enable-managed-service-identity-on-your-vm"></a>Aktivera hanterad tjänstidentitet på en virtuell dator
 
-Med en MSI för virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar hanterad tjänstidentitet på en virtuell dator sker två saker: din virtuella dator registreras hos Azure Active Directory och dess hanterade identitet skapas, och identiteten konfigureras på den virtuella datorn.  
+Med en hanterad tjänstidentitet på en virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar en hanterad tjänstidentitet på en virtuell dator händer två saker: din virtuella dator registreras hos Azure Active Directory och dess hanterade tjänstidentitet skapas, och identiteten konfigureras på den virtuella datorn.  
 
 1. Gå till den nya virtuella datorns resursgrupp och välj den virtuella dator som du skapade i förra steget.
 2. Klicka på **Konfiguration** till vänster under inställningarna för den virtuella datorn.
@@ -91,9 +91,9 @@ Senare ska vi ladda upp och ned en fil till det nya lagringskontot. Eftersom fil
 
     ![Skapa en lagringscontainer](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>Ge den virtuella datorns MSI behörighet att använda åtkomstnycklar för lagringskonton
+## <a name="grant-your-vms-managed-service-identity-access-to-use-storage-account-access-keys"></a>Ge den virtuella datorns hanterade tjänstidentitet behörighet att använda åtkomstnycklar för lagringskonton
 
-Azure Storage har inte inbyggt stöd för Azure AD-autentisering.  Du kan dock använda en MSI och hämta åtkomstnycklar för lagringskonton från Resource Manager, och sedan få åtkomst till lagringen med hjälp av en nyckel.  I det här steget ger du den virtuella datorns MSI åtkomst till nycklarna för ditt lagringskonto.   
+Azure Storage har inte inbyggt stöd för Azure AD-autentisering.  Du kan dock använda en hanterad tjänstidentitet och hämta åtkomstnycklar för lagringskonton från Resource Manager, och sedan få åtkomst till lagringen med hjälp av en nyckel.  I det här steget ger du den virtuella datorns hanterade tjänstidentitet åtkomst till nycklarna till lagringskontot.   
 
 1. Gå tillbaka till det lagringskonto som du nyss skapade.
 2. Klicka på länken **Åtkomstkontroll (IAM)** på den vänstra panelen.  

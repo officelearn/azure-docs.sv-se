@@ -3,20 +3,19 @@ title: Övervaka och felsöka ett molnlagringsprogram i Azure | Microsoft Docs
 description: Använda diagnostiska verktyg, mått och aviseringar för att felsöka och övervaka ett molnprogram.
 services: storage
 author: tamram
-manager: jeconnoc
+manager: twooley
 ms.service: storage
 ms.workload: web
-ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 07/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: eb58104309802125a8424cbbf8a1bef3d1c5e79c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ad64384ff17b1666f88ba99e04ec345015e07276
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418194"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206062"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Övervaka och felsöka ett molnlagringsprogram
 
@@ -30,11 +29,11 @@ I del fyra i serien lär du dig att:
 > * Köra testtrafik med felaktiga SAS-token
 > * Ladda ned och analysera loggar
 
-Med [Azure Storage Analytics](../common/storage-analytics.md) kan du logga och visa statistik för ett lagringskonto. Dessa data ger insikter om hälsotillståndet för ditt lagringskonto. Innan du kan få insyn i ditt lagringskonto måste du konfigurera datainsamling. Den här processen innefattar att aktivera loggning, konfigurera mått och aktivera aviseringar.
+Med [Azure Storage Analytics](../common/storage-analytics.md) kan du logga och visa statistik för ett lagringskonto. Dessa data ger insikter om hälsotillståndet för ditt lagringskonto. Om du vill samla in data från Azure-lagringsanalys kan du konfigurera loggning, mått och aviseringar. Den här processen innefattar att aktivera loggning, konfigurera mått och aktivera aviseringar.
 
-Loggning och mått från lagringskonton aktiveras på fliken **Diagnostik** i Azure Portal. Det finns två typer av mått. **Aggregering** samlar in data om ingående/utgående trafik (ingress/egress), tillgänglighet, svarstid och framgångsprocent. De här måtten sammanställs för blob-, kö-, tabell- och filtjänster. **Per API** samlar in samma uppsättning mått för varje lagringsåtgärd i API:t för Azure Storage-tjänsten. Med loggningen i Storage kan du registrera information för både lyckade och misslyckade begäranden i ditt lagringskonto. I loggarna kan du se information om läs-, skriv- och borttagningsåtgärder för dina tabeller, köer och blobar i Azure. Du kan också se orsaker till varför begäranden har misslyckats, till exempel tidsgränser som uppnåtts, nätverksbegränsning och auktoriseringsfel.
+Loggning och mått från lagringskonton aktiveras på fliken **Diagnostik** i Azure Portal. Med loggningen i Storage kan du registrera information för både lyckade och misslyckade begäranden i ditt lagringskonto. I loggarna kan du se information om läs-, skriv- och borttagningsåtgärder för dina tabeller, köer och blobar i Azure. Du kan också se orsaker till varför begäranden har misslyckats, till exempel tidsgränser som uppnåtts, nätverksbegränsning och auktoriseringsfel.
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på [Azure-portalen](https://portal.azure.com)
 
@@ -42,11 +41,11 @@ Logga in på [Azure-portalen](https://portal.azure.com)
 
 På menyn till vänster väljer du **Resursgrupper**, **myResourceGroup** och sedan ditt lagringskonto i resurslistan.
 
-Under **Diagnostik** anger du **På** för **Status**. Kontrollera att alla alternativ under **Blobegenskaper** är aktiverade.
+Under **Diagnostikinställningar (klassisk)** anger du **Status** till **På**. Kontrollera att alla alternativ under **Blobegenskaper** är aktiverade.
 
 Klicka på **Spara** när du är klar
 
-![Fönstret Diagnostik](media/storage-monitor-troubleshoot-storage-application/contoso.png)
+![Fönstret Diagnostik](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## <a name="enable-alerts"></a>Aktivera aviseringar
 
@@ -54,38 +53,37 @@ E-postadministratörer kan använda aviseringar för att utlösa en webhook när
 
 ### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Navigera till lagringskontot i Azure Portal
 
-På menyn till vänster väljer du **Resursgrupper**, **myResourceGroup** och sedan ditt lagringskonto i resurslistan.
+Under avsnittet **Övervakning** väljer du **Aviseringar (klassisk)**.
 
-Välj **Aviseringsregler** under **Övervakning**.
+Välj **Lägg till måttavisering (klassisk)** och slutför formuläret **Lägg till regel** genom att fylla i nödvändig information. Från listrutan **Mått** väljer du `SASClientOtherError`. För att tillåta att aviseringen utlöses vid det första felet går du till listrutan **Villkor** och väljer **Större än eller lika med**.
 
-Välj **+ Lägg till avisering** och fyll i nödvändig information under **Lägg till en varningsregel**. Välj `SASClientOtherError` i listrutan **Mått**.
-
-![Fönstret Diagnostik](media/storage-monitor-troubleshoot-storage-application/figure2.png)
+![Fönstret Diagnostik](media/storage-monitor-troubleshoot-storage-application/add-alert-rule.png)
 
 ## <a name="simulate-an-error"></a>Simulera ett fel
 
-För att simulera en giltig avisering kan du försöka begära en blob som inte finns från ditt lagringskonto. Det gör du genom att ersätta värdet `<incorrect-blob-name>` med ett värde som inte finns. Kör följande kodexempel ett par gånger för att simulera misslyckade blobbegäranden.
+För att simulera en giltig avisering kan du försöka begära en blob som inte finns från ditt lagringskonto. Följande kommando kräver ett namn på lagringscontainer. Du kan använda antingen namnet på en befintlig container eller skapa ett nytt för det här exemplet.
+
+Ersätt platshållarna med riktiga värden (se till att `<INCORRECT_BLOB_NAME>` anges till ett värde som inte finns) och kör kommandot.
 
 ```azurecli-interactive
 sasToken=$(az storage blob generate-sas \
-    --account-name <storage-account-name> \
-    --account-key <storage-account-key> \
-    --container-name <container> \
-    --name <incorrect-blob-name> \
+    --account-name <STORAGE_ACCOUNT_NAME> \
+    --account-key <STORAGE_ACCOUNT_KEY> \
+    --container-name <CONTAINER_NAME> \
+    --name <INCORRECT_BLOB_NAME> \
     --permissions r \
-    --expiry `date --date="next day" +%Y-%m-%d` \
-    --output tsv)
+    --expiry `date --date="next day" +%Y-%m-%d`)
 
-curl https://<storage-account-name>.blob.core.windows.net/<container>/<incorrect-blob-name>?$sasToken
+curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCORRECT_BLOB_NAME>?$sasToken
 ```
 
 På bilden nedan visas ett exempel på hur det kan se ut när ett sådant simulerat fel körs.
 
- ![Exempelavisering](media/storage-monitor-troubleshoot-storage-application/alert.png)
+ ![Exempelavisering](media/storage-monitor-troubleshoot-storage-application/email-alert.png)
 
 ## <a name="download-and-view-logs"></a>Ladda ned och visa loggar
 
-Storage-loggar lagrar data i en uppsättning blobar i en blobbehållare med namnet **$logs** i ditt lagringskonto. Den här behållaren visas inte om du visar alla blobbehållare i ditt konto i en lista, men du kan se innehållet om du går direkt till behållaren.
+Storage-loggar lagrar data i en uppsättning blobar i en blobcontainer med namnet **$logs** i ditt lagringskonto. Den här containern visas inte om du visar alla blobcontainrar i ditt konto i en lista, men du kan se innehållet om du går direkt till containern.
 
 I det här scenariot använder du [Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx) för att interagera med ditt Azure-lagringskonto.
 
@@ -99,7 +97,7 @@ I dialogrutan **File Selector** (Filväljaren) väljer du **+ Add Azure Connecti
 
 ![Microsoft Message Analyzer – Dialogrutan för Azure Storage-anslutning](media/storage-monitor-troubleshoot-storage-application/figure3.png)
 
-När du är ansluten expanderar du behållarna i lagringsträdvyn så att loggblobarna visas. Markera den senaste loggen och klicka på **OK**.
+När du är ansluten expanderar du containrarna i lagringsträdvyn så att loggblobarna visas. Markera den senaste loggen och klicka på **OK**.
 
 ![Microsoft Message Analyzer – Dialogrutan för Azure Storage-anslutning](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 
@@ -109,7 +107,8 @@ När loggen har öppnats kan du se lagringshändelserna. Som du ser på följand
 
 ![Microsoft Message Analyzer – Visa händelser](media/storage-monitor-troubleshoot-storage-application/figure5.png)
 
-[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) är ett annat verktyg som du kan använda för att interagera med dina lagringskonton, till exempel **$logs**-behållaren och de loggar som finns i behållaren.
+
+  [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) är ett annat verktyg som du kan använda för att interagera med dina lagringskonton, till exempel **$logs**-containern och de loggar som finns i containern.
 
 ## <a name="next-steps"></a>Nästa steg
 

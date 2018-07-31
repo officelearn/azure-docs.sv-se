@@ -1,6 +1,6 @@
 ---
-title: Använd en virtuell Linux-dator för att få åtkomst till Azure Key Vault
-description: En självstudiekurs som går igenom hur du får åtkomst till Azure Resource Manager med hjälp av en hanterad tjänstidentitet (MSI) för en virtuell Linux-dator.
+title: Använda en hanterad tjänstidentitet på en virtuell Linux-dator för att komma åt Azure Key Vault
+description: En självstudiekurs som går igenom hur du får åtkomst till Azure Resource Manager med hjälp av en hanterad tjänstidentitet för en virtuell Linux-dator.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: e775ed9d918e53b8381a010691c679d80e7dd216
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 54a763a768a57692cf0298c07f23fb4ed84f758f
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044058"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258158"
 ---
-# <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Självstudie: Använda en hanterad tjänstidentitet (MSI) i en virtuell Linux-dator för att få åtkomst till Azure Key Vault 
+# <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-key-vault"></a>Självstudie: Använda en hanterad tjänstidentitet i en virtuell Linux-dator för att få åtkomst till Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien visar hur du aktiverar en hanterad tjänstidentitet (MSI) för en virtuell Linux-dator and sedan använder den identiteten för att få åtkomst till Azure Key Vault. Key Vault fungerar som en bootstrap, som gör det möjligt för klientprogrammet att använda hemligheten för åtkomst till resurser som inte skyddas av Azure Active Directory (AD). Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. 
+Den här självstudien visar hur du aktiverar en hanterad tjänstidentitet för en virtuell Linux-dator and sedan använder den identiteten för att få åtkomst till Azure Key Vault. Key Vault fungerar som en bootstrap som gör det möjligt för klientprogrammet att använda hemligheten för åtkomst till resurser som inte skyddas av Azure Active Directory (AD). Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. 
 
 Lär dig att:
 
 > [!div class="checklist"]
-> * Aktivera MSI på en virtuell Linux-dator 
+> * Aktivera hanterad tjänstidentitet på en virtuell Linux-dator 
 > * Ge din virtuella dator åtkomst till en hemlighet som lagras i Key Vault 
 > * Få ett åtkomsttoken med hjälp av den virtuella datorns identitet och hämta hemligheten från Key Vault med hjälp av den 
  
@@ -45,7 +45,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Linux-dator i en ny resursgrupp
 
-I den här självstudien skapar vi en ny virtuell Linux-dator. Du kan även aktivera MSI på en befintlig virtuell dator.
+I den här självstudien skapar vi en ny virtuell Linux-dator. Du kan även aktivera hanterad tjänstidentitet på en befintlig virtuell dator.
 
 1. Klicka på knappen **Skapa en resurs** längst upp till vänster i Azure Portal.
 2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
@@ -57,11 +57,11 @@ I den här självstudien skapar vi en ny virtuell Linux-dator. Du kan även akti
 5. Välj en ny **resursgrupp** som den virtuella datorn ska skapas i genom att klicka på **Skapa ny**. När du är klar klickar du på **OK**.
 6. Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för disktyper som stöds. Acceptera alla standardvärden på inställningssidan och klicka på **OK**.
 
-## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn
+## <a name="enable-managed-service-identity-on-your-vm"></a>Aktivera hanterad tjänstidentitet på en virtuell dator
 
-Med en MSI för virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar en hanterad tjänstidentitet på en virtuell dator händer två saker: din virtuella dator registreras hos Azure Active Directory och dess hanterade tjänstidentitet skapas, och identiteten konfigureras på den virtuella datorn.
+Med en hanterad tjänstidentitet på en virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar en hanterad tjänstidentitet på en virtuell dator händer två saker: din virtuella dator registreras hos Azure Active Directory och dess hanterade tjänstidentitet skapas, och identiteten konfigureras på den virtuella datorn.
 
-1. Välj den **virtuella dator** som du vill aktivera MSI på.
+1. Välj den **virtuella dator** som du vill aktivera hanterad tjänstidentitet på.
 2. Klicka på **Konfiguration** i det vänstra navigeringsfältet.
 3. **Hanterad tjänstidentitet** visas. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej.
 4. Klicka på **Spara** för att spara konfigurationen.
@@ -70,7 +70,7 @@ Med en MSI för virtuell dator kan du få åtkomsttoken från Azure Active Direc
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Ge din virtuella dator åtkomst till en hemlighet som lagras i Key Vault  
 
-Med hjälp av MSI kan din kod hämta åtkomsttoken för att autentisera mot resurser som stöder Azure Active Directory-autentisering. Men alla Azure-tjänster stöder inte Azure Active Directory-autentisering. Om du vill använda MSI med dessa tjänster lagrar du autentiseringsuppgifterna för tjänsten i Azure Key Vault och får åtkomst till Key Vault och hämtar autentiseringsuppgifterna med hjälp MSI:n. 
+Med hjälp av en hanterade tjänstidentitet kan din kod hämta åtkomsttoken och autentisera mot resurser som stöder Azure Active Directory-autentisering. Men alla Azure-tjänster stöder inte Azure Active Directory-autentisering. Om du vill använda hanterad tjänstidentitet med dessa tjänster lagrar du autentiseringsuppgifterna för tjänsten i Azure Key Vault och får åtkomst till Key Vault och hämtar autentiseringsuppgifterna med hjälp den hanterade tjänstidentiteten. 
 
 Börja med att skapa ett Key Vault och bevilja den virtuella datorns identitet åtkomst till Key Vault.   
 
@@ -100,7 +100,7 @@ För att slutföra de här stegen behöver du en SSH-klient.  Om du använder Wi
  
 1. I portalen går du till den virtuella Linux-datorn och i **översikten** klickar du på **Anslut**. 
 2. **Anslut** till den virtuella datorn med valfri SSH-klient. 
-3. I terminalfönstret, med hjälp av CURL, skickar du en begäran till den lokala slutpunkten för hanterad tjänsteidentitet för att hämta en åtkomsttoken för Azure Key Vault.  
+3. I terminalfönstret, med hjälp av CURL, skickar du en begäran till den lokala slutpunkten för hanterad tjänstidentitet för att hämta en åtkomsttoken för Azure Key Vault.  
  
     CURL-begäran för åtkomsttoken visas nedan.  
     

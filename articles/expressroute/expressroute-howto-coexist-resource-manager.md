@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: charwen,cherylmc
-ms.openlocfilehash: 9b0e19ac859d3f0185c42a79353651996fcbf631
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: cdeda7d72461f35c138f12ca9b2758cdba44d5f6
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823571"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259263"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Konfigurera ExpressRoute-anslutningar och anslutningar för plats-till-plats som kan samexistera
 > [!div class="op_single_selector"]
@@ -75,9 +75,9 @@ Det finns två uppsättningar procedurer för att välja bland. Vilken konfigura
     Om du inte redan har ett virtuellt nätverk kan den här proceduren hjälpa dig att skapa ett nytt virtuellt nätverk med hjälp av distributionsmodellen i Resource Manager samt skapa nya ExpressRoute- och plats-till-plats-VPN-anslutningar. Om du vill konfigurera ett virtuellt nätverk följer du stegen i [Så här skapar du ett nytt virtuellt nätverk och samexisterande anslutningar](#new).
 * Jag har redan en distributionsmodell för Resource Manager i VNet.
   
-    Du kanske redan har ett virtuellt nätverk på plats med en befintlig VPN-anslutning för plats till plats eller en ExpressRoute-anslutning. I det här scenariot: om gatewaynätmasken är /28 eller större måste du ta bort den befintliga gatewayen. Avsnittet [Så här konfigurerar du samexisterande anslutningar för ett befintligt VNet](#add) visar hur du tar bort gatewayen och sedan skapar nya ExpressRoute- och plats-till-plats-VPN-anslutningar.
+    Du kanske redan har ett virtuellt nätverk på plats med en befintlig VPN-anslutning för plats till plats eller en ExpressRoute-anslutning. I det här scenariot: om gatewaynätmasken är /28 eller mindre (/28, /29 osv.) måste du ta bort den befintliga gatewayen. Avsnittet [Så här konfigurerar du samexisterande anslutningar för ett befintligt VNet](#add) visar hur du tar bort gatewayen och sedan skapar nya ExpressRoute- och plats-till-plats-VPN-anslutningar.
   
-    Om du tar bort och återskapar gatewayen får du driftstopp för anslutningar mellan platser. Men dina virtuella datorer och tjänster kommer fortfarande att kunna kommunicera ut via belastningsutjämnaren när du konfigurerar din gateway, om de är konfigurerade för att göra det.
+    Om du tar bort och återskapar gatewayen får du driftstopp för anslutningar mellan platser. Men dina virtuella datorer och tjänster kommer fortfarande att kunna kommunicera ut via lastbalanseraren när du konfigurerar din gateway, om de är konfigurerade för att göra det.
 
 ## <a name="new"></a>Så här skapar du ett nytt virtuellt nätverk och samexisterande anslutningar
 Den här proceduren vägleder dig genom att skapa ett VNet samt plats-till-plats- och ExpressRoute-anslutningar som ska finnas samtidigt.
@@ -91,7 +91,7 @@ Den här proceduren vägleder dig genom att skapa ett VNet samt plats-till-plats
   Select-AzureRmSubscription -SubscriptionName 'yoursubscription'
   $location = "Central US"
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
-  $VNetASN = 65010
+  $VNetASN = 65515
   ```
 3. Skapa ett virtuellt nätverk, inklusive gateway-undernätet. Mer information om hur du skapar ett virtuellt nätverk finns i [Skapa ett virtuellt nätverk](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Mer information om hur du skapar ett undernät finns i [Skapa ett undernät](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet).
    

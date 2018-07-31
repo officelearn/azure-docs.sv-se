@@ -1,12 +1,12 @@
 ---
 title: Montera en Azure-filresurs via SMB med macOS | Microsoft Docs
-description: "Lär dig hur du monterar en Azure-filresurs via SMB med macOS."
+description: Lär dig hur du monterar en Azure-filresurs via SMB med macOS.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
-ms.assetid: 
+editor: tamram
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 6e71a13f99160fdd310be1e9a59717c9fecbf35d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaa59e0568a6fc6ac9c867c6f05b7bfb22b71055
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206527"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montera en Azure-filresurs via SMB med macOS
-[Azure Files](storage-files-introduction.md) är en Microsoft-tjänst som gör att du kan skapa och använda nätverksfilresurser i Azure med branschstandard. Azure-filresurser kan monteras i macOS Sierra (10.12) och El Capitan (10.11). Den här artikeln visar två olika sätt att montera en Azure-filresurs på macOS med hjälp av användargränssnittet Finder och med terminalen.
+[Azure Files](storage-files-introduction.md) är en Microsoft-tjänst som gör att du kan skapa och använda nätverksfilresurser i Azure med branschstandard. Azure-filresurser kan monteras i macOS El Capitan (10.11) och senare. Den här artikeln visar två olika sätt att montera en Azure-filresurs på macOS med hjälp av användargränssnittet Finder och med terminalen.
 
 > [!Note]  
 > Innan du monterar en Azure-filresurs via SMB rekommenderar vi att du inaktiverar signering av SMB-paket. Om du inte gör det kan det orsaka sämre prestanda när du får åtkomst till Azure-filresursen från macOS. SMB-anslutningen krypteras så att det inte påverkar din anslutnings säkerhet. Från terminalen används följande kommandon för att inaktivera signering av SMB-paket, vilket beskrivs i den här [Apple Support-artikeln om hur du inaktiverar signering av SMB-paket](https://support.apple.com/HT205926):  
@@ -45,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 2. **Välj "Anslut till server" från menyn "Gå"**: Med hjälp av UNC-sökvägen från [krav](#preq) konverterar du de första dubbla omvända snedstrecken (`\\`) till `smb://` och alla andra omvända snedstreck (`\`) till snedstreck (`/`). Länken bör se ut ungefär så här: ![Dialogrutan "Anslut till server"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
-3. **Använd resursnamnet och lagringskontonyckeln när du tillfrågas om användarnamn och lösenord**: När du klickar på "Anslut" i dialogrutan "Anslut till server" uppmanas du att ange ett användarnamn och lösenord (det kommer att vara ifyllt automatiskt med ditt macOS-användarnamn). Du har möjlighet att lägga till ditt resursnamn/lagringskontonyckel i din nyckelring för macOS.
+3. **Använd lagringskontonamnet och lagringskontonyckeln när du tillfrågas om användarnamn och lösenord**: När du klickar på "Anslut" i dialogrutan "Anslut till server" uppmanas du att ange ett användarnamn och lösenord (det kommer att vara ifyllt automatiskt med ditt macOS-användarnamn). Du har möjlighet att lägga till ditt lagringskontonamnet/lagringskontonyckel i din nyckelring för macOS.
 
 4. **Använd Azure-filresursen som du vill**: När du har ersatt resursnamnet och lagringskontonyckeln med användarnamnet och lösenordet så monteras resursen. Du kan använda det här på samma sätt som du vanligtvis använder en lokal mapp/filresurs, inklusive att dra och släppa filer till filresursen:
 

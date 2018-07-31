@@ -1,24 +1,22 @@
 ---
-title: 'Självstudier: Utföra ETL-åtgärder med Azure Databricks | Microsoft Docs'
+title: 'Självstudie: Utföra ETL-åtgärder med Azure Databricks'
 description: Lär dig mer om hur du extraherar data från Data Lake Store till Azure Databricks, transformerar dessa data och läser in dem i Azure SQL Data Warehouse.
 services: azure-databricks
-documentationcenter: ''
 author: nitinme
+ms.author: nitinme
 manager: cgronlun
 editor: cgronlun
 ms.service: azure-databricks
 ms.custom: mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/23/2018
-ms.author: nitinme
-ms.openlocfilehash: c3aa87f2c74175d1b61a8db6a9c7a0318a408658
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 07/23/2018
+ms.openlocfilehash: 7f0354413932aef8a27b09ebac542ad1b8f375e1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223838"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Självstudier: Extrahera, transformera och läsa in data med Azure Databricks
 
@@ -49,9 +47,9 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 Innan du börjar med den här självstudien måste du uppfylla följande krav:
 - Skapa ett Azure SQL Data Warehouse, skapa en brandväggsregel på servernivå och anslut till servern som en serveradministratör. Följ anvisningarna i [Snabbstart: Skapa ett Azure SQL Data Warehouse](../sql-data-warehouse/create-data-warehouse-portal.md)
 - Skapa en databashuvudnyckel för Azure SQL Data Warehouse. Följ anvisningarna i [Skapa en databashuvudnyckel](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-- Skapa ett Azure Blob Storage-konto och en behållare i det. Få dessutom åtkomst till lagringskontot genom att hämta åtkomstnyckeln. Följ anvisningarna i [Snabbstart: Skapa ett Azure SQL Blog Storage-konto](../storage/blobs/storage-quickstart-blobs-portal.md).
+- Skapa ett Azure Blob Storage-konto och en container i det. Få dessutom åtkomst till lagringskontot genom att hämta åtkomstnyckeln. Följ anvisningarna i [Snabbstart: Skapa ett Azure SQL Blog Storage-konto](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -59,7 +57,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen. 
 
-1. Välj **Skapa en resurs** > **Data och analys** > **Azure Databricks** i Azure Portal. 
+1. Välj **Skapa en resurs** > **Data och analys** > **Azure Databricks** i Azure Portal.
 
     ![Databricks på Azure-portalen](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Databricks på Azure-portalen")
 
@@ -73,7 +71,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     |---------|---------|
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
-    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en behållare som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md). |
+    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md). |
     |**Plats**     | Välj **USA, östra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
     |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
@@ -95,7 +93,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
     ![Skapa Databricks Spark-kluster på Azure](./media/databricks-extract-load-sql-data-warehouse/create-databricks-spark-cluster.png "Skapa Databricks Spark-kluster på Azure")
 
-    Godkänn alla övriga standardvärden, förutom följande:
+    Godkänn alla övriga standardvärden förutom följande värden:
 
     * Ange ett namn för klustret.
     * För den här artikeln skapar du ett kluster med körningen **4.0**. 
@@ -194,22 +192,6 @@ När du loggar in med programmet måste du skicka klientorganisations-ID:t med d
 
    ![klientorganisations-ID](./media/databricks-extract-load-sql-data-warehouse/copy-directory-id.png) 
 
-### <a name="associate-service-principal-with-azure-data-lake-store"></a>Associera tjänstens huvudnamn med Azure Data Lake Store
-
-I det här avsnittet associerar du Azure Data Lake Store-kontot med det tjänstens huvudnamn för Azure Active Directory som du har skapat. Detta säkerställer att du har åtkomst till Data Lake Store-kontot från Azure Databricks.
-
-1. Välj det Data Lake Store-konto som du skapade i [Azure Portal](https://portal.azure.com).
-
-2. Välj **Åtkomstkontroll** > **Lägg till** i den vänstra rutan.
-
-    ![Lägg till Data Lake Store-åtkomst](./media/databricks-extract-load-sql-data-warehouse/add-adls-access.png "Lägg till Data Lake Store-åtkomst")
-
-3. Välj en roll som du vill att tjänstens huvudnamn ska tilldelas i **Lägg till behörigheter**. Välj **Ägare** för den här självstudiekursen. Välj **Azure AD, användare, grupp eller program** för **Bevilja åtkomst till**. För **Välj** anger du det tjänstens huvudnamn som du skapade för att filtrera ned antalet tjänstens huvudnamn att välja bland.
-
-    ![Välj tjänstens huvudnamn](./media/databricks-extract-load-sql-data-warehouse/select-service-principal.png "Välj tjänstens huvudnamn")
-
-    Välj det tjänstens huvudnamn som du skapade tidigare och välj sedan **Spara**. Tjänstens huvudnamn är nu associerat med Azure Data Lake Store-kontot.
-
 ## <a name="upload-data-to-data-lake-store"></a>Ladda upp data till Data Lake Store
 
 I det här avsnittet kommer du att överföra en exempeldatafil till Data Lake Store. Du kan använda den här filen senare i Azure Databricks om du vill köra vissa transformationer. De exempeldata (**small_radio_json.json**) som du använder i den här kursen är tillgängliga på den här [Github-lagringsplatsen](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
@@ -230,11 +212,58 @@ I det här avsnittet kommer du att överföra en exempeldatafil till Data Lake S
 
 5. I den här självstudiekursen får du överföra en datafil till Data Lake Store-roten. Så, nu är filen tillgänglig på `adl://<YOUR_DATA_LAKE_STORE_ACCOUNT_NAME>.azuredatalakestore.net/small_radio_json.json`.
 
+## <a name="associate-service-principal-with-azure-data-lake-store"></a>Associera tjänstens huvudnamn med Azure Data Lake Store
+
+I det här avsnittet associerar du data i Azure Data Lake Store-kontot med det tjänsthuvudnamn för Azure Active Directory som du har skapat. Detta säkerställer att du har åtkomst till Data Lake Store-kontot från Azure Databricks. För scenariot i den här artikeln kan du läsa data i Data Lake Store för att fylla i en tabell i SQL Data Warehouse. Enligt [översikten över åtkomstkontroll i Data Lake Store](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions) kräver läsbehörighet för en fil i Data Lake Store följande:
+
+- **Köra**-behörighet för alla mappar i den mappstruktur som leder upp till filen.
+- **Läsa**-behörighet på själva filen.
+
+Utför följande steg för att bevilja dessa behörigheter.
+
+1. Från [Azure-portalen](https://portal.azure.com) väljer du det Data Lake Store-konto som du skapade och väljer sedan **Datautforskaren**.
+
+    ![Starta Datautforskaren](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-data-explorer.png "Starta Datautforskaren")
+
+2. Eftersom exempeldatafilen är i roten på mappstrukturen i det här exemplet behöver du bara tilldela **Köra**-behörighet vid rotmappen. Om du vill göra det väljer du **Åtkomst** från roten i datautforskaren.
+
+    ![Lägga till ACL:er för mappen](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-1.png "Lägga till ACL:er för mappen")
+
+3. Under **Åtkomst** väljer du **Lägg till**.
+
+    ![Lägga till ACL:er för mappen](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-2.png "Lägga till ACL:er för mappen")
+
+4. Under **Tilldela behörigheter** klickar du på **Välj användare eller grupp** och söker efter det Azure Active Directory-tjänsthuvudnamn som du skapade tidigare.
+
+    ![Lägg till Data Lake Store-åtkomst](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-3.png "Lägg till Data Lake Store-åtkomst")
+
+    Välj det AAD-tjänsthuvudnamn som du vill tilldela och klicka på **Välj**.
+
+5. Under **Tilldela behörigheter** klickar du på **Välj behörigheter** > **Köra**. Behåll de övriga standardvärdena och välj **OK** under **Välj behörigheter** och sedan under **Tilldela behörigheter**.
+
+    ![Lägg till Data Lake Store-åtkomst](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-4.png "Lägg till Data Lake Store-åtkomst")
+
+6. Gå tillbaka till Datautforskaren och klicka på den fil som du vill tilldela läsbehörigheten. Under **Filförhandsgranskning** väljer du **Åtkomst**.
+
+    ![Lägg till Data Lake Store-åtkomst](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-file-1.png "Lägg till Data Lake Store-åtkomst")
+
+7. Under **Åtkomst** väljer du **Lägg till**. Under **Tilldela behörigheter** klickar du på **Välj användare eller grupp** och söker efter det Azure Active Directory-tjänsthuvudnamn som du skapade tidigare.
+
+    ![Lägg till Data Lake Store-åtkomst](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-3.png "Lägg till Data Lake Store-åtkomst")
+
+    Välj det AAD-tjänsthuvudnamn som du vill tilldela och klicka på **Välj**.
+
+8. Under **Tilldela behörigheter** klickar du på **Välj behörigheter** > **Läsa**. Välj **OK** under **Välj behörigheter** och sedan under **Tilldela behörigheter**.
+
+    ![Lägg till Data Lake Store-åtkomst](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-file-2.png "Lägg till Data Lake Store-åtkomst")
+
+    Tjänstens huvudnamn har nu tillräcklig behörighet att läsa exempeldatafilen från Azure Data Lake Store.
+
 ## <a name="extract-data-from-data-lake-store"></a>Extrahera data från Data Lake Store
 
 I det här avsnittet skapar du en anteckningsbok på arbetsytan Azure Databricks och kör sedan kodfragment för att extrahera data från Data Lake Store till Azure Databricks.
 
-1. Gå till arbetsytan Azure Databricks som du skapat i [Azure portal](https://portal.azure.com). Välj sedan **Starta arbetsyta**.
+1. Gå till arbetsytan Azure Databricks som du skapat i [Azure-portalen](https://portal.azure.com). Välj sedan **Starta arbetsyta**.
 
 2. Välj **Arbetsyta** i det vänstra fönstret. I listrutan **Arbetsyta** väljer du **Skapa** > **Anteckningsbok**.
 
@@ -283,6 +312,7 @@ Exempelrådata **small_radio_json.json** fångar målgruppen för en radiostatio
 1. Börja med att endast hämta kolumnerna *förnamn*, *efternamn*, *kön*, *plats* och *nivå* från den dataram som du redan har skapat.
 
         val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
+        specificColumnsDf.show()
 
     Du får utdata som liknar följande kodfragment:
 
@@ -313,7 +343,7 @@ Exempelrådata **small_radio_json.json** fångar målgruppen för en radiostatio
 
 2.  Du kan transformera dessa data ytterligare genom att t.ex. ändra namnet på kolumnen **nivå** till **prenumerationstyp**.
 
-        val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
+        val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
         renamedColumnsDF.show()
 
     Du får utdata som liknar följande kodfragment.
@@ -347,7 +377,7 @@ Exempelrådata **small_radio_json.json** fångar målgruppen för en radiostatio
 
 I det här avsnittet kommer du att överföra de data du transformerade till Azure SQL Data Warehouse. Om du använder Azure SQL Data Warehouse-anslutningen för Azure Databricks kan du överföra en dataram direkt som en tabell i SQL Data Warehouse.
 
-Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storage som temporär lagring vid överföring av data mellan Azure Databricks och Azure SQL Data Warehouse. Så du börjar med att tillhandahålla den konfiguration som ska ansluta till lagringskontot. Du måste redan ha skapat kontot som en del av de nödvändiga förutsättningarna för den här artikeln.
+Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storage som temporär lagringsplats vid överföring av data mellan Azure Databricks och Azure SQL Data Warehouse. Så du börjar med att tillhandahålla den konfiguration som ska ansluta till lagringskontot. Du måste redan ha skapat kontot som en del av de nödvändiga förutsättningarna för den här artikeln.
 
 1. Ange konfigurationen så att du får åtkomst till Azure Storage-kontot från Azure Databricks.
 
@@ -357,7 +387,7 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
 
 2. Ange en tillfällig mapp som ska användas när du flyttar data mellan Azure Databricks och Azure SQL Data Warehouse.
 
-        val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
+        val tempDir = "wasbs://" + blobContainer + "\@" + blobStorage +"/tempDirs"
 
 3. Kör följande fragment om du vill lagra åtkomstnycklar för Azure Blob Storage i konfigurationen. Detta säkerställer att du inte behöver behålla åtkomstnyckeln i anteckningsboken i oformaterad text.
 
@@ -376,13 +406,13 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
         val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
         val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
 
-5. Kör följande fragment om du vill läsa in den transformerande dataramen **renamedColumnsDF** som en tabell i SQL Data Warehouse. Det här kodfragmentet skapar en tabell med namnet **SampleTable** i SQL-databasen.
+5. Kör följande fragment om du vill läsa in den transformerande dataramen **renamedColumnsDf** som en tabell i SQL Data Warehouse. Det här kodfragmentet skapar en tabell med namnet **SampleTable** i SQL-databasen. Observera att Azure SQL DW kräver en huvudnyckel.  Du kan skapa en huvudnyckel genom att köra kommandot ”CREATE MASTER KEY;” i SQL Server Management Studio.
 
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
           "true")
         
-        renamedColumnsDF.write
+        renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
             .option("url", sqlDwUrlSmall) 
             .option("dbtable", "SampleTable")
@@ -395,7 +425,7 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
 
     ![Verifiera exempeltabellen](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table.png "Verifiera exempeltabellen")
 
-7. Verifiera tabellens innehåll genom att köra en urvalsfråga. Den bör ha samma data som dataramen **renamedColumnsDF**.
+7. Verifiera tabellens innehåll genom att köra en urvalsfråga. Den bör ha samma data som dataramen **renamedColumnsDf**.
 
     ![Verifiera exempeltabellens innehåll](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table-content.png "Verifiera exempeltabellens innehåll")
 

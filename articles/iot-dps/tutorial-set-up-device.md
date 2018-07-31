@@ -9,70 +9,82 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1e4e93c276fe62caae17c85bf9ac92282dfdfb88
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d589c0ece2b36970a31884aa72ee7ab87941a656
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631276"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39146455"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Konfigurera enheten för etablering med Azure IoT Hub Device Provisioning-tjänsten
 
-I den tidigare självstudiekursen fick du lära dig att konfigurera Azure IoT Hub Device Provisioning-tjänsten för att automatiskt etablera dina enheter till din IoT-hubb. I den här kursen visar vi hur du konfigurerar din enhet under tillverkningsprocessen och gör så att den kan etableras automatiskt med IoT-hubben. Enheten etableras baserat på dess [attesteringsmetod](concepts-device.md#attestation-mechanism) vid den första starten och anslutningen till etableringstjänsten. I den här självstudiekursen beskrivs processerna för att:
+I den tidigare självstudiekursen fick du lära dig att konfigurera Azure IoT Hub Device Provisioning-tjänsten för att automatiskt etablera dina enheter till din IoT-hubb. I den här kursen visar vi hur du konfigurerar din enhet under tillverkningsprocessen och gör så att den kan etableras automatiskt med IoT-hubben. Enheten etableras baserat på dess [attesteringsmetod](concepts-device.md#attestation-mechanism) vid den första starten och anslutningen till etableringstjänsten. Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
 > * Bygga ett plattformsspecifikt klient-SDK för enhetsetableringstjänster
 > * Extrahera säkerhetsartefakterna
 > * Skapa programvara för enhetsregistrering
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-
-Innan du fortsätter ska du skapa en enhetsetableringstjänstinstans och en IoT-hubb enligt instruktionerna i den tidigare kursen [1 – Konfigurera molnresurser](./tutorial-set-up-cloud.md).
+Den här självstudien förutsätter att du redan har skapat din instans för enhetsetableringstjänsten och en IoT-hubb enligt instruktionerna i den tidigare självstudien [Konfigurera molnresurser](tutorial-set-up-cloud.md).
 
 I den här kursen används [lagringsplatsen för Azure IoT SDK:er och bibliotek för C](https://github.com/Azure/azure-iot-sdk-c), som innehåller klient-SDK:t för enhetsetableringstjänsten för C. Detta SDK har för närvarande stöd för TPM och X.509 för enheter som körs på Windows- eller Ubuntu-implementeringar. I den här kursen används en Windows-utvecklingsklient, vilket även förutsätter grundläggande kunskaper i Visual Studio 2017. 
 
 Om du inte är bekant med processen för automatisk etablering ska du läsa avsnittet om [begrepp inom automatisk etablering](concepts-auto-provisioning.md) innan du fortsätter. 
 
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>Nödvändiga komponenter
+
+* Visual Studio 2015 eller [Visual Studio 2017](https://www.visualstudio.com/vs/) med arbetsbelastningen [”Desktop development with C++”](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) (Skrivbordsutveckling med C++) aktiverad.
+* Senaste versionen av [Git](https://git-scm.com/download/) installerad.
+
+
+
 ## <a name="build-a-platform-specific-version-of-the-sdk"></a>Skapa en plattformsspecifik version av SDK
 
 Klient-SDK:t för enhetsetableringstjänsten hjälper dig att implementera din programvara för enhetsregistrering. Men innan du kan använda det måste du skapa en version av SDK:t som är specifik för plattformen för din utvecklingsklient och din attesteringsmetod. I den här självstudiekursen skapar du ett SDK som använder Visual Studio 2017 på en Windows-utvecklingsplattform för en typ av attestering som stöds:
 
-1. Installera nödvändiga verktyg och klona GitHub-lagringsplatsen som innehåller klient-SDK:t för etableringstjänsten för C:
+1. Ladda ned den senaste versionen av [CMake-byggesystemet](https://cmake.org/download/). Från samma webbplats söker du fram den kryptografiska hashen för den version av binär distribution som du valde. Kontrollera den hämta binära filen med hjälp av det motsvarande kryptografiska hashvärdet. I följande exempel används Windows PowerShell för att verifiera den kryptografisk hashen för version 3.11.4 av x64 MSI-distributionen:
 
-   a. Kontrollera att du har antingen Visual Studio 2015 eller [Visual Studio 2017](https://www.visualstudio.com/vs/) installerat på datorn. Du måste ha arbetsbelastningen [”Desktop development with C++”](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) (Skrivbordsutveckling med C++) aktiverad för installationen av Visual Studio.
+    ```PowerShell
+    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    True
+    ```
 
-   b. Hämta och installera [CMake-buildsystemet](https://cmake.org/download/). Det är viktigt att Visual Studio med arbetsbelastningen ”Desktop development with C++” (Skrivbordsutveckling med C++) är installerat på datorn **före** installationen.
+    Det är viktigt att förutsättningarna för Visual Studio (Visual Studio och arbetsbelastningen ”Desktop development with C++” (Skrivbordsutveckling med C++)) är installerade på datorn **innan** installationen av `CMake` påbörjas. När förutsättningarna är uppfyllda och nedladdningen har verifierats installerar du CMake-byggesystemet.
 
-   c. Kontrollera att `git` är installerat på datorn och har lagts till i de miljövariabler som är tillgängliga för kommandofönstret. Se [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) för de senaste `git` verktygen, inklusive  **Git Bash**, ett Bash-kommandoradsgränssnitt för att interagera med din lokala Git-lagringsplats. 
-
-   d. Öppna Git Bash och klona lagringsplatsen ”Azure IoT SDKs and libraries for C”. Kloningskommandot kan ta ett par minuter att slutföra eftersom det även hämtar flera beroende undermoduler:
+2. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommando för att klona [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen:
     
-   ```cmd/sh
-   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
-   ```
+    ```cmd/sh
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    ```
+    Storleken på den här lagringsplatsen är för närvarande cirka 220 MB. Den här åtgärden kan förväntas ta flera minuter att slutföra.
 
-   e. Skapa en ny `cmake`-underkatalog i den nyligen skapade underkatalogen för lagringsplatsen:
 
-   ```cmd/sh
-   mkdir azure-iot-sdk-c/cmake
-   ``` 
+3. Skapa en `cmake`-underkatalog i rotkatalogen på git-lagringsplatsen och navigera till den mappen. 
 
-2. Byt till azure-iot-sdk-c-lagringsplatsens `cmake`-underkatalog från Git Bash-kommandotolken:
+    ```cmd/sh
+    cd azure-iot-sdk-c
+    mkdir cmake
+    cd cmake
+    ```
 
-   ```cmd/sh
-   cd azure-iot-sdk-c/cmake
-   ```
+4. Bygg SDK för din utvecklingsplattform baserat på de attesteringsmetoder som du kommer att använda. Använd något av följande kommandon (observera även de två efterföljande punkterna för varje kommando). När det är klart bygger CMake `/cmake`-underkatalogen med innehåll som är specifikt för din enhet:
+ 
+    - För enheter som använder TPM-simulatorn för attestering:
 
-3. Bygg SDK för din utvecklingsplattform och någon av de attesteringsmetoder som stöds med hjälp av något av följande kommandon (observera de två avslutande punkterna). När det är klart bygger CMake `/cmake`-underkatalogen med innehåll som är specifikt för din enhet:
-    - För enheter som använder en fysisk TPM/HSM eller ett simulerat X.509-certifikat för attestering:
+        ```cmd/sh
+        cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
+        ```
+
+    - För alla andra enheter (fysisk TPM/HSM/X.509 eller ett simulerat X.509-certifikat):
+
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON ..
         ```
 
-    - För enheter som använder TPM-simulatorn för attestering:
-        ```cmd/sh
-        cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
-        ```
 
 Nu är du redo att använda SDK för att bygga din enhetsregistreringskod. 
  
@@ -82,20 +94,24 @@ Nu är du redo att använda SDK för att bygga din enhetsregistreringskod.
 
 Nästa steg är att extrahera säkerhetsartefakterna för den attesteringsmetod som används av din enhet. 
 
-### <a name="physical-device"></a>Fysisk enhet 
+### <a name="physical-devices"></a>Fysiska enheter 
 
-Om du har byggt SDK för att använda attestering från en fysisk TPM/HSM:
+Beroende på om du har byggt SDK för att använda attestering för en fysisk TPM/HSM eller med X.509-certifikat går insamling av säkerhetsartefakterna till så här:
 
 - För en TPM-enhet måste du bestämma **bekräftelsenyckeln** som är associerad med enheten från TPM-kretstillverkaren. Du kan härleda ett unikt **registrerings-ID** för din TPM-enhet genom att hasha bekräftelsenyckeln.  
 
-- För X.509-enheter måste du erhålla de certifikat som utfärdats till dina enheter: slutentitetscertifikat för enskilda enhetsregistreringar och rotcertifikat för gruppregistreringar av enheter. 
+- För en X.509-enhet måste du erhålla de certifikat som utfärdats till dina enheter. Etableringstjänsten visar två typer av registreringsposter som styr åtkomst för enheter med hjälp av X.509-attesteringsmetoden. Vilka certifikat som krävs beror på de registreringstyper som du kommer att använda.
 
-### <a name="simulated-device"></a>Simulerad enhet
+    1. Enskilda registreringar: registrering för en specifik enskild enhet. Den här typen av registreringspost kräver [certifikat för slutentitet, "leaf"](concepts-security.md#end-entity-leaf-certificate).
+    2. Registreringsgrupper: Den här typen av registreringspost kräver mellanliggande certifikat eller rotcertifikat. Mer information finns på sidan om att [kontrollera enhetsåtkomst till etableringstjänsten med X.509-certifikat](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
-Om du har byggt SDK för att använda attestering från ett simulerat TPM- eller X.509-certifikat:
+### <a name="simulated-devices"></a>Simulerade enheter
+
+Beroende på om du har byggt SDK för att använda attestering för en simulerad enhet som använder TPM eller X.509-certifikat går insamling av säkerhetsartefakterna till så här:
 
 - För en simulerad TPM-enhet:
-   1. Använd en separat/ny kommandotolk för att navigera till `azure-iot-sdk-c`-underkatalogen och köra TPM-simulatorn. Den lyssnar via en socket på portarna 2321 och 2322. Stäng inte det här kommandofönstret. Den här simulatorn måste fortsätta att köras till slutet av den här snabbstarten. 
+
+   1. Öppna en kommandotolk i Windows, navigera till `azure-iot-sdk-c`-underkatalogen och kör TPM-simulatorn. Den lyssnar via en socket på portarna 2321 och 2322. Stäng inte det här kommandofönstret. Den här simulatorn måste fortsätta att köras till slutet av den här snabbstarten. 
 
       Kör följande kommando från `azure-iot-sdk-c`-underkatalogen för att starta simulatorn:
 
@@ -103,18 +119,22 @@ Om du har byggt SDK för att använda attestering från ett simulerat TPM- eller
       .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
       ```
 
+      > [!NOTE]
+      > Om du använder Git Bash-kommandotolken för det här steget behöver du ändra de omvända snedstrecken till vanliga snedstreck, till exempel: `./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe`.
+
    2. I Visual Studio öppnar du lösningen som genererats i *cmake*-mappen med namnet `azure_iot_sdks.sln`, och bygger den med kommandot "Build solution" (Bygg lösning) på menyn "Build" (Bygg).
 
    3. I rutan*Solution Explorer* i Visual Studio går du till mappen **Provision (Etablera)\_Verktyg**. Högerklicka på projektet **tpm_device_provision** och markera **Set as Startup Project** (Ange som startprojekt). 
 
-   4. Kör lösningen med något av startkommandona på felsökningsmenyn. I utdatafönstret visas TPM-simulatorns **_registrerings-ID_** och **_bekräftelsenyckeln_** som behövs för enhetsregistrering och registrering. Kopiera dessa värden för senare bruk. Du kan stänga det här fönstret (med registrerings-ID:t och bekräftelsenyckeln), men lämna TPM-simulatorfönstret från steg 1 öppet.
+   4. Kör lösningen med något av startkommandona på felsökningsmenyn. I utdatafönstret visas TPM-simulatorns **_registrerings-ID_** och **_bekräftelsenyckeln_** som behövs för enhetsregistrering och registrering. Kopiera dessa värden för senare bruk. Du kan stänga det här fönstret (med registrerings-ID och bekräftelsenyckeln), men lämna TPM-simulatorfönstret från steg 1 öppet.
 
 - För en simulerad X.509-enhet:
+
   1. I Visual Studio öppnar du lösningen som genererats i *cmake*-mappen med namnet `azure_iot_sdks.sln`, och bygger den med kommandot "Build solution" (Bygg lösning) på menyn "Build" (Bygg).
 
   2. I rutan*Solution Explorer* i Visual Studio går du till mappen **Provision (Etablera)\_Verktyg**. Högerklicka på projektet **dice\_device\_enrollment** (dice-enhetsregistrering) och markera **Set as Startup Project** (Ange som startprojekt). 
   
-  3. Kör lösningen med något av startkommandona på felsökningsmenyn. I utdatafönstret anger du **i** för individuell registrering när du blir uppmanad till det. I utdatafönstret visas ett lokalt genererat X.509-certifikat för din simulerade enhet. Kopiera utdata till Urklipp som börjar på *-----BEGIN CERTIFICATE-----* och slutar på den första *-----END CERTIFICATE-----*, och se till att du får med båda raderna. Observera att du behöver bara det första certifikatet från fönstret Utmatning.
+  3. Kör lösningen med något av startkommandona på felsökningsmenyn. I utdatafönstret anger du **i** för individuell registrering när du blir uppmanad till det. I utdatafönstret visas ett lokalt genererat X.509-certifikat för din simulerade enhet. Kopiera utdata till Urklipp som börjar på *-----BEGIN CERTIFICATE-----* och slutar på den första *-----END CERTIFICATE-----*, och se till att du får med båda raderna. Du behöver bara det första certifikatet från utmatningsfönstret.
  
   4. Skapa en fil med namnet **_X509testcert.pem_**, öppna den i valfritt textredigeringsprogram och kopiera urklippsinnehållet till filen. Spara filen. Du kommer att använda den senare för enhetsregistrering. När din registreringsprogramvara körs använder den samma certifikat vid automatisk etablering.    
 

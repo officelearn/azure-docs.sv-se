@@ -1,6 +1,6 @@
 ---
-title: Använda en MSI på en virtuell Windows-dator och komma åt Azure Key Vault
-description: En självstudiekurs som steg för steg beskriver hur du använder en hanterad tjänstidentitet (MSI) på en virtuell Windows-dator och komma åt Azure Key Vault.
+title: Använda en hanterad tjänstidentitet på en virtuell Windows-dator för att komma åt Azure Key Vault
+description: En självstudiekurs som steg för steg beskriver hur du använder en hanterad tjänstidentitet på en virtuell Windows-dator för att komma åt Azure Key Vault.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: aed990c01e781ae766f421c1dd34ad64f13985cf
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 81bab96b91bb71a91ea0b6046b16ef86c8d27061
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048746"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248069"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Självstudie: Använda en hanterad tjänstidentitet (MSI) på en virtuell Windows-dator och komma åt Azure Key Vault 
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-key-vault"></a>Självstudie: Använda en hanterad tjänstidentitet på en virtuell Windows-dator för att komma åt Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien visar hur du aktiverar hanterad tjänstidentitet (MSI) för en virtuell Windows-dator och sedan kommer åt Azure Key Vault med hjälp av identiteten. Key Vault fungerar som en bootstrap som gör det möjligt för klientprogrammet att använda hemligheten för åtkomst till resurser som inte skyddas av Azure Active Directory (AD). Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. 
+Den här självstudien visar hur du aktiverar hanterad tjänstidentitet för en virtuell Windows-dator och sedan kommer åt Azure Key Vault med hjälp av identiteten. Key Vault fungerar som en bootstrap som gör det möjligt för klientprogrammet att använda hemligheten för åtkomst till resurser som inte skyddas av Azure Active Directory (AD). Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. 
 
 Lär dig att:
 
@@ -47,7 +47,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Windows-dator i en ny resursgrupp
 
-I den här självstudien ska vi skapa en ny virtuell Windows-dator. Du kan även aktivera MSI på en befintlig virtuell dator.
+I den här självstudien ska vi skapa en ny virtuell Windows-dator. Du kan även aktivera hanterad tjänstidentitet på en befintlig virtuell dator.
 
 1.  Klicka på knappen **Skapa en resurs** längst upp till vänster i Azure Portal.
 2.  Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
@@ -58,11 +58,11 @@ I den här självstudien ska vi skapa en ny virtuell Windows-dator. Du kan även
 
     ![Alternativ bildtext](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn 
+## <a name="enable-managed-service-identity-on-your-vm"></a>Aktivera hanterad tjänstidentitet på en virtuell dator 
 
-Med en MSI för virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar MSI skapar Azure en hanterad tjänstidentitet för den virtuella datorn. När du aktiverar MSI sker två saker: den virtuella datorn registreras med Azure Active Directory och skapar en hanterade identitet, och identiteten konfigureras på den virtuella datorn.
+Med en hanterad tjänstidentitet på en virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar hanterad tjänstidentitet skapar Azure en hanterad identitet för den virtuella datorn. I bakgrunden sker två saker när du aktiverar en hanterad tjänstidentitet på en virtuell dator: din virtuella dator registreras hos Azure Active Directory och dess hanterade tjänstidentitet skapas, och identiteten konfigureras på den virtuella datorn.
 
-1.  Välj den **virtuella dator** som du vill aktivera MSI på.  
+1.  Välj den **virtuella dator** som du vill aktivera hanterad tjänstidentitet på.  
 2.  Klicka på **Konfiguration** i det vänstra navigeringsfältet. 
 3.  **Hanterad tjänstidentitet** visas. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej. 
 4.  Klicka på **Spara** för att spara konfigurationen.  
@@ -71,7 +71,7 @@ Med en MSI för virtuell dator kan du få åtkomsttoken från Azure Active Direc
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Ge din virtuella dator åtkomst till en hemlighet som lagras i Key Vault 
  
-Med hjälp av MSI kan din kod hämta åtkomsttoken och autentisera mot resurser som stöder Azure Active Directory-autentisering.  Men alla Azure-tjänster stöder inte Azure Active Directory-autentisering. Om du vill använda MSI med dessa tjänster lagrar du autentiseringsuppgifterna för tjänsten i Azure Key Vault och får åtkomst till Key Vault och hämtar autentiseringsuppgifterna med hjälp MSI:n. 
+Med hjälp av en hanterade tjänstidentitet kan din kod hämta åtkomsttoken och autentisera mot resurser som stöder Azure AD-autentisering.  Men alla Azure-tjänster stöder inte Azure Active Directory-autentisering. Om du vill använda hanterad tjänstidentitet med dessa tjänster lagrar du autentiseringsuppgifterna för tjänsten i Azure Key Vault och får åtkomst till Key Vault och hämtar autentiseringsuppgifterna med hjälp den hanterade tjänstidentiteten. 
 
 Börja med att skapa ett Key Vault och bevilja den virtuella datorns identitet åtkomst till Key Vault.   
 
@@ -100,9 +100,9 @@ Lägg sedan till en hemlighet i Key Vault, så att du senare kan hämta hemlighe
 
 Om du inte har PowerShell 4.3.1 eller senaste installerat måste du [ladda ned och installera den senaste versionen](https://docs.microsoft.com/powershell/azure/overview).
 
-Först måste vi använda den virtuella datorns MSI om vi vill få ett åtkomsttoken och autentisera mot Key Vault:
+Först måste vi använda den virtuella datorns hanterade tjänstidentitet för att få ett åtkomsttoken och autentisera mot Key Vault:
  
-1. Gå till **Virtuella datorer** på portalen och sedan till den virtuella Windows-datorn. Under **Översikt** klickar du på **Anslut**.
+1. I portalen går du till **Virtuella datorer** och sedan till den virtuella Windows-datorn. Under **Översikt** klickar du på **Anslut**.
 2. Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den **virtuella Windows-datorn**.  
 3. Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn öppnar du PowerShell i fjärrsessionen.  
 4. I PowerShell anropar du webbegäran för klientorganisationen om du vill få en token för den lokala värden i porten för den virtuella datorn.  

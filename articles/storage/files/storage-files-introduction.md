@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/08/2017
+ms.date: 07/19/2018
 ms.author: renash
-ms.openlocfilehash: 83096e15b26b0edfd47df36fe368fd5c9c846f12
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: b331a6fcc6efd07bf63135e917f9fe55560e4ec7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737290"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158292"
 ---
 # <a name="introduction-to-azure-files"></a>Introduktion till Azure Files
-Azure Files erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via [Server Message Block-protokollet (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) som är branschstandard. Azure-filresurser kan monteras samtidigt av molndistributioner eller lokala distributioner av Windows, Linux och macOS. Azure-filresurser kan dessutom cachelagras på Windows-servrar med Azure File Sync (förhandsversion) för snabb åtkomst nära den plats där data används.
+Azure Files erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via [Server Message Block-protokollet (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) som är branschstandard. Azure-filresurser kan monteras samtidigt av molndistributioner eller lokala distributioner av Windows, Linux och macOS. Azure-filresurser kan dessutom cachelagras på Windows-servrar med Azure File Sync för snabb åtkomst nära den plats där data används.
 
 ## <a name="videos"></a>Videoklipp
 | Introduktion till Azure File Sync (2 m) | Azure Files med Sync (Ignite 2017) (85 m)  |
@@ -39,7 +39,7 @@ Azure-filresurser kan användas för att:
     Azure Files gör det enkelt att "lyfta och flytta" program till molnet som förväntar sig en filresurs för att lagra filprograms- eller användardata. Azure Files gör det möjligt att använda både det "klassiska" scenariot för att lyfta och flytta, där både programmet och dess data flyttas till Azure, och "hybridvarianten" av att lyfta och flytta, där programdata flyttas till Azure Files och programmet fortsätter att köras lokalt. 
 
 * **Förenkla molnutveckling**:  
-    Azure Files kan även användas på flera sätt för att förenkla nya molnutvecklingsprojekt. Till exempel:
+    Azure Files kan även användas på flera sätt för att förenkla nya molnutvecklingsprojekt. Exempel:
     * **Delade programinställningar**:  
         Ett vanligt mönster för distribuerade program är att ha konfigurationsfilerna på en central plats där de kan nås från många programinstanser. Programinstanser kan läsa in konfigurationen via File REST API och människor kan komma åt dem efter behov genom att montera SMB-resursen lokalt.
 

@@ -8,22 +8,22 @@ author: ghogen
 ms.author: ghogen
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: Snabb Kubernetes-utveckling med behållare och mikrotjänster i Azure
+description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 93c9f42df1136f242a5a04dc3056e0b1595cfb02
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: facf2de40c555ccd79fe73543a85f0b5cc150450
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37933450"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247491"
 ---
-# <a name="team-development-with-azure-dev-spaces"></a>Grupputveckling med Azure Dev Spaces
+# <a name="team-development-with-azure-dev-spaces"></a>Teamutveckling med Azure Dev Spaces
 
 I den här självstudien lär du hur kan få flera Dev Spaces att fungera samtidigt i olika utvecklingsmiljöerna,för att hålla separat arbete i separata Dev Spaces i samma kluster.
 
-## <a name="call-another-container"></a>Anropa en annan behållare
-I det här avsnittet ska du skapa en andra tjänst, `mywebapi`, som ska anropas av `webfrontend`. Varje tjänst körs i en separat behållare. Du ska sedan felsöka båda behållarna.
+## <a name="call-another-container"></a>Anropa en annan container
+I det här avsnittet ska du skapa en andra tjänst, `mywebapi`, som ska anropas av `webfrontend`. Varje tjänst körs i en separat container. Du ska sedan felsöka båda containrarna.
 
 ![](media/common/multi-container.png)
 
@@ -34,7 +34,7 @@ För enkelhetens skull laddar vi ned exempelkoden från en GitHub-databas. Gå t
 1. Öppna projektet `mywebapi` i ett *separat fönster i Visual Studio*.
 1. Välj **Azure Dev Spaces** i listrutan med startinställningar som du gjorde tidigare för projektet `webfrontend`. I stället för att skapa ett nytt AKS-kluster väljer du den här gången samma som du redan skapat. Precis som förut lämnar du standardinställningen `default` för Utrymme och klickar på **OK**. I fönstret Output (Utdata) märker du kanske att Visual Studio börjar ”värma upp” den här nya tjänsten i utvecklingsmiljön för att påskynda förloppet när du börjar felsöka.
 1. Tryck på F5 och vänta tills tjänsten har skapats och distribuerats. Processen är klar när statusfältet i Visual Studio blir orange
-1. Anteckna slutpunktens webbadress som visas i fönstret **Azure Dev Spaces för AKS** i fönstret **Utdata**. Den ser ut ungefär så här: http://localhost:\<portnumber\>. Det kan verka som om behållaren körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure.
+1. Anteckna slutpunktens webbadress som visas i fönstret **Azure Dev Spaces för AKS** i fönstret **Utdata**. Den ser ut ungefär så här: http://localhost:\<portnumber\>. Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure.
 2. När `mywebapi` är klar öppnar du webbläsaren på localhost-adressen och lägger till `/api/values` i URL:en för att anropa standard-GET-API:et för `ValuesController`. 
 3. Om alla steg lyckades bör du se ett svar från `mywebapi`-tjänsten som ser ut så här.
 
@@ -78,7 +78,7 @@ I föregående kodexempel vidarebefordras rubriken `azds-route-as` från den ink
 1. Fortsätt genom att trycka på F5 så kommer du tillbaka till koden i `webfrontend`-projektet.
 1. Om du trycker på F5 en gång till slutförs begäran och en sida returneras i webbläsaren. I webbappen visar sidan Om ett sammanslaget meddelande från de båda tjänsterna: ”Hello from webfrontend and Hello from mywebapi”.
 
-Bra gjort! Nu har du ett program med flera behållare där varje behållare kan utvecklas och distribueras separat.
+Bra gjort! Nu har du ett program med flera containrar där varje container kan utvecklas och distribueras separat.
 
 ## <a name="learn-about-team-development"></a>Lär dig mer om utveckling i team
 
@@ -127,7 +127,7 @@ Så här skapar du ett nytt utrymme:
 
     ![](media/get-started-netcore-visualstudio/Settings.png)
 
-6. Skriv ett namn för utrymmet i dialogrutan för att **lägga till utrymme** och klicka på **OK**. Du kan använda ditt namn (till exempel ”scott”) för det nya utrymmet så att dina kolleger ser vilket utrymme du arbetar i.
+6. I dialogrutan **Lägg till utrymme** ställer du in det överordnade utrymmet på **standard** och anger ett namn för ditt nya utrymme. Du kan använda ditt namn (till exempel ”scott”) för det nya utrymmet så att dina kolleger ser vilket utrymme du arbetar i. Klicka på **OK**.
 
     ![](media/get-started-netcore-visualstudio/AddSpace.png)
 

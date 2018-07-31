@@ -1,37 +1,41 @@
 ---
-title: Azure AD SSPR från Windows 10-inloggningsskärmen | Microsoft Docs
-description: Konfigurera inloggningsskärmen i Windows 10, Azure AD-lösenordsåterställning och Jag har glömt min PIN-kod
+title: Azure AD SSPR från Windows 10-inloggningsskärmen
+description: I den här självstudien aktiverar du lösenordsåterställning på inloggningsskärmen för Windows 10 för att minska antalet samtal till supportavdelningen.
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 04/27/2018
+ms.topic: tutorial
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2a6fbd9e52e07141ae1d8c630bde6ab23801fb18
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e4e94567cf978631be52a3304b47b68f61ac3fff
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054509"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161171"
 ---
-# <a name="azure-ad-password-reset-from-the-login-screen"></a>Azure AD-lösenordsåterställning från inloggningsskärmen
+# <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Självstudie: Azure AD-lösenordsåterställning från inloggningsskärmen
 
-Du redan har distribuerat Azure AD-lösenordsåterställning via självbetjäning (SSPR) men dina användare kan fortfarande ringa supportavdelningen när de glömmer lösenordet. De ringer supportavdelningen eftersom de inte kan komma till en webbläsare för att komma åt SSPR.
+I den här självstudien gör du så att användare kan återställa sina lösenord från Windows 10-inloggningsskärmen. Med den nya April 2018-uppdateringen för Windows 10 kan användare med **Azure AD-anslutna** eller **Hybrid Azure AD-anslutna** enheter använda länken ”Återställ lösenord” på sin inloggningsskärm. När användarna klickar på den här länken kommer de till samma lösenordsåterställning via självbetjäning (SSPR) som de är vana vid.
 
-Med nya April 2018-uppdateringen för Windows 10 kan användare med **Azure AD-anslutna** eller **Hybrid Azure AD-anslutna** enheter se och använda länken ”Återställ lösenord” på sin inloggningsskärm. När de klickar på den här länken kommer de till samma lösenordsåterställning via självbetjäning (SSPR) som de är vana vid.
+> [!div class="checklist"]
+> * Konfigurera länken Återställ lösenord med Intune
+> * Konfigurera med hjälp av Windows-registret som alternativ lösning
+> * Förstå vad användarna ser
 
-För att användare ska kunna återställa sitt Azure AD-lösenord från Windows 10-inloggningsskärmen måste följande krav vara uppfyllda:
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* April 2018-uppdatering för Windows 10 eller en nyare klient som är [Azure AD-ansluten](../device-management-azure-portal.md) eller [Hybrid Azure AD-ansluten](../device-management-hybrid-azuread-joined-devices-setup.md).
+* April 2018-uppdateringen för Windows 10 eller en senare klient som är:
+   * [Azure AD-ansluten](../device-management-azure-portal.md) eller 
+   * [Hybrid Azure AD-ansluten](../device-management-hybrid-azuread-joined-devices-setup.md)
 * Återställning av lösenord för självbetjäning i Azure AD måste vara aktiverat.
-* Konfigurera och distribuera inställningen för att aktivera länken för återställning av lösenord via någon av följande metoder:
-   * [Konfigurationsprofil för Intune-enhet](tutorial-sspr-windows.md#configure-reset-password-link-using-intune). Den här metoden kräver Intune-registrering av enheten.
-   * [Registernyckel](tutorial-sspr-windows.md#configure-reset-password-link-using-the-registry)
 
 ## <a name="configure-reset-password-link-using-intune"></a>Konfigurera länken Återställ lösenord med Intune
+
+Att distribuera konfigurationsändringen för att aktivera lösenordsåterställning från inloggningsskärmen med Intune är den mest flexibla metoden. Med Intune kan du distribuera konfigurationsändringen till en särskild grupp av datorer som du definierar. Den här metoden kräver Intune-registrering av enheten.
 
 ### <a name="create-a-device-configuration-policy-in-intune"></a>Skapa en princip för enhetskonfiguration i Intune
 
@@ -85,7 +89,7 @@ Du har nu skapat och tilldelat en enhetskonfigurationsprincip för att aktivera 
 
 Vi rekommenderar att du använder den här metoden enbart för att testa ändringen av inställningen.
 
-1. Logga in på enheten som är kopplad till Azure AD med autentiseringsuppgifterna för administratören
+1. Logga in på Windows-datorn med autentiseringsuppgifterna för administratören
 2. Kör **regedit** som administratör
 3. Ange följande registernyckel
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -97,6 +101,7 @@ Vad förändras för användaren när principen är konfigurerad och tilldelad? 
 
 ![LoginScreen][LoginScreen]
 
+När användarna försöker logga in ser de nu en länk för återställning av lösenord som öppnar självbetjäningen för återställning av lösenord på inloggningsskärmen. Via den här funktionen kan användarna återställa sina lösenord utan att de behöver använda en annan enhet för att få åtkomst till webbläsaren.
 När användarna försöker logga in ser de nu en länk för återställning av lösenord som öppnar självbetjäningen för återställning av lösenord på inloggningsskärmen. Via den här funktionen kan användarna återställa sina lösenord utan att de behöver använda en annan enhet för att få åtkomst till webbläsaren.
 
 Dina användare får hjälp med att använda funktionen i [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in) (Återställa ditt arbets- eller skollösenord)
@@ -111,13 +116,16 @@ När du testar funktionen med Fjärrskrivbord visas inte länken ”Återställ 
 
 * Återställning av lösenord stöds inte från ett Fjärrskrivbord.
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du inte längre vill använda funktioner som du har konfigurerat i den här kursen kan du ta bort Intune-enhetens konfigurationsprofil som du skapade eller registernyckeln.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Följande länkar ger ytterligare information om lösenordsåterställning med Azure AD
+I den här självstudien gjorde du så att användare kan återställa sina lösenord från Windows 10-inloggningsskärmen. Fortsätt till nästa självstudie för att se hur Azure Identity Protection kan integreras i funktionerna för självåterställning av lösenord samt multifaktorautentisering.
 
-* [Hur gör jag för att distribuera SSPR?](howto-sspr-deployment.md)
-* [Hur gör jag för att aktivera PIN-kodåterställning från inloggningsskärmen?](https://docs.microsoft.com/intune/device-windows-pin-reset)
-* [Mer information om principer för MDM-autentisering](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-authentication)
+> [!div class="nextstepaction"]
+> [Utvärdera risk vid inloggning](tutorial-risk-based-sspr-mfa.md)
 
 [CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Skapa en Intune-enhetskonfigurationsprofil för att aktivera länken Återställ lösenord på Windows 10-inloggningsskärmen"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Tilldela principer för Intune-enhetskonfiguration till en grupp med Windows 10-enheter"

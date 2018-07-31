@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
-ms.openlocfilehash: 30741e48adbdb621317c13ec286b419bed2f9ea1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e6a3ff22d6224ff0accdf39ad098505626659688
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001549"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238258"
 ---
 # <a name="introduction-to-azure-storage"></a>Introduktion till Azure Storage
 
@@ -23,7 +23,7 @@ Azure Storage är Microsofts molntjänstlagringslösning för moderna datalagrin
 - **Skydda.** Alla data som skrivs till Azure Storage krypteras av tjänsten. Med Azure Storage får du detaljerad kontroll över vem som har tillgång till dina data.
 - **Skalbar.** Azure Storage är utformat för att vara mycket skalbart för att uppfylla krav på datalagring och prestanda för dagens program. 
 - **Hanterad.** Microsoft Azure tar hand om underhåll och hanterar kritiska problem åt dig.
-- **Åtkomlig.** Data i Azure Storage är åtkomlig från hela världen via HTTP eller HTTPS varifrån som helst. Microsoft tillhandahåller SDK:er för Azure Storage på många olika språk – .NET, Java, Node.js, Python, PHP, Ruby, Go med flera – samt en mogen REST API. Azure Storage stöder skrivning i Azure PowerShell eller Azure CLI. Azure-portalen och Azure Storage Explorer erbjuder även enkla visuella lösningar för att arbeta med dina data.  
+- **Åtkomlig.** Data i Azure Storage är åtkomlig från hela världen via HTTP eller HTTPS varifrån som helst. Microsoft tillhandahåller SDK:er för Azure Storage på många olika språk – .NET, Java, Node.js, Python, PHP, Ruby, Go med flera – samt en mogen REST API. Azure Storage stöder skriptning i Azure PowerShell eller Azure CLI. Azure-portalen och Azure Storage Explorer erbjuder även enkla visuella lösningar för att arbeta med dina data.  
 
 ## <a name="azure-storage-services"></a>Azure Storage-tjänster
 

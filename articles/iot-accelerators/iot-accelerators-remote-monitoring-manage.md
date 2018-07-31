@@ -1,24 +1,24 @@
 ---
-title: Hantera enheter i en Azure-baserad fjärrövervakningslösning | Microsoft Docs
+title: Självstudie om att hantera enheter i en Azure-baserad fjärrövervakningslösning | Microsoft Docs
 description: Den här självstudien visar dig hur du hanterar enheter anslutna till lösningsacceleratorn Fjärrövervakning.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/12/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 63baf6397b2542311525bac740c50b5eacbd35cf
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: cd8e8c1fe1b77113968b7af635f45f9e0e077b7c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097435"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159205"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Självstudie: Konfigurera och hantera enheter som är anslutna till din övervakningslösning
 
-I den här självstudiekursen använder du lösningsacceleratorn Fjärrövervakning för att konfigurera och hantera dina anslutna IoT-enheter. Du lägger till en ny enhet för lösningsacceleratorn, konfigurerar enheten och uppdaterar enhetens inbyggda programvara.
+I den här självstudiekursen använder du lösningsacceleratorn Fjärrövervakning för att konfigurera och hantera dina anslutna IoT-enheter. Du lägger till en ny enhet till lösningsacceleratorn, konfigurerar enheten och uppdaterar enhetens inbyggda programvara.
 
 Contoso har beställt nya maskiner och utökat en av sina anläggningar. Medan du väntar på att de nya maskinerna ska levereras vill du köra en simulering för att testa lösningens beteende. För att köra simuleringen lägger du till en ny simulerad motor i lösningsacceleratorn Fjärrövervakning och testar att den simulerade enheten svarar korrekt på åtgärder och konfigurationsuppdateringar.
 
@@ -33,11 +33,9 @@ I den här kursen för du göra följande:
 > * Konfigurera om en enhet.
 > * Organisera dina enheter.
 
-## <a name="prerequisites"></a>Krav
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Om du vill följa den här självstudien behöver du en distribuerad instans av lösningsacceleratorn Fjärrövervakning i Azure-prenumerationen.
-
-Om du inte har distribuerat lösningsacceleratorn Fjärrövervakning ännu bör du genomföra snabbstarten [Distribuera en molnbaserad fjärrövervakningslösning](quickstart-remote-monitoring-deploy.md).
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="add-a-simulated-device"></a>Lägga till en simulerad enhet
 
@@ -51,23 +49,21 @@ I panelen **Ny enhet** väljer du **Simulerad**, lämnar antalet enheter som ska
 
 ## <a name="test-the-simulated-device"></a>Testa den simulerade enheten
 
-För att testa att den simulerade enheten skickar telemetridata och rapporterar egenskapsvärden väljer du den i listan med enheter på sidan **Enheter**. Direktinformation om enheten visas i panelen **Enhetsinformation**:
+För att testa att den simulerade motorenheten skickar telemetridata och rapporterar egenskapsvärden väljer du den i listan med enheter på sidan **Enheter**. Direktinformation om motorn visas i panelen **Enhetsinformation**:
 
 [![Visa den nya simulerade enheten](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
-I **Enhetsinformation** kontrollerar du att den nya enheten skickar telemetridata. Om du vill visa den andra telemetriströmmen för vibrationer från enheten klickar du på **Vibration**:
+I **Enhetsinformation** kontrollerar du att den nya enheten skickar telemetridata. Om du vill visa telemetriströmmen för vibrationer från enheten klickar du på **Vibration**:
 
 [![Välja en telemetriström att visa](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-expanded.png#lightbox)
 
 Panelen **Enhetsinformation** visar annan information om enheten som taggvärden, metoder som stöds och egenskaperna som rapporteras av enheten.
 
-Du kan visa detaljerad diagnostik genom att rulla ned och visa **Diagnostik**:
-
-[![Visa enhetsdiagnostik](./media/iot-accelerators-remote-monitoring-manage/devicediagnostics-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicediagnostics-expanded.png#lightbox)
+Om du vill visa detaljerad diagnostik rullar du nedåt i panelen **Enhetsinformation** för att visa avsnittet **Diagnostik**.
 
 ## <a name="act-on-a-device"></a>Utföra åtgärder på en enhet
 
-Du kan testa om den simulerade motorn svarar korrekt på åtgärder som initieras via lösningsacceleratorn genom att köra metoden **FirmwareUpdate** (Uppdatering av inbyggd programvara). Om du vill utföra åtgärder på en enhet genom att köra en metod väljer du enheten i listan över enheter och klickar sedan på **Jobb**. Du kan välja mellan fler än en enhet om du vill utföra åtgärder på flera enheter. I panelen **Jobb** väljer du **Kör metod**. Enhetsmodellen **Engine** (Motor) anger tre metoder: **FirmwareUpdate** (Uppdatering av inbyggd programvara), **FillTank** (Fyll tanken) och **EmptyTank** (Töm tanken):
+Du kan testa om den simulerade motorn svarar korrekt på åtgärder som initieras via instrumentpanelen genom att köra metoden **FirmwareUpdate** (Uppdatering av inbyggd programvara). Om du vill utföra åtgärder på en enhet genom att köra en metod väljer du enheten i listan över enheter och klickar sedan på **Jobb**. Du kan välja mellan fler än en enhet om du vill utföra åtgärder på flera enheter. I panelen **Jobb** väljer du **Kör metod**. Enhetsmodellen **Engine** (Motor) anger tre metoder: **FirmwareUpdate** (Uppdatering av inbyggd programvara), **FillTank** (Fyll tanken) och **EmptyTank** (Töm tanken):
 
 [![Engine-metoder (Motor)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
 
@@ -103,7 +99,7 @@ När jobbet har slutförts går du till sidan **Instrumentpanel**. Motorn visas 
 
 ## <a name="organize-your-devices"></a>Organisera dina enheter
 
-För att göra det enklare som operatör att organisera och hantera dina enheter taggar du dem med lämpligt teamnamn. Contoso har två olika team för fältserviceaktiviteter:
+För att göra det enklare som operatör att organisera och hantera dina enheter taggar du dem med ett teamnamn. Contoso har två olika team för fältserviceaktiviteter:
 
 * Teamet Smart Vehicle hanterar lastbilar och prototyper.
 * Teamet Smart Building hanterar kylaggregat, hissar och motorer.
@@ -114,19 +110,15 @@ Du kan visa alla dina enheter genom att gå till sidan **Enheter** och välja fi
 
 ### <a name="add-tags"></a>Lägga till taggar
 
-Välj alla enheter av typen **Trucks** (Lastbilar) och **Prototyping** (Prototyper). Klicka sedan på **Jobb**:
+Välj alla enheter av typen **Trucks** (Lastbilar) och **Prototyping** (Prototyper). Klicka sedan på **Jobb**.
 
-[![Välja prototyper och lastbilar](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect-expanded.png#lightbox)
-
-Välj **Tagg**, ange jobbnamnet **AddConnectedVehicleTag** (Lägg till ansluten fordonstagg) och lägg sedan till en text med namnet **FieldService** (Fältservice) med värdet **ConnectedVehicle** (Anslutet fordon). Klicka sedan på **Använd**:
+I panelen **Jobs** (Jobb) väljer du **Tagg**. Ange jobbnamnet till **AddConnectedVehicleTag** (Lägg till ansluten fordonstagg) och lägg sedan till en texttagg med namnet **FieldService** (Fältservice) med värdet **ConnectedVehicle** (Anslutet fordon). Klicka sedan på **Använd**:
 
 [![Lägga till tagg för prototyper och lastbilar](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-expanded.png#lightbox)
 
-På enhetssidan väljer du alla enheter av typen **Chiller** (Kylaggregat), **Elevator** (Hiss) och **Motor**. Klicka sedan på **Jobb**:
+På enhetssidan väljer du alla enheter av typen **Chiller** (Kylaggregat), **Elevator** (Hiss) och **Motor**. Klicka sedan på **Jobb**.
 
-[![Välja kylaggregat, hissar och motorer](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect2-expanded.png#lightbox)
-
-Välj **Tag**, ange jobbnamnet **AddSmartBuildingTag** (Lägg till Smart Building-tagg) och lägg sedan till en texttagg med namnet **FieldService** (Fältservice) med värdet **SmartBuilding**. Klicka sedan på **Använd**:
+I panelen **Jobs** (Jobb) väljer du **Tagg**. Ange jobbnamnet till **AddSmartBuildingTag** (Lägg till Smart Building-tagg) och lägg sedan till en texttagg med namnet **FieldService** (Fältservice) med värdet **SmartBuilding** (Smart byggnad). Klicka sedan på **Använd**:
 
 [![Lägga till tagg för kylaggregat, hissar och motorer](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-expanded.png#lightbox)
 
@@ -148,17 +140,7 @@ Nu kan Contoso-operatören fråga efter enheter baserat på driftsteamet:
 
 [![Skapa filter för anslutna fordon](./media/iot-accelerators-remote-monitoring-manage/filterinaction-inline.png)](./media/iot-accelerators-remote-monitoring-manage/filterinaction-expanded.png#lightbox)
 
-## <a name="clean-up-resources"></a>Rensa resurser
-
-Om du planerar att gå vidare till nästa självstudie lämnar du den distribuerade lösningsacceleratorn Fjärrövervakning. Du kan minska kostnaden för att köra lösningsacceleratorn när du inte använder den genom att stoppa de simulerade enheterna på inställningspanelen:
-
-[![Pausa telemetri](./media/iot-accelerators-remote-monitoring-manage/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-manage/togglesimulation-expanded.png#lightbox)
-
-Du kan starta om de simulerade enheterna när du är redo att starta nästa självstudie.
-
-Om du inte längre behöver lösningsacceleratorn tar du bort den från sidan [Etablerade lösningar](https://www.azureiotsolutions.com/Accelerators#dashboard):
-
-![Ta bort lösningen](media/iot-accelerators-remote-monitoring-manage/deletesolution.png)
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

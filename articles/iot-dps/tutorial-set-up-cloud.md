@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e334ff0c8dec3a9611b60f64e565111064d10c18
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ccc699a500cbaf20c9b90d71e7c730e617bc572c
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619290"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145544"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Konfigurera molnresurser för enhetsetablering med IoT Hub Device Provisioning-tjänst
 
-Den här självstudien visar hur du konfigurerar molnet för en automatisk enhetsetablering med IoT Hub Device Provisioning-tjänsten. I den här guiden får du lära dig hur man:
+Den här självstudien visar hur du konfigurerar molnet för en automatisk enhetsetablering med IoT Hub Device Provisioning-tjänsten. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Använd Azure-portalen för att skapa en IoT Hub Device Provisioning-tjänst och hämta ID-omfånget
@@ -28,7 +28,7 @@ Den här självstudien visar hur du konfigurerar molnet för en automatisk enhet
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -50,9 +50,9 @@ Följ de här stegen för att skapa en ny Device Provisioning-tjänstinstans.
 
    ![Ange grundläggande DPS-information i portalen](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
-5. Klicka på **Skapa**.
-6. *ID-omfånget* används för att identifiera registrerings-ID och erbjuder en garanti för att registrerings-ID:t är unikt. När du vill hämta värdet klickar du på **Översikt** för att öppna sidan **Essentials** för Device Provisioning-tjänsten. Kopiera **ID-omfångets** värde till en tillfällig plats för användning senare.
-7. Anteckna också värdet för **tjänstens slutpunkt** eller kopiera det till en tillfällig plats för användning senare. 
+5. Klicka på **Skapa**. Efter en liten stund skapas instansen för enhetsetableringstjänsten, och sidan **Översikt** visas.
+6. På sidan **Översikt** för den nya tjänstinstansen kopierar du värdet för **ID-omfånget** för senare användning. Det värdet används för att identifiera registrerings-ID och erbjuder en garanti för att registrerings-ID:t är unikt.
+7. Kopiera även **Tjänstslutpunkten** värde för senare användning. 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -65,8 +65,11 @@ Nästa steg är att länka Device Provisioning-tjänsten och IoT Hub så att IoT
 1. På sidan **Alla resurser** klickar du på Device Provisioning-tjänsteinstansen du skapade tidigare.
 2. Välj **Linked IoT hubs** (Länkade IoT-hubbar) på Device Provisioning-tjänstens sida.
 3. Klicka på **Lägg till**.
-4. På sidan **Lägg till länk i IoT Hub** använder du alternativknapparna för att ange om den länkade IoT-hubben är placerad i den aktuella prenumerationen eller i en annan prenumeration. Välj sedan IoT-hubbens namn från rutan **IoT Hub**.
-5. Klicka på **Spara**.
+4. På sidan **Lägg till länk i IoT Hub** anger du följande information och klickar på **Spara**:
+
+    * **Prenumeration:** Se till att den prenumeration som innehåller IoT-hubben är markerad. Du kan länka till en IoT-hubb som finns i en annan prenumeration.
+    * **IoT-hubb:** Välj namnet på den IoT-hubb som du vill länka med den här instansen för enhetsetableringstjänsten.
+    * **Åtkomstprincip:** Välj **iothubowner** som autentiseringsuppgifter som ska användas för etablering av länken till IoT-hubben.
 
    ![Länka hubbnamnet för att länka till DPS på portalen](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
@@ -75,7 +78,7 @@ Nästa steg är att länka Device Provisioning-tjänsten och IoT Hub så att IoT
 Allokeringsprincipen är en inställning för IoT Hub Device Provisioning-tjänsten som bestämmer hur enheter tilldelas till en IoT-hubb. Det finns tre allokeringsprinciper som stöds: 
 
 1. **Kortast svarstid**: Enheter etableras till en IoT-hubb baserat på hubben med kortast svarstid till enheten.
-2. **Jämnt viktad distribution** (standard): Det är lika sannolikt att länkade IoT-hubbar får enheter etablerade till sig. Det här är standardinställningen. Om du endast etablerar enheter till en IoT-hubb kan du behålla den här inställningen. 
+2. **Jämnt viktad distribution** (standard): Det är lika sannolikt att länkade IoT-hubbar får enheter etablerade till sig. Den här inställningen är standardinställningen. Om du endast etablerar enheter till en IoT-hubb kan du behålla den här inställningen. 
 3. **Statisk konfiguration via registreringslistan**: Specificering av den önskade IoT-hubben på registreringslistan har högre prioritet än allokeringsprincipen på Device Provisioning-tjänstnivå.
 
 Om du vill ställa in allokeringsprincipen går du till Device Provisioning-tjänstsidan och klickar på **Hantera allokeringsprincip**. Kontrollera att allokeringsprincipen är inställd på **Jämnt viktad distribution** (standardinställningen). Om du gör några ändringar ska du klicka på **Spara** när du är klar.

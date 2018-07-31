@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 47db87bf734674bd424fecd0f0f22bff9e2df5d5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 62ca816f7bdc183727eb22806ba9e733c8b97c44
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299262"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173513"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Distribuera Azure Machine Learning som en IoT Edge-modul – förhandsgranskning
 
-Du kan använda IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudiekursen vägleder dig genom processen att distribuera en Azure Machine Learning-modul som förutsäger när en enhet slutar fungera baserat på simulerade data om datortemperaturen. 
+Du kan använda IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudiekursen vägleder dig genom processen att distribuera en Azure Machine Learning-modul som förutsäger när en enhet slutar fungera baserat på simulerade data om datortemperaturen. Mer information om Azure ML på IoT Edge finns i [Dokumentation om Azure Machine Learning](../machine-learning/desktop-workbench/use-azure-iot-edge-ai-toolkit.md).
 
 Azure Machine Learning-modulen som du skapar i den här självstudiekursen läser av miljödata som genereras av enheten och märker meddelandena som avvikande eller normala.
 
@@ -41,16 +41,16 @@ Azure Machine Learning-modulen stöder inte ARM-processorer.
 
 Utvecklingsdatorn behöver ha följande förutsättningar: 
 * Ett Azure Machine Learning-konto. Följ anvisningarna för att [skapa Azure Machine Learning-konton och installera Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Du behöver inte installera Workbench för den här självstudiekursen. 
-* Hantering av modulen för Azure ML på din dator. Om du vill konfigurera din miljö och skapa ett konto följer du anvisningarna för [konfigurering av modellhantering](../machine-learning/desktop-workbench/deployment-setup-configuration.md).
+* Modellhantering för Azure ML på din dator. Om du vill konfigurera din miljö och skapa ett konto följer du anvisningarna för [konfigurering av modellhantering](../machine-learning/desktop-workbench/deployment-setup-configuration.md). Under installationen av distributionen rekommenderar vi att du väljer de lokala stegen i stället för klustret, där det är möjligt.
 
 ### <a name="disable-process-identification"></a>Inaktivera processidentifiering
 
 >[!NOTE]
 >
 > I förhandsversionen stöder inte Azure Machine Learning säkerhetsfunktionen processidentifiering som är aktiverad som standard med IoT Edge. 
-> Här nedan följer stegen för att inaktivera den. Detta är dock inte lämpligt för användning i produktion.
+> Här nedan följer stegen för att inaktivera den. Detta är dock inte lämpligt för användning i produktion. Dessa åtgärder krävs endast på Linux eftersom du kommer att ha slutfört det här under stegen för Windows Edge-körning.
 
-Om du vill inaktivera processidentifiering måste du ange IP-adressen och porten för **workload_uri** och **management_uri** i avsnittet **ansluta** i daemon-konfiguration för IoT Edge.
+Om du vill inaktivera processidentifiering på din IoT Edge-enhet måste du ange IP-adressen och porten för **workload_uri** och **management_uri** i avsnittet **ansluta** i daemon-konfiguration för IoT Edge.
 
 Hämta IP-adressen först. Ange `ifconfig` på kommandoraden och kopiera IP-adressen för gränssnittet **docker0**.
 
@@ -60,14 +60,14 @@ Redigera daemon-konfigurationsfilen för IoT Edge:
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Uppdatera avsnittet **connect** i konfigurationen med din IP-adress. Till exempel:
+Uppdatera avsnittet **connect** i konfigurationen med din IP-adress. Exempel:
 ```yaml
 connect:
   management_uri: "http://172.17.0.1:15580"
   workload_uri: "http://172.17.0.1:15581"
 ```
 
-Ange samma adresser i avsnittet **lyssna** i konfigurationen. Till exempel:
+Ange samma adresser i avsnittet **lyssna** i konfigurationen. Exempel:
 
 ```yaml
 listen:
@@ -82,12 +82,12 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 ```
 
 
-## <a name="create-the-azure-ml-container"></a>Skapa en Azure ML-behållare
-I det här avsnittet laddar du ned tränade modellfiler och konverterar dem till en Azure ML-behållare.
+## <a name="create-the-azure-ml-container"></a>Skapa en Azure ML-container
+I det här avsnittet laddar du ned tränade modellfiler och konverterar dem till en Azure ML-container.
 
 På datorn som kör modulhanteringen för Azure ML laddar du ned och sparar [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) och [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) från Azure ML IoT Toolkit på GitHub. De här filerna definierar den tränade maskininlärningsmodell som du ska distribuera till din IoT Edge-enhet.
 
-Använd den tränade modellen för att skapa en behållare som kan distribueras till IoT Edge-enheter. Använd följande kommando för att:
+Använd den tränade modellen för att skapa en container som kan distribueras till IoT Edge-enheter. Använd följande kommando för att:
 
    * Registrera din modell.
    * Skapa ett manifest.
@@ -98,17 +98,17 @@ Använd den tränade modellen för att skapa en behållare som kan distribueras 
 az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
 ```
 
-### <a name="view-the-container-repository"></a>Visa behållarlagringsplatsen
+### <a name="view-the-container-repository"></a>Visa containerlagringsplatsen
 
 Kontrollera att containeravbildningen skapades och lagras i Azure Container-registret som är associerad med maskininlärningsmiljön.
 
-1. På [Azure Portal](https://portal.azure.com) går du till **Alla tjänster** och väljer **Behållarregister**.
+1. På [Azure Portal](https://portal.azure.com) går du till **Alla tjänster** och väljer **Containerregister**.
 2. Välj ditt register. Namnet måste börja med **mlcr** och det hör till den resursgrupp, plats och prenumeration som du använde för att ställa in modulhanteringen.
 3. Välj **Åtkomstnycklar**
 4. Kopiera värdena för **inloggningsserver**, **användarnamn** och **lösenord**.  Du behöver dem för att komma åt registret från dina Edge-enheter.
 5. Välj **Lagringsplatser**
 6. Välj **machinelearningmodule**
-7. Nu har du fullständig avbildningssökväg för behållaren. Anteckna avbildningssökvägen för nästa avsnitt. Det bör se ut så här: **<registry_name>.azureacr.io/machinelearningmodule:1**
+7. Nu har du fullständig avbildningssökväg för containern. Anteckna avbildningssökvägen för nästa avsnitt. Det bör se ut så här: **<registry_name>.azureacr.io/machinelearningmodule:1**
 
 ## <a name="deploy-to-your-device"></a>Distribuera till din nya enhet
 
@@ -131,7 +131,7 @@ Kontrollera att containeravbildningen skapades och lagras i Azure Container-regi
 
 1. Lägg till maskininlärningsmodulen som du skapade.
 
-    1. Klicka på **Lägg till** och välj **Azure Machine Learning-modul**.
+    1. Klicka på **Lägg till** och välj **IoT Edge-modul**.
     1. I fältet **Namn** skriver du `machinelearningmodule`
     1. I fältet **Avbildning** anger du adressen till din avbildning, t.ex. `<registry_name>.azurecr.io/machinelearningmodule:1`.
     1. Välj **Spara**.

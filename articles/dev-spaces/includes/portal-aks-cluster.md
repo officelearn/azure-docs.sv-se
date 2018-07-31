@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 05736495d0d4a0c3a5072d29ad27801b6d4a7241
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2f894549951a0ef23a95acaab48ab20ce6646443
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967805"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39189301"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Skapa ett Kubernetes-kluster som är aktiverat för Azure Dev Spaces
 
@@ -32,7 +32,11 @@ ms.locfileid: "37967805"
 
    ![Konfigurationsinställningar för Kubernetes](../media/common/Kubernetes-Create-Cluster-2.PNG)
 
-   Välj **Nästa: nätverk** när du är klar.
+   Välj **Nästa: Autentisering** när det är klart.
+
+1. Välj din önskade inställning för rollbaserad åtkomstkontroll (RBAC). Azure Dev Spaces har stöd för kluster med RBAC aktiverat eller inaktiverat.
+
+    ![RBAC-inställning](../media/common/k8s-RBAC.PNG)
 
 1. Se till att routning av HTTP-program är aktiverat.
 
@@ -40,9 +44,5 @@ ms.locfileid: "37967805"
 
     > [!IMPORTANT]
     > Du måste se till att aktivera routning av HTTP-program när du skapar ditt AKS-kluster. Det går inte att ändra den här inställningen senare.
-
-1. Välj din önskade inställning för rollbaserad åtkomstkontroll (RBAC). Azure Dev Spaces har stöd för kluster med RBAC aktiverat eller inaktiverat.
-
-    ![RBAC-inställning](../media/common/k8s-RBAC.PNG)
 
 1. Välj **Granska + skapa** och välj sedan **Skapa** när du är klar.

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 600be7518bc526d3f147bb16377677854b676f63
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d4bfd684792e5ec13b2a4a020fa21249f1888657
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823137"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226364"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Självstudie: Konfigurera ett labbkonto med Azure Lab Services
 I Azure Lab Services, fungerar ett labbkonto som det centrala kontot där alla din organisations labbar hanteras. I ditt labbkonto, ger du behörighet till andra att skapa labbar och konfigurera principer som gäller för alla labbar under labbkontot. I den här självstudien, får du lära dig hur du skapar ett labbkonto som en labbadministratör. 
@@ -29,6 +29,7 @@ I de här självstudierna gör du följande:
 > [!div class="checklist"]
 > * Skapa ett labbkonto
 > * Lägga till en användare i rollen Labbskapare
+> * Ange Marketplace-avbildningar som är tillgängliga för labbägare
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -56,7 +57,9 @@ Följande steg visar hur du använder Azure Portal till att skapa ett labbkonto 
     ![Sidan Labbkonto](../media/tutorial-setup-lab-account/lab-account-page.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Lägga till en användare i rollen Labbskapare
-Ge lärarna behörighet att skapa labb åt sina klasser genom att lägga till dem i rollen Labbskapare:
+Om du vill konfigurera ett klassrumslabb i ett labbkonto måste användaren vara medlem i rollen **Lab Creator** i labbkontot. Det konto som du använde för att skapa labbkontot läggs automatiskt till i den här rollen. Om du planerar att använda samma användarkonto för att skapa ett klassrumslabb kan du hoppa över det här steget. Om du vill använda ett annat konto för att skapa ett klassrumslabb gör du följande: 
+
+Ge lärarna behörighet att skapa labb åt sina klasser genom att lägga till dem i rollen **Labbskapare**:
 
 1. På sidan **Labbkonto** väljer du **Åtkomstkontroll (IAM)** och klickar på **+ Lägg till** i verktygsfältet. 
 
@@ -65,6 +68,22 @@ Ge lärarna behörighet att skapa labb åt sina klasser genom att lägga till de
 
     ![Lägga till en användare i rollen Labbskapare](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
+## <a name="specify-marketplace-images-available-to-lab-owners"></a>Ange Marketplace-avbildningar som är tillgängliga för labbägare
+I det här avsnittet anger du Marketplace-avbildningar som labbägare kan använda för att skapa klassrumslabb. 
+
+1. Välj **Marketplace-avbildningar** på menyn till vänster. Som standard kan se du en fullständig lista över avbildningar (både aktiverade och inaktiverade). Du kan filtrera listan för att endast se aktiverade/inaktiverade avbildningar genom att välja alternativet **Endast aktiverade**/**Endast inaktiverade** från listrutan längst upp. 
+
+    ![Sida för Marketplace-avbildningar](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+2. För att **inaktivera** en Marketplace-avbildning som har aktiverats genomför du någon av följande åtgärder: 
+    1. Välj **... (ellips)** i den sista kolumnen och välj **Inaktivera avbildning**. 
+
+        ![Inaktivera en avbildning](../media/tutorial-setup-lab-account/disable-one-image.png) 
+    2. Välj en eller flera avbildningar från listan genom att markera kryssrutorna före avbildningsnamnen i listan och välja **Inaktivera valda avbildningar**. 
+
+        ![Inaktivera flera avbildningar](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
+1. På ett liknande sätt **aktiverar** du en Marketplace-avbildning med någon av följande åtgärder: 
+    1. Välj **... (ellips)** i den sista kolumnen och välj **Aktivera avbildning**. 
+    2. Välj en eller flera avbildningar från listan genom att markera kryssrutorna före avbildningsnamnen i listan och välja **Aktivera valda avbildningar**. 
 
 ## <a name="next-steps"></a>Nästa steg
 I självstudien skapade du ett labbkonto. Mer information om hur du skapar ett klassrumslabb som ett yrke finns i nästa självstudie:

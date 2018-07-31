@@ -1,6 +1,6 @@
 ---
 title: Använda en MSI på en virtuell Windows-dator för att få åtkomst till Azure Resource Manager
-description: En självstudiekurs som steg för steg beskriver hur du får åtkomst till Azure Resource Manager med hjälp av en hanterad tjänstidentitet (MSI) på en virtuell Windows-dator.
+description: En självstudiekurs som steg för steg beskriver hur du får åtkomst till Azure Resource Manager med hjälp av en hanterad tjänstidentitet på en virtuell Windows-dator.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 7e2033310a30499cf862fb4d399cb0180ac9b713
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bd314dd1543280cf2533e45f156ca634d15d1d2a
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006972"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247252"
 ---
-# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Använda en hanterad tjänstidentitet (MSI) på en virtuell Windows-dator för att få åtkomst till Azure Resource Manager
+# <a name="use-a-windows-vm-managed-service-identity-to-access-resource-manager"></a>Använda en hanterad tjänstidentitet på en virtuell Windows-dator för att få åtkomst till Azure Resource Manager
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien beskriver steg för steg hur du aktiverar MSI (hanterad tjänstidentitet) för en virtuell Windows-dator (VM). Du kan sedan använda identiteten för att få åtkomst till Azure Resource Manager-API:et. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure Active Directory-autentisering, utan att du behöver bädda in autentiseringsuppgifter i din kod. Lär dig att:
+Den här självstudien beskriver steg för steg hur du aktiverar hanterad tjänstidentitet för en virtuell Windows-dator (VM). Du kan sedan använda identiteten för att få åtkomst till Azure Resource Manager-API:et. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure Active Directory-autentisering, utan att du behöver bädda in autentiseringsuppgifter i din kod. Lär dig att:
 
 > [!div class="checklist"]
-> * Aktivera MSI på en virtuell Windows-dator 
+> * Aktivera hanterad tjänstidentitet på en virtuell Windows-dator 
 > * Ge den virtuella datorn åtkomst till en resursgrupp i Azure Resource Manager 
 > * Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använda den för att anropa Azure Resource Manager
 
@@ -43,7 +43,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Windows-dator i en ny resursgrupp
 
-I den här självstudien ska vi skapa en ny virtuell Windows-dator.  Du kan även aktivera MSI på en befintlig virtuell dator.
+I den här självstudien ska vi skapa en ny virtuell Windows-dator.  Du kan även aktivera hanterad tjänstidentitet på en befintlig virtuell dator.
 
 1.  Klicka på knappen **Skapa en resurs** längst upp till vänster i Azure Portal.
 2.  Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
@@ -54,18 +54,18 @@ I den här självstudien ska vi skapa en ny virtuell Windows-dator.  Du kan äve
 
     ![Alternativ bildtext](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn 
+## <a name="enable-managed-service-identity-on-your-vm"></a>Aktivera hanterad tjänstidentitet på en virtuell dator 
 
-Med hanterade tjänstidentiteter (MSI) för virtuella datorer kan du hämta åtkomsttoken från Azure AD utan att du behöver bädda in autentiseringsuppgifter i din kod. När du aktiverar MSI på en virtuell dator sker två saker: din virtuella dator registreras i Azure Active Directory och dess hanterade identitet skapas, och identiteten konfigureras på den virtuella datorn.
+Med en hanterad tjänstidentitet på en virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar en hanterad tjänstidentitet på en virtuell dator händer två saker: din virtuella dator registreras hos Azure Active Directory och dess hanterade tjänstidentitet skapas, och identiteten konfigureras på den virtuella datorn.
 
-1.  Välj den **virtuella dator** som du vill aktivera MSI på.  
+1.  Välj den **virtuella dator** som du vill aktivera hanterad tjänstidentitet på.  
 2.  Klicka på **Konfiguration** i det vänstra navigeringsfältet. 
 3.  **Hanterad tjänstidentitet** visas. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej. 
 4.  Klicka på **Spara** för att spara konfigurationen.  
     ![Alternativ bildtext](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Ge den virtuella datorn åtkomst till en resursgrupp i Resource Manager
-Med hjälp av MSI kan din kod hämta åtkomsttoken och autentisera mot resurser som stöder Azure Active Directory-autentisering.  Azure Resource Manager har stöd för Azure AD-autentisering.  Först måste vi ge den virtuella datorns identitet åtkomst till en resurs i Resource Manager, i detta fall den resursgrupp som den virtuella datorn finns i.  
+Med hjälp av en hanterade tjänstidentitet kan din kod hämta åtkomsttoken och autentisera mot resurser som stöder Azure AD-autentisering.  Azure Resource Manager har stöd för Azure AD-autentisering.  Först måste vi ge den virtuella datorns identitet åtkomst till en resurs i Resource Manager, i detta fall den resursgrupp som den virtuella datorn finns i.  
 
 1.  Gå till fliken för **resursgrupper**. 
 2.  Välj den specifika **resursgrupp** som du skapade för den **virtuella Windows-datorn**. 
@@ -84,7 +84,7 @@ Du måste använda **PowerShell** i den här delen.  Om du inte har installerat 
 1.  Gå till **Virtuella datorer** på portalen och sedan till den virtuella Windows-datorn. Under **Översikt** klickar du på **Anslut**. 
 2.  Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn. 
 3.  Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn öppnar du **PowerShell** i fjärrsessionen. 
-4.  Använd PowerShells Invoke-WebRequest och skicka en förfrågan till den lokala MSI-slutpunkten för att hämta en åtkomsttoken för Azure Resource Manager.
+4.  Använd PowerShells Invoke-WebRequest och skicka en begäran till den lokala slutpunkten för hanterad tjänstidentitet för att hämta en åtkomsttoken för Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

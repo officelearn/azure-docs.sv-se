@@ -1,5 +1,5 @@
 ---
-title: Distribuera en molnbaserad IoT-lösning för förutsägande underhåll i Azure | Microsoft Docs
+title: Prova en molnbaserad IoT-lösning för förutsägande underhåll i Azure | Microsoft Docs
 description: I den här snabbstarten ska du distribuera Azure IoT-lösningsacceleratorn för förutsägande underhåll och logga in till och använda instrumentpanelen för lösningen.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: 65c10f393efbeaa111e2b413a0568da053c04567
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 10ff6565ed8997a5cb87394aa0d743a0d94b67e0
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001135"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144320"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Snabbstart: Prova en molnbaserad lösning för att analysera behovet av förutsägande underhåll på anslutna enheter
 

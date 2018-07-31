@@ -1,6 +1,6 @@
 ---
-title: Använda en MSI på en virtuell Windows-dator för att få åtkomst till Azure Storage
-description: En självstudiekurs som steg för steg beskriver hur du använder en hanterad tjänstidentitet (MSI) på en virtuell Windows-dator för att komma åt Azure Storage.
+title: Använda en hanterad tjänstidentitet på en virtuell Windows-dator för att få åtkomst till Azure Storage
+description: En självstudiekurs som steg för steg beskriver hur du använder en hanterad tjänstidentitet på en virtuell Windows-dator för att komma åt Azure Storage.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 94e16156e8accc2460005cb1927a621ec7921c71
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ca2a460658b0de4f91816342d2eabb78ceee89fb
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044000"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247381"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Självstudie: Använda en hanterad tjänstidentitet på en virtuell Windows-dator för att komma åt Azure Storage via åtkomstnycklar
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien beskriver hur du aktiverar MSI (hanterad tjänstidentitet) för en virtuell Windows-dator och hur du sedan använder identiteten för att hämta åtkomstnycklar för lagringskonton. Du kan använda lagringsåtkomstnycklar som vanligt när du utför lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien laddar vi upp och hämtar blobar med Azure Storage PowerShell. Du lär dig hur du:
+Den här självstudien beskriver hur du aktiverar hanterad tjänstidentitet för en virtuell Windows-dator och hur du sedan använder identiteten för att hämta åtkomstnycklar för lagringskonton. Du kan använda lagringsåtkomstnycklar som vanligt när du utför lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien laddar vi upp och hämtar blobar med Azure Storage PowerShell. Du lär dig hur du:
 
 
 > [!div class="checklist"]
-> * Aktiverar MSI på en virtuell Windows-dator 
+> * Aktivera hanterad tjänstidentitet på en virtuell Windows-dator 
 > * Ger den virtuella datorn åtkomst till åtkomstnycklar för lagringskonton i Resource Manager 
 > * Få en åtkomsttoken med hjälp av den virtuella datorns identitet, och använda den och hämta lagringsåtkomstnycklarna från Resource Manager 
 
@@ -45,7 +45,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Windows-dator i en ny resursgrupp
 
-I den här självstudien ska vi skapa en ny virtuell Windows-dator. Du kan även aktivera MSI på en befintlig virtuell dator.
+I den här självstudien ska vi skapa en ny virtuell Windows-dator. Du kan även aktivera hanterad tjänstidentitet på en befintlig virtuell dator.
 
 1.  Klicka på knappen **+/Skapa ny tjänst** som finns i det övre vänstra hörnet på Azure Portal.
 2.  Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
@@ -56,9 +56,9 @@ I den här självstudien ska vi skapa en ny virtuell Windows-dator. Du kan även
 
     ![Alternativ bildtext](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn
+## <a name="enable-managed-service-identity-on-your-vm"></a>Aktivera hanterad tjänstidentitet på en virtuell dator
 
-Med en MSI för en virtuell dator kan du hämta en åtkomsttoken från Azure AD utan att du behöver bädda in autentiseringsuppgifter i din kod. När du aktiverar MSI sker två saker i bakgrunden: den virtuella datorn registreras med Azure Active Directory för att skapa dess hanterade identitet och identiteten konfigureras på den virtuella datorn.
+Med en hanterad tjänstidentitet på en virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. I bakgrunden sker två saker när du aktiverar en hanterad tjänstidentitet på en virtuell dator: din virtuella dator registreras hos Azure Active Directory och dess hanterade tjänstidentitet skapas, och identiteten konfigureras på den virtuella datorn.
 
 1. Gå till den nya virtuella datorns resursgrupp och välj den virtuella dator som du skapade i föregående steg.
 2. Klicka på **Konfiguration** till vänster under inställningarna för den virtuella datorn.
@@ -91,9 +91,9 @@ Senare ska vi ladda upp och ned en fil till det nya lagringskontot. Eftersom fil
 
     ![Skapa en lagringscontainer](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>Ge den virtuella datorns MSI behörighet att använda åtkomstnycklar för lagringskonton 
+## <a name="grant-your-vms-managed-service-identity-access-to-use-storage-account-access-keys"></a>Ge den virtuella datorns hanterade tjänstidentitet behörighet att använda åtkomstnycklar för lagringskonton 
 
-Azure Storage har inte inbyggt stöd för Azure AD-autentisering.  Du kan dock använda en MSI och hämta åtkomstnycklar för lagringskonton från Resource Manager, och sedan få åtkomst till lagringen med hjälp av en nyckel.  I det här steget ger du den virtuella datorns MSI åtkomst till nycklarna för ditt lagringskonto.   
+Azure Storage har inte inbyggt stöd för Azure AD-autentisering.  Du kan dock använda en hanterad tjänstidentitet och hämta åtkomstnycklar för lagringskonton från Resource Manager, och sedan få åtkomst till lagringen med hjälp av en nyckel.  I det här steget ger du den virtuella datorns hanterade tjänstidentitet åtkomst till nycklarna till lagringskontot.   
 
 1. Gå tillbaka till det lagringskonto som du nyss skapade.  
 2. Klicka på länken **Åtkomstkontroll (IAM)** på den vänstra panelen.  
@@ -114,7 +114,7 @@ Du måste använda Azure Resource Manager PowerShell-cmdletar i den här delen. 
 1. Gå till **Virtuella datorer** på Azure Portal, gå till din virtuella Windows-dator och klicka sedan på **Anslut** längst upp på sidan **Översikt**. 
 2. Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn. 
 3. Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn öppnar du PowerShell i fjärrsessionen.
-4. Använd PowerShells Invoke-WebRequest och skicka en förfrågan till den lokala MSI-slutpunkten för att hämta en åtkomsttoken för Azure Resource Manager.
+4. Använd PowerShells Invoke-WebRequest och skicka en begäran till den lokala slutpunkten för hanterad tjänstidentitet för att hämta en åtkomsttoken för Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

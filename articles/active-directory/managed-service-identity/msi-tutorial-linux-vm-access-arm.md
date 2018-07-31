@@ -1,6 +1,6 @@
 ---
-title: Använda en användartilldelade MSI på en virtuell Linux-dator för att få åtkomst till Azure Resource Manager
-description: En självstudiekurs som beskriver steg för steg hur du använder en användartilldelad hanterad tjänstidentitet (MSI) på en virtuell Linux-dator för att få åtkomst till Azure Resource Manager.
+title: Använda en användartilldelad hanterad tjänstidentitet på virtuell Linux-dator för att få åtkomst till Azure Resource Manager
+description: En självstudiekurs som beskriver steg för steg hur du använder en användartilldelad hanterad tjänstidentitet på en virtuell Linux-dator för att få åtkomst till Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 06abd7867a99c20597ed17faf6fa61b91f70baaa
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c2735d385b0a3c2201ec2dad83c0c32fe44d458c
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007714"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258251"
 ---
 # <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Självstudier: Använda en användartilldelad identitet på en virtuell Linux-dator för att få åtkomst till Azure Resource Manager
 
@@ -72,7 +72,7 @@ I den här självstudien börjar du med att skapa en ny virtuell Linux-dator. Du
     az login
     ```
 
-2. Skapa en användartilldelad identitet med hjälp av [az identity create](/cli/azure/identity#az_identity_create). Parametern `-g` anger resursgruppen där MSI skapas, och parametern `-n` anger dess namn. Ersätt parametervärdena `<RESOURCE GROUP>` och `<MSI NAME>` med dina egna värden:
+2. Skapa en användartilldelad identitet med hjälp av [az identity create](/cli/azure/identity#az_identity_create). Parametern `-g` anger resursgruppen där den hanterade tjänstidentiteten skapas, och parametern `-n` anger dess namn. Ersätt parametervärdena `<RESOURCE GROUP>` och `<MSI NAME>` med dina egna värden:
     
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -102,7 +102,7 @@ Svaret innehåller information om den användartilldelade identiteten som skapat
 
 En användartilldelad identitet kan användas av klienter på flera Azure-resurser. Använd följande kommandon för att tilldela den användartilldelade identiteten till en enskild virtuell dator. Använd egenskapen `Id` som returnerades i föregående steg för `-IdentityID`-parametern.
 
-Tilldela den användartilldelade MSI-identiteten till din virtuella Linux-dator med hjälp av [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Ersätt parametervärdena `<RESOURCE GROUP>` och `<VM NAME>` med dina egna värden. Använd egenskapen `id` som returnerades i föregående steg för `--identities`-parametervärdet.
+Tilldela den användartilldelade hanterade tjänstidentiteten till din virtuella Linux-dator med hjälp av [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Ersätt parametervärdena `<RESOURCE GROUP>` och `<VM NAME>` med dina egna värden. Använd egenskapen `id` som returnerades i föregående steg för `--identities`-parametervärdet.
 
 ```azurecli-interactive
 az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"

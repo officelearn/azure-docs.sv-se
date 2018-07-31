@@ -1,22 +1,22 @@
 ---
-title: Använda aviseringar och enhetsproblem i fjärrövervakningslösningen – Azure | Microsoft Docs
+title: Självstudie om att använda aviseringar och åtgärda enhetsproblem i fjärrövervakningslösningen – Azure | Microsoft Docs
 description: Den här självstudiekursen visar hur du använder aviseringar till att identifiera och åtgärda problem med enheter anslutna till lösningsacceleratorn Fjärrövervakning.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/18/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 9607705220450b30d2ffaf0f2be9fa2a5664b879
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: acff6586f35f1c86cba8d519586d72247255ccd7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081796"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159391"
 ---
-# <a name="troubleshoot-and-remediate-device-issues"></a>Felsöka och åtgärda enhetsproblem
+# <a name="troubleshoot-and-fix-device-issues"></a>Felsök och åtgärda enhetsproblem
 
 I den här självstudien använder du självstudiekursen använder du lösningsacceleratorn Fjärrövervakning till att identifiera och åtgärda problem med dina anslutna IoT-enheter. Du använder aviseringar i lösningsacceleratorns instrumentpanel till att identifiera problem och kör sedan fjärrjobb för att åtgärda dessa problem.
 
@@ -28,11 +28,9 @@ I den här kursen för du göra följande:
 > * Undersöka en avisering från en enhet
 > * Lösa problemet med enheten
 
-## <a name="prerequisites"></a>Krav
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Om du vill följa den här självstudien behöver du en distribuerad instans av lösningsacceleratorn Fjärrövervakning i Azure-prenumerationen.
-
-Om du inte har distribuerat lösningsacceleratorn Fjärrövervakning ännu bör du genomföra snabbstarten [Distribuera en molnbaserad fjärrövervakningslösning](quickstart-remote-monitoring-deploy.md).
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="investigate-an-alert"></a>Undersöka en avisering
 
@@ -58,7 +56,7 @@ Du kan bekräfta aviseringen genom att välja **Alert occurrences** (Aviseringsf
 
 När du bekräftar aviseringen ändras statusen för förekomsten till **Bekräftad**.
 
-I listan visas den enhet av typen **Prototype** (Prototyp) som har gjort att en temperaturavisering har utlösts:
+I listan över enheter med aviseringar visas den enhet av typen **Prototype** (Prototyp) som har gjort att en temperaturavisering har utlösts:
 
 [![Lista enheter som orsakar aviseringen](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
 
@@ -66,11 +64,11 @@ I listan visas den enhet av typen **Prototype** (Prototyp) som har gjort att en 
 
 Om du vill lösa problemet med enheten av typen **Prototype** (Prototyp) måste du anropa metoden **DecreaseTemperature** (Minska temperatur) för enheten.
 
-Du kan utföra åtgärden på enheten genom att välja den i listan med enheter och sedan välja **Jobb**. Enhetsmodellen av typen **Prototype** (Prototyp) anger sex metoder som en enhet måste stödja:
+Du kan utföra åtgärden på enheten genom att välja den i listan över enheter med aviseringar och sedan välja **Jobb**. Enhetsmodellen **Prototype** (Prototyp) stöder sex metoder:
 
 [![Visa metoder som enheten stöder](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-expanded.png#lightbox)
 
-Välj **DecreaseTemperature** (Minska temperatur) och ange jobbnamnet **DecreaseTemperature** (Minska temperatur). Välj sedan **Använd**:
+Välj **DecreaseTemperature** (Minska temperatur) och ange jobbnamnet **DecreaseTemperature** (Minska temperatur). Klicka sedan på **Använd**:
 
 [![Skapa jobbet för att minska temperaturen](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
 
@@ -81,6 +79,8 @@ Du kan spåra jobbets status genom att klicka på **Visa jobbstatus**. I vyn **J
 Du kan kontrollera att temperaturen för enheten har minskat genom att visa telemetridata på sidan **Instrumentpanel**:
 
 [![Visa temperaturminskningen](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
+
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

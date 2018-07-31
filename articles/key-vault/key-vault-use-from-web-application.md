@@ -2,24 +2,25 @@
 title: 'Självstudie: Använda Azure Key Vault från en webbapp | Microsoft Docs'
 description: Använd den här självstudien till att lära dig hur du använder Azure Key Vault från en webbapp.
 services: key-vault
-author: adhurwit
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/29/2018
-ms.author: adhurwit
-ms.openlocfilehash: 5cd764395e91a82973318da7284b28d7a43d35ea
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.date: 07/20/2018
+ms.author: barclayn
+ms.openlocfilehash: ff59e39e54433aa673b093e2ee1fbe8c74010e54
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115112"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171331"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Självstudie: Använda Azure Key Vault från en webbapp
-Använd den här självstudien till att lära dig hur du använder Azure Key Vault från en webbapp i Azure. Du får gå igenom processen att bedöma en hemlighet från Azure Key Vault och använda den i en webbapp. Processen utvecklas sedan och du får använda ett certifikat i stället för en klienthemlighet. Den här självstudien är avsedd för webbutvecklare med grundläggande kunskaper om att skapa webbappar i Azure. 
+
+Använd den här självstudien till att lära dig hur du använder Azure Key Vault från en webbapp i Azure. Du får gå igenom processen att bedöma en hemlighet från Azure Key Vault och använda den i en webbapp. Processen utvecklas sedan och du får använda ett certifikat i stället för en klienthemlighet. Den här självstudien är avsedd för webbutvecklare med grundläggande kunskaper om att skapa webbappar i Azure.
 
 I den här guiden får du lära dig att: 
 
@@ -27,11 +28,11 @@ I den här guiden får du lära dig att:
 > * Lägga till appinställningar i filen web.config
 > * Lägga till en metod för att få en åtkomsttoken
 > * Hämta token när appen startas
-> * Autentisera med ett certifikat 
+> * Autentisera med ett certifikat
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 När du ska gå igenom den här självstudien behöver du följande:
 
@@ -41,7 +42,7 @@ När du ska gå igenom den här självstudien behöver du följande:
 
 Utför stegen i [Kom igång med Azure Key Vault](key-vault-get-started.md) där du hämtar URI:n till en hemlighet, ett klient-ID, en klienthemlighet och sedan registrerar appen. Webbappen måste komma åt valvet och måste därför vara registrerad i Azure Active Directory. Den måste dessutom ha åtkomstbehörigheter till nyckelvalvet. I annat fall går du tillbaka till Registrera ett program i självstudien Kom igång och upprepar de här stegen. Mer information om att skapa webbappar i Azure finns i [Översikt över webbappar](../app-service/app-service-web-overview.md).
 
-I det här exemplet måste du etablera Azure Active Directory-identiteter manuellt. Nu finns en ny funktion i förhandsversion som kallas [Hanterad tjänstidentitet (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), som gör att du kan etablera Azure AD-identiteter automatiskt. Mer information finns i exemplet på [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) och den relaterade självstudien [MSI med App Service och Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). 
+I det här exemplet måste du etablera Azure Active Directory-identiteter manuellt. Dock bör du använda [hanterad tjänstidentitet (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview) i stället. MSI:er kan automatiskt etablera Azure AD-identiteter. Mer information finns i exemplet på [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) och den relaterade självstudien [MSI med App Service och Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). Du kan även titta på den Key Vault-specifika [MSI-självstudien](tutorial-web-application-keyvault.md)
 
 
 ## <a id="packages"></a>Lägga till NuGet-paket

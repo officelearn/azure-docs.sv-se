@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: 27eaa6582a355198b61e996cce0a4acce48061cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 63ea834401e5c6798b6f84b6f09a964005d14306
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267136"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257879"
 ---
 # <a name="virtual-network-peering"></a>Virtuell nätverkspeering
 
@@ -85,7 +85,9 @@ Du kan läsa om behörigheterna som krävs för att skapa peering för ett virtu
 
 ## <a name="pricing"></a>Prissättning
 
-En nominell avgift tas ut för ingående och utgående trafik som använder en VNET-peeringanslutning. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/virtual-network).
+En nominell avgift tas ut för ingående och utgående trafik som använder en VNET-peeringanslutning. Mer information om prissättning för VNet-Peering och Global VNet-peering finns på [prissättningssidan](https://azure.microsoft.com/pricing/details/virtual-network).
+
+Gatewayöverföring är en egenskap i peer-kopplade virtuella nätverk som gör att ett virtuellt nätverk kan att använda VPN-gatewayen i ett peer-kopplat virtuellt nätverk för anslutning mellan olika platser eller mellan olika virtuella nätverk. Trafik som går genom en fjärrgateway i det här scenariot omfattas av [avgifter för VPN-gateway](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/) och medför inga [avgifter för VNet-peering](https://azure.microsoft.com/pricing/details/virtual-network). Om VNetA till exempel har en VPN-gateway för lokal anslutning och VNetB är peer-kopplad till VNetA med lämpliga konfigurerade egenskaper debiteras trafik från VNetB till lokalt endast utgående enligt prissättningen för VPN-gateway. Avgifter för VNet-peering gäller inte. Lär dig hur du [konfigurerar VPN-gatewayöverföring för peer-kopplade virtuella nätverk](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 122fe9be768341716fb423a58560885c7d3035fe
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a8f081ca9a0868bee11b27e1065a72806cb8c2c9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920645"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214609"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
 Förutom att använda tjänsten [Azure Site Recovery](site-recovery-overview.md) för att hantera och samordna haveriberedskap på lokala datorer och virtuella Azure-datorer i syftet affärskontinuitet och haveriberedskap (BCDR) kan du även använda Site Recovery för att hantera migrering av virtuella Azure-datorer till en sekundär region. För att migrera virtuella datorer i Azure måste du aktivera replikering för dem, och redundansväxla dem från den primära regionen till den sekundära regionen du önskar.
 
-I den här självstudien får du lära dig att migrera virtuella Azure-datorer till en annan region. I den här guiden får du lära dig hur man:
+I den här självstudien får du lära dig att migrera virtuella Azure-datorer till en annan region. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Recovery Services-valv

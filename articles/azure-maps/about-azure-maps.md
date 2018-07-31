@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 93fe8dc3f8ff991cd6c48923d9e2073e4e93f1ad
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d0ec146d276f72abf4cbbe3da4d11c0d5539df6d
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040855"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144201"
 ---
 # <a name="what-is-azure-maps"></a>Vad är Azure Maps?
 Azure Maps är en samling geospatiala tjänster som backas upp av nya mappningsdata. Du kan ange exakt geografisk kontext till webb- och mobilprogram. Den innehåller REST API:er för att rendera kartor, söka efter intressanta platser, trafikförhållanden, tidszoner och IP till plats-tjänster. Med de här API:erna och välbekanta verktyg kan du snabbt utveckla och skala lösningar som integrerar platsinformation i dina Azure-lösningar. Tillsammans med REST API:erna får du en webbaserad JavaScript-kontroll som gör utveckling över flera medier enkel, flexibel och portabel. 
@@ -92,6 +92,7 @@ Du hittar mer information på sidan med dokumentation om [Trafik-API:er i Azure 
 
 Tjänsten för IP till plats finns för närvarande som förhandsversion. Med den kan du hämta landskoden med två bokstäver för en angiven IP-adress. Med den här tjänsten kan du anpassa programmet och uppfylla särskilda geopolitiska begränsningar samt ändra innehållet baserat på den geografiska platsen för en bättre användarupplevelse. 
 
+Information om REST-API:er för IP till plats-tjänsten finns på sidan om [Azure Maps Geolocation-API:er](https://docs.microsoft.com/rest/api/maps/geolocation).
 
 ## <a name="programming-model"></a>Programmeringsmodell
 

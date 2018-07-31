@@ -1,8 +1,8 @@
 ---
-title: Registrera X.509-enheter på Azure Device Provisioning Service-tjänsten med Java | Microsoft Docs
-description: Azure snabbstart – Registrera X.509-enheter på Azure IoT Hub Device Provisioning-tjänsten med Java-tjänst-SDK
-author: dsk-2015
-ms.author: dkshir
+title: Den här snabbstarten beskriver hur du registrerar X.509-enheter till Azure Device Provisioning Service med hjälp av Java | Microsoft Docs
+description: I den här snabbstarten registrerar du X.509-enheter till Azure IoT Hub Device Provisioning Service med hjälp av Java
+author: wesmc7777
+ms.author: wesmc
 ms.date: 12/20/2017
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,54 +10,45 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: e9400c476179d801eb66f574373bf75cfb672d9d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 505aee35c839a0224ca158d918fc5e54dc6e0f28
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091092"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205773"
 ---
-# <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Registrera X.509-enheter på IoT Hub Device Provisioning-tjänsten med Java-tjänst-SDK
+# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av Java
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-De här stegen visar hur du registrerar en grupp simulerade X.509-enheter programmässigt på Azure IoT Hub Device Provisioning-tjänsten, med [Java-tjänst-SDK](https://azure.github.io/azure-iot-sdk-java/service/) med hjälp av ett Java-exempelprogram. Java-tjänst-SDK fungerar på både Windows- och Linux-datorer men i den här artikeln används en Windows-utvecklingsdator för att gå igenom registreringsprocessen.
+Den här snabbstarten beskriver hur du använder Java för att programmässigt registrera en grupp simulerade X.509-enheter till Azure IoT Hub Device Provisioning Service. Enheterna registreras till en etableringstjänstinstans genom att du skapar en [registreringsgrupp](concepts-service.md#enrollment-group) eller en [enskild registrering](concepts-service.md#individual-enrollment). Den här snabbstarten beskriver hur du skapar båda typerna av registreringar. Registreringar skapas med [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) med hjälp av ett Java-exempelprogram. 
 
-Se till att [konfigurera IoT Hub Device Provisioning-tjänsten med Azure-portalen](./quick-setup-auto-provision.md) innan du fortsätter.
+Den här snabbstarten förutsätter att du redan har skapat en IoT-hubb och en Device Provisioning Service-instans. Om du inte redan har skapat dessa resurser slutför du snabbstarten [Konfigurera IoT Hub Device Provisioning-tjänsten med Azure-portalen](./quick-setup-auto-provision.md) innan du fortsätter med den här artikeln.
 
-<a id="setupdevbox"></a>
+Java-tjänst-SDK fungerar på både Windows- och Linux-datorer men i den här artikeln används en Windows-utvecklingsdator för att gå igenom registreringsprocessen.
 
-## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-1. Kontrollera att [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) är installerat på datorn. 
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-2. Konfigurera miljövariabler för Java-installationen. Variabeln `PATH` ska innehålla den fullständiga sökvägen till katalogen *jdk1.8.x\bin*. Om det här är datorns första Java-installation skapar du en ny miljövariabeln med namnet `JAVA_HOME` och gör så att den pekar på den fullständiga sökvägen till katalogen *jdk1.8.x*. På Windows-datorer finns den här katalogen normalt i mappen *C:\\Program\\Java\\* och du kan skapa eller redigera miljövariabler genom att söka efter **Redigera systemets miljövariabler** i **Kontrollpanelen** på Windows-datorn. 
+* Installera [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Installera [Maven 3](https://maven.apache.org/download.cgi). Du kan verifiera din nuvarande Maven-version genom att köra:
 
-  Du kan kontrollera om Java har konfigurerats på datorn genom att köra följande kommando i kommandofönstret:
-
-    ```cmd\sh
-    java -version
-    ```
-
-3. Ladda ned och extrahera [Maven 3](https://maven.apache.org/download.cgi) på datorn. 
-
-4. Redigera miljövariabeln `PATH` så att den pekar på mappen *apache-maven-3.x.x\\bin* i mappen där Maven har extraherats. Du kan bekräfta att Maven har installerats genom att köra följande kommando i kommandofönstret:
-
-    ```cmd\sh
+    ```cmd/sh
     mvn --version
     ```
 
-5. Kontrollera att [git](https://git-scm.com/download/) är installerad på datorn och har lagts till i miljövariabeln `PATH`. 
+* Installera [Git](https://git-scm.com/download/).
 
 
 <a id="javasample"></a>
 
 ## <a name="download-and-modify-the-java-sample-code"></a>Ladda ned och ändra Java-exempelkoden
 
-I det här avsnittet används ett självsignerat X.509-certifikat. Det är viktigt att tänka på följande:
+I det här avsnittet används ett självsignerat X.509-certifikat. Det är viktigt att tänka på följande punkter:
 
-* Självsignerade certifikat är endast för testning och ska inte användas i produktion.
-* Standardutgångsdatumet för ett självsignerat certifikat är 1 år.
+* Självsignerade certifikat är endast till för testning och ska inte användas i produktion.
+* Standardutgångsdatumet för ett självsignerat certifikat är ett år.
 
 De följande stegen visar hur du lägger till etableringsinformationen för X.509-enheten i exempelkoden. 
 

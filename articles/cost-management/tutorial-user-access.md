@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2018
+ms.date: 07/10/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 3ceed8b88b9c81954c967d3d7ddd964c532867ab
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4b45d917118d5be1252c3bb232e4b24e68d7857f
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301615"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188190"
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Självstudie: Tilldela åtkomst till kostnadshanteringsdata
 
@@ -28,6 +28,8 @@ När du registrerade ditt Azure-avtal eller -konto skapades ett konto med admini
 > [!div class="checklist"]
 > * Skapa en användare med administratörsåtkomst
 > * Skapa en användare med användaråtkomst
+> * Ta bort en användare
+> * Ta bort eller exportera personliga data
 > * Skapa och hantera entiteter
 
 
@@ -42,7 +44,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 Även om du redan har administratörsåtkomst kanske medarbetare i organisationen också behöver ha administratörsåtkomst. Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **User Management** (Användarhantering). Klicka på **Add New User** (Lägg till ny användare) för att lägga till en ny användare.
 
-Ange nödvändig information om användaren. Inloggnings-ID:t måste vara en giltig e-postadress. Välj behörigheter och tillåt User Management (Användarhantering) så att användaren kan skapa och ändra andra användare. Med hanteringen av mottagarlistor kan användaren redigera mottagarlistor. En länk med inloggningsinformation skickas till användaren via e-post från Cloudyn när du väljer **Notify user by email** (Meddela användaren via e-post). Användaren anger ett lösenord vid sin första inloggning.
+Ange nödvändig information om användaren. **Inloggnings-ID:t** måste vara en giltig e-postadress. Välj behörigheter och tillåt User Management (Användarhantering) så att användaren kan skapa och ändra andra användare. Med hanteringen av mottagarlistor kan användaren redigera mottagarlistor. En länk med inloggningsinformation skickas till användaren via e-post från Cloudyn när du väljer **Notify user by email** (Meddela användaren via e-post). Användaren anger ett lösenord vid sin första inloggning.
 
 Under **User has admin access** (Användaren har administratörsåtkomst) är rotentiteten i din organisation vald. Lämna root valt och spara användarinformationen. När rotentiteten är vald har användaren inte bara administratörsbehörighet för rotentiteten i trädet utan även alla enheter under den.  
   ![lägg till en ny användare med administratörsåtkomst](.\media\tutorial-user-access\new-admin-access.png)
@@ -57,6 +59,24 @@ Vanliga användare som behöver åtkomst till Cost Management-data som instrumen
 ![lägg till en ny användare med användaråtkomst](.\media\tutorial-user-access\new-user-access.png)
 
 Om du vill se en självstudievideo om att lägga till användare kan du titta på [Adding Users to Azure Cost Management ](https://youtu.be/Nzn7GLahx30) (Lägga till användare i Azure Cost Management).
+
+## <a name="delete-a-user"></a>Ta bort en användare
+
+När du tar bort en användare förblir alla entiteter som den användaren har åtkomst till intakta. Sparade *personliga* rapporter tas bort när användaren tas bort. Sparade *offentliga* rapporter som skapats av användaren tas inte bort.
+
+Du kan inte ta bort dig själv som användare.
+
+> [!WARNING]
+> När du tar bort en användare kan den inte återställas.
+
+1.  I Cloudyn-portalen klickar du på kugghjulssymbolen uppe till höger och väljer **Användarhantering**.
+2.  I listan över användare väljer du den användare som du vill ta bort och klickar sedan på **Ta bort användare** (papperskorgssymbolen).
+3.  I rutan Ta bort användare klickar du på **Ja** och sedan på **OK**.
+
+
+## <a name="delete-or-export-personal-data"></a>Ta bort eller exportera personliga data
+
+Om du vill ta bort eller exportera personliga data från Cloudyn måste du skapa en supportbegäran. När en supportbegäran skapas fungerar den som formell begäran – en begäran om registrerade. Microsoft vidtar sedan snabbt åtgärder för att ta bort kontot och ta bort kunddata eller personliga data. Information om hur du begär att få dina data borttagna eller exporterade finns på sidan om [begäranden om registrerade för Cloudyn-data](https://www.cloudyn.com/cloudyn-gdpr-requests).
 
 ## <a name="create-and-manage-entities"></a>Skapa och hantera entiteter
 
@@ -105,6 +125,8 @@ I den här självstudiekursen lärde du dig att:
 > [!div class="checklist"]
 > * Skapa en användare med administratörsåtkomst
 > * Skapa en användare med användaråtkomst
+> * Ta bort en användare
+> * Ta bort eller exportera personliga data
 > * Skapa och hantera entiteter
 
 

@@ -1,9 +1,9 @@
 ---
-title: Skapa ett Hadoop-kluster med lagringskonton som använder säker överföring i Azure HDInsight | Microsoft Docs
+title: Skapa ett Hadoop-kluster med lagringskonton som använder säker överföring i Azure HDInsight
 description: Lär dig hur du skapar HDInsight-kluster med Azure-lagringskonton som använder säker överföring.
-keywords: hadoop getting started,hadoop linux,hadoop quickstart,secure transfer,azure storage account
 services: hdinsight
 author: mumian
+ms.author: jgao
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -11,14 +11,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: hero-article
 ms.workload: big-data
-ms.date: 07/09/2018
-ms.author: jgao
-ms.openlocfilehash: 1a905d574d67b5965325dba80c03d75901f97fef
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 07/24/2018
+ms.openlocfilehash: b4dd6f0f5f44e128e0ae15db69b2f36f8e4c5600
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952202"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247167"
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Skapa ett Hadoop-kluster med lagringskonton som använder säker överföring i Azure HDInsight
 
@@ -29,7 +28,8 @@ Innan du börjar den här vägledningen måste du ha:
 
 * **Azure-prenumeration**: Gå till  [azure.microsoft.com/free](https://azure.microsoft.com/free) för att skapa ett kostnadsfritt provkonto för en månad.
 * **Ett Azure Storage-konto med säker överföring aktiverat**. Anvisningar finns i [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) (Skapa ett lagringskonto) och [Require secure transfer](../storage/common/storage-require-secure-transfer.md) (Kräva säker överföring).
-* **En blob-behållare för lagringskontot**. 
+* 
+  **En blobcontainer för lagringskontot**. 
 
 ## <a name="create-cluster"></a>Skapa kluster
 
@@ -47,7 +47,7 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med en [Azure Reso
     - Ange HDInsight version 3.6.  Version 3.6 eller senare krävs.
     - Ange ett lagringskonto som använder säker överföring.
     - Använd lagringskontots kortnamn.
-    - Både lagringskontot och blob-behållaren måste skapas i förväg. 
+    - Både lagringskontot och blobcontainern måste skapas i förväg. 
 
     Anvisningar finns i avsnittet [Skapa kluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). 
 
@@ -97,5 +97,3 @@ Mer information om hur du skapar eller hanterar ett HDInsight-kluster finns i f�
 [hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
-
-

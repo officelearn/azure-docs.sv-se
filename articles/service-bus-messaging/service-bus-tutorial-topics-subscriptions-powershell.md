@@ -1,5 +1,5 @@
 ---
-title: Självstudie – uppdatera butikssortimentet med publicera/avpublicera kanaler och ämnesfilter med Azure PowerShell | Microsoft Docs
+title: Självstudie – Uppdatera butikssortimentet med publicera/avpublicera kanaler och ämnesfilter med Azure PowerShell | Microsoft Docs
 description: I den här självstudien får du lära dig hur du skickar och tar emot meddelanden från ett ämne och en prenumeration och hur du lägger till och använder filterregler med Azure PowerShell
 services: service-bus-messaging
 author: sethmanheim
@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 824235cfdae6df9d852875281346e35a18277f74
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 05c30504eb9b4440694f78ee979d4b25f30f65dc
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531668"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237972"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Självstudie: Uppdatera lagerplatsen med PowerShell och ämnen/prenumerationer
 
@@ -22,7 +22,7 @@ Azure Service Bus är en meddelandetjänst i molnet för flera klienter som skic
 
 Den här kursen visar hur du skickar och tar emot meddelanden till och från en Service Bus-kö med PowerShell för att skapa ett namnområde för meddelanden och en kö inom det namnområdet och hur du får autentiseringsuppgifterna för det namnområdet. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Skapa ett Service Bus-ämne och en eller flera prenumerationer på det ämnet med Azure PowerShell
 > * Lägg till ämnesfilter med PowerShell

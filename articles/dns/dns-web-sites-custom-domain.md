@@ -1,111 +1,106 @@
 ---
-title: Skapa anpassade DNS-poster för en webbapp | Microsoft Docs
-description: Hur du skapar anpassade domän DNS-poster för webbapp med Azure DNS.
+title: Självstudie – Skapa anpassade Azure DNS-poster för en webbapp
+description: I den här självstudien skapar du DNS-poster för anpassade domäner för webbappar med hjälp av Azure DNS.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-ms.assetid: 6c16608c-4819-44e7-ab88-306cf4d6efe5
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.topic: tutorial
+ms.date: 7/20/2018
 ms.author: victorh
-ms.openlocfilehash: f24c301cea5ef91d101206e71b69b7ceb03b0282
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-ms.translationtype: MT
+ms.openlocfilehash: 9ebbc955bcb426738db598491266c2a1bcb9dd33
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172457"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39204950"
 ---
-# <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>Skapa DNS-poster för en webbapp i en anpassad domän
+# <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Självstudie: Skapa DNS-poster i en anpassad domän för en webbapp 
 
-Du kan använda Azure DNS för att vara värd för en anpassad domän för dina webbprogram. Exempelvis kan du skapar en Azure webbapp och du vill att användarna ska komma åt den genom att antingen använda contoso.com eller www.contoso.com som ett fullständigt domännamn.
+Du kan konfigurera Azure DNS för att vara värd för en anpassad domän för dina webbprogram. Du kan till exempel skapa en Azure-webbapp och göra så att dina användare kommer åt den via www.contoso.com eller contoso.com som ett fullständigt kvalificerat domännamn (FQDN).
 
-Om du vill göra detta måste du skapa två poster:
+> [!NOTE]
+> Contoso.com används som exempel i den här självstudien. Använd ditt eget domännamn i stället för contoso.com.
+
+Om du vill göra detta måste du skapa tre poster:
 
 * En ”A”-rotpost som pekar på contoso.com
-* En ”CNAME”-post för www-namn som pekar på A-post
+* En ”TXT”-rotpost för verifiering
+* En ”CNAME”-post för www-namnet som pekar på A-posten
 
-Tänk på att om du skapar en A-post för en webbapp i Azure, A-posten måste vara manuellt uppdatera om den underliggande IP-adressen för web app-ändringar.
+Tänk på att om du skapar en A-post för en webbapp i Azure måste A-posten uppdateras manuellt om den underliggande IP-adressen för webbappen ändras.
 
-## <a name="before-you-begin"></a>Innan du börjar
+I den här guiden får du lära dig att:
 
-Innan du börjar måste du först skapa en DNS-zon i Azure DNS och delegera zonen i Registratorn till Azure DNS.
+> [!div class="checklist"]
+> * Skapa en A- och TXT-post för den anpassade domänen
+> * Skapa en CNAME-post för den anpassade domänen
+> * Testa de nya posterna
+> * Lägg till anpassade värdnamn till din webbapp
+> * Testa de anpassade domännamnen
 
-1. Om du vill skapa en DNS-zon, följer du stegen i [skapa en DNS-zon](dns-getstarted-create-dnszone.md).
-2. Om du vill delegera din DNS till Azure DNS, följer du stegen i [DNS domändelegering](dns-domain-delegation.md).
 
-När du skapar en zon och delegera till Azure DNS kan skapa du sedan poster för din anpassade domän.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="1-create-an-a-record-for-your-custom-domain"></a>1. Skapa en A-post för din anpassade domän
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-En A-post används för att mappa ett namn till dess IP-adress. I följande exempel vi tilldelar \@ som en A-post till en IPv4-adress:
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-### <a name="step-1"></a>Steg 1
+- [Skapa en App Service-app](../app-service/app-service-web-get-started-html.md), eller använd en app som du har skapat för en annan kurs.
 
-Skapa en A-post och tilldela en variabel $rs
+- Skapa en DNS-zon i Azure DNS och delegera zonen i registratorn till Azure DNS.
 
-```powershell
-$rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600
-```
+   1. Om du vill skapa en DNS-zon följer du stegen i [Skapa en DNS-zon](dns-getstarted-create-dnszone.md).
+   2. Om du vill delegera zonen till Azure DNS följer du stegen i [DNS-domändelegering](dns-domain-delegation.md).
 
-### <a name="step-2"></a>Steg 2
+När du har skapat en zon och delegerat den till Azure DNS kan du sedan skapa poster för din anpassade domän.
 
-Lägga till IPv4-värde i den tidigare skapade postuppsättningen ”\@” med hjälp av $rs variabeln som tilldelats. IPv4-värdet som tilldelas kommer att IP-adressen för din webbapp.
+## <a name="create-an-a-record-and-txt-record"></a>Skapa en A-post och en TXT-post
 
-För att hitta IP-adressen för en webbapp, följer du stegen i [konfigurera ett anpassat domännamn i Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md).
+En A-post används för att mappa ett namn till dess IP-adress. I följande exempel tilldelar du ”@” som en A-post med hjälp ad webbappens IPv4-adress. @ representerar vanligtvis rotdomänen.
 
-```powershell
-Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address "<your web app IP address>"
-```
+### <a name="get-the-ipv4-address"></a>Hämta IPv4-adressen
 
-### <a name="step-3"></a>Steg 3
+I det vänstra navigeringsfönstret på App Services-sidan i Azure-portalen väljer du **Anpassade domäner**. 
 
-Ändringarna i postuppsättningen. Använd `Set-AzureRMDnsRecordSet` att överföra ändringarna till posten till Azure DNS:
+![Meny för anpassad domän](../app-service/./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-```powershell
-Set-AzureRMDnsRecordSet -RecordSet $rs
-```
+På sidan **Anpassade domäner** kopierar du appens IPv4-adress:
 
-## <a name="2-create-a-cname-record-for-your-custom-domain"></a>2. Skapa en CNAME-post för din anpassade domän
+![Portalnavigering till Azure-app](../app-service/./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-Om din domän är redan hanteras av Azure DNS (se [DNS domändelegering](dns-domain-delegation.md), du kan använda följande exempel för att skapa en CNAME-post för contoso.azurewebsites.net.
-
-### <a name="step-1"></a>Steg 1
-
-Öppna PowerShell och skapa en ny CNAME-postuppsättning och tilldela en variabel $rs. Det här exemplet skapar en postuppsättning typ CNAME-post med en ”time to live” 600 sekunder i DNS-zon med namnet ”contoso.com”.
+### <a name="create-the-a-record"></a>Skapa en A-post
 
 ```powershell
-$rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
+New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
+ -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 `
+ -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "<your web app IP address>")
 ```
 
-Följande exempel är svaret.
+### <a name="create-the-txt-record"></a>Skapa TXT-posten
 
-```
-Name              : www
-ZoneName          : contoso.com
-ResourceGroupName : myresourcegroup
-Ttl               : 600
-Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
-RecordType        : CNAME
-Records           : {}
-Tags              : {}
-```
-
-### <a name="step-2"></a>Steg 2
-
-När CNAME-postuppsättning skapas, måste du skapa ett Aliasvärde som pekar till webbappen.
-
-Med hjälp av tidigare tilldelade variabeln ”$rs” kan du använda PowerShell-kommandot nedan för att skapa alias för web app contoso.azurewebsites.net.
+Den här posten används av App Services endast vid konfigurationen, för att verifiera att du äger den anpassade domänen. Du kan ta bort den här TXT-posten när din anpassade domän har verifierats och konfigurerats i App Service.
 
 ```powershell
-Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
+New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
+ -Name `"@" -RecordType "txt" -Ttl 600 `
+ -DnsRecords (New-AzureRmDnsRecordConfig -Value  "contoso.azurewebsites.net")
 ```
 
-Följande exempel är svaret.
+## <a name="create-the-cname-record"></a>Skapa CNAME-posten
+
+Om din domän redan hanteras av Azure DNS (se [DNS-domändelegering](dns-domain-delegation.md) kan du använda följande exempel för att skapa en CNAME-post för contoso.azurewebsites.net.
+
+Öppna Azure PowerShell och skapa en ny CNAME-post. Det här exemplet skapar en CNAME-postuppsättningstyp med en ”time to live” på 600 sekunder i DNS-zonen med namnet ”contoso.com” med alias för webbappen contoso.azurewebsites.net.
+
+### <a name="create-the-record"></a>Skapa posten
+
+```powershell
+New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName "MyAzureResourceGroup" `
+ -Name "www" -RecordType "CNAME" -Ttl 600 `
+ -DnsRecords (New-AzureRmDnsRecordConfig -cname "contoso.azurewebsites.net")
+```
+
+Följande exempel är svaret:
 
 ```
     Name              : www
@@ -118,15 +113,9 @@ Följande exempel är svaret.
     Tags              : {}
 ```
 
-### <a name="step-3"></a>Steg 3
+## <a name="test-the-new-records"></a>Testa de nya posterna
 
-Genomför ändringarna med den `Set-AzureRMDnsRecordSet` cmdlet:
-
-```powershell
-Set-AzureRMDnsRecordSet -RecordSet $rs
-```
-
-Du kan verifiera posten skapades korrekt genom att fråga den ”www.contoso.com” med nslookup, enligt nedan:
+Du kan verifiera att posterna har skapats korrekt genom att köra en fråga mot ”www.contoso.com” och ”contoso.com” med hjälp av nslookup, enligt nedan:
 
 ```
 PS C:\> nslookup
@@ -143,62 +132,55 @@ Address:  <ip of web app service>
 Aliases:  www.contoso.com
 contoso.azurewebsites.net
 <instance of web app service>.vip.azurewebsites.windows.net
+
+> contoso.com
+Server:  default server
+Address:  192.168.0.1
+
+Non-authoritative answer:
+Name:    contoso.com
+Address:  <ip of web app service>
+
+> set type=txt
+> contoso.com
+
+Server:  default server
+Address:  192.168.0.1
+
+Non-authoritative answer:
+contoso.com text =
+
+        "contoso.azurewebsites.net"
 ```
+## <a name="add-custom-host-names"></a>Lägga till anpassade domännamn
 
-## <a name="create-an-awverify-record-for-web-apps"></a>Skapa en ”awverify”-post för web apps
-
-Om du vill använda en A-post för din webbapp måste du gå igenom en verifieringen för att se till att du äger den anpassade domänen. Den här verifieringssteg görs genom att skapa en särskild CNAME-post med namnet ”awverify”. Det här avsnittet gäller enbart poster.
-
-### <a name="step-1"></a>Steg 1
-
-Skapa ”awverify”-post. I exemplet nedan skapar vi ”aweverify”-post för contoso.com och verifiera ditt ägarskap för den anpassade domänen.
+Nu kan du lägga till de anpassade värdnamnen till din webbapp:
 
 ```powershell
-$rs = New-AzureRMDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "myresourcegroup" -Name "awverify" -RecordType "CNAME" -Ttl 600
+set-AzureRmWebApp `
+ -Name contoso `
+ -ResourceGroupName MyAzureResourceGroup `
+ -HostNames @("contoso.com","www.contoso.com","contoso.azurewebsites.net")
 ```
+## <a name="test-the-custom-host-names"></a>Testa de anpassade domännamnen
 
-Följande exempel är svaret.
+Öppna en webbläsare och gå till `http://www.<your domainname>` och `http://<you domain name>`.
 
-```
-Name              : awverify
-ZoneName          : contoso.com
-ResourceGroupName : myresourcegroup
-Ttl               : 600
-Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
-RecordType        : CNAME
-Records           : {}
-Tags              : {}
-```
+> [!NOTE]
+> Se till att du inkluderar prefixet `http://`. Annars kan webbläsaren försöka förutsäga en URL åt dig.
 
-### <a name="step-2"></a>Steg 2
+Du bör se samma sida för båda URL:er. Exempel:
 
-När postuppsättning ”awverify” har skapats, tilldelar du den CNAME-postuppsättning alias. I exemplet nedan kommer vi tilldela alias inställd awverify.contoso.azurewebsites.net CNAMe-posten.
+![Contoso-apptjänst](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 
-```powershell
-Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
-```
 
-Följande exempel är svaret.
+## <a name="clean-up-resources"></a>Rensa resurser
 
-```
-    Name              : awverify
-    ZoneName          : contoso.com
-    ResourceGroupName : myresourcegroup
-    Ttl               : 600
-    Etag              : 8baceeb9-4c2c-4608-a22c-229923ee185
-    RecordType        : CNAME
-    Records           : {awverify.contoso.azurewebsites.net}
-    Tags              : {}
-```
-
-### <a name="step-3"></a>Steg 3
-
-Genomför ändringarna med den `Set-AzureRMDnsRecordSet cmdlet`som visas i kommandot nedan.
-
-```powershell
-Set-AzureRMDnsRecordSet -RecordSet $rs
-```
+När du inte längre behöver de resurser som skapades i den här självstudien tar du bort resursgruppen **myresourcegroup**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följ stegen i [konfigurera ett anpassat domännamn för App Service](../app-service/app-service-web-tutorial-custom-domain.md) att konfigurera webbappen för att använda en anpassad domän.
+Lär dig hur du skapar privata Azure DNS-zoner.
+
+> [!div class="nextstepaction"]
+> [Komma igång med privata Azure DNS-zoner med PowerShell](private-dns-getstarted-powershell.md)

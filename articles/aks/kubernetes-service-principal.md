@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 04/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4dbb8b7abf6da77115d0e1d12621ec20ec60d174
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: dcb142b8b648f3f02855cb211789a4dee62183c0
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035208"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145588"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Tjänstens huvudnamn med Azure Kubernetes Service (AKS)
 
@@ -81,7 +81,7 @@ Tänk på följande när du arbetar med AKS och Azure AD-tjänstens huvudnamn.
 
 * Tjänstobjektet för Kubernetes är en del av klusterkonfigurationen. Men använd inte identiteten för att distribuera klustret.
 * Varje tjänstobjekt är associerat med ett Azure AD-program. Tjänstobjektet för ett Kubernetes-kluster kan associeras med ett giltigt Azure Active Directory-programnamn (till exempel: `https://www.contoso.org/example`). URL:en för programmet behöver inte vara en verklig slutpunkt.
-* När du anger **klient-id:t** för tjänstens huvudnamn använder du värdet för `appId` (som visas i den här artikeln) eller motsvarande `name` för tjänstens huvudnamn (till exempel `https://www.contoso.org/example`).
+* När du anger **Klient-ID** för tjänstens huvudnamn använder du värdet för `appId`.
 * På virtuella huvud- och noddatorer i Kubernetes-klustret lagras autentiseringsuppgifterna för tjänstobjektet i filen `/etc/kubernetes/azure.json`.
 * Om du använder kommandot `az aks create` för att generera tjänstobjektet automatiskt skrivs autentiseringsuppgifterna för tjänstobjektet till filen `~/.azure/aksServicePrincipal.json` på den dator som används för att köra kommandot.
 * När du tar bort ett AKS-kluster som skapats av `az aks create` tas tjänstens huvudnamn som skapades automatiskt inte bort. Om du vill ta bort tjänstens huvudnamn hämtar du först ID för tjänsten huvudnamn med [az ad app-listan][az-ad-app-list]. Följande exempel frågar efter klustret med namnet *myAKSCluster* och tar sedan bort app-ID med [az ad app-borttagningen][az-ad-app-delete]. Byt ut dessa namn mot dina egna värden:

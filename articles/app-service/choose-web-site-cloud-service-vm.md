@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 1f7396ac761ce5eeb5a671d3b04aabf944c361b8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 016427e6cfbb8bbb4910e5deffb3ab68d423fb90
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597934"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224963"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Jämförelse mellan Azure App Service, Virtual Machines, Service Fabric och Cloud Services
 ## <a name="overview"></a>Översikt
@@ -51,7 +51,7 @@ I följande tabell jämförs funktionerna i App Service, Cloud Services, Virtual
 | Värd för mellannivå i en arkitektur med flera nivåer |X |X |X |X |En App Service-webbapp kan enkelt vara värd för en REST API-mellannivå och [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226)-funktionen kan vara värd för jobb som bearbetas i bakgrunden. Du kan köra WebJobs på en dedikerad webbplats för att få oberoende skalbarhet för nivån. |
 | Integrerat stöd för MySQL som en tjänst |X |X | | | |
 | Stöd för ASP.NET, klassisk ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric stöder skapande av frontwebb med [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) eller så kan du distribuera valfri programtyp (Node.js, Java m.m.) som en [körbar gästfil](../service-fabric/service-fabric-guest-executables-introduction.md). |
-| Skala ut till flera instanser utan omdistribution |X |X |X |X |Virtual Machines kan skala ut till flera instanser, men tjänsterna som körs på dem måste skrivas om för att hantera utskalningen. Du måste konfigurera en belastningsutjämnare för att dirigera begäranden mellan datorer och skapa en tillhörighetsgrupp för att förhindra samtidiga omstarter av alla instanser på grund av underhåll eller maskinvarufel. |
+| Skala ut till flera instanser utan omdistribution |X |X |X |X |Virtual Machines kan skala ut till flera instanser, men tjänsterna som körs på dem måste skrivas om för att hantera utskalningen. Du måste konfigurera en lastbalanserare för att dirigera begäranden mellan datorerna och kontrollera att du har fler än en VM-instans i [tillgänglighetsuppsättningen](../virtual-machines/windows/manage-availability.md). |
 | Stöd för SSL |X |X |X |X |När det gäller App Service-webbappar stöds SSL för anpassade domännamn endast för lägena Basic och Standard. Information om hur du använder SSL med webbappar finns i [Configuring an SSL certificate for an Azure Website](app-service-web-tutorial-custom-ssl.md) (Konfigurera ett SSL-certifikat för en Azure-webbplats). |
 | Integrering med Visual Studio |X |X |X |X | |
 | Fjärrfelsökning |X |X |X | | |

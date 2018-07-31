@@ -1,6 +1,6 @@
 ---
-title: Så använder du en hanterad tjänstidentitet (MSI) på en virtuell Windows-dator för att komma åt Azure Data Lake Store
-description: En självstudie som visar hur du använder hanterad tjänstidentitet (MSI) för en virtuell Windows-dator för att få åtkomst till Azure Data Lake Store.
+title: Så använder du en hanterad tjänstidentitet på en virtuell Windows-dator för att komma åt Azure Data Lake Store
+description: En självstudie som visar hur du använder hanterad tjänstidentitet för en virtuell Windows-dator för att få åtkomst till Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: a7935aa245239ed32527d2c22fd41845c6da2ae1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f5d4a5e26ecf4bde286a5163bf5ec7da492e474d
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007975"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247921"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Självstudie: Använda du en hanterad tjänstidentitet (MSI) på en virtuell Windows-dator för att komma åt Azure Data Lake Store
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-data-lake-store"></a>Självstudie: Använda du en hanterad tjänstidentitet på en virtuell Windows-dator för att komma åt Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien beskriver steg för steg hur du använder en MSI (hanterad tjänstidentitet) för en virtuell Windows-dator (VM) för att komma åt en Azure Data Lake Store. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. Lär dig att:
+Den här självstudien beskriver steg för steg hur du använder en hanterad tjänstidentitet för en virtuell Windows-dator (VM) för att komma åt en Azure Data Lake Store. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. Lär dig att:
 
 > [!div class="checklist"]
-> * Aktivera MSI på en virtuell Windows-dator 
+> * Aktivera hanterad tjänstidentitet på en virtuell Windows-dator 
 > * Bevilja din virtuella dator åtkomst till en Azure Data Lake Store
 > * Hämta en åtkomsttoken med hjälp av en identitet för en virtuell dator och använd den för att få åtkomst till en Azure Data Lake Store
 
@@ -44,7 +44,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Windows-dator i en ny resursgrupp
 
-I den här självstudien ska vi skapa en ny virtuell Windows-dator.  Du kan även aktivera MSI på en befintlig virtuell dator.
+I den här självstudien ska vi skapa en ny virtuell Windows-dator.  Du kan även aktivera hanterad tjänstidentitet på en befintlig virtuell dator.
 
 1. Klicka på knappen **Skapa en resurs** längst upp till vänster i Azure Portal.
 2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
@@ -55,17 +55,17 @@ I den här självstudien ska vi skapa en ny virtuell Windows-dator.  Du kan äve
 
    ![Alternativ bildtext](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn 
+## <a name="enable-managed-service-identity-on-your-vm"></a>Aktivera hanterad tjänstidentitet på en virtuell dator 
 
-Med hanterade tjänstidentiteter (MSI) för virtuella datorer kan du hämta åtkomsttoken från Azure AD utan att du behöver bädda in autentiseringsuppgifter i din kod. När du aktiverar MSI skapar Azure en hanterad tjänstidentitet för den virtuella datorn. När du aktiverar MSI sker två saker i bakgrunden: den virtuella datorn registreras med Azure Active Directory för att skapa dess hanterade identitet och identiteten konfigureras på den virtuella datorn.
+Med en hanterad tjänstidentitet på en virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar hanterad tjänstidentitet skapar Azure en hanterad identitet för den virtuella datorn. I bakgrunden sker två saker när du aktiverar en hanterad tjänstidentitet på en virtuell dator: din virtuella dator registreras hos Azure Active Directory och dess hanterade tjänstidentitet skapas, och identiteten konfigureras på den virtuella datorn.
 
-1. Välj den **virtuella dator** som du vill aktivera MSI på.  
+1. Välj den **virtuella dator** som du vill aktivera hanterad tjänstidentitet på.  
 2. Klicka på **Konfiguration** i det vänstra navigeringsfältet. 
 3. **Hanterad tjänstidentitet** visas. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej. 
 4. Klicka på **Spara** för att spara konfigurationen.  
    ![Alternativ bildtext](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. Om du vill kontrollera och verifiera vilka tillägg som finns på den här virtuella datorn klickar du på **Tillägg**. Om MSI är aktiverat visas **ManagedIdentityExtensionforWindows** i listan.
+5. Om du vill kontrollera och verifiera vilka tillägg som finns på den här virtuella datorn klickar du på **Tillägg**. Om hanterad tjänstidentitet är aktiverat visas **ManagedIdentityExtensionforWindows** i listan.
 
    ![Alternativ bildtext](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
@@ -73,7 +73,7 @@ Med hanterade tjänstidentiteter (MSI) för virtuella datorer kan du hämta åtk
 
 Nu kan du ge din VM-åtkomst till filer och mappar i en Azure Data Lake Store.  Du kan använda en befintlig Data Lake Store eller skapa en ny för det här steget.  För att skapa en ny Data Lake Store med hjälp av Azure-portalen följer du den här [snabbstarten för Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Det finns även snabbstarter som använder Azure CLI och Azure PowerShell i [dokumentationen om Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
-I din Data Lake Store skapar du en ny mapp och ger den virtuella datorns MSI behörighet att läsa, skriva och köra filer i mappen:
+I din Data Lake Store skapar du en ny mapp och ger den virtuella datorns hanterade tjänstidentitet behörighet att läsa, skriva och köra filer i mappen:
 
 1. I Azure-portalen klickar du på **Data Lake Store** i det vänstra navigeringsfältet.
 2. Klicka på den Data Lake Store som du vill använda för den här självstudien.
@@ -87,21 +87,21 @@ I din Data Lake Store skapar du en ny mapp och ger den virtuella datorns MSI beh
 10. Som i steg 5 klickar du på **Lägg till**. I fältet **Välj** anger du namnet på den virtuella datorn. Markera den och klicka på **Välj**.
 11. Som i steg 6 klickar du på **Välj behörigheter**. Välj **Läs**, **Skriv** och **Kör**, lägg till i **den här mappen** och lägg till som **en åtkomstbehörighetspost och en standardbehörighetspost**.  Klicka på **OK**.  Behörigheten bör nu har lagts till.
 
-Den virtuella datorns MSI kan nu utföra alla åtgärder på filer i den mapp som du skapade.  Mer information om hur du hanterar åtkomst till Data Lake Store finns i den här artikeln om [Åtkomstkontroll i Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+Den virtuella datorns hanterade tjänstidentitet kan nu utföra alla åtgärder på filer i den mapp som du skapade.  Mer information om hur du hanterar åtkomst till Data Lake Store finns i den här artikeln om [Åtkomstkontroll i Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
-## <a name="get-an-access-token-using-the-vm-msi-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns MSI och använd den för att anropa Azure Data Lake Store-filsystemet
+## <a name="get-an-access-token-using-the-vm-managed-service-identity-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns hanterade tjänstidentitet och använd den för att anropa Azure Data Lake Store-filsystemet
 
-Azure Data Lake Store har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas med MSI kan accepteras direkt.  För att autentisera till Data Lake Store-filsystemet skickar du en åtkomsttoken som utfärdats av Azure AD till slutpunkten för Data Lake Store-filsystemet i en auktoriseringsrubrik i formatet ”Bearer <ACCESS_TOKEN_VALUE>”.  Mer information om Data Lake Store-stöd för Azure AD-autentisering finns avsnittet om [autentisering med Data Lake Store med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
+Azure Data Lake Store har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas med hanterad tjänstidentitet kan accepteras direkt.  För att autentisera till Data Lake Store-filsystemet skickar du en åtkomsttoken som utfärdats av Azure AD till slutpunkten för Data Lake Store-filsystemet i en auktoriseringsrubrik i formatet ”Bearer <ACCESS_TOKEN_VALUE>”.  Mer information om Data Lake Store-stöd för Azure AD-autentisering finns avsnittet om [autentisering med Data Lake Store med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
 
 > [!NOTE]
 > Data Lake Store-filsystemets klient-SDK stöder inte ännu hanterade tjänstidentiteter.  Den här självstudien kommer att uppdateras när stöd har lagts till i SDK.
 
-I den här självstudien autentiserar du till Lake Store-filsystemets REST API med hjälp av PowerShell för att göra REST-begäranden. Om du vill använda den virtuella datorns MSI för autentisering behöver du göra begäranden från den virtuella datorn.
+I den här självstudien autentiserar du till Lake Store-filsystemets REST API med hjälp av PowerShell för att göra REST-begäranden. Om du vill använda den virtuella datorns hanterade tjänstidentitet för autentisering behöver du göra begäranden från den virtuella datorn.
 
 1. I portalen går du till **Virtuella datorer** och sedan till den virtuella Windows-datorn. Under **Översikt** klickar du på **Anslut**.
 2. Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn. 
 3. Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn öppnar du **PowerShell** i fjärrsessionen. 
-4. Använd PowerShells `Invoke-WebRequest` och skicka en begäran till den lokala MSI-slutpunkten för att hämta en åtkomsttoken för Azure Data Lake Store.  Resurs-ID för Data Lake Store är ”https://datalake.azure.net/”.  Data Lake gör en exakt matchning på resurs-ID, och det avslutande snedstrecket är viktigt.
+4. Använd PowerShells `Invoke-WebRequest` och skicka en begäran till den lokala slutpunkten för hanterad tjänstidentitet för att hämta en åtkomsttoken för Azure Data Lake Store.  Resurs-ID för Data Lake Store är ”https://datalake.azure.net/”.  Data Lake gör en exakt matchning på resurs-ID, och det avslutande snedstrecket är viktigt.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}
@@ -207,7 +207,7 @@ I den här självstudien autentiserar du till Lake Store-filsystemets REST API m
 
 Genom att använda andra Data Lake Store-API:er kan du lägga till i filer, ladda ned filer med mera.
 
-Grattis!  Du har autentiserat till Data Lake Store-filsystemet med en virtuell dators MSI.
+Grattis!  Du har autentiserat till Data Lake Store-filsystemet med en virtuell dators hanterade tjänstidentitet.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
 title: Binda ett befintligt anpassat SSL-certifikat till Azure Web Apps | Microsoft Docs
-description: Lär dig att binda ett anpassat SSL-certifikat till din webbapp, din mobila serverdelstjänst för appar eller en API-app i Azure App Service.
+description: Lär dig hur du binder ett anpassat SSL-certifikat till din webbapp, din mobila serverdelstjänst för appar eller en API-app i Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/19/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9ba8eae0fe9e68e4931bcdda989e59c59fd65edd
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 6e3679a994a7340fc38bf98f370efd359785fd90
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293337"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214973"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Självstudie: Binda ett befintligt anpassat SSL-certifikat till Azure Web Apps
 
@@ -28,7 +28,7 @@ Med Azure Web Apps får du en mycket skalbar och automatiskt uppdaterad webbvär
 
 ![Webbapp med anpassat SSL-certifikat](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Uppgradera appens prisnivå
@@ -96,7 +96,7 @@ Anpassat SSL stöds inte på nivån **F1** eller **D1**. Om du behöver skala up
 
 Välj någon av betalnivåerna (**B1**, **B2**, **B3** eller någon nivå i kategorin **Produktion**). Klicka på **Visa ytterligare alternativ** om du vill se fler alternativ.
 
-Klicka på **Använd**.
+Klicka på **Verkställ**.
 
 ![Välja prisnivå](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 
@@ -231,7 +231,7 @@ Välj **SSL-inställningar** i den vänstra navigeringen på webbappsidan. I **E
 
 ![Använda HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-När åtgärden har slutförts går du till någon av de HTTP-webbadresser som pekar på din app. Till exempel:
+När åtgärden har slutförts går du till någon av de HTTP-webbadresser som pekar på din app. Exempel:
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 593f89071f03cb2e2b8ed9d7eda2cc7cb3971128
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dd9c6f2969bfbcd1b2170c0685ab69b8b2ce70da
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317998"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224321"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Skapa en PHP- och MySQL-webbapp i Azure App Service i Linux
 
@@ -29,7 +29,7 @@ Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar 
 
 ![PHP-app som körs i Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * skapa en MySQL-databas i Azure
@@ -152,7 +152,7 @@ Om du vill stoppa PHP skriver du `Ctrl + C` i terminalen.
 
 ## <a name="create-mysql-in-azure"></a>Skapa MySQL i Azure
 
-I det här steget skapar du en MySQL-databas i [Azure Database for MySQL (Preview)](/azure/mysql). Senare kommer du att konfigurera PHP-appen för att ansluta till den här databasen.
+I det här steget skapar du en MySQL-databas i [Azure Database for MySQL](/azure/mysql). Senare kommer du att konfigurera PHP-appen för att ansluta till den här databasen.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -160,7 +160,7 @@ I det här steget skapar du en MySQL-databas i [Azure Database for MySQL (Previe
 
 ### <a name="create-a-mysql-server"></a>Skapa en MySQL-server
 
-Skapa en server i Azure Database för MySQL (förhandsversion) med kommandot [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+Skapa en server i Azure Database for MySQL med kommandot [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
 I följande kommando ersätter du MySQL-servernamnet i platshållaren _&lt;mysql_server_name>_ (giltiga tecken är `a-z`, `0-9` och `-`). Det här namnet är en del av MySQL-serverns värdnamn (`<mysql_server_name>.database.windows.net`) och den måste vara globalt unik.
 
@@ -230,7 +230,7 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>Ansluta appen till Azure MySQL
 
-I det här steget ansluter du PHP-appen till MySQL-databasen du skapade i Azure Database for MySQL (Preview).
+I det här steget ansluter du PHP-programmet till MySQL-databasen som du skapade i Azure Database for MySQL.
 
 <a name="devconfig"></a>
 
@@ -254,7 +254,7 @@ MYSQL_SSL=true
 Spara ändringarna.
 
 > [!TIP]
-> För att skydda din MySQL-anslutningsinformation är den här filen redan undantagen från Git-lagringsplatsen (se _.gitignore_ i lagringsplatsens rot). Senare får du lära dig hur du konfigurerar miljövariabler i App Service för att ansluta till din databas i Azure Database for MySQL (Preview). När du använder miljövariabler behöver du inte *.env*-filen i App Service.
+> För att skydda din MySQL-anslutningsinformation är den här filen redan undantagen från Git-lagringsplatsen (se _.gitignore_ i lagringsplatsens rot). Senare får du lära dig hur du konfigurerar miljövariabler i App Service för att ansluta till din databas i Azure Database for MySQL. När du använder miljövariabler behöver du inte *.env*-filen i App Service.
 >
 
 ### <a name="configure-ssl-certificate"></a>Konfigurera ett SSL-certifikat
@@ -277,7 +277,7 @@ I den här kursen finns certifikatet `BaltimoreCyberTrustRoot.crt.pem` på lagri
 
 ### <a name="test-the-application-locally"></a>Testa appen lokalt
 
-Kör Laravel-databasmigreringar med _.env.production_ som miljöfil för att skapa tabellerna i din MySQL-databas i Azure Database for MySQL (Preview). Tänk på att anslutningsinformationen till din MySQL-databas i Azure finns i _.env.production_.
+Kör Laravel-databasmigreringar med _.env.production_ som miljöfil för att skapa tabellerna i din MySQL-databas i Azure Database for MySQL. Tänk på att anslutningsinformationen till din MySQL-databas i Azure finns i _.env.production_.
 
 ```bash
 php artisan migrate --env=production --force
@@ -299,7 +299,7 @@ Navigera till `http://localhost:8000`. Om sidan läses in utan fel ansluter PHP-
 
 Lägg till några uppgifter på sidan.
 
-![PHP ansluter till Azure Database for MySQL (Preview)](./media/tutorial-php-mysql-app/mysql-connect-success.png)
+![PHP har anslutits till Azure Database for MySQL](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
 Om du vill stoppa PHP skriver du `Ctrl + C` i terminalen.
 

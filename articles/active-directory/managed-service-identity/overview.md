@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e58ba598df06feddc7b48072dfefd409f31e2445
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006938"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237877"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>Vad är Hanterad tjänstidentitet för Azure-resurser?
 
@@ -59,7 +59,7 @@ Här är ett exempel på hur systemtilldelade identiteter fungerar i Azure Virtu
 6. Anrop görs till Azure AD och begär en åtkomsttoken enligt steg 5 med det klient-ID och certifikat som konfigurerades i steg 3. Azure AD returnerar en åtkomsttoken för JSON Web Token (JWT).
 7. Koden skickar åtkomsttoken vid ett anrop till en tjänst som stöder Azure AD-autentisering.
 
-Med hjälp av samma diagram är här ett exempel på hur en användartilldelad fungerar med Azure Virtual Machines.
+Med hjälp av samma diagram är här ett exempel på hur en användartilldelad hanterad identitet fungerar med virtuella Azure-datorer.
 
 1. Azure Resource Manager tar emot en begäran om att skapa en användartilldelad identitet.
 2. Azure Resource Manager skapar ett huvudnamn för tjänsten i Azure AD som representerar den användartilldelade identiteten. Tjänstens huvudnamn skapas i den Azure AD-klientorganisation som är betrodd av prenumerationen.

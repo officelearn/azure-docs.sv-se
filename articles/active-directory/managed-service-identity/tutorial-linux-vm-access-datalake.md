@@ -1,6 +1,6 @@
 ---
 title: Använda en hanterad tjänstidentitet för en virtuell Linux-dator för att få åtkomst till Azure Data Lake Store
-description: En självstudie som visar hur du använder en hanterad tjänstidentitet (MSI) för en virtuell Linux-dator för att få åtkomst till Azure Data Lake Store.
+description: En självstudie som visar hur du använder en hanterad tjänstidentitet för en virtuell Linux-dator för att få åtkomst till Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ce38dabbe9aa69f7c54bb49888ad83e01a7c9522
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6854b0a6c72b44bcd3f778e0c46cb109b34ce826
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004888"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258838"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Självstudie: Använda en hanterad tjänstidentitet för en virtuell Linux-dator för att få åtkomst till Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-I den här självstudien lär du dig använda en hanterad tjänstidentitet för en virtuell Linux-dator för att få åtkomst till Azure Data Lake Store. Azure hanterar automatiskt identiteter som du skapar via MSI. Du kan använda hanterad tjänstidentiteter för att autentisera mot tjänster som stöder Azure Active Directory-autentisering (Azure AD), utan att du behöver skriva in autentiseringsuppgifter i koden. 
+I den här självstudien lär du dig använda en hanterad tjänstidentitet för en virtuell Linux-dator för att få åtkomst till Azure Data Lake Store. Azure hanterar automatiskt identiteter som du skapar via hanterad tjänstidentitet. Du kan använda hanterad tjänstidentitet för att autentisera mot tjänster som stöder Azure Active Directory-autentisering (Azure AD), utan att du behöver skriva in autentiseringsuppgifter i koden. 
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Aktivera hanterade tjänstidentiteter på en virtuell Linux-dator. 
+> * Aktivera hanterad tjänstidentitet på en virtuell Linux-dator. 
 > * Bevilja din virtuella dator åtkomst till Azure Data Lake Store.
 > * Hämta en åtkomsttoken med hjälp av en identitet för en virtuell dator och använd den för att få åtkomst till Azure Data Lake Store.
 
@@ -58,13 +58,13 @@ I den här självstudien skapar vi en ny virtuell Linux-dator. Du kan även akti
 5. Du väljer en ny resursgrupp som du vill att den virtuella datorn ska skapas i genom att välja **Resursgrupp** > **Skapa ny**. Välj **OK** när du är klar.
 6. Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Behåll alla standardvärden på inställningssidan och välj **OK**.
 
-## <a name="enable-msi-on-your-vm"></a>Aktivera MSI på den virtuella datorn
+## <a name="enable-managed-service-identity-on-your-vm"></a>Aktivera hanterad tjänstidentitet på en virtuell dator
 
-Med hanterade tjänstidentiteter (MSI) för virtuella datorer kan du hämta åtkomsttoken från Azure AD utan att du behöver bädda in autentiseringsuppgifter i din kod. När du aktiverar en hanterad tjänstidentitet på en virtuell dator händer två saker: din virtuella dator registreras hos Azure Active Directory och dess hanterade tjänstidentitet skapas, och identiteten konfigureras på den virtuella datorn.
+Med en hanterad tjänstidentitet på en virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar en hanterad tjänstidentitet på en virtuell dator händer två saker: din virtuella dator registreras hos Azure Active Directory och dess hanterade tjänstidentitet skapas, och identiteten konfigureras på den virtuella datorn.
 
-1. För **Virtuell dator** väljer du den virtuella dator du vill aktivera den hanterade tjänstidentiteten på.
+1. För **virtuell dator** väljer du den virtuella dator som du vill aktivera hanterad tjänstidentitet på.
 2. Välj **Konfiguration** i det vänstra fönstret.
-3. Du ser **Hanterad tjänstidentitet**. Om du vill registrera och aktivera hanterade tjänstidentiteter, välj **Ja**. Om du vill inaktivera det, väljer du **Nej**.
+3. Du ser **Hanterad tjänstidentitet**. Om du vill registrera och aktivera hanterad tjänstidentitet väljer du **Ja**. Om du vill inaktivera det, väljer du **Nej**.
    ![Markeringen Registrera dig på Azure Active Directory](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. Välj **Spara**.
 
@@ -72,7 +72,7 @@ Med hanterade tjänstidentiteter (MSI) för virtuella datorer kan du hämta åtk
 
 Nu kan du ge din VM-åtkomst till filer och mappar i Azure Data Lake Store. Du kan använda en befintlig Data Lake Store-instans eller skapa en ny för det här steget. Så här skapar du en Data Lake Store-instans med hjälp av Azure-portalen i [snabbstarten för Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Det finns även snabbstarter som använder Azure CLI och Azure PowerShell i [dokumentationen om Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
-Skapa en ny mapp i Data Lake Store och ge den hanterade tjänstidentiteten behörighet att läsa, skriva och köra filer i mappen:
+I Data Lake Store skapar du en ny mapp och ger den hanterade tjänstidentiteten behörighet att läsa, skriva och köra filer i mappen:
 
 1. I Azure-portalen väljer du **Data Lake Store** i den vänstra rutan.
 2. Välj den Data Lake Store-instans som du vill använda.
@@ -90,7 +90,7 @@ Den hanterade tjänstidentiteten kan nu utföra alla åtgärder på filer i mapp
 
 ## <a name="get-an-access-token-and-call-the-data-lake-store-file-system"></a>Få en åtkomsttoken och anropa Data Lake Store-filsystemet
 
-Azure Data Lake Store har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas med hanterade tjänsteidentiteter kan accepteras direkt. För att autentisera till Data Lake Store-filsystemet skickar du en åtkomsttoken som utfärdats av Azure AD till slutpunkten för ditt Data Lake Store-filsystem. Åtkomsttoken finns i auktoriseringsrubriken i formatet ”Ägartoken \<ACCESS_TOKEN_VALUE\>”.  Mer information om Data Lake Store-stöd för Azure AD-autentisering finns avsnittet om [autentisering med Data Lake Store med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
+Azure Data Lake Store har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas via hanterad tjänstidentitet kan accepteras direkt. För att autentisera till Data Lake Store-filsystemet skickar du en åtkomsttoken som utfärdats av Azure AD till slutpunkten för ditt Data Lake Store-filsystem. Åtkomsttoken finns i auktoriseringsrubriken i formatet ”Ägartoken \<ACCESS_TOKEN_VALUE\>”.  Mer information om Data Lake Store-stöd för Azure AD-autentisering finns avsnittet om [autentisering med Data Lake Store med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
 
 I den här självstudien autentiserar du REST-API:et för Data Lake Store-filsystemet med hjälp av CURL för att göra REST-begäranden.
 
@@ -101,7 +101,7 @@ För att slutföra de här stegen behöver du en SSH-klient. Om du använder Win
 
 1. Bläddra till din virtuella Linux-dator i portalen. I **Översikt** väljer du **Anslut**.  
 2. Anslut till den virtuella datorn med valfri SSH-klient. 
-3. I terminalfönstret, med hjälp av CURL, skickar du en begäran till den lokala slutpunkten för hanterad tjänsteidentitet för att hämta en åtkomsttoken för Data Lake Store-filsystemet. Resurs-ID för Data Lake Store är ”https://datalake.azure.net/”.  Det är viktigt att inkludera avslutande snedstreck i resurs-ID.
+3. I terminalfönstret, med hjälp av CURL, skickar du en begäran till den lokala slutpunkten för hanterad tjänstidentitet för att hämta en åtkomsttoken för Data Lake Store-filsystemet. Resurs-ID för Data Lake Store är ”https://datalake.azure.net/”.  Det är viktigt att inkludera avslutande snedstreck i resurs-ID.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   

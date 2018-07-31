@@ -1,25 +1,22 @@
 ---
-title: 'Snabbstart: Kör ett Spark-jobb på Azure Databricks med Azure Portal | Microsoft Docs'
+title: 'Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure-portalen'
 description: Snabbstarten visar hur du använder Azure-portalen för att skapa en arbetsyta för Azure Databricks och ett Apache Spark-kluster och kör ett Spark-jobb.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
+ms.service: azure-databricks
+author: jasonwhowell
+ms.author: jasonh
 manager: cgronlun
 editor: cgronlun
-ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/23/2018
-ms.author: nitinme
+ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 19dcdeefe4a65f5c0fab06766a0fa40838df8b08
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a302c0c6c4ecbaff2d11d852caf9e1e1500931b8
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30232440"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225354"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
@@ -29,7 +26,7 @@ I den här snabbstarten analyserar du, som en del av Spark-jobbet, prenumeration
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på [Azure Portal](https://portal.azure.com).
 
@@ -41,7 +38,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
     ![Databricks på Azure-portalen](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks på Azure-portalen")
 
-3. Under **Azure Databricks-tjänst** anger du värden för att skapa en Databricks-arbetsyta.
+2. Under **Azure Databricks-tjänst** anger du värden för att skapa en Databricks-arbetsyta.
 
     ![Skapa en arbetsyta för Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Skapa en arbetsyta för Azure Databricks")
 
@@ -51,7 +48,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     |---------|---------|
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
-    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en behållare som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md). |
+    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md). |
     |**Plats**     | Välj **USA, östra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
     |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
@@ -62,6 +59,9 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     ![Distributionspanel för Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Distributionspanel för Databricks")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Skapa ett Spark-kluster i Databricks
+
+> [!NOTE] 
+> Om du vill använda ett kostnadsfritt konto för att skapa Azure Databricks-klustret ska du innan du skapar klustret gå till din profil och ändra prenumerationen till **betala per användning**. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/en-us/free/).  
 
 1. I Azure Portal går du till arbetsytan Databricks som du skapade och klickar sedan på **Starta arbetsyta**.
 
@@ -83,14 +83,34 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
 Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
+
+## <a name="download-a-sample-data-file"></a>Ladda ned en exempeldatafil
+Ladda ned en JSON-exempeldatafil och spara den i Azure-bloblagring.
+
+1. Ladda ned den här JSON-exempeldatafilen [från Github](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) till din lokala dator. Högerklicka och spara som för att spara rådatafilen lokalt. 
+
+2. Om du inte redan har ett lagringskonto skapar du ett. 
+   - I Azure-portalen väljer du **Skapa en resurs**.  Välj kategorin **Lagring** och välj **Lagringskonton**  
+   - Ange ett unikt namn för lagringskontot.
+   - Välj **Typ av konto**: **Blob-lagring**
+   - Välj ett namn på **Resursgrupp**. Använd samma resursgrupp där du skapade Databricks-arbetsytan.
+   
+   Mer information finns i [Skapa ett Azure Blob Storage-konto](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+
+3. Skapa en lagringscontainer i Blob Storage-kontot och ladda upp json-exempelfilen till containern. Du kan använda Azure-portalen eller [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) för att ladda upp filen.
+
+   - Öppna lagringskontot i Azure-portalen.
+   - Välj **Blobar**.
+   - Välj **+ Container** för att skapa en ny tom container.
+   - Ange ett **Namn** för containern, till exempel `databricks`. 
+   - Välj åtkomstnivån **Privat (icke-anonym åtkomst)**.
+   - När containern har skapats väljer du containerns namn.
+   - Välj knappen **Ladda upp**.
+   - På sidan **Filer** väljer du **mappikonen** för att bläddra och välja exempelfilen `small_radio_json.json` för uppladdning. 
+   - Välj **Ladda upp** för att överföra filen.
+   
+   
 ## <a name="run-a-spark-sql-job"></a>Köra ett Spark SQL-jobb
-
-Innan du börjar med det här avsnittet måste du slutföra följande krav:
-
-* [Skapa ett Azure Blob Storage-konto](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
-* Ladda ned en exempel-JSON-fil [från Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
-* Ladda upp JSON-exempelfilen till det Azure Blob Storage-konto som du har skapat. Du kan använda [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) för att ladda upp filer.
-
 Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfigurera den för att läsa data från ett Azure Blob Storage-konto och kör ett Spark SQL-jobb på data.
 
 1. Klicka på **Arbetsyta** i det vänstra fönstret. Från listrutan **Arbetsyta** klickar du på **Skapa** och sedan på **Anteckningsbok**.
@@ -128,7 +148,7 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
     > [!NOTE]
     > Du kan även använda Azure Data Lake Store med ett Spark-kluster på Azure Databricks. Instruktioner finns i [Använda Data Lake Store med Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).
 
-4. Kör en SQL-instruktion för att skapa en temporär tabell med data från exempel-JSON-datafilen **small_radio_json.json**. I följande kodfragment ersätter du platshållarens värden med din behållares namn och namnet på ditt lagringskonto. Klistra in följande kodfragment i en kodcell och tryck sedan på SKIFT+RETUR. I kodfragmentet anger `path` platsen för exempel-JSON-filen som du laddade upp till ditt Azure Storage-konto.
+4. Kör en SQL-instruktion för att skapa en temporär tabell med data från exempel-JSON-datafilen **small_radio_json.json**. I följande kodfragment ersätter du platshållarens värden med din containers namn och namnet på ditt lagringskonto. Klistra in följande kodfragment i en kodcell och tryck sedan på SKIFT+RETUR. I kodfragmentet anger `path` platsen för exempel-JSON-filen som du laddade upp till ditt Azure Storage-konto.
 
     ```sql
     %sql 
@@ -170,7 +190,7 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
     * Ställ in **Värden** på **nivå**.
     * Ställ in **Sammansättning** på **COUNT** (Antal).
 
-    Klicka på **Använd**.
+    Klicka på **Verkställ**.
 
 9. Utdata visar den visuella representationen som visas i följande skärmbild:
 

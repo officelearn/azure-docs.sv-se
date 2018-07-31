@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: d86f0e96f64a56644b3161725f7f6a430568a72f
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 2f732dfdfe9bf4aff2753114c3041f8f646421c2
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242707"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344740"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Viktig information om Azure Stack Development Kit
 Dessa versionsanmärkningar innehåller information om förbättringar och korrigeringar kända problem i Azure Stack Development Kit. Om du inte vet vilken version du kör, kan du [använda portalen för att kontrollera](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -47,6 +47,8 @@ This build includes the following improvements and fixes for Azure Stack.
 ### <a name="known-issues"></a>Kända problem
  
 #### <a name="portal"></a>Portalen
+- <!-- TBD - IS ASDK --> Du kan inte använda drivrutinsuppdateringar med hjälp av en OEM-tillägg-paketet med den här versionen av Azure Stack.  Det finns ingen lösning på problemet.
+ 
 - <!-- TBD - IS ASDK --> Använd inte de nya administrativa prenumeration typerna av *Avläsning av prenumeration*, och *förbrukning prenumeration*. Dessa nya prenumerationstyper introducerades med version 1804 men ännu inte är redo att användas. Du bör fortsätta att använda den *Standard Provider* prenumerationstyp.  
 
 - <!-- 2403291 - IS ASDK --> Du kanske inte användning av den vågräta rullningslisten längst ned på administratörs- och portaler. Om du inte kommer åt den vågräta rullningslisten, Använd spåret och navigera till ett tidigare blad i portalen genom att välja namn på bladet du vill visa i dynamiska länkar på listan som finns längst upp till vänster i portalen.
@@ -168,6 +170,8 @@ Följande är nu tillgängliga, men kräver inte Azure Stack-uppdatering 1804.
 ### <a name="known-issues"></a>Kända problem
  
 #### <a name="portal"></a>Portalen
+- <!-- TBD - IS ASDK --> Du kan inte använda drivrutinsuppdateringar med hjälp av en OEM-tillägg-paketet med den här versionen av Azure Stack.  Det finns ingen lösning på problemet.
+ 
 - <!-- TBD - IS ASDK --> Möjligheten [att öppna en ny supportbegäran i listrutan](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) från inom administratören portalen är inte tillgänglig. I stället använder du följande länk:     
     - Använd för Azure Stack Development Kit https://aka.ms/azurestackforum.    
 

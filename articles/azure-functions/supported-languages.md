@@ -1,9 +1,9 @@
 ---
 title: Språk som stöds i Azure Functions
-description: Lär dig vilka språk som stöds (GA) och som är experiment eller i förhandsgranskningen.
+description: Lär dig vilka språk som stöds (GA) och som är experimentella versioner eller i en förhandsversion.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -13,49 +13,49 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
-ms.author: tdykstra
-ms.openlocfilehash: 5786a206b258cfe7c48f52ead9b5a4cceb64cd5f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: glenga
+ms.openlocfilehash: 00f291e903948bf43bc997816b6072186cf1f889
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
-ms.locfileid: "24879442"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343091"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Språk som stöds i Azure Functions
 
-Den här artikeln förklarar nivåer av stöd erbjuds för språk som du kan använda med Azure Functions.
+Den här artikeln beskriver supportnivåerna erbjuds för språk som du kan använda med Azure Functions.
 
-## <a name="levels-of-support"></a>Stöd
+## <a name="levels-of-support"></a>Supportnivåer
 
-Det finns tre nivåer för support:
+Det finns tre nivåer av support:
 
-* **Allmänt tillgänglig (GA)** – fullständigt stöd för och godkänts för produktion.
-* **Förhandsgranska** - har ännu inte stöds men förväntas komma GA status i framtiden.
-* **Försök** - stöds inte och kan överges i framtiden; ingen garanti eventuell Förhandsgranska eller GA status.
+* **Allmänt tillgänglig (GA)** – fullständigt stöd och godkänts för användning i produktion.
+* **Förhandsversion av** – har ännu inte stöds men förväntas bli allmänt tillgänglig status i framtiden.
+* **Experimentella** – stöds inte och kan vara övergivna i framtiden; ingen garanti för slutlig förhandsversion eller allmän tillgänglighet status.
 
 ## <a name="languages-in-runtime-1x-and-2x"></a>Språk i runtime 1.x och 2.x
 
-[Två versioner av Azure Functions-runtime](functions-versions.md) är tillgängliga. 1.x-runtime är GA. Det är bara körningsmiljön som godkänts för program i produktion. 2.x-runtime är för närvarande under förhandsgranskning, så de språk som stöds finns i förhandsgranskningen. I följande tabell visas vilka språk som stöds i varje version av körningsmiljön.
+[Två versioner av Azure Functions-runtime](functions-versions.md) är tillgängliga. 1.x-körningen är GA. Det är den enda runtime som har godkänts för program i produktion. 2.x-körningen är för närvarande i förhandsversion, så att de språk som stöds finns i förhandsversion. I följande tabell visas vilka språk som stöds i varje runtime-versionen.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-### <a name="experimental-languages"></a>Försök språk
+### <a name="experimental-languages"></a>Experimentella språk
 
-Försök språk i 1.x skalas inte efter era behov och har stöd inte för alla bindningar. Till exempel Python är långsam eftersom Functions-runtime körs *python.exe* med varje funktionsanrop. Och medan Python stöder HTTP-bindningar, kan inte öppna request-objektet.
+Experimentella språk i 1.x skalbarheten inte och stöder inte alla bindningar. Till exempel Python är långsam eftersom Functions-körningen körs *python.exe* med varje funktionsanrop. Och medan Python har stöd för HTTP-bindningar, den kan inte komma åt Begäranobjektet.
 
-Försök stöd för PowerShell är begränsad till version 4.0 eftersom det är vad som är installerat på virtuella datorer som funktionen appar som körs på. Om du vill köra PowerShell-skript kan du överväga att [Azure Automation](https://azure.microsoft.com/services/automation/).
+Experimentella stöd för PowerShell är begränsad till version 4.0 eftersom det är vad som är installerat på de virtuella datorerna som funktionsappar körs på. Om du vill köra PowerShell-skript kan du överväga att [Azure Automation](https://azure.microsoft.com/services/automation/).
 
-2.x-körning stöder inte experiment språk. I 2.x, kommer vi lägga till stöd för ett språk endast när det väl skalas och har stöd för avancerade utlösare.
+2.x-körningen stöder inte experimentella språk. I 2.x kan vi lägga till stöd för ett språk som endast när den goda och har stöd för avancerade utlösare.
 
-Om du vill använda ett av de språk som endast är tillgängliga i 1.x kvar på 1.x-körningsmiljön. Men inte använder experiment språk för sådant som du förlita dig på, eftersom det finns inget officiella stöd för dessa. Du kan begära hjälp av [skapar GitHub problem](https://github.com/Azure/azure-webjobs-sdk-script/issues), men Supportfall bör inte öppnas för problem med experiment språk. 
+Om du vill använda en av de språk som är tillgängliga i 1.x kvar på 1.x-körningen. Men Använd inte experimentella språk för sådant som du litar på, eftersom det finns inget officiella stöd för dessa. Du kan be om hjälp genom [skapa GitHub-ärenden](https://github.com/Azure/azure-webjobs-sdk-script/issues), men bör inte att öppna supportärenden för problem med experimentella språk. 
 
-### <a name="language-extensibility"></a>Språk utökningsbarhet
+### <a name="language-extensibility"></a>Utökningsbarhet för språk
 
-2.x-körningsmiljön har utformats för att erbjuda [språk utökningsbarhet](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Modellen är bland de första språk ska baseras på den här utökningsbarhet Java som är en förhandsversion i 2.x.
+2.x-körningen är utformad att erbjuda [språk utökningsbarhet](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Bland de första språk som ska väljas utifrån den här utökningsbarhet är modellen Java, som finns i förhandsversion i 2.x.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du använder ett av språken GA eller preview i Azure Functions, finns i följande resurser:
+Om du vill veta mer om hur du använder ett av de allmänt tillgängliga eller preview språk i Azure Functions, finns i följande resurser:
 
 > [!div class="nextstepaction"]
 > [C#](functions-reference-csharp.md)

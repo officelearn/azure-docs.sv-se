@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 496aea1195885c582d3529d7ddb43210aad5fea1
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 2c62f8ab0e5f8974fbed51848772dee69f60b063
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990140"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344257"
 ---
 # <a name="azure-stack-1804-update"></a>Uppdatering av Azure Stack 1804
 
@@ -99,6 +99,8 @@ När installationen av 1804, installerar du eventuella tillämpliga snabbkorrige
 Följande är efter installation kända problem för version **20180513.1**.
 
 #### <a name="portal"></a>Portalen
+- <!-- TBD - IS ASDK --> Du kan inte använda drivrutinsuppdateringar med hjälp av en OEM-tillägg-paketet med den här versionen av Azure Stack.  Det finns ingen lösning på problemet.
+
 - <!-- 1272111 - IS --> Du kan inte visa Azure Stack-skalningsenheter i Admin portal när du installerar eller uppdaterar till den här versionen av Azure Stack.  
   Lösning: Använd PowerShell för att visa information om Skalningsenheter. Mer information finns i den [hjälpa](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) innehåll för Azure Stack-modulen 1.3.0. 
 

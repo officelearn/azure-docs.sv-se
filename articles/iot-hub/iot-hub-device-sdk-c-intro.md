@@ -1,6 +1,6 @@
 ---
-title: Azure IoT-enhet SDK för C | Microsoft Docs
-description: Komma igång med Azure IoT-enhet SDK för C och lär dig hur du skapar appar för enheter som kommunicerar med en IoT-hubb.
+title: Azure IoT-enhetens SDK för C | Microsoft Docs
+description: Kom igång med Azure IoT-enhetens SDK för C och lär dig hur du skapar appar för enheter som kommunicerar med en IoT-hubb.
 author: yzhong94
 manager: arjmands
 ms.service: iot-hub
@@ -9,135 +9,136 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 78cd8b2d6afe98e34c33ed3c841c8023d9dab764
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f8ad67fafa20fd9adce62e8beb619999203ef62
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635278"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346669"
 ---
-# <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-enhet SDK för C
+# <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-enhetens SDK för C
 
-Den **Azure IoT-enhet SDK** är en uppsättning bibliotek som har utformats för att förenkla processen att skicka meddelanden till och ta emot meddelanden från den **Azure IoT Hub** service. Det finns olika varianter av SDK, målobjekt för en viss plattform, men den här artikeln beskriver den **Azure IoT-enhet SDK för C**.
+Den **Azure IoT-enhetens SDK** är en uppsättning klientbibliotek som utformats för att förenkla processen att skicka meddelanden till och ta emot meddelanden från den **Azure IoT Hub** service. Det finns olika varianter av SDK, varje riktar in sig på en viss plattform, men den här artikeln beskriver den **Azure IoT-enhetens SDK för C**.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Azure IoT-enhet SDK för C sparas i ANSI C (C99) för att maximera portability. Den här funktionen gör biblioteken väl lämpade för fungerar på flera plattformar och enheter, särskilt om minimera disk och minneskrav är en prioritet.
+Azure IoT-enhetens SDK för C är skriven i ANSI C (C99) för maximal portabilitet. Den här funktionen gör bibliotek som passar bra för att arbeta med flera plattformar och enheter, särskilt om minimerar disk och minnesfotavtryck är en prioritet.
 
-Det finns en mängd olika plattformar som SDK har testats (finns i [Azure certifierad för IoT-enhet katalogen](https://catalog.azureiotsuite.com/) information). Även om den här artikeln innehåller genomgångar av exempelkod som körs på Windows-plattformen, är koden som beskrivs i den här artikeln identiska mellan olika plattformar som stöds.
+Det finns en mängd olika plattformar där SDK har testats (se den [Azure Certified för IoT-enhetskatalog](https://catalog.azureiotsuite.com/) information). Även om den här artikeln innehåller genomgångar av exempelkod som körs på Windows-plattformen, är koden som beskrivs i den här artikeln identiska över olika plattformar som stöds.
 
-Följande videoklipp visar en översikt över Azure IoT-SDK för C:
+Följande videoklipp visar en översikt över Azure IoT SDK för C:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-IoT-C-SDK-insights/Player]
 
-Den här artikeln ger en introduktion till Azure IoT-enhet SDK-arkitektur för C. Den visar hur du starta enheten biblioteket, skicka data till IoT-hubb och ta emot meddelanden från den. Informationen i den här artikeln bör vara tillräckligt för att komma igång med SDK, men innehåller också länkar till ytterligare information om bibliotek.
+Den här artikeln ger en introduktion till arkitekturen i Azure IoT-enhetens SDK för C. Den visar hur du initiera enhet-biblioteket, skicka data till IoT Hub och ta emot meddelanden från den. Informationen i den här artikeln bör räcka för att komma igång med SDK: N, men innehåller också länkar till ytterligare information om bibliotek.
 
 ## <a name="sdk-architecture"></a>SDK-arkitektur
 
-Du hittar den [ **Azure IoT-enhet SDK för C** ](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen och visa information om API i den [C API-referens för](https://azure.github.io/azure-iot-sdk-c/index.html).
+Du hittar den [ **Azure IoT-enhetens SDK för C** ](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplats och visa information om API: et i den [C API-referens](https://azure.github.io/azure-iot-sdk-c/index.html).
 
 Den senaste versionen av biblioteken kan hittas i den **master** gren av databasen:
 
   ![](media/iot-hub-device-sdk-c-intro/01-MasterBranch.PNG)
 
-* Core-implementeringen av SDK finns i den **iothub\_klienten** mapp som innehåller implementeringen av lägsta API-lagret i SDK: den **IoTHubClient** bibliotek. Den **IoTHubClient** biblioteket innehåller API: er som implementerar raw-meddelanden för att skicka meddelanden till IoT-hubb och ta emot meddelanden från IoT-hubb. När du använder det här biblioteket kan du ansvarar för att implementera meddelandet serialisering, men andra detaljer för kommunikation med IoT-hubb hanteras åt dig.
-* Den **serialiseraren** mappen innehåller hjälpfunktioner och exempel som visar hur du serialisera data innan du skickar till Azure IoT-hubb med hjälp av klientbiblioteket. Användning av serialiseraren är inte obligatoriskt och tillhandahålls bekvämlighets skull. Att använda den **serialiseraren** bibliotek, definierar du en modell som anger vilka data som ska skickas till IoT-hubb och meddelanden som du förväntar dig att ta emot från den. När modellen har definierats ger i SDK dig en API-yta som gör att du enkelt att arbeta med enhet till moln och moln till enhet utan att oroa serialisering information. Biblioteket är beroende av andra bibliotek med öppen källkod som implementerar transport med hjälp av protokoll som MQTT och AMQP.
+* Core-implementeringen av SDK: N finns i den **iothub\_klienten** mapp som innehåller implementeringen av det lägsta API-lagret i SDK: den **IoTHubClient** biblioteket. Den **IoTHubClient** -bibliotek innehåller API: er som implementerar raw-meddelanden för att skicka meddelanden till IoT Hub och ta emot meddelanden från IoT Hub. När du använder det här biblioteket kan du ansvarar för att implementera meddelande serialisering, men andra uppgifter för att kommunicera med IoT Hub hanteras åt dig.
+* Den **serialiserare** mappen innehåller hjälpfunktioner och exempel som visar hur du serialisera data innan du skickar till Azure IoT Hub med hjälp av klientbiblioteket. Användning av serialiserare är inte obligatoriskt och tillhandahålls bekvämlighets skull. Du använder den **serialiserare** biblioteket du definiera en modell som anger vilka data du skickar till IoT Hub och meddelanden som du förväntar dig att ta emot från den. När modellen har definierats, tillhandahåller SDK en API-yta som gör att du enkelt kan arbeta med enhet till moln och från moln till enhet-meddelanden utan att behöva bekymra dig om serialisering. Biblioteket är beroende av andra bibliotek med öppen källkod som implementerar transport med hjälp av protokoll, till exempel MQTT och AMQP.
 * Den **IoTHubClient** biblioteket är beroende av andra bibliotek med öppen källkod:
-  * Den [Azure C delade verktyget](https://github.com/Azure/azure-c-shared-utility) biblioteket, som innehåller vanliga funktioner för grundläggande uppgifter (till exempel strängar, lista bearbetning och -i/o) som krävs för över flera Azure-relaterade C SDK: er.
-  * Den [Azure uAMQP](https://github.com/Azure/azure-uamqp-c) biblioteket, som är en implementering för klientsidan av AMQP som är optimerade för resursen begränsad enheter.
-  * Den [Azure uMQTT](https://github.com/Azure/azure-umqtt-c) biblioteket, vilket är ett allmänna implementering av protokollet MQTT-bibliotek och optimeras för resursen begränsad enheter.
+  * Den [Azure C delade verktyget](https://github.com/Azure/azure-c-shared-utility) biblioteket, som tillhandahåller vanliga funktioner för grundläggande uppgifter (till exempel strängar, manipulering av listan och i/o) behövs över flera Azure-relaterade C SDK: er.
+  * Den [Azure uAMQP](https://github.com/Azure/azure-uamqp-c) biblioteket, som är en klientsidan implementering av AMQP optimerat för resursen begränsad enheter.
+  * Den [Azure uMQTT](https://github.com/Azure/azure-umqtt-c) biblioteket, vilket är ett allmänt bibliotek som implementerar MQTT-protokollet och optimerat för resursen begränsad enheter.
 
-Användning av dessa bibliotek är lättare att förstå genom att titta på exempelkod. I följande avsnitt för att gå igenom flera exempelprogram som ingår i SDK. Den här genomgången bör ge dig en bra känsla för olika funktioner i arkitekturen lager av SDK och en introduktion till hur fungerar de API: er.
+Användning av dessa bibliotek är lättare att förstå genom att studera exempelkoden. I följande avsnitt vägleder dig igenom flera av de exempelprogram som ingår i SDK. Den här genomgången bör du få en bra design för de olika funktionerna i arkitekturen lager av SDK och en introduktion till hur API: er fungerar.
 
-## <a name="before-you-run-the-samples"></a>Innan du kör
+## <a name="before-you-run-the-samples"></a>Innan du kör exemplen
 
-Innan du kan köra exemplen i Azure IoT-enhet SDK för C, måste du [skapa en instans av tjänsten IoT-hubb](iot-hub-create-through-portal.md) i din Azure-prenumeration. Slutför följande uppgifter:
+Innan du kan köra exemplen i Azure IoT-enhetens SDK för C, måste du [skapa en instans av tjänsten IoT Hub](iot-hub-create-through-portal.md) i Azure-prenumerationen. Slutför följande uppgifter:
 
 * Förbereda utvecklingsmiljön
-* Hämta autentiseringsuppgifter för enheten.
+* Hämta enhetens autentiseringsuppgifter.
 
 ### <a name="prepare-your-development-environment"></a>Förbereda utvecklingsmiljön
 
-Paket har angetts för vanliga plattformar (till exempel NuGet för Windows eller apt_get för Debian och Ubuntu) och exemplen använder dessa paket när det är tillgängligt. I vissa fall kan behöva du kompilera SDK för eller på din enhet. Om du behöver kompileras SDK finns [förbereda din utvecklingsmiljö](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) i GitHub-lagringsplatsen.
+Paket som har angetts för vanliga plattformar (till exempel NuGet för Windows eller apt_get för Debian och Ubuntu) och exempel som använder dessa paket när det är tillgängligt. I vissa fall kan behöva du kompilera SDK för eller på din enhet. Om du behöver kompilera SDK finns i [Förbered din utvecklingsmiljö](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) i GitHub-lagringsplatsen.
 
-Exempelkod för program, hämtas en kopia av SDK från GitHub. Hämta en kopia av källa från den **master** grenen av den [GitHub-lagringsplatsen](https://github.com/Azure/azure-iot-sdk-c).
+Hämta en kopia av SDK: N för att hämta programmet exempelkoden från GitHub. Hämta din kopia av källa från den **master** grenen av den [GitHub-lagringsplatsen](https://github.com/Azure/azure-iot-sdk-c).
 
 
-### <a name="obtain-the-device-credentials"></a>Skaffa autentiseringsuppgifter för enhet
+### <a name="obtain-the-device-credentials"></a>Hämta enhetens autentiseringsuppgifter
 
-Nu när du har källa exempelkoden är nästa du behöver göra att hämta en uppsättning autentiseringsuppgifter för enheten. För en enhet för att kunna komma åt en IoT-hubb, måste du först lägga till enheten till identitetsregistret IoT-hubb. När du lägger till en enhet kan du hämta en uppsättning autentiseringsuppgifter för enheten som du behöver för enheten för att kunna ansluta till IoT-hubben. Exempelprogram som beskrivs i nästa avsnitt räknar autentiseringsuppgifterna i form av en **enheten anslutningssträngen**.
+Nu när du har källa exempelkoden är nästa du ska göra att få en uppsättning autentiseringsuppgifter för enheten. För en enhet för att kunna få åtkomst till en IoT-hubb, måste du först lägga till enheten till IoT Hub-identitetsregistret. När du lägger till din enhet kan du få en uppsättning enhetens autentiseringsuppgifter som ska användas för enheten för att kunna ansluta till IoT hub. Exempelprogram som beskrivs i nästa avsnitt förväntar sig autentiseringsuppgifterna i form av en **enhetsanslutningssträngen**.
 
-Det finns flera öppen källkod verktyg som hjälper dig att hantera din IoT-hubb.
+Det finns flera verktyg för öppen källkod för att hantera din IoT-hubb.
 
-* Ett Windows-program som kallas [enheten explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+* Ett Windows-program som kallas [enhetsutforskare](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+* Ett plattformsoberoende Visual Studio Code-tillägg kallas [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 * Ett plattformsoberoende Python CLI-verktyg kallas [IoT-tillägget för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
-Den här kursen använder den grafiska *enheten explorer* verktyget. Du kan också använda den *IoT-tillägget för Azure CLI 2.0* verktyget om du föredrar att använda ett CLI-verktyg.
+Den här självstudien används den grafiska *enhetsutforskare* verktyget. Du kan använda den *Azure IoT Toolkit-tillägget för VS Code* om du utvecklar i VS Code. Du kan också använda den *IoT-tillägget för Azure CLI 2.0* verktyget om du föredrar att använda ett CLI-verktyg.
 
-Verktyget enheten explorer använder bibliotek för Azure IoT-tjänsten för att utföra olika funktioner i IoT Hub, inklusive lägga till enheter. Om du använder verktyget enheten explorer lägga till en enhet får du en anslutningssträng för enheten. Du behöver den här anslutningssträngen för att köra exempelprogrammen.
+Device explorer-verktyg använder Azure IoT service-bibliotek för att utföra olika funktioner på IoT-hubben, som att lägga till enheter. Om du använder device explorer-verktyg för att lägga till en enhet, får du en anslutningssträng för din enhet. Du behöver den här anslutningssträngen för körs.
 
-Om du inte är bekant med verktyget enheten explorer beskriver följande procedur hur du lägger till en enhet och få en anslutningssträng för enheten.
+Om du inte är bekant med device explorer-verktyg, beskriver följande procedur hur du använder det för att lägga till en enhet och få en anslutningssträng för enheten.
 
-Om du vill installera verktyget enheten explorer [hur du använder Utforskaren enhet för IoT Hub-enheter](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+Om du vill installera device explorer-verktyg, se [hur du använder Device Explorer för IoT Hub-enheter](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
 När du kör programmet visas det här gränssnittet:
 
   ![](media/iot-hub-device-sdk-c-intro/03-DeviceExplorer.PNG)
 
-Ange din **IoT-hubb anslutningssträngen** i det första fältet och klickar på **uppdatering**. Det här steget konfigurerar verktyget så att den kan kommunicera med IoT-hubb.
+Ange din **IoT Hub-anslutningssträngen** i första fältet och klickar på **uppdatering**. Det här steget konfigurerar verktyget så att den kan kommunicera med IoT Hub. Den **Connection String** finns under **IoT Hub-tjänsten** > **inställningar** > **Policy för delad åtkomst**  >  **iothubowner**.
 
-När IoT-hubb anslutningssträngen har konfigurerats klickar du på den **Management** fliken:
+När IoT Hub-anslutningssträngen konfigureras, klickar du på den **Management** fliken:
 
   ![](media/iot-hub-device-sdk-c-intro/04-ManagementTab.PNG)
 
-Den här fliken är där du hanterar enheter som har registrerats i din IoT-hubb.
+Den här fliken är där du hanterar enheter som är registrerade i IoT hub.
 
-Du skapar en enhet genom att klicka på den **skapa** knappen. En dialogruta visas med en uppsättning i förväg nycklar (primär eller sekundär). Ange en **enhets-ID** och klicka sedan på **skapa**.
+Du skapar en enhet genom att klicka på den **skapa** knappen. En dialogruta visas med en uppsättning förifyllda nycklar (primär eller sekundär). Ange en **enhets-ID** och klicka sedan på **skapa**.
 
   ![](media/iot-hub-device-sdk-c-intro/05-CreateDevice.PNG)
 
-När enheten har skapats listas enheterna uppdateringar med alla registrerade enheter, inklusive det som du nyss skapade. Om du högerklickar på den nya enheten visas den här menyn:
+När enheten har skapats, lista enheterna uppdateringar med alla registrerade enheter, inklusive den som du nyss skapade. Om du högerklickar på den nya enheten kan se du den här menyn:
 
   ![](media/iot-hub-device-sdk-c-intro/06-RightClickDevice.PNG)
 
-Om du väljer **kopiera anslutningssträngen för vald enhet**, anslutningssträngen enhet kopieras till Urklipp. Spara en kopia av anslutningssträngen för enheten. Du behöver den när du kör exempelprogram som beskrivs i följande avsnitt.
+Om du väljer **kopiera anslutningssträngen för vald enhet**, enhetens anslutningssträng har kopierats till Urklipp. Behåll en kopia av enhetens anslutningssträng. Du behöver den när du kör exempelprogram som beskrivs i följande avsnitt.
 
-När du har slutfört stegen ovan, är du redo att börja köra kod. Båda exempel har en konstant överst i filen huvudsakliga källan som gör att du kan ange en anslutningssträng. Till exempel motsvarande rad från den **iothub\_klienten\_exempel\_mqtt** programmet visas på följande sätt.
+När du har slutfört stegen ovan, är du redo att börja köra kod. De flesta exempel har en konstant överst i filen huvudsakliga källan som gör att du kan ange en anslutningssträng. Till exempel motsvarande rad från den **iothub\_klienten\_exempel\_mqtt** program visas på följande sätt.
 
 ```c
 static const char* connectionString = "[device connection string]";
 ```
 
-## <a name="use-the-iothubclient-library"></a>Använd IoTHubClient-biblioteket
+## <a name="use-the-iothubclient-library"></a>Använda IoTHubClient klientbiblioteket
 
-Inom den **iothub\_klienten** mapp i den [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) databasen, det finns en **exempel** mapp som innehåller ett program kallas **iothub\_klienten\_exempel\_mqtt**.
+I den **iothub\_klienten** mapp i den [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) lagringsplatsen, det finns en **exempel** mapp som innehåller ett program kallas **iothub\_klienten\_exempel\_mqtt**.
 
-Windows-versionen av den **iothub\_klienten\_exempel\_mqtt** program innehåller följande Visual Studio-lösningen:
+Windows-versionen av den **iothub\_klienten\_exempel\_mqtt** programmet innehåller följande Visual Studio-lösningen:
 
   ![](media/iot-hub-device-sdk-c-intro/12-iothub-client-sample-mqtt.PNG)
 
 > [!NOTE]
-> Om du öppnar det här projektet i Visual Studio 2017 accepterar du anvisningarna för att nytt mål projektet till den senaste versionen.
+> Om du öppnar det här projektet i Visual Studio 2017, accepterar du anvisningarna för att omdirigera projektet till den senaste versionen.
 
-Den här lösningen innehåller ett projekt. Det finns fyra NuGet-paket i den här lösningen:
+Den här lösningen innehåller ett enda projekt. Det finns fyra NuGet-paket i den här lösningen:
 
 * Microsoft.Azure.C.SharedUtility
 * Microsoft.Azure.IoTHub.MqttTransport
 * Microsoft.Azure.IoTHub.IoTHubClient
 * Microsoft.Azure.umqtt
 
-Du måste alltid den **Microsoft.Azure.C.SharedUtility** när du arbetar med SDK-paketet. Det här exemplet använder protokollet MQTT, därför måste du inkludera den **Microsoft.Azure.umqtt** och **Microsoft.Azure.IoTHub.MqttTransport** paket (det finns motsvarande paket för AMQP och HTTPS). Eftersom den används av **IoTHubClient** bibliotek, måste du också inkludera den **Microsoft.Azure.IoTHub.IoTHubClient** paketet i din lösning.
+Du behöver alltid den **Microsoft.Azure.C.SharedUtility** paketera när du arbetar med SDK: N. Det här exemplet används av MQTT-protokollet, därför måste du inkludera den **Microsoft.Azure.umqtt** och **Microsoft.Azure.IoTHub.MqttTransport** paket (det finns motsvarande paket för AMQP- och HTTPS). Eftersom i exemplet används den **IoTHubClient** biblioteket, måste du också inkludera den **Microsoft.Azure.IoTHub.IoTHubClient** paketet i din lösning.
 
 Du kan hitta implementeringen för exempelprogrammet i den **iothub\_klienten\_exempel\_mqtt.c** källfilen.
 
-Det här exempelprogrammet använder du följande steg leder dig igenom vilka krävs för att använda den **IoTHubClient** bibliotek.
+Följande steg använder det här exempelprogrammet som leder dig genom vad krävs för att använda den **IoTHubClient** biblioteket.
 
-### <a name="initialize-the-library"></a>Initiera biblioteket
+### <a name="initialize-the-library"></a>Initiera i biblioteket
 
 > [!NOTE]
-> Innan du börjar arbeta med bibliotek som du kan behöva utföra vissa plattformsspecifika initiering. Om du planerar att använda AMQP på Linux måste du initiera OpenSSL-bibliotek. Exemplen i den [GitHub-lagringsplatsen](https://github.com/Azure/azure-iot-sdk-c) anropa verktygsfunktionen **plattform\_init** när klienten startar och anropa den **plattform\_deinit**funktionen innan du avslutar. Dessa funktioner är deklarerad i huvudfilen platform.h. Granska definitionerna av dessa funktioner för målplattformen i den [databasen](https://github.com/Azure/azure-iot-sdk-c) att avgöra om du behöver lägga till alla plattformsspecifika initieringskod på klienten.
+> Innan du börjar arbeta med bibliotek som kan du behöva utföra viss plattformsspecifika initiering. Om du planerar att använda AMQP på Linux måste du initiera OpenSSL-bibliotek. Exemplen i den [GitHub-lagringsplatsen](https://github.com/Azure/azure-iot-sdk-c) anropa verktygsfunktionen **plattform\_init** när klienten startar och anropa den **plattform\_deinit**funktionen innan du avslutar. Dessa funktioner har deklarerats i huvudfilen platform.h. Granska definitionerna av dessa funktioner för din målplattform i den [databasen](https://github.com/Azure/azure-iot-sdk-c) att avgöra om du behöver inkludera plattformsspecifika initieringskod i din klient.
 
-När du börjar arbeta med bibliotek, tilldelar du en IoT-hubb klienten referens:
+Om du vill börja arbeta med bibliotek, tilldelar du en referens för IoT Hub-klienten:
 
 ```c
 if ((iotHubClientHandle = IoTHubClient_LL_CreateFromConnectionString(connectionString, MQTT_Protocol)) == NULL)
@@ -149,19 +150,19 @@ else
     ...
 ```
 
-Du skickar en kopia av anslutningssträngen för enheten som du fick från explorer-verktyget enheten till den här funktionen. Du kan också ange kommunikationsprotokoll ska användas. Det här exemplet använder MQTT men AMQP och HTTPS är också alternativ.
+Du skickar en kopia av enhetens anslutningssträng du fick från device explorer-verktyg till den här funktionen. Du kan också ange kommunikationsprotokoll som ska användas. Det här exemplet använder MQTT, men AMQP och HTTPS är också alternativ.
 
-När du har en giltig **IOTHUB\_klienten\_hantera**, kan du starta anropar API: er för att skicka och ta emot meddelanden till och från IoT-hubb.
+När du har en giltig **IOTHUB\_klienten\_hantera**, du kan börja med att anropa API: er för att skicka och ta emot meddelanden till och från IoT Hub.
 
 ### <a name="send-messages"></a>Skicka meddelanden
 
-Exempelprogrammet ställer in en loop att skicka meddelanden till din IoT-hubb. Följande utdrag:
+Exempelprogrammet ställer in en loop för att skicka meddelanden till din IoT-hubb. Följande utdrag:
 
 - Skapar ett meddelande.
 - Lägger till en egenskap i meddelandet.
 - Skickar ett meddelande.
 
-Skapa först ett meddelande:
+Börja med att skapa ett meddelande:
 
 ```c
 size_t iterator = 0;
@@ -201,7 +202,7 @@ do
 } while (g_continueRunning);
 ```
 
-Varje gång du skickar ett meddelande kan ange du en referens till en återanropsfunktion som anropas när data skickas. I det här exemplet Återanropsfunktionen kallas **SendConfirmationCallback**. Följande utdrag visar Återanropsfunktionen:
+Varje gång du skickar ett meddelande, kan du ange en referens till en återanropsfunktion som anropas när data skickas. I det här exemplet är Återanropsfunktionen kallas **SendConfirmationCallback**. Följande utdrag visar den här återanropsfunktion:
 
 ```c
 static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCallback)
@@ -214,11 +215,11 @@ static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, v
 }
 ```
 
-Observera anropet till den **IoTHubMessage\_förstöra** fungera när du är klar med meddelandet. Funktionen frigör resurser som tilldelas när du har skapat meddelandet.
+Observera anropet till den **IoTHubMessage\_ta bort** fungerar när du är klar med meddelandet. Den här funktionen frigör resurser tilldelas när du har skapat meddelandet.
 
 ### <a name="receive-messages"></a>Ta emot meddelanden
 
-Ett meddelande är en asynkron åtgärd. Först måste registrera du återanropet att anropa när enheten tar emot ett meddelande:
+Ta emot ett meddelande är en asynkron åtgärd. Först måste registrera du motringningen ska anropas när enheten tar emot ett meddelande:
 
 ```c
 if (IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, ReceiveMessageCallback, &receiveContext) != IOTHUB_CLIENT_OK)
@@ -231,13 +232,13 @@ else
 ...
 ```
 
-Den sista parametern är en ogiltig pekare till vad du vill. Det finns en pekare till ett heltal i det här exemplet men det kan vara en pekare till en mer komplex datastruktur. Den här parametern aktiverar Återanropsfunktionen att använda delade tillståndet med anroparen av den här funktionen.
+Den sista parametern är en ogiltig pekare till vad som helst. I det här exemplet att det finns en pekare till ett heltal men det kan vara en pekare till en mer komplex datastruktur. Den här parametern kan återanropsfunktion att arbeta med delade tillstånd med anroparen av den här funktionen.
 
-När enheten tar emot ett meddelande, har registrerade Återanropsfunktionen anropats. Den här Återanropsfunktionen hämtar:
+När enheten tar emot ett meddelande, anropas den registrerade Återanropsfunktionen. Den här återanropsfunktion hämtar:
 
 * Meddelande-id och Korrelations-id från meddelandet.
-* Innehållet i meddelandet.
-* Eventuella anpassade egenskaper från meddelandet.
+* Meddelandeinnehåll.
+* Alla anpassade egenskaper från meddelandet.
 
 ```c
 static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -304,11 +305,11 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 }
 ```
 
-Använd den **IoTHubMessage\_GetByteArray** funktion för att hämta meddelandet som i det här exemplet är en sträng.
+Använd den **IoTHubMessage\_GetByteArray** funktionen för att hämta meddelandet som i det här exemplet är en sträng.
 
 ### <a name="uninitialize-the-library"></a>Uninitialize i biblioteket
 
-När du är klar skickar händelser och ta emot meddelanden, kan du uninitialize IoT-biblioteket. Gör du genom att utfärda funktionsanropet följande:
+När du är klar skickar händelser och mottagande meddelanden uninitialize du IoT-biblioteket. Utfärda följande funktionsanropet gör du:
 
 ```
 IoTHubClient_LL_Destroy(iotHubClientHandle);
@@ -316,22 +317,22 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
 
 Det här anropet frigör resurser som tidigare har allokerats av den **IoTHubClient\_CreateFromConnectionString** funktion.
 
-Som du ser är det enkelt att skicka och ta emot meddelanden med den **IoTHubClient** bibliotek. Biblioteket hanterar information om kommunikation med IoT-hubb, inklusive vilka protokoll som ska användas (från utvecklaren perspektiv, detta är ett enkelt konfigurationsalternativ).
+Som du kan se är det enkelt att skicka och ta emot meddelanden med den **IoTHubClient** biblioteket. Biblioteket sköter för att kommunicera med IoT-hubb, inklusive vilka protokoll som ska användas (ur utvecklaren, är detta ett konfigurationsalternativ för enkel).
 
-Den **IoTHubClient** biblioteket innehåller också exakt kontroll över hur du serialisera data enheten skickar till IoT-hubb. I vissa fall denna behörighet är en fördel, men i andra är att du inte vill är mest intresserad av. Om så är fallet kan du använda den **serialiseraren** biblioteket, som beskrivs i nästa avsnitt.
+Den **IoTHubClient** -biblioteket finns också exakt kontroll över hur du serialisera data som enheten skickar till IoT Hub. I vissa fall är den här kontrollnivån en fördel, men andra det är att du inte vill är mest intresserad av. Om så är fallet kan du använda den **serialiserare** biblioteket, som beskrivs i nästa avsnitt.
 
 ## <a name="use-the-serializer-library"></a>Använd serialiserare-biblioteket
 
-Begreppsmässigt den **serialiseraren** biblioteket placeras ovanpå det **IoTHubClient** bibliotek i SDK. Den använder den **IoTHubClient** bibliotek för underliggande kommunikation med IoT-hubb, men det lägger till modellering funktioner som tar bort belastningen för att behandla meddelande serialisering från utvecklaren. Hur framgår fungerar det här biblioteket bästa av ett exempel.
+Begreppsmässigt den **serialiserare** biblioteket är placerad ovanpå den **IoTHubClient** bibliotek i SDK. Den använder den **IoTHubClient** bibliotek för underliggande kommunikation med IoT Hub, men det lägger till funktioner för modellering som tar bort bördan med att hantera meddelande serialisering från utvecklaren. Hur framgår fungerar det här biblioteket bästa av ett exempel.
 
-I den **serialiseraren** mapp i den [azure-iot-sdk-c databasen](https://github.com/Azure/azure-iot-sdk-c), är en **exempel** mapp som innehåller ett program kallas **simplesample\_mqtt**. Windows-versionen av det här exemplet innehåller följande Visual Studio-lösningen:
+I den **serialiserare** mapp i den [lagringsplatsen för azure-iot-sdk-c](https://github.com/Azure/azure-iot-sdk-c), är en **exempel** mappen som innehåller ett program **simplesample\_mqtt**. Windows-versionen av det här exemplet innehåller följande Visual Studio-lösningen:
 
   ![](media/iot-hub-device-sdk-c-intro/14-simplesample_mqtt.PNG)
 
 > [!NOTE]
-> Om du öppnar det här projektet i Visual Studio 2017 accepterar du anvisningarna för att nytt mål projektet till den senaste versionen.
+> Om du öppnar det här projektet i Visual Studio 2017, accepterar du anvisningarna för att omdirigera projektet till den senaste versionen.
 
-Precis som med föregående exempel, innehåller den här flera NuGet-paket:
+Precis som med i föregående exempel innehåller den här flera NuGet-paket:
 
 * Microsoft.Azure.C.SharedUtility
 * Microsoft.Azure.IoTHub.MqttTransport
@@ -339,15 +340,15 @@ Precis som med föregående exempel, innehåller den här flera NuGet-paket:
 * Microsoft.Azure.IoTHub.Serializer
 * Microsoft.Azure.umqtt
 
-Du har sett de flesta av dessa paket i föregående exempel, men **Microsoft.Azure.IoTHub.Serializer** är ny. Det här paketet måste anges när du använder den **serialiseraren** bibliotek.
+Du har sett de flesta av dessa paket i föregående exempel, men **Microsoft.Azure.IoTHub.Serializer** är ny. Det här paketet måste anges när du använder den **serialiserare** biblioteket.
 
 Du kan hitta implementeringen av exempelprogrammet i den **simplesample\_mqtt.c** fil.
 
-I följande avsnitt vägleder dig igenom de viktigaste delarna i det här exemplet.
+I följande avsnitt vägleder dig genom de viktigaste delarna av det här exemplet.
 
-### <a name="initialize-the-library"></a>Initiera biblioteket
+### <a name="initialize-the-library"></a>Initiera i biblioteket
 
-Att arbeta med den **serialiseraren** bibliotek, anropa initieringen API: er:
+Att börja arbeta med den **serialiserare** biblioteket, anropa initieringen API: er:
 
 ```c
 if (serializer_init(NULL) != SERIALIZER_OK)
@@ -376,13 +377,13 @@ else
 ...
 ```
 
-Anropet till den **serialiseraren\_init** funktionen är en enstaka anrop och initierar underliggande biblioteket. Sedan kan du anropa den **IoTHubClient\_lla\_CreateFromConnectionString** funktion, vilket är samma API som i den **IoTHubClient** exempel. Det här anropet anger anslutningssträngen enhet (det här anropet är också där du kan välja protokollen du vill använda). Det här exemplet används MQTT som transport, men kan använda AMQP eller HTTPS.
+Anropet till den **serialiserare\_init** funktionen är ett enstaka anrop och initierar underliggande biblioteket. Sedan kan du anropa den **IoTHubClient\_lla\_CreateFromConnectionString** funktionen, som är samma API som i den **IoTHubClient** exemplet. Det här anropet anger enhetens anslutningssträng (det här anropet är också där du kan välja protokollet som du vill använda). Det här exemplet använder MQTT som transport, men kan använda AMQP eller HTTPS.
 
-Slutligen anropa den **skapa\_MODELLEN\_instans** funktion. **WeatherStation** är namnrymd för modellen och **ContosoAnemometer** är namnet på modellen. När modellen-instansen har skapats kan använda du den för att börja skicka och ta emot meddelanden. Det är dock viktigt att förstå vilka modellen.
+Anropa slutligen den **skapa\_MODELLEN\_instans** funktion. **WeatherStation** är namnområdet för modellen och **ContosoAnemometer** är namnet på modellen. När modellen instans har skapats kan använda du den för att börja skicka och ta emot meddelanden. Det är dock viktigt att förstå vilka en modell är.
 
 ### <a name="define-the-model"></a>Definiera modellen
 
-En modell i den **serialiseraren** biblioteket definierar de meddelanden som enheten kan skicka till IoT-hubb och meddelanden, som kallas *åtgärder* i modelleringsspråk, vilket kan ta emot. Du definierar en modell med en uppsättning C makron som i den **simplesample\_mqtt** exempelprogrammet:
+En modell i den **serialiserare** biblioteket definierar de meddelanden som enheten kan skicka till IoT Hub och meddelanden som kallas *åtgärder* i modelleringsspråk, vilket kan ta emot. Du definierar en modell med en uppsättning C makron som i den **simplesample\_mqtt** exempelprogrammet:
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);
@@ -398,22 +399,22 @@ WITH_ACTION(SetAirResistance, int, Position)
 END_NAMESPACE(WeatherStation);
 ```
 
-Den **börjar\_namnområde** och **END\_namnområde** makron båda tar namnområdet för modellen som argument. Det förväntas att något mellan dessa makron är definitionen av din modell eller modeller och datastrukturer som använder modeller.
+Den **börjar\_namnområde** och **slutet\_namnområde** makron båda ta namnområdet för modellen som ett argument. Det förväntas att något mellan dessa makron är definitionen av din modell eller modeller och datastrukturer som använder modeller.
 
-I det här exemplet är en modell kallas **ContosoAnemometer**. Den här modellen definierar två typer av data som enheten kan skicka till IoT-hubb: **DeviceId** och **vindhastigheten**. Den definierar även tre åtgärder (meddelanden) som kan ta emot din enhet: **TurnFanOn**, **TurnFanOff**, och **SetAirResistance**. Alla dataposter har en typ och varje åtgärd har ett namn (och eventuellt en uppsättning parametrar).
+I det här exemplet har en enda modell heter **ContosoAnemometer**. Den här modellen definierar två typer av data som din enhet kan skicka till IoT Hub: **DeviceId** och **vindhastigheten**. Den definierar även tre åtgärder (meddelanden) som enheten kan ta emot: **TurnFanOn**, **TurnFanOff**, och **SetAirResistance**. Alla dataposter har en typ, och varje åtgärd har ett namn (och eventuellt en uppsättning parametrar).
 
-Definiera en API-yta som du kan använda för att skicka meddelanden till IoT-hubb och svara på meddelanden som skickas till enheten data och åtgärder som definierats i modellen. Användning av den här modellen är bäst att förstå genom ett exempel.
+Data och åtgärder som definierats i modellen kan du definiera en API-yta som du kan använda för att skicka meddelanden till IoT Hub och svara på meddelanden som skickas till enheten. Användning av den här modellen är bäst tolkas igenom ett exempel.
 
 ### <a name="send-messages"></a>Skicka meddelanden
 
-Modellen definierar de data som du kan skicka till IoT-hubb. I det här exemplet definieras en innebär två dataobjekt med hjälp av den **WITH_DATA** makro. Det finns flera steg som krävs för att skicka **DeviceId** och **vindhastigheten** värden till en IoT-hubb. Först är att ange de data som du vill skicka:
+Modellen definierar de data som du kan skicka till IoT Hub. I det här exemplet definieras innebär det att en av de två dataobjekt med hjälp av den **WITH_DATA** makro. Det finns flera steg som krävs för att skicka **DeviceId** och **vindhastigheten** värden till en IoT hub. Först är att ange de data som du vill skicka:
 
 ```c
 myWeather->DeviceId = "myFirstDevice";
 myWeather->WindSpeed = avgWindSpeed + (rand() % 4 + 2);
 ```
 
-Den modell som du angav tidigare kan du ange värdena genom att ange medlemmar i en **struct**. Därefter serialisera du vill skicka meddelandet:
+Modellen som du angav tidigare kan du ange värdena genom att ange medlemmar i en **struct**. Serialisera sedan det meddelande du vill skicka:
 
 ```c
 unsigned char* destination;
@@ -429,7 +430,7 @@ else
 }
 ```
 
-Den här koden Serialiserar det enhet till molnet till en buffert (refereras av **mål**). Koden anropar sedan den **sendMessage** funktion för att skicka meddelandet till IoT-hubb:
+Den här koden Serialiserar det enhet-till-molnet till en buffert (refereras av **mål**). Koden anropar sedan den **sendMessage** funktionen för att skicka meddelandet till IoT Hub:
 
 ```c
 static void sendMessage(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
@@ -457,7 +458,7 @@ static void sendMessage(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const unsign
 ```
 
 
-Näst sista parametern för **IoTHubClient\_lla\_SendEventAsync** är en referens till en callback-funktion som anropas när data har skickats. Här är Återanropsfunktionen i exemplet:
+Näst sista parametern för **IoTHubClient\_lla\_SendEventAsync** är en referens till en återanropsfunktion som anropas när data skickades. Här är Återanropsfunktionen i det här exemplet:
 
 ```c
 void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCallback)
@@ -470,13 +471,13 @@ void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCal
 }
 ```
 
-Den andra parametern är en pekare till användarkontext; samma pekaren som skickades till **IoTHubClient\_lla\_SendEventAsync**. I det här fallet kontexten är en enkel räknare, men det kan vara vad du vill.
+Den andra parametern är en pekare till användarkontext; samma visaren skickades till **IoTHubClient\_lla\_SendEventAsync**. I det här fallet kontexten är en enkel räknare, men det kan vara allt du vill.
 
-Nu är det inte att skicka meddelanden från enhet till moln. Det enda som återstår för att täcka är ta emot meddelanden.
+Det är allt det inte att skicka meddelanden från enheten till molnet. Det enda som återstår för att täcka är att ta emot meddelanden.
 
 ### <a name="receive-messages"></a>Ta emot meddelanden
 
-Ta emot ett meddelande fungerar på samma sätt som sätt meddelanden fungerar i de **IoTHubClient** bibliotek. Först måste registrera du ett meddelande Återanropsfunktionen:
+Ta emot ett meddelande fungerar på samma sätt till sätt meddelanden fungerar i de **IoTHubClient** biblioteket. Först måste registrera du en återanropsfunktion för meddelandet:
 
 ```c
 if (IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, IoTHubMessage, myWeather) != IOTHUB_CLIENT_OK)
@@ -526,9 +527,9 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE mess
 }
 ```
 
-Den här koden är formaterad – det är samma för alla lösningar. Den här funktionen tar emot meddelandet och tar hand om routning till önskad funktion via anrop till **kör\_kommandot**. Den anropade funktionen beror nu på definitionen av åtgärder i din modell.
+Den här koden är formaterad – det är samma för alla lösningar. Den här funktionen tar emot meddelandet och tar hand om att skicka det till önskad funktion via anrop till **kör\_kommandot**. Det beror nu den anropade funktionen på definitionen av åtgärder i din modell.
 
-När du definierar en åtgärd i din modell kan måste du implementera en funktion som anropas när enheten tar emot ett meddelande. Om till exempel din modell definierar den här åtgärden:
+När du definierar en åtgärd i din modell, måste så du implementera en funktion som anropas när enheten tar emot ett meddelande. Exempel: om din modell definierar den här åtgärden:
 
 ```c
 WITH_ACTION(SetAirResistance, int, Position)
@@ -545,9 +546,9 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 }
 ```
 
-Observera hur namnet på funktionen matchar namnet på åtgärden i modellen och att parametrar i funktionen matchar de angivna parametrarna för åtgärden. Den första parametern krävs alltid och innehåller en pekare till instansen av din modell.
+Observera hur namnet på funktionen matchar namnet på åtgärden i modellen och att parametrarna för funktionen matchar de angivna parametrarna för åtgärden. Den första parametern krävs alltid och innehåller en pekare till instansen av din modell.
 
-När enheten tar emot ett meddelande som matchar denna signatur, anropas motsvarande funktionen. Därför utöver att lägga till standardiserade koden från **IoTHubMessage**, ta emot meddelanden är bara en fråga för att definiera en enkel funktion för varje åtgärd som definierats i din modell.
+När enheten tar emot ett meddelande som matchar den här signaturen, anropas motsvarande funktionen. Därför, förutom att lägga till den formaterade exempelkoden från **IoTHubMessage**, ta emot meddelanden är bara att definiera en enkel funktion för varje åtgärd som definierats i din modell.
 
 ### <a name="uninitialize-the-library"></a>Uninitialize i biblioteket
 
@@ -562,15 +563,15 @@ När du är klar skickar data och ta emot meddelanden, kan du uninitialize IoT-b
 serializer_deinit();
 ```
 
-Dessa tre funktioner överensstämmer med de tre initiering funktionerna som beskrivs ovan. Anropar API: erna säkerställer du frigöra tidigare allokerade resurser.
+Var och en av dessa tre funktioner överensstämmer med de tre initiering funktionerna som beskrivs ovan. Anropar dessa API: er säkerställer att du frigöra tidigare tilldelade resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln beskrivs grunderna i biblioteken i de **Azure IoT-enhet SDK för C**. Det medföljer tillräckligt med information för att förstå vad som ingår i SDK, dess arkitektur och hur du kommer igång med Windows-exempel. I nästa artikel fortsätter beskrivning av SDK genom att förklara [mer om biblioteket IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
+Den här artikeln visar grunderna i att använda biblioteken i de **Azure IoT-enhetens SDK för C**. Det har försett dig med tillräckligt med information för att förstå vad som ingår i SDK, dess arkitektur och hur du kommer igång med att arbeta med Windows-exemplen. Nästa artikel om du fortsätter beskrivning av SDK: N genom att förklara [mer om IoTHubClient biblioteket](iot-hub-device-sdk-c-iothubclient.md).
 
-Mer information om hur du utvecklar för IoT-hubb finns i [Azure IoT SDK][lnk-sdks].
+Mer information om hur du utvecklar för IoT Hub finns det [Azure IoT SDK: er][lnk-sdks].
 
-Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
+Om du vill fortsätta för att utforska funktionerna för IoT Hub, se:
 
 * [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
 

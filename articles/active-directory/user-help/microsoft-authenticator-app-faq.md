@@ -1,123 +1,60 @@
 ---
-title: Hjälp med Microsoft Authenticator - app i Azure AD | Microsoft Docs
+title: Hjälp med Microsoft Authenticator - app i Azure Active Directory | Microsoft Docs
 description: Visar en lista med vanliga frågor och svar som rör Microsoft Authentication-appen och Azure Multi-Factor Authentication.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
-ms.service: multi-factor-authentication
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: user-help
 ms.topic: conceptual
-ms.date: 03/08/2018
+ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.custom: end-user
-ms.openlocfilehash: d86bc84653e38a9b64a336b8ce9ed7e657129e8c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c2071e662b50e57189e048b028fd5359482c817f
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059832"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358657"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator-appen vanliga frågor och svar
 
-Den här artikeln innehåller vanliga frågor och svar om Microsoft Authenticator-appen. Om du inte hittar svar på din fråga, går du till den [Microsoft Authenticator-appen forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Dessutom kan du granska en annan vanliga frågor och svar om en specifik funktion i appen, [logga in med telefonen vanliga frågor och svar](microsoft-authenticator-app-phone-signin-faq.md).
+Den här artikeln innehåller vanliga frågor och svar om Microsoft Authenticator-appen. Om du inte hittar svar på din fråga, går du till den [Microsoft Authenticator-appen forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Dessutom, om du behöver mer information om phone inloggningsprocessen, kan du se, [logga in med telefonen vanliga frågor och svar](microsoft-authenticator-app-phone-signin-faq.md).
 
 Microsoft Authenticator-appen ersätts Azure Authenticator-appen och är den rekommenderade appen när du använder Azure Multi-Factor Authentication. Microsoft Authenticator-appen finns för [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) och [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
-
-### <a name="what-data-does-the-authenticator-store-on-my-behalf-and-how-can-i-delete-it"></a>Vilka data autentiseraren lagrar åt mig och hur kan jag ta bort det?
-
-Microsoft Authenticator lagrar uppgifterna för ett konto som du skapar när du lägger till ett konto. När du använder Authenticator, en diagnostiklogg har skapats för felsökning och lagrar användbara data gäller att hjälpa Microsoft att diagnostisera eventuella oförutsedda problem. Du kan komma åt loggdata genom att öppna **hjälpa** > **skicka loggar** > **visa loggar**.
-
-Du kan ta bort data genom att ta bort konto-panelen. Panelen konto också tar du bort alla uppgifterna för ett konto som används av programmet loggarna. 
-
-Mer information om hur Microsoft använder dina data finns: https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
-
-### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>Vilka är de som finns i appen för? Varför fungerar nummer jag vill räkna?
-
-När du öppnar Microsoft Authenticator-appen, visas de konton som du har lagt till och ett nummer sex eller åtta siffror i de olika versionerna. Du kan se en 30 sekunder timer räkna.
-
-Dessa koder används när du loggar in på ditt konto. När du har angett ditt användarnamn och lösenord kan du bli ombedd att ange en Verifieringskod. Öppna Microsoft Authenticator-appen och kopiera koden som visas för närvarande. Ange den kod på sidan logga in för att slutföra.
-
-Orsaken till att koderna ändra med 30 sekunders mellanrum är så att du aldrig använda samma kod två gånger. Det är inte som ett lösenord som du ska komma ihåg. Tanken är att endast användare med åtkomst till telefonen vet verifieringskoden.
-
-Koderna som kräver inte internet eller data, så att du inte behöver bekymra dig om att du har telefontjänst att logga in. När du stänger appen inte att köra i bakgrunden och det att tömma inte batteriet. Du kan stänga appen och ignorera tills nästa gång du loggar in.  
-
-### <a name="i-only-get-notifications-when-i-have-the-app-open-if-the-app-isnt-open-i-dont-get-any-notifications"></a>Jag bara få meddelanden när jag har appen öppen. Om appen inte är öppen, jag inte några meddelanden.
-
-Om du får meddelanden, men de inte gör brus eller vibrationer trots din tyst mot, kontrollera först appinställningarna. Aktivera appen att använda ett ljud eller vibrationer med dess meddelanden.
-
-Om du inte får meddelanden alls kan du kontrollera följande fall:
-
-- Är din telefon i stör ej eller tyst läge? Detta läge kan se appar från att skicka meddelanden.
-- Du får ett meddelande från andra appar? Om inte, det kan finnas ett problem med nätverksanslutningarna på din telefon eller kanalen meddelanden från Android- eller Apple. Du kan lösa det första alternativet i telefoninställningarna för din, men du kan behöva tala med din tjänstleverantör för att få hjälp med det andra alternativet.
-- Får du ett meddelande för vissa konton för appen, men inte för andra? Om Ja, ta bort det problematiska kontot från appen och Lägg till den igen för att aktivera push-meddelanden.
-
-Om du har försökt förslagen felsökning men fortfarande har problem kan skicka du dina loggar för diagnostik. Gå till appinställningar och välj sedan **hjälp och feedback** och **skicka loggar**. Gå sedan till den [Microsoft Authenticator-appen forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) och berätta vad du får problem och vilka steg som du har gjort hittills.
-
-### <a name="im-already-using-the-microsoft-authenticator-application-for-verification-codes-how-do-i-switch-to-one-click-push-notifications"></a>Jag använder redan Microsoft Authenticator-program för verifieringskoder. Hur växlar jag till ett klick push-meddelanden?
-Godkänna en inloggning via push-meddelande är endast tillgänglig för personliga Microsoft-konton eller arbeta och skolan Microsoft-konton, inte för tredje parts-konton som Google eller Facebook. Om du har ett arbets- eller din skola Microsoft-konto kan kan din organisation du inaktivera det här alternativet.
-
-Om du använder ett Microsoft-konto för ditt personliga konto och vill växla till push-meddelanden, måste du lägga till ditt konto igen. Omregistrera enheten med ditt konto och konfigurera push-meddelanden.  
-
-Om du använder Microsoft Authenticator för ditt arbets- eller skolkonto, har ditt företag avgör om du vill tillåta klick meddelanden.
-
-### <a name="do-one-click-push-notifications-work-for-non-microsoft-accounts"></a>Fungerar en push-meddelanden för icke-Microsoft-konton?
-Nej, push-meddelanden fungerar bara med Microsoft-konton och Azure Active Directory-konton. Om ditt arbete eller skola använder du Azure AD-konton, kan de inaktivera den här funktionen.  
-
-### <a name="i-got-a-new-device-or-restored-my-device-from-a-backup-how-do-i-set-up-my-accounts-in-the-microsoft-authenticator-app-again"></a>Jag har fått en ny enhet eller återställts min enhet från en säkerhetskopia. Hur ställer jag in min i Microsoft Authenticator-appen igen?
-Om du kör en iOS-enhet, har aktiverat **automatiska säkerhetskopieringen**, och har skapat en säkerhetskopia av dina konton på enheten gamla; du kan använda säkerhetskopian för att återställa autentiseringsuppgifterna för ditt konto på den nya enheten. Mer information finns i den [säkerhetskopiera och återställa kontoautentiseringsuppgifter med Microsoft Authenticator-appen](microsoft-authenticator-app-backup-and-recovery.md) artikeln. 
-
-### <a name="i-lost-my-device-or-moved-on-to-a-new-device-how-do-i-make-sure-notifications-dont-continue-to-go-to-my-old-device"></a>Jag har tappats bort min enhet eller gått vidare till en ny enhet. Hur kan jag vara säker på att meddelanden inte fortsätta att gå till min gamla enhet?  
-Om du lägger till Microsoft Authenticator-appen till den nya iOS-enheten bort inte automatiskt appen från din gamla enhet. Även ta bort appen från din gamla enhet räcker inte. Du måste både tar bort appen från din gamla enhet och visa Microsoft eller din organisation om du glömmer bort den gamla enheten och avregistrera från ditt konto.
-- **Ta bort appen från en enhet med ett personligt microsoftkonto.** Gå till området tvåstegsverifiering för verifiering av din [kontosäkerhet](https://account.microsoft.com/security) och väljer att inaktivera verifiering för din gamla enhet.  
-- **Att ta bort appen från en enhet med ett arbets- eller skolkonto för Microsoft.** Gå till området tvåstegsverifiering för verifiering av din [MyApps](https://myapps.microsoft.com/) sidan eller till din organisations anpassade portal och väljer att inaktivera verifiering för din gamla enhet. 
-
-
-
-### <a name="how-do-i-remove-an-account-from-the-app"></a>Hur tar jag bort ett konto från appen?
-* iOS: från huvudskärmen, sveper du vänster på en panel för kontot. Välj **Ta bort**.
-* Windows Phone: Från huvudskärmen väljer på menyknappen sedan **redigera konton**. Tryck på den **X** bredvid namnet på kontot.
-* Android: Från huvudskärmen väljer på menyknappen sedan **redigera konton**. Tryck på den **X** bredvid namnet på kontot.
-
-Om du har en enhet som har registrerats hos din organisation kan behöva du utföra ett extra steg för att ta bort ditt konto. På dessa enheter registreras automatiskt Microsoft Authenticator-appen som enhetsadministratör. Om du vill avinstallera appen helt måste du först avregistrera appen i appinställningar.
-
-### <a name="why-does-the-app-request-so-many-permissions"></a>Varför begära så många behörigheter i appen?
-Här är en fullständig lista över behörigheter som kan be dig om och hur de används i appen. De specifika behörigheter som visas beror på vilken typ av telefonen som du har.
-
-* **Kamera**: används för att skanna QR-koder när du lägger till ett arbets-, Skol- eller icke-Microsoft-konto.
-* **Kontakter och phone**: används för att förenkla processen genom att söka efter befintliga konton på din telefon när du loggar in med ditt personliga Microsoft-konto.
-* **SMS**: används för att kontrollera ditt telefonnummer matchar numret på posten. När du loggar in med ditt personliga Microsoft-konto för första gången.  Vi skicka ett SMS till telefonen som du laddade ned appen som innehåller en 6 – 8-siffriga Verifieringskod. I stället för att visas som ber dig att hitta den här koden och ange den i appen, verkligen den finns i på SMS: et för dig.
-* **Rita över andra appar**: du får meddelandet som verifierar din identitet visas även på andra appar som kan vara igång.
-* **Ta emot data från internet**: den här behörigheten krävs för att skicka meddelanden.
-* **Förhindra att phone viloläge**: Om du registrerar enheten med organisationen kan din organisation kan ändra den här principen på din telefon.
-* **Kontrollera vibrationer**: du kan välja om du vill ha en vibrationer när du tar emot en avisering om att verifiera din identitet.
-* **Använda fingeravtryck maskinvara**: vissa arbets- och skolkonton konton kräver en ytterligare PIN-kod när du verifierar din identitet. Vi kan du använda ditt fingeravtryck istället för att ange PIN-koden för att underlätta processen.
-* **Visa nätverksanslutningar**: när du lägger till ett Microsoft-konto appen kräver nätverk/internet-anslutning.
-* **Läsa innehållet i din lagring**: den här behörigheten används bara när du rapporterar ett tekniskt problem via inställningarna för appen. Information från din lagring som samlas in för att diagnostisera problemet.
-* **Fullständig nätverksåtkomst**: den här behörigheten krävs för att skicka meddelanden för att verifiera din identitet.
-* **Körs vid start**: Om du startar om din telefon den här behörigheten säkerställer att du fortsätter du får meddelanden att verifiera din identitet.
-
-### <a name="why-does-the-microsoft-authenticator-app-allow-you-to-approve-a-request-without-unlocking-the-device"></a>Varför Microsoft Authenticator-appen kan du godkänna en begäran utan att låsa upp enheten?
-
-Du behöver att låsa upp enheten för att godkänna begäranden eftersom allt du behöver för att bevisa att du har telefonen med dig. Tvåstegsverifiering kräver att bevisa sin skicklighet två saker – en sak som du vet och en sak som du har. Det som du vet är ditt lösenord. Det du behöver är din telefon (Ställ in med Microsoft Authenticator-appen och registreras som ett funktionstest MFA.) Därför uppfyller har telefonen och godkänna begäran villkoren för den andra faktorn för autentisering.
-
-### <a name="what-does-the-lock-icon-in-the-account-list-mean"></a>Vad betyder låsikon i listan över användarkonton?
-
-Hänglåsikonen anger att enheten är registrerad i Azure AD och registrerad till kontot. Enhetsregistrering för iOS sker under Microsoft Intune-registrering.
+|Fråga|Lösning|
+|--------|--------|
+|Vilka data autentiseraren lagrar åt mig och hur kan jag ta bort det?| Microsoft Authenticator-appen lagrar uppgifterna för ett konto som du anger när du lägger till ett konto. När du använder appen en diagnostiklogg skapas för felsökning och lagrar bara data som är användbar för att hjälpa Microsoft att diagnostisera oförutsedda problem. Du kan granska loggdata genom att öppna appen, väljer **hjälpa**, välja **skicka loggar**, och sedan välja den **visa loggar** knappen.<br><br>Du kan ta bort din du alla dina data, inklusive loggfilerna, genom att ta bort konto-panelen på den **konton** skärmen. Mer information om hur Microsoft använder dina data finns i den [Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/HomePage.)|
+|Vilka är de som finns i appen för?|När du öppnar Microsoft Authenticator-appen visas dina konton som har lagts till som paneler med ett nummer sex eller åtta siffror för var och en.<br><br>Du ska använda dessa koder som verifiering av att du är den som du anta att du är. När du har loggat in med ditt användarnamn och lösenord ska du ange verifieringskoden som är i samma panelen som ditt konto. Om du är Alain som loggar in på Contoso-konto, skulle du till exempel använda verifieringskoden 427303.<br><br>![Skärmen konton i appen](./media/microsoft-authenticator-app-faq/auth-app-accounts.png)|
+|Varför fungerar talet bredvid kod jag vill räkna?|Du kan se en 30 sekunder timer räkna bredvid verifieringskoden active. Den här timern är så att du aldrig logga in med samma kod två gånger. Till skillnad från ett lösenord vill du komma ihåg det här talet. Tanken är att endast användare med åtkomst till telefonen vet att din kod.|
+|Varför är min konto panel grå?|Vissa organisationer kräver Microsoft Authenticator-appen du arbetar med enkel inloggning och för att skydda organisationens resurser. I så fall kan kontot används inte för tvåstegsverifiering och visas i grått eller inaktiva. Den här typen av konto kallas ofta en ”mellanhand”-konto.|
+|Vad? alla medelvärdet ikoner|![Telefon-key-ikon](./media/microsoft-authenticator-app-faq/icon.png)<br>Telefon-key-ikonen visar att ditt konto har uppgraderats för att använda lösenordslös telefoninloggning. Detta kan aktiveras för alla personliga Microsoft-konton och arbets- eller skolkonton i autentiseringsappen. Läs mer om telefoninloggning [logga in med din telefon, inte ditt lösenord](microsoft-authenticator-app-phone-signin-faq.md)<br><br>![Låsikon](./media/microsoft-authenticator-app-faq/lock.png)<br>Låsikonen visar att arbets-eller skolkonto är registrerad för din organisation. Din organisation kanske vill du att registrera enheten så att de kan förstå vilka enheter som har åtkomst till skyddade resurser, till exempel filer och appar, och eventuellt aktivera villkorlig åtkomst för att minska risken för oönskad åtkomst till resurserna.|
+|Vad är enhetsregistrering?|Din organisation kanske vill du att registrera enheten så att de kan förstå vilka enheter som har åtkomst till skyddade resurser, till exempel filer och appar, och eventuellt aktivera villkorlig åtkomst för att minska risken för oönskad åtkomst till resurserna. Avregistrera din enhet med hjälp av **inställningar**, men du kan förlora åtkomsten till e-postmeddelanden i Outlook, filer i OneDrive, och du kommer att förlora möjligheten att använda telefoninloggning.|
+|Måste jag vara ansluten till Internet eller nätverket för att hämta och använda verifieringskoder?|Koderna som inte kräver att du är på Internet eller ansluten till data, så du behöver inte telefontjänst att logga in. Eftersom appen slutar att köras så snart du stänga den, tömma inte det dessutom batteriet.|
+|Jag kan endast få meddelanden när appen är öppen. Om appen är stängd visas få inte jag meddelanden.|Om du får meddelanden, men inte en avisering, bör även med dina tyst på du kontrollera inställningarna för din app. Se till att appen är aktiverat att använda ett ljud eller vibrationer för meddelanden. Om du inte får meddelanden alls kan kontrollera du följande:<ul><li>Är din telefon i stör ej eller tyst läge? Dessa lägen kan användas för att förhindra att appar från att skicka meddelanden.</li><li>Kan du få meddelanden från andra appar? Om inte, det kan vara ett problem med nätverksanslutningarna på din telefon eller kanalen meddelanden från Android- eller Apple. Du kan försöka att lösa nätverksanslutningarna via dina telefoninställningar, men du kan behöva tala med din tjänstleverantör för att hjälpa till med Android- eller Apple meddelanden kanalen.</li><li>Kan du få meddelanden om vissa konton på appen, men inte för andra? Om Ja, ta bort det problematiska kontot från appen, lägga till den igen så att meddelanden och se om det löser problemet.</li></ul>Om du har provat alla av de här stegen och fortfarande har problem, rekommenderar vi skicka loggfilerna för diagnostik. Öppnar appen, går till **hjälpa**, och välj sedan **skicka loggar**. Efter det kan gå till den [Microsoft Authenticator-appen forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) och berätta vad du får problem och vilka steg som du har gjort hittills.|
+|Jag använder verifieringskoder i appen, men hur växlar jag till push-meddelanden?|Du kan konfigurera detta för ditt arbets- eller skolkonto konto (om det aktiveras av administratören) eller för ditt personliga Microsoft-konto, men fungerar inte meddelanden för tredje parts-konton som Google eller Facebook.<br><br>Om du vill växla ditt personliga konto att meddelanden har du registrera din enhet med det kontot, konfigurera push-meddelanden.<br><br>Din organisation bestämmer sig för att tillåta ett klick meddelanden för ditt arbets- eller skolkonto konto, så att din organisation kanske vill stänga av den här funktionen.|
+|Fungerar meddelanden för icke-Microsoft-konton|Nej, aviseringar fungerar bara med Microsoft-konton och Azure Active Directory-konton. Om ditt arbete eller skola använder du Azure AD-konton, kanske de vill stänga av den här funktionen.|
+|Jag har fått en ny enhet eller återställts min enhet från en säkerhetskopia. Hur ställer jag in min i Microsoft Authenticator-appen igen?|Om du kör en iOS-enhet, har aktiverat **automatiska säkerhetskopieringen**, och har skapat en säkerhetskopia av dina konton på enheten gamla; du kan använda säkerhetskopian för att återställa autentiseringsuppgifterna för ditt konto på den nya enheten. Mer information finns i den [säkerhetskopiera och återställa kontoautentiseringsuppgifter med Microsoft Authenticator-appen](microsoft-authenticator-app-backup-and-recovery.md) artikeln.|
+|Jag har tappats bort min enhet eller gått vidare till en ny enhet. Hur kan jag vara säker på att meddelanden inte fortsätta att gå till min gamla enhet?|Om du lägger till Microsoft Authenticator-appen till den nya iOS-enheten bort inte automatiskt appen från din gamla enhet. Även ta bort appen från din gamla enhet räcker inte. Du måste både tar bort appen från din gamla enhet och visa Microsoft eller din organisation om du glömmer bort den gamla enheten och avregistrera från ditt konto.<ul><li>**Ta bort appen från en enhet med ett personligt microsoftkonto.** Gå till området tvåstegsverifiering för verifiering av din [kontosäkerhet](https://account.microsoft.com/security) och väljer att inaktivera verifiering för din gamla enhet.</li><li>**Att ta bort appen från en enhet med ett arbets- eller skolkonto för Microsoft.** Gå till området tvåstegsverifiering för verifiering av din [MyApps](https://myapps.microsoft.com/) sidan eller till din organisations anpassade portal och väljer att inaktivera verifiering för din gamla enhet.</li></ul>|
+|Hur tar jag bort ett konto från appen?|<ul><li>**iOS.** Från huvudskärmen väljer på menyknappen och välj sedan **redigera konton**. Knacka på den röda ikonen bredvid namnet på kontot och på **ta bort kontot**.</li><li>**Windows Phone.** Från huvudskärmen väljer på menyknappen sedan **redigera konton**. Tryck på den **X** bredvid namnet på kontot.</li><li>**Android.** Från huvudskärmen väljer på menyknappen sedan **redigera konton**. Tryck på den **X** bredvid namnet på kontot.</li></ul>Om du har en enhet som har registrerats hos din organisation kan behöva du utföra ett extra steg för att ta bort ditt konto. På dessa enheter registreras automatiskt Microsoft Authenticator-appen som enhetsadministratör. Om du vill avinstallera appen helt måste du först avregistrera appen i appinställningar.|
+|Varför begära så många behörigheter i appen?|Här är en fullständig lista över behörigheter som kan be dig om och hur de används i appen. De specifika behörigheter som visas beror på vilken typ av telefonen som du har.<ul><li>**Kamera.** Används för att skanna QR-koder när du lägger till ett arbets-, Skol- eller icke-Microsoft-konto.</li><li>**Kontakter och telefon.** Används för att förenkla processen genom att söka efter befintliga konton på din telefon när du loggar in med ditt personliga Microsoft-konto.</li><li>**SMS.** Används för att kontrollera matchar ditt telefonnummer numret på posten. När du loggar in med ditt personliga Microsoft-konto för första gången. Vi skicka ett SMS till telefonen som du laddade ned appen som innehåller en 6 – 8-siffriga Verifieringskod. I stället för att visas som ber dig att hitta den här koden och ange den i appen, verkligen den finns i på SMS: et för dig.</li><li>**Rita över andra appar.** Meddelandet som du får som verifierar din identitet visas även på andra appar som kan vara igång.</li><li>**Ta emot data från internet.** Den här behörigheten krävs för att skicka meddelanden.</li><li>**Förhindra phone försätts i viloläge.** Om du registrerar enheten med organisationen kan kan din organisation ändra den här principen på din telefon.</li><li>**Styra vibrationer.** Du kan välja om du vill ha en vibrationer när du tar emot en avisering om att verifiera din identitet.</li><li>**Använda fingeravtryck maskinvara.** Vissa arbets- och skolkonton konton kräver en ytterligare PIN-kod när du verifierar din identitet. Vi kan du använda ditt fingeravtryck istället för att ange PIN-koden för att underlätta processen.</li><li> **Visa nätverksanslutningar.** När du lägger till ett Microsoft-konto i appen, kräver nätverk/internet-anslutning.</li><li>**Läsa innehållet i din lagring**. Den här behörigheten används bara när du rapporterar ett tekniskt problem via inställningarna för appen. Information från din lagring som samlas in för att diagnostisera problemet.</li><li>**Fullständig nätverksåtkomst.** Den här behörigheten krävs för att skicka meddelanden för att verifiera din identitet.</li><li>**Körs vid start.** Om du startar om din telefon, garanterar den här behörigheten att du fortsätter du får meddelanden att verifiera din identitet.</li></ul>|
+|Varför Microsoft Authenticator-appen kan du godkänna en begäran utan att låsa upp enheten?|Du behöver att låsa upp enheten för att godkänna begäranden eftersom allt du behöver för att bevisa att du har telefonen med dig. Tvåstegsverifiering kräver att bevisa sin skicklighet två saker – en sak som du vet och en sak som du har. Det som du vet är ditt lösenord. Det du behöver är din telefon (Ställ in med Microsoft Authenticator-appen och registreras som ett funktionstest MFA.) Därför uppfyller har telefonen och godkänna begäran villkoren för den andra faktorn för autentisering.|
+|Varför alla konton visas inte när jag öppnar Microsoft Authenticator-appen på min Apple Watch?|Microsoft Authenticator-appen stöder endast med hjälp av Microsoft som personliga eller skolan eller arbetet konton med push-meddelanden på Apple Watch tillhörande appen. För dina andra konton, som Google eller Facebook, kommer du behöva öppna autentiseringsappen på din telefon för att visa dina verifieringskoder.|
+|Varför kan inte godkänna eller neka meddelanden på min Apple Watch?|Kontrollera först att du har uppgraderat till Microsoft Authenticator-appen, version 6.0.0 eller senare på din iPhone. Efter det att öppna Microsoft Authenticator-appen på din Apple Watch för tillhörande och leta efter alla konton med en **Set Up** under dem. Du måste slutföra som ställts in processen att godkänna meddelanden för dessa konton.|
+|Varför får jag felet, **det går inte att kommunicera med telefonen när du använder tillhörande Microsoft Authenticator-appen på Apple Watch-**?|Om telefonen och titta på inte kommunicerar visas kan du försöka följande:<ol><li>Framtvinga avsluta appen Microsoft Authenticator och öppna det igen på din iPhone.</li><li>Framtvinga avsluta den tillhörande appen på din Apple Watch.<ol><li> Öppna Microsoft Authenticator-appen för tillhörande på klockan</li><li>Håll ned knappen sida tills den **avstängning** skärmen visas.</li><li>Släpper du knappen på klientsidan och håll ned digitala krona om du vill framtvinga avslutar appen active.</li></ol></li><li>Stäng av både Bluetooth- och Wi-Fi för både din telefon och klockan och sedan aktivera dem igen.</li><li>Starta om din iPhone och din klocka.</li></ol>|
+|Varför är inte Microsoft Authenticator-appen för Apple Watch för tillhörande synkroniserar eller visas i min titta på?|Om appen inte visas på klockan, provar du följande: <ol><li>Kontrollera att klockan körs watchOS 4.0 eller senare.</li><li>Synkronisera klockan igen.</li></ol>|
+|Min Apple Watch tillhörande app har kraschat. Kan jag skicka Mina krasch-loggar så att du kan undersöka? |Du måste först kontrollera att du har valt att dela dina analyser med oss. Om du är en TestFlight-användare kan du redan har registrerat dig. Annars går du till **Inställningar > sekretess > Analytics** och välj både den **dela iPhone och titta på analys** och **filresursen med Apputvecklare** alternativ.<br><br>När du har registrerat dig kan du försöka återskapa din krascher så att loggarna kraschar ska skickas automatiskt till oss för undersökning. Men om du inte kan återskapa din krascher, manuellt kopiera loggfilerna och skicka dem till oss.<ol><li>Öppna klockappen på din telefon, gå till **Inställningar > Allmänt**, och klicka sedan på **kopia Watch Analytics**.</li><li>Hitta motsvarande kraschen under **Inställningar > sekretess > Analytics > analysdata**, och sedan manuellt kopiera hela texten.</li><li>Öppna Microsoft Authenticator-appen på telefonen och klistra in som kopierade text i den **filresursen med Apputvecklare** textrutan på den **skicka loggar** sidan.</li></ol>|
 
 ## <a name="next-steps"></a>Nästa steg
 
-### <a name="contact-us"></a>Kontakta oss
-Om din fråga inte besvaras här, som vi vill höra från dig. Gå till den [Microsoft Authenticator-appen forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) att publicera din fråga och få hjälp från communityn eller lämna en kommentar på den här sidan.
+-   Om du har fler frågor om inloggning via mobilen, se [logga in med din telefon, inte ditt lösenord](microsoft-authenticator-app-phone-signin-faq.md)
 
+-   Om du vill ha mer information om tvåstegsverifiering finns i [konfigurerar mitt konto för tvåstegsverifiering](multi-factor-authentication-end-user-first-time.md)
 
-### <a name="related-topics"></a>Relaterade ämnen
-* [Om tvåstegsverifiering](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) för Microsoft-konton
-* [Har du problem med tvåstegsverifiering](multi-factor-authentication-end-user-troubleshoot.md) för arbets-eller skolkonto?
-* [Använd Microsoft Authenticator för att logga in från din telefon](microsoft-authenticator-app-phone-signin-faq.md)
+-   Om du vill ha mer information om säkerhetsinformation [hantera din säkerhetsinformation](security-info-manage-settings.md)
+
+- Om din fråga inte besvaras här, som vi vill höra från dig. Gå till den [Microsoft Authenticator-appen forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) att publicera din fråga och få hjälp från communityn eller lämna en kommentar på den här sidan.

@@ -4,17 +4,17 @@ description: Azure Policy-utvärderingar och effekterna avgör efterlevnad. Lär
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 390935d80e903631287b1a4b9f1075e547298d99
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f2283125aff705aae87b6260b48deee01aa12f0d
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249649"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343560"
 ---
 # <a name="getting-compliance-data"></a>Hämta Data för kompatibilitetsinställningar
 
@@ -35,7 +35,7 @@ Utvärderingar av tilldelade principer och initiativ inträffa till följd av ol
 
 - En princip eller ett initiativ har nyligen tilldelats ett omfång. När detta inträffar kan tar det cirka 30 minuter innan tilldelningen börjar tillämpas på den definierade omfattningen. När den används omvärderingscykeln på börjar för resurser inom detta omfång mot den nyligen tilldelade princip eller ett initiativ och, beroende på de effekter som används av principen eller initiativ, resurser markeras som kompatibla eller inkompatibla. En stor princip eller ett initiativ utvärderas mot en stor omfattning av resurser kan ta tid, så det är fördefinierade förväntar när utvärderingen migreringscykel slutförs. När testet är klart är uppdaterade kompatibilitetsresultat tillgängliga i portalen och SDK: er.
 - En princip eller ett initiativ som redan har tilldelats till ett scope har uppdaterats. Utvärderingscykel för datorprincip och val av tidpunkt för det här scenariot är desamma som för en ny tilldelning till ett omfång.
-- En resurs har distribuerats till ett omfång med en tilldelning via Resource Manager, REST, Azure CLI eller Azure PowerShell. I det här scenariot händelsen effekt (lägga till, granska, neka, distribuera) och statusen kompatibel information blir tillgänglig i portalen och SDK: er ungefär 15 minuter senare.
+- En resurs har distribuerats till ett omfång med en tilldelning via Resource Manager, REST, Azure CLI eller Azure PowerShell. I det här scenariot händelsen effekt (lägga till, granska, neka, distribuera) och kompatibel statusinformation för enskilda resursen blir tillgänglig i portalen och SDK: er ungefär 15 minuter senare. Den här händelsen orsakar inte en utvärdering av andra resurser.
 - Utvärderingscykel för standard efterlevnad. En gång per dygn är tilldelningar automatiskt ny utvärdering. En stor princip eller ett initiativ utvärderas mot en stor omfattning av resurser kan ta tid, så det är fördefinierade förväntar när utvärderingen migreringscykel slutförs. När testet är klart är uppdaterade kompatibilitetsresultat tillgängliga i portalen och SDK: er.
 
 ## <a name="how-compliance-works"></a>Så här fungerar efterlevnad
@@ -51,8 +51,6 @@ I en tilldelning är en resurs icke-kompatibel om den inte följa principen elle
 
 \* För åtgärderna Append, DeployIfNotExist och AuditIfNotExist måste IF-instruktionen är TRUE.
 Åtgärderna kräver också att villkoret Finns är FALSE för att vara icke-kompatibla. När det är TRUE utlöser IF-villkoret utvärdering av villkoret Finns för de relaterade resurserna.
-
-För att bättre förstå hur resurser är flaggade som icke-kompatibla, använder vi i princip tilldelningen exempel som skapades ovan.
 
 Anta att du har en resursgrupp – ContsoRG, med vissa lagringskonton (markerat i rött) som exponeras för offentliga nätverk.
 
@@ -353,4 +351,4 @@ Om du har en [Log Analytics](../log-analytics/log-analytics-overview.md) arbetsy
 
 - Granska [Policy-definitionsstrukturen](policy-definition.md).
 - Granska [Förstå policy-effekter](policy-effects.md).
-- Granska vilka en hanteringsgrupp är med [organisera dina resurser med Azure-hanteringsgrupper](../azure-resource-manager/management-groups-overview.md)
+- Se över vad en hanteringsgrupp är med sidan om att [organisera dina resurser med Azure-hanteringsgrupper](../azure-resource-manager/management-groups-overview.md)

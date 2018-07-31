@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a5c459fa9bafa48bb8731009a0813cdff7a900d8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9e00e9c3f90d668458d692db88570dac7e8df5a3
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970810"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359083"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Lösning för övervakning av behållare i Log Analytics
 
@@ -49,7 +49,7 @@ Innan du börjar ska du granska följande information för att kontrollera att d
 ### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>Lösning för övervakning av behållare som har stöd för Docker Orchestrator och OS-plattform
 I följande tabell beskrivs Docker orchestration och operativsystemet övervakningsstöd för behållaren inventering, prestanda och loggar med Log Analytics.   
 
-| | ACS | Linux | Windows | Behållare<br>Inventering | Bild<br>Inventering | Node<br>Inventering | Behållare<br>Prestanda | Behållare<br>Händelse | Händelse<br>Logga | Behållare<br>Logga |
+| | ACS | Linux | Windows | Container<br>Inventering | Bild<br>Inventering | Node<br>Inventering | Container<br>Prestanda | Container<br>Händelse | Händelse<br>Logga | Container<br>Logga |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -181,7 +181,7 @@ För Docker Swarm, när hemligheten för arbetsyte-ID och den primärnyckeln har
 3. Kör följande kommando för att montera hemligheter för behållare OMS-agenten.
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
     ```
 
 #### <a name="configure-an-oms-agent-for-red-hat-openshift"></a>Konfigurera en OMS-Agent för Red Hat OpenShift
@@ -563,7 +563,7 @@ I följande tabell visas exempel på poster som samlas in av övervakningslösni
 Etiketter läggs till *PodLabel* datatyper är egna etiketter. Tillagda PodLabel etiketterna visas i tabellen är exempel. Därför `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` kommer skiljer sig åt i datauppsättningen för din miljö och allmänt likna `PodLabel_yourlabel_s`.
 
 
-## <a name="monitor-containers"></a>Övervaka behållare
+## <a name="monitor-containers"></a>Övervaka containrar
 När du har aktiverat i Log Analytics-portalen lösning den **behållare** panel visar sammanfattningsinformation om din behållare-värdar och behållare som körs på värdar.
 
 
@@ -595,7 +595,7 @@ Varje område av instrumentpanelen är en visuell representation av en sökning 
 
 I den **Behållarstatus** området klickar du på det översta området som visas nedan.
 
-![Behållarstatus](./media/log-analytics-containers/containers-status.png)
+![behållarstatus](./media/log-analytics-containers/containers-status.png)
 
 Loggsökning öppnas och visar information om tillståndet för dina behållare.
 

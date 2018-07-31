@@ -2,26 +2,22 @@
 title: Konfigurera Azure Active Directory registrerade enheter | Microsoft Docs
 description: Lär dig hur du ställer in Azure Active Directory registrerade enheter.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 7ce632c76a86fb00101db6664e9e79615484f9a1
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bf763b08f234145cb81d2cded170348f96e5e478
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059797"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343349"
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Konfigurera Azure Active Directory-registrerade Windows 10-enheter
 
@@ -73,22 +69,22 @@ Det här avsnittet ger dig stegen för att registrera din Windows 10-enhet till 
 
 4. På den **åtkomst till arbete eller skola** dialogrutan klickar du på **Connect**.
 
-    ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/04.png)
+    ![Anslut](./media/device-management-azuread-registered-devices-windows10-setup/04.png)
 
 
 5. På den **upprätta ett arbets- eller skolkonto konto** dialogrutan Ange namnet på ditt konto (till exempel someone@example.com), och klicka sedan på **nästa**.
 
-    ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/06.png)
+    ![Anslut](./media/device-management-azuread-registered-devices-windows10-setup/06.png)
 
 
 6. På den **ange lösenord** dialogrutan, ange ditt lösenord och klicka sedan på **nästa**.
 
-    ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/05.png)
+    ![Anslut](./media/device-management-azuread-registered-devices-windows10-setup/05.png)
 
 
 7. På den **allt är klart** dialogrutan klickar du på **klar**.
 
-    ![Connect](./media/device-management-azuread-registered-devices-windows10-setup/07.png)
+    ![Anslut](./media/device-management-azuread-registered-devices-windows10-setup/07.png)
 
 ## <a name="verification"></a>Verifiering
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: cf9ee5339c53eb4f9c74f6b5f251a7963555d676
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 34088440bf723fc65f4ff5c49f62182f405fa35a
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928757"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344553"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Ansluta IoT DevKit AZ3166 till Azure IoT Hub i molnet
 
@@ -297,12 +297,4 @@ Om du får problem kan du hitta [vanliga frågor och svar](https://microsoft.git
 
 Du har anslutit en MXChip IoT DevKit till IoT-hubben och du har skickat det avbildade sensordata till din IoT-hubb.
 
-Komma igång med Azure IoT Hub och utforska andra IoT-scenarier, se:
-
-- [Hantera meddelanden mellan enheter och molnet med iothub-explorer](https://docs.microsoft.com/azure/iot-hub/iot-hub-explorer-cloud-device-messaging)
-- [Spara meddelanden från IoT Hub i datalagring för Azure](https://docs.microsoft.com//azure/iot-hub/iot-hub-store-data-in-azure-table-storage)
-- [Använd Power BI för att visualisera sensordata i realtid från Azure IoT Hub](https://docs.microsoft.com//azure/iot-hub/iot-hub-live-data-visualization-in-power-bi)
-- [Använda Web Apps för att visualisera sensordata i realtid från Azure IoT Hub](https://docs.microsoft.com//azure/iot-hub/iot-hub-live-data-visualization-in-web-apps)
-- [Väderprognoser med sensordata från IoT hub i Azure Machine Learning](https://docs.microsoft.com/azure/iot-hub/iot-hub-weather-forecast-machine-learning)
-- [Enhetshantering med IoT Hub-utforskaren](https://docs.microsoft.com/azure/iot-hub/iot-hub-device-management-iothub-explorer)
-- [Fjärrövervakning och aviseringar med Logic Apps](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps)
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

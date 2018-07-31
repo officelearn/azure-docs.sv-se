@@ -2,26 +2,22 @@
 title: Konfigurera Azure Active Directory-anslutna enheter | Microsoft Docs
 description: Lär dig hur du ställer in Azure Active Directory-anslutna enheter.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: f2d285735b92c3acd67dc741f344b836e791be04
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 511580b95646677a231a68862cae8a6aa57abcb0
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060042"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345539"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Konfigurera Azure Active Directory-anslutna enheter
 
@@ -78,12 +74,12 @@ Det här avsnittet ger dig stegen för att ansluta din Windows 10-enhet till din
 
 4. På den **åtkomst till arbete eller skola** dialogrutan klickar du på **Connect**.
 
-    ![Connect](./media/device-management-azuread-joined-devices-setup/04.png)
+    ![Anslut](./media/device-management-azuread-joined-devices-setup/04.png)
 
 
 5. På den **konfigurera ett arbets- eller skolkonto konto** dialogrutan klickar du på **Anslut den här enheten till Azure Active Directory**.
 
-    ![Connect](./media/device-management-azuread-joined-devices-setup/08.png)
+    ![Anslut](./media/device-management-azuread-joined-devices-setup/08.png)
 
 
 6. På den **registrera dig** dialogrutan, ange namnet på ditt konto (till exempel someone@example.com), och klicka sedan på **nästa**.
@@ -125,7 +121,7 @@ Mer information finns i [hitta enheter](../device-management-azure-portal.md#loc
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns här: 
+Mer information finns i: 
 
 - Den [introduktionen till enhetshantering i Azure Active Directory](../device-management-introduction.md)
 - [Hantera enheter med hjälp av Azure-portalen](../device-management-azure-portal.md)

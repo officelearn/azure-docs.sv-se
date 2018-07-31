@@ -3,7 +3,7 @@ title: Azure Functions SendGrid-bindningar
 description: Referens för Azure Functions SendGrid-bindningar.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 ms.service: functions
 ms.devlang: multiple
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/29/2017
-ms.author: tdykstra
-ms.openlocfilehash: 0cd5730d049749949db13f29499e268a1ebccc18
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: glenga
+ms.openlocfilehash: 2796a7d9fb44a05e1873e2fcbde82c837db202be
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467958"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346461"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid-bindningar
 
@@ -193,11 +193,11 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**typ**|| Krävs – måste vara inställd på `sendGrid`.|
 |**riktning**|| Krävs – måste vara inställd på `out`.|
 |**Namn**|| Krävs – variabelnamnet som används i Funktionskoden för begäran och begärandetexten. Det här värdet är ```$return``` när det är endast ett returvärde. |
-|**apiKey**|**ApiKey**| Namnet på en appinställning som innehåller din API-nyckel. Om inte aktiverad, standard appinställningen är namn ”AzureWebJobsSendGridApiKey”.|
+|**ApiKey**|**ApiKey**| Namnet på en appinställning som innehåller din API-nyckel. Om inte aktiverad, standard appinställningen är namn ”AzureWebJobsSendGridApiKey”.|
 |**Att**|**Till**| mottagarens e-postadress. |
-|**från**|**Från**| avsändarens e-postadress. |
-|**ämne**|**Ämne**| den e-postmeddelandets ämne. |
-|**text**|**Text**| e-postinnehåll. |
+|**Från**|**Från**| avsändarens e-postadress. |
+|**Ämne**|**Ämne**| den e-postmeddelandets ämne. |
+|**Text**|**Text**| e-postinnehåll. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

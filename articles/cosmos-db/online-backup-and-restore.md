@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: cf4579705e5910f62ca07223cb16405140926119
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 66b4f63e75773aa0c1857dfcc19e22b48a0c3537
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859208"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343170"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Automatisk online säkerhetskopiering och återställning med Azure Cosmos DB
 Azure Cosmos DB tar automatiskt säkerhetskopior av dina data med jämna mellanrum. Automatisk säkerhetskopiering är hämtade utan att påverka prestanda eller tillgänglighet för dina databasåtgärder. Alla säkerhetskopior lagras separat i en annan lagringstjänst och säkerhetskopieringarna replikeras globalt för återhämtning mot regionala problem. Automatisk säkerhetskopiering är avsett för scenarion med när du av misstag tar bort din Cosmos DB-behållare och senare kräver återställning av data eller en lösning för haveriberedskap.  
@@ -50,7 +50,7 @@ Enligt beskrivningen ovan, tar Azure Cosmos DB ögonblicksbilder av dina data va
 SQL-API: t, om du vill ha kvar din egen ögonblicksbilder, du kan använda export till JSON-alternativet i Azure Cosmos DB [datamigreringsverktyget](import-data.md#export-to-json-file) att schemalägga ytterligare säkerhetskopieringar.
 
 > [!NOTE]
-> Om du ”etablera dataflöde för en uppsättning behållare på databasnivå –” Kom ihåg sker återställningen på fullständig kontonivå för databasen. Du måste också se till att kontakta dig inom 8 timmar supportteamet om du råkar ta bort behållaren - samling/tabell/graph om du använder den här nya funktionen. 
+> Om du ”etablera dataflöde för en uppsättning behållare på databasnivå –” Kom ihåg sker återställningen på fullständig kontonivå för databasen. Du måste också se till att kontakta dig inom 8 timmar supportteamet om du råkar ta bort behållaren. Data kan inte återställas om du inte kontaktar supporten inom 8 timmar. 
 
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Återställa en databas från en onlinesäkerhetskopiering

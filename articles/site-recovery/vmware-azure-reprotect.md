@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 04cb658da6a22643e21104f5673a3f211f48b7fc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916487"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346687"
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Återaktivera skyddet för datorerna från Azure till en lokal plats
 
@@ -63,7 +63,7 @@ För att distribuera en processerver i Azure:
 Huvudmålservern tar emot data vid återställning efter fel. Som standard körs huvudmålservern på konfigurationsservern lokalt. Beroende på vilken trafikvolym misslyckades tillbaka, kan du dock behöva skapa en separat huvudmålserver för återställning efter fel. Här är hur man skapar en:
 
 * [Skapa en Linux-huvudmålserver](vmware-azure-install-linux-master-target.md) för återställning efter fel för virtuella Linux-datorer. Detta krävs.
-* Du kan också skapa en separat huvudmålserver för återställning efter fel för Windows-VM. Att göra detta, köra enhetliga installationsprogrammet igen och välja för att skapa en huvudmålserver. [Läs mer](physical-azure-set-up-source.md#run-azure-site-recovery-unified-setup).
+* Du kan också skapa en separat huvudmålserver för återställning efter fel för Windows-VM. Att göra detta, köra enhetliga installationsprogrammet igen och välja för att skapa en huvudmålserver. [Läs mer](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers).
 
 När du skapar en huvudmålserver kan du utföra följande uppgifter:
 

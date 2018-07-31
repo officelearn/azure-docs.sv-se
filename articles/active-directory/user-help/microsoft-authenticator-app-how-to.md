@@ -1,110 +1,118 @@
 ---
-title: Microsoft Authenticator-appen för mobiltelefoner – Azure AD | Microsoft Docs
-description: Lär dig hur du uppgraderar till den senaste versionen av Azure Authenticator.
-services: multi-factor-authentication
-documentationcenter: ''
+title: Kom igång med Microsoft Authenticator-appen – Azure Active Directory | Microsoft Docs
+description: Lär dig hur du uppgraderar till den senaste versionen av Microsoft Authenticator.
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
-ms.service: multi-factor-authentication
+ms.service: active-directoary
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: user-help
 ms.topic: conceptual
-ms.date: 10/17/2017
+ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.custom: H1Hack27Feb2017, end-user
-ms.openlocfilehash: 8241dcaaf5623a22f4fc485f021766276472fb51
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8afd743f6010822709bf3d49f7a3bbcd51b19edf
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059825"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346495"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Kom igång med Microsoft Authenticator-appen
-Ger en extra nivå av säkerhet i arbets-eller skolkonto för Microsoft Authenticator-appen (till exempel bsimon@contoso.com) eller ditt Microsoft-konto (till exempel bsimon@outlook.com).
 
-Appen fungerar i ett av två sätt:
+Förhindra obehörig åtkomst till konton och för att stoppa olagliga transaktioner genom att ge en ytterligare nivå av säkerhet för ditt arbets- eller skolkonto för Microsoft Authenticator-appen (till exempel alain@contoso.com) eller ditt personliga Microsoft-konto (för exempelvis alain@outlook.com). Du kan antingen använda den som en andra verifieringsmetod eller som en ersättning för ditt lösenord när du använder telefoninloggning. Läs mer om hur du skapar och använder lösenordslös telefoninloggning [logga in med din telefon, inte ditt lösenord](microsoft-authenticator-app-phone-signin-faq.md).
 
-* **Meddelande**. Appen kan hjälpa att förhindra obehörig åtkomst till konton och stoppa olagliga transaktioner genom att skicka ett meddelande till din smartphone eller surfplatta. Visa meddelandet, och om det är tillförlitligt, Välj **Kontrollera**. Annars kan du välja **neka**.
-* **Verifieringskod**. Appen kan användas som en programvarutoken för att skapa en OAuth-Verifieringskod. När du har angett ditt användarnamn och lösenord, ange den kod som tillhandahålls av appen i inloggning-skärmen. Verifieringskoden ger ett andra formen av autentisering.
+När du använder appen för tvåstegsverifiering kan fungera i ett av två sätt:
 
-Microsoft Authenticator-appen ersätter Azure Authenticator-appen. Azure Authenticator-appen fungerar fortfarande, men om du vill flytta till den nya Microsoft Authenticator-appen i den här artikeln kan hjälpa dig.  
+- **Meddelande om.** Appen skickar ett meddelande till din enhet. Kontrollera att meddelandet är rätt och välj sedan **Kontrollera**. Om du inte ser meddelandet, Välj **neka**.
+
+- **Verifieringskod.** När du har skrivit ditt användarnamn och lösenord kan du öppna appen och kopiera den Verifieringskod som tillhandahålls på den **konton** skärmen in på skärmen inloggning. Verifieringskoden fungerar som en andra formen av autentisering.
 
 ## <a name="opt-in-for-two-step-verification"></a>Välja tvåstegsverifiering
 
-Microsoft Authenticator-appen fungerar inte ensamt. Konfigurera var och en av dina konton för att begära en andra verifieringsmetod när du har loggat in med ditt användarnamn och lösenord.
+Din organisation bestämmer sig för om du ska använda tvåstegsverifiering med arbets-eller skolkonto. Administratören gör att du vet vilka verifieringsmetoder som behöver ställas in och används. Mer information finns i [vad Azure Multi-Factor Authentication innebär för mig](multi-factor-authentication-end-user.md).
 
-För ett arbets- eller skolkonto konto få inte du vanligtvis väljer du den här funktionen för dig själv. I stället en administratör väljer i för din räkning och sedan meddelar dig att registrera verifieringsmetoder för ditt konto. Om det här scenariot gäller för dig, Läs mer i [vad Azure Multi-Factor Authentication innebär för mig](multi-factor-authentication-end-user.md).
+Du kan ställa in tvåstegsverifiering själv för ditt personliga Microsoft-konto. Mer detaljerad information och anvisningar finns i [om tvåstegsverifiering](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
 
-För ett personligt konto måste du konfigurera tvåstegsverifiering själv. Om du har ett Microsoft-konto kan de här stegen finns i [om tvåstegsverifiering](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
-
-Du kan också använda Microsoft Authenticator med icke-Microsoft-konton. De kan anropa funktionen något annat än tvåstegsverifiering, men du ska kunna hitta den under säkerhets- eller logga in inställningar.
+Du kan också använda Microsoft Authenticator-appen med icke-Microsoft-konton. Dessa konton kan anropa funktionen något annat än tvåstegsverifiering, men du ska kunna hitta den i säkerhets- eller logga in inställningar. Mer information om hur du konfigurerar dessa icke-Microsoft-konton finns i den [Microsofts kundsupport videor](https://www.youtube.com/playlist?list=PLyhj1WZ29G65QdD9NxTOAm8HwOS-OBUrX).
 
 ## <a name="install-the-app"></a>Installera appen
-Microsoft Authenticator-appen finns för [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) och [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
+
+Microsoft Authenticator-appen finns för [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) och [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). För att få bästa möjliga upplevelse, bör du låta appen få meddelanden när du blir tillfrågad. 
 
 ## <a name="add-accounts-to-the-app"></a>Lägga till konton i appen
-För varje konto som du vill lägga till i Microsoft Authenticator-appen, använder du någon av följande procedurer:
 
-### <a name="add-a-personal-microsoft-account-to-the-app"></a>Lägga till ett personligt microsoftkonto i appen
+Du kan lägga till arbets- eller skolkonton eller personliga konton till Microsoft Authenticator-appen. 
+
+### <a name="add-a-personal-microsoft-account"></a>Lägg till ett personligt microsoftkonto
 
 För ett personligt microsoftkonto (en som används för att logga in på Outlook.com, Xbox, Skype, o.s.v.), allt du behöver göra är att logga in på ditt konto i Microsoft Authenticator-appen.
 
-### <a name="add-a-work-or-school-account-to-the-app-using-the-qr-code-scanner"></a>Lägg till ett arbets- eller skolkonto i appen med QR-kodsskannern
-1. Gå till skärmen för säkerhetsinställningar verifiering.  Information om hur du kommer till den här skärmen finns [ändrar säkerhetsinställningarna](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page).
-2. Markera kryssrutan bredvid **autentiseringsapp** därefter **konfigurera**.
+### <a name="add-a-work-or-school-account"></a>Lägg till ett arbets- eller skolkonto
 
-    ![Knappen Konfigurera på skärmen för säkerhetsinställningar verifiering](./media/microsoft-authenticator-app-how-to/azureauthe.png)
+1. Om det är möjligt, gå till den [ytterligare säkerhetsverifiering](http://aka.ms/mfasetup) skärmen på en annan dator eller enhet. Information om hur du kommer till den här skärmen finns i [ändrar säkerhetsinställningarna](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) eller kontakta administratören.
 
-    Gör det öppnas ett fönster där en QR-kod på den.
+    >[!Note]
+    >Om din administratör har aktiverat förhandsgranskningsupplevelsen för security info, följer du anvisningarna i den [konfigurera säkerhetsinformation för att använda en autentiseringsapp](security-info-setup-auth-app.md) avsnittet.
 
-    ![Skärmen som tillhandahåller QR-kod](./media/microsoft-authenticator-app-how-to/barcode2.png)
-3. Öppna Microsoft Authenticator-appen. På den **konton** väljer **+**, och sedan ange att du vill lägga till ett arbets- eller skolkonto konto.
-4. Använda kameran att skanna QR-koden och välj sedan **klar** att Stäng skärmen QR-kod.
+2. Markera kryssrutan bredvid **autentiseringsapp**, och välj sedan **konfigurera**.
 
-    Om din kamera inte fungerar kan du [ange QR-koden och Webbadressen manuellt](#add-an-account-to-the-app-manually).
+    ![Knappen Konfigurera på skärmen för säkerhetsinställningar verifiering](./media/microsoft-authenticator-app-how-to/auth-app-configure.png)
 
-5. När appen visar namnet på ditt konto med en sexsiffrig kod under det, är du klar.
+    Den **konfigurera mobilappen** visas med en QR-kod att skanna med autentiseringsappen.
 
-    ![skärmen konton](./media/microsoft-authenticator-app-how-to/accounts.png)
+    ![Skärmen som tillhandahåller QR-kod](./media/microsoft-authenticator-app-how-to/auth-app-barcode.png)
+
+3. Öppna Microsoft Authenticator-appen. På den **konton** väljer **Lägg till konto**, och välj sedan **arbets- eller skolkonto**.
+
+4. Använd enhetens kamera för att skanna QR-koden och välj sedan **klar** att Stäng skärmen QR-kod.
+
+    >[!Note]
+    >Om din kamera inte fungerar korrekt, kan du [ange QR-koden och Webbadressen manuellt](#add-an-account-to-the-app-manually).
+
+    Den **konton** skärmen i appen visar namnet på ditt konto och en sexsiffrig Verifieringskod. För ytterligare säkerhet ändrar verifieringskoden med 30 sekunders mellanrum hindra dig från att använda samma kod två gånger.  
+
+    ![skärmen konton](./media/microsoft-authenticator-app-how-to/auth-app-accounts.png)
 
 ### <a name="add-an-account-to-the-app-manually"></a>Lägga till ett konto i appen manuellt
-1. Gå till skärmen för säkerhetsinställningar verifiering.  Information om hur du kommer till den här skärmen finns [ändrar säkerhetsinställningarna](multi-factor-authentication-end-user-manage-settings.md).
-2. Välj **konfigurera**.
 
-    ![Knappen Konfigurera på skärmen för säkerhetsinställningar verifiering](./media/microsoft-authenticator-app-how-to/azureauthe.png)
+1. Gå till den **ytterligare säkerhetsverifiering** skärmen. Information om hur du kommer till den här skärmen finns [ändrar säkerhetsinställningarna](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page).
 
-    Gör det öppnas ett fönster där en QR-kod på den.  Observera att koden och Webbadressen.
+2. Markera kryssrutan bredvid **autentiseringsapp**, och välj sedan **konfigurera**.
 
-    ![Skärmbild som visar QR-kod och URL: en](./media/microsoft-authenticator-app-how-to/barcode2.png)
-3. Öppna Microsoft Authenticator-appen. På den **konton** väljer **+**, och sedan ange att du vill lägga till ett arbets- eller skolkonto konto.
+    Den **konfigurera mobilappen** skärmen visas.
 
-4. Välj i skannern, **ange koden manuellt**.
+3. Kopiera koden och URL-information från den **konfigurera mobilappen** skärmen så att du kan manuellt ange dem i QR-skanner.
 
-    ![Skärmen för att skanna en QR-kod](./media/microsoft-authenticator-app-how-to/scan2.png)
-5. Ange koden och URL-Adressen i motsvarande rutor i appen och välj sedan **Slutför**.
+4. Öppna Microsoft Authenticator-appen. På den **konton** väljer **Lägg till konto**, och välj sedan **arbets- eller skolkonto**.
 
-    ![Skärmen för att ange koden och Webbadressen](./media/microsoft-authenticator-app-how-to/manual.png)
+5. På skärmen QR-skanner väljer **ange koden manuellt**.
 
-6. När appen visar namnet på ditt konto med en sexsiffrig kod under det, är du klar.
+    ![Skärmen för att skanna en QR-kod](./media/microsoft-authenticator-app-how-to/auth-app-manual-code.png)
+   
+6. Skriv koden och Webbadressen från skärmen med QR-kod till den **Lägg till ett konto** skärmen och välj sedan **Slutför**.
 
-    ![skärmen konton](./media/microsoft-authenticator-app-how-to/accounts.png)
+    ![Skärmen för att ange koden och Webbadressen](./media/microsoft-authenticator-app-how-to/auth-app-code-url.png)
 
-### <a name="add-an-account-to-the-app-using-your-devices-fingerprint-or-facial-recognition-capabilities"></a>Lägg till ett konto i appen med hjälp av enhetens fingeravtryck eller funktioner för ansiktsigenkänning
-Din organisation kan kräva en PIN-kod att slutföra verifieringen-kontrollen. Microsoft Authenticator-appen kan använda enhetens fingeravtrycksläsare eller funktioner för ansiktsigenkänning i stället för en PIN-kod. Om du vill konfigurera detta på första verifieringen i appen visas ett alternativ för att använda Touch-ID (för iOS) eller fingeravtryck identifiering i stället. 
+    Den **konton** skärmen i appen visar namnet på ditt konto och en sexsiffrig Verifieringskod. För ytterligare säkerhet ändrar verifieringskoden med 30 sekunders mellanrum hindra dig från att använda samma kod två gånger.
 
-Om du vill konfigurera Touch-ID för Microsoft Authenticator, måste du slutföra en normal verifiering kontrollen med en PIN-kod. Microsoft Authenticator in automatiskt det för enheter som har stöd för Touch ID. 
+### <a name="using-your-devices-fingerprint-or-facial-recognition-capabilities"></a>Med hjälp av enhetens fingeravtryck eller funktioner för ansiktsigenkänning
 
-![Verifiering av installationsprogrammet för Touch-ID](./media/microsoft-authenticator-app-how-to/touchid1.png)
-
-Därifrån pekar framåt, när du blir ombedd att verifiera din inloggning, väljer mottagna push-meddelande och genomsöka ditt fingeravtryck istället för att ange din PIN-kod.
-
-![Push-meddelande](./media/microsoft-authenticator-app-how-to/touchid2.png)
+Din organisation kan kräva en PIN-kod att slutföra din bekräfta din identitet. Du kan konfigurera Microsoft Authenticator-appen för att använda enhetens fingeravtrycksläsare eller funktioner för ansiktsigenkänning i stället för en PIN-kod. Du kan konfigurera detta första gången du använder authenticator-appen för att verifiera ditt konto genom att välja alternativet att använda din biometriska enhetsfunktioner som används istället för PIN-koden.
 
 ## <a name="use-the-app-when-you-sign-in"></a>Använda appen när du loggar in
 
-När ditt konto har lagts till appen, kan du uppmanas att göra en test-verifiering för att kontrollera att allt har konfigurerats korrekt. Efter det är du klar! Du behöver inte göra något annat tills nästa gång du loggar in.
+Du kan använda appen för att logga in på dina konton när du lägger till dina konton till appen.
 
-Om du väljer att använda verifieringskoder i appen, starta ska kunna se dem på startsidan. De kan ändra med 30 sekunders mellanrum så att du alltid har en ny kod när du behöver en. Men du behöver inte göra något med dem tills du loggar in och uppmanas att ange en Verifieringskod.  
+Om du väljer att använda verifieringskoder i appen, börjar du vill visa dem på den **konton** sidan. Koderna ändra med 30 sekunders mellanrum så att du alltid har en ny kod när du behöver en. Men du behöver inte göra något med dem tills du loggar in och uppmanas att ange en Verifieringskod.
+
+## <a name="next-steps"></a>Nästa steg
+
+- Om du har mer allmänna frågor om appen, se [Microsoft Authenticator vanliga frågor och svar](microsoft-authenticator-app-faq.md)
+
+- Om du har frågor om hur du använder telefoninloggning [logga in med din telefon, inte ditt lösenord](microsoft-authenticator-app-phone-signin-faq.md)
+
+- Om du vill ha mer information om tvåstegsverifiering finns i [konfigurerar mitt konto för tvåstegsverifiering](multi-factor-authentication-end-user-first-time.md)
+
+- Om du vill ha mer information om säkerhetsinformation [hantera din säkerhetsinformation](security-info-manage-settings.md)

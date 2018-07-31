@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: cee7243531857f07dec2e968352ffb54aef16bf1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7412459fca179e7a13d6933f27c2c9ac2d770f33
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224594"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358111"
 ---
 # <a name="prediction-score"></a>Förutsägelseresultat
 En förutsägelse poäng indikerar grad av säkerhet som LUIS har för förutsägelser. 
@@ -36,6 +36,8 @@ När ett uttryck resulterar i ett låga förtroenderesultat, LUIS markeras som i
 Varje uttryck förutsägelse returnerar en top-bedömning avsikt. Det här är en numerisk jämförelse av förutsägelse poäng. Övre två poängen kan ha en mycket liten skillnaden mellan dem. LUIS anger inte den här närhet än returnerar resultat.  
 
 Om du är orolig nära övre poäng, ska du returnera poäng för alla avsikter. Du kan antingen lägga till yttranden två avsikter som anger deras skillnader word urval och arrangemang eller om du kan ha LUIS-anropa program, till exempel en chattrobot, programmässiga tala om hur du hanterar de två översta avsikterna. 
+
+Två avsikter som ger alltför mycket, kan Invertera på grund av icke-deterministisk utbildning. Den främsta poängen kan bli andra upp och att andra översta resultatet kan bli den första översta poängen. För att förhindra detta genom att lägga till exempel yttranden till var och en av de översta två avsikterna för den uttryck med word valmöjligheter och kontext som särskiljer två avsikter. Två avsikter ska ha om samma antal exempel yttranden. En tumregel för separering att förhindra invertering på grund av utbildning, är 15% skillnad i poäng.
 
 ## <a name="return-prediction-score-for-all-intents"></a>Returnera förutsägelse poäng för alla avsikter
 Ett test- eller slutpunkten resultat kan innehålla alla avsikter. Den här konfigurationen är inställd på den [endpoint](https://aka.ms/v1-endpoint-api-docs) med den `verbose=true` fråga sträng namn/värde-par. 

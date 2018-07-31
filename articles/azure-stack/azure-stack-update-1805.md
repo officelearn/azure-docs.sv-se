@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: ba162a04d41d9ce6f0bf00e377b7717f78967e7f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 142ea08f026ad8d4b736fd62384eceb927cac359
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091780"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344240"
 ---
 # <a name="azure-stack-1805-update"></a>Uppdatering av Azure Stack 1805
 
@@ -90,6 +90,8 @@ När installationen av 1805, installerar du eventuella tillämpliga snabbkorrige
 Här följer efter installation kända problem för den här build-versionen.
 
 ### <a name="portal"></a>Portalen  
+- <!-- TBD - IS ASDK --> Du kan inte använda drivrutinsuppdateringar med hjälp av en OEM-tillägg-paketet med den här versionen av Azure Stack.  Det finns ingen lösning på problemet.
+
 - <!-- 2551834 - IS, ASDK --> När du väljer **översikt** för ett lagringskonto på administratören eller användaren portalerna kan informationen från den *Essentials* fönstret visas inte.  Fönstret information visar information om kontot som dess *resursgrupp*, *plats*, och *prenumerations-ID*.  Andra alternativ för översikt över är tillgängliga, t.ex. *Services* och *övervakning*, samt som alternativ till *öppna i Explorer* eller *ta bort lagringskonto* . 
 
   Du kan visa informationen inte tillgänglig i [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) PowerShell-cmdlet. 

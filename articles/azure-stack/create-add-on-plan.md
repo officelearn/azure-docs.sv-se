@@ -1,6 +1,6 @@
 ---
-title: I den här artikeln beskrivs hur du uppdaterar Azure Stack erbjudanden och planer | Microsoft Docs
-description: Den här artikeln beskriver hur du visa och ändra befintliga Azure-stacken erbjudanden och planer.
+title: I den här artikeln får du lära dig hur du uppdaterar Azure Stack-erbjudanden och planer | Microsoft Docs
+description: Den här artikeln beskriver hur du visa och ändra befintliga Azure Stack-erbjudanden och planer.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -13,42 +13,47 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: a84148a3ac31d51ff30cebffab00e5fec8fdaa87
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: a35ba993e6fd1162fa4a18bc0d6bc9351fe7dfa2
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35238506"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358302"
 ---
-# <a name="azure-stack-add-on-plans"></a>Azure Stack-tillägg-planer
-Som operatör Azure Stack skapa planer som innehåller de önskade tjänsterna och tillämpliga kvoter för dina användare att prenumerera på. Dessa [ *basera planer* ](azure-stack-create-plan.md) innehåller grundläggande tjänster att erbjudas till användarna och du kan bara ha en grundläggande plan per erbjudandet. Om du behöver ändra erbjudandet kan du använda *tillägg planer* som gör att du kan ändra planen för att utöka dator, lagring, eller på nätverket, kvoter ursprungligen erbjuds med grundläggande planen. 
+# <a name="azure-stack-add-on-plans"></a>Azure Stack-tilläggsplaner
 
-Om kombinerar allt i en enda plan optimala i vissa fall kan vilja du har planera och erbjuder ytterligare tjänster som använder tillägget planer. Exempelvis kan du välja att erbjuda IaaS-tjänster som en del av en grundläggande plan med alla PaaS-tjänster som behandlas som tillägg planer. Planer kan också användas för att styra förbrukningen av resurser i Azure Stack-miljö. Till exempel om du vill att användarna ska vara uppmärksam på sin resursanvändning, du kan ha en relativt liten Basplan (beroende på vilka tjänster som krävs) och som användare kommer åt kapacitet måste de skulle bli aviserad om de har redan använts tilldelning av resurser baserat på deras tilldelade planen. Därifrån kan användarna välja en tillgängliga tillägg plan för ytterligare resurser. 
+Som operatör Azure Stack kan du skapa tilläggsplaner för att ändra en [ *Basplan* ](azure-stack-create-plan.md) när du vill erbjuda ytterligare tjänster eller utöka *datorn*, *lagring* , eller *nätverk* kvoter utöver basplaner första erbjudande. Tilläggsplaner ändra den grundläggande planen och är valfria tillägg som användare kan välja att prenumerera på. 
+
+Det finns tillfällen när du kombinerar allt i ett enda abonnemang är optimala. Andra gånger kanske du har en plan och erbjudande sedan ytterligare tjänster med hjälp av tilläggsplaner. Du kan till exempel bestämma att erbjuda IaaS-tjänster som en del av en Basplan med alla PaaS-tjänster som behandlas som tilläggsplaner.
+
+Ett annat skäl att använda tilläggsplaner är att hjälpa användarna Tänk också på deras användning. Om du vill göra det, kan du börja med en grundläggande plan som innehåller relativt små kvoter (beroende på vilka tjänster som krävs). Sedan, när användare kommer åt kapacitet måste de skulle bli aviserad om som redan har förbrukat allokeringen av resurser baserat på deras tilldelade plan. Därifrån kan kan användarna sedan välja ett tillägg-abonnemang som innehåller ytterligare resurser.
 
 > [!NOTE]
-> När en användare lägger till en plan för tillägg till en befintlig prenumeration erbjudande, kan ytterligare resurser ta upp till en timme ska visas. 
+> När du inte vill använda en tilläggsplan för att utöka en kvot kan du också välja att [redigera den ursprungliga konfigurationen av kvoten för](azure-stack-quota-types.md#to-edit-a-quota). 
 
-## <a name="create-an-add-on-plan"></a>Skapa en plan för tillägg
-Tillägget planer skapas genom att ändra ett befintligt erbjudande:
+När en användare lägger till en tilläggsplanen till en befintlig prenumeration på erbjudandet, kan de ytterligare resurserna ta upp till en timme visas. 
 
-1. Logga in på Azure Stack-administratörsportalen som en administratör i molnet.
-2. Följ samma steg som används för att [skapar en ny grundläggande plan](azure-stack-create-plan.md) att skapa en ny plan som erbjuder tjänster som inte tidigare har erbjudit. I det här exemplet inkluderas Key Vault (Microsoft.KeyVault) services i den nya planen.
-3. I administratörsportalen, klickar du på **erbjuder** och välj sedan erbjudandet uppdateras med en plan för tillägget.
+## <a name="create-an-add-on-plan"></a>Skapa en tilläggsplan
+Tilläggsplaner skapas genom att ändra ett befintligt erbjudande:
+
+1. Logga in på Azure Stack-administratörsportalen som en administratör för ett moln.
+2. Följ samma steg som används för att [skapar en ny grundläggande plan](azure-stack-create-plan.md) att skapa en ny plan som erbjuder tjänster som inte har tidigare erbjudit. I det här exemplet inkluderas Key Vault (Microsoft.KeyVault) tjänster i den nya planen.
+3. I administratörsportalen, klickar du på **erbjuder** och sedan välja erbjudandet uppdateras med en tilläggsplan.
 
    ![](media/create-add-on-plan/1.PNG)
 
-4.  Rulla ned till slutet av egenskaperna erbjudandet och välj **tillägg planer**. Klicka på **Lägg till**.
+4.  Rulla till slutet av egenskaperna erbjudandet och välj **tilläggsplaner**. Klicka på **Lägg till**.
    
     ![](media/create-add-on-plan/2.PNG)
 
-5. Välj planen för att lägga till. I det här exemplet planen kallas **Key vault plan**, och klicka sedan på **Välj** att lägga till planen i erbjudandet. Du bör få ett meddelande om att planen har lagts till erbjudandet.
+5. Välj planen som du lägger till. I det här exemplet planen kallas **Key vault plan**. När du har valt planen klickar du på **Välj** att lägga till planen i erbjudandet. Du bör få ett meddelande om att planen har lagts till i erbjudandet har.
    
     ![](media/create-add-on-plan/3.PNG)
 
-6. Granska listan över tillägg planer som ingår i erbjudandet att kontrollera att det nya tillägget planerar visas.
+6. Granska listan över tillägg planer som ingår i erbjudandet att verifiera att den nya tilläggsplanen visas.
    
     ![](media/create-add-on-plan/4.PNG)
 

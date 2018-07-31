@@ -1,27 +1,24 @@
 ---
-title: Konfigurera tvåstegsverifiering - Azure AD | Microsoft Docs
+title: Konfigurera tvåstegsverifiering - Azure Active Directory | Microsoft Docs
 description: När ditt företag konfigurerar Azure Multi-Factor Authentication, uppmanas du att registrera dig för tvåstegsverifiering. Lär dig hur du ställer in.
-services: multi-factor-authentication
+services: active-directory
 keywords: hur du använder azure-katalogen, active directory i molnet, active directory-självstudien
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.custom: end-user
-ms.openlocfilehash: 1d0c60dedcb5eefb4ab9167b40c06c3616790719
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d4ebecd11f4ca3d12a55cf25db31e31d7f528db8
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060084"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343737"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Konfigurera mitt konto för tvåstegsverifiering
 Tvåstegsverifiering är ett ytterligare steg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in. Om du läser den här artikeln fick du förmodligen ett e-postmeddelande från din arbets- eller skolkonto administratör om Multi-Factor Authentication. Eller kanske du försökte logga in och fick ett meddelande som ber dig att ställa in ytterligare säkerhetsverifiering. Om så är fallet, **du inte logga in förrän du har slutfört den automatiska registreringen**.
@@ -32,7 +29,7 @@ Den här artikeln visar hur du konfigurerar din **arbets- eller skolkonto**. Om 
 
 När företagets support kräver att du börjar använda tvåstegsverifiering, visas en skärm som anger **din administratör har begärt att du ställer in det här kontot för ytterligare säkerhetsverifiering**:
 
-![Inställningar](./media/multi-factor-authentication-end-user-first-time/first.png)
+![Konfiguration](./media/multi-factor-authentication-end-user-first-time/first.png)
 
 För att komma igång, Välj **konfigurera nu.**
 
@@ -79,13 +76,13 @@ Följ dessa steg om du vill lägga till ett konto i mobilappen manuellt, iställ
 1. Välj den **ange konto manuellt** knappen.  
 2. Ange koden och URL: en som tillhandahålls på samma sida som visar streckkoden. Den här informationen används i den **kod** och **URL** rutor i mobilappen.
 
-    ![Inställningar](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
+    ![Konfiguration](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
 3. När aktiveringen är klar, Välj **kontakta mig**. Det här steget skickar en avisering eller en Verifieringskod till din telefon. Välj **Kontrollera**.
 
 ## <a name="use-your-mobile-phone-as-the-contact-method"></a>Använda din mobiltelefon som kontaktmetod
 1. Välj **Autentiseringstelefon** från den nedrullningsbara listan.  
 
-    ![Inställningar](./media/multi-factor-authentication-end-user-first-time/phone.png)  
+    ![Konfiguration](./media/multi-factor-authentication-end-user-first-time/phone.png)  
 2. Välj ditt land i listrutan och ange ditt mobiltelefonnummer.
 3. Välj den metod som du föredrar att använda med mobiltelefonen - textmeddelande eller samtal.
 4. Välj **kontakta mig** att verifiera ditt telefonnummer. Beroende på läge du har valt, vi skickar ett SMS eller ringer upp dig. Följ anvisningarna på skärmen och välj sedan **Kontrollera**.
@@ -96,7 +93,7 @@ Följ dessa steg om du vill lägga till ett konto i mobilappen manuellt, iställ
 ## <a name="use-your-office-phone-as-the-contact-method"></a>Använda din Arbetstelefon som kontaktmetod
 1. Välj **Arbetstelefon** från listrutan  
 
-    ![Inställningar](./media/multi-factor-authentication-end-user-first-time/office.png)  
+    ![Konfiguration](./media/multi-factor-authentication-end-user-first-time/office.png)  
 2. Rutan telefonnummer fylls automatiskt med din kontaktinformation för företag. Om talet är felaktig eller saknas, be administratören att göra ändringar.
 3. Välj **kontakta mig** för att verifiera telefonen tal, och vi ska ringa ditt nummer. Följ anvisningarna på skärmen och välj sedan **Kontrollera**.
 4. Nu uppmanas du att ställa in applösenord för icke-webbläsarappar, till exempel Outlook 2010 eller äldre eller interna e-postappen på Apple-enheter. Det beror på att vissa appar inte stöder tvåstegsverifiering. Om du inte använder de här apparna klickar du på **klar** och hoppa över resten av stegen.

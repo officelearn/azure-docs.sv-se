@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: ergreenl
-ms.openlocfilehash: 93e93f3cfa72fff744ada8d5109ae30a619c84b0
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 8ae99534916ce258dcab01ce2e37db1ffd809381
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264740"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358760"
 ---
 # <a name="suspended-domains"></a>Avbrutna domäner
-När Azure AD Domain Services är inte hantera en hanterad domän för en längre tidsperiod, placerar den hanterade domänen i ett väntetillstånd. Den här artikeln förklarar varför hanterade domäner pausas och hur du åtgärdar en pausad domän.
+När Azure Active Directory Domain Services (Azure AD DS) är inte hantera en hanterad domän för en längre tidsperiod, placerar den hanterade domänen i ett väntetillstånd. Den här artikeln förklarar varför hanterade domäner pausas och hur du åtgärdar en pausad domän.
 
 
 ## <a name="states-your-managed-domain-can-be-in"></a>Tillstånd den hanterade domänen kan vara i
 
 ![Avbrutna domän tidslinje](media\active-directory-domain-services-suspension\suspension-timeline.PNG)
 
-Föregående bild beskrivs möjliga tillstånd kan ha en Azure AD Domain Services-hanterad domän.
+Föregående bild beskrivs möjliga tillstånd kan ha en hanterad Azure AD DS-domän.
 
 ### <a name="running-state"></a>Tillståndet ”körs”
 En hanterad domän som är korrekt konfigurerad och körs regelbundet finns i den **kör** tillstånd.
@@ -66,7 +66,7 @@ I vissa fall (t.ex, om du har en ogiltig konfiguration) kanske domänkontrollant
 ### <a name="the-suspended-state"></a>”Pausad”-tillstånd
 En hanterad domän placeras i den **pausad** tillstånd av följande skäl:
 
-* En eller flera kritiska varningar inte har lösts i 15 dagar. Kritiska aviseringar kan ha orsakats av en felkonfiguration som blockerar åtkomsten till resurser som krävs av Azure AD Domain Services.
+* En eller flera kritiska varningar inte har lösts i 15 dagar. Kritiska aviseringar kan ha orsakats av en felkonfiguration som blockerar åtkomsten till resurser som krävs av Azure AD DS.
     * Till exempel aviseringen [AADDS104: nätverksfel](active-directory-ds-troubleshoot-nsg.md) har varit ogiltiga i mer än 15 dagar i den hanterade domänen.
 * Det finns ett fakturering problem med din Azure-prenumeration eller din Azure-prenumeration har upphört att gälla.
 
@@ -74,7 +74,7 @@ Hanterade domäner gör uppehåll när Microsoft inte kan hantera, övervaka, up
 
 **Vad som händer**
 * Domänkontrollanterna för den hanterade domänen tas bort och är inte kan nås i det virtuella nätverket.
-* Åtkomst med säkert LDAP till den hanterade domänen via Internet (om den är aktiverad) slutar fungera.
+* Åtkomst med säkert LDAP till den hanterade domänen via internet (om den är aktiverad) slutar fungera.
 * Du ser fel i autentisera till den hanterade domänen, logga in på domänanslutna virtuella datorer eller ansluta via LDAP/LDAPS.
 * Säkerhetskopieringar för din hanterade domän kommer inte längre.
 * Stoppar synkronisering med Azure AD.
@@ -90,18 +90,18 @@ En hanterad domän som är i tillståndet ”Pausad” i 15 dagar är **borttagn
 
 **Vad som händer**
 * Alla resurser och säkerhetskopior för den hanterade domänen tas bort.
-* Du kan inte återställa den hanterade domänen och måste du skapa en ny hanterad domän om du vill använda Azure AD Domain Services.
+* Du kan inte återställa den hanterade domänen och måste du skapa en ny hanterad domän om du vill använda Azure AD DS.
 * När den har tagits bort, kan du inte debiteras för den hanterade domänen.
 
 
 ## <a name="how-do-you-know-if-your-managed-domain-is-suspended"></a>Hur vet du om din hanterade domän är inaktiverad?
-Du ser en [avisering](active-directory-ds-troubleshoot-alerts.md) på sidan Azure AD Domain Services Health i Azure-portalen som deklarerar att domänen har inaktiverats. Tillståndet för domänen visas också ”pausad”.
+Du ser en [avisering](active-directory-ds-troubleshoot-alerts.md) på sidan om Azure AD DS Health i Azure-portalen som deklarerar att domänen har inaktiverats. Tillståndet för domänen visas också ”pausad”.
 
 
 ## <a name="restore-a-suspended-domain"></a>Återställa en pausad domän
 Om du vill återställa en domän som är i tillståndet ”Pausad” gör du följande:
 
-1. Gå till den [Azure AD Domain Services-sidan](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) i Azure-portalen.
+1. Gå till den [Azure Active Directory Domain Services-sidan](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) i Azure-portalen.
 2. Välj den hanterade domänen.
 3. I den vänstra panelen, väljer **hälsotillstånd**.
 4. Markera aviseringen. Aviserings-ID är AADDS503 eller AADDS504, beroende på orsaken till inaktivering.
@@ -112,7 +112,7 @@ Den hanterade domänen kan bara återställas till datumet då den senaste säke
 
 ## <a name="next-steps"></a>Nästa steg
 - [Lös aviseringar för din hanterade domän](active-directory-ds-troubleshoot-alerts.md)
-- [Läs mer om Azure AD Domain Services](active-directory-ds-overview.md)
+- [Läs mer om Azure Active Directory Domain Services](active-directory-ds-overview.md)
 - [Kontakta produktteamet](active-directory-ds-contact-us.md)
 
 ## <a name="contact-us"></a>Kontakta oss

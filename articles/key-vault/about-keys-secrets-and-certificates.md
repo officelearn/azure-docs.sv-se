@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 77675b3c0b2ed9fcdb923c92638384d215bddc40
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 8597b2d995b68e9ccff9b856b2ef6bd325cd2439
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972408"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359197"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
 Azure Key Vault kan du lagra och använda kryptografiska nycklar i Microsoft Azure-miljön. Key Vault stöder flera nyckeltyper och algoritmer och möjliggör användning av maskinvarusäkerhetsmodul moduler (HSM) för högt värderade nycklar. Dessutom kan Key Vault du lagra hemligheter säkert. Hemligheter är begränsad storlek oktetten objekt med inga specifika semantik. Key Vault har också stöd för certifikat som är byggda på nycklar och hemligheter och Lägg till en funktion för automatisk förnyelse.
@@ -73,7 +73,7 @@ JavaScript Object Notation (JSON) och JavaScript-objekt signering och kryptering
 -   [JSON Web algoritmer (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
 -   [JSON Web signatur (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
 
-### <a name="BKMK_DataTypes"></a> Datatyper
+### <a name="BKMK_DataTypes"></a> datatyper
 
 Referera till den [JOSE specifikationer](#BKMK_Standards) för relevanta datatyper för nycklar, kryptering och signering.  
 
@@ -106,7 +106,7 @@ Där:
 
 |||  
 |-|-|  
-|`keyvault-name`|Namnet för ett nyckelvalv i Microsoft Azure Key Vault-tjänsten.<br /><br /> Key Vault-namn har valts av användaren och är globalt unikt.<br /><br /> Key Vault-namn måste vara en 3 och 24 strängtecken längd som innehåller endast (0-9, a – z, A – Z, och -).|  
+|`keyvault-name`|Namnet för ett nyckelvalv i Microsoft Azure Key Vault-tjänsten.<br /><br /> Key Vault-namn har valts av användaren och är globalt unikt.<br /><br /> Key Vault-namnet måste vara en sträng med 3–24 tecken som innehåller endast (0–9, a–z, A–Z och -).|  
 |`object-type`|Typ av objekt, ”nycklar” eller ”hemligheter”.|  
 |`object-name`|En `object-name` är ett tillhandahålls användarnamn för och måste vara unika inom ett Key Vault. Namnet måste vara en sträng 1 127 tecken långt och endast 0-9, a – z, A – Z, - och.|  
 |`object-version`|En `object-version` är en systemgenererad, sträng ID på 32 tecken som du kan också används för att adressera en unik version av ett objekt.|  
@@ -117,15 +117,36 @@ Där:
 
 Kryptografiska nycklar i Azure Key Vault representeras som JSON-Webbnyckeln [JWK]-objekt. Grundläggande JWK/JWA specifikationer också utökas för att aktivera nyckeltyper som är unika för Azure Key Vault-implementering, till exempel import av nycklar till Azure Key Vault använder HSM-leverantör (Thales) specifika paketering för att aktivera säker transport av nycklar, till exempel den de kan endast användas i Azure Key Vault HSM.  
 
-Den första Azure Key Vault-versionen har stöd för RSA-nycklar. kommande versioner stöder andra nyckeltyper, till exempel symmetriska och elliptic curve.  
-
--   **RSA**: en 2048-bitars RSA-nyckel. Det här är en ”soft” nyckel som bearbetas i programvara av Key Vault men lagras krypterat i vila med hjälp av en systemnyckel som är i en HSM. Klienter kan importera en befintlig RSA-nyckel eller be att Azure Key Vault Generera en.  
--   **RSA-HSM**: en RSA-nyckel som bearbetas i en HSM. RSA-HSM-nycklar är skyddade i ett Azure Key Vault HSM-Säkerhetsvärldar (det finns en Säkerhetsvärld per geografisk plats för att bibehålla isolering). Klienter kan importera en RSA-nyckel i mjuk formuläret eller genom att exportera från en kompatibel HSM-enhet eller be att Azure Key Vault Generera en. Den här nyckeltypen lägger till attributet T till i JWK skaffa om du vill utföra HSM nyckelmaterial.  
+- **”Soft” nycklar**: en nyckel behandlas i programvaran av Key Vault, men krypteras i viloläge med hjälp av en systemnyckel som är i en HSM. Klienter kan importera en befintlig RSA eller EG nyckel eller be att Azure Key Vault Generera en.
+- **”Hård” nycklar**: en nyckel som bearbetas i en HSM (maskinvarusäkerhetsmodul). Dessa nycklar skyddas i ett Azure Key Vault HSM-Säkerhetsvärldar (det finns en Säkerhetsvärld per geografisk plats för att bibehålla isolering). Klienter kan importera en RSA eller EG nyckel, antingen i mjuk formuläret eller genom att exportera från en kompatibel HSM-enhet eller be att Azure Key Vault Generera en. Den här nyckeltypen lägger till attributet T till i JWK skaffa om du vill utföra HSM nyckelmaterial.
 
      Mer information om geografiska gränser finns [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
+Azure Key Vault har stöd för RSA och Elliptic Curve nycklar. kommande versioner stöder andra nyckeltyper som symmetriska.
+
+-   **EG**: ”Soft” Elliptic Curve nyckel.
+-   **EG HSM**: ”Hard” Elliptic Curve nyckel.
+-   **RSA**: ”Soft” RSA-nyckel.
+-   **RSA-HSM**: ”hård” RSA-nyckel.
+
+Azure Key Vault har stöd för RSA-nycklar med storlekar 2048, 3072 och 4096 och Elliptic Curve nycklarna för skriver P-256, p-384, p 521 och P-256_K.
+
+### <a name="BKMK_Cryptographic"></a> Kryptering
+
+De kryptografiska moduler som använder Azure Key Vault, om HSM eller programvara är FIPS-verifierade. Du behöver inte göra något speciellt för att köra i FIPS-läge. Om du **skapa** eller **importera** nycklar som HSM-skyddad de garanterat som ska bearbetas i HSM: er som verifierats till FIPS 140-2 nivå 2 eller högre. Om du **skapa** eller **importera** nycklar som programvaruskyddad och sedan de bearbetas i kryptografiska moduler verifierade enligt standarderna FIPS 140-2 nivå 1 eller senare. Mer information finns i [nycklar och nyckeltyper](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
+
+###  <a name="BKMK_ECAlgorithms"></a> EG algoritmer
+ Följande algoritm identifierare stöds med EG och EG HSM-nycklar i Azure Key Vault. 
+
+#### <a name="signverify"></a>INLOGGNING/KONTROLLERA
+
+-   **ES256** – ECDSA för SHA-256 Överför sammanfattningar och nycklar som skapats med kurvan p-256. Den här algoritmen beskrivs på [RFC7518].
+-   **ES256K** – ECDSA för SHA-256 Överför sammanfattningar och nycklar som skapats med kurvan P-256_K. Den här algoritmen väntar på standardisering.
+-   **ES384** – ECDSA för SHA-384 Överför sammanfattningar och nycklar som skapats med kurvan p-384. Den här algoritmen beskrivs på [RFC7518].
+-   **ES512** – ECDSA för SHA-512 Överför sammanfattningar och nycklar som skapats med kurvan p 521. Den här algoritmen beskrivs på [RFC7518].
+
 ###  <a name="BKMK_RSAAlgorithms"></a> RSA-algoritmer  
- Följande algoritm identifierare stöds med RSA-nycklar i Azure Key Vault.  
+ Följande algoritm identifierare stöds med RSA- och RSA-HSM-nycklar i Azure Key Vault.  
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>WRAPKEY/UNWRAPKEY, KRYPTERING/DEKRYPTERING
 
@@ -138,25 +159,6 @@ Den första Azure Key Vault-versionen har stöd för RSA-nycklar. kommande versi
 -   **RS384** – RSASSA-PKCS-v1_5 med hjälp av SHA-384. Program som angetts digest-värdet måste beräknas med hjälp av SHA-384 och måste vara 48 byte långt.  
 -   **RS512** – RSASSA-PKCS-v1_5 med hjälp av SHA-512. Program som angetts sammanfattad värdet måste beräknas med hjälp av SHA-512 och måste vara 64 byte långt.  
 -   **RSNULL** -Se [RFC2437] specialiserade användningsfall att aktivera vissa TLS-scenarier.  
-
-###  <a name="BKMK_RSA-HSMAlgorithms"></a> RSA-HSM algoritmer  
-Följande algoritm identifierare stöds med RSA-HSM-nycklar i Azure Key Vault.  
-
-### <a name="BKMK_Cryptographic"></a> Kryptering
-
-De kryptografiska moduler som använder Azure Key Vault, om HSM eller programvara är FIPS-verifierade. Du behöver inte göra något speciellt för att köra i FIPS-läge. Om du **skapa** eller **importera** nycklar som HSM-skyddad de garanterat som ska bearbetas i HSM: er som verifierats till FIPS 140-2 nivå 2 eller högre. Om du **skapa** eller **importera** nycklar som programvaruskyddad och sedan de bearbetas i kryptografiska moduler verifierade enligt standarderna FIPS 140-2 nivå 1 eller senare. Mer information finns i [nycklar och nyckeltyper](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
-
-#### <a name="wrapunwrap-encryptdecrypt"></a>RADBYTE/PACKA UPP, KRYPTERING/DEKRYPTERING
-
--   **RSA1_5** -RSAES PKCS1 V1_5 [RFC3447] nyckelkryptering.  
--   **RSA-OAEP** – RSAES med standardparametrarna som anges i RFC 3447 i avsnittet A.2.1 optimala asymmetrisk kryptering utfyllnad (OAEP) [RFC3447]. Dessa standardparametrar använder en hash-funktionen SHA-1 och en maskeringsfunktion generation av MGF1 med SHA-1.  
-
- #### <a name="signverify"></a>INLOGGNING/KONTROLLERA  
-
--   **RS256** – RSASSA-PKCS-v1_5 med SHA-256. Program som angetts digest-värdet måste beräknas med hjälp av SHA-256 och måste vara 32 byte långt.  
--   **RS384** – RSASSA-PKCS-v1_5 med hjälp av SHA-384. Program som angetts digest-värdet måste beräknas med hjälp av SHA-384 och måste vara 48 byte långt.  
--   **RS512** – RSASSA-PKCS-v1_5 med hjälp av SHA-512. Program som angetts sammanfattad värdet måste beräknas med hjälp av SHA-512 och måste vara 64 byte långt.  
--   RSNULL: Se [RFC2437] specialiserade användningsfall att aktivera vissa TLS-scenarier.  
 
 ###  <a name="BKMK_KeyOperations"></a> Viktiga aktiviteter
 

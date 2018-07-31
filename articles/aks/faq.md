@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/27/2018
 ms.author: iainfou
-ms.openlocfilehash: ea22b33233f85da117de54829e5a16bd7dcab36a
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b64c770bca84fba8cbed98e420abf649897f7a17
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205256"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345862"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ Azure tillämpar automatiskt säkerhetsuppdateringar på noderna i klustret enli
 
 - Manuellt via Azure portal eller Azure CLI.
 - Genom att uppgradera AKS-klustret. Uppgradering av kluster automatiskt [här och tömmer noderna](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), anpassa dem säkerhetskopiera med den senaste Ubuntu-avbildningen. Uppdatera operativsystemavbildning på noderna utan att ändra Kubernetes-versioner genom att ange den aktuella versionen för klustret i `az aks upgrade`.
-- Med hjälp av [Kured](https://github.com/weaveworks/kured), en omstart för öppen källkod-daemon för Kubernetes. Kured körs som en [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) och övervakar varje nod för förekomsten av en fil som anger att en omstart krävs. Den arrangerar sedan omstarter i klustret, följa samma cordon och drain processen som beskrivs tidigare.
+- Med hjälp av [Kured](https://github.com/weaveworks/kured), en omstart för öppen källkod-daemon för Kubernetes. Kured körs som en [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) och övervakar varje nod för förekomsten av en fil som anger att en omstart krävs. Den hanterar sedan OS omstarter i klustret, följa samma cordon och drain processen som beskrivs tidigare.
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS som har stöd för automatisk skalning nod?
 
@@ -39,7 +39,7 @@ Ja, automatisk skalning är tillgängligt via den [Kubernetes autoskalningen] [ 
 
 Ja, RBAC kan vara aktiverad när [distribuerar ett AKS-kluster från Azure CLI eller Azure Resource Manager-mall](https://docs.microsoft.com/en-us/azure/aks/aad-integration). Den här funktionen kommer snart att Azure-portalen.
 
-## <a name="what-kubernetes-admission-controllers-does-aks-support-can-this-be-configured"></a>Vilka Kubernetes åtkomst domänkontrollanter stöder AKS? Detta konfigureras?
+## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Vilka Kubernetes åtkomst domänkontrollanter stöder AKS? Kan åtkomst domänkontrollanter läggs till eller tas bort?
 
 AKS har stöd för följande [åtkomst domänkontrollanter][admission-controllers]:
 
@@ -66,7 +66,7 @@ Inte just nu. Kubernetes API-servern visas som en offentlig fullständigt kvalif
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault är integrerad med AKS?
 
-AKS är inte internt integrerat med Azure Key Vault just nu. Det finns dock community-lösningar som [acs-keyvault-agenten från Hexadite][hexadite].
+AKS är inte internt integrerat med Azure Key Vault just nu. Men den [KeyVault Flex volym projekt](https://github.com/Azure/kubernetes-keyvault-flexvol) aktiverar direkta integrering från Kubernetes-poddar till KeyVault-hemligheter.
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Kan jag köra Windows Server-behållare i AKS?
 
@@ -76,11 +76,11 @@ Du måste köra Windows Server-baserade noder för att köra Windows Server-beh�
 
 Varje AKS-distributionen omfattar två resursgrupper. Först har skapats av dig och innehåller endast Kubernetes service-resurs. AKS-resursprovidern skapar automatiskt den andra mallen under distributionen med ett namn som liknar *MC_myResourceGroup_myAKSCluster_eastus*. Andra resursgruppen innehåller alla de infrastrukturresurser som är kopplat till klustret, till exempel virtuella datorer, nätverk och lagring. Den har skapats för att förenkla rensning av resurser.
 
-Om du skapar resurser som ska användas med AKS-klustret, till exempel lagringskonton eller reserverade offentliga IP-adress, bör du placera dem i resursgruppen skapas automatiskt.
+Om du skapar resurser som ska användas med AKS-klustret, till exempel lagringskonton eller reserverade offentliga IP-adresser, bör du placera dem i resursgruppen skapas automatiskt.
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>Erbjuder ett servicenivåavtal i AKS?
 
-I ett servicenivåavtal (SLA) samtycker providern till att ersätta kunden för kostnaden för tjänsten publicerade servicenivån inte vara uppfyllda. Eftersom AKS själva är kostnadsfria, är utan kostnad som är tillgängliga för att betala tillbaka och därför inget formella serviceavtal. Men begära vi att bibehålla tillgänglighet på minst 99,5% för Kubernetes API-servern.
+I ett servicenivåavtal (SLA) samtycker providern till att ersätta kunden för kostnaden för tjänsten publicerade servicenivån inte vara uppfyllda. Eftersom AKS själva är kostnadsfria, är utan kostnad som är tillgängliga för att betala tillbaka och därför inget formella serviceavtal. Dock AKS strävar efter att upprätthålla tillgänglighet på minst 99,5% för Kubernetes API-servern.
 
 <!-- LINKS - internal -->
 

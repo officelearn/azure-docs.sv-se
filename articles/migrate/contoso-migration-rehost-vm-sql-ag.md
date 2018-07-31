@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: raynew
-ms.openlocfilehash: 2415812a62fc000ddb18318ac52b764c1b5de51b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0cfb583f9d16039249aaffe18f71039e91dc3705
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008441"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359214"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso-migrering: Appvärd på virtuella datorer i Azure och SQL Server AlwaysOn Availability Group på plats
 
@@ -39,7 +39,7 @@ Artikel 6: Ange ny värd för en app på Azure virtuella datorer och SQLServer A
 
 
 
-I den här artikeln migrera Contoso tvålagers-Windows. NET SmartHotel app som körs på virtuella VMware-datorer till Azure. Om du vill använda den här appen tillhandahålls som öppen källkod och du kan ladda ned det från [GitHub](https://github.com/Microsoft/SmartHotel360).
+I den här artikeln migrera Contoso tvålagers-SmartHotel Windows .NET-app som körs på virtuella VMware-datorer till Azure. Om du vill använda den här appen tillhandahålls som öppen källkod och du kan ladda ned det från [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="business-drivers"></a>Affärsdrivande faktorer
 
@@ -457,7 +457,7 @@ Nu anger Contoso Målinställningar för replikering.
 
 ### <a name="create-a-replication-policy"></a>Skapa replikeringsprincip
 
-Nej, Contoso kan skapa en replikeringsprincip.
+Contoso kan nu skapa en replikeringsprincip.
 
 1. I **Förbered infrastruktur** > **replikeringsinställningar** > **replikeringsprincip** >  **skapa och Associera**, de skapar en princip **ContosoMigrationPolicy**.
 2. De använder standardinställningarna:

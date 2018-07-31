@@ -2,8 +2,8 @@
 title: Skapa Azure Enterprise-prenumerationer programmässigt | Microsoft Docs
 description: Lär dig hur du skapar ytterligare Azure Enterprise- eller Enterprise Dev/Test-prenumerationer programmässigt.
 services: azure-resource-manager
-author: jlian
-manager: jlian
+author: adpick
+manager: adpick
 editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
-ms.author: jlian
-ms.openlocfilehash: 36e69696b292454598faed2a95a844dc7a7442c5
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.author: adpick
+ms.openlocfilehash: 2bfa9944d85fde65ad8dbd73ddda11fa405df2f8
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266108"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358373"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Programmässigt skapa Azure Enterprise-prenumerationer (förhandsversion)
 
@@ -28,9 +28,11 @@ När du skapar en Azure-prenumeration från detta API kan regleras den prenumera
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Ditt konto måste vara en kontoinnehavare i en Azure EA-registrering. Om inte, be din administratör för registreringen att [lägga till dig som en kontoinnehavare med EA-portalen](https://ea.azure.com/helpdocs/addNewAccount) (inloggning krävs). Följ instruktionerna i e-postinbjudan felmeddelandet för att manuellt skapa en första prenumeration. Bekräfta konton och manuellt skapa en inledande EA-prenumeration innan du fortsätter till nästa steg. Bara att lägga till kontot till registreringen räcker inte.
+Du måste ha en rollen som Prenumerationsägare eller deltagare för registrering-kontot som du vill skapa prenumerationer under. Det finns två sätt att få dessa roller:
 
-* Om du vill använda ett huvudnamn för tjänsten för att skapa EA-prenumerationen måste du [ge tjänstobjektet möjlighet att skapa prenumerationer](grant-access-to-create-subscription.md).
+* Din administratör för registreringen kan [se du Kontoägare](https://ea.azure.com/helpdocs/addNewAccount) (inloggning krävs) som gör dig till ägare till Registreringskontot. Följ instruktionerna i e-postinbjudan felmeddelandet för att manuellt skapa en första prenumeration. Bekräfta konton och manuellt skapa en inledande EA-prenumeration innan du fortsätter till nästa steg. Bara att lägga till kontot till registreringen räcker inte.
+
+* Befintliga ägare till Registreringskontot kan [bevilja dig åtkomst](grant-access-to-create-subscription.md). På samma sätt, om du vill använda ett huvudnamn för tjänsten för att skapa EA-prenumerationen måste du [ge tjänstobjektet möjlighet att skapa prenumerationer](grant-access-to-create-subscription.md).
 
 ## <a name="find-accounts-you-have-access-to"></a>Hitta konton som du har åtkomst till
 

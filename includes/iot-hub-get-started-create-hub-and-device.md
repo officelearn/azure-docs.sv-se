@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: f8cd78e63099f864c5fc54b6268f6e558d738626
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9f7fee71fb2b80be93d978569791dbb57f137949
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38724951"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346842"
 ---
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -21,15 +21,14 @@ ms.locfileid: "38724951"
 
 Nu när du har skapat en IoT-hubb letar du upp viktig information som du använder för att ansluta enheter och program till IoT-hubben. 
 
-Öppna i navigeringsmenyn din IoT-hubb **principer för delad åtkomst**.
-Välj den **iothubowner** principen och kopiera sedan den **anslutningssträngen---primärnyckel** för IoT-hubben. Mer information finns i [Control access to IoT Hub](../articles/iot-hub/iot-hub-devguide-security.md) (Kontrollera åtkomsten till IoT Hub).
+Öppna i navigeringsmenyn din IoT-hubb **principer för delad åtkomst**. Välj den **iothubowner** principen och kopiera sedan den **anslutningssträngen---primärnyckel** för IoT-hubben. Mer information finns i [Control access to IoT Hub](../articles/iot-hub/iot-hub-devguide-security.md) (Kontrollera åtkomsten till IoT Hub).
 
    > [!NOTE] 
-   > Du behöver inte den här iothubowner-anslutningssträngen i den här konfigurationskursen. Men kan du behöva den för några av självstudierna eller olika IoT-scenarier när du har slutfört den här konfigurationen.
+   > Du behöver inte iothubowner-anslutningssträngen i den här konfigurationskursen. Men kan du behöva den för några av självstudierna eller olika IoT-scenarier när du har slutfört den här konfigurationen.
 
    ![Hämta IoT-hubbens anslutningssträng](./media/iot-hub-get-started-create-hub-and-device/create-iot-hub5.png)
 
-## <a name="register-a-device-in-the-iot-hub-for-your-device"></a>Registrera en enhet i IoT-hubben för din enhet
+## <a name="register-your-device-in-the-iot-hub"></a>Registrera din enhet i IoT hub
 
 1. Öppna i navigeringsmenyn din IoT-hubb **IoT-enheter**, klicka sedan på **Lägg till** att registrera en enhet i IoT hub.
 
@@ -39,8 +38,10 @@ Välj den **iothubowner** principen och kopiera sedan den **anslutningssträngen
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-4. Klicka på **Spara**.
-5. När enheten har skapats öppnar du enheten i listan i den **IoT-enheter** fönstret.
-6. Kopiera den **anslutningssträngen---primärnyckel** för senare användning.
+3. Klicka på **Spara**.
+
+4. När enheten har skapats öppnar du enheten i listan i den **IoT-enheter** fönstret.
+
+5. Kopiera den **anslutningssträngen---primärnyckel** för senare användning.
 
    ![Hämta enhetens anslutningssträng](./media/iot-hub-get-started-create-hub-and-device/device-connection-string.png)

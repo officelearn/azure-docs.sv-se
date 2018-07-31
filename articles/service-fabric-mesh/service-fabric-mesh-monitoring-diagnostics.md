@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 06/22/2018
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 79e5622dd73e53854204675b435e99d187a3ab26
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9f857c23b5500bc7790a0ff7fcf81eaec51f37c9
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076635"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358333"
 ---
 # <a name="monitoring-and-diagnostics"></a>Övervakning och diagnostik
-Azure Service Fabric-nät är en fullständigt hanterad tjänst som ger utvecklare möjlighet att distribuera mikrotjänstprogram utan att hantera virtuella datorer, lagring och nätverk. Övervakning och diagnostik för Service Fabric-nät är indelade i tre typer av diagnostikdata:
+Azure Service Fabric Mesh är en fullständigt hanterad tjänst som gör att utvecklare kan distribuera mikrotjänstprogram utan att hantera virtuella datorer, lagring eller nätverk. Övervakning och diagnostik för Service Fabric-nät är indelade i tre typer av diagnostikdata:
 
 - Programloggar - dessa definieras som loggar från dina behållarbaserade program, baserat på hur du har instrumenterade ditt program (t.ex. docker loggar)
 - – Plattformshändelser av nät-plattformen som är relevanta för din behållaråtgärden, inklusive för närvarande behållare aktivering, inaktivering och uppsägning.
@@ -40,7 +40,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 ```
 
 > [!NOTE]
-> Du kan använda kommandot ”az nät servicereplica” för att få namnet på repliken. Namn är ökande nummer från 0.*
+> Du kan använda kommandot ”az nät service och repliken” för att få namnet på repliken. Namn är ökande nummer från 0.*
 
 Här är hur detta ser ut för att visa loggar från VotingWeb.Code behållaren från röstningsprogrammet:
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: elioda
-ms.openlocfilehash: f335ffae153893a39312326738ee4188c3756ff4
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 19a129ec4646f13f1bd095dffd423f3b90bb32a7
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185483"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345468"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med IoT-hubben med hjälp av MQTT-protokollet
 
@@ -79,7 +79,14 @@ Om en enhet inte kan använda SDK: er för enheter, kan det fortfarande ansluta 
 
   Mer information om hur du genererar SAS-token finns i avsnittet enheten i [med hjälp av IoT Hub säkerhetstoken][lnk-sas-tokens].
 
-  När du testar kan du kan också använda den [Device Explorer] [ lnk-device-explorer] verktyget eller plattformsoberoende [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) att snabbt skapa en SAS-token som Du kan kopiera och klistra in i din egen kod:
+  När du testar kan du kan också använda plattformsoberoende [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) eller [Device Explorer] [ lnk-device-explorer] verktyg för att snabbt skapa en SAS-token som Du kan kopiera och klistra in i din egen kod:
+
+För Azure IoT Toolkit:
+
+  1. Expandera den **AZURE IOT HUB-enheter** fliken i det nedre vänstra hörnet av Visual Studio Code.
+  2. Högerklicka på enheten och välj **generera SAS-Token för enheten**.
+  3. Ange **förfallotid** och tryck på ”RETUR”.
+  4. SAS-token skapas och kopieras till Urklipp.
 
 För Device Explorer:
 
@@ -95,13 +102,6 @@ För Device Explorer:
      En del av denna token ska användas som den **lösenord** fält som du vill ansluta med hjälp av MQTT är:
 
      `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
-     
-För Azure IoT Toolkit:
-
-  1. Expandera den **AZURE IOT HUB-enheter** fliken i det nedre vänstra hörnet av Visual Studio Code.
-  2. Högerklicka på enheten och välj **generera SAS-Token för enheten**.
-  3. Ange **förfallotid** och tryck på ”RETUR”.
-  4. SAS-token skapas och kopieras till Urklipp.
 
 MQTT ansluta och koppla från paket, IoT Hub skickar en händelse på den **Operations Monitoring** kanal. Den här händelsen har ytterligare information som kan hjälpa dig att felsöka anslutningsproblem.
 

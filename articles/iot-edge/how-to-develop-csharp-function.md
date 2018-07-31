@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3176a3a4acc6e9ca486d409d861f2ed0e63473ec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bf2d1af66cc3ecc35dafe3bcd43bf10399d71641
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056512"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346723"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka Azure functions för Azure IoT Edge
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du använder [Visual Studio Code (VS Code)](https://
 Den här artikeln förutsätter att du använder en dator eller virtuell dator som kör Windows eller Linux som din utvecklingsdator. IoT Edge-enhet kan vara en annan fysisk enhet. Eller du kan simulera IoT Edge-enhet på utvecklingsdatorn.
 
 > [!NOTE]
-> Den här felsökning artikeln visar hur du ansluter en process i en modul-behållare och felsöka med VS Code. Du kan bara felsöka C#-moduler i Linux amd64-behållare. Om du inte är bekant med felsökning funktionerna i Visual Studio Code, Läs om [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
+> Den här felsökning artikeln visar hur du ansluter en process i en modul-behållare och felsöka med VS Code. Du kan bara felsöka C#-funktioner i Linux amd64-behållare. Om du inte är bekant med felsökning funktionerna i Visual Studio Code, Läs om [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
 
 Den här artikeln används Visual Studio Code som det huvudsakliga utvecklingsverktyg. Installera VS Code. Lägg sedan till tillägg som behövs: 
 
@@ -71,7 +71,7 @@ Det finns fyra objekt inne i lösningen:
 
 * En **deployment.template.json** filen visar en lista över dina nya modulen tillsammans med ett exempel **tempSensor** modul som simulerar data som du kan använda för testning. Mer information om hur distribution manifest work finns i [Lär dig hur du använder distribution manifest för att distribuera moduler och upprätta vägar](module-composition.md).
 
-## <a name="devlop-your-module"></a>Devlop din modul
+## <a name="develop-your-module"></a>Utveckla din modell
 
 Standard Azure Function-koden som medföljer lösningen finns i **moduler** > **\<din Modulnamn\>**   >   **EdgeHubTrigger-Csharp** > **run.csx**. Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
 

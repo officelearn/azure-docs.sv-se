@@ -91,6 +91,8 @@
       href: functions-best-practices.md
     - name: Functions-proxyservrar
       href: functions-proxies.md
+    - name: IP-adresser
+      href: ip-addresses.md
     - name: Lokala funktioner
       href: functions-runtime-overview.md
     - name: Bestående funktioner

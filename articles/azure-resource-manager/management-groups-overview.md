@@ -10,31 +10,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/26/2018
+ms.date: 7/31/2018
 ms.author: rithorn
-ms.openlocfilehash: f9554c058fbebc215aa61979fa03280553597afc
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 146ded37dbf517528af23574cd5b9325f4b5f9d0
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308324"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358777"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organisera dina resurser med Azure-hanteringsgrupper
 
 Om din organisation har många prenumerationer kan det behövas ett effektivt sätt att hantera åtkomst, principer och efterlevnad för prenumerationerna. Azure-hanteringsgrupper ger en nivå av omfång över prenumerationer. Du organiserar prenumerationer i behållare som kallas ”hanteringsgrupper” och använda dina styrning villkor på hanteringsgrupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de villkor som gäller för hanteringsgruppen. Av hanteringsgrupper ger företagsklass i stor skala oavsett vilken typ av prenumerationer som du kan ha.
-
-Hantering av grupp-funktionen är tillgänglig i en offentlig förhandsversion. Om du vill börja använda hanteringsgrupper, logga in på den [Azure-portalen](https://portal.azure.com) och Sök efter **Hanteringsgrupper** i den **alla tjänster** avsnittet.
 
 Du kan till exempel tillämpa principer på en hanteringsgrupp som begränsar regionerna som är tillgängliga för att skapa en virtuell dator (VM). Den här principen ska tillämpas på alla hanteringsgrupper, prenumerationer och resurser under den hanteringsgruppen genom att bara tillåta virtuella datorer som ska skapas i den regionen.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Hierarki för hanteringsgrupper och -prenumerationer
 
 Du kan skapa en flexibel struktur för hanteringsgrupper och -prenumerationer för att organisera dina resurser i en hierarki för enhetlig princip- och åtkomsthantering.
-Följande diagram visar en exempelhierarki som består av hanteringsgrupper och prenumerationer som är ordnade efter avdelningar.
+Följande diagram visar ett exempel för att skapa en hierarki för styrning med hjälp av hanteringsgrupper.
 
 ![trädet](media/management-groups/MG_overview.png)
 
-Genom att skapa en hierarki som är grupperade efter avdelningar, kan du tilldela [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) roller som *ärver* till avdelningar under den hanteringsgruppen. Genom att använda hanteringsgrupper kan du minska din arbetsbelastning och minskar risken för fel genom att bara behöva tilldela rollen som en gång.
+Du kan använda en princip, till exempel VM-platser som är begränsad till regionen ”USA västra” grupp ”Infrastructure-teamet hanteringsgruppen” genom att skapa en hierarki som i följande exempel för att aktivera interna efterlevnads- och säkerhetsprinciper. Den här principen ärver till båda EA-prenumerationer under den hanteringsgruppen och gäller för alla virtuella datorer under dessa prenumerationer. Eftersom den här principen ärver från hanteringsgruppen till prenumerationer, kan den här säkerhetsprincipen inte ändras av resurs eller prenumeration ägare så att du bättre styrning.
+
+Ett annat scenario där du skulle använda hanteringsgrupper är att ge användaråtkomst till flera prenumerationer.  Genom att flytta flera prenumerationer under den hanteringsgruppen har möjlighet du skapa en tilldelning av RBAC på hanteringsgrupp, vilket ärver den åtkomsten till alla prenumerationer.  Utan att behöva skriptet RBAC-uppgifter över flera prenumerationer, kan en tilldelning på hanteringsgruppen att användare ska ha åtkomst till allt de behöver.
 
 ### <a name="important-facts-about-management-groups"></a>Viktiga fakta om hanteringsgrupper
 
@@ -44,11 +44,6 @@ Genom att skapa en hierarki som är grupperade efter avdelningar, kan du tilldel
 - Varje hanteringsgrupp och en prenumeration har endast stöd för en överordnad.
 - Varje hanteringsgrupp kan ha flera underordnade objekt.
 - Alla prenumerationer och hanteringsgrupper ingår i en hierarki i varje katalog. Se [viktiga fakta om hanteringsgruppen rot](#important-facts-about-the-root-management-group) för undantag i förhandsversionen.
-
-### <a name="cloud-solution-provider-csp-limitation-during-preview"></a>Cloud Solution Provider (CSP)-begränsning i förhandsversionen
-
-Det finns en aktuell begränsning för Cloud Solution Provider (CSP)-partner där de inte kan du skapa och hantera sina kunders hanteringsgrupper i sina kunders directory.  
-Det här objektet arbetades på och kommer att lösas innan grupper har meddelats vara ”Allmänt”.
 
 ## <a name="root-management-group-for-each-directory"></a>Rot-hanteringsgruppen för varje katalog
 

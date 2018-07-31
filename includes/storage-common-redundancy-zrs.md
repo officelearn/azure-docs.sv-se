@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/03/2018
+ms.date: 07/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: a88588497919d6cce17ced6d94de3bcbbb6a3019
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 86c301748b58e7642df9a738c70b4fe70be3310b
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069638"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358623"
 ---
 Zonredundant lagring (ZRS) replikerar dina data synkront i tre lagringskluster i en enda region. Varje lagringskluster är fysiskt avgränsade från de andra och ligger i sin egen tillgänglighetszon (AZ). Varje tillgänglighetszon och ZRS-klustret i denna är autonoma med olika verktyg och nätverksfunktioner.
 
@@ -28,8 +28,9 @@ ZRS stöder för närvarande standard [generell användning v2 (GPv2)](../articl
 
 ZRS är allmänt tillgängligt i följande regioner:
 
-- Östra USA 2
-- Centrala USA
+- USA, östra 2
+- USA, västra 2
+- USA, centrala
 - Norra Europa
 - Västeuropa
 - Frankrike, centrala

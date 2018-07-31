@@ -3,7 +3,7 @@ title: Timerutlösare för Azure Functions
 description: Förstå hur du använder timerutlösare i Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: eead96a2db9d0038ab27de747f2d9f486a7284a5
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 8459c08866fb71e755663aaddd32015af8b0d1df
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284297"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345250"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timerutlösare för Azure Functions 
 
@@ -179,8 +179,8 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**riktning** | Saknas | Måste anges till ”in”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar timer-objekt i funktionskoden. | 
 |**schedule**|**ScheduleExpression**|En [CRON-uttryck](#cron-expressions) eller en [TimeSpan](#timespan) värde. En `TimeSpan` kan bara användas för en funktionsapp som körs på en App Service Plan. Du kan placera schema-uttrycket i en appinställning och ange egenskapen till appinställningen namn och är inneslutna i **%** tecken, som i följande exempel: ”% ScheduleAppSetting %”. |
-|**runOnStartup**|**RunOnStartup**|Om `true`, funktionen anropas när körningen startar. Till exempel startar körningen när funktionsappen aktiveras efter inaktivitet på grund av inaktivitet. När appen startas om på grund av funktionen ändringar, och när appen skalas ut. Så **runOnStartup** sällan om någonsin sättas till `true`, vilket gör den kod som kör vid tidpunkter med hög oförutsägbart.|
-|**useMonitor**|**UseMonitor**|Ange `true` eller `false` att indikera om schemat ska övervakas. Övervakning av schema kvarstår schema förekomster som hjälper till att upprätthålla schemat underhålls korrekt även om funktionen app-instanserna startas om. Om inte har angetts uttryckligen är standardvärdet `true` för scheman som har ett intervall som är större än 1 minut. För scheman som utlöser mer än en gång per minut som standard används `false`.
+|**RunOnStartup**|**RunOnStartup**|Om `true`, funktionen anropas när körningen startar. Till exempel startar körningen när funktionsappen aktiveras efter inaktivitet på grund av inaktivitet. När appen startas om på grund av funktionen ändringar, och när appen skalas ut. Så **runOnStartup** sällan om någonsin sättas till `true`, vilket gör den kod som kör vid tidpunkter med hög oförutsägbart.|
+|**UseMonitor**|**UseMonitor**|Ange `true` eller `false` att indikera om schemat ska övervakas. Övervakning av schema kvarstår schema förekomster som hjälper till att upprätthålla schemat underhålls korrekt även om funktionen app-instanserna startas om. Om inte har angetts uttryckligen är standardvärdet `true` för scheman som har ett intervall som är större än 1 minut. För scheman som utlöser mer än en gång per minut som standard används `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

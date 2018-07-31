@@ -1,23 +1,23 @@
 ---
-title: Felsöka tvåstegsverifiering - Azure AD | Microsoft Docs
+title: Felsöka tvåstegsverifiering - Azure Active Directory | Microsoft Docs
 description: Innehåller instruktioner för användarna vad du kan göra om de stöter på ett problem med Azure Multi-Factor Authentication och tvåstegsverifiering.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
-ms.service: multi-factor-authentication
 ms.workload: identity
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: ec79adcaf7cbef778b8c9e572ae932d5ceb47aa6
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: fd722da236f3e1fff18e2561756635cd95f098e0
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090385"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346531"
 ---
 # <a name="get-help-with-two-step-verification"></a>Få hjälp med tvåstegsverifiering
 
@@ -42,7 +42,7 @@ Det finns flera orsaker till varför du kan behöva använda en annan verifierin
 
 ## <a name="sign-in-using-another-verification-method"></a>Logga in med en annan verifieringsmetod
 
-1. Logga in på ditt konto normalt och välj den **loggar du in ett annat sätt** länkar på den **tvåstegsverifiering** sidan.
+1. logga in på ditt konto normalt och välj den **loggar du in ett annat sätt** länkar på den **tvåstegsverifiering** sidan.
 
     ![Ändra inloggning verifieringsmetod](./media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
 

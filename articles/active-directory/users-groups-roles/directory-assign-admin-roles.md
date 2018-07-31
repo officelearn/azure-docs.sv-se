@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 73ffb1ab9c91794325725bb3b99b210a06979443
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 50ec925e10b32bd2bad63322ae166a02576c691a
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325521"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344434"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -46,10 +46,8 @@ Följande administratörsroller är tillgängliga:
 
 * **[Administratör för villkorsstyrd åtkomst](#conditional-access-administrator)**: användare med den här rollen har behörighet att hantera inställningar för villkorlig åtkomst i Azure Active Directory.
   > [!NOTE]
-  > Om du vill distribuera Exchange ActiveSync villkorsstyrd åtkomstprincip i Azure, måste användaren också vara Global administratör.
+  > Om du vill distribuera Exchange ActiveSync villkorsstyrd åtkomstprincip i Azure, måste användaren också vara en Global administratör.
   
-* **[Dynamics 365-tjänstadministratör / CRM-tjänstadministratör](#crm-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft CRM Online när tjänsten finns närvarande, liksom möjligheten att hantera supportbegäranden och övervaka tjänstehälsa. Mer information på [använda administratörsrollen för att hantera din klient](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
-
 * **[Enhetsadministratörer](#device-administrators)**: användare med den här rollen blir lokala administratörer på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte behörighet att hantera enhetsobjekt i Azure Active Directory.
 
 * **[Katalogläsare](#directory-readers)**: det här är en äldre roll som ska tilldelas till program som inte stöder den [godkänna Framework](../develop/active-directory-integrating-applications.md). Det ska inte tilldelas alla användare.
@@ -57,6 +55,8 @@ Följande administratörsroller är tillgängliga:
 * **[Konton för katalogsynkronisering](#directory-synchronization-accounts)**: Använd inte. Den här rollen är tilldelas automatiskt till Azure AD Connect-tjänsten och inte avsedd eller stöd för annan användning.
 
 * **[Katalogskrivare](#directory-writers)**: det här är en äldre roll som ska tilldelas till program som inte stöder den [godkänna Framework](../develop/active-directory-integrating-applications.md). Det ska inte tilldelas alla användare.
+
+* **[Dynamics 365-tjänstadministratör / CRM-tjänstadministratör](#dynamics-365-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft Dynamics 365 Online när tjänsten finns närvarande, liksom möjlighet att hantera supportbegäranden och Kontrollera tjänstens hälsotillstånd. Mer information på [använda administratörsrollen för att hantera din klient](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 * **[Exchange-tjänstadministratör](#exchange-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft Exchange Online när tjänsten finns. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -352,27 +352,6 @@ Kan hantera funktioner för villkorsstyrd åtkomst.
 | microsoft.aad.directory/ConditionalAccessPolicy/Update | Uppdatera standardegenskaper för ConditionalAccessPolicys i Azure Active Directory. |
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | Uppdatera ConditionalAccessPolicys.Owners-egenskapen i Azure Active Directory. |
 
-### <a name="crm-service-administrator"></a>Administratör för CRM-tjänst
-Kan hantera alla aspekter av Dynamics 365-produkten.
-
-  > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
-  > [!NOTE]
-  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
-  >
-  >
-
-| **Åtgärder** | **Beskrivning** |
-| --- | --- |
-| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Läs Organizations.TrustedCAsForPasswordlessAuth-egenskapen i Azure Active Directory. |
-| microsoft.aad.accessservice/AllEntities/AllActions | Skapa och ta bort alla resurser och läsa och uppdatera standardegenskaper i Azure Access Control. |
-| microsoft.aad.servicehealth/AllEntities/AllActions | Läsa och konfigurera Office 365 Service Health. |
-| microsoft.aad.supporttickets/AllEntities/AllActions | Skapa och hantera Office 365-supportbegäranden. |
-| microsoft.crm/AllEntities/AllActions | Hantera alla aspekter av Dynamics 365. |
-
 ### <a name="device-administrators"></a>Enhetsadministratörer
 Medlemmar i den här rollen har lagts till i gruppen lokala administratörer på Azure AD-anslutna enheter.
 
@@ -385,7 +364,9 @@ Medlemmar i den här rollen har lagts till i gruppen lokala administratörer på
 | --- | --- |
 
 ### <a name="directory-readers"></a>Katalogläsare
-Kan läsa grundläggande kataloginformation. För att bevilja åtkomst till program
+<<<<<<< HEAD kan läsa grundläggande kataloginformation. För att bevilja åtkomst till program.
+=== Kan läsa grundläggande kataloginformation. För att bevilja åtkomst till program
+>>>>>>> ae91bfc09771777f3e74c0dd0f8db6bc14e1e710
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
@@ -487,6 +468,27 @@ Kan läsa och skriva grundläggande kataloginformation. För att bevilja åtkoms
 | microsoft.aad.directory/User/Update | Uppdatera standardegenskaper för användare i Azure Active Directory. |
 | microsoft.aad.directory/User/Update/AppRoleAssignments | Uppdatera Users.AppRoleAssignments-egenskapen i Azure Active Directory. |
 | microsoft.aad.directory/User/Update/Manager | Uppdatera Users.Manager-egenskapen i Azure Active Directory. |
+
+### <a name="dynamics-365-service-administrator"></a>Dynamics 365-tjänstadministratör
+Kan hantera alla aspekter av Dynamics 365-produkten.
+
+  > [!NOTE]
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  >
+  >
+
+  > [!NOTE]
+  > Den här rollen har ytterligare behörighet utanför Azure Active Directory. Se Rollbeskrivning ovan för mer information.
+  >
+  >
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Läs Organizations.TrustedCAsForPasswordlessAuth-egenskapen i Azure Active Directory. |
+| microsoft.aad.accessservice/AllEntities/AllActions | Skapa och ta bort alla resurser och läsa och uppdatera standardegenskaper i Azure Access Control. |
+| microsoft.aad.servicehealth/AllEntities/AllActions | Läsa och konfigurera Office 365 Service Health. |
+| microsoft.aad.supporttickets/AllEntities/AllActions | Skapa och hantera Office 365-supportbegäranden. |
+| microsoft.crm/AllEntities/AllActions | Hantera alla aspekter av Dynamics 365. |
 
 ### <a name="exchange-service-administrator"></a>Exchange Service-administratör
 Kan hantera alla aspekter av Exchange-produkten.

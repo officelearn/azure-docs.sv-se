@@ -10,12 +10,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: tdykstra
-ms.openlocfilehash: 31c0d8c43a1a7614ff1965853b8ce0a3997db6f4
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 5d30357e5308de0224590703bb5e68fbe73b882b
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342964"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343448"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Så här förbereder du för en inkommande IP-adressändring
 
@@ -40,6 +40,8 @@ Ny inkommande IP-adressen som ges till din app är på portalen i den **virtuell
 2.  Välj i den vänstra navigeringsmenyn **Apptjänster**.
 
 3.  Välj din App Service-app i listan.
+
+4.  Om appen är en funktionsapp, se [funktionsapp inkommande IP-adress](../azure-functions/ip-addresses.md#function-app-inbound-ip-address).
 
 4.  Under den **inställningar** rubrik, klickar du på **egenskaper** i det vänstra navigeringsfönstret och hitta avsnittet märkta **virtuell IP-adress**.
 

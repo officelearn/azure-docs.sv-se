@@ -2,24 +2,17 @@
 title: Vanliga frågor och svar om Azure VPN Gateway | Microsoft Docs
 description: Vanliga frågor och svar om VPN Gateway. Vanliga frågor och svar om Microsoft Azure Virtual Network-anslutningar på flera platser, konfiguration av hybridanslutningar och VPN Gateway.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/06/2018
+ms.topic: conceptual
+ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: 99ecf8af278823fbae41cb14df5c2372d6451e0c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 245e5e1048f27fc76141312cf6f9021dc0060ae6
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719668"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359080"
 ---
 # <a name="vpn-gateway-faq"></a>Vanliga frågor och svar om VPN Gateway
 
@@ -75,7 +68,7 @@ Routningsbaserade gateways implementerar routningsbaserade VPN:er. Routningsbase
 Nej. En Azure Vnet-gatewaytyp kan inte ändras från principbaserad till routningsbaserad eller tvärtom. Gatewayen måste tas bort och återskapas, en process som tar cirka 60 minuter. IP-adressen till gatewayen bevaras inte och inte heller den i förväg delade nyckeln (PSK).
 1. Ta bort alla anslutningar som är associerade med gatewayen som ska tas bort.
 2. Ta bort gatewayen:
-* [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Azure-portalen](vpn-gateway-delete-vnet-gateway-portal.md)
 * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 * [Azure Powershell – klassisk](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 3. [Skapa en ny gateway av efterfrågad typ och slutför VPN-konfigurationen](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
@@ -230,7 +223,7 @@ Du kan också ansluta till den virtuella datorn med en privat IP-adress från en
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-with-cross-premises-connectivity-does-all-the-traffic-from-my-vm-go-through-that-connection"></a>Om min virtuella dator finns i ett virtuellt nätverk med flera platsanslutningar, går då all trafik från min virtuella dator via den anslutningen?
 
-Nej. Bara den trafik som har ett mål-IP som finns i det virtuella nätverkets lokala nätverks-IP-adressintervall som du har angett passerar den virtuella nätverksgatewayen. Trafik med ett mål-IP som finns i det virtuella nätverket stannar kvar i det virtuella nätverket. Annan trafik skickas via belastningsutjämnaren till offentliga nätverk. Om tvingad tunneltrafik används skickas den via Azures VPN-gateway.
+Nej. Bara den trafik som har ett mål-IP som finns i det virtuella nätverkets lokala nätverks-IP-adressintervall som du har angett passerar den virtuella nätverksgatewayen. Trafik med ett mål-IP som finns i det virtuella nätverket stannar kvar i det virtuella nätverket. Annan trafik skickas via lastbalanseraren till offentliga nätverk. Om tvingad tunneltrafik används skickas den via Azures VPN-gateway.
 
 ### <a name="how-do-i-troubleshoot-an-rdp-connection-to-a-vm"></a>Hur felsöker jag en RDP-anslutning till en virtuell dator
 

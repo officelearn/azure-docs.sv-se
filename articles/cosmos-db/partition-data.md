@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba9982d1f63345db394f1803c31d4246cfac499c
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 0cb668dba661ce05d6393aec2707b65918f0c2ac
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309178"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344138"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionera och skala i Azure Cosmos DB
 
@@ -86,7 +86,7 @@ Välja en partitionsnyckel så att:
   Vänstra bilden ovan visar resultatet av en felaktig partitionsnyckel och rätt bilden ovan visar resultatet när en bra partitionsnyckel har valts. I den vänstra bilden ser du att data inte är jämnt fördelade mellan partitionerna. Du bör sträva efter att välja en partitionsnyckel som distribuerar dina data så att den liknar vilken avbildning.
 
 * Frågor som anropas med hög samtidighet kan dirigeras effektivt genom att inkludera Partitionsnyckeln i filterpredikatet.  
-* Välja en partitionsnyckel med högre kardinalitet föredras Allmänt – becaue det vanligtvis ger bättre distribution och skalbarhet. Till exempel kan en sammansatt nyckel skapas genom att sammanfoga värden från flera egenskaper för att öka kardinalitet.  
+* Välja en partitionsnyckel med högre kardinalitet föredras Allmänt – becaue det vanligtvis ger bättre distribution och skalbarhet. Till exempel kan en syntetisk nyckel skapas genom att sammanfoga värden från flera egenskaper för att öka kardinalitet.  
 
 När du väljer en partitionsnyckel med ovan överväganden du inte behöver bekymra dig om antalet partitioner eller hur högt dataflöde tilldelas per fysisk partition som Azure Cosmos DB skalar ut antalet fysiska partitioner och det kan även skala den enskilda partitioner vid behov.
 
@@ -205,9 +205,9 @@ g.E(['USA', 'I5'])
 
 Mer information finns i [med hjälp av ett partitionerade diagram i Azure Cosmos DB](graph-partitioning.md).
 
-## <a name="composite-partition-key"></a>Sammansatta partitionsnyckel
+## <a name="form-partition-key-by-concatenating-multiple-fields"></a>Partitionsnyckeln för formuläret genom att sammanfoga flera fält
 
-Genom att sammanfoga och utfyllnad flera värden i en enda artificiella ”partitionKey”-egenskap i objektet kan du skapa en sammansatt partitionsnyckel.
+Du kan också skapa en partitionsnyckel genom att sammanfoga och utfyllnad flera värden i en enda artificiella ”partitionKey”-egenskap i objektet. De här nycklarna kallas syntetiska nycklar.
 
 Du har till exempel ett dokument som ser ut som:
 
@@ -218,7 +218,7 @@ Du har till exempel ett dokument som ser ut som:
 }
 ```
 
-Ett alternativ är att ange partitionKey för /deviceId eller /date. Om vill bilda en sammansatt nyckel på enhets-id och datum. Sammanfoga två gånger i en artificiella ”partitionKey”-egenskapen och ange Partitionsnyckeln till /partitionKey.
+Ett alternativ är att ange partitionKey för /deviceId eller /date. Om vill bilda en partitionsnyckel på enhets-id och datum. Sammanfoga två gånger i en artificiella ”partitionKey”-egenskapen och ange Partitionsnyckeln till /partitionKey.
 
 ```json
 {
@@ -228,7 +228,7 @@ Ett alternativ är att ange partitionKey för /deviceId eller /date. Om vill bil
 }
 ```
 
-Du kan ha tusentals dokument så att du ska definiera klienten sida logik för att sammanfoga värden i en sammansatt nyckel, infoga den sammansatta nyckeln i dokumenten och sedan använda den för att ange partitionsnyckel i realtid scenarier.
+Du kan ha tusentals dokument så att du ska definiera klienten sida logik för att sammanfoga värden i en syntetisk nyckel, infoga syntetiska nyckeln i dokumenten och sedan använda den för att ange partitionsnyckel i realtid scenarier.
 
 <a name="designing-for-scale"></a>
 ## <a name="design-for-scale"></a>Design för skalbarhet

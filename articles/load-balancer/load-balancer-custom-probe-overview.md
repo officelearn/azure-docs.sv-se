@@ -15,87 +15,123 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/20/2018
 ms.author: kumud
-ms.openlocfilehash: 8d354e3f409a51bdbb03ad340c951c39cc6137e1
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: afe46cf9fc710decba4524bd5a0fe1e73804f636
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186452"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344172"
 ---
-# <a name="understand-load-balancer-probes"></a>Förstå avsökningar av belastningsutjämnare
+# <a name="load-balancer-health-probes"></a>Läsa in Belastningsutjämnarens hälsotillståndsavsökningar
 
-Azure Load Balancer använder hälsoavsökningar för att avgöra vilka serverdels-serverpoolinstans ska ta emot nya flöden.   Du kan använda hälsoavsökningar för att upptäcka fel på ett program på en backend-instans.  Du kan också använda hälsotillstånd avsökningen svaret från ditt program för att signalera att Load Balancer om du vill fortsätta att skicka nya flöden eller sluta skicka nya flöden till en backend-instans för att hantera belastningen eller planerade driftstopp.
+Azure Load Balancer använder hälsoavsökningar för att avgöra vilka serverdelsinstanser för poolen får nya flöden. Du kan använda hälsoavsökningar för att upptäcka fel på ett program på en backend-instans. Du kan också generera en anpassad åtgärd till en hälsoavsökning och använda hälsoavsökningen för flödeskontroll och skicka en signal till belastningsutjämnaren om du vill fortsätta att skicka nya flöden eller sluta skicka nya flöden till en backend-instans. Detta kan användas för att hantera belastningen eller planerade driftstopp.
 
-Hälsoavsökningar styr huruvida nya flöden upprättas till Felfri backend-instanser. När en hälsoavsökning inte slutar belastningsutjämnaren att skicka nya flöden till respektive feltillstånd instansen.  Etablerad TCP-anslutningar fortsätter efter uteblivna för avsökning.  Befintliga UDP flöden flyttas från den felaktiga instansen till en annan felfri instans i serverdelspoolen.
+När en hälsoavsökning inte slutar belastningsutjämnaren att skicka nya flöden till respektive feltillstånd instansen. Nya och befintliga flöden beror på om ett flöde är TCP eller UDP som du använder samt vilken SKU för Load Balancer.  Granska [avsökning av beteendet för information om](#probedown).
 
-Om alla avsökningar för en serverdelspool misslyckas avslutas grundläggande belastningsutjämnare alla befintliga TCP-flöden till serverdelspoolen, medan Standard Load balancer tillåter etablerad TCP-flöden för att fortsätta; Inga nya flöden kommer att skickas till i serverdelspoolen.  Alla befintliga UDP flöden kommer att upphöra för Basic och Standard belastningsutjämnare när alla avsökningar för en backend-poolen misslyckas.  UDP anslutningslös och det finns inga läget för energiflöde som spåras för UDP.  Så länge som den hash ger samma resultat, förblir flödet av datagram på en specifik instans.  En ändring av en hälsoavsökning i serverdelspoolen kan flytta nya datagram till en annan instans i serverdelspoolen.
+## <a name="health-probe-types"></a>Avsökningen hälsotyper
 
-Molntjänstroller (arbetarroller och webbroller) använda en gästagenten för avsökning övervakning. TCP eller HTTP anpassade hälsoavsökningar måste konfigureras när du använder Cloud Services med virtuella IaaS-datorer bakom belastningsutjämnaren.
+Hälsokontroller av slutpunkter kan se alla portar på en backend-instans, inklusive den port där faktiska tjänsten tillhandahålls. Hälsoavsökningen stöder TCP-lyssnare eller HTTP-slutpunkter. 
 
-## <a name="understand-probe-count-and-timeout"></a>Förstå avsökningen antal och timeout
+UDP-belastningsutjämning, ska du skapa en anpassad hälsotillståndssignal avsökning för backend-instansen med hjälp av en TCP eller HTTP-hälsokontroll.
 
-Avsökningen beteende beror på:
+När du använder [HA Ports belastningsutjämningsregler](load-balancer-ha-ports-overview.md) med [Standardbelastningsutjämnare](load-balancer-standard-overview.md), alla portar belastningsutjämnas och ett enda hälsotillstånd avsökningen svar bör återspegla status för en hel instans.  
 
-* Antal lyckade avsökningar som gör att en instans ska förses med som drift.
-* Antal misslyckade avsökningar som orsakar en instans ska förses med igång.
+Du bör inte NAT och proxy som en hälsoavsökning via den instans som tar emot hälsoavsökningen till en annan instans i ditt virtuella nätverk som detta kan leda till kaskadfel i ditt scenario.
 
-De värden för timeout och frekvens som anges i SuccessFailCount avgör om en instans är bekräftas som körs eller inte körs. Timeout-värdet har angetts till två gånger värdet för frekvensen i Azure-portalen.
+### <a name="tcp-probe"></a>TCP-avsökning
 
-Avsökningskonfiguration över alla belastningsutjämnade instanser för en slutpunkt (det vill säga en belastningsutjämnad uppsättning) måste vara samma. Du kan inte ha en annan avsökningskonfiguration för varje instans av serverroll eller virtuell dator i samma värdbaserad tjänst för en viss slutpunkt-kombination. Varje instans måste till exempel ha identiska lokala portar och tidsgränser.
+TCP-avsökningar initiera en anslutning genom att utföra en 3-vägs öppna TCP-handskakningen med definierade porten.  Detta är sedan följt av en fyra sätt Stäng TCP-handskakning.
 
-> [!IMPORTANT]
-> En belastningsutjämnaravsökning använder IP-adressen 168.63.129.16. Den här offentliga IP-adressen underlättar kommunikationen till intern resurser för den bring-your-own-IP scenariot Azure virtuella. Den virtuella offentliga IP-adressen 168.63.129.16 används i alla regioner och ändras inte. Vi rekommenderar att du tillåter denna IP-adress i alla lokala Brandväggsprinciper. Det ska inte betraktas som en säkerhetsrisk eftersom endast interna Azure-plattformen kan styra ett meddelande från den adressen. Om du inte tillåter den här IP-adressen i din Brandväggsprinciper uppstår oväntade resultat i en mängd olika scenarier. Beteendet innefattar att konfigurera samma IP-adressintervallet för 168.63.129.16 och duplicera IP-adresser.
+Minsta avsökningsintervallet är 5 sekunder och det minsta antalet felaktiga svar är 2.  Den totala varaktigheten får inte överstiga 120 sekunder.
 
-## <a name="learn-about-the-types-of-probes"></a>Lär dig mer om vilka typer av avsökningar
+En TCP-avsökning misslyckas när:
+* TCP-lyssnaren på-instansen svarar inte under tidsperioden.  En avsökning har markerats baserat på antalet misslyckade avsökningen begäranden som har konfigurerats för att gå obesvarade innan du markerar avsökningen.
+* Avsökningen tar emot en TCP återställa från instansen.
 
-### <a name="guest-agent-probe"></a>Avsökning för gäst-agent
+### <a name="http-probe"></a>HTTP-avsökning
 
-En avsökning för gäst-agenten är endast tillgängligt för Azure Cloud Services. Belastningsutjämnaren använder sig av gästagenten på den virtuella datorn. Sedan lyssnar och svarar med ett HTTP 200 OK-svar endast när instansen är i tillståndet klar. (Andra tillstånd är upptagen, återanvändning, eller stoppas.)
+HTTP-avsökningar upprätta en TCP-anslutning och utfärda en HTTP GET med den angivna sökvägen. HTTP-avsökningar stöder relativa sökvägar för HTTP GET. Hälsoavsökningen markeras när instansen svarar med en HTTP-statuskod 200 inom tidsgränsen.  HTTP-hälsa avsökningar försöket att kontrollera avsökningsporten konfigurerade hälsotillstånd var 15: e sekund som standard. Minsta avsökningsintervallet är 5 sekunder. Den totala varaktigheten får inte överstiga 120 sekunder. 
+
+
+HTTP-avsökningar kan också vara användbart om du vill implementera en egen logik för att ta bort instanser från belastningsutjämnarens rotation. Du kan till exempel vill ta bort en instans om den är över 90% CPU och returnera en icke - 200 HTTP-status. 
+
+Om du använder Cloud Services och har web-roller som använder w3wp.exe kan få du också automatisk övervakning av din webbplats. Fel i koden webbplats tillbaka statusen icke-200 till belastningsutjämnaravsökningen.  HTTP-avsökning åsidosätter standard gäst agenten avsökningen. 
+
+En HTTP-avsökning misslyckas när:
+* HTTP-avsökning slutpunkten returnerar ett HTTP-svarskoden än 200 (till exempel 403, 404 eller 500). Detta markerar hälsoavsökningen omedelbart. 
+* HTTP-slutpunkt för avsökning inte svarar under den en tidsgräns för 31 sekund. Beroende på timeout-värde som har angetts flera avsökningen begäranden kan gå obesvarade innan avsökningen ska markeras som inte körs (det vill säga innan SuccessFailCount avsökningar skickas).
+* HTTP-avsökning slutpunkt stänger anslutningen via en TCP-återställning.
+
+### <a name="guest-agent-probe-classic-only"></a>Gästen agenten avsökning (klassisk)
+
+Molntjänstroller (arbetarroller och webbroller) använda en gästagenten för avsökning övervakning som standard.   Du bör överväga att detta ett alternativ av sista utväg.  Du bör alltid definiera en hälsoavsökning explicit med en TCP eller HTTP-avsökning. En avsökning för gäst-agenten är inte så effektiv som uttryckligen definierade avsökningar de flesta scenarier med programmet.  
+
+En avsökning för gäst-agenten är en kontroll av gästagenten på den virtuella datorn. Sedan lyssnar och svarar med ett HTTP 200 OK-svar endast när instansen är i tillståndet klar. (Andra tillstånd är upptagen, återanvändning, eller stoppas.)
 
 Mer information finns i [konfigurera tjänstdefinitionsfilen (csdef) för hälsoavsökningar](https://msdn.microsoft.com/library/azure/ee758710.aspx) eller [Kom igång genom att skapa en offentlig belastningsutjämnare för cloud services](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services).
 
-### <a name="what-makes-a-guest-agent-probe-mark-an-instance-as-unhealthy"></a>Det som gör en avsökning för gäst-agenten som Markera en instans som skadad?
+Om gästagenten inte kan svara med HTTP 200 OK, markerar belastningsutjämnaren instans som inte svarar. Den stoppas skicka flöden till den instansen. Belastningsutjämnaren fortsätter att kontrollera instansen. 
 
-Om gästagenten inte kan svara med HTTP 200 OK, markerar belastningsutjämnaren instans som inte svarar. Den stoppas skickar trafik till den instansen. Belastningsutjämnaren fortsätter att pinga instansen. Om gästagenten svarar med ett 200 HTTP, skickar belastningsutjämnaren trafik till den instansen igen.
+Om gästagenten svarar med ett 200 HTTP, skickar belastningsutjämnaren nya flöden till den instansen igen.
 
 När du använder en webbroll webbplats koden vanligtvis körs i w3wp.exe som inte övervakas av Azure fabric eller gäst-agenten. Fel i w3wp.exe (till exempel HTTP 500-svar) inte har rapporterats till gästagenten. Belastningsutjämnaren tar därför inte den instansen bort från roteringen.
 
-### <a name="http-custom-probe"></a>Anpassade HTTP-avsökning
+## <a name="probe-health"></a>Avsökningen hälsotillstånd
 
-Den anpassade HTTP-avsökningen åsidosätter standard gäst agenten avsökningen. Du kan skapa en egen anpassad logik för att fastställa hälsotillståndet för rollinstansen. Load balancer kontrollerar slutpunkten var 15: e sekund som standard. Instansen anses vara i belastningsutjämnarens rotation om svarar den med en HTTP 200 inom tidsgränsen. Tidsgränsen är 31 sekunder som standard.
+TCP- och HTTP-hälsokontroller av slutpunkter anses vara felfria och markera rollinstans som felfri när:
 
-En anpassad HTTP-avsökning kan vara användbart om du vill implementera en egen logik för att ta bort instanser från belastningsutjämnarens rotation. Du kan exempelvis välja att ta bort en instans om den är över 90% CPU och returnerar en icke-200-status. Om du har web-roller som använder w3wp.exe kan du också få automatisk övervakning av din webbplats. Fel i koden webbplats tillbaka statusen icke-200 till belastningsutjämnaravsökningen.
-
-> [!NOTE]
-> Den anpassade HTTP-avsökningen stöder relativa sökvägar och HTTP-protokollet. HTTPS stöds inte.
-
-### <a name="what-makes-an-http-custom-probe-mark-an-instance-as-unhealthy"></a>Det som gör en anpassad HTTP-avsökning Markera en instans som skadad?
-
-* HTTP-programmet returnerar ett HTTP-svarskoden än 200 (till exempel 403, 404 eller 500). Den här positiv bekräftelse varnar dig om du vill dra programinstansen ur direkt.
-* HTTP-servern svarar inte alls efter tidsgränsen. Beroende på timeout-värde som har angetts flera avsökningen begäranden kan gå obesvarade innan avsökningen ska markeras som inte körs (det vill säga innan SuccessFailCount avsökningar skickas).
-* Servern stänger anslutningen via en TCP-återställning.
-
-### <a name="tcp-custom-probe"></a>Anpassade TCP-avsökning
-
-TCP anpassade avsökningar initiera en anslutning genom att utföra en 3-vägs-handskakning med definierade porten.
-
-### <a name="what-makes-a-tcp-custom-probe-mark-an-instance-as-unhealthy"></a>Det som gör en anpassad TCP-avsökning Markera en instans som skadad?
-
-* TCP-servern svarar inte alls efter tidsgränsen. När avsökningen är markerad som inte kör beror på antalet misslyckade avsökningen begäranden som har konfigurerats för att gå obesvarade innan du markerar avsökningen som inte körs.
-* Avsökningen tar emot en TCP återställa från rollinstansen.
-
-Läs mer om hur du konfigurerar en hälsoavsökning för HTTP eller TCP-avsökning [komma igång och skapa en offentlig belastningsutjämnare i Resource Manager med hjälp av PowerShell](load-balancer-get-started-internet-arm-ps.md).
-
-## <a name="add-healthy-instances-back-into-the-load-balancer-rotation"></a>Lägg till felfria instanser tillbaka till belastningsutjämnarens rotation
-
-TCP- och HTTP-avsökningar anses vara felfria och markera rollinstans som felfri när:
-
-* Belastningsutjämnaren hämtar en positiv avsökning startas för första gången den virtuella datorn.
+* Hälsoavsökningen genomförs första gången som den virtuella datorn startar.
 * Talet för SuccessFailCount (beskrivs ovan) anger värdet för lyckad avsökningar som krävs för att markera rollinstans som felfri. Om en rollinstans har tagits bort, måste antal lyckades, efterföljande avsökningar vara lika med eller överskrider värdet för SuccessFailCount att markera rollinstans som körs.
 
 > [!NOTE]
 > Om hälsotillståndet för en rollinstans varierar belastningsutjämnaren ska vänta längre innan rollinstansen flyttas tillbaka till felfritt tillstånd. Den här extra väntetid skyddar användaren och infrastrukturen och är en avsiktlig princip.
 
-## <a name="use-log-analytics-for-a-load-balancer"></a>Använda log analytics för en belastningsutjämnare
+## <a name="probe-count-and-timeout"></a>Avsökningen antal och timeout
 
-Du kan använda [logganalys](load-balancer-monitor-log.md) att söka på den avsökningen hälsostatusen för belastningsutjämnaren och avsökning antal. Loggning kan användas med Power BI eller Azure Operational Insights för att tillhandahålla statistik om hälsostatusen för belastningsutjämnaren.
+Avsökningen beteende beror på:
+
+* Antal lyckade avsökningar som gör att en instans har markerats som drift.
+* Antal misslyckade avsökningar som orsakar en instans är markerad som inaktiv.
+
+De värden för timeout och frekvens som anges i SuccessFailCount avgör om en instans är bekräftas som körs eller inte körs. Timeout-värdet har angetts till två gånger värdet för frekvensen i Azure-portalen.
+
+En belastningsutjämningsregel har en enda hälsoavsökning definierats respektive serverdelspoolen.
+
+> [!IMPORTANT]
+> En hälsoavsökning för belastningsutjämnaren använder IP-adressen 168.63.129.16. Den här offentliga IP-adressen underlättar kommunikationen till intern resurser för den bring-your-own-IP scenariot Azure virtuella. Den virtuella offentliga IP-adressen 168.63.129.16 används i alla regioner och ändras inte. Vi rekommenderar att du tillåter denna IP-adress i valfri Azure [säkerhetsgrupper](../virtual-network/security-overview.md) och lokala Brandväggsprinciper. Det ska inte betraktas som en säkerhetsrisk eftersom endast interna Azure-plattformen kan styra ett paket från den här adressen. Om du inte tillåter den här IP-adressen i din Brandväggsprinciper uppstår oväntade resultat i en mängd olika scenarier, belastningsutjämnad inklusive fel vid inläsningen service. Du bör också inte konfigurera ditt virtuella nätverk med ett IP-adressintervall som innehåller 168.63.129.16.  Om du har flera gränssnitt på den virtuella datorn kan behöva du se till att du svara på avsökningen på gränssnittet som du fick på.  Du kan behöva unikt källa NAT'ing den här adressen på den virtuella datorn på basis av per gränssnitt.
+
+## <a name="probedown"></a>Avsökning av beteende
+
+### <a name="tcp-connections"></a>TCP-anslutningar
+
+Ny TCP-anslutningar lyckas till backend-instans som är felfri och har ett gästoperativsystem och program som kan ta emot ett nytt flöde.
+
+Om en backend-instans hälsoavsökning misslyckas, fortsätter du etablerade TCP-anslutningar till den här backend-instansen.
+
+Om alla avsökningar för alla instanser i en serverdelspool misslyckas, skickas inga nya flöden till i serverdelspoolen. Standard Load Balancer tillåter etablerad TCP-flöden för att fortsätta.  Basic Load Balancer avslutas alla befintliga TCP-flöden till i serverdelspoolen.
+ 
+Eftersom flödet är alltid mellan klienten och den Virtuella datorns gästoperativsystem, genereras en pool med alla avsökningar av en klientdel inte svarar på Öppna TCP-anslutningsförsök eftersom det inte finns någon felfri backend-instans för att ta emot flödet.
+
+### <a name="udp-datagrams"></a>UDP-datagram
+
+UDP-datagram levereras till Felfri backend-instanser.
+
+UDP anslutningslös och det finns inga läget för energiflöde som spåras för UDP. Om en backend-instans hälsoavsökning misslyckas kan befintliga UDP-flöden flytta till en annan felfri instans i serverdelspoolen.
+
+Om alla avsökningar för alla instanser i en serverdelspool misslyckas avslutas befintliga UDP-flöden för Basic och Standard belastningsutjämnare.
+
+## <a name="monitoring"></a>Övervakning
+
+Alla [Standardbelastningsutjämnare](load-balancer-standard-overview.md) visar avsökningen hälsostatus som flerdimensionella mått per instans via Azure Monitor.
+
+Grundläggande belastningsutjämnare visar avsökningen hälsostatus per serverdelspool via Log Analytics.  Detta är endast tillgänglig för offentlig grundläggande belastningsutjämnare och inte tillgängliga för interna grundläggande belastningsutjämnare.  Du kan använda [logganalys](load-balancer-monitor-log.md) att söka på den offentliga avsökningen hälsostatusen för belastningsutjämnaren och avsökning antal. Loggning kan användas med Power BI eller Azure Operational Insights för att tillhandahålla statistik om hälsostatusen för belastningsutjämnaren.
+
+## <a name="limitations"></a>Begränsningar
+
+-  HTTP-hälsokontroll har inte stöd för TLS (HTTPS).  Använd en TCP-avsökning på port 443 i stället.
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Komma igång och skapa en offentlig belastningsutjämnare i Resource Manager med hjälp av PowerShell](load-balancer-get-started-internet-arm-ps.md)
+- [REST API för hälsoavsökningar](https://docs.microsoft.com/en-us/rest/api/load-balancer/loadbalancerprobes/get)
+

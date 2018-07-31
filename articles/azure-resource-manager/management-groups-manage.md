@@ -10,20 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/09/2018
+ms.date: 07/31/2018
 ms.author: rithorn
-ms.openlocfilehash: 730f79ce0a70da92dbb6332ad824b17e6c2327ff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 967aa87f89eff34427456bad3828e1e6509639cf
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488386"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358708"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera dina resurser med hanteringsgrupper
 
 Av hanteringsgrupper är behållare som hjälper dig att hantera åtkomst, principer och efterlevnad över flera prenumerationer. Du kan ändra, ta bort och hantera de här behållarna om du vill ha hierarkier som kan användas med [Azure Policy](../azure-policy/azure-policy-introduction.md) och [Azure rollbaserad kontroller (RBAC)](../role-based-access-control/overview.md). Mer information om hanteringsgrupper finns [organisera dina resurser med Azure-hanteringsgrupper ](management-groups-overview.md).
-
-Hantering av grupp-funktionen är tillgänglig i en offentlig förhandsversion. Om du vill börja använda hanteringsgrupper, logga in på den [Azure-portalen](https://portal.azure.com) eller så kan du använda [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), eller [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) till hantera dina hanteringsgrupper.
 
 Om du vill göra ändringar i en hanteringsgrupp, måste du ha en rollen som Prenumerationsägare eller deltagare på hanteringsgruppen. För att se vilka behörigheter du har, Välj hanteringsgruppen och välj sedan **IAM**. Läs mer om RBAC-roller i [hantera åtkomst och behörighet med RBAC](../role-based-access-control/overview.md).
 
@@ -80,6 +78,7 @@ Om du vill ta bort en hanteringsgrupp, måste följande krav uppfyllas:
 3. Välj den hanteringsgrupp som du vill ta bort.
 4. Välj **Ta bort**.
     - Om ikonen är inaktiverad, visas orsaken om du hovrar musen-väljare över ikonen.
+
     ![ta bort grupp](media/management-groups/delete.png)
 5. Det finns ett fönster som öppnas bekräftar du vill ta bort hanteringsgruppen.
 

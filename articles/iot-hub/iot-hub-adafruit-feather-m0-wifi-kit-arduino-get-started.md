@@ -9,14 +9,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 46763cbc53f70e25810a9849b71429a315a6fb7d
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: c9d786651198eeffd839f52b3d3c8e6c1a1168c4
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185371"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345428"
 ---
 # <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>Anslut Adafruit Feather M0 WiFi till Azure IoT Hub i molnet
+
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ![Anslutning mellan en BME280 och Feather M0 WiFi IoT-hubb](media/iot-hub-adafruit-feather-m0-wifi-get-started/1_connection-m0-feather-m0-iot-hub.png)
@@ -61,6 +62,7 @@ Om du inte har en sensor är följande objekt valfria. Du kan också ha alternat
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
 ## <a name="connect-feather-m0-wifi-with-the-sensor-and-your-computer"></a>Träffa sensorn och datorn Feather M0 WiFi
+
 I det här avsnittet ska ansluta du sensorerna till din tavla. Sedan ansluter du din enhet till din dator för ytterligare användning.
 
 ### <a name="connect-a-dht22-temperature-and-humidity-sensor-to-feather-m0-wifi"></a>Ansluta en DHT22 temperatur och fuktighet sensor till Feather M0 WiFi
@@ -74,7 +76,7 @@ För sensor PIN-koder, använder du följande koaxialkabel:
 
 
 | Start (sensor)           | Slutpunkt (board)            | Kabel färg   |
-| -----------------------  | ---------------------- | ------------: |
+| -----------------------  | ---------------------- | ------------- |
 | VDD (PIN-kod 27A)            | 3v (PIN-kod 3A)            | Röd-kabel     |
 | JORD (PIN-kod 29 a)            | JORD (PIN-kod 6A)           | Svarta kabeln   |
 | SCK (PIN-kod 30A)            | SCK (PIN-kod 12A)          | Gul-kabel  |
@@ -83,8 +85,6 @@ För sensor PIN-koder, använder du följande koaxialkabel:
 | CS (PIN-kod 33A)             | GPIO 5 (PIN-kod 15J)       | Orange kabel  |
 
 Mer information finns i [Adafruit BME280 fuktighet + barometertrycket + temperatur Sensor seminarium om](https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout/wiring-and-test?view=all) och [Adafruit Feather M0 WiFi pinouts](https://learn.adafruit.com/adafruit-feather-m0-wifi-atwinc1500/pinouts).
-
-
 
 Feather M0 WiFi bör nu vara ansluten med en fungerande sensor.
 
@@ -136,6 +136,7 @@ Exempelprogrammet finns på GitHub. Klona exempellagringsplatsen med exempelprog
 1. Öppna en kommandotolk eller ett terminalfönster.
 
 2. Gå till en mapp där du vill att exempelprogrammet som ska lagras.
+
 3. Kör följande kommando:
 
    ```bash
@@ -151,21 +152,21 @@ Exempelprogrammet finns på GitHub. Klona exempellagringsplatsen med exempelprog
    ![Öppna exempelprogrammet i Arduino IDE](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
 
 
-1. Klicka på **filen** > **inställningar** (Windows/Linux) eller **Arduino** > **inställningar** (Mac) och kopiera och Klistra in länken nedan till det **ytterligare tavlor Manager URL: er** alternativ i Arduino IDE-inställningar.
+3. Klicka på **filen** > **inställningar** (Windows/Linux) eller **Arduino** > **inställningar** (Mac) och kopiera och Klistra in länken nedan till det **ytterligare tavlor Manager URL: er** alternativ i Arduino IDE-inställningar.
    
    ```
    https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
    ```
 
-1. Klicka på **verktyg** > **tavla** > **tavlor Manager**, och sedan installera den `Arduino SAMD Boards` version `1.6.2` eller senare. 
+4. Klicka på **verktyg** > **tavla** > **tavlor Manager**, och sedan installera den `Arduino SAMD Boards` version `1.6.2` eller senare. 
 
-1. Installera sedan i fönstret samma `Adafruit SAMD Boards` paketet för att lägga till tavlan filen definitioner.
+5. Installera sedan i fönstret samma `Adafruit SAMD Boards` paketet för att lägga till tavlan filen definitioner.
 
    ![Esp8266-paket installeras](media/iot-hub-adafruit-feather-m0-wifi-get-started/7_arduino-ide-package-url.png)
 
-4. Klicka på **verktyg** > **tavla** > **Adafruit M0 WiFi**.
+6. Klicka på **verktyg** > **tavla** > **Adafruit M0 WiFi**.
 
-5. Installera drivrutiner (för Windows). När du ansluter Feather M0 WiFi, kan du behöva installera en drivrutin. Klicka på [länken på webbsidan](https://github.com/adafruit/Adafruit_Windows_Drivers/releases/download/1.1/adafruit_drivers.exe) att hämta installationsprogrammet för drivrutinen. Följ stegen för att installera drivrutiner som du vill.
+7. Installera drivrutiner (för Windows). När du ansluter Feather M0 WiFi, kan du behöva installera en drivrutin. Klicka på [länken på webbsidan](https://github.com/adafruit/Adafruit_Windows_Drivers/releases/download/1.1/adafruit_drivers.exe) att hämta installationsprogrammet för drivrutinen. Följ stegen för att installera drivrutiner som du vill.
 
 ### <a name="install-necessary-libraries"></a>Installera nödvändiga bibliotek
 
@@ -182,7 +183,7 @@ Exempelprogrammet finns på GitHub. Klona exempellagringsplatsen med exempelprog
    * `Adafruit BME280 Library`
    * `Adafruit Unified Sensor`
 
-3. Installera manuellt `Adafruit_WINC1500`. Gå till [den här webbplatsen](https://github.com/adafruit/Adafruit_WINC1500) och klicka på **klona eller ladda ned** > **ladda ned ZIP**. Gå till i din Arduino IDE **skiss** > **inkluderar biblioteket** > **lägger du till .zip biblioteket** och Lägg till zip-filen.
+3. Installera manuellt `Adafruit_WINC1500`. Gå till den [Adafruit_WINC1500 webbsida](https://github.com/adafruit/Adafruit_WINC1500) och klicka på **klona eller ladda ned** > **ladda ned ZIP**. Gå till i din Arduino IDE **skiss** > **inkluderar biblioteket** > **lägger du till .zip biblioteket** och Lägg till zip-filen.
 
 ### <a name="use-the-sample-application-if-you-dont-have-a-real-bme280-sensor"></a>Använda exempelprogrammet om du inte har en verklig BME280 sensor
 
@@ -190,14 +191,15 @@ Om du inte har en verklig sensor BME280 simulera exempelprogrammet temperatur- o
 
 1. Öppna den `config.h` fil i den `app` mapp.
 
-2. Leta upp följande rad med kod och ändra värdet från `false` till `true`:
+2. Leta upp följande rad med kod och ändra värdet från `false` till `true`.
 
    ```c
    define SIMULATED_DATA true
    ```
+
    ![Konfigurera exempelprogrammet för att använda simulerade data](media/iot-hub-adafruit-feather-m0-wifi-get-started/8_arduino-ide-configure-app-use-simulated-data.png)
 
-3. Spara filen med `Control-s`.
+3. Klicka på `Control-s` att spara filen.
 
 ### <a name="deploy-the-sample-application-to-feather-m0-wifi"></a>Distribuera exempelprogrammet för att Feather M0 WiFi
 
@@ -212,7 +214,9 @@ När överföringen är klar följer du stegen nedan för att ange dina autentis
 1. I Arduino IDE, klickar du på **verktyg** > **seriell övervakaren**.
 
 2. I det nedre högra hörnet i fönstret seriell väljer **inga raden slutar** i den nedrullningsbara listan till vänster.
+
 3. Välj **115200 baud** i den nedrullningsbara listan till höger.
+
 4. Ange följande information i textrutan längst upp om du uppmanas att ange den och klicka på **skicka**:
 
    * Wi-Fi SSID

@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 7/30/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 3d19b42e339e9776d0fdbbf7cfcfba07d69549ad
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 2776017c6c4673f5c24d25b06b58a1e818f1bd24
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249088"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344451"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Säkerhetskopiera SQL Server-databaser till Azure
 
@@ -65,8 +65,8 @@ Azure Backup stöds för följande regioner:
 - Indien, södra (INS)
 - Japan, östra (JPE)
 - Japan, västra (JPW)
-- Korea, centrala (KRC)
-- Korea, södra (KRS)
+- Sydkorea, centrala (KRC)
+- Sydkorea, södra (KRS)
 - USA, norra centrala (NCUS) 
 - Europa, norra (NE) 
 - USA, södra centrala (SCUS) 
@@ -148,7 +148,7 @@ Konfigurera behörigheter:
 
     ![Välj SQL Server i virtuell Azure-dator för säkerhetskopiering](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    Den **säkerhetskopieringsmål** menyn visas två steg: **identifiera databaser i virtuella datorer** och **Konfigurera säkerhetskopiering**. Den **identifiera databaser i virtuella datorer** steg startar en sökning efter Azure-datorer.
+    Den **säkerhetskopieringsmål** menyn visas två steg: **identifiera databaser i virtuella datorer** och **Konfigurera säkerhetskopiering**. Den **identifiera databaser i virtuella datorer** steg starta en sökning efter Azure-datorer.
 
     ![Gå igenom stegen för två säkerhetskopieringsmål](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -341,7 +341,7 @@ Konfigurera skydd för en SQL-databas:
 
 En princip för säkerhetskopiering definierar en matris över när säkerhetskopior tas och hur länge de är kvar. Använda Azure Backup för att schemalägga tre typer av säkerhetskopiering för SQL-databaser:
 
-* Fullständig säkerhetskopiering: en fullständig säkerhetskopia säkerhetskopierar hela databasen. En fullständig säkerhetskopia innehåller alla data i en specifik databas eller en uppsättning filgrupper eller filer och tillräckligt med loggen för att återställa dessa data. Du kan endast utlösa en fullständig säkerhetskopiering per dag. Du kan välja att ta en fullständig säkerhetskopiering med dagliga och veckovisa intervall. 
+* Fullständig säkerhetskopiering: en fullständig säkerhetskopia säkerhetskopierar hela databasen. En fullständig säkerhetskopia innehåller alla data i en specifik databas eller en uppsättning filgrupper eller tillräckligt många loggar att återställa dessa data och filer. Du kan endast utlösa en fullständig säkerhetskopiering per dag. Du kan välja att ta en fullständig säkerhetskopiering med dagliga och veckovisa intervall. 
 * Differentiell säkerhetskopiering: en differentiell säkerhetskopiering baseras på den senaste, föregående fullständig säkerhetskopieringen. En differentiell säkerhetskopiering fångar endast de data som ändrats sedan den fullständiga säkerhetskopian. Du kan endast utlösa en differentiell säkerhetskopiering per dag. Du kan inte konfigurera en fullständig säkerhetskopia och en differentiell säkerhetskopiering på samma dag.
 * Säkerhetskopiering av transaktionsloggen: en loggsäkerhetskopiering gör det möjligt för point-in-time-återställning upp till en specifik sekund. Du kan högst, konfigurera transaktionell loggsäkerhetskopior var 15: e minut.
 
@@ -406,15 +406,16 @@ Skapa en princip för säkerhetskopiering:
    ![Acceptera den nya principen för säkerhetskopiering](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>Återställa en SQL-databas
-
 Azure Backup innehåller funktioner för att återställa enskilda databaser till ett visst datum eller tid (till andra) med hjälp av säkerhetskopieringar av transaktionsloggen. Azure Backup anger automatiskt lämpliga fullständig differentiella och kedja av säkerhetskopior som krävs för att återställa dina data baserat på din återställningstiderna.
 
 Du kan också välja en fullständig eller Differentiell säkerhetskopia att återställa till en specifik återställningspunkt i stället för en viss tid.
- > [!Note]
- > Innan du utlöser en återställning av ”master”-databasen, starta SQL Server-instansen i enanvändarläge med startalternativ `-m AzureWorkloadBackup`. Argumentet för den `-m` alternativet är namnet på klienten. Endast den här klienten tillåts att öppna anslutningen. Stoppa tjänsten SQL Agent för alla systemdatabaser (modell, master, msdb) innan du utlöser återställningen. Stäng alla program som kan försöka stjäla en anslutning till någon av dessa databaser.
->
 
-Du återställer en databas:
+### <a name="pre-requisite-before-trigerting-a-restore"></a>Installationsprogrammets innan trigerting en återställning
+1. Du kan återställa databasen till en instans av en SQL-Server i samma Azure-region. Målservern måste registreras på samma Recovery Services-valv som källa.  
+2. Om du vill återställa en krypterad TDE-databas till en annan SQL Server, först Återställ certifikatet till målservern genom att följa stegen som beskrivs [här](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
+3. Innan du utlöser en återställning av ”master”-databasen, starta SQL Server-instansen i enanvändarläge med startalternativ `-m AzureWorkloadBackup`. Argumentet för den `-m` alternativet är namnet på klienten. Endast den här klienten tillåts att öppna anslutningen. Stoppa tjänsten SQL Agent för alla systemdatabaser (modell, master, msdb) innan du utlöser återställningen. Stäng alla program som kan försöka stjäla en anslutning till någon av dessa databaser.
+
+### <a name="steps-to-restore-a-database"></a>Steg för att återställa en databas:
 
 1. Öppna Recovery Services-valvet som har registrerats hos SQL-dator.
 

@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 92e476d38e6e56edca19afe78bed2705feadd0bb
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a895f21bc061763b1d5d45b2bedb44fc932190dc
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040916"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345233"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka C#-moduler för Azure IoT Edge
 
@@ -24,7 +24,7 @@ Du kan aktivera din affärslogik-moduler för Azure IoT Edge. Den här artikeln 
 Den här artikeln förutsätter att du använder en dator eller virtuell dator som kör Windows eller Linux som din utvecklingsdator. IoT Edge-enhet kan vara en annan fysisk enhet. Eller du kan simulera IoT Edge-enhet på utvecklingsdatorn.
 
 > [!NOTE]
-> Den här felsökning artikeln visar hur du ansluter en process i en modul-behållare och felsöka med VS Code. Du kan bara felsöka C#-funktioner i Linux amd64-behållare. Om du inte är bekant med felsökning funktionerna i Visual Studio Code, Läs om [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
+> Den här felsökning artikeln visar hur du ansluter en process i en modul-behållare och felsöka med VS Code. Du kan bara felsöka C#-moduler i Linux amd64-behållare. Om du inte är bekant med felsökning funktionerna i Visual Studio Code, Läs om [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
 
 Eftersom den här artikeln används Visual Studio Code som det huvudsakliga utvecklingsverktyg, installera VS Code. Lägg sedan till tillägg som behövs:
 * [Visual Studio Code](https://code.visualstudio.com/) 

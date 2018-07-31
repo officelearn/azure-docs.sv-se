@@ -6,20 +6,20 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 07/28/2018
 ms.author: marsma
-ms.openlocfilehash: 3ef91270bceb5865bdbdf9c436e4519595a3dc09
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 532817c6289c1718fd82a502e04dc10715ee7203
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582638"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343108"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>Automatisera framework uppdatering med ACR Build av operativsystem och
 
 Behållare för nya nivåer av virtualisering, isolera program- och developer-beroenden från infrastrukturen och operativa krav. Vad är kvar, men är behovet av att hantera hur den här programvirtualisering är uppdaterad.
 
-**ACR Build**, en uppsättning funktioner i Azure Container Registry ger inte bara systemanpassad bild build, men även automatiserar [framework uppdatering av operativsystem och](#automate-os-and-framework-patching) för Docker-behållare.
+**ACR Build** är en uppsättning funktioner i Azure Container Registry. Det ger molnbaserade behållare bild byggnad för Linux, Windows och ARM och kan automatisera [framework uppdatering av operativsystem och](#automate-os-and-framework-patching) för Docker-behållare.
 
 [!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
@@ -33,7 +33,7 @@ Utlösaren behållaravbildning bygger automatiskt när koden strävar efter att 
 
 I början av livscykelhantering startar innan utvecklare skickar sina första rader med kod. ACR Build [snabbt skapa](container-registry-tutorial-quick-build.md) funktionen gör det möjligt för en integrerad lokal inre slingan utvecklingsupplevelse, avlastning versioner till Azure. Med snabb skapas måste verifiera du dina automatiserade byggdefinitioner innan du checka in din kod.
 
-Använda vanlig `docker build` format, den [az acr build] [ az-acr-build] kommando i Azure CLI tar en lokal kontext, skickar det till ACR Build-tjänsten och som standard skickar den skapade avbildningen till dess registret vid slutförande. ACR Build följer din geo-replikerade register aktiverar utspridda utvecklingsteam att utnyttja närmaste replikerade registret. I förhandsversionen är ACR build tillgänglig i regionerna östra USA och Västeuropa.
+Använda vanlig `docker build` format, den [az acr build] [ az-acr-build] kommando i Azure CLI tar en lokal kontext, skickar det till ACR Build-tjänsten och som standard skickar den skapade avbildningen till dess registret vid slutförande. ACR Build följer din geo-replikerade register aktiverar utspridda utvecklingsteam att utnyttja närmaste replikerade registret.
 
 ACR Build är utformad som en primitiv behållare livscykel. Till exempel integrera ACR Build i din CI/CD-lösning. Genom att köra [az-inloggning] [ az-login] med en [tjänstens huvudnamn][az-login-service-principal], CI/CD-lösning kan sedan utfärdar [az acr skapa] [ az-acr-build] kommandon för att sätta igång bild versioner.
 
@@ -49,7 +49,7 @@ Lär dig hur du utlöser versioner på källan kodgenomförande i den andra sjä
 
 Kraften i ACR Build att verkligen förbättra din container build pipeline kommer från dess förmåga att identifiera en uppdatering av en basavbildning. När den uppdaterade basavbildningen skickas till registret, kan ACR Build automatiskt skapa alla programavbildningar som baseras på den.
 
-Behållaravbildningar i stora drag kan kategoriseras i *grundläggande* avbildningar och *program* bilder. Din Källavbildningen inkluderar vanligtvis operativsystem och programramverk som ditt program har skapats, tillsammans med andra anpassningar. Dessa Källavbildningen är vanligtvis baserade på offentliga överordnade avbildningar, till exempel [Alpine Linux] [ base-alpine] eller [Node.js][base-node]. Flera av dina programavbildningar kan dela en gemensam basavbildning.
+Behållaravbildningar i stora drag kan kategoriseras i *grundläggande* avbildningar och *program* bilder. Din Källavbildningen inkluderar vanligtvis operativsystem och programramverk som ditt program har skapats, tillsammans med andra anpassningar. Dessa Källavbildningen är vanligtvis baserade på offentliga överordnade avbildningar, till exempel: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], eller [Node.js][base-node]. Flera av dina programavbildningar kan dela en gemensam basavbildning.
 
 När en OS- eller app framework avbildning uppdateras av den överordnade Underhållaren, måste till exempel med en kritisk OS-säkerhetskorrigering du även uppdatera din grundläggande avbildningar för att inkludera kritiska korrigeringen. Varje programavbildningen måste sedan också byggas om så för att inkludera dessa överordnade korrigeringar ingår nu i din basavbildningen.
 
@@ -58,7 +58,7 @@ Eftersom ACR Build dynamiskt identifierar basavbildningen beroenden när den byg
 Lär dig mer om Operativsystemet och framework korrigeringar i den tredje självstudien ACR Build [automatisera bild bygger på grundläggande uppdateringar med Azure Container Registry Build](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> För den första förhandsversionen bygger basavbildningen uppdateringar utlösaren endast om båda bilderna grundläggande och program finns i samma Azure container registry.
+> För den första förhandsversionen bygger basavbildningen uppdateringar utlösaren endast om båda bilderna grundläggande och program finns i samma Azure-behållarregister eller offentliga Docker Hub-databaser.
 
 ## <a name="next-steps"></a>Nästa steg
 

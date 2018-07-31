@@ -1,25 +1,22 @@
 ---
-title: Säkerhetskopiera och Återställ med Microsoft Authenticator - app i Azure AD | Microsoft Docs
+title: Säkerhetskopiera och Återställ med Microsoft Authenticator - app i Azure Active Directory | Microsoft Docs
 description: Lär dig mer om att säkerhetskopiera och återställa autentiseringsuppgifterna för ditt konto, med hjälp av Microsoft Authenticator-appen.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.service: multi-factor-authentication
+ms.component: user-help
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.custom: end-user
-ms.openlocfilehash: a9c950ecafd2eb5f3aed1bee3707f57be6ec3b62
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 29226f0645a772ffe02e378c9b4df0a87909731a
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060105"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358128"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Säkerhetskopiera och återställa kontoautentiseringsuppgifter med Microsoft Authenticator-appen
 
@@ -51,7 +48,7 @@ Kräver att du att logga in på båda kontona som tillsammans ger bättre säker
 ## <a name="recover-your-account-credentials-on-your-new-device"></a>Återställa autentiseringsuppgifterna för ditt konto på den nya enheten
 Du kan återställa autentiseringsuppgifterna för ditt konto från ditt iCloud-konto med hjälp av samma Microsoft recovery kontot som du ställer in när du har säkerhetskopierat din information.
 
-**Att återställa din information**
+### <a name="to-recover-your-information"></a>Att återställa din information
 1.  Öppna Microsoft Authenticator-appen på din iOS-enhet och välj **påbörja återställning** längst ned på skärmen.
 
     ![Microsoft Authenticator-appen som visar var du ska klicka Begin återställning](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-begin-recovery.png)
@@ -67,7 +64,7 @@ Om du använder push-meddelanden med ditt personliga, arbete eller skola konton,
 
 För personliga Microsoft-konton kan du bevisa din identitet genom att ange ditt lösenord tillsammans med ett alternativt nummer för e-post eller telefon. För arbets- eller skolkonto-konton måste du skanna en QR-kod som du fått av din kontoleverantör.
 
-**Att tillhandahålla ytterligare verifiering för personliga konton**
+### <a name="to-provide-additional-verification-for-personal-accounts"></a>Att tillhandahålla ytterligare verifiering för personliga konton
 1.  I den **konton** skärmen i Microsoft Authenticator-appen, Välj nedrullningsbara pilen bredvid det konto som du vill återställa.
 
     ![Microsoft Authenticator-appen som visar tillgängliga konton med deras associerade listrutepilarna](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-arrow.png)
@@ -76,7 +73,7 @@ För personliga Microsoft-konton kan du bevisa din identitet genom att ange ditt
 
     ![Microsoft Authenticator-appen, så att du kan ange din inloggningsinformation](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-sign-in.png)
 
-**Att tillhandahålla ytterligare verifiering för arbets-eller skolkonton**
+### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>Att tillhandahålla ytterligare verifiering för arbets-eller skolkonton
 1.  I den **konton** skärmen i Microsoft Authenticator-appen, Välj nedrullningsbara pilen bredvid det konto som du vill återställa.
 
     ![Microsoft Authenticator-appen som visar tillgängliga konton med deras associerade listrutepilarna](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
@@ -86,7 +83,7 @@ För personliga Microsoft-konton kan du bevisa din identitet genom att ange ditt
     ![Microsoft Authenticator-appen, så att du kan skanna QR-kod](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >Mer information om hur du registrerar en QR-kod finns i den [Kom igång med Microsoft Authenticator-appen](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to) artikeln.
+    >Mer information om hur du registrerar en QR-kod finns i den [hur du lägger till konton avsnittet för att komma igång med Microsoft Authenticator-appen](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app) artikeln.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Felsökning av problem i säkerhetskopiering och återställning
 Det finns flera skäl till varför säkerhetskopieringen inte kanske tillgänglig:

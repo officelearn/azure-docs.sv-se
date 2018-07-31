@@ -1,97 +1,126 @@
 ---
-title: Hur du använder lösenord i Azure MFA? | Microsoft Docs
-description: Den här sidan hjälper användarna att förstå vad applösenord är och hur de används med hänsyn till Azure MFA.
-services: multi-factor-authentication
-documentationcenter: ''
+title: Hantera lösenord i Azure Active Directory | Microsoft Docs
+description: Den här sidan hjälper användarna att förstå vad applösenord är och hur de används med hänsyn till tvåstegsverifiering.
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 07/30/2018
 ms.author: lizross
-ms.custom: end-user
-ms.openlocfilehash: 290458e95aaed0cc85d83539d9d870c334df45df
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c6340133971a226002ce11ae1521bdc88e3e7975
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059433"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343296"
 ---
-# <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Vad är Applösenord i Azure Multi-Factor Authentication?
-Vissa icke-webbläsarbaserade appar, till exempel den interna e-Apple-klient som använder Exchange Active Sync, stöder för närvarande inte multifaktorautentisering. Multifaktorautentisering aktiveras per användare. Det innebär att om en användare har aktiverats för multifaktorautentisering och de försöker använda icke-webbläsarbaserade appar kan de inte att göra detta. Ett applösenord gör detta möjligt. Om du upprätthålla Multi-Factor Authentication via principer för villkorlig åtkomst och inte via MFA per användare, kan du inte skapa applösenord. Program som använder principer för villkorlig åtkomst för åtkomstkontroll behöver inte applösenord.
+# <a name="manage-app-passwords-for-two-step-verification"></a>Hantera lösenord för tvåstegsverifiering
 
-När du har ett applösenord kan använda du det i stället för det ursprungliga lösenordet med dessa icke-webbläsarbaserade appar. Det beror på att när du registrerar för tvåstegsverifiering kan du be Microsoft att inte låta alla logga in med ditt lösenord om de inte kan också utföra andra verifiering. Apple interna e-postklienten på din telefon kan inte logga in som du eftersom den inte kan uppmana för tvåstegsverifiering. För den här lösningen är att skapa en säkrare applösenord som du inte använder dagliga, men endast för de appar som inte stöder tvåstegsverifiering. Använda applösenordet så att appar kan kringgå multifaktorautentisering och fortsätta att fungera.
+Vissa icke-webbläsarappar, till exempel Outlook 2010 inte stöder tvåstegsverifiering. Den här avsaknaden av stöd innebär att appen inte fungerar om du använder tvåstegsverifiering. För att undvika det här problemet, kan du skapa ett automatiskt genererat lösenord ska användas med varje icke-Webbläsarprogrammet, separat från normala lösenordet.
 
-> [!NOTE]
-> Office 2013-klienter (inklusive Outlook) har stöd för nya autentiseringsprotokoll och kan användas med tvåstegsverifiering.  Det innebär att när du har aktiverat, applösenord inte krävs för användning med Office 2013-klienter.  Mer information finns i [Office 2013 offentlig förhandsgranskning av modern autentisering](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+När du använder lösenord, är det viktigt att komma ihåg:
 
+- Applösenord är automatiskt genererade och endast anges en gång per app.
 
-## <a name="how-to-use-app-passwords"></a>Hur du använder applösenord
-Här följer några saker att komma ihåg om hur du använder applösenord.
+- Det finns en gräns på 40 lösenord per användare. Om du försöker skapa en efter att den gränsen, uppmanas du att ta bort ett befintligt lösenord innan de kan skapa en ny.
 
-* Du skapa inte ditt eget lösenord. I stället genereras de automatiskt. Eftersom du behöver bara ange applösenordet en gång per app, är det säkrast att använda ett mer komplext lösenord som skapas automatiskt i stället för att göra en som du kan komma ihåg.
-* Det finns för närvarande en gräns på 40 lösenord per användare. Om du försöker skapa ett lösenord när gränsen har uppnåtts uppmanas du att ta bort en av dina befintliga applösenord innan du skapar en ny.
-* Du bör använda ett applösenord per enhet, inte per program. Du kan till exempel skapa ett applösenord för din bärbara dator och använda det applösenordet för alla dina program på den bärbara datorn. Skapa sedan en andra applösenordet för alla dina appar på skrivbordet.
-* Du får ett applösenord första gången du registrerar dig för tvåstegsverifiering.  Om du behöver fler håller på att kan du skapa dem.
+- Använda ett applösenord per enhet, inte per app. Till exempel skapa ett enda lösenord för alla appar på din bärbara dator och sedan ett annat lösenord till alla appar på ditt skrivbord.
 
+    >[!Note]
+    >Office 2013-klienter (inklusive Outlook) har stöd för nya autentiseringsprotokoll och kan användas med tvåstegsverifiering. Det här stödet innebär att när tvåstegsverifiering är aktiverad, du behöver inte längre applösenord för Office 2013-klienter. Mer information finns i den [hur modern autentisering fungerar för Office 2013 och Office 2016 klientappar](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) artikeln.
 
+## <a name="where-to-create-and-delete-your-app-passwords"></a>Var du vill skapa och ta bort dina applösenord
 
-## <a name="creating-and-deleting-app-passwords"></a>Skapa och ta bort applösenord
-Under din ursprungliga inloggning ges ett applösenord som du kan använda.  Dessutom kan du också skapa och ta bort applösenord senare.  Så här gör du beror på hur du använder multifaktorautentisering. Besvara följande frågor för att avgöra var du ska gå för att hantera applösenord:
+Du får ett applösenord under inledande tvåstegsverifiering verifiering registreringen. Om du behöver fler än en lösenordet kan skapa du ytterligare lösenord, baserat på hur du använder tvåstegsverifiering:
 
-1. Använder du tvåstegsverifiering för ditt personliga Microsoft-konto? Om Ja, du bör använda den [applösenord och tvåstegsverifiering](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artikeln om du behöver hjälp. Om Nej, Fortsätt att fråga två.
+- **Du kan använda tvåstegsverifiering med Microsoft Azure-kontot.** Skapa och ta bort ditt lösenord med hjälp av den [Azure-portalen](https://portal.azure.com). Mer information finns i den [applösenord och tvåstegsverifiering](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) artikeln.
 
-2. OK, så att du kan använda tvåstegsverifiering för arbets-eller skolkonto. Du använder den för att logga in på Office 365-appar? Om Ja, du bör använda [skapa ett applösenord för Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) om du behöver hjälp. Om Nej, Fortsätt till fråga tre.
+- **Du kan använda tvåstegsverifiering med ditt personliga Microsoft-konto.** Skapa och ta bort ditt lösenord med hjälp av den [Säkerhetsgrunder](https://account.microsoft.com/account/) sida med ditt Microsoft-konto. Mer information finns i den [applösenord och tvåstegsverifiering](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artikeln.
 
-3. Använder du tvåstegsverifiering med Microsoft Azure? Om Ja, fortsätter du till den [hantera lösenord i Azure-portalen](#manage-app-passwords-in-the-Azure-portal) i den här artikeln. Om Nej, Fortsätt att fråga fyra.
+- **Du kan använda tvåstegsverifiering med ditt arbets- eller skolkonto och Office 365-appar.** Skapa och ta bort ditt lösenord med hjälp av anvisningarna i den [skapa och ta bort applösenord med hjälp av Office 365-portalen](#create-and-delete-app-passwords-using-the-office-365-portal) i den här artikeln.
 
-4. Osäker på var du använda tvåstegsverifiering? Fortsätta att den [hantera applösenord med MyApps-portalen](#manage-app-passwords-with-the-myapps-portal) i den här artikeln.
+## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Skapa och ta bort lösenord med hjälp av Office 365-portalen
 
+Om du använder tvåstegsverifiering med ditt arbets- eller skolkonto och Office 365-appar, kan du skapa och ta bort ditt lösenord med hjälp av Office 365-portalen. Du kan ha högst 40 lösenord åt gången. Om du behöver ett nytt applösenord efter den gränsen, måste du ta bort en av dina befintliga applösenord.
+
+### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Att skapa applösenord med hjälp av Office 365-portalen
+
+1. Logga in på ditt arbets- eller skolkonto konto.
+
+2. Gå till https://portal.office.comväljer den **inställningar** ikonen till höger på den **Office 365-portalen** sidan och expandera sedan **ytterligare säkerhetsverifiering**.
+
+    ![Office-portalen med utökat ytterligare verifiering säkerhetsområde](media/security-info/security-info-o365password.png)
+
+3. Välj där det står, **skapa och hantera applösenord** att öppna den **applösenord** sidan.
+
+4. Välj **skapa**, ange ett eget namn för den app som behöver applösenordet och välj sedan **nästa**.
+
+5. Välj **kopiera lösenord till Urklipp**, och välj sedan **Stäng**.
+
+6. Använd kopierade applösenordet för att logga in på icke-webbläsarbaserade appen. Du behöver bara ange detta lösenord en gång och det sparas i framtiden.
+
+### <a name="to-delete-app-passwords-using-the-office-365-portal"></a>Ta bort lösenord med hjälp av Office 365-portalen
+
+1. Logga in på ditt arbets- eller skolkonto konto.
+
+2. Gå till https://portal.office.comväljer den **inställningar** ikonen till höger på den **Office 365-portalen** och välj sedan **ytterligare säkerhetsverifiering**.
+
+3. Välj där det står, **skapa och hantera applösenord** att öppna den **applösenord** sidan.
+
+4. Välj **ta bort** att ta bort applösenordet, väljer **Ja** i dialogrutan och välj sedan **Stäng**.
+
+    Applösenordet har tagits bort.
+
+5. Följ stegen för att skapa ett applösenord för att skapa ditt nya applösenord.
 
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Hantera lösenord i Azure portal
+
 Om du använder tvåstegsverifiering med Azure som du vill skapa applösenord via Azure portal.
 
+## <a name="manage-app-passwords-with-the-myapps-portal"></a>Hantera applösenord med MyApps-portalen
 
+Du kan också skapa och ta bort lösenord via portalen Mina appar.
 
-## <a name="manage-app-passwords-with-the-myapps-portal"></a>Hantera applösenord med MyApps-portalen.
-Om du inte är säker på hur du använder multifaktorautentisering kan sedan du alltid skapa och ta bort lösenord via myapps-portalen.
+### <a name="to-create-an-app-password-using-the-my-apps-portal"></a>Skapa ett applösenord med hjälp av Mina appar-portalen
 
-### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Skapa ett applösenord med hjälp av MyApps-portalen
-1. Logga in på [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. Klicka på namnet på din längst upp till höger och välj **profil**.
+1. Logga in på [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+
+2. Välj namnet på din längst upp till höger och välj **profil**.
+
 3. Välj **ytterligare säkerhetsverifiering**.
+
    ![Välj ytterligare säkerhetskontroll – skärmbild](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
 
 4. Välj **applösenord**.
+
    ![Välj applösenord – skärmbild](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
 
 5. Klicka på **Skapa**.
-6. Ange ett namn för applösenordet och klicka på **nästa**.
+
+6. Skriv ett namn för applösenordet och välj sedan **nästa**.
+
 7. Kopiera applösenordet till Urklipp och klistra in den i din app.
-   ![Skapa ett applösenord](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+   
+    ![Skapa ett applösenord](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Att ta bort ett applösenord med hjälp av MyApps-portalen
-1. Logga in på [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. Välj profil överst på sidan.
-3. Välj **ytterligare säkerhetsverifiering**.
+### <a name="to-delete-an-app-password-using-the-my-apps-portal"></a>Att ta bort ett applösenord med hjälp av Mina appar-portalen
 
-   ![Välj ytterligare säkerhetskontroll – skärmbild](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
+1. Gå till din profil och välj sedan **ytterligare säkerhetskontroll**.
 
-4. Välj **applösenord**.
-
-   ![Välj applösenord – skärmbild](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
-
-5. Bredvid applösenordet som du vill ta bort, klickar du på **ta bort**.
+2. Välj **applösenord**, och välj sedan **ta bort** bredvid applösenordet som du vill ta bort.
 
    ![Ta bort ett applösenord](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
 
-6. Bekräfta att du vill ta bort lösenordet genom att klicka på **Ja**.
-7. När applösenordet har tagits bort, kan du klicka på **Stäng**.
+3. Välj **Ja** att bekräfta att du vill ta bort lösenordet och välj sedan **Stäng**.
+
+## <a name="if-your-app-passwords-arent-working-properly"></a>Om dina applösenord inte fungerar korrekt
+
+Kontrollera att du skrivit rätt lösenord. Om du är säker på att du har angett lösenordet korrekt kan försöka du att logga in igen och skapa ett nytt applösenord. Om inget av dessa alternativ kan åtgärda problemet kan du kontakta företagets support så att de kan ta bort dina befintliga applösenord, så att du skapar en helt ny. 
 
 ## <a name="next-steps"></a>Nästa steg
 

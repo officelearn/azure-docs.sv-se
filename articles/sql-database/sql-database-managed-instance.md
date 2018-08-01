@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/30/2018
 ms.author: bonova
-ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
-ms.translationtype: MT
+ms.openlocfilehash: ced88c491f4d2ff2c1e51fd04c481a8477053a20
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092001"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346706"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad instans (förhandsversion)?
 
@@ -139,15 +139,16 @@ Kritiska-affärsnivå har utformats för program med höga i/o-krav. Det erbjude
 
 I följande lista beskrivs de främsta egenskaperna för nivån affärskritisk service: 
 -   Utformad för affärsprogram med högsta prestanda och hög tillgänglighet krav 
--   Medföljer Supersnabb SSD-lagring (upp till 1 TB på Gen 4 och upp till 4 TB på Gen 5)-har stöd för upp till 100 databaser per instans 
+-   Medföljer Supersnabb SSD-lagring (upp till 1 TB på Gen 4 och upp till 4 TB på Gen 5)
+-   Har stöd för upp till 100 databaser per instans 
 
 |Funktion | Beskrivning|
 |---|---|
-| Antal virtuella kärnor * | 8, 16, 24 (gen 4)<br>8, 16, 24, 32, 40, 64, 80 (5: e generationen)|
+| Antal virtuella kärnor * | 8, 16, 24, 32 (gen 4)<br>8, 16, 24, 32, 40, 64, 80 (5: e generationen)|
 | SQL Server-version / skapa | SQL Server senaste (tillgänglig) |
 | Ytterligare funktioner | [Minnesintern OLTP](sql-database-in-memory.md)<br> 1 ytterligare skrivskyddad replik ([Lässkalning](sql-database-read-scale-out.md))
 | Minimistorlek för lagring | 32 GB |
-| Maxstorlek för lagring | Gen 4: 1 TB (alla vCore storlekar<br> 5: e generationen:<ul><li>1 TB för 8, 16 virtuella kärnor</li><li>2 TB för 24 virtuella kärnor</li><li>4 TB för 40, 60, 80 virtuella kärnor</ul>|
+| Maxstorlek för lagring | Gen 4: 1 TB (alla vCore storlekar<br> 5: e generationen:<ul><li>1 TB för 8, 16 virtuella kärnor</li><li>2 TB för 24 virtuella kärnor</li><li>4 TB för 40, 64, 80 virtuella kärnor</ul>|
 | Maximalt lagringsutrymme per databas | Bestäms av den maximala lagringsstorleken per instans |
 | Antalet datafiler (rader) per databasen | Flera | 
 | Antal loggfiler (loggning) per databas | 1 | 

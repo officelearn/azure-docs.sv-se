@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 07/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 794039ee1a5b1cf3b382e0f0769383b1e033e982
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b003f29db699d89f0d3cec76ee3562ffad08b40f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046948"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346342"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Självstudier: Azure Active Directory-integrering med Jamf Pro
 
@@ -139,7 +139,21 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Jamf Pro-konfiguration](./media/jamfprosamlconnector-tutorial/configure2.png)
 
-10. Rulla ned till och **IDENTITETSPROVIDERN** under den **enkel inloggning** avsnittet och utför följande steg:
+10. På den **enkel inloggning** sidan utför följande steg:
+
+    ![Jamf Pro enda](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
+
+    a. Välj **Jamf Pro Server** att aktivera enkel inloggning för åtkomst.
+
+    b. Genom att välja **Tillåt förbikoppling för alla användare** användare kommer inte att omdirigeras till inloggningssidan identitetsleverantör för autentisering, men kan logga in till Jamf Pro direkt i stället. När en användare försöker få åtkomst till Jamf Pro via identitetsprovidern, görs IdP-initierad SSO-autentisering och auktorisering.
+
+    c. Välj den **NameID** för **ANVÄNDARMAPPNING: SAML**. Som standard är inställningen **NameID** men du kan definiera ett anpassat attribut.
+
+    d. Välj **e-post** för **ANVÄNDARMAPPNING: JAMF PRO**. Jamf Pro mappar SAML-attribut som skickas av IDP: N på följande sätt: genom användare och grupper. När en användare försöker ansluta till Jamf Pro, som standard Jamf Pro hämtar information om användaren från identitetsprovidern och jämför den med Jamf Pro användarkonton. Om inkommande användarkontot inte finns i Jamf Pro, sedan inträffar grupp namnmatchning.
+
+    e. Klistra in värdet `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` i den **GRUPPNAMN för ATTRIBUTET** textrutan.
+ 
+11. På samma sida-rulla ned till och **IDENTITETSPROVIDERN** under den **enkel inloggning** avsnittet och utför följande steg:
 
     ![Jamf Pro-konfiguration](./media/jamfprosamlconnector-tutorial/configure3.png)
 
@@ -149,10 +163,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     c. Välj **Metadata-URL** som ett alternativ från den **IDENTITETSKÄLLA PROVIDERN METADATA** listrutan och klistra in i textrutan följande den **Appfederationsmetadata** värde som du har kopierat från Azure-portalen.
 
-    d. Kopiera den **entitets-ID** värdet och klistra in den i den **identifierare (entitets-ID)** -textrutan i **Jamf Pro domän och URL: er** avsnittet på Azure-portalen.
+    d. Kopiera den **entitets-ID** värde och klistra in den i den **identifierare (entitets-ID)** -textrutan i **Jamf Pro domän och URL: er** avsnittet på Azure-portalen.
 
     >[!NOTE]
-    > Här `aadsso` utgör underdomänsdelen (vilket är för referens ändamål). Använd det här värdet för att slutföra inloggnings-URL och svars-URL i den **Jamf Pro domän och URL: er** avsnittet på Azure-portalen.
+    > Här är suddiga värdet underdomänsdelen. Använd det här värdet för att slutföra inloggnings-URL och svars-URL i den **Jamf Pro domän och URL: er** avsnittet på Azure-portalen.
 
     e. Klicka på **Spara**.
 

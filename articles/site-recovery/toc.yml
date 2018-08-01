@@ -51,7 +51,7 @@
           href: tutorial-prepare-azure.md
         - name: Migrera lokala datorer till Azure
           href: migrate-tutorial-on-premises-azure.md
-        - name: Migrera servrar för Windows Server 2008 och 2008 R2 till Azure
+        - name: Migrera Windows Server 2008-servrar till Azure
           href: migrate-tutorial-windows-server-2008.md
         - name: Migrera AWS-instanser till Azure
           href: migrate-tutorial-aws-azure.md

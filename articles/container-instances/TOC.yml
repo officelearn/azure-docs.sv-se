@@ -51,6 +51,8 @@
           href: container-instances-liveness-probe.md
     - name: Hantera
       items:
+        - name: Uppdatera containrar som körs
+          href: container-instances-update.md
         - name: Köra ett kommando (exec)
           href: container-instances-exec.md
         - name: Övervaka användning av processor och minne
@@ -59,7 +61,7 @@
           href: container-instances-log-analytics.md
     - name: Köra arbetsbelastningar
       items:
-        - name: Köra uppgifter med omstartsprincip
+        - name: Köra uppgifter med omstartsprinciper
           href: container-instances-restart-policy.md
         - name: Jenkins-versionsagenter på ACI
           href: container-instances-jenkins.md

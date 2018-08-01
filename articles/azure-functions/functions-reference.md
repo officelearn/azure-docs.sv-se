@@ -1,13 +1,13 @@
 ---
-title: Riktlinjer för att utveckla Azure Functions | Microsoft Docs
-description: Läs om Azure Functions koncept och tekniker som du behöver för att utveckla funktioner i Azure, för alla programming språk och bindningar.
+title: Vägledning för att utveckla Azure Functions | Microsoft Docs
+description: Läs om Azure Functions-koncept och tekniker som du behöver för att utveckla funktioner i Azure, i alla programmeringsspråk och bindningar.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
-keywords: utvecklare guide, azure-funktion, funktioner, händelsebearbetning, webhooks, dynamiska beräkning, serverlösa arkitektur
+keywords: Developer guide, azure functions, funktioner, händelsebearbetning, webhooks, dynamisk beräkning, serverlös arkitektur
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.service: functions
 ms.devlang: multiple
@@ -15,23 +15,23 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
-ms.author: tdykstra
-ms.openlocfilehash: 461557b415ec816860acb5308e7aeba34468f4ae
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: glenga
+ms.openlocfilehash: 5214a59b6a1aa27c80759c5af3d91ad4711de660
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29121754"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343985"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-guide för utvecklare
-I Azure Functions dela funktioner några grundläggande tekniska begrepp och komponenter, oavsett språk eller bindning som du använder. Innan du går till learning information som är specifika för ett visst språk eller bindning bör du läsa igenom den här översikten som gäller för alla.
+I Azure Functions dela några tekniska nyckelkoncept och komponenter, oavsett språk eller bindning som du använder specifika funktioner. Innan du sätter igång till learning information som gäller för ett visst språk eller en bindning, bör du läsa igenom den här översikten som gäller för alla.
 
-Den här artikeln förutsätter att du redan har läst den [översikt över Azure Functions](functions-overview.md) och är bekant med [WebJobs SDK begrepp som utlösare och bindningar JobHost runtime](https://github.com/Azure/azure-webjobs-sdk/wiki). Azure Functions baseras på WebJobs-SDK. 
+Den här artikeln förutsätter att du redan har läst den [översikt över Azure Functions](functions-overview.md) och är bekant med [WebJobs SDK-begrepp som utlösare och bindningar JobHost runtime](https://github.com/Azure/azure-webjobs-sdk/wiki). Azure Functions bygger på WebJobs SDK. 
 
 ## <a name="function-code"></a>Funktionskoden
-En *funktionen* är det primära begreppet i Azure Functions. Du skriva kod för en funktion på ett annat språk och spara filerna koden och konfigurationen i samma mapp. Konfigurationen har namnet `function.json`, som innehåller JSON-konfigurationsdata. Olika språk som stöds och var och en har ett något annorlunda optimerad för att fungerar bäst för det språket. 
+En *funktionen* är det primära konceptet i Azure Functions. Du skriver kod för en funktion i ett valfritt språk och spara filerna kod och konfiguration i samma mapp. Konfigurationen har namnet `function.json`, som innehåller JSON-konfigurationsdata. Olika språk som stöds och var och en har en något annorlunda upplevelse som optimerats för att fungerar bäst för det språket. 
 
-Filen function.json definierar bindningarna som funktionen och andra konfigurationsinställningar. Körningsmiljön använder den här filen för att fastställa händelser att övervaka och hur du överför data till och returnera data från funktionen körning. Följande är ett exempel function.json-fil.
+Filen function.json definierar bindningarna som funktionen och andra konfigurationsinställningar. Körningen använder den här filen för att hitta händelser att övervaka och hur du överför data till och returnera data från körning av funktion. Följande är en exempelfil function.json.
 
 ```json
 {
@@ -48,67 +48,67 @@ Filen function.json definierar bindningarna som funktionen och andra konfigurati
 }
 ```
 
-Ange den `disabled` egenskapen `true` att förhindra att funktionen utförs.
+Ange den `disabled` egenskap `true` att förhindra att funktionen som körs.
 
-Den `bindings` egenskapen är där du kan konfigurera både utlösare och bindningar. Varje bindning delar några vanliga inställningar och vissa inställningar som är specifika för en viss typ av bindningen. Alla bindningar kräver följande inställningar:
+Den `bindings` egenskapen är där du konfigurerar både utlösare och bindningar. Varje bindning beskriver några vanliga inställningar och vissa inställningar, som är specifika för en viss typ av bindning. Alla bindningar kräver följande inställningar:
 
-| Egenskap | Värdetyper / | Kommentarer |
+| Egenskap  | Värdetyper / | Kommentarer |
 | --- | --- | --- |
 | `type` |sträng |Bindningstyp. Till exempel `queueTrigger`. |
-| `direction` |'i', 'out' |Anger om bindningen för mottagning av data i funktionen eller skicka data från funktionen. |
-| `name` |sträng |Namnet som används för det bundna data i funktionen. Detta är ett argumentnamn; för C# JavaScript är det nyckeln i en lista med nyckel/värde. |
+| `direction` |”i”, ”ut” |Anger om bindningen för mottagning av data i funktionen eller skickar data från funktionen. |
+| `name` |sträng |Namnet som används för bundna data i funktionen. Detta är ett argument-name; för C# för JavaScript är det nyckeln i en nyckel/värde-lista. |
 
 ## <a name="function-app"></a>Funktionsapp
-En funktionsapp består av en eller flera enskilda funktioner som hanteras tillsammans i Azure App Service. Alla funktioner i en funktionsapp delar samma prisavtal, kontinuerlig distribution och versionen av körningsmiljön. Funktioner på flera språk kan dela appen med samma funktion. Se en funktionsapp som ett sätt att ordna och hantera dina funktioner tillsammans. 
+En funktionsapp består av en eller flera enskilda funktioner som hanteras tillsammans med Azure App Service. Alla funktioner i en funktionsapp delar samma prisplanen, kontinuerlig distribution och runtime-versionen. Funktioner som skrivits på flera språk kan dela samma funktionsapp. Tänk på en funktionsapp som ett sätt att ordna och hantera dina funktioner gemensamt. 
 
-## <a name="runtime-script-host-and-web-host"></a>Runtime (skriptvärden och webbvärd)
-Runtime eller skriptvärden, är den underliggande WebJobs SDK-värden som lyssnar efter händelser, samlar in och skickar data och slutligen körs din kod. 
+## <a name="runtime-script-host-and-web-host"></a>Körning (skriptvärden och värd)
+Runtime eller skriptvärden, är den underliggande WebJobs SDK-värden som lyssnar efter händelser, samlar in och skickar data och slutligen Kör koden. 
 
-För att underlätta http-utlösare, finns det också en värd som är avsedd att sitta framför skriptvärden i produktion scenarier. Med två värdar avslutas bidrar till att isolera skriptvärden framifrån trafik som hanteras av Webbvärden.
+För att underlätta HTTP-utlösare, finns det också en värd som har utformats för att sitta framför skriptvärden i produktionsscenarier. Med två värdar avslutas bidrar till att isolera skriptvärden framifrån trafik som hanteras av webbvärd.
 
 ## <a name="folder-structure"></a>Mappstruktur
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-När inställningen upp ett projekt för distribution av funktioner på en funktionsapp i Azure App Service, kan du behandla den här mappstrukturen som din Platskod. Du kan använda befintliga verktyg kontinuerlig integrering och distribution eller distribution av anpassade skript för detta distribuera tid installationen eller code transpilation.
+När inställningen upp ett projekt för distribution av funktioner till en funktionsapp i Azure App Service, kan du hantera den här mappstrukturen som din kod. Du kan använda befintliga verktyg som kontinuerlig integrering och distribution eller anpassat distributionsskript för detta distribuera tid paketinstallationen eller code transpilation.
 
 > [!NOTE]
-> Se till att distribuera din `host.json` filen och fungerar mappar direkt till den `wwwroot` mapp. Ta inte med den `wwwroot` mappen i dina distributioner. Annars kan du få `wwwroot\wwwroot` mappar. 
+> Se till att distribuera din `host.json` filen och fungerar mappar direkt till den `wwwroot` mapp. Ta inte med den `wwwroot` mapp i dina distributioner. Annars kan du få `wwwroot\wwwroot` mappar. 
 > 
 > 
 
-## <a id="fileupdate"></a>Så här uppdaterar du funktionen app-filer
-Funktionen redigeraren inbyggda i Azure-portalen kan du uppdatera den *function.json* fil- och kodfilen för en funktion. Att hämta eller uppdatera andra filer som *package.json* eller *project.json* beroenden, måste du använda andra metoder för distribution.
+## <a id="fileupdate"></a> Så här uppdaterar du funktionen app-filer
+Funktionen redigeraren inbyggda i Azure-portalen kan du uppdatera den *function.json* fil- och kodfilen för en funktion. Överföra eller andra uppdateringsfiler som *package.json* eller *project.json* eller beroenden, som du behöver använda andra metoder för distribution.
 
-Funktionen appar bygger på Apptjänst, så alla de [distributionsalternativ för standard web apps](../app-service/app-service-deploy-local-git.md) finns också tillgängliga för funktionen appar. Här följer några metoder som du kan använda för att hämta eller uppdatera funktionen programfilerna. 
+Funktionsappar bygger på App Service, så att alla de [tillgängliga distributionsalternativen till standard web apps](../app-service/app-service-deploy-local-git.md) kan också användas för funktionsappar. Här följer några metoder som du kan använda för att överföra eller uppdatera funktionen app-filer. 
 
 #### <a name="to-use-app-service-editor"></a>Du använder App Service Editor
 1. I Azure Functions-portalen klickar du på **plattformsfunktioner**.
 2. I den **UTVECKLINGSVERKTYG** klickar du på **App Service Editor**.   
-   När App Service Editor har lästs in, visas den *host.json* fil- och mappar under *wwwroot*. 
-5. Öppna filer att redigera dem, eller dra och släppa från utvecklingsdatorn att överföra filer.
+   När App Service Editor har lästs in visas den *host.json* fil- och funktionen mappar under *wwwroot*. 
+5. Öppna filer som ska redigeras, eller dra och släpp från utvecklingsdatorn ladda upp filer.
 
-#### <a name="to-use-the-function-apps-scm-kudu-endpoint"></a>Att använda funktionen appens SCM (Kudu) slutpunkt
+#### <a name="to-use-the-function-apps-scm-kudu-endpoint"></a>Att använda funktionsappens SCM (Kudu)-slutpunkten
 1. Gå till: `https://<function_app_name>.scm.azurewebsites.net`.
-2. Klicka på **Debug konsolen > CMD**.
+2. Klicka på **felsöka konsolen > CMD**.
 3. Gå till `D:\home\site\wwwroot\` att uppdatera *host.json* eller `D:\home\site\wwwroot\<function_name>` att uppdatera filer för en funktion.
-4. Dra och släpp en fil som du vill ladda upp till rätt mapp i rutnätet filen. Det finns två områden i rutnätet filen där du kan släppa en fil. För *.zip* filer, visas en ruta med etiketten ”dra hit om du vill ladda upp och packa”. Ta bort i rutnätet filen men utanför rutan ”packa” för andra filtyper.
+4. Dra och släpp en fil som du vill ladda upp till mappen i rutnätet för filen. Det finns två områden i rutnätet fil där du kan släppa en fil. För *.zip* filer, en ruta visas med etiketten ”dra hit om du vill ladda upp och packa upp”. Ta bort i rutnätet för filen men utanför rutan ”packa upp” för andra filtyper.
 
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
-#### <a name="to-use-continuous-deployment"></a>Att använda kontinuerlig distribution
+#### <a name="to-use-continuous-deployment"></a>Använda kontinuerlig distribution
 Följ anvisningarna i avsnittet [kontinuerlig distribution för Azure Functions](functions-continuous-deployment.md).
 
 ## <a name="parallel-execution"></a>Parallell körning
-När flera utlösande händelser inträffar snabbare än en enkeltrådig funktionen runtime kan bearbeta dem, kan körningen anropa funktionen flera gånger i parallellt.  Om en funktionsapp använder den [förbrukning som värd för planen](functions-scale.md#how-the-consumption-plan-works), funktionen appen kan byggas ut automatiskt.  Varje instans av funktionsapp om appen körs på förbrukningen värd plan eller en vanlig [Apptjänst som är värd för planen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), kan bearbeta samtidiga funktionsanrop parallellt med flera trådar.  Det maximala antalet samtidiga funktionsanrop i varje funktionen app-instansen varierar beroende på vilken typ av utlösare som används samt de resurser som används av andra funktioner i appen funktion.
+När flera utlösande händelser inträffar snabbare än en single-threaded funktionskörningen kan bearbeta dem, kan körningen anropa funktionen flera gånger i parallellt.  Om en funktionsapp med hjälp av den [Förbrukningsvärdplanen](functions-scale.md#how-the-consumption-plan-works), funktionsappen genom att skala upp automatiskt.  Varje instans av function-app om appen körs på förbrukningen som är värd för plan eller en vanlig [App Service-värdplanen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), kan bearbeta samtidiga funktionsanrop parallellt med flera trådar.  Det maximala antalet samtidiga funktionsanrop i varje funktionen app-instansen varierar beroende på vilken typ av utlösare som används, samt de resurser som används av andra funktioner i funktionsappen.
 
-## <a name="functions-runtime-versioning"></a>Funktioner runtime versionshantering
+## <a name="functions-runtime-versioning"></a>Functions runtime versionshantering
 
-Du kan konfigurera version av körningsmiljön funktioner med den `FUNCTIONS_EXTENSION_VERSION` appinställningen. Till exempel anger värdet ”1 ~” att appen funktionen ska använda 1 enligt dess huvudversion. Funktionen appar uppgraderas till varje ny delversion när de blir tillgängliga. Mer information, inklusive hur du visar den exakta versionen av appen funktionen finns [så avsedda för Azure Functions-runtime versioner](set-runtime-version.md).
+Du kan konfigurera version av Functions runtime med den `FUNCTIONS_EXTENSION_VERSION` appinställningen. Till exempel anger värdet ”~ 1” att Funktionsappen ska använda 1 som dess huvudversionen. Funktionsappar uppgraderas till varje ny delversion när de blir tillgängliga. Läs mer om, inklusive hur du visar den exakta versionen av din funktionsapp [hur du Azure Functions runtime versioner](set-runtime-version.md).
 
 ## <a name="repositories"></a>Centrallager
-Koden för Azure Functions är öppen källkod och lagras i GitHub-databaser:
+Koden för Azure Functions är öppen källkod och lagrats i GitHub-databaser:
 
-* [Azure Functions-runtime](https://github.com/Azure/azure-webjobs-sdk-script/)
+* [Azure Functions-körning](https://github.com/Azure/azure-webjobs-sdk-script/)
 * [Azure Functions-portalen](https://github.com/projectkudu/AzureFunctionsPortal)
 * [Azure Functions-mallar](https://github.com/Azure/azure-webjobs-sdk-templates/)
 * [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/)
@@ -119,18 +119,18 @@ Här är en tabell med alla bindningar som stöds.
 
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
-Problem med fel som kommer från bindningarna? Granska de [bindning felkoder i Azure Functions](functions-bindings-error-pages.md) dokumentation.
+Har du problem med fel som kommer från bindningarna? Granska den [bindning felkoder i Azure Functions](functions-bindings-error-pages.md) dokumentation.
 
-## <a name="reporting-issues"></a>Rapportera problem
+## <a name="reporting-issues"></a>Rapporteringsproblem
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i följande resurser:
 
 * [Metodtips för Azure Functions](functions-best-practices.md)
-* [Azure Functions C# för utvecklare](functions-reference-csharp.md)
-* [Azure Functions F # för utvecklare](functions-reference-fsharp.md)
-* [Azure Functions NodeJS för utvecklare](functions-reference-node.md)
+* [Azure Functions C#-utvecklarreferens](functions-reference-csharp.md)
+* [Azure Functions F #-utvecklarreferens](functions-reference-fsharp.md)
+* [Azure Functions NodeJS-utvecklare](functions-reference-node.md)
 * [Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
-* [Azure Functions: Transporten](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) på Azure App Service-teamets blogg. En historik över hur Azure Functions utvecklades.
+* [Azure Functions: Vägen](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) på Azure App Service-teamets blogg. En historik över hur Azure Functions har utvecklats.
 

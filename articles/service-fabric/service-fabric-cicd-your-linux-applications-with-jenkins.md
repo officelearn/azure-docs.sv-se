@@ -4,22 +4,20 @@ description: Skapa och kontinuerligt för ditt Service Fabric Linux-program med 
 services: service-fabric
 documentationcenter: java
 author: sayantancs
-manager: timlt
-editor: ''
-ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
+manager: jpconnock
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/9/2018
+ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: efdbfa9664e180031926982adedfcf94a4184081
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0de62b6fa05ccad1977e7d98a614e8d601409f5b
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972256"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390185"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Skapa och distribuera ditt Linux-program med hjälp av Jenkins
 Jenkins är ett populärt verktyg för kontinuerlig integrering och distribution av appar. Så här skapar och distribuerar du ett Azure Service Fabric-program med Jenkins.
@@ -137,7 +135,7 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. I följa
    bash Scripts/install.sh
    ```
 
-   Detta installerar en Jenkins-behållare på klustret och kan övervakas med Service Fabric Explorer.
+   Detta installerar en Jenkins-container på klustret och kan övervakas med Service Fabric Explorer.
 
    > [!NOTE]
    > Det kan ta några minuter för Jenkins-avbildningen hämtas i klustret.
@@ -148,7 +146,7 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. I följa
    ```sh
    ssh user@PublicIPorFQDN -p [port]
    ``` 
-3. Hämta behållarens instans-ID med `docker ps -a`.
+3. Hämta containerns instans-ID med `docker ps -a`.
 4. Secure Shell (SSH) som inloggning till behållaren och klistra in den sökväg som visades i Jenkins-portalen. Exempel: om portalen visas i sökvägen `PATH_TO_INITIAL_ADMIN_PASSWORD`, kör följande kommandon:
 
    ```sh
@@ -177,9 +175,9 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. I följa
   När du kör `docker info` i terminalen utdata ska visa att Docker-tjänsten körs.
 
 ### <a name="steps"></a>Steg
-1. Hämta behållaravbildningen för Service Fabric Jenkins:`docker pull rapatchi/jenkins:latest`. Plugin-programmet för Service Fabric Jenkins är förinstallerat i avbildningen.
-2. Kör behållaravbildningen: `docker run -itd -p 8080:8080 rapatchi/jenkins:latest`
-3. Hämta ID:t för behållaravbildningsinstansen. Du kan visa en lista med alla Docker-behållare med hjälp av kommandot `docker ps –a`
+1. Hämta containeravbildningen för Service Fabric Jenkins:`docker pull rapatchi/jenkins:latest`. Plugin-programmet för Service Fabric Jenkins är förinstallerat i avbildningen.
+2. Kör containeravbildningen: `docker run -itd -p 8080:8080 rapatchi/jenkins:latest`
+3. Hämta ID:t för containeravbildningsinstansen. Du kan visa en lista med alla Docker-containrar med hjälp av kommandot `docker ps –a`
 4. Logga in på Jenkins-portalen med följande steg:
 
    1. Logga in på Jenkins-gränssnittet från värden. Använd de första fyra siffrorna i behållar-ID. Om behållar-ID är till exempel `2d24a73b5964`, använda `2d24`.
@@ -325,6 +323,10 @@ Du kan konfigurera Azure-autentiseringsuppgifter eller slutpunkten för klusterh
 11. Under **programkonfiguration**, konfigurera den **programnamn**, **programtyp**, och (relativ) **sökvägen till programmets Manifest** fält.
     ![Byggåtgärden för Service Fabric Jenkins efter konfigurera autentiseringsuppgifter för Azure](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
 12. Klicka på **verifiera konfigurationen**. På lyckad kontrollen är klar klickar du på **spara**. Konfigurationen av din pipeline för Jenkins-jobb är nu slutförd. Fortsätta till [nästa steg](#next-steps) att testa distributionen.
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Felsökning av plugin-programmet Jenkins
+
+Om du stöter på buggar med Jenkins plugin-program kan du rapportera problemet i den [Jenkins JIRA](https://issues.jenkins-ci.org/) för en viss komponent.
 
 ## <a name="next-steps"></a>Nästa steg
 GitHub och Jenkins har nu konfigurerats. Överväg att göra ändringar i den `reliable-services-actor-sample/Actors/ActorCounter` projekt i din förgrening av lagringsplatsen https://github.com/Azure-Samples/service-fabric-java-getting-started. Skicka dina ändringar till en fjärransluten `master` fjärrgrenen (eller valfri gren som du har konfigurerat för att fungera med). Detta utlöser Jenkins-jobbet (`MyJob`) som du konfigurerade. Den hämtar ändringarna från GitHub, bygger dem och distribuerar programmet till klustret som du angav i åtgärderna efter Byggprocessen.  

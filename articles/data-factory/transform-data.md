@@ -10,25 +10,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: afd1944006a08811075e8af8b1a641d00ee3c352
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e3aefc23cd0f4d8043232214591155aa893f4522
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112822"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390144"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformera data i Azure Data Factory
 > [!div class="op_single_selector"]
 > * [Hive](transform-data-using-hadoop-hive.md)  
 > * [Pig](transform-data-using-hadoop-pig.md)  
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
-> * [Hadoop Streaming](transform-data-using-hadoop-streaming.md)
-> * [Spark](transform-data-using-spark.md)
+> * [HDInsight Streaming](transform-data-using-hadoop-streaming.md)
+> * [HDInsight Spark](transform-data-using-spark.md)
 > * [Machine Learning](transform-data-using-machine-learning.md) 
 > * [Lagrad procedur](transform-data-using-stored-procedure.md)
 > * [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md)
+> * [Databricks-anteckningsbok](transform-data-databricks-notebook.md)
+> * [Databricks Jar](transform-data-databricks-jar.md)
+> * [Databricks Python](transform-data-databricks-python.md)
 > * [Anpassad .NET](transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="overview"></a>Översikt
@@ -63,6 +66,18 @@ Du kan använda SQL Server-lagrad procedur i Data Factory-pipeline anropa en lag
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>U-SQL-aktivitet för Data Lake Analytics
 Data Lake Analytics U-SQL-aktivitet kör en U-SQL-skript på ett Azure Data Lake Analytics-kluster. Se [Data U-SQL-aktiviteten](transform-data-using-data-lake-analytics.md) nedan för information. 
+
+## <a name="databricks-notebook-activity"></a>Databricks Notebook-aktivitet
+
+Azure Databricks Notebook-aktiviteten i Data Factory-pipeline kör en Databricks notebook i Azure Databricks-arbetsytan. Azure Databricks är en hanterad plattform för att köra Apache Spark. Se [transformerar data genom att köra en Databricks notebook](transform-data-databricks-notebook.md).
+
+## <a name="databricks-jar-activity"></a>Databricks Jar-aktivitet
+
+Azure Databricks Jar-aktiviteten i Data Factory-pipeline körs en Jar-Spark i Azure Databricks-kluster. Azure Databricks är en hanterad plattform för att köra Apache Spark. Se [transformerar data genom att köra en Jar-aktivitet i Azure Databricks](transform-data-databricks-jar.md).
+
+## <a name="databricks-python-activity"></a>Databricks Python-aktivitet
+
+Azure Databricks Python-aktiviteten i Data Factory-pipeline körs en Python-fil i ditt Azure Databricks-kluster. Azure Databricks är en hanterad plattform för att köra Apache Spark. Se [transformerar data genom att köra en Python-aktivitet i Azure Databricks](transform-data-databricks-python.md).
 
 ## <a name="custom-activity"></a>Anpassad aktivitet
 Om du vill omvandla data på ett sätt som inte stöds av Data Factory kan du skapa en anpassad aktivitet med egen logik för databearbetning och använda aktiviteten i pipelinen. Du kan konfigurera anpassad .NET-aktivitet ska köras med en Azure Batch-tjänst eller ett Azure HDInsight-kluster. Se [använda anpassade aktiviteter](transform-data-using-dotnet-custom-activity.md) nedan för information. 

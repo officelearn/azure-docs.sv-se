@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0da0e5d4b7dd8ff000d6c56716bea1b36935af01
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 44ec19721ba59898915f6547231fb586cb44eb30
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928914"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389760"
 ---
 # <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Hämta data med hjälp av Azure Active Directory Reporting-API:et med certifikat
 
@@ -85,10 +85,9 @@ Du kan nu välja att exportera dessa data till en CSV-fil och spara i ett SIEM-s
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Få ett första intryck av rapport-API:er](active-directory-reporting-api-getting-started-azure-portal.md#explore)
-
-- [Skapa dina egen lösning](active-directory-reporting-api-getting-started-azure-portal.md#customize)
-
+* [Få ett första intryck av rapport-API:er](active-directory-reporting-api-getting-started-azure-portal.md)
+* [Granska API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [Inloggningsaktivitet rapport API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
 
 
 

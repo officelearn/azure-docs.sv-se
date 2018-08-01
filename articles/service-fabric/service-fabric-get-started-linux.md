@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 2863d4592c2d889ebab3788c7be874114dc5c35c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d4fa878197732daf188fcc318569b178e608684
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642979"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345968"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "34642979"
 
 För att kunna skapa och köra [Azure Service Fabric-program](service-fabric-application-model.md) på en Linux-utvecklingsdator måste du installera runtime och SDK. Du kan även installera SDK:er för Java- och .NET Core-utveckling. 
 
-Stegen i den här artikeln förutsätter att du installerar internt på Linux eller att du använder Service Fabric OneBox-behållaravbildningen, `microsoft/service-fabric-onebox`.
+Stegen i den här artikeln förutsätter att du installerar internt på Linux eller att du använder Service Fabric OneBox-containeravbildningen, `microsoft/service-fabric-onebox`.
 
 Det stöds inte att installera Service Fabric runtime och SDK på Windows-undersystem för Linux. Du kan hantera Service Fabric-entiteter som finns någon annanstans i molnet eller i den lokala infrastrukturen med kommandoradsgränssnittet (CLI) för Azure Service Fabric, som stöds. Information om hur du installerar kommandoradsgränssnittet finns i [Konfigurera Service Fabric CLI](./service-fabric-cli.md).
 
@@ -80,7 +80,8 @@ Om du vill installera SDK och det tillhörande runtime-paketet via kommandoradsv
 3. Lägg till `dotnet`-repon i listan med källor.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+    sudo dpkg -i packages-microsoft-prod.deb
     ```
 
 4. Lägg till den nya Gnu Privacy Guard-nyckeln (GnuPG eller GPG) i APT-nyckelringen.
@@ -187,7 +188,7 @@ Starta ett lokalt kluster när installationen är klar.
 
     ![Service Fabric Explorer på Linux][sfx-linux]
 
-    Nu kan du distribuera fördefinierade Service Fabric-programpaket eller nya paket baserat på gästbehållare eller körbara gästprogram. Om du vill skapa nya tjänster med SDK:er för Java eller .NET Core, följer du installationsanvisningarna i följande avsnitt.
+    Nu kan du distribuera fördefinierade Service Fabric-programpaket eller nya paket baserat på gästcontainrar eller körbara gästprogram. Om du vill skapa nya tjänster med SDK:er för Java eller .NET Core, följer du installationsanvisningarna i följande avsnitt.
 
 
 > [!NOTE]
@@ -202,7 +203,7 @@ Starta ett lokalt kluster när installationen är klar.
 [Service Fabric CLI](service-fabric-cli.md) innehåller kommandon för att interagera med Service Fabric-entiteter, t.ex. kluster och program. Installera CLI genom att följa anvisningarna i [Service Fabric CLI](service-fabric-cli.md).
 
 
-## <a name="set-up-yeoman-generators-for-containers-and-guest-executables"></a>Konfigurera Yeoman-generatorer för behållare och körbara gästprogram
+## <a name="set-up-yeoman-generators-for-containers-and-guest-executables"></a>Konfigurera Yeoman-generatorer för container och körbara gästprogram
 Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa Service Fabric-program från en terminal med en Yeoman-mallgenerator. Följ dessa steg för att konfigurera Service Fabric Yeoman-mallgeneratorer:
 
 1. Installera Node.js och npm på datorn.
@@ -223,14 +224,14 @@ Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa Service Fa
     ```bash
     sudo npm install -g yo
     ```
-3. Installera Yeo-behållargeneratorn för Service Fabric och generatorn för körbara gästprogram från npm.
+3. Installera Yeo-containergeneratorn för Service Fabric och generatorn för körbara gästprogram från npm.
 
     ```bash
     sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
     sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
     ```
 
-När du har installerat generatorerna skapar du körbara gästprogram eller behållartjänster genom att köra `yo azuresfguest` respektive `yo azuresfcontainer`.
+När du har installerat generatorerna skapar du körbara gästprogram eller containertjänster genom att köra `yo azuresfguest` respektive `yo azuresfcontainer`.
 
 ## <a name="set-up-net-core-20-development"></a>Konfigurera .NET Core 2.0 för utveckling
 
@@ -264,7 +265,7 @@ Du måste också installera Service Fabric Yeo-generatorn för körbara Java-fil
  
 ## <a name="install-the-eclipse-plug-in-optional"></a>Installera plugin-programmet Eclipse (valfritt)
 
-Du kan installera Eclipse-pluginprogrammet för Service Fabric i Eclipse IDE för Java-utvecklare eller Java EE-utvecklare. Du kan använda Eclipse för att skapa körbara Service Fabric-gästprogram och behållarprogram utöver Service Fabric Java-program.
+Du kan installera Eclipse-pluginprogrammet för Service Fabric i Eclipse IDE för Java-utvecklare eller Java EE-utvecklare. Du kan använda Eclipse för att skapa körbara Service Fabric-gästprogram och containerprogram utöver Service Fabric Java-program.
 
 > [!IMPORTANT]
 > Service Fabric plugin-programmet kräver Eclipse Neon eller en senare version. Efter den här anteckningen följer instruktioner om hur du kontrollerar din Eclipse-version. Om du har en tidigare version av Eclipse installerad kan du hämta nyare versioner från [Eclipse-webbplatsen](https://www.eclipse.org). Vi rekommenderar att du inte installerar ovanpå (skriver över) en befintlig installation av Eclipse. Ta bort den gamla versionen innan du kör installationsprogrammet eller installera den nya versionen i en annan katalog.

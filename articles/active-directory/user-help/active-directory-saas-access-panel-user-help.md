@@ -1,26 +1,23 @@
 ---
-title: Få hjälp med att komma åt och använda portalen Mina appar i Azure AD | Microsoft Docs
+title: Få hjälp med åtkomst till och med hjälp av portalen Mina appar i Azure Active Directory | Microsoft Docs
 description: Få hjälp med att logga in på och utföra vanliga uppgifter i åtkomstpanelen.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: e4e0dd91110eb56623bdb73b99eed4a35ccb751c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a6ac780625f6a109797cbdab78dc555e21e18bee
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059839"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343618"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Felsöka problem med åtkomst till och med hjälp av Mina appar-portalen
 

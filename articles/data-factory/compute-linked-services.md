@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 4a4ec63d41f013ebfef8a78eddc88a6131a960fc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 127438e1e65400daac75cec525197a5cfc8cd46a
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070050"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390219"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 Den här artikeln beskrivs olika beräkningsmiljöer som du kan använda för att bearbeta och omvandla data. Den innehåller också information om olika konfigurationer (på begäran och ta med din egen) som stöds av Data Factory när du konfigurerar länkade tjänster länkar dessa compute-miljöer i en Azure-datafabrik.
@@ -385,7 +385,7 @@ Skapar du en Azure Machine Learning-länkad tjänst för att registrera en Machi
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Typ                   | Type-egenskapen ska anges till: **AzureML**. | Ja                                      |
 | mlEndpoint             | Batchbedömnings-URL: en.                   | Ja                                      |
-| apiKey                 | Den publicerade arbetsytemodellens API.     | Ja                                      |
+| ApiKey                 | Den publicerade arbetsytemodellens API.     | Ja                                      |
 | updateResourceEndpoint | Uppdatera resurs-URL för en Azure ML Web Service-slutpunkt som används för att uppdatera förutsägande webbtjänsten med tränade modellfilen | Nej                                       |
 | servicePrincipalId     | Ange programmets klient-ID.     | Krävs om updateResourceEndpoint har angetts |
 | servicePrincipalKey    | Ange programmets nyckel.           | Krävs om updateResourceEndpoint har angetts |
@@ -429,8 +429,8 @@ Du skapar en **Azure Data Lake Analytics** compute service till en Azure data fa
 | typ                 | Type-egenskapen ska anges till: **AzureDataLakeAnalytics**. | Ja                                      |
 | Kontonamn          | Azure Data Lake Analytics-kontonamn.  | Ja                                      |
 | dataLakeAnalyticsUri | Azure Data Lake Analytics-URI.           | Nej                                       |
-| subscriptionId       | Azure-prenumerations-id                    | Nej (om inte anges i data factory-prenumeration används). |
-| resourceGroupName    | Azure-resursgruppsnamn                | Nej (om inte anges resursgruppen för data factory används). |
+| subscriptionId       | Azure-prenumerations-id                    | Nej                                       |
+| resourceGroupName    | Azure-resursgruppsnamn                | Nej                                       |
 | servicePrincipalId   | Ange programmets klient-ID.     | Ja                                      |
 | servicePrincipalKey  | Ange programmets nyckel.           | Ja                                      |
 | klient               | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Ja                                      |
@@ -505,15 +505,6 @@ Du skapar en länkad Azure SQL Data Warehouse-tjänst och använda det med den [
 
 ## <a name="sql-server-linked-service"></a>SQL Server-länkade tjänst
 Du skapar en länkad SQL Server-tjänst och använda det med den [lagrade Proceduraktiviteten](transform-data-using-stored-procedure.md) att anropa en lagrad procedur från Data Factory-pipeline. Se [SQL Server-anslutningen](connector-sql-server.md#linked-service-properties) nedan för information om den här länkade tjänsten.
-
-## <a name="azure-data-factory---naming-rules"></a>Azure Data Factory – namnregler
-Följande tabell innehåller namnregler för Data Factory-artefakter.
-
-| Namn                             | Namn på unikhet                          | Verifieringskontroller                        |
-| :------------------------------- | :--------------------------------------- | :--------------------------------------- |
-| Data Factory                     | Unikt över Microsoft Azure. Är skiftlägeskänsliga, det vill säga `MyDF` och `mydf` referera till samma data factory. | <ul><li>Varje data factory är kopplad till exakt en Azure-prenumeration.</li><li>Objektnamn måste börja med en bokstav eller en siffra och får innehålla endast bokstäver, siffror och bindestreck (-).</li><li>Varje bindestreck (-) måste föregås och följas av en bokstav eller ett tal. Streck i följd är inte tillåtna i behållarnamn.</li><li>Namnet kan vara mellan 3-63 tecken långt.</li></ul> |
-| Länkade tjänster/tabeller/pipelines | Unikt med i en data factory. Är skiftlägeskänsliga. | <ul><li>Högsta antalet tillåtna tecken i ett tabellnamn: 260.</li><li>Objektnamn måste börja med en bokstav, siffra eller ett understreck (_).</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/” ”, <” ”, >” ”, *”, ”%”, ”&” ”,:” ”,\\”</li></ul> |
-| Resursgrupp                   | Unikt över Microsoft Azure. Är skiftlägeskänsliga. | <ul><li>Maximalt antal tecken: 1000.</li><li>Namnet får innehålla bokstäver, siffror och följande tecken ”:-” ”, _” ”,,” och ””.</li></ul> |
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över transformeringsaktiviteter som stöds av Azure Data Factory finns i [Transformera data](transform-data.md).

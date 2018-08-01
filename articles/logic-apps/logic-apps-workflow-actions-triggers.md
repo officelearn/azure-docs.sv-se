@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 06/22/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 98d023f801ab4864e01a7dba32b5700b2d52e604
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 427964a6651dd4ab71d0029f89e40afdd34d162a
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264325"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390712"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Utlösare och åtgärd typer-referens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
@@ -816,7 +816,7 @@ Här följer några vanliga åtgärdstyper:
 ### <a name="built-in-actions"></a>Inbyggda åtgärder
 
 | Åtgärdstyp | Beskrivning | 
-|-------------|-------------|  
+|-------------|-------------| 
 | [**Compose**](#compose-action) | Skapar ett enda utflöde från indata som kan ha olika typer. | 
 | [**Funktionen**](#function-action) | Anropar en Azure-funktion. | 
 | [**HTTP**](#http-action) | Anropar en HTTP-slutpunkt. | 

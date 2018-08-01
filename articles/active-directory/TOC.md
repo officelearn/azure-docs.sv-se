@@ -131,7 +131,6 @@
 #### [Svarstider](active-directory-reporting-latencies-azure-portal.md)
 #### [Granska aktivitetsreferens](active-directory-reporting-activity-audit-reference.md)
 #### [Felkoder för inloggningsaktivitet](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 #### [Tolka schemat för spårningsloggen i Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
 #### [Tolka schemat för inloggningsloggen i Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
@@ -159,9 +158,16 @@
 ### [Planera Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Vanliga frågor och svar](device-management-faq.md)
 ### Uppgifter
+#### [Så här planerar du Azure Active Directory Join-hybridimplementeringen](devices/hybrid-azuread-join-plan.md)
+#### [Konfigurera Azure Active Directory Join-hybrid för hanterade domäner](devices/hybrid-azuread-join-managed-domains.md)
+#### [Konfigurera Azure Active Directory Join-hybrid för federerade domäner](devices/hybrid-azuread-join-federated-domains.md)
+#### [Så här kontrollerar du Azure Active Directory Join-hybriden för dina enheter](devices/hybrid-azuread-join-control.md)
+
+
+
 #### [Konfigurera Azure AD-registrerade Windows 10-enheter](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Konfigurera Azure AD-anslutna enheter](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Konfigurera Azure AD-anslutna hybrid-enheter](device-management-hybrid-azuread-joined-devices-setup.md)
+#### [Konfigurera Azure AD-anslutna hybrid-enheter](devices/hybrid-azuread-join-manual-steps.md)
 #### [Distribuera lokalt](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD-anslutning under första körningen av Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Felsöka

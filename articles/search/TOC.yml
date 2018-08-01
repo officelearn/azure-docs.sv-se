@@ -175,16 +175,20 @@
               href: search-indexer-field-mappings.md
     - name: Söker efter data
       items:
-        - name: Grundläggande frågekonstruktion
+        - name: Grunderna för frågor
           href: search-query-overview.md
         - name: Sökutforskaren (portal)
           href: search-explorer.md
-        - name: Enkel frågesyntax
-          href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
-        - name: Lucene-frågesyntaxen
-          href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
-        - name: Lucene-exempelfrågor
+        - name: Exempel för enkel syntax
+          href: search-query-simple-examples.md
+        - name: Exempel för fullständig syntax
           href: search-query-lucene-examples.md
+        - name: Frågereferens
+          items:
+            - name: Enkel frågesyntax
+              href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
+            - name: Lucene-frågesyntaxen
+              href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
         - name: Växla resultat
           href: search-pagination-page-layout.md
         - name: Relevansjustering

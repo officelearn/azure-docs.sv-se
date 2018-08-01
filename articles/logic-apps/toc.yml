@@ -49,6 +49,8 @@
               href: logic-apps-control-flow-run-steps-group-scopes.md
         - name: Skapa variabler för att spara värden
           href: logic-apps-create-variables-store-values.md
+        - name: Utföra dataåtgärder
+          href: logic-apps-perform-data-operations.md
         - name: Lägga till anpassad kod med Azure Functions
           href: logic-apps-azure-functions.md
         - name: Anropa Logic Apps med Azure Functions
@@ -282,6 +284,8 @@
     - name: 'Exempel, scenarier och genomgångar'
       href: logic-apps-examples-and-scenarios.md
       items:
+        - name: Dataåtgärder – kodexempel
+          href: logic-apps-data-operations-code-samples.md
         - name: Övervaka sociala medier
           href: logic-apps-scenario-social-serverless.md
         - name: Skapa en app utan server – Visual Studio

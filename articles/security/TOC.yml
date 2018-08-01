@@ -39,8 +39,16 @@
         - name: Vilande datakryptering
           href: azure-security-encryption-atrest.md
         - name: Diskkryptering för virtuella IaaS-datorer
-          href: azure-security-disk-encryption.md
+          href: azure-security-disk-encryption-overview.md
           items:
+            - name: Krav för diskkryptering
+              href: azure-security-disk-encryption-prerequisites.md
+            - name: Diskkryptering för virtuella Windows-datorer
+              href: azure-security-disk-encryption-windows.md
+            - name: Diskkryptering för virtuella Linux-datorer
+              href: azure-security-disk-encryption-linux.md
+            - name: Bilaga för diskkryptering
+              href: azure-security-disk-encryption-appendix.md
             - name: Vanliga frågor och svar om diskkryptering
               href: azure-security-disk-encryption-faq.md
             - name: Felsökning
@@ -198,6 +206,16 @@
       items:
         - name: Hälsodata och AI
           href: ./blueprints/azure-health.md
+    - name: NIST SP 800-171
+      items:
+        - name: Datanalys
+          href: ./blueprints/nist171-analytics-overview.md
+        - name: Informationslager
+          href: ./blueprints/nist171-datawarehouse-overview.md
+        - name: IaaS-webbprogram
+          href: ./blueprints/nist171-iaaswa-overview.md
+        - name: PaaS-webbprogram
+          href: ./blueprints/nist171-paaswa-overview.md
     - name: PCI DSS
       items:
         - name: Datanalys

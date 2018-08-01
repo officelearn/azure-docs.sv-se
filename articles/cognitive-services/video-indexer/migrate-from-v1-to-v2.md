@@ -1,82 +1,80 @@
 ---
-title: Migrera från Azure Video indexeraren API v1 till v2 | Microsoft Docs
-description: Det här avsnittet beskriver hur du migrerar från Azure Video indexeraren API v1 till v2.
+title: Migrera från Azure Video Indexer API v1 till v2 | Microsoft Docs
+description: Det här avsnittet beskrivs hur du migrerar från Azure Video Indexer API v1 till v2.
 services: cognitive services
 documentationcenter: ''
 author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/13/2018
+ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 00f5a0d7c9a37c24866cd5e1259800d5e431ccc3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1883c449def44f6c54c6f20317de39ada405643f
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35356473"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39388978"
 ---
-# <a name="migrate-from-the-video-indexer-api-v1-to-v2"></a>Migrera från Video indexeraren API v1 till v2
+# <a name="migrate-from-the-video-indexer-api-v1-to-v2"></a>Migrera från API för Videoindexering v1 till v2
 
 > [!Note]
-> API: er för Video indexeraren V1 är nu föråldrade och kommer att tas bort på 1 augusti 2018. Du bör börja använda API: er för Video indexeraren v2 för att undvika avbrott.
->
-> För att utveckla med Video indexeraren v2 API: er finns i anvisningarna [här](https://api-portal.videoindexer.ai/). 
+> Video Indexer V1 API upphörde den 1 augusti 2018. Nu bör du använda Video Indexer v2 API: et. <br/>Om du vill utveckla med API: er för Video Indexer-v2, se instruktionerna [här](https://api-portal.videoindexer.ai/). 
 
-Den här artikeln beskriver ändringar som introducerades i v2.  
+Den här artikeln redogörs för ändringar som introducerades i v2.  
 
 ## <a name="api-changes"></a>API-ändringar
 
 ### <a name="authorization-and-operations"></a>Auktorisering och åtgärder
 
-I version 2 ändras Video indexeraren modell för autentisering och auktorisering för API: et. Det finns två uppsättningar av API: er: 
+Video Indexer ändra modellen för autentisering och auktorisering för API: et i version 2. Det finns två uppsättningar med API: er: 
 
 * Auktorisering 
 * Åtgärder
 
-Den **auktorisering** API används för att erhålla åtkomsttoken för anropar den **Operations** API. Den **Operations** API innehåller alla de Video indexeraren API: er, till exempel överför video, få insikter och andra åtgärder.
+Den **auktorisering** API används för att erhålla åtkomsttoken att anropa den **Operations** API. Den **Operations** API innehåller alla Video Indexer API: erna, till exempel ladda upp video, ger information och andra åtgärder.
 
-När du [prenumerera](video-indexer-get-started.md) till den **auktorisering** API, kommer du att kunna erhålla åtkomsttoken genom att skicka din prenumeration nyckel (precis som du gjorde i v1.)
+När du [prenumerera](video-indexer-get-started.md) till den **auktorisering** API, kommer du att kunna hämta åtkomsttoken genom att skicka din prenumerationsnyckel (precis som i v1.)
 
-## <a name="getting-and-using-the-access-token-for-operations-apis"></a>Hämtar och använder åtkomsttoken för åtgärder API: er
+## <a name="getting-and-using-the-access-token-for-operations-apis"></a>Hämta, med åtkomsttoken för API: er
 
-När du anropar den **Operations** API: er, nyckeln prenumeration används inte längre. I stället åtkomsttoken som erhålls genom släpper den **auktorisering** API. 
+När du anropar den **Operations** API: er, prenumerationsnyckeln kommer inte längre användas. I stället du skickar de åtkomsttoken som erhålls genom att den **auktorisering** API. 
 
-Varje begäran ska ha en giltig token matchar åtkomstnivån för du anropar API: et. Till exempel kräva åtgärder för dina användare, till exempel komma dina konton, ett åtkomsttoken. Åtgärder på kontot nivå, till exempel lista alla videoklipp, kräver en konto åtkomst-token. Åtgärder på videor, som till exempel omindexera video kräver en konto åtkomst-token eller en video åtkomsttoken.
+Varje begäran måste ha en giltig token som matchar åtkomstnivån som du anropar API. Exempelvis kan kräva åtgärder på dina användare, till exempel hämta dina konton, en åtkomsttoken för användaren. Åtgärder på kontot nivå, till exempel lista alla videor, kräver en åtkomsttoken för kontot. Åtgärder för videor såsom reindex video, kräver en åtkomsttoken för kontot eller en åtkomsttoken för video.
 
-Om du vill göra det lättare kan du använda **auktorisering** API > **GetAccounts** att hämta token dina konton utan att hämta en användare först. Du kan också begära att få konton med ogiltig token så att du kan hoppa över en ytterligare anropa för att få en token för kontot.
+Om du vill göra det enklare, kan du använda **auktorisering** API > **GetAccounts** att hämta säkerhetstoken för dina konton utan att hämta en användare först. Du kan också begära att få konton med giltig token, så att du kan hoppa över en ytterligare anropet för att hämta en token för konto.
 
-Läs mer om olika åtkomsttoken [Använd Azure Video indexeraren API](video-indexer-use-apis.md).
+Läs mer om de olika åtkomst-token, [Använd Azure Video Indexer API](video-indexer-use-apis.md).
 
 ### <a name="locations"></a>Platser
 
-Varje anrop till API: N bör inkludera platsen för ditt konto Video indexeraren. API-anrop utan platsen eller med ett fel plats misslyckas.
+Varje anrop till API: et bör inkludera platsen för din Video Indexer-kontot. API-anrop utan platsen eller med fel plats misslyckas.
 
-De värden som beskrivs i följande tabell gäller. Den **Param värde** värdet du skickar när du använder API: et.
+De värden som beskrivs i tabellen nedan gäller. Den **Param värde** värdet som du skickar när du använder API: et.
 
 |**Namn**|**Param värde**|**Beskrivning**|
 |---|---|---|
 |Utvärdering|utvärderingsversion|Används för utvärderingskonton. Till exempel: https://api.videoindexer.ai/trial/Accounts/{accountId}/Videos/{videoId}/Index?language=English.|
-|Västra USA|westus2|Används för Azure West US 2-region.  Till exempel: https://api.videoindexer.ai/westus2/Accounts/{accountId}/Videos/{videoId}/Index?language=English.|
-|Norra Europa |europanorra|Används för Azure Norra Europa region. Till exempel: https://api.videoindexer.ai/northeurope/Accounts/{accountId}/Videos/{videoId}/Index?language=English. |
+|Västra USA|västra USA 2|Används för Azure regionen västra USA 2.  Till exempel: https://api.videoindexer.ai/westus2/Accounts/{accountId}/Videos/{videoId}/Index?language=English.|
+|Norra Europa |europanorra|Används för regionen Azure Norra Europa. Till exempel: https://api.videoindexer.ai/northeurope/Accounts/{accountId}/Videos/{videoId}/Index?language=English. |
 |Östasien|asienöstra|Används för Östasien för Azure-region. Till exempel: https://api.videoindexer.ai/eastasia/Accounts/{accountId}/Videos/{videoId}/Index?language=English.|
 
-### <a name="data-model"></a>Datamodellen
+### <a name="data-model"></a>Datamodell
 
-Video indexeraren har nu en förenklad datamodell för att leverera mycket bättre insikter. Mer information om utdata som genereras av v2-API finns [granska Video indexeraren utdata som genereras av v2 API](video-indexer-output-json-v2.md).
+Video Indexer har nu en förenklad datamodell för att leverera mycket tydligare insikter. Mer information om utdata som genereras av v2 API: et finns i [granska Video Indexer-utdata som genereras av v2 API: et](video-indexer-output-json-v2.md).
 
 ### <a name="swagger"></a>Swagger
 
-Video indexeraren API-definitioner har uppdaterats i enlighet med detta och kan hämtas via den [API portal](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
+Video Indexer API-definitioner har uppdateras och kan hämtas via den [API-portalen](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
 
 
 ### <a name="v1-vs-v2-examples"></a>V1 eller V2-exempel
 
-Nya V2 API: er omfattar 3 huvudsakliga parametrar:
+Den nya V2-API: er omfattar 3 huvudsakliga parametrar:
 
-1. [Plats] - enligt beskrivningen ovan. Antingen utvärderingsversionen westus2, northeurope eller eastasia.
-2. [YOUR_ACCOUNT_ID] - en Guid-id för ditt konto. Hämta när du hämtar alla konton (beskrivs nedan).
-3. [YOUR_VIDEO_ID] - ID: t för videon (t.ex. ”d4fa369abc”). Returneras när du laddar upp en video eller vid sökning efter videor.
+1. [Plats] - enligt beskrivningen ovan. Utvärdering, västra USA 2, europanorra eller asienöstra.
+2. [YOUR_ACCOUNT_ID] – en Guid ID: t för ditt konto. Hämta vid hämtning av alla konton (beskrivs nedan).
+3. [YOUR_VIDEO_ID] - ID: t för videon (t.ex. ”d4fa369abc”). Returneras när du laddar upp en video eller när du söker efter videor.
 
 #### <a name="uploading-a-video-in-v1"></a>Ladda upp en video i V1:
 
@@ -86,15 +84,15 @@ https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns?name=some
 
 #### <a name="uploading-a-video-in-v2"></a>Ladda upp en video i V2:
 
-1. Hämta ett åtkomsttoken för överför begäran:
+1. Hämta en åtkomsttoken för överföringsförfrågan:
 
-  Du kan antingen få alla konton och deras åtkomst-token:
+  Du kan antingen hämta alla konton och deras åtkomst-token:
 
     ```
     https://api.videoindexer.ai/auth/[LOCATION]/Accounts?generateAccessTokens=true&allowEdit=true
     ```
 
-  Eller hämta specifika kontoåtkomst-token:
+  Eller hämta det specifika konto åtkomsttoken:
   
   ```
   https://api.videoindexer.ai/auth/[LOCATION]/Accounts/[YOUR_ACCOUNT_ID]/AccessToken?allowEdit=true
@@ -105,15 +103,15 @@ https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns?name=some
   POST https://api.videoindexer.ai/[LOCATION]/Accounts/[YOUR_ACCOUNT_ID]/Videos?name=MySample&description=MySampleDescription&videoUrl=[URL_ENCODED_VIDEO_URL]&accessToken=eyJ0eXAiOiJ...
   ```
 
-#### <a name="getting-insights-in-v1"></a>Hämtar insikter i V1:
+#### <a name="getting-insights-in-v1"></a>Få insikter i V1:
 
 ```
 https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns/[VIDEO_ID]
 ```
   
-#### <a name="getting-insights-in-v2"></a>Hämtar insikter i V2:
+#### <a name="getting-insights-in-v2"></a>Få insikter i V2:
 
-1. Använd konto åtkomst-token eller skaffa en video åtkomst-token:
+1. Använd åtkomsttoken konto eller skaffa en video åtkomst-token:
 
   ```
   https://api.videoindexer.ai/auth/[LOCATION]/Accounts/[YOUR_ACCOUNT_ID]/Videos/[VIDEO_ID]/AccessToken
@@ -125,17 +123,17 @@ https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns/[VIDEO_ID
   https://api.videoindexer.ai/trial/[LOCATION]/[YOUR_ACCOUNT_ID]/Videos/[VIDEO_ID]/Index?accessToken=eyJ0eXA...
   ```
 
-#### <a name="getting-video-processing-state-in-v1"></a>Hämtning av video bearbetning status i V1:
+#### <a name="getting-video-processing-state-in-v1"></a>Hämtning av statusen för bearbetning av livevideo i V1:
 
 ```
 https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns/[VIDEO_ID]/State
 ```
   
-#### <a name="getting-video-processing-state-in-v2"></a>Hämtning av video bearbetning status i V2:
+#### <a name="getting-video-processing-state-in-v2"></a>Hämtning av statusen för bearbetning av livevideo i V2:
 
-I API-v2 returneras bearbetningstillstånd som en del av hämta Video Index API.
+I API v2 returneras bearbetning tillståndet som en del av den hämta Video-API-Index.
 
-1. Använd konto åtkomst-token eller skaffa en video åtkomst-token:
+1. Använd åtkomsttoken konto eller skaffa en video åtkomst-token:
 
   ```
   https://api.videoindexer.ai/trial/[LOCATION]/[YOUR_ACCOUNT_ID]/Videos/[VIDEO_ID]/Index?accessToken=eyJ0eXA...
@@ -149,5 +147,5 @@ I API-v2 returneras bearbetningstillstånd som en del av hämta Video Index API.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Använd Azure Video indexeraren API](video-indexer-use-apis.md)
+[Använda Azure API för Videoindexering](video-indexer-use-apis.md)
 

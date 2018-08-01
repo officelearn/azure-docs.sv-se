@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 75159319e25ac63907e0d8a2cbf044cf9a854785
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 93ced2d0c79d80a631ad90aa3f5d2dc9f8c79c7e
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308753"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390202"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding vanliga frågor och svar
 
@@ -190,7 +190,7 @@ Följande funktioner har släppts på Build 2018-konferensen:
 |--|--|
 |Förbättringar|[Reguljärt uttryck](luis-concept-data-extraction.md##regular-expression-entity-data) entitet och [nyckel frasen](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) entitet
 |Mönster|Mönster [konceptet](luis-concept-patterns.md), [självstudien](luis-tutorial-pattern.md), [how-to](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) entitet konceptet inklusive [Explicit lista](luis-concept-patterns.md#explicit-lists) för undantag<br>[Roller](luis-concept-roles.md) begrepp|
-|Integreringar|[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) integrering av [attitydanalys](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Tal](https://docs.microsoft.com/azure/cognitive-services/speech) integrering av [tal promotor](luis-how-to-publish-app.md#enable-speech-priming) tillsammans med [tal SDK](https://aka.ms/SpeechSDK)|
+|Integreringar|[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) integrering av [attitydanalys](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Tal](https://docs.microsoft.com/azure/cognitive-services/speech) integrering av tal promotor tillsammans med [tal SDK](https://aka.ms/SpeechSDK)|
 |Dispatch-verktyget|En del av [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), Dispatch kommandoraden [verktyget](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) att kombinera flera LUIS och QnA Maker appar till enkel LUIS-app för bättre taligenkänning i en robot
 
 Ytterligare redigering [API-vägar](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) ingår. 

@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ce8630f5718a849f460b372d9e15b03902ac2117
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 89562e6a2bfb977585cec1925a5f306c69c3d1e8
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159687"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390678"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Kom igång med Azure Active Directory reporting API
 
@@ -43,8 +43,6 @@ Om du vill komma åt rapporterings-API, även om du planerar att komma åt API m
 3. Bevilja behörigheter
 4. Samla in konfigurationsinställningar
 
-
- 
 Detaljerade anvisningar finns i den [krav för att få åtkomst till Azure Active Directory reporting API](active-directory-reporting-api-prerequisites-azure-portal.md).
 
 ## <a name="apis-with-graph-explorer"></a>API: er med Graph-testaren
@@ -55,9 +53,9 @@ Du kan använda den [MSGraph explorer](https://developer.microsoft.com/en-us/gra
 
 ![Ändra behörigheter för Användargränssnittet](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
-## <a name="recommendation"></a>Rekommendation 
+## <a name="use-certificates-to-access-the-azure-ad-reporting-api"></a>Använd certifikat för att få åtkomst till Azure AD reporting-API 
 
-Om du planerar om hur du hämtar rapporteringsdata utan inblandning av användaren, bör du använda Azure AD Reporting API: et med certifikat.
+Överväg att använda Azure AD Reporting API: et med certifikat om du planerar att hämta rapportdata utan inblandning av användaren.
 
 Detaljerade anvisningar finns i [hämta data med hjälp av Azure AD Reporting API: et med certifikat](active-directory-reporting-api-with-certificates.md).
 
@@ -67,17 +65,13 @@ Detaljerade anvisningar finns i [hämta data med hjälp av Azure AD Reporting AP
 Få ett första intryck reporting API: er:
    
    - [Använda exemplen för granskningen API](active-directory-reporting-api-audit-samples.md) 
- 
    - [Använda exemplen för inloggningsaktivitet rapporten API](active-directory-reporting-api-sign-in-activity-samples.md)
 
 
-## <a name="customize"></a>Anpassa  
+## <a name="next-steps"></a>Nästa steg
 
-Skapa en egen lösning: 
-   
-   - [Med hjälp av audit API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-
-   - [Med inloggningsaktivitet rapport API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
-
+ * [Granska API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+ * [Inloggningsaktivitet rapport API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+ * [Felsöka fel i Azure AD reporting API](active-directory-reporting-troubleshoot-graph-api.md)
 
 

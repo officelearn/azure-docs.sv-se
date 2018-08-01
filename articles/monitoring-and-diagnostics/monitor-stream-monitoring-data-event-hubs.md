@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/24/2018
+ms.date: 7/31/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 0376fc3eb3ad0b98f1d98ecd35683b08e08090da
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: a43b70d2ce7a8205903fb877ea056dea88ac8bb5
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248104"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389617"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg
 
@@ -108,11 +108,12 @@ Programmet övervakningsdata kräver att koden är utrustade med ett SDK, så de
 
 Routning övervakningsdata till en event hub med Azure Monitor kan du lätt kan integrera med partner SIEM och övervakningsverktyg. De flesta verktygen kräver event hub-anslutningssträngen och vissa behörigheter för din Azure-prenumeration för att läsa data från händelsehubben. Här är en ofullständig lista över verktyg med Azure Monitor-integrering:
 
-* **IBM QRadar** – The DSM för Microsoft Azure och Microsoft Azure Event Hub-protokollet är tillgängliga för nedladdning från [supportwebbplatsen IBM](http://www.ibm.com/support). Du kan [mer information om integrering med Azure här](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+* **IBM QRadar** – The DSM för Microsoft Azure och Microsoft Azure Event Hub-protokollet är tillgängliga för nedladdning från [supportwebbplatsen IBM](http://www.ibm.com/support). Du kan [lära dig mer om integrering med Azure här](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 * **Splunk** -det finns två sätt beroende på din Splunk-konfiguration:
     1. [Azure Monitor-tillägget för Splunk](https://splunkbase.splunk.com/app/3534/) är tillgängligt i Splunkbase och ett projekt med öppen källkod. [Dokumentationen är här](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. Om du inte kan installera ett tillägg i din instans av Splunk (t.ex.) Om en proxy eller som körs på Splunk molnet), du kan vidarebefordra dessa händelser till Splunk HTTP Event Collector med [den här funktionen som utlöses av nya meddelanden i event hub](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** -instruktioner för att konfigurera SumoLogic för att använda data från en händelsehubb är [tillgänglig här](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
+* **Syslog-servern** – om du vill strömma Azure Monitor-data direkt till en syslog-server, du kan ta en titt [denna github-lagringsplats](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Arkivera aktivitetsloggen till ett lagringskonto](monitoring-archive-activity-log.md)

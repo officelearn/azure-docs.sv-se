@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: aa575340c0775369d4be05b5e323c05f7dd3218a
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 34696802735fd2a145cd6383dcdc7e4a4b6368e2
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348555"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391417"
 ---
 # <a name="set-up-security-info-to-use-email-preview"></a>Konfigurera säkerhetsinformation för att använda e-post (förhandsversion)
 
@@ -29,7 +29,7 @@ Konfigurera din säkerhetsinformation måste du logga in på ditt arbets- eller 
 Beroende på organisationens inställningar kan uppmanas du att lägga till en e-postadress till din säkerhetsinformation när du loggar in. I annat fall för att börja konfigurera e-post i säkerhetsinformation, följer du stegen i [hantera din säkerhetsinformation](security-info-manage-settings.md).
 
 >[!Note]
->Om du inte ser alternativet e-post, är det möjligt att din organisation tillåter inte att du använder ett e-postmeddelande för verifiering. Om så är fallet, måste du välja en annan metod eller kontakta administratören för mer hjälp.
+>Vi rekommenderar att du använder ett e-postkonto som inte kräver nätverkslösenordet för att få åtkomst till.<br>Om du inte ser alternativet e-post, är det möjligt att din organisation tillåter inte att du använder ett e-postmeddelande för verifiering. Om så är fallet, måste du välja en annan metod eller kontakta administratören för mer hjälp.
 
 ### <a name="to-use-your-email-address"></a>Att använda din e-postadress
 

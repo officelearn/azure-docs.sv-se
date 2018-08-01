@@ -9,16 +9,18 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 849a8dde07c248b6d7b317de5908b3a46dfad777
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 456ee8f7461fdb6a4335cdb36d4a6f9182e4c63e
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259018"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389287"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa en Video Indexer-konto som är ansluten till Azure
 
-När du använder ett kostnadsfritt utvärderingskonto Video Indexer kan är du begränsad av kvot och antal videor kan du indexera. Den här artikeln visar hur du skapar en Video Indexer-konto som är länkad till en Azure-prenumeration, som frikopplar dig från dessa gränser och som använder användningsbaserad betalning.
+När du skapar en Video Indexer-konto, kan du välja ett kostnadsfritt konto (där du får ett visst antal kostnadsfria indexering minuter) eller ett betalt alternativ (där du inte begränsas av kvoten). Video Indexer ger upp till 600 minuter för kostnadsfria indexering för webbplatsen användare och upp till 2 400 minuters kostnadsfria indexering för API-användare med kostnadsfri utvärderingsversion. Med betalt alternativ skapar du en Video Indexer-konto som är ansluten till din Azure-prenumeration och ett Azure Media Services-konto. Du betalar för minuter som indexeras som Media-konto som är relaterade kostnader. 
+
+Den här artikeln visar hur du skapar en Video Indexer-konto som är länkad till en Azure-prenumeration och ett Azure Media Services-konto. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 

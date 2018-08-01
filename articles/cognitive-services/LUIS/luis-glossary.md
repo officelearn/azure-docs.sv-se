@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: f6606a3a09698f236f9ebe2c21ec784ca84bb149
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3f99e58a38bbe9ecc87165b5e6fa24a5a49e5e4a
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225514"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390066"
 ---
 # <a name="glossary"></a>Ordlista
 
@@ -163,7 +163,7 @@ Attitydanalys ger positivt eller negativt värde av yttranden som tillhandahåll
 
 ## <a name="speech-priming"></a>Tal promotor
 
-Tal promotor kan ditt taltjänsten vara förbereder sig med LUIS-modellen. Se [aktivera tal promotor ](luis-how-to-publish-app.md#enable-speech-priming).
+Tal promotor kan ditt taltjänsten vara förbereder sig med LUIS-modellen. 
 
 ## <a name="spelling-correction"></a>Stavningskontroll
 

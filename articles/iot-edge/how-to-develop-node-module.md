@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/26/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 8032fd2a0150597c55178648511c80233e63a911
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a5ab49beed79a8ea3a7ded0848c09acad27a5fb1
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054734"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390545"
 ---
 # <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>Utveckla och Felsök Node.js-moduler med Azure IoT Edge för Visual Studio Code
 
@@ -84,7 +84,8 @@ När du är redo att anpassa mallen Node.js med din egen kod kan använda den [A
 
 Det finns flera Docker-filer för olika behållartyper i varje modul-mapp. Du kan använda någon av dessa filer som slutar med tillägget **.debug** att skapa din modul för testning. C#-moduler stöder för närvarande endast felsökning i linux-amd64 behållare.
 
-1. I VS Code, navigerar du till den `deployment.template.json` filen. Ersätt createOptions för Node.js-modulen i **deployment.template.json** med nedan innehåll och spara den här filen: 
+1. I VS Code, navigerar du till den `deployment.template.json` filen. Uppdatera din modulen bild-URL genom att lägga till **.debug** i slutet.
+2. Ersätt createOptions för Node.js-modulen i **deployment.template.json** med nedan innehåll och spara den här filen: 
     ```json
     "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
     ```

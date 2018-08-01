@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 4b889f47c696148c693081ee0873fc57d91600c9
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 701a47a3907c77dbf5d51692e5d1ddc0c49ab985
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348612"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390110"
 ---
 # <a name="set-up-security-info-to-use-phone-calls-preview"></a>Konfigurera säkerhetsinformation för att använda telefonsamtal (förhandsversion)
 
@@ -29,7 +29,7 @@ Konfigurera din säkerhetsinformation måste du logga in på ditt arbets- eller 
 Beroende på organisationens inställningar kan uppmanas du att lägga till ett telefonnummer till din säkerhetsinformation när du loggar in. I annat fall för att börja konfigurera telefonsamtal säkerhetsinformation, följer du stegen i [hantera din säkerhetsinformation](security-info-manage-settings.md).
 
 >[!Note]
->Om du inte ser Telefonalternativet, är det möjligt att din organisation tillåter inte att du kan använda telefonsamtal för verifiering. Om så är fallet, måste du välja en annan metod eller kontakta administratören för mer hjälp.
+>Säkerhetsinformation stöder inte med anknytningsnummer. Även om du lägger till rätt format, tas + 1 4255551234 X 12345 tilläggen bort innan de görs.<br>Om du inte ser Telefonalternativet, är det möjligt att din organisation tillåter inte att du kan använda telefonsamtal för verifiering. Om så är fallet, måste du välja en annan metod eller kontakta administratören för mer hjälp.
 
 ### <a name="to-use-your-phone-number"></a>Att använda ditt telefonnummer
 

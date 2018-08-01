@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 07/20/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 902516d194a8f3a91cad829e05437343eabf95cd
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 9fc067c46828079f7369683b5edec682747cd5c7
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348561"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391460"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka C-moduler för Azure IoT Edge
 
@@ -73,7 +73,7 @@ Det finns fyra objekt inne i lösningen:
 
 ## <a name="develop-your-module"></a>Utveckla din modell
 
-Standard Azure Function-koden som medföljer lösningen finns i **moduler** > **\<din Modulnamn\>**   >   **main.c**. Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
+C-modul-koden som medföljer lösningen finns i **moduler** > **\<din Modulnamn\>** > **main.c** . Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
 
 När du är redo att anpassa mallen C med din egen kod kan använda den [Azure IoT Hub SDK: er](../iot-hub/iot-hub-devguide-sdks.md) att skapa moduler adressen nyckeln måste för IoT-lösningar som säkerhet, hantering av enheter och tillförlitlighet. 
 
@@ -81,9 +81,15 @@ När du är redo att anpassa mallen C med din egen kod kan använda den [Azure I
 
 Det finns flera Docker-filer för olika behållartyper i varje modul-mapp. Använd någon av dessa filer som slutar med tillägget **.debug** att skapa din modul för testning. För närvarande stöder C moduler felsökning endast i Linux amd64-behållare.
 
-1. I VS Code, navigerar du till den `deployment.template.json` filen. Uppdatera din funktion-bild-URL genom att lägga till **.debug** i slutet.
+1. I VS Code, navigerar du till den `deployment.template.json` filen. Uppdatera din modulen bild-URL genom att lägga till **.debug** i slutet.
 
-   ![Lägg till *** .debug till din avbildningsnamn](./media/how-to-develop-c-module/image-debug.png)
+    ![Lägg till *** .debug till din avbildningsnamn](./media/how-to-develop-c-module/image-debug.png)
+
+2. Ersätt createOptions för Node.js-modulen i **deployment.template.json** med nedan innehåll och spara den här filen: 
+    
+    ```json
+    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
+    ```
 
 2. Ange i kommandopaletten VS Code och kör kommandot **Edge: skapa IoT Edge-lösningen**.
 3. Välj den `deployment.template.json` -filen för din lösning från kommandopaletten. 
@@ -107,8 +113,7 @@ VS Code håller felsökning konfigurationsinformationen i en `launch.json` finns
 
 4. I VS Code Felsöka vyn visas variabler i den vänstra panelen. 
 
-> [!NOTE]
-> Det här exemplet visar hur du felsöker .NET Core IoT Edge-moduler i behållare. Den är baserad på felsökningsversionen av `Dockerfile.debug`, som innehåller .NET Core kommandoradsverktyget felsökningsprogrammet VSDBG i en behållaravbildning när du skapar den. När du felsöker dina C#-moduler, rekommenderar vi att du direkt använda eller anpassa `Dockerfile` utan VSDBG för produktionsklara IoT Edge-moduler.
+I föregående exempel visar hur du felsöker C IoT Edge-moduler i behållare. Det har lagts till portar i din modul behållare createOptions. När du är klar med att felsöka dina Node.js-moduler rekommenderar vi att du tar bort dessa portar för produktionsklara IoT Edge-moduler.
 
 ## <a name="next-steps"></a>Nästa steg
 

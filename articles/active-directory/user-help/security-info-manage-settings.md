@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 4a29f3e8b8f12091d640d68be3e2b0e87a8cc271
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: abd2984574f80f03f276861782ff9ee51348d07e
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348697"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391385"
 ---
 # <a name="manage-your-security-info-preview"></a>Hantera din säkerhetsinformation (förhandsversion)
 
@@ -86,7 +86,7 @@ Den här artikeln hjälper dig att felsöka din säkerhetsinformation, inklusive
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om säkerhetsinformation i den [info (förhandsversion) Säkerhetsöversikt](user-help-security-info-overview.md) artikeln.
+- Mer information om säkerhetsinformation i [info (förhandsversion) Säkerhetsöversikt](user-help-security-info-overview.md).
 
 - Lär dig mer om tvåstegsverifiering i den [tvåstegsverifiering verifiering översikt](user-help-two-step-verification-overview.md) artikeln. 
 

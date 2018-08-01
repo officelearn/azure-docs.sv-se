@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: d2b5487f82cc66d9689fdda6ac79b2fbfbec414c
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f1905e66bbe823f6c7c9c35d6540f3c8ca1d6ccd
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348624"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389641"
 ---
 # <a name="set-up-security-info-to-use-pre-defined-security-questions-preview"></a>Konfigurera säkerhetsinformation kan använda fördefinierade säkerhetsfrågor (förhandsversion)
 
@@ -28,8 +28,10 @@ Konfigurera din säkerhetsinformation måste du logga in på ditt arbets- eller 
 
 Beroende på organisationens inställningar kan uppmanas du att lägga till säkerhetsfrågor till din säkerhetsinformation när du loggar in. I annat fall för att börja konfigurera säkerhetsfrågor säkerhetsinformation, följer du stegen i [hantera din säkerhetsinformation](security-info-manage-settings.md).
 
+Om du använder säkerhetsfrågor, bör du använda dem tillsammans med en annan metod. Säkerhetsfrågor kan vara mindre säkert än andra metoder, eftersom vissa kanske känner till svar på en annan person frågor.
+
 >[!Note]
->Om du inte ser säkerhetsalternativ för frågor, är det möjligt att din organisation tillåter inte att du kan använda säkerhetsfrågor för verifiering. Om så är fallet, måste du välja en annan metod eller kontakta administratören för mer hjälp.
+>Säkerhetsfrågor lagras säkert och privat på ett användarobjekt i katalogen och kan endast besvaras av dig under registreringen. Det går inte för administratören att läsa eller ändra din frågorna och svaren.<br>Om du inte ser säkerhetsalternativ för frågor, är det möjligt att din organisation tillåter inte att du kan använda säkerhetsfrågor för verifiering. Om så är fallet, måste du välja en annan metod eller kontakta administratören för mer hjälp.
 
 ### <a name="to-choose-and-answer-your-security-questions"></a>Du väljer och besvara dina säkerhetsfrågor
 

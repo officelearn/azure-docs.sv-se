@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2018
 ms.author: rithorn
-ms.openlocfilehash: 967aa87f89eff34427456bad3828e1e6509639cf
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: fab26fec44b671a9f779b114c1521bc8142d9427
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358708"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389406"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera dina resurser med hanteringsgrupper
 
-Av hanteringsgrupper är behållare som hjälper dig att hantera åtkomst, principer och efterlevnad över flera prenumerationer. Du kan ändra, ta bort och hantera de här behållarna om du vill ha hierarkier som kan användas med [Azure Policy](../azure-policy/azure-policy-introduction.md) och [Azure rollbaserad kontroller (RBAC)](../role-based-access-control/overview.md). Mer information om hanteringsgrupper finns [organisera dina resurser med Azure-hanteringsgrupper ](management-groups-overview.md).
+Av hanteringsgrupper är behållare som hjälper dig att hantera åtkomst, principer och efterlevnad över flera prenumerationer. Du kan ändra, ta bort och hantera de här behållarna om du vill ha hierarkier som kan användas med [Azure Policy](../azure-policy/azure-policy-introduction.md) och [Azure rollbaserad kontroller (RBAC)](../role-based-access-control/overview.md). Mer information om hanteringsgrupper finns [organisera dina resurser med Azure-hanteringsgrupper](management-groups-overview.md).
 
 Om du vill göra ändringar i en hanteringsgrupp, måste du ha en rollen som Prenumerationsägare eller deltagare på hanteringsgruppen. För att se vilka behörigheter du har, Välj hanteringsgruppen och välj sedan **IAM**. Läs mer om RBAC-roller i [hantera åtkomst och behörighet med RBAC](../role-based-access-control/overview.md).
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="change-the-name-of-a-management-group"></a>Ändra namnet på en hanteringsgrupp
 

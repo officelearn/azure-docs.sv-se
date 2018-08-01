@@ -7,13 +7,13 @@ author: tomarcher
 manager: jpconnock
 ms.service: devops
 ms.custom: jenkins
-ms.date: 07/25/2018
-ms.openlocfilehash: 407ec2bbb145e73b1a903886204b660aadc9a65f
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.date: 07/31/2018
+ms.openlocfilehash: 1b01eb760fa36c9f0fb6180c12dc3e5c1bf9de6f
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284422"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391494"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Distribuera till Azure App Service med hjälp av Jenkins-plugin-programmet 
 
@@ -221,7 +221,7 @@ För den **Docker registry URL** värde, ange URL: en med hjälp av formatet htt
 
 3. Gå till http://&lt;your_app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y >. Ersätt &lt;x > och &lt;y > med alla värden för att hämta summan av x + y.
     
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting-the-jenkins-plugin"></a>Felsökning av plugin-programmet Jenkins
 
 Om du stöter på buggar med Jenkins plugin-program kan du rapportera problemet i den [Jenkins JIRA](https://issues.jenkins-ci.org/) för en viss komponent.
 

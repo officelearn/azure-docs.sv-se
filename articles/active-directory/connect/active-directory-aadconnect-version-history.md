@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1b14e1460eec54e89046f204be8f0c3a8f929881
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 6ca32d51a52cf636b1c41667e20872cfe49fa7e2
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264600"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390161"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -60,6 +60,7 @@ Ladda ned | [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 
 ### <a name="fixed-issues"></a>Åtgärdade problem 
 
+- Ett fel har åtgärdats där AAD Connect-servern skulle visa hög CPU-användning efter uppgraderingen till .net 4.7.2
 - Ett fel som skulle periodvis producerar ett felmeddelande visas för ett automatiskt löst SQL deadlock problem har åtgärdats
 - Åtgärdat problem med flera för Regelredigeraren synkronisering och synkronisering av Service Manager  
 - Ett fel har åtgärdats där Azure AD Connect inte kan få inställningsinformation för registret
@@ -272,7 +273,7 @@ Du använder PowerShell-skript för att tillämpa de här inställningarna till 
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-Där 
+Var 
 
 **$ObjectDN** = Active Directory-konto vars behörigheter måste höjas.
 
@@ -591,7 +592,7 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Välj|
-    |CertKeyAlgorithmParams|CertHashString|Där|
+    |CertKeyAlgorithmParams|CertHashString|Var|
     |||Med|
 
 * Följande schemaändringar har införts för att kunder kan skapa anpassade Synkroniseringsregler för att flöda sAMAccountName, domainNetBios och domainFQDN för grupp-objekt, samt distinguishedName för objekt:

@@ -1,6 +1,6 @@
 ---
 title: Uppgradera en fristående Azure Service Fabric-kluster i Windows Server | Microsoft Docs
-description: Uppgradera Azure Service Fabric-kod och/eller konfiguration som kör ett fristående Service Fabric-klustret, inklusive inställning uppdateringsläget klustret.
+description: Uppgradera Azure Service Fabric-kod och/eller konfiguration som kan köras fristående Service Fabric-kluster, inklusive att ställa in uppdateringsläget för klustret.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,49 +14,49 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 20526c1ddd55671f815dc39b3e03c4f9b2f91788
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9c2534644a0627bac9765621691cbba6ffccfe35
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208659"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391319"
 ---
-# <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Uppgradera fristående Azure Service Fabric-kluster i Windows Server 
+# <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Uppgradera fristående Azure Service Fabric-kluster på Windows Server 
 > [!div class="op_single_selector"]
 > * [Azure-kluster](service-fabric-cluster-upgrade.md)
 > * [Fristående klustret](service-fabric-cluster-upgrade-windows-server.md)
 >
 >
 
-För alla moderna system är kan uppgraderas nyckeln till långsiktig framgång för en produkt. Ett Azure Service Fabric-kluster är en resurs som du äger. Den här artikeln beskriver hur du kan kontrollera att klustret alltid körs versioner av Service Fabric-kod och konfigurationer som stöds.
+Möjlighet att uppgradera är nyckeln till din produkt långsiktig framgång för alla moderna system. Ett Azure Service Fabric-kluster är en resurs som du äger. Den här artikeln beskrivs hur du kan kontrollera att klustret alltid körs versioner av Service Fabric-kod och konfigurationer som stöds.
 
 ## <a name="control-the-service-fabric-version-that-runs-on-your-cluster"></a>Kontrollera Service Fabric-version som körs på klustret
-För att ange ditt kluster ska ladda ned uppdateringar av Service Fabric när Microsoft publicerar en ny version, tilldelas klusterkonfigurationen fabricClusterAutoupgradeEnabled *SANT*. Om du vill välja en version av Service Fabric som du vill att klustret ska finnas på stöds sägs klusterkonfigurationen fabricClusterAutoupgradeEnabled *FALSKT*.
+Om du vill ange att hämta uppdateringar av Service Fabric när Microsoft publicerar en ny version, inställd klusterkonfigurationen fabricClusterAutoupgradeEnabled *SANT*. Om du vill välja en version som stöds av Service Fabric som du vill att klustret ska vara på inställd klusterkonfigurationen fabricClusterAutoupgradeEnabled *FALSKT*.
 
 > [!NOTE]
-> Kontrollera att klustret alltid kör en Service Fabric-version som stöds. När Microsoft Beskriver utgivningen av en ny version av Service Fabric, markeras den tidigare versionen för slutet av stödet efter minst 60 dagar från datumet då meddelandet. Nya versioner tillkännages [på Service Fabric-teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric/). Den nya versionen finns att välja vid den punkten.
+> Kontrollera att klustret alltid körs en Service Fabric-version som stöds. När Microsoft presenterar lanseringen av en ny version av Service Fabric, markeras den tidigare versionen för support upphör när du har minst 60 dagar från datumet då meddelandet. Nya versioner tillkännages [på Service Fabric-teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric/). Den nya versionen är kan väljas vid den tidpunkten.
 >
 >
 
-Du kan uppgradera klustret till den nya versionen endast om du använder en konfiguration av noden produktions-format, där varje Service Fabric-nod har allokerats på en separat fysisk eller virtuell dator. Om du har ett kluster för utveckling, där fler än en Service Fabric-nod är på en enda fysisk eller virtuell dator, måste du återskapa klustret med den nya versionen.
+Du kan uppgradera klustret till den nya versionen bara om du använder en nodkonfiguration för produktion-format, där varje Service Fabric-nod har allokerats på en separat fysisk eller virtuell dator. Om du har ett kluster för utveckling, där mer än en Service Fabric-noden är på en enda fysisk eller virtuell dator, måste du återskapa klustret med den nya versionen.
 
-Två olika arbetsflöden kan uppgradera klustret till den senaste versionen eller en Service Fabric-version som stöds. Ett arbetsflöde är för kluster som har anslutning till den senaste versionen automatiskt. Andra arbetsflödet är för kluster som inte har anslutning till den senaste versionen Service Fabric.
+Två olika arbetsflöden kan uppgradera klustret till den senaste versionen eller en Service Fabric-version som stöds. Ett arbetsflöde är för kluster som är ansluten till den senaste versionen automatiskt. Andra arbetsflödet är för kluster som inte har någon anslutning till att hämta den senaste versionen av Service Fabric.
 
-### <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>Uppgradera kluster som har anslutning att hämta de senaste kod och konfiguration
-Följ dessa steg för att uppgradera ditt kluster till en version som stöds om klusternoderna har internet-anslutning till den [Microsoft Download Center](http://download.microsoft.com).
+### <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>Uppgradera kluster som har anslutning att hämta senaste kod och konfiguration
+Följ dessa steg för att uppgradera klustret till en version som stöds om klusternoderna är anslutna till internet till den [Microsoft Download Center](http://download.microsoft.com).
 
-För kluster som har anslutning till den [Microsoft Download Center](http://download.microsoft.com), Microsoft regelbundet kontrollerar tillgängligheten för nya Service Fabric-versioner.
+För kluster som är ansluten till den [Microsoft Download Center](http://download.microsoft.com), Microsoft söker regelbundet efter tillgängligheten för nya Service Fabric-versioner.
 
-När en ny Service Fabric-version är tillgänglig, hämtas lokalt till klustret paketet och etableras för uppgradering. För att informera kunden om den här nya versionen visas dessutom systemet en explicit klustret hälsotillstånd varning som liknar följande:
+När en ny Service Fabric-version är tillgänglig, har paketet laddat ned lokalt till klustret och etableras för uppgradering. Dessutom visar systemet för att informera kunden om den nya versionen, en explicit kluster hälsotillstånd varning som liknar följande:
 
 ”Den aktuella klusterversionen [version #] stödet upphör [date]”.
 
 När klustret kör den senaste versionen, försvinner varningen.
 
-#### <a name="cluster-upgrade-workflow"></a>Uppgradera arbetsflödet för kluster
+#### <a name="cluster-upgrade-workflow"></a>Arbetsflöde för uppgradering av kluster
 När klustret hälsotillstånd varning visas gör du följande:
 
-1. Ansluta till klustret från en dator som har administratörsåtkomst till alla datorer som listas som noder i klustret. Den dator som det här skriptet körs på behöver inte vara en del av klustret.
+1. Ansluta till klustret från valfri dator som har administratörsåtkomst till alla datorer som listas som noder i klustret. Den dator som skriptet körs på har inte ingå i klustret.
 
     ```powershell
 
@@ -72,7 +72,7 @@ När klustret hälsotillstånd varning visas gör du följande:
         -StoreName My
     ```
 
-2. Hämta en lista över Service Fabric-versioner som du kan uppgradera till.
+2. Hämta listan över Service Fabric-versioner som du kan uppgradera till.
 
     ```powershell
 
@@ -80,10 +80,10 @@ När klustret hälsotillstånd varning visas gör du följande:
     Get-ServiceFabricRegisteredClusterCodeVersion
     ```
 
-    Du bör få ett utgående ut ungefär så här:
+    Du bör få utdata som liknar detta:
 
     ![Hämta Service Fabric-versioner][getfabversions]
-3. Starta en klusteruppgradering till en version som är tillgängliga med hjälp av den [Start ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx) Windows PowerShell-kommando.
+3. Starta en uppgradering av klustret till en tillgänglig version med hjälp av den [Start ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade) Windows PowerShell-kommando.
 
     ```Powershell
 
@@ -94,34 +94,34 @@ När klustret hälsotillstånd varning visas gör du följande:
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion 5.3.301.9590 -Monitored -FailureAction Rollback
 
     ```
-   Du kan använda Service Fabric-Utforskaren eller kör följande PowerShell-kommando för att övervaka förloppet för uppgraderingen:
+   Du kan använda Service Fabric Explorer eller kör följande PowerShell-kommando för att övervaka förloppet för uppgraderingen:
 
     ```powershell
 
     Get-ServiceFabricClusterUpgrade
     ```
 
-    Om klustret hälsoprinciper inte är uppfyllt, återställs uppgraderingen. Om du vill ange anpassade hälsoprinciper för kommandot Start-ServiceFabricClusterUpgrade finns i dokumentationen för [Start ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
+    Uppgraderingen återställs om hälsoprinciper klustret inte uppfylls. Om du vill ange anpassade hälsoprinciper för kommandot Start-ServiceFabricClusterUpgrade finns i dokumentationen för [Start ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
-När du har åtgärdat problemen som resulterade i återställningen kan du initiera uppgraderingen igen genom att följa samma steg som beskrivits tidigare.
+    När du har åtgärdat problemen som resulterade i återställningen kan du initiera uppgraderingen igen genom att följa samma steg som tidigare beskrivna.
 
-### <a name="upgrade-clusters-that-have-no-connectivity-to-download-the-latest-code-and-configuration"></a>Uppgradera kluster som har *ingen nätverksanslutning* att ladda ned de senaste kod och konfiguration
-Följ dessa steg för att uppgradera ditt kluster till en version som stöds om klusternoderna inte har Internetanslutning till den [Microsoft Download Center](http://download.microsoft.com).
+### <a name="upgrade-clusters-that-have-no-connectivity-to-download-the-latest-code-and-configuration"></a>Uppgradera kluster som har *ingen anslutning* att ladda ned den senaste kod och konfiguration
+Följ dessa steg för att uppgradera klustret till en version som stöds om klusternoderna inte har Internetanslutning för att den [Microsoft Download Center](http://download.microsoft.com).
 
 > [!NOTE]
-> Om du kör ett kluster som inte är ansluten till internet, måste du övervaka Service Fabric-teamets blogg att lära dig om nya versioner. Systemet visar inte en varning om klustret hälsa att varna dig om nya versioner.  
+> Om du kör ett kluster som inte är ansluten till internet, måste du övervaka Service Fabric-teamets blogg vill veta mer om nya versioner. Systemet visar inte en varning visas hälsotillstånd kluster för att varna dig om nya versioner.  
 >
 >
 
 #### <a name="auto-provisioning-vs-manual-provisioning"></a>Automatisk etablering jämfört med manuella etablering
-Konfigurera om du vill aktivera automatisk överföring och registrering för den senaste versionen av koden uppdateringstjänsten Service Fabric. Instruktioner finns i Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt inuti den [fristående paketet](service-fabric-cluster-standalone-package-contents.md).
-Följ dessa instruktioner för den manuella processen.
+Om du vill aktivera automatisk överföring och registrering för den senaste versionen av koden, ställa in Service Fabric Update-tjänst. Instruktioner finns i Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt inuti den [fristående paketet](service-fabric-cluster-standalone-package-contents.md).
+Följ dessa instruktioner för manuell process.
 
-Ändra klusterkonfigurationen för att ange egenskapen följande *FALSKT* innan du påbörjar en uppgradering av konfiguration:
+Ändra din klusterkonfiguration för att ange följande egenskap för *FALSKT* innan du påbörjar en uppgradering av konfiguration:
 
         "fabricClusterAutoupgradeEnabled": false,
 
-Information, se den [Start-ServiceFabricClusterConfigurationUpgrade PowerShell-kommandot](https://msdn.microsoft.com/library/mt788302.aspx). Se till att uppdatera clusterConfigurationVersion om du i din JSON innan du börjar uppgradera konfiguration.
+Mer information om användning finns i den [Start ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) PowerShell-kommando. Se till att uppdatera clusterConfigurationVersion om du i din JSON innan du börjar uppgradera konfigurationen.
 
 ```powershell
 
@@ -129,9 +129,9 @@ Information, se den [Start-ServiceFabricClusterConfigurationUpgrade PowerShell-k
 
 ```
 
-#### <a name="cluster-upgrade-workflow"></a>Uppgradera arbetsflödet för kluster
+#### <a name="cluster-upgrade-workflow"></a>Arbetsflöde för uppgradering av kluster
 
-1. Kör Get-ServiceFabricClusterUpgrade från en av noderna i klustret och notera TargetCodeVersion.
+1. Kör [Get-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterupgrade) från någon av noderna i klustret och anteckna den *TargetCodeVersion*.
 
 2. Kör följande från en Internetansluten dator att lista alla uppgraderingen-kompatibla versioner med den aktuella versionen och hämta motsvarande paketet från de associera länkarna:
 
@@ -141,7 +141,7 @@ Information, se den [Start-ServiceFabricClusterConfigurationUpgrade PowerShell-k
     Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion <TargetCodeVersion as noted in Step 1> 
     ```
 
-3. Ansluta till klustret från en dator som har administratörsåtkomst till alla datorer som listas som noder i klustret. Den dator som det här skriptet körs på behöver inte vara en del av klustret.
+3. Ansluta till klustret från valfri dator som har administratörsåtkomst till alla datorer som listas som noder i klustret. Den dator som skriptet körs på har inte ingå i klustret.
 
     ```powershell
 
@@ -152,7 +152,7 @@ Information, se den [Start-ServiceFabricClusterConfigurationUpgrade PowerShell-k
     Copy-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab -ImageStoreConnectionString "fabric:ImageStore"
 
     ```
-4. Kopiera det Hämta paketet till klustret image store.
+4. Kopiera det Hämta paketet till avbildningsarkivet kluster.
 
 5. Registrera kopierade paketet.
 
@@ -165,7 +165,7 @@ Information, se den [Start-ServiceFabricClusterConfigurationUpgrade PowerShell-k
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
 
      ```
-6. Starta en klusteruppgradering till en version som är tillgängliga.
+6. Starta en uppgradering av klustret till en tillgänglig version.
 
     ```Powershell
 
@@ -175,20 +175,20 @@ Information, se den [Start-ServiceFabricClusterConfigurationUpgrade PowerShell-k
     Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion 5.3.301.9590 -Monitored -FailureAction Rollback
 
     ```
-   Du kan övervaka förloppet för uppgraderingen på Service Fabric-Utforskaren eller genom att köra följande PowerShell-kommando:
+   Du kan övervaka förloppet för uppgraderingen på Service Fabric Explorer eller så kan du köra följande PowerShell-kommando:
 
     ```powershell
 
     Get-ServiceFabricClusterUpgrade
     ```
 
-    Om klustret hälsoprinciper inte är uppfyllt, återställs uppgraderingen. Om du vill ange anpassade hälsoprinciper för kommandot Start-ServiceFabricClusterUpgrade finns i dokumentationen för [Start ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
+    Uppgraderingen återställs om hälsoprinciper klustret inte uppfylls. Om du vill ange anpassade hälsoprinciper för kommandot Start-ServiceFabricClusterUpgrade finns i dokumentationen för [Start ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
-När du har åtgärdat problemen som resulterade i återställningen kan du initiera uppgraderingen igen genom att följa samma steg som beskrivits tidigare.
+    När du har åtgärdat problemen som resulterade i återställningen kan du initiera uppgraderingen igen genom att följa samma steg som tidigare beskrivna.
 
 
 ## <a name="upgrade-the-cluster-configuration"></a>Uppgradera klusterkonfigurationen
-Innan du startar uppgraderingen konfiguration kan du testa din nya klusterkonfiguration JSON genom att köra följande PowerShell-skript i fristående paketet:
+Innan du startar uppgraderingen konfiguration kan du testa nya klusterkonfigurationen JSON genom att köra följande PowerShell-skript i det fristående paketet:
 
 ```powershell
 
@@ -203,9 +203,9 @@ Eller Använd det här skriptet:
 
 ```
 
-Vissa konfigurationer måste uppgraderas, till exempel slutpunkter, klusternamnet, noden IP osv. Nya klusterkonfigurationen JSON har testats mot den gamla servern och genererar fel i PowerShell-fönstret om det uppstår problem.
+Vissa konfigurationer kan inte uppgraderas, till exempel slutpunkter, klusternamnet och nod-IP, osv. Den nya klusterkonfigurationen JSON har testats mot den gamla servern och genererar fel i PowerShell-fönstret om det uppstår problem.
 
-Om du vill uppgradera configuration klusteruppgradering kör Start-ServiceFabricClusterConfigurationUpgrade. Konfiguration av uppgraderingen är bearbetade uppgraderingsdomän av uppgraderingsdomänen.
+Om du vill uppgradera configuration klusteruppgraderingen kör [Start ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). Konfiguration av uppgraderingen är bearbetade uppgraderingsdomän per uppgraderingsdomän.
 
 ```powershell
 
@@ -213,22 +213,22 @@ Om du vill uppgradera configuration klusteruppgradering kör Start-ServiceFabric
 
 ```
 
-### <a name="cluster-certificate-config-upgrade"></a>Klusteruppgradering certifikat config  
-Ett kluster-certifikat används för autentisering mellan noder i klustret. Förnya certifikatet ska utföras med extra försiktig eftersom fel blockerar kommunikation mellan klusternoder.
+### <a name="cluster-certificate-config-upgrade"></a>Certifikatet config uppgradering av kluster  
+Ett klustercertifikat används för autentisering mellan klusternoderna. Förnya certifikatet ska utföras med extra försiktig eftersom fel blockerar kommunikation mellan klusternoder.
 
-Tekniskt sett stöds fyra alternativ:  
+Tekniskt sett stöds fyra alternativen:  
 
-* Enskilt certifikat uppgraderingen: sökvägen för uppgraderingen är certifikat (primär) -> certifikatet B (primär) -> certifikatet C (primär) ->...
+* Enkel certifikatuppgraderingen: sökvägen för uppgraderingen är certifikat (primär) -> certifikatet B (primär) -> certifikatet C (primär) ->...
 
-* Dubbla certifikat uppgraderingen: sökvägen för uppgraderingen är B (sekundär) -> certifikatet B (primär) och certifikat (primär) -> certifikat (primär) > certifikatet B (primär) och C (sekundär) -> certifikatet C (primär) ->...
+* Dubbla certifikatuppgraderingen: sökvägen för uppgraderingen är certifikat (primär) -> certifikat (primär) och B (sekundär) -> certifikatet B (primär) > certifikatet B (primär) och C (sekundär) -> certifikatet C (primär) ->...
 
-* Av Typuppgradering av certifikat: tumavtryck-baserade certifikat <>--Vanligtnamn-baserade Certifikatkonfiguration. Till exempel certifikatets tumavtryck (primär) och tumavtrycket B (sekundär) -> certifikatet CommonName C.
+* Av Typuppgradering av certifikat: tumavtryck för certifikat configuration <>--Vanligtnamn-baserade Certifikatkonfiguration. Till exempel certifikatets tumavtryck (primär) och tumavtryck B (sekundär) -> certifikatet CommonName C.
 
-* Utfärdaren tumavtrycket uppgradering av certifikat: sökvägen för uppgraderingen är certifikatet CN = A, IssuerThumbprint = IT1 (primära) certifikat CN -> = A, IssuerThumbprint = IT1 IT2 (primära) certifikat CN -> = A, IssuerThumbprint = IT2 (primära).
+* Utfärdaren tumavtryck för uppgradering av certifikat: sökvägen för uppgraderingen är certifikat-CN = A, IssuerThumbprint = IT1 (primär) certifikat-CN -> = A, IssuerThumbprint = IT1 IT2 (primär) certifikat-CN -> = A, IssuerThumbprint = IT2 (primär).
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur du anpassar vissa [Service Fabric-klusterinställningar](service-fabric-cluster-fabric-settings.md).
+* Lär dig hur du anpassar några [inställningar för Service Fabric-klustret](service-fabric-cluster-fabric-settings.md).
 * Lär dig hur du [skala ditt kluster in och ut](service-fabric-cluster-scale-up-down.md).
 * Lär dig mer om [programuppgraderingar](service-fabric-application-upgrade.md).
 

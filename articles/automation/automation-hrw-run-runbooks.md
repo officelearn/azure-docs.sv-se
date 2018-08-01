@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cd2578f2fd8217d513a693ef348a5c26a4b18623
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 118f9d7865728177f323078c036aee1884a61431
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126515"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390304"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks som körs på en Hybrid Runbook Worker
 
@@ -172,7 +172,7 @@ Hybrid Runbook Worker kan konfigureras för att köra endast signerade runbooks 
 I följande exempel skapas ett självsignerat certifikat som kan användas för signering av runbooks. Exemplet skapar certifikatet och exporterar den. Certifikatet har importerats till Hybrid Runbook Worker senare. Tumavtrycket returneras, detta används senare för att referera till certifikatet.
 
 ```powershell
-# Create a self signed runbook that can be used for code signing
+# Create a self-signed certificate that can be used for code signing
 $SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
                                         -Subject "CN=contoso.com" `
                                         -KeyAlgorithm RSA `
@@ -211,14 +211,14 @@ Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocati
 
 ### <a name="sign-your-runbooks-using-the-certificate"></a>Registrera dina Runbooks med hjälp av certifikatet
 
-Med Hybrid Runbook signerade Worker-arbeten som konfigurerats för att använda endast runbooks. Du måste registrera runbooks som ska användas på den Hybrid Runbook Worker. Använd följande exempel PowerShell för att registrera dina runbooks.
+Med Hybrid Runbook Worker-arbeten som konfigurerats för att använda endast signerade runbooks, måste du logga runbooks som ska användas på den Hybrid Runbook Worker. Använd följande exempel PowerShell för att registrera dina runbooks.
 
 ```powershell
 $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprint>)
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-När runbooken har signerats, måste de importeras till ditt Automation-konto och publiceras med signaturblocket. Läs hur importera runbooks, se [importera en runbook från en fil till Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+När runbooken har signerats, måste de importeras till ditt Automation-konto och publiceras med signaturblocket. Läs hur man importerar runbooks i [importera en runbook från en fil till Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
 
 ## <a name="troubleshoot"></a>Felsöka
 

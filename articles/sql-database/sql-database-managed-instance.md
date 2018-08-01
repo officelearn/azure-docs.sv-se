@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: bonova
-ms.openlocfilehash: ced88c491f4d2ff2c1e51fd04c481a8477053a20
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
-ms.translationtype: HT
+ms.openlocfilehash: 02a2a5d808f21c48181da265b05c7f532a200c2f
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346706"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390695"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad instans (förhandsversion)?
 
@@ -148,7 +148,7 @@ I följande lista beskrivs de främsta egenskaperna för nivån affärskritisk s
 | SQL Server-version / skapa | SQL Server senaste (tillgänglig) |
 | Ytterligare funktioner | [Minnesintern OLTP](sql-database-in-memory.md)<br> 1 ytterligare skrivskyddad replik ([Lässkalning](sql-database-read-scale-out.md))
 | Minimistorlek för lagring | 32 GB |
-| Maxstorlek för lagring | Gen 4: 1 TB (alla vCore storlekar<br> 5: e generationen:<ul><li>1 TB för 8, 16 virtuella kärnor</li><li>2 TB för 24 virtuella kärnor</li><li>4 TB för 40, 64, 80 virtuella kärnor</ul>|
+| Maxstorlek för lagring | Gen 4: 1 TB (alla vCore storlekar<br> 5: e generationen:<ul><li>1 TB för 8, 16 virtuella kärnor</li><li>2 TB för 24 virtuella kärnor</li><li>4 TB för 32, 40, 64, 80 virtuella kärnor</ul>|
 | Maximalt lagringsutrymme per databas | Bestäms av den maximala lagringsstorleken per instans |
 | Antalet datafiler (rader) per databasen | Flera | 
 | Antal loggfiler (loggning) per databas | 1 | 

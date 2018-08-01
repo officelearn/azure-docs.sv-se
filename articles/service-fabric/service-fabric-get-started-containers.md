@@ -1,6 +1,6 @@
 ---
-title: Skapa en Azure Service Fabric-behållarapp | Microsoft Docs
-description: Skapa din första Windows-behållarapp på Azure Service Fabric. Skapa en Docker-avbildning med en Python-app, överför avbildningen till ett behållarregister och skapa och distribuera en Service Fabric-behållarapp.
+title: Skapa en Azure Service Fabric-containerapp | Microsoft Docs
+description: Skapa din första Windows-containerapp på Azure Service Fabric. Skapa en Docker-avbildning med en Python-app, överför avbildningen till ett containerregister och skapa och distribuera en Service Fabric-containerapp.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: f52861411a34d1fbff577fbbc37cf926151a97d8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 6577e15ff0773e336da61e7883e6ea7257b6b169
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294820"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358876"
 ---
-# <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-behållarapp i Windows
+# <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-containerapp i Windows
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-behållare i ett Service Fabric-kluster. Den här artikeln vägleder dig genom att skapa en Docker-avbildning som innehåller ett Python [Flask](http://flask.pocoo.org/)-program och distribuera den till ett Service Fabric-kluster. Du kan också dela programmet via [Azure Container-registret](/azure/container-registry/). Den här artikeln förutsätter att du har grundläggande kunskaper om Docker. Mer information om Docker finns i [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Översikt över Docker).
+Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-container i ett Service Fabric-kluster. Den här artikeln vägleder dig genom att skapa en Docker-avbildning som innehåller ett Python [Flask](http://flask.pocoo.org/)-program och distribuera den till ett Service Fabric-kluster. Du kan också dela programmet via [Azure Container-registret](/azure/container-registry/). Den här artikeln förutsätter att du har grundläggande kunskaper om Docker. Mer information om Docker finns i [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Översikt över Docker).
 
 ## <a name="prerequisites"></a>Förutsättningar
 * En utvecklingsdator som kör:
@@ -36,27 +36,27 @@ Du behöver inga göra några ändringar i din app för att köra en befintlig a
 
 * Ett Windows-kluster med tre eller fler noder som körs på Windows Server med behållare. 
 
-  Den här artikeln måste version (build) av Windows Server med behållare som körs på klusternoderna matcha på utvecklingsdatorn. Detta beror på att du skapar docker-avbildning på utvecklingsdatorn och det finns begränsningar för kompatibilitet mellan versioner av behållaren OS och värd-OS som har distribuerats. Mer information finns i [Windows Server-behållare OS- och OS-kompatibilitet](#windows-server-container-os-and-host-os-compatibility). 
+  Den här artikeln är måste version (build) av Windows Server med behållare som körs på klusternoderna matcha på utvecklingsdatorn. Detta är eftersom du skapa docker-avbildningen på utvecklingsdatorn och det finns begränsningar för kompatibilitet mellan versioner av behållaren OS och värdoperativsystemet som den har distribuerats. Mer information finns i [Windows Server-behållare OS- och OS-kompatibilitet](#windows-server-container-os-and-host-os-compatibility). 
   
-  För att avgöra vilken version av Windows Server med behållare som du behöver för ditt kluster genom att köra den `ver` från en kommandotolk på utvecklingsdatorn:
+  Om du vill kontrollera vilken version av Windows Server med behållare som du behöver för ditt kluster, kör den `ver` från en Windows-kommandotolk på utvecklingsdatorn:
 
-  * Om versionen innehåller *x.x.14323.x*och välj *Windows Server 2016 Datacenter med behållare* för operativsystemet när [skapar ett kluster](service-fabric-cluster-creation-via-portal.md). Du kan också [försök Service Fabric gratis](https://aka.ms/tryservicefabric) med en part-kluster.
-  * Om versionen innehåller *x.x.16299.x*och välj *WindowsServerSemiAnnual Datacenter-Core-1709-med-behållare* för operativsystemet när [skapar ett kluster](service-fabric-cluster-creation-via-portal.md). Du kan inte använda ett part kluster, men.
+  * Om versionen innehåller *x.x.14323.x*och välj sedan *Windows Server 2016 Datacenter med behållare* för operativsystemet när [skapar ett kluster](service-fabric-cluster-creation-via-portal.md). Du kan också [prova Service Fabric utan kostnad](https://aka.ms/tryservicefabric) med ett party-kluster.
+  * Om versionen innehåller *x.x.16299.x*och välj sedan *WindowsServerSemiAnnual Datacenter-Core-1709-med-behållare* för operativsystemet när [skapar ett kluster](service-fabric-cluster-creation-via-portal.md). Du kan inte använda ett partykluster men.
 
 * Ett register i Azure Container Registry – [Skapa ett behållarregister](../container-registry/container-registry-get-started-portal.md) i din Azure-prenumeration.
 
 > [!NOTE]
-> Distribuera behållare till ett Service Fabric-kluster som körs på Windows 10 stöds.  Se [i den här artikeln](service-fabric-how-to-debug-windows-containers.md) information om hur du konfigurerar Windows 10 om du vill köra Windows behållare.
+> Distribuera behållare till Service Fabric-kluster som körs på Windows 10 stöds.  Se [i den här artikeln](service-fabric-how-to-debug-windows-containers.md) information om hur du konfigurerar Windows 10 för att köra Windows-behållare.
 >   
 
 > [!NOTE]
 > Service Fabric 6.2 och senare stöder distribuera behållare till kluster som körs på Windows Server version 1709.  
 > 
 
-## <a name="define-the-docker-container"></a>Definiera dockerbehållare
+## <a name="define-the-docker-container"></a>Definiera Dockercontainer
 Skapa en avbildning baserat på [Python-avbildningen](https://hub.docker.com/_/python/) på Docker Hub.
 
-Ange Docker-behållaren i en Dockerfile. Dockerfile innehåller instruktioner för att konfigurera miljön i din behållare, läsa in programmet du vill köra och mappa portar. Dockerfile är indata för kommandot `docker build` som skapar avbildningen.
+Ange Docker-containern i en Dockerfile. Dockerfile innehåller instruktioner för att konfigurera miljön i din container, läsa in programmet du vill köra och mappa portar. Dockerfile är indata för kommandot `docker build` som skapar avbildningen.
 
 Skapa en tom katalog och skapa filen *Dockerfile* (utan filtillägget). Lägg till följande i *Dockerfile* och spara dina ändringar:
 
@@ -115,7 +115,7 @@ Kör kommandot `docker build` för att skapa avbildningen som kör ditt webbprog
 docker build -t helloworldapp .
 ```
 
-Med det här kommandot skapas den nya avbildningen med hjälp av instruktionerna i din Dockerfile och avbildningen får namnet `helloworldapp`. Om du vill skapa en behållaravbildning börjar du med att ladda ned basavbildningen från den Docker-hubb som programmet ska läggas till i. 
+Med det här kommandot skapas den nya avbildningen med hjälp av instruktionerna i din Dockerfile och avbildningen får namnet `helloworldapp`. Om du vill skapa en containeravbildning börjar du med att ladda ned basavbildningen från den Docker-hubb som programmet ska läggas till i. 
 
 När build-kommandot har slutförts kör du `docker images`-kommandot för att se information om den nya avbildningen:
 
@@ -127,7 +127,7 @@ helloworldapp                 latest              8ce25f5d6a79        2 minutes 
 ```
 
 ## <a name="run-the-application-locally"></a>Kör programmet lokalt
-Kontrollera avbildningen lokalt innan du överför den till behållarregistret. 
+Kontrollera avbildningen lokalt innan du överför den till containerregistret. 
 
 Kör programmet:
 
@@ -135,9 +135,10 @@ Kör programmet:
 docker run -d --name my-web-site helloworldapp
 ```
 
-*name* namnger den behållare som körs (i stället för behållar-ID:t).
 
-När behållaren har startat letar du reda på dess IP-adress så att du kan ansluta till den behållare som körs via en webbläsare:
+  *name* namnger den container som körs (i stället för container-ID:t).
+
+När containern har startat letar du reda på dess IP-adress så att du kan ansluta till den container som körs via en webbläsare:
 ```
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
@@ -147,25 +148,25 @@ Om kommandot inte returnerar något, kör du följande kommando och inspekterar 
 docker inspect my-web-site
 ```
 
-Anslut till den behållare som körs. Öppna en webbläsare som pekar på den returnerade IP-adressen, till exempel ”http://172.31.194.61”. Nu visas normalt rubriken "Hello World!" i webbläsaren.
+Anslut till den container som körs. Öppna en webbläsare som pekar på den returnerade IP-adressen, till exempel ”http://172.31.194.61”. Nu visas normalt rubriken "Hello World!" i webbläsaren.
 
-Om du vill stoppa behållaren kör du:
+Om du vill stoppa containern kör du:
 
 ```
 docker stop my-web-site
 ```
 
-Ta bort behållaren från utvecklingsdatorn:
+Ta bort containern från utvecklingsdatorn:
 
 ```
 docker rm my-web-site
 ```
 
 <a id="Push-Containers"></a>
-## <a name="push-the-image-to-the-container-registry"></a>Överför avbildningen till behållarregistret
+## <a name="push-the-image-to-the-container-registry"></a>Överför avbildningen till containerregistret
 När du har kontrollerat att behållaren körs på utvecklingsdatorn överför du avbildningen till registret i Azure Container Registry.
 
-Kör ``docker login`` för att logga in till behållarregistret med dina [autentiseringsuppgifter för registret](../container-registry/container-registry-authentication.md).
+Kör ``docker login`` för att logga in till containerregistret med dina [autentiseringsuppgifter för registret](../container-registry/container-registry-authentication.md).
 
 I följande exempel skickas ID:t och lösenordet för ett Azure Active Directory [-tjänstobjekt](../active-directory/active-directory-application-objects.md). Du kanske till exempel har tilldelat ett tjänstobjekt till registret för ett automatiseringsscenario. Du kan också logga in med ditt användarnamn och lösenord för registret.
 
@@ -179,23 +180,23 @@ Följande kommando skapar en tagg, eller ett alias, för avbildningen, med en fu
 docker tag helloworldapp myregistry.azurecr.io/samples/helloworldapp
 ```
 
-Överför avbildningen till behållarregistret:
+Överför avbildningen till containerregistret:
 
 ```
 docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="create-the-containerized-service-in-visual-studio"></a>Skapa behållartjänsten i Visual Studio
-SDK:en och verktygen för Service Fabric innehåller en tjänstmall som hjälper dig att skapa ett behållarprogram.
+## <a name="create-the-containerized-service-in-visual-studio"></a>Skapa containertjänsten i Visual Studio
+SDK:en och verktygen för Service Fabric innehåller en tjänstmall som hjälper dig att skapa ett containerprogram.
 
 1. Starta Visual Studio. Välj **Arkiv** > **Nytt** > **Projekt**.
 2. Välj **Service Fabric-programmet**, ge det namnet "MyFirstContainer" och klicka på **OK**.
-3. Välj **Behållare** i listan med **tjänstmallar**.
-4. I **Avbildningsnamn** skriver du "myregistry.azurecr.io/samples/helloworldapp" (den avbildning som du skickade till lagringsplatsen för behållaren).
+3. Välj **Container** i listan med **tjänstmallar**.
+4. I **Avbildningsnamn** skriver du "myregistry.azurecr.io/samples/helloworldapp" (den avbildning som du skickade till lagringsplatsen för containern).
 5. Namnge tjänsten och klicka på **OK**.
 
 ## <a name="configure-communication"></a>Konfigurera kommunikation
-Behållartjänsten behöver en slutpunkt för kommunikation. Lägg till ett `Endpoint`-element med protokollet, porten och typen i filen ServiceManifest.xml. I det här exemplet används en fast port, 8081. Om ingen port har angetts väljs en port slumpmässigt från portintervallet för programmet. 
+Containertjänsten behöver en slutpunkt för kommunikation. Lägg till ett `Endpoint`-element med protokollet, porten och typen i filen ServiceManifest.xml. I det här exemplet används en fast port, 8081. Om ingen port har angetts väljs en port slumpmässigt från portintervallet för programmet. 
 
 ```xml
 <Resources>
@@ -205,12 +206,12 @@ Behållartjänsten behöver en slutpunkt för kommunikation. Lägg till ett `End
 </Resources>
 ```
 
-Genom att definiera en slutpunkt publicerar Service Fabric slutpunkten i namngivningstjänsten. Andra tjänster som körs i klustret kan lösa den här behållaren. Du kan också utföra kommunikation mellan behållare med hjälp av den [omvända proxyn](service-fabric-reverseproxy.md). Du utför kommunikation genom att tillhandahålla HTTP-lyssningsporten för den omvända proxyn och namnet på de tjänster som du vill kommunicera med som miljövariabler.
+Genom att definiera en slutpunkt publicerar Service Fabric slutpunkten i namngivningstjänsten. Andra tjänster som körs i klustret kan lösa den här containern. Du kan också utföra kommunikation mellan containrar med hjälp av den [omvända proxyn](service-fabric-reverseproxy.md). Du utför kommunikation genom att tillhandahålla HTTP-lyssningsporten för den omvända proxyn och namnet på de tjänster som du vill kommunicera med som miljövariabler.
 
-Tjänsten lyssnar på en specifik port (8081 i det här exemplet). När programmet distribueras till ett kluster i Azure, körs både klustret och programmet bakom en Azure-belastningsutjämnare. Programporten måste vara öppen i Azure-belastningsutjämnaren så att inkommande trafik kan nå tjänsten.  Du kan öppna den här porten i Azures belastningsutjämnare med hjälp av ett [PowerShell-skript](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) eller på [Azure Portal](https://portal.azure.com).
+Tjänsten lyssnar på en specifik port (8081 i det här exemplet). När programmet distribueras till ett kluster i Azure, körs både klustret och programmet bakom en Azure-lastbalanserare. Programporten måste vara öppen i Azure-lastbalanseraren så att inkommande trafik kan nå tjänsten.  Du kan öppna den här porten i Azures lastbalanserare med hjälp av ett [PowerShell-skript](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) eller på [Azure Portal](https://portal.azure.com).
 
 ## <a name="configure-and-set-environment-variables"></a>Konfigurera och ange miljövariabler
-Miljövariabler kan anges för varje kodpaketet i tjänstmanifestet. Den här funktionen är tillgänglig för alla tjänster oavsett om de har distribueras som behållare eller processer, eller körbara gäster. Du kan åsidosätta värden för miljövariabler i applikationsmanifestet eller ange dem under distributionen som programparametrar.
+Miljövariabler kan anges för varje kodpaketet i tjänstmanifestet. Den här funktionen är tillgänglig för alla tjänster oavsett om de har distribueras som containrar eller processer, eller körbara gäster. Du kan åsidosätta värden för miljövariabler i applikationsmanifestet eller ange dem under distributionen som programparametrar.
 
 Följande XML-kodfragment i tjänstmanifestet visar ett exempel på hur du anger miljövariabler för ett kodpaket:
 ```xml
@@ -233,8 +234,8 @@ Dessa miljövariabler kan åsidosättas i applikationsmanifestet:
 </ServiceManifestImport>
 ```
 
-## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>Konfigurera mappning mellan behållarport och värdport och identifiering mellan behållare
-Konfigurera en värdport som används för att kommunicera med behållaren. Portbindningen mappar porten där tjänsten lyssnar inuti behållaren till en port på värden. Lägg till ett `PortBinding`-element i `ContainerHostPolicies`-elementet i filen ApplicationManifest.xml. I den här artikeln är `ContainerPort` 80 (behållaren exponerar port 80, som anges i Dockerfile) och `EndpointRef` är ”Guest1TypeEndpoint” (slutpunkten som tidigare definierats i tjänstmanifestet). Inkommande begäranden till tjänsten på port 8081 mappas till port 80 på behållaren.
+## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>Konfigurera mappning mellan containerport och värdport och identifiering mellan containrar
+Konfigurera en värdport som används för att kommunicera med containern. Portbindningen mappar porten där tjänsten lyssnar inuti containern till en port på värden. Lägg till ett `PortBinding`-element i `ContainerHostPolicies`-elementet i filen ApplicationManifest.xml. I den här artikeln är `ContainerPort` 80 (containern exponerar port 80, som anges i Dockerfile) och `EndpointRef` är ”Guest1TypeEndpoint” (slutpunkten som tidigare definierats i tjänstmanifestet). Inkommande begäranden till tjänsten på port 8081 mappas till port 80 på containern.
 
 ```xml
 <ServiceManifestImport>
@@ -248,8 +249,8 @@ Konfigurera en värdport som används för att kommunicera med behållaren. Port
 </ServiceManifestImport>
 ```
 
-## <a name="configure-container-registry-authentication"></a>Konfigurera autentisering av behållarregister
-Konfigurera autentisering av behållarregister genom att lägga till `RepositoryCredentials` i `ContainerHostPolicies` filen ApplicationManifest.xml. Lägg till kontot och lösenordet för behållarregistret myregistry.azurecr.io, så att tjänsten kan ladda ned behållaravbildningen från centrallagret.
+## <a name="configure-container-registry-authentication"></a>Konfigurera autentisering av containerregister
+Konfigurera autentisering av containerregister genom att lägga till `RepositoryCredentials` i `ContainerHostPolicies` filen ApplicationManifest.xml. Lägg till kontot och lösenordet för containerregistret myregistry.azurecr.io, så att tjänsten kan ladda ned containeravbildningen från centrallagret.
 
 ```xml
 <ServiceManifestImport>
@@ -323,7 +324,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 ```
 
 ## <a name="configure-isolation-mode"></a>Konfigurera isoleringsläge
-Windows stöder två isoleringslägen för behållare: process och Hyper-V. Om processisoleringsläget används delar alla behållare som körs på samma värddator kärna med värden. Om Hyper-V-isoleringsläget används isoleras kärnorna mellan varje Hyper-V-behållare och behållarvärden. Isoleringsläget anges i `ContainerHostPolicies`-elementet i applikationsmanifestfilen. Isoleringslägena som kan anges är `process`, `hyperv` och `default`. Standardvärdet är arbetsprocesser på Windows Server-värdar. På Windows 10-värdar stöds bara Hyper-V-isoleringsläge, så behållaren som körs i Hyper-V-isoleringsläge oavsett dess inställningen för läge för isolering. Följande kodfragment visar hur isoleringsläget har angetts i applikationsmanifestfilen.
+Windows stöder två isoleringslägen för containrar: process och Hyper-V. Om processisoleringsläget används delar alla containrar som körs på samma värddator kärna med värden. Om Hyper-V-isoleringsläget används isoleras kärnorna mellan varje Hyper-V-container och containervärden. Isoleringsläget anges i `ContainerHostPolicies`-elementet i applikationsmanifestfilen. Isoleringslägena som kan anges är `process`, `hyperv` och `default`. Standardvärdet är isoleringsläge på Windows Server-värdar. På Windows 10-värdar stöds bara Hyper-V-isoleringsläget, så att behållaren körs i Hyper-V-isoleringsläget oavsett inställningen för domänläge dess isolering. Följande kodfragment visar hur isoleringsläget har angetts i applikationsmanifestfilen.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
@@ -334,7 +335,7 @@ Windows stöder två isoleringslägen för behållare: process och Hyper-V. Om p
    >
 
 ## <a name="configure-resource-governance"></a>Konfigurera resursstyrning
-Med [resursstyrning](service-fabric-resource-governance.md) begränsas resurserna som behållaren kan använda på värddatorn. `ResourceGovernancePolicy`-elementet som anges i applikationsmanifestet, används för att deklarera resursgränser för ett tjänstkodpaket. Resursgränser kan anges för följande resurser: Memory, MemorySwap, CpuShares (relativ processorvikt), MemoryReservationInMB, BlkioWeight (relativ BlockIO-vikt). I det här exemplet hämtar tjänstpaketet Guest1Pkg en kärna på klusternoderna där det är placerat. Minnesgränser är absoluta, så kodpaketet är begränsat till 1024 MB minne (med samma reservation). Kodpaket (behållare eller processer) kan inte tilldela mer minne än den här gränsen, och försök att göra detta leder till undantag utanför minnet. För att tvingande resursbegränsning ska fungera bör minnesbegränsningar ha angetts för alla kodpaket inom ett tjänstpaket.
+Med [resursstyrning](service-fabric-resource-governance.md) begränsas resurserna som containern kan använda på värddatorn. `ResourceGovernancePolicy`-elementet som anges i applikationsmanifestet, används för att deklarera resursgränser för ett tjänstkodpaket. Resursgränser kan anges för följande resurser: Memory, MemorySwap, CpuShares (relativ processorvikt), MemoryReservationInMB, BlkioWeight (relativ BlockIO-vikt). I det här exemplet hämtar tjänstpaketet Guest1Pkg en kärna på klusternoderna där det är placerat. Minnesgränser är absoluta, så kodpaketet är begränsat till 1024 MB minne (med samma reservation). Kodpaket (containrar eller processer) kan inte tilldela mer minne än den här gränsen, och försök att göra detta leder till undantag utanför minnet. För att tvingande resursbegränsning ska fungera bör minnesbegränsningar ha angetts för alla kodpaket inom ett tjänstpaket.
 
 ```xml
 <ServiceManifestImport>
@@ -347,7 +348,7 @@ Med [resursstyrning](service-fabric-resource-governance.md) begränsas resursern
 ```
 ## <a name="configure-docker-healthcheck"></a>Konfigurera Docker HEALTHCHECK 
 
-Från och med v6.1 integrerar Service Fabric händelser för [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) automatiskt i systemets hälsorapport. Det innebär att om behållaren har **HEALTHCHECK** aktiverad kommer Service Fabric att rapportera hälsa varje gång behållarens hälsostatus förändras enligt rapporten från Docker. En hälsorapport som är **OK** visas i [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) när *health_status* är *healthy* och **WARNING** visas när *health_status* är *unhealthy*. Instruktionen för **HEALTHCHECK** som pekar mot den faktiska kontroll som utförs för att övervaka behållarens hälsa måste finnas i den Dockerfile som används när behållaravbildningen skapas. 
+Från och med v6.1 integrerar Service Fabric händelser för [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) automatiskt i systemets hälsorapport. Det innebär att om containern har **HEALTHCHECK** aktiverad kommer Service Fabric att rapportera hälsa varje gång containerns hälsostatus förändras enligt rapporten från Docker. En hälsorapport som är **OK** visas i [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) när *health_status* är *healthy* och **WARNING** visas när *health_status* är *unhealthy*. Instruktionen för **HEALTHCHECK** som pekar mot den faktiska kontroll som utförs för att övervaka containerns hälsa måste finnas i den Dockerfile som används när containeravbildningen skapas. 
 
 ![HealthCheckHealthy][3]
 
@@ -371,7 +372,7 @@ Du kan konfigurera **HEALTHCHECK**-beteendet för varje behållare genom att ang
 
 Om du vill inaktivera integrering av **HEALTHCHECK** för hela Service Fabric-klustret måste du ställa in [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) på **false**.
 
-## <a name="deploy-the-container-application"></a>Distribuera behållarappen
+## <a name="deploy-the-container-application"></a>Distribuera containerappen
 Spara alla dina ändringar och skapa programmet. Om du vill publicera appen högerklickar du på **MyFirstContainer** i Solution Explorer och väljer **Publish** (Publicera).
 
 I **anslutningsslutpunkten** anger du hanteringsslutpunkten för klustret. Till exempel "containercluster.westus2.cloudapp.azure.com:19000". Slutpunkten för klientanslutningen finns på översiktsfliken för ditt kluster i [Azure Portal](https://portal.azure.com).
@@ -387,7 +388,7 @@ Appen är klar när den har ```Ready```status: ![Ready][2] (Klar)
 ## <a name="clean-up"></a>Rensa
 Det kostar pengar så länge klustret körs. Fundera på om du vill [ta bort klustret](service-fabric-cluster-delete.md). [Party-kluster](https://try.servicefabric.azure.com/) tas bort automatiskt efter ett par timmar.
 
-När du har överfört avbildningen till behållarregistret kan du ta bort den lokala avbildningen från utvecklingsdatorn:
+När du har överfört avbildningen till containerregistret kan du ta bort den lokala avbildningen från utvecklingsdatorn:
 
 ```
 docker rmi helloworldapp
@@ -399,29 +400,29 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 Windows Server-behållare är inte kompatibla i alla versioner av värdens operativsystem. Exempel:
  
 - Windows Server-behållare som skapats med hjälp av Windows Server version 1709 fungerar inte på en värd som kör Windows Server version 2016. 
-- Windows Server-behållare som skapats med hjälp av Windows Server 2016 fungerar i Hyper-v-isoleringsläge endast på en värd som kör Windows Server version 1709. 
-- Med Windows Server-behållare som skapats med hjälp av Windows Server 2016, kan det vara nödvändigt för att säkerställa att revision av OS-behållaren och värdens operativsystem är samma när den körs i isoleringsläge på en värd som kör Windows Server 2016.
+- Windows Server-behållare som skapats med hjälp av Windows Server 2016 fungerar i Hyper-v-isoleringsläget endast på en värd som kör Windows Server version 1709. 
+- Med Windows Server-behållare som har skapats med hjälp av Windows Server 2016 kan det vara nödvändigt att säkerställa att ändringen av OS-behållare och värdoperativsystemet är samma vid körning i isoleringsläge på en värd som kör Windows Server 2016.
  
-Läs mer i [Windows behållaren versionskompatibilitet](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+Mer information finns i [versionskompatibilitet för Windows-behållare](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Överväg att kompatibiliteten för värdens operativsystem och din behållare OS när du skapar och distribuerar behållare i Service Fabric-klustret. Exempel:
+Överväg att kompatibilitet för värdens operativsystem och din behållare OS när du bygger och distribuera behållare till Service Fabric-klustret. Exempel:
 
 - Kontrollera att du distribuerar behållare med ett operativsystem som är kompatibel med Operativsystemet på klusternoderna.
-- Kontrollera att isoleringsläge som angetts för appen behållare är konsekventa med stöd för OS-behållaren på den nod där den distribueras.
-- Överväg hur Operativsystemet uppgraderas till klusternoderna eller behållare kan påverka deras kompatibilitet. 
+- Se till att isoleringsläget som angetts för din app för behållare är konsekventa med stöd för OS-behållare på noden där den distribueras.
+- Överväg hur OS-uppgraderingar till noder eller behållare kan påverka deras kompatibilitet. 
 
-Vi rekommenderar följande metoder för att se till att behållare distribueras på rätt sätt på din Service Fabric-kluster:
+Vi rekommenderar följande metoder för att se till att behållare har distribuerats korrekt på Service Fabric-klustret:
 
-- Använd explicit avbildningen märkning med Docker-avbildningar för att ange vilken version av Windows Server Operativsystemet som en behållare som skapas från. 
-- Använd [OS-märkning](#specify-os-build-specific-container-images) i din programmanifestfilen se till att ditt program är kompatibla mellan olika versioner av Windows Server och uppgraderingar.
+- Använd explicit bild taggning med Docker-avbildningar för att ange vilken version av Windows Server-Operativsystemet som en behållare skapas från. 
+- Använd [OS taggning](#specify-os-build-specific-container-images) i program-manifestfilen att se till att programmet är kompatibelt med olika versioner av Windows Server och uppgraderingar.
 
 > [!NOTE]
-> Du kan distribuera behållare baserat på Windows Server 2016 lokalt på en Windows 10-värd med Service Fabric version 6.2 och senare. På Windows 10 kör behållare i Hyper-V-isoleringsläge, oavsett isoleringsläge i programmanifestet. Läs mer i [konfigurera isoleringsläge](#configure-isolation-mode).   
+> Med Service Fabric version 6.2 och senare kan distribuera du behållare baserat på Windows Server 2016 lokalt på en Windows 10-värd. Behållare körs på Windows 10 Hyper-V-isoleringsläget, oavsett isoleringsläget anges i manifestet. Mer information finns i [konfigurera isoleringsläge](#configure-isolation-mode).   
 >
  
-## <a name="specify-os-build-specific-container-images"></a>Ange specifika behållaravbildningar för operativsystemet 
+## <a name="specify-os-build-specific-container-images"></a>Ange specifika containeravbildningar för operativsystemet 
 
-Windows Server-behållare får inte vara kompatibla mellan olika versioner av Operativsystemet. Windows Server-behållare som skapats med hjälp av Windows Server 2016 fungerar inte i Windows Server version 1709 i arbetsprocesser. Om klusternoderna uppdateras till den senaste versionen, misslyckas därför behållartjänster som skapats med tidigare versioner av Operativsystemet. Om du vill kringgå det här med version 6.1 av körningsmiljön och nyare, Service Fabric har stöd för att ange flera operativsystemsavbildningar per behållare och tagga dem med build-versioner av Operativsystemet i programmanifestet. Du kan hämta OS-versionen genom att köra `winver` vid en kommandotolk i Windows. Uppdatera applikationsmanifesten och ange åsidosättningar av avbildning per operativsystemsversion innan du uppdaterar operativsystemet på noderna. Följande kodavsnitt visar hur du kan ange flera behållaravbildningar i applikationsmanifestet, **ApplicationManifest.xml**:
+Windows Server-behållare kan inte vara kompatibla mellan olika versioner av Operativsystemet. Windows Server-behållare som skapats med hjälp av Windows Server 2016 fungerar inte på Windows Server version 1709 i isoleringsläge. Om klusternoderna uppdateras till den senaste versionen, misslyckas därför behållartjänster som skapats med tidigare versioner av Operativsystemet. Om du vill kringgå detta med version 6.1 av körningspaketet och nyare, Service Fabric har stöd för att ange flera operativsystemsavbildningar per behållare och tagga dem med build-versioner av Operativsystemet i manifestet. Du kan hämta build-versionen av Operativsystemet genom att köra `winver` i en kommandotolk i Windows. Uppdatera applikationsmanifesten och ange åsidosättningar av avbildning per operativsystemsversion innan du uppdaterar operativsystemet på noderna. Följande kodavsnitt visar hur du kan ange flera containeravbildningar i applikationsmanifestet, **ApplicationManifest.xml**:
 
 
 ```xml
@@ -433,7 +434,7 @@ Windows Server-behållare får inte vara kompatibla mellan olika versioner av Op
          </ImageOverrides> 
       </ContainerHostPolicies> 
 ```
-Versionen för Windows Server 2016 är 14393, och versionen för Windows Server version 1709 är 16299. Tjänstmanifestet fortsätter att ange endast en avbildning per behållartjänst, vilket följande visar:
+Versionen för Windows Server 2016 är 14393, och versionen för Windows Server version 1709 är 16299. Tjänstmanifestet fortsätter att ange endast en avbildning per containertjänst, vilket följande visar:
 
 ```xml
 <ContainerHost>
@@ -445,9 +446,9 @@ Versionen för Windows Server 2016 är 14393, och versionen för Windows Server 
    > Taggningsfunktioner för operativsystemsversionen är endast tillgängliga för Service Fabric på Windows
    >
 
-Om det underliggande operativsystemet på den virtuella datorn är version 16299 (version 1709) väljer Service Fabric den behållaravbildning som motsvarar den Windows Server-versionen. Om en ej taggad behållaravbildning också anges tillsammans med taggade behållaravbildningar i applikationsmanifestet kommer Service Fabric att hantera den ej taggade avbildningen som en avbildning som fungerar för olika versioner. Tagga behållaravbildningen explicit för att undvika problem under uppgraderingar.
+Om det underliggande operativsystemet på den virtuella datorn är version 16299 (version 1709) väljer Service Fabric den containeravbildning som motsvarar den Windows Server-versionen. Om en ej taggad containeravbildning också anges tillsammans med taggade containeravbildningar i applikationsmanifestet kommer Service Fabric att hantera den ej taggade avbildningen som en avbildning som fungerar för olika versioner. Tagga containeravbildningen explicit för att undvika problem under uppgraderingar.
 
-Behållaravbildningen utan taggar kommer att fungera som en åsidosättning av den som anges i ServiceManifest. Det innebär att avbildningen ”myregistry.azurecr.io/samples/helloworldappDefault” åsidosätter avbildningen ”myregistry.azurecr.io/samples/helloworldapp” i ServiceManifest.
+Containeravbildningen utan taggar kommer att fungera som en åsidosättning av den som anges i ServiceManifest. Det innebär att avbildningen ”myregistry.azurecr.io/samples/helloworldappDefault” åsidosätter avbildningen ”myregistry.azurecr.io/samples/helloworldapp” i ServiceManifest.
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Komplett exempel på Service Fabric-app och tjänstmanifest
 Här är de fullständiga tjänst- och appmanifesten som används i den här artikeln.
@@ -547,9 +548,9 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 </ApplicationManifest>
 ```
 
-## <a name="configure-time-interval-before-container-is-force-terminated"></a>Ställ in tidsintervall innan behållaren tvångsavslutas
+## <a name="configure-time-interval-before-container-is-force-terminated"></a>Ställ in tidsintervall innan containern tvångsavslutas
 
-Du kan ställa in ett tidsintervall för hur lång exekveringstid som ska gå innan behållaren tas bort när borttagning av tjänsten (eller flytt till en annan nod) har påbörjats. När du ställer in ett tidsintervall skickas kommandot `docker stop <time in seconds>` till behållaren.  Mer information finns i [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). Tidsintervallet anges i avsnittet `Hosting`. I följande klustermanifestutdrag visas hur du ställer in väntetidsintervallet:
+Du kan ställa in ett tidsintervall för hur lång exekveringstid som ska gå innan containern tas bort när borttagning av tjänsten (eller flytt till en annan nod) har påbörjats. När du ställer in ett tidsintervall skickas kommandot `docker stop <time in seconds>` till containern.  Mer information finns i [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). Tidsintervallet anges i avsnittet `Hosting`. I följande klustermanifestutdrag visas hur du ställer in väntetidsintervallet:
 
 ```json
 {
@@ -566,9 +567,9 @@ Du kan ställa in ett tidsintervall för hur lång exekveringstid som ska gå in
 Standardtidsintervallet är inställt på 10 sekunder. Eftersom inställningen är dynamisk uppdateras tidsgränsen med en konfigurationsuppdatering på klustret. 
 
 
-## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Ställ in exekveringstid för att ta bort behållaravbildningar som inte används
+## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Ställ in exekveringstid för att ta bort containeravbildningar som inte används
 
-Du kan ställa in Service Fabric-klustret på att ta bort oanvända behållaravbildningar från noden. Med den här inställningen kan du få tillbaka diskutrymme om det finns för många behållaravbildningar på noden. Aktivera funktionen genom att uppdatera avsnittet `Hosting` i klustermanifestet enligt följande utdrag: 
+Du kan ställa in Service Fabric-klustret på att ta bort oanvända containeravbildningar från noden. Med den här inställningen kan du få tillbaka diskutrymme om det finns för många containeravbildningar på noden. Aktivera funktionen genom att uppdatera avsnittet `Hosting` i klustermanifestet enligt följande utdrag: 
 
 
 ```json
@@ -592,16 +593,16 @@ Du kan ställa in Service Fabric-klustret på att ta bort oanvända behållaravb
 Avbildningar som inte ska raderas kan du ange under parametern `ContainerImagesToSkip`. 
 
 
-## <a name="configure-container-image-download-time"></a>Konfigurera nedladdningstid för behållaravbildning
+## <a name="configure-container-image-download-time"></a>Konfigurera nedladdningstid för containeravbildning
 
-Service Fabric-körningen tilldelar 20 minuter för att ladda ned och extrahera behållaravbildningar, vilket fungerar för de flesta behållaravbildningar. För stora avbildningar, eller om nätverksanslutningen är långsam, kan det vara nödvändigt att öka den tid körningen väntar innan nedladdning och extrahering av avbildningen avbryts. Den här timeouten anges med attributet **ContainerImageDownloadTimeout** i avsnittet **Hosting** i klustermanifestet, på det sätt som visas i följande kodavsnitt:
+Service Fabric-körningen tilldelar 20 minuter för att ladda ned och extrahera containeravbildningar, vilket fungerar för de flesta containeravbildningar. För stora avbildningar, eller om nätverksanslutningen är långsam, kan det vara nödvändigt att öka den tid körningen väntar innan nedladdning och extrahering av avbildningen avbryts. Den här timeouten anges med attributet **ContainerImageDownloadTimeout** i avsnittet **Hosting** i klustermanifestet, på det sätt som visas i följande kodavsnitt:
 
 ```json
 {
 "name": "Hosting",
         "parameters": [
           {
-              "name": " ContainerImageDownloadTimeout ",
+              "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
 ]
@@ -609,15 +610,15 @@ Service Fabric-körningen tilldelar 20 minuter för att ladda ned och extrahera 
 ```
 
 
-## <a name="set-container-retention-policy"></a>Ange bevarandeprincip för behållare
+## <a name="set-container-retention-policy"></a>Ange bevarandeprincip för container
 
-Service Fabric (version 6.1 eller senare) har stöd för bevarande av behållare som har avslutats eller inte kunde starta, vilket underlättar diagnostisering av startfel. Den här principen kan anges i filen **ApplicationManifest.xml**, vilket visas i följande kodavsnitt:
+Service Fabric (version 6.1 eller senare) har stöd för bevarande av containrar som har avslutats eller inte kunde starta, vilket underlättar diagnostisering av startfel. Den här principen kan anges i filen **ApplicationManifest.xml**, vilket visas i följande kodavsnitt:
 
 ```xml
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
 ```
 
-Inställningen **ContainersRetentionCount** anger antalet behållare som ska bevaras när de får fel. Om ett negativt värde anges kommer alla behållare med fel att bevaras. Om attributet **ContainersRetentionCount** inte anges kommer inga behållare att bevaras. Attributet **ContainersRetentionCount** har även stöd för programparametrar, så att användarna kan ange olika värden för test- och produktionskluster. Använd placeringsbegränsningar för att rikta in behållartjänsten på en viss nod när den här funktionen används för att förhindra att behållartjänsten flyttas till andra noder. Alla behållare som bevaras med den här funktionen måste tas bort manuellt.
+Inställningen **ContainersRetentionCount** anger antalet behållare som ska bevaras när de får fel. Om ett negativt värde anges kommer alla containrar med fel att bevaras. Om attributet **ContainersRetentionCount** inte anges kommer inga behållare att bevaras. Attributet **ContainersRetentionCount** har även stöd för programparametrar, så att användarna kan ange olika värden för test- och produktionskluster. Använd placeringsbegränsningar för att rikta in containertjänsten på en viss nod när den här funktionen används för att förhindra att containertjänsten flyttas till andra noder. Alla containrar som bevaras med den här funktionen måste tas bort manuellt.
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>Starta Docker-daemon med anpassade argument
 
@@ -638,10 +639,10 @@ Du kan starta Docker-daemon med anpassade argument med version 6.2 eller högre 
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om hur du kör [behållare i Service Fabric](service-fabric-containers-overview.md).
-* Läs kursen [Distribuera ett .NET-program i en behållare](service-fabric-host-app-in-a-container.md).
+* Mer information om hur du kör [containrar i Service Fabric](service-fabric-containers-overview.md).
+* Läs kursen [Distribuera ett .NET-program i en container](service-fabric-host-app-in-a-container.md).
 * Läs om Service Fabric-[applivscykeln](service-fabric-application-lifecycle.md).
-* Se [kodexempel för Service Fabric-behållare](https://github.com/Azure-Samples/service-fabric-containers) på GitHub.
+* Se [kodexempel för Service Fabric-container](https://github.com/Azure-Samples/service-fabric-containers) på GitHub.
 
 [1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
 [2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png

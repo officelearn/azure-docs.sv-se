@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 698dbbba55ed32a5cef8034059ee8e36edd16ae5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 9fa71c221b276e2173694e2c1e86673e52677e63
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347166"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389831"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-data som indata till Stream Analytics
 
@@ -123,7 +123,7 @@ För scenarier med stora mängder Ostrukturerade data som lagras i molnet, erbju
 
 Bearbetning av loggar är ett vanligt scenario för att använda Blob storage indata med Stream Analytics. I det här scenariot telemetri datafiler fångat från ett system och behöver parsas och bearbetas för att extrahera användbara data.
 
-Standard-tidsstämpel för Blob storage-händelser i Stream Analytics är tidsstämpeln att blobben senast ändrades, vilket är `BlobLastModifiedUtcTime`. Bearbeta data som en dataström med en tidsstämpel i den händelse att nyttolasten, måste du använda den [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) nyckelord.
+Standard-tidsstämpel för Blob storage-händelser i Stream Analytics är tidsstämpeln att blobben senast ändrades, vilket är `BlobLastModifiedUtcTime`. Bearbeta data som en dataström med en tidsstämpel i den händelse att nyttolasten, måste du använda den [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) nyckelord. Ett Stream Analytics-jobb hämtar data från Azure Blob storage indata per sekund om blob-fil är tillgänglig. Om blob-fil är inte tillgänglig, är det en exponentiell backoff med Maximal fördröjning på 90 sekunder.
 
 CSV-formaterad indata *kräver* en rubrikrad att definiera fält för datauppsättningen och alla rubrikfält rad måste vara unikt.
 

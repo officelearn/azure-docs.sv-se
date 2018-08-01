@@ -7,21 +7,19 @@ author: juliako
 manager: cfowler
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 8b32b241c4122893bb07993402a22d2223053f3d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e4f09e90c1ebb14cdbd528b34e016001c6556540
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115185"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389658"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Granska Video Indexer-utdata som genereras av v2 API
 
 > [!Note]
-> API: er för Video Indexer V1 nu är föråldrade och kommer att tas bort från den 1 augusti 2018. Du ska börja använda API: er för Video Indexer v2 för att undvika avbrott.
->
-> Om du vill utveckla med API: er för Video Indexer-v2, se instruktionerna [här](https://api-portal.videoindexer.ai/). 
+> Video Indexer V1 API upphörde den 1 augusti 2018. Nu bör du använda Video Indexer v2 API: et. <br/>Om du vill utveckla med API: er för Video Indexer-v2, se instruktionerna [här](https://api-portal.videoindexer.ai/). 
 
 När du anropar den **hämta Video Index** API och svarsstatusen är OK, du får detaljerad JSON-utdata som svarsinnehållet. JSON-innehållet innehåller information om de angivna videoinsikter. Insikterna som inkluderar dimensioner som: avskrifter, ocrs, ansikten, ämnen, block, osv. Dimensionerna har instanser av tidsintervall som visar när varje dimension som visades i videon.  
 

@@ -7,18 +7,21 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 64c4c8e4df0179f1644f23f0ae489015222a4ffd
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c4a755d0c13516ce3cb0177cea2ea17e4a3abcbb
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258372"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390977"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
 Den här artikeln visar hur du använder den [ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API för att ladda upp och indexera dina videor med Azure Video Indexer. Artikeln diskuteras även några av parametrarna att du kan ange för API: et ändra processen och utdata för API: et.
+
+> [!Note]
+> När du skapar en Video Indexer-konto, kan du välja ett kostnadsfritt konto (där du får ett visst antal kostnadsfria indexering minuter) eller ett betalt alternativ (där du inte begränsas av kvoten). <br/>Video Indexer ger upp till 600 minuter för kostnadsfria indexering för webbplatsen användare och upp till 2 400 minuters kostnadsfria indexering för API-användare med kostnadsfri utvärderingsversion. <br/>Med betald alternativet kan du skapa en Video Indexer-konto som är [är ansluten till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras som Media-konto som är relaterade kostnader. 
 
 ## <a name="configurations-and-params"></a>Konfigurationer och parametrar
 

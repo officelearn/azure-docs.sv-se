@@ -3,7 +3,7 @@ title: Övervaka Azure Kubernetes Service (AKS) hälsotillstånd (förhandsversi
 description: Den här artikeln beskrivs hur du kan enkelt granska prestanda för AKS-behållare för att snabbt förstå användningen av Kubernetes-miljön.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2018
+ms.date: 07/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 806487ec731a1b7fe02ccdfe6b285f5b2e119787
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f84452af9c2c731d69d5805961266c46351a7687
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249105"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366104"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Övervaka hälsotillstånd för behållare i Azure Kubernetes Service (AKS) (förhandsversion)
 
@@ -39,7 +39,7 @@ Innan du börjar bör du kontrollera att du har följande:
 
 - En ny eller befintlig AKS-kluster.
 - En behållare OMS-agenten för Linux-versionen microsoft / oms:ciprod04202018 eller senare. Versionsnumret representeras av ett datum i följande format: *mmddyyyy*. Agenten installeras automatiskt under publiceringen av hälsotillstånd för behållare. 
-- En Log Analytics-arbetsyta. Du kan skapa när du aktiverar övervakning av din nya AKS-kluster, eller du kan skapa den via [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), via [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), eller i den [Azure-portalen](../log-analytics/log-analytics-quick-create-workspace.md).
+- En Log Analytics-arbetsyta. Du kan skapa den när du aktiverar övervakning av din nya AKS-klustret eller låta publiceringsupplevelsen skapa en standardarbetsyta i standardresursgruppen för prenumerationen för AKS-kluster. Om du väljer att skapa den själv, kan du skapa den via [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), via [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), eller i den [Azure-portalen](../log-analytics/log-analytics-quick-create-workspace.md).
 - Log Analytics deltagarrollen, att aktivera behållarövervakning. Läs mer om hur du styr åtkomst till en Log Analytics-arbetsyta, [hantera arbetsytor](../log-analytics/log-analytics-manage-access.md).
 
 ## <a name="components"></a>Komponenter 
@@ -47,14 +47,20 @@ Innan du börjar bör du kontrollera att du har följande:
 Du kan övervaka prestanda förlitar sig på en behållare OMS-agenten för Linux som samlar in prestanda- och händelsedata från alla noder i klustret. Agenten har automatiskt distribuerat och registrerat med den angivna Log Analytics-arbetsytan när du aktiverar behållarövervakning. 
 
 >[!NOTE] 
->Om du redan har distribuerat ett AKS-kluster kan aktivera du övervakning med hjälp av en angiven Azure Resource Manager-mall, som visas längre fram i den här artikeln. Du kan inte använda `kubectl` om du vill uppgradera, ta bort, omdistribuera eller distribuera agenten. 
+>Om du redan har distribuerat ett AKS-kluster kan aktivera du övervakning genom att använda Azure CLI eller en angiven Azure Resource Manager-mall, som visas längre fram i den här artikeln. Du kan inte använda `kubectl` om du vill uppgradera, ta bort, omdistribuera eller distribuera agenten. 
 >
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 Logga in på [Azure Portal](https://portal.azure.com). 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Aktivera övervakning av behållare hälsotillstånd för ett nytt kluster
-Du kan aktivera övervakning av ett nytt AKS-kluster i Azure-portalen under distributionen. Följ stegen i snabbstartsartikeln [distribuera ett kluster i Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md). På den **övervakning** sidan för den **aktivera övervakning** väljer **Ja**, och välj en befintlig Log Analytics-arbetsyta eller skapa en ny. 
+Under distributionen kan aktivera du övervakning av ett nytt AKS-kluster i Azure portal eller med Azure CLI. Följ stegen i snabbstartsartikeln [distribuera ett kluster i Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md) om du vill aktivera från portalen. På den **övervakning** sidan för den **aktivera övervakning** väljer **Ja**, och välj en befintlig Log Analytics-arbetsyta eller skapa en ny. 
+
+Om du vill aktivera övervakning av ett nytt AKS-kluster som skapats med Azure CLI följer du steg i snabbstartsartikeln under avsnittet [skapa AKS-kluster](../aks/kubernetes-walkthrough.md#create-aks-cluster).  
+
+>[!NOTE]
+>Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.27 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+>
 
 När du har aktiverat övervakning och alla åtgärder för konfiguration har slutförts kan övervaka du prestanda för ditt kluster på något av två sätt:
 
@@ -66,7 +72,20 @@ När du har aktiverat övervakning och alla åtgärder för konfiguration har sl
 När du har aktiverat övervakning, kan det ta ungefär 15 minuter innan du kan visa användningsdata för klustret. 
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Aktivera övervakning av behållare hälsotillstånd för befintliga hanterade kluster
-Du kan aktivera övervakning av ett AKS-kluster som redan har distribuerats i Azure portal eller med den angivna Azure Resource Manager-mallen med hjälp av PowerShell-cmdleten `New-AzureRmResourceGroupDeployment` eller Azure CLI. 
+Du kan aktivera övervakning av ett AKS-kluster som redan har distribuerats antingen med hjälp av Azure CLI, från portalen eller med den angivna Azure Resource Manager-mallen med hjälp av PowerShell-cmdleten `New-AzureRmResourceGroupDeployment`. 
+
+### <a name="enable-monitoring-using-azure-cli"></a>Aktivera övervakning med hjälp av Azure CLI
+Följande steg aktiverar övervakning av AKS-klustret med hjälp av Azure CLI. I det här exemplet måste du behöver inte per skapa eller ange en befintlig arbetsyta. Det här kommandot gör enklare för dig genom att skapa en standardarbetsyta i standardresursgruppen för AKS-kluster-prenumeration om det inte redan finns i regionen.  Standardarbetsytan skapade liknar formatet *DefaultWorkspace -<GUID>-<Region>*.  
+
+```azurecli
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+```
+
+Utdata ska likna följande:
+
+```azurecli
+provisioningState       : Succeeded
+```
 
 ### <a name="enable-monitoring-in-the-azure-portal"></a>Aktivera övervakning i Azure portal
 Om du vill aktivera övervakning av din AKS-behållare i Azure-portalen, gör du följande:
@@ -297,6 +316,26 @@ User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
+
+## <a name="view-configuration-with-cli"></a>Visa konfiguration med CLI
+Använd den `aks show` för att hämta information om sådana som är den lösning som har aktiverats eller inte, vad är Log Analytics-arbetsyta resourceID och sammanfattningsinformation om klustret.  
+
+```azurecli
+az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
+```
+
+Efter ett par minuter kommandot har slutförts och returnerar JSON-formaterad information om lösningen.  Resultatet av kommandot ska visa övervakning tillägg profilen och liknar följande Exempelutdata:
+
+```
+"addonProfiles": {
+    "omsagent": {
+      "config": {
+        "logAnalyticsWorkspaceResourceID": "/subscriptions/<WorkspaceSubscription>/resourceGroups/<DefaultWorkspaceRG>/providers/Microsoft.OperationalInsights/workspaces/<defaultWorkspaceName>"
+      },
+      "enabled": true
+    }
+  }
+```
 
 ## <a name="view-performance-utilization"></a>Visa prestanda användning
 När du öppnar hälsotillstånd för behållare, anger sidan omedelbart prestanda utnyttjande av hela klustret. Visa information om AKS-klustret är uppdelad i fyra perspektiv:

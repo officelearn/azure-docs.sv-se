@@ -1,0 +1,46 @@
+- name: Dokumentation om Video Indexer
+- name: Översikt
+  items:
+    - name: Vad är Video Indexer?
+      href: video-indexer-overview.md
+    - name: Begrepp
+      href: video-indexer-concepts.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Kom igång
+      href: video-indexer-get-started.md
+- name: Guider
+  items:
+    - name: Migrera från v1 till v2
+      href: migrate-from-v1-to-v2.md
+    - name: Anslut till Azure
+      href: connect-to-azure.md
+    - name: Använda Video Indexer-API
+      href: video-indexer-use-apis.md
+    - name: Använda API för att ladda upp och indexera videor
+      href: upload-index-videos.md
+    - name: Undersöka utdata för Video Indexer
+      href: video-indexer-output-json-v2.md
+    - name: Hitta exakta ögonblick i videor
+      href: video-indexer-search.md
+    - name: Visa och redigera Video Indexer-insikter
+      href: video-indexer-view-edit.md
+    - name: Skapa videoinsikter utifrån befintliga videor
+      href: video-indexer-create-new.md
+    - name: Bädda in widgetar i programmet
+      href: video-indexer-embed-widgets.md
+- name: Referens
+  items:
+    - name: Video Indexer-API
+      href: 'https://api-portal.videoindexer.ai/'
+- name: Resurser
+  items:
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598144-video-indexer'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'

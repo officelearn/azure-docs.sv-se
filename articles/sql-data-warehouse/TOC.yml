@@ -111,8 +111,12 @@
           href: memory-and-concurrency-limits.md
         - name: Columnstore-komprimering
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
-    - name: Övervaka
-      href: sql-data-warehouse-manage-monitor.md
+    - name: Hantering och övervakning
+      items:
+        - name: Övervaka
+          href: sql-data-warehouse-manage-monitor.md
+        - name: Rekommendationer
+          href: sql-data-warehouse-concept-recommendations.md
     - name: Utveckla informationslager
       items:
         - name: Översikt

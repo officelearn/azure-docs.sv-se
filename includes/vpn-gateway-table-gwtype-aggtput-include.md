@@ -17,14 +17,14 @@ ms.locfileid: "39138055"
 ---
 |**SKU**   | **S2S/VNet-till-VNet<br>tunnlar** | **P2S<br>-anslutningar** | **Prestandamått för<br>aggregerat datagenomflöde** |
 |---       | ---                             | ---                    | ---                         |
-|**VpnGw1**| Max. 30*                         | Max. 128**             | 650 Mbit/s                    |
-|**VpnGw2**| Max. 30*                         | Max. 128**             | 1 Gbit/s                      |
-|**VpnGw3**| Max. 30*                         | Max. 128**             | 1,25 Gbit/s                   |
+|**VpnGw1**| Max. 30*                         | Max. 128\*\*             | 650 Mbit/s                    |
+|**VpnGw2**| Max. 30*                         | Max. 128\*\*             | 1 Gbit/s                      |
+|**VpnGw3**| Max. 30*                         | Max. 128\*\*             | 1,25 Gbit/s                   |
 |**Basic** | Max. 10                         | Max. 128               | 100 Mbit/s                    | 
 
 * (*) Använd [Virtual WAN](../articles/virtual-wan/virtual-wan-about.md) om du behöver fler än 30 S2S VPN-tunnlar.
 
-* (**) Kontakta supporten om du behöver ytterligare anslutningar
+* (\*\*) Kontakta supporten om du behöver ytterligare anslutningar
 
 * Prestandamått för aggregerat dataflöde baseras på mätningar av flera tunnlar som aggregerats via en enda gateway. Det är inte garanterad genomströmning på grund av villkor för Internet-trafik och dina program.
 

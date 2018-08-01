@@ -22,7 +22,8 @@
 
 ## Gör så här för att
 ### [Hantera via Azure Portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Installera senaste uppdatering](storsimple-virtual-array-install-update-1.md)
+#### [Installera senaste uppdatering](storsimple-virtual-array-install-update-11.md)
+##### [Installera uppdatering 1](storsimple-virtual-array-install-update-1.md)
 ##### [Installera uppdatering 0.6](storsimple-virtual-array-install-update-06.md)
 ##### Arkiv
 ###### [Installera uppdatering 0.5](storsimple-virtual-array-install-update-05.md)
@@ -47,7 +48,8 @@
 ### [Konfigurera via lokalt webbgränssnitt](storsimple-ova-web-ui-admin.md)
 
 ## Viktig information
-### [Uppdatering 1 – aktuell](storsimple-virtual-array-update-1-release-notes.md)
+### [Uppdatering 1.1 – aktuell](storsimple-virtual-array-update-11-release-notes.md)
+### [Uppdatering 1](storsimple-virtual-array-update-1-release-notes.md)
 ### [Uppdatering 0.6](storsimple-virtual-array-update-06-release-notes.md)
 ### Arkiv
 #### [Uppdatering 0.5](storsimple-virtual-array-update-05-release-notes.md)
@@ -104,7 +106,8 @@
 ##### [Hantera säkerhetskopieringskatalogen](storsimple-8000-manage-backup-catalog.md)
 ##### [Hantera säkerhetskopieringsprinciper](storsimple-8000-manage-backup-policies-u2.md)
 ##### [Hantera lagringskonton](storsimple-8000-manage-storage-accounts.md)
-##### [Hantera volymbehållare](storsimple-8000-manage-volume-containers.md)
+##### 
+  [Hantera volymcontainrar](storsimple-8000-manage-volume-containers.md)
 ##### [Hantera volymer – aktuella](storsimple-8000-manage-volumes-u2.md)
 ###### [Vanliga frågor och svar: Lokalt fixerade volymer](storsimple-8000-local-volume-faq.md)
 ##### [Rollbaserad åtkomstkontroll](storsimple-8000-role-based-access-control.md)

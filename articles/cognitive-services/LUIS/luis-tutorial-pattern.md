@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.author: diberry
-ms.openlocfilehash: 9ad1d9e1543c3d9a74025fb23bd1767478b53b4b
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 355c1edd4fa7433e68a9c0e903f4f782203326fe
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238462"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365886"
 ---
 # <a name="tutorial-improve-app-with-patterns"></a>Självstudie: Förbättra appen med mönster
 
@@ -23,32 +23,34 @@ Använda mönster i de här självstudierna för att öka avsikt och entiteten f
 
 > [!div class="checklist"]
 * Så här identifierar du att ett mönster vill hjälpa din app
-* Så här skapar du ett mönster 
+* Så här skapar du ett mönster
 * Så här verifierar du mönstret förutsägelse förbättringar
 
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md) för att kunna redigera LUIS-programmet.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
+
 Om du inte har personalapp från den [batch test](luis-tutorial-batch-testing.md) självstudien [importera](luis-how-to-start-new-app.md#import-new-app) JSON-koden i en ny app i den [LUIS](luis-reference-regions.md#luis-website) webbplats. App att importera finns i den [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json) GitHub-lagringsplatsen.
 
 Om du vill behålla den ursprungliga Human Resources-appen (Personalfrågor) klonar du versionen på sidan [Settings](luis-how-to-manage-versions.md#clone-a-version) (Inställningar) och ger den namnet `patterns`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. 
 
 ## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>Mönster Lär LUIS vanliga yttranden med färre exempel
+
 På grund av mänskliga resursdomänen finns det några vanliga sätt att be om medarbetaren relationer i organisationer. Exempel:
 
-```
-Who does Jill Jones report to?
-Who reports to Jill Jones? 
-```
+|Yttranden|
+|--|
+|Som rapporterar Jill Jones till?|
+|Som rapporterar till Jill Jones?|
 
 Dessa uttryck är för Stäng om du vill fastställa sammanhangsberoende unikhet för var och en utan att ange många uttryck exemplen. Lär sig vanliga mönster för uttryck för en avsikt utan att ange många uttryck exempel genom att lägga till ett mönster för en avsikt, LUIS. 
 
 Exempel mallen yttranden avsikt följande:
 
-```
-Who does {Employee} report to?
-Who reports to {Employee}? 
-```
+|Exempel mallen yttranden|
+|--|
+|Vem gör {medarbetare} rapporterar till?|
+|Som rapporterar till {medarbetare}?|
 
 Mönstret tillhandahålls via en mall uttryck exempel, som inkluderar syntax för att identifiera entiteter och ignorable text. Ett mönster är en kombination av matchning med reguljära uttryck och machine learning.  Uttryck mallexemplet är tillsammans med avsikt yttranden ge LUIS bättre förståelse för vilka yttranden passar avsikten.
 
@@ -59,9 +61,10 @@ För ett mönster som ska matchas till ett uttryck, måste entiteter i uttryck s
 Kom ihåg att anställda har skapats i den [lista entitet självstudien](luis-quickstart-intent-and-list-entity.md).
 
 ## <a name="create-new-intents-and-their-utterances"></a>Skapa ny avsikter och deras yttranden
+
 Lägg till två nya avsikter: `OrgChart-Manager` och `OrgChart-Reports`. När LUIS returnerar en förutsägelse klientappar avsikt namnet kan användas som ett funktionsnamn i klientappen och att de anställda entiteten kan användas som en parameter för funktionen.
 
-```
+```Javascript
 OrgChart-Manager(employee){
     ///
 }
@@ -85,7 +88,7 @@ OrgChart-Manager(employee){
     |Som Jill Jones direkt rapporterar till?|
     |Vem är Jill Jones Övervakaren?|
 
-    [![](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Skärmbild av LUIS att lägga till nya yttranden till avsikt")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
+    [![Skärmbild av LUIS att lägga till nya yttranden till avsikt](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "skärmbild LUIS att lägga till nya yttranden till avsikt")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
 
     Oroa dig inte om entiteten keyPhrase är märkt med yttranden av avsikten i stället för entiteten medarbetare. Båda är korrekt förutse i rutan och på slutpunkten. 
 
@@ -106,35 +109,20 @@ OrgChart-Manager(employee){
     |Vem som Jill Jones övervaka?|
 
 ## <a name="caution-about-example-utterance-quantity"></a>Varning om exempel uttryck kvantitet
+
 Hur många exempel yttranden i dessa avsikter är inte tillräckligt för att träna LUIS korrekt. Varje avsikt bör ha minst 15 yttranden med en rad olika längd för word val och uttryck i en verklig app. De här några yttranden markerade specifikt för att markera mönster. 
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
-Ny avsikt och yttranden kräver utbildning. 
 
-1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Train** (Träna).
-
-    ![Bild på knappen training (träning)](./media/luis-tutorial-pattern/hr-train-button.png)
-
-2. Träningen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
-
-    ![Bild på meddelandefält om att processen är klar](./media/luis-tutorial-pattern/hr-trained-inline.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
-För att få en LUIS-förutsägelse i en chattrobot eller i ett annat program måste du publicera appen. 
 
-1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Publish** (Publicera). 
-
-2. Välj platsen Production (Produktionsplats) och knappen **Publish** (Publicera).
-
-    [ ![Skärmbild av publicera sida med publicera till produktion fack knappen markerad](./media/luis-tutorial-pattern/hr-publish-to-production.png)](./media/luis-tutorial-pattern/hr-publish-to-production.png#lightbox)
-
-3. Publiceringen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Skicka fråga till slutpunkten med ett annat yttrande
-1. På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunktens URL i adressfältet. 
 
-    [ ![Skärmbild av publicera sida med Slutpunktswebbadress är markerad](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png)](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png#lightbox)
-
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Gå till slutet av URL:en i adressen och ange `Who is the boss of Jill Jones?`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
 
@@ -225,6 +213,8 @@ Det gick att aktivera den här frågan? För den här cykeln utbildning lyckades
 
 Använda mönster för att göra rätt avsikten poäng är betydligt högre i procent och längre bort från nästa högst poäng. 
 
+Lämna andra webbläsarfönstret öppen. Du kan använda den igen senare under kursen. 
+
 ## <a name="add-the-template-utterances"></a>Lägg till mall-yttranden
 
 1. Välj **skapa** på den översta menyn.
@@ -243,16 +233,14 @@ Använda mönster för att göra rätt avsikten poäng är betydligt högre i pr
     |Vem är chef för {anställd} [?]|
 
     Den `{Employee}` syntax markerar entitet plats i mallen-uttryck som samt vilken entitet som det är. 
-    
-    Entiteter med roller använder syntax som innehåller namnet på rollen, och de behandlas i en [separat självstudien för roller](luis-tutorial-pattern-roles.md). 
+
+    Entiteter med roller använder syntax som innehåller namnet på rollen och de behandlas i en [separat självstudien för roller](luis-tutorial-pattern-roles.md). 
 
     Valfria syntax `[]`, markerar ord eller skiljetecken är valfria. LUIS matchar uttryck, ignorerar valfritt texten inom hakparentes.
 
     Om du skriver mall uttryck, LUIS hjälper till att du fyller i entiteten när du anger vänster klammer `{`.
 
-    [ ![Skärmbild av hur du anger mallen yttranden för avsikt](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
-
-
+    [![Skärmbild av hur du anger mallen yttranden för avsikt](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
 4. Välj den **Organisationsschema rapporter** avsikt, ange följande uttryck från mall, en i taget, att välja returtangenten efter varje mall-uttryck:
 
@@ -269,7 +257,7 @@ Använda mönster för att göra rätt avsikten poäng är betydligt högre i pr
 
 1. Träna och publicera appen igen.
 
-2. På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunktens URL i adressfältet. 
+2. Växla flikar i webbläsaren tillbaka till fliken endpoint URL: en.
 
 3. Gå till i slutet av URL-adressen och ange `Who is the boss of Jill Jones?` som uttryck. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
 
@@ -357,10 +345,86 @@ Använda mönster för att göra rätt avsikten poäng är betydligt högre i pr
     }
     ```
 
-Avsiktshantering förutsägelse är nu betydligt högre. 
+Avsiktshantering förutsägelse är nu betydligt högre.
+
+## <a name="working-with-optional-text-and-prebuilt-entities"></a>Arbeta med valfri text och fördefinierade entiteter
+
+Talade tidigare mönstret mallen i den här självstudien hade några exempel på valfri text som exempelvis Possessiv användning av bokstaven s, `'s`, och användning av frågetecknet, `?`. Anta att slutpunkten yttranden visar att chefer och personal representanter söker historiska data samt planerat anställda flyttar inom företaget händer ett datum i framtiden.
+
+Exempel yttranden är:
+
+|Avsikten|Exempel yttranden med valfri text och fördefinierade entiteter|
+|:--|:--|
+|Organisationsschema Manager|`Who was Jill Jones manager on March 3?`|
+|Organisationsschema Manager|`Who is Jill Jones manager now?`|
+|Organisationsschema Manager|`Who will be Jill Jones manager in a month?`|
+|Organisationsschema Manager|`Who will be Jill Jones manager on March 3?`|
+
+Var och en av de här exemplen använder ett verb Tempus `was`, `is`, `will be`, samt ett datum `March 3`, `now`, och `in a month`, som LUIS behöver förutsäga korrekt. Lägg märke till att de senaste två exemplen använder nästan samma text undantag för `in` och `on`.
+
+Exempel mallen yttranden:
+|Avsikten|Exempel yttranden med valfri text och fördefinierade entiteter|
+|:--|:--|
+|Organisationsschema Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
+|Organisationsschema Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+|Organisationsschema Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+|Organisationsschema Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
+Användning av hakparenteser och valfria syntax `[]`, gör den här valfri text enkelt att lägga till mall-uttryck och kan kapslas i upp till en andra nivå `[[]]`, och innehålla entiteter eller text.
+
+**Fråga: Varför det gick inte att de sista två exempel yttranden kombinera i en enda mall-uttryck?** Mönster för mallen stöder inte OR-syntax. För att fånga upp både den `in` version och `on` version, var och en måste vara en separat mall-uttryck.
+
+**Fråga: Varför är alla de `w` bokstäver, den första bokstaven i varje mall uttryck gemener? Inte bör de vara eventuellt versaler eller gemener?** Det uttryck som skickats till fråga-slutpunkten av klientprogrammet, konverteras till gemener. Mall-uttryck kan vara versaler eller gemener och slutpunkt-uttryck kan även vara antingen. Jämförelsen görs alltid efter konverteringen till gemener.
+
+**Fråga: Varför är inte fördefinierade nummer en del av mallen uttryck om 3 mars är förväntad både som tal `3` och datum `March 3`?** Mall-uttryck sammanhangsmässigt använder ett datum, antingen bokstavligen i `March 3` eller abstraherad som `in a month`. Ett datum kan innehålla flera men ett tal kan inte nödvändigtvis visas som ett datum. Använd alltid den entitet som bäst representerar den typ som du vill ska returneras i förutsägelseresultat som JSON.  
+
+**Fråga: Vad är dåligt fraserats yttranden som `Who will {Employee}['s] manager be on March 3?`.** Grammatiskt annat verbtempus, till exempel det här var den `will` och `be` är åtskilda måste vara en ny mall-uttryck. Uttryck för den befintliga mallen kommer inte att matcha den. Även om syftet med uttryck inte har ändrats, har word placering i uttryck ändrats. Den här ändringen påverkar förutsägelser i LUIS.
+
+**Kom ihåg: entiteter finns först och sedan mönstret matchas.**
+
+## <a name="edit-the-existing-pattern-template-utterance"></a>Redigera den befintliga mönstret mall uttryck
+
+1. LUIS-webbplatsen, Välj **skapa** i den översta menyn och markera **mönster** på den vänstra menyn. 
+
+2. Hitta den befintliga mallen uttryck `Who is {Employee}['s] manager[?]`, och välj ellipsen (***...*** ) till höger. 
+
+3. Välj **redigera** på snabbmenyn. 
+
+4. Ändra mall-uttryck till: `who is {Employee}['s] manager [[on]{datetimeV2}?]]`
+
+## <a name="add-new-pattern-template-utterances"></a>Lägg till nya mönster för mallen yttranden
+
+1. När den är fortfarande i den **mönster** delen av **skapa**, lägga till flera nya mönstret mall yttranden. Välj **Organisationsschema Manager** avsikt nedrullningsbara menyn och ange var och en av följande mall-uttryck:
+
+    |Avsikten|Exempel yttranden med valfri text och fördefinierade entiteter|
+    |--|--|
+    |Organisationsschema Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
+    |Organisationsschema Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+    |Organisationsschema Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+    |Organisationsschema Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
+2. Träna appen.
+
+3. Välj **Test** högst upp på panelen för att öppna panelen testning. 
+
+4. Ange flera test-uttryck för att verifiera att matchas mönstret och den avsikt poängen är mycket stora. 
+
+    När du har angett den första uttryck, Välj **granska** under resultatet så att du kan se de förutsagda resultaten.
+
+    |Yttrande|
+    |--|
+    |Vem är Jill Jones manager|
+    |Vem är jill jones manager|
+    |Vem är Jill Jones manager?|
+    |Vem är Jill jones manager 3 mars|
+    |Vem är Jill Jones manager nästa månad|
+    |Vem är Jill Jones manager under en månad?|
+
+Alla dessa yttranden samlade entiteterna i, därför de matchar samma mönster och har en hög förutsägelse poäng.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. Om du vill göra det, Välj ellipsen (***...*** ) till höger om appnamnet i programlistan, Välj **ta bort**. På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,7 +1,7 @@
 ---
-title: IP-begränsningar i Azure App Service | Microsoft Docs
-description: Hur du använder IP-begränsningarna med Azure App Service
-author: btardif
+title: Azure App Service IP-begränsningar | Microsoft Docs
+description: Hur du använder IP-restriktioner med Azure App Service
+author: ccompy
 manager: stefsch
 editor: ''
 services: app-service\web
@@ -12,33 +12,71 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/23/2017
-ms.author: byvinyal
-ms.openlocfilehash: 72416cfcd05767b223cc92ac28bd0e736516ddf6
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 7/30/2018
+ms.author: ccompy
+ms.openlocfilehash: fb26d91ae772c4da1055da80366d6e8c6b80a6ac
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29800117"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364316"
 ---
-# <a name="azure-app-service-static-ip-restrictions"></a>Azure Apptjänst statiska IP-begränsningar #
+# <a name="azure-app-service-static-ip-restrictions"></a>Statisk IP-begränsningar för Azure App Service #
 
-IP-begränsningar kan du definiera en lista över IP-adresser som har tillgång till din app. Listan över tillåtna kan inkludera enskilda IP-adresser eller ett intervall med IP-adresser som definieras av en nätmask.
+IP-restriktioner kan du definiera en prioritet sorterade tillåta/Neka lista med IP-adresser som ska kunna komma åt din app. Listan över tillåtna kan innehålla IPv4 och IPv6-adresser. När det finns en eller flera poster, är det en implicit neka allt som finns i slutet av listan. 
 
-När en begäran om att appen har genererats från en klient, utvärderas den IP-adressen mot listan över tillåtna. Om IP-adressen inte finns med i listan över appen svarar med en [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) statuskod.
+Begränsningar för IP-funktionen fungerar med alla App Service finns arbetsbelastningar, bland annat; webbappar, api-appar, linux-appar, appar i linux-behållaren och funktioner. 
 
-IP-begränsningarna har definierats i web.config som din app använder vid körning (mer exakt begränsningar infogas i en uppsättning tillåtna IP-adresser i applicationHost.config, så om du också lägga till en uppsättning tillåtna IP-adresser i filen web.config, de tar prioritet). Under vissa omständigheter kan vissa modulen köras innan IP-begränsningar logiken i HTTP-pipeline. När detta inträffar, misslyckas denna begäran med ett annat HTTP-felkod.
+När en begäran skickas till din app, utvärderas från IP-adress mot listan över IP-begränsningar. Om adressen inte är tillåten åtkomst baserat på reglerna i listan, tjänsten svarar den med en [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) statuskod.
 
-IP-begränsningar utvärderas på samma App plan tjänstinstanser tilldelats din app.
+Begränsningar för IP-funktionen är implementerad i App Service frontend roller, som är överordnad worker-värd där koden körs. IP-begränsningar är ett effektivt sätt till dessa nätverk ACL: er.  
 
-Om du vill lägga till en IP-begränsningsregel i appen, använder du menyn för att öppna **nätverk**>**IP-begränsningar** och klicka på **konfigurera IP-adressbegränsningar**
+![Begränsningar för IP-flöde](media/app-service-ip-restrictions/ip-restrictions-flow.png)
 
-![IP-begränsningar](media/app-service-ip-restrictions/ip-restrictions.png)  
+Under en tid har begränsningar för IP-funktionen i portalen ett skikt som ligger ovanpå den ipSecurity kapaciteten i IIS. Aktuella begränsningar för IP-funktionen är olika. Du kan fortfarande konfigurera ipSecurity i filen web.config för programmet men frontend baserat IP-restriktioner reglerna tillämpas innan all trafik når IIS.
 
-Här kan granska du listan över IP-begränsning definierade regler för din app.
+## <a name="adding-and-editing-ip-restriction-rules-in-the-portal"></a>Lägga till och redigera regler för IP-begränsning i portalen ##
 
-![lista över IP-adressbegränsningar](media/app-service-ip-restrictions/browse-ip-restrictions.png)
+Om du vill lägga till en regel för IP-begränsning i din app använder du menyn för att öppna **nätverk**>**IP-restriktioner** och klicka på **konfigurera IP-adressbegränsningar**
 
-Du kan klicka på **[+] Lägg till** att lägga till en ny regel för IP-begränsning.
+![Nätverksalternativ för App Service](media/app-service-ip-restrictions/ip-restrictions.png)  
 
-![lägga till IP-begränsningar](media/app-service-ip-restrictions/add-ip-restrictions.png)
+Du kan använda Gränssnittet för IP-begränsningar för att granska listan över regler som IP-begränsning har definierats för din app.
+
+![lista över IP-restriktioner](media/app-service-ip-restrictions/ip-restrictions-browse.png)
+
+Om dina regler har konfigurerats som den här bilden kan din app skulle bara att ta emot trafik från 131.107.159.0/24 och skulle avvisas från alla andra IP-adresser.
+
+Du kan klicka på **[+] Lägg till** att lägga till en ny regel för IP-begränsning. När du lägger till en regel, börjar den gälla omedelbart. Regler tillämpas i prioritetsordning från och med lägst och ökar. Det finns en implicit neka allt som gäller när du lägger till och med en enda regel. 
+
+![Lägg till en regel för IP-begränsning](media/app-service-ip-restrictions/ip-restrictions-add.png)
+
+IP-adress notation måste anges i CIDR-notation för både IPv4 och IPv6-adresser. Om du vill ange en exakt adress, kan du använda något som 1.2.3.4/32 där de fyra första oktetterna representerar din IP-adress och /32 är masken. IPv4 CIDR-notation för alla adresser är 0.0.0.0/0. Mer information om CIDR-notation, kan du läsa [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).  
+
+Du kan klicka på en rad för att redigera en befintlig IP-begränsning av regel. Redigeringar är effektiva omedelbart med ändringar av prioritet ordning.
+
+![Redigera en regel för IP-begränsning](media/app-service-ip-restrictions/ip-restrictions-edit.png)
+
+Ta bort en regel, klicka på den **...**  på regeln och klickar sedan på **ta bort**. 
+
+![ta bort regeln för IP-begränsning](media/app-service-ip-restrictions/ip-restrictions-delete.png)
+
+## <a name="programmatic-manipulation-of-ip-restriction-rules"></a>Programmässig manipulation av regler för IP-begränsning ##
+
+Det för närvarande finns ingen CLI eller PowerShell för den nya funktionen för IP-begränsningar, men värdena kan anges manuellt med en PUT-åtgärd för appkonfiguration i Resource Manager. Du kan använda resources.azure.com och redigera ipSecurityRestrictions-blocket för att lägga till JSON som krävs till exempel. 
+
+Platsen för den här informationen i Resource Manager är:
+
+Management.Azure.com/subscriptions/**prenumerations-ID**/resourceGroups/**resursgrupper**/providers/Microsoft.Web/sites/**webbappnamnet**  /config/web? API-version = 2018-02-01
+
+JSON-syntaxen för det tidigare exemplet är:
+
+    "ipSecurityRestrictions": [
+      {
+        "ipAddress": "131.107.159.0/24",
+        "action": "Allow",
+        "tag": "Default",
+        "priority": 100,
+        "name": "allowed access"
+      }
+    ],

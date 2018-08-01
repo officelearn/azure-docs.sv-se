@@ -1,6 +1,6 @@
 ---
-title: Ge behörigheter till ett anpassat utvecklade program | Microsoft Docs
-description: Ge behörigheter till ditt anpassade utvecklade program med hjälp av Azure AD-portalen eller en URL-parameter
+title: Ge behörigheter till ett egenutvecklat program | Microsoft Docs
+description: Hur du beviljar behörigheter för ditt anpassade program med hjälp av Azure AD-portalen eller en URL-parameter
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,38 +11,38 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 3310a08047700a577c5c6cbada90e575fcd12089
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 75beeb35b740bb126fff905f4cfa5a0b455e025e
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333712"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365251"
 ---
-# <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>Ge behörigheter till ett anpassat utvecklade program
+# <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>Ge behörigheter till ett egenutvecklat program
 
-Försök stegen nedan om du vill ge medgivande förebyggande syfte på din app eller körs i ett fel som du inte har samtyckt till en app.
+Prova de här stegen nedan om du vill ge medgivande förebyggande syfte i din app eller körs på ett fel som du inte har samtyckt till en app.
 
-## <a name="how-to-perform-admin-consent-for-your-application"></a>Hur du utför Admin medgivande för ditt program
+## <a name="how-to-perform-admin-consent-for-your-application"></a>Hur du utför administratörens godkännande för ditt program
 
-Effekten av att godkänna programmet för alla användare i din organisation har.
+Detta innebär att godkänna att programmet för alla användare i din organisation.
 
-1. Navigera till den **App registreringar** bladet som en **global administratör**, Välj appen.
+1. Navigera till den **Appregistreringar** bladet som en **global administratör**, och välj app.
 
-2. Välj **nödvändiga behörigheter**, och slutligen nådde den **bevilja med** längst upp på bladet.
+2. Välj **nödvändiga behörigheter**, och slutligen når den **bevilja behörigheter** längst upp på bladet.
 
-Alternativt kan du skapa en begäran om att *login.microsoftonline.com* med konfigurationerna för appen och Lägg till på *& fråga = admin\_medgivande*. Appen har beviljats godkännande för alla användare för när de har loggat in med administratörsautentiseringsuppgifter.
+Alternativt kan du skapa en begäran om att *login.microsoftonline.com* med din app-konfigurationer och lägger till på *& fråga = admin\_godkänna*. Appen har beviljats medgivande för alla användare för när du har loggat in med autentiseringsuppgifter som administratör.
 
-## <a name="how-to-force-user-consent-for-your-application"></a>Tvinga användaren medgivande för ditt program
+## <a name="how-to-force-user-consent-for-your-application"></a>Hur du tvingar fram användargodkännande för ditt program
 
-* Lägga till auth-begäranden *& fråga = medgivande* som kräver tillstånd varje gång de autentiserar användare.
+* Lägga till autentiseringsbegäranden *& fråga = medgivande* som slutanvändaren måste godkänna varje gång de autentiserar.
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Medgivande och integrera appar till AzureAD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
-[Medgivande och Permissioning för AzureAD v2.0 konvergerat appar](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Medgivande och ge behörighet till för AzureAD v2.0 konvergerat appar](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)

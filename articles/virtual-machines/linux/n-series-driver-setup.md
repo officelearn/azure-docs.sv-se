@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 072b34ecb2e57bfa5d13b1fbc6e7fb441a5252aa
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 3d85bc79ddd08cb051b2e4d978a931f460020c10
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/31/2018
-ms.locfileid: "39357698"
+ms.locfileid: "39364508"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera NVIDIA GPU-drivrutiner på N-serien virtuella datorer som kör Linux
 
@@ -289,7 +289,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på NV-serien virtuella datorer, s
 8. Lägg till följande till `/etc/nvidia/gridd.conf`:
  
   ```
-  IgnoreSP=TRUE
+  IgnoreSP=FALSE
   ```
 9. Starta om den virtuella datorn och fortsätta med att verifiera installationen.
 

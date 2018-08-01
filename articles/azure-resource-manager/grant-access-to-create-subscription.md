@@ -1,9 +1,9 @@
 ---
-title: Bevilja behörighet att skapa Azure-företagsprenumerationer | Microsoft Docs
-description: Lär dig att ge en användare eller tjänstens huvudnamn möjlighet att skapa Azure Enterprise prenumerationer via programmering.
+title: Bevilja åtkomst till att skapa Azure Enterprise-prenumerationer | Microsoft Docs
+description: Lär dig att ge en användare eller tjänstens huvudnamn möjlighet att skapa Azure Enterprise-prenumerationer programmässigt.
 services: azure-resource-manager
-author: jlian
-manager: jlian
+author: adpick
+manager: adpick
 editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
@@ -12,23 +12,23 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
-ms.author: jlian
-ms.openlocfilehash: 4c5d505f431ef684b73adc04629464883d336a5b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.author: adpick
+ms.openlocfilehash: 86e457cf553c84386937c35bab1ab0fd20518bed
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35238289"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39369060"
 ---
-# <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Bevilja behörighet att skapa prenumerationer Azure Enterprise (förhandsversion)
+# <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Bevilja åtkomst till att skapa Azure Enterprise-prenumerationer (förhandsversion)
 
-Som en Azure-kund på [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), du kan ge en annan användare eller tjänst huvudnamn behörighet att skapa prenumerationer debiteras till ditt konto. I den här artikeln får du lära dig hur du använder [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-configure.md) att dela möjlighet att skapa prenumerationer och hur du granskar skapande av prenumerationen.
+Azure-kund på [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), du kan ge en annan användaren eller tjänstens huvudnamn behörighet att skapa prenumerationer faktureras till ditt konto. I den här artikeln får du lära dig hur du använder [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-configure.md) att dela möjligheten att skapa prenumerationer och hur du granskar prenumeration som skapats. Du måste ha rollen ägare för kontot som du vill dela.
 
-Om du vill skapa en prenumeration finns [programmässigt skapa prenumerationer Azure Enterprise (förhandsversion)](programmatically-create-subscription.md).
+För att skapa en prenumeration, se [programmässigt skapa Azure Enterprise-prenumerationer (förhandsversion)](programmatically-create-subscription.md).
 
-## <a name="delegate-access-to-an-enrollment-account-using-rbac"></a>Delegera åtkomst till ett konto för registrering med RBAC
+## <a name="delegate-access-to-an-enrollment-account-using-rbac"></a>Delegera åtkomst till ett konto för enhetsregistreringshanterare med RBAC
 
-Att ge en annan användare eller tjänstens huvudnamn möjlighet att skapa prenumerationer mot ett visst konto [ge dem en RBAC ägarrollen vid registrering kontots omfattning](../active-directory/role-based-access-control-manage-access-rest.md). I följande exempel ger en användare i klienten med `principalId` av `<userObjectId>` (för SignUpEngineering@contoso.com) en ägare roll för kontot registrering. Du hittar registrering konto-ID och ägar-ID [programmässigt skapa prenumerationer Azure Enterprise (förhandsversion)](programmatically-create-subscription.md).
+Ge en annan användare eller tjänstens huvudnamn möjligheten att skapa prenumerationer mot ett specifikt konto [ge dem en RBAC ägarrollen definitionsområdet registreringskontot](../active-directory/role-based-access-control-manage-access-rest.md). I följande exempel ger en användare i klientorganisationen med `principalId` av `<userObjectId>` (för SignUpEngineering@contoso.com) en ägarrollen på registreringskontot. Du hittar registrering konto-ID och ägar-ID [programmässigt skapa Azure Enterprise-prenumerationer (förhandsversion)](programmatically-create-subscription.md).
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
@@ -42,7 +42,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
   }
 }
 ```
-När rollen som ägare har tilldelats definitionsområdet registrering konto, Azure svarar med information för rolltilldelningen:
+När rollen ägare har tilldelats på kontoomfånget registrering Azure svarar med information rolltilldelningen:
 
 ```json
 {
@@ -63,7 +63,7 @@ När rollen som ägare har tilldelats definitionsområdet registrering konto, Az
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Använd den [ny AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) att ge en annan användare ägare åtkomst till ditt konto för registrering.
+Använd den [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) att ge en annan användare ägaråtkomst till ditt konto för registrering.
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -71,7 +71,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Sc
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Använd den [az rolltilldelning skapa](../active-directory/role-based-access-control-manage-access-azure-cli.md) att ge en annan användare ägare åtkomst till ditt konto för registrering.
+Använd den [az-rolltilldelning skapa](../active-directory/role-based-access-control-manage-access-azure-cli.md) att ge en annan användare ägaråtkomst till ditt konto för registrering.
 
 ```azurecli-interactive 
 az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -79,26 +79,26 @@ az role assignment create --role Owner --assignee-object-id <userObjectId> --sco
 
 ----
 
-När en användare blir en RBAC ägare för ditt konto för registrering, kan de skapa prenumerationer under den programmässigt. En prenumeration som skapats av delegerade användare har fortfarande ursprungliga ägare som tjänstadministratör, men den har även delegerade användare som ägare som standard. 
+När en användare blir ägare RBAC för ditt konto för enhetsregistreringshanterare, kan de programmässigt skapa prenumerationer under den. En prenumeration som skapats av en delegerad användare har fortfarande ursprungliga ägare som tjänstadministratören, men det har även den delegerade användaren som ägare som standard. 
 
 ## <a name="audit-who-created-subscriptions-using-activity-logs"></a>Granska som skapade prenumerationer med hjälp av aktivitetsloggar
 
-Om du vill spåra prenumerationer som skapats via detta API använder den [klient aktivitet loggen API](/rest/api/monitor/tenantactivitylogs). Det går för närvarande inte att använda PowerShell, CLI eller Azure-portalen för att spåra prenumeration.
+För att spåra de prenumerationer som skapats via den här API: et måste använda den [klient aktivitet Log API](/rest/api/monitor/tenantactivitylogs). Det är för närvarande inte möjligt att använda PowerShell, CLI eller Azure-portalen för att spåra prenumeration har skapats.
 
-1. Som administratör innehavare av Azure AD-klient [utöka behörighet](../active-directory/role-based-access-control-tenant-admin-access.md) sedan tilldela en läsarroll granskning användaren definitionsområdet `/providers/microsoft.insights/eventtypes/management`.
-1. Som användare granskning anropa den [klient aktivitet loggen API](/rest/api/monitor/tenantactivitylogs) prenumeration skapa aktiviteter. Exempel:
+1. Som Innehavaradministratör för Azure AD-klient [utöka behörighet](../active-directory/role-based-access-control-tenant-admin-access.md) sedan tilldela en läsarroll för granskning användaren definitionsområdet `/providers/microsoft.insights/eventtypes/management`.
+1. Som granskning användare, anropa den [klient aktivitet Log API](/rest/api/monitor/tenantactivitylogs) att se prenumeration skapa aktiviteter. Exempel:
 
 ```
 GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Subscription'" 
 ```
 
 > [!NOTE]
-> För att enkelt anropa denna API från kommandoraden, försök [ARMClient](https://github.com/projectkudu/ARMClient).
+> För att enkelt anropa detta API från kommandoraden, försök [ARMClient](https://github.com/projectkudu/ARMClient).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Nu när användaren eller tjänstens huvudnamn har behörighet att skapa en prenumeration, kan du använda identitet till [programmässigt skapa prenumerationer Azure Enterprise](programmatically-create-subscription.md).
-* Ett exempel på hur du skapar prenumerationer med hjälp av .NET finns [exempelkoden på GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
+* Nu när användaren eller tjänstens huvudnamn har fått behörighet att skapa en prenumeration, kan du använda det identitet som [programmässigt skapa Azure Enterprise-prenumerationer](programmatically-create-subscription.md).
+* Ett exempel om hur du skapar prenumerationer med hjälp av .NET finns i [exempelkoden på GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Läs mer om Azure Resource Manager och dess API: er i [översikt över Azure Resource Manager](resource-group-overview.md).
-* Mer information om hur du hanterar många prenumerationer med hjälp av Hanteringsgrupper finns [ordna dina resurser med Azure-Hanteringsgrupper](management-groups-overview.md)
-* En omfattande bästa praxis riktlinjer för stora organisationer på prenumerationen styrning finns [Azure enterprise kodskelett - normativ prenumeration styrning](/azure/architecture/cloud-adoption-guide/subscription-governance)
+* Mer information om hur du hanterar stora mängder prenumerationer med hanteringsgrupper finns [organisera dina resurser med Azure-hanteringsgrupper](management-groups-overview.md)
+* En omfattande metodvägledning för stora organisationer på Prenumerationsåtgärder finns i [Azure enterprise scaffold - förebyggande Prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance)

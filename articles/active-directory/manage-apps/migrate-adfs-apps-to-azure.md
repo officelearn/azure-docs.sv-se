@@ -6,17 +6,18 @@ author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
+ms.topic: conceptual
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: d3548e7640fa8ab59f7b11c66cf1d9492f23cf99
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: feb90f599a07275584cc300b371e8159d47e2ced
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044376"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364350"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrera AD FS på lokala appar till Azure 
 
@@ -119,8 +120,8 @@ Följande tabell beskriver viktiga IdP-konfigurationselement vid konfiguration a
 
 |Konfigurationselement|Beskrivning|AD FS|Azure AD|
 |---|---|---|---|
-|IdP </br>inloggning </br>Webbadress|Inloggnings-URL för IdP:n ur appens perspektiv (dit användare omdirigeras för inloggningen).|AD FS-inloggningens URL är AD FS-federationstjänstens namn följt av ”/adfs/ls/”. Till exempel: https&#58;//fs.contoso.com/adfs/ls/|Motsvarande värde för Azure AD följer mönstret där {tenant-id} ersätts med ditt klientorganisations-ID. Det finns i Azure-portalen under **Azure Active Directory** > **Egenskaper** som **Katalog-ID**.</br></br>För appar som använder SAML-P-protokollet: https&#58;//login.microsoftonline.com/{tenant-id}/saml2 </br></br>För appar som använder WS-Federation-protokollet: https&#58;//login.microsoftonline.com/{tenant-id}/wsfed|
-|IdP </br>utloggning </br>Webbadress|Utloggnings-URL för IdP:n ur appens perspektiv (dit användarna omdirigeras när de väljer att logga ut från appen).|För AD FS är utloggnings-URL:en antingen samma som inloggnings-URL:en eller samma URL med tillägget ”wa=wsignout1.0”. Till exempel: https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|Motsvarande värde för Azure AD beror på om appen har stöd för SAML 2.0-utloggning eller inte.</br></br>Om appen har stöd för SAML-utloggning följer värdet mönstret där värdet för {tenant-id} ersätts med klientorganisations-ID. Det finns i Azure-portalen under **Azure Active Directory** > **Egenskaper** som **Katalog-ID**: https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>Om appen inte har stöd för SAML-utloggning: https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
+|IdP </br>inloggning </br>URL|Inloggnings-URL för IdP:n ur appens perspektiv (dit användare omdirigeras för inloggningen).|AD FS-inloggningens URL är AD FS-federationstjänstens namn följt av ”/adfs/ls/”. Till exempel: https&#58;//fs.contoso.com/adfs/ls/|Motsvarande värde för Azure AD följer mönstret där {tenant-id} ersätts med ditt klientorganisations-ID. Det finns i Azure-portalen under **Azure Active Directory** > **Egenskaper** som **Katalog-ID**.</br></br>För appar som använder SAML-P-protokollet: https&#58;//login.microsoftonline.com/{tenant-id}/saml2 </br></br>För appar som använder WS-Federation-protokollet: https&#58;//login.microsoftonline.com/{tenant-id}/wsfed|
+|IdP </br>utloggning </br>URL|Utloggnings-URL för IdP:n ur appens perspektiv (dit användarna omdirigeras när de väljer att logga ut från appen).|För AD FS är utloggnings-URL:en antingen samma som inloggnings-URL:en eller samma URL med tillägget ”wa=wsignout1.0”. Till exempel: https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|Motsvarande värde för Azure AD beror på om appen har stöd för SAML 2.0-utloggning eller inte.</br></br>Om appen har stöd för SAML-utloggning följer värdet mönstret där värdet för {tenant-id} ersätts med klientorganisations-ID. Det finns i Azure-portalen under **Azure Active Directory** > **Egenskaper** som **Katalog-ID**: https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>Om appen inte har stöd för SAML-utloggning: https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
 |Token </br>signering </br>certifikat|IdP:n använder certifikatets privata nyckel till att signera utfärdade tokens. Den kontrollerar att token kom från samma IdP som appen är konfigurerad att ha förtroende för.|AD FS-certifikatet för tokensignering finns i AD FS-hanteringen under **Certifikat**.|I Azure AD finns certifikatet för tokensignering i Azure-portalen i programmets egenskaper för **Enkel inloggning** under rubriken **SAML-signeringscertifikat**. Därifrån kan du ladda ner certifikatet för uppladdning till appen.</br></br> Om programmet har fler än ett certifikat finns alla certifikat i federationsmetadatans XML-fil.|
 |Identifierare/</br>”utfärdare”|Identifierare för IdP:n ur appens perspektiv (kallas ibland för ”Utfärdar-ID”).</br></br>I SAML-token visas värdet som elementet **Utfärdare**.|Identifieraren för AD FS är vanligen federationstjänstens identifierare i AD FS-hanteringen under **Tjänst** > **Redigera federationstjänstens egenskaper**. Till exempel: http&#58;//fs.contoso.com/adfs/services/trust|Motsvarande värde för Azure AD följer mönstret där {tenant-id} ersätts med ditt klientorganisations-ID. Det finns i Azure-portalen under **Azure Active Directory** > **Egenskaper** som **Katalog-ID**: https&#58;//sts.windows.net/{tenant-id}/|
 |IdP </br>federation </br>metadata|Plats för IdP:ns offentligt tillgängliga federationsmetadata. (Federationsmetadata används av vissa appar som ett alternativ för administratören och konfigurerar URL:er, identifierare och certifikat för tokensignering individuellt.)|Hitta metadata-URL:en för AD FS-federation i AD FS-hanteringen under **Tjänst** > **Slutpunkter** > **Metadata** > **Typ: Federationsmetadata**. Till exempel: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Motsvarande värde för Azure AD följer mönstret https&#58;/ / login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. Värdet för {TenantDomainName} ersätts med klientorganisationens namn i formatet ”contoso.onmicrosoft.com”. </br></br>Mer information finns i [Federationsmetadata](../develop/active-directory-federation-metadata.md).

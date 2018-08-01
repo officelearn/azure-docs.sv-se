@@ -1,6 +1,6 @@
 ---
-title: Problem som loggar in på ett lokalt program som använder Azure AD application proxy | Microsoft Docs
-description: Felsökning av vanliga problem med inför när det inte går att logga in på ett lokalt program integrerade med Azure AD med hjälp av Azure AD Application Proxy
+title: Problem vid inloggning i ett lokalt program med hjälp av Azure AD-programproxyn | Microsoft Docs
+description: Felsöka vanliga problem som kan stöta på när det inte går att logga in på ett lokalt program integreras med Azure AD med hjälp av Azure AD-programproxyn
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -10,22 +10,22 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: a55cc1a616a017159559e6b3359ff6b8f4ea3605
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9a60dc685fa23527aabaaea250c4584f33040b7c
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334898"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365629"
 ---
-# <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problem som loggar in på ett lokalt program som använder Azure AD application proxy
+# <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problem vid inloggning i ett lokalt program med hjälp av Azure AD-programproxyn
 
-Om du har problem med att logga i ett lokalt program kan du följa stegen nedan för att lösa problemet.
+Om du har problem med att logga i ett lokalt program kan du följa stegen nedan för att lösa ditt problem.
 
-## <a name="i-can-load-my-application-but-something-on-the-page-looks-broken"></a>Kan jag läsa in Mina program, men något på sidan verkar skadad
+## <a name="i-can-load-my-application-but-something-on-the-page-looks-broken"></a>Jag kan läsa in mitt program, men något på sidan verkar skadat
 
 Följande dokument kan kanske hjälpa dig att lösa några av de vanligaste problemen i den här kategorin.
 
@@ -38,24 +38,24 @@ Följande dokument kan kanske hjälpa dig att lösa några av de vanligaste prob
   * [Jag vet inte vilka portar som ska öppnas för mitt program](application-proxy-connectivity-ports-how-to.md)
   * [Jag påträffade ett problem eftersom det inte fanns någon fungerande anslutning i en anslutningsgrupp för mitt program](application-proxy-connectivity-no-working-connector.md)
 
-## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>Jag har problem med att konfigurera Azure AD Application Proxy i administrationsportal
+## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>Jag har problem med att konfigurera Azure AD-programproxyn i administrationsportalen
   Följande dokument kan kanske hjälpa dig att lösa några av de vanligaste problemen i den här kategorin.
   * [Jag har problem med att konfigurera ett proxyprogram](application-proxy-config-how-to.md)
   * [Jag vet inte hur man konfigurerar enkel inloggning till mitt proxyprogram](application-proxy-config-sso-how-to.md)
   * [Jag påträffade ett problem när jag skulle skapa mitt program i administrationsportalen](application-proxy-config-problem.md)
 
-## <a name="im-having-a-problem-setting-up-back-end-authentication-to-my-application"></a>Jag har ett problem vid inställning av backend-autentisering till Mina program
+## <a name="im-having-a-problem-setting-up-back-end-authentication-to-my-application"></a>Jag har problem med att konfigurera serverdelsautentisering till mitt program
   Följande dokument kan kanske hjälpa dig att lösa några av de vanligaste problemen i den här kategorin.
   * [Jag vet inte hur man konfigurerar begränsad Kerberos-delegering](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
   * [Jag vet inte hur jag ska konfigurera mina program med PingAccess](application-proxy-back-end-ping-access-how-to.md)
 
-## <a name="im-having-a-problem-when-signing-in-to-my-application"></a>Jag har problem när du loggar in till Mina program
+## <a name="im-having-a-problem-when-signing-in-to-my-application"></a>Jag har problem när du loggar in till mitt program
   Följande dokument kan kanske hjälpa dig att lösa några av de vanligaste problemen i den här kategorin.
   * [Jag får felmeddelandet "Det går inte att få åtkomst till det här företagsprogrammet"](application-proxy-sign-in-bad-gateway-timeout-error.md)
 
-## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Jag har problem med agenten Application Proxy Connector
+## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Jag har problem med den anslutningsprogrammet för Programproxyagenten
   Följande dokument kan kanske hjälpa dig att lösa några av de vanligaste problemen i den här kategorin.
   * [Jag har problem med att installera anslutningsprogrammet för programproxyagenten](application-proxy-connector-installation-problem.md)
 
 ## <a name="next-steps"></a>Nästa steg
-[Hur du ger säker fjärråtkomst till lokala program](manage-apps/application-proxy.md)
+[Ge säker fjärråtkomst till lokala program](manage-apps/application-proxy.md)

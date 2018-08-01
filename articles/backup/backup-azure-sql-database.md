@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 7/30/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 2776017c6c4673f5c24d25b06b58a1e818f1bd24
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 430490859e6d8a58a54eea267e0c3f16991f74c8
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344451"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364384"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Säkerhetskopiera SQL Server-databaser till Azure
 
@@ -258,7 +258,7 @@ När du använder den **identifiera databaser** verktyg, Azure Backup utförs f�
 
     ![Välj den virtuella datorn och databasen](./media/backup-azure-sql-database/registration-errors.png)
 
-## <a name="configure-backup-for-sql-server-databases"></a>Konfigurera säkerhetskopiering för SQL Server-databaser 
+## <a name="configure-backup-for-sql-server-databases"></a>Konfigurera säkerhetskopiering för SQL Server-databaser
 
 Azure Backup tillhandahåller hanteringstjänster för att skydda SQL Server-databaser och hantera säkerhetskopieringsjobb. Hanterings- och övervakningsfunktioner beror på Recovery Services-valvet. 
 
@@ -317,6 +317,9 @@ Konfigurera skydd för en SQL-databas:
 
 8. I den **Välj säkerhetskopieringspolicy** nedrullningsbara listrutan väljer du en princip för säkerhetskopiering och välj sedan **OK**. Information om hur du skapar en princip för säkerhetskopiering finns i [definierar en säkerhetskopieringspolicy](backup-azure-sql-database.md#define-a-backup-policy).
 
+   > [!NOTE]
+   > Du kan inte redigera principer för säkerhetskopiering för förhandsversionen. Om du vill att en annan princip än vad som finns i listan, måste du skapa principen. Information om hur du skapar en ny säkerhetskopieringsprincip finns i avsnittet [definierar en säkerhetskopieringspolicy](backup-azure-sql-database.md#define-a-backup-policy).
+
     ![Välj en princip för säkerhetskopiering i listan](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
 
     På den **säkerhetskopieringspolicy** menyn i den **Välj säkerhetskopieringspolicy** nedrullningsbara listrutan kan du: 
@@ -345,21 +348,28 @@ En princip för säkerhetskopiering definierar en matris över när säkerhetsko
 * Differentiell säkerhetskopiering: en differentiell säkerhetskopiering baseras på den senaste, föregående fullständig säkerhetskopieringen. En differentiell säkerhetskopiering fångar endast de data som ändrats sedan den fullständiga säkerhetskopian. Du kan endast utlösa en differentiell säkerhetskopiering per dag. Du kan inte konfigurera en fullständig säkerhetskopia och en differentiell säkerhetskopiering på samma dag.
 * Säkerhetskopiering av transaktionsloggen: en loggsäkerhetskopiering gör det möjligt för point-in-time-återställning upp till en specifik sekund. Du kan högst, konfigurera transaktionell loggsäkerhetskopior var 15: e minut.
 
-Principens Skapad Recovery Services-valvet nivå. Flera valv kan använda samma säkerhetskopieringsprincip, men du måste använda principen för säkerhetskopiering för varje valv. När du skapar en princip för säkerhetskopiering, används den dagliga fullständiga säkerhetskopian som standard. Du kan lägga till en differentiell säkerhetskopiering, men endast om du konfigurerar fullständiga säkerhetskopieringar ska göras varje vecka. Följande procedur beskriver hur du skapar en princip för säkerhetskopiering för en SQL Server-instans i Azure-datorer.
+Principens Skapad Recovery Services-valvet nivå. Flera valv kan använda samma säkerhetskopieringsprincip, men du måste använda principen för säkerhetskopiering för varje valv. När du skapar en princip för säkerhetskopiering, används den dagliga fullständiga säkerhetskopian som standard. Du kan lägga till en differentiell säkerhetskopiering, men endast om du konfigurerar fullständiga säkerhetskopieringar ska göras varje vecka. Följande procedur beskriver hur du skapar en princip för säkerhetskopiering för en SQL Server-instans i Azure-datorer. 
 
+> [!NOTE]
+> I förhandsversionen kan redigera du inte en princip för säkerhetskopiering. I stället måste du skapa en ny princip med önskad information.  
+ 
 Skapa en princip för säkerhetskopiering:
 
-1. På den **säkerhetskopieringspolicy** menyn i den **Välj säkerhetskopieringspolicy** nedrullningsbara listrutan **Skapa ny**.
+1. I Recovery Services-valvet som skyddar SQL-databasen, klickar du på **Säkerhetskopieringsprinciper**, och klicka sedan på **Lägg till**. 
 
-   ![Skapa en ny säkerhetskopieringsprincip](./media/backup-azure-sql-database/create-new-backup-policy.png)
+   ![Öppna dialogrutan Skapa ny princip för säkerhetskopiering](./media/backup-azure-sql-database/new-policy-workflow.png)
 
-    Den **säkerhetskopieringspolicy** menyn visar fälten som krävs för en ny säkerhetskopieringsprincip för SQL Server.
+   Den **Lägg till** meny.
 
-   ![den nya principen för säkerhetskopiering fält](./media/backup-azure-sql-database/blank-new-policy.png)
+2. I den **Lägg till** -menyn klickar du på **SQL Server i Azure VM**.
 
-2. I den **principnamn** anger du ett namn.
+   ![Välj en Principtyp av för den nya principen för säkerhetskopiering](./media/backup-azure-sql-database/policy-type-details.png)
 
-3. En fullständig säkerhetskopia är obligatoriskt. Acceptera standardvärdena för fullständig säkerhetskopiering eller välj **fullständig säkerhetskopiering** att redigera principen.
+   Att välja SQL Server i Azure VM definierar principtypen och öppnar menyn säkerhetskopieringspolicy. Den **säkerhetskopieringspolicy** menyn visar fälten som krävs för en ny säkerhetskopieringsprincip för SQL Server.
+
+3. I **principnamn**, ange ett namn för den nya principen.
+
+4. En fullständig säkerhetskopia är obligatoriska. Du kan inte inaktivera den **fullständig säkerhetskopiering** alternativet. Klicka på **fullständig säkerhetskopiering** att visa och redigera principen. Även om du inte ändrar säkerhetskopieringspolicyn, bör du granska information om principen.
 
     ![den nya principen för säkerhetskopiering fält](./media/backup-azure-sql-database/full-backup-policy.png)
 
@@ -371,13 +381,13 @@ Skapa en princip för säkerhetskopiering:
 
    ![inställningen för varje vecka](./media/backup-azure-sql-database/weekly-interval.png)
 
-4. Som standard alla **Kvarhållningsintervall** alternativen är markerade: dagliga, veckovisa, månatliga och årliga. Avmarkera eventuella oönskade kvarhållning intervallet gränser. Ange intervall för att använda. I den **princip för fullständig säkerhetskopiering** menyn och välj **OK** att acceptera inställningarna.
+5. Som standard alla **Kvarhållningsintervall** alternativen är markerade: dagliga, veckovisa, månatliga och årliga. Avmarkera eventuella oönskade kvarhållning intervallet gränser. Ange intervall för att använda. I den **princip för fullständig säkerhetskopiering** menyn och välj **OK** att acceptera inställningarna.
 
    ![Kvarhållningsinställningar intervallet intervall](./media/backup-azure-sql-database/retention-range-interval.png)
 
     Återställningspunkter är taggade för kvarhållning av säkerhetskopior baserat på deras Kvarhållningsintervall. Exempel: Om du väljer en daglig fullständig säkerhetskopiering utlöses endast en fullständig säkerhetskopiering varje dag. Säkerhetskopiering baserat för en viss dag är märkta och bevaras på veckovisa kvarhållningsintervallet och din veckovisa kvarhållningsinställning. Månatliga och årliga Kvarhållningsintervall fungerar på liknande sätt.
 
-5. Om du vill lägga till en princip för differentiell säkerhetskopiering, Välj **differentiell säkerhetskopiering**. Den **princip för differentiell säkerhetskopiering** menyn öppnas. 
+6. Om du vill lägga till en princip för differentiell säkerhetskopiering, Välj **differentiell säkerhetskopiering**. Den **princip för differentiell säkerhetskopiering** menyn öppnas. 
 
    ![Öppna menyn princip för differentiell säkerhetskopiering](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
@@ -391,17 +401,17 @@ Skapa en princip för säkerhetskopiering:
 
     Välj **OK** att spara principen och återgå till huvudsidan **säkerhetskopieringspolicy** menyn.
 
-6. Om du vill lägga till en princip för säkerhetskopiering av transaktionella log, Välj **Loggsäkerhetskopior**. Den **Loggsäkerhetskopiering** menyn öppnas.
+7. Om du vill lägga till en princip för säkerhetskopiering av transaktionella log, Välj **Loggsäkerhetskopior**. Den **Loggsäkerhetskopiering** menyn öppnas.
 
     I den **Loggsäkerhetskopiering** menyn och välj **aktivera**, och Ställ in frekvensen och kvarhållning kontroller. Loggsäkerhetskopior kan ske så ofta som var 15: e minut och kan behållas i upp till 35 dagar. Välj **OK** att spara principen och återgå till huvudsidan **säkerhetskopieringspolicy** menyn.
 
    ![Redigera log-principen för säkerhetskopiering](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-7. På den **säkerhetskopieringspolicy** menyn, Välj om du vill aktivera **komprimering av SQL-säkerhetskopiering**. Komprimering är inaktiverad som standard.
+8. På den **säkerhetskopieringspolicy** menyn, Välj om du vill aktivera **komprimering av SQL-säkerhetskopiering**. Komprimering är inaktiverad som standard.
 
     På backend-servern använder Azure Backup SQL native säkerhetskopieringskomprimering.
 
-8. När du har slutfört redigeringar i säkerhetskopieringsprincipen väljer **OK**. 
+9. När du har slutfört redigeringar i säkerhetskopieringsprincipen väljer **OK**. 
 
    ![Acceptera den nya principen för säkerhetskopiering](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
@@ -410,8 +420,9 @@ Azure Backup innehåller funktioner för att återställa enskilda databaser til
 
 Du kan också välja en fullständig eller Differentiell säkerhetskopia att återställa till en specifik återställningspunkt i stället för en viss tid.
 
-### <a name="pre-requisite-before-trigerting-a-restore"></a>Installationsprogrammets innan trigerting en återställning
-1. Du kan återställa databasen till en instans av en SQL-Server i samma Azure-region. Målservern måste registreras på samma Recovery Services-valv som källa.  
+### <a name="pre-requisite-before-triggering-a-restore"></a>Krav innan du utlöser en återställning
+
+1. Du kan återställa databasen till en instans av en SQL-Server i samma Azure-region. Målservern måste vara registrerad på samma Recovery Services-valv som källa.  
 2. Om du vill återställa en krypterad TDE-databas till en annan SQL Server, först Återställ certifikatet till målservern genom att följa stegen som beskrivs [här](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
 3. Innan du utlöser en återställning av ”master”-databasen, starta SQL Server-instansen i enanvändarläge med startalternativ `-m AzureWorkloadBackup`. Argumentet för den `-m` alternativet är namnet på klienten. Endast den här klienten tillåts att öppna anslutningen. Stoppa tjänsten SQL Agent för alla systemdatabaser (modell, master, msdb) innan du utlöser återställningen. Stäng alla program som kan försöka stjäla en anslutning till någon av dessa databaser.
 

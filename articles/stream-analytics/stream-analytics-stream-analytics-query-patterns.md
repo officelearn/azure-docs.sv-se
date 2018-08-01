@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 1ca7d40bb3c358b374e354fa2c3ef77edba055c9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4a37ac6cdf5d13556c6a3e293c19c00ad36e4495
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971789"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364173"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Fråga efter exempel för vanliga mönster för Stream Analytics-användning
 
@@ -24,6 +24,12 @@ Frågor i Azure Stream Analytics uttrycks i ett SQL-liknande frågespråk. Språ
 Frågans design kan snabba och enkla direkt logik för att flytta händelsedata från en Indataströmmen till ett annat datalager för utdata. Det kan också göra omfattande mönstret matchande och temporala analyser för att beräkna aggregeringar över olika tidsfönster som i exemplet TollApp. Du kan ansluta till data från flera inmatningar att kombinera direktuppspelning av händelser och göra sökningar mot statiska referensdata att utöka de händelse-värdena. Du kan också skriva data till flera utdata.
 
 Den här artikeln beskrivs lösningar på flera vanliga frågemönster utifrån verkliga scenarier. Det är ett pågående arbete och fortsätter att uppdateras med nya mönster med jämna mellanrum.
+
+## <a name="work-with-complex-data-types-in-json-and-avro"></a>Arbeta med komplexa datatyper i JSON- och AVRO 
+Azure Stream Analytics har stöd för bearbetning av händelser i CSV, JSON och Avro dataformat.
+JSON- och Avro kan innehålla komplexa typer, till exempel kapslade objekt (poster) eller matriser. För att fungera med dessa komplexa datatyper finns i den [MSDN-sida som förklarar hur du arbetar med komplexa datatyper i JSON och AVRO sidan](
+https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics).
+
 
 ## <a name="query-example-convert-data-types"></a>Exempel på sökfråga: konvertera-datatyper
 **Beskrivning av**: Ange vilka typer av egenskaper på Indataströmmen.

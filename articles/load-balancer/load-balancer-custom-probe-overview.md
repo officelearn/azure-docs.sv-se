@@ -1,6 +1,6 @@
 ---
 title: Använda anpassade avsökningar för belastningsutjämnaren för att övervaka hälsostatus | Microsoft Docs
-description: Lär dig hur du använder anpassade avsökningar för Azure Load Balancer för att övervaka instanser bakom belastningsutjämnare
+description: Lär dig hur du använder hälsoavsökningar för att övervaka instanser bakom belastningsutjämnare
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,20 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.author: kumud
-ms.openlocfilehash: afe46cf9fc710decba4524bd5a0fe1e73804f636
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: b73028935fd60945a948c1c4e1848424b615d92e
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344172"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363691"
 ---
 # <a name="load-balancer-health-probes"></a>Läsa in Belastningsutjämnarens hälsotillståndsavsökningar
 
 Azure Load Balancer använder hälsoavsökningar för att avgöra vilka serverdelsinstanser för poolen får nya flöden. Du kan använda hälsoavsökningar för att upptäcka fel på ett program på en backend-instans. Du kan också generera en anpassad åtgärd till en hälsoavsökning och använda hälsoavsökningen för flödeskontroll och skicka en signal till belastningsutjämnaren om du vill fortsätta att skicka nya flöden eller sluta skicka nya flöden till en backend-instans. Detta kan användas för att hantera belastningen eller planerade driftstopp.
 
 När en hälsoavsökning inte slutar belastningsutjämnaren att skicka nya flöden till respektive feltillstånd instansen. Nya och befintliga flöden beror på om ett flöde är TCP eller UDP som du använder samt vilken SKU för Load Balancer.  Granska [avsökning av beteendet för information om](#probedown).
+
+> [!IMPORTANT]
+> Belastningsutjämnarens hälsotillståndsavsökningar kommer från IP-adressen 168.63.129.16 och får inte vara blockerad vid avsökningar för att märka din instans.  Granska [avsökning källans IP-adress](#probesource) mer information.
 
 ## <a name="health-probe-types"></a>Avsökningen hälsotyper
 
@@ -37,6 +40,8 @@ UDP-belastningsutjämning, ska du skapa en anpassad hälsotillståndssignal avs�
 När du använder [HA Ports belastningsutjämningsregler](load-balancer-ha-ports-overview.md) med [Standardbelastningsutjämnare](load-balancer-standard-overview.md), alla portar belastningsutjämnas och ett enda hälsotillstånd avsökningen svar bör återspegla status för en hel instans.  
 
 Du bör inte NAT och proxy som en hälsoavsökning via den instans som tar emot hälsoavsökningen till en annan instans i ditt virtuella nätverk som detta kan leda till kaskadfel i ditt scenario.
+
+Om du vill testa en avsökning uteblivna eller skriva ned en enskild instans kan du använda en säkerhetsgrupp för explicit block hälsoavsökningen (mål eller [källa](#probesource)).
 
 ### <a name="tcp-probe"></a>TCP-avsökning
 
@@ -97,9 +102,6 @@ De värden för timeout och frekvens som anges i SuccessFailCount avgör om en i
 
 En belastningsutjämningsregel har en enda hälsoavsökning definierats respektive serverdelspoolen.
 
-> [!IMPORTANT]
-> En hälsoavsökning för belastningsutjämnaren använder IP-adressen 168.63.129.16. Den här offentliga IP-adressen underlättar kommunikationen till intern resurser för den bring-your-own-IP scenariot Azure virtuella. Den virtuella offentliga IP-adressen 168.63.129.16 används i alla regioner och ändras inte. Vi rekommenderar att du tillåter denna IP-adress i valfri Azure [säkerhetsgrupper](../virtual-network/security-overview.md) och lokala Brandväggsprinciper. Det ska inte betraktas som en säkerhetsrisk eftersom endast interna Azure-plattformen kan styra ett paket från den här adressen. Om du inte tillåter den här IP-adressen i din Brandväggsprinciper uppstår oväntade resultat i en mängd olika scenarier, belastningsutjämnad inklusive fel vid inläsningen service. Du bör också inte konfigurera ditt virtuella nätverk med ett IP-adressintervall som innehåller 168.63.129.16.  Om du har flera gränssnitt på den virtuella datorn kan behöva du se till att du svara på avsökningen på gränssnittet som du fick på.  Du kan behöva unikt källa NAT'ing den här adressen på den virtuella datorn på basis av per gränssnitt.
-
 ## <a name="probedown"></a>Avsökning av beteende
 
 ### <a name="tcp-connections"></a>TCP-anslutningar
@@ -120,11 +122,25 @@ UDP anslutningslös och det finns inga läget för energiflöde som spåras för
 
 Om alla avsökningar för alla instanser i en serverdelspool misslyckas avslutas befintliga UDP-flöden för Basic och Standard belastningsutjämnare.
 
+
+## <a name="probesource"></a>Avsökning för källans IP-adress
+
+Alla Load Balancers hälsoavsökningar kommer från IP-adressen 168.63.129.16 som källa.  När du vill aktivera dina egna IP-adresser till Azure Virtual Network, garanteras den här hälsotillstånd avsökningen källans IP-adress vara unikt eftersom det globalt är reserverade för Microsoft.  Den här adressen är samma i alla regioner och ändras inte. Det ska inte betraktas som en säkerhetsrisk eftersom endast interna Azure-plattformen kan styra ett paket från den här IP-adress. 
+
+För Belastningsutjämnarens hälsoavsökning att markera din instans, du **måste** tillåter denna IP-adress i alla Azure [säkerhetsgrupper](../virtual-network/security-overview.md) och lokala Brandväggsprinciper.
+
+Om du inte tillåter den här IP-adressen i din Brandväggsprinciper, misslyckas hälsoavsökningen eftersom det inte går att nå din instans.  I sin tur markerar belastningsutjämnare ned din instans på grund av uteblivna för avsökning.  Detta kan orsaka belastningsutjämnade tjänsten misslyckas. 
+
+Du bör också inte konfigurera ditt virtuella nätverk med Microsoft som ägs av IP-adressintervall som innehåller 168.63.129.16.  Detta ska vara i konflikt med IP-adressen för hälsoavsökningen.
+
+Om du har flera gränssnitt på den virtuella datorn kan behöva du se till att du svara på avsökningen på gränssnittet som du fick på.  Du kan behöva unikt källa NAT'ing den här adressen på den virtuella datorn på basis av per gränssnitt.
+
 ## <a name="monitoring"></a>Övervakning
 
 Alla [Standardbelastningsutjämnare](load-balancer-standard-overview.md) visar avsökningen hälsostatus som flerdimensionella mått per instans via Azure Monitor.
 
 Grundläggande belastningsutjämnare visar avsökningen hälsostatus per serverdelspool via Log Analytics.  Detta är endast tillgänglig för offentlig grundläggande belastningsutjämnare och inte tillgängliga för interna grundläggande belastningsutjämnare.  Du kan använda [logganalys](load-balancer-monitor-log.md) att söka på den offentliga avsökningen hälsostatusen för belastningsutjämnaren och avsökning antal. Loggning kan användas med Power BI eller Azure Operational Insights för att tillhandahålla statistik om hälsostatusen för belastningsutjämnaren.
+
 
 ## <a name="limitations"></a>Begränsningar
 

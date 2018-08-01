@@ -1,5 +1,5 @@
 ---
-title: Ta bort personliga data - Azure Active Directory Application Proxy | Microsoft Docs
+title: Ta bort personliga data – Azure Active Directory Application Proxy | Microsoft Docs
 description: Ta bort personliga data från kopplingarna är installerad på enheter för Azure Active Directory Application Proxy.
 documentationcenter: ''
 author: barbkess
@@ -9,32 +9,32 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 94cf0464aca3c46e0c6425b0fb3e24fcd767f95c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bccda196be82808e7dc369de3f517490f410e26e
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655332"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366050"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Ta bort personliga data för Azure Active Directory Application Proxy  
 
-Azure Active Directory Application Proxy kräver att du installerar kopplingar på dina enheter, vilket innebär att det kan vara personliga data på dina enheter. Den här artikeln innehåller anvisningar att ta bort den personliga informationen för att förbättra sekretess. 
+Azure Active Directory Application Proxy kräver att du installerar kopplingar på dina enheter, vilket innebär att det kan finnas personliga data på dina enheter. Den här artikeln innehåller anvisningar att ta bort dessa personliga data för att förbättra sekretess. 
 
 
 ## <a name="where-is-the-personal-data"></a>Var finns personliga data?
-Det är möjligt för Application Proxy skriva personliga data till följande i loggen:
+Det är möjligt för Application Proxy att skriva personliga data till följande loggtyper av:
 
-- Kopplingen händelseloggar
+- Händelseloggar för anslutningen
 - Windows-händelseloggar
 
 ## <a name="remove-personal-data-from-windows-event-logs"></a>Ta bort personliga data från Windows-händelseloggar
 
-Information om hur du konfigurerar datalagring för Windows-händelseloggar finns [inställningar för händelseloggar](https://technet.microsoft.com/library/cc952132.aspx). Mer information om Windows-händelseloggar, se [med hjälp av Windows-händelseloggen](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
+Information om hur du konfigurerar datakvarhållning för Windows-händelseloggar finns i [inställningar för händelseloggar](https://technet.microsoft.com/library/cc952132.aspx). Mer information om Windows-händelseloggar, se [med hjälp av Windows-händelseloggen](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
@@ -45,42 +45,42 @@ För att säkerställa Application Proxy-loggar inte har personliga data, kan du
 - Ta bort eller visa data vid behov, eller
 - Inaktivera loggning
 
-Använd följande avsnitt för att ta bort personliga data från händelseloggarna för anslutningen. Du måste slutföra borttagningen för alla enheter där kopplingen är installerad.
+Använd följande avsnitt för att ta bort personliga data från händelseloggarna för anslutningen. Du måste slutföra borttagningen för alla enheter där anslutningen är installerad.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ### <a name="view-or-export-specific-data"></a>Visa eller exportera specifika data
 
-Om du vill visa eller exportera specifika data, söker du efter relaterade poster i alla händelseloggar för anslutningen. Loggarna finns i `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`. 
+Om du vill visa eller exportera specifika data, Sök efter relaterade poster i var och en av händelseloggar för anslutningen. Loggarna finns på `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`. 
 
-Eftersom loggarna är textfiler, kan du använda [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) att söka efter textposter som är relaterade till en användare.  
+Eftersom loggarna är textfiler, du kan använda [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) att söka efter textposter som relaterar till en användare.  
 
 Sök loggfiler för användar-ID för att hitta personliga data. 
 
-Sök efter de här komponenterna av typen Användarnamn för att hitta personliga data som loggats av ett program som använder Kerberos-begränsad delegering:
+Sök efter de här komponenterna i anger du användarnamnet för att hitta personliga data som loggats av ett program som använder Kerberos-begränsad delegering:
 
 - Lokala användarens huvudnamn
 - Användaren är del av användarens huvudnamn
 - Användarnamnet är del av den lokala användarens huvudnamn
-- Lokala konton manager (SAM) kontonamnet 
+- Lokala konton kontosäkerhet (SAM) kontonamnet 
 
 
 ### <a name="delete-specific-data"></a>Ta bort specifika data
 
 Ta bort specifika data:
 
-1. Starta om tjänsten Microsoft Azure AD Application Proxy Connector för att generera en ny loggfil. Ny loggfil kan du ta bort eller ändra de gamla loggfilerna. 
-2. Följ den [vy eller export specifika data](#view-or-export-specific-data) process som beskrivs ovan för att hitta information som behöver tas bort. Söka i alla connector-loggarna.
-3. Ta bort de relevanta loggfilerna eller selektivt ta bort de fält som innehåller personuppgifter. Du kan också ta bort alla gamla loggfiler om du inte längre behövs.
+1. Starta om tjänsten Microsoft Azure AD Application Proxy Connector för att generera en ny loggfil skapas. Ny loggfil kan du ta bort eller ändra de gamla loggfilerna. 
+2. Följ den [vy eller export specifika data](#view-or-export-specific-data) processen som beskrivs ovan för att hitta information som måste tas bort. Sök alla connector-loggar.
+3. Ta bort relevanta loggfiler eller selektivt ta bort de fält som innehåller personliga data. Du kan också ta bort alla gamla loggfiler om du inte längre behövs.
 
-### <a name="turn-off-connector-logs"></a>Stäng av connector-loggar
+### <a name="turn-off-connector-logs"></a>Inaktivera connector-loggar
 
-Ett alternativ till att kontrollera connector-loggarna innehåller inga personliga data är att inaktivera genereringen av loggen. Stoppa generering connector-loggarna genom att ta bort den markerade raden för följande från `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`. 
+Ett alternativ till att kontrollera connector-loggar inte innehåller personliga data är att inaktivera kontot log. Stoppa genererar connector-loggarna genom att ta bort följande markerade rad från `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`. 
 
 ![Konfiguration](./media/application-proxy-remove-personal-data/01.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-En översikt över Webbprogramproxy, se [ge säker fjärråtkomst till lokala program](application-proxy.md).
+En översikt över Application Proxy, se [att tillhandahålla säker fjärråtkomst till lokala program](application-proxy.md).
 

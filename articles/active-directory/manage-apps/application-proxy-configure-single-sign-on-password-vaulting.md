@@ -1,6 +1,6 @@
 ---
-title: Enkel inloggning för appar med Azure AD Application Proxy | Microsoft Docs
-description: Aktivera enkel inloggning för din publicerade lokala program med Azure AD Application Proxy på Azure-portalen.
+title: Enkel inloggning till appar med Azure AD Application Proxy | Microsoft Docs
+description: Aktivera enkel inloggning för dina publicerade lokala program med Azure AD Application Proxy på Azure-portalen.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -10,39 +10,39 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/20/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: fef163e258f797fc57d391a353b1acc148a3ef49
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: fa12dd5e9dbe25bad947abed5ab1c732d231b25c
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161982"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362830"
 ---
-# <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Lösenord vaulting för enkel inloggning med Application Proxy
+# <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Lösenord vaulting för enkel inloggning med programproxy
 
-Azure Active Directory Application Proxy hjälper dig att öka produktiviteten genom att publicera lokala program så att fjärranslutna anställda kan på ett säkert sätt komma åt dem för. I Azure-portalen kan du också ställa in enkel inloggning (SSO) för dessa appar. Användarna behöver bara för att autentisera med Azure AD och de kan komma åt enterprise-programmet utan att behöva logga in igen.
+Azure Active Directory Application Proxy kan du förbättra produktiviteten genom att publicera lokala program så att fjärranslutna anställda kan få säker åtkomst till dem, för. I Azure-portalen kan du också ställa in enkel inloggning (SSO) till de här apparna. Användarna behöver bara för att autentisera med Azure AD och de kan komma åt dina företagsprogram utan att behöva logga in igen.
 
-Application Proxy stöder flera [enkel inloggning lägen](application-proxy-single-sign-on.md). Lösenordsbaserade inloggning är avsedd för program som använder en kombination av användarnamn/lösenord för autentisering. När du konfigurerar lösenordsbaserade inloggning för tillämpningsprogrammet har användarna att logga in på en gång programmet lokalt. Efter det Azure Active Directory lagrar information för inloggning och ger den automatiskt till programmet när användarna få fjärråtkomst till den. 
+Programproxyn har stöd för flera [enkel inloggning lägen](application-proxy-single-sign-on.md). Lösenordsbaserad inloggning är avsedd för program som använder en kombination av användarnamn/lösenord för autentisering. När du konfigurerar lösenordsbaserad inloggning för ditt program kan måste användarna logga in på dina lokala program en gång. Efter det Azure Active Directory lagrar inloggningsinformation och tillhandahåller det automatiskt till programmet när dina användare få fjärråtkomst till den. 
 
-Du bör redan har publicerats och testat din app med Application Proxy. Om inte, följer du stegen i [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md) sedan återvända hit. 
+Du bör redan har publicerats och testas din app med Application Proxy. Om inte, följer du stegen i [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md) Kom sedan tillbaka hit. 
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>Konfigurera lösenord vaulting för ditt program
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
 2. Välj **Azure Active Directory** > **företagsprogram** > **alla program**.
-3. Välj den app som du vill konfigurera med enkel inloggning i listan.  
+3. Välj den app som du vill ställa in med enkel inloggning i listan.  
 4. Välj **enkel inloggning**.
 
-   ![Välja enkel inloggning](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
+   ![Välj enkel inloggning](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
 
-5. Läget för enkel inloggning väljer **lösenordsbaserade inloggning**.
-6. För URL inloggning anger du Webbadressen för sidan där användarna anger sina användarnamn och lösenord för att logga in på din app utanför företagsnätverket. Detta kan vara en extern URL som du skapade när du har publicerat appen via Application Proxy. 
+5. SSO-läge, Välj **lösenordsbaserad inloggning**.
+6. För inloggnings-URL: en, anger du URL: en för sidan där användarna anger sina användarnamn och lösenord för att logga in på din app utanför företagets nätverk. Detta kan vara en extern URL som du skapade när du har publicerat appen via programproxyn. 
 
-   ![Välj lösenordsbaserade inloggning och ange URL: en](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
+   ![Välj lösenordsbaserad inloggning och anger en URL](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
 
 7. Välj **Spara**.
 
@@ -52,9 +52,9 @@ Du bör redan har publicerats och testat din app med Application Proxy. Om inte,
 
 ## <a name="test-your-app"></a>Testa din app
 
-Gå till externa URL: en som du konfigurerade för fjärråtkomst till ditt program. Logga in med dina autentiseringsuppgifter för appen (eller autentiseringsuppgifterna för ett testkonto som du skapat med åtkomst). När du loggar in har bör du kunna lämna appen och gå tillbaka utan att ange dina autentiseringsuppgifter igen. 
+Gå till externa URL: en som du konfigurerade för fjärråtkomst till ditt program. Logga in med dina autentiseringsuppgifter för appen (eller autentiseringsuppgifterna för ett testkonto som du har konfigurerat med åtkomst). När du loggar in har, bör du kunna lämna appen och gå tillbaka utan att ange dina autentiseringsuppgifter igen. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om andra sätt att implementera [enkel inloggning med Application Proxy](application-proxy-single-sign-on.md)
-- Lär dig mer om [säkerhetsaspekter för att komma åt appar med Azure AD Application Proxy](application-proxy-security.md)
+- Läs mer om andra sätt att implementera [enkel inloggning med programproxy](application-proxy-single-sign-on.md)
+- Lär dig mer om [säkerhetsöverväganden för att komma åt appar med Azure AD Application Proxy](application-proxy-security.md)

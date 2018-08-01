@@ -10,37 +10,37 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 0456a46262c6ad27b19487a6e4b2d1b6a139bbc3
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 7f9d74ce60d2a433f6bb63be4f131ac430452036
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34162031"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363422"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
 
-Den här artikeln beskriver hur du konfigurerar Azure Active Directory (Azure AD) Application Proxy kopplingar att arbeta med utgående proxy-servrar. Det är avsett för kunder med nätverksmiljöer som har befintliga proxyservrar.
+Den här artikeln förklarar hur du ställer in Azure Active Directory (Azure AD) Application Proxy-kopplingar att arbeta med utgående proxy-servrar. Den är avsedd för kunder med nätverksmiljöer som har befintliga proxyservrar.
 
-Vi börjar med att titta på dessa huvudsakliga distributionsscenarier:
-* Konfigurera att kopplingar för att kringgå din lokala utgående proxyservrar.
-* Konfigurera att kopplingar ska använda en utgående proxy för att komma åt Azure AD Application Proxy.
+Vi börjar genom att titta på dessa huvudsakliga scenarier:
+* Konfigurera anslutningar för att kringgå din lokala utgående proxyservrar.
+* Konfigurera att kopplingar ska använda en utgående proxy för att komma åt Azure AD-programproxy.
 
-Mer information om hur kopplingar fungerar finns [förstå Azure AD Application Proxy kopplingar](application-proxy-connectors.md).
+Mer information om hur anslutningsappar fungerar finns i [alternativ för Azure AD-programproxyn kopplingar](application-proxy-connectors.md).
 
 ## <a name="bypass-outbound-proxies"></a>Kringgå utgående proxyservrar
 
-Kopplingar har underliggande OS-komponenter som begär utgående. De här komponenterna försöker automatiskt hitta en proxyserver i nätverket med hjälp av Web Proxy Auto-Discovery (WPAD).
+Kopplingar har underliggande OS-komponenter som gör att utgående begäranden. De här komponenterna försöker automatiskt hitta en proxyserver i nätverket med hjälp av Web Proxy Auto-Discovery (WPAD).
 
-OS-komponenter kommer att försöka hitta en proxyserver genom att utföra en DNS-sökning för wpad.domainsuffix. Om sökningen matchas i DNS, görs sedan en HTTP-begäran till IP-adressen för wpad.dat. Denna begäran blir proxykonfigurationsskript i din miljö. Anslutningen används det här skriptet för att välja en utgående proxyserver. Dock kan connector trafik fortfarande inte går via, på grund av ytterligare konfigurationsinställningar som behövs på proxyservern.
+OS-komponenter som försöker hitta en proxyserver genom att utföra en DNS-sökning för wpad.domainsuffix. Om sökningen matchar i DNS, görs sedan en HTTP-begäran till IP-adressen för wpad.dat. Den här begäran blir proxykonfigurationsskript i din miljö. Anslutningsappen använder det här skriptet för att välja en utgående proxy-server. Men kan anslutningen trafik fortfarande inte går via, på grund av fler konfigurationsinställningar som krävs på proxyn.
 
-Du kan konfigurera anslutningen för att kringgå proxyservern lokalt för att säkerställa att den använder direkt anslutning till Azure-tjänster. Vi rekommenderar den här metoden så länge nätverksprincipen tillåter det, eftersom det innebär att du har en mindre konfiguration att underhålla.
+Du kan konfigurera anslutningsprogrammet för att kringgå proxyservern på plats för att säkerställa att den använder direkt anslutning till Azure-tjänster. Vi rekommenderar den här metoden så länge nätverksprincipen tillåter det, eftersom det innebär att du har en mindre konfiguration att underhålla.
 
-Om du vill inaktivera utgående proxy-användning för anslutningen, redigerar du filen C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config och lägga till den *system.net* avsnittet som visas i det här kodexemplet:
+För att inaktivera utgående proxy-användning för anslutningen, redigerar du C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config-filen och Lägg till den *system.net* avsnittet som visas i detta kodexempel:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -56,28 +56,28 @@ Om du vill inaktivera utgående proxy-användning för anslutningen, redigerar d
   </appSettings>
 </configuration>
 ```
-För att säkerställa att tjänsten Connector Updater också kringgår proxy, ändra liknande ApplicationProxyConnectorUpdaterService.exe.config-filen. Den här filen finns i C:\Program Files\Microsoft AAD App Proxy Connector Updater.
+För att säkerställa att tjänsten Connector Updater kringgår proxyn, ändra liknande ApplicationProxyConnectorUpdaterService.exe.config-filen. Den här filen finns i C:\Program Files\Microsoft AAD App Proxy Connector Updater.
 
-Se till att göra kopior av de ursprungliga filerna om du behöver återgå till standard .config-filer.
+Tänk på att göra kopior av de ursprungliga filerna om du behöver att återgå till standard .config-filer.
 
-## <a name="use-the-outbound-proxy-server"></a>Utgående proxyserver används
+## <a name="use-the-outbound-proxy-server"></a>Använda utgående proxy-server
 
-Vissa miljöer kräver all utgående trafik att gå via en utgående proxy utan undantag. Kringgå proxy är därför inte ett alternativ.
+Vissa kräver all utgående trafik att gå via en utgående proxy, utan undantag. Kringgå proxyn är därför inte ett alternativ.
 
-Du kan konfigurera connector trafiken gå igenom utgående proxy, som visas i följande diagram:
+Du kan konfigurera anslutningen trafik gå igenom utgående proxy som visas i följande diagram:
 
  ![Konfigurera anslutningen trafik att gå via en utgående proxy till Azure AD Application Proxy](./media/application-proxy-configure-connectors-with-proxy-servers/configure-proxy-settings.png)
 
-Det finns behöver du inte konfigurera inkommande åtkomst via dina brandväggar på grund av att endast utgående trafik.
+Till följd av med endast utgående trafik, finns inget behov att konfigurera inkommande åtkomst genom dina brandväggar.
 
 >[!NOTE]
->Application Proxy stöder inte autentisering till andra proxyservrar. Tjänstkonton för koppling/updater nätverk ska kunna ansluta till proxyservern utan som anropas för autentisering.
+>Programproxyn har inte stöd för autentisering till andra proxyservrar. Anslutning/updater network service-konton ska kunna ansluta till proxyservern utan att företagsobjekt för autentisering.
 
-### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>Steg 1: Konfigurera anslutningen och tillhörande tjänster gå igenom utgående proxy
+### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>Steg 1: Konfigurera anslutningen och relaterade tjänster gå igenom utgående proxy
 
-Om WPAD är aktiverad i miljön och korrekt konfigurerad, upptäcker kopplingen automatiskt utgående proxyserver och försök att använda den. Du kan uttryckligen konfigurera kopplingen för att gå igenom en utgående proxy.
+Om WPAD är aktiverad i miljön och korrekt konfigurerad, identifierar anslutningen automatiskt utgående proxyserver och försök att använda den. Du kan uttryckligen Konfigurera anslutningen att gå via en utgående proxy.
 
-Gör du genom att redigera filen C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config och lägga till den *system.net* avsnittet som visas i det här kodexemplet. Ändra *proxyserver:8080* återspeglar din lokala Proxyservernamn eller IP-adress och port som lyssnar på.
+Du gör detta genom att redigera filen C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config och lägga till den *system.net* avsnittet som visas i det här kodexemplet. Ändra *proxyserver:8080* att återspegla din lokala Proxyservernamn eller IP-adress och den port som lyssnar på.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -96,11 +96,11 @@ Gör du genom att redigera filen C:\Program Files\Microsoft AAD App Proxy Connec
 </configuration>
 ```
 
-Konfigurera Connector Updater-tjänsten om du vill använda proxyservern genom att göra en liknande ändring i C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config-filen.
+Konfigurera Connector Updater-tjänsten om du vill använda proxyservern genom att göra en liknande ändring till C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config-fil.
 
-### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Steg 2: Konfigurera proxyn för att tillåta trafik från koppling och relaterade tjänster kan passera
+### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Steg 2: Konfigurera proxyn för att tillåta trafik från anslutningen och relaterade tjänster kan passera
 
-Det finns fyra olika aspekter att tänka på utgående proxy:
+Det finns fyra aspekter att tänka på vid utgående proxy:
 * Proxy utgående regler
 * Proxyautentisering
 * Proxy-portar
@@ -117,33 +117,33 @@ Tillåt åtkomst till följande slutpunkter för inledande registrering:
 * login.windows.net
 * login.microsoftonline.com
 
-Om du inte tillåter anslutningar av FQDN och måste du ange IP-adressintervall i stället kan du använda följande alternativ:
+Om du inte kan du ansluta efter FQDN och måste du ange IP-intervall i stället, kan du använda följande alternativ:
 
 * Tillåt anslutningen utgående åtkomst till alla måldatorer.
-* Tillåt anslutningen utgående åtkomst till alla de [IP-adressintervall för Azure-datacenter](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). Utmaningen med hjälp av listan över IP-adressintervall för Azure-datacenter är uppdateras varje vecka. Du måste placera en process för att säkerställa att din åtkomstregler uppdateras. Endast med en delmängd av IP-adresser kan orsaka konfigurationen att bryta.
+* Tillåt åtkomst till utgående anslutning till alla de [Azure datacenter IP-adressintervall](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). Den stora utmaningen med hjälp av listan med Azure-datacenter IP-adressintervall är uppdaterad varje vecka. Du måste placera en process för att säkerställa att din åtkomstregler uppdateras. Endast med hjälp av en delmängd av IP-adresser kan det leda till att din konfiguration och dela.
 
 #### <a name="proxy-authentication"></a>Proxyautentisering
 
-Proxy-autentisering stöds inte för närvarande. Vår aktuell rekommendation är att kopplingen anonym åtkomst till Internet-mål.
+Proxy-autentisering stöds inte för närvarande. Våra aktuella rekommendation är att ge connector anonym åtkomst till Internet-mål.
 
 #### <a name="proxy-ports"></a>Proxy-portar
 
-Kopplingen gör utgående SSL-baserad anslutningar med hjälp av metoden CONNECT. Den här metoden anger i princip en tunnel genom den utgående proxyn. Konfigurera proxyservern så att portarna 443 och 80-tunneltrafik.
+Anslutningen gör utgående SSL-baserade anslutningar med hjälp av metoden CONNECT. Den här metoden är i stort sett ställer in en tunnel via utgående proxy. Konfigurera proxyserver för att tillåta tunnlar för att portarna 443 och 80.
 
 >[!NOTE]
->När Service Bus körs via HTTPS, använder port 443. Dock försöker TCP-direktanslutningar Service Bus som standard och faller tillbaka till HTTPS endast om direkt anslutning misslyckades.
+>När Service Bus körs via HTTPS, använder port 443. Dock försöker direkt TCP-anslutningar Service Bus som standard och faller tillbaka till HTTPS om direktanslutning inte.
 
 #### <a name="ssl-inspection"></a>SSL-kontroll
-Använd inte SSL-kontroll för connector-trafik, eftersom den orsakar problem för anslutningen. Anslutningen används ett certifikat för att autentisera till tjänsten Application Proxy och certifikatet kan gå förlorade under SSL-kontroll. 
+Använd inte SSL-kontroll för connector-trafik, eftersom det orsakar problem för connector-trafik. Anslutningen använder ett certifikat för att autentisera till tjänsten Application Proxy och certifikatet kan gå förlorade under SSL-kontroll. 
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Felsöka problem med anslutningen proxy och anslutningsproblem för tjänsten
-Du bör nu se all trafik som passerar genom proxyn. Om du har problem med bör följande felsökningsinformation hjälpa.
+Du bör nu se all trafik som passerar genom proxyn. Om du har problem med ska följande felsökningsinformation hjälpa.
 
-Det bästa sättet att identifiera och felsöka problem med anslutningen nätverksanslutningen är att ta en nätverksbild när kopplingstjänsten. Här följer några snabba tips på samla in och filtrera nätverksspår.
+Det bästa sättet att identifiera och Felsök problem med nätverksanslutningen connector är att ta en nätverksbild vid start kopplingstjänsten. Här följer några snabba tips på samla in och filtrera nätverksspår.
 
-Du kan använda övervakningsverktyg önskat. Vi använde Microsoft Message Analyzer vid tillämpningen av den här artikeln. Du kan [ladda ned det från Microsoft](https://www.microsoft.com/download/details.aspx?id=44226).
+Du kan använda övervakning verktyg som helst. För den här artikeln använde vi Microsoft Message Analyzer. Du kan [ladda ned det från Microsoft](https://www.microsoft.com/download/details.aspx?id=44226).
 
-I följande exempel är specifika för Message Analyzer, men principerna som kan tillämpas på alla verktyget.
+I följande exempel är specifika för Message Analyzer, men principerna kan tillämpas på alla analysverktyget.
 
 ### <a name="take-a-capture-of-connector-traffic"></a>Ta en avbildning av connector-trafik
 
@@ -158,33 +158,33 @@ Utför följande steg för inledande Felsökning:
 
    ![Starta nätverksbild](./media/application-proxy-configure-connectors-with-proxy-servers/start-local-trace.png)
 
-3. Starta tjänsten Azure AD Application Proxy Connector.
+3. Starta Azure AD Application Proxy Connector-tjänsten.
 4. Stoppa insamlingen nätverk.
 
-   ![Stoppa insamlingen av nätverk](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
+   ![Stoppa nätverksbild](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
 
 ### <a name="check-if-the-connector-traffic-bypasses-outbound-proxies"></a>Kontrollera om koppling trafiken kringgår utgående proxyservrar
 
-Om du har konfigurerat din Application Proxy connector för att kringgå proxy-servrar och ansluta direkt till Application Proxy-tjänsten som du vill söka i nätverksbild för misslyckade TCP-anslutningsförsök. 
+Om du har konfigurerat programproxy-kopplingen för att kringgå proxy-servrar och ansluta direkt till Application Proxy-tjänsten som du vill söka i nätverksbild för misslyckade TCP-anslutningsförsök. 
 
-Använd analysverktyg filtret för att identifiera dessa försök. Ange `property.TCPSynRetransmit` i filterrutan och välj **tillämpa**. 
+Med filtret Message Analyzer för att identifiera dessa försök. Ange `property.TCPSynRetransmit` i filterrutan och välj **tillämpa**. 
 
-SYN-paket är det första paketet skickas för att upprätta en TCP-anslutning. Om det här paketet inte returnerar ett svar, reattempted SYN. Du kan använda föregående filtret för att se alla att SYN-förfrågningar. Du kan sedan kontrollera om dessa SYN-förfrågningar motsvarar connector-relaterade trafik.
+SYN-paket är det första paketet skickas för att upprätta en TCP-anslutning. Om det här paketet inte returnerar något svar, är SYN återförsöks. Du kan använda föregående filtret för att se alla att Sym. Du kan sedan kontrollera om de här Sym motsvarar all trafik som connector-relaterade.
 
-Om du räknar kopplingen för att ansluta direkt till Azure-tjänster är SynRetransmit svar på port 443 en indikation på att du har ett problem med nätverket eller brandväggen.
+Om du förväntar dig connector att ansluta direkt till Azure-tjänster är en indikation på att du har ett problem med nätverket eller brandväggen SynRetransmit svar på port 443.
 
-### <a name="check-if-the-connector-traffic-uses-outbound-proxies"></a>Kontrollera om koppling trafik använder utgående proxyservrar
+### <a name="check-if-the-connector-traffic-uses-outbound-proxies"></a>Kontrollera om connector-trafik använder utgående proxyservrar
 
-Om du har konfigurerat Application Proxy connector-trafik att gå via proxy-servrar som du vill leta efter misslyckade https-anslutningar till proxyservern. 
+Om du har konfigurerat Application Proxy connector trafiken gå igenom proxyservrar som du vill leta efter misslyckade https-anslutningar till proxyservern. 
 
-Om du vill filtrera nätverksbild för dessa anslutningsförsök, ange `(https.Request or https.Response) and tcp.port==8080` ersätta 8080 med din tjänst Proxyport i filtret Message Analyzer. Välj **tillämpa** att visa filterresultaten. 
+Om du vill filtrera nätverksbild för dessa anslutningsförsök, ange `(https.Request or https.Response) and tcp.port==8080` i filtret Message Analyzer ersätta 8080 med din tjänst Proxyport. Välj **tillämpa** att visa filterresultaten. 
 
-Föregående filtret visas bara HTTPs-begäranden och svar till eller från proxyporten. Du letar efter CONNECT-begäranden som visar kommunikation med proxyservern. Vid lyckas, kan du få ett OK (200) för HTTP-svar.
+Föregående filtret visar bara HTTPs-begäranden och svar till och från proxyporten. Du letar efter CONNECT-begäranden som visar kommunikation med proxyservern. Vid en lyckad distribution, kan du få ett svar för HTTP-OK (200).
 
-Om du ser andra svarskoder, till exempel 407 eller 502, det innebär att proxyservern kräver autentisering eller inte tillåter trafiken av någon anledning. Nu kan du kontaktar supportteamet proxy-server.
+Om du ser andra svarskoder, till exempel 407 eller 502, som innebär att proxyservern kräver autentisering eller inte tillåter trafiken av någon anledning. Nu kan engagera du supportteamet proxy server.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Förstå Azure AD Application Proxy-kopplingar](application-proxy-connectors.md)
+- [Förstå Azure AD Application Proxy-anslutningar](application-proxy-connectors.md)
 
-- Om du har problem med anslutningen anslutningsproblem, kan du ställa din fråga i den [Azure Active Directory-forumet](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) eller skapa en biljett med vårt supportteam.
+- Om du har problem med anslutningen anslutningsproblem kan du ställa din fråga i den [Azure Active Directory-forumet](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) eller skapa ett ärende med vårt supportteam.

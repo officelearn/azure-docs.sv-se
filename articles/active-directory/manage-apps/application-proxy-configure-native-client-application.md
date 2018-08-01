@@ -1,6 +1,6 @@
 ---
-title: Publicera native client - appar i Azure AD | Microsoft Docs
-description: Beskriver hur du aktiverar inbyggd klientprogram att kommunicera med Azure AD Application Proxy Connector att tillhandahålla säker fjärråtkomst till lokala appar.
+title: Publicera appar med inbyggd klient - Azure AD | Microsoft Docs
+description: Beskriver hur du aktiverar inbyggd klient apps att kommunicera med Azure AD Application Proxy Connector att tillhandahålla säker fjärråtkomst till lokala appar.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -10,66 +10,66 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5c231ce09add63c6e46dee0c76bbe64c438ff820
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 589cf1d297a335c36725917dd7012d877d1dcaeb
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161975"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363085"
 ---
-# <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Så här aktiverar du native client appar att interagera med proxy-program
+# <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Så här aktiverar du ursprungliga klientappar kan interagera med proxy-program
 
-Förutom webbprogram, kan Azure Active Directory Application Proxy också användas att publicera native client-appar som har konfigurerats med Azure AD Authentication Library (ADAL). Native client-appar skiljer sig från webbprogram eftersom de är installerade på en enhet, medan webbappar kan nås via en webbläsare. 
+Förutom webbprogram, kan Azure Active Directory Application Proxy också användas att publicera ursprungliga klientappar som har konfigurerats med Azure AD Authentication Library (ADAL). Ursprungliga klientappar skiljer sig från web apps eftersom de är installerade på en enhet, medan webbappar som kan nås via en webbläsare. 
 
-Application Proxy stöder interna klientprogram av accepterar Azure AD som utfärdade token som skickas i huvudet. Tjänsten Application Proxy utförs en autentisering för användarna. Den här lösningen använder inte programmet token för autentisering. 
+Ursprungliga klientappar av tar emot Azure AD som utfärdade token som skickas i rubriken har stöd för programproxy. Application Proxy-tjänsten utförs en autentisering åt användarna. Den här lösningen använder inte programmet token för autentisering. 
 
 ![Förhållandet mellan användare och Azure Active Directory publicerade program](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Använda Azure AD Authentication Library, som tar hand om autentisering och stöder många klienten miljöer, publicering av interna program. Programproxy passar in i den [programspecifika Web API-scenariot](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api). 
+Använd Azure AD Authentication Library, som tar hand om autentisering och har stöd för många klientmiljöer att publicera interna program. Programproxy passar in i den [internt program för webb-API-scenario](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api). 
 
-Den här artikeln vägleder dig genom fyra stegen för att publicera en interna program med Application Proxy och Azure AD-Autentiseringsbiblioteket. 
+Den här artikeln vägleder dig igenom fyra stegen för att publicera ett internt program med Application Proxy och Azure AD-Autentiseringsbiblioteket. 
 
-## <a name="step-1-publish-your-application"></a>Steg 1: Publicera programmet
-Publicera programmet proxy precis som alla andra program och tilldela användare åtkomst till ditt program. Mer information finns i [publicera program med programproxy](application-proxy-publish-azure-portal.md).
+## <a name="step-1-publish-your-application"></a>Steg 1: Publicera ditt program
+Publicera dina proxy-program, precis som alla andra program och tilldela användare åtkomst till ditt program. Mer information finns i [publicera program med Application Proxy](application-proxy-publish-azure-portal.md).
 
 ## <a name="step-2-configure-your-application"></a>Steg 2: Konfigurera ditt program
-Konfigurera ditt interna program på följande sätt:
+Konfigurera ditt interna program enligt följande:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Gå till **Azure Active Directory** > **App registreringar**.
+2. Gå till **Azure Active Directory** > **appregistreringar**.
 3. Välj **Ny programregistrering**.
 4. Ange ett namn för ditt program, Välj **interna** som programtyp, och ange omdirigerings-URI för ditt program. 
 
    ![Skapa en ny appregistrering](./media/application-proxy-configure-native-client-application/create.png)
 5. Välj **Skapa**.
 
-Mer detaljerad information om hur du skapar en ny appregistrering finns [integrera program med Azure Active Directory](./../develop/active-directory-integrating-applications.md).
+Mer information om hur du skapar en ny appregistrering finns [integrera program med Azure Active Directory](./../develop/active-directory-integrating-applications.md).
 
 
-## <a name="step-3-grant-access-to-other-applications"></a>Steg 3: Ge tillgång till andra program
-Aktivera det ursprungliga programmet kan exponeras för andra program i din katalog:
+## <a name="step-3-grant-access-to-other-applications"></a>Steg 3: Bevilja åtkomst till andra program
+Aktivera programspecifik kan exponeras för andra program i din katalog:
 
-1. Fortfarande i **App registreringar**, Välj ny interna program som du nyss skapade.
-2. Välj **nödvändiga behörigheter**.
+1. Fortfarande är i **appregistreringar**, Välj den nya inbyggda program som du nyss skapade.
+2. Välj **behörigheter som krävs för**.
 3. Välj **Lägg till**.
-4. Öppna det första steget **väljer en API**.
-5. Använd sökfältet för att hitta Application Proxy-appen som du har publicerat i det första avsnittet. Välj appen och klicka sedan på **Välj**. 
+4. Öppna det första steget, **Välj en API**.
+5. Använd sökfältet för att hitta den Application Proxy-app som du publicerade i det första avsnittet. Välj appen och klicka sedan på **Välj**. 
 
-   ![Sök efter den proxy-app](./media/application-proxy-configure-native-client-application/select_api.png)
+   ![Sök efter app proxy](./media/application-proxy-configure-native-client-application/select_api.png)
 6. Öppna det andra steget **Välj behörigheter**.
-7. Använd kryssrutan för att ge din ursprungliga programmet åtkomst till ditt program för proxy och klicka sedan på **Välj**.
+7. Använd kryssrutan för att ge din internt programåtkomst till programmets proxy och klicka sedan på **Välj**.
 
-   ![Bevilja åtkomst till proxy-app](./media/application-proxy-configure-native-client-application/select_perms.png)
-8. Välj **klar**.
+   ![Bevilja åtkomst till app proxy](./media/application-proxy-configure-native-client-application/select_perms.png)
+8. Välj **Done** (Klar).
 
 
 ## <a name="step-4-edit-the-active-directory-authentication-library"></a>Steg 4: Redigera Active Directory Authentication Library
-Redigera det ursprungliga programmet koden i kontexten för autentisering av den Active Directory Authentication Library (ADAL) att inkludera följande text:
+Redigera koden internt program i kontexten för autentisering av den Active Directory Authentication Library (ADAL) att inkludera följande text:
 
 ```
 // Acquire Access Token from AAD for Proxy Application
@@ -85,17 +85,17 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("
 HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >");
 ```
 
-Variabler i exempelkoden ska ersättas med följande:
+Variabler i exempelkoden ska ersättas på följande sätt:
 
-* **Klient-ID** kan hittas i Azure-portalen. Gå till **Azure Active Directory** > **egenskaper** och kopiera Directory-ID. 
-* **Externa URL: en** är frontend-URL du angav i programmets Proxy. Du hittar det här värdet genom att navigera till den **programproxy** avsnitt av proxy-app.
-* **App-ID** av den inbyggda appen kan hittas på den **egenskaper** sidan i det ursprungliga programmet.
-* **Omdirigerings-URI för den inbyggda appen** kan hittas på den **omdirigerings-URI: er** sidan i det ursprungliga programmet.
+* **Klient-ID** finns i Azure-portalen. Gå till **Azure Active Directory** > **egenskaper** och kopiera den Directory-ID. 
+* **Externa URL: en** frontend webbadressen som du angav i Proxy-program. Du hittar det här värdet genom att navigera till den **programproxy** i proxy-appen.
+* **App-ID** av den inbyggda appen kan hittas på den **egenskaper** för internt program.
+* **Omdirigerings-URI för den inbyggda appen** kan hittas på den **omdirigerings-URI: er** för internt program.
 
-När ADAL har redigerats med följande parametrar måste ska användarna kunna autentisera till native-klientprogram, även när de är utanför företagsnätverket. 
+När ADAL har redigerats med följande parametrar måste kunna användarna autentisera till ursprungliga klientappar även när de är utanför företagets nätverk. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om det ursprungliga programmet flödet finns [programspecifika i webb-API](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
+Mer information om flödet internt program finns i [internt program till webb-API](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
 
-Lär dig mer om hur du konfigurerar [enkel inloggning för Application Proxy](application-proxy-single-sign-on.md)
+Läs om hur du konfigurerar [enkel inloggning för Application Proxy](application-proxy-single-sign-on.md)

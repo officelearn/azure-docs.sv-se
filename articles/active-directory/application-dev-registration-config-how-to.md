@@ -1,6 +1,6 @@
 ---
-title: Så här väljer du behörigheter för en given API | Microsoft Docs
-description: Hur du hittar slutpunkter för autentisering för ett anpassat program som du utvecklar eller registrera med Azure AD.
+title: Så här väljer du behörigheter för ett visst API | Microsoft Docs
+description: Så här att hitta autentiseringsslutpunkterna för ett anpassat program som du utvecklar eller registrering med Azure AD.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,29 +11,29 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 203ecc1dd83bebffadf0e85a08cb3ee383b0d412
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dcb3a8f735b72b2408e28d2f0dc61b2c634baf96
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332015"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366641"
 ---
-# <a name="how-to-select-permissions-for-a-given-api"></a>Så här väljer du behörigheter för en given API
+# <a name="how-to-select-permissions-for-a-given-api"></a>Så här väljer du behörigheter för ett visst API
 
-Du kan hitta autentisering slutpunkterna för ditt program i den [Azure-portalen](https://portal.azure.com).
+Du kan hitta autentiseringsslutpunkterna för ditt program i den [Azure-portalen](https://portal.azure.com).
 
 -   Navigera till [Azure-portalen](https://portal.azure.com).
 
 -   I det vänstra navigeringsfönstret klickar du på **Azure Active Directory**.
 
--   Klicka på **App registreringar** och välj **slutpunkter**.
+-   Klicka på **Appregistreringar** och välj **slutpunkter**.
 
--   Detta öppnar den **slutpunkter** som lista alla autentisering slutpunkter för din klient.
+-   Detta öppnar den **slutpunkter** sidan för att lista alla autentiseringsslutpunkter för din klient.
 
--   Använd slutpunkten som är specifika för autentiseringsprotokoll som du använder, tillsammans med det program-ID för att skapa autentiseringen begär programmet.
+-   Använd slutpunkten som är specifika för autentiseringsprotokollet som du använder, tillsammans med program-ID och behövde skapa autentiseringen begära specifika för ditt program.
 
 ## <a name="next-steps"></a>Nästa steg
 [Utvecklarhandbok för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)

@@ -3,7 +3,7 @@ title: Hantera säkerhetsrekommendationer i Azure Security Center | Microsoft Do
 description: Det här dokumentet vägleder dig genom hur rekommendationerna i Azure Security Center hjälpa dig att skydda dina Azure-resurser och uppfyller säkerhetsprinciper.
 services: security-center
 documentationcenter: na
-author: TerryLan
+author: TerryLanfear
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2018
+ms.date: 07/31/2018
 ms.author: terrylan
-ms.openlocfilehash: 35f9f197dc9886998f695c4c632aa4b68ac4d072
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: caeef52ed8eb456bbec015f1766a95aa5ceb49f8
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006622"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367114"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Hantera säkerhetsrekommendationer i Azure Security Center
 Det här dokumentet vägleder dig genom hur du använder rekommendationer i Azure Security Center för att hjälpa dig att skydda dina Azure-resurser.
@@ -95,7 +95,7 @@ Använd tabellen nedan som referens för att förstå rekommendationerna som är
 | [Sårbarhetsbedömning inte installerad](security-center-vulnerability-assessment-recommendations.md) |Rekommenderar att du installerar en lösning för sårbarhetsbedömning på den virtuella datorn. |
 | [Åtgärda sårbarheter](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Gör att du kan visa system- och säkerhetssårbarheter som identifieras av sårbarhetsbedömningen som är installerad på den virtuella datorn. |
 | [Aktivera kryptering för Azure Storage-konto](security-center-enable-encryption-for-storage-account.md) | Rekommenderar att du aktiverar Azure Storage Service Encryption för vilande data. Storage Service Encryption (SSE) fungerar genom att kryptera data när den skrivs till Azure-lagring och dekrypterar före hämtning. SSE är för närvarande endast tillgänglig för Azure Blob service och kan användas för blockblobbar, sidblobbar och tilläggsblobbar. Mer information finns i [Storage Service Encryption för vilande data](../storage/common/storage-service-encryption.md).</br>SSE stöds bara på Resource Manager-lagringskonton. |
-| [Aktivera anpassningsbara program kontroller](security-center-adaptive-application.md) | Rekommenderar att du installerar anpassningsbara programkontroller på dina virtuella Windows-datorer. Den här funktionen är i förhandsversion och är tillgängliga på standardnivån i Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md). |
+| [Aktivera anpassningsbara program kontroller](security-center-adaptive-application.md) | Rekommenderar att du installerar anpassningsbara programkontroller på dina virtuella Windows-datorer. Den här funktionen är tillgänglig på nivån Standard för Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md). |
 | App Service bör endast vara tillgängligt via HTTPS | Rekommenderar att du begränsar åtkomst till App Service via HTTPS endast. |
 | Webbsockets bör inaktiveras för webbprogram| Rekommenderar att du noggrant läser användningen av Web Sockets i webbappar.  Web Sockets-protokollet är utsatt för olika typer av säkerhetshot. |
 | Använd anpassade domäner för ditt webbprogram | Rekommenderar att du använder anpassade domäner för att skydda ett webbprogram mot vanliga attacker som nätfiske och andra DNS-relaterade attacker. |

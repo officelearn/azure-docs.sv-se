@@ -1,6 +1,6 @@
 ---
-title: Fel uppsättning användare tillhandahålls till ett program för Azure AD-galleriet | Microsoft Docs
-description: Lär dig att ta reda på varför en annan uppsättning användare tillhandahålls till ett program än de som du förväntade dig
+title: Fel uppsättning användare etableras till en Azure AD-galleriprogram | Microsoft Docs
+description: Lär dig ta reda på varför en annan uppsättning användare etableras till ett program än de du förväntade dig
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,22 +11,22 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: f984db4c06a98f7d131860f8eb5d76a67a35a483
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8893c6a45ecbe0c697fe60483bbd2d9856d3b599
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332559"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366587"
 ---
-# <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Fel uppsättning användare tillhandahålls till ett program för Azure AD-galleriet
+# <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Fel uppsättning användare etableras till en Azure AD-galleriprogram
 
-Vilka användare som har etablerats i appen är främst styrs av vilka användare och grupper har **tilldelade** till programmet.
+Vilka användare som tilldelas appen är främst drivs av vilka användare och grupper har **tilldelade** till programmet.
 
-Använd följande resurser för att lära dig att kontrollera vilka användare och grupper har tilldelats ett program i Azure Active Directory.
+Använd följande resurser för att lära dig att kontrollera vilka användare och grupper har tilldelats till ett program i Azure Active Directory.
 
 ## <a name="assign-a-user-directly-as-an-administrator"></a>Tilldela en användare direkt som en administratör
 
@@ -40,31 +40,31 @@ Följ dessa steg om du vill tilldela en eller flera användare till ett program 
 
 4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
-5.  Klicka på **alla program** att visa en lista över alla program.
+5.  Klicka på **alla program** att visa en lista över alla dina program.
 
-  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla Program.**
+  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
 6.  Välj det program som du vill tilldela en användare i listan.
 
-7.  När programmet läses in klickar du på **användare och grupper** från programmenyn vänstra navigeringsfönstret.
+7.  När programmet har lästs in klickar du på **användare och grupper** från programmets vänstra navigeringsmenyn.
 
-8.  Öppna den **Lägg uppdrag** rutan klickar du på den **Lägg till** knappen ovanpå den **användare och grupper** lista.
+8.  Öppna den **Lägg till tilldelning** fönstret klickar du på den **Lägg till** knappen ovanpå den **användare och grupper** lista.
 
-9.  Klicka på den **användare och grupper** selector från den **Lägg uppdrag** fönstret.
+9.  Klicka på den **användare och grupper** selector från den **Lägg till tilldelning** fönstret.
 
 10. Ange den **fullständigt namn** eller **e-postadress** för den användare som du vill tilldela till den **Sök efter namn eller e-postadress** sökrutan.
 
-11. Hovra över den **användare** i listan för att visa en **kryssrutan**. Klicka på kryssrutan bredvid användarens profilfoto eller logotyp som du vill lägga till användaren till den **valda** lista.
+11. Hovra över den **användaren** i listan för att visa en **kryssrutan**. Klicka på kryssrutan bredvid användarens profilfoto eller logotyp för att lägga till dina användare i den **valda** lista.
 
-12. **Valfritt:** om du vill **lägga till fler än en användare**, typ i en annan **fullständigt namn** eller **e-postadress** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till användaren till den **valda** lista.
+12. **Valfritt:** om du skulle vilja **lägga till flera användare**, typ i en annan **fullständigt namn** eller **e-postadress** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till den här användaren till den **valda** lista.
 
-13. När du har valt användare klickar du på den **Välj** för att lägga till dem i listan över användare och grupper som tilldelas till programmet.
+13. När du har valt användare klickar du på den **Välj** för att lägga till dem i listan över användare och grupper som ska tilldelas till programmet.
 
-14. **Valfritt:** klickar du på den **Välj roll** Väljaren i den **Lägg uppdrag** ruta för att välja en roll för att tilldela användare som du har valt.
+14. **Valfritt:** klickar du på den **Välj roll** väljare i den **Lägg till tilldelning** fönstret för att välja en roll att tilldela till användare som du har valt.
 
-15. Klicka på den **tilldela** för att tilldela program till de valda användarna.
+15. Klicka på den **tilldela** knappen för att tilldela programmet till de valda användarna.
 
-Om etablering har konfigurerats och körs redan för en app kan nya användare ska etableras till ett program i cirka 10 minuter. Kontrollera den **granskningsloggar** mer information.
+Om etablering har konfigurerats och körs redan för en app kan nya användare etableras till ett program i cirka 10 minuter. Kontrollera den **granskningsloggar** mer information.
 
 ## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Tilldela en grupp direkt till ett program som administratör
 
@@ -78,38 +78,38 @@ Följ dessa steg om du vill tilldela en eller flera grupper till ett program dir
 
 4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
-5.  Klicka på **alla program** att visa en lista över alla program.
+5.  Klicka på **alla program** att visa en lista över alla dina program.
 
-  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontrollen längst upp i den **listan med alla program** och ange den **visa** att **alla Program.**
+  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
 6.  Välj det program som du vill tilldela en användare i listan.
 
-7.  När programmet läses in klickar du på **användare och grupper** från programmenyn vänstra navigeringsfönstret.
+7.  När programmet har lästs in klickar du på **användare och grupper** från programmets vänstra navigeringsmenyn.
 
-8.  Öppna den **Lägg uppdrag** rutan klickar du på den **Lägg till** knappen ovanpå den **användare och grupper** lista.
+8.  Öppna den **Lägg till tilldelning** fönstret klickar du på den **Lägg till** knappen ovanpå den **användare och grupper** lista.
 
-9.  Klicka på den **användare och grupper** selector från den **Lägg uppdrag** fönstret.
+9.  Klicka på den **användare och grupper** selector från den **Lägg till tilldelning** fönstret.
 
-10. Ange den **fullständig gruppnamn** i gruppen som du vill tilldela till den **Sök efter namn eller e-postadress** sökrutan.
+10. Ange den **fullständiga namn** i gruppen som du vill tilldela till den **Sök efter namn eller e-postadress** sökrutan.
 
-11. Hovra över den **grupp** i listan för att visa en **kryssrutan**. Klickar du på kryssrutan bredvid gruppen profilfoto eller logotyp som du vill lägga till användaren till den **valda** lista.
+11. Hovra över den **grupp** i listan för att visa en **kryssrutan**. Klicka på kryssrutan bredvid gruppen profilfoto eller logotyp för att lägga till dina användare i den **valda** lista.
 
-12. **Valfritt:** om du vill **lägga till fler än en grupp**, typ i en annan **fullständig gruppnamn** till den **Sök efter namn eller e-postadress** sökrutan och klickar du på kryssrutan för att lägga till den här gruppen till den **valda** lista.
+12. **Valfritt:** om du skulle vilja **lägga till mer än en grupp**, typ i en annan **fullständiga namn** till den **Sök efter namn eller e-postadress** sökrutan och Klicka på kryssrutan för att lägga till den här gruppen till den **valda** lista.
 
-13. När du har valt grupper klickar du på den **Välj** för att lägga till dem i listan över användare och grupper som tilldelas till programmet.
+13. När du har valt grupper klickar du på den **Välj** för att lägga till dem i listan över användare och grupper som ska tilldelas till programmet.
 
-14. **Valfritt:** klickar du på den **Välj roll** Väljaren i den **Lägg uppdrag** ruta för att välja en roll som ska tilldelas de grupper som du har valt.
+14. **Valfritt:** klickar du på den **Välj roll** väljare i den **Lägg till tilldelning** fönstret för att välja en roll tilldelas till de grupper som du har valt.
 
-15. Klicka på den **tilldela** för att tilldela program till de valda grupperna.
+15. Klicka på den **tilldela** knappen för att tilldela programmet till valda grupper.
 
 Om etablering har konfigurerats och körs redan för en app kan nya användare som ingår i gruppen ska etableras till ett program i cirka 10 minuter. Kontrollera den **granskningsloggar** mer information.
 
 >[!IMPORTANT]
->Etablering av gruppnamn och gruppinformation förutom medlemmar, om stöd för vissa program. Du kan aktivera eller inaktivera den här funktionen genom att aktivera eller inaktivera den **mappning** för gruppobjekt visas i den **etablering** fliken. 
+>Etablering av namn- och gruppinformation, förutom medlemmarna, om det stöds för vissa program. Du kan aktivera eller inaktivera den här funktionen genom att aktivera eller inaktivera den **mappning** för grupp-objekt som visas i den **etablering** fliken. 
 >
 >
 
-Om etablering grupper är aktiverad bör du granska attributmappning för att säkerställa ett lämpligt fält som används för ”matchande ID”. Detta kan vara namn eller e-post alias, som gruppen och dess medlemmar inte etableras om matchning av egenskap är tomt eller inte fyllts i för en grupp i Azure AD.
+Om etablering grupper är aktiverad, bör du granska attributmappningar för att säkerställa att ett lämpligt fält som används för ”matchande ID”. Detta kan vara namnet eller e-post alias, som gruppen och dess medlemmar inte etableras om matchning av egenskap är tom eller inte fyllts i för en grupp i Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg
-[Automatisera användaren etablering och avetablering för SaaS-program med Azure Active Directory](active-directory-saas-app-provisioning.md)
+[Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](active-directory-saas-app-provisioning.md)

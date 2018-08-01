@@ -8,18 +8,18 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 5b027051d4ea1e2f43d65a68def0482a44c7a3b7
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: e9fc74e6cd145cbba5b620b9db6db9635a0c4c77
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308696"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364533"
 ---
 # <a name="what-is-azure-importexport-service"></a>Vad är tjänsten Azure Import/Export?
 
 Azure Import/Export-tjänsten används för att importera stora mängder data på ett säkert sätt till Azure Blob storage och Azure Files genom att skicka diskenheter till en Azure-datacenter. Den här tjänsten kan också användas för att överföra data från Azure Blob storage till diskenheter och leverera till dina lokala platser. Data från en eller flera diskenheter kan importeras till Azure Blob storage eller Azure Files. 
 
-Azure Import/Export-tjänsten kan du ange egna enheter eller Använd diskenheter som tillhandahålls av Microsoft. 
+Ange du egna enheter och överföra data med Azure Import/Export-tjänsten. Du kan också använda diskenheter som tillhandahålls av Microsoft. 
 
 Om du vill överföra data med hjälp av diskenheter som tillhandahålls av Microsoft, kan du använda [Azure Data Box-Disk](../../databox/data-box-disk-overview.md) att importera data till Azure. Microsoft levereras upp till 5 krypterad disk SSD (solid-state drive) med en total kapacitet 40 TB per beställning till ditt datacenter till ett regionalt flygbolag. Du kan snabbt konfigurera diskenheter, kopiera data till enheter via en USB 3.0-anslutning och leverera diskenheter tillbaka till Azure. Mer information går du till [översikt över Azure Data Box-Disk](../../databox/data-box-disk-overview.md).
 

@@ -94,7 +94,7 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
 
    a. Markera kryssrutan och ange URL:en för GitHub-projektet under **GitHub-projekt** i det allmänna avsnittet. Den här URL:en är värd för det Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t.ex. ``https://github.com/testaccount/dev_test``).
 
-   b. I avsnittet **Source Code Management** (Källkodshantering) väljer du **Git**. Ange URL för databasen som är värd för det Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t.ex. *https://github.com/testaccount/dev_test.git*). Du kan också ange här vilken gren som ska byggas (t.ex. ***/master**).
+   b. I avsnittet **Source Code Management** (Källkodshantering) väljer du **Git**. Ange URL för databasen som är värd för det Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t.ex. *https://github.com/testaccount/dev_test.git*). Du kan också ange här vilken gren som ska byggas (t.ex. **/master**).
 
 5. Konfigurera din *GitHub* (som är värd för databasen) så att den kan kommunicera med Jenkins. Använd följande steg:
 

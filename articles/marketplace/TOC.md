@@ -17,8 +17,7 @@
 #### [Azure-program: lösningsmallar](./marketplace-solution-templates.md)
 #### [Azure-program: hanterade program](./marketplace-managed-apps.md)
 #### [SaaS-appar](./marketplace-saas-applications-technical-publishing-guide.md) 
-#### 
-  [Containrar](./marketplace-containers.md)
+#### [Containrar](./marketplace-containers.md)
 #### [Konsulttjänst](./consulting-services.md)  
 #### [Publiceringsguide för Office 365, Dynamics 365 och Power BI](./appsource-offer-publishing-guide.md)
 #### [Aktivera din utvärderingsversion av Marketplace med Azure Active Directory](./enable-trial-using-azure-ad.md)

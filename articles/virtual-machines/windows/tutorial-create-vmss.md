@@ -16,19 +16,19 @@ ms.topic: tutorial
 ms.date: 03/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9d9a4a091e1dbeb1c15cd9ec0e90d7006000bea9
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 9d6f898f519a5baabcc132fdefbb3fa8f8a120cb
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928258"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346216"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Självstudiekurs: Skapa en VM-skalningsuppsättning och distribuera en app med hög tillgänglighet i Windows med Azure PowerShell
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. I självstudien distribuerar du en VM-skalningsuppsättning i Azure. Lär dig att:
 
 > [!div class="checklist"]
 > * Använda tillägget för anpassat skript för att definiera en IIS-webbplats för att skala
-> * Skapa en belastningsutjämnare för din skalningsuppsättning
+> * Skapa en lastbalanserare för din skalningsuppsättning
 > * Skapa en VM-skalningsuppsättning
 > * Öka eller minska antalet instanser i en skalningsuppsättning
 > * Skapa regler för automatisk skalning
@@ -47,7 +47,7 @@ Skalningsuppsättningar har stöd för upp till 1 000 virtuella datorer när du 
 
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
-Skapa en VM-skalningsuppsättning med [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). I följande exempel skapas en skalningsuppsättning med namnet *myScaleSet* som använder *Windows Server 2016 Datacenter*-plattformsavbildningen. Azure-nätverksresurser för virtuellt nätverk, offentlig IP-adress och belastningsutjämnare skapas automatiskt. När du uppmanas, anger du dina egna önskade administrativa autentiseringsuppgifter för de virtuella datorinstanserna i skalningsuppsättning:
+Skapa en VM-skalningsuppsättning med [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). I följande exempel skapas en skalningsuppsättning med namnet *myScaleSet* som använder *Windows Server 2016 Datacenter*-plattformsavbildningen. Azure-nätverksresurser för virtuellt nätverk, offentlig IP-adress och lastbalanserare skapas automatiskt. När du uppmanas, anger du dina egna önskade administrativa autentiseringsuppgifter för de virtuella datorinstanserna i skalningsuppsättning:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -98,7 +98,7 @@ Update-AzureRmVmss `
 
 
 ## <a name="test-your-scale-set"></a>Testa din skalningsuppsättning
-Om du vill testa skaluppsättningen hämtar du den offentliga IP-adressen för belastningsutjämnaren med [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). I följande exempel hämtas IP-adressen för *myPublicIP* som skapas som en del av skalningsuppsättningen:
+Om du vill testa skaluppsättningen hämtar du den offentliga IP-adressen för lastbalanseraren med [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). I följande exempel hämtas IP-adressen för *myPublicIP* som skapas som en del av skalningsuppsättningen:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress `
@@ -106,11 +106,11 @@ Get-AzureRmPublicIPAddress `
     -Name "myPublicIPAddress" | select IpAddress
 ```
 
-Ange den offentliga IP-adressen i en webbläsare. Webbappen visas med värddatornamnet för den virtuella dator som belastningsutjämnaren distribuerade trafik till:
+Ange den offentliga IP-adressen i en webbläsare. Webbappen visas med värddatornamnet för den virtuella dator som lastbalanseraren distribuerade trafik till:
 
 ![Köra IIS-webbplats](./media/tutorial-create-vmss/running-iis-site.png)
 
-Om du vill se när skalningsuppsättningen används kan du framtvinga en uppdatering av webbläsaren. Då visas hur belastningsutjämnaren distribuerar trafik över alla virtuella datorer som kör programmet.
+Om du vill se när skalningsuppsättningen används kan du framtvinga en uppdatering av webbläsaren. Då visas hur lastbalanseraren distribuerar trafik över alla virtuella datorer som kör programmet.
 
 
 ## <a name="management-tasks"></a>Administrativa uppgifter
@@ -208,7 +208,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
   -DefaultCapacity 2  `
   -MaximumCapacity 10 `
   -MinimumCapacity 2 `
-  -Rules $myRuleScaleUp,$myRuleScaleDown `
+  -Rule $myRuleScaleUp,$myRuleScaleDown `
   -Name "autoprofile"
 
 # Apply the autoscale rules
@@ -217,7 +217,7 @@ Add-AzureRmAutoscaleSetting `
   -Name "autosetting" `
   -ResourceGroup $myResourceGroup `
   -TargetResourceId $myScaleSetId `
-  -AutoscaleProfiles $myScaleProfile
+  -AutoscaleProfile $myScaleProfile
 ```
 
 Mer information om användningen av autoskalning finns i [Metodtips för autoskalning](/azure/architecture/best-practices/auto-scaling).
@@ -228,7 +228,7 @@ I självstudien skapade du en VM-skalningsuppsättning. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Använda tillägget för anpassat skript för att definiera en IIS-webbplats för att skala
-> * Skapa en belastningsutjämnare för din skalningsuppsättning
+> * Skapa en lastbalanserare för din skalningsuppsättning
 > * Skapa en VM-skalningsuppsättning
 > * Öka eller minska antalet instanser i en skalningsuppsättning
 > * Skapa regler för automatisk skalning

@@ -3,20 +3,19 @@ title: Överföra stora mängder slumpmässiga data parallellt till Azure Storag
 description: Lär dig hur du använder Azure SDK för att överföra stora mängder slumpmässiga data parallellt till ett Azure Storage-konto
 services: storage
 author: roygara
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 668700cf3ff3d1a90f9639129ef2953ddca016f1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: blobs
+ms.openlocfilehash: 557dd1d89fc05d82f1839a7b02356857f41164c6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30239906"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399744"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Överföra stora mängder slumpmässiga data parallellt till Azure Storage
 
@@ -32,7 +31,7 @@ I del två i serien lär du dig hur du:
 
 Azure Blob Storage är en skalbar tjänst för att lagra data. För att ditt program ska få bästa möjliga prestanda rekommenderar vi att du lär dig hur Blob Storage fungerar. Det är viktigt att känna till gränserna för Azure-blobar. Du kan läsa mer om dessa gränser i [skalbarhetsmål för blob storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
 
-[Namngivning för partitioner](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) är en annan viktig faktor när du designar ett program med höga prestanda med hjälp av blobar. I Azure Storage används ett intervallbaserat partitioneringsschema för skalning och belastningsutjämning. Den här konfigurationen innebär att filer med liknande namnkonventioner eller prefix hamnar i samma partition. Den här logiken innehåller namnet på den behållare som filerna överförs till. I den här kursen använder du filer som har globalt unika identifierare som namn samt slumpmässigt genererat innehåll. De överförs sedan till fem olika behållare med slumpmässiga namn.
+[Namngivning för partitioner](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) är en annan viktig faktor när du designar ett program med höga prestanda med hjälp av blobar. I Azure Storage används ett intervallbaserat partitioneringsschema för skalning och belastningsutjämning. Den här konfigurationen innebär att filer med liknande namnkonventioner eller prefix hamnar i samma partition. Den här logiken innehåller namnet på den container som filerna överförs till. I den här kursen använder du filer som har globalt unika identifierare som namn samt slumpmässigt genererat innehåll. De överförs sedan till fem olika containrar med slumpmässiga namn.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -66,7 +65,7 @@ Skriv `dotnet run` för att köra programmet. Första gången du kör `dotnet` f
 dotnet run
 ```
 
-Programmet skapar fem behållare med slumpmässiga namn och börjar överföra filerna i mellanlagringskatalogen till lagringskontot. Programmet anger inställningen för minsta antal trådar till 100 och [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) till 100 för att säkerställa att ett stort antal samtidiga anslutningar tillåts när programmet körs.
+Programmet skapar fem containrar med slumpmässiga namn och börjar överföra filerna i mellanlagringskatalogen till lagringskontot. Programmet anger inställningen för minsta antal trådar till 100 och [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) till 100 för att säkerställa att ett stort antal samtidiga anslutningar tillåts när programmet körs.
 
 Förutom att ange inställningarna för trådning och anslutningsgräns konfigureras [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) för metoden [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) för att använda parallellitet och inaktivera MD5-hashverifiering. Filerna överförs i block om 100 MB. Den här konfigurationen ger bättre prestanda, men kan vara kostsam om du använder ett bristfälligt nätverk eftersom hela blocket på 100 MB hämtas om det uppstår ett fel.
 

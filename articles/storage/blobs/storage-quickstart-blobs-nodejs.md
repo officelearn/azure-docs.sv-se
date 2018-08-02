@@ -1,24 +1,23 @@
 ---
 title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av Node.js | Microsoft Docs
-description: I den här snabbstarten skapar du ett lagringskonto och en behållare i objektlagring (Blob). Sedan använder du lagringsklientbiblioteket för Node.js och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
+description: I den här snabbstarten skapar du ett lagringskonto och en container i objektlagring (Blob). Sedan använder du lagringsklientbiblioteket för Node.js och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en container.
 services: storage
 author: craigshoemaker
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: 07ac5195d9653affdbb0f305ac1697cecd379319
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: acf332209ca0588ab7722ddcfdcfe7b6715d672c
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308142"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397940"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Node.js
 
-I den här snabbstarten får du lära dig att använda Node.js till att ladda upp, ladda ned och lista blockblobbar i en behållare i Azure Blob Storage.
+I den här snabbstarten får du lära dig att använda Node.js till att ladda upp, ladda ned och lista blockblobbar i en container i Azure Blob Storage.
 
 Du behöver en [Azure-prenumeration](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) för att kunna utföra den här snabbstarten.
 
@@ -49,7 +48,7 @@ npm install
 ```
 
 ## <a name="run-the-sample"></a>Kör exemplet
-Nu när beroenden är installerade kan du köra exemplet genom att skicka kommandon till skriptet. Om du vill skapa en blobbehållare kan du exempelvis köra följande kommando:
+Nu när beroenden är installerade kan du köra exemplet genom att skicka kommandon till skriptet. Om du vill skapa en blobcontainer kan du exempelvis köra följande kommando:
 
 ```bash
 node index.js --command createContainer
@@ -103,7 +102,7 @@ Variablerna är inställda på följande värden:
 
 I följande implementering omsluts varje *blobService*-funktion i en *Promise*, som ger åtkomst till Javascript-funktionen *async* och operatorn *await*, vilket förenklar motringningar i [Azure Storage-API:n](/nodejs/api/azure-storage/blobservice). När ett lyckat svar returneras för varje funktion, matchas aktuell promise med relevanta data, tillsammans med ett meddelande som är specifikt för åtgärden.
 
-### <a name="create-a-blob-container"></a>Skapa en blobbehållare
+### <a name="create-a-blob-container"></a>Skapa en blobcontainer
 
 Funktionen *createContainer* anropar [createContainerIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) och anger rätt åtkomstnivå för blobben.
 
@@ -121,11 +120,11 @@ const createContainer = () => {
 };
 ```
 
-Den andra parametern (*alternativ*) för **createContainerIfNotExists** accepterar ett värde för [publicAccessLevel](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists). Värdet *blob* för *publicAccessLevel* anger att specifika blobbdata exponeras offentligt. Den här inställningen är motsatt till *behållarens* nivååtkomst, vilket ger möjlighet att visa innehållet i behållaren.
+Den andra parametern (*alternativ*) för **createContainerIfNotExists** accepterar ett värde för [publicAccessLevel](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists). Värdet *blob* för *publicAccessLevel* anger att specifika blobbdata exponeras offentligt. Den här inställningen är motsatt till *containerns* nivååtkomst, vilket ger möjlighet att visa innehållet i containern.
 
-Användningen av **createContainerIfNotExists** innebär att programmet kör kommandot *createContainer* flera gånger utan att returnera fel när behållaren redan finns. I en produktionsmiljö kan du ofta bara anropa **createContainerIfNotExists** när samma behållare används i hela programmet. I dessa fall kan du skapa behållaren i förväg via portalen eller via Azure CLI.
+Användningen av **createContainerIfNotExists** innebär att programmet kör kommandot *createContainer* flera gånger utan att returnera fel när behållaren redan finns. I en produktionsmiljö kan du ofta bara anropa **createContainerIfNotExists** när samma behållare används i hela programmet. I dessa fall kan du skapa containern i förväg via portalen eller via Azure CLI.
 
-### <a name="upload-a-blob-to-the-container"></a>Ladda upp en blob till behållaren
+### <a name="upload-a-blob-to-the-container"></a>Ladda upp en blob till containern
 
 Funktionen *Ladda upp* använder [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromLocalFile) till att ladda upp och skriva eller skriva över en fil från filsystemet till blobblagringen. 
 
@@ -146,9 +145,9 @@ I samband med det här exempelprogrammet överförs filen *exempel.txt* till en 
 
 Om du vill kontrollera att filen har laddats upp till blobblagringen, kan du använda [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) till att visa datan på ditt konto.
 
-### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
+### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Funktionen *list* anropar metoden [listBlobsSegmented](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) för att returnera en lista med blobbmetadata i en behållare. 
+Funktionen *list* anropar metoden [listBlobsSegmented](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) för att returnera en lista med blobbmetadata i en container. 
 
 ```javascript
 const list = () => {
@@ -164,9 +163,9 @@ const list = () => {
 };
 ```
 
-Om *listBlobsSegmented* anropas returneras blobbmetadata som en matris med [BlobResult](/nodejs/api/azure-storage/blobresult)-instanser. Resultaten returneras i 5 000 inkrementella batchar (segment). Om det finns fler än 5 000 blobbar i en behållare kommer resultatet innehålla ett värde för **continuationToken**. Visa efterföljande segment från blobbehållaren genom att skicka fortsättningstoken tillbaka till **listBlobSegmented** som det andra argumentet.
+Om *listBlobsSegmented* anropas returneras blobbmetadata som en matris med [BlobResult](/nodejs/api/azure-storage/blobresult)-instanser. Resultaten returneras i 5 000 inkrementella batchar (segment). Om det finns fler än 5 000 blobbar i en container kommer resultatet innehålla ett värde för **continuationToken**. Visa efterföljande segment från blobcontainern genom att skicka fortsättningstoken tillbaka till **listBlobSegmented** som det andra argumentet.
 
-### <a name="download-a-blob-from-the-container"></a>Ladda ner en blob från behållaren
+### <a name="download-a-blob-from-the-container"></a>Ladda ner en blob från containern
 
 Funktionen för att *ladda ned* använder [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_getBlobToLocalFile) för att hämta innehållet i blobben till den angivna absoluta sökvägen.
 
@@ -186,7 +185,7 @@ const download = () => {
 ```
 Implementeringen som visas här ändrar sökvägen till källfilen genom att lägga till *. downloaded.txt* i filnamnet. I verkligheten kan du ändra både plats och namn på filen när du väljer ett mål för nedladdningen.
 
-### <a name="delete-blobs-in-the-container"></a>Ta bort blobbar i behållaren
+### <a name="delete-blobs-in-the-container"></a>Ta bort blobbar i containern
 
 Funktionen *deleteBlock* (ett alias för konsolkommandot *ta bort*) anropar funktionen [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists). Som namnet antyder returnerar den här funktionen inte ett fel som blobben redan har tagit bort.
 

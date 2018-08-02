@@ -1,20 +1,19 @@
 ---
 title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av Azure CLI | Microsoft Docs
-description: I den här snabbstarten använder du Azure CLI i objektlagring (Blob). Sedan använder du CLI för att ladda upp en blob till Azure Storage, ladda ned en blob och lista blobarna i en behållare.
+description: I den här snabbstarten använder du Azure CLI i objektlagring (Blob). Sedan använder du CLI för att ladda upp en blob till Azure Storage, ladda ned en blob och lista blobarna i en container.
 services: storage
 author: roygara
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: b55fe97adc56f4b8f1baeb2d8bb5f905fcd424bd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 106c84a6eaff3766c5308ccb130dc7c21e7ec4d8
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232728"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397020"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Azure CLI
 
@@ -28,9 +27,9 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-cli](../../../includes/storage-quickstart-tutorial-intro-include-cli.md)]
 
-## <a name="create-a-container"></a>Skapa en behållare
+## <a name="create-a-container"></a>Skapa en container
 
-Blobar laddas alltid upp till en behållare. Du kan ordna grupper av blobar på samma sätt som du ordnar filer i mappar på datorn.
+Blobar laddas alltid upp till en container. Du kan ordna grupper av blobar på samma sätt som du ordnar filer i mappar på datorn.
 
 Skapa en behållare för att lagra blobar med kommandot [az storage container create](/cli/azure/storage/container#az_storage_container_create).
 
@@ -45,7 +44,7 @@ Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. De flesta filer
 Skapa först en fil som ska överföras till en blob.
 Om du använder Azure Cloud Shell använder du följande för att skapa en fil: `vi helloworld` när filen öppnas: tryck på **Insert**, skriv "Hello world" och tryck på **Esc** och skriv `:x` och tryck sedan på **Retur**.
 
-I det här exemplet laddar vi upp en blob till den behållare som vi skapade i det senaste steget med kommandot [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload).
+I det här exemplet laddar vi upp en blob till den container som vi skapade i det senaste steget med kommandot [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -67,9 +66,9 @@ Den här åtgärden skapar bloben om den inte redan finns, och skriver över den
 
 Om du vill ladda upp flera filer samtidigt kan du använda kommandot [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch).
 
-## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
+## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Lista blobarna i behållaren med kommandot [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
+Lista blobarna i containern med kommandot [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
 
 ```azurecli-interactive
 az storage blob list \
@@ -112,7 +111,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal disk och en behållare i Azure Blob Storage. Om du vill veta mer om att arbeta med blobar i Azure Storage kan du fortsätta med de självstudierna.
+I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal disk och en container i Azure Blob Storage. Om du vill veta mer om att arbeta med blobar i Azure Storage kan du fortsätta med de självstudierna.
 
 > [!div class="nextstepaction"]
 > [Så gör du: Utföra åtgärder för Blob Storage med Azure CLI](storage-how-to-use-blobs-cli.md)

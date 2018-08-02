@@ -153,26 +153,23 @@
 
 
 ## Hantera enheter
-### [Introduktion](device-management-introduction.md)
-### [Använd Azure Portal](device-management-azure-portal.md)
-### [Planera Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
-### [Vanliga frågor och svar](device-management-faq.md)
+### [Översikt](devices/overview.md)
+### [Använd Azure Portal](devices/device-management-azure-portal.md)
+### [Planera Azure AD Join](devices/azureadjoin-plan.md)
+### [Vanliga frågor och svar](devices/faq.md)
 ### Uppgifter
 #### [Så här planerar du Azure Active Directory Join-hybridimplementeringen](devices/hybrid-azuread-join-plan.md)
 #### [Konfigurera Azure Active Directory Join-hybrid för hanterade domäner](devices/hybrid-azuread-join-managed-domains.md)
 #### [Konfigurera Azure Active Directory Join-hybrid för federerade domäner](devices/hybrid-azuread-join-federated-domains.md)
 #### [Så här kontrollerar du Azure Active Directory Join-hybriden för dina enheter](devices/hybrid-azuread-join-control.md)
-
-
-
 #### [Konfigurera Azure AD-registrerade Windows 10-enheter](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Konfigurera Azure AD-anslutna enheter](user-help/device-management-azuread-joined-devices-setup.md)
 #### [Konfigurera Azure AD-anslutna hybrid-enheter](devices/hybrid-azuread-join-manual-steps.md)
 #### [Distribuera lokalt](active-directory-device-registration-on-premises-setup.md)
-#### [Azure AD-anslutning under första körningen av Windows 10](device-management-azuread-joined-devices-frx.md)
+#### [Azure AD-anslutning under första körningen av Windows 10](devices/azuread-joined-devices-frx.md)
 ### Felsöka
-#### [Azure AD-anslutna Windows 10- och Windows Server 2016-hybridenheter](device-management-troubleshoot-hybrid-join-windows-current.md)
-#### [Tidigare Azure AD-anslutna Windows-hybridenheter ](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+#### [Azure AD-anslutna Windows 10- och Windows Server 2016-hybridenheter](devices/troubleshoot-hybrid-join-windows-current.md)
+#### [Tidigare Azure AD-anslutna Windows-hybridenheter ](devices/troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Hantera appar
 ### [Översikt](manage-apps/what-is-application-management.md)

@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 07/26/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f9dea759f6556bc521dda4efbd27176f1e06452b
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 350749161260768071afbb47b854cb2e9184bd9d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126583"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284735"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-web-application"></a>Självstudie: Distribuera ett Service Fabric Mesh-webbprogram
 
@@ -106,26 +106,9 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 Öppna en webbläsare och navigera till webbadressen för att se webbplatsen köras i Azure.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="set-up-service-fabric-mesh-cli"></a>Konfigurera Service Fabric Mesh CLI 
+Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för återstående steg. Installera Azure Service Fabric Mesh CLI-tilläggsmodulen genom att följa de här [instruktionerna](service-fabric-mesh-howto-setup-cli.md).
 
-Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för återstående steg.
-
-Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.35 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du vill installera eller uppgradera till den senaste versionen av CLI kan du läsa [Installera Azure CLI 2.0][azure-cli-install].
-
-## <a name="install-the-az-mesh-cli"></a>Installera az mesh cli
-Vid prompt i kommandoradsgränssnittet
-
-1) Ta bort alla föregående installationer av Azure Service Fabric Mesh CLI-modulen.
-
-```cli
-az extension remove --name mesh
-```
-
-2)  Installera Azure Service Fabric Mesh CLI-tilläggsmodulen. För förhandsversionen är kommandoradsgränssnittet (CLI) för Azure Service Fabric Mesh skrivet som ett tillägg till Azure-CLI. I den offentliga förhandsversionen ingår det dock i Azure-CLI.
-
-```cli
-az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
-```
 
 ## <a name="check-application-deployment-status"></a>Kontrollera programmets distributionsstatus
 

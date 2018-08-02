@@ -1,24 +1,23 @@
 ---
 title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av Go | Microsoft Docs
-description: I den här snabbstarten skapar du ett lagringskonto och en behållare i objektlagring (Blob). Sedan använder du lagringsklientbiblioteket för Go och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
+description: I den här snabbstarten skapar du ett lagringskonto och en container i objektlagring (Blob). Sedan använder du lagringsklientbiblioteket för Go och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en container.
 services: storage
 author: seguler
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: seguler
-ms.openlocfilehash: 1ce3debd8b04cf6c799dd7d6a3c87f843f1e0338
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 90858501cbf20af032c98ca8703f9e74b475e9c1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38707571"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398584"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Go
 
-I den här snabbstarten får du lära dig att använda Go-programmeringsspråket för att ladda upp, hämta och lista blockblobar i Azure Blob-lagring. 
+I den här snabbstarten får du lära dig att använda Go-programmeringsspråket för att ladda upp, hämta och lista blockblobar i en container i Azure Blob-lagring. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -63,7 +62,7 @@ setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ---
 
 ## <a name="run-the-sample"></a>Kör exemplet
-Exemplet skapar en testfil i den aktuella mappen, laddar upp testfilen till Blob Storage, listar blobarna i behållaren och laddar ned filen till en buffert. 
+Exemplet skapar en testfil i den aktuella mappen, laddar upp testfilen till Blob Storage, listar blobarna i containern och laddar ned filen till en buffert. 
 
 Om du vill köra exemplet kör du följande kommando: 
 
@@ -81,7 +80,7 @@ Downloaded the blob: hello world
 this is a blob
 Press the enter key to delete the sample files, example container, and exit the application.
 ```
-När du trycker på valfri tangent för att fortsätta tar exempelprogrammet bort behållaren och filerna. 
+När du trycker på valfri tangent för att fortsätta tar exempelprogrammet bort containern och filerna. 
 
 > [!TIP]
 > Du kan också använda ett verktyg som [Azure Storage Explorer](http://storageexplorer.com) för att visa filerna i Blob Storage. Azure Storage Explorer är ett kostnadsfritt verktyg för flera plattformar som gör det möjligt att komma åt information på lagringskontot. 
@@ -104,9 +103,9 @@ Det första du ska göra är att skapa referenser till ContainerURL- och BlobURL
 När du har ContainerURL kan du instansiera **BlobURL**-objektet som pekar på en blob och vidta åtgärder som uppladdning, nedladdning och kopiering.
 
 > [!IMPORTANT]
-> Behållarnamn måste använda gemener. Mer information om behållare och blobnamn finns i [Namngivning och referens av behållare, blobar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Containernamn måste använda gemener. Mer information om containrar och blobnamn finns i [Namngivning och referens av containrar, blobar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-I det här avsnittet skapar du en ny behållare. Behållaren heter **quickstartblobs-[random string]**. 
+I det här avsnittet skapar du en ny container. Containern heter **quickstartblobs-[random string]**. 
 
 ```go 
 // From the Azure portal, get your storage account name and key and set environment variables.
@@ -136,7 +135,7 @@ ctx := context.Background() // This example uses a never-expiring context
 _, err := containerURL.Create(ctx, azblob.Metadata{}, azblob.PublicAccessNone)
 handleErrors(err)
 ```
-### <a name="upload-blobs-to-the-container"></a>Ladda upp blobar i behållaren
+### <a name="upload-blobs-to-the-container"></a>Ladda upp blobar i containern
 
 Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobar är vanligast och används i denna snabbstart.  
 
@@ -144,7 +143,7 @@ Om du vill ladda upp en fil till en blob öppnar du filen med **os.Open**. Du ka
 
 SDK:erna erbjuder även [högnivå-API:er](https://github.com/Azure/azure-storage-blob-go/blob/master/2016-05-31/azblob/highlevel.go) som är skapade ovanpå lågnivå-REST API:erna. Som ett exempel på detta använder funktionen ***UploadFileToBlockBlob*** PutBlock-åtgärder för att ladda upp en fil i segment för att optimera dataflödet samtidigt. Om filen är mindre än 256 MB använder den PutBlob istället för att slutföra överföringen i en enda transaktion.
 
-I följande exempel överförs filen till behållaren med namnet **quickstartblobs-[randomstring]**.
+I följande exempel överförs filen till containern med namnet **quickstartblobs-[randomstring]**.
 
 ```go
 // Here's how to upload a blob.
@@ -167,7 +166,7 @@ _, err = azblob.UploadFileToBlockBlob(ctx, file, blobURL, azblob.UploadToBlockBl
 handleErrors(err)
 ```
 
-### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
+### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
 Hämta en lista över filer i behållaren med hjälp av metoden **ListBlobs** på en **ContainerURL**. ListBlobs returnerar ett enda segment med blobar (upp till 5000) från den angivna **markören**. Använd en tom markör för att börja uppräkningen från början. Blobnamn returneras i lexikografisk ordning. När du har hämtat ett segment ska du behandla det och sedan anropa ListBlobs igen och skicka den tidigare returnerade markören.  
 
@@ -203,7 +202,7 @@ handleErrors(err)
 ```
 
 ### <a name="clean-up-resources"></a>Rensa resurser
-Om du inte längre behöver blobarna som laddades upp i denna snabbstart kan du ta bort hela behållaren med hjälp av **Delete**. 
+Om du inte längre behöver blobarna som laddades upp i denna snabbstart kan du ta bort hela containern med hjälp av **Delete**. 
 
 ```go
 // Cleaning up the quick start by deleting the container and the file created locally

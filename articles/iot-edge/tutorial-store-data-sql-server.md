@@ -9,20 +9,20 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d0837787dcac44d2cc43701ac181ec7eac2dfa2c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cd32d78987ab8d718c813cf8c47018ac2ecbe823
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38687223"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283553"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Självstudie: Lagra data på gränsen med SQL Server-databaser
 
 Använda Azure IoT Edge och SQL Server för att lagra och fråga efter data på gränsen. Azure IoT Edge har inbyggda grundläggande lagringsfunktioner som cachelagrar meddelanden om en enhet tas offline och sedan vidarebefordrar dem när anslutningen återupprättas. Du kanske behöver mer avancerade funktioner, som t.ex. att kunna fråga efter data lokalt. IoT Edge-enheterna kan utföra mer komplexa beräkningar utan att behöva underhålla en anslutning till IoT Hub om en lokal databas läggs till. Exempelvis kan en fälttekniker visualisera sensordata från de senaste dagarna på en lokal dator, även om dessa data bara överförs till molnet en gång i månaden. Detta gör det lättare att förbättra maskininlärningsmodeller.
 
-Den här artikeln innehåller instruktioner för hur man distribuerar en SQL Server-databas till en IoT Edge-enhet. Azure Functions körs på IoT Edge-enheten och strukturerar inkommande data och skickar dem sedan till databasen. Stegen i den här artikeln kan också tillämpas på andra databaser i behållare som MySQL eller PostgreSQL.
+Den här artikeln innehåller instruktioner för hur man distribuerar en SQL Server-databas till en IoT Edge-enhet. Azure Functions körs på IoT Edge-enheten och strukturerar inkommande data och skickar dem sedan till databasen. Stegen i den här artikeln kan också tillämpas på andra databaser som fungerar i containrar, t.ex. MySQL eller PostgreSQL.
 
-I den här guiden får du lära dig hur man: 
+I den här guiden får du lära dig att: 
 
 > [!div class="checklist"]
 > * Använd Visual Studio Code för att skapa en Azure-funktion
@@ -41,8 +41,8 @@ I den här guiden får du lära dig hur man:
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download). 
 * [Docker CE](https://docs.docker.com/install/) på utvecklingsdatorn. 
 
-## <a name="create-a-container-registry"></a>Skapa ett behållarregister
-I den här självstudien använder du Azure IoT Edge-tillägget för VS Code för att skapa en modul och skapa en **behållaravbildning** från filerna. Sedan pushar du avbildningen till ett **register** som lagrar och hanterar dina avbildningar. Slutligen, distribuerar du din avbildning från ditt register så det kör på din IoT Edge-enhet.  
+## <a name="create-a-container-registry"></a>Skapa ett containerregister
+I den här självstudien använder du Azure IoT Edge-tillägget för VS Code för att skapa en modul och skapa en **containeravbildning** från filerna. Sedan pushar du avbildningen till ett **register** som lagrar och hanterar dina avbildningar. Slutligen, distribuerar du din avbildning från ditt register så det kör på din IoT Edge-enhet.  
 
 Du kan använda valfritt Docker-kompatibelt register för den här självstudien. Två populära Docker-registertjänster som finns tillgängliga i molnet är [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) och [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). I den här kursen använder vi Azure Container Registry. 
 
@@ -54,7 +54,7 @@ Du kan använda valfritt Docker-kompatibelt register för den här självstudien
 3. För resursgruppen rekommenderar vi att du använder det resursgruppsnamn som innehåller din IoT Hub. Genom att lägga alla resurser i en grupp, kan du hantera dem tillsammans. Till exempel tas alla testresurser som ingår i gruppen bort om resursgruppen för testning tas bort. 
 4. Sätt SKU:n till **Basic** och ändra **Administratörsanvändare** till **Aktivera**. 
 5. Klicka på **Skapa**.
-6. När du har skapat ditt behållarregister, navigerar du till det och väljer **Åtkomstnycklar**. 
+6. När du har skapat ditt containerregister, navigerar du till det och väljer **Åtkomstnycklar**. 
 7. Kopiera värdena för **Inloggningsserver**, **Användarnamn** och **Lösenord**. Du kommer att använda de här värdena senare i självstudien. 
 
 ## <a name="create-a-function-project"></a>Skapa ett funktionsprojekt
@@ -153,7 +153,7 @@ Följande steg visar hur du skapar en IoT Edge-funktion med Visual Studio Code o
    }
    ```
 
-6. Ersätt strängen **\<sql-anslutningssträng\>** i rad 24 med följande sträng. Egenskapen för **datakälla** refererar till SQL Server-behållarnamnet **SQL** som du skapar i nästa avsnitt. 
+6. Ersätt strängen **\<sql-anslutningssträng\>** i rad 24 med följande sträng. Egenskapen för **datakälla** refererar till SQL Server-containernamnet **SQL** som du skapar i nästa avsnitt. 
 
    ```C#
    Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=Strong!Passw0rd;TrustServerCertificate=False;Connection Timeout=30;
@@ -161,7 +161,7 @@ Följande steg visar hur du skapar en IoT Edge-funktion med Visual Studio Code o
 
 7. Spara filen **run.csx**. 
 
-## <a name="add-a-sql-server-container"></a>Lägg till en SQL Server-behållare
+## <a name="add-a-sql-server-container"></a>Lägga till en SQL Server-container
 
 Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT Edge-körningen kommer installera på din IoT Edge-enhet. Du lade till koden för att skapa en anpassad Functions-modul i föregående avsnitt, men modulen SQL Server har redan skapats. Du behöver bara tala om för IoT Edge-körningen att inkludera den och sedan konfigurera den på din enhet. 
 
@@ -199,7 +199,7 @@ Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT 
       ```
 
    >[!Tip]
-   >Varje gång du skapar en SQL Server-behållare i en produktionsmiljö bör du [ändra standardlösenord för systemadministratören](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
+   >Varje gång du skapar en SQL Server-container i en produktionsmiljö bör du [ändra standardlösenord för systemadministratören](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 
 5. Spara filen **deployment.template.json**. 
 
@@ -262,34 +262,34 @@ När du applicerar distributionsmanifestet på din enhet körs tre moduler. Modu
 Det här avsnittet hjälper dig att konfigurera SQL-databasen för lagring av temperaturdata. 
 
 1. Anslut till databasen med en kommandorad. 
-   * Windows-behållare:
+   * Windows-container:
    
       ```cmd
       docker exec -it sql cmd
       ```
     
-   * Linux-behållare: 
+   * Linux-container: 
 
       ```bash
       docker exec -it sql bash
       ```
 
 2. Öppna SQL-kommandoverktyget.
-   * Windows-behållare:
+   * Windows-container:
 
       ```cmd
       sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
       ```
 
-   * Linux-behållare: 
+   * Linux-container: 
 
       ```bash
-      /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Password'
+      /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
       ```
 
 3. Skapa databasen: 
 
-   * Windows-behållare
+   * Windows-container
       ```sql
       CREATE DATABASE MeasurementsDB
       ON
@@ -297,7 +297,7 @@ Det här avsnittet hjälper dig att konfigurera SQL-databasen för lagring av te
       GO
       ```
 
-   * Linux-behållare
+   * Linux-container
       ```sql
       CREATE DATABASE MeasurementsDB
       ON
@@ -312,7 +312,7 @@ Det här avsnittet hjälper dig att konfigurera SQL-databasen för lagring av te
    GO
    ```
 
-Du kan anpassa din SQL Server Docker-fil så att SQL Server automatiskt konfigureras för distribuering till flera IoT Edge-enheter. Mer information finns i [demoprojektet för Microsoft SQL Server-behållaren](https://github.com/twright-msft/mssql-node-docker-demo-app). 
+Du kan anpassa din SQL Server Docker-fil så att SQL Server automatiskt konfigureras för distribuering till flera IoT Edge-enheter. Mer information finns i [demoprojektet för Microsoft SQL Server-containern](https://github.com/twright-msft/mssql-node-docker-demo-app). 
 
 ## <a name="view-the-local-data"></a>Visa lokala data
 
@@ -345,7 +345,7 @@ sleep 5
 sc.exe delete iotedge
 ```
 
-Ta bort de behållare som har skapats på enheten. 
+Ta bort de containrar som har skapats på enheten. 
 
 ```Powershell
 docker rm -f $(docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor")
@@ -359,13 +359,13 @@ Ta bort IoT Edge-körningen.
 sudo apt-get remove --purge iotedge
 ```
 
-Ta bort de behållare som har skapats på enheten. 
+Ta bort de containrar som har skapats på enheten. 
 
 ```bash
 sudo docker rm -f $(sudo docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor")
 ```
 
-Ta bort körmiljön för behållaren.
+Ta bort körmiljön för containern.
 
 ```bash
 sudo apt-get remove --purge moby

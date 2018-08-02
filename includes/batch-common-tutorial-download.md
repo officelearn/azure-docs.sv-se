@@ -8,4 +8,4 @@ Du kan använda Azure-portalen till att hämta de utdatafiler i MP3-format som g
 
 ![Ladda ned utdatafil](./media/batch-common-tutorial-download/download.png)
 
-Även om det inte visas i det här exemplet kan du också ladda ned filerna programmatiskt från beräkningsnoderna eller från lagringsbehållaren.
+Även om det inte visas i det här exemplet kan du också ladda ned filerna programmatiskt från beräkningsnoderna eller från lagringscontainern.

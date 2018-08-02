@@ -45,6 +45,8 @@
       href: traffic-manager-metrics-alerts.md
     - name: Haveriberedskap med hjälp av Azure DNS och Traffic Manager
       href: ../networking/disaster-recovery-dns-traffic-manager.md
+    - name: Så här fungerar Traffic Manager
+      href: traffic-manager-how-it-works.md
     - name: Vanliga frågor och svar
       href: traffic-manager-FAQs.md
 - name: Gör så här för att
@@ -95,7 +97,7 @@
   items:
     - name: Application Gateway
       href: /azure/application-gateway/
-    - name: Load Balancer
+    - name: Lastbalanserare
       href: /azure/load-balancer/
     - name: Azure DNS
       href: /azure/dns/

@@ -1,8 +1,8 @@
-- name: Dokumentation om belastningsutjämnare
+- name: Dokumentation om lastbalanserare
   href: index.yml
 - name: Översikt
   items:
-    - name: Vad är belastningsutjämnare?
+    - name: Vad är lastbalanserare?
       href: load-balancer-overview.md
 - name: Snabbstart
   items:
@@ -40,7 +40,7 @@
   items:
     - name: Vad är Load Balancer Standard?
       href: load-balancer-standard-overview.md
-    - name: Läsa in avsökningar för belastningsutjämnaren
+    - name: Hälsotillståndsavsökningar
       href: load-balancer-custom-probe-overview.md
     - name: Portar med hög tillgänglighet
       href: load-balancer-ha-ports-overview.md
@@ -93,7 +93,7 @@
           href: load-balancer-get-started-ilb-arm-cli.md
         - name: Konfigurera intern Load Balancer (mall)
           href: load-balancer-get-started-ilb-arm-template.md
-    - name: Konfigurera TCP-tidsgräns vid inaktivitet för belastningsutjämnare
+    - name: Konfigurera TCP-tidsgräns vid inaktivitet för lastbalanserare
       href: load-balancer-tcp-idle-timeout.md
     - name: Konfigurera distributionsläge för Load Balancer
       href: load-balancer-distribution-mode.md

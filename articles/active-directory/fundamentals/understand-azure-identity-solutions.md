@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: b052613161b4fee9a01def966fb02cbf8a7a483c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 118f8258673c8a19d5f06e5fc62ff56d0fb44ea1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056944"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398372"
 ---
 # <a name="understand-azure-identity-solutions"></a>Förstå Azure-identitetslösningar
 Microsoft Azure Active Directory (Azure AD) är en molnlösning för identitets- och åtkomsthantering som tillhandahåller katalogtjänster, identitetsstyrning och programåtkomsthantering. Azure AD [aktiverar snabbt enkel inloggning (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) till tusentals förintegrerade kommersiella och anpassade appar i [Azure AD-programgalleriet](https://azure.microsoft.com/marketplace/active-directory/all/). Du använder säkert många av de här apparna, till exempel Office 365, Salesforce.com, Box, ServiceNow och Workday.
@@ -103,7 +103,7 @@ Här följer några vanliga scenarier om identitet och åtkomst med rekommendati
 |Min organisation har stora tillgångar i den lokala Windows Server Active Directory, men vi vill utöka identitet till molnet.| Den mest använda Azure-identitetslösningen är [hybrididentitet](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview). Om du redan har tillgångar i lokalt AD DS kan du enkelt utöka identitet till molnet med Azure AD Connect.|
 |Mitt företag grundades med utgångspunkt i molnet, och vi har inga tillgångar i lokala identitetslösningar.| [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) är det bästa valet för helt molnbaserade företag utan lokala tillgångar.|
 |Jag behöver enkel konfiguration och kontroll för virtuella Azure-datorer för att uppfylla lokala identitetskrav för utveckling och testning av appar.|[Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) är ett bra alternativ om du behöver använda AD DS för enkel konfigurationskontroll för virtuella Azure-datorer eller vill utveckla eller migrera äldre, katalogbaserade lokala program till molnet.|  
-|Jag behöver bara stödja ett fåtal virtuella datorer i Azure, men företaget har fortfarande betydande tillgångar i det lokala Active Directory (AD DS).|Använd [gör-det-själv-AD DS](https://msdn.microsoft.com/library/azure/jj156090.aspx) för att använda virtuella Azure-datorer när du bara behöver stödja ett fåtal virtuella datorer och har stora AD DS-tillgångar lokalt. |
+|Jag behöver bara stödja ett fåtal virtuella datorer i Azure, men företaget har fortfarande betydande tillgångar i det lokala Active Directory (AD DS).|Använd [gör-det-själv-AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison#do-it-yourself-diy-ad-deployment-options) för att använda virtuella Azure-datorer när du bara behöver stödja ett fåtal virtuella datorer och har stora AD DS-tillgångar lokalt. |
 
 ## <a name="where-can-i-learn-more"></a>Var hittar jag mer information?
 Vi har en mängd bra resurser online för att lära dig allt om Azure AD. Här är en lista över bra artiklar för att komma igång:
@@ -126,5 +126,3 @@ Nu när du förstår Azure-identitetsbegreppen och de alternativ du har tillgån
 [Mer information om lösningar för Azure-hybrididentitet](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution)
 
 [Lär dig mer i en Azure Proof of Concept-miljö](https://aka.ms/aad-poc)
-
-[Distribuera Azure AD i produktion](https://aka.ms/aad-onboard)

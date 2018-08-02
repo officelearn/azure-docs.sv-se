@@ -1,21 +1,21 @@
 ---
-title: 'Snabbstart: Skapa och fråga Azure SQL Data Warehouse - Azure-portalen | Microsoft Docs'
-description: Skapa och läsa ett data warehouse med Azure SQL Data Warehouse i Azure-portalen.
+title: 'Snabbstart: Skapa och fråga Azure SQL Data Warehouse – Azure Portal | Microsoft Docs'
+description: Skapa och fråga data warehouse med Azure SQL Data Warehouse i Azure-portalen.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/01/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e9501d023ad1e0bfdf692f31ec61ae59959c0f23
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6602dc52675344b2e68fefd9eb97d3edcbd1745b
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191527"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413263"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabbstart:Skapa och skicka frågor till ett Azure SQL informationslager i Azure-portalen
 
@@ -38,7 +38,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Skapa ett datalager
 
-Ett Azure SQL Data Warehouse skapas med en definierad uppsättning [beräkningsresurser](memory-and-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-servers-databases.md#what-is-an-azure-sql-logical-server). 
+Ett Azure SQL Data Warehouse skapas med en definierad uppsättning [beräkningsresurser](memory-and-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-logical-servers.md). 
 
 Följ de här stegen för att skapa ett SQL Data Warehouse som innehåller exempeldatabasen AdventureWorksDW. 
 
@@ -73,15 +73,15 @@ Följ de här stegen för att skapa ett SQL Data Warehouse som innehåller exemp
 
 5. Klicka på **Välj**.
 
-6. Klicka på **prestandanivå** ska kunna ange konfigurationen för prestanda för datalagret.
+6. Klicka på **prestandanivå** att ange prestandakonfigurationen för informationslagret.
 
-7. Den här kursen väljer **Gen2**. Skjutreglaget, som standard är inställt på **DW1000c**.  Prova att flytta det uppåt och nedåt för att se hur det fungerar. 
+7. Den här självstudien väljer **Gen2**. Skjutreglaget är som standard anges till **DW1000c**.  Prova att flytta det uppåt och nedåt för att se hur det fungerar. 
 
     ![konfigurera prestanda](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
-8. Klicka på **Använd**.
+8. Klicka på **Verkställ**.
 
-9. Nu när du har slutfört formuläret SQL Data Warehouse, klicka på **skapa** att tillhandahålla databasen. Etableringen tar några minuter. 
+9. Nu när du har fyllt i formuläret för SQL Data Warehouse, klickar du på **skapa** att etablera databasen. Etableringen tar några minuter. 
 
     ![klicka på skapa](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -97,7 +97,7 @@ Tjänsten SQL Database Warehouse skapar en brandvägg på servernivå som hindra
 > SQL Database Warehouse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
 >
 
-1. När distributionen är klar klickar du på **SQL-informationslager** från den vänstra menyn och klicka sedan på **mySampleDatabase** på den **SQL-informationslager** sidan. På översiktssidan för din databas öppnas och visar fullständigt kvalificerade servernamnet (exempelvis **mynewserver 20180430.database.windows.net**) och innehåller alternativ för ytterligare konfiguration. 
+1. När distributionen är klar klickar du på **SQL-informationslager** från den vänstra menyn och klicka sedan på **mySampleDatabase** på den **SQL-informationslager** sidan. Översiktssidan för databasen öppnas, där du kan se det fullständigt kvalificerade servernamnet (till exempel **mynewserver-20180430.database.windows.net**) och alternativ för ytterligare konfiguration. 
 
 2. Kopiera det här fullständiga servernamnet för anslutning till servern och databaserna i efterföljande snabbstarter. Öppna serverinställningarna genom att klicka på servernamnet.
 
@@ -128,8 +128,8 @@ Nu kan du ansluta till SQL-servern och dess informationslager med den här IP-ad
 Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Portal. Du använder det fullständigt kvalificerade namnet senare när du ska ansluta till servern.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Välj **SQL-informationslager** från den vänstra menyn och klicka på datalager på den **SQL datawarehouses** sidan. 
-3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet mynewserver 20180430.database.windows.net. 
+2. Välj **SQL-informationslager** från den vänstra menyn och klicka på ditt datalager på den **SQL datawarehouses (datalager)** sidan. 
+3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet mynewserver-20180430.database.windows.net. 
 
     ![anslutningsinformation](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -144,7 +144,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
    | Inställning       | Föreslaget värde | Beskrivning | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
-   | servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **mynewserver 20180430.database.windows.net**. |
+   | servernamn | Fullständigt kvalificerat servernamn | Här är ett exempel: **mynewserver-20180430.database.windows.net**. |
    | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
    | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
    | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
@@ -198,7 +198,7 @@ Följ dessa steg för att rensa resurser enligt dina önskemål.
 
 2. Om du vill ta bort informationslagret så att du varken debiteras för beräkning eller lagring klickar du på **Ta bort**.
 
-3. Ta bort SQL-server som du har skapat, klicka på **mynewserver 20180430.database.windows.net** i föregående bild och klicka sedan på **ta bort**.  Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
+3. Ta bort den SQLServer som du skapade genom att klicka på **mynewserver-20180430.database.windows.net** i föregående bild och klicka sedan på **ta bort**.  Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
 
 4. Om du vill ta bort resursgruppen klickar du på **myResourceGroup** och sedan på **Ta bort resursgrupp**.
 

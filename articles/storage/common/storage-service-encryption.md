@@ -1,107 +1,91 @@
 ---
-title: Azure Storage Service Encryption för Data i vila | Microsoft Docs
+title: Azure Storage Service Encryption för data i vila | Microsoft Docs
 description: Funktionen Azure Storage Service Encryption för att kryptera Azure Blob-lagring på serversidan vid lagring av data och dekryptera det vid hämtning av data.
 services: storage
 author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: d469dfb5092f1269a6600ee8ee2f81778fd83b96
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f35697139a4be49be8a645cfd4d451ad8e3c8094
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450327"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412363"
 ---
-# <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage-tjänstens kryptering av vilande data
-
-Azure Storage Service Encryption för vilande Data kan du skydda dina data för att uppfylla organisationens säkerhets- och efterlevnadsbestämmelser. Med den här funktionen krypterar Azure Storage automatiskt dina data före beständig den Azure-lagring och dekrypterar data innan hämtning. Hantering av kryptering, kryptering på rest, dekryptering och nyckelhantering på kryptering av lagringstjänst är transparent för användarna. Alla data som skrivs till Azure Storage krypteras med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste blockchiffer som finns.
+# <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service Encryption för vilande data
+Azure Storage Service Encryption för vilande data kan du skydda dina data för att uppfylla organisationens säkerhets- och efterlevnadsbestämmelser. Med den här funktionen krypterar Azure storage-plattformen automatiskt dina data före beständig Azure Blob storage, Azure Files eller Azure Queue storage och dekrypterar data innan hämtning. Hantering av kryptering, kryptering på rest, dekryptering och nyckelhantering på kryptering av lagringstjänst är transparent för användarna. Alla data som skrivs till Azure storage-plattformen krypteras med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste blockchiffer som finns.
 
 Kryptering av lagringstjänst är aktiverat för alla nya och befintliga lagringskonton och kan inte inaktiveras. Eftersom dina data är skyddade som standard, behöver du inte ändra din kod eller ett program för att dra nytta av kryptering av lagringstjänst.
 
 Funktionen krypterar automatiskt data på:
 
+- Azure Blob storage, Azure Files, Azure Queue storage, Azure Table storage.  
 - Båda prestandanivåer (Standard och Premium).
 - Båda distributionsmodellerna (Azure Resource Manager och klassisk).
-- Alla Azure Storage-tjänster (Blob storage, Queue storage, Table storage och Azure Files). 
 
-Kryptering av lagringstjänst påverkar inte prestanda för Azure Storage.
+> [!Note]  
+> Kryptering av lagringstjänst är inte tillgänglig för [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Vi rekommenderar att du använder kryptering på OS-nivå, till exempel [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), som använder vanliga [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) på Windows och [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) på Linux för att tillhandahålla kryptering är integrerad med KeyVault.
+
+Kryptering av lagringstjänst påverkar inte prestanda för Azure storage-tjänster.
 
 Du kan använda Microsoft-hanterade krypteringsnycklarna med Storage Service Encryption eller du kan använda dina egna krypteringsnycklar. Mer information om hur du använder dina egna nycklar finns i [kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 ## <a name="view-encryption-settings-in-the-azure-portal"></a>Visa krypteringsinställningar i Azure portal
-
 Om du vill visa inställningarna för kryptering av lagringstjänst, logga in på den [Azure-portalen](https://portal.azure.com) och välj ett lagringskonto. I den **inställningar** väljer den **kryptering** inställningen.
 
 ![Portalen skärmbild som visar inställningarna för lösenordskryptering](./media/storage-service-encryption/image1.png)
 
 ## <a name="faq-for-storage-service-encryption"></a>Vanliga frågor och svar för kryptering av lagringstjänst
+**Hur jag för att kryptera data i en Resource Manager-konto?**  
+Kryptering av lagringstjänst är aktiverat för alla lagringskonton – klassiska och Resource Manager, alla befintliga filer i lagringskontot som skapades före kryptering har aktiverats kommer retroaktivt hämta krypterats av en bakgrundskrypteringsprocess.
 
-**F: Jag har ett klassiskt lagringskonto. Kan jag aktivera kryptering av lagringstjänst på den?**
+**Aktiveras kryptering av lagringstjänst som standard när jag skapar ett lagringskonto?**  
+Ja, kryptering av lagringstjänst är aktiverat för alla lagringskonton och för alla Azure storage-tjänster.
 
-S: kryptering av lagringstjänst är aktiverat för alla lagringskonton (klassiska och Resource Manager).
+**Jag har ett Resource Manager-lagringskonto. Kan jag aktivera kryptering av lagringstjänst på den?**  
+Kryptering av lagringstjänst är aktiverat som standard på alla befintliga Resource Manager-lagringskonton. Detta stöds för Azure Blob storage, Azure Files, Azure Queue storage, Table storage. 
 
-**F: hur kan jag för att kryptera data i mitt klassiska lagringskonto?**
+**Kan jag inaktivera kryptering på mitt lagringskonto?**  
+Kryptering är aktiverat som standard och det finns inga etablera att inaktivera kryptering för ditt lagringskonto. 
 
-S: med kryptering aktiverat som standard, krypterar Azure Storage automatiskt dina nya data. 
+**Hur mycket kostar Azure Storage om kryptering av lagringstjänst är aktiverat?**  
+Det finns ingen extra kostnad.
 
-**F: Jag har ett Resource Manager-lagringskonto. Kan jag aktivera kryptering av lagringstjänst på den?**
+**Kan jag använda min egen krypteringsnycklar?**  
+Ja, du kan använda dina egna krypteringsnycklar. Mer information finns i [kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
-S: kryptering av lagringstjänst är aktiverat som standard på alla befintliga Resource Manager-lagringskonton. Detta stöds för Blob storage, Table storage, Queue storage och Azure Files. 
+**Kan jag återkalla åtkomst till krypteringsnycklarna?**  
+Ja, om du [använda era egna krypteringsnycklar](storage-service-encryption-customer-managed-keys.md) i Azure Key Vault.
 
-**F: hur jag för att kryptera data i en Resource Manager-konto?**
+**Är kryptering av lagringstjänst tillgängligt på Azure Managed Disks?**  
+Nej, kryptering av lagringstjänst är inte tillgänglig för [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Vi rekommenderar att du använder kryptering på OS-nivå, till exempel [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), som använder vanliga [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) på Windows och [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) på Linux för att tillhandahålla kryptering är integrerad med KeyVault.
 
-S: kryptering av lagringstjänst är aktiverat för alla lagringskonton – klassiska och Resource Manager, alla befintliga filer i lagringskontot som skapades före kryptering har aktiverats kommer retroaktivt hämta krypterats av en bakgrundskrypteringsprocess.
+**Hur skiljer sig kryptering av lagringstjänst från Azure Disk Encryption?**  
+Azure Disk Encryption innehåller integrering mellan OS-baserade lösningar, till exempel BitLocker och DM-Crypt och Azure KeyVault. Kryptering av lagringstjänst tillhandahåller kryptering internt i Azure storage-plattformen lager, under den virtuella datorn.
 
-**F: kan jag skapa storage-konton med Lagringstjänstens med hjälp av Azure PowerShell och Azure CLI?**
+**Jag har ett klassiskt lagringskonto. Kan jag aktivera kryptering av lagringstjänst på den?**  
+Kryptering av lagringstjänst är aktiverat för alla lagringskonton (klassiska och Resource Manager).
 
-S: kryptering av lagringstjänst är aktiverat som standard vid tidpunkten för att skapa alla lagringskonton (klassiska eller Resource Manager). Du kan kontrollera kontoegenskaperna med hjälp av både Azure PowerShell och Azure CLI.
+**Hur kan jag för att kryptera data i mitt klassiska lagringskonto?**  
+Med kryptering aktiverat som standard, krypteras automatiskt data som lagras i Azure storage-tjänster. 
 
-**F: hur mycket kostar Azure Storage om kryptering av lagringstjänst är aktiverat?**
+**Kan jag skapa storage-konton med Lagringstjänstens med hjälp av Azure PowerShell och Azure CLI?**  
+Kryptering av lagringstjänst är aktiverat som standard vid tidpunkten för att skapa alla lagringskonton (klassiska eller Resource Manager). Du kan kontrollera kontoegenskaperna med hjälp av både Azure PowerShell och Azure CLI.
 
-S: det finns ingen extra kostnad.
+**Mitt lagringskonto har ställts in på att replikeras geo-redundant. Med kryptering av lagringstjänst kommer min redundant kopia även krypteras?**  
+Ja, krypteras alla kopior av storage-konto. Alla redundans stöds – lokalt redundant lagring, zonredundant lagring, geo-redundant lagring och läsåtkomst till geografiskt redundant lagring.
 
-**F: kan jag använda min egen krypteringsnycklar?**
+**Kryptering av lagringstjänst är tillåtet i specifika regioner?**  
+Kryptering av lagringstjänst är tillgänglig i alla regioner.
 
-S: Ja, kan du använda dina egna krypteringsnycklar. Mer information finns i [kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+**Är Storage Service Encryption FIPS 140-2 kompatibelt?**  
+Ja, kryptering av lagringstjänst är FIPS 140-2-kompatibel.
 
-**F: kan jag återkalla åtkomst till krypteringsnycklarna?**
-
-S: Ja, om du [använda era egna krypteringsnycklar](storage-service-encryption-customer-managed-keys.md) i Azure Key Vault.
-
-**F: är kryptering av lagringstjänst aktiverad som standard när jag skapar ett lagringskonto?**
-
-S: Ja, kryptering av lagringstjänst är aktiverat för alla lagringskonton och för alla Azure Storage-tjänster.
-
-**F: hur skiljer sig detta från Azure Disk Encryption?**
-
-S: azure Disk Encryption används för att kryptera OS och datadiskar i virtuella IaaS-datorer. Mer information finns i den [lagringssäkerhetsguide](../storage-security-guide.md).
-
-**F: Vad händer om jag inte aktivera Azure Disk Encryption på min datadiskar?**
-
-S: Detta fungerar smidigt. Båda metoderna krypteras dina data.
-
-**F: mitt lagringskonto har ställts in på att replikeras geo-redundant. Med kryptering av lagringstjänst kommer min redundant kopia även krypteras?**
-
-S: Ja, krypteras alla kopior av storage-konto. Alla redundans stöds – lokalt redundant lagring, zonredundant lagring, geo-redundant lagring och läsåtkomst till geografiskt redundant lagring.
-
-**F: kan jag inaktivera kryptering på mitt lagringskonto?**
-
-S: kryptering är aktiverat som standard och det finns inga etablera att inaktivera kryptering för ditt lagringskonto. 
-
-**F: Storage Service Encryption tillåts endast i vissa regioner?**
-
-S: storage Service Encryption är tillgänglig i alla regioner för alla tjänster.
-
-**F: är kryptering av lagringstjänst FIPS 140-2-kompatibel?**
-
-S: Ja, kryptering av lagringstjänst är FIPS 140-2-kompatibel.
-
-**F: hur kontaktar jag någon om jag har problem eller vill ge feedback?**
-
-S: Kontakta [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) för eventuella problem eller feedback som rör kryptering av lagringstjänst.
+**Hur kontaktar jag någon om jag har problem eller vill ge feedback?**  
+Kontakta [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) för eventuella problem eller feedback som rör kryptering av lagringstjänst.
 
 ## <a name="next-steps"></a>Nästa steg
 Azure Storage tillhandahåller en omfattande uppsättning funktioner för säkerhet som tillsammans bidrar utvecklare skapa säkra program. Mer information finns i den [lagringssäkerhetsguide](../storage-security-guide.md).

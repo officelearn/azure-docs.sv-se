@@ -1,9 +1,9 @@
 ---
-title: Installera Trend Micro djup Security på en virtuell dator | Microsoft Docs
-description: Den här artikeln beskriver hur du installerar och konfigurerar Trend Micro säkerhet på en virtuell dator som skapats med den klassiska distributionsmodellen i Azure.
+title: Installera Trend Micro Deep Security på en virtuell dator | Microsoft Docs
+description: Den här artikeln beskriver hur du installerar och konfigurerar du Trend Micro security på en virtuell dator som skapats med den klassiska distributionsmodellen i Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -14,60 +14,60 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: danis
-ms.openlocfilehash: 6098d310bcc6fe5df2378688b78277fc7e4b16bc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: roiyz
+ms.openlocfilehash: 7cddbce56dc136b706bc55c19e3ad700ef13073f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942678"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413781"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Så installerar och konfigurerar du Trend Micro Deep Security som en tjänst på en virtuell Windows-dator
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
-Den här artikeln visar hur du installerar och konfigurerar Trend Micro djup säkerhet som en tjänst på en ny eller befintlig virtuell dator (VM) med Windows Server. Djupgående säkerhet som en tjänst innehåller skydd mot skadlig kod, en brandvägg, ett intrång förebyggande system och integritet övervakning.
+Den här artikeln visar hur du installerar och konfigurerar du Trend Micro Deep Security som en tjänst på en ny eller befintlig virtuell dator (VM) som kör Windows Server. Deep Security som en tjänst innehåller skydd mot skadlig kod, en brandvägg, ett intrångsskyddssystem och övervakning av filintegritet.
 
-Klienten installeras som ett tillägg för säkerhet via den Virtuella Datoragenten. På en ny virtuell dator installerar du agenten djup säkerhet när den Virtuella Datoragenten skapas automatiskt av Azure-portalen.
+Klienten installeras som en säkerhetstillägg via VM-agenten. På en ny virtuell dator installerar du den Deep Security Agent när VM-agenten skapas automatiskt av Azure-portalen.
 
-En befintlig virtuell dator som skapats med hjälp av Azure-portalen, Azure CLI eller PowerShell kanske inte har en VM-agent. För en befintlig virtuell dator som inte har den Virtuella Datoragenten, måste du hämta och installera det först. Den här artikeln täcker båda situationer.
+En befintlig virtuell dator som skapats med hjälp av Azure-portalen, Azure CLI eller PowerShell kanske inte har en VM-agenten. För en befintlig virtuell dator som inte har VM-agenten måste du ladda ned och installera den först. Den här artikeln täcker båda situationer.
 
-Om du har någon aktuell prenumeration från Trend Micro för en lokal lösning kan använda du den för att skydda din virtuella Azure-datorer. Om du inte är en kund ännu kan registrera du dig för en utvärderingsprenumeration. Mer information om den här lösningen finns i bloggposten Trend Micro [Microsoft Azure VM-tillägget för djup säkerhetsgrupper](http://go.microsoft.com/fwlink/p/?LinkId=403945).
+Om du har någon aktuell prenumeration från Trend Micro för en lokal lösning kan använda du den för att skydda virtuella datorer i Azure. Om du inte är en kund ännu kan registrera du dig för en utvärderingsprenumeration. Mer information om den här lösningen finns i blogginlägget Trend Micro [Microsoft Azure VM Agent-tillägget för Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 
-## <a name="install-the-deep-security-agent-on-a-new-vm"></a>Installera djup Security-agenten på en ny virtuell dator
+## <a name="install-the-deep-security-agent-on-a-new-vm"></a>Installera Deep Security Agent på en ny virtuell dator
 
-Den [Azure-portalen](http://portal.azure.com) kan du installera tillägget Trend Micro säkerhet när du använder en bild från den **Marketplace** att skapa den virtuella datorn. Om du skapar en virtuell dator är med hjälp av portalen ett enkelt sätt att lägga till skydd från Trend Micro.
+Den [Azure-portalen](http://portal.azure.com) kan du installera tillägget Trend Micro säkerhet när du använder en bild från den **Marketplace** att skapa den virtuella datorn. Om du skapar en virtuell dator, är med hjälp av portalen ett enkelt sätt att lägga till skydd från Trend Micro.
 
-Med hjälp av en transaktion från den **Marketplace** öppnar en guide som hjälper dig att ställa in den virtuella datorn. Du använder den **inställningar** bladet, panelen tredje i guiden för att installera tillägget Trend Micro säkerhet.  Allmänna instruktioner finns i [skapa en virtuell dator som kör Windows i Azure portal](../windows/classic/tutorial.md).
+Med hjälp av en transaktion från den **Marketplace** öppnar en guide som hjälper dig att ställa in den virtuella datorn. Du använder den **inställningar** bladet, panelen tredje i guiden om du vill installera tillägget Trend Micro säkerhet.  Mer information, se [skapa en virtuell dator som kör Windows i Azure-portalen](../windows/classic/tutorial.md).
 
-När du kommer till den **inställningar** bladet i guiden, gör du följande:
+När du kommer till den **inställningar** bladet i guiden och gör följande:
 
-1. Klicka på **tillägg**, klicka på **lägga till tillägget** i nästa ruta.
+1. Klicka på **tillägg**, klicka sedan på **lägga till tillägget** i nästa ruta.
 
    ![Börja lägga till tillägget][1]
 
-2. Välj **djup säkerhet Agent** i den **ny resurs** fönstret. Klicka på i fönstret djup säkerhet Agent **skapa**.
+2. Välj **Deep Security Agent** i den **ny resurs** fönstret. Klicka på i fönstret Deep Security Agent **skapa**.
 
-   ![Identifiera Agent djup säkerhet][2]
+   ![Identifiera Djupsäkerhetsagent][2]
 
-3. Ange den **klient-ID** och **klient aktivering lösenord** för tillägget. Alternativt kan du ange en **princip säkerhetsidentifieraren**. Klicka på **OK** att lägga till klienten.
+3. Ange den **klientidentifierare** och **lösenord för aktivering av Klientorganisation** för tillägget. Du kan alternativt kan du ange en **Security Principidentifierare**. Klicka sedan på **OK** att lägga till klienten.
 
    ![Ange information om webbprogramtillägg][3]
 
-## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>Installera djup Security-agenten på en befintlig virtuell dator
-Om du vill installera agenten på en befintlig virtuell dator, behöver du följande:
+## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>Installera Deep Security Agent på en befintlig virtuell dator
+Om du vill installera agenten på en befintlig virtuell dator, behöver du följande objekt:
 
-* Azure PowerShell-modulen, version 0.8.2 eller senare, installeras på den lokala datorn. Du kan kontrollera versionen av Azure PowerShell som du har installerat med hjälp av den **Get-Module azure | format-table version** kommando. Instruktioner och en länk till den senaste versionen finns [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). Logga in på Azure-prenumeration med hjälp av `Add-AzureAccount`.
-* VM-agenten installeras på den virtuella måldatorn.
+* Azure PowerShell-modulen, version 0.8.2 eller senare, installerad på den lokala datorn. Du kan kontrollera vilken version av Azure PowerShell som du har installerat med hjälp av den **Get-Module azure | format-table version** kommando. Instruktioner och en länk till den senaste versionen finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). Logga in på Azure-prenumerationen med `Add-AzureAccount`.
+* VM-agenten installerad på den virtuella måldatorn.
 
-Kontrollera först att den Virtuella Datoragenten är installerad. Fyll i molntjänstnamnet och namn på virtuell dator och kör följande kommandon i en administratörsnivå Azure PowerShell-kommandotolk. Ersätt allt inom citattecken, inklusive den < och > tecken.
+Kontrollera först att VM-agenten är redan installerad. Fyll i molntjänstens namn och namn på virtuell dator och kör sedan följande kommandon i en behörighet på Azure PowerShell-kommandotolk. Ersätt allt inom citattecken, inklusive den < och > tecken.
 
     $CSName = "<cloud service name>"
     $VMName = "<virtual machine name>"
     $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
     write-host $vm.VM.ProvisionGuestAgent
 
-Om du inte vet Molntjänsten och namn på virtuell dator, kör **Get-AzureVM** visa informationen för alla virtuella datorer i din nuvarande prenumeration.
+Om du inte vet molntjänst och namn på virtuell dator, kör **Get-AzureVM** visa informationen för alla virtuella datorer i din aktuella prenumeration.
 
-Om den **write-host** kommandot returnerar **SANT**, VM-agenten är installerad. Om den returnerar **FALSKT**, finns i anvisningarna och en länk för hämtning i Azure blogginlägget [Agent för VM-tillägg - del 2](http://go.microsoft.com/fwlink/p/?LinkId=403947).
+Om den **write-host** kommandot **SANT**, VM-agenten är installerad. Om den returnerar **FALSKT**, se instruktionerna och en länk för nedladdning i Azure-blogginlägget [VM-agenten och tillägg – del 2](http://go.microsoft.com/fwlink/p/?LinkId=403947).
 
 Om den Virtuella Datoragenten är installerad kan du köra dessa kommandon.
 
@@ -76,14 +76,14 @@ Om den Virtuella Datoragenten är installerad kan du köra dessa kommandon.
     Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Version -ExtensionName TrendMicroDSA -VM $vm | Update-AzureVM
 
 ## <a name="next-steps"></a>Nästa steg
-Det tar några minuter för att agenten ska börja köras när den är installerad. Därefter måste du aktivera djup säkerhet på den virtuella datorn så att den kan hanteras av en djup Security Manager. Se följande artiklar för mer information:
+Det tar några minuter för att agenten ska börja köra när den är installerad. Därefter måste du aktivera Deep Security på den virtuella datorn så att den kan hanteras av en Deep Security Manager. Se följande artiklar för ytterligare information:
 
-* Trends artikel om den här lösningen [Instant-On Cloud Security för Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=404101)
+* Trends artikeln om den här lösningen [Instant-On Molnsäkerhet för Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=404101)
 * En [exempel på Windows PowerShell-skript](http://go.microsoft.com/fwlink/?LinkId=404100) att konfigurera den virtuella datorn
-* [Instruktioner](http://go.microsoft.com/fwlink/?LinkId=404099) för
+* [Instruktioner](http://go.microsoft.com/fwlink/?LinkId=404099) för exemplet
 
 ## <a name="additional-resources"></a>Ytterligare resurser
-[Logga in till en virtuell dator som kör Windows Server]
+[Hur du ansluter till en virtuell dator som kör Windows Server]
 
 [Azure VM-tillägg och funktioner]
 
@@ -93,5 +93,5 @@ Det tar några minuter för att agenten ska börja köras när den är installer
 [3]: ./media/trend/SecurityAgentDetails.png
 
 <!-- Link references -->
-[Logga in till en virtuell dator som kör Windows Server]:../windows/classic/connect-logon.md
+[Hur du ansluter till en virtuell dator som kör Windows Server]:../windows/classic/connect-logon.md
 [Azure VM-tillägg och funktioner]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409

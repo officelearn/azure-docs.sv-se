@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e63f07e7819d464b4ee430571d8c5a05259c8df5
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5d67abe003afc6f5aec420f4668efa5df7d8dbc4
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282042"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414475"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Så här: Kräv hanterade enheter för åtkomst till molnet appen med villkorlig åtkomst
 
@@ -60,11 +60,11 @@ Enkelt uttryckt hanterade enheter är enheter som är under *någon typ* för or
 
 Om du vill ha en enhet har registrerats med Azure AD har du tre alternativ:
 
-- **[Azure AD-registrerade enheter](device-management-introduction.md#azure-ad-registered-devices)**  – om du vill hämta en personlig enhet registrerad med Azure AD
+- **[Azure AD-registrerade enheter](devices/overview.md#azure-ad-registered-devices)**  – om du vill hämta en personlig enhet registrerad med Azure AD
 
-- **[Azure AD-anslutna enheter](device-management-introduction.md#azure-ad-joined-devices)**  – om du vill hämta en organisations Windows 10-enhet som inte är ansluten till en lokal AD-registrerade med Azure AD. 
+- **[Azure AD-anslutna enheter](devices/overview.md#azure-ad-joined-devices)**  – om du vill hämta en organisations Windows 10-enhet som inte är ansluten till en lokal AD-registrerade med Azure AD. 
 
-- **[Azure AD-anslutna hybridenheter](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  – om du vill hämta en Windows 10 eller stöd äldre enheter som är ansluten till en lokal AD-registrerade med Azure AD.
+- **[Azure AD-anslutna hybridenheter](devices/overview.md#hybrid-azure-ad-joined-devices)**  – om du vill hämta en Windows 10 eller stöd äldre enheter som är ansluten till en lokal AD-registrerade med Azure AD.
 
 Om du vill bli en hanterad enhet, en registrerad enhet måste vara antingen en **Hybrid Azure AD-ansluten enhet** eller en **enhet som har markerats som kompatibel**.  
 

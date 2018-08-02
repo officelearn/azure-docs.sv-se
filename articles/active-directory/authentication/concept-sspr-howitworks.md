@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: de8957864502b8c3ec6d9a43a8134fdb8dac6069
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283528"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413111"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: återställning av lösenord för självbetjäning i Azure AD
 
@@ -50,6 +50,7 @@ Läs igenom följande steg för att lära dig om logiken bakom lösenordet för 
        * Om autentiseringsmetoderna som inte har konfigurerats, rekommenderas du att kontakta administratören om du vill återställa sina lösenord.
      * Om principen kräver två metoder, sedan ser till att användaren har rätt data som definierats för minst två av de autentiseringsmetoder som aktiveras av administratörsprincipen.
        * Om autentiseringsmetoderna som inte har konfigurerats, rekommenderas du att kontakta administratören om du vill återställa sina lösenord.
+     * Om en Azure-administratörsroller tilldelas användaren tillämpas starkt lösenord för två gate-principen. Mer information om den här principen finns i avsnittet [administratören återställa principen skillnader](concept-sspr-policy.md#administrator-reset-policy-differences).
    * Kontrollerar om användarens lösenord måste hanteras lokalt (federerade direkt autentisering eller synkroniseras lösenords-hash).
      * Om tillbakaskrivning av distribueras och användarens lösenord måste hanteras lokalt, tillåts användaren att fortsätta att autentisera och återställa sina lösenord.
      * Om tillbakaskrivning av inte har distribuerats och användarens lösenord måste hanteras lokalt, uppmanas användaren att kontakta administratören om du vill återställa sina lösenord.
@@ -68,6 +69,9 @@ Om SSPR är aktiverad, måste du välja minst en av följande alternativ för au
 
 Användare kan bara återställa sina lösenord, om de har data som finns i de autentiseringsmetoder som administratören har aktiverat.
 
+> [!WARNING]
+> Konton som har tilldelats Azure-administratörsroller kommer att behöva använda metoder som definierats i avsnittet [administratören återställa principen skillnader](concept-sspr-policy.md#administrator-reset-policy-differences).
+
 ![Autentisering][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Antal autentiseringsmetoder krävs
@@ -85,7 +89,7 @@ När du använder en mobilapp som Microsoft Authenticator-appen som en metod fö
 * När administratörer behöver en metod används för att återställa ett lösenord, verifieringskoden är det enda tillgängliga alternativet.
 * När administratörer kräver två metoder används för att återställa ett lösenord, användare ska kunna använda **antingen** meddelande **eller** Verifieringskod utöver eventuella övriga aktiverat metoder.
 
-| Antal metoder som krävs för återställning | en | Två |
+| Antal metoder som krävs för återställning | En | Två |
 | :---: | :---: | :---: |
 | Mobilapp-funktioner som är tillgängliga | Kod | Kod- eller Meddelandeinställningar |
 

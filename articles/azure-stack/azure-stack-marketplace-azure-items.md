@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: c61e94191a20696a1fa8c8e632a83f980f256934
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 866f032e6bacc3a124ddffd9040ea81b598abcfe
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971099"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414801"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt tillgängliga för Azure Stack
 
@@ -162,7 +162,7 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 | ![Nginx](media/azure-stack-marketplace-azure-items/nginx.png) | [Nginx](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nginxstack) | En fullständig PHP, MySQL och Nginx utvecklingsmiljö. | Bitnami |
 | ![Noalyss](media/azure-stack-marketplace-azure-items/noalyss.png) | [Noalyss](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.noalyss) | Kraftfulla dubbelpost redovisningssystemet. | Bitnami |
 | ![Node.js](media/azure-stack-marketplace-azure-items/nodejs.png) | [node.js](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs) | Öppen källkod-miljö är skriven i Javascript för att enkelt skapa. | Bitnami |
-| ![Kluster med hög tillgänglighet för node.js](media/azure-stack-marketplace-azure-items/nodejs.png) | [Kluster med hög tillgänglighet för node.js](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs-ha) | Node.js är en körningsmiljö som bygger på V8 JavaScript-motor. Dess händelsedriven, icke-blockerande i/o-modellen möjliggör utvecklingen av snabba, skalbara och dataintensiva serverprogram. Den här lösningen använder flera virtuella datorer för att skapa ett Node.js-kluster med ett delat filsystem och belastningsutjämningsfunktioner.  **Den här lösningsmallen kräver också Debian 8, anpassat skript för Linux 2.0-tillägget och en databas.**| Bitnami |
+| ![node.js kluster med hög tillgänglighet](media/azure-stack-marketplace-azure-items/nodejs.png) | [node.js kluster med hög tillgänglighet](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs-ha) | Node.js är en körningsmiljö som bygger på V8 JavaScript-motor. Dess händelsedriven, icke-blockerande i/o-modellen möjliggör utvecklingen av snabba, skalbara och dataintensiva serverprogram. Den här lösningen använder flera virtuella datorer för att skapa ett Node.js-kluster med ett delat filsystem och belastningsutjämningsfunktioner.  **Den här lösningsmallen kräver också Debian 8, anpassat skript för Linux 2.0-tillägget och en databas.**| Bitnami |
 | ![Odoo](media/azure-stack-marketplace-azure-items/odoo.png) | [Odoo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.odoo) | ERP och CRM-system som effektivt ansluter affärsprocesser. | Bitnami |
 | ![Open Atrium](media/azure-stack-marketplace-azure-items/openatrium.png) | [Open Atrium](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.openatrium) | Flexibel och mångsidig intranät-plattform. | Bitnami |
 | ![OpenCart](media/azure-stack-marketplace-azure-items/opencart.png) | [OpenCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.opencart) | Kostnadsfri e-commerce-plattform för onlinebutiker. | Bitnami |

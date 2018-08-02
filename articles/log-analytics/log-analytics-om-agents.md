@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/05/2018
+ms.date: 08/01/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 29ab649f8fe06ae598ff138ff98eb2611ec38e1f
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 37cabadb18bf065de64b7ae24c4ed19994e60625
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128885"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413645"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Anslut Operations Manager till Log Analytics
 För att underhålla din befintliga investering i System Center Operations Manager och använda utökade funktioner med Log Analytics, kan du integrera Operations Manager med ditt Log Analytics-arbetsområde.  På så sätt kan du utnyttja möjligheterna i Log Analytics samtidigt som du använder Operations Manager till att:
@@ -39,12 +39,21 @@ Följande diagram visar anslutningen mellan hanteringsservrarna och agenterna i 
 
 Om dina IT-säkerhetsprinciper inte tillåter datorer i nätverket att ansluta till Internet, kan hanteringsservrar konfigureras för att ansluta till OMS-gatewayen för att ta emot konfigurationsinformation och skicka insamlade data beroende på de lösningar som är aktiverade.  Mer information och anvisningar om hur du konfigurerar din Operations Manager-hanteringsgrupp för kommunikation genom en OMS-gateway till Log Analytics-tjänsten finns i avsnittet om hur du [ansluter datorer till OMS med OMS-gatewayen](log-analytics-oms-gateway.md).  
 
-## <a name="system-requirements"></a>Systemkrav
-Granska följande information för att verifiera att förutsättningarna är uppfyllda innan du börjar.
+## <a name="prerequisites"></a>Förutsättningar 
+Granska följande krav innan du börjar.
 
-* Log Analytics stödjer bara System Center Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 eller högre samt Operations Manager 2012 R2 UR2 eller högre.  Stöd för proxy har lagts till i Operations Manager 2012 SP1 UR7 och Operations Manager 2012 R2 UR3.
-* Alla Operations Manager-agenter måste uppfylla minimikraven. Kontrollera att agenterna har den lägsta uppdateringen, annars kan Windows-agenttrafiken misslyckas och Operations Manager-händelseloggen fyllas av fel.
-* En Log Analytics-arbetsyta.  Mer information finns under [Komma igång med Log Analytics](log-analytics-get-started.md).
+* Log Analytics stöder endast System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 eller senare, och Operations Manager 2012 R2 UR2 eller senare.  Stöd för proxy har lagts till i Operations Manager 2012 SP1 UR7 och Operations Manager 2012 R2 UR3.
+* Alla Operations Manager-agenter måste uppfylla minimikraven. Kontrollera att agenterna är på den lägsta uppdateringen, annars Windows agentkommunikationen kan misslyckas och genererar fel i händelseloggen för Operations Manager.
+* En Log Analytics-arbetsyta.  Mer information, [ansluter datorer från din miljö till Log Analytics](log-analytics-concept-hybrid.md).
+* Du kan autentisera till Azure med ett konto som är medlem i den [Log Analytics Contributor rollen](log-analytics-manage-access.md#manage-accounts-and-users).  
+
+>[!NOTE]
+>Ändringar i Azure API: er kommer att kunder inte kan konfigurera integrering mellan sina hanteringsgrupp och Log Analytics för första gången. För kunder som redan har integrerat deras hanteringsgruppen med tjänsten kan påverkas du inte om du inte behöver konfigurera om din befintliga anslutning.  
+>Ett nytt management pack har versionen för varje version av Operations Manager:  
+>* Ladda ned hanteringspaketet från för System Center Operations Manager 1801 [här](https://www.microsoft.com/download/details.aspx?id=57173)  
+>* System Center 2016 – Operations Manager kan du hämta hanteringspaketet från [här](https://www.microsoft.com/download/details.aspx?id=57172)  
+>* För System Center Operations Manager 2012 R2 kan du ladda ned hanteringspaketet från [här](https://www.microsoft.com/en-us/download/details.aspx?id=57171)  
+
 
 ### <a name="network"></a>Nätverk
 Informationen nedan listar konfigurationsinställningarna för proxy och brandvägg som krävs för att Operations Manager-agenten, hanteringsservrar och Operations-konsolen ska kunna kommunicera med Log Analytics.  Trafik från varje komponent går ut från nätverket till Log Analytics-tjänsten.     
@@ -76,7 +85,7 @@ Informationen nedan listar konfigurationsinställningarna för proxy och brandv�
 ## <a name="connecting-operations-manager-to-log-analytics"></a>Anslut Operations Manager till Log Analytics
 Utför följande steg för att konfigurera hanteringsgruppen för Operations Manager för att ansluta till en av dina Log Analytics-arbetsytor.
 
-Om det är första gången din Operations Manager-hanteringsgrupp registreras med en Log Analytics-arbetsyta och hanteringsservrarna måste kommunicera med tjänsten via en proxy- eller OMS gatewayserver är alternativet för att ange proxykonfiguration för hanteringsgruppen inte tillgängligt i Operations-konsolen.  Hanteringsgruppen måste registrerats med tjänsten innan det här alternativet är tillgängligt.  Du behöver uppdatera systemproxykonfigurationen med Netsh på systemet som Operations-konsolen körs från för att konfigurera integration och alla hanteringsservrar i hanteringsgruppen.  
+Vid första registreringen av din Operations Manager-hanteringsgrupp med en arbetsyta för Log Analytics finns inte alternativet för att ange proxykonfigurationen för hanteringsgruppen i driftkonsolen.  Hanteringsgruppen måste registrerats med tjänsten innan det här alternativet är tillgängligt.  För att kringgå detta kan behöva du uppdatera proxykonfigurationen system med hjälp av Netsh i systemet kör driftskonsolen från att konfigurera integration och alla hanteringsservrar i hanteringsgruppen.  
 
 1. Öppna en upphöjd kommandotolk.
    a. Gå till **starta** och skriv **cmd**.
@@ -91,7 +100,7 @@ När du har slutfört följande steg för att integrera med Log Analytics kan du
 2. Expandera noden Operations Management Suite och klicka på **Anslutning**.
 3. Klicka på länken för att **registrera till Operations Management Suite**.
 4. På sidan **Guiden Operations Management Suite Onboarding: Autentisering** anger du e-postadress eller telefonnummer och lösenordet för administratörskontot som är kopplat till din OMS-prenumeration och klickar på **Logga in**.
-5. När du har autentiserats uppmanas du välja Log Analytics-arbetsyta på sidan **Guiden Operations Management Suite Onboarding: Välj arbetsyta**.  Om du har mer än en arbetsyta väljer du arbetsytan som du vill registrera med Operations Manager-hanteringsgruppen från listrutan och klickar på **Nästa**.
+5. När du har autentiserats, på den **guiden Operations Management Suite Onboarding: Välj arbetsyta** sidan, uppmanas du för att välja din Azure-klient, prenumeration och Log Analytics-arbetsyta.  Om du har mer än en arbetsyta väljer du arbetsytan som du vill registrera med Operations Manager-hanteringsgruppen från listrutan och klickar på **Nästa**.
    
    > [!NOTE]
    > Operations Manager stöder bara en Log Analytics-arbetsyta i taget. Anslutningen och de datorer som registrerades till Log Analytics med den förra arbetsytan tas bort från Log Analytics.
@@ -101,7 +110,7 @@ När du har slutfört följande steg för att integrera med Log Analytics kan du
 7. På sidan **Guiden Operations Management Suite Onboarding: Slutför** klickar du på **Stäng**.
 
 ### <a name="add-agent-managed-computers"></a>Lägg till datorer som hanteras med agent
-När du har konfigurerat integrationen med Log Analytics-arbetsytan har du bara upprättat en anslutning med tjänsten och inga data samlas in från agenter som rapporterar till hanteringsgruppen. Detta görs inte förrän du har konfigurerat vilka specifika datorer som hanteras med agenter som ska samla in data för Log Analytics. Du kan antingen välja datorobjekt individuellt eller välja en grupp som innehåller Windows-datorobjekt. Du kan inte välja en grupp som innehåller instanser av en annan klass, till exempel logiska diskar eller SQL-databaser.
+När du har konfigurerat integrering med Log Analytics-arbetsytan, den bara upprättar en anslutning till tjänsten, inga data har samlats in från agenter som rapporterar till hanteringsgruppen. Detta sker inte fram när du har konfigurerat vilka specifika agenthanterade datorer samla in data för Log Analytics. Du kan antingen välja datorobjekt individuellt eller välja en grupp som innehåller Windows-datorobjekt. Du kan inte välja en grupp som innehåller instanser av en annan klass, till exempel logiska diskar eller SQL-databaser.
 
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
 2. Expandera noden Operations Management Suite och klicka på **Anslutning**.
@@ -111,7 +120,7 @@ När du har konfigurerat integrationen med Log Analytics-arbetsytan har du bara 
 Du kan visa datorer och grupper som konfigurerats för att samla in data från noden för hanterade datorer under Operations Management Suite i arbetsytan **Administration** i Operations-konsolen.  Härifrån kan du lägga till eller ta bort datorer och grupper efter behov.
 
 ### <a name="configure-proxy-settings-in-the-operations-console"></a>Konfigurera proxyinställningar i Operations-konsolen
-Utför följande steg om en intern proxyserver finns mellan hanteringsgruppen och Log Analytics-tjänsten.  De här inställningarna hanteras centralt från hanteringsgruppen och distribueras till agenthanterade system som ingår i omfånget för att samla in data för Log Analytics.  Detta är fördelaktigt när vissa lösningar förbigår hanteringsservern och skickar data direkt till tjänsten.
+Utför följande steg om en intern proxyserver mellan hanteringsgruppen och Log Analytics-tjänsten.  De här inställningarna hanteras centralt från hanteringsgruppen och distribueras till agenthanterade system som ingår i omfånget för att samla in data för Log Analytics.  Detta är fördelaktigt när vissa lösningar förbigår hanteringsservern och skickar data direkt till tjänsten.
 
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
 2. Expandera Operations Management Suite och klicka sedan på **Anslutningar**.
@@ -143,7 +152,7 @@ När konfigurationen är klar upprättar Operations Manager-hanteringsgruppen en
 
 Du kan åsidosätta de här två reglerna för att förhindra automatisk hämtning genom att inaktivera dem eller ändra frekvensen för hur ofta hanteringsservern ska synkronisera med OMS för att kontrollera om ett nytt hanteringspaket finns tillgängligt och ska hämtas.  Följ [de här stegen för att åsidosätta en regel eller övervakare](https://technet.microsoft.com/library/hh212869.aspx) för att ändra parametern **Frekvens** (med ett värde i sekunder) för att justera synkroniseringsschemat eller ändra parametern **Aktiverad** för att avaktivera reglerna.  Rikta åsidosättningarna mot alla objekt i klassen Operations Manager Management Group.
 
-Om du vill fortsätta att jobba efter dina befintliga processer för ändringskontroll för att styra releaser av hanteringspaket i din produktionshanteringsgrupp kan du avaktivera reglerna och aktivera dem vid specifika tidpunkter när uppdateringar är tillåtna. Om du har en utvecklings- eller kvalitetskontrollshanteringsgrupp i din miljö och den är ansluten till Internet, kan du konfigurera hanteringsgruppen med Log Analytics-arbetsytan för att stödja det här scenariot.  Då kan du granska och utvärdera iterativa versioner av Log Analytics-hanteringspaket innan du släpper dem till din hanteringsgrupp för produktion.
+Om du vill fortsätta efter din befintliga Ändra kontroll process för att styra management pack-versioner i hanteringsgruppen för produktion, kan du inaktivera reglerna och aktivera dem vid specifika tidpunkter när uppdateringar är tillåtna. Om du har en utvecklings- eller kvalitetskontrollshanteringsgrupp i din miljö och den är ansluten till Internet, kan du konfigurera hanteringsgruppen med Log Analytics-arbetsytan för att stödja det här scenariot.  Då kan du granska och utvärdera iterativa versioner av Log Analytics-hanteringspaket innan du släpper dem till din hanteringsgrupp för produktion.
 
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Växla en Operations Manager-grupp till en ny Log Analytics-arbetsyta
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
@@ -193,7 +202,7 @@ Det är inte helt enkelt att ta bort hanteringspaketen för lösningarna som du 
 4. För att ta bort återstående hanteringspaket med beroenden till andra System Center Advisor-hanteringspaket använder du skriptet *RecursiveRemove.ps1* som du laddade ned innan från TechNet Script Center.  
  
     > [!NOTE]
-    > Ta inte bort hanteringspaket för Microsoft System Center Advisor eller Microsoft System Center Advisor Internal.  
+    > Steg för att ta bort Advisor-hanteringspaketen med PowerShell tas inte bort Microsoft System Center Advisor eller Microsoft System Center Advisor internt hanteringspaket automatiskt.  Försök inte att ta bort dem.  
     >  
 
 5. Öppna Operations-konsolen i Operations Manager med ett konto som har rollen Operations Manager-administratör.
@@ -201,9 +210,10 @@ Det är inte helt enkelt att ta bort hanteringspaketen för lösningarna som du 
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
+
 7. Klicka på panelen **Inställningar** på OMS-portalen.
 8. Välj **anslutna källor**.
-9. Du bör se namnet på hanteringsgruppen som du vill ta bort från arbetsytan i tabellen i avsnittet System Center Operations Manager.  Under kolumnen **Senaste data** klickar du på **Ta bort**.  
+9. Du bör se namnet på hanteringsgruppen som du vill ta bort från arbetsytan i tabellen i System Center Operations Manager-avsnittet.  Under kolumnen **Senaste data** klickar du på **Ta bort**.  
    
     > [!NOTE]
     > Länken **Ta bort** blir inte tillgänglig förrän efter att den anslutna hanteringsgruppen känner av 14 dagar utan aktivitet.  

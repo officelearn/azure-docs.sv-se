@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: 13b769a0b5a940e0f3dd5f2e0cc3567d9879ee0d
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fe0ee7d575e69c883ad7f980477e86fbd004778e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223787"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397251"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Skriv- och slutpunkt användaråtkomst
 Redigera åtkomst är tillgänglig för ägare och medarbetare. För en privat app är slutpunkt för åtkomst tillgänglig för ägare och medarbetare. För en app för offentlig är åtkomst för slutpunkten tillgänglig för alla som har sina egna LUIS-konto och har den offentliga app-ID. 
@@ -62,7 +62,7 @@ En användare som inte är ägare eller deltagare i, kan endast komma åt en off
 ## <a name="microsoft-user-accounts"></a>Microsoft-användarkonton
 Författare och medarbetare kan lägga till nycklar LUIS på sidan Publicera. Det Microsoft-konto som skapas LUIS-nyckel i Azure-portalen måste appägare eller deltagare i en app. 
 
-Se [Azure Active Directory-klientanvändare](luis-how-to-account-settings.md#azure-active-directory-tenant-user) mer information om Active Directory-användarkonton. 
+Se [Azure Active Directory-klientanvändare](luis-how-to-collaborate.md#azure-active-directory-tenant-user) mer information om Active Directory-användarkonton. 
 
 <!--
 ### Individual consent

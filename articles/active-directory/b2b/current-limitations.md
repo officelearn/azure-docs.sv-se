@@ -6,30 +6,33 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/23/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 562076e9529ffeac4cb0f99c1ffd4d4866d0bd1a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 34713f4bf43f047bdee8d87f2e4410d13ba3492d
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260122"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400380"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Begränsningar i Azure AD B2B-samarbete
-Azure Active Directory (AD Azure) B2B-samarbete är för närvarande de begränsningar som beskrivs i den här artikeln.
+Azure Active Directory (Azure AD) B2B-samarbete är för närvarande de begränsningar som beskrivs i den här artikeln.
 
 ## <a name="possible-double-multi-factor-authentication"></a>Möjliga dubbla multifaktorautentisering
-Du kan använda multifaktorautentisering i resursorganisationen (bjuda in organisation) med Azure AD B2B. Orsaker till den här metoden beskrivs i [villkorlig åtkomst för användare för B2B-samarbete](conditional-access.md). Om en partner har redan multifaktorautentisering ställa in och tillämpas, kanske användarna att autentisera en gång i organisationen hem och sedan igen i din egen.
+Med Azure AD B2B upprätthålla du Multi-Factor authentication på resursorganisationen (organisationen som bjuder in). Orsaker till den här metoden beskrivs i [villkorlig åtkomst för användare i B2B-samarbetet](conditional-access.md). Om en partner har redan multifaktorautentisering ställa in och tillämpas, användarna kan behöva utföra autentisering en gång i deras organisation, hem och sedan igen i ditt.
 
 ## <a name="instant-on"></a>Startar omedelbart
-I B2B-samarbete flöden, vi lägga till användare i katalogen och uppdatera dynamiskt under inbjudan inlösning, tilldelning av appen och så vidare. Uppdateringar och skrivningar normalt sker i en kataloginstans och måste replikeras över alla instanser. Replikeringen är klar när alla instanser uppdateras. Ibland när objektet skrivs eller uppdateras i en instans och anrop till hämta det här objektet till en annan instans, kan replikeringsfördröjningar uppstå. I så fall, uppdatera eller försök att. Om du skriver en app med vårt API är en bra och defensiva idé att lösa problemet med återförsök med vissa inte.
+I B2B-samarbete flöden, vi lägga till användare i katalogen och uppdatera dem dynamiskt under inlösning av inbjudan, apptilldelning och så vidare. Uppdateringar och skrivningar normalt ske i en katalog-instansen och måste replikeras över alla instanser. Replikeringen är klar när alla instanser har uppdaterats. Ibland när objektet är avsedd eller uppdateras i en instans och anrop för att hämta det här objektet till en annan instans, kan replikeringsfördröjningar inträffa. Om detta händer, uppdatera eller försök att. Om du skriver en app med vårt API är en bra och försvarsstatistik idé att lösa problemet med återförsök med vissa backoff.
+
+## <a name="azure-ad-directories"></a>Azure AD-kataloger
+Azure AD B2B är föremål för Azure AD tjänstbegränsningar directory. Mer information om antal kataloger som en användare kan skapa och antal kataloger till som en användare eller gäst kan höra, finns i [Azure AD-tjänsten begränsningar](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande artiklar om Azure AD B2B-samarbete:
+Se följande artiklar på Azure AD B2B-samarbete:
 
 - [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
-- [Delegera B2bB samarbete inbjudningar](delegate-invitations.md)
+- [Delegera inbjudningar för B2B-samarbete](delegate-invitations.md)
 

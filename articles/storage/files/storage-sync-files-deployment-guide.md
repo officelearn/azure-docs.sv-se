@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: d3ff80391214dbc5d29f04c4a1972b46e68d73d4
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 3f377c24a53313ff8c9243152281344200167856
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215153"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414249"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -83,7 +83,7 @@ Azure File Sync-agenten är hämtningsbara paket som gör det möjligt för Wind
 Du kan ladda ned agenten från den [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). När nedladdningen är klar dubbelklickar du på MSI-paketet för att starta installationen av Azure File Sync-agenten.
 
 > [!Important]  
-> Om du planerar att använda Azure File Sync med ett redundanskluster, måste Azure File Sync-agenten installeras på varje nod i klustret.
+> Om du planerar att använda Azure File Sync med ett redundanskluster, måste Azure File Sync-agenten installeras på varje nod i klustret. Varje nod i klustret måste vara registrerad för att fungera med Azure File Sync.
 
 Vi rekommenderar att du gör följande:
 - Lämna standardinstallationssökväg (C:\Program Files\Azure\StorageSyncAgent) för att förenkla underhållet för felsökning och server.
@@ -93,6 +93,9 @@ När installationen av Azure File Sync-agent är klar öppnas automatiskt Använ
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 Kör följande PowerShell-kod för att hämta den aktuella versionen av Azure File Sync-agenten för ditt operativsystem och installera den på datorn.
+
+> [!Important]  
+> Om du planerar att använda Azure File Sync med ett redundanskluster, måste Azure File Sync-agenten installeras på varje nod i klustret. Varje nod i klustret måste vara registrerad för att fungera med Azure File Sync.
 
 ```PowerShell
 # Gather the OS version

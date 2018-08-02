@@ -2,23 +2,18 @@
 title: Frekvent, lågfrekvent och arkivlagring i Azure för blobbar | Microsoft Docs
 description: Frekvent och lågfrekvent lagring samt arkivlagring för Azure Storage-konton.
 services: storage
-documentationcenter: ''
 author: kuhussai
-manager: jwillis
-editor: ''
-ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: 21b09d9c428f9c29e0048faa32ce5349a127be89
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.component: blobs
+ms.openlocfilehash: 5d12b9f04dc1cc5017ab4c9ff1bde9b84ac24cfe
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400387"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: nivåer för frekvent lagring, lågfrekvent lagring och arkivlagring
 
@@ -72,7 +67,7 @@ Under återuppväckning kan du kontrollera blobegenskapen **Arkivstatus** för a
 
 Med blobnivåindelning kan du ändra nivå för dina data på objektnivå med hjälp av en enda åtgärd som kallas [Ange blobnivå](/rest/api/storageservices/set-blob-tier). Du kan enkelt ändra åtkomstnivå för en blob mellan frekvent, lågfrekvent eller arkivnivå när användningsmönster ändras, utan att behöva flytta data mellan konton. Alla nivåändringar sker omedelbart förutom när en blob återuppväcks från arkivet, vilket kan ta flera timmar. Tiden för den senaste ändringen på blobnivån är tillgänglig via blobegenskapen **Ändringstid för åtkomstnivå**. Om en blob finns i arkivnivån kan den inte skrivas över och därför är det inte tillåtet att ladda upp samma blob i det här scenariot. Du kan skriva över en blob på den frekventa och lågfrekventa nivån. Då ärver den nya bloben nivån för den gamla bloben som skrevs över.
 
-Blobar i alla tre lagringsnivåer kan finnas tillsammans i samma konto. En blob som inte har en uttryckligen tilldelad nivå härleder nivån från kontots åtkomstnivåinställning. Om åtkomstnivån härleds från kontot så är blobegenskapen **Åtkomstnivå härledd** inställd på ”true”, och blobegenskapen **Åtkomstnivå** matchar kontonivån. Egenskapen som härletts från åtkomstnivån i Azure Portal visas med blobåtkomstnivån (till exempel frekvent (härledd) eller lågfrekvent (härledd)).
+Blobar i alla tre lagringsnivåer kan finnas tillsammans i samma konto. En blob som inte har en uttryckligen tilldelad nivå härleder nivån från kontots åtkomstnivåinställning. Om åtkomstnivån härleds från kontot, visas den **åtkomstnivå härledd** blob-egenskapen angetts till ”true”, och blobegenskapen **åtkomstnivå** matchar kontonivån. Egenskapen som härletts från åtkomstnivån i Azure Portal visas med blobåtkomstnivån (till exempel frekvent (härledd) eller lågfrekvent (härledd)).
 
 > [!NOTE]
 > Arkivlagring och blobnivåindelning stöder endast blockblobar. Du kan även ändra nivå för en blockblob som har ögonblicksbilder.
@@ -97,7 +92,7 @@ Följande tabell innehåller en jämförelse av lagringsnivåerna: frekvent, lå
 | **Tillgänglighet** <br> **(RA-GRS-läsningar)**| 99,99 % | 99,9 % | Saknas |
 | **Avgifter för användning** | Högre kostnader för lagring, lägre kostnader för åtkomst och transaktioner | Lägre kostnader för lagring, högre kostnader för åtkomst och transaktioner | Lägst kostnader för lagring, högst kostnader för åtkomst och transaktioner |
 | **Minsta objektstorlek** | Saknas | Saknas | Saknas |
-| **Minsta lagringstid** | Saknas | 30 dagar (endast GPv2) | 180 dagar
+| **Minsta lagringstid** | Gäller inte | 30 dagar (endast GPv2) | 180 dagar
 | **Svarstid** <br> **(Tid till första byte)** | millisekunder | millisekunder | < 15 timmar
 | **Mål för skalbarhet och prestanda** | Samma som allmänna lagringskonton | Samma som allmänna lagringskonton | Samma som allmänna lagringskonton |
 
@@ -127,7 +122,7 @@ I det här avsnittet visas följande scenarier på Azure Portal:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Gå till din blob i lagringskontot genom att välja Alla resurser, ditt lagringskonto, din behållare och sedan välja din blob.
+2. Gå till din blob i lagringskontot genom att välja Alla resurser, ditt lagringskonto, din container och sedan välja din blob.
 
 3. På bladet Blobegenskaper klickar du på listrutemenyn **Åtkomstnivå** för att välja lagringsnivån **Frekvent**, **Lågfrekvent** eller **Arkiv**.
 

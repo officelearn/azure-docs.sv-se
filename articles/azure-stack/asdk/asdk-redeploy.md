@@ -1,6 +1,6 @@
 ---
-title: Distribuera Azure Stack Development Kit (ASDK) | Microsoft Docs
-description: Lär dig hur du installerar om ASDK i den här artikeln.
+title: Distribuera om Azure Stack Development Kit (ASDK) | Microsoft Docs
+description: I den här artikeln får du lära dig hur du installerar om ASDK.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -13,30 +13,30 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 06/07/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 91b8a936215e906e6e5b7e6a4fcd0dc88bef6009
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d166916ca54f3b8c26a418ff83093e53dcdbe515
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850328"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413778"
 ---
 # <a name="redeploy-the-asdk"></a>Distribuera om ASDK
-I den här artikeln får lära du att distribuera om Azure Stack Development Kit (ASDK) i en produktionsmiljö. Eftersom ASDK inte finns stöd för att uppgradera, måste du omdistribuera helt flytta det till en nyare version. Du kan också distribuera ASDK när som helst som du vill börja om från början.
+I den här artikeln får du lära dig hur du distribuera om Azure Stack Development Kit (ASDK) i en produktionsmiljö. Eftersom uppgraderar ASDK inte stöds, måste du distribuera helt om den att flytta till en nyare version. Du kan också distribuera om ASDK när som helst som du vill börja om från början.
 
 > [!IMPORTANT]
-> Uppgradera ASDK till en ny version stöds inte. Du måste distribuera ASDK på värddatorn development kit varje gång som du vill utvärdera en nyare version av Azure-stacken.
+> Uppgradera ASDK till en ny version stöds inte. Du måste distribuera om ASDK på värddatorn för development kit varje gång som du vill utvärdera en nyare version av Azure Stack.
 
-## <a name="remove-azure-registration"></a>Ta bort registreringen för Azure 
-Om du redan har registrerat din ASDK installation med Azure bör du ta bort resursen registrering innan du omdistribuerar ASDK. Registrera ASDK om du vill aktivera marketplace syndikering när du distribuerar ASDK. Om du inte redan har registrerat ASDK med din Azure-prenumeration kan du hoppa över det här avsnittet.
+## <a name="remove-azure-registration"></a>Ta bort Azure-registrering 
+Om du tidigare har registrerat din ASDK-installation med Azure bör du ta bort registreringen resursen innan du omdistribuerar ASDK. Omregistrera ASDK om du vill aktivera tillgängligheten för objekt i marketplace när du distribuerar om ASDK. Om du inte redan har registrerat ASDK med din Azure-prenumeration kan du hoppa över det här avsnittet.
 
-Ta bort resursen registrering med den **ta bort AzsRegistration** för att avregistrera Azure stacken. Använd sedan den **ta bort AzureRMRsourceGroup** för att ta bort resursgruppen Azure Stack från din Azure-prenumeration:
+Ta bort resursen för registrering med den **Remove-AzsRegistration** cmdlet för att avregistrera Azure Stack. Använd sedan den **Remove-AzureRMRsourceGroup** cmdlet för att ta bort Azure Stack-resursgruppen från Azure-prenumerationen:
 
-1. Öppna ett PowerShell-konsolen som administratör på en dator som har åtkomst till Privilegierade slutpunkten. För ASDK är som värddator för development kit.
+1. Öppna en PowerShell-konsol som administratör på en dator som har åtkomst till privilegierad slutpunkt. För ASDK är som värddator för development kit.
 
-2. Kör följande PowerShell-kommandon för att avregistrera ASDK installationen och ta bort den **azurestack** resursgrupp från din Azure-prenumeration:
+2. Kör följande PowerShell-kommandon för att avregistrera ASDK installationen och ta bort den **azurestack** resursgruppen från Azure-prenumerationen:
 
   ```Powershell    
   #Import the registration module that was downloaded with the GitHub tools
@@ -58,19 +58,19 @@ Ta bort resursen registrering med den **ta bort AzsRegistration** för att avreg
   ```
 
 3. Du uppmanas att logga in på både Azure-prenumerationen och den lokala ASDK installationen när skriptet körs.
-4. När skriptet har slutförts, bör du se meddelanden som liknar följande exempel:
+4. När skriptet har slutförts bör du se meddelanden som liknar följande exempel:
 
     ` De-Activating Azure Stack (this may take up to 10 minutes to complete).` ` Your environment is now unable to syndicate items and is no longer reporting usage data.` ` Remove registration resource from Azure...` ` "Deleting the resource..." on target "/subscriptions/<subscription information>"` ` ********** End Log: Remove-AzsRegistration ********* `
 
 
 
-Azure-stacken nu ska har avregistreras från din Azure-prenumeration. Dessutom ska resursgruppen azurestack skapas när du har registrerat ASDK med Azure, även tas bort.
+Azure Stack nu ska har avregistreras från din Azure-prenumeration. Dessutom tas azurestack resursgruppen, som skapades när du registrerade ASDK med Azure kan också bort.
 
 ## <a name="deploy-the-asdk"></a>Distribuera ASDK
-Om du vill distribuera om Azure-stacken börja du om från början som beskrivs nedan. Stegen är olika beroende på om huruvida du skriptet Azure Stack installer (asdk installer.ps1) installerat för ASDK.
+Om du vill distribuera om Azure Stack börja du om från början enligt beskrivningen nedan. Stegen är olika beroende på om huruvida du använder Azure Stack installer (asdk installer.ps1) skriptet för att installera ASDK.
 
 ### <a name="redeploy-the-asdk-using-the-installer-script"></a>Distribuera om ASDK med hjälp av installationsprogrammet för skript
-1. Öppna en upphöjd PowerShell-konsol på ASDK-datorn och navigera till asdk installer.ps1 skriptet i den **AzureStack_Installer** katalogen finns på en systemenhet. Kör skript och klicka på **omstart**.
+1. Öppna en upphöjd PowerShell-konsol på ASDK-dator och gå till asdk installer.ps1 skriptet i den **AzureStack_Installer** directory finns på en annan enhet än systemenheten. Kör skriptet och klicka på **omstart**.
 
    ![Kör skriptet asdk installer.ps1](media/asdk-redeploy/1.png)
 
@@ -78,24 +78,24 @@ Om du vill distribuera om Azure-stacken börja du om från början som beskrivs 
 
    ![Starta om operativsystemet för värden](media/asdk-redeploy/2.png)
 
-3. När det startar om i det grundläggande operativsystemet development kit värden, kan du logga in som lokal administratör. Leta upp och ta bort den **C:\CloudBuilder.vhdx** filen som användes som en del av den tidigare distribueringen. 
+3. När det startar om i det grundläggande operativsystemet development kit värden, kan du logga in som lokal administratör. Leta upp och ta bort den **C:\CloudBuilder.vhdx** filen som användes som en del av den föregående distributionen. 
 
-4. Upprepa samma steg som du tog till första [distribuera ASDK](asdk-install.md).
+4. Upprepa samma steg som du har gjort till första [distribuera ASDK](asdk-install.md).
 
 ### <a name="redeploy-the-asdk-without-using-the-installer"></a>Distribuera om ASDK utan att använda installationsprogrammet
 Om du inte använde asdk installer.ps1 skriptet för att installera ASDK, måste du manuellt konfigurera om värddatorn development kit innan du omdistribuerar ASDK.
 
-1. Starta verktyget genom att köra **msconfig.exe** på ASDK dator. På den **Start** , Välj dator värdoperativsystem (inte Azure-Stack) klickar du på **anges som standard**, och klicka sedan på **OK**. Klicka på **starta om** när du tillfrågas.
+1. Starta verktyget genom att köra **msconfig.exe** på ASDK-dator. På den **Start** , Välj dator värdoperativsystemet (inte Azure Stack) klickar du på **ange som standard**, och klicka sedan på **OK**. Klicka på **starta om** när du tillfrågas.
 
       ![Ange startkonfiguration](media/asdk-redeploy/4.png)
 
-2. När det startar om i det grundläggande operativsystemet development kit värden, kan du logga in som lokal administratör på värddatorn för development kit. Leta upp och ta bort den **C:\CloudBuilder.vhdx** filen som användes som en del av den tidigare distribueringen. 
+2. När det startar om i det grundläggande operativsystemet development kit värden, kan du logga in som lokal administratör på värddatorn för development kit. Leta upp och ta bort den **C:\CloudBuilder.vhdx** filen som användes som en del av den föregående distributionen. 
 
-3. Upprepa samma steg som du tog till första [distribuera ASDK med hjälp av PowerShell](asdk-deploy-powershell.md).
+3. Upprepa samma steg som du har gjort till första [distribuera ASDK med hjälp av PowerShell](asdk-deploy-powershell.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
-[Publicera ASDK installation konfigurationsuppgifter](asdk-post-deploy.md)
+[Publicera konfigurationsuppgifter för ASDK installation](asdk-post-deploy.md)
 
 
 

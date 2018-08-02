@@ -3,17 +3,17 @@ title: Hur du använder objektlagring (Blob) från C++ - Azure | Microsoft Docs
 description: Store Ostrukturerade data i molnet med Azure-blobblagringen (objekt).
 services: storage
 author: MichaelHauss
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: d3297ae7bc4a5ac7e2a43d9d44a05365004b685f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: blobs
+ms.openlocfilehash: 0564d8406a0ce885ec5d75377f6a165901a8aa25
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299004"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397173"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Använda Blob storage från C++
 
@@ -87,7 +87,7 @@ azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blo
 ## <a name="how-to-create-a-container"></a>Så här: skapa en behållare
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
-Det här exemplet visas hur du skapar en behållare om den inte redan finns:  
+Det här exemplet visas hur du skapar en container om den inte redan finns:  
 
 ```cpp
 try
@@ -124,7 +124,7 @@ Alla på Internet kan se blobbar i en offentlig behållare, men du kan ändra el
 ## <a name="how-to-upload-a-blob-into-a-container"></a>Så här: ladda upp en blob till en behållare
 Azure Blob storage stöder blockera blobar och sidblobar. I de flesta fall är blockblobbar den rekommenderade typen.  
 
-Om du vill ladda upp en fil till en blockblobb hämtar du en referens för behållaren och använder den för att hämta en referens för blockblobben. När du har en blobbreferens kan du kan ladda upp en dataström till den genom att anropa den **upload_from_stream** metod. Med den här åtgärden skapas blobben om den inte fanns tidigare, eller skrivs över om den redan fanns. Följande exempel visar hur du laddar upp en blobb till en behållare och förutsätter att behållaren redan hade skapats.  
+Om du vill ladda upp en fil till en blockblob hämtar du en referens för containern och använder den för att hämta en referens för blockbloben. När du har en blobbreferens kan du kan ladda upp en dataström till den genom att anropa den **upload_from_stream** metod. Med den här åtgärden skapas blobben om den inte fanns tidigare, eller skrivs över om den redan fanns. Följande exempel visar hur du laddar upp en blob till en container och förutsätter att containern redan hade skapats.  
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -157,7 +157,7 @@ blob3.upload_text(U("other text"));
 Du kan också använda den **upload_from_file** metod för att överföra en fil till en blockblob.
 
 ## <a name="how-to-list-the-blobs-in-a-container"></a>Så här: listar blobarna i en behållare
-Om du vill visa blobbar i en behållare börjar du med att hämta en referens för behållaren. Du kan sedan använda behållarens **list_blobs** metod för att hämta blobbarna och/eller katalogerna i den. Komma åt den omfattande uppsättningen med egenskaper och metoder för en returnerad **list_blob_item**, måste du anropa den **list_blob_item.as_blob** metod för att hämta en **cloud_blob** objekt, eller **list_blob.as_directory** metod för att hämta ett cloud_blob_directory-objekt. Följande kod visar hur du hämtar och returnerar URI: N för varje objekt i den **Mina exempelbehållaren** behållare:
+Om du vill visa blobar i en container börjar du med att hämta en referens för containern. Du kan sedan använda behållarens **list_blobs** metod för att hämta blobbarna och/eller katalogerna i den. Komma åt den omfattande uppsättningen med egenskaper och metoder för en returnerad **list_blob_item**, måste du anropa den **list_blob_item.as_blob** metod för att hämta en **cloud_blob** objekt, eller **list_blob.as_directory** metod för att hämta ett cloud_blob_directory-objekt. Följande kod visar hur du hämtar och returnerar URI: N för varje objekt i den **Mina exempelbehållaren** behållare:
 
 ```cpp
 // Retrieve storage account from connection string.

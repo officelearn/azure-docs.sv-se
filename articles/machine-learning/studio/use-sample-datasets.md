@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 725b7e1e37ffca38cf439cc62b053f13dfd6397d
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 7a90a8f05082e2c0731f9f112d3e56ecaf4ea55b
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903038"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398809"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Använd exemplen på datauppsättningar i Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -333,7 +333,7 @@ Observera också att antalet händelser som bakgrund (för hadronic duschar h) �
 <tr>
   <td>Väder-datauppsättning</td>
   <td>
-Per timme mark-baserade väder observationer från amerikanska NOAA (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">samman data från 201304 till 201310</a>).
+Per timme mark-baserade väder observationer från amerikanska NOAA (<a href="http://az754797.vo.msecnd.net/data/WeatherDataset.csv">samman data från 201304 till 201310</a>).
 <p></p>
 Väderdata täcker observationer som görs från en flygplats väder stationer, som omfattar tidsperioden April – oktober 2013. Innan du skickar till Azure Machine Learning Studio, bearbetades datamängden på följande sätt:
 <ul>

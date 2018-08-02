@@ -1,50 +1,50 @@
 ---
-title: Azure Storage Service-kryptering med kundhanterad nycklar i Azure Key Vault | Microsoft Docs
-description: Funktionen Azure Storage Service-kryptering för att kryptera din Azure-Blobblagring på tjänstsidan när data lagrades och dekryptera den vid hämtning av data med kundhanterad nycklar.
+title: Azure Storage Service Encryption använder Kundhanterade nycklar i Azure Key Vault | Microsoft Docs
+description: Funktionen Azure Storage Service Encryption för att kryptera Azure Blob storage, Azure Files, Azure Queue storage och Azure Table storage på serversidan vid lagring av data och dekryptera det vid hämtning av data med Kundhanterade nycklar.
 services: storage
 author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: 04688f943ac9eba27ca193aa2054c69b6a94547d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b92a486ea8dfc148cd10b905f90a0e871602cc61
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414940"
 ---
-# <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Lagringstjänstens kryptering med kundhanterad nycklar i Azure Key Vault
+# <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault
+Microsoft Azure är förbundet till hjälper dig att skydda och skydda dina data för att uppfylla organisationens säkerhets- och efterlevnadsbestämmelser. Ett sätt att Azure storage-plattformen skyddar dina data är via Storage Service Encryption (SSE), som krypterar dina data vid skrivning till lagring och dekrypterar data vid hämtning av den. Kryptering och dekryptering är automatisk, transparent och använder 256-bitars [AES-kryptering](https://wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste blockchiffer som finns.
 
-Microsoft Azure är hjälper dig att skydda och skydda dina data för att uppfylla din organisations säkerhet och efterlevnad åtaganden. Ett sätt att Azure Storage skyddar dina data är via Storage Service kryptering (SSE), som krypterar dina data när du skriver till lagring och dekrypterar data vid hämtning av den. Kryptering och dekryptering är automatisk, transparent och använder 256-bitars [AES-kryptering](https://wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste blocket chiffer tillgängliga.
+Du kan använda Microsoft-hanterade krypteringsnycklarna med SSE eller du kan använda dina egna krypteringsnycklar. Den här artikeln beskriver hur du använder egna krypteringsnycklar. Mer information om hur du använder Microsoft-hanterade nycklar eller om SSE i allmänhet finns i [Storage Service Encryption för vilande data](storage-service-encryption.md).
 
-Du kan använda Microsoft-hanterad krypteringsnycklarna med SSE eller du kan använda dina egna krypteringsnycklar. Den här artikeln beskriver hur du använder egna krypteringsnycklar. Mer information om hur du använder Microsoft-hanterad nycklar eller om SSE i allmänhet finns [Lagringstjänstens kryptering av vilande Data](storage-service-encryption.md).
+SSE för Azure Blob storage och Azure Files är integrerat med Azure Key Vault, så att du kan använda ett nyckelvalv för att hantera dina krypteringsnycklar. Du kan skapa egna krypteringsnycklar och lagra dem i ett nyckelvalv, eller du kan använda Azure Key Vault-API: er för att generera krypteringsnycklar. Med Azure Key Vault kan du hantera och kontrollera dina nycklar och även granska din nyckelanvändning.
 
-SSE för Blob- och lagring är integrerad med Azure Key Vault så att du kan använda ett nyckelvalv för att hantera krypteringsnycklar. Du kan skapa egna krypteringsnycklar och lagrar dem i ett nyckelvalv eller du kan använda Azure Key Vault-API: er för att generera krypteringsnycklar. Med Azure Key Vault kan hantera och styra dina nycklar och också granska din nyckelanvändning.
+> [!Note]  
+> Kryptering av lagringstjänst är inte tillgänglig för [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Vi rekommenderar att du använder kryptering på OS-nivå, till exempel [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), som använder vanliga [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) på Windows och [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) på Linux för att tillhandahålla kryptering är integrerad med KeyVault.
 
-Varför ska man skapa dina egna nycklar? Anpassade nycklar ger mer flexibilitet så att du kan skapa, rotera, inaktivera och definiera åtkomstkontroller. Anpassade nycklar kan du granska de krypteringsnycklar som används för att skydda dina data.
+Varför skapa dina egna nycklar? Anpassade nycklar ger mer flexibilitet, så att du kan skapa, rotera, inaktivera och definiera åtkomstkontroller. Anpassade nycklar kan du granska de krypteringsnycklar som används för att skydda dina data.
 
-## <a name="get-started-with-customer-managed-keys"></a>Kom igång med kundhanterad nycklar
-
-Du kan antingen skapa ett nytt nyckelvalv om du vill använda kundhanterad nycklar med SSE och nyckel eller du kan använda en befintlig nyckelvalvet och nyckel. Storage-konto och nyckelvalvet måste vara i samma region, men de kan ha olika prenumerationer. 
+## <a name="get-started-with-customer-managed-keys"></a>Kom igång med Kundhanterade nycklar
+Om du vill använda Kundhanterade nycklar med SSE, du kan antingen skapa ett nytt nyckelvalv och nyckel eller du kan använda ett befintligt nyckelvalv och nyckel. Storage-konto och nyckelvalvet måste vara i samma region, men de kan vara i olika prenumerationer. 
 
 ### <a name="step-1-create-a-storage-account"></a>Steg 1: Skapa ett lagringskonto
-
-Först skapar du ett storage-konto om du inte redan har en. Mer information finns i [skapa ett nytt lagringskonto](storage-quickstart-create-account.md).
+Skapa först ett lagringskonto om du inte redan har en. Mer information finns i [skapa ett nytt lagringskonto](storage-quickstart-create-account.md).
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Steg 2: Aktivera SSE för Blob- och lagring
+Om du vill aktivera SSE med Kundhanterade nycklar, måste två nyckelskydd funktioner, mjuk borttagning och rensa inte, vara aktiverat. De här inställningarna Kontrollera nycklarna inte får vara råkar eller avsiktligt borttagna. Den högsta bevarandeperioden av nycklarna har angetts till 90 dagar, skydda användarna mot skadliga aktörer eller utpressningstrojan-attacker.
 
-Om du vill aktivera SSE med kundhanterad nycklar måste två nyckelskydd funktioner, mjuk ta bort och rensa inte, vara aktiverat. Dessa inställningar Se till att nycklarna inte kan vara av misstag eller avsiktligt borttagna. Den högsta bevarandeperioden nycklar har angetts till 90 dagarna, skyddar användare mot skadliga aktörer eller en utpressningstrojan som attacker.
+Om du vill aktivera programmässigt Kundhanterade nycklar för SSE, kan du använda den [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp), [klientbibliotek för Storage Resource Provider för .NET](https://docs.microsoft.com/dotnet/api), [ Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), eller [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
-Om du vill aktivera programmässigt kundhanterad nycklar för SSE, kan du använda den [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp), [Storage-klientbiblioteket för .NET](https://docs.microsoft.com/dotnet/api), [ Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), eller [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
-
-Om du vill använda kundhanterad nycklar med SSE, måste du tilldela en identitet för storage-konto till lagringskontot. Du kan ange identiteten genom att köra följande PowerShell-kommando:
+Om du vill använda Kundhanterade nycklar med SSE, måste du tilldela en identitet för storage-konto till lagringskontot. Du kan ange identiteten genom att köra följande PowerShell-kommando:
 
 ```powershell
 Set-AzureRmStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
 ```
 
-Du kan aktivera ej permanent ta bort och gör inte rensa genom att köra följande PowerShell-kommandon:
+Du kan aktivera mjuk borttagning och gör inte rensa genom att köra följande PowerShell-kommandon:
 
 ```powershell
 ($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
@@ -62,39 +62,35 @@ Set-AzureRmResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 ```
 
-### <a name="step-3-enable-encryption-with-customer-managed-keys"></a>Steg 3: Aktivera kryptering med kundhanterad nycklar
+### <a name="step-3-enable-encryption-with-customer-managed-keys"></a>Steg 3: Aktivera kryptering med Kundhanterade nycklar
+Som standard använder SSE Microsoft-hanterade nycklar. Du kan aktivera SSE med Kundhanterade nycklar för storage-konto med den [Azure-portalen](https://portal.azure.com/). På den **inställningar** bladet för storage-konto klickar du på **kryptering**. Välj den **använda din egen nyckel** alternativ, enligt följande bild.
 
-Som standard använder SSE Microsoft-hanterade nycklar. Du kan aktivera SSE med kundhanterad nycklar för storage-konto med den [Azure-portalen](https://portal.azure.com/). På den **inställningar** bladet för storage-konto klickar du på **kryptering**. Välj den **använda din egen nyckel** alternativ, som visas i följande bild.
-
-![Skärmbild som visar Portal krypteringsalternativet](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
+![Portalen skärmbild med krypteringsalternativet](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 
 ### <a name="step-4-select-your-key"></a>Steg 4: Välj din nyckel
-
-Du kan ange en nyckel som en URI, eller genom att välja nyckeln från ett nyckelvalv.
+Du kan ange en nyckel som en URI eller genom att välja nyckeln från key vault.
 
 #### <a name="specify-a-key-as-a-uri"></a>Ange en nyckel som en URI
-
 Följ dessa steg om du vill ange en nyckel från en URI:
 
 1. Välj den **RETUR-tangenten URI** alternativet.  
-2. I den **nyckel URI** ange URI: N.
+2. I den **Key URI: N** fältet Ange URI: N.
 
-    ![Portalen skärmbild som visar kryptering med viktiga uri-alternativ](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
+    ![Portalen skärmbild kryptering med Ange nyckel-uri-alternativet](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
 
-#### <a name="specify-a-key-from-a-key-vault"></a>Ange en nyckel från ett nyckelvalv 
+#### <a name="specify-a-key-from-a-key-vault"></a>Ange en nyckel från key vault 
+Följ dessa steg om du vill ange en nyckel från key vault:
 
-Följ dessa steg om du vill ange en nyckel från ett nyckelvalv:
-
-1. Välj den **Välj Key Vault** alternativet.  
-2. Välj nyckelvalvet som innehåller den nyckel som du vill använda.
+1. Välj den **Välj från Key Vault** alternativet.  
+2. Välj det nyckelvalv som innehåller den nyckel som du vill använda.
 3. Välj nyckeln från nyckelvalvet.
 
     ![Portalen skärmbild som visar krypteringar använda din egen nyckel alternativet](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
 
-Du kan köra Azure PowerShell-kommandot som visas i följande bild för att bevilja åtkomst om lagringskontot inte har åtkomst till nyckelvalvet.
+Om lagringskontot inte har åtkomst till nyckelvalvet, kan du köra Azure PowerShell-kommando som visas i följande bild för att bevilja åtkomst.
 
-![Portalen skärmbild som visar åtkomst nekades för nyckelvalvet](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
+![Portalen skärmbild som visar åtkomst nekades för key vault](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
 
 Du kan också ge åtkomst via Azure portal genom att gå till Azure Key Vault i Azure-portalen och bevilja åtkomst till lagringskontot.
 
@@ -108,69 +104,56 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storag
 Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -EnableEncryptionService "Blob" -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
 ```
 
-
-### <a name="step-5-copy-data-to-storage-account"></a>Steg 5: Kopiera data till storage-konto
-
-Att överföra data till det nya kontot så att den är krypterad. Mer information finns i [vanliga frågor om tjänsten Lagringskryptering](storage-service-encryption.md#faq-for-storage-service-encryption).
+### <a name="step-5-copy-data-to-storage-account"></a>Steg 5: Kopieringsdata till storage-konto
+Att överföra data till det nya kontot så att de är krypterade. Mer information finns i [vanliga frågor och svar för kryptering av lagringstjänst](storage-service-encryption.md#faq-for-storage-service-encryption).
 
 ### <a name="step-6-query-the-status-of-the-encrypted-data"></a>Steg 6: Fråga status för krypterade data
+Fråga status för krypterade data.
 
-Fråga om status på krypterade data.
+## <a name="faq-for-sse-with-customer-managed-keys"></a>Vanliga frågor och svar för SSE med kunden hanterade nycklar
+**Jag använder Premium-lagring. kan jag använda Kundhanterade nycklar med SSE?**  
+Ja, SSE med Microsoft-hanterad och Kundhanterade nycklar stöds på både Standard-lagring och premiumlagring.
 
-## <a name="faq-for-sse-with-customer-managed-keys"></a>Vanliga frågor om SSE med kunden hanterade nycklar
+**Kan jag skapa nya storage-konton med SSE med Kundhanterade nycklar aktiverat med Azure PowerShell och Azure CLI?**  
+Ja.
 
-**F: Jag använder Premium-lagring. kan jag använda kundhanterad nycklar med SSE?**
+**Hur mycket kostar Azure Storage om jag använder Kundhanterade nycklar med SSE?**  
+Det finns en kostnad för att använda Azure Key Vault. Mer information på [priser för Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). Det finns ingen extra kostnad för SSE, som är aktiverad för alla lagringskonton.
 
-S: Ja stöds SSE med Microsoft-hanterad och kundhanterad nycklar på både Standard lagrings- och Premium-lagring.
+**Är kryptering av lagringstjänst tillgängligt på Azure Managed Disks?**  
+Nej, kryptering av lagringstjänst är inte tillgänglig för [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Vi rekommenderar att du använder kryptering på OS-nivå, till exempel [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), som använder vanliga [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) på Windows och [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) på Linux för att tillhandahålla kryptering är integrerad med KeyVault.
 
-**F: kan jag skapa ny storage-konton med SSE med kundhanterad nycklar aktiverad med Azure PowerShell och Azure CLI?**
+**Hur skiljer sig kryptering av lagringstjänst från Azure Disk Encryption?**  
+Azure Disk Encryption innehåller integrering mellan OS-baserade lösningar, till exempel BitLocker och DM-Crypt och Azure KeyVault. Kryptering av lagringstjänst tillhandahåller kryptering internt i Azure storage-plattformen lager, under den virtuella datorn.
 
-S: Ja.
+**Kan jag återkalla åtkomst till krypteringsnycklarna?**
+Ja, du kan återkalla behörigheten när som helst. Det finns flera sätt att återkalla åtkomst till dina nycklar. Referera till [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) och [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) för mer information. Återkalla åtkomst blockerar effektivt åtkomst till alla blobar i lagringskontot som konto krypteringsnyckeln är otillgänglig av Azure Storage.
 
-**F: hur mycket kostar Azure Storage om jag använder kundhanterad nycklar med SSE?**
+**Kan jag skapa ett lagringskonto och nyckel i annan region?**  
+Nej, storage-konto och Azure Key Vault och nyckel måste finnas i samma region.
 
-S: det kostar för att använda Azure Key Vault. Mer information finns på [Key Vault-priser](https://azure.microsoft.com/pricing/details/key-vault/). Det finns inga extra kostnad för SSE som är aktiverad för alla lagringskonton.
+**Kan jag aktivera Kundhanterade nycklar för SSE när du skapar storage-konto?**  
+Nej. När du först skapa lagringskontot finns Microsoft-hanterade nycklar för SSE. Om du vill använda Kundhanterade nycklar måste du uppdatera egenskaper för lagringskontot. Du kan använda REST eller någon av storage-klientbibliotek för att programmässigt uppdatera ditt lagringskonto eller uppdatera de egenskaper för lagringskontot i Azure-portalen när du har skapat kontot.
 
-**F: kan jag återkalla åtkomst till krypteringsnycklarna?**
+**Kan jag inaktivera kryptering när du använder Kundhanterade nycklar med SSE?**  
+Nej, du kan inte inaktivera kryptering. Kryptering är aktiverat som standard för Azure Blob storage, Azure Files, Azure-kö och Azure Table storage. Du kan också växla från att använda Microsoft-hanterade nycklar använder Kundhanterade nycklar och vice versa.
 
-S: Ja, du kan återkalla åtkomst när som helst. Det finns flera sätt att återkalla åtkomst till dina nycklar. Referera till [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) och [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) för mer information. Återkalla åtkomst blockerar effektivt åtkomst till alla BLOB storage-kontot eftersom kontot krypteringsnyckeln är otillgänglig genom Azure Storage.
+**SSE är aktiverat när jag skapar ett nytt lagringskonto?**  
+SSE är aktiverat för alla lagringskonton och Azure Blob storage, Azure Files, Azure Queue storage och Azure Table storage.
 
-**F: kan jag skapa ett lagringskonto och en nyckel i annan region?**
+**Jag kan inte aktivera SSE med Kundhanterade nycklar på mitt lagringskonto.**  
+Är det en Azure Resource Manager-lagringskonto? Klassiska lagringskonton stöds inte med Kundhanterade nycklar. SSE med Kundhanterade nycklar kan bara aktiveras om Resource Manager-lagringskonton.
 
-S: Nej, storage-konto och Azure Key Vault och nyckel måste vara i samma region.
+**Vad är Mjuk borttagning och gör inte rensa? Måste jag aktivera den här inställningen för att använda SSE med Kundhanterade nycklar?**  
+Borttagning mjuk och gör inte rensa måste aktiveras att använda SSE med Kundhanterade nycklar. De här inställningarna se till att din nyckel inte är råkar eller avsiktligt borttagna. Den högsta bevarandeperioden av nycklarna har angetts till 90 dagar, skydda användarna mot skadliga aktörer och utpressningstrojan-attacker. Den här inställningen kan inte inaktiveras.
 
-**F: kan jag aktivera kundhanterad nycklar för SSE när lagringskontot?**
+**Tillåts SSE med Kundhanterade nycklar endast i vissa områden?**  
+SSE med Kundhanterade nycklar finns i alla regioner för Azure Blob storage och Azure Files.
 
-S: Nej. Microsoft-hanterad nycklar är tillgängliga för SSE när du först skapa lagringskontot. Om du vill använda kundhanterad nycklar, måste du uppdatera lagringskontoegenskaperna. Du kan använda REST- eller en lagringsklientbiblioteken programmässigt uppdatera ditt lagringskonto eller uppdatera lagringskontoegenskaperna med Azure-portalen när du har skapat kontot.
-
-**F: kan jag inaktivera kryptering när du använder kundhanterad nycklar med SSE?**
-
-A: du kan inte Nej, inaktivera kryptering. Kryptering är aktiverat som standard för alla tjänster – Blob, fil-, tabell- och kön lagring. Du kan om du vill växla från med hjälp av Microsoft-hanterad nycklar kundhanterad trycker och vice versa.
-
-**F: är SSE aktiverad som standard när jag skapar ett nytt lagringskonto?**
-
-S: SSE är aktiverad som standard för alla lagringskonton och för alla tjänster – Blob, fil-, tabell- och kön lagringsutrymmen.
-
-**F: Jag kan inte aktivera SSE med kundhanterad nycklar för storage-konto.**
-
-S: är det ett Azure Resource Manager storage-konto? Klassiska lagringskonton stöds inte med kundhanterad nycklar. SSE med kundhanterad nycklar kan endast aktiveras på lagringskonton för hanteraren för filserverresurser.
-
-**F: Vad är ej permanent ta bort och gör inte rensa? Behöver jag aktivera den här inställningen om du vill använda SSE med kundhanterad nycklar?**
-
-S: mjuka ta bort och gör inte rensa måste aktiveras att använda SSE med kundhanterad nycklar. De här inställningarna kan du kontrollera att nyckeln inte är av misstag eller avsiktligt borttagna. Den högsta bevarandeperioden nycklar har angetts till 90 dagarna, skyddar användare mot skadliga aktörer och är en utpressningstrojan som attacker. Den här inställningen kan inte inaktiveras.
-
-**F: är SSE med kundhanterad nycklar får endast i vissa områden?**
-
-S: SSE med kundhanterad nycklar är tillgänglig i alla regioner för Blob- och lagring.
-
-**F: hur kan jag få någon om jag har problem eller vill ge feedback?**
-
-A: Kontakta [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) för eventuella problem som rör Storage Service-kryptering.
+**Hur kontaktar jag någon om jag har problem eller vill ge feedback?**  
+Kontakta [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) om eventuella problem som rör kryptering av lagringstjänst.
 
 ## <a name="next-steps"></a>Nästa steg
-
--   Mer information om en omfattande uppsättning säkerhet funktioner som hjälper utvecklare att skapa säkra program, finns det [säkerhetsguiden för lagring](storage-security-guide.md).
-
--   Mer information om Azure Key Vault finns [vad är Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
-
--   Komma igång på Azure Key Vault finns [komma igång med Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
+- Mer information om den omfattande uppsättningen security funktioner som hjälper utvecklare att skapa säkra program, finns i den [Lagringssäkerhetsguide](storage-security-guide.md).
+- Mer information om Azure Key Vault finns i [vad är Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
+- Komma igång med Azure Key Vault, finns i [komma igång med Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).

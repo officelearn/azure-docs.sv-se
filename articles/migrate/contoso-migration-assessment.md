@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: 2be5ddd51140563efc44b1c1a4c84502bf491020
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e2fbe766391759f2bbe4a95e75897b2bc9523c0c
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215330"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399081"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso-migrering: utvärdera lokala arbetsbelastningar för migrering till Azure
 
@@ -123,8 +123,10 @@ Contoso och andra användare måste uppfylla följande krav för utvärderingen:
 - Minst två lokala virtuella VMware-datorer, varav en kör en SQL Server-databas.
 - Behörigheter för att installera Azure Migrate-agenter på varje virtuell dator.
 - De virtuella datorerna ska ha direkt Internetanslutning.  
-        - Du kan begränsa Internetåtkomsten till [de URL:er som krävs](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-        – Om dina virtuella datorer inte har Internetanslutning, Azure Log Analytics [OMS-gatewayen](../log-analytics/log-analytics-oms-gateway.md) måste vara installerad på dem.
+        
+- Du kan begränsa Internetåtkomsten till de [krävs URL: er](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+
+- Om dina virtuella datorer inte har Internetanslutning, Azure Log Analytics [OMS-gatewayen](../log-analytics/log-analytics-oms-gateway.md) måste vara installerad på dem.
 - FQDN för den virtuella datorn som kör SQL Server-instansen (för utvärdering av databasen).
 - Windows-brandväggen som körs på SQL Server-dator ska tillåta externa anslutningar på TCP-port 1433 (standard). Inställningen tillåter Data Migration Assistant att ansluta.
 

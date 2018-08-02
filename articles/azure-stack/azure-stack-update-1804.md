@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 2c62f8ab0e5f8974fbed51848772dee69f60b063
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 0190298cbf6352feeb71e365f5815e174c9e30cc
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344257"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413524"
 ---
 # <a name="azure-stack-1804-update"></a>Uppdatering av Azure Stack 1804
 
@@ -80,7 +80,10 @@ Följande är nu tillgängliga, men kräver inte Azure Stack-uppdatering 1804.
 ## <a name="before-you-begin"></a>Innan du börjar    
 
 ### <a name="prerequisites"></a>Förutsättningar
-- Installera Azure Stack [1803 uppdatera](azure-stack-update-1803.md) innan du installerar Azure Stack 1804 uppdateringen.    
+- Installera Azure Stack [1803 uppdatera](azure-stack-update-1803.md) innan du installerar Azure Stack 1804 uppdateringen.  
+  
+- Installera den senaste tillgängliga [uppdatering eller snabbkorrigering för version 1803](azure-stack-update-1803.md#post-update-steps). 
+
 
 ### <a name="known-issues-with-the-update-process"></a>Kända problem med uppdateringen   
 - Du kan se aviseringar med rubriken under installationen av uppdateringen 1804 *fel – mall för FaultType UserAccounts.New saknas.*  Du kan ignorera dessa aviseringar. De här aviseringarna stängs automatiskt när uppdateringen till 1804 är klar.   

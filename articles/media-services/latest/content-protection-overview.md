@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 1568ea3431f18b7a7a020d34d803f883904e18b4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 600068113fec0549f3993ac57c1daa93577c6be6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115238"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399761"
 ---
 # <a name="content-protection-overview"></a>Content protection-översikt
 
@@ -30,7 +30,7 @@ Följande bild illustrerar arbetsflödet för Media Services-content protection:
 
 &#42;*dynamisk kryptering stöder AES-128 ”clear key”, CBCS och CENC. Mer information finns i supportmatrisen [här](#streaming-protocols-and-encryption-types).*
 
-Den här artikeln beskriver begrepp och termer som är relevanta för att förstå innehållsskydd med Media Services. Artikeln innehåller också länkar till artiklar om hur du skyddar innehållet. 
+Den här artikeln beskriver begrepp och termer som är relevanta för att förstå innehållsskydd med Media Services. Artikeln innehåller också de [vanliga frågor och svar](#faq) avsnittet och innehåller länkar till artiklar som visar hur du skyddar innehållet. 
 
 ## <a name="main-components-of-the-content-protection-system"></a>Huvudkomponenterna i systemet innehållsskydd
 
@@ -43,7 +43,7 @@ För att slutföra utformningen ”content protection” system/program, måste 
   * Innehållsnycklar, strömningsprotokoll och motsvarande DRMs tillämpas, definierar DRM-kryptering
 
   > [!NOTE]
-  > Du kan kryptera varje tillgång med flera krypteringstyper (AES-128, PlayReady, Widevine, FairPlay). Se [Streaming protokoll och krypteringstyper](#streaming-protocols-and-encryption-types), för att se vad är det bra att kombinera.
+  > Du kan kryptera varje tillgång med flera krypteringstyper (AES-128, PlayReady, Widevine, FairPlay). I dokumentationen om [direktuppspelningsprotokoll och krypteringstyper](#streaming-protocols-and-encryption-types) ser du vad som är bra att kombinera.
   
   Följande artiklar visar stegen för att kryptera innehåll med AES och/eller DRM: 
   
@@ -125,6 +125,65 @@ Med en tokenbegränsade innehåll viktiga princip skickas innehållsnyckeln enda
 
 När du konfigurerar den tokenbegränsade principen måste du ange primär verifieringsnyckel, utfärdare och målgrupp parametrar. Den primära Verifieringsnyckeln innehåller den nyckel som token signerats med. Utfärdaren är den säkra tokentjänst som utfärdar en token. Publik, vilket ibland kallas omfattning, beskriver syftet med denna token eller resursen token auktoriserar åtkomst till. Media Services-nyckelleveranstjänst verifierar att dessa värden i token matchar värden i mallen.
 
+## <a name="a-idfaqfrequently-asked-questions"></a><a id="faq"/>Vanliga frågor och svar
+
+### <a name="question"></a>Fråga
+
+Hur du implementerar multi-DRM (PlayReady, Widevine och FairPlay) system med hjälp av Azure Media Services (AMS) v3 och Använd AMS licensnyckel/delivery service?
+
+### <a name="answer"></a>Svar
+
+Slutpunkt till slutpunkt-scenariot finns det [följande kodexempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs). 
+
+I exempel visas hur du:
+
+1. Skapa och konfigurera ContentKeyPolicies.
+
+  Exemplet innehåller funktioner som konfigurerar [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), och [FairPlay](fairplay-license-overview.md) licenser.
+
+    ```
+    ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
+    ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
+    ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
+    ```
+
+2. Skapa en StreamingLocator som är konfigurerad för att strömma en krypterad tillgång. 
+
+  Det här exemplet vi ställer in **StreamingPolicyName** till **PredefinedStreamingPolicy.SecureStreaming** som har stöd för kuvert och cenc kryptering och anger två nycklar för den StreamingLocator. 
+
+  Om du vill kryptera med FairPlay, ange den **StreamingPolicyName** till **PredefinedStreamingPolicy.SecureStreamingWithFairPlay**.
+
+3. Skapa en test-token.
+
+  Den **GetTokenAsync** metoden visar hur du skapar ett test-token.
+  
+4. Skapa strömnings-URL.
+
+  Den **GetDASHStreamingUrlAsync** metoden visar hur du skapar strömnings-URL. I det här fallet, URL-strömmar på **DASH** innehåll.
+
+### <a name="question"></a>Fråga
+
+Hur och var du vill hämta JWT-token innan det att begäran licens eller nyckel?
+
+### <a name="answer"></a>Svar
+
+1. Du måste ha en säker Token tjänster (STS) (webbtjänst) som utfärdar JWT-token på en HTTPS-begäran för produktion. För testning kan du använda koden som visas i **GetTokenAsync** metod som definieras i [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+2. Player behöver du göra en begäran när en användare autentiseras till STS för sådana en token och tilldela den som värde för token. Du kan använda den [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/).
+
+* Ett exempel för att köra STS, med symmetriska och asymmetrisk nyckel finns i [ http://aka.ms/jwt ](http://aka.ms/jwt). 
+* Ett exempel på en spelare baserat på Azure Media Player med hjälp av sådana JWT-token finns i [ http://aka.ms/amtest ](http://aka.ms/amtest) (expandera ”player_settings”-länk om du vill se token indata).
+
+### <a name="question"></a>Fråga
+
+Hur du för att godkänna begäranden att strömma videor med AES-kryptering?
+
+### <a name="answer"></a>Svar
+
+Det korrekta sättet är att använda STS (Secure Token Service):
+
+I STS, beroende på användarprofil, lägger du till olika anspråk (till exempel ”Premium-användare”, ”grundläggande användare”, ”kostnadsfri utvärdering användare”). Användaren kan se olika innehållet med olika anspråk i en JWT. Naturligtvis för annat innehåll/tillgången har ContentKeyPolicyRestriction motsvarande RequiredClaims.
+
+Använd Azure Media Services API: er för att konfigurera/licensnyckel leverans och krypterar dina tillgångar (enligt [i det här exemplet](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs).
 
 ## <a name="next-steps"></a>Nästa steg
 

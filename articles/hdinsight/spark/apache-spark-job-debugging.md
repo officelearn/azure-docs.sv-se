@@ -1,6 +1,6 @@
 ---
 title: Felsöka Apache Spark-jobb som körs på Azure HDInsight | Microsoft Docs
-description: Använda YARN-Användargränssnittet, Spark UI och Spark historik server att spåra och felsöka jobb som körs på ett Spark-kluster i Azure HDInsight
+description: Använd YARN-Användargränssnittet, Spark-Användargränssnittet och Spark-historikserver att spåra och felsöka jobb som körs på ett Spark-kluster i Azure HDInsight
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -14,99 +14,100 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 1ddf8cd38b4d62dc206a9f27e0620f8c7b232ec3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2593a9e782298bbd6e40bde611a430844febbce3
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31519390"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398496"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Felsöka Apache Spark-jobb som körs på Azure HDInsight
 
-I den här artikeln får lära du att spåra och felsöka Spark-jobb som körs på HDInsight-kluster med hjälp av YARN-Användargränssnittet, Spark användargränssnitt och Spark historik Server. Du startar en Spark-jobb med hjälp av en bärbar dator som är tillgängliga med Spark-kluster **Maskininlärning: förutsägbar analys på mat inspektion data med hjälp av MLLib**. Du kan använda följande steg för att spåra ett program som du skickas med någon annan metod, till exempel **spark-skicka**.
+I den här artikeln lär du dig att spåra och felsöka Spark-jobb som körs på HDInsight-kluster med YARN-Användargränssnittet, Spark-Användargränssnittet och Spark-Historikserver. Du startar ett Spark-jobb med hjälp av en bärbar dator som är tillgängliga med Spark-kluster **Machine learning: förutsägande analys mat inspektion data med hjälp av MLLib**. Du kan använda följande steg för att spåra ett program som du skickade med hjälp av någon annan metod, till exempel **spark-submit**.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Du måste ha följande:
 
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Ett Apache Spark-kluster i HDInsight. Instruktioner finns i [skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Du bör den bärbara datorn har startats  **[Maskininlärning: förutsägbar analys på mat inspektion data med hjälp av MLLib](apache-spark-machine-learning-mllib-ipython.md)**. Instruktioner om hur du kör den här anteckningsboken på länken.  
+* Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* Du bör har börjat köra anteckningsboken  **[Machine learning: förutsägande analys mat inspektion data med hjälp av MLLib](apache-spark-machine-learning-mllib-ipython.md)**. Följ länken för mer information om hur du kör den här anteckningsboken finns.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>Spåra ett program i YARN-Användargränssnittet
-1. Starta YARN-Användargränssnittet. Klicka på **Klusterinstrumentpanel**, och klicka sedan på **YARN**.
+1. Starta Användargränssnittet för YARN. Klicka på **Klusterinstrumentpanel**, och klicka sedan på **YARN**.
    
-    ![Starta YARN-Användargränssnittet](./media/apache-spark-job-debugging/launch-yarn-ui.png)
+    ![Starta Användargränssnittet för YARN](./media/apache-spark-job-debugging/launch-yarn-ui.png)
    
    > [!TIP]
-   > Alternativt kan du starta YARN-Användargränssnittet från Ambari UI. Om du vill starta Ambari UI, klickar du på **Klusterinstrumentpanel**, och klicka sedan på **instrumentpanelen för HDInsight-klustret**. Ambari UI, klicka på **YARN**, klickar du på **snabblänkar**, klicka på den aktiva Resource Manager och klicka sedan på **Resource Manager UI**.    
+   > Alternativt kan du också starta YARN-Användargränssnittet från Ambari UI. Om du vill starta Ambari UI, klickar du på **Klusterinstrumentpanel**, och klicka sedan på **HDInsight-Klusterinstrumentpanel**. Ambari UI, klickar du på **YARN**, klickar du på **snabblänkar**, klicka på den aktiva Resource Manager och klicka sedan på **Resource Manager UI**.    
    > 
    > 
-2. Eftersom du startade jobbet Spark med Jupyter-anteckningsböcker programmet har namnet **remotesparkmagics** (detta är namnet för alla program som startas från de bärbara datorerna). Klicka på det program-ID mot namnet på programmet för mer information om jobbet. Detta startar programmet vyn.
+2. Eftersom du påbörjat Spark-jobb med Jupyter-anteckningsböcker programmet har namnet **remotesparkmagics** (detta är namnet för alla program som startas från de bärbara datorerna). Klicka på det program-ID mot namnet på programmet vill ha mer information om jobbet. Detta startar programmet vyn.
    
     ![Hitta Spark-program-ID](./media/apache-spark-job-debugging/find-application-id.png)
    
-    För sådana program som startas från Jupyter-anteckningsböcker status är alltid **kör** tills du avslutar den bärbara datorn.
-3. Från vyn programmet, kan du detaljnivån ta reda på de behållare som är associerade med programmet och loggfiler (stdout/stderr). Du kan också starta Användargränssnittet för Spark genom att klicka på det länkade som motsvarar den **spårning URL**, enligt nedan. 
+    Typen av program som startas från Jupyter notebooks, statusen är alltid **kör** tills du avslutar anteckningsboken.
+3. Från program-vyn kan granska du nedåt ytterligare till ta reda på de behållare som är associerade med programmet och loggar (stdout/stderr). Du kan också starta Spark-Användargränssnittet genom att klicka på det länkande som motsvarar den **spårnings-URL: en**, enligt nedan. 
    
-    ![Hämta loggar för behållaren](./media/apache-spark-job-debugging/download-container-logs.png)
+    ![Hämta behållarloggar](./media/apache-spark-job-debugging/download-container-logs.png)
 
-## <a name="track-an-application-in-the-spark-ui"></a>Spåra ett program i Spark-Gränssnittet
-I Spark-Användargränssnittet, kan du gå till Spark-jobb som skapas av programmet som du tidigare har startats.
+## <a name="track-an-application-in-the-spark-ui"></a>Spåra ett program i Spark-Användargränssnittet
+I Användargränssnittet för Spark kan du granska nedåt i Spark-jobb som skapade av programmet som du tidigare har startat.
 
-1. Om du vill starta Användargränssnittet för Spark från vyn programmet, klickar du på länken mot den **spårning URL**som visas i den här skärmbilden ovan. Du kan se alla Spark-jobb som startats av det program som körs i Jupyter-anteckningsboken.
+1. Om du vill starta Användargränssnittet för Spark, från vyn program klickar du på länken mot den **spårnings-URL: en**, enligt den här skärmbilden ovan. Du kan se alla Spark-jobb som startas av programmet som körs i Jupyter-anteckningsboken.
    
-    ![Visa Spark jobb](./media/apache-spark-job-debugging/view-spark-jobs.png)
-2. Klicka på den **Executors** fliken för att se information om bearbetning och lagring för varje utförare. Du kan också hämta anropsstacken genom att klicka på den **tråd Dump** länk.
+    ![Visa Spark-jobb](./media/apache-spark-job-debugging/view-spark-jobs.png)
+2. Klicka på den **Executors** fliken för att se information om bearbetning och lagring för varje executor. Du kan också hämta anropsstacken genom att klicka på den **tråd dumpa** länk.
    
     ![Visa Spark executors](./media/apache-spark-job-debugging/view-spark-executors.png)
-3. Klicka på den **steg** fliken för att se de steg som är associerade med programmet.
+3. Klicka på den **faser** fliken för att se de steg som är associerade med programmet.
    
     ![Visa Spark faser](./media/apache-spark-job-debugging/view-spark-stages.png)
    
-    Varje steg kan ha flera uppgifter som du kan visa statistik för körning, som visas nedan.
+    Varje steg kan ha flera aktiviteter som du kan visa körning statistik, som visas nedan.
    
     ![Visa Spark faser](./media/apache-spark-job-debugging/view-spark-stages-details.png) 
-4. Från sidan steget information kan du starta DAG visualiseringen. Expandera den **DAG visualiseringen** länken längst upp på sidan som visas nedan.
+4. Du kan starta DAG visualisering från informationssidan steg. Expandera den **DAG visualisering** länkar överst på sidan som visas nedan.
    
-    ![Visa Spark steg DAG visualiseringen](./media/apache-spark-job-debugging/view-spark-stages-dag-visualization.png)
+    ![Visa Spark faser DAG visualisering](./media/apache-spark-job-debugging/view-spark-stages-dag-visualization.png)
    
-    DAG eller direkt Aclyic diagrammet representerar de olika stegen i programmet. Varje ruta blått i diagrammet representerar en Spark-åtgärd som anropas från programmet.
-5. Du kan starta programmet tidslinjevyn från sidan steget information. Expandera den **händelse tidslinjen** länken längst upp på sidan som visas nedan.
+    DAG eller direkt Aclyic graf representerar olika faser i programmet. Varje blå ruta i diagrammet representerar en Spark-åtgärd som anropas från programmet.
+5. Du kan också starta tidslinjevyn program från informationssidan steg. Expandera den **händelse tidslinje** länkar överst på sidan som visas nedan.
    
-    ![Visa Spark steg händelse tidslinjen](./media/apache-spark-job-debugging/view-spark-stages-event-timeline.png)
+    ![Visa Spark faser händelse tidslinje](./media/apache-spark-job-debugging/view-spark-stages-event-timeline.png)
    
-    Detta visar Spark-händelser i form av en tidslinje. Tidslinjevyn är tillgänglig på tre nivåer över jobb inom ett jobb, och ett steg. Bilden ovan avbildar tidslinjevyn för ett visst stadium.
+    Då visas Spark-händelser i form av en tidslinje. Tidslinjevyn är tillgängligt på tre nivåer mellan jobb gäller i ett jobb och inom ett steg. Bilden ovan visar tidslinjevyn för ett visst stadium.
    
    > [!TIP]
-   > Om du väljer den **aktivera** kryssrutan, du kan rulla åt vänster och höger över tidslinjevyn.
+   > Om du väljer den **aktivera Zooma** kryssruta, du kan bläddra till vänster och höger i tidslinjevyn.
    > 
    > 
-6. Andra flikar i Spark-Användargränssnittet innehåller användbar information om Spark-instans.
+6. Andra flikar i Spark-Användargränssnittet innehåller användbar information om Spark-instansen.
    
-   * Fliken lagring – om programmet skapar en RDDs hittar du information om de på fliken lagring.
-   * Fliken miljö - den här fliken ger mycket användbar information om din Spark-instans som den 
-     * Scala version
-     * Händelseloggen directory associeras med klustret
-     * Antal kärnor utförare för programmet
+   * Fliken lagring – om programmet skapar en Rdd du hittar information om de på fliken lagring.
+   * Fliken miljö – den här fliken innehåller mycket användbar information om Spark-instans som den 
+     * Scala-version
+     * Händelseloggen directory kopplat till klustret
+     * Antal kärnor executor för programmet
      * O.s.v.
 
-## <a name="find-information-about-completed-jobs-using-the-spark-history-server"></a>Hitta information om slutförda jobb med hjälp av Spark historik Server
-När ett jobb har slutförts sparas information om jobbet i Spark historik Server.
+## <a name="find-information-about-completed-jobs-using-the-spark-history-server"></a>Hitta information om slutförda jobb med hjälp av Spark-Historikserver
+När ett jobb har slutförts sparas information om jobbet i Spark-Historikserver.
 
-1. Om du vill starta Spark historik Server från klustret-bladet klickar du på **Klusterinstrumentpanel**, och klicka sedan på **Spark historik Server**.
+1. Om du vill starta Spark-Historikserver, från klusterbladet klickar du på **Klusterinstrumentpanel**, och klicka sedan på **Spark-Historikserver**.
    
-    ![Starta Spark historik Server](./media/apache-spark-job-debugging/launch-spark-history-server.png)
+    ![Starta Spark-Historikserver](./media/apache-spark-job-debugging/launch-spark-history-server.png)
    
    > [!TIP]
-   > Alternativt kan du starta Spark historik Server UI från Ambari UI. Om du vill starta Ambari UI, kluster-bladet klickar du på **Klusterinstrumentpanel**, och klicka sedan på **instrumentpanelen för HDInsight-klustret**. Ambari UI, klicka på **Spark**, klickar du på **snabblänkar**, och klicka sedan på **Spark historik Server UI**.
+   > Alternativt kan du också starta Användargränssnittet för Spark historik från Ambari UI. Om du vill starta Ambari UI, från klusterbladet klickar du på **Klusterinstrumentpanel**, och klicka sedan på **HDInsight-Klusterinstrumentpanel**. Ambari UI, klickar du på **Spark**, klickar du på **snabblänkar**, och klicka sedan på **Spark historik Server UI**.
    > 
    > 
-2. Du kan se alla slutförda programmen. Klicka på ett program-ID och öka detaljnivån till ett program för mer information.
+2. Du ser alla slutförda program visas. Klicka på ett program-ID för att granska nedåt i ett program för mer information.
    
-    ![Starta Spark historik Server](./media/apache-spark-job-debugging/view-completed-applications.png)
+    ![Starta Spark-Historikserver](./media/apache-spark-job-debugging/view-completed-applications.png)
 
 ## <a name="see-also"></a>Se också
 *  [Hantera resurser för Apache Spark-klustret i Azure HDInsight](apache-spark-resource-manager.md)
+*  [Felsöka Spark-jobb med hjälp av utökade Spark-Historikserver](apache-azure-spark-history-server.md)
 
 ### <a name="for-data-analysts"></a>För dataanalytiker
 
@@ -114,7 +115,7 @@ När ett jobb har slutförts sparas information om jobbet i Spark historik Serve
 * [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplatslogganalys med Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Application Insight-telemetridataanalys i HDInsight](apache-spark-analyze-application-insight-logs.md)
-* [Använda Caffe för distribuerade djup learning på Azure HDInsight Spark](apache-spark-deep-learning-caffe.md)
+* [Använda Caffe på Azure HDInsight Spark för distribuerade djupinlärning](apache-spark-deep-learning-caffe.md)
 
 ### <a name="for-spark-developers"></a>För Spark-utvecklare
 

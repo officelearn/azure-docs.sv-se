@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: fd46473fe1c60ccbac0b0c65ca2e30ac4b37a953
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 065f7ef822cdabad8fe25651e3cda9735c655d5f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344689"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414532"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
@@ -41,20 +41,6 @@ Microsoft rekommenderar starkt att administratörer aktivera användare att väl
 | --- |
 | Mobilapp-meddelande och kod för mobilapp som metoder för lösenord för självbetjäning i Azure AD lösenordsåterställning är allmänt tillgänglig förhandsversionsfunktioner i Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
-
-## <a name="converged-user-registration-preview"></a>Konvergerade användarregistrering (förhandsversion)
-
-Fram till nu var användarna tvungna att registrera autentiseringsmetoder för MFA och SSPR i två olika portaler. Många användare har förvirrad av det faktum att liknande metoder har använts i både MFA och SSPR och inte vill registrera i båda portalerna. Detta ledde till vissa användare att det inte går att använda MFA eller SSPR vid behov, vilket leder till ett helpdesk-anrop och en upprörd användare.
-
-Om du vill ge användarna registrera autentiseringsmetoder för både Azure Multi-Factor Authentication och återställning av lösenord Gör-återställning, med hjälp av samma portal du följande:
-
-1. Logga in på Azure-portalen som global administratör.
-1. Bläddra till **Azure Active Directory**, **användarinställningar**, **hantera inställningar för åtkomst till panelen förhandsversionsfunktioner**.
-1. Under **användare kan använda förhandsversionsfunktioner för att registrera och hantera säkerhetsinformation**, du kan välja att aktivera för ett **valda** grupp av användare eller **alla** användare.
-
-Användare kan nu använda [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo) att registrera för MFA och SSPR.
-
-![Förhandsgranskning konvergerat användarregistrering – Lägg till säkerhetsinformation till ditt konto för användning med MFA och SSPR](media/concept-authentication-methods/concept-add-methods.png)
 
 ## <a name="password"></a>Lösenord
 
@@ -212,3 +198,5 @@ Om din organisation är federerad för enkel inloggning med Azure AD och du komm
 [Aktivera lösenordsåterställning för din organisation via självbetjäning](quickstart-sspr.md)
 
 [Aktivera Azure Multi-Factor Authentication för din organisation](howto-mfa-getstarted.md)
+
+[Autentisering metoden configuration användardokumentation](https://aka.ms/securityinfoguide)

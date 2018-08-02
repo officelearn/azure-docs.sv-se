@@ -1,6 +1,6 @@
 ---
-title: Azure anslutna distributionsbeslut för Azure-Stack integrerat system | Microsoft Docs
-description: Kontrollera distributionen planeringsbeslut för flera noder Azure Stack Azure-anslutna distributioner.
+title: Integrerade Azure anslutna distributionsbeslut för Azure Stack-system | Microsoft Docs
+description: Kontrollera distributionen planeringsbeslut för flera noder Azure Stack Azure-ansluten distributioner.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,64 +12,64 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: def9d5381144026b5ad0e8a076edd3c0692a08f4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d64b834f1c6794976461c93d4ad1d05f8647e986
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29120394"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414597"
 ---
-# <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure-anslutna distribution planeringsbeslut för Azure-stacken integrerat system
-När du har valt [hur du ska integrera Azure Stack i molnmiljön hybrid](azure-stack-connection-models.md), du kan sedan slutföra din Azure-stacken distributionsbeslut.
+# <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Integrerade Azure-ansluten distribution planeringsbeslut för Azure Stack-system
+När du har bestämt dig [hur du ska integrera Azure Stack i hybridmolnmiljön](azure-stack-connection-models.md), du kan sedan slutföra din Azure Stack-distributionsbeslut.
 
-Distribuera Azure-stacken som är ansluten till Azure innebär att du kan ha Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) för identitets-butiken. Du kan också välja från antingen fakturering modell: lön-som-du-användning eller kapacitet-baserade. En ansluten distribution är standardalternativet eftersom ger kunder möjlighet att hämta de mest värdet utanför Azure-stacken, särskilt för hybrid cloud scenarier som omfattar både Azure och Azure-stacken. 
+Distribuera Azure Stack är ansluten till Azure innebär att du kan ha Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) för din identitet butik. Du kan också välja från antingen faktureringsmodell: betalning som du-användning eller kapacitetsbaserad. En ansluten distribution är standardalternativet eftersom kan kunderna få ut maximalt av Azure Stack, särskilt för hybridmolnscenarierna som omfattar både Azure och Azure Stack. 
 
 ## <a name="choose-an-identity-store"></a>Välj en identity-butik
-Du kan välja mellan Azure AD eller AD FS för din identitet butik med en ansluten distribution. En frånkopplad distribution kan med utan internet-anslutning bara använda AD FS.
+Du kan välja mellan Azure AD eller AD FS för din identitetsarkiv med en ansluten distribution. En frånkopplad distribution kan som saknar Internetanslutning bara använda AD FS.
 
-Önskat identitet store påverkar inte virtuella datorer (VM). Virtuella datorer som klienten kan välja vilka Identitetslagret som de vill för att ansluta till beroende på hur de konfigureras: Azure AD och Windows Server Active Directory-domänanslutna, arbetsgrupp, osv. Detta är inte relaterat till Azure-stacken identitet providern beslut. 
+Valfri identitet store påverkar inte virtuella datorer (VM). Virtuella klientdatorer kan välja vilka identitetsarkiv som de vill ansluta till beroende på hur de ska konfigureras: Azure AD, Windows Server Active Directory-domänanslutna, arbetsgrupp, osv. Det här är inte relaterat till Azure Stack identitet providern beslut. 
 
-Till exempel om du distribuerar IaaS klient virtuella datorer på Azure-stacken och vill att de ska ansluta till en företagets Active Directory-domän och använda konton därifrån, kan du fortfarande göra detta. Du behöver inte använda Azure AD identity store som du väljer här för dessa konton.
+Till exempel om du distribuerar virtuella ovanpå Azure Stack för IaaS-klientdatorer och vill att de ska ansluta till en företagets Active Directory-domän och använda konton därifrån, kan du fortfarande göra detta. Du behöver inte använda Azure AD-identitetsarkiv som du väljer här för dessa konton.
 
-### <a name="azure-ad-identity-store"></a>Azure AD identity store
-När du använder Azure AD för din identitet store kräver två konton i Azure AD: ett globalt administratörskonto och ett faktureringskonto. Dessa konton kan vara samma konton eller olika konton. När med samma användarkonto kan vara enklare och användbart om du har ett begränsat antal Azure-konton, kan behoven för din verksamhet föreslår att du använder två konton:
+### <a name="azure-ad-identity-store"></a>Azure AD-identitetsarkiv
+När du använder Azure AD för din identitetsarkiv kräver två Azure AD-konton: ett globalt administratörskonto och ett faktureringskonto. Dessa konton kan vara samma konton eller olika konton. Med hjälp av samma användarkonto kan vara enklare och användbart om du har ett begränsat antal Azure-konton, kan dina affärsbehov föreslår att du använder två konton:
 
-1. **Globala administratörskonto** (krävs endast för anslutna distributioner). Det här är ett Azure-konto som används för att skapa program och tjänstens huvudnamn för Azure-stacken infrastrukturtjänster i Azure Active Directory. Det här kontot måste ha administratörsbehörighet för katalog till katalogen som Azure Stack systemet ska distribueras under. Det blir operatorn ”moln” Global administratör för Azure AD-klient och kommer att användas: 
-    - Att etablera och delegera program och tjänstens huvudnamn för alla Azure Stack-tjänster som behöver arbeta med Azure Active Directory och Graph API. 
-    - Som tjänstadministratör-konto. Detta är ägare till prenumerationen för standard-providern (som du kan ändra senare). Du kan logga in på administrationsportalen för Azure-stacken med det här kontot och använda den för att skapa erbjudanden och planer, ange kvoter och utföra andra administrativa funktioner i Azure-stacken.
-2. **Faktureringskonto** (krävs för både ansluten och frånkopplad distributioner). Den här Azure-konto används för att upprätta faktureringsrelation mellan din Azure-stacken integrerat system och Azure commerce-serverdelen. Detta är det konto som kommer att debiteras för Azure-stacken avgifter. Det här kontot används också för marketplace syndikering och andra hybridmoln. 
+1. **Globala administratörskonto** (krävs endast för anslutna distributioner). Det här är ett Azure-konto som används för att skapa program och tjänstens huvudnamn för Azure Stack infrastrukturtjänster i Azure Active Directory. Det här kontot måste ha administratörsbehörighet för katalogen till den katalog som Azure Stack-system ska distribueras under. Blir det ”cloud-operatör” Global administratör för Azure AD-klient och kommer att användas: 
+    - För att etablera och delegera program och tjänstens huvudnamn för alla Azure Stack-tjänster som måste interagera med Azure Active Directory och Graph API. 
+    - Som tjänstadministratör-kontot. Det här är ägare av prenumerationen för standard-provider (som du kan ändra senare). Du kan logga in på administrationsportalen för Azure Stack med det här kontot och använda den för att skapa erbjudanden och planer, ange kvoter och utföra andra administrativa funktioner i Azure Stack.
+2. **Faktureringskonto** (krävs för både anslutas och kopplas distributioner). Den här Azure-konto används för att upprätta faktureringsrelation mellan integrerade Azure Stack-system och Azure commerce-serverdelen. Det här är det konto som kommer att debiteras för Azure Stack-avgifter. Det här kontot används också för att erbjuda objekt i marketplace och andra hybridscenarier. 
 
-### <a name="ad-fs-identity-store"></a>AD FS Identitetslagret
-Välj det här alternativet om du vill använda din egen identitet store, till exempel din företagets Active Directory för din tjänst administratörskonton.  
+### <a name="ad-fs-identity-store"></a>AD FS-identitetsarkiv
+Välj det här alternativet om du vill använda din egen identitet lager, till exempel din företagets Active Directory för din tjänst administratörskonton.  
 
-## <a name="choose-a-billing-model"></a>Välj faktureringsadministratörer modell
-Du kan välja antingen **lön-som-du-Använd** eller **kapacitet** faktureringsmodell som tillämpas. Betala per-som-du-Använd fakturering modellen distributioner måste kunna rapportera användning via en anslutning till Azure minst en gång var 30: e dag. Därför är lön-som-du-Använd fakturering modellen endast tillgängligt för anslutna distributioner.  
+## <a name="choose-a-billing-model"></a>Välj faktureringsmodellen
+Du kan välja antingen **betalning som du-användning** eller **kapacitet** faktureringsmodell. Betalning som du-användning fakturering modelldistributioner måste kunna rapportera användning via en anslutning till Azure minst en gång var 30: e dag. Därför är faktureringsmodellen betalning som du-användning endast tillgängligt för anslutna distributioner.  
 
-### <a name="pay-as-you-use"></a>Betala per-som-du-användning
-Med fakturering modellen lön-som-du-Använd debiteras användning till en Azure-prenumeration. Du betalar bara när du använder Azure Stack-tjänster. Om det här är den modell som du väljer du behöver en Azure-prenumeration och konto-ID som är kopplade till den prenumerationen (till exempel serviceadmin@contoso.onmicrosoft.com). EA och CSP CSL prenumerationer stöds. Användningsrapport konfigureras under [Azure Stack registrering](azure-stack-registration.md).
+### <a name="pay-as-you-use"></a>Betalning som du-användning
+Med faktureringsmodell betalning som du-användning debiteras användningen till en Azure-prenumeration. Du betalar bara när du använder Azure Stack-tjänster. Om det här är den modell som du väljer du behöver en Azure-prenumeration och konto-ID som är associerade med den aktuella prenumerationen (till exempel serviceadmin@contoso.onmicrosoft.com). EA, CSP och CSL prenumerationer stöds. Användningsrapport konfigureras under [Azure Stack-registrering](azure-stack-registration.md).
 
 > [!NOTE]
-> I de flesta fall Enterprise-kunder använder EA prenumerationer och leverantörer använder CSP eller CSL prenumerationer.
+> I de flesta fall företagskunder ska använda EA-prenumerationer och tjänstleverantörer använder CSP eller CSL prenumerationer.
 
-Om du ska använda en CSP-prenumeration kan du granska tabellen nedan för att identifiera vilka CSP-prenumeration för att använda, eftersom det korrekta sättet beror på det exakta CSP-scenariot:
+Om du ska använda en CSP-prenumeration kan du granska tabellen nedan för att identifiera vilka CSP-prenumeration för att använda, eftersom det korrekta sättet är beroende av det exakta CSP-scenariot:
 
 |Scenario|Alternativ för domänen och prenumeration|
 |-----|-----|
-|Du är en **direkt CSP Partner** eller en **indirekt kryptografiprovidern**, och du kommer att fungera i Azure-stacken|Använda en prenumeration på CSL (Common Service Layer).<br>     eller<br>Skapa en Azure AD-klient med ett beskrivande namn i Partnercenter. Till exempel &lt;organisationen > CSPAdmin med en CSP för Azure-prenumeration som är kopplade till den.|
-|Du är en **indirekt CSP återförsäljare**, och du kommer att fungera i Azure-stacken|Be leverantören indirekt CSP för att skapa en Azure AD-klient för din organisation med en CSP för Azure-prenumeration som är kopplade till den med hjälp av Partner Center.|
+|Du är en **direkt CSP-Partner** eller en **indirekta CSP-Provider**, och du kommer att fungera Azure Stack|Använd en CSL (Common Service Layer)-prenumeration.<br>     eller<br>Skapa en Azure AD-klient med ett beskrivande namn i Partnercenter. Till exempel &lt;organisationen > CSPAdmin med en Azure CSP-prenumeration som är kopplade till den.|
+|Du är en **indirekta CSP-återförsäljare**, och du kommer att fungera Azure Stack|Be din indirekta CSP-Provider för att skapa en Azure AD-klient för din organisation med en Azure CSP-prenumeration som är associerade med den med hjälp av Partner Center.|
 
 ### <a name="capacity-based-billing"></a>Kapacitet baserat fakturering
-Om du vill använda kapacitet fakturering modellen måste du köpa en Azure-stacken kapacitet planera SKU baserat på kapaciteten för systemet. Du behöver veta antalet fysiska kärnor i Azure-stacken köpa rätt antal. 
+Om du vill använda faktureringsmodellen kapacitet måste du köpa en Azure Stack kapacitet planera SKU som baseras på kapaciteten för datorn. Du behöver veta antalet fysiska kärnor i din Azure Stack köpa rätt antal. 
 
-Kapacitet fakturering kräver en Enterprise-avtal (EA) Azure-prenumeration för registrering. Anledningen är att registreringen ställer in syndikeringsfeed som kräver en Azure-prenumeration. Prenumerationen används inte för användning i Azure-stacken.
+Kapacitet fakturering kräver ett Enterprise Agreement (EA) Azure-prenumeration för registrering. Anledningen är att registreringen ställer in tillgängligheten för objekt i Marketplace, vilket kräver en Azure-prenumeration. Prenumerationen används inte för användning av Azure Stack.
 
 ## <a name="learn-more"></a>Läs mer
-- Information om användningsområden, köpa, partners och OEM maskinvaruleverantörer finns i [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) produktsidan.
-- Information om plan och geo tillgänglighet för Azure-stacken integrerade system finns i faktabladet: [Azure stacken: ett tillägg för Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
-- Läs mer om Microsoft Azure-stacken paketera och prissättning [ladda ned PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
+- Information om användningsfall, inköp, partner och OEM maskinvaruleverantörer finns i den [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) produktsidan.
+- Mer information om plan och geo-tillgänglighet för Azure Stack-integrerade system finns i faktabladet: [Azure Stack: en utökning av Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Mer information om Microsoft Azure Stack förpackning och priser [ladda ned .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Nästa steg
-[Datacenter nätverksintegration](azure-stack-network.md)
+[Datacenter nätverksintegrering](azure-stack-network.md)

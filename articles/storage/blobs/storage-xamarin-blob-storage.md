@@ -1,43 +1,42 @@
 ---
-title: Hur du använder objekt (Blob) lagring från Xamarin | Microsoft Docs
-description: Azure Storage-klientbibliotek för Xamarin kan utvecklare skapa iOS, Android och Windows Store-appar med sina ursprungliga användargränssnitt. Den här kursen visar hur du skapar ett program som använder Azure Blob storage med hjälp av Xamarin.
+title: Hur du använder objektlagring (Blob) från Xamarin | Microsoft Docs
+description: Azure Storage-klientbiblioteket för Xamarin kan utvecklare skapa iOS-, Android- och Windows Store-appar med sina interna användargränssnitt. Den här självstudien visar hur du använder Xamarin för att skapa ett program som använder Azure Blob storage.
 services: storage
 documentationcenter: xamarin
 author: michaelhauss
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.openlocfilehash: 31dbaeb1dd998d8d27af5eff0fa293117ef7f471
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b35bec31035c0219bf34a31cb34e20f7dc3a72c5
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414216"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397037"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Hur du använder Blob Storage från Xamarin
 
-Xamarin kan utvecklare att använda en delad C# kodbas för att skapa iOS, Android och Windows Store-appar med sina ursprungliga användargränssnitt. Den här kursen visar hur du använder Azure Blob storage med en Xamarin-App. Om du vill veta mer om Azure Storage innan du dyker in i koden Se [introduktion till Microsoft Azure Storage](../common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Xamarin kan utvecklare att använda en delad C# kodbas för att skapa iOS-, Android- och Windows Store-appar med sina interna användargränssnitt. Den här självstudien visar hur du använder Azure Blob storage med ett Xamarin-program. Om du vill veta mer om Azure Storage, innan du dyker in i koden i [introduktion till Microsoft Azure Storage](../common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 [!INCLUDE [storage-mobile-authentication-guidance](../../../includes/storage-mobile-authentication-guidance.md)]
 
 ## <a name="create-a-new-xamarin-application"></a>Skapa en ny Xamarin-App
-Den här kursen ska vi skapa en app som riktar sig till Android, iOS och Windows. Den här appen kommer bara att skapa en behållare och ladda upp en blobb till den här behållaren. Vi ska använda Visual Studio i Windows, men samma learnings kan användas när du skapar en app med Xamarin Studio på macOS.
+Den här självstudien ska vi skapa en app som riktar sig till Android, iOS och Windows. Den här appen kommer bara att skapa en behållare och laddar upp en blob i den här behållaren. Vi ska använda Visual Studio på Windows, men samma erfarenheter kan användas när du skapar en app med Xamarin Studio i Mac OS.
 
-Följ dessa steg för att skapa programmet:
+Följ stegen nedan för att skapa ditt program:
 
-1. Om du inte redan har gjort ladda ned och installera [Xamarin för Visual Studio](https://www.xamarin.com/download).
-2. Öppna Visual Studio och skapa en tom App (intern bärbara): **fil > Nytt > Projekt > plattformsoberoende > tom App(Native Portable)**.
-3. Högerklicka på lösningen i Solution Explorer-fönstret och välj **hantera NuGet-paket för lösningen**. Sök efter **WindowsAzure.Storage** och installera den senaste säkra versionen för alla projekt i din lösning.
+1. Om du inte redan gjort det, ladda ned och installera [Xamarin för Visual Studio](https://www.xamarin.com/download).
+2. Öppna Visual Studio och skapa en tom App (interna bärbar): **fil > Nytt > Projekt > plattformsoberoende > tom App(Native Portable)**.
+3. Högerklicka på lösningen i Solution Explorer-fönstret och välj **hantera NuGet-paket för lösningen**. Sök efter **WindowsAzure.Storage** och installera den senaste stabila versionen för alla projekt i din lösning.
 4. Skapa och köra projektet.
 
-Du bör nu ha ett program som gör att du kan klicka på en knapp som ökar en räknare.
+Du bör nu ha ett program som gör att du kan klicka på en knapp som räknas en räknare.
 
-## <a name="create-container-and-upload-blob"></a>Skapa en behållare och ladda upp blob
-Sedan under din `(Portable)` projekt, ska du lägga till kod till `MyClass.cs`. Den här koden skapar en behållare och laddar upp en blob till den här behållaren. `MyClass.cs` bör se ut ungefär så här:
+## <a name="create-container-and-upload-blob"></a>Skapa behållaren och ladda upp blob
+Sedan under din `(Portable)` -projektet lägger du till kod till `MyClass.cs`. Den här koden skapar en behållare och laddar upp en blob i den här behållaren. `MyClass.cs` bör se ut så här:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -76,9 +75,9 @@ namespace XamarinApp
 }
 ```
 
-Se till att ersätta ”your_account_name_here” och ”your_account_key_here” med faktiska kontonamn och kontonyckel. 
+Se till att ersätta ”your_account_name_here” och ”your_account_key_here” med din faktiska kontonamnet och kontonyckeln. 
 
-IOS-, Android- och Windows Phone-projekt som alla har referenser till projektet bärbara - vilket innebär att du kan skriva all delad kod i något placera och använda det för alla dina projekt. Du kan nu lägga till följande kodrad varje projekt för att starta utnyttjar: `MyClass.performBlobOperation()`
+IOS-, Android- och Windows Phone-projekt som alla har referenser till din bärbara projekt – vilket innebär att du kan skriva all delad kod i något placera och använda det för alla dina projekt. Du kan nu lägga till följande kodrad till varje projektet för att börja utnyttja: `MyClass.performBlobOperation()`
 
 ### <a name="xamarinappdroid--mainactivitycs"></a>XamarinApp.Droid > MainActivity.cs
 
@@ -230,15 +229,15 @@ namespace XamarinApp.WinPhone
 ```
 
 ## <a name="run-the-application"></a>Köra programmet
-Du kan nu köra det här programmet i en Android eller Windows Phone-emulatorn. Du kan också köra det här programmet i en iOS-emulatorn, men detta kräver en Mac. För specifika instruktioner om hur du gör detta, Läs i dokumentationen för [ansluter Visual Studio till en Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
+Du kan nu köra det här programmet i en Android eller Windows Phone-emulatorn. Du kan också köra det här programmet i en iOS-emulatorn, men detta kräver en Mac. För specifika anvisningar för hur du gör detta, Läs i dokumentationen för [ansluta Visual Studio till en Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
-När du kör din app kommer att skapas i behållaren `mycontainer` i ditt lagringskonto. Den ska innehålla blob, `myblob`, som innehåller text, `Hello, world!`. Du kan kontrollera detta genom att använda den [Microsoft Azure Lagringsutforskaren](http://storageexplorer.com/).
+När du kör din app skapas behållaren `mycontainer` i ditt lagringskonto. Den ska innehålla blob, `myblob`, som har texten, `Hello, world!`. Du kan kontrollera detta genom att använda den [Microsoft Azure Lagringsutforskaren](http://storageexplorer.com/).
 
 ## <a name="next-steps"></a>Nästa steg
-I kursen får du har lärt dig hur du skapar ett program för flera plattformar i Xamarin som använder Azure Storage, särskilt fokusera på ett scenario i Blob Storage. Men kan du göra mycket mer med inte bara Blob Storage, utan även med tabell-, fil- och Queue Storage. Läs följande artiklar om du vill veta mer:
+I den här självstudien lärde du dig att skapa ett plattformsoberoende program i Xamarin som använder Azure Storage, särskilt fokuserad på ett scenario i Blob Storage. Men kan du göra mycket mer med inte bara Blob Storage, utan även med tabell-, fil- och Queue Storage. Kontrollera informationen i följande artiklar om du vill veta mer:
 
 * [Komma igång med Azure Blob Storage med hjälp av .NET](storage-dotnet-how-to-use-blobs.md)
-* [Introduktion till Azure-filer](../files/storage-files-introduction.md)
+* [Introduktion till Azure Files](../files/storage-files-introduction.md)
 * [Utveckla för Azure Files med .NET](../files/storage-dotnet-how-to-use-files.md)
 * [Komma igång med Azure Table Storage med hjälp av .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Komma igång med Azure Queue Storage med hjälp av .NET](../queues/storage-dotnet-how-to-use-queues.md)

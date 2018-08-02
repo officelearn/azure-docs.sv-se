@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 07/18/2018
+ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136663"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398962"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkor för Azure AD.
@@ -138,6 +138,42 @@ Användare kan granska och se användningsvillkoren som de har godkänt genom at
 
 1. Därifrån kan du granska användningsvillkoren som du har accepterat. 
 
+## <a name="edit-terms-of-use-details"></a>Redigera information om användningsvillkor
+Du kan redigera vissa detaljer för användningsvillkor, men du kan inte ändra ett befintligt dokument. Följande procedur beskriver hur du redigerar detaljerna.
+
+1. Logga in på Azure och gå till **Användningsvillkoren** på [https://aka.ms/catou](https://aka.ms/catou).
+
+1. Välj användningsvillkoren som du vill redigera.
+
+1. Klicka på **redigera villkoren**.
+
+1. I Använd fönstret Redigera villkoren, byta namn, visningsnamn eller kräva att användarna expanderar värden.
+
+    ![Lägga till användningsvillkor](media/active-directory-tou/edit-tou.png)
+
+1. Klicka på **spara** att spara dina ändringar.
+
+    När du sparar ändringarna har användarna måste godkänna de nya villkoren.
+
+## <a name="add-a-terms-of-use-language"></a>Lägga till användningsvillkor Använd språk
+Följande procedur beskriver hur du lägger till användningsvillkor Använd språk.
+
+1. Logga in på Azure och gå till **Användningsvillkoren** på [https://aka.ms/catou](https://aka.ms/catou).
+
+1. Välj användningsvillkoren som du vill redigera.
+
+1. I den informationsfönstret klickar du på den **språk** fliken.
+
+    ![Lägga till användningsvillkor](media/active-directory-tou/languages-tou.png)
+
+1. Klicka på **Lägg till språk**.
+
+1. Ladda upp din lokaliserade PDF-fil i Använd språk fönstret Lägg till villkor och Välj språk för.
+
+    ![Lägga till användningsvillkor](media/active-directory-tou/language-add-tou.png)
+
+1. Klicka på **Lägg till** att lägga till språk.
+
 ## <a name="delete-terms-of-use"></a>Ta bort användningsvillkor
 Du kan ta bort gamla användningsvillkor på följande sätt.
 
@@ -175,8 +211,11 @@ S: användare räknas av villkoren i rapporten för användning och som accepter
 **F: Varför visas ett annat antal medgivanden i villkoren för användning rapporten jämfört med Azure AD som granskningsloggar?**</br>
 S: användningsvillkoren Använd rapporten sparas livslängden för de användningsvillkoren när Azure AD-granskningen loggar lagras i 30 dagar. Dessutom visar villkoren i Använd rapporten endast användare aktuella medgivande tillstånd. Till exempel om en användare nekar och sedan accepterar villkoren i Använd rapporten visas bara den användaren Godkänn. Om du vill se historiken kan du använda Azure AD granskningsloggar.
 
-**F: om jag ändrar användningsvillkoren, behöver användarna godkänna igen?**</br>
-S: Ja, en administratör kan ändra användningsvillkoren och det kräver att användarna måste godkänna de nya villkoren.
+**F: om jag redigera information för användningsvillkor behöver användarna godkänna igen?**</br>
+S: Ja, om en administratör redigerar detaljerna för användningsvillkor, användarna måste godkänna de nya villkoren krävs.
+
+**F: kan jag uppdatera ett befintligt dokument med användningsvillkor?**</br>
+S: för närvarande kan uppdatera du inte ett befintligt dokument med användningsvillkor. För att ändra dokument med ett användningsvillkor, behöver du skapar en ny för användning instans.
 
 **F: om hyperlänkar finns i PDF-dokument med användningsvillkor, kommer användare kunna klickar du på dem?**</br>
 S: PDF-filen renderas som standard som JPEG, så att inte klickbara hyperlänkar. Användare har möjlighet att välja **har du problem med att visa? Klicka här**, vilket visas med PDF-filen internt där hyperlänkar stöds.

@@ -6,37 +6,34 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/30/2018
+ms.date: 08/1/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5bb59206f1b9f63f7d0310d35fc888cec1546874
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: f272ac7ee6432b43d0c9a72daf620a46e52366f8
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364574"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399057"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
 Starta/stoppa virtuella datorer under kontorstid lösning startar och stoppar Azure virtuella datorer med hjälp av användardefinierade scheman, ger insikter via Azure Log Analytics och skickar valfri e-postmeddelanden med hjälp av [åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md). Den stöder både Azure Resource Manager och klassiska virtuella datorer i de flesta fall.
 
-Den här lösningen innehåller en decentraliserad automatiseringsalternativ för användare som vill minska sina kostnader med hjälp av serverlös och billig resurser. Med den här lösningen kan du:
+Den här lösningen ger en decentraliserad prisvärda automatiseringsalternativet för användare som vill optimera kostnaderna för virtuella datorer. Med den här lösningen kan du:
 
 - Schemalägga virtuella datorer att starta och stoppa.
 - Schemalägga virtuella datorer att starta och stoppa i stigande ordning med hjälp av Azure-taggar (stöds inte för klassiska virtuella datorer).
 - Automatisk stoppa virtuella datorer baserat på låg CPU-belastning.
 
+Följande är begränsningar i den aktuella lösningen:
+
+- Den här lösningen hanterar virtuella datorer i valfri region, men kan endast användas i samma prenumeration som Azure Automation-konto.
+- Den här lösningen är tillgängligt i Azure och AzureGov för alla regioner som stöder en Log Analytics-arbetsyta, ett Azure Automation-konto och aviseringar. AzureGov regioner stöder för närvarande inte e-postfunktioner.
+
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Runbooks använder ett [Azure Kör som-konto](automation-create-runas-account.md). Kör som-kontot är den lämpligaste autentiseringsmetoden eftersom den använder certifikatautentisering istället för ett lösenord som kan upphöra att gälla eller ändras ofta.
-- Den här lösningen hanterar endast virtuella datorer som tillhör samma prenumeration som Azure Automation-konto.
-- Den här lösningen är tillgängligt i Azure och AzureGov för alla regioner som stöder en Log Analytics-arbetsyta, ett Azure Automation-konto och aviseringar.
-
-  > [!NOTE]
-  > De runbooks som hanterar VM-schemat kan riktas mot virtuella datorer i alla regioner.
-
-  > [!NOTE]
-  > AzureGov regioner stöder inte e-postfunktioner.
+Runbooks för den här lösningen fungerar med en [kör som-konto](automation-create-runas-account.md). Kör som-kontot är den lämpligaste autentiseringsmetoden eftersom den använder certifikatautentisering istället för ett lösenord som kan upphöra att gälla eller ändras ofta.
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
@@ -64,7 +61,7 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid l
    - Välj en **Prisnivå**. Välj den **Per GB (fristående)** alternativet. Log Analytics har uppdaterat [priser](https://azure.microsoft.com/pricing/details/log-analytics/) och Per GB-nivån är det enda alternativet.
 
 1. När du har angett informationen som krävs på den **OMS-arbetsyta** klickar du på **skapa**. Du kan spåra förloppet under **meddelanden** från menyn som tillbaka till den **lägga till lösning** sidan när du är klar.
-1. På den **lägga till lösning** väljer **Automation-konto**. Om du skapar en ny Log Analytics-arbetsyta, måste du också skapa ett nytt Automation-konto som ska associeras med den. Välj **skapa ett Automation-konto**, och på den **Lägg till Automation-konto** anger du följande information:
+1. På den **lägga till lösning** väljer **Automation-konto**. Om du skapar en ny Log Analytics-arbetsyta kan du skapa ett nytt Automation-konto som ska associeras med den eller välja ett befintligt Automation-konto som inte är redan länkad till en arbetsyta för Log Analystics. Välj ett befintligt Automation-konto eller klicka på **skapa ett Automation-konto**, och på den **Lägg till Automation-konto** anger du följande information:
    - I fältet **namn** anger du namnet på Automation-kontot.
 
     Alla andra alternativ fylls i automatiskt baserat på Log Analytics-arbetsyta har valts. Dessa alternativ kan inte ändras. Ett Azure kör som-konto är standardmetoden för autentisering för runbooks som ingår i den här lösningen. När du klickar på **OK**, verifieras konfigurationsalternativen och Automation-kontot har skapats. Du kan spåra förloppet under **Meddelanden** på menyn.

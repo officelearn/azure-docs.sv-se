@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 08/01/2018
 ms.author: genli
-ms.openlocfilehash: 9eb9984d99b907cd73f5f667cca41496127744e9
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 48037bc92d26cd01086451fdc778651df5b6bf67
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263522"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398979"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en Windows-VHD eller VHDX för att överföra till Azure
-Innan du överför en Windows-dator (VM) från en lokal plats till Microsoft Azure, måste du förbereda den virtuella hårddisken (VHD eller VHDX). Azure stöder endast generering 1 virtuella-datorer som är i VHD-format och har en fast storlek disk. Den maximala storleken som tillåts för den virtuella Hårddisken är 1,023 GB. Du kan konvertera en generation 1 VM från VHDX filsystemet till virtuell Hårddisk och från en dynamiskt expanderande disk till fast storlek. Men du kan inte ändra en virtuell dator generation. Mer information finns i [bör jag skapa en generation 1 eller 2 virtuella datorer i Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+Innan du överför en Windows-dator (VM) från en lokal plats till Microsoft Azure, måste du förbereda den virtuella hårddisken (VHD eller VHDX). Azure stöder **endast 1 virtuella datorer i generation** som är i VHD-format och har en fast storlek disk. Den maximala storleken som tillåts för den virtuella Hårddisken är 1,023 GB. Du kan konvertera en generation 1 VM från VHDX filsystemet till virtuell Hårddisk och från en dynamiskt expanderande disk till fast storlek. Men du kan inte ändra en virtuell dator generation. Mer information finns i [bör jag skapa en generation 1 eller 2 virtuella datorer i Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 Läs mer om principen för support för Azure VM, [Microsofts serverprogramsupport för Microsoft Azure Virtual Machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
@@ -39,8 +39,8 @@ När du konverterar disken kan du skapa en virtuell dator som använder den konv
 1. Öppna Hyper-V Manager och välj din lokala dator till vänster. I menyn ovanför datorlistan klickar du på **åtgärd** > **redigera Disk**.
 2. På den **hitta virtuell hårddisk** skärmen, leta upp och välj din virtuella hårddisk.
 3. På den **Välj åtgärd** skärmen och välj sedan **konvertera** och **nästa**.
-4. Om du vill konvertera från VHDX Välj **VHD** och klicka sedan på **nästa**
-5. Om du vill konvertera från en dynamiskt expanderande disk kan välja **fast storlek** och klicka sedan på **nästa**
+4. Om du vill konvertera från VHDX Välj **VHD** och klicka sedan på **nästa**.
+5. Om du vill konvertera från en dynamiskt expanderande disk kan välja **fast storlek** och klicka sedan på **nästa**.
 6. Leta upp och välj en sökväg för att spara den nya VHD-filen till.
 7. Klicka på **Slutför**.
 
@@ -73,7 +73,7 @@ På den virtuella datorn som du planerar att ladda upp till Azure, köra alla ko
     ```PowerShell
     netsh winhttp reset proxy
     ```
-3. Ange disken SAN-principen för [Onlineall](https://technet.microsoft.com/library/gg252636.aspx). 
+3. Ange disken SAN-principen för [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
    
     ```PowerShell
     diskpart 
@@ -205,7 +205,7 @@ Kontrollera att följande inställningar är korrekt konfigurerade för anslutni
     netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
     netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
    ```
-3. Aktivera följande brandväggsregler som tillåter RDP-trafik 
+3. Aktivera följande brandväggsregler som tillåter RDP-trafik:
 
    ```PowerShell
     netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
@@ -236,76 +236,82 @@ Kontrollera att följande inställningar är korrekt konfigurerade för anslutni
 2. Ange inställningar för Boot Configuration Data (BCD). 
 
     > [!Note]
-    > Kontrollera att du kör dessa kommandon på en upphöjd CMD-kommandotolk och **inte** på PowerShell:
+    > Kontrollera att du kör dessa kommandon på en upphöjd PowerShell-kommandotolk.
    
-   ```CMD
-   bcdedit /set {bootmgr} integrityservices enable
-   
-   bcdedit /set {default} device partition=C:
-   
-   bcdedit /set {default} integrityservices enable
-   
-   bcdedit /set {default} recoveryenabled Off
-   
-   bcdedit /set {default} osdevice partition=C:
-   
-   bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
+   ```powershell
+    cmd
 
-   #Enable Serial Console Feature
+    bcdedit /set {bootmgr} integrityservices enable
+    bcdedit /set {default} device partition=C:
+    bcdedit /set {default} integrityservices enable
+    bcdedit /set {default} recoveryenabled Off
+    bcdedit /set {default} osdevice partition=C:
+    bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
 
+    #Enable Serial Console Feature
     bcdedit /set {bootmgr} displaybootmenu yes
-
     bcdedit /set {bootmgr} timeout 10
-
     bcdedit /set {bootmgr} bootems yes
-
-    bcdedit /ems {<<BOOT LOADER IDENTIFIER>>} ON
-
+    bcdedit /ems {current} ON
     bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200
 
-    #Setup the Guest OS to collect a kernel dump on an OS crash event
-
-    REG ADD "HKLM\SYSTEM\ControlSet00x\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2
-
-    REG ADD "HKLM\SYSTEM\ControlSet00x\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP"
-
-    REG ADD "HKLM\SYSTEM\ControlSet00x\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1
+    exit
    ```
-3. Kontrollera att Windows Management Instrumentation-lagringsplatsen är konsekvent. Om du vill göra detta kör du följande kommando:
+3. Dump-loggen kan vara användbart vid felsökning av problem för Windows-krascher. Aktivera kraschdump log-samling:
+
+    ```powershell
+    cmd
+
+    #Setup the Guest OS to collect a kernel dump on an OS crash event
+    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f
+    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+
+    #Setup the Guest OS to collect user mode dumps on a service crash event
+    md c:\Crashdumps
+    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v DumpFolder /t REG_EXPAND_SZ /d "c:\CrashDumps" /f
+    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v CrashCount /t REG_DWORD /d 10 /f
+    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v DumpType /t REG_DWORD /d 2 /f
+    sc config WerSvc start= demand
+
+    exit
+    
+    ```
+4. Kontrollera att Windows Management Instrumentation-lagringsplatsen är konsekvent. Om du vill göra detta kör du följande kommando:
 
     ```PowerShell
     winmgmt /verifyrepository
     ```
     Om databasen är skadad, se [WMI: databasen skadas eller inte](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
 
-4. Se till att alla andra program inte använder port 3389. Den här porten används för RDP-tjänst i Azure. Du kan köra **netstat - anob** vill se vilka portar som i används på den virtuella datorn:
+5. Se till att alla andra program inte använder port 3389. Den här porten används för RDP-tjänst i Azure. Du kan köra **netstat - anob** vill se vilka portar som i används på den virtuella datorn:
 
     ```PowerShell
     netstat -anob
     ```
 
-5. Om Windows-VHD som du vill ladda upp är en domänkontrollant, följer du dessa steg:
+6. Om Windows-VHD som du vill ladda upp är en domänkontrollant, följer du dessa steg:
 
-    A. Följ [dessa extra steg](https://support.microsoft.com/kb/2904015) förbereda disken.
+    1. Följ [dessa extra steg](https://support.microsoft.com/kb/2904015) förbereda disken.
 
-    B. Se till att du vet DSRM-lösenordet om du måste starta den virtuella datorn i DSRM vid en viss tidpunkt. Du kanske vill referera till den här länken för att den [DSRM-lösenordet](https://technet.microsoft.com/library/cc754363(v=ws.11).aspx).
+    1. Se till att du vet DSRM-lösenordet om du måste starta den virtuella datorn i DSRM vid en viss tidpunkt. Du kanske vill referera till den här länken för att den [DSRM-lösenordet](https://technet.microsoft.com/library/cc754363(v=ws.11).aspx).
 
-6. Se till att det inbyggda administratörskontot och lösenordet är kända för dig. Du kanske vill återställa det aktuella lösenordet för lokal administratör och se till att du använder det här kontot för att logga in på Windows via RDP-anslutningen. Den här behörigheten åtkomst styrs av grupprincipobjektet ”Tillåt inloggning genom Fjärrskrivbordstjänster”. Du kan visa det här objektet i den lokala Redigeraren för under:
+7. Se till att det inbyggda administratörskontot och lösenordet är kända för dig. Du kanske vill återställa det aktuella lösenordet för lokal administratör och se till att du använder det här kontot för att logga in på Windows via RDP-anslutningen. Den här behörigheten åtkomst styrs av grupprincipobjektet ”Tillåt inloggning genom Fjärrskrivbordstjänster”. Du kan visa det här objektet i den lokala Redigeraren för under:
 
     Datorn Datorkonfiguration\Windows Settings\Security Settings\Local principer\Tilldelning av användarrättigheter
 
-7. Kontrollera följande AD-principer för att se till att du inte blockerar RDP-åtkomst via RDP eller från nätverket:
+8. Kontrollera följande AD-principer för att se till att du inte blockerar RDP-åtkomst via RDP eller från nätverket:
 
     - Datorkonfiguration\Windows inställningar\Säkerhetsinställningar\Lokala Principer\tilldelning av användarrättigheter\neka åtkomsten till den här datorn från nätverket
 
     - Datorn Datorkonfiguration\Windows inställningar\Säkerhetsinställningar\Lokala Principer\tilldelning av användarrättigheter\neka inloggning genom Fjärrskrivbordstjänster
 
 
-8. Starta om den virtuella datorn och kontrollera att Windows är fortfarande felfri kan nås med hjälp av RDP-anslutning. Nu kan du skapa en virtuell dator i din lokala Hyper-V att kontrollera att den virtuella datorn startar helt och sedan testa om det är RDP kan nås.
+9. Starta om den virtuella datorn och kontrollera att Windows är fortfarande felfri kan nås med hjälp av RDP-anslutning. Nu kan du skapa en virtuell dator i din lokala Hyper-V att kontrollera att den virtuella datorn startar helt och sedan testa om det är RDP kan nås.
 
-9. Ta bort några extra Transport Driver Interface-filter, t.ex programvara som analyserar TCP-paket eller extra brandväggar. Du kan också använda detta i ett senare skede när den virtuella datorn har distribuerats i Azure om det behövs.
+10. Ta bort några extra Transport Driver Interface-filter, t.ex programvara som analyserar TCP-paket eller extra brandväggar. Du kan också använda detta i ett senare skede när den virtuella datorn har distribuerats i Azure om det behövs.
 
-10. Avinstallera någon annan programvara från tredje part eller drivrutin som är relaterat till fysiska komponenter eller någon annan virtualiseringsteknik används.
+11. Avinstallera någon annan programvara från tredje part eller drivrutin som är relaterat till fysiska komponenter eller någon annan virtualiseringsteknik används.
 
 ### <a name="install-windows-updates"></a>Installera Windows-uppdateringar
 Konfigurationen som är bäst är att **har korrigeringsnivån för datorn senast**. Om det inte är möjligt, kontrollerar du att följande uppdateringar är installerade:
@@ -387,25 +393,7 @@ Följande inställningar påverkar inte ladda upp VHD. Men rekommenderar vi star
 
     - [VM-agenten och tillägg – del 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
     - [VM-agenten och tillägg – del 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)
-* Dump-loggen kan vara användbart vid felsökning av problem för Windows-krascher. Aktivera kraschdump log-samling:
-  
-    ```cmd
-    md c:\CrashDumps
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpFolder /t REG_EXPAND_SZ /d "c:\CrashDumps" /f
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpCount /t REG_DWORD /d 10 /f
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpType /t REG_DWORD /d 2 /f
-    sc config WerSvc start= demand
-    ```
-    Om du får fel under någon av steg i den här artikeln, innebär det att registernycklarna som redan finns. I så fall använder du följande kommandon i stället:
 
-    ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name "CrashDumpEnable" -Value "2" -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name "DumpFile" -Value "%SystemRoot%\MEMORY.DMP"
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpFolder" -Value "c:\CrashDumps"
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpCount" -Value 10 -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpType" -Value 2 -Type DWord
-    Set-Service -Name WerSvc -StartupType Manual
-    ```
 *  När den virtuella datorn har skapats i Azure, rekommenderar vi att du anger växlingsfilen för ”Temporala” enheten att förbättra prestanda. Du kan ställa in detta på följande sätt:
 
     ```PowerShell

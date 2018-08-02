@@ -14,12 +14,12 @@ ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: d17ba9ed4548a986d6846d934aee197609ec80ca
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 23b5b5d79f0f905d7c4a173247232ede2cad2877
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "34806844"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412455"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Använd API-versionsprofiler med Python i Azure Stack
 
@@ -121,7 +121,7 @@ Exemplen är inte nödvändigtvis i den ordning som visas i listan ovan.
 
 6.  Ange följande variabler och exportera miljövariablerna i ditt nuvarande gränssnitt. 
 
-    ````bash
+    ```bash
     export AZURE_TENANT_ID={your tenant id}
     export AZURE_CLIENT_ID={your client id}
     export AZURE_CLIENT_SECRET={your client secret}
@@ -129,32 +129,29 @@ Exemplen är inte nödvändigtvis i den ordning som visas i listan ovan.
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
     ```
 
-7.  In order to run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-Datacenter images must be present in Azure Stack market place. These can be either [downloaded from Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) or [added to Platform Image Repository](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
+7.  För att kunna köra det här exemplet, måste Ubuntu 16.04-LTS och Windows Server 2012 R2 Datacenter-avbildningar finnas i Azure Stack-marknadsplatsen. Det kan vara antingen [ned från Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) eller [lagts till i plattformens Avbildningslagringsplats](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
 
-8. Run the sample.
+8. Kör exemplet.
 
     ```
     python unmanaged-disks\example.py
     ```
 
-## Notes
+## <a name="notes"></a>Anteckningar
 
-You may be tempted to try to retrieve a VM's OS disk by using
-`virtual_machine.storage_profile.os_disk`.
-In some cases, this may do what you want,
-but be aware that it gives you an `OSDisk` object.
-In order to update the OS Disk's size, as `example.py` does,
-you need not an `OSDisk` object but a `Disk` object.
-`example.py` gets the `Disk` object with the following:
+Du kanske tro att försöka hämta en virtuell dators OS-disk med hjälp av `virtual_machine.storage_profile.os_disk`.
+I vissa fall kan detta göra vad du vill ha, men tänk på att den ger dig en `OSDisk` objekt.
+Om du vill uppdatera OS-diskens storlek, som `example.py` , du behöver inte en `OSDisk` objekt men en `Disk` objekt.
+`example.py` hämtar den `Disk` objekt med följande:
 
 ```python
 os_disk_name = virtual_machine.storage_profile.os_disk.name
 os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 ```
 
-## Next steps
+## <a name="next-steps"></a>Nästa steg
 
-- [Azure Python Development Center](https://azure.microsoft.com/develop/python/)
-- [Azure Virtual Machines documentation](https://azure.microsoft.com/services/virtual-machines/)
-- [Learning Path for Virtual Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
-- If you don't have a Microsoft Azure subscription, you can get a FREE trial account [here](http://go.microsoft.com/fwlink/?LinkId=330212).
+- [Azure Python-Utvecklingscenter](https://azure.microsoft.com/develop/python/)
+- [Dokumentation om Azure virtuella datorer](https://azure.microsoft.com/services/virtual-machines/)
+- [Utbildningsväg för virtuella datorer](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
+- Om du inte har en Microsoft Azure-prenumeration kan du få ett kostnadsfritt utvärderingskonto [här](http://go.microsoft.com/fwlink/?LinkId=330212).

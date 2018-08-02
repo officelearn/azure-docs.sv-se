@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: bf763b08f234145cb81d2cded170348f96e5e478
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 0c38c0160cea51940ac5b04ee64095c6a6f25b5d
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343349"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414682"
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Konfigurera Azure Active Directory-registrerade Windows 10-enheter
 
@@ -28,7 +28,7 @@ Om du vill aktivera den **Bring Your Own Device (BYOD)** scenariot kan du göra 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Om du vill registrera en Windows 10-enhet, måste registreringstjänsten för enheter konfigureras så att du kan registrera enheter. Du måste dessutom ha färre enheter som har registrerats än det konfigurerade maxantalet. Mer information finns i [konfigurerar du inställningar för](../device-management-azure-portal.md#configure-device-settings).
+Om du vill registrera en Windows 10-enhet, måste registreringstjänsten för enheter konfigureras så att du kan registrera enheter. Du måste dessutom ha färre enheter som har registrerats än det konfigurerade maxantalet. Mer information finns i [konfigurerar du inställningar för](../devices/device-management-azure-portal.md#configure-device-settings).
 
 ## <a name="what-you-should-know"></a>Vad du bör känna till
 

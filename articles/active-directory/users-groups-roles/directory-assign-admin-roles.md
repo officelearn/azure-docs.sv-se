@@ -14,12 +14,12 @@ ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 50ec925e10b32bd2bad63322ae166a02576c691a
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 5d6254efbb6051bf4fcd01abd4fbf858b0211319
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344434"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399948"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -364,9 +364,7 @@ Medlemmar i den här rollen har lagts till i gruppen lokala administratörer på
 | --- | --- |
 
 ### <a name="directory-readers"></a>Katalogläsare
-<<<<<<< HEAD kan läsa grundläggande kataloginformation. För att bevilja åtkomst till program.
-=== Kan läsa grundläggande kataloginformation. För att bevilja åtkomst till program
->>>>>>> ae91bfc09771777f3e74c0dd0f8db6bc14e1e710
+Kan läsa grundläggande kataloginformation. För att bevilja åtkomst till program.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |

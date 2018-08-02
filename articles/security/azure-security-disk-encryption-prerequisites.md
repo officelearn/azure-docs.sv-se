@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/30/2018
 ms.author: mstewart
-ms.openlocfilehash: 3a93f4df52f5e148faaa1e8e7a0275b68d2ff508
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 19fe03a6d06b0f058a90e8bdc40d862601db4f7e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391776"
+ms.locfileid: "39399906"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Krav för Azure Disk Encryption 
  Den här artikeln krävs för Azure Disk Encryption, förklarar objekt som måste vara uppfyllda innan du kan använda Azure Disk Encryption. Tillsammans med allmänna krav Azure Disk Encryption är integrerad med [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) och använder en Azure AD-program för autentisering för att hantera krypteringsnycklar i nyckelvalvet. Du kan också använda [Azure PowerShell](/powershell/azure/overview) eller [Azure CLI](/cli/azure/) att ställa in eller konfigurera Key Vault och Azure AD-programmet.
@@ -398,11 +398,6 @@ Innan du använder PowerShell-skriptet, bör du känna till kraven för Azure Di
 
 ## <a name="bkmk_Cert"></a> Certifikatbaserad autentisering (valfritt)
 Om du vill använda autentisering med certifikat, kan du ladda upp en till ditt nyckelvalv och distribuera den till klienten. Innan du använder PowerShell-skriptet, bör du känna till kraven för Azure Disk Encryption att förstå steg i skriptet. Exempelskriptet behöva ändringar för din miljö.
-
-> [!IMPORTANT]
-> Azure AD-certifikatbaserad autentisering stöds för närvarande inte på virtuella Linux-datorer.
-
-
 
      
  ```powershell

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: raynew
-ms.openlocfilehash: 516cb69042e923a46168c7655dc3e3010d9557e6
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 96fc44ad7f69b4de0ec5ea3967fe5495086ba53a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173800"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413611"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Supportmatris för VMware och fysisk serverreplikering till Azure
 
@@ -62,7 +62,7 @@ Site Recovery har stöd för replikering av alla arbetsbelastningar som körs p�
 --- | ---
 Datorinställningar | Datorer som replikeras till Azure måste uppfylla [krav för Azure](#azure-vm-requirements).
 Windows-operativsystem | 64-bitars Windows Server 2016 (Server Core, Server med Skrivbordsmiljö), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med på minst SP1. </br></br>  [Windows Server 2008 med på minst SP2 - 32-bitars och 64-bitars](migrate-tutorial-windows-server-2008.md) (migrering). </br></br> Windows 2016 Nano Server stöds inte.
-Linux-operativsystem | Red Hat Enterprise Linux: 5.2 till 5.11, 6.1 6,9, 7.0 7.5 <br/><br/>CentOS: 5.2 till 5.11, 6.1 6,9, 7.0 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versioner som stöds)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versioner som stöds)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5 som kör Red Hat kompatibla kernel eller Unbreakable Enterprise Kernel version 3 (UEK3) <br/><br/></br>* *Uppgradera replikerade datorer från SUSE Linux Enterprise Server 11 SP3 till SP4 stöds inte. Om du vill uppgradera, inaktiverar du replikering och aktivera det igen efter uppgraderingen.*
+Linux-operativsystem | Red Hat Enterprise Linux: 5.2 till 5.11<b>\*\*</b>, 6.1 6,9<b>\*\*</b>, 7.0 7.5 <br/><br/>CentOS: 5.2 till 5.11<b>\*\*</b>, 6.1 6,9<b>\*\*</b>, 7.0 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versioner som stöds)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versioner som stöds)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5 som kör Red Hat kompatibla kernel eller Unbreakable Enterprise Kernel version 3 (UEK3) <br/><br/></br>* *Uppgradera replikerade datorer från SUSE Linux Enterprise Server 11 SP3 till SP4 stöds inte. Om du vill uppgradera, inaktiverar du replikering och aktivera det igen efter uppgraderingen.*</br></br><b>\*\*</b> *Referera till [stöd för Linux-datorer i Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) att förstå stöd för Linux och teknik med öppen källkod i Azure. Azure Site Recovery kan du redundans och kör Linux-servrar i Azure, men Linux-leverantörer kan begränsa stödet till bara dessa versioner av deras distribution som inte har nått end of life.*
 
 
 >[!NOTE]

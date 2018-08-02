@@ -1,6 +1,6 @@
 ---
-title: Hanterade tjänstidentiteten med förhandsversionen av Azure Service Bus | Microsoft Docs
-description: Använda hanteringstjänster identiteter med Azure Service Bus
+title: Hanterad tjänstidentitet med förhandsversionen av Azure Service Bus | Microsoft Docs
+description: Använda hanterade tjänstidentiteter med Azure Service Bus
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,70 +12,74 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 08/01/2018
 ms.author: sethm
-ms.openlocfilehash: 7b9901ee3478cb193c808b65d2dbbcf8b596a3c1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 30df312e349bd6f6ebd1f38141075382be2522a2
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874660"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397992"
 ---
-# <a name="managed-service-identity-preview"></a>Hanterade tjänstidentiteten (förhandsgranskning)
+# <a name="managed-service-identity-preview"></a>Hanterad tjänstidentitet (förhandsgranskning)
 
-En hanterad tjänst identitet (MSI) är en mellan Azure-funktion som gör att du kan skapa en säker identitet som associeras med distributionen som programkoden körs under. Därefter kan du associera identiteten med åtkomstkontroll roller som ger anpassade behörigheter för åtkomst till specifika Azure-resurser som behövs i programmet.
+En hanterad tjänstidentitet (MSI) är en över flera Azure-funktion som gör det möjligt för dig att skapa en säker identitet som är kopplad till distributionen som programkoden körs under. Därefter kan du associera den identiteten med åtkomstkontroll roller som ger anpassade behörigheter för åtkomst till specifika Azure-resurser som programmet behöver.
 
-Med MSI hanterar Azure-plattformen runtime identiteten. Du behöver inte att lagra och skydda snabbtangenter i din programkod eller konfiguration, antingen för identiteten sig själv eller för de resurser du behöver för att få åtkomst till. Ett klientprogram för Service Bus körs i Azure App Service-program eller i en virtuell dator med aktiverat stöd för MSI behöver inte hantera SAS-regler och nycklar eller andra åtkomsttoken. Klientappen behöver bara slutpunktsadress av namnområdet för Service Bus-meddelanden. När appen ansluter Binder Service Bus MSI-kontext till klienten i en åtgärd som visas i ett exempel senare i den här artikeln. 
+Med MSI hanterar den här identiteten för körning i Azure-plattformen. Du behöver inte att lagra och skydda åtkomstnycklar i din programkod eller konfiguration för identiteten själva, eller för de resurser du behöver för att få åtkomst till. En Service Bus-klientapp som körs i ett program i Azure App Service eller i en virtuell dator med aktiverad MSI-stöd behöver inte hantera SAS regler och nycklar eller andra åtkomsttoken. Klientappen behöver bara slutpunktsadress av namnområde för Service Bus-meddelanden. När appen ansluter Binder Service Bus MSI-kontexten till klienten i en åtgärd som visas i ett exempel senare i den här artikeln. 
 
-När den är kopplad till en hanterad tjänstidentitet kan en Service Bus-klient utföra alla behöriga åtgärder. Auktorisering genom att associera en MSI med Service Bus-roller. 
+När den är associerad med hanterade tjänstidentiteter, kan ett klientprogram utföra alla behöriga åtgärder. Auktorisering genom att associera en MSI med Service Bus-roller. 
 
 ## <a name="service-bus-roles-and-permissions"></a>Service Bus-roller och behörigheter
 
-Inledande offentliga förhandsversionen kan lägga du bara till en hanterad tjänstidentitet ”ägare” eller ”bidragsgivare” rollerna i en Service Bus-namnområde, vilket ger identitet fullständig kontroll på alla entiteter i namnområdet. Dock hantering av åtgärder som ändrar namnområde topologin är från början stöds endast om Azure Resource Manager och inte via gränssnittet för hantering av interna Service Bus REST. Det här stödet innebär också att du inte kan använda .NET Framework-klienten [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) objekt i en hanterad tjänst-identitet.
+Den första offentliga förhandsversionen kan du bara lägga till en hanterad tjänstidentitet till ”ägare” eller ”bidragsgivare” roller av en Service Bus-namnområde som ger den identitet fullständig kontrollen på alla entiteter i namnområdet. Hantering av åtgärder som ändrar namnområde topologin är från början stöds dock bara om Azure Resource Manager och inte via gränssnittet för hantering av interna Service Bus REST. Det här stödet innebär också att du inte kan använda .NET Framework-klienten [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) objekt i en hanterad tjänstidentitet.
 
-## <a name="use-service-bus-with-a-managed-service-identity"></a>Använda Service Bus med en hanterad tjänst-identitet
+## <a name="use-service-bus-with-a-managed-service-identity"></a>Använda Service Bus med hanterade tjänstidentiteter
 
-I följande avsnitt beskrivs de steg som krävs för att skapa och distribuera ett exempelprogram som körs under en hanterad tjänstidentitet, hur du ger den identity åtkomsten till ett namnområde för Service Bus-meddelanden och hur programmet samverkar med Service Bus enheter med hjälp av identitet.
+I följande avsnitt beskrivs de steg som krävs för att skapa och distribuera ett exempelprogram som körs under en hanterad tjänstidentitet, hur du bevilja åtkomst till ett namnområde för Service Bus-meddelanden identitet och hur programmet interagerar med Service Bus entiteter som den identiteten.
 
-Den här introduktionen beskriver ett webbprogram som finns i [Azure App Service](https://azure.microsoft.com/services/app-service/). De steg som krävs för ett Virtuellt program är liknande.
+Den här introduktionen beskriver ett webbprogram i [Azure App Service](https://azure.microsoft.com/services/app-service/). De steg som krävs för ett VM-värdbaserade program liknar varandra.
 
-### <a name="create-an-app-service-web-application"></a>Skapa en Apptjänst-webbprogram
+### <a name="create-an-app-service-web-application"></a>Skapa en App Service-webbapp
 
-Det första steget är att skapa en App Service ASP.NET-program. Om du inte känner till hur du gör detta i Azure, Följ [denna instruktioner](../app-service/app-service-web-get-started-dotnet-framework.md). Skapa ett webbformulär program i stället för att skapa ett MVC-program som visas i kursen.
+Det första steget är att skapa en App Service ASP.NET-program. Om du inte är bekant med hur du gör detta i Azure följer [i den här guiden](../app-service/app-service-web-get-started-dotnet-framework.md). Men istället för att skapa ett MVC-program som visas i självstudien skapar du en Web Forms-program.
 
-### <a name="set-up-the-managed-service-identity"></a>Konfigurera hanterade tjänstidentiteten
+### <a name="set-up-the-managed-service-identity"></a>Ställ in den hanterade tjänstidentiteten
 
-När du har skapat programmet navigera till den nya webbappen i Azure-portalen (visas också i anvisningar) och navigera till den **hanterade tjänstidentiteten** sidan och aktivera funktionen: 
+När du har skapat programmet går du till den nya webbappen i Azure portal (visas också i anvisningar) och gå sedan till den **hanterad tjänstidentitet** sidan och aktivera funktionen: 
 
 ![](./media/service-bus-managed-service-identity/msi1.png)
 
-När du har aktiverat funktionen för en ny tjänstidentitet skapas i Azure Active Directory, och som konfigurerats i App Service-värden.
+När du har aktiverat funktionen, en ny tjänstidentitet skapas i Azure Active Directory och som konfigurerats i App Service-värden.
 
 ### <a name="create-a-new-service-bus-messaging-namespace"></a>Skapa ett nytt namnområde för Service Bus-meddelanden
 
-Nästa [skapa ett namnområde för Service Bus-meddelanden](service-bus-create-namespace-portal.md) i ett Azure-regioner som har stöd för förhandsgranskning för RBAC: **oss Öst**, **oss östra 2**, eller **västra Europa** . 
+Nästa [skapa ett namnområde för Service Bus-meddelanden](service-bus-create-namespace-portal.md) i någon av de Azure-regioner som har förhandsversionsstöd för RBAC: **östra USA**, **USA, Öst 2**, eller **Europa, västra** . 
 
-Navigera till namnområdet **Access Control (IAM)** på portalen, och klickar sedan på **Lägg till** att lägga till hanterade tjänstidentiteten till den **ägare** roll. Gör du genom att söka efter namnet på webbprogrammet på **lägga till behörigheter** panelen **Välj** fält och klicka på posten. Klicka sedan på **Spara**.
+Gå till namnområdet **åtkomstkontroll (IAM)** på portalen och klicka sedan på **Lägg till** att lägga till den hanterade tjänstidentiteten för den **ägare** roll. Du gör detta genom att söka efter namnet på webbprogrammet i den **Lägg till behörigheter** panelen **Välj** fältet och sedan klickar du på posten. Klicka sedan på **Spara**.
 
 ![](./media/service-bus-managed-service-identity/msi2.png)
  
-Webbprogrammets Hanterade tjänstidentiteten har nu tillgång till Service Bus-namnrymd och till kön du skapade tidigare. 
+Webbprogrammets hanterad tjänstidentitet har nu tillgång till Service Bus-namnrymd och i kön du skapade tidigare. 
 
 ### <a name="run-the-app"></a>Kör appen
 
-Nu ändra standardsida för ASP.NET-programmet som du skapade. Du kan också använda web application-kod från [GitHub-lagringsplatsen](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity).
+Anpassa standardsidan för ASP.NET-programmet som du skapade. Du kan använda web programkoden från [den här GitHub-lagringsplatsen](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 
-Sidan Default.aspx är denna sida. Koden kan hittas i filen Default.aspx.cs. Resultatet är ett minimalt webbprogram med några fält och **skicka** och **får** knappar som ansluter till Service Bus antingen skicka eller ta emot meddelanden.
+Default.aspx-sidan är din landningssida. Koden finns i filen Default.aspx.cs. Resultatet är ett minimalt webbprogram med några fält och **skicka** och **får** knappar som ansluter till Service Bus antingen skicka eller ta emot meddelanden.
 
-Observera hur [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) objektet har initierats. Istället för att använda tokenleverantör för delad åtkomst-Token (SAS), kod som skapar en tokenleverantör för hanterade tjänstidentiteten med den `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)` anropa. Det finns därför inga hemligheter ska behålla och använda. Flödet av hanteringstjänster identitetskontexten till Service Bus och auktorisering handskakningen hanteras automatiskt av tokenleverantör, vilket är en enklare än med hjälp av SAS.
+Observera hur [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) -objektet initieras. Istället för att använda den för delad åtkomst-Token (SAS)-Tokenleverantören koden skapar en tokenleverantör för den hanterade tjänstidentiteten med den `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)` anropa. Det finns därför inga hemligheter för att spara och använda. Flödet av hanterad tjänst identitetskontexten till Service Bus och auktorisering med handskakningen hanteras automatiskt av den tokenleverantör, vilket är en modell som är enklare än med hjälp av SAS.
 
-När du har gjort dessa ändringar, publicera och köra programmet. Ett enkelt sätt att få rätt publicera data är att hämta och sedan importera publiceringsprofilen i Visual Studio:
+När du har gjort dessa ändringar, publicera och köra programmet. Ett enkelt sätt att få rätt publicerar data är att hämta och importera en publiceringsprofil i Visual Studio:
 
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
-Ange namnet på namnområdet och namnet på den enhet som du skapade för att skicka eller ta emot meddelanden, och klicka sedan på antingen **skicka** eller **får**.
- 
-Observera att hanterade tjänstidentiteten fungerar bara i Azure-miljön och endast i App Service-distributionen som du har konfigurerat detta. Observera också att hanteringstjänster identiteter inte fungerar med distributionsplatser för Apptjänst just nu.
+Ange namnet på namnområdet och namnet på den entitet som du skapade för att skicka eller ta emot meddelanden, och klicka sedan på antingen **skicka** eller **får**.
+
+
+> [!NOTE]
+> - Den hanterade tjänstidentiteten som fungerar endast i Azure-miljön, på App services, virtuella Azure-datorer och skalningsuppsättningar. För .NET-program, Microsoft.Azure.Services.AppAuthentication-biblioteket, som används av Service Bus NuGet-paketet, tillhandahåller en abstraktion över det här protokollet och har stöd för en lokal utvecklingsmiljö. Det här biblioteket kan du testa din kod lokalt på utvecklingsdatorn, använder användarkontot från Visual Studio, Azure CLI 2.0 eller Active Directory-integrerad autentisering. Mer information om alternativ för lokal utveckling med det här biblioteket finns i [tjänst-till-tjänst-autentisering till Azure Key Vault med hjälp av .NET](../key-vault/service-to-service-authentication.md).  
+> 
+> - Hanterade tjänstidentiteter fungerar för närvarande inte med App Service-distributionsplatser.
 
 ## <a name="next-steps"></a>Nästa steg
 

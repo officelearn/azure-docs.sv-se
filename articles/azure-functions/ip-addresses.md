@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: 656ccf5d133094c0fcf361cb519e48428b677a0a
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: c2e066ddf444cb81d7f0033641a300d18b266f62
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358335"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397855"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>IP-adresser i Azure Functions
 
@@ -39,19 +39,11 @@ Varje funktionsapp har en inkommande IP-adress. Hitta IP-adress:
 3. Välj **plattformsfunktioner**.
 4. Välj **egenskaper**, och den inkommande IP-adressen visas under **virtuell IP-adress**.
 
-Under **plattformsfunktioner**, ett alternativt sätt att hitta IP-adresser är att välja **diagnostisera och lösa problem > Kontrollera IP-konfiguration**.
-
 ## <a name="function-app-outbound-ip-addresses"></a>Funktionen app utgående IP-adresser
 
 Varje funktionsapp har en uppsättning tillgängliga utgående IP-adresser. Alla utgående anslutning från en funktion, till exempel en backend-databas, använder en av de tillgängliga utgående IP-adresserna som ursprunglig IP-adress. Du kan inte vet i förväg vilka IP-adressen en viss anslutning kommer att använda. Därför måste din serverdelstjänst öppna dess brandväggen till att alla function-appens utgående IP-adresser.
 
 Hitta de utgående IP-adresserna till en funktionsapp:
-
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Gå till funktionsappen.
-3. Välj **plattformsfunktioner > diagnostisera och lösa problem > Kontrollera IP-konfiguration**.
-
-Hitta de IP-adresser som är tillgängliga när appen skalas till andra prisnivåerna:
 
 1. Logga in på den [Azure Resource Explorer](https://resources.azure.com).
 2. Välj **prenumerationer > {din prenumeration} > providers > Microsoft.Web > platser**.

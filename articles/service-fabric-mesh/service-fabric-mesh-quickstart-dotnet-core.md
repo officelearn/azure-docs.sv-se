@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ad8920ac01ce62eb676b495dcde2aae6b076cbe2
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d14420a363cfea23c86f63533a4ea89c5f2fd06f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125511"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412924"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Snabbstart: Skapa och distribuera en webbapp till Azure Service Fabric nät
 
-Azure Service Fabric-nät är en fullständigt hanterad tjänst som ger utvecklare möjlighet att distribuera mikrotjänstprogram utan att hantera virtuella datorer, lagring och nätverk.
+Azure Service Fabric Mesh är en fullständigt hanterad tjänst som gör att utvecklare kan distribuera mikrotjänstprogram utan att hantera virtuella datorer, lagring eller nätverk.
 
 I den här snabbstarten skapar du ett nytt Service Fabric-nät program som består av en ASP.NET Core-webbapp, köra den på det lokala utvecklingsklustret och sedan publicera den kan köras på Azure.
 
@@ -32,27 +32,27 @@ Du behöver en Azure-prenumeration. Om du inte har någon kan du enkelt kan skap
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="create-a-service-fabric-mesh-project"></a>Skapa ett Service Fabric-nät projekt
+## <a name="create-a-service-fabric-mesh-project"></a>Skapa ett Service Fabric Mesh-projekt
 
 Öppna Visual Studio och välj **filen** > **New** > **projekt...**
 
-I den **nytt projekt** dialogrutan **Search** högst upp, typ `mesh`. Välj den **Service Fabric-nät program** mall. (Om du inte ser mallen, se till att du installerat nät SDK och verktyg för VS Förhandsgranska enligt beskrivningen i [ställa in din utvecklingsmiljö](service-fabric-mesh-howto-setup-developer-environment-sdk.md). 
+I dialogrutan **New Project** (Nytt projekt) i rutan **Search** (Sök) längst upp skriver du `mesh`. Välj mallen **Service Fabric Mesh Application**. (Om du inte ser mallen kontrollerar du att du har installerat Mesh-SDK och förhandsversionen av VS-verktygen enligt anvisningarna om att [skapa en utvecklingsmiljö](service-fabric-mesh-howto-setup-developer-environment-sdk.md). 
 
 I den **namn** skriver **ServiceFabricMesh1** och i den **plats** rutan, ange sökvägen till mappen för där filerna för projektet kommer att lagras.
 
-Se till att **Skapa katalog för lösningen** är markerad och klicka på **OK** att skapa Service Fabric-nät-projektet.
+Se till att alternativet för att **skapa katalog för lösning** är markerat och klicka på **OK** för att skapa Service Fabric Mesh-projektet.
 
-![Visual studio Service Fabric-nät dialogrutan Nytt projekt](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
+![Visual Studio, dialogruta för nytt Service Fabric Mesh-projekt](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
 
 ### <a name="create-a-service"></a>Skapa en tjänst
 
 När du klickar på **OK**, **ny Service Fabric-tjänst** dialogruta. Välj den **ASP.NET Core** projektet typ, se till att **Container OS** är inställd på **Windows** och klicka på **OK** att skapa ASP.NET Core-projektet . 
 
-![Visual studio Service Fabric-nät dialogrutan Nytt projekt](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-service-fabric-service.png)
+![Visual Studio, dialogruta för nytt Service Fabric Mesh-projekt](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-service-fabric-service.png)
 
 Den **ny ASP.NET Core-Webbapp** dialogruta. Välj **webbprogram** och klicka sedan på **OK**.
 
-![Visual studio nytt ASP.NET core-program](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-aspnetcore-app.png)
+![Visual Studio, nytt ASP.NET-webbprogram](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-aspnetcore-app.png)
 
 Visual Studio skapar programprojektet nät för Service Fabric och ASP.NET Core-projektet.
 
@@ -72,34 +72,21 @@ Om du vill publicera Service Fabric-nät projektet till Azure, högerklicka på 
 
 Du ser en **publicera Service Fabric-program** dialogrutan.
 
-![Dialogrutan Publicera i Visual studio Service Fabric-nät](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-dialog.png)
+![Visual Studio, dialogruta för Service Fabric Mesh-projekt](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-dialog.png)
 
-Välj Azure-konto och prenumeration. Välj en **plats**. Den här artikeln använder **USA, östra**.
+Välj Azure-konto och Azure-prenumeration. Välj en **plats**. Den här artikeln använder **USA, östra**.
 
-Under **resursgrupp**väljer  **\<Skapa ny resursgrupp... >**. Den **skapa resursgrupp** dialogruta. Ange den **Resursgruppsnamn** och **plats**.  Den här snabbstarten används de **USA, östra** plats och namn gruppen **sfmeshTutorial1RG** (om din organisation har flera personer med samma prenumeration, Välj ett unikt Resursgruppsnamn).  Klicka på **skapa** skapa resursgruppen och gå tillbaka till dialogrutan Publicera.
+Under **Resursgrupp** väljer du **\<Skapa ny resursgrupp...>**. Den **skapa resursgrupp** dialogruta. Ange den **Resursgruppsnamn** och **plats**.  Den här snabbstarten används de **USA, östra** plats och namn gruppen **sfmeshTutorial1RG** (om din organisation har flera personer med samma prenumeration, Välj ett unikt Resursgruppsnamn).  Klicka på **skapa** skapa resursgruppen och gå tillbaka till dialogrutan Publicera.
 
-![Visual studio Service Fabric-nät resource group dialogrutan Ny](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
+![Visual Studio, dialogruta för ny Service Fabric Mesh-resursgrupp](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
-I den **publicera Service Fabric-program** dialogrutan under **Azure Container Registry**väljer  **\<skapa nya Behållarregister... >**. I den **skapa Behållarregister** dialogrutan, Använd ett unikt namn för den **behållarregisternamnet**. Ange en **plats** (den här snabbstarten används **USA, östra**). Välj den **resursgrupp** som du skapade i föregående steg i listrutan, till exempel **sfmeshTutorial1RG**. Ange den **SKU** till **grundläggande** och klicka sedan på **skapa** att gå tillbaka till dialogrutan Publicera.
+Återgå till dialogrutan **Publicera Service Fabric-program**. Under **Azure Container Registry** väljer du **\<Skapa nytt containerregister...>**. I dialogrutan **Create Container Registry** (Skapa containerregister) använder du ett unikt namn för **Container registry name** (Containerregisternamn). Ange en **plats** (den här snabbstarten används **USA, östra**). Välj den **resursgrupp** som du skapade i föregående steg i listrutan, exempelvis **sfmeshTutorial1RG**. Ange den **SKU** till **grundläggande** och klicka sedan på **skapa** att gå tillbaka till dialogrutan Publicera.
 
-Om du får ett felmeddelande som en resursprovider har inte registrerats för din prenumeration kan du registrera den. Se först om resursprovidern är tillgänglig för din prenumeration:
-
-```Powershell
-Connect-AzureRmAccount
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-Om container registry-providern (`Microsoft.ContainerRegistry`) är tillgänglig, registrera den från Powershell:
-
-```Powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerRegistry
-```
-
-![Visual studio Service Fabric-nät resource group dialogrutan Ny](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
+![Visual Studio, dialogruta för ny Service Fabric Mesh-resursgrupp](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 
 I dialogrutan Publicera klickar du på den **publicera** knappen för att distribuera programmet till Azure Service Fabric-nät.
 
-När du publicerar på Azure för första gången, skickas docker-avbildningen till den Azure Container Registry (ACR) som tar tid beroende på storleken på avbildningen. Efterföljande publicerar av samma projekt går uppgraderingen snabbare. Du kan övervaka förloppet för distributionen genom att välja **Service Fabric-verktyg** i Visual Studio **utdata** fönstret listrutan. När distributionen är klar, den **Service Fabric-verktyg** utdata visar du IP-adress och port för ditt program i form av en URL.
+När du publicerar till Azure första gången skickas dockeravbildningen till ACR (Azure Container Registry), vilket tar tid beroende på storleken på avbildningen. Efterföljande publiceringar av samma projekt går snabbare. Du kan övervaka förloppet för distributionen genom att välja **Service Fabric-verktyg** i Visual Studio **utdata** fönstret listrutan. När distributionen är klar visas utdata för **Service Fabric Tools** (Service Fabric-verktyg) IP-adress och port för programmet i form av en webbadress.
 
 ```json
 Packaging Application...
@@ -131,6 +118,6 @@ Du kan också ta bort resursgruppen [från Azure portal](https://portal.azure.co
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om att skapa och distribuera Service Fabric-nät program fortsätter du till självstudien.
+Om du vill lära dig mer om att skapa och distribuera Service Fabric Mesh-program fortsätter du till självstudien.
 > [!div class="nextstepaction"]
-> [Skapa, felsöka och distribuera ett flera tjänster webbprogram till Service Fabric-nät](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> [Skapa, felsöka och distribuera en webbapp för flera tjänster till Service Fabric Mesh](service-fabric-mesh-tutorial-create-dotnetcore.md)

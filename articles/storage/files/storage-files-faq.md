@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 07/19/2018
 ms.author: renash
-ms.openlocfilehash: 89c1bb0404e1fbff9241fe42404123288fffea71
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 9ecedb171fba9ae8719121f51026134f2bdc1a5f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160237"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413713"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -54,7 +54,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
     En mer detaljerad beskrivning om skillnaderna mellan Azure Files och Azure Blob storage finns i [avgöra när du ska använda Azure Blob storage, Azure Files eller Azure Disks](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Läs mer om Azure Blob storage i [introduktion till Blob storage](../blobs/storage-blobs-introduction.md).
 
 * <a id="files-versus-disks"></a>**Varför ska jag använda en Azure-filresurs i stället för Azure Disks?**  
-    En disk i Azure-diskar är helt enkelt en disk. En fristående disk påverkar i sig är inte användbart för. Om du vill få ut värde från Azure-diskar, måste du ansluta en disk till en virtuell dator som körs i Azure. Azure-diskar som kan användas för allt som du använder en disk för på en lokal server. Du kan använda den som en OS-disk för system, växlingsutrymme för ett operativsystem eller dedikerad lagring för ett program. En intressant Azure Disks används för att skapa en server i molnet för att använda på samma plats där du kan använda en Azure-filresurs. Distribuera en filserver i Azure Virtual Machines är en högpresterande sättet att få fillagring i Azure när du behöver distributionsalternativ som för närvarande inte stöds av Azure Files (till exempel NFS-protokollet support eller premium-lagring). 
+    En disk i Azure-diskar är helt enkelt en disk. Om du vill få ut värde från Azure-diskar, måste du ansluta en disk till en virtuell dator som körs i Azure. Azure-diskar som kan användas för allt som du använder en disk för på en lokal server. Du kan använda den som en OS-disk för system, växlingsutrymme för ett operativsystem eller dedikerad lagring för ett program. En intressant Azure Disks används för att skapa en server i molnet för att använda på samma plats där du kan använda en Azure-filresurs. Distribuera en filserver i Azure Virtual Machines är en högpresterande sättet att få fillagring i Azure när du behöver distributionsalternativ som för närvarande inte stöds av Azure Files (till exempel NFS-protokollet support eller premium-lagring). 
 
     Kör en server med Azure-diskar som backend-lagring vanligtvis är dock mycket dyrare än att använda en Azure-filresurs olika orsaker. Först, förutom att betala för disklagring, betalar du även måste för kostnaderna för att använda en eller flera virtuella Azure-datorer. Andra: du kan också måste hantera de virtuella datorer som används för att köra filservern. Exempelvis kan ansvarar du för OS-uppgraderingar. Slutligen, om du slutligen kräver att data cachelagrade lokalt, det är upp till dig att konfigurera och hantera replikeringstekniker, till exempel distribuerade replikering DFSR (File System), att aktivera den här funktionen.
 

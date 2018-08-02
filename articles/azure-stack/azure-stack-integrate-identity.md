@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 706afa7cb79b7b5c2afcd729f36ff150b87dd6df
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: c22831ae781239f2474720ee9cd1b58f6e14fe41
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242945"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412873"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrering med Azure Stack datacenter - identitet
 Du kan distribuera Azure Stack med Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantör man. Du måste göra valet innan du distribuerar Azure Stack. Distributionen med hjälp av AD FS är kallas även distribuera Azure Stack i frånkopplat läge.
@@ -26,7 +26,7 @@ I följande tabell visar skillnaderna mellan de två identity val:
 |---------|---------|---------|
 |Fakturering|Måste vara kapacitet<br> Endast Enterprise Agreement (EA)|Kapacitet eller betalning som du-användning<br>EA- eller leverantörer av Molnlösningar (CSP)|
 |Identitet|Måste vara AD FS|Azure AD eller AD FS|
-|Marketplace-syndikering|Stöds<br>BYOL-licensiering|Stöds<br>BYOL-licensiering|
+|Marketplace |Stöds<br>BYOL-licensiering|Stöds<br>BYOL-licensiering|
 |Registrering|Rekommenderas, kräver flyttbart medium<br> och en separat ansluten enhet.|Automatiserad|
 |Korrigeringar och uppdateringar|Krävs, kräver flyttbart medium<br> och en separat ansluten enhet.|Uppdateringspaket kan hämtas direkt<br> från Internet till Azure Stack.|
 

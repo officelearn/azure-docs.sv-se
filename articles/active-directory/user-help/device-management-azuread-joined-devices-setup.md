@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 511580b95646677a231a68862cae8a6aa57abcb0
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 83eea565cc775a0569015c04d79d627d6ba120e6
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345539"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411717"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Konfigurera Azure Active Directory-anslutna enheter
 
@@ -28,7 +28,7 @@ Om du vill ta med ägs av arbetet Windows 10-enheter kontrolleras av Azure AD ka
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill ansluta till en Windows 10-enhet, måste registreringstjänsten för enheter konfigureras så att du kan registrera enheter. Du måste ha färre enheter som har registrerats än det konfigurerade maxantalet förutom att ha behörighet att ansluta enheter i din Azure AD-klient. Mer information finns i [konfigurerar du inställningar för](../device-management-azure-portal.md#configure-device-settings).
+Om du vill ansluta till en Windows 10-enhet, måste registreringstjänsten för enheter konfigureras så att du kan registrera enheter. Du måste ha färre enheter som har registrerats än det konfigurerade maxantalet förutom att ha behörighet att ansluta enheter i din Azure AD-klient. Mer information finns i [konfigurerar du inställningar för](../devices/device-management-azure-portal.md#configure-device-settings).
 
 
 
@@ -116,16 +116,14 @@ Du kan också granska inställningar för enheter på Azure AD-portalen.
 
 ![Ansluten](./media/device-management-azuread-joined-devices-setup/15.png)
 
-Mer information finns i [hitta enheter](../device-management-azure-portal.md#locate-devices).
+Mer information finns i [hitta enheter](../devices/device-management-azure-portal.md#locate-devices).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information finns i: 
 
-- Den [introduktionen till enhetshantering i Azure Active Directory](../device-management-introduction.md)
-- [Hantera enheter med hjälp av Azure-portalen](../device-management-azure-portal.md)
-- 
-
+- Den [introduktionen till enhetshantering i Azure Active Directory](../devices/overview.md)
+- [Hantera enheter med hjälp av Azure-portalen](../devices/device-management-azure-portal.md)
 
 

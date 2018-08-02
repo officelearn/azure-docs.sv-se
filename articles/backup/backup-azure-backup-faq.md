@@ -7,17 +7,17 @@ manager: carmonm
 keywords: säkerhetskopiering och katastrofåterställning, säkerhetskopieringstjänst
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/9/2018
+ms.date: 8/1/2018
 ms.author: markgal
-ms.openlocfilehash: ac3c90fef602c5f840fff9ccd03efc360ca16200
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33a3a1c0fd375f6ed88e13f910c46e71f216b892
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605832"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412959"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Frågor om Azure Backup-tjänsten
-Den här artikeln innehåller svar på vanliga frågor om Azure Backup-komponenter. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan ställa frågor om Azure Backup genom att klicka på **Kommentarer** (till höger). Kommentarerna visas längst ned i den här artikeln. Ett Livefyre-konto krävs för att lämna kommentarer. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+Den här artikeln innehåller vanliga frågor och svar om Azure Backup-komponenterna. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan ställa frågor om Azure Backup genom att klicka på **Kommentarer** (till höger). Kommentarerna visas längst ned i den här artikeln. Ett Livefyre-konto krävs för att lämna kommentarer. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 Om du snabbt vill titta igenom avsnitten i denna artikel kan du använda länkarna till höger, under **Innehåll i artikeln**.
 
@@ -25,22 +25,25 @@ Om du snabbt vill titta igenom avsnitten i denna artikel kan du använda länkar
 ## <a name="recovery-services-vault"></a>Recovery Services-valv
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Finns det någon gräns för antalet valv som kan skapas i varje Azure-prenumeration? <br/>
-Ja. Du kan skapa upp till 500 Recovery Services-valv, per region för stöds av Azure Backup per prenumeration. Om du behöver fler valv skapar du ytterligare en prenumeration.
+Ja. Du kan skapa upp till 500 Recovery Services-valv per region som stöds av Azure Backup per prenumeration. Om du behöver fler valv skapar du ytterligare en prenumeration.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Finns det några begränsningar för hur många servrar/datorer som kan registreras mot varje valv? <br/>
-Du kan registrera upp till 1000 Azure virtuella datorer per valvet. Om du använder MAB Agent, kan du registrera upp till 50 MAB agenter per valvet. Och du kan registrera 50 MAB servrar/DPM-servrar ett valv.
+Du kan registrera upp till 1000 virtuella Azure-datorer per valv. Om du använder MAB-agenten kan registrera du upp till 50 MAB-agenter per valv. Och du kan registrera 50 MAB-servrar/DPM-servrar till ett valv.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Min organisation har ett valv. Hur kan jag isolera en servers data från en annan server när jag återställer data?<br/>
 Alla servrar som är registrerade för samma valv kan återställa data som säkerhetskopierats av andra servrar *som använder samma lösenfras*. Om du vill isolera säkerhetskopierade data på en server från andra servrar i organisationen kan du använda en annan lösenfras för dessa servrar. HR-servrarna kan till exempel använda en krypteringslösenfras, redovisningsservrarna en annan och lagringsservrar en tredje.
 
-### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>Kan jag ”migrera” mina säkerhetskopierade data eller mitt säkerhetskopierade valv mellan prenumerationer? <br/>
-Nej. Valvet skapas på prenumerationsnivå och kan inte tilldelas en annan prenumeration när det har skapats.
+### <a name="can-i-migrate-my-vault-between-subscriptions-br"></a>Kan jag migrera min valv mellan prenumerationer? <br/>
+Nej. Valvet skapas på prenumerationsnivå och kan inte tilldelas till en annan prenumeration.
 
-### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Recovery Services-valv är baserade på resurshanteraren. Säkerhetskopieringsvalv stöds fortfarande? <br/>
-Säkerhetskopieringsvalv har konverterats till Recovery Services-valv. Om du inte har konverterat säkerhetskopieringsvalvet till Recovery Services-valvet har säkerhetskopieringsvalvet konverterats till ett Recovery Services-valv för dig. 
+### <a name="can-i-migrate-backup-data-to-another-vault-br"></a>Kan jag migrera säkerhetskopierade data till ett annat valv? <br/>
+Nej. Säkerhetskopierade data lagras i ett valv kan inte flyttas till ett annat valv.
+
+### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Recovery Services-valv är baserade på resurshanteraren. Backup-valv stöds fortfarande? <br/>
+Säkerhetskopieringsvalv har konverterats till Recovery Services-valv. Om du inte har konverterat Backup-valv till ett Recovery Services-valv, har Backup-valvet konverterats till ett Recovery Services-valv för dig. 
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Kan jag migrera ett Backup-valv till ett Recovery Services-valv? <br/>
-Alla säkerhetskopieringsvalv har konverterats till Recovery Services-valv. Om du inte har konverterat säkerhetskopieringsvalvet till Recovery Services-valvet har säkerhetskopieringsvalvet konverterats till ett Recovery Services-valv för dig.
+Alla säkerhetskopieringsvalv har konverterats till Recovery Services-valv. Om du inte har konverterat Backup-valv till ett Recovery Services-valv, har Backup-valvet konverterats till ett Recovery Services-valv för dig.
 
 ## <a name="azure-backup-agent"></a>Azure Backup-agent
 En detaljerad lista med frågor finns i [vanliga frågor och svar om säkerhetskopiering av Azure-filmappen](backup-azure-file-folder-backup-faq.md)
@@ -65,16 +68,16 @@ Nej. En DPM- eller MABS-server kan bara registreras för ett enda valv.
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>Vilken version av System Center Data Protection Manager stöds?
 
 Vi rekommenderar att du installerar den [senaste](http://aka.ms/azurebackup_agent) Azure Backup-agenten med den senaste samlade uppdateringen (UR) för System Center Data Protection Manager (DPM). 
-- För System Center DPM 2012 R2 [Update Rollup 14](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager) är den senaste uppdateringen.
+- För System Center DPM 2012 R2 [uppdatera samlad 14](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager) är den senaste uppdateringen.
 - För System Center DPM 2016 [Samlad uppdatering 2](https://support.microsoft.com/en-us/help/3209593) är den senaste uppdateringen.
 
-### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>Jag har installerat Azure Backup-agenten för att skydda mina filer och mappar. Kan jag installera System Center DPM för att skydda lokala program och VM-arbetsbelastningar till Azure?
+### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>Jag har installerat Azure Backup-agenten för att skydda mina filer och mappar. Kan jag installera System Center DPM för att skydda lokala program/VM-arbetsbelastningar till Azure?
 
-Ja. Men om du vill använda Azure Backup med System Center Data Protection Manager (DPM) måste först installera DPM och installera sedan Azure Backup-agenten. Genom att installera Azure Backup-komponenterna i den här ordningen säkerställer du att Azure Backup-agenten fungerar med DPM. Installera inte Azure Backup-agenten innan du installerar DPM. Detta varken rekommenderas eller stöds.
+Ja. Men om du vill använda Azure Backup med System Center Data Protection Manager (DPM), installerar du först DPM och installera Azure Backup-agenten. Genom att installera Azure Backup-komponenterna i den här ordningen säkerställer du att Azure Backup-agenten fungerar med DPM. Installera inte Azure Backup-agenten innan du installerar DPM. Detta varken rekommenderas eller stöds.
 
-### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Kan jag använda DPM för att säkerhetskopiera appar i Azure-stacken?
+### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Kan jag använda DPM för säkerhetskopiering av appar i Azure Stack?
 
-Nej. Även om du kan använda Azure Backup för att skydda Azure-stacken, stöder Azure Backup för närvarande inte använder DPM för att säkerhetskopiera appar i Azure-stacken.
+Nej. Även om du kan använda Azure Backup för att skydda Azure Stack, stöder Azure Backup för närvarande inte använder DPM för att säkerhetskopiera appar i Azure Stack.
 
 ## <a name="how-azure-backup-works"></a>Så här fungerar Azure Backup
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Tas säkerhetskopierade data som redan har överförts bort om jag avbryter ett säkerhetskopieringsjobb som redan har startat? <br/>
@@ -83,13 +86,13 @@ Nej. Alla data som har överförts till valvet innan säkerhetskopieringen avbr�
 Om du avbryter ett säkerhetskopieringsjobb för en virtuella Azure-dator ignoreras alla överförda data. Nästa säkerhetskopieringsjobb överför inkrementella data från det senaste lyckade säkerhetskopieringsjobbet.
 
 ### <a name="are-there-limits-on-when-or-how-many-times-a-backup-job-can-be-scheduledbr"></a>Finns det någon gräns för när eller hur många gånger ett säkerhetskopieringsjobb kan schemaläggas?<br/>
-Ja. Du kan köra säkerhetskopieringsjobb på Windows Server eller Windows-arbetsstationer upp till tre gånger per dag. Du kan köra säkerhetskopieringsjobb på System Center DPM upp till två gånger per dag. Du kan köra ett säkerhetskopieringsjobb för virtuella IaaS-datorer en gång om dagen. Använd schemaläggningsprincip för Windows Server eller Windows-arbetsstation för att ange dagliga och veckovisa scheman. Du kan ange dagliga, veckovisa, månatliga och årliga scheman med System Center DPM.
+Ja. Du kan köra säkerhetskopieringsjobb på Windows Server eller Windows-arbetsstationer upp till tre gånger per dag. Du kan köra säkerhetskopieringsjobb i System Center DPM upp till två gånger per dag. Du kan köra ett säkerhetskopieringsjobb för virtuella IaaS-datorer en gång om dagen. Du kan använda schemaläggningsprincipen för Windows Server eller Windows-arbetsstation för att ange dagliga och veckovisa scheman. Du kan ange dagliga, veckovisa, månatliga och årliga scheman med System Center DPM.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Varför är storleken på data som överförs till Recovery Services-valvet mindre än de data jag säkerhetskopierar?<br/>
- Alla de data som säkerhetskopieras från Azure Backup Agent, SCDPM eller Azure Backup Server komprimeras och krypteras innan de överförs. När komprimering och kryptering används, är 30-40% mindre data i Recovery Services-valvet.
+ Alla de data som säkerhetskopieras från Azure Backup Agent, SCDPM eller Azure Backup Server komprimeras och krypteras innan de överförs. När komprimering och kryptering används, är 30 – 40% mindre data i Recovery Services-valvet.
 
 ## <a name="what-can-i-back-up"></a>Vad kan jag säkerhetskopiera
-### <a name="which-operating-systems-does-azure-backup-support-br"></a>Vilka operativsystem som stöder Azure Backup? <br/>
+### <a name="which-operating-systems-does-azure-backup-support-br"></a>Vilka operativsystem stöder Azure Backup? <br/>
 Azure Backup stöder följande lista över operativsystem för säkerhetskopiering av filer och mappar, och arbetsbelastningsprogram som skyddas med Azure Backup Server och System Center Data Protection Manager (DPM).
 
 | Operativsystem | Plattform | SKU |
@@ -114,7 +117,7 @@ Azure Backup stöder följande lista över operativsystem för säkerhetskopieri
 
 
 ### <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>Finns det någon storleksgräns för en datakälla som säkerhetskopieras? <br/>
-Azure-säkerhetskopiering tillämpar en maximal storlek för en datakälla, men gränserna för datakällan är stor. Från och med augusti 2015 är den största storleken för en datakälla för operativsystem som stöds:
+Azure Backup tillämpar en maximal storlek för en datakälla, gränser för källan är dock stora. Från och med augusti 2015 är den största storleken för en datakälla för operativsystem som stöds:
 
 | Nr | Operativsystem | Största storlek på datakälla |
 |:---:|:--- |:--- |
@@ -134,16 +137,16 @@ Följande tabell beskriver hur datakällans storlek bestäms.
 | Microsoft Exchange |Summan av alla Exchange-databaser på en Exchange-server som säkerhetskopieras |
 | BMR/systemtillstånd |Varje enskild kopia av BMR eller systemtillstånd på datorn som säkerhetskopieras |
 
-Varje virtuell dator kan ha upp till 16 datadiskar för Azure IaaS-VM säkerhetskopiering, och varje datadisk kan vara upp till 4095 GB.
+Varje virtuell dator kan ha upp till 16 datadiskar för Azure IaaS-datorer och varje datadisk kan vara upp till 4 095 GB.
 
-### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>Finns det en gräns på mängden data som lagras i ett Recovery Services-valv?
-Det finns ingen gräns på mängden data som du kan säkerhetskopiera en återställningstjänster valvet.
+### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>Finns det en gräns för mängden data som lagras i ett Recovery Services-valv?
+Det finns ingen gräns för mängden data som du kan säkerhetskopiera till ett Recovery Services-valv.
 
 ## <a name="retention-policy-and-recovery-points"></a>Bevarandeprincip och återställningspunkter
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>Finns det någon skillnad mellan bevarandeprincipen för DPM och Windows Server/Windows-klienten (dvs. på Windows Server utan DPM)?<br/>
 Ingen, både DPM och Windows Server/Windows-klienten har dagliga, veckovisa, månatliga och årliga bevarandeprinciper.
 
-### <a name="can-i-configure-my-retention-policies-selectively--that-is-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Kan jag konfigurera min bevarandeprinciper selektivt – det vill säga, konfigurera varje vecka varje dag men inte varje år och månad?<br/>
+### <a name="can-i-configure-my-retention-policies-selectively--that-is-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Kan jag konfigurera Mina bevarandeprinciper selektivt, dvs, konfigurera varje vecka och varje dag, men inte varje år och månad?<br/>
 Ja, bevarandestrukturen i Azure Backup är mycket flexibel och du kan definiera bevarandeprincipen efter dina behov.
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>Kan jag ”schemalägga en säkerhetskopiering” kl. 18:00 och ange bevarandeprinciper vid en annan tidpunkt?<br/>
@@ -167,8 +170,8 @@ Det finns ingen gräns för antalet återställningar från Azure Backup.
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure-br"></a>Betalar jag för den utgående trafiken från Azure när jag återställer data? <br/>
 Nej. Återställningarna är gratis och du debiteras inte för den utgående trafiken.
 
-### <a name="what-happens-when-i-change-my-backup-policy"></a>Vad händer när jag ändrar min säkerhetskopieringsprincip?
-När en ny princip används följs schema och lagring av den nya principen. Om kvarhållningen utökas markeras befintliga återställningspunkter för att behålla dem enligt den nya principen. Om kvarhållningen minskar markeras de för rensning under nästa rensningsjobb och tas sedan bort.
+### <a name="what-happens-when-i-change-my-backup-policy"></a>Vad händer om jag ändrar mitt princip för säkerhetskopiering?
+När en ny princip tillämpas följs schemat för och kvarhållningen av den nya principen. Om kvarhållningen utökas markeras befintliga återställningspunkter för att behålla dem enligt den nya principen. Om kvarhållningen minskar markeras de för rensning under nästa rensningsjobb och tas sedan bort.
 
 ## <a name="azure-backup-encryption"></a>Azure Backup-kryptering
 ### <a name="is-the-data-sent-to-azure-encrypted-br"></a>Krypteras informationen som skickas till Azure? <br/>

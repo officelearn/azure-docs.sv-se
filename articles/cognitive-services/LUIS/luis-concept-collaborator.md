@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: 684507b58e5ac766e9b42d3aa53cb0867a131a93
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fe5e35c2dcb08cdff9d92142558cf8d7ec81c36c
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222680"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399579"
 ---
 # <a name="collaborating"></a>Samarbeta
 
@@ -25,7 +25,7 @@ En LUIS-konto är kopplat till en enda [Microsoft Live](https://login.live.com/)
 
 En LUIS-konto kan ha många LUIS-appar.
 
-Se [Azure Active Directory-klientanvändare](luis-how-to-account-settings.md#azure-active-directory-tenant-user) mer information om Active Directory-användarkonton. 
+Se [Azure Active Directory-klientanvändare](luis-how-to-collaborate.md#azure-active-directory-tenant-user) mer information om Active Directory-användarkonton. 
 
 ## <a name="luis-app-owner"></a>LUIS appägare
 Kontot som skapar en app är ägaren. Varje app har en enda ägare. Ägaren anges på app  **[inställningar](luis-how-to-collaborate.md)**. Det här är det konto som kan ta bort appen. Detta är också det konto som tar emot e-post när slutpunkten kvoten är nådd 75% av den månatliga begränsningen. 

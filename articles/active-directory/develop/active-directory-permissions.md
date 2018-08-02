@@ -12,17 +12,17 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 06/25/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 3b0fbbe466f51a6216716d274f238497a8a79294
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+ms.openlocfilehash: bd345f5ce2db6d35ed1c921466d7761e69bf85f0
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441642"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398666"
 ---
 # <a name="permissions-in-azure-active-directory"></a>Behörigheter i Azure Active Directory
 
@@ -99,7 +99,7 @@ Program i Azure AD förlitar sig på godkännanden för att få åtkomst till re
     - `Permission` motsvarar den åtgärd som en användare vidta på dessa data och 
     - `Modifier` används valfritt för att beskriva specialiseringar av en annan behörighet. 
     
-    Till exempel: 
+    Exempel: 
     * Mail.Read – Tillåter att användarna läser e-post.
     * Mail.ReadWrite – Tillåter att användarna läser eller skriver e-post.
     * Mail.ReadWrite.All – Ger en administratör eller användare åtkomst till all e-post i organisationen.

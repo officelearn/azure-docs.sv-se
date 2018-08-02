@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 6d37ae9eb5aa5961c5da2e4cce0e79679f1e65ac
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5f022f366c0247fade4cc39925e116a09b3d08de
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283650"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399098"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Ange och hämta dataflöde för Azure Cosmos DB-behållare och databasen
 
@@ -226,7 +226,16 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## <a id="GetLastRequestStatistics"></a>Beräkna dataflöde med hjälp av MongoDB API GetLastRequestStatistics kommando
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Beräkna dataflöde med hjälp av portalen MongoDB API-mått
+
+Det enklaste sättet att få en bra uppskattning av begäran units för din MongoDB API-databas är att använda den [Azure-portalen](https://portal.azure.com) mått. Med den *antal begäranden* och *kostnad för begäran* diagram, kan du få en uppskattning av hur många enheter för programbegäran varje åtgärd förbrukar och hur många enheter för programbegäran som de använder i förhållande till varandra.
+
+![Portalen MongoDB API-mått][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Reserverat dataflöde överskreds i MongoDB-API
+Program som överstiger det etablerade dataflödet för en behållare eller en uppsättning behållare att rate-limited tills åtgången sjunker under det etablerade dataflödet. När en rate-begränsning inträffar serverdelen går ut på begäran med en `16500` felkod - `Too Many Requests`. Som standard av MongoDB API automatiskt försöker upp till 10 gånger innan det returneras en `Too Many Requests` felkoden. Om du får många `Too Many Requests` felkoder, kan du överväga att lägga till logik för omprövning i ditt programs rutiner för felhantering eller [ökar det etablerade dataflödet för behållaren](set-throughput.md).
+
+## <a id="GetLastRequestStatistics"></a>Hämta kostnad för begäran med hjälp av MongoDB API GetLastRequestStatistics kommando
 
 MongoDB-API: et stöder ett anpassat kommando *getLastRequestStatistics*, för att hämta begäran om avgifterna för en viss åtgärd.
 
@@ -254,14 +263,19 @@ En metod för att uppskatta hur mycket reserverat dataflöde som krävs för pro
 > 
 > 
 
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Beräkna dataflöde med hjälp av portalen MongoDB API-mått
+## <a id="RequestchargeGraphAPI"></a>Hämta kostnad för begäran för Gremlin-API-konton 
 
-Det enklaste sättet att få en bra uppskattning av begäran units för din MongoDB API-databas är att använda den [Azure-portalen](https://portal.azure.com) mått. Med den *antal begäranden* och *kostnad för begäran* diagram, kan du få en uppskattning av hur många enheter för programbegäran varje åtgärd förbrukar och hur många enheter för programbegäran som de använder i förhållande till varandra.
+Här är ett exempel på hur du hämtar kostnad för begäran för Gremlin-API-konton med hjälp av Gremlin.Net-biblioteket. 
 
-![Portalen MongoDB API-mått][1]
+```csharp
 
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> Reserverat dataflöde överskreds i MongoDB-API
-Program som överstiger det etablerade dataflödet för en behållare eller en uppsättning behållare att rate-limited tills åtgången sjunker under det etablerade dataflödet. När en rate-begränsning inträffar serverdelen går ut på begäran med en `16500` felkod - `Too Many Requests`. Som standard av MongoDB API automatiskt försöker upp till 10 gånger innan det returneras en `Too Many Requests` felkoden. Om du får många `Too Many Requests` felkoder, kan du överväga att lägga till logik för omprövning i ditt programs rutiner för felhantering eller [ökar det etablerade dataflödet för behållaren](set-throughput.md).
+var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
+                var resultSet = response.AsResultSet();
+                var statusAttributes= resultSet.StatusAttributes;
+```
+
+Du kan också använda ”x-ms-total-begäran-avgift” rubrik för Begäransenheter beräkningar förutom metoden ovan.
+
 
 ## <a name="throughput-faq"></a>Dataflöde vanliga frågor och svar
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2174135aaf2e16907f16f38c1df1ec002b3083fd
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 589df59e02a18629d5f405ff1ce8870333f2228e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391443"
+ms.locfileid: "39397721"
 ---
 # <a name="runbook-settings"></a>Runbook-inställningar
 Varje runbook i Azure Automation har flera inställningar som gör att den kan identifieras och ändra loggningsbeteende. Dessa inställningar beskrivs nedan följs av procedurer för hur du ändrar dem.
@@ -39,7 +39,7 @@ Du kan ändra inställningarna för en runbook i Azure portal från den **instä
 3. Klicka på namnet på en runbook och dirigeras du till inställningsbladet för runbook. Härifrån du ange eller ändra taggar, runbook-beskrivning, konfigurera loggning och spårning av inställningar och komma åt supportverktyg för att hjälpa dig att lösa problem.     
 
 ### <a name="changing-runbook-settings-with-windows-powershell"></a>Ändra runbook-inställningar med Windows PowerShell
-Du kan använda den [Set-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603786.aspx) cmdlet för att ändra inställningarna för en runbook. Om du vill ange flera etiketter kan ange du antingen en matris eller en sträng med kommaavgränsad värden för parametern taggar. Du kan hämta de aktuella taggarna med de [Get-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603728.aspx).
+Du kan använda den [Set-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/set-azurermautomationrunbook) cmdlet för att ändra inställningarna för en runbook. Om du vill ange flera etiketter kan ange du antingen en matris eller en sträng med kommaavgränsad värden för parametern taggar. Du kan hämta de aktuella taggarna med de [Get-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/get-azurermautomationrunbook).
 
 Följande exempelkommandon visar hur du ställer in egenskaperna för en runbook. Det här exemplet lägger till tre taggar i de befintliga taggarna och anger att utförliga poster ska loggas.
 

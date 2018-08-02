@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
-ms.openlocfilehash: d4f77460ea6b0a31ed40286f33aa4296bafc9087
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eda06fbb63352dd71cb0183ebdf683dc2f3a4a4c
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007300"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413849"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Linux-distributioner som använder den [SMB kernel-klienten](https://wiki.samba.org/index.php/LinuxCIFS). Den här artikeln visar två sätt att montera en Azure-filresurs: på begäran med den `mount` kommandot och på Start genom att skapa en post i `/etc/fstab`.
@@ -34,7 +34,7 @@ ms.locfileid: "39007300"
     
     Stöd för SMB 3.0-kryptering har introducerades i Linux-kernel-version 4.11 och anpassats till äldre kernel-versioner för populära Linux-distributioner. Vid tidpunkten för publiceringen av det här dokumentet stöder de följande distributionerna från Azure-galleriet montering alternativ som angetts i tabellrubriker. 
 
-* ** Minsta rekommenderade versioner med motsvarande mount-funktioner (SMB-version 2.1 eller SMB-version 3.0) **    
+* **Minsta rekommenderade versioner med motsvarande mount-funktioner (SMB-version 2.1 eller SMB-version 3.0)**    
     
     |   | SMB 2.1 <br>(Monterar på virtuella datorer i samma Azure-region) | SMB 3.0 <br>(Monterar från lokalt och över olika regioner) |
     | --- | :---: | :---: |

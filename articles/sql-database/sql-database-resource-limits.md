@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 62b0639f134a134739b09593a0b21b47d06699dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236932"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412118"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Översikt över Azure SQL Database-resursgränser 
 
@@ -28,10 +28,12 @@ Den här artikeln innehåller en översikt över Azure SQL Database-resursen beg
 | Standardvärdet för antal servrar per prenumeration i valfri region | 20 |
 | Maxantal servrar per prenumeration i valfri region | 200 |
 | DTU / eDTU kvot per server | 54,000 |
+| vCore-kvot per server | 540 |
+| Högsta antal pooler per server | begränsas av antalet dtu: er eller v-kärnor |
 |||
 
 > [!NOTE]
-> Om du vill ha mer DTU-kvot /eDTU eller fler servrar än standardvärdet, kan du skicka en ny supportbegäran i Azure-portalen för prenumerationen med ärendetypen ”kvot”. DTU / eDTU-kvot och databas gränsen per server begränsar antalet elastiska pooler per server. 
+> Om du vill ha mer DTU-kvot /eDTU, vCore kvot eller fler servrar än standardvärdet, kan du skicka en ny supportbegäran i Azure-portalen för prenumerationen med ärendetypen ”kvot”. DTU / eDTU-kvot och databas gränsen per server begränsar antalet elastiska pooler per server. 
 
 > [!IMPORTANT]
 > När antalet databaser som närmar sig gränsen per server, kan följande inträffa:
@@ -56,6 +58,7 @@ När den påträffar hög användningen är minskning alternativen:
 
 - Ökar den maximala storleken på databasen eller den elastiska poolens eller Lägg till mer lagringsutrymme. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastisk poolresurser](sql-database-elastic-pool-scale.md).
 - Om databasen är i en elastisk pool, kan sedan också databasen flyttas utanför poolen så att dess lagringsutrymme inte delas med andra databaser.
+- Komprimera en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md)
 
 ### <a name="sessions-and-workers-requests"></a>Sessioner och arbetare (begäranden) 
 

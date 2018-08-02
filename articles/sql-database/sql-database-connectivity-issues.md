@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: ninarn
-ms.openlocfilehash: 62b5f7470491027dbf5a1c60ee478268e969d1a8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 1da4e8d94007653a43f187322c1d0e4077e337fa
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113502"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398945"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Felsöka, diagnostisera och förhindra SQL-anslutningsfel och tillfälliga fel för SQL Database
 Den här artikeln beskriver hur du förhindrar, felsöka, diagnostisera och lösa anslutningsfel och tillfälliga fel som klientprogrammet som påträffar när det interagerar med Azure SQL Database. Lär dig hur du konfigurerar logik för omprövning, bygga anslutningssträngen och justera andra anslutningsinställningar.
@@ -181,17 +181,21 @@ Mer bakgrundsinformation om konfigurationen av portar och IP-adresser, finns i [
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-### <a name="connection-adonet-461"></a>Anslutning: ADO.NET 4.6.1
-Om ditt program använder ADO.NET-klasser som **System.Data.SqlClient.SqlConnection** för att ansluta till SQL-databas, rekommenderar vi att du använder .NET Framework version 4.6.1 eller senare.
+### <a name="connection-adonet-462-or-later"></a>Anslutning: ADO.NET 4.6.2 eller senare
+Om ditt program använder ADO.NET-klasser som **System.Data.SqlClient.SqlConnection** för att ansluta till SQL-databas, rekommenderar vi att du använder .NET Framework version 4.6.2 eller senare.
 
-ADO.NET 4.6.1:
+Från och med ADO.NET 4.6.2 eller senare:
+
+- Öppna anslutningsförsöket kan göras direkt för Azure SQL-databaser, vilket ger bättre prestanda för molnbaserade appar.
+
+Från och med ADO.NET 4.6.1:
 
 * För SQL-databas, bättre tillförlitlighet när du öppnar en anslutning med hjälp av den **SqlConnection.Open** metod. Den **öppna** metoden nu införlivar mån återförsöksmekanismer som svar på tillfälliga fel för vissa fel inom tidsgränsen för anslutningen.
 * Anslutningspooler stöds, som innehåller en effektiv kontroll som fungerar som anslutningsobjektet får ditt program.
 
-När du använder ett anslutningsobjekt från en anslutningspool, rekommenderar vi att programmet tillfälligt stänga anslutningen när den inte är omedelbart används. Det är inte dyrt att öppna en anslutning, men det är att skapa en ny anslutning.
+När du använder ett anslutningsobjekt från en anslutningspool, rekommenderar vi att programmet tillfälligt stängs anslutningen när den inte är omedelbart används. Det är inte dyrt att öppna en anslutning, men det är att skapa en ny anslutning.
 
-Om du använder ADO.NET 4.0 eller tidigare, rekommenderar vi att du uppgraderar till den senaste ADO.NET. Från och med November 2015 kan du [ladda ned ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
+Om du använder ADO.NET 4.0 eller tidigare, rekommenderar vi att du uppgraderar till den senaste ADO.NET. Från och med augusti 2018 kan du [ladda ned ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/2018/04/30/announcing-the-net-framework-4-7-2/).
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 

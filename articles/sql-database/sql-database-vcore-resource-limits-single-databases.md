@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: ac9070e328ef867a0b0e8d7d81f5147a50357928
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 603a6e2f3ce744d792ad9c9be20622c65a37dda3
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126416"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414614"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore-baserade köpa modellen gränser för en enskild databas
 
@@ -22,9 +22,13 @@ Den här artikeln innehåller detaljerade resursgränser för enskilda databaser
 
 DTU-baserade gränser för inköpschef modellen för finns i [SQL Database DTU-baserade resursbegränsningar](sql-database-dtu-resource-limits.md).
 
+> [!IMPORTANT]
+> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
+
+
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>Databas: lagringsstorlekar och prestandanivåer
 
-Följande tabeller visar resurserna som är tillgängliga för en enskild databas på varje servicenivå för tjänstnivå och prestandanivå för enskilda databaser. Du kan ange den tjänstnivån, prestandanivån och lagringsutrymmet för en enkel databas med hjälp av den [Azure-portalen](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-servers-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-servers-databases-manage.md#powershell-manage-logical-servers-and-databases), [Azure CLI](sql-database-servers-databases-manage.md#azure-cli-manage-logical-servers-and-databases), eller [REST-API](sql-database-servers-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+Följande tabeller visar resurserna som är tillgängliga för en enskild databas på varje servicenivå för tjänstnivå och prestandanivå för enskilda databaser. Du kan ange den tjänstnivån, prestandanivån och lagringsutrymmet för en enkel databas med hjälp av den [Azure-portalen](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), [Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), eller [REST-API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
 
 ### <a name="general-purpose-service-tier"></a>Tjänstnivå för allmänt syfte
 

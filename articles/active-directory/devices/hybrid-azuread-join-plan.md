@@ -16,16 +16,22 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2b74a85d866bcb2f67f61792d1afe2b590ffa418
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 27068c1154a4cc5776bbcc74922ca31c4f28ced6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369046"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399925"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hur du planerar din hybrid Azure Active Directory join-implementering
 
-På liknande sätt till en användare blir enheten för en annan identitet som du som IT-administratör vill skydda och använda för att skydda dina resurser på någon tid och plats. Du kan göra det här målet genom att ta din enhetsidentiteter till Azure AD. Du kan göra detta genom att göra en Azure AD-koppling, en hybrid Azure AD-anslutning eller en Azure AD registrerade enhetens tillstånd. Genom att ta dina enheter till Azure AD, som du kommer till att maximera slutanvändarens produktivitet genom att använda hos (SSO) över dina molnresurser och lokala resurser och samtidigt skydda åtkomst till molnet och lokala resurser genom att aktivera villkorlig Åtkomst. Mer information finns i villkorlig åtkomst i Azure AD.
+På liknande sätt till en användare blir en enhet en annan identitet som du vill skydda och även använda för att skydda dina resurser på någon tid och plats. Du kan göra det här målet genom att föra identiteter på dina enheter till Azure AD med någon av följande metoder:
+
+- Azure AD-anslutning
+- Hybrid Azure AD-anslutning
+- Azure AD-registrering
+
+Genom att ta dina enheter till Azure AD, maximera användarnas produktivitet genom att använda enkel inloggning (SSO) mellan dina molnresurser och lokala resurser. På samma gång, kan du skydda åtkomst till molnet och lokala resurser med [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md).
 
 Om du har en lokal Active Directory-miljö och du vill ansluta till dina domänanslutna enheter till Azure AD, kan du göra detta genom att konfigurera hybrid Azure AD-anslutna enheter. Den här artikeln innehåller du med relaterade stegen för att implementera en hybrid Azure AD join i din miljö. 
 
@@ -95,8 +101,6 @@ Registreringen av Windows Server som kör domänkontrollanten (DC)-rollen stöds
 
 Om din organisation kräver åtkomst till Internet via en autentiserad proxyserver för utgående, måste du se till att din Windows 10-datorer kan autentisera till utgående proxy. Eftersom Windows 10-datorer kör enhetsregistrering med hjälp av datorns kontext, är det nödvändigt att konfigurera utgående proxy-autentisering med hjälp av datorns kontext.
 
-Hybrid Azure AD-anslutning är en process för att automatiskt registrera dina lokala domänanslutna enheter med Azure AD. Det finns fall där du inte vill att alla dina enheter att registrera automatiskt. Om detta gäller för dig, se hur du styr hybrid Azure AD join för dina enheter.
-
 
 Hybrid Azure AD-anslutning är en process för att automatiskt registrera dina lokala domänanslutna enheter med Azure AD. Det finns fall där du inte vill att alla dina enheter att registrera automatiskt. Om det här gäller för dig, se [hur du styr hybrid Azure AD-anslutning av dina enheter](hybrid-azuread-join-control.md).
 
@@ -119,9 +123,9 @@ Om din miljö har hanterade domäner, stöder hybrid Azure AD-anslutning:
 
 Från och med version 1.1.819.0, ger Azure AD Connect dig en guide för att konfigurera hybrid Azure AD-anslutning. Guiden kan du avsevärt förenkla konfigurationsprocessen. Mer information finns i:
 
-- [Konfigurera hybrid Azure Active Directory-anslutning för federerade domäner](hybrid-azuread-join-federated-domains.md)
+- [Konfigurera Azure Active Directory Join-hybrid för federerade domäner](hybrid-azuread-join-federated-domains.md)
 
-- [Konfigurera hybrid Azure Active Directory-anslutning för hanterade domäner](hybrid-azuread-join-managed-domains.md)
+- [Konfigurera Azure Active Directory Join-hybrid för hanterade domäner](hybrid-azuread-join-managed-domains.md)
 
 
  Om du installerar den nödvändiga versionen av Azure AD Connect inte är ett alternativ för dig, se [hur du manuellt konfigurera enhetsregistrering](../device-management-hybrid-azuread-joined-devices-setup.md). 

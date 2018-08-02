@@ -7,14 +7,14 @@ manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2018
+ms.date: 8/1/2018
 ms.author: trinadhk
-ms.openlocfilehash: 787c4b0f6e8d5ed76260582bfa3d6c49574bd102
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 1021900620272cc5476d8972daf9d7e0a161797a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205348"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398009"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Uppgradera till säkerhetskopiering för Azure stack V2
 
@@ -107,7 +107,7 @@ Det kostar ingenting att uppgradera stacken till v2. Ögonblicksbilder lagras lo
 
 ### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>Kan du öka premium storage-konto gränsen för ögonblicksbilder av 10 TB genom att uppgradera stack v2?
 
-Ögonblicksbilder som tas som en del av v2 stack antal mot gränsen för ögonblicksbilder av 10 TB för premium storage-konto för ohanterade diskar. 
+Nej, gränsen för totalt antal ögonblicksbilder per storage-konto det finns fortfarande på 10TB. 
 
 ### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>I Premium Storage-konton ögonblicksbilder som tas för omedelbar återställningspunkt uppta 10 TB-gränsen för ögonblicksbilder?
 

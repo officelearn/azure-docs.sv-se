@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
-ms.openlocfilehash: ddde2e6bad8a373df405ac05e78a5dbccd0257fc
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 4e77e187d969af7ea2a12754b18d4a218daceed6
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "34800648"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411914"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Tillgängliggöra Virtual Machine Scale Sets i Azure Stack
 
@@ -33,8 +33,8 @@ På Azure Stack stöder skalningsuppsättningar för virtuella datorer inte auto
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- **Marketplace-syndikering**  
-    Registrera Azure Stack med globala Azure för att möjliggöra Marketplace syndikering. Följ instruktionerna i [registrera Azure Stack med Azure](azure-stack-registration.md).
+- **På Marketplace**  
+    Registrera Azure Stack med globala Azure för att möjliggöra tillgängligheten för objekt i Marketplace. Följ instruktionerna i [registrera Azure Stack med Azure](azure-stack-registration.md).
 - **Avbildning av operativsystemet**  
     Om du inte har lagt till en operativsystemavbildning på Azure Stack Marketplace kan se [Lägg till ett Azure Stack marketplace-objekt från Azure](asdk/asdk-marketplace-item.md).
 

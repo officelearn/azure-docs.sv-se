@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/28/2018
+ms.date: 08/01/2018
 ms.author: marsma
-ms.openlocfilehash: 532817c6289c1718fd82a502e04dc10715ee7203
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 63bbd9b5711330207c34ac4aa05aac3a71304653
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343108"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413587"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>Automatisera framework uppdatering med ACR Build av operativsystem och
 
@@ -33,7 +33,20 @@ Utlösaren behållaravbildning bygger automatiskt när koden strävar efter att 
 
 I början av livscykelhantering startar innan utvecklare skickar sina första rader med kod. ACR Build [snabbt skapa](container-registry-tutorial-quick-build.md) funktionen gör det möjligt för en integrerad lokal inre slingan utvecklingsupplevelse, avlastning versioner till Azure. Med snabb skapas måste verifiera du dina automatiserade byggdefinitioner innan du checka in din kod.
 
-Använda vanlig `docker build` format, den [az acr build] [ az-acr-build] kommando i Azure CLI tar en lokal kontext, skickar det till ACR Build-tjänsten och som standard skickar den skapade avbildningen till dess registret vid slutförande. ACR Build följer din geo-replikerade register aktiverar utspridda utvecklingsteam att utnyttja närmaste replikerade registret.
+Använda vanlig `docker build` format, den [az acr build] [ az-acr-build] kommandot i Azure CLI stöder en **kontext** (uppsättningen filer för att skapa), skickar det till ACR Build-tjänsten och som standard skickar den skapade avbildningen till dess registret när åtgärden har slutförts.
+
+I följande tabell visas några exempel på platser som stöds kontext för ACR Build:
+
+| Kontext plats | Beskrivning | Exempel |
+| ---------------- | ----------- | ------- |
+| Lokala filsystem | Filer i en katalog i det lokala filsystemet. | `/home/user/projects/myapp` |
+| GitHub huvudgrenen | Filer i huvudservern (eller andra standard)-grenen av en GitHub-lagringsplats.  | `https://github.com/gituser/myapp-repo.git` |
+| GitHub-gren | Viss förgrening av en GitHub-lagringsplatsen.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| GitHub pull-begäran | Pull-begäran i en GitHub-lagringsplats. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
+| GitHub-undermapp | Filer i en undermapp i en GitHub-lagringsplatsen. Exemplet visar en kombination av pull-begäran och undermappen-specifikationen. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
+| Remote tarball | Filer i en komprimerad fil på en fjärransluten webbserver. | `http://remoteserver/myapp.tar.gz` |
+
+ACR Build också följer din geo-replikerade register aktiverar utspridda utvecklingsteam att utnyttja närmaste replikerade registret.
 
 ACR Build är utformad som en primitiv behållare livscykel. Till exempel integrera ACR Build i din CI/CD-lösning. Genom att köra [az-inloggning] [ az-login] med en [tjänstens huvudnamn][az-login-service-principal], CI/CD-lösning kan sedan utfärdar [az acr skapa] [ az-acr-build] kommandon för att sätta igång bild versioner.
 

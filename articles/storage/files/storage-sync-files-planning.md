@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 79f3787713d7615d8f5c42d1747dfa5ed96780cd
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 0493679575e9ff94ede1ad40c2bcadc6066afa6b
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214891"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399023"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -29,7 +29,7 @@ Den här artikeln beskrivs viktiga överväganden för distribution av Azure Fil
 ## <a name="azure-file-sync-terminology"></a>Azure File Sync-terminologi
 Det är viktigt att du förstår termer som innan du hämtar in information om att planera för distribution av Azure File Sync.
 
-### <a name="storage-sync-service"></a>Storage Sync-tjänsten
+### <a name="storage-sync-service"></a>Tjänst för synkronisering av lagring
 Storage Sync-tjänsten är översta Azure-resursen för Azure File Sync. Tjänst för Lagringssynkronisering resursen är en peer för resursen för lagringskonton och på samma sätt kan bara distribueras till Azure-resursgrupper. En resurs med distinkta på toppnivå från resursen för lagringskonton är nödvändigt eftersom Storage Sync-tjänsten kan skapa synkroniseringsrelationer med flera storage-konton via flera synkroniseringsgrupper. En prenumeration kan ha flera resurser som Storage Sync-tjänsten har distribuerats.
 
 ### <a name="sync-group"></a>Synkroniseringsgrupp
@@ -156,6 +156,10 @@ Eftersom antivirus fungerar genom att skanna filer för känd skadlig kod, kan e
 
 Följande lösningar är kända för att stödja hoppar över offline-filer:
 
+- [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - Windows Defender hoppar automatiskt över läsning av sådana filer. Vi har testat Defender och identifierat en mindre problem: när du lägger till en server i en befintlig synkroniseringsgrupp filer mindre än 800 byte hämtas (hämtas) på den nya servern. Dessa filer finns kvar på den nya servern och kommer inte att vara nivåindelad eftersom de inte uppfyller kravet på lagringsnivåer storlek (> 64kb).
+- [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - SCEP fungerar på samma sätt som Defender; se ovan
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
 - [McAfee EndPoint Security](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) (se ”Genomsök vad du behöver bara” på sidan 90 i PDF-filen)
 - [Kaspersky antivirus](https://support.kaspersky.com/4684)
@@ -197,7 +201,7 @@ Azure File Sync är tillgänglig i följande regioner:
 | Centrala USA | Iowa |
 | Östasien | Hongkong SAR |
 | Östra USA | Virginia |
-| Östra usa2 | Virginia |
+| USA, östra 2 | Virginia |
 | Norra Europa | Irland |
 | Sydostasien | Singapore |
 | Storbritannien, södra | London |
@@ -218,10 +222,10 @@ Stöd för redundans-integrering mellan geo-redundant lagring och Azure File Syn
 | Sydöstra Australien | Östra Australien     |
 | Centrala Kanada      | Östra Kanada        |
 | Östra Kanada         | Centrala Kanada     |
-| Centrala USA          | Östra USA 2          |
+| Centrala USA          | USA, östra 2          |
 | Östasien           | Sydostasien     |
 | Östra USA             | Västra USA            |
-| Östra USA 2           | Centrala USA         |
+| USA, östra 2           | Centrala USA         |
 | Norra Europa        | Västra Europa        |
 | Sydostasien      | Östasien          |
 | Storbritannien, södra            | Storbritannien, västra            |

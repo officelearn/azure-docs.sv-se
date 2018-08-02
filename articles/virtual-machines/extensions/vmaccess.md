@@ -1,9 +1,9 @@
 ---
-title: Återställa åtkomst till en Azure Linux-dator | Microsoft Docs
-description: Hur du hanterar administrativa användare och återställa åtkomst på virtuella Linux-datorer med hjälp av VMAccess-tillägget och Azure CLI 2.0
+title: Återställa åtkomst till en virtuell Linux-dator | Microsoft Docs
+description: Hur du hanterar administrativa användare och Återställ åtkomst på virtuella Linux-datorer med hjälp av VMAccess-tillägget och Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,46 +14,46 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: danis
-ms.openlocfilehash: c023f226894d2fabb90736513e49a1ecca179d4f
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.author: roiyz
+ms.openlocfilehash: 51c203c746a5256924033ebe48d9ddfdc3823b16
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165799"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39415073"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Hantera administrativa användare, SSH och kontrollera eller reparera diskar på virtuella Linux-datorer med hjälp av VMAccess-tillägget med Azure CLI 2.0
 ## <a name="overview"></a>Översikt
-Disken på Linux-VM visas fel. Du på något sätt återställa rotlösenordet för Linux-VM eller tagits bort av misstag din privata SSH-nyckel. Om detta har inträffat i dagar för datacenter, behöver du köra det och öppna sedan KVM få vid servern. Se Azure VMAccess-tillägget som den KVM-växel som gör att du kan använda konsolen för att återställa åtkomst till Linux eller genomför diskunderhåll nivå.
+Disken på din Linux-VM visar fel. Du på något sätt återställa rotlösenordet för din Linux-VM eller ta bort SSH-privata nyckeln av misstag. Om detta har inträffat i dagar i datacentret, skulle du behöva öka det och öppna sedan KVM att hämta vid servern. Tänk på Azure VMAccess-tillägget som denna KVM-växel som gör det möjligt att få åtkomst till konsolen för att återställa åtkomst till Linux eller genomför diskunderhåll nivå.
 
-Den här artikeln visar hur du använder Azure VMAccess-tillägget för att kontrollera eller reparera en disk, återställa användaråtkomst, hantera administrativa användarkonton eller uppdatera SSH-konfigurationen på Linux när de körs som virtuella datorer i Azure Resource Manager. Om du behöver hantera klassiska virtuella datorer – du kan följa anvisningarna i den [klassiska Virtuella dokumentationen](../linux/classic/reset-access-classic.md). 
+Den här artikeln visar hur du använder Azure VMAccess-tillägget för att kontrollera eller reparera en disk, Återställ användarnas åtkomst, hantera administrativa användarkonton eller uppdatera SSH-konfigurationen på Linux när de körs som Azure Resource Manager-datorer. Om du behöver hantera klassiska virtuella datorer – du kan följa instruktionerna i den [dokumentationen för klassiska virtuella datorer](../linux/classic/reset-access-classic.md). 
 
 ## <a name="prerequisites"></a>Förutsättningar
 ### <a name="operating-system"></a>Operativsystem
 
-Tillägget för virtuell dator åtkomst kan köras mot dessa Linux-distributioner:
+VM Access-tillägget kan köras mot dessa Linux-distributioner:
 
 | Distribution | Version |
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS och 12.04 LTS |
 | Debian | Debian 7,9 +, 8.2 + |
-| Redhat | RHEL 6.7 +, 7.1 + |
+| Red Hat | RHEL 6.7 +, 7.1 + |
 | Oracle Linux | 6.4+, 7.0+ |
 | SUSE | 11 och 12 |
-| OpenSuse | openSUSE Leap 42.2 + |
-| CentOS | CentOS 6.3 + 7.0 + |
+| OpenSuse | openSUSE steg 42.2 + |
+| CentOS | CentOS 6.3 +, 7.0 + |
 | CoreOS | 494.4.0+ |
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Sätt att använda VMAccess-tillägget
 Det finns två sätt som du kan använda VMAccess-tillägget på din virtuella Linux-datorer:
 
-* Använda Azure CLI 2.0 och de obligatoriska parametrarna.
-* [Använd raw JSON-filer som bearbetar VMAccess-tillägget](#use-json-files-and-the-vmaccess-extension) och sedan vidta åtgärder för.
+* Använd Azure CLI 2.0 och de obligatoriska parametrarna.
+* [Använda raw JSON-filer som VMAccess-tillägget bearbetar](#use-json-files-and-the-vmaccess-extension) och sedan agera utifrån.
 
-I följande exempel används [az vm användaren](/cli/azure/vm/user) kommandon. Om du vill utföra dessa steg behöver du senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/reference-index#az_login).
+I följande exempel används [az vm user](/cli/azure/vm/user) kommandon. Om du vill utföra dessa steg du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
 
 ## <a name="update-ssh-key"></a>Uppdatera SSH-nyckel
-I följande exempel uppdateras SSH-nyckeln för användaren `azureuser` på den virtuella datorn med namnet `myVM`:
+I följande exempel uppdateras SSH-nyckel för användaren `azureuser` på den virtuella datorn med namnet `myVM`:
 
 ```azurecli-interactive
 az vm user update \
@@ -63,7 +63,7 @@ az vm user update \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-> **Obs:** den `az vm user update` kommando lägger du till den nya offentliga nyckel texten ska den `~/.ssh/authorized_keys` administratörsanvändare fil på den virtuella datorn. Detta inte ersätta eller ta bort några befintliga SSH-nycklar. Detta tar inte bort tidigare nycklar som anges vid tidpunkten för distribution eller efterföljande uppdateringar via VMAccess-tillägget.
+> **Obs:** den `az vm user update` kommando lägger du till den nya offentliga nyckel texten ska den `~/.ssh/authorized_keys` fil för administratören på den virtuella datorn. Detta inte ersätter eller ta bort några befintliga SSH-nycklar. Detta tar inte bort tidigare nycklar som anges vid tidpunkten för distribution eller efterföljande uppdateringar via VMAccess-tillägget.
 
 ## <a name="reset-password"></a>Återställa lösenord
 I följande exempel återställer lösenordet för användaren `azureuser` på den virtuella datorn med namnet `myVM`:
@@ -77,7 +77,7 @@ az vm user update \
 ```
 
 ## <a name="restart-ssh"></a>Starta om SSH
-I följande exempel startar om SSH-daemon och återställer SSH-konfigurationen till standardvärdena på en virtuell dator med namnet `myVM`:
+I följande exempel startar om SSH-daemon och återställer SSH-konfigurationen till standardvärden på en virtuell dator med namnet `myVM`:
 
 ```azurecli-interactive
 az vm user reset-ssh \
@@ -85,8 +85,8 @@ az vm user reset-ssh \
   --name myVM
 ```
 
-## <a name="create-an-administrativesudo-user"></a>Skapa en administrativ/sudo-användare
-I följande exempel skapas en användare med namnet `myNewUser` med **sudo** behörigheter. Kontot använder en SSH-nyckel för autentisering på den virtuella datorn med namnet `myVM`. Den här metoden är utformad för att hjälpa dig att få åtkomst till en virtuell dator om den aktuella autentiseringsuppgifter tappas bort eller glömmer bort. Som bästa praxis, konton med **sudo** behörigheter ska vara begränsad.
+## <a name="create-an-administrativesudo-user"></a>Skapar du en administrativ/sudo-användare
+I följande exempel skapas en användare med namnet `myNewUser` med **sudo** behörigheter. Konton som använder en SSH-nyckel för autentisering på den virtuella datorn med namnet `myVM`. Den här metoden är avsedd för att få åtkomst till en virtuell dator om den aktuella autentiseringsuppgifter har förlorat. Som bästa praxis-konton med **sudo** behörigheter ska vara begränsad.
 
 ```azurecli-interactive
 az vm user update \
@@ -106,13 +106,13 @@ az vm user delete \
   --username myNewUser
 ```
 
-## <a name="use-json-files-and-the-vmaccess-extension"></a>Använd JSON-filer och VMAccess-tillägget
-I följande exempel används raw JSON-filer. Använd [az vm-tillägget set](/cli/azure/vm/extension#az_vm_extension_set) att anropa JSON-filer. Filerna JSON kallas även från Azure-mallar. 
+## <a name="use-json-files-and-the-vmaccess-extension"></a>Använda JSON-filer och VMAccess-tillägget
+I följande exempel används raw JSON-filer. Använd [az vm-tilläggsuppsättningen](/cli/azure/vm/extension#az_vm_extension_set) att anropa JSON-filer. De här JSON-filer kan också anropas från Azure-mallar. 
 
 ### <a name="reset-user-access"></a>Återställ användaråtkomst
-Om du har förlorat åtkomsten till roten på Linux-VM, kan du starta en VMAccess-skript för att uppdatera en användares SSH-nyckeln eller lösenordet.
+Om du har förlorat åtkomsten till rot på Linux-VM, kan du starta en VMAccess-skript för att uppdatera en användares SSH-nyckel eller lösenord.
 
-Om du vill uppdatera den offentliga SSH-nyckeln för en användare skapar en fil med namnet `update_ssh_key.json` och lägga till inställningarna i följande format. Ersätt värdena för den `username` och `ssh_key` parametrar:
+Om du vill uppdatera den offentliga SSH-nyckeln för en användare skapar du en fil med namnet `update_ssh_key.json` och lägga till inställningar i följande format. Ersätt värdena för den `username` och `ssh_key` parametrar:
 
 ```json
 {
@@ -133,7 +133,7 @@ az vm extension set \
   --protected-settings update_ssh_key.json
 ```
 
-Om du vill återställa en användarlösenord, skapar du en fil med namnet `reset_user_password.json` och lägga till inställningarna i följande format. Ersätt värdena för den `username` och `password` parametrar:
+Om du vill återställa en användarlösenord, skapa en fil med namnet `reset_user_password.json` och lägga till inställningar i följande format. Ersätt värdena för den `username` och `password` parametrar:
 
 ```json
 {
@@ -155,7 +155,7 @@ az vm extension set \
 ```
 
 ### <a name="restart-ssh"></a>Starta om SSH
-Om du vill starta om SSH-daemon och återställa SSH-konfigurationen till standardvärdena, skapar du en fil med namnet `reset_sshd.json`. Lägg till följande innehåll:
+Om du vill starta om daemon för SSH och återställa SSH-konfigurationen till standardvärden, skapa en fil med namnet `reset_sshd.json`. Lägg till följande innehåll:
 
 ```json
 {
@@ -177,7 +177,7 @@ az vm extension set \
 
 ### <a name="manage-administrative-users"></a>Hantera administrativa användare
 
-Så här skapar du en användare med **sudo** behörigheter som använder en SSH-nyckel för autentisering, skapa en fil med namnet `create_new_user.json` och lägga till inställningarna i följande format. Ersätt värdena för den `username` och `ssh_key` parametrar. Den här metoden är utformad för att hjälpa dig att få åtkomst till en virtuell dator om den aktuella autentiseringsuppgifter tappas bort eller glömmer bort. Som bästa praxis, konton med **sudo** behörigheter ska vara begränsad.
+Skapa en användare med **sudo** behörigheter som använder en SSH-nyckel för autentisering, skapa en fil med namnet `create_new_user.json` och lägga till inställningar i följande format. Ersätt värdena för den `username` och `ssh_key` parametrar. Den här metoden är avsedd för att få åtkomst till en virtuell dator om den aktuella autentiseringsuppgifter har förlorat. Som bästa praxis-konton med **sudo** behörigheter ska vara begränsad.
 
 ```json
 {
@@ -199,7 +199,7 @@ az vm extension set \
   --protected-settings create_new_user.json
 ```
 
-Ta bort en användare genom att skapa en fil med namnet `delete_user.json` och Lägg till följande innehåll. Ersätt värdet för den `remove_user` parameter:
+Ta bort en användare genom att skapa en fil med namnet `delete_user.json` och Lägg till följande innehåll. Ersätt ditt eget värde för den `remove_user` parameter:
 
 ```json
 {
@@ -220,9 +220,9 @@ az vm extension set \
 ```
 
 ### <a name="check-or-repair-the-disk"></a>Kontrollera eller reparera disken
-Med hjälp av VMAccess du också kontrollera och reparera en disk som du har lagt till Linux-VM.
+Med hjälp av VMAccess du också kontrollera och reparera en disk som du lade till Linux VM.
 
-Om du vill kontrollera och reparera disken, skapa en fil med namnet `disk_check_repair.json` och lägga till inställningarna i följande format. Ersätt värdet för namnet på `repair_disk`:
+Om du vill kontrollera och reparera disken, skapa en fil med namnet `disk_check_repair.json` och lägga till inställningar i följande format. Ersätt ditt eget värde för namnet på `repair_disk`:
 
 ```json
 {
@@ -242,11 +242,11 @@ az vm extension set \
   --version 1.4 \
   --protected-settings disk_check_repair.json
 ```
-## <a name="troubleshoot-and-support"></a>Felsöka och stöd
+## <a name="troubleshoot-and-support"></a>Felsökning och support
 
 ### <a name="troubleshoot"></a>Felsöka
 
-Data om tillståndet för distributioner av tillägget kan hämtas från Azure-portalen och genom att använda Azure CLI. Om du vill se distributionsstatusen för tillägg för en viss virtuell dator, kör du följande kommando med hjälp av Azure CLI.
+Data om tillståndet för distributioner av tillägget kan hämtas från Azure-portalen och med hjälp av Azure CLI. Om du vill se distributionsstatusen för tillägg för en viss virtuell dator, kör du följande kommando med hjälp av Azure CLI.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
@@ -254,4 +254,4 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [MSDN Azure och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du lagra en incident i Azure-supporten. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och välja Get support. Information om hur du använder Azure stöder finns i [vanliga frågor om Microsoft Azure-supporten](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).

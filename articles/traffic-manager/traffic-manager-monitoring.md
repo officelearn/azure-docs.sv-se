@@ -1,6 +1,6 @@
 ---
-title: Azure Traffic Manager och slutpunktsövervakning | Microsoft Docs
-description: Den här artikeln kan hjälpa dig att förstå hur Traffic Manager använder slutpunktsövervakning och automatisk endpoint redundans för att Azure-kunder distribuera program med hög tillgänglighet
+title: Azure Traffic Manager endpoint monitoring | Microsoft Docs
+description: Den här artikeln kan hjälpa dig att förstå hur Traffic Manager använder slutpunktsövervakning och redundans för automatiska slutpunkt för att Azure-kunder distribuera program med hög tillgänglighet
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
@@ -14,151 +14,151 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 6d07bd333e4d1663e37a840975cde2d9c73cec9c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0124c70916d1c9a6f6b818a68f13d7a189a1b70f
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211726"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398843"
 ---
-# <a name="traffic-manager-endpoint-monitoring"></a>Slutpunktsövervakning av Traffic Manager
+# <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager endpoint monitoring
 
-Azure Traffic Manager innehåller inbyggda slutpunktsövervakning och automatisk endpoint redundans. Den här funktionen hjälper dig att leverera program med hög tillgänglighet som är motståndskraftiga mot slutpunkten fel, inklusive Azure-region fel.
+Med Azure Traffic Manager innehåller inbyggda slutpunktsövervakning och redundansväxling för automatisk slutpunkt. Den här funktionen hjälper dig att tillhandahålla program med hög tillgänglighet som är motståndskraftig mot slutpunktsfel, inklusive Azure-region fel.
 
 ## <a name="configure-endpoint-monitoring"></a>Konfigurera slutpunktsövervakning
 
-För att konfigurera endpoint övervakning, måste du ange följande inställningar på Traffic Manager-profilen:
+Om du vill konfigurera slutpunktsövervakning, måste du ange följande inställningar på din Traffic Manager-profil:
 
-* **Protokollet**. Välj HTTP, HTTPS eller TCP som protokoll att Traffic Manager använder när avsökning av slutpunkten för att kontrollera dess tillstånd. Övervakning av HTTPS kontrollerar inte om SSL-certifikatet är giltigt--den endast kontrollerar att certifikatet är installerat.
+* **Protokollet**. Välj HTTP, HTTPS eller TCP som protokoll att Traffic Manager använder när din slutpunkt-avsökning för att kontrollera dess hälsa. Övervakning av HTTPS kontrollerar inte om SSL-certifikatet är giltigt – endast kontrolleras att certifikatet är installerat.
 * **Port**. Välj den port som används för begäran.
-* **Sökvägen**. Den här inställningen gäller bara för HTTP och HTTPS-protokoll, för vilka att ange sökvägen inställningen är obligatorisk. Att erbjuda den här inställningen för TCP övervakning protokollet resulterar i ett fel. Ge den relativa sökvägen och namnet på webbsidan eller filen som ansluter till övervakning för HTTP och HTTPS-protokollet. Ett snedstreck (/) är ett giltigt för den relativa sökvägen. Det här värdet innebär att filen är i rotkatalogen (standard).
-* **Avsökning av intervall**. Det här värdet anger hur ofta en slutpunkt är markerat för dess hälsa från en avsöknings Traffic Manager-agent. Du kan ange två värden här: 30 sekunder (vanlig sökning) och 10 sekunder (snabb avsökning). Om inga värden har angetts, anger profilen till standardvärdet 30 sekunder. Besök den [Traffic Manager priser](https://azure.microsoft.com/pricing/details/traffic-manager) sidan om du vill veta mer om snabb avsöknings priser.
-* **Antalet fel tolereras**. Det här värdet anger hur många fel som en avsöknings Traffic Manager-agenten kan tolerera innan du markerar den slutpunkten som ohälsosamt. Värdet kan variera mellan 0 och 9. Värdet 0 innebär ett enstaka övervakning fel kan orsaka att slutpunkten markeras som ohälsosam. Om inget värde anges används standardvärdet 3.
-* **Övervaka Timeout**. Den här egenskapen anger hur lång tid avsöknings Traffic Manager-agenten ska vänta innan som kontrollerar ett fel när en avsökning för kontroll av hälsotillstånd skickas till slutpunkten. Om sökning-intervallet är 30 sekunder, kan du ange Timeout-värde mellan 5 och 10 sekunder. Om inget värde anges används standardvärdet 10 sekunder. Om sökning-intervallet är 10 sekunder kan du ange Timeout-värde mellan 5 och 9 sekunder. Om inget Timeout-värde har angetts används standardvärdet 9 sekunder.
+* **Sökvägen**. Den här inställningen gäller endast för HTTP och HTTPS-protokollen, för vilka att ange sökvägen inställning är obligatorisk. Ta del av den här inställningen för TCP övervakning protokollet uppstår ett fel. Ge den relativa sökvägen och namnet på webbsidan eller den fil som ansluter till för övervakning för HTTP och HTTPS-protokoll. Ett snedstreck (/) är en giltig post för den relativa sökvägen. Det här värdet anger att filen är i rotkatalogen (standard).
+* **Kontrollintervall**. Det här värdet anger hur ofta en slutpunkt har markerats för dess hälsa från en sökning Traffic Manager-agent. Du kan ange två värden här: 30 sekunder (vanlig sökning) och 10 sekunder (snabb avsökning). Om inga värden har angetts, anger profilen till ett standardvärde på 30 sekunder. Gå till den [Traffic Manager priser](https://azure.microsoft.com/pricing/details/traffic-manager) att lära dig mer om snabb sökning priser.
+* **Ska tolereras antalet fel**. Det här värdet anger hur många fel som en sökning Traffic Manager-agenten kan tolerera innan du markerar slutpunkten som skadad. Värdet kan variera mellan 0 och 9. Värdet 0 innebär att ett enstaka övervakning fel kan orsaka att slutpunkten markeras som felaktig. Om inget värde anges används standardvärdet 3.
+* **Övervakning av Timeout**. Denna egenskap anger hur lång tid att avsöknings Traffic Manager-agenten ska vänta innan som kontrollerar ett fel när en kontroll hälsoavsökning skickas till slutpunkten. Om intervallet avsökning är inställt på 30 sekunder, kan du ange Timeout-värde mellan 5 och 10 sekunder. Om inget värde anges används standardvärdet 10 sekunder. Om intervallet avsökning har angetts till 10 sekunder, kan du ange Timeout-värde mellan 5 och 9 sekunder. Om inget Timeout-värde anges används standardvärdet 9 sekunder.
 
-![Slutpunktsövervakning av Traffic Manager](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
+![Traffic Manager endpoint monitoring](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
 **Bild 1: Traffic Manager-slutpunktsövervakning**
 
 ## <a name="how-endpoint-monitoring-works"></a>Så här fungerar slutpunktsövervakning
 
-Om övervakning protokollet är HTTP eller HTTPS, gör avsöknings Traffic Manager-agenten en GET-begäran till slutpunkten med hjälp av protokollet, porten och relativ sökväg som anges. Om du hämtar tillbaka ett svar 200 OK, och sedan denna slutpunkt anses felfri. Om svaret är ett annat värde eller, om inget svar tas emot inom tidsgränsen som angetts i Traffic Manager avsökning av agenten försöker på nytt enligt inställningen tolereras antal misslyckanden (inget nytt försök görs om den här inställningen är 0). Om antalet upprepade fel är högre än inställningen tolereras antalet fel, sedan markeras denna slutpunkt som ohälsosam. 
+Om protokollet övervakning har angetts som HTTP eller HTTPS, gör en GET-begäran till slutpunkten via protokollet, porten och relativ sökväg som anges i avsöknings Traffic Manager-agenten. Om den får tillbaka ett svar med 200 OK, och sedan att slutpunkten anses vara felfritt. Om svaret är ett annat värde, eller, om inget svar tas emot inom tidsgränsen för angivna måste Traffic Manager-avsökning agent försöker igen enligt inställningen ska tolereras antalet fel (inget nytt försök görs om den här inställningen är 0). Om antalet på varandra följande fel är högre än inställningen ska tolereras antalet fel, sedan markeras att slutpunkten som felaktig. 
 
-Om övervakning protokollet är TCP, initierar avsöknings Traffic Manager-agenten en TCP-anslutningsbegäran med den angivna porten. Om slutpunkten svarar på begäran med ett svar för att upprätta en anslutning, som hälsokontroll har markerats som lyckas och avsöknings Traffic Manager-agenten återställer TCP-anslutningen. Om svaret är ett annat värde, eller om inget svar tas emot inom den angivna tiden anges i Traffic Manager avsökning av agenten försöker på nytt enligt inställningen tolereras antal misslyckanden (inget nytt försök görs om den här inställningen är 0). Om antalet upprepade fel är högre än inställningen tolereras antalet fel, markeras den slutpunkten feltillstånd.
+Om övervakning protokollet är TCP, initierar avsöknings Traffic Manager-agenten en TCP-anslutningsbegäran med hjälp av den angivna porten. Om slutpunkten som svarar på begäran med ett svar för att upprätta anslutningen, att hälsokontrollen har markerats som ett lyckat test och avsöknings Traffic Manager-agenten återställer TCP-anslutningen. Om svaret är ett annat värde, eller om inget svar tas emot inom den angivna tiden har angetts, Traffic Manager-avsökning agent försöker igen enligt inställningen ska tolereras antalet fel (inget nytt försök görs om den här inställningen är 0). Om antalet på varandra följande fel är högre än inställningen ska tolereras antalet fel, sedan att slutpunkten har ett dåligt.
 
-I samtliga fall Traffic Manager-avsökningar från flera platser och på varandra följande fel bestämning sker inom varje region. Det innebär också att slutpunkter får hälsoavsökningar från Traffic Manager med en frekvens som är högre än inställningen används för avsökning av intervallet.
+I samtliga fall Traffic Manager-avsökningar från flera platser och på varandra följande fel bestämning sker i varje region. Det innebär också att slutpunkter får hälsokontroller av slutpunkter från Traffic Manager med en frekvens som är högre än inställningen används för avsökning intervall.
 
 >[!NOTE]
->För HTTP eller HTTPS övervakning är vanligt på slutpunkten sida att implementera en anpassad sida i ditt program – till exempel /health.aspx. Du kan utföra programspecifika kontroller, till exempel kontrollerar prestandaräknare eller Verifiera databasens tillgänglighet med hjälp av den här sökvägen för övervakning. Sidan returnerar baserat på dessa anpassade kontroller, en lämplig HTTP-statuskod.
+>För HTTP eller HTTPS övervakning är vanligt på slutpunkten sida att implementera en anpassad sida i ditt program – till exempel /health.aspx. Med hjälp av den här sökvägen för övervakning, kan du utföra programspecifika kontroller, till exempel kontrollerar prestandaräknare eller verifiera databastillgänglighet. Sidan returnerar baserat på dessa anpassade kontroller, lämpliga HTTP-statuskoden.
 
-Alla slutpunkter i en Traffic Manager-profil dela inställningarna för övervakning. Om du behöver använda olika övervakningsinställningarna för olika slutpunkter kan du skapa [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md#example-5-per-endpoint-monitoring-settings).
+Alla slutpunkter i en Traffic Manager-profil dela inställningarna för övervakning. Om du vill använda olika övervakningsinställningarna för olika slutpunkter kan du skapa [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md#example-5-per-endpoint-monitoring-settings).
 
-## <a name="endpoint-and-profile-status"></a>Status för slutpunkt och profil
+## <a name="endpoint-and-profile-status"></a>Status för slutpunkten och profil
 
-Du kan aktivera och inaktivera Traffic Manager-profiler och slutpunkter. Men inträffa en ändring i slutpunkt status även som ett resultat av Traffic Manager automatiserade inställningar och processer.
+Du kan aktivera och inaktivera Traffic Manager-profiler och slutpunkter. Men kan en ändring i slutpunktsstatus också uppstå som ett resultat av Traffic Manager automatiserad inställningar och processer.
 
 ### <a name="endpoint-status"></a>Slutpunktsstatus
 
-Du kan aktivera eller inaktivera en viss slutpunkt. Den underliggande tjänsten som kanske ändå felfri, påverkas inte. Ändra status för endpoint kontrollerar tillgängligheten för slutpunkt i Traffic Manager-profilen. När en slutpunkt status är inaktiverad Traffic Manager kontrollerar inte dess hälsa och slutpunkten ingår inte i ett DNS-svar.
+Du kan aktivera eller inaktivera en viss slutpunkt. Den underliggande tjänsten kan vara felfritt, påverkas inte. Ändra statusen för slutpunkten kontrollerar tillgängligheten för slutpunkt i Traffic Manager-profilen. När en slutpunktsstatus inaktiveras Traffic Manager kontrollerar inte dess hälsa och slutpunkten ingår inte i ett DNS-svar.
 
-### <a name="profile-status"></a>Profilstatusen
+### <a name="profile-status"></a>Profilstatus
 
-Använder profilinställningen för status kan du aktivera eller inaktivera en viss profil. När status för endpoint påverkar en enda slutpunkt, påverkar profilstatusen hela profil, inklusive alla slutpunkter. När du inaktiverar en profil slutpunkterna kontrolleras inte för hälsotillstånd och inga slutpunkter ingår i ett DNS-svar. En [NXDOMAIN](https://tools.ietf.org/html/rfc2308) svarskoden returneras för DNS-frågan.
+Använder profilinställningen för status kan du aktivera eller inaktivera en specifik profil. När statusen för slutpunkten påverkar en enda slutpunkt, påverkar profilstatus hela profilen, inklusive alla slutpunkter. När du inaktiverar en profil slutpunkterna kontrolleras inte om hälsotillstånd och inga slutpunkter som ingår i ett DNS-svar. En [NXDOMAIN](https://tools.ietf.org/html/rfc2308) svarskoden returneras för DNS-frågan.
 
-### <a name="endpoint-monitor-status"></a>Övervaka status för endpoint
+### <a name="endpoint-monitor-status"></a>Slutpunkten monitor-status
 
-Övervaka status för endpoint är ett Traffic Manager-värde som visar status för slutpunkten. Du kan inte ändra den här inställningen manuellt. Status för endpoint övervakaren är en kombination av resultaten av slutpunktsövervakning och konfigurerad slutpunkt status. Övervaka status för endpoint möjliga värden visas i följande tabell:
+Övervakarstatus för endpoint är en Traffic Manager-genererade värde som visar status för slutpunkten. Du kan inte ändra den här inställningen manuellt. Övervaka statusen för slutpunkten är en kombination av resultatet från slutpunktsövervakning och statusen för konfigurerade slutpunkten. De möjliga värdena för slutpunkten monitor-status visas i följande tabell:
 
-| Profilstatusen | Slutpunktsstatus | Övervaka status för endpoint | Anteckningar |
+| Profilstatus | Slutpunktsstatus | Slutpunkten monitor-status | Anteckningar |
 | --- | --- | --- | --- |
-| Disabled |Enabled |Inaktiv |Profilen har inaktiverats. Även om slutpunkten är aktiverad, företräde profilstatusen (inaktiverat). Slutpunkter i inaktiverad profiler övervakas inte. Ett NXDOMAIN svarskoden returneras för DNS-frågan. |
-| &lt;alla&gt; |Disabled |Disabled |Slutpunkten har inaktiverats. Inaktiverad slutpunkter övervakas inte. Slutpunkten ingår inte i DNS-svar, därför kan den tar emot inte trafik. |
-| Enabled |Enabled |Online |Slutpunkten övervakas och är felfri. Den ingår i DNS-svar och kan ta emot trafik. |
-| Enabled |Enabled |Degraderad |Slutpunkten övervakning hälsokontroller misslyckas. Slutpunkten ingår inte i DNS-svar och tar inte emot trafik. <br>Ett undantag är om alla slutpunkter är försämrade då alla betraktas som ska returneras i svaret på frågan).</br>|
-| Enabled |Enabled |CheckingEndpoint |Slutpunkten övervakas, men resultatet av den första avsökningen ännu inte tagits emot. CheckingEndpoint är ett tillfälligt tillstånd som vanligtvis sker omedelbart efter att lägga till eller aktivera en slutpunkt i profilen. En slutpunkt i det här tillståndet ingår i DNS-svar och kan ta emot trafik. |
-| Enabled |Enabled |Stoppad |Tjänsten eller web molnappen som slutpunkten pekar på är inte igång. Kontrollera inställningarna för cloud service eller web app. Detta kan också inträffa om slutpunkten är av typen kapslade slutpunkt och underordnade profilen har inaktiverats eller är inaktiv. <br>En slutpunkt med status stoppad övervakas inte. Den ingår inte i DNS-svar och ta emot inte trafik. Ett undantag är om alla slutpunkter är försämrade då alla betraktas som returneras i svaret på frågan.</br>|
+| Disabled |Enabled |Inaktiv |Profilen har inaktiverats. Även om slutpunkten är aktiverad, företräde profilstatus (inaktiverad). Slutpunkter i inaktiverad profiler övervakas inte. Ett NXDOMAIN svarskoden returneras för DNS-frågan. |
+| &lt;Alla&gt; |Disabled |Disabled |Slutpunkten har inaktiverats. Inaktiverad slutpunkter övervakas inte. Slutpunkten ingår inte i DNS-svar, därför kan den emot inte trafik. |
+| Enabled |Enabled |Online |Slutpunkten som övervakas och är felfri. Den ingår i DNS-svar och kan ta emot trafik. |
+| Enabled |Enabled |Degraderad |Övervakning hälsokontroller av slutpunkter misslyckas. Slutpunkten ingår inte i DNS-svar och tar inte emot trafik. <br>Ett undantag är om alla slutpunkterna är försämrade då alla betraktas som ska returneras i svaret på frågan).</br>|
+| Enabled |Enabled |CheckingEndpoint |Slutpunkten som övervakas, men resultatet av den första sensorn ännu inte tagits emot. CheckingEndpoint är ett tillfälligt tillstånd som vanligtvis sker omedelbart efter att lägga till eller aktivera en slutpunkt i profilen. En slutpunkt i det här tillståndet ingår i DNS-svar och kan ta emot trafik. |
+| Enabled |Enabled |Stoppad |Tjänsten eller web molnappen som slutpunkten pekar körs inte. Kontrollera inställningarna för cloud service eller web app. Detta kan också inträffa om slutpunkten är en typ som är kapslad slutpunkt och underordnade profilen är inaktiverad eller är inaktiv. <br>En slutpunkt med statusen stoppad övervakas inte. Det ingår inte i DNS-svar och tar inte emot trafik. Ett undantag är om alla slutpunkterna är försämrade då alla betraktas som ska returneras i svaret på frågan.</br>|
 
-Mer information om hur övervaka status för endpoint beräknas för kapslade slutpunkter finns [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md).
+Mer information om hur endpoint monitor-status beräknas för kapslade slutpunkter finns [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md).
 
 >[!NOTE]
-> Status för övervakaren stoppats Endpoint kan inträffa på Apptjänst om webbprogrammet inte körs på standardnivån eller senare. Mer information finns i [Traffic Manager-integrering med Apptjänst](/azure/app-service/web-sites-traffic-manager).
+> En stoppad Endpoint monitor-status kan inträffa på App Service om webbprogrammet inte körs på nivån Standard eller högre. Mer information finns i [Traffic Manager-integrering med App Service](/azure/app-service/web-sites-traffic-manager).
 
-### <a name="profile-monitor-status"></a>Övervaka profilstatusen
+### <a name="profile-monitor-status"></a>Profilen monitor-status
 
-Profilstatusen för övervakaren är en kombination av konfigurerade profilstatusen och värdena endpoint övervaka status för alla slutpunkter. I följande tabell beskrivs möjliga värden:
+Profilstatus för övervakaren är en kombination av status konfigurerad profil och slutpunkt övervakaren statusvärdena för alla slutpunkter. I följande tabell beskrivs möjliga värden:
 
-| Profilstatusen (som har konfigurerats) | Övervaka status för endpoint | Övervaka profilstatusen | Anteckningar |
+| Profilstatus (enligt konfigurationen) | Slutpunkten monitor-status | Profilen monitor-status | Anteckningar |
 | --- | --- | --- | --- |
 | Disabled |&lt;alla&gt; eller en profil med några definierade slutpunkter. |Disabled |Profilen har inaktiverats. |
-| Enabled |Status för minst en slutpunkt har degraderats. |Degraderad |Granska statusvärden enskilda slutpunkt för att avgöra vilka slutpunkter kräva ytterligare åtgärder. |
+| Enabled |Status för minst en slutpunkt har degraderats. |Degraderad |Granska enskilda slutpunktsvärdena status för att fastställa vilka slutpunkter kräva ytterligare åtgärder. |
 | Enabled |Status för minst en slutpunkt är Online. Inga slutpunkter har statusen degraderad. |Online |Tjänsten tar emot trafik. Ingen ytterligare åtgärd krävs. |
-| Enabled |Status för minst en slutpunkt är CheckingEndpoint. Inga slutpunkter är Online eller degraderad status. |CheckingEndpoints |Den här övergångstillstånd inträffar när en profil om skapade eller aktiverade. Slutpunkten hälsa kontrolleras för första gången. |
-| Enabled |Status för alla slutpunkter i profilen är inaktiverad eller stoppad eller att profilen har inga definierade slutpunkter. |Inaktiv |Inga slutpunkter är aktiv, men profilen är fortfarande aktiverat. |
+| Enabled |Status för minst en slutpunkt är CheckingEndpoint. Inga slutpunkter är Online eller degraderad status. |CheckingEndpoints |Den här övergångstillstånd inträffar när en profil om skapade eller aktiverade. Hälsotillståndet för slutpunkt kontrolleras för första gången. |
+| Enabled |Status för alla slutpunkter i profilen är inaktiverad eller stoppad eller profilen har inte några definierade slutpunkter. |Inaktiv |Inga slutpunkter är aktiva, men profilen är fortfarande aktiverat. |
 
-## <a name="endpoint-failover-and-recovery"></a>Slutpunkten redundans och återställning
+## <a name="endpoint-failover-and-recovery"></a>Slutpunkt för redundans och återställning
 
-Traffic Manager kontrollerar med jämna mellanrum hälsotillståndet för varje slutpunkt, inklusive ohälsosamt slutpunkter. Traffic Manager identifierar när en slutpunkt blir felfritt och ger dig tillbaka till rotation.
+Traffic Manager kontrollerar med jämna mellanrum hälsotillståndet för varje slutpunkt, inklusive feltillstånd slutpunkter. Traffic Manager identifierar när en slutpunkt blir felfritt och hämtar tillbaka till rotation.
 
-En slutpunkt är ohälsosamt när någon av följande händelser inträffar:
+En slutpunkt är i feltillstånd när någon av följande händelser inträffar:
 - Om övervakning protokollet HTTP eller HTTPS:
-    - Icke-200 svar (inklusive en annan 2xx-kod eller en 301/302-omdirigering).
+    - Ett icke-200-svar tas emot (inklusive en annan 2xx-kod eller en 301/302-omdirigering).
 - Om övervakning protokollet är TCP: 
-    - Än ACK eller SYN ACK svar som svar på SYNC-begäran som skickas av Traffic Manager försöker upprätta en anslutning.
+    - Än ACK eller SYN ACK svar som svar på SYNC-begäran som skickats av Traffic Manager att försöka upprätta en anslutning.
 - Timeout. 
-- Alla andra anslutningsproblem ledde till slutpunkten som inte kan nås.
+- Alla andra anslutningsproblem leder det inte går att nå slutpunkten.
 
-Mer information om felsökning av misslyckade kontroller finns [felsökning försämrad status på Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md). 
+Mer information om felsökning av misslyckade kontroller finns i [felsöka degraderat tillstånd i Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md). 
 
-Följande tidslinjen i bild 2 är en detaljerad beskrivning av hur övervakningen Traffic Manager-slutpunkt som har följande inställningar: övervaka protokollet är HTTP, avsöknings är 30 sekunder, antalet tillåten fel är 3, timeout-värdet är 10 sekunder och DNS TTL är 30 sekunder.
+Följande tidslinjen i bild 2 är en detaljerad beskrivning av övervakningsprocessen för Traffic Manager-slutpunkt som har följande inställningar: protokoll är HTTP, sökning är 30 sekunder, antalet tolererade fel är 3, timeout-värdet är 10 sekunder och TTL för DNS är 30 sekunder.
 
-![Traffic Manager-slutpunkt redundans och återställning efter fel-sekvens](./media/traffic-manager-monitoring/timeline.png)
+![Traffic Manager endpoint redundans och återställning efter fel sekvens](./media/traffic-manager-monitoring/timeline.png)
 
-**Bild 2: Traffic manager-slutpunkten redundans och återställning sekvens**
+**Bild 2: Traffic manager endpoint redundans och återställning sekvens**
 
-1. **HÄMTA**. För varje slutpunkt utför i Traffic Manager övervakningssystem en GET-begäran på sökvägen som anges i inställningarna för övervakning.
-2. **200 OK**. Övervakningssystemet förväntar sig en HTTP-200 OK-meddelande som ska returneras inom 10 sekunder. När den tar emot svaret identifierar att tjänsten är tillgänglig.
-3. **30 sekunder mellan kontroller**. Hälsokontroll endpoint upprepas var 30: e sekund.
-4. **Tjänsten är inte tillgänglig**. Tjänsten blir otillgänglig. Traffic Manager märker inte förrän nästa hälsokontroll.
-5. **Försöker få åtkomst till övervakningssökvägen**. Övervakningssystemet utför en GET-begäran, men inte tar emot ett svar inom tidsgränsen på 10 sekunder (du kan också ett icke-200 svar kan tas emot). Försöker den med tre gånger, med 30 sekunders intervall. Om en av försöker lyckas, återställs antalet försök.
-6. **Statusen degraderad**. Efter en fjärde på varandra följande fel markerar övervakningssystemet status otillgänglig endpoint som degraderad.
-7. **Trafik distribueras till andra slutpunkter**. Traffic Manager DNS-namnservrar uppdateras och Traffic Manager inte längre returnerar slutpunkten som svar på DNS-frågor. Nya anslutningar dirigeras till andra tillgängliga slutpunkter. Tidigare DNS-svar som innehåller den här slutpunkten kan dock fortfarande cachelagras av rekursiva DNS-servrar och DNS-klienter. Fortsätter klienter att använda slutpunkten förrän DNS-cachen upphör att gälla. Eftersom DNS-cachen upphör att gälla klienter gör den nya DNS-frågor och dirigeras till olika slutpunkter. Cache-varaktighet styrs av TTL-inställningen i Traffic Manager-profilen, till exempel 30 sekunder.
-8. **Hälsotillstånd kontrollerar fortsätta**. Traffic Manager fortsätter att kontrollera hälsotillståndet för slutpunkten när den har statusen degraderad. Traffic Manager identifierar när slutpunkten återgår till hälsa.
-9. **Tjänsten är online igen**. Tjänsten blir tillgänglig. Slutpunkten behåller statusen degraderad i Traffic Manager tills övervakningssystemet utför dess nästa hälsokontroll.
-10. **Trafik till tjänsten återupptar**. Traffic Manager skickar en GET-begäran och tar emot ett statussvar 200 OK. Tjänsten returnerade till felfritt tillstånd. Traffic Manager-namnservrar uppdateras och de börjar att dela ut tjänstens DNS-namnet i DNS-svar. Trafik returnerar till slutpunkten som cachelagrade DNS-svar som returnerar andra slutpunkter upphör att gälla och som befintliga anslutningar till andra slutpunkter avslutas.
+1. **HÄMTA**. För varje slutpunkt utför Traffic Manager övervakningssystem en GET-begäran på den sökväg som anges i inställningarna för övervakning.
+2. **200 OK**. Övervakningssystemet förväntar sig en HTTP 200 OK-meddelande som ska returneras inom 10 sekunder. När den har fått det här svaret identifierar att tjänsten är tillgänglig.
+3. **30 sekunder mellan kontroller**. Slutpunkt-hälsokontroll upprepas med 30 sekunders mellanrum.
+4. **Tjänsten är inte tillgänglig**. Tjänsten blir otillgänglig. Traffic Manager märker inte förrän nästa hälsokontrollen.
+5. **Försöker få åtkomst till övervakningssökvägen**. Övervakningssystemet utför en GET-begäran, men inte emot något svar inom tidsgränsen på 10 sekunder (du kan också ett icke-200-svar kan tas emot). Den försöker sedan tre gånger med 30 sekunders mellanrum. Om en av försök lyckas, återställs antalet försök.
+6. **Statusen degraderad**. Efter ett fjärde på varandra följande fel markerar övervakningssystemet statusen för otillgänglig slutpunkten som degraderad.
+7. **Trafiken distribueras till andra slutpunkter**. Traffic Manager DNS-namnservrarna uppdateras och Traffic Manager inte längre returnerar slutpunkten som svar på DNS-frågor. Nya anslutningar dirigeras till andra, tillgängliga slutpunkter. Föregående DNS-svar som innehåller den här slutpunkten kan dock fortfarande cachelagras av rekursiva DNS-servrar och DNS-klienter. Klienter fortsätta att använda slutpunkten tills DNS-cacheminnet upphör att gälla. Eftersom DNS-cacheminnet upphör att gälla klienter skapar nya DNS-frågor och dirigeras till olika slutpunkter. Cachevaraktigheten styrs av TTL-inställning i Traffic Manager-profilen, till exempel 30 sekunder.
+8. **Hälsokontroller fortsätta**. Traffic Manager fortsätter att kontrollera hälsotillståndet för slutpunkten när den har statusen degraderad. Traffic Manager identifierar när slutpunkten returnerar hälsa.
+9. **Tjänsten är online igen**. Tjänsten blir tillgänglig. Slutpunkten behåller statusen degraderad i Traffic Manager förrän övervakningssystemet genomför dess nästa hälsokontrollen.
+10. **Trafik till tjänsten återupptar**. Traffic Manager skickar en GET-begäran och får ett statussvar med 200 OK. Tjänsten returnerade till felfritt tillstånd. Traffic Managers namnservrar uppdateras och de börjar att dela ut tjänstens DNS-namnet i DNS-svar. Trafik som returnerar till slutpunkten som cachelagrade DNS-svar som returnerar andra slutpunkter upphör att gälla och som befintliga anslutningar till andra slutpunkter avslutas.
 
     > [!NOTE]
-    > Eftersom Traffic Manager fungerar på DNS-nivå, kan det påverka befintliga anslutningar till valfri slutpunkt. När den dirigerar trafik mellan slutpunkter (antingen av ändrade inställningar eller under växling vid fel eller återställning efter fel) leder nya anslutningar till tillgängliga slutpunkterna i Traffic Manager. Slutpunkter kan dock fortsätta att ta emot trafik via befintliga anslutningar förrän sessionerna avslutas. Om du vill aktivera trafik att tömma från befintliga anslutningar begränsa program varaktighet för sessionen som används med varje slutpunkt.
+    > Eftersom Traffic Manager fungerar på DNS-nivå, kan det påverka befintliga anslutningar till valfri slutpunkt. När den dirigerar trafik mellan slutpunkter (antingen genom att ändrade inställningar, eller under redundansväxling eller återställning efter fel) dirigerar Traffic Manager nya anslutningar till tillgängliga slutpunkter. Andra slutpunkter kan dock fortsätta att ta emot trafik via befintliga anslutningar förrän dessa sessioner avslutas. Om du vill aktivera trafik till tömma från befintliga anslutningar bör program begränsa Sessionslängd som används med varje slutpunkt.
 
-## <a name="traffic-routing-methods"></a>Routning av nätverkstrafik metoder
+## <a name="traffic-routing-methods"></a>Trafikroutningsmetoder
 
-När en slutpunkt har status degraderad kan tillbaka den inte längre som svar på DNS-frågor. I stället är en annan slutpunkt valt och returneras. Metoden routning av nätverkstrafik som konfigurerats i profilen avgör hur den alternativa slutpunkten är valt.
+När en slutpunkt har statusen degraderad, returneras den inte längre som svar på DNS-frågor. I stället är en annan slutpunkt valt och returneras. Metoden routning av nätverkstrafik som konfigurerats i profilen avgör hur den alternativa slutpunkten väljs.
 
-* **Prioritet**. Slutpunkter utgör en prioriterad lista. Den första tillgängliga slutpunkten på listan returneras alltid. Om statusen för slutpunkten är försämrad returneras nästa slutpunkt.
-* **Viktade**. Alla tillgängliga endpoint väljs slumpmässigt baserat på deras tilldelade vikt och vikten av de tillgängliga slutpunkterna.
-* **Prestanda**. Slutpunkten som är närmast slutanvändaren returneras. Om den är inte tillgänglig, flyttar Traffic Manager trafik till slutpunkter i nästa närmaste Azure-region. Du kan konfigurera alternativa redundans planer för routning av prestanda-trafik med hjälp av [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
-* **Geografisk**. Slutpunkten mappas om du vill hantera den geografiska plats baserat på fråga IP-adresserna returneras. Om den är inte tillgänglig, en annan slutpunkt markeras inte ska gå över till, eftersom en geografisk plats kan endast mappas till en slutpunkt i en profil (Mer information finns i den [vanliga frågor och svar](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Som bästa praxis, när du använder geografiska routning, rekommenderar vi kunderna att använda kapslade Traffic Manager-profiler med mer än en slutpunkt som slutpunkter för profilen.
+* **Prioritet**. Slutpunkter utgör en prioriterad lista. Den första tillgängliga slutpunkten i listan returneras alltid. Nästa tillgängliga slutpunkten returneras om en slutpunktsstatus har degraderats.
+* **Viktat**. Valfri tillgänglig slutpunkt väljs slumpmässigt baserat på deras tilldelade vikt och vikten av de tillgängliga slutpunkterna.
+* **Prestanda**. Slutpunkten som är närmast användaren returneras. Om slutpunkten är tillgänglig, flyttar Traffic Manager trafik till slutpunkterna i nästa närmsta Azure-region. Du kan konfigurera alternativa redundans planer för routning av prestanda-trafik med hjälp av [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
+* **Geografisk**. Den slutpunkt som mappats för att leverera den geografiska plats baserat på fråga IP-adress returneras. Om slutpunkten är tillgänglig, en annan slutpunkt markeras inte ska gå över till, eftersom en geografisk plats kan endast mappas till en slutpunkt i en profil (Mer information finns i den [vanliga frågor och svar](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Som bästa praxis när du använder geografisk routning, rekommenderar vi kunder att använda kapslade Traffic Manager-profiler med mer än en slutpunkt som slutpunkter för profilen.
 
-Mer information finns i [Traffic Manager routning av nätverkstrafik metoder](traffic-manager-routing-methods.md).
+Mer information finns i [Traffic Manager trafikroutningsmetoder](traffic-manager-routing-methods.md).
 
 > [!NOTE]
-> Routning av nätverkstrafik normalt ett undantag inträffar när alla berättigade slutpunkter har statusen degraderad. Traffic Manager gör ”bästa prestanda” försök och *som om alla slutpunkter för degraderad-status faktiskt är i ett onlinetillstånd*. Det här beteendet är bättre att alternativ som är att returnera inte någon slutpunkt i DNS-svaret. Inaktiverad eller stoppad slutpunkter övervakas inte, därför kan de anses inte vara berättigad till trafik.
+> Ett undantag till routning av nätverkstrafik normalt inträffar när alla berättigade slutpunkter har statusen degraderad. Traffic Manager gör ”bästa prestanda” försök och *svarar som om alla slutpunkterna för degraderad-status är faktiskt i ett onlinetillstånd*. Det här beteendet är bättre att Alternativt kan du, som är att inte returnera valfri slutpunkt i DNS-svaret. Inaktiverad eller stoppad slutpunkter övervakas inte, därför kan de anses inte vara berättigad trafik.
 >
-> Detta tillstånd orsakas vanligen av felaktig konfiguration av tjänsten, som:
+> Detta tillstånd orsakas vanligtvis av felaktig konfigurering av tjänsten, till exempel:
 >
-> * En ACL access control list [] blockerar hälsokontroller Traffic Manager.
-> * En felaktig konfiguration av övervakning port eller protokollet i Traffic manager-profil.
+> * En åtkomstkontrollista [ACL] blockerar hälsokontroller Traffic Manager.
+> * En felaktig konfigurering av övervakning port eller protokoll i Traffic manager-profil.
 >
-> En följd av detta beteende är att om Traffic Manager-hälsokontroller inte är korrekt konfigurerad, kan det verka från den trafik som routning Traffic Manager *är* fungerar korrekt. Men i det här fallet kan endpoint växling vid fel inträffa som påverkar övergripande tillgänglighet. Det är viktigt att kontrollera att profilen visar statusen Online inte statusen degraderad. En Online-status anger att hälsokontroller Traffic Manager fungerar som förväntat.
+> En följd av det här beteendet är att om Traffic Manager-hälsokontroller inte har konfigurerats korrekt, visas den från den trafiken dirigeras som Traffic Manager *är* fungerar korrekt. Men i det här fallet kan inte endpoint redundans inträffa som påverkar programmets övergripande tillgänglighet. Det är viktigt att kontrollera att profilen visar statusen Online inte statusen degraderad. En onlinestatus anger att hälsokontroller Traffic Manager fungerar som förväntat.
 
-Mer information om hur du felsöker misslyckades hälsokontroller, se [felsökning försämrad status på Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
+Mer information om hur du felsöker misslyckades hälsokontroller, se [felsöka degraderat tillstånd i Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs [hur Traffic Manager fungerar](traffic-manager-how-traffic-manager-works.md)
+Lär dig [så här fungerar Traffic Manager](traffic-manager-how-it-works.md)
 
-Lär dig mer om den [routning av nätverkstrafik metoder](traffic-manager-routing-methods.md) stöds av Traffic Manager
+Läs mer om den [trafikroutningsmetoder](traffic-manager-routing-methods.md) stöds av Traffic Manager
 
 Lär dig hur du [skapa en Traffic Manager-profil](traffic-manager-manage-profiles.md)
 

@@ -2,20 +2,19 @@
 title: Hur du använder objektlagring (Blob) från iOS – Azure | Microsoft Docs
 description: Lagra ostrukturerade data i molnet med Azure Blob Storage (objektlagring).
 services: storage
-documentationcenter: ios
 author: michaelhauss
-manager: jeconnoc
 ms.service: storage
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: a15ba7409b4c5f75729b1b40cd2f333c44ae0368
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: blobs
+ms.openlocfilehash: 35cfa36aba8042bcc753c1005c8fd8dbcdb70e79
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718921"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397680"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Använda Blob storage från iOS
 
@@ -98,7 +97,7 @@ Om du använder Swift, behöver du skapa en datacenterbryggning rubrik och impor
 > 
 > 
 
-## <a name="create-a-container"></a>Skapa en behållare
+## <a name="create-a-container"></a>Skapa en container
 Varje blobb i Azure Storage måste finnas i en behållare. I följande exempel visas hur du skapar en behållare som kallas *newcontainer*, i ditt Storage-konto om det inte redan finns. När du väljer ett namn för din behållare, Tänk också på namngivningsregler som nämns ovan.
 
 ```objc
@@ -164,7 +163,7 @@ I följande exempel visas hur du skapar en behållare med **behållare** åtkoms
 }
 ```
 
-## <a name="upload-a-blob-into-a-container"></a>Ladda upp en blobb till en behållare
+## <a name="upload-a-blob-into-a-container"></a>Ladda upp en blob till en container
 Som vi nämnde i den [Blob service-koncept](#blob-service-concepts) avsnittet Blob Storage erbjuder tre olika typer av blobbar: blockblobbar, tilläggsblobbar och sidblobbar. Azure Storage-biblioteket för iOS har stöd för alla tre typer av blobbar. I de flesta fall är blockblob den rekommenderade typen.
 
 I följande exempel visas hur du överför en blockblob från en NSString. Om en blob med samma namn finns redan i den här behållaren, skrivs innehållet i den här bloben.
@@ -212,7 +211,7 @@ Du kan bekräfta att det fungerar genom att titta på den [Microsoft Azure Lagri
 
 Förutom att ladda upp en blockblob från en NSString finns liknande metoder för NSData, NSInputStream eller en lokal fil.
 
-## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
+## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 I följande exempel visar hur du lista alla blobar i en behållare. När du utför den här åtgärden, Tänk också på följande parametrar:     
 
 * **continuationToken** -fortsättning token representerar som var liståtgärden ska börja. Om ingen token har angetts och det visas en lista över blobbar från början. Valfritt antal BLOB-objekt kan visas från noll till en maximal mängd. Även om den här metoden returnerar noll resultat om `results.continuationToken` inte är noll, det kan finnas flera blobar på tjänsten som inte visas.

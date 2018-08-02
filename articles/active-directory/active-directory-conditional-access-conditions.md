@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 59ae7e83bc2b76cb679b0baf1f5739f28ec7046c
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: d868a59dd5d00dea410cbe8c373263e13903d3ba
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248288"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413152"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Vad är villkor i Azure Active Directory villkorlig åtkomst? 
 
@@ -152,7 +152,7 @@ Vanliga användningsområden för det här villkoret är principer med de följa
 
 - Blockera åtkomst från webbprogram men tillåta åtkomst från mobila och skrivbordsprogram.
 
-Du kan använda det här villkoret till web SSO och moderna autentiseringsprotokoll. Du kan också tillämpa den på e-postprogram som använder Microsoft Exchange ActiveSync. Exempel är de interna e-postappar på de flesta smartphones. För närvarande måste klientappar som använder äldre protokoll skyddas med hjälp av Azure AD-Federation Services.
+Du kan använda det här villkoret till web SSO och moderna autentiseringsprotokoll. Du kan också tillämpa den på e-postprogram som använder Microsoft Exchange ActiveSync. Exempel är de interna e-postappar på de flesta smartphones. 
 
 Du kan bara välja klient apps villkoret om Microsoft Office 365 Exchange Online är den enda molnapp som du har valt.
 

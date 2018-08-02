@@ -9,16 +9,16 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d56fccbb378736dc8235bf8b8f17afffc085c49f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 49fa81d89fb195e1caedc2348a8b0990022b0d0d
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002015"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414274"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Självstudie: Utveckla och distribuera en Python IoT Edge-modul till din simulerade enhet
 
-Du kan använda Azure IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. Du kommer att använda den simulerade IoT Edge-enheten som du skapade i snabbstarterna Distribuera Azure IoT Edge på en simulerad enhet i [Windows][lnk-quickstart-win] eller [Linux][lnk-quickstart-lin]. I den här guiden får du lära dig att:    
+Du kan använda Azure IoT Edge-moduler för att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. Du kommer att använda den simulerade IoT Edge-enheten som du skapade i snabbstarterna Distribuera Azure IoT Edge på en simulerad enhet i [Windows][lnk-quickstart-win] eller [Linux][lnk-quickstart-lin]. I den här guiden får du lära dig att:    
 
 > [!div class="checklist"]
 > * använda Visual Studio Code till att skapa en IoT Edge Python-modul
@@ -29,7 +29,7 @@ Du kan använda Azure IoT Edge-moduler till att distribuera kod som implementera
 
 IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som genereras av enheten. Den skickar enbart meddelanden uppströms om temperaturen överskrider ett angivet tröskelvärde. Den här typen av analys vid kanten är användbar när du vill minska mängden data som skickas till och lagras i molnet. 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -75,9 +75,9 @@ Använd Python-paketet **cookiecutter** för att skapa en Python-lösningsmall s
 
 3. Välj **Visa** > **Kommandopalett** för att öppna kommandopaletten i VS Code. 
 
-4. Ange och kör kommandot **Azure: Logga in** i kommandopaletten och följ anvisningarna för att logga in med ditt Azure-konto. Om du redan är inloggad kan du hoppa över det här steget.
+4. Ange och kör kommandot **Azure: Logga in** på kommandopaletten och följ anvisningarna för att logga in med ditt Azure-konto. Om du redan är inloggad kan du hoppa över det här steget.
 
-5. Skriv och kör kommandot **Azure IoT Edge: Ny IoT Edge-lösning** i kommandopaletten. Ange följande information i kommandopaletten för att skapa din lösning: 
+5. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) på kommandopaletten. Ange följande information i kommandopaletten för att skapa din lösning: 
 
    1. Välj den mapp där du vill skapa lösningen. 
    2. Ange ett namn för din lösning eller välj standardnamnet **EdgeSolution**.
@@ -222,7 +222,7 @@ Du kan använda Azure Portal till att distribuera din Python-modul till en IoT E
 
 ## <a name="view-generated-data"></a>Visa genererade data
 
-1. Om du vill övervaka data som kommer till IoT-hubben väljer du ellipsen (**...** ) och sedan **Starta övervakning av D2C-meddelanden**.
+1. Om du vill övervaka data som kommer till IoT-hubben väljer du ellipsen (**...** ) och sedan **Start Monitoring D2C Messages** (Starta övervakning av D2C-meddelanden).
 2. Om du vill övervaka D2C-meddelandet för en specifik enhet högerklickar du på enheten i listan och väljer **Starta övervakning av D2C-meddelanden**.
 3. Om du vill stoppa dataövervakningen kör du kommandot **Azure IoT Hub: Sluta övervaka D2C-meddelande** på kommandopaletten. 
 4. Om du vill visa eller uppdatera modultvillingen högerklickar du på modulen i listan och väljer **Redigera modultvilling**. Om du vill uppdatera modultvillingen sparar du JSON-tvillingfilen, högerklickar i redigeringsområdet och väljer **Uppdatera modultvilling**.
@@ -232,12 +232,12 @@ Du kan använda Azure Portal till att distribuera din Python-modul till en IoT E
 
 <!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
 
-Om du tänker fortsätta till nästa rekommenderade artikel kan du behålla de resurser och konfigurationer du har skapat och använda dem igen.
+Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen.
 
-Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser du har skapat i den här artikeln för att undvika kostnader. 
+Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du har skapat i den här artikeln för att därigenom undvika kostnader. 
 
 > [!IMPORTANT]
-> Det går inte att ångra borttagningen av Azure-resurser och Azure-resursgrupper. När dessa objekt tas bort tas resursgruppen och alla resurser som finns i den bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat IoT-hubben i en befintlig resursgrupp som innehåller resurser som du vill behålla, tar du bara bort själva IoT-hubbresursen i stället för att ta bort resursgruppen.
+> Det går inte att ångra borttagningen av Azure-resurser och resursgrupper. När dessa objekt tas bort tas resursgruppen och alla resurser som finns i den bort permanent. Var noga så att du inte tar bort fel resursgrupp eller resurser av misstag. Om du har skapat IoT-hubben i en befintlig resursgrupp som innehåller resurser som du vill behålla, tar du bara bort själva IoT-hubbresursen i stället för att ta bort resursgruppen.
 >
 
 Om du bara vill ta bort IoT-hubben kör du följande kommando med namnet på hubben och resursgruppens:
@@ -249,9 +249,9 @@ az iot hub delete --name MyIoTHub --resource-group TestResources
 
 Ta bort hela resursgruppen med namnet:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och välj **Resursgrupper**.
+1. Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper**.
 
-2. I textrutan **Filtrera efter namn** anger du namnet på resursgruppen som innehåller din IoT-hubb. 
+2. I textrutan **Filtrera efter namn** anger du namnet på den resursgrupp som innehåller din IoT-hubb. 
 
 3. Till höger om resursgruppen i resultatlistan väljer du ellipsen (**...**) och sedan **Ta bort resursgrupp**.
 

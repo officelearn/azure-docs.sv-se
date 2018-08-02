@@ -1,29 +1,29 @@
 ---
-title: 'Snabbstart: Skapa en Azure SQL Data Warehouse - Azure Powershell | Microsoft Docs'
-description: Snabbt skapa en logisk SQL Database-server, brandväggsregel på servernivå och data warehouse med Azure PowerShell.
+title: 'Snabbstart: Skapa en Azure SQL Data Warehouse – Azure Powershell | Microsoft Docs'
+description: Skapa snabbt en logisk SQL Database-server, brandväggsregel på servernivå och data warehouse med Azure PowerShell.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/01/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e0bb014ec0706d458ff2f38e409efba5d66aaf18
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 72ed9e921d96faea155c1da88dd32fcbd467d549
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31529522"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414008"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Snabbstart: Skapa och läsa ett Azure SQL data warehouse med Azure PowerShell
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Snabbstart: Skapa och fråga en Azure SQL data warehouse med Azure PowerShell
 
-Snabbt skapa ett Azure SQL data warehouse med hjälp av Azure PowerShell.
+Snabbt skapa ett Azure SQL data warehouse med Azure PowerShell.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-Den här kursen kräver Azure PowerShell Modulversion 5.1.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` reda på vilken version du har för närvarande. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). 
+För den här självstudien krävs Azure PowerShell-modul version 5.1.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). 
 
 
 > [!NOTE]
@@ -39,13 +39,13 @@ Logga in på Azure-prenumerationen med kommandot [Add-AzureRmAccount](/powershel
 Add-AzureRmAccount
 ```
 
-Om du vill se vilken prenumeration som du använder kör [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+Om du vill se vilken prenumeration du använder kör du [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Om du behöver använda en annan prenumeration än standardvärdet kör [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription).
+Om du behöver använda en annan prenumeration än standardprenumerationen kör du [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription).
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "MySubscription"
@@ -75,14 +75,14 @@ $databasename = "mySampleDataWarehosue"
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med kommandot [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westeurope`.
+Skapa en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med kommandot [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westeurope`.
 
 ```powershell
 New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Skapa en logisk server
 
-Skapa en [logisk Azure SQL-server](../sql-database/sql-database-servers-databases.md#what-is-an-azure-sql-logical-server) med hjälp av den [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) kommando. En logisk server innehåller en uppsättning databaser som hanteras som en grupp. I följande exempel skapas en server med ett slumpmässigt namn i resursgruppen med en administratörsinloggning med namnet `ServerAdmin` och lösenordet `ChangeYourAdminPassword1`. Ersätt dessa fördefinierade värden efter behov.
+Skapa en [logiska Azure SQL-servern](../sql-database/sql-database-logical-servers.md) med hjälp av den [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) kommando. En logisk server innehåller en uppsättning databaser som hanteras som en grupp. I följande exempel skapas en server med ett slumpmässigt namn i resursgruppen med en administratörsinloggning med namnet `ServerAdmin` och lösenordet `ChangeYourAdminPassword1`. Ersätt dessa fördefinierade värden efter behov.
 
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
@@ -93,7 +93,7 @@ New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>Konfigurera en serverbrandväggsregel
 
-Skapa en [Azure SQL-servernivå brandväggsregel](../sql-database/sql-database-firewall-configure.md) med hjälp av den [ny AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) kommando. En brandväggsregel på servernivå kan ett externt program, till exempel SQL Server Management Studio eller SQLCMD-verktyget för att ansluta till ett SQL data warehouse genom brandväggen för SQL Data Warehouse-tjänsten. I följande exempel öppnas brandväggen bara för andra Azure-resurser. Aktivera extern anslutning, ändra IP-adressen till en adress som är lämplig för din miljö. Öppna alla IP-adresser genom att använda 0.0.0.0 som den första IP-adressen och 255.255.255.255 som slutadress.
+Skapa en [brandväggsregel för Azure SQL-servernivå](../sql-database/sql-database-firewall-configure.md) med hjälp av den [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) kommando. En brandväggsregel på servernivå gör att externa program, till exempel SQL Server Management Studio eller SQLCMD-verktyget för att ansluta till ett SQL data warehouse via SQL Data Warehouse-tjänstens brandvägg. I följande exempel öppnas brandväggen bara för andra Azure-resurser. Aktivera extern anslutning, ändra IP-adressen till en adress som är lämplig för din miljö. Öppna alla IP-adresser genom att använda 0.0.0.0 som den första IP-adressen och 255.255.255.255 som slutadress.
 
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
@@ -102,12 +102,12 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> SQL Database och SQL Data Warehouse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 nekas av nätverkets brandvägg. I så fall, kan du inte ansluta till din Azure SQL-server om din IT-avdelning öppnar port 1433.
+> SQL Database och SQL Data Warehouse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 nekas av nätverkets brandvägg. I så fall kan du inte ansluta till Azure SQL-servern om inte din IT-avdelning öppnar port 1433.
 >
 
 
 ## <a name="create-a-data-warehouse-with-sample-data"></a>Skapa ett data warehouse med exempeldata
-Det här exemplet skapar ett data warehouse med hjälp av de tidigare definierade variablerna.  Den anger tjänstmålet DW400, vilket är en lägre kostnad startpunkt för ditt informationslager. 
+Det här exemplet skapar ett data warehouse med hjälp av tidigare definierade variablerna.  Den anger tjänstmålet som DW400, vilket är en lägre kostnad startpunkt för ditt informationslager. 
 
 ```Powershell
 New-AzureRmSqlDatabase `
@@ -122,7 +122,7 @@ New-AzureRmSqlDatabase `
 
 Erfordrade parametrar är:
 
-* **RequestedServiceObjectiveName**: mängden [datalager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) du begär. Om du ökar den här mängden ökas beräkna kostnaden. En lista över värden som stöds, se [minne och samtidighet gränser](memory-and-concurrency-limits.md).
+* **RequestedServiceObjectiveName**: mängden [data informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) du begär. Öka den mängden ökar beräkningskostnader. En lista över värden som stöds finns i [minne och samtidighet gränser](memory-and-concurrency-limits.md).
 * **DatabaseName**: Namnet på det SQL Data Warehouse som du skapar.
 * **ServerName**: namnet på den server som du använder för att skapa.
 * **ResourceGroupName**: Resursgruppen som du använder dig av. Använd Get-AzureResource för att hitta tillgängliga resursgrupper i din prenumeration.
@@ -133,7 +133,7 @@ Valfria parametrar är:
 - **CollationName**: Standardsortering om inte annat anges är SQL_Latin1_General_CP1_CI_AS. Sorteringen kan inte ändras för en databas.
 - **MaxSizeBytes**: Maximal standardstorlek för en databas är 10 GB.
 
-Mer information om parameteralternativen finns [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
+Mer information om parameteralternativen finns i [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

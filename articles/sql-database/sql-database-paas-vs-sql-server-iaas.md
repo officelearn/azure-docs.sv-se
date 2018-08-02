@@ -8,23 +8,36 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: afc48a36b8c26bde4d86ff6277bb2c511d14bace
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: a6d6a7639d3db0cc7d194ca9fae126ad9a2cc3ba
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091872"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413662"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Välj ett molnbaserat SQL Server-alternativ: Azure SQL (PaaS) Database eller SQL Server på Azure Virtual Machines (IaaS)
 
 I Azure, kan du ha dina SQL Server-arbetsbelastningar som körs i en värdbaserad infrastruktur (IaaS) eller som körs som en värdbaserad tjänst ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)):
 
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): en SQL-databasmotorn, baserat på Enterprise-utgåvan av SQL Server, som är optimerad för utveckling av moderna program. Azure SQL Database erbjuder två versioner av SQL som en värdbaserad tjänst: logiska servrar och [Azure SQL Database-hanterade instanser (förhandsversion)](sql-database-managed-instance.md). Lägger till ytterligare funktioner som inte är tillgängliga i SQL Server, som inbyggd intelligens och hantering med båda versionerna Azure SQL Database. Med den första versionen, kan du ha en logisk server som innehåller [enkla databaser](sql-database-servers-databases.md) och du kan gruppera servrar i en [elastisk pool](sql-database-elastic-pool.md) att dela resurser och minska kostnaderna. En logisk Azure SQL Database-server som innehåller enkel och delade databaser erbjuder de flesta databas-omfattande funktioner för SQL Server. Med Azure SQL Database Managed Instance erbjuder Azure SQL Database delade resurser för databaser och ytterligare instans-omfattande funktioner. Azure SQL Database Managed Instance stöder Databasmigrering med minimal inga ändringar i databasen.
-* [SQL Server på Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server är installerad och ligger i molnet på Windows Server eller Linux-datorer (VM) som körs på Azure, även kallat en infrastruktur som en tjänst (IaaS). SQL Server på Azure virtual machines är ett bra alternativ för att migrera lokala SQL Server-databaser och program utan några ändringar i databasen. Alla nya versioner och utgåvor av SQL Server är tillgängliga för installation i en IaaS-dator. Den viktigaste skillnaden från SQL-databas är att SQL Server-datorer tillåter fullständig kontroll över databasmotorn. Du kan välja när Underhåll/korrigeringar börjar att ändra återställningsmodellen till simple eller massloggade för att möjliggöra snabbare inläsning mindre loggen, pausa eller starta motorn när de behövs och du kan anpassa SQL Server database engine. Med den här ytterligare kontroll levereras med tillagda ansvar att hantera de virtuella datorerna.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): en SQL-databasmotorn, baserat på Enterprise-utgåvan av SQL Server, som är optimerad för utveckling av moderna program. Azure SQL Database erbjuder flera alternativ:
+  - Du kan distribuera en enkel databas till en [logisk server](sql-database-logical-servers.md).
+  - Du kan distribuera till en [elastisk pool](sql-database-elastic-pool.md) på en [logisk server](sql-database-logical-servers.md) att dela resurser och minska kostnaderna. 
 
-Lär dig hur varje alternativ passar in i Microsofts dataplattform och få hjälp med att matcha rätt alternativ för dina verksamhetsbehov. Oavsett om du prioriterar kostnadsbesparingar eller en minimering av administration över allt annat, kan den här artikeln hjälpa dig att välja det angreppssätt som ger bäst resultat för de verksamhetskrav som är viktigast för dig.
+      > [!NOTE]
+      > En Azure SQL-databas som innehåller enkel och delade databaser erbjuder de flesta databas-omfattande funktioner för SQL Server.
+
+      Följande bild visar dessa distributionsalternativ:
+
+      ![distributionsalternativ](./media/sql-database-technical-overview/deployment-options.png) 
+  - Du kan distribuera till en [Azure SQL Database-hanterade instanser (förhandsversion)](sql-database-managed-instance.md). 
+
+      > [!NOTE]
+      > Lägger till ytterligare funktioner som inte är tillgängliga i SQL Server, som inbyggd intelligens och hantering med båda versionerna Azure SQL Database. Med den första versionen med Azure SQL Database Managed Instance, erbjuder Azure SQL Database delade resurser för databaser och ytterligare instans-omfattande funktioner. Azure SQL Database Managed Instance stöder Databasmigrering med minimal inga ändringar i databasen.
+- [SQL Server på Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server är installerad och ligger i molnet på Windows Server eller Linux-datorer (VM) som körs på Azure, även kallat en infrastruktur som en tjänst (IaaS). SQL Server på Azure virtual machines är ett bra alternativ för att migrera lokala SQL Server-databaser och program utan några ändringar i databasen. Alla nya versioner och utgåvor av SQL Server är tillgängliga för installation i en IaaS-dator. Den viktigaste skillnaden från SQL-databas är att SQL Server-datorer tillåter fullständig kontroll över databasmotorn. Du kan välja när Underhåll/korrigeringar börjar att ändra återställningsmodellen till simple eller massloggade för att möjliggöra snabbare inläsning mindre loggen, pausa eller starta motorn när de behövs och du kan anpassa SQL Server database engine. Med den här ytterligare kontroll levereras med tillagda ansvar att hantera de virtuella datorerna.
+
+Lär dig hur varje alternativ för distribution som passar in i Microsofts dataplattform och få hjälp med att matcha rätt alternativ för dina affärsbehov. Oavsett om du prioriterar kostnadsbesparingar eller en minimering av administration över allt annat, kan den här artikeln hjälpa dig att välja det angreppssätt som ger bäst resultat för de verksamhetskrav som är viktigast för dig.
 
 ## <a name="microsofts-sql-data-platform"></a>Microsofts dataplattform för SQL
 
@@ -45,7 +58,7 @@ I följande avsnitt går vi igenom SQL Server i det offentliga Microsoft-molnet:
 
 ## <a name="a-closer-look-at-azure-sql-database-and-sql-server-on-azure-vms"></a>En närmare titt på Azure SQL Database och SQL Server på virtuella Azure-datorer
 
-**Azure SQL Database** är en relationsdatabas databas-som-en-tjänst (DBaaS) i Azure-molnet som ligger branschkategorin av *Platform-as-a-Service (PaaS)*. [SQL Database](sql-database-technical-overview.md) bygger på standardiserad maskinvara och programvara som ägs, finns hos och hanteras av Microsoft. Du kan använda inbyggda egenskaper och funktioner som kräver omfattande konfiguration i SQL Server med SQL-databas. När du använder SQL Database, betalar du per användning med alternativ att skala upp eller ut för mer kraft utan avbrott. Azure SQL-databas, med stöd för både [enkla databaser](sql-database-servers-databases.md) och [elastiska pooler](sql-database-elastic-pool.md) för delning av resurser, är en perfekt miljö för att utveckla nya program i molnet. Och med [Azure SQL Database Managed Instance](sql-database-managed-instance.md), du kan använda din egen licens. Dessutom kan det här alternativet innehåller alla PaaS fördelarna med Azure SQL Database men lägger till funktioner som tidigare endast fanns i SQL-datorer. Detta omfattar ett virtuellt nätverk (VNet) och nästan 100% kompatibilitet med en lokal SQL Server. [Hanterad instans](sql-database-managed-instance.md) är idealisk för den lokala databasen migreringar till Azure med minimala ändringar som krävs. 
+**Azure SQL Database** är en relationsdatabas databas-som-en-tjänst (DBaaS) i Azure-molnet som ligger branschkategorin av *Platform-as-a-Service (PaaS)*. [SQL Database](sql-database-technical-overview.md) bygger på standardiserad maskinvara och programvara som ägs, finns hos och hanteras av Microsoft. Du kan använda inbyggda egenskaper och funktioner som kräver omfattande konfiguration i SQL Server med SQL-databas. När du använder SQL Database, betalar du per användning med alternativ att skala upp eller ut för mer kraft utan avbrott. Azure SQL Database är en perfekt miljö för att utveckla nya program i molnet. Och med [Azure SQL Database Managed Instance](sql-database-managed-instance.md), du kan använda din egen licens. Dessutom kan det här alternativet innehåller alla PaaS fördelarna med Azure SQL Database men lägger till funktioner som tidigare endast fanns i SQL-datorer. Detta omfattar ett virtuellt nätverk (VNet) och nästan 100% kompatibilitet med en lokal SQL Server. [Hanterad instans](sql-database-managed-instance.md) är idealisk för den lokala databasen migreringar till Azure med minimala ändringar som krävs. 
 
 **SQL Server på virtuella Azure-datorer (VM:ar)** faller inom branschkategorin *Infrastruktur som en tjänst (IaaS)* och låter dig köra SQL Server på en virtuell dator i molnet. [SQL Server-datorer](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) också köra på standardiserad maskinvara som är ägs, finns hos och hanteras av Microsoft. När du använder SQL Server på en virtuell dator, kan du antingen betala – precis som för en SQL Server-licens som redan ingår i en SQL Server-avbildning eller enkelt använda en befintlig licens. Du kan också stoppa eller återuppta den virtuella datorn efter behov.
 

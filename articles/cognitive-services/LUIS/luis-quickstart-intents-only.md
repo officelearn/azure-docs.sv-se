@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 06/27/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 4be36e9d5b34c46138a657429680689014d0fd3d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 578fdb5593e75e3584e81d73d7643162f7af5cbc
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237782"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358146"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Självstudie: 1. Skapa en app med en anpassad domän
 I den här självstudien skapar du en app som visar hur du använder **avsikter** för att ta reda på användarens _avsikt_ baserat på yttrandet (texten) de skickar till appen. När du är klar har du en LUIS-slutpunkt som körs i molnet.
@@ -32,7 +32,7 @@ Den här appen är den enklaste typen av LUIS-app eftersom den inte extraherar d
 > * Lägga till exempelyttranden i avsikten ApplyForJob 
 > * Träna, publicera och fråga slutpunkten igen 
 
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#luis-website) för att kunna redigera LUIS-programmet.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="purpose-of-the-app"></a>Syftet med appen
 Den här appen innehåller ett par avsikter. Den första avsikten, **`GetJobInformation`**, identifierar när en användare vill ha information om lediga tjänster i ett företag. Den andra avsikten, **`None`**, identifierar alla andra typer av yttranden. Senare i snabbstarten lägger vi till en tredje avsikt, `ApplyForJob`. 
@@ -49,8 +49,6 @@ Den här appen innehåller ett par avsikter. Den första avsikten, **`GetJobInfo
     ![Ny LUIS-app](./media/luis-quickstart-intents-only/create-app.png)
 
 4. När processen är klar visar appen sidan **Intents** (Avsikter) med avsikten **None** (Ingen). 
-
-    [![](media/luis-quickstart-intents-only/intents-list.png "Skärmbild på sidan med en lista över avsikter")](media/luis-quickstart-intents-only/intents-list.png#lightbox)
 
 ## <a name="create-getjobinformation-intention"></a>Skapa avsikten GetJobInformation
 1. Välj **Create new intent** (Skapa ny avsikt). Ange det nya avsiktsnamnet `GetJobInformation`. Den här avsikten förväntas varje gång en användare vill ha information om lediga tjänster på ditt företag.
@@ -90,16 +88,16 @@ Den här appen innehåller ett par avsikter. Den första avsikten, **`GetJobInfo
 
     ![Knappen Train (Träna)](./media/luis-quickstart-intents-only/train-button.png)
 
-    Träningen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
+2. Träningen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
 
     ![Statusfält för avslutad träning](./media/luis-quickstart-intents-only/trained.png)
 
-2. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Publish** (Publicera) för att öppna sidan Publish (Publicera). Produktionsplatsen väljs som standard. Välj knappen **Publish** (Publicera) bredvid valet av produktionsplats. Publiceringen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
+## <a name="publish-app-to-endpoint"></a>Publicera app till slutpunkt
 
-    Du behöver inte skapa en LUIS-slutpunktsnyckel i Azure-portalen innan du publicerar eller testar slutpunktens URL. Varje LUIS-app har en kostnadsfri startnyckel för redigering. Det ger dig obegränsad redigering och [några slutpunktsanrop](luis-boundaries.md#key-limits). 
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>Fråga slutpunkten om avsikten GetJobInformation
-1. På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunktens URL i adressfältet. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Gå till slutet av URL:en i adressen och ange `I'm looking for a job with Natual Language Processing`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som något av exempelyttrandena i steg 4. Därför är det ett bra test och bör returnera avsikten `GetJobInformation` som den avsikt som har högst poäng. 
 
@@ -152,7 +150,10 @@ Gå tillbaka till webbläsarfliken för LUIS-webbplatsen och skapa en ny avsikt 
     [Träna och publicera](#train-and-publish-the-app) igen. 
 
 ## <a name="query-endpoint-for-applyforjob-intent"></a>Fråga slutpunkten om avsikten ApplyForJob
-På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. I det nya webbläsarfönstret anger du `Can I submit my resume for job 235986` i slutet av URL:en. 
+
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
+2. I det nya webbläsarfönstret anger du `Can I submit my resume for job 235986` i slutet av URL:en. 
 
     ```
     {

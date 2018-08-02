@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: aafbf7d1b4a624d42e2caa96f9d3ebdfaee4efe6
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2e100f2019c3bb99e3909e64305ebe641e2a637e
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238013"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308977"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Självstudie: 7. Lägg till en enkel entitet och fraslista
 I den här självstudien skapar du en app som visar hur det går till att extrahera maskininlärningsdata från ett yttrande med hjälp av entiteten **Simple** (Enkel).
@@ -29,7 +29,7 @@ I den här självstudien skapar du en app som visar hur det går till att extrah
 > * Lägga till en fraslista för att förbättra extraheringen av jobbord
 > * Träna, publicera appen och skicka om fråga till slutpunkten
 
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#luis-website) för att kunna redigera LUIS-programmet.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 Om du inte har appen Human Resources (Personalfrågor) från självstudien om [composite entity](luis-tutorial-composite-entity.md) (sammansatt entitet) ska du [importera](luis-how-to-start-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json)-GitHub-lagringsplatsen.
@@ -70,8 +70,6 @@ Den här LUIS-appen har jobbnamn i flera avsikter. Genom att märka orden i en a
 ## <a name="create-job-simple-entity"></a>Skapa en enkel jobbentitet
 
 1. Kontrollera att Human Resources-appen (Personalfrågor) finns i avsnittet **Build** (Skapa) i LUIS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
-
-    [ ![Skärmbild på LUIS-appen med Build (Skapa) markerat i navigeringsfältet längst upp till höger](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
 
 2. På sidan **Intents** (Avsikter) väljer du avsikten **ApplyForJob**. 
 
@@ -139,22 +137,14 @@ LUIS känner inte till ändringarna av avsikterna och entiteterna (modellen) fö
     ![Meddelande om att träning är klar](./media/luis-quickstart-primary-and-secondary-data/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
-För att få en LUIS-förutsägelse i en chattrobot eller i ett annat program måste du publicera appen. 
 
-1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Publish** (Publicera). 
-
-2. Välj platsen Production (Produktionsplats) och knappen **Publish** (Publicera).
-
-    [![](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png "Skärmbild på sidan Publish (Publicera) med knappen Publish to production slot (Publicera till produktionsplats) markerad")](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png#lightbox)
-
-3. Publiceringen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Skicka fråga till slutpunkten med ett annat yttrande
-På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. 
 
-[![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "Skärmbild på sidan Publish (Publicera) med slutpunkt markerad")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunkts-URL i adressfältet. Gå till slutet av URL:en i adressen och ange `Here is my c.v. for the programmer job`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera yttrandena `ApplyForJob`.
+2. Gå till slutet av URL:en i adressen och ange `Here is my c.v. for the programmer job`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera yttrandena `ApplyForJob`.
 
 ```JSON
 {

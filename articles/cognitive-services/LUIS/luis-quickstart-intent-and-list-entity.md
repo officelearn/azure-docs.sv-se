@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 4ba2ba5d947a112f780579bf4b31ba38cb26ae03
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 4b842f9a00587e8a9771e6ca92806c09e711e6db
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222978"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345788"
 ---
 # <a name="tutorial-4-add-list-entity"></a>Självstudie: 4. Lägg till listentitet
 I den här självstudien skapar du en app som visar hur det går till att hämta data som matchar en fördefinierad lista. 
@@ -27,7 +27,7 @@ I den här självstudien skapar du en app som visar hur det går till att hämta
 > * Träna och publicera app
 > * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar
 
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#luis-website) för att kunna redigera LUIS-programmet.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 Om du inte har appen Human Resources (Personalfrågor) från självstudien om [regex-entiteten](luis-quickstart-intents-regex-entity.md) ska du [importera](luis-how-to-start-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json)-GitHub-lagringsplatsen.
@@ -71,11 +71,7 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
 1. Kontrollera att Human Resources-appen (Personalfrågor) finns i avsnittet **Build** (Skapa) i LUIS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
 
-    [ ![Skärmbild på LUIS-app med Build (Skapa) markerat i navigeringsfältet längst upp till höger](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png#lightbox)
-
 2. Välj **Create new intent** (Skapa ny avsikt). 
-
-    [ ![Skärmbild på sidan Intents (Avsikter) med knappen ”Create new intent” (Skapa ny avsikt) markerad](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-button.png#lightbox)
 
 3. Ange `MoveEmployee` i popup-dialogrutan och välj sedan **Done** (Klar). 
 
@@ -103,11 +99,7 @@ Avsikten **MoveEmployee** innehåller nu yttranden, och LUIS behöver förstå v
 
 1. Välj **Entities** (Entiteter) på den vänstra panelen.
 
-    [ ![Skärmbild på sidan Intent (Avsikt) med knappen Entities (Entiteter) markerad i navigeringen till vänster](./media/luis-quickstart-intent-and-list-entity/hr-select-entity-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-select-entity-button.png#lightbox)
-
 2. Välj **Create new entity** (Skapa ny entitet).
-
-    [ ![Skärmbild på sidan Entities (Entiteter) med alternativet Create new entity (Skapa ny entitet) markerat](./media/luis-quickstart-intent-and-list-entity/hr-create-new-entity-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-create-new-entity-button.png#lightbox)
 
 3. I dialogrutan för entiteter anger du `Employee` som entitetsnamn och **List** (Lista) som entitetstyp. Välj **Done** (Klar).  
 
@@ -153,136 +145,126 @@ LUIS känner inte till ändringarna av avsikterna och entiteterna (modellen) fö
     ![Träningen är klar](./media/luis-quickstart-intent-and-list-entity/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
-För att få en LUIS-förutsägelse i en chattrobot eller i ett annat program måste du publicera appen. 
 
-1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Publish** (Publicera). 
-
-    [![](media/luis-quickstart-intent-and-list-entity/publish.png "Skärmbild på publiceringsknapp som väljs")](media/luis-quickstart-intent-and-list-entity/publish.png#lightbox)
-
-2. Välj platsen Production (Produktionsplats) och knappen **Publish** (Publicera). 
-
-    [![](media/luis-quickstart-intent-and-list-entity/publish-to-production.png "Skärmbild på knappen ”Publish to production slot” (Publicera till produktionsplats) som väljs")](media/luis-quickstart-intent-and-list-entity/publish-to-production.png#lightbox)
-
-3. Publiceringen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Skicka fråga till slutpunkten med ett annat yttrande
-1. På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunkts-URL i adressfältet. 
 
-    [![](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png "Skärmbild på slutpunkts-URL på sidan Publish (Publicera)")](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png#lightbox)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
 2. Gå till slutet av URL:en i adressen och ange `shift 123-45-6789 from Z-1242 to T-54672`. Den sista frågesträngsparametern är `q`, yttrande**f**rågan. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `MoveEmployee` med `Employee` extraherad.
 
-```JSON
-{
-  "query": "shift 123-45-6789 from Z-1242 to T-54672",
-  "topScoringIntent": {
-    "intent": "MoveEmployee",
-    "score": 0.9882801
-  },
-  "intents": [
-    {
+  ```JSON
+  {
+    "query": "shift 123-45-6789 from Z-1242 to T-54672",
+    "topScoringIntent": {
       "intent": "MoveEmployee",
       "score": 0.9882801
     },
-    {
-      "intent": "FindForm",
-      "score": 0.016044287
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.007611245
-    },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.007063288
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00684710965
-    },
-    {
-      "intent": "None",
-      "score": 0.00304174074
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.002981
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.00212222221
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.00191026414
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.0007461446
-    }
-  ],
-  "entities": [
-    {
-      "entity": "123 - 45 - 6789",
-      "type": "Employee",
-      "startIndex": 6,
-      "endIndex": 16,
-      "resolution": {
-        "values": [
-          "Employee-24612"
-        ]
+    "intents": [
+      {
+        "intent": "MoveEmployee",
+        "score": 0.9882801
+      },
+      {
+        "intent": "FindForm",
+        "score": 0.016044287
+      },
+      {
+        "intent": "GetJobInformation",
+        "score": 0.007611245
+      },
+      {
+        "intent": "ApplyForJob",
+        "score": 0.007063288
+      },
+      {
+        "intent": "Utilities.StartOver",
+        "score": 0.00684710965
+      },
+      {
+        "intent": "None",
+        "score": 0.00304174074
+      },
+      {
+        "intent": "Utilities.Help",
+        "score": 0.002981
+      },
+      {
+        "intent": "Utilities.Confirm",
+        "score": 0.00212222221
+      },
+      {
+        "intent": "Utilities.Cancel",
+        "score": 0.00191026414
+      },
+      {
+        "intent": "Utilities.Stop",
+        "score": 0.0007461446
       }
-    },
-    {
-      "entity": "123",
-      "type": "builtin.number",
-      "startIndex": 6,
-      "endIndex": 8,
-      "resolution": {
-        "value": "123"
+    ],
+    "entities": [
+      {
+        "entity": "123 - 45 - 6789",
+        "type": "Employee",
+        "startIndex": 6,
+        "endIndex": 16,
+        "resolution": {
+          "values": [
+            "Employee-24612"
+          ]
+        }
+      },
+      {
+        "entity": "123",
+        "type": "builtin.number",
+        "startIndex": 6,
+        "endIndex": 8,
+        "resolution": {
+          "value": "123"
+        }
+      },
+      {
+        "entity": "45",
+        "type": "builtin.number",
+        "startIndex": 10,
+        "endIndex": 11,
+        "resolution": {
+          "value": "45"
+        }
+      },
+      {
+        "entity": "6789",
+        "type": "builtin.number",
+        "startIndex": 13,
+        "endIndex": 16,
+        "resolution": {
+          "value": "6789"
+        }
+      },
+      {
+        "entity": "-1242",
+        "type": "builtin.number",
+        "startIndex": 24,
+        "endIndex": 28,
+        "resolution": {
+          "value": "-1242"
+        }
+      },
+      {
+        "entity": "-54672",
+        "type": "builtin.number",
+        "startIndex": 34,
+        "endIndex": 39,
+        "resolution": {
+          "value": "-54672"
+        }
       }
-    },
-    {
-      "entity": "45",
-      "type": "builtin.number",
-      "startIndex": 10,
-      "endIndex": 11,
-      "resolution": {
-        "value": "45"
-      }
-    },
-    {
-      "entity": "6789",
-      "type": "builtin.number",
-      "startIndex": 13,
-      "endIndex": 16,
-      "resolution": {
-        "value": "6789"
-      }
-    },
-    {
-      "entity": "-1242",
-      "type": "builtin.number",
-      "startIndex": 24,
-      "endIndex": 28,
-      "resolution": {
-        "value": "-1242"
-      }
-    },
-    {
-      "entity": "-54672",
-      "type": "builtin.number",
-      "startIndex": 34,
-      "endIndex": 39,
-      "resolution": {
-        "value": "-54672"
-      }
-    }
-  ]
-}
-```
+    ]
+  }
+  ```
 
-Medarbetaren hittades och returnerades som typen `Employee` med lösningsvärdet `Employee-24612`.
+  Medarbetaren hittades och returnerades som typen `Employee` med lösningsvärdet `Employee-24612`.
 
 ## <a name="where-is-the-natural-language-processing-in-the-list-entity"></a>Var är bearbetningen av naturligt språk i listentiteten? 
 Eftersom listentiteten är en exakt matchning förlitar den sig inte på bearbetning av naturligt språk (eller maskininlärning). LUIS använder bearbetning av naturligt språk (eller maskininlärning) för att välja rätt avsikt med högst poäng. Dessutom kan ett yttrande vara en blandning av mer än en entitet eller mer än en typ av entitet. Varje yttrande bearbetas för alla entiteter i appen, inklusive entiteter för bearbetning av naturligt språk (eller maskininlärning).

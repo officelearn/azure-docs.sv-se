@@ -61,7 +61,7 @@
           href: tutorial-manage-web-traffic-powershell.md
         - name: Mall
           href: create-vmss-template.md
-    - name: Konfigurera intern belastningsutjämnare
+    - name: Konfigurera intern lastbalanserare
       items:
         - name: Azure PowerShell
           href: application-gateway-ilb-arm.md
@@ -71,6 +71,8 @@
           href: create-ssl-portal.md
         - name: SSL-avslutning med Azure PowerShell
           href: tutorial-ssl-powershell.md
+        - name: SSL-avslutning (slutpunkt till slutpunkt) med Azure PowerShell
+          href: application-gateway-end-to-end-ssl-powershell.md
         - name: Förnya certifikat
           href: renew-certificates.md
         - name: Konfigurera SSL-princip

@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 156dc9a825185194c54b58c52bc5ebae47afb918
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414665"
 documentType: LandingData
 title: Azure IoT Edge
 metadata:
@@ -11,14 +17,17 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/21/2018
   ms.author: kgremban
-  ms.openlocfilehash: 4c2ffde78b2a29601722f4233c69c99b37f332d5
-  ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/27/2018
-  ms.locfileid: "37028548"
 abstract:
   description: Azure IoT Edge är en tjänst för Sakernas Internet (IoT) som bygger på IoT Hub. Den här tjänsten är avsedd för kunder som vill analysera data på enheter, dvs. ”vid gränsen”, i stället för i molnet. När delar av din arbetsbelastning flyttas till Edge kan dina enheter ägna mindre tid åt att skicka meddelanden till molnet och i stället reagera snabbare på tillståndsändringar.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ./media/index/iot-edge-thumbnail.png
+      width: 250
+    title: Skapa den intelligenta gränsen med Azure IoT Edge (6:59)
+    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Creating-the-intelligent-edge-with-Azure-IoT-Edge
+    width: 250
 sections:
 - title: Snabbstarter på 5 minuter
   items:
@@ -48,4 +57,5 @@ sections:
     - html: <a href="/azure/iot-edge/tutorial-csharp-module">Filtrera data med en C#-modul</a>
     - html: <a href="/azure/iot-edge/tutorial-python-module">Filtrera data med en Python-modul</a>
     - html: <a href="/azure/iot-edge/tutorial-node-module">Filtrera data med en Node.js-modul</a>
+    - html: <a href="/azure/iot-edge/tutorial-c-module">Filtrera data med en C-modul</a>
     - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">Lagra data på gränsen med SQL Server</a>

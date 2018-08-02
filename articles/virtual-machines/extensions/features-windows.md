@@ -1,9 +1,9 @@
 ---
 title: Azure VM-tillägg och funktioner för Windows | Microsoft Docs
-description: Lär dig vilka tillägg som är tillgängliga för virtuella Azure-datorer, grupperade efter vad de tillhandahålla och förbättra.
+description: Lär dig vilka tillägg som finns tillgängliga för Azure-datorer, grupperade efter vad de tillhandahåller eller förbättra.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -14,67 +14,67 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: danis
+ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9e147e2cbe5ff42562d6fcfab62460df48f3d65
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 939c8d203382d76c1b163eb68143f3fff78d71d3
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809734"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413046"
 ---
-# <a name="virtual-machine-extensions-and-features-for-windows"></a>Tillägg för virtuell dator och funktioner i Windows
+# <a name="virtual-machine-extensions-and-features-for-windows"></a>Virtuella datorer, tillägg och funktioner för Windows
 
-Virtuell Azure-dator (VM)-tillägg är små program som innehåller efter distributionen konfiguration och automatisering av uppgifter på Azure Virtual Machines. Om exempelvis en virtuell dator kräver Programvaruinstallation, antivirus skydd, eller om du vill köra ett skript inuti den VM-tillägget kan användas. Azure VM-tillägg kan köras med Azure CLI, PowerShell, Azure Resource Manager-mallar och Azure-portalen. Tillägg kan levereras tillsammans med en ny VM-distribution eller köra mot alla befintliga system.
+Tillägg för Azure-dator (VM) är små program som ger efter distributionen konfiguration och automatisering av uppgifter på Azure Virtual Machines. Exempel: om en virtuell dator kräver Programvaruinstallation, antivirusskydd, eller för att köra ett skript inuti den kan ett VM-tillägg användas. Azure VM-tillägg kan köras med Azure CLI, PowerShell, Azure Resource Manager-mallar och Azure-portalen. Tillägg kan levereras tillsammans med en ny VM-distribution eller kör mot alla befintliga system.
 
-Den här artikeln innehåller en översikt över krav för att använda Azure VM-tillägg på VM-tillägg och anvisningar om hur du identifierar, hantera och ta bort VM-tillägg. Den här artikeln innehåller allmänna informationen eftersom många VM-tillägg är tillgängligt, var och en med en potentiellt unik konfiguration. Tillägget-specifik information finns i varje dokument specifika för enskilda tillägg.
+Den här artikeln innehåller en översikt över VM-tillägg, krav för att använda Azure VM-tillägg och anvisningar för hur du identifiera, hantera och ta bort VM-tillägg. Den här artikeln innehåller allmänna informationen eftersom många VM-tillägg är tillgängligt, var och en med en potentiellt unika konfigurationer. Tillägget-specifik information finns i varje dokument specifika för enskilda tillägget.
 
 ## <a name="use-cases-and-samples"></a>Användningsfall och exempel
 
-Det finns flera olika Virtuella Azure-tillägg, var och en med en specifik användningsfall. Några exempel är:
+Flera olika Azure VM-tillägg som finns tillgängliga, var och en med en specifik användningsfall. Några exempel är:
 
-- Använd PowerShell önskade tillstånd konfigurationer på en virtuell dator med DSC-tillägg för Windows. Mer information finns i [tillägg för konfiguration av Azure önskade tillstånd](dsc-overview.md).
-- Konfigurera övervakning av en virtuell dator med Microsoft Monitoring Agent VM-tillägget. Mer information finns i [ansluta virtuella Azure-datorer till logganalys](../../log-analytics/log-analytics-azure-vm-extension.md).
-- Konfigurera en virtuell dator i Azure med hjälp av Chef. Mer information finns i [automatisera Azure VM-distribution med Chef](../windows/chef-automation.md).
-- Konfigurera övervakning av Azure-infrastrukturen med filnamnstillägget Datadog. Mer information finns i [Datadog blogg](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
+- Använd PowerShell Desired State konfigurationer på en virtuell dator med DSC-tillägget för Windows. Mer information finns i [Azure Desired State configuration-tillägget](dsc-overview.md).
+- Konfigurera övervakning av en virtuell dator med Microsoft Monitoring Agent-VM-tillägget. Mer information finns i [ansluta virtuella Azure-datorer till Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Konfigurera en Azure-dator med Chef. Mer information finns i [automatisera Azure VM-distribution med Chef](../windows/chef-automation.md).
+- Konfigurera övervakning av Azure-infrastrukturen med Datadog-tillägget. Mer information finns i den [Datadog blogg](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
-Förutom processpecifika tillägg är ett tillägg för anpassat skript tillgängligt för både Windows och Linux virtuella datorer. Tillägget för anpassat skript för Windows kan alla PowerShell.skript kan köras på en virtuell dator. Anpassade skript är användbara för att utforma Azure-distributioner som kräver konfiguration efter vilken interna Azure verktygsuppsättning kan ge. Mer information finns i [tillägget Windows VM anpassade skript](custom-script-windows.md).
+Förutom process-specifika tillägg finns ett anpassat skripttillägg för både Windows och Linux-datorer. Tillägget för anpassat skript för Windows kan alla PowerShell.skript som ska köras på en virtuell dator. Anpassade skript är användbara för att utforma Azure-distributioner som kräver konfigurering, förutom vilka interna Azure-verktyg kan ge. Mer information finns i [anpassade skripttillägg för Windows-VM](custom-script-windows.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att hantera tillägg på den virtuella datorn måste Azure Linux-agenten installerad. Vissa enskilda tillägg har förutsättningar, till exempel åtkomst till resurser eller beroenden.
+För att hantera tillägg på den virtuella datorn, måste du Azure Linux Agent installerad. Vissa enskilda tillägg har förutsättningar, till exempel åtkomst till resurser eller beroenden.
 
 ### <a name="azure-vm-agent"></a>Virtuell Azure-datoragent
 
-Virtuella Azure-agenten hanterar samverkan mellan en virtuell dator i Azure och Azure-infrastrukturkontrollanten. Den Virtuella datoragenten är ansvarig för många funktioner för att distribuera och hantera virtuella Azure-datorer, inklusive kör VM-tillägg. Virtuella Azure-agenten är förinstallerat på Azure Marketplace-bilder och kan installeras manuellt på operativsystem som stöds. Azure VM-agenten för Windows kallas Windows gästagenten.
+Azure VM-agenten hanterar samverkan mellan en Azure-dator och Azure-infrastrukturkontrollanten. VM-agenten är ansvarig för många funktionella aspekter av distribution och hantering av virtuella datorer i Azure, inklusive köra VM-tillägg. Azure VM-agenten är förinstallerade på Azure Marketplace-avbildningar och kan installeras manuellt på operativsystem som stöds. Azure VM-agenten för Windows kallas för Windows-gästagenten.
 
-Information om operativsystem som stöds och installationsanvisningar finns [virtuella Azure-datorn agent](agent-windows.md).
+Information om operativsystem som stöds och installationsanvisningar finns i [Azure VM agent](agent-windows.md).
 
-#### <a name="supported-agent-versions"></a>Agent som stöds versioner
+#### <a name="supported-agent-versions"></a>Versioner av agent som stöds
 
-För att kunna ge bästa möjliga upplevelse, finns det lägsta versioner av agenten. Mer information finns i [den här artikeln](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+Det finns minimiversioner av agenten för att tillhandahålla den bästa möjliga upplevelsen. Mer information finns i [den här artikeln](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 #### <a name="supported-oses"></a>Stödda OS
 
-Windows-gästagenten körs på flera OS men tillägg framework har en gräns för operativsystem som tillägg. Mer information finns i [den här artikeln] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems ).
+Windows-gästagenten körs på flera operativsystem, men ramen tillägg har en gräns för operativsystem som tillägg. Mer information finns i [article] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems ).
 
-Vissa tillägg stöds inte över alla operativsystem och kan skapa *felkod 51, 'stöds inte OS-*. I dokumentationen enskilda tillägg för support.
+Vissa tillägg stöds inte i alla operativsystem och kan skapa *felkod 51, 'Operativsystmet'*. Dokumentationen enskilda tillägg för support.
 
 #### <a name="network-access"></a>Nätverksåtkomst
 
-Tilläggspaket hämtas från databasen för Azure Storage-tillägget och tillägget status överföringar skickas till Azure Storage. Om du använder [stöds](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) versionen av agenter, du behöver inte tillåter åtkomst till Azure Storage i VM-region som agenten kan använda för att dirigera kommunikation till Azure-infrastrukturkontrollanten för agenten kommunikation. Om du är på en version som inte stöds av agenten måste du tillåta utgående åtkomst till Azure-lagring i den regionen från den virtuella datorn.
+Tilläggspaket laddas ned från Azure Storage-tilläggscentrallagret och tillägget status uppladdningar skickas till Azure Storage. Om du använder [stöds](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) version av agenterna kan du inte behöver att tillåta åtkomst till Azure Storage i regionen VM kan använda agenten för att omdirigera kommunikationen till Azure-infrastrukturkontrollanten för agenten kommunikation. Om du har en version som inte stöds av agenten kan behöva du tillåter utgående åtkomst till Azure storage i regionen från den virtuella datorn.
 
 > [!IMPORTANT]
-> Om du har blockerat åtkomsten till *168.63.129.1* med gäst-brandväggen, sedan tillägg misslyckas oavsett ovan.
+> Om du har blockerat åtkomsten till *168.63.129.1* med gästdatorns brandvägg, sedan tillägg misslyckas oavsett ovan.
 
-Agenter kan bara användas för att ladda ned tilläggspaket och Rapporteringsstatus. Till exempel om en installation av tillägget måste hämtas skript från GitHub (anpassade skript) eller behöver åtkomst till Azure Storage (Azure Backup) sedan ytterligare brandvägg/nätverk Säkerhet grupp portar måste öppnas. Olika tillägg har olika krav, eftersom de är program i sin egen rätt. För tillägg som kräver åtkomst till Azure Storage kan du tillåta åtkomst med hjälp av Azure NSG Service taggar för [lagring](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Agenter kan bara användas för att ladda ned tilläggspaket och Rapporteringsstatus. Till exempel om en installation av tillägget måste hämta ett skript från GitHub (anpassade skript) eller behöver åtkomst till Azure Storage (Azure Backup), sedan ytterligare brandvägg/Network Security Group portar måste du öppna. Olika tillägg har olika krav, eftersom de är program självständigt. För tillägg som kräver åtkomst till Azure Storage, kan du tillåta åtkomst med hjälp av Azure NSG-Tjänsttaggar för [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
-Gästagenten Windows har inte proxyserver som stöd att omdirigera trafik agentbegäranden via.
+Windows-Gästagenten har inte proxyserver som stöd att omdirigera trafik agentbegäranden via.
 
 ## <a name="discover-vm-extensions"></a>Identifiera VM-tillägg
 
-Det finns många olika VM-tillägg för användning med virtuella Azure-datorer. Om du vill se en fullständig lista över [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage). I följande exempel visar en lista över alla tillgängliga tillägg i den *WestUS* plats:
+Det finns många olika VM-tillägg för användning med virtuella Azure-datorer. Om du vill se en fullständig lista, använda [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage). I följande exempel visar en lista över alla tillgängliga tillägg i den *WestUS* plats:
 
 ```powershell
 Get-AzureRmVmImagePublisher -Location "WestUS" | `
@@ -84,13 +84,13 @@ Get-AzureRmVMExtensionImage | Select Type, Version
 
 ## <a name="run-vm-extensions"></a>Kör VM-tillägg
 
-Azure VM-tillägg som kör på befintliga virtuella datorer, vilket är användbart när du behöver göra konfigurationsändringar eller återställa anslutningen på en redan distribuerad virtuell dator. VM-tillägg kan också tillsammans med Azure Resource Manager mall-distributioner. Genom att använda tillägg med Resource Manager-mallar, virtuella datorer i Azure distribuerats och konfigurerats utan åtgärder från efter distributionen.
+Azure VM-tillägg som kör på befintliga virtuella datorer, vilket är användbart när du behöver göra konfigurationsändringar eller återställa anslutningen i en redan distribuerad virtuell dator. VM-tillägg kan också tillsammans med Azure Resource Manager malldistributioner. Genom att använda tillägg med Resource Manager-mallar, kan virtuella Azure-datorer distribueras och konfigurerats utan inblandning av efter distributionen.
 
 Följande metoder kan användas för att köra ett tillägg mot en befintlig virtuell dator.
 
 ### <a name="powershell"></a>PowerShell
 
-Det finns flera PowerShell-kommandon för att köra enskilda tillägg. Om du vill se en lista [Get-Command](/powershell/module/microsoft.powershell.core/get-command) och filtrera på *tillägget*:
+Det finns flera PowerShell-kommandon för att köra enskilda tillägg. Om du vill se en lista kan du använda [Get-Command](/powershell/module/microsoft.powershell.core/get-command) och filtrerar på *tillägget*:
 
 ```powershell
 Get-Command Set-AzureRM*Extension* -Module AzureRM.Compute
@@ -116,7 +116,7 @@ Cmdlet          Set-AzureRmVMSqlServerExtension                    4.5.0      Az
 Cmdlet          Set-AzureRmVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
 ```
 
-I följande exempel använder tillägget för anpassat skript för att hämta ett skript från en GitHub-databas på den virtuella måldatorn och kör skriptet. Mer information om tillägget för anpassat skript finns [översikt över tillägget för anpassat skript](custom-script-windows.md).
+I följande exempel använder tillägget för anpassat skript för att hämta ett skript från en GitHub-lagringsplatsen till den virtuella måldatorn och kör skriptet. Läs mer på det anpassade skripttillägget [översikt över tillägget för anpassat skript](custom-script-windows.md).
 
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
@@ -125,7 +125,7 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-I följande exempel används tillägget för virtuell dator åtkomst för att återställa lösenordet för administratörer av en virtuell Windows-dator till ett tillfälligt lösenord. Mer information om tillägget för virtuell dator åtkomst finns [Återställ Fjärrskrivbordstjänsten i en Windows VM](../windows/reset-rdp.md). När du har kört detta ska du återställa lösenord vid första inloggningen:
+I följande exempel används VM Access-tillägg för att återställa lösenordet för administratörer av en virtuell Windows-dator till ett tillfälligt lösenord. Mer information om VM Access-tillägg finns i [Återställ Fjärrskrivbordstjänsten i en Windows-VM](../windows/reset-rdp.md). När du har kört det här kan återställa du lösenordet vid första inloggningen:
 
 ```powershell
 $cred=Get-Credential
@@ -135,22 +135,22 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-Den `Set-AzureRmVMExtension` kommando kan användas för att starta alla VM-tillägg. Mer information finns i [Set AzureRmVMExtension referens](https://msdn.microsoft.com/library/mt603745.aspx).
+Den `Set-AzureRmVMExtension` kommando kan användas för att starta alla VM-tillägg. Mer information finns i den [Set-AzureRmVMExtension referens](https://msdn.microsoft.com/library/mt603745.aspx).
 
 
 ### <a name="azure-portal"></a>Azure Portal
 
-VM-tillägg kan tillämpas på en befintlig virtuell dator via Azure-portalen. Välj den virtuella datorn i portalen, Välj **tillägg**och välj **Lägg till**. Välj tillägg du vill använda från listan över tillgängliga tillägg och följ instruktionerna i guiden.
+VM-tillägg kan tillämpas på en befintlig virtuell dator via Azure portal. Välj den virtuella datorn i portalen, väljer **tillägg**och välj sedan **Lägg till**. Välj de tillägg du vill använda från listan över tillgängliga tillägg och följ instruktionerna i guiden.
 
 I följande exempel visas att installationen av tillägget Microsoft Antimalware från Azure portal:
 
-![Installera tillägg för program mot skadlig kod](./media/features-windows/installantimalwareextension.png)
+![Installera tillägget mot skadlig kod](./media/features-windows/installantimalwareextension.png)
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
-VM-tillägg kan läggas till i en Azure Resource Manager-mall och utförs med distributionen av mallen. När du distribuerar ett tillägg med en mall kan skapa du helt konfigurerade Azure-distributioner. Till exempel följande JSON hämtas från en resurshanterare mall distribuerar en uppsättning belastningsutjämnade virtuella datorer och en Azure SQL database och sedan installerar ett program med .NET Core på varje virtuell dator. Tillägg för virtuell dator hand tar om installationen av programmet.
+VM-tillägg kan läggas till i en Azure Resource Manager-mall och körs med distributionen av mallen. När du distribuerar ett tillägg med en mall kan skapa du helt konfigurerade Azure-distributioner. Till exempel följande JSON utförs från en resurshanterare mallen distribuerar en uppsättning belastningsutjämnade virtuella datorer och en Azure SQL database och sedan installerar ett program med .NET Core på varje virtuell dator. VM-tillägget hand tar om programvaran ska installeras.
 
-Mer information finns i [fullständig Resource Manager-mall](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Mer information finns i den [fullständiga Resource Manager-mall](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
 ```json
 {
@@ -182,13 +182,13 @@ Mer information finns i [fullständig Resource Manager-mall](https://github.com/
 }
 ```
 
-Mer information om hur du skapar Resource Manager-mallar finns [redigera Azure Resource Manager-mallar med Windows VM-tillägg](../windows/template-description.md#extensions).
+Mer information om hur du skapar Resource Manager-mallar finns i [redigera Azure Resource Manager-mallar med Windows VM-tillägg](../windows/template-description.md#extensions).
 
-## <a name="secure-vm-extension-data"></a>Säkra data för VM-tillägg
+## <a name="secure-vm-extension-data"></a>Skydda data för VM-tillägg
 
-När du kör en VM-tillägget, kan det vara nödvändigt att inkludera känslig information, till exempel autentiseringsuppgifter, lagringskontonamn och åtkomst för lagringskontonycklar. Många VM-tillägg innehåller en skyddad konfiguration som krypterar data och dekrypterar dem endast inuti VM målet. Varje tillägg innehåller en specifik skyddade konfigurationsschema och varje beskrivs i dokumentationen för specifika tillägg.
+När du kör ett VM-tillägg, kan det vara nödvändigt att inkludera känslig information, till exempel autentiseringsuppgifter, lagringskontonamn och åtkomstnycklarna för lagringskontot. Många VM-tillägg innehåller en skyddad konfiguration som krypterar data och dekrypterar dem bara inuti den Virtuella måldatorn. Varje tillägg har en specifik skyddad konfigurationsschema och varje beskrivs i dokumentationen för specifika tillägg.
 
-I följande exempel visas en instans av tillägget för anpassat skript för Windows. Kommandot för att köra innehåller en uppsättning autentiseringsuppgifter. I det här exemplet krypteras inte kommandot att köras:
+I följande exempel visar en instans av tillägget för anpassat skript för Windows. Kommandot körs innehåller en uppsättning autentiseringsuppgifter. I det här exemplet krypteras inte kommandot som ska köras:
 
 ```json
 {
@@ -218,7 +218,7 @@ I följande exempel visas en instans av tillägget för anpassat skript för Win
 }
 ```
 
-Flytta den **kommando att köra** egenskapen till den **skyddade** konfigurationen skyddar körning-strängen som visas i följande exempel:
+Flytta den **kommando för att köra** egenskap enligt den **skyddade** konfigurationen skyddar körning-strängen som du ser i följande exempel:
 
 ```json
 {
@@ -252,20 +252,20 @@ Flytta den **kommando att köra** egenskapen till den **skyddade** konfiguration
 
 ### <a name="how-do-agents-and-extensions-get-updated"></a>Hur agenter och tillägg uppdateras?
 
-Dela mekanismen för samma uppdatering av agenter och tillägg. Vissa uppdateringar kräver inte ytterligare brandväggsregler.
+Dela samma uppdateringsmekanism agenter och tillägg. Vissa uppdateringar kräver inte ytterligare brandväggsregler.
 
-När en uppdatering är tillgänglig endast installeras på den virtuella datorn när det finns en ändring av tillägg och andra VM Modelländringar som:
+När en uppdatering är tillgänglig endast installeras på den virtuella datorn när det finns en ändring av tillägg och andra Virtuella datormodellen ändringar som:
 
 - Datadiskar
 - Tillägg
-- Starta diagnostik behållare
-- Gästoperativsystem hemligheter
+- Boot diagnostics behållare
+- Gäst-OS-hemligheter
 - Storlek på virtuell dator
 - Nätverksprofil
 
-Utgivare göra uppdateringar tillgängliga för regioner vid olika tidpunkter, så det är möjligt att du kan ha virtuella datorer i olika områden i olika versioner.
+Utgivare göra uppdateringar tillgängliga för regioner vid olika tidpunkter, så det är möjligt kan du har virtuella datorer i olika regioner i olika versioner.
 
-#### <a name="listing-extensions-deployed-to-a-vm"></a>Visar en lista över tillägg som distribuerats till en virtuell dator
+#### <a name="listing-extensions-deployed-to-a-vm"></a>Visa en lista över tillägg som distribuerats till en virtuell dator
 
 ```powershell
 $vm = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
@@ -280,15 +280,15 @@ Microsoft.Compute     CustomScriptExtension                1.9
 
 #### <a name="agent-updates"></a>Agentuppdateringar
 
-Endast innehåller Windows Gästagenten *tillägget hantera kod*, *Windows etablering kod* är desamma. Du kan avinstallera Windows Gästagenten. Du kan inaktivera automatisk uppdatering av Gästagenten fönster.
+Windows-Gästagenten innehåller endast *tillägget hantering av kod*, *Windows etablering kod* är separat. Du kan avinstallera Windows-Gästagenten. Du kan inte inaktivera den automatiska uppdateringen av Gästagenten fönster.
 
-Den *tillägget hantera kod* ansvarar för att kommunicera med Azure-strukturen och hanterar åtgärderna för VM-tillägg som installerar reporting status, uppdatering av enskilda tillägg och ta bort dem. Uppdateringar innehåller säkerhetskorrigeringar, felkorrigeringar och förbättringar av *tillägget hantera koden*.
+Den *tillägget hantering av kod* ansvarar för kommunicerar med Azure-infrastrukturen och hantera åtgärder för VM-tillägg som installerar rapporterar status, uppdaterar enskilda tillägg och ta bort dem. Uppdateringar innehålla säkerhetskorrigeringar, felkorrigeringar och förbättringar av den *tillägget hantering av kod*.
 
 Du kan kontrollera vilken version du kör [identifiera installerade Windows-Gästagenten](agent-windows.md#detect-the-vm-agent).
 
-#### <a name="extension-updates"></a>Tillägget uppdateringar
+#### <a name="extension-updates"></a>Uppdateringar för tillägget
 
-När det finns en uppdatering för tillägg, hämtar Windows Gästagenten och uppgraderar tillägget. Tillägget automatiska uppdateringar är antingen *mindre* eller *snabbkorrigering*. Du kan välja eller välja att inaktivera tillägg *mindre* uppdateras när du etablerar tillägget. I följande exempel visas hur man automatiskt uppgraderar delversioner i en Resource Manager-mall med *autoUpgradeMinorVersion ”: true'*:
+När det finns en uppdatering av tillägget, laddar ned Windows-Gästagenten och uppgraderar tillägget. Tillägget för automatiska uppdateringar är antingen *mindre* eller *snabbkorrigering*. Du kan anmäla eller avanmäla dig från tillägg *mindre* uppdateras när du etablerar tillägget. I följande exempel visas hur man automatiskt uppgraderar delversioner i Resource Manager-mall med *autoUpgradeMinorVersion ”: true”,*:
 
 ```json
     "properties": {
@@ -303,20 +303,20 @@ När det finns en uppdatering för tillägg, hämtar Windows Gästagenten och up
     },
 ```
 
-För att få de senaste mindre viktig felkorrigeringar, rekommenderas att du alltid välja automatisk uppdatering i tillägget-distributioner. Hotfix-uppdateringar som innehåller säkerhets- eller felkorrigeringar går inte att välja.
+Vi rekommenderar att du alltid välja automatisk uppdatering i distributionen tillägget för att få de senaste versionen mindre felkorrigeringar. Hotfix-uppdateringar som säkerhet eller nyckel felkorrigeringar går inte att välja.
 
 ### <a name="how-to-identify-extension-updates"></a>Så här identifierar du tillägget uppdateringar
 
-#### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Identifiera om tillägget anges med autoUpgradeMinorVersion på en virtuell dator
+#### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Identifiera om tillägget är inställd med autoUpgradeMinorVersion på en virtuell dator
 
-Du kan se från VM-modellen om tillägget har etablerats med 'autoUpgradeMinorVersion'. Använd för att kontrollera [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm) och ange resursgrupp och VM namn på följande sätt:
+Du kan se från den Virtuella datormodellen om tillägget etablerades med 'autoUpgradeMinorVersion'. Du kan kontrollera genom att använda [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm) och ange resursgrupp och virtuell dator namn på följande sätt:
 
 ```powerShell
  $vm = Get-AzureRmVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
  $vm.Extensions
 ```
 
-Följande exempel visas som *autoUpgradeMinorVersion* är inställd på *SANT*:
+Följande Exempelutdata visar att *autoUpgradeMinorVersion* är inställd på *SANT*:
 
 ```powershell
 ForceUpdateTag              :
@@ -328,50 +328,50 @@ AutoUpgradeMinorVersion     : True
 
 #### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>Identifiera när en autoUpgradeMinorVersion inträffade
 
-När en uppdatering av tillägget inträffat, granska agenten loggar in på den virtuella datorn på *C:\WindowsAzure\Logs\WaAppAgent.log*
+Om du vill se när en uppdatering av tillägget uppstod granska agenten loggar in på den virtuella datorn senare *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-I följande exempel visas den virtuella datorn hade *Microsoft.Compute.CustomScriptExtension 1.8* installerad. Det fanns en snabbkorrigering till version *1,9*:
+I följande exempel visas den virtuella datorn hade *Microsoft.Compute.CustomScriptExtension 1.8* installerad. Det fanns en snabbkorrigering till version *1.9*:
 
 ```powershell
 [INFO]  Getting plugin locations for plugin 'Microsoft.Compute.CustomScriptExtension'. Current Version: '1.8', Requested Version: '1.9'
 [INFO]  Auto-Upgrade mode. Highest public version for plugin 'Microsoft.Compute.CustomScriptExtension' with requested version: '1.9', is: '1.9'
 ```
 
-## <a name="agent-permissions"></a>Behörigheter
+## <a name="agent-permissions"></a>Agent-behörigheter
 
-Om du vill utföra sina uppgifter agenten måste köras som *lokalt System*.
+För att utföra sina uppgifter, agenten måste köras som *lokalt System*.
 
-## <a name="troubleshoot-vm-extensions"></a>Felsökning av VM-tillägg
+## <a name="troubleshoot-vm-extensions"></a>Felsöka VM-tillägg
 
-Varje VM-tillägg kan ha felsökningssteg specifika tillägget. Till exempel när du använder tillägget för anpassat skript finns körning skriptdetaljer lokalt på den virtuella datorn där tillägget kördes. Tillägget-specifika felsökning beskrivs i dokumentationen för tillägget-specifika.
+Varje VM-tillägg kan ha felsökningssteg specifika till tillägget. Till exempel när du använder tillägget för anpassat skript, finns information om skriptkörning lokalt på den virtuella datorn där tillägget kördes. Tillägget-specifika felsökning beskrivs i dokumentationen för specifika tillägg.
 
 Följande felsökningssteg gäller för alla VM-tillägg.
 
-1. Om du vill kontrollera Windows gäst Agent loggen titta på aktiviteten när din anknytning etablerades i *C:\WindowsAzure\Logs\WaAppAgent.txt*
+1. Om du vill kontrollera Agentloggen för Windows-Gäst, titta på aktiviteten när ditt tillägg etablerades i *C:\WindowsAzure\Logs\WaAppAgent.txt*
 
-2. Kontrollera loggarna faktiska tillägget för mer information finns i *C:\WindowsAzure\Logs\Plugins\<tillägg >*
+2. Kontrollera faktiska tillägget programloggarna för mer information finns i *C:\WindowsAzure\Logs\Plugins\<extensionName >*
 
-3. Kontrollera tillägget viss dokumentation felsökningsavsnitt innehåller felkoder, kända problem osv.
+3. Kontrollera tillägget dokumentation felsökningsavsnitt för felkoder, kända problem osv.
 
-4. Titta på systemloggarna. Kontrollera om andra åtgärder som kan ha påverkas filnamnstillägg, till exempel en tidskrävande installation av ett annat program som kräver exklusiv package manager åtkomst.
+4. Titta på systemloggar. Sök efter andra åtgärder som kan ha påverkas tillägg, till exempel en tidskrävande installation av ett annat program som krävs för exklusiv package manager-åtkomst.
 
-### <a name="common-reasons-for-extension-failures"></a>Vanliga orsaker till tillägget fel
+### <a name="common-reasons-for-extension-failures"></a>Vanliga orsaker till datortillägg
 
-1. Tillägg har 20 minuter att köra (undantag är CustomScript-tillägg, Chef och DSC som har 90 minuter). Om distributionen överskrider den här tiden, är den markerad som en tidsgräns. Orsaken till detta kan bero på otillräckliga resurser virtuella datorer, andra VM konfigurationer/start aktiviteter som använder hög mängder resursen samtidigt tillägget försöker etablera.
+1. Tillägg har 20 minuter att köra (undantag är CustomScript-tillägg, Chef och DSC som har 90 minuter). Om distributionen överskrider den här tiden, markeras den som en tidsgräns. Orsaken till detta kan bero på otillräckliga resurser virtuella datorer, andra VM-konfigurationer/starta upp aktiviteter som använder hög mängder resurs när tillägget försöker etablera.
 
-2. Lägsta krav inte uppfylls. Vissa tillägg har beroenden på VM-SKU: er, till exempel HPC-avbildningar. Tillägg kan kräva vissa nätverkskrav åtkomst, till exempel kommunikation till Azure Storage eller offentliga tjänster. Andra exempel kan vara åtkomst till paketet databaser, få slut på diskutrymme eller säkerhetsbegränsningar.
+2. Minsta kraven uppfylls inte. Vissa tillägg vara beroende VM SKU: er som HPC-bilder. Tillägg kan kräva viss nätverkskraven åtkomst, till exempel kommunikation till Azure Storage eller offentliga tjänster. Andra exempel kan vara åtkomst till paketet lagringsplatser, slut på diskutrymme eller säkerhetsbegränsningar.
 
-3. Exklusiv package manager-åtkomst. I vissa fall kan uppstå det en tidskrävande VM-konfiguration och installation av webbprogramtillägg i konflikt, där båda måste exklusiv åtkomst till package manager.
+3. Exklusiva package manager-åtkomst. I vissa fall kan det uppstå en tidskrävande VM-konfiguration och installation av tillägg som är i konflikt, där de båda behöver exklusiv åtkomst till package manager.
 
 ### <a name="view-extension-status"></a>Visa status för tillägg
 
-När en VM-tillägget har körts mot en VM, använda [Get-AzureRmVM ](/powershell/module/azurerm.compute/get-azurermvm) Tilläggsstatus ska returneras. *Underordnad status [0]* visas som tillägget etableringen har slutförts, vilket innebär att det lyckades distribueras till den virtuella datorn, men inte det gick att köra tillägget inuti den virtuella datorn, *underordnad status [1]*.
+När en VM-tillägget har körts mot en virtuell dator kan du använda [Get-AzureRmVM ](/powershell/module/azurerm.compute/get-azurermvm) Tilläggsstatus ska returneras. *Underordnad status [0]* visar att tillägget etableringen är klar, vilket innebär att lyckas den distribueras till den virtuella datorn, men inte det gick att köra av tillägget på den virtuella datorn, *underordnad status [1]*.
 
 ```powershell
 Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
 ```
 
-Utdata liknar följande exempel utdata:
+Utdata liknar följande Exempelutdata:
 
 ```powershell
 Extensions[0]           :
@@ -397,11 +397,11 @@ Extensions[0]           :
     Message             : Finished executing command
 ```
 
-Tillståndets status är körningen kan också finnas i Azure-portalen. Om du vill visa status för ett tillägg markerar du den virtuella datorn, väljer **tillägg**, markerar du önskade tillägget.
+Körningsstatus för tillägg finns också i Azure-portalen. Om du vill visa status för ett tillägg markerar du den virtuella datorn, väljer **tillägg**, markerar du önskade tillägget.
 
-### <a name="rerun-vm-extensions"></a>Kör VM-tillägg
+### <a name="rerun-vm-extensions"></a>Köra VM-tillägg
 
-Det kan finnas fall där en VM-tillägget behöver köras igen. Du kan köra ett tillägg genom att ta bort den och sedan köra tillägget med en körning metod du föredrar. Ta bort ett tillägg med [ta bort AzureRmVMExtension](/powershell/module/AzureRM.Compute/Remove-AzureRmVMExtension) på följande sätt:
+Det kan finnas fall där ett VM-tillägg måste köras igen. Du kan köra ett tillägg genom att ta bort den och sedan köra tillägget med en körning metod för ditt val. Ta bort ett tillägg med [Remove-AzureRmVMExtension](/powershell/module/AzureRM.Compute/Remove-AzureRmVMExtension) på följande sätt:
 
 ```powershell
 Remove-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
@@ -414,14 +414,14 @@ Du kan också ta bort ett tillägg i Azure-portalen på följande sätt:
 3. Välj önskad tillägget.
 4. Välj **avinstallera**.
 
-## <a name="common-vm-extensions-reference"></a>Benämningen för VM-tillägg
-| Tilläggsnamn | Beskrivning | Mer information |
+## <a name="common-vm-extensions-reference"></a>Referens för vanliga VM-tillägg
+| Namn på tillägg | Beskrivning | Mer information |
 | --- | --- | --- |
-| Tillägget för anpassat skript för Windows |Kör skript mot en virtuell Azure-dator |[Tillägget för anpassat skript för Windows](custom-script-windows.md) |
+| Tillägget för anpassat skript för Windows |Köra skript mot en Azure virtuell dator |[Tillägget för anpassat skript för Windows](custom-script-windows.md) |
 | DSC-tillägg för Windows |PowerShell DSC (Desired State Configuration)-tillägg |[DSC-tillägg för Windows](dsc-overview.md) |
 | Azure Diagnostics-tillägg |Hantera Azure-diagnostik |[Azure Diagnostics-tillägg](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Tillägget för Azure VM-åtkomst |Hantera användare och autentiseringsuppgifter |[Tillägg för virtuell dator åtkomst för Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Azure VM Access-tillägg |Hantera användare och autentiseringsuppgifter |[VM Access-tillägg för Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om VM-tillägg finns [översikt över funktioner och tillägg av Azure virtuella datorer](overview.md).
+Mer information om VM-tillägg finns i [Azure VM-tillägg och funktioner för översikt över](overview.md).

@@ -25,6 +25,8 @@
   items:
     - name: Autentiseringsmetoder
       href: concept-authentication-methods.md
+    - name: Konvergerad registrering
+      href: concept-registration-mfa-sspr-converged.md
     - name: Återställning av lösenord för självbetjäning
       items:
         - name: Så här fungerar lösenordsåterställning

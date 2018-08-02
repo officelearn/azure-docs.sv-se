@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 07/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: ab8cd950fcbfe61d558dc9d36fbaff9e6baa22c8
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 418b2f6b156853c1a2820271808bdba922d41a87
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326032"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412907"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Hämta marketplace-objekt från Azure till Azure Stack
 
@@ -31,7 +31,7 @@ Ladda ned objekt från Azure Marketplace som ansvarig för molnet och göra dem 
 Det finns två scenarier för att ansluta till Azure Marketplace: 
 
 - **Ett scenario med anslutna** -som kräver Azure Stack-miljön vara ansluten till internet. Du kan använda Azure Stack-portalen för att leta upp och hämta objekt. 
-- **Ett scenario med frånkopplade eller anslutna delvis** -som kräver att du ansluter till internet med hjälp av verktyget för marketplace-syndikering att ladda ned marketplace-objekt. Sedan kan överföra du dina nedladdningar till den frånkopplade Azure Stack-installationen. Det här scenariot används PowerShell.
+- **Ett scenario med frånkopplade eller anslutna delvis** -som kräver att du ansluter till Internet med hjälp av verktyget för marketplace-syndikering att ladda ned marketplace-objekt. Sedan kan överföra du dina nedladdningar till den frånkopplade Azure Stack-installationen. Det här scenariot används PowerShell.
 
 Se [Azure Marketplace-objekt för Azure Stack](azure-stack-marketplace-azure-items.md) en lista över marketplace-objekt som du kan ladda ned.
 

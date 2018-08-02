@@ -74,43 +74,45 @@
       href: sql-database-powershell-samples.md
 - name: Begrepp
   items:
-    - name: Inköpsmodeller och resurser
+    - name: Inköpsmodeller
       items:
-        - name: Inköpsmodeller
+        - name: vCore jämfört med DTU
           href: sql-database-service-tiers.md
-        - name: vCore-baserad modell
+        - name: vCore-modellen
           href: sql-database-service-tiers-vcore.md
-        - name: DTU-baserad modell
+        - name: DTU-modell
           href: sql-database-service-tiers-dtu.md
         - name: Resursbegränsningar
           href: sql-database-resource-limits.md
-    - name: Logiska servrar och enkla databaser
+    - name: Logiska servrar
       items:
-        - name: Logiska servrar och enkla databaser
-          href: sql-database-servers-databases.md
-        - name: Hantera servrar och enkla databaser
-          href: sql-database-servers-databases-manage.md
-        - name: vCore-baserade resursbegränsningar
-          href: sql-database-vcore-resource-limits-single-databases.md
-        - name: DTU-baserade resursbegränsningar
-          href: sql-database-dtu-resource-limits-single-databases.md
-        - name: Skala enkla databasresurser
-          href: sql-database-single-database-scale.md
+        - name: Skapa och hantera
+          href: sql-database-logical-servers.md
         - name: Anslutningsarkitektur
           href: sql-database-connectivity-architecture.md
         - name: T-SQL-skillnader
           href: sql-database-transact-sql-information.md
-    - name: Elastiska pooler och databaser i en pool
+    - name: Enkla databaser
       items:
-        - name: Elastiska pooler och databaser i en pool
+        - name: Skapa och hantera
+          href: sql-database-single-databases-manage.md
+        - name: vCore-baserade resursbegränsningar
+          href: sql-database-vcore-resource-limits-single-databases.md
+        - name: DTU-baserade resursbegränsningar
+          href: sql-database-dtu-resource-limits-single-databases.md
+        - name: Skala resurser
+          href: sql-database-single-database-scale.md
+    - name: Elastiska pooler
+      items:
+        - name: Elastiska pooler
           href: sql-database-elastic-pool.md
-        - name: Hantera pooler och databaser i en pool
+        - name: Skapa och hantera
           href: sql-database-elastic-pool-manage.md
         - name: vCore-baserade resursbegränsningar
           href: sql-database-vcore-resource-limits-elastic-pools.md
         - name: DTU-baserade resursbegränsningar
           href: sql-database-dtu-resource-limits-elastic-pools.md
-        - name: Skala resurser i elastiska pooler
+        - name: Skala resurser
           href: sql-database-elastic-pool-scale.md
     - name: Hanterade instanser
       items:
@@ -184,7 +186,7 @@
               href: sql-database-managed-instance-threat-detection.md
         - name: Brandväggsregler
           items:
-            - name: Översikt
+            - name: Skapa och hantera
               href: sql-database-firewall-configure.md
             - name: Slutpunkter för virtuellt nätverk
               href: sql-database-vnet-service-endpoint-rule-overview.md
@@ -430,6 +432,8 @@
           href: sql-database-load-from-csv-with-bcp.md
         - name: Läs in data med ADF
           href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
+    - name: Hantera filutrymme
+      href: sql-database-file-space-management.md
     - name: Utveckla appar
       items:
         - name: Anslutning

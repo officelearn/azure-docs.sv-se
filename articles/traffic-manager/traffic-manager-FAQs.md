@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 1c8fad4b2c66515af05996395a53a7d8b5dba97f
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: bac3747f3f410e63454f543c035d7e04c20fac2a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036929"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399185"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Traffic Manager
 
@@ -27,23 +27,23 @@ ms.locfileid: "39036929"
 
 ### <a name="what-ip-address-does-traffic-manager-use"></a>Vilken IP-adress använder Traffic Manager?
 
-Enligt beskrivningen i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager fungerar på DNS-nivå. Skickar den DNS-svar för att dirigera klienterna till lämplig tjänsteslutpunkt. Klienterna ansluter därefter till tjänsteslutpunkt direkt, inte via Traffic-Manager.
+Enligt beskrivningen i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager fungerar på DNS-nivå. Skickar den DNS-svar för att dirigera klienterna till lämplig tjänsteslutpunkt. Klienterna ansluter därefter till tjänsteslutpunkt direkt, inte via Traffic-Manager.
 
 Traffic Manager tillhandahåller därför inte en slutpunkt eller en IP-adress för klienter att ansluta till. Om du vill statisk IP-adress för din tjänst, som måste konfigureras på tjänsten, inte i Traffic-Manager.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Vilka typer av trafik kan vara dirigeras med Traffic Manager?
-Enligt beskrivningen i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), en Traffic Manager-slutpunkt kan vara valfri tjänst som finns i och utanför Azure som riktas mot internet. Därför kan Traffic Manager dirigera trafik från det offentliga internet till en uppsättning slutpunkter som är också internetuppkopplade. Om du har slutpunkter som är i ett privat nätverk (till exempel en intern version av [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) eller har användare som önskade DNS-förfrågningar från sådana interna nätverk Traffic Manager inte kan användas för dessa trafik.
+Enligt beskrivningen i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-how-it-works.md), en Traffic Manager-slutpunkt kan vara valfri tjänst som finns i och utanför Azure som riktas mot internet. Därför kan Traffic Manager dirigera trafik från det offentliga internet till en uppsättning slutpunkter som är också internetuppkopplade. Om du har slutpunkter som är i ett privat nätverk (till exempel en intern version av [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) eller har användare som önskade DNS-förfrågningar från sådana interna nätverk Traffic Manager inte kan användas för dessa trafik.
 
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Stöder ' fästsessioner ”i Traffic Manager?
 
-Enligt beskrivningen i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager fungerar på DNS-nivå. DNS-svar används för att dirigera klienterna till lämplig tjänsteslutpunkt. Klienterna ansluter till tjänsteslutpunkt direkt, inte via Traffic-Manager. Traffic Manager finns därför inte HTTP-trafik mellan klienten och servern.
+Enligt beskrivningen i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager fungerar på DNS-nivå. DNS-svar används för att dirigera klienterna till lämplig tjänsteslutpunkt. Klienterna ansluter till tjänsteslutpunkt direkt, inte via Traffic-Manager. Traffic Manager finns därför inte HTTP-trafik mellan klienten och servern.
 
 Dessutom tillhör källans IP-adress för DNS-frågan som tagits emot av Traffic Manager rekursiv DNS-tjänsten, inte klienten. Därför finns inget sätt att spåra enskilda klienter Traffic Manager och inte kan implementera ' fästsessioner '. Den här begränsningen är gemensam för alla DNS-baserad trafik hanteringssystem och är inte specifikt till Traffic Manager.
 
 ### <a name="why-am-i-seeing-an-http-error-when-using-traffic-manager"></a>Varför ser jag ett HTTP-fel när du använder Traffic Manager?
 
-Enligt beskrivningen i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager fungerar på DNS-nivå. DNS-svar används för att dirigera klienterna till lämplig tjänsteslutpunkt. Klienterna ansluter därefter till tjänsteslutpunkt direkt, inte via Traffic-Manager. Traffic Manager gör inte se HTTP-trafik mellan klienten och servern. Därför måste alla HTTP-fel som du ser kommer från ditt program. För att klienten ska ansluta till programmet, har alla DNS-Lösningssteg slutförts. Det omfattar en interaktion med Traffic Manager på trafikflöde program.
+Enligt beskrivningen i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager fungerar på DNS-nivå. DNS-svar används för att dirigera klienterna till lämplig tjänsteslutpunkt. Klienterna ansluter därefter till tjänsteslutpunkt direkt, inte via Traffic-Manager. Traffic Manager gör inte se HTTP-trafik mellan klienten och servern. Därför måste alla HTTP-fel som du ser kommer från ditt program. För att klienten ska ansluta till programmet, har alla DNS-Lösningssteg slutförts. Det omfattar en interaktion med Traffic Manager på trafikflöde program.
 
 Ytterligare utredning bör därför fokusera på programmet.
 
@@ -51,7 +51,7 @@ HTTP-rubriken skickas från klientens webbläsare är den vanligaste orsaken pro
 
 ### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>Vad är prestandapåverkan från återställning av med Traffic Manager?
 
-Enligt beskrivningen i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager fungerar på DNS-nivå. Eftersom klienterna ansluter direkt till dina tjänstslutpunkter kan påverkas inte prestanda när med Traffic Manager när anslutningen har upprättats.
+Enligt beskrivningen i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager fungerar på DNS-nivå. Eftersom klienterna ansluter direkt till dina tjänstslutpunkter kan påverkas inte prestanda när med Traffic Manager när anslutningen har upprättats.
 
 Eftersom Traffic Manager kan integreras med program på DNS-nivå, krävs det en ytterligare DNS-sökning som ska infogas i kedjan för DNS-matchning. Effekten av Traffic Manager på DNS-matchningstid är minimal. Traffic Manager använder ett globalt nätverk med namnservrar och använder [anycast](https://en.wikipedia.org/wiki/Anycast) nätverk för att säkerställa DNS frågor alltid dirigeras till närmaste tillgängliga namnservern. Cachelagring av DNS-svar innebär också att ytterligare DNS-latensen med hjälp av Traffic Manager gäller endast en bråkdel av sessioner.
 
@@ -59,7 +59,7 @@ Metoden prestanda dirigerar trafik till närmaste tillgängliga slutpunkten. Res
 
 ### <a name="what-application-protocols-can-i-use-with-traffic-manager"></a>Vilka programprotokoll kan jag använda med Traffic Manager?
 
-Enligt beskrivningen i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager fungerar på DNS-nivå. När DNS-sökningen är klar kan ansluter klienterna till slutpunkten programmet direkt, inte via Traffic-Manager. Anslutningen kan därför använda alla protokoll. Om du väljer TCP som det övervakning-protokollet, Traffic Manager endpoint hälsoövervakning kan göras utan att använda alla programprotokoll. Om du vill ha hälsotillståndet verifieras med ett programprotokoll måste slutpunkten för att kunna svara på begäranden för HTTP eller HTTPS hämta.
+Enligt beskrivningen i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager fungerar på DNS-nivå. När DNS-sökningen är klar kan ansluter klienterna till slutpunkten programmet direkt, inte via Traffic-Manager. Anslutningen kan därför använda alla protokoll. Om du väljer TCP som det övervakning-protokollet, Traffic Manager endpoint hälsoövervakning kan göras utan att använda alla programprotokoll. Om du vill ha hälsotillståndet verifieras med ett programprotokoll måste slutpunkten för att kunna svara på begäranden för HTTP eller HTTPS hämta.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Kan jag använda Traffic Manager med ett ”utan www-domännamn?
 

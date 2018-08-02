@@ -55,8 +55,10 @@
           href: log-analytics-log-search-portals.md
 - name: Instruktionsguider
   items:
-    - name: Skapa Log Analytics-arbetsyta
-      href: log-analytics-quick-create-workspace.md
+    - name: Skapa arbetsyta
+      items:
+        - name: Använda Azure-portalen
+          href: log-analytics-quick-create-workspace.md
     - name: Samla in data
       items:
         - name: Anslutna källor
@@ -203,7 +205,7 @@
               href: log-analytics-capacity.md
             - name: Spårning av ändringar
               href: log-analytics-change-tracking.md
-            - name: Behållare
+            - name: Containrar
               href: log-analytics-containers.md
             - name: DNS-analys
               href: log-analytics-dns.md

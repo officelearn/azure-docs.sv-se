@@ -319,6 +319,8 @@
       items:
         - name: Felsöka Spark-jobb
           href: apache-spark-job-debugging.md
+        - name: Felsöka Spark-jobb via jobbdiagram
+          href: apache-azure-spark-history-server.md
         - name: Använda IntelliJ för att felsöka Spark-jobb
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: Felsöka ett långsamt eller felaktigt HDInsight-kluster

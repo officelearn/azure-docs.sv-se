@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5a6b227cee3765593adbda430d8c47312f996c18
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 510cba0c2e27ab56ea26a476258fd7480b80e0d2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723842"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420411"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuera resurser med Resource Manager-mallar och Azure CLI
 
@@ -126,7 +126,7 @@ az group deployment create \
 
 ## <a name="test-a-template-deployment"></a>Testa en för malldistribution
 
-Testa din mall- och parameterfilerna värden utan att faktiskt distribuera resurser med [az group deployment Validera](/cli/azure/group/deployment#az_group_deployment_validate). 
+Testa din mall- och parameterfilerna värden utan att faktiskt distribuera resurser med [az group deployment Validera](/cli/azure/group/deployment#az-group-deployment-validate). 
 
 ```azurecli
 az group deployment validate \

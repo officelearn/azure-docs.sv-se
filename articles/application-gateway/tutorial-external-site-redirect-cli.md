@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: 3ded6fc0950c82d0aa36da89fdd5635afef7be0b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 819676f7815cda6d3d3f84037766d7134ac72eb7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306534"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431757"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Skapa en Programgateway med extern omdirigering med Azure CLI
 
@@ -38,7 +38,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Skapa en resursgrupp med [az group create](/cli/azure/group#create).
+En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Skapa en resursgrupp med [az group create](/cli/azure/group#create).
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroupAG* på platsen *eastus*.
 
@@ -48,7 +48,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser 
 
-Skapa ett virtuellt nätverk med namnet *myVNet* och ett undernät med namnet *myAGSubnet* med [az network vnet create](/cli/azure/network/vnet#az_net). Skapa den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create). De här resurserna används för att ge nätverksanslutning till programgatewayen och tillhörande resurser.
+Skapa ett virtuellt nätverk med namnet *myVNet* och ett undernät med namnet *myAGSubnet* med [az network vnet create](/cli/azure/network/vnet#az-net). Skapa den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create). De här resurserna används för att ge nätverksanslutning till programgatewayen och tillhörande resurser.
 
 ```azurecli-interactive
 az network vnet create \
@@ -93,7 +93,7 @@ Det kan ta flera minuter att skapa programgatewayen. När programgatewayen har s
 
 ### <a name="add-the-redirection-configuration"></a>Lägga till konfigurationen för omdirigering
 
-Lägg till omdirigeringskonfiguration som skickar trafik från programgatewayen till *bing.com* med [az network application-gateway omdirigerings-config skapa](/cli/azure/network/application-gateway/redirect-config#az_network_application_gateway_redirect_config_create).
+Lägg till omdirigeringskonfiguration som skickar trafik från programgatewayen till *bing.com* med [az network application-gateway omdirigerings-config skapa](/cli/azure/network/application-gateway/redirect-config#az-network_application_gateway_redirect_config_create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -106,7 +106,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-a-listener-and-routing-rule"></a>Lägg till en lyssnare och en regel för vidarebefordran
 
-En lyssnare krävs för att aktivera application-gateway för att dirigera trafik på rätt sätt. Skapa lyssnaren med [az network application-gateway http-listener skapa](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create) med frontend-port som skapats med [az network application-gateway frontend-port skapar](/cli/azure/application-gateway#az_network_application_gateway_frontend_port_create). En regel måste anges för lyssnaren veta vart du ska skicka inkommande trafik. Skapa en grundläggande regel med namnet *redirectRule* med [az network application-gateway rule skapa](/cli/azure/application-gateway#az_network_application_gateway_rule_create) med konfigurationen för omdirigering.
+En lyssnare krävs för att aktivera application-gateway för att dirigera trafik på rätt sätt. Skapa lyssnaren med [az network application-gateway http-listener skapa](/cli/azure/application-gateway#az-network_application_gateway_http_listener_create) med frontend-port som skapats med [az network application-gateway frontend-port skapar](/cli/azure/application-gateway#az-network_application_gateway_frontend_port_create). En regel måste anges för lyssnaren veta vart du ska skicka inkommande trafik. Skapa en grundläggande regel med namnet *redirectRule* med [az network application-gateway rule skapa](/cli/azure/application-gateway#az-network_application_gateway_rule_create) med konfigurationen för omdirigering.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -131,7 +131,7 @@ az network application-gateway rule create \
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Du kan hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
+Du kan hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 
 Du bör se *bing.com* visas i webbläsaren.
 

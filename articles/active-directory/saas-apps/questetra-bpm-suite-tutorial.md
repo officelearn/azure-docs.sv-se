@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 57c418f686aa956294efeabd831042441c055e56
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 655140fc7f8cc52adf6a13a99cef531f28d5cefc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041117"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422255"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Självstudier: Azure Active Directory-integrering med Questetra BPM Suite
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Lägg till Questetra BPM Suite från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="add-questetra-bpm-suite-from-the-gallery"></a>Lägg till Questetra BPM Suite från galleriet
 Om du vill konfigurera integreringen av Questetra BPM Suite till Azure AD, som du behöver lägga till Questetra BPM Suite från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ Om du vill konfigurera integreringen av Questetra BPM Suite till Azure AD, som d
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **Questetra BPM Suite**väljer **Questetra BPM Suite** resultatet panelen och klicka sedan på **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Questetra BPM Suite**väljer **Questetra BPM Suite** resultatet panelen och klicka sedan på **Lägg till** för att lägga till programmet.
 
     ![Lägg till från galleriet](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_addfromgallery.png)
 
@@ -86,10 +86,10 @@ I Questetra BPM Suite, tilldela värdet för den **användarnamn** i Azure AD so
 Om du vill konfigurera och testa Azure AD enkel inloggning med Questetra BPM Suite, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Questetra BPM Suite](#create-a-questetra-bpm-suite-test-user)**  – du har en motsvarighet för Britta Simon i Questetra BPM Suite som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Questetra BPM Suite](#create-a-questetra-bpm-suite-test-user)**  – du har en motsvarighet för Britta Simon i Questetra BPM Suite som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -101,11 +101,11 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![SAML-baserad inloggning](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_samlbase.png)
 
-3. På den **Questetra BPM Suite domän och URL: er** avsnittet, utför följande steg:
+1. På den **Questetra BPM Suite domän och URL: er** avsnittet, utför följande steg:
 
     ![Questetra BPM Suite domän och URL: er](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_url.png)
 
@@ -116,35 +116,35 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Du kan hämta dessa värden från **SP Information** avsnittet på din **Questetra BPM Suite** företagets webbplats, vilket beskrivs senare i självstudien eller kontakta [Questetra BPM Suite klientstöd team](https://www.questetra.com/contact/). 
  
-4. På den **SAML-signeringscertifikat** klickar du på **certifikat (base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **certifikat (base64)** och spara certifikatfilen på datorn.
 
     ![Avsnittet för SAML-signeringscertifikat](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Knappen Spara](./media/questetra-bpm-suite-tutorial/tutorial_general_400.png)
 
-6. På den **Questetra BPM Suite Configuration** klickar du på **konfigurera Questetra BPM Suite** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **Questetra BPM Suite Configuration** klickar du på **konfigurera Questetra BPM Suite** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Konfigurationsavsnittet för Questetra BPM Suite](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_configure.png) 
 
-7. I ett annat webbläsarfönster, loggar du in på ditt **Questetra BPM Suite** företagets plats som administratör.
+1. I ett annat webbläsarfönster, loggar du in på ditt **Questetra BPM Suite** företagets plats som administratör.
 
-8. Klicka på menyn längst upp **systeminställningar**. 
+1. Klicka på menyn längst upp **systeminställningar**. 
    
     ![Azure AD enkel inloggning][10]
 
-9. Öppna den **SingleSignOnSAML** klickar du på **SSO (SAML)**. 
+1. Öppna den **SingleSignOnSAML** klickar du på **SSO (SAML)**. 
    
     ![Azure AD enkel inloggning][11]
 
-10. På din **Questetra BPM Suite** bolaget plats, i den **SP Information** avsnittet, utför följande steg:
+1. På din **Questetra BPM Suite** bolaget plats, i den **SP Information** avsnittet, utför följande steg:
 
     a. Kopiera den **ACS URL**, och klistra in den i den **inloggning på URL: en** -textrutan i den **Questetra BPM Suite domän och URL: er** avsnittet från Azure-portalen.
     
     b. Kopiera den **entitets-ID**, och klistra in den i den **identifierare** -textrutan i den **Questetra BPM Suite domän och URL: er** avsnittet från Azure-portalen.
 
-11. På din **Questetra BPM Suite** företagets webbplats, utför följande steg: 
+1. På din **Questetra BPM Suite** företagets webbplats, utför följande steg: 
    
     ![Konfigurera enkel inloggning][15]
    
@@ -177,15 +177,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](./media/questetra-bpm-suite-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
     ![Skapa en Azure AD-användare för testning](./media/questetra-bpm-suite-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
     ![Skapa en Azure AD-användare för testning](./media/questetra-bpm-suite-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
     ![Skapa en Azure AD-användare för testning](./media/questetra-bpm-suite-tutorial/create_aaduser_04.png) 
 
@@ -204,8 +204,8 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 **Utför följande steg för att skapa en användare som kallas Britta Simon i Questetra BPM Suite:**
 
 1. Logga in på webbplatsen för företagets Questetra BPM Suite som en administratör.
-2. Gå till **systeminställningar > användarlistan > Ny användare**. 
-3. I dialogrutan Ny användare utför du följande steg: 
+1. Gå till **systeminställningar > användarlistan > Ny användare**. 
+1. I dialogrutan Ny användare utför du följande steg: 
    
     ![Skapa testanvändare][300] 
    
@@ -229,23 +229,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Questetra BPM Suite**.
+1. I listan med program väljer **Questetra BPM Suite**.
 
     ![Questetra BPM Suite i listan över appar](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

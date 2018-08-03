@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 8ead383ef0967fcaf67f3157f0a51104126ad618
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f69955cb3e5419659e358e738c28f214fb7015b7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045418"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429156"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Självstudier: Azure Active Directory-integration med UserVoice
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till UserVoice från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-uservoice-from-the-gallery"></a>Att lägga till UserVoice från galleriet
 För att konfigurera integrering av UserVoice i Azure AD, som du behöver lägga till UserVoice från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av UserVoice i Azure AD, som du behöver lägga
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **UserVoice**väljer **UserVoice** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **UserVoice**väljer **UserVoice** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![UserVoice i resultatlistan](./media/uservoice-tutorial/tutorial_uservoice_addfromgallery.png)
 
@@ -87,10 +87,10 @@ I UserVoice, tilldela värdet för den **användarnamn** i Azure AD som värde f
 Om du vill konfigurera och testa Azure AD enkel inloggning med UserVoice, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare UserVoice](#create-a-uservoice-test-user)**  – du har en motsvarighet för Britta Simon i UserVoice som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare UserVoice](#create-a-uservoice-test-user)**  – du har en motsvarighet för Britta Simon i UserVoice som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -102,11 +102,11 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/uservoice-tutorial/tutorial_uservoice_samlbase.png)
 
-3. På den **UserVoice-domän och URL: er** avsnittet, utför följande steg:
+1. På den **UserVoice-domän och URL: er** avsnittet, utför följande steg:
 
     ![UserVoice-domän och URL: er med enkel inloggning för information](./media/uservoice-tutorial/tutorial_uservoice_url.png)
 
@@ -117,29 +117,29 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [UserVoice klienten supportteamet](https://www.uservoice.com/) att hämta dessa värden.
 
-4. På den **SAML-signeringscertifikat** avsnittet, kopiera den **TUMAVTRYCK** värdet för certifikatet.
+1. På den **SAML-signeringscertifikat** avsnittet, kopiera den **TUMAVTRYCK** värdet för certifikatet.
 
     ![Länk för hämtning av certifikat](./media/uservoice-tutorial/tutorial_uservoice_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/uservoice-tutorial/tutorial_general_400.png)
 
-6. På den **UserVoice Configuration** klickar du på **konfigurera UserVoice** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **UserVoice Configuration** klickar du på **konfigurera UserVoice** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![UserVoice-konfiguration](./media/uservoice-tutorial/tutorial_uservoice_configure.png) 
 
-7. I ett annat webbläsarfönster logga du in på ditt UserVoice-webbplatsen för företaget som administratör.
+1. I ett annat webbläsarfönster logga du in på ditt UserVoice-webbplatsen för företaget som administratör.
 
-8. I verktygsfältet högst upp, klickar du på **inställningar**, och välj sedan **webbportalen** på menyn.
+1. I verktygsfältet högst upp, klickar du på **inställningar**, och välj sedan **webbportalen** på menyn.
    
     ![Inställningar på App-sida](./media/uservoice-tutorial/ic777519.png "inställningar")
 
-9. På den **webbportalen** fliken den **användarautentisering** klickar du på **redigera** att öppna den **redigera användarautentisering** dialogrutan sidan.
+1. På den **webbportalen** fliken den **användarautentisering** klickar du på **redigera** att öppna den **redigera användarautentisering** dialogrutan sidan.
    
     ![Webbportalen fliken](./media/uservoice-tutorial/ic777520.png "webbportalen")
 
-10. På den **redigera användarautentisering** dialogrutan utför följande steg:
+1. På den **redigera användarautentisering** dialogrutan utför följande steg:
    
     ![Redigera användarautentisering](./media/uservoice-tutorial/ic777521.png "redigera användarautentisering")
    
@@ -169,15 +169,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/uservoice-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/uservoice-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/uservoice-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/uservoice-tutorial/create_aaduser_04.png)
 
@@ -196,21 +196,21 @@ Om du vill aktivera Azure AD-användare att logga in till UserVoice, måste de e
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Utför följande steg för att etablera ett användarkonto:
 1. Logga in på din **UserVoice** klient.
 
-2. Gå till **inställningar**.
+1. Gå till **inställningar**.
    
     ![Inställningar för](./media/uservoice-tutorial/ic777811.png "inställningar")
 
-3. Klicka på **Allmänt**.
+1. Klicka på **Allmänt**.
 
-4. Klicka på **agenter och behörigheter**.
+1. Klicka på **agenter och behörigheter**.
    
     ![Agenter och behörigheter](./media/uservoice-tutorial/ic777812.png "agenter och behörigheter")
 
-5. Klicka på **lägga till administratörer**.
+1. Klicka på **lägga till administratörer**.
    
     ![Lägga till administratörer](./media/uservoice-tutorial/ic777813.png "lägga till administratörer")
 
-6. På den **bjuda in administratörer** dialogrutan utför följande steg:
+1. På den **bjuda in administratörer** dialogrutan utför följande steg:
    
     ![Bjud in administratörer](./media/uservoice-tutorial/ic777814.png "bjuda in administratörer")
    
@@ -233,23 +233,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **UserVoice**.
+1. I listan med program väljer **UserVoice**.
 
     ![UserVoice-länk i listan med program](./media/uservoice-tutorial/tutorial_uservoice_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 0be7f71f5995be269bb630491003678e0640699b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 61b469ba5f64a52b87843432dfe60fe1d83ffec2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055176"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428391"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Självstudier: Azure Active Directory-integrering med Zscaler privat åtkomst administratör
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Lägger till Zscaler privat åtkomst administratör från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-zscaler-private-access-administrator-from-the-gallery"></a>Lägger till Zscaler privat åtkomst administratör från galleriet
 För att konfigurera integrering av Zscaler privat åtkomst administratör i Azure AD, som du behöver lägga till Zscaler privat åtkomst administratören från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av Zscaler privat åtkomst administratör i Azu
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Zscaler privat åtkomst administratören**väljer **Zscaler privat åtkomst administratören** resultatet panelen klickar **Lägg till** för att lägga till den programmet.
+1. I sökrutan skriver **Zscaler privat åtkomst administratören**väljer **Zscaler privat åtkomst administratören** resultatet panelen klickar **Lägg till** för att lägga till den programmet.
 
     ![Zscaler privat administratör för användaråtkomst i resultatlistan](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_addfromgallery.png)
 
@@ -85,10 +85,10 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 Om du vill konfigurera och testa Azure AD enkel inloggning med Zscaler privat åtkomst administratör, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Zscaler privat åtkomst administratören](#create-a-zscaler-private-access-administrator-test-user)**  – du har en motsvarighet för Britta Simon i Zscaler privat åtkomst administratören som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Zscaler privat åtkomst administratören](#create-a-zscaler-private-access-administrator-test-user)**  – du har en motsvarighet för Britta Simon i Zscaler privat åtkomst administratören som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -100,11 +100,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_samlbase.png)
 
-3. På den **Zscaler privat åtkomst administratören domän och URL: er** avsnittet om du vill konfigurera programmet i **IDP** initierade läge:
+1. På den **Zscaler privat åtkomst administratören domän och URL: er** avsnittet om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Zscaler privat åtkomst administratören domän och URL: er med enkel inloggning för information](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_url.png)
 
@@ -116,32 +116,32 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     d. I den **RelayState** textrutan, ange ett värde: `idpadminsso`
 
-4.  Om du vill konfigurera programmet i **SP** initierad läge utför följande steg:
+1.  Om du vill konfigurera programmet i **SP** initierad läge utför följande steg:
 
     I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.private.zscaler.com/auth/sso`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska identifierare, svars-URL och inloggnings-URL: en. Kontakta [Zscaler privat åtkomst administratören supportteamet](https://help.zscaler.com/zpa-submit-ticket) att hämta dessa värden.
  
-5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_certificate.png) 
 
-6. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/zscalerprivateaccessadministrator-tutorial/tutorial_general_400.png)
 
-7. I ett annat webbläsarfönster, logga in till Zscaler privat åtkomst administratören som administratör.
+1. I ett annat webbläsarfönster, logga in till Zscaler privat åtkomst administratören som administratör.
 
-8. Klicka på överst **Administration** och gå till **AUTENTISERING** avsnittet klickar du på **IdP-konfigurationen**.
+1. Klicka på överst **Administration** och gå till **AUTENTISERING** avsnittet klickar du på **IdP-konfigurationen**.
 
     ![Zscaler privat åtkomst administratör admin](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_admin.png)
 
-9. I övre högra hörnet, klickar du på **lägga till IdP-konfigurationen**. 
+1. I övre högra hörnet, klickar du på **lägga till IdP-konfigurationen**. 
 
     ![Zscaler privat åtkomst administratören addidp](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_addpidp.png)
 
-10. På den **lägga till IdP-konfigurationen** sidan utför följande steg:
+1. På den **lägga till IdP-konfigurationen** sidan utför följande steg:
  
     ![Zscaler privat åtkomst administratören idpselect](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_idpselect.png)
 
@@ -172,15 +172,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/zscalerprivateaccessadministrator-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/zscalerprivateaccessadministrator-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/zscalerprivateaccessadministrator-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/zscalerprivateaccessadministrator-tutorial/create_aaduser_04.png)
 
@@ -200,19 +200,19 @@ De måste etableras i Zscaler privat åtkomst administratören om du vill aktive
 
 1. Logga in på webbplatsen Zscaler administratör för privata företag som administratör.
 
-2. Klicka på överst **Administration** och gå till **AUTENTISERING** avsnittet klickar du på **IdP-konfigurationen**.
+1. Klicka på överst **Administration** och gå till **AUTENTISERING** avsnittet klickar du på **IdP-konfigurationen**.
 
     ![Zscaler privat åtkomst administratör admin](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_admin.png)
 
-3. Klicka på **administratörer** från vänster sida av menyn.
+1. Klicka på **administratörer** från vänster sida av menyn.
 
     ![Administratör för Zscaler privat administratör](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_adminstrator.png)
 
-4. I övre högra hörnet, klickar du på **Lägg till administratör**:
+1. I övre högra hörnet, klickar du på **Lägg till administratör**:
 
     ![Administratör för Zscaler privat Lägg till administratör](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_addadmin.png)
 
-5. I den **Lägg till administratör** utför följande steg:
+1. I den **Lägg till administratör** utför följande steg:
 
     ![Administratör för Zscaler privat Användaradministration](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
@@ -244,23 +244,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Zscaler privat åtkomst administratören**.
+1. I listan med program väljer **Zscaler privat åtkomst administratören**.
 
     ![Länken Zscaler privat administratör för användaråtkomst i listan med program](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: e27a1c834c48b640ab5ed7ab8d6e54f7d1784abd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9919be128ae651b589a37f957cc59ce6d171143f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045948"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431740"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Självstudier: Azure Active Directory-integration med Citrix ShareFile
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Lägg till Citrix ShareFile från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="add-citrix-sharefile-from-the-gallery"></a>Lägg till Citrix ShareFile från galleriet
 För att konfigurera integrering av Citrix ShareFile i Azure AD, som du behöver lägga till Citrix ShareFile från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av Citrix ShareFile i Azure AD, som du behöver
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Citrix ShareFile**väljer **Citrix ShareFile** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Citrix ShareFile**väljer **Citrix ShareFile** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Citrix ShareFile i resultatlistan](./media/sharefile-tutorial/tutorial_sharefile_addfromgallery.png)
 
@@ -87,10 +87,10 @@ I Citrix ShareFile tilldela värdet för den **användarnamn** i Azure AD som v�
 Om du vill konfigurera och testa Azure AD enkel inloggning med Citrix ShareFile, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Citrix ShareFile](#create-a-citrix-sharefile-test-user)**  – du har en motsvarighet för Britta Simon i Citrix ShareFile som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Citrix ShareFile](#create-a-citrix-sharefile-test-user)**  – du har en motsvarighet för Britta Simon i Citrix ShareFile som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -102,11 +102,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/sharefile-tutorial/tutorial_sharefile_samlbase.png)
 
-3. På den **Citrix ShareFile domän och URL: er** avsnittet, utför följande steg:
+1. På den **Citrix ShareFile domän och URL: er** avsnittet, utför följande steg:
 
     ![Citrix ShareFile domän och URL: er med enkel inloggning för information](./media/sharefile-tutorial/tutorial_sharefile_url.png)
     
@@ -134,27 +134,27 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL, identifierare och svars-URL. Kontakta [Citrix ShareFile klienten supportteamet](https://www.citrix.co.in/products/sharefile/support.html) att hämta dessa värden.
 
-4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/sharefile-tutorial/tutorial_sharefile_certificate.png)
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/sharefile-tutorial/tutorial_general_400.png)
 
-6. På den **Citrix ShareFile Configuration** klickar du på **konfigurera Citrix ShareFile** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **Citrix ShareFile Configuration** klickar du på **konfigurera Citrix ShareFile** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Citrix ShareFile konfiguration](./media/sharefile-tutorial/tutorial_sharefile_configure.png)
 
-7. I ett annat webbläsarfönster, loggar du in på ditt **Citrix ShareFile** företagets plats som administratör.
+1. I ett annat webbläsarfönster, loggar du in på ditt **Citrix ShareFile** företagets plats som administratör.
 
-8. I verktygsfältet högst upp, klickar du på **Admin**.
+1. I verktygsfältet högst upp, klickar du på **Admin**.
 
-9. I det vänstra navigeringsfönstret väljer **Konfigurera enkel inloggning**.
+1. I det vänstra navigeringsfönstret väljer **Konfigurera enkel inloggning**.
    
     ![Kontot Administration](./media/sharefile-tutorial/ic773627.png "konto Administration")
 
-10. På den **enkel inloggning / SAML 2.0-konfiguration** dialogrutan sidan under **grundinställningar**, utför följande steg:
+1. På den **enkel inloggning / SAML 2.0-konfiguration** dialogrutan sidan under **grundinställningar**, utför följande steg:
    
     ![Enkel inloggning](./media/sharefile-tutorial/ic773628.png "enkel inloggning")
    
@@ -168,7 +168,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     e. I **URL för utloggning** textrutan klistra in värdet för **URL: en för utloggning** som du har kopierat från Azure-portalen.
 
-11. Klicka på **spara** på Citrix ShareFile-hanteringsportalen.
+1. Klicka på **spara** på Citrix ShareFile-hanteringsportalen.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -182,15 +182,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/sharefile-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/sharefile-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/sharefile-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/sharefile-tutorial/create_aaduser_04.png)
 
@@ -210,11 +210,11 @@ För att aktivera Azure AD-användare att logga in på Citrix ShareFile, måste 
 
 1. Logga in på din **Citrix ShareFile** klient.
 
-2. Klicka på **hantera användare \> hantera användare Home \> + skapa medarbetare**.
+1. Klicka på **hantera användare \> hantera användare Home \> + skapa medarbetare**.
    
    ![Skapa medarbetare](./media/sharefile-tutorial/IC781050.png "skapa medarbetare")
 
-3. På den **basinformation** avsnittet, utföra stegen nedan:
+1. På den **basinformation** avsnittet, utföra stegen nedan:
    
    ![Grundläggande Information](./media/sharefile-tutorial/IC799951.png "grundläggande Information")
    
@@ -224,7 +224,7 @@ För att aktivera Azure AD-användare att logga in på Citrix ShareFile, måste 
    
    c. I den **efternamn** textrutan typ **efternamn** för användare som **Simon**.
 
-4. Klicka på **lägga till användare**.
+1. Klicka på **lägga till användare**.
   
    >[!NOTE]
    >Azure AD-kontoinnehavare kommer ett e-postmeddelande och följ en länk för att bekräfta sina konton innan den blir aktiv. Du kan använda andra verktyg för Citrix ShareFile att skapa användaren-konto eller API: er som tillhandahålls av Citrix ShareFile för att etablera användarkonton i Azure AD.
@@ -241,23 +241,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Citrix ShareFile**.
+1. I listan med program väljer **Citrix ShareFile**.
 
     ![Citrix ShareFile länken i listan med program](./media/sharefile-tutorial/tutorial_sharefile_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

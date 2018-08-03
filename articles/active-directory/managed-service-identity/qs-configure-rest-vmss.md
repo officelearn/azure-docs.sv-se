@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: e6c0fc981030b934cd1b8568946344262936e18c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: c4ccd75f679e58dd42f136bf1199eda88dc3f087
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215715"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431723"
 ---
 # <a name="configure-managed-identity-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Konfigurera hanterade identiteter på en Virtual Machine Scale Sets med hjälp av REST API-anrop
 
@@ -55,7 +55,7 @@ I det här avsnittet får du lära dig hur du aktiverar och inaktiverar systemti
 
 Du behöver skapa en VM-skalningsuppsättning och hämta en åtkomsttoken för att använda CURL för att anropa Resource Manager-slutpunkten med systemtilldelad identitet TYPVÄRDE för att skapa en VM-skalningsuppsättning med systemtilldelad identitet som har aktiverats.
 
-1. Skapa en [resursgrupp](../../azure-resource-manager/resource-group-overview.md#terminology) för inneslutning och distribution av virtual machine scale Sets och dess relaterade resurser, med hjälp av [az gruppen skapa](/cli/azure/group/#az_group_create). Du kan hoppa över det här steget om du redan har en resursgrupp som du vill använda i stället:
+1. Skapa en [resursgrupp](../../azure-resource-manager/resource-group-overview.md#terminology) för inneslutning och distribution av virtual machine scale Sets och dess relaterade resurser, med hjälp av [az gruppen skapa](/cli/azure/group/#az-group-create). Du kan hoppa över det här steget om du redan har en resursgrupp som du vill använda i stället:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus

@@ -1,155 +1,162 @@
 ---
-title: Delegera erbjudanden i Azure-stacken | Microsoft Docs
-description: "Lär dig mer om att placera andra personer som ansvarar för att skapa erbjudanden och logga in användare du."
+title: Delegera erbjudanden i Azure Stack | Microsoft Docs
+description: Lär dig mer om att placera andra personer som ansvarar för att skapa erbjudanden och logga in användare för dig.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 157f0207-bddc-42e5-8351-197ec23f9d46
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 06/11/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 287bc04660664facbe99d2cb80ae6c92e41c4111
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 161a17f2360767dacc4f418a078c695d7cb8daa7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449752"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegera erbjudanden i Azure Stack
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Som Azure Stack-operator vill du ofta placera andra personer som ansvarar för att skapa erbjudanden och logga in användare. Om du är en tjänstprovider kan kanske du vill återförsäljare att registrera kunder och hantera dem å dina vägnar. Eller om du är en del av en central IT-grupp i ett företag, dotterbolag registrera användare igen.
+Som Azure Stack-operatör vill du ofta att andra personer som ansvarar för att skapa erbjudanden och logga in användare. Till exempel om du är en tjänstleverantör kan du återförsäljare att registrera kunder och hantera dem åt dig. Eller, om du är en del av en central IT-grupp i ett företag kan du kanske vill delegera användarinloggning upp till andra IT-personal.
 
-Delegering hjälper dig med dessa uppgifter genom att göra det möjligt att nå och hantera fler användare än kan du direkt. Följande bild visar en nivå med delegering, men Azure stacken stöder flera nivåer. Delegerad providers (DP) kan i sin tur delegera till andra leverantörer, upp till fem nivåer.
+Delegering gör det enklare att nå och hantera fler användare som du själv. Följande bild visar en nivå av delegering, men Azure Stack stöd för flera nivåer. Delegerade providrar (DPs) kan delegera till andra leverantörer, upp till fem nivåer.
 
 ![Nivåer av delegering](media/azure-stack-delegated-provider/image1.png)
 
-Azure Stack-operatörer kan delegera skapandet av erbjudanden och användare till andra användare med hjälp av funktionen för delegering.
+## <a name="understand-delegation-roles-and-steps"></a>Förstå delegering roller och steg
 
-## <a name="roles-and-steps-in-delegation"></a>Roller och steg i delegering
-Tänk på att det finns tre roller som används för att förstå delegering:
+### <a name="delegation-roles"></a>Delegering roller
 
-* Den *Azure Stack operatorn* hanterar Azure Stack-infrastruktur, skapar en mall för erbjudandet och delegerar andra erbjuder för sina användare.
+Följande roller är en del av delegering:
 
-* Delegerad Azure Stack-operatorer kallas *delegerad providers*. De kan tillhöra andra organisationer, t.ex andra användare i Azure Active Directory (AD Azure).
+* Den *Azure Stack-operatör* hanterar Azure Stack-infrastruktur och skapar en mall för erbjudandet. Operatorn delegerar andra tillhandahåller erbjudanden till sina användare.
 
-* *Användare* registrera sig för erbjudandena och använda dem för att hantera sina arbetsbelastningar, hur du skapar virtuella datorer kan lagra data, och så vidare.
+* Delegerad Azure Stack-operatörer kallas *delegerade providrar*. De kan tillhöra andra organisationer, t.ex andra användare i Azure Active Directory (AD Azure).
 
-I följande bild visas det finns två steg för att skapa delegeringen.
+* *Användare* registrera dig för dina erbjudanden och använda dem för att hantera sina arbetsbelastningar, skapa virtuella datorer, lagring av data, och så vidare.
 
-1. *Identifiera delegerad providers*. Det gör du genom att prenumerera ett erbjudande baserat på en plan som innehåller endast tjänsten prenumerationer. Användare som prenumererar på det här erbjudandet får du några av operatorn Azure Stack-funktioner, inklusive möjligheten att utöka erbjudanden och loggar användarna in för dem.
+### <a name="delegation-steps"></a>Steg för delegering
 
-2. *Delegera ett erbjudande till delegerad providern*. Det här erbjudandet fungerar som en mall för vad delegerad providern kan erbjuda. Delegerad providern kan nu ta erbjudandet. Välj ett namn för den (men inte ändra dess tjänster och kvoter) och erbjuda kunder.
+Det finns två grundläggande stegen för att ställa in delegering:
+
+1. *Skapa en delegerad provider* genom att prenumerera på en användare till ett erbjudande utifrån en plan som endast har tjänsten prenumerationer. Användare som prenumererar på det här erbjudandet kan utöka erbjudanden och registrera användare för dina erbjudanden.
+
+1. *Delegera ett erbjudande till delegerade providern*. Det här erbjudandet är en mall för vad delegerade providern kan erbjuda. Delegerad providern kan nu ta erbjudandet och erbjuda de till andra användare.
+
+I nästa bild visas stegen för att ställa in delegering.
 
 ![Skapa delegerad providern och aktivera dem att logga in användare](media/azure-stack-delegated-provider/image2.png)
 
-För att agera som delegerade providers, behöver användarna skapar en relation med den huvudsakliga providern. Med andra ord behöver de för att skapa en prenumeration. I det här fallet identifierar den här prenumerationen delegerad leverantörer som har rätt till finns erbjudanden för den huvudsakliga providern.
+**Delegerad provider-krav**
 
-När den här relationen har upprättats kan Azure Stack-operatorn Delegera ett erbjudande till delegerad-providern. Delegerad providern kan nu ta erbjudandet, byta namn på den (men inte ändra dess ämne) och erbjuda sina kunder.
+För att fungera som en delegerad provider, måste en användare skapar en relation med den huvudsakliga providern genom att skapa en prenumeration. Den här prenumerationen identifierar delegerade leverantören som har rätt till finns erbjudanden för den huvudsakliga providern.
 
-I följande avsnitt beskrivs hur du upprättar en delegerad provider, delegera ett erbjudande, och kontrollera att användare kan registrera dig för den.
+När den här relationen har upprättats, kan Azure Stack-operatör Delegera ett erbjudande till delegerade-providern. Delegerad providern kan ta erbjudandet, Byt namn på den (men inte ändra sak) och erbjuda sina kunder.
 
-## <a name="set-up-roles"></a>Konfigurera roller
+## <a name="delegation-walkthrough"></a>Genomgång för delegering
 
-Om du vill se en delegerad provider på arbetet, behöver du ytterligare Azure AD-konton förutom ditt konto för Azure Stack-operator. Skapa dem om du inte har dessa två konton. Konton kan höra till Azure AD-användare och kallas delegerad providern och användaren.
+Följande avsnitt innehåller en praktisk genomgång för hur du konfigurerar en delegerad provider, delegera ett erbjudande och verifiera att användarna kan registrera sig för det delegerade erbjudandet.
+
+### <a name="set-up-roles"></a>Konfigurera roller
+
+Om du vill använda den här genomgången behöver du två Azure AD-konton förutom ditt konto för Azure Stack-operator. Om du inte har dessa två konton, måste du skapa dem. Konton kan höra till alla Azure AD-användare och de kallas delegerade providern och användaren.
 
 | **Roll** | **Organisationens rättigheter** |
 | --- | --- |
 | Delegerad provider |Användare |
 | Användare |Användare |
 
-## <a name="identify-the-delegated-providers"></a>Identifiera delegerad providers
-1. Logga in som en Azure-Stack-operator.
+### <a name="identify-the-delegated-provider"></a>Identifiera den delegerade providern
 
-2. Skapa erbjudande som gör att användarna ska bli delegerad providers:
-   
+1. Logga in på administratörsportalen som Azure Stack-operatör.
+
+1. Skapa ett erbjudande som används att bli en delegerad provider:
+
    a.  [Skapa en plan](azure-stack-create-plan.md).
-       Planen bör innefatta prenumerationer tjänsten. Den här artikeln använder en plan som heter **PlanForDelegation**.
-   
-   b.  [Skapa ett erbjudande](azure-stack-create-offer.md) baserat på den här planen. Den här artikeln används ett erbjudande som kallas **OfferToDP**.
-   
-   c.  När den har skapats av erbjudandet delegerad providern lägga till som en prenumerant till det här erbjudandet. Gör detta genom att markera **prenumerationer** > **Lägg till** > **nya Klientprenumeration**.
-   
-   ![Lägg till delegerad provider som prenumerant](media/azure-stack-delegated-provider/image3.png)
+       Den här planen bör innehålla endast tjänsten prenumerationer. Den här artikeln använder ett schema med namnet **PlanForDelegation** som exempel.
 
-> [!NOTE]
-> Som med alla Azure Stack-erbjudanden som du har möjlighet att erbjudandet offentliga och innebär att användare att registrera dig för det, eller att hålla den privata och att låta Azure Stack-operatorn hantera registreringen. Delegerad providers är vanligtvis en liten grupp. Du vill styra vem som är upptagna, så att det här erbjudandet privata klokt i de flesta fall.
-> 
-> 
+   b.  [Skapa ett erbjudande](azure-stack-create-offer.md) baserat på den här planen. Den här artikeln används ett erbjudande med namnet **OfferToDP** som exempel.
 
-## <a name="azure-stack-operator-creates-the-delegated-offer"></a>Azure Stack-operatorn skapar delegerad erbjudandet
+   c.  Lägger till delegerad providern som prenumerant på det här erbjudandet genom att välja **prenumerationer** > **Lägg till** > **nya Klientprenumeration**.
 
-Du har nu skapat din delegerade leverantör. Nästa steg är att skapa planen och erbjudande som du kommer att delegera och som används av dina kunder. Det är en bra idé att definiera det här erbjudandet precis som du vill att kunderna ska se den eftersom delegerad providern inte kan ändra planer och kvoter som den innehåller.
+   ![Lägg till den delegerade providern som en prenumerant](media/azure-stack-delegated-provider/image3.png)
 
-1. Som operatör Azure Stack [skapar en plan](azure-stack-create-plan.md) och [ett erbjudande](azure-stack-create-offer.md) baserat på den. Den här artikeln används ett erbjudande som kallas **DelegatedOffer.**
-   
    > [!NOTE]
-   > Det här erbjudandet behöver inte vara offentlig. Om du väljer du den offentliga. I de flesta fall, men vill du bara delegerad leverantörer att ha åtkomst till den. När du delegerar privata erbjudande enligt beskrivningen i följande steg har delegerad providern åtkomst till den.
-   > 
-   > 
-1. Delegera erbjudandet. Gå till **DelegatedOffer.** I den **inställningar** väljer **delegerad Providers** > **Lägg till**.
+   > Som med alla Azure Stack-erbjudanden som du har möjlighet att erbjudandet offentliga och slipper användare att registrera dig för den, eller att hålla det privata och att låta Azure Stack-operatör hantera registreringen. Delegerade providrar är vanligtvis en liten grupp. Du vill kontrollera vem som är upptagna till den, så att hålla det här erbjudandet privat passar i de flesta fall.
 
-2. Välj prenumerationen för delegerad providern från den nedrullningsbara listrutan och välj sedan **ombud**.
+### <a name="azure-stack-operator-creates-the-delegated-offer"></a>Azure Stack-operatör skapar det delegerade erbjudandet
 
-> ![Lägga till en delegerad provider](media/azure-stack-delegated-provider/image4.png)
-> 
-> 
+Nästa steg är att skapa plan och erbjudande som du kommer att delegera och som användarna ska använda. Det är en bra idé att definiera det här erbjudandet exakt som du vill att användarna ska se hur det eftersom den delegerade providern inte kan ändra den och kvoter som den innehåller.
 
-## <a name="delegated-provider-customizes-the-offer"></a>Delegerad providern anpassar erbjudandet
+1. Som en Azure Stack-operatör [skapa en plan](azure-stack-create-plan.md) och [ett erbjudande](azure-stack-create-offer.md) baserat på planen. Den här artikeln används ett erbjudande med namnet **DelegatedOffer** som exempel.
 
-Logga in på användarportalen som delegerad provider och sedan skapa ett nytt erbjudande med hjälp av delegerade erbjudandet som en mall.
+   > [!NOTE]
+   > Det här erbjudandet har inte är offentliga men du kan göra det offentliga om du vill. Men i de flesta fall vill du bara delegerade providrar ska ha åtkomst till erbjudandet. När du delegerar erbjudande om en privat enligt beskrivningen i följande steg bör har delegerade leverantören åtkomst till den.
+
+1. Delegera erbjudandet. Gå till **DelegatedOffer**. Under **inställningar**väljer **delegerade providrar** > **Lägg till**.
+
+1. Välj prenumerationen för delegerade providern från den nedrullningsbara listan och välj sedan **ombud**.
+
+   ![Lägg till en delegerad provider](media/azure-stack-delegated-provider/image4.png)
+
+### <a name="delegated-provider-customizes-the-offer"></a>Delegerad providern anpassar erbjudandet
+
+Logga in på användarportalen som delegerad provider och sedan skapa ett nytt erbjudande med hjälp av det delegerade erbjudandet som en mall.
 
 1. Välj **nya** > **klient erbjuder + planer** > **erbjuder**.
 
     ![Skapa ett nytt erbjudande](media/azure-stack-delegated-provider/image5.png)
 
+1. Tilldela ett namn till erbjudandet. Den här artikeln använder **ResellerOffer** som exempel. Välj det delegerade erbjudandet som du vill basera den och välj sedan **skapa**.
 
-1. Tilldela ett namn till erbjudandet. Den här artikeln använder **ResellerOffer**. Välj delegerad erbjudande som du vill basera den och välj sedan **skapa**.
-   
    ![Tilldela ett namn](media/azure-stack-delegated-provider/image6.png)
 
-    >[!NOTE] 
-    > Observera skillnaden jämfört med för att erbjuda skapas som erfarenhet av Azure Stack-operatorn. Delegerad providern inte att konstruera erbjudandet från basen planer och tillägg planer. De kan bara välja från erbjudanden som har delegerats till dem och det går inte att göra ändringar i dessa erbjudanden.
+   >[!IMPORTANT]
+   >Det är viktigt att förstå att en delegerad provider till skillnad från en Azure Stack-operatör inte skapa ett erbjudande från basplaner och tilläggsplaner. Delegerade providrar kan endast välja erbjudanden som delegeras till dem, de kan inte ändra de erbjudandena.
 
-1. Offentliggöra erbjudandet genom att välja **Bläddra**, och sedan **erbjuder**. Välj erbjudandet och välj sedan **ändring av tillstånd**.
+1. Gör erbjudandet offentlig genom att välja **Bläddra**, och sedan **erbjuder**. Välja erbjudandet och välj sedan **ändra tillstånd**.
 
-2. Delegerad providern visar dessa erbjudanden via sina egna portal URL. Dessa erbjudanden visas endast via delegerad portalen. Hitta och ändra den här URL:
-   
-    a.  Välj **Bläddra** > **fler tjänster** > **prenumerationer**. Välj delegerad provider-prenumeration. Till exempel **DPSubscription** > **egenskaper**.
-   
-    b.  Kopiera portalen URL till en annan plats, till exempel Anteckningar.
-   
-    ![Välj den delegerade provider-prenumerationen](media/azure-stack-delegated-provider/dpportaluri.png)  
-   
-   Nu har du skapat ett erbjudande om delegerad som en delegerad provider. Logga ut som den delegerade providern. Stäng webbläsarfönstret som du har använt.
+1. Delegerad Providern exponerar dessa erbjudanden via sina egna portal URL: en. Dessa erbjudanden är synliga enbart via delegerade-portalen. Hitta och ändra den här URL: en:
 
-## <a name="sign-up-for-the-offer"></a>Registrera dig för erbjudande
-1. Gå till den delegerade portalen i ett nytt webbläsarfönster URL som du sparade i föregående steg. Logga in på portalen som en användare. 
-   
+    a.  Välj **Bläddra** > **fler tjänster** > **prenumerationer**. Välj delegerad providerprenumeration. Till exempel **DPSubscription** > **egenskaper**.
+
+    b.  Kopiera portalen URL: en till en annan plats, till exempel Anteckningar.
+
+    ![Välj delegerad providerprenumeration](media/azure-stack-delegated-provider/dpportaluri.png)  
+
+   Du har nu skapat ett delegerat erbjudande som en delegerad provider. Logga ut som den delegerade providern och stänga webbläsaren som du använder.
+
+### <a name="sign-up-for-the-offer"></a>Registrera dig för erbjudandet
+
+1. I ett nytt webbläsarfönster går du till den delegerade portalen-URL som du sparade i föregående steg. Logga in på portalen som en användare.
+
    >[!NOTE]
-   >Delegerad erbjudanden visas inte om du inte använder den delegerade portalen. 
+   >Delegerade erbjudanden visas inte om du inte använder den delegerade portalen.
 
-2. I instrumentpanelen, väljer **skaffa en prenumeration**. Du kan se att de delegerade erbjudanden som har skapats av delegerade providern är visas för användaren:
+1. I instrumentpanelen, väljer **skaffa en prenumeration**. Du ser att de delegerade erbjudanden som har skapats av delegerade providern visas för användaren.
 
-> ![Visa och välja erbjudanden](media/azure-stack-delegated-provider/image8.png)
-> 
-> 
+   ![Visa och välj erbjudanden](media/azure-stack-delegated-provider/image8.png)
 
-Processen för erbjudande delegering har slutförts. Användaren kan nu registrera dig för detta erbjudande genom att få en prenumeration för den.
+Processen att delegera ett erbjudande är klar. Nu kan en användare registrera dig för det här erbjudandet genom att skaffa en prenumeration för den.
 
 ## <a name="multiple-tier-delegation"></a>Flera nivåer delegering
 
-Flera nivåer delegering aktiverar delegerad providern att delegera erbjudandet till andra enheter. Detta kan exempelvis skapas djupare återförsäljarkanaler, där den provider som hanterar Azure Stack delegerar ett erbjudande till en återförsäljare. Som distributör i sin tur delegerar till en återförsäljare. Azure-stacken stöder upp till fem nivåer av delegering.
+Delegering av flera nivåer kan en delegerad provider för att delegera erbjudandet till andra entiteter. Till exempel om du vill skapa djupare återförsäljare av kommunikationskanaler var:
 
-Om du vill skapa flera nivåer av erbjudandet delegering delegerar delegerad providern i sin tur erbjudandet till nästa provider. Processen är densamma för den delegerade providern som den var för Azure Stack-operatorn (se [Azure Stack operatorn skapar delegerad erbjudandet](#cloud-operator-creates-the-delegated-offer)).
+* Providern som hanterar Azure Stack delegerar ett erbjudande och en distributör.
+* Distributören ombud till en återförsäljare.
+
+Om du vill skapa flera nivåer av erbjudandet delegering delegerar delegerade providern erbjudandet till nästa providern. Processen är densamma för delegerade providern som det gjorde för Azure Stack-operatör. Mer information finns i [Azure Stack-operatör skapar det delegerade erbjudandet](#cloud-operator-creates-the-delegated-offer).
 
 ## <a name="next-steps"></a>Nästa steg
-[Etablera en virtuell dator](azure-stack-provision-vm.md)
 
+[Etablera en virtuell dator](azure-stack-provision-vm.md)

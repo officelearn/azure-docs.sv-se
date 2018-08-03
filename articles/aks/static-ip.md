@@ -1,6 +1,6 @@
 ---
-title: Använda en statisk IP-adress med belastningsutjämnaren Azure Kubernetes Service (AKS)
-description: Använda en statisk IP-adress med belastningsutjämnaren Azure Kubernetes Service (AKS).
+title: Använda en statisk IP-adress med belastningsutjämnare för Azure Kubernetes Service (AKS)
+description: Använda en statisk IP-adress med belastningsutjämnare för Azure Kubernetes Service (AKS).
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -9,20 +9,20 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2ff964e4909c288686253816bc40322b7839a2da
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: af1dffd681eaf7b2eb90ab4657cc25f2144a48d9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100597"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423631"
 ---
-# <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Använda en statisk IP-adress med belastningsutjämnaren Azure Kubernetes Service (AKS)
+# <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Använda en statisk IP-adress med belastningsutjämnare för Azure Kubernetes Service (AKS)
 
-I vissa fall, som när Azure Kubernetes Service (AKS) läser in belastningsutjämnaren återskapas eller Kubernetes tjänster med en typ av LoadBalancer återskapas kan tjänsten Kubernetes offentliga IP-adress ändras. Det här dokumentet beskriver hur du konfigurerar en statisk IP-adress för Kubernetes-tjänster.
+I vissa fall, t.ex. när Azure Kubernetes Service (AKS) läser in belastningsutjämnare återskapas eller Kubernetes-tjänster med en typ av LoadBalancer återskapas kan den offentliga IP-adressen för Kubernetes-tjänst ändras. Den här dokumentet beskriver hur du konfigurerar en statisk IP-adress för Kubernetes-tjänster.
 
-## <a name="create-static-ip-address"></a>Skapa statisk IP-adress
+## <a name="create-static-ip-address"></a>Skapa statiska IP-adress
 
-Skapa en statisk offentlig IP-adress för tjänsten Kubernetes. IP-adressen måste skapas i AKS **nod** resursgruppen. Hämta resursgruppens namn med den [az resurs visa] [ az-resource-show] kommando.
+Skapa en statisk offentlig IP-adress för Kubernetes-tjänst. IP-adressen måste skapas i AKS **noden** resursgrupp. Hämta resursgruppens namn med den [az resource show] [ az-resource-show] kommando.
 
 ```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
@@ -64,7 +64,7 @@ Anteckna IP-adressen.
   }
 ````
 
- Om det behövs, adressen som kan hämtas med hjälp av den [az offentliga ip-lista över] [ az-network-public-ip-list] kommando.
+ Om det behövs adressen kan hämtas med hjälp av den [az network public-ip-listan] [ az-network-public-ip-list] kommando.
 
 ```azurecli-interactive
 az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
@@ -76,7 +76,7 @@ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastu
 
 ## <a name="create-service-with-ip-address"></a>Skapa tjänst med IP-adress
 
-När den statiska IP-adressen har etablerats, en tjänst för Kubernetes kan skapas med den `loadBalancerIP` egenskapen och ett värde av den statiska IP-adressen.
+När den statiska IP-adressen har etablerats, en Kubernetes-tjänst kan skapas med den `loadBalancerIP` egenskap och ett värde av den statiska IP-adressen.
 
 ```yaml
 apiVersion: v1
@@ -94,7 +94,7 @@ spec:
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om den statiska IP-adressen inte har skapats eller har skapats i fel resursgrupp, misslyckas skapa en tjänst. Returnera service-skapande händelser med hur du felsöker det [kubectl beskrivs] [ kubectl-describe] kommando.
+Om den statiska IP-adressen inte har skapats eller har skapats i fel resursgrupp, inte tjänsten skapas. Om du vill felsöka returnera service-skapande händelser med den [kubectl beskriver] [ kubectl-describe] kommando.
 
 ```azurecli-interactive
 kubectl describe service azure-vote-front
@@ -127,6 +127,6 @@ Events:
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
-[az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
-[az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
 [az-resource-show]: /cli/azure/resource#az-resource-show

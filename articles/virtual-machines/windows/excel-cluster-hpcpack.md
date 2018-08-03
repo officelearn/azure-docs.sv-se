@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: aaf26e04fdb38fd76f4ab8211f9fdda8ebafd668
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4a6327fcfe6f6e6f3b8b5c6ecbd14b832b4134c5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971867"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421220"
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Kom igång med att köra Excel och SOA-arbetsbelastningar på ett HPC Pack-kluster i Azure
 Den här artikeln visar hur du distribuerar ett Microsoft HPC Pack 2012 R2-kluster på Azure virtual machines med hjälp av en Azure-snabbstartsmall eller du kan också en Azure PowerShell-distributionsskriptet. Klustret använder Azure Marketplace-VM-avbildningar som utformats för att köra Microsoft Excel eller tjänstorienterad arkitektur (SOA) arbetsbelastningar med HPC Pack. Du kan använda klustret för att köra Excel HPC- och SOA-tjänster från en lokal klientdator. Excel-HPC-tjänster är Excel arbetsboksavlastning och användardefinierade funktioner i Excel eller UDF: er.
@@ -53,10 +53,10 @@ Använda en Azure-snabbstartsmall för att snabbt distribuera ett HPC Pack-klust
 > 
 
 1. Gå till den [skapa HPC-kluster mallsidan på GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). Om du vill kan du granska information om mallen och källkoden.
-2. Klicka på **distribuera till Azure** att starta en distribution med hjälp av mallen i Azure-portalen.
+1. Klicka på **distribuera till Azure** att starta en distribution med hjälp av mallen i Azure-portalen.
    
    ![Distribuera mall till Azure][github]
-3. Följ stegen nedan för att ange parametrar för mallen HPC-kluster i portalen.
+1. Följ stegen nedan för att ange parametrar för mallen HPC-kluster i portalen.
    
    a. På den **parametrar** sidan, anger eller ändrar värden för mallparametrarna. (Klicka på ikonen bredvid varje inställning för hjälpinformation.) I följande skärmbild visas exempelvärden. Det här exemplet skapar ett kluster med namnet *hpc01* i den *hpc.local* domän som består av en huvudnod och 2 compute-noder. Compute-noder har skapats från en HPC Pack VM-avbildning som innehåller Microsoft Excel.
    
@@ -76,7 +76,7 @@ Använda en Azure-snabbstartsmall för att snabbt distribuera ett HPC Pack-klust
    d. Välj en plats för resursgruppen, till exempel USA, centrala.
    
    e. På den **juridiska villkor** läser du igenom villkoren. Om du godkänner villkoren klickar du på **köp**. När du har angett värden för mallen, klicka **skapa**.
-4. När distributionen har slutförts (det tar vanligtvis cirka 30 minuter), exportera certifikatfilen klustret från klustrets huvudnod. I ett senare steg kan du importera den här offentliga certifikat på klientdatorn för att autentisera servern för säker HTTP-bindning.
+1. När distributionen har slutförts (det tar vanligtvis cirka 30 minuter), exportera certifikatfilen klustret från klustrets huvudnod. I ett senare steg kan du importera den här offentliga certifikat på klientdatorn för att autentisera servern för säker HTTP-bindning.
    
    a. I Azure-portalen, gå till instrumentpanelen, väljer du huvudnoden och klicka på **Connect** överst på sidan för att ansluta med hjälp av fjärrskrivbord.
    
@@ -177,12 +177,12 @@ Skriptet för HPC Pack IaaS-distribution är en annan flexibelt sätt att distri
 **Kör skript**
 
 1. Öppna PowerShell-konsolen på klientdatorn som administratör.
-2. Ändra katalogen till mappen skript (E:\IaaSClusterScript i det här exemplet).
+1. Ändra katalogen till mappen skript (E:\IaaSClusterScript i det här exemplet).
    
    ```
    cd E:\IaaSClusterScript
    ```
-3. Kör följande kommando för att distribuera HPC Pack-kluster. Det här exemplet förutsätts att konfigurationsfilen finns i E:\HPCDemoConfig.xml.
+1. Kör följande kommando för att distribuera HPC Pack-kluster. Det här exemplet förutsätts att konfigurationsfilen finns i E:\HPCDemoConfig.xml.
    
    ```
    .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
@@ -214,8 +214,8 @@ Office Professional Plus 2013 har installerats på VM-avbildning är en volymutg
 Följ dessa steg för att avlasta en Excel-arbetsbok så att den körs på HPC Pack-kluster i Azure. Om du vill göra detta måste måste du ha Excel 2010 eller 2013 som redan är installerad på klientdatorn.
 
 1. Använd något av alternativen i steg 1 för att distribuera ett HPC Pack-kluster med Excel beräkningsavbildning noden. Hämta kluster-certifikatfil (.cer) och kluster användarnamn och lösenord.
-2. Importera klustercertifikat under Cert: \CurrentUser\Root på klientdatorn.
-3. Kontrollera att Excel har installerats. Skapa en Excel.exe.config-fil med följande innehåll i samma mapp som Excel.exe på klientdatorn. Det här steget säkerställer att HPC Pack 2012 R2 Excel COM-tillägg har lästs in.
+1. Importera klustercertifikat under Cert: \CurrentUser\Root på klientdatorn.
+1. Kontrollera att Excel har installerats. Skapa en Excel.exe.config-fil med följande innehåll i samma mapp som Excel.exe på klientdatorn. Det här steget säkerställer att HPC Pack 2012 R2 Excel COM-tillägg har lästs in.
    
     ```
     <?xml version="1.0"?>
@@ -225,13 +225,13 @@ Följ dessa steg för att avlasta en Excel-arbetsbok så att den körs på HPC P
         </startup>
     </configuration>
     ```
-4. Konfigurera klienten för att skicka jobb till HPC Pack-kluster. Ett alternativ är att hämta fullständiga [HPC Pack 2012 R2 uppdatering 3 installation](http://www.microsoft.com/download/details.aspx?id=49922) och installera HPC Pack-klienten. Du kan också hämta och installera den [HPC Pack 2012 R2 uppdatering 3 klientverktyg](https://www.microsoft.com/download/details.aspx?id=49923) och den lämpliga Visual C++ 2010 redistributable för datorn ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555) ).
-5. I det här exemplet använder vi en Excel-exempelarbetsboken med namnet ConvertiblePricing_Complete.xlsb. Du kan hämta det [här](https://www.microsoft.com/en-us/download/details.aspx?id=2939).
-6. Kopiera Excel-arbetsboken till en arbetsmapp, till exempel D:\Excel\Run.
-7. Öppna Excel-arbetsboken. På den **utveckla** menyfliksområdet, klickar du på **COM-tillägg** och bekräfta att HPC Pack Excel COM-tillägg har lästs in.
+1. Konfigurera klienten för att skicka jobb till HPC Pack-kluster. Ett alternativ är att hämta fullständiga [HPC Pack 2012 R2 uppdatering 3 installation](http://www.microsoft.com/download/details.aspx?id=49922) och installera HPC Pack-klienten. Du kan också hämta och installera den [HPC Pack 2012 R2 uppdatering 3 klientverktyg](https://www.microsoft.com/download/details.aspx?id=49923) och den lämpliga Visual C++ 2010 redistributable för datorn ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555) ).
+1. I det här exemplet använder vi en Excel-exempelarbetsboken med namnet ConvertiblePricing_Complete.xlsb. Du kan hämta det [här](https://www.microsoft.com/en-us/download/details.aspx?id=2939).
+1. Kopiera Excel-arbetsboken till en arbetsmapp, till exempel D:\Excel\Run.
+1. Öppna Excel-arbetsboken. På den **utveckla** menyfliksområdet, klickar du på **COM-tillägg** och bekräfta att HPC Pack Excel COM-tillägg har lästs in.
    
    ![Excel-tillägg för HPC Pack][addin]
-8. Redigera ett makro HPCControlMacros i Excel genom att ändra de kommenterade raderna enligt följande skript. Ersätt lämpliga värden för din miljö.
+1. Redigera ett makro HPCControlMacros i Excel genom att ändra de kommenterade raderna enligt följande skript. Ersätt lämpliga värden för din miljö.
    
    ![Excel-makro för HPC Pack][macro]
    
@@ -251,8 +251,8 @@ Följ dessa steg för att avlasta en Excel-arbetsbok så att den körs på HPC P
    'HPCExcelClient.OpenSession headNode:=HPC_ClusterScheduler, remoteWorkbookPath:=HPCWorkbookPath
    HPCExcelClient.OpenSession headNode:=HPC_ClusterScheduler, remoteWorkbookPath:=HPCWorkbookPath, UserName:="hpc\azureuser", Password:="<YourPassword>"
    ```
-9. Kopiera Excel-arbetsboken till en katalog för uppladdning, till exempel D:\Excel\Upload. Den här katalogen har angetts i HPC_DependsFiles konstant i ett makro.
-10. Om du vill köra arbetsboken på klustret i Azure, klickar du på den **kluster** knappen i kalkylbladet.
+1. Kopiera Excel-arbetsboken till en katalog för uppladdning, till exempel D:\Excel\Upload. Den här katalogen har angetts i HPC_DependsFiles konstant i ett makro.
+1. Om du vill köra arbetsboken på klustret i Azure, klickar du på den **kluster** knappen i kalkylbladet.
 
 ### <a name="run-excel-udfs"></a>Kör Excel-UDF: er
 Följ föregående steg 1 – 3 för att konfigurera datorn för att köra Excel-UDF: er. För Excel-UDF: er behöver du inte har installerat på beräkningsnoder Excel-program. Så när du skapar klustret compute-noder, kan du välja en normal beräkningsavbildning noden i stället för avbildningen för beräkningsnod med Excel.
@@ -267,10 +267,10 @@ När klustret har distribuerats, fortsätter du med följande steg för att kör
 1. Öppna en ny Excel-arbetsbok. På den **utveckla** menyfliksområdet, klickar du på **tillägg**. Klicka i dialogrutan **Bläddra**, navigera till mappen %CCP_HOME%Bin\XLL32 och välj exempel ClusterUDF32.xll. Om ClusterUDF32 inte finns på klientdatorn, kopierar du den från mappen %CCP_HOME%Bin\XLL32 på huvudnoden.
    
    ![Välj en användardefinierad funktion][udf]
-2. Klicka på **filen** > **alternativ** > **avancerade**. Under **formler**, kontrollera **Tillåt användardefinierade XLL funktioner att köra ett beräkningskluster**. Klicka sedan på **alternativ** och ange fullständig klusternamnet i **klustrets huvudnod namn**. (Som anges tidigare den här textrutan är begränsad till 34 tecken så långt klusternamnet inte kanske passar. Du kan använda en datoromfattande variabeln här för ett långt klusternamn.)
+1. Klicka på **filen** > **alternativ** > **avancerade**. Under **formler**, kontrollera **Tillåt användardefinierade XLL funktioner att köra ett beräkningskluster**. Klicka sedan på **alternativ** och ange fullständig klusternamnet i **klustrets huvudnod namn**. (Som anges tidigare den här textrutan är begränsad till 34 tecken så långt klusternamnet inte kanske passar. Du kan använda en datoromfattande variabeln här för ett långt klusternamn.)
    
    ![Konfigurera en användardefinierad funktion][options]
-3. Om du vill köra beräkningen UDF i klustret, klicka på cellen med värdet =XllGetComputerNameC() och tryck på RETUR. Funktionen hämtar bara namnet på Beräkningsnoden där en användardefinierad funktion körs. För den första körningen uppmanas en dialogruta för autentiseringsuppgifter för användarnamn och lösenord att ansluta till IaaS-kluster.
+1. Om du vill köra beräkningen UDF i klustret, klicka på cellen med värdet =XllGetComputerNameC() och tryck på RETUR. Funktionen hämtar bara namnet på Beräkningsnoden där en användardefinierad funktion körs. För den första körningen uppmanas en dialogruta för autentiseringsuppgifter för användarnamn och lösenord att ansluta till IaaS-kluster.
    
    ![Köra UDF][run]
    
@@ -280,9 +280,9 @@ När klustret har distribuerats, fortsätter du med följande steg för att kör
 Om du vill köra Allmänt SOA-program i HPC Pack IaaS-klustret, först använda någon av metoderna i steg 1 för att distribuera klustret. Ange en allmän beräkningsavbildning noden i det här fallet eftersom du inte behöver Excel på beräkningsnoderna. Följ dessa steg.
 
 1. När du har hämtat klustercertifikatet, importerar du den på klientdatorn under Cert: \CurrentUser\Root.
-2. Installera den [HPC Pack 2012 R2 uppdatering 3 SDK](http://www.microsoft.com/download/details.aspx?id=49921) och [HPC Pack 2012 R2 uppdatering 3 klientverktyg](https://www.microsoft.com/download/details.aspx?id=49923). Dessa verktyg kan du utveckla och kör SOA-klientprogram.
-3. Ladda ned HelloWorldR2 [exempelkoden](https://www.microsoft.com/download/details.aspx?id=41633). Öppna HelloWorldR2.sln i Visual Studio 2010 eller 2012. (Det här exemplet är inte kompatibelt med nyare versioner av Visual Studio.)
-4. Skapa EchoService projektet först. Sedan distribuera tjänsten till IaaS-klustret på samma sätt som du distribuerar till ett lokalt kluster. Detaljerade anvisningar finns i Viktigt.doc i HelloWordR2. Ändra och skapa HellWorldR2 och andra projekt som beskrivs i följande avsnitt för att generera SOA-klientprogram som körs på ett Azure IaaS-kluster.
+1. Installera den [HPC Pack 2012 R2 uppdatering 3 SDK](http://www.microsoft.com/download/details.aspx?id=49921) och [HPC Pack 2012 R2 uppdatering 3 klientverktyg](https://www.microsoft.com/download/details.aspx?id=49923). Dessa verktyg kan du utveckla och kör SOA-klientprogram.
+1. Ladda ned HelloWorldR2 [exempelkoden](https://www.microsoft.com/download/details.aspx?id=41633). Öppna HelloWorldR2.sln i Visual Studio 2010 eller 2012. (Det här exemplet är inte kompatibelt med nyare versioner av Visual Studio.)
+1. Skapa EchoService projektet först. Sedan distribuera tjänsten till IaaS-klustret på samma sätt som du distribuerar till ett lokalt kluster. Detaljerade anvisningar finns i Viktigt.doc i HelloWordR2. Ändra och skapa HellWorldR2 och andra projekt som beskrivs i följande avsnitt för att generera SOA-klientprogram som körs på ett Azure IaaS-kluster.
 
 ### <a name="use-http-binding-with-azure-storage-queue"></a>Använd Http-bindning med Azure storage-kö
 Om du vill använda Http-bindning med ett Azure storage-kö gör några ändringar i exempelkoden.
@@ -335,10 +335,10 @@ Om du vill använda Http-bindning utan en Azure storage-kö uttryckligen ställa
 Om du vill använda NetTcp bindning liknar konfigurationen ansluta till ett lokalt kluster. Du behöver öppna några slutpunkter på huvudnoden VM. Om du använder skriptet för HPC Pack IaaS-distribution för att skapa klustret, till exempel slutpunkterna i Azure-portalen på följande sätt.
 
 1. Stoppa den virtuella datorn.
-2. Lägg till TCP-portar 9090, 9087, 9091, 9094 för sessionen, Mäkla, Mäkla worker- och datatjänster, respektive
+1. Lägg till TCP-portar 9090, 9087, 9091, 9094 för sessionen, Mäkla, Mäkla worker- och datatjänster, respektive
    
     ![Konfigurera slutpunkter][endpoint-new-portal]
-3. Starta den virtuella datorn.
+1. Starta den virtuella datorn.
 
 SOA-klientprogram kräver inga ändringar förutom ändra head namnet till det fullständiga namnet för IaaS-kluster.
 

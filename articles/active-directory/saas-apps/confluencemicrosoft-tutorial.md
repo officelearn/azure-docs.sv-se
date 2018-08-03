@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 97b6507cb8c5a66b8b6ccbfccd2c838b4b3fb53a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 68d8ba6b08811b96df8b8b2daa074166301ffcd0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053309"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421999"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Självstudier: Azure Active Directory-integration med växer samman SAML SSO av Microsoft
 
@@ -69,7 +69,7 @@ Från och med nu stöds följande versioner av växer samman:
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till antal samverkande SAML SSO av Microsoft från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-confluence-saml-sso-by-microsoft-from-the-gallery"></a>Att lägga till antal samverkande SAML SSO av Microsoft från galleriet
 För att konfigurera integrering av växer samman SAML SSO av Microsoft i Azure AD, som du behöver lägga till antal samverkande SAML SSO av Microsoft från galleriet i din lista över hanterade SaaS-appar.
@@ -80,19 +80,19 @@ För att konfigurera integrering av växer samman SAML SSO av Microsoft i Azure 
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **växer samman SAML SSO av Microsoft**.
+1. I sökrutan skriver **växer samman SAML SSO av Microsoft**.
 
     ![Skapa en Azure AD-användare för testning](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_search.png)
 
-5. I resultatpanelen väljer **växer samman SAML SSO av Microsoft**, och klicka sedan på **Lägg till** för att lägga till programmet.
+1. I resultatpanelen väljer **växer samman SAML SSO av Microsoft**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
     ![Skapa en Azure AD-användare för testning](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_addfromgallery.png)
 
@@ -104,10 +104,10 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 Om du vill konfigurera och testa Azure AD enkel inloggning med växer samman SAML SSO av Microsoft, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa ett antal samverkande SAML SSO genom Microsoft testanvändare](#creating-a-confluence-saml-sso-by-microsoft-test-user)**  – du har en motsvarighet för Britta Simon i antal samverkande SAML SSO av Microsoft som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa ett antal samverkande SAML SSO genom Microsoft testanvändare](#creating-a-confluence-saml-sso-by-microsoft-test-user)**  – du har en motsvarighet för Britta Simon i antal samverkande SAML SSO av Microsoft som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -119,11 +119,11 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
     ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_samlbase.png)
 
-3. På den **växer samman SAML SSO genom Microsoft-Domain och URL: er** avsnittet, utför följande steg:
+1. På den **växer samman SAML SSO genom Microsoft-Domain och URL: er** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_url.png)
 
@@ -136,29 +136,29 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Porten är valfritt, om det är en namngiven URL. Dessa värden tas emot under konfigurationen av växer samman plugin-programmet, som beskrivs senare i självstudien.
 
-4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
+1. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
     
     ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/tutorial_metadataurl.png)
      
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/tutorial_general_400.png)
 
-6. I ett annat webbläsarfönster logga du in på din instans av växer samman som en administratör.
+1. I ett annat webbläsarfönster logga du in på din instans av växer samman som en administratör.
 
-7. Hovra över kugghjulet och klicka på den **tillägg**.
+1. Hovra över kugghjulet och klicka på den **tillägg**.
     
     ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/addon1.png)
 
-8. Hämta plugin-programmet från [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Överför manuellt från Microsoft med hjälp av plugin-programmet **överföra tillägg** menyn. Täcks av hämtningen av plugin-programmet [Microsofts serviceavtal](https://www.microsoft.com/en-us/servicesagreement/). 
+1. Hämta plugin-programmet från [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Överför manuellt från Microsoft med hjälp av plugin-programmet **överföra tillägg** menyn. Täcks av hämtningen av plugin-programmet [Microsofts serviceavtal](https://www.microsoft.com/en-us/servicesagreement/). 
     
     ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/addon12.png)
 
-9. När plugin-programmet har installerats, visas det i **användarinstallerade** tillägg delen av **Hantera tillägg** avsnittet. Klicka på **konfigurera** att konfigurera nya plugin-programmet.
+1. När plugin-programmet har installerats, visas det i **användarinstallerade** tillägg delen av **Hantera tillägg** avsnittet. Klicka på **konfigurera** att konfigurera nya plugin-programmet.
     
     ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/addon13.png)
 
-10. Utför följande steg på konfigurationssidan:
+1. Utför följande steg på konfigurationssidan:
 
     ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/addon52.png)
 
@@ -200,15 +200,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](./media/confluencemicrosoft-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
     ![Skapa en Azure AD-användare för testning](./media/confluencemicrosoft-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
     ![Skapa en Azure AD-användare för testning](./media/confluencemicrosoft-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
     ![Skapa en Azure AD-användare för testning](./media/confluencemicrosoft-tutorial/create_aaduser_04.png) 
 
@@ -228,11 +228,11 @@ Om du vill aktivera Azure AD-användare att logga in på växer samman den lokal
 
 1. Logga in till växer samman den lokala servern som administratör.
 
-2. Hovra över kugghjulet och klicka på den **Användarhantering**.
+1. Hovra över kugghjulet och klicka på den **Användarhantering**.
 
     ![Lägg till medarbetare](./media/confluencemicrosoft-tutorial/user1.png) 
 
-3. Under avsnittet för användare, klickar du på **lägga till användare** fliken. På den **lägga till en användare** dialogrutan utför följande steg:
+1. Under avsnittet för användare, klickar du på **lägga till användare** fliken. På den **lägga till en användare** dialogrutan utför följande steg:
 
     ![Lägg till medarbetare](./media/confluencemicrosoft-tutorial/user2.png) 
 
@@ -260,23 +260,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **växer samman SAML SSO av Microsoft**.
+1. I listan med program väljer **växer samman SAML SSO av Microsoft**.
 
     ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 

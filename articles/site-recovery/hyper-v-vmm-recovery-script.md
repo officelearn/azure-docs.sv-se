@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 71991347ffaf036065aae9e1a93b7eb83a14b15c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 0b2bb17c85f76498e11ea3f007d55d7488f249cf
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917356"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426895"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Lägg till ett VMM-skript i en återställningsplan
 
@@ -52,9 +52,9 @@ Du kan använda PowerShell-skript i dina återställningsplaner. För att vara t
   
   1. Öppna Registereditorn och gå sedan till **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure plats Recovery\Registration**.
 
-  2. Ändra värdet för **ScriptLibraryPath** till  **\\\libserver2.contoso.com\share\\**. Ange fullständig FQDN. Ge behörighet till plats där. Det här är rotnoden i resursen. Om du vill söka efter rotnoden i VMM, går du till rotnoden i biblioteket. Sökvägen som öppnas är roten till sökvägen. Det här är den sökväg som du måste använda i variabeln.
+  1. Ändra värdet för **ScriptLibraryPath** till  **\\\libserver2.contoso.com\share\\**. Ange fullständig FQDN. Ge behörighet till plats där. Det här är rotnoden i resursen. Om du vill söka efter rotnoden i VMM, går du till rotnoden i biblioteket. Sökvägen som öppnas är roten till sökvägen. Det här är den sökväg som du måste använda i variabeln.
 
-  3. Testa skriptet genom att använda ett konto som har samma nivå av användarrättigheter som VMM-tjänstkontot. Med hjälp av dessa användarrättigheter verifierar som fristående testade skript som körs på samma sätt som de körs i återställningsplaner. På VMM-servern ställer du in körningsprincipen att kringgå på följande sätt:
+  1. Testa skriptet genom att använda ett konto som har samma nivå av användarrättigheter som VMM-tjänstkontot. Med hjälp av dessa användarrättigheter verifierar som fristående testade skript som körs på samma sätt som de körs i återställningsplaner. På VMM-servern ställer du in körningsprincipen att kringgå på följande sätt:
 
      a. Öppna den **64-bitars Windows PowerShell** konsolen som administratör.
      
@@ -68,19 +68,19 @@ Du kan använda PowerShell-skript i dina återställningsplaner. För att vara t
 Om du har en VMM-källplats kan skapa du ett skript på VMM-servern. Ta sedan skriptet i din plan.
 
 1. Skapa en ny mapp i Biblioteksresursen. Till exempel \<VMM-servernamn > \MSSCVMMLibrary\RPScripts. Placera mappen på käll- och målservrar för VMM.
-2. Skapa skriptet. Till exempel kalla skriptet RPScript. Kontrollera att skriptet fungerar som förväntat.
-3. Placera skriptet i den \<VMM-servernamn > \MSSCVMMLibrary mapp på de käll- och VMM-servrarna.
+1. Skapa skriptet. Till exempel kalla skriptet RPScript. Kontrollera att skriptet fungerar som förväntat.
+1. Placera skriptet i den \<VMM-servernamn > \MSSCVMMLibrary mapp på de käll- och VMM-servrarna.
 
 ## <a name="add-the-script-to-a-recovery-plan"></a>Lägg till skriptet i en återställningsplan
 
 När du har lagt till virtuella datorer eller replikeringsgrupper i en återställningsplan och skapat planen kan du lägga till skriptet i gruppen.
 
 1. Öppna återställningsplanen.
-2. I den **steg** väljer du ett objekt. Välj antingen **skriptet** eller **manuell åtgärd**.
-3. Ange om du vill lägga till skript eller åtgärder före eller efter det valda objektet. Om du vill flytta positionen för skriptet uppåt eller nedåt, Välj den **Flytta upp** och **Flytta ned** knappar.
-4. Om du lägger till en VMM-skript, väljer **redundans till VMM skript**. I **skriptets sökväg**, ange den relativa sökvägen till resursen. Ange till exempel **\RPScripts\RPScript.PS1**.
-5. Om du lägger till en Azure Automation-runbook kan du ange Automation-konto där runbook finns. Välj den Azure-runbookskript som du vill använda.
-6. För att säkerställa att skriptet fungerar som förväntat, gör du ett redundanstest av återställningsplanen.
+1. I den **steg** väljer du ett objekt. Välj antingen **skriptet** eller **manuell åtgärd**.
+1. Ange om du vill lägga till skript eller åtgärder före eller efter det valda objektet. Om du vill flytta positionen för skriptet uppåt eller nedåt, Välj den **Flytta upp** och **Flytta ned** knappar.
+1. Om du lägger till en VMM-skript, väljer **redundans till VMM skript**. I **skriptets sökväg**, ange den relativa sökvägen till resursen. Ange till exempel **\RPScripts\RPScript.PS1**.
+1. Om du lägger till en Azure Automation-runbook kan du ange Automation-konto där runbook finns. Välj den Azure-runbookskript som du vill använda.
+1. För att säkerställa att skriptet fungerar som förväntat, gör du ett redundanstest av återställningsplanen.
 
 
 ## <a name="next-steps"></a>Nästa steg

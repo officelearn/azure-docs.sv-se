@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Qlik mening Enterprise | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Qlik mening Enterprise.
+title: 'Självstudier: Azure Active Directory-integrering med Qlik Sense Enterprise | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Qlik Sense Enterprise.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,316 +15,316 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 09e1850956150eab6bd7fea365a17c12fa15bdc3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b2c48c8c4566fb143f0a356f342d21580b1b6359
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230108"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420265"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Självstudier: Azure Active Directory-integrering med Qlik mening Enterprise
+# <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Självstudier: Azure Active Directory-integrering med Qlik Sense Enterprise
 
-I kursen får lära du att integrera Qlik mening Enterprise med Azure Active Directory (AD Azure).
+Lär dig hur du integrerar Qlik Sense Enterprise med Azure Active Directory (AD Azure) i den här självstudien.
 
-Integrera Qlik mening Enterprise med Azure AD ger dig följande fördelar:
+Integrera Qlik Sense Enterprise med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Qlik mening Enterprise.
-- Du kan aktivera användarna att automatiskt hämta loggat in på Qlik mening Enterprise (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton i en central plats - Azure-portalen.
+- Du kan styra i Azure AD som har åtkomst till Qlik Sense Enterprise.
+- Du kan aktivera användarna att automatiskt få loggat in på Qlik Sense Enterprise (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton på en central plats – Azure portal.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med Qlik mening Enterprise, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Qlik Sense Enterprise, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En Qlik mening Enterprise enkel inloggning aktiverad prenumeration
+- En Qlik Sense Enterprise enkel inloggning aktiverat prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad här: [utvärderingsversion erbjudande](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du kan få en månads utvärdering här: [– prova](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Qlik mening Enterprise från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Att lägga till Qlik Sense Enterprise från galleriet
+1. Konfigurera och testa Azure AD enkel inloggning
 
-## <a name="adding-qlik-sense-enterprise-from-the-gallery"></a>Att lägga till Qlik mening Enterprise från galleriet
-Du måste lägga till Qlik mening Enterprise från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Qlik mening Enterprise i Azure AD.
+## <a name="adding-qlik-sense-enterprise-from-the-gallery"></a>Att lägga till Qlik Sense Enterprise från galleriet
+Om du vill konfigurera integreringen av Qlik Sense Enterprise till Azure AD, som du behöver lägga till Qlik Sense Enterprise från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Qlik mening Enterprise från galleriet:**
+**Utför följande steg för att lägga till Qlik Sense Enterprise från galleriet:**
 
 1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Bladet Enterprise program][2]
+    ![Bladet för Enterprise-program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Qlik mening Enterprise**väljer **Qlik mening Enterprise** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Qlik Sense Enterprise**väljer **Qlik Sense Enterprise** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Qlik mening i resultatlistan företag](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_addfromgallery.png)
+    ![Qlik Sense Enterprise i resultatlistan](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Qlik mening Enterprise baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Qlik Sense Enterprise baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till motsvarande användaren i Qlik mening företag till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Qlik mening Enterprise upprättas.
+För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i Qlik Sense Enterprise till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Qlik Sense företag upprättas.
 
-I Qlik mening Enterprise, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+I Qlik Sense Enterprise, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Qlik mening Enterprise, måste du utföra följande byggblock:
+Om du vill konfigurera och testa Azure AD enkel inloggning med Qlik Sense Enterprise, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Qlik mening Enterprise](#create-a-qlik-sense-enterprise-test-user)**  – du har en motsvarighet för Britta Simon i Qlik mening företag som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Qlik Sense Enterprise](#create-a-qlik-sense-enterprise-test-user)**  – du har en motsvarighet för Britta Simon i Qlik Sense företag som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i Qlik mening Enterprise-programmet.
+I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Qlik Sense Enterprise-program.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Qlik mening Enterprise:**
+**Utför följande steg för att konfigurera Azure AD enkel inloggning med Qlik Sense Enterprise:**
 
-1. I Azure-portalen på den **Qlik mening Enterprise** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Qlik Sense Enterprise** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning länk][4]
+    ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
-    ![Enkel inloggning dialogrutan](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_samlbase.png)
+    ![Enkel inloggning för dialogrutan](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_samlbase.png)
 
-3. På den **Qlik mening företagsdomänen och URL: er** avsnittet, utför följande steg:
+1. På den **Qlik Sense Enterprise domän och URL: er** avsnittet, utför följande steg:
 
-    ![URL: er och Qlik mening företagsdomänen enkel inloggning information](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_url.png)
+    ![Qlik Sense Enterprise domän och URL: er med enkel inloggning för information](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<Qlik Sense Fully Qualifed Hostname>:443//samlauthn/`
+    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<Qlik Sense Fully Qualifed Hostname>:443//samlauthn/`
     
     > [!NOTE]
-    > Observera avslutande snedstreck i slutet av den här URI. Det krävs.
+    > Observera avslutande snedstreck i slutet av URI: N. Det krävs.
     
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:
+    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:
     | |
     |--|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qliksense.com`|
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare, som beskrivs senare i den här kursen eller kontakta [Qlik mening Enterprise-klienten supportteamet](https://www.qlik.com/us/services/support) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL och identifierare, som beskrivs senare i den här självstudien eller kontakta [Qlik Sense Enterprise Client supportteamet](https://www.qlik.com/us/services/support) att hämta dessa värden. 
 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
-    ![Länken hämta certifikatet](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_certificate.png) 
+    ![Länk för hämtning av certifikat](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara](./media/qliksense-enterprise-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning spara-knapp](./media/qliksense-enterprise-tutorial/tutorial_general_400.png)
 
-6. Förbereda Federation Metadata XML-filen så att du kan ladda upp som Qlik mening servern.
+1. Förbered Federation Metadata-XML-filen så att du kan ladda upp som till Qlik Sense-servern.
    
     > [!NOTE]
-    > Innan du laddar upp IdP metadata till servern Qlik mening filen måste redigeras för att ta bort information för att säkerställa att programmet fungerar mellan Azure AD och Qlik mening server.
+    > Innan du laddar upp metadata som IDP: N till Qlik Sense-servern filen måste redigeras för att ta bort information för att fungera korrekt mellan Azure AD och Qlik Sense-servern.
     
     ![QlikSense][qs24]
    
     a. Öppna filen FederationMetaData.xml som du har hämtat från Azure-portalen i en textredigerare.
    
-    b. Sök efter värdet **RoleDescriptor**.  Det finns fyra poster (två par inledande och avslutande elementtaggar).
+    b. Sök efter värdet **RoleDescriptor**.  Det finns fyra poster (två par inledande och avslutande prvku).
    
-    c. Ta bort RoleDescriptor-taggar och all information mellan från filen.
+    c. Ta bort RoleDescriptor taggar och all information mellan från filen.
    
-    d. Spara filen och spara den i närheten för användning senare i det här dokumentet.
+    d. Spara filen och förvara den närliggande för användning senare i det här dokumentet.
 
-7. Navigera till Qlik meningsfullt Qlik Management Console (QMC) som en användare som kan skapa virtuella proxykonfigurationer.
+1. Navigera till Qlik Sense Qlik Management Console (QMC) som en användare som kan skapa virtuella proxykonfigurationer.
 
-8. I QMC, klickar du på den **virtuella proxyservrar** menyalternativet.
+1. I QMC, klickar du på den **virtuella proxyservrar** menyalternativ.
    
     ![QlikSense][qs6] 
 
-9. Längst ned på skärmen klickar du på den **Skapa nytt** knappen.
+1. Längst ned på skärmen klickar du på den **Skapa nytt** knappen.
    
     ![QlikSense][qs7]
 
-10. Den virtuella proxy redigera visas.  Är en meny för att göra konfigurationsalternativ visas till höger på skärmen.
+1. Redigeringsskärmen virtuella proxy visas.  Är en meny för att göra alternativ visas på höger sida av skärmen.
    
     ![QlikSense][qs9]
 
-11. Ange identitetsinformationen för den virtuella Azure-proxykonfigurationen med menyalternativet identifiering kontrolleras.
+1. Ange identitetsinformationen för den virtuella Azure-proxykonfigurationen med menyalternativet identifiering kontrolleras.
     
     ![QlikSense][qs8]  
     
-    a. Den **beskrivning** fältet är ett eget namn för den virtuella proxykonfigurationen.  Ange ett värde för en beskrivning.
+    a. Den **beskrivning** fält är ett eget namn för den virtuella proxykonfigurationen.  Ange ett värde för en beskrivning.
     
-    b. Den **prefixet** identifierar fältet virtuella proxy-slutpunkten för att ansluta till Qlik mening med Azure AD enkel inloggning.  Ange ett unikt prefix-namn för den här virtuella proxy.
+    b. Den **prefixet** fältet identifierar virtuella proxy-slutpunkten för att ansluta till Qlik Sense med Azure AD enkel inloggning.  Ange ett för unikt Prefixnamn för den här virtuella proxyn.
     
-    c. **Tidsgräns för inaktivitet (minuter)** är tidsgränsen för anslutningar via den här virtuella proxy.
+    c. **Tidsgräns för inaktivitet session (minuter)** är tidsgränsen för anslutningar via den här virtuella proxyn.
     
-    d. Den **sessionsnamnet cookie-huvud** är cookie-namn som lagrar sessions-ID för en användare tar emot efter en lyckad autentisering Qlik mening sessionen.  Det här namnet måste vara unikt.
+    d. Den **Session cookie rubriknamn** är cookie-namn som lagrar sessions-ID för den Qlik Sense-sessionen som en användare får efter en lyckad autentisering.  Det här namnet måste vara unikt.
 
-12. Klicka på menyalternativet autentisering för att göra den synlig.  Autentisering visas.
+1. Klicka på menyalternativet autentisering så att den visas.  Skärmbilden autentisering visas.
     
     ![QlikSense][qs10]
     
-    a. Den **anonym åtkomstläge** nedrullningsbara avgör om anonyma användare kan komma åt Qlik mening genom den virtuella proxyn.  Standardalternativet är ingen anonym användare.
+    a. Den **anonym åtkomstläge** nedrullningsbara avgör om anonyma användare kan komma åt Qlik Sense genom den virtuella proxyn.  Standardalternativet är ingen anonym användare.
     
-    b. Den **autentiseringsmetod** nedrullningsbara styr autentiseringsschema virtuella proxy används.  Välj SAML från den nedrullningsbara listan.  Fler alternativ visas som ett resultat.
+    b. Den **autentiseringsmetod** listrutan styr autentiseringsschemat virtuella proxy används.  Välj SAML från den nedrullningsbara listan.  Fler alternativ visas som ett resultat.
     
-    c. I den **SAML URI värdfältet**, ange värdnamnet användare anger för att komma åt Qlik mening via den här virtuella SAML-proxyn.  Värdnamnet är URI: n för Qlik mening-servern.
+    c. I den **SAML URI värdfältet**, ange värdnamn användare anger för att komma åt Qlik Sense via den här virtuella SAML-proxy.  Värdnamnet är URI: n för Qlik Sense-servern.
     
-    d. I den **SAML enhets-ID**, ange samma värde som angetts för fältet SAML värden URI.
+    d. I den **SAML entitets-ID**, anger du samma värde som har angetts för fältet SAML värd URI.
     
-    e. Den **SAML IdP metadata** är filen redigeras tidigare i den **redigera Federation Metadata från Azure AD-konfiguration** avsnitt.  **Innan du laddar upp IdP-metadata i filen måste redigeras** att ta bort informationen om du vill säkerställa att programmet fungerar mellan Azure AD och Qlik mening server.  **Se anvisningarna ovan om filen är ännu som ska redigeras.**  Om filen har redigerats klickar du på knappen Bläddra och välj den redigerade metadatafilen att överföra den till den virtuella proxykonfigurationen.
+    e. Den **IDP: N för SAML-metadata** är den fil som redigeras tidigare i den **redigera Federation Metadata från Azure AD-konfiguration** avsnittet.  **Innan du laddar upp metadata som IdP filen måste redigeras** att ta bort informationen för att fungera korrekt mellan Azure AD och Qlik Sense-servern.  **Se anvisningarna ovan om filen har ännu som ska redigeras.**  Om filen har redigerats klickar du på knappen Bläddra och välj metadatafilen redigerade för att överföra den till den virtuella proxykonfigurationen.
     
-    f. Ange namn eller schemat attributreferensen för SAML-attributet representerar den **UserID** Azure AD skickar till servern Qlik mening.  Referensinformation för schemat finns i Azure app skärmar efter konfiguration.  Om du vill använda namnattributet ange `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    f. Ange namn eller schemat attributreferensen för de attribut som SAML representerar den **UserID** Azure AD skickar till Qlik Sense-servern.  Referensinformation för schemat är tillgänglig i Azure app skärmar efter konfigurationen.  Om du vill använda attributet, ange `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
     
-    g. Ange värdet för den **användarkatalog** som ska anslutas till användarna när de autentiserar till Qlik mening server via Azure AD.  Hårdkodad värden måste omges av **hakparentes []**.  Om du vill använda ett attribut som skickas i Azure AD SAML-kontroll, ange namnet på attributet i den här textrutan **utan** hakparenteser.
+    g. Ange värdet för den **användarkatalog** som kommer att kopplas till användare när de autentiserar till Qlik Sense-servern via Azure AD.  Hårdkodade värden måste omges av **hakparentes []**.  Om du vill använda ett attribut som skickas i Azure AD SAML-försäkran, anger du namnet på attributet i den här textrutan **utan** hakparenteser.
     
-    h. Den **SAML Signeringsalgoritm** anger service provider (i det här fallet Qlik mening server) om certifikatsignering för den virtuella proxykonfigurationen.  Om Qlik mening servern använder ett betrott certifikat som genereras med hjälp av Microsoft Enhanced RSA och AES Cryptographic Provider, ändra SAML Signeringsalgoritm till **SHA-256**.
+    h. Den **SAML Signeringsalgoritm** anger service provider (i det här fallet Qlik Sense-server) om certifikatsignering för den virtuella proxykonfigurationen.  Om Qlik Sense-servern använder ett betrott certifikat som genereras med hjälp av Microsoft Enhanced RSA och AES Cryptographic Provider, ändra SAML Signeringsalgoritm till **SHA-256**.
     
-    i. Mappning med avsnittet SAML attribut kan för ytterligare attribut som grupper som ska skickas till Qlik mening för användning i säkerhetsregler.
+    i. Avsnittet för SAML-attributet mappning möjliggör ytterligare attribut som grupper som ska skickas till Qlik Sense för användning i säkerhetsregler.
 
-13. Klicka på den **BELASTNINGSUTJÄMNING** att göra den synlig.  Skärmbilden belastningsutjämning visas.
+1. Klicka på den **Utjämning av nätverksbelastning** att göra den synlig.  Utjämning av nätverksbelastning skärmen visas.
     
     ![QlikSense][qs11]
 
-14. Klicka på den **Lägg till ny servernoden** knappen, Välj motorn eller flera andra noder Qlik mening skickar sessioner för Utjämning av nätverksbelastning ändamål och klicka på den **Lägg till** knappen.
+1. Klicka på den **Lägg till ny servernoden** knappen, väljer motor eller flera andra noder Qlik Sense skickar sessioner för att läsa in belastningsutjämning syften och klicka på den **Lägg till** knappen.
     
     ![QlikSense][qs12]
 
-15. Klicka på menyalternativet avancerade att göra den synlig. Skärmbilden visas.
+1. Klicka på Avancerat-menyn kan göra den synlig. Skärmbilden visas.
     
     ![QlikSense][qs13]
     
-    Värden vitlista identifierar värdnamn som accepteras när du ansluter till servern Qlik mening.  **Ange värdnamnet användarna anger vid anslutning till Qlik mening server.** Värdnamnet är samma värde som URI: n för SAML-värden utan https://.
+    White värdlistan identifierar värdnamn som accepteras när du ansluter till Qlik Sense-servern.  **Ange värdnamnet som användare anger när du ansluter till Qlik Sense-servern.** Värdnamnet är samma värde som URI: n för SAML-värden utan https://.
 
-16. Klicka på den **tillämpa** knappen.
+1. Klicka på den **tillämpa** knappen.
     
     ![QlikSense][qs14]
 
-17. Klicka på OK om du vill acceptera varningsmeddelandet om proxyservrar som är kopplad till virtuella proxyservern kommer att startas om.
+1. Klicka på OK om du vill acceptera varningsmeddelandet som säger proxyservrar som är länkad till den virtuella proxyn kommer att startas om.
     
     ![QlikSense][qs15]
 
-18. Associerade objekt menyn visas till höger på skärmen.  Klicka på den **proxyservrar** menyalternativet.
+1. Associerade objekt menyn visas till höger på skärmen.  Klicka på den **proxyservrar** menyalternativ.
     
     ![QlikSense][qs16]
 
-19. Proxy visas.  Klicka på den **länk** längst ned att länka en proxy till virtuella proxy.
+1. Proxy-skärmen visas.  Klicka på den **länk** längst ned att länka en proxy till virtuella proxyn.
     
     ![QlikSense][qs17]
 
-20. Välj den proxy-nod som stöder den här virtuella proxyanslutningen och klicka på den **länk** knappen.  När du länkar, visas proxy under associerade proxyservrar.
+1. Välj den proxyserver som stöder den här virtuella proxyanslutning och klicka på den **länk** knappen.  När du har länkat, kännedom proxyn under associerade proxyservrar.
     
     ![QlikSense][qs18]
   
     ![QlikSense][qs19]
 
-21. Uppdatera QMC meddelandet visas efter fem till tio sekunder.  Klicka på den **uppdatera QMC** knappen.
+1. Uppdatera QMC meddelandet visas efter fem till tio sekunder.  Klicka på den **uppdatera QMC** knappen.
     
     ![QlikSense][qs20]
 
-22. När QMC uppdaterar, klicka på den **virtuella proxyservrar** menyalternativet. Den nya SAML virtuella proxy posten visas i tabellen på skärmen.  Klicka på posten virtuella proxy.
+1. När QMC har uppdaterats klickar du på den **virtuella proxyservrar** menyalternativ. Den nya SAML virtuella proxy posten visas i tabellen på skärmen.  Klicka på den virtuella proxy-posten.
     
     ![QlikSense][qs51]
 
-23. Längst ned på skärmen aktiveras knappen ladda ned SP metadata.  Klicka på den **hämta SP metadata** för att spara metadata till en fil.
+1. Längst ned på skärmen aktiveras knappen Hämta SP metadata.  Klicka på den **hämta SP metadata** för att spara metadata till en fil.
     
     ![QlikSense][qs52]
 
-24. Öppna filen sp metadata.  Se den **ID för entiteterna** transaktionen och **AssertionConsumerService** transaktionen.  Värdena är likvärdiga med den **identifierare** och **inloggning URL** i Azure AD tillämpningsprogrammets konfiguration. Klistra in dessa värden i den **Qlik mening företagsdomänen och URL: er** avsnitt i Azure AD-programkonfigurationen om de matchar inte varandra, och sedan bör du ersätta dem i guiden för konfiguration av Azure AD-App.
+1. Öppna filen sp metadata.  Notera den **entityID** posten och **AssertionConsumerService** posten.  De här värdena är likvärdiga med den **identifierare** och **inloggnings-URL** i konfigurationen av Azure AD-program. Klistra in dessa värden i den **Qlik Sense Enterprise domän och URL: er** avsnitt i Azure AD-programkonfiguration om de inte matchar, så bör du ersätta dem i guiden för konfiguration av Azure AD-App.
     
     ![QlikSense][qs53]
 
 > [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa en testanvändare i Azure AD][100]
+![Skapa en Azure AD-testanvändare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
    ![Azure Active Directory-knappen](./media/qliksense-enterprise-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-   ![”Användare och grupper” och ”alla användare” länkar](./media/qliksense-enterprise-tutorial/create_aaduser_02.png)
+   ![”Användare och grupper” och ”alla användare”-länkar](./media/qliksense-enterprise-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
    ![Knappen Lägg till](./media/qliksense-enterprise-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
    ![Dialogrutan användare](./media/qliksense-enterprise-tutorial/create_aaduser_04.png)
 
    a. I den **namn** skriver **BrittaSimon**.
 
-   b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+   b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
 
-   c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
+   c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
 
    d. Klicka på **Skapa**.
  
-### <a name="create-a-qlik-sense-enterprise-test-user"></a>Skapa en testanvändare Qlik mening Enterprise
+### <a name="create-a-qlik-sense-enterprise-test-user"></a>Skapa en testanvändare Qlik Sense Enterprise
 
-I det här avsnittet kan du skapa en användare som kallas Britta Simon i Qlik mening Enterprise. Arbeta med [Qlik mening Enterprise-klienten supportteamet](https://www.qlik.com/us/services/support) att lägga till användare i Qlik mening Enterprise-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
+I det här avsnittet skapar du en användare som kallas Britta Simon i Qlik Sense företag. Arbeta med [Qlik Sense Enterprise Client supportteamet](https://www.qlik.com/us/services/support) att lägga till användare i Qlik Sense Enterprise-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Qlik mening Enterprise.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Qlik Sense Enterprise.
 
 ![Tilldela rollen][200] 
 
-**Om du vill tilldela Qlik mening Enterprise Britta Simon utför du följande steg:**
+**Om du vill tilldela Britta Simon Qlik Sense Enterprise, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **Qlik mening Enterprise**.
+1. I listan med program väljer **Qlik Sense Enterprise**.
 
-    ![Länken Qlik mening Enterprise i listan med program](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_app.png)  
+    ![Länken Qlik Sense Enterprise i listan med program](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_app.png)  
 
-3. Klicka på menyn till vänster **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Qlik mening Enterprise på åtkomstpanelen du ska hämta automatiskt loggat in på ditt Qlik mening företagsprogram. 
+När du klickar på panelen Qlik Sense Enterprise i åtkomstpanelen du bör få automatiskt loggat in på dina Qlik Sense företagsprogram. 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 1aa5c0f259fdb5fce449bc86f9cf293801b4770a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b5cd03098f4b4698c40966ceb79d5263b456a979
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369172"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430315"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Självstudie: Konfigurera hybrid Azure Active Directory-anslutning för federerade domäner
 
@@ -48,7 +48,7 @@ Den här självstudien förutsätter att du är bekant med:
 
 -  [Introduktion till hantering av enheter i Azure Active Directory](../device-management-introduction.md)
 
--  [Hur du planerar din hybrid Azure Active Directory join-implementering](hybrid-azuread-join-plan.md)
+-  [Så här planerar du Azure Active Directory Join-hybridimplementeringen](hybrid-azuread-join-plan.md)
 
 
 
@@ -149,12 +149,12 @@ Om du vill konfigurera en hybrid Azure AD-anslutning med Azure AD Connect, behö
 
 Om några av dina domänanslutna enheter är Windows äldre enheter, måste du:
 
-- Uppdatera enhetsinställninga
+- Uppdatera enhetsinställningarna
  
 - Konfigurera inställningar för lokalt intranät för registrering av enheten
 
 
-### <a name="update-device-settings"></a>Uppdatera enhetsinställninga 
+### <a name="update-device-settings"></a>Uppdatera enhetsinställningarna 
 
 Om du vill registrera Windows äldre enheter, måste du se till att enhetsinställningarna så att användarna kan registrera enheter i Azure AD är inställda. Du kan hitta den här inställningen under Azure-portalen:
 
@@ -212,8 +212,8 @@ När du använder den **Get-MSolDevice** cmdlet för att kontrollera service:
 
 Om du har problem med att slutföra hybrid Azure AD join för domän anslutna Windows-enheter, se:
 
-- [Felsöka Hybrid Azure AD-anslutning för befintliga Windows-enheter](../device-management-troubleshoot-hybrid-join-windows-current.md)
-- [Felsöka Hybrid Azure AD-anslutning för Windows äldre enheter](../device-management-troubleshoot-hybrid-join-windows-legacy.md)
+- [Felsöka Hybrid Azure AD-anslutning för befintliga Windows-enheter](troubleshoot-hybrid-join-windows-current.md)
+- [Felsöka Hybrid Azure AD-anslutning för Windows äldre enheter](troubleshoot-hybrid-join-windows-legacy.md)
 
 
 
@@ -221,7 +221,7 @@ Om du har problem med att slutföra hybrid Azure AD join för domän anslutna Wi
 
 > [!div class="nextstepaction"]
 > [Konfigurera hybrid Azure Active Directory-anslutning för hanterade domäner](hybrid-azuread-join-managed-domains.md)
-> [konfigurera hybrid Azure Active Directory-koppling manuellt](../device-management-hybrid-azuread-joined-devices-setup.md)
+> [konfigurera hybrid Azure Active Directory-koppling manuellt](hybrid-azuread-join-manual-steps.md)
 
 
 

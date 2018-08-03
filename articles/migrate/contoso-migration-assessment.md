@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/02/2018
 ms.author: raynew
-ms.openlocfilehash: e2fbe766391759f2bbe4a95e75897b2bc9523c0c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 50d1b8fca8e5377c35810e08258a0ecc3770ae75
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399081"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422332"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso-migrering: utvärdera lokala arbetsbelastningar för migrering till Azure
 
@@ -99,7 +99,7 @@ I det här scenariot Contoso laddar ned och kör Data Migration Assistant för a
 - Contoso är ett fiktivt namn som representerar en typisk företags-organisation.
 - Contoso har ett lokalt datacenter (**contoso-datacenter**) och lokala domänkontrollanter (**CONTOSODC1**, **CONTOSODC2**).
 - Virtuella VMware-datorer finns på VMware ESXi-värdar som kör version 6.5 (**contosohost1**, **contosohost2**).
-- VMware-miljön hanteras av vCenter Server 6.5 (**vcenter**, som körs på en virtuell dator).
+- VMware-miljön hanteras av vCenter Server 6.5 (**vcenter.contoso.com**, som körs på en virtuell dator).
 - Reseapp SmartHotel har följande egenskaper:
     - Appen är nivåindelad över två virtuella VMware-datorer (**WEBVM** och **SQLVM**).
     - De virtuella datorerna finns på VMware ESXi-värd **contosohost1.contoso.com**.
@@ -123,12 +123,10 @@ Contoso och andra användare måste uppfylla följande krav för utvärderingen:
 - Minst två lokala virtuella VMware-datorer, varav en kör en SQL Server-databas.
 - Behörigheter för att installera Azure Migrate-agenter på varje virtuell dator.
 - De virtuella datorerna ska ha direkt Internetanslutning.  
-        
-- Du kan begränsa Internetåtkomsten till de [krävs URL: er](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-
-- Om dina virtuella datorer inte har Internetanslutning, Azure Log Analytics [OMS-gatewayen](../log-analytics/log-analytics-oms-gateway.md) måste vara installerad på dem.
+        - Du kan begränsa Internetåtkomsten till [de URL:er som krävs](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+        – Om dina virtuella datorer inte har Internetanslutning, Azure Log Analytics [OMS-gatewayen](../log-analytics/log-analytics-oms-gateway.md) måste vara installerad på dem, och agenten trafik dirigeras genom den.
 - FQDN för den virtuella datorn som kör SQL Server-instansen (för utvärdering av databasen).
-- Windows-brandväggen som körs på SQL Server-dator ska tillåta externa anslutningar på TCP-port 1433 (standard). Inställningen tillåter Data Migration Assistant att ansluta.
+- Windows-brandväggen som körs på SQL Server-dator ska tillåta externa anslutningar på TCP-port 1433 (standard). Den här inställningen kan Data Migration Assistant att ansluta.
 
 ## <a name="assessment-overview"></a>Översikt över utvärdering
 
@@ -297,7 +295,7 @@ Innan du distribuerar den virtuella datorn, kontrollerar Contoso att OVA-filen �
 
 ### <a name="create-the-collector-appliance"></a>Skapa insamlingsprogrammet
 
-Contoso kan nu importera den nedladdade filen till vCenter Server-instansen och etablera konfigurationsservern VM:
+Contoso kan nu importera den nedladdade filen till vCenter Server-instansen och etablera insamlingsprogrammet VM:
 
 1. I vSphere-klientkonsolen Contoso väljer **filen** > **distribuera OVF-mall**.
 
@@ -353,7 +351,7 @@ När samlingen är klar, kontrollerar Contoso att de virtuella datorerna visas i
 
 ## <a name="step-5-prepare-for-dependency-analysis"></a>Steg 5: Förbereda för beroendeanalys
 
-Om du vill visa beroenden mellan virtuella datorer som du vill få åtkomst till Contoso hämtar och installerar agenter på de virtuella datorerna för appen. Contoso installerar agenter på alla virtuella datorer för sina appar, både för Windows och Linux.
+Om du vill visa beroenden mellan virtuella datorer som du vill utvärdera Contoso hämtar och installerar agenter på de virtuella datorerna för appen. Contoso installerar agenter på alla virtuella datorer för sina appar, både för Windows och Linux.
 
 ### <a name="take-a-snapshot"></a>Ta en ögonblicksbild
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 2c571ebc45875167373b592abc720b045d1835bd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 82a6911c85dd1438aa8f60cb36194a2916bc91e7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048763"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429054"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Självstudier: Azure Active Directory-integrering med Central Desktop
 
@@ -53,7 +53,7 @@ Följ dessa rekommendationer för att testa stegen i den här självstudien:
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till centrala Desktop från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="add-central-desktop-from-the-gallery"></a>Lägg till centrala Desktop från galleriet
 För att konfigurera integrering av centrala Desktop i Azure AD, som du behöver lägga till centrala Desktop från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av centrala Desktop i Azure AD, som du behöver
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Om du vill lägga till nya program, Välj den **nytt program** knappen överst i dialogrutan.
+1. Om du vill lägga till nya program, Välj den **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **centrala Desktop**. Välj **centrala Desktop** i resultatrutan och välj sedan den **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **centrala Desktop**. Välj **centrala Desktop** i resultatrutan och välj sedan den **Lägg till** för att lägga till programmet.
 
     ![Central Desktop i resultatlistan](./media/central-desktop-tutorial/tutorial_centraldesktop_addfromgallery.png)
 
@@ -87,10 +87,10 @@ I Central Desktop ger **användarnamn** samma värde som **användarnamn** i Azu
 Om du vill konfigurera och testa Azure AD enkel inloggning med Central Desktop, måste du utföra följande byggblock:
 
 1. [Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on) vill tillåta att användarna använda den här funktionen.
-2. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) att testa Azure AD enkel inloggning med Britta Simon.
-3. [Skapa en Central Desktop testanvändare](#create-a-central-desktop-test-user) har en motsvarighet för Britta Simon i Central Desktop som är länkad till en Azure AD-representation av användaren.
-4. [Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user) att aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. [Testa enkel inloggning](#test-single-sign-on) att kontrollera att konfigurationen fungerar.
+1. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) att testa Azure AD enkel inloggning med Britta Simon.
+1. [Skapa en Central Desktop testanvändare](#create-a-central-desktop-test-user) har en motsvarighet för Britta Simon i Central Desktop som är länkad till en Azure AD-representation av användaren.
+1. [Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user) att aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. [Testa enkel inloggning](#test-single-sign-on) att kontrollera att konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -102,11 +102,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. Att aktivera enkel inloggning, i den **enkel inloggning** i dialogrutan den **läge** listrutan, väljer **SAML-baserad inloggning**.
+1. Att aktivera enkel inloggning, i den **enkel inloggning** i dialogrutan den **läge** listrutan, väljer **SAML-baserad inloggning**.
  
     ![Enkel inloggning för dialogrutan](./media/central-desktop-tutorial/tutorial_centraldesktop_samlbase.png)
 
-3. I den **centrala Desktop domän och URL: er** avsnittet, gör följande:
+1. I den **centrala Desktop domän och URL: er** avsnittet, gör följande:
 
     ![Central skrivbord domän och URL: er med enkel inloggning för information](./media/central-desktop-tutorial/tutorial_centraldesktop_url.png)
 
@@ -123,25 +123,25 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren svars-URL och inloggnings-URL. Kontakta den [centrala Desktop client supportteamet](https://imeetcentral.com/contact-us) att hämta dessa värden. 
 
-4. I den **SAML-signeringscertifikat** väljer **certifikat**. Spara certifikatfilen på datorn.
+1. I den **SAML-signeringscertifikat** väljer **certifikat**. Spara certifikatfilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/central-desktop-tutorial/tutorial_centraldesktop_certificate.png) 
 
-5. Välj knappen **Spara**.
+1. Välj knappen **Spara**.
 
     ![Konfigurera den enkel inloggning spara knappen](./media/central-desktop-tutorial/tutorial_general_400.png)
     
-6. I den **Central konfiguration av fjärrskrivbord** väljer **konfigurera centrala Desktop** att öppna den **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens** avsnittet.
+1. I den **Central konfiguration av fjärrskrivbord** väljer **konfigurera centrala Desktop** att öppna den **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens** avsnittet.
 
     ![Central konfiguration av fjärrskrivbord](./media/central-desktop-tutorial/tutorial_centraldesktop_configure.png) 
 
-7. Logga in på din **centrala Desktop** klient.
+1. Logga in på din **centrala Desktop** klient.
 
-8. Gå till **inställningar**. Välj **Avancerat**, och välj sedan **Single Sign On**.
+1. Gå till **inställningar**. Välj **Avancerat**, och välj sedan **Single Sign On**.
 
     ![-Installation - avancerade](./media/central-desktop-tutorial/ic769563.png "-installation - Avancerat")
 
-9. På den **enkel inloggning på inställningar** utför följande steg:
+1. På den **enkel inloggning på inställningar** utför följande steg:
 
     ![Enkel inloggning inställningar](./media/central-desktop-tutorial/ic769564.png "enkel inloggning på inställningar")
     
@@ -153,7 +153,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     d. I den **utloggnings-URL för enkel inloggning** rutan, klistra in den **URL: en för utloggning** värde som du kopierade från Azure-portalen.
 
-10. I den **meddelandet signatur verifieringsmetod** avsnittet, gör följande:
+1. I den **meddelandet signatur verifieringsmetod** avsnittet, gör följande:
 
     ![Meddelandet signatur verifieringsmetod](./media/central-desktop-tutorial/ic769565.png "meddelandet signatur verifieringsmetod") en. Välj **Certifikat**.
     
@@ -180,15 +180,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/central-desktop-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**. Välj sedan **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**. Välj sedan **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/central-desktop-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/central-desktop-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan rutan, gör följande:
+1. I den **användaren** dialogrutan rutan, gör följande:
 
     ![Dialogrutan användare](./media/central-desktop-tutorial/create_aaduser_04.png)
 
@@ -211,17 +211,17 @@ För Azure AD-användare för att kunna logga in, måste de vara etablerade i Ce
 
 1. Logga in på din centrala Desktop-klient.
 
-2. Gå till **personer** > **interna medlemmar**.
+1. Gå till **personer** > **interna medlemmar**.
 
-3. Välj **lägga till interna medlemmar**.
+1. Välj **lägga till interna medlemmar**.
 
     ![Personer](./media/central-desktop-tutorial/ic781051.png "personer")
     
-4. I den **e-postadress för nya medlemmar** skriver du ett Azure AD-konto som du vill etablera och välj sedan **nästa**.
+1. I den **e-postadress för nya medlemmar** skriver du ett Azure AD-konto som du vill etablera och välj sedan **nästa**.
 
     ![E-postadresser för nya medlemmar](./media/central-desktop-tutorial/ic781052.png "e-postadresser för nya medlemmar")
 
-5. Välj **lägga till interna medlem (mar)**.
+1. Välj **lägga till interna medlem (mar)**.
 
     ![Lägg till interna medlem](./media/central-desktop-tutorial/ic781053.png "Lägg till interna medlem")
    
@@ -238,27 +238,27 @@ I det här avsnittet ska aktivera du användaren Britta Simon att använda Azure
 
 1. Öppna program i Azure-portalen. Gå till vyn directory och gå sedan till **företagsprogram**.
 
-2. Välj **alla program**.
+1. Välj **alla program**.
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **centrala Desktop**.
+1. I listan med program väljer **centrala Desktop**.
 
     ![Central Desktop länken i listan med program](./media/central-desktop-tutorial/tutorial_centraldesktop_app.png)  
 
-3. I menyn till vänster väljer **användare och grupper**.
+1. I menyn till vänster väljer **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Välj den **Lägg till** knappen. Välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+1. Välj den **Lägg till** knappen. Välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. I den **användare och grupper** dialogrutan **Britta Simon** i den **användare** lista.
+1. I den **användare och grupper** dialogrutan **Britta Simon** i den **användare** lista.
 
-6. I den **användare och grupper** dialogrutan klickar du på den **Välj** knappen.
+1. I den **användare och grupper** dialogrutan klickar du på den **Välj** knappen.
 
-7. I den **Lägg till tilldelning** dialogrutan den **tilldela** knappen.
+1. I den **Lägg till tilldelning** dialogrutan den **tilldela** knappen.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

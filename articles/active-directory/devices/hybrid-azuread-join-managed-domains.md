@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b9acc829439578f2f86dfbd51164cb3eaf923c2a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: f61f0649900c27a6aa3a873f60dc60b4985f5d4f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369312"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424195"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudie: Konfigurera hybrid Azure Active Directory-anslutning för hanterade domäner
 
@@ -48,7 +48,7 @@ Den här självstudien förutsätter att du är bekant med:
     
 -  [Introduktion till hantering av enheter i Azure Active Directory](../device-management-introduction.md)
     
--  [Hur du planerar din hybrid Azure Active Directory join-implementering](hybrid-azuread-join-plan.md)
+-  [Så här planerar du Azure Active Directory Join-hybridimplementeringen](hybrid-azuread-join-plan.md)
 
 Om du vill konfigurera scenariot i den här artikeln, måste den [senaste versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 eller högre) som ska installeras. 
  
@@ -191,14 +191,13 @@ När du använder den **Get-MSolDevice** cmdlet för att kontrollera service:
 
 Om du har problem med att slutföra hybrid Azure AD join för domän anslutna Windows-enheter, se:
 
-- [Felsöka Hybrid Azure AD-anslutning för befintliga Windows-enheter](../device-management-troubleshoot-hybrid-join-windows-current.md)
-- [Felsöka Hybrid Azure AD-anslutning för Windows äldre enheter](../device-management-troubleshoot-hybrid-join-windows-legacy.md)
-
+- [Felsöka Hybrid Azure AD-anslutning för befintliga Windows-enheter](troubleshoot-hybrid-join-windows-current.md)
+- [Felsöka Hybrid Azure AD-anslutning för Windows äldre enheter](troubleshoot-hybrid-join-windows-legacy.md)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [Konfigurera hybrid Azure Active Directory-anslutning för federerade domäner](hybrid-azuread-join-federated-domains.md)
-> [konfigurera hybrid Azure Active Directory-koppling manuellt](../device-management-hybrid-azuread-joined-devices-setup.md)
+> [konfigurera hybrid Azure Active Directory-koppling manuellt](hybrid-azuread-join-manual-steps.md)
 

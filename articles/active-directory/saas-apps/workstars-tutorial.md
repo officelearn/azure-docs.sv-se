@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: 36f5a5aff63bf9de57c8475733861edd5e368a9a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 79826da8f3159c8b032a695b6bc732ca5adbb0c6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055548"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421169"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workstars"></a>Självstudier: Azure Active Directory-integration med Workstars
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Workstars från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-workstars-from-the-gallery"></a>Att lägga till Workstars från galleriet
 För att konfigurera integrering av Workstars i Azure AD, som du behöver lägga till Workstars från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av Workstars i Azure AD, som du behöver lägga
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Workstars**väljer **Workstars** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Workstars**väljer **Workstars** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Workstars i resultatlistan](./media/workstars-tutorial/tutorial_workstars_addfromgallery.png)
 
@@ -87,10 +87,10 @@ I Workstars, tilldela värdet för den **användarnamn** i Azure AD som värde f
 Om du vill konfigurera och testa Azure AD enkel inloggning med Workstars, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Workstars](#create-a-workstars-test-user)**  – du har en motsvarighet för Britta Simon i Workstars som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Workstars](#create-a-workstars-test-user)**  – du har en motsvarighet för Britta Simon i Workstars som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -102,11 +102,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/workstars-tutorial/tutorial_workstars_samlbase.png)
 
-3. På den **Workstars domän och URL: er** avsnittet, utför följande steg:
+1. På den **Workstars domän och URL: er** avsnittet, utför följande steg:
 
     ![Workstars domän och URL: er med enkel inloggning för information](./media/workstars-tutorial/tutorial_workstars_url.png)
 
@@ -117,31 +117,31 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Värdet är inte verkliga. Uppdatera värdet med faktiska svars-URL. Kontakta [Workstars supportteam](https://support.workstars.com) att hämta värdet.
  
-4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/workstars-tutorial/tutorial_workstars_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/workstars-tutorial/tutorial_general_400.png)
 
-6. På den **Workstars Configuration** klickar du på **konfigurera Workstars** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **Workstars Configuration** klickar du på **konfigurera Workstars** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Workstars konfiguration](./media/workstars-tutorial/tutorial_workstars_configure.png) 
 
-7. I ett nytt webbläsarfönster inloggning till webbplatsen Workstars företag som administratör.
+1. I ett nytt webbläsarfönster inloggning till webbplatsen Workstars företag som administratör.
 
-8. I verktygsfältet klickar du på **inställningar**.
+1. I verktygsfältet klickar du på **inställningar**.
 
     ![Avinstallation av Workstars](./media/workstars-tutorial/tutorial_workstars_sett.png)
 
-9. Gå till **inloggning** > **inställningar**.
+1. Gå till **inloggning** > **inställningar**.
 
     ![Workstars inloggning](./media/workstars-tutorial/tutorial_workstars_signon.png)
 
     ![Workstars inställningar](./media/workstars-tutorial/tutorial_workstars_settings.png)
 
-10. På den **enkel inloggning på (SAML) - inställningar** utför följande steg:
+1. På den **enkel inloggning på (SAML) - inställningar** utför följande steg:
     
     ![Workstars saml](./media/workstars-tutorial/tutorial_workstars_saml.png)
 
@@ -174,15 +174,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/workstars-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/workstars-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/workstars-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/workstars-tutorial/create_aaduser_04.png)
 
@@ -210,23 +210,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Workstars**.
+1. I listan med program väljer **Workstars**.
 
     ![Länken Workstars i listan med program](./media/workstars-tutorial/tutorial_workstars_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

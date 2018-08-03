@@ -12,64 +12,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: sethm
-ms.openlocfilehash: 9d2c38ac589e5120441daf972217e61738fd57a1
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 8e80587f7b3f6b0cb081fd963848c7aa3ab11e3e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131363"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431264"
 ---
 # <a name="event-hubs-samples"></a>Event Hubs-exempel 
+Du kan hitta exempel för Event Hubs på [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). De här exemplen visar viktiga funktioner i [Azure Event Hubs](/azure/event-hubs/). Den här artikeln kategoriserar och beskriver exempel som är tillgängliga med länkar till var och en.
 
-Uppsättning Azure Event Hubs exempel visar viktiga funktioner i [Azure Event Hubs](/azure/event-hubs/). Den här artikeln kategoriserar och beskriver tillgängliga, med länkar till varje exemplen.
+## <a name="net-samples"></a>.NET-exempel
 
-När detta skrivs finns Händelsehubbar exempel i flera olika platser:
+| Exemplet namn | Beskrivning | 
+| ----------- | ----------- | 
+| [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) | Det här exemplet visar hur du skriva ett .NET Core-konsolprogram som skickar en uppsättning händelser till en händelsehubb. |
+| [SampleEHReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) | Detta exempel visar hur du skriver en .NET Core-konsolprogram som tar emot en uppsättning händelser från en händelsehubb med hjälp av Event Processor Host-biblioteket.  | 
 
-- [Kodexempel för MSDN-utvecklare](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
-- [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+## <a name="java-samples"></a>Java-exempel
 
-Mer information om olika versioner av .NET Framework finns [ramverk och mål](/dotnet/articles/standard/frameworks).
-
-Flera exempel kommer att läggas till med tiden, så kom tillbaka ofta efter uppdateringar.
-
-## <a name="net-standard"></a>Standard för .NET
-
-Följande exempel visar hur du skickar och tar emot händelser med hjälp av den [händelsehubbklient](https://github.com/Azure/azure-event-hubs-dotnet/blob/master/readme.md) för den [.NET standardbibliotek](/dotnet/articles/standard/library).
-
-### <a name="send-events"></a>Skicka händelser 
-
-Den [börjar skicka](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) exempel visas hur du skriver ett .NET Core-konsolprogram som skickar händelser till en händelsehubb.
-
-### <a name="receive-events"></a>Ta emot händelser 
-
-Den [börja ta emot med den värd för händelsebearbetning](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) prov är ett .NET Core-konsolprogram som tar emot meddelanden från en händelsehubb med hjälp av den värd för händelsebearbetning.
-
-## <a name="net-framework"></a>.NET framework   
-
-De här exemplen visar olika funktioner i Azure Event Hubs, riktad på [biblioteket för .NET Framework](/dotnet/framework/index).
- 
-### <a name="notify-users-of-events-received"></a>Meddela användare om händelser som tagits emot
-
-Den [AppToNotifyUsers](https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications) exempel meddelar användare av data från sensorer och andra system.
-
-### <a name="get-started-with-event-hubs"></a>Kom igång med händelsehubbar 
-
-Den [Event Hubs komma igång](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097) exempel visas de grundläggande funktionerna i Händelsehubbar, till exempel hur du skapar en händelsehubb, skicka händelser till en händelsehubb och använda händelser med hjälp av den [värd för händelsebearbetning](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) .
-
-### <a name="scale-out-event-processing"></a>Skala ut händelsebearbetning 
-
-Den [skala ut händelsebearbetning](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) exempel visar hur du använder den [värd för händelsebearbetning](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) att fördela belastningen av Händelsehubbar dataströmmen förbrukning. Den visar hur du implementerar den **EventProcessor** och **EventProcessorFactory** objekt som ska hanteras händelseströmmen. 
+| Exemplet namn | Beskrivning | 
+| ----------- | ----------- | 
+| [SendBatch](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SendBatch)  | Det här exemplet visar hur du kan mata in batchar av händelser i din event hub. | 
+| [SimpleSend](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend) | Det här exemplet visar hur du kan samla in händelser till event hub. |
+| [AdvanceSendOptions](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/AdvancedSendOptions) | Det här exemplet illustrerar de olika alternativen som är tillgängliga med Event Hubs att samla in händelser. |
+| [ReceiveByDateTime](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveByDateTime) | Det här exemplet illustrerar hur du tar emot händelser från event hubs-partitionen med hjälp av en specifik datum / tid-förskjutning. |
+| [ReceiveUsingOffset](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveUsingOffset) | Det här exemplet illustrerar hur du tar emot händelser från event hubs-partitionen med hjälp av en viss förskjutning. |  
+| [ReceiveUsingSequenceNumber](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveUsingSequenceNumber) | Det här exemplet illustrerar hur kan ta emot från en händelsenavspartitioner med hjälp av ett sekvensnummer. |   
+| [EventProcessorSample](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/EventProcessorSample) |Det här exemplet visar hur du kan ta emot händelser från en händelsehubb med värden för händelsebearbetning, vilket ger automatisk partition val och redundans i flera samtidiga mottagare. | 
+| [AutoScaleOnIngress](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/AutoScaleOnIngress) | Det här exemplet illustrerar hur en händelsehubb kan automatiskt skala upp hög belastning. Exemplet skickar händelser till en kostnad som bara överskrider den konfigurerade mängden en händelsehubb som orsakar händelsehubben för att skala upp. | 
+| [IngressBenchmark](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/IngressBenchmark) | Det här exemplet kan mäta ingress-priset. | 
 
 ## <a name="next-steps"></a>Nästa steg
-
-Läs mer om .NET Framework-versioner genom att gå till följande länkar:
-
-- [Ramverk och mål](/dotnet/articles/standard/frameworks)
-- [.NET framework 4.6 och 4.5](/dotnet/framework/index)
-
-Du kan lära dig mer om Händelsehubbar i följande artiklar:
+Du kan läsa mer om Event Hubs i följande artiklar:
 
 - [Event Hubs-översikt](event-hubs-what-is-event-hubs.md)
 - [Event Hubs-funktioner](event-hubs-features.md)

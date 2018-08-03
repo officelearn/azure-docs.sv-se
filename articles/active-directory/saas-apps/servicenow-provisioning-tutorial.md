@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Konfigurera ServiceNow för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig etablera och avetablera användarkonton från Azure AD till ServiceNow automatiskt.
+title: 'Självstudie: Konfigurera ServiceNow för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du automatiskt etablera och avetablera användarkonton från Azure AD till ServiceNow.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,96 +15,96 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: d76a8996f7ccc6a7b6df2f8e1fe52568dbd725db
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8d05e314cb31aaba96e7db79e0e4dd287e6d2184
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210806"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426912"
 ---
-# <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Självstudier: Konfigurera ServiceNow för automatisk användaretablering med Azure Active Directory
+# <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Självstudie: Konfigurera ServiceNow för automatisk användaretablering med Azure Active Directory
 
-Syftet med den här kursen är att visa de steg som du behöver göra i ServiceNow och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till ServiceNow.
+Målet med den här självstudien är att visa dig de steg du måste utföra i ServiceNow och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till ServiceNow.
 
 > [!NOTE]
-> Den här självstudiekursen beskriver en koppling som bygger på Etableringstjänsten Azure AD-användare. Viktig information om vad tjänsten gör så här fungerar och vanliga frågor och svar finns [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](./../active-directory-saas-app-provisioning.md).
+> Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](./../active-directory-saas-app-provisioning.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med ServiceNow, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med ServiceNow, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- För ServiceNow, instans eller innehavare för ServiceNow Calgary version eller högre
-- För ServiceNow Express, en instans av ServiceNow Express, Helsingfors version eller högre
+- För ServiceNow, en instans eller klient för ServiceNow Calgary versionen eller senare
+- För ServiceNow Express, en instans av ServiceNow uttryckliga, Helsingfors versionen eller senare
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="assigning-users-to-servicenow"></a>Tilldela användare till ServiceNow
 
-Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare ska få åtkomst till valda appar. I samband med automatisk konto användaretablering, synkroniseras de användare och grupper som har ”tilldelats” till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användarkontoetablering, synkroniseras de användare och grupper som är ”kopplade” till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar tjänsten etablering, måste du bestämma vilka användare och/eller grupper i Azure AD representerar de användare som behöver åtkomst till din ServiceNow-app. När du valt, du kan tilldela dessa användare ServiceNow-app genom att följa anvisningarna här: [tilldela en användare eller grupp till en enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vilka användare och/eller grupper i Azure AD representerar de användare som behöver åtkomst till din ServiceNow-app. När du valt, du kan tilldela dessa användare till din ServiceNow-app genom att följa instruktionerna här: [tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 
 > [!IMPORTANT]
->*   Vi rekommenderar att en enda Azure AD-användare har tilldelats ServiceNow för att testa allokering konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
->*   När du tilldelar en användare ServiceNow, måste du välja en giltig användarroll. Rollen ”standard åtkomst” fungerar inte för etablering.
+>*   Vi rekommenderar att en enda Azure AD-användare är tilldelad till ServiceNow att testa etablering konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+>*   När du tilldelar en användare till ServiceNow, måste du välja en giltig användarroll. Rollen ”standard åtkomst” fungerar inte för etablering.
 
 ## <a name="enable-automated-user-provisioning"></a>Aktivera automatisk användaretablering
 
-Det här avsnittet hjälper dig att ansluta din Azure AD till Servicenows användarkonto API-etablering och konfigurera tjänsten etablering för att skapa, uppdatera och inaktivera tilldelade användarkonton i ServiceNow baserat på tilldelning av användare och grupper i Azure AD.
+Det här avsnittet hjälper dig att ansluta din Azure AD till Servicenows användarkonto etablering API och konfigurera etableringstjänsten att skapa, uppdatera och inaktivera tilldelade användarkonton i ServiceNow baserat på användar- och grupptilldelningar i Azure AD.
 
 > [!TIP]
->Du kan också välja att aktivera SAML-baserade enkel inloggning för ServiceNow, följer du instruktionerna som anges i [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om dessa två funktioner komplettera varandra.
+>Du kan också välja att aktiveras SAML-baserad enkel inloggning för ServiceNow, följa anvisningarna enligt [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna komplettera varandra.
 
-### <a name="configure-automatic-user-account-provisioning"></a>Konfigurera automatisk användarens konto-etablering
+### <a name="configure-automatic-user-account-provisioning"></a>Konfigurera automatisk användarens kontoetablering
 
-1. I den [Azure-portalen](https://portal.azure.com), bläddra till den **Azure Active Directory > Företagsappar > alla program** avsnitt.
+1. I den [Azure-portalen](https://portal.azure.com), bläddra till den **Azure Active Directory > Företagsappar > alla program** avsnittet.
 
-2. Om du redan har konfigurerat ServiceNow för enkel inloggning, söka efter din instans av ServiceNow med hjälp av sökfältet. Annars väljer **Lägg till** och Sök efter **ServiceNow** i programgalleriet. Välj ServiceNow i sökresultatet och lägga till den i listan med program.
+1. Om du redan har konfigurerat ServiceNow för enkel inloggning, söka efter din instans av ServiceNow med sökfältet. Annars väljer **Lägg till** och Sök efter **ServiceNow** i programgalleriet. Välj ServiceNow i sökresultatet och lägga till den i din lista över program.
 
-3. Välj din instans av ServiceNow och sedan den **etablering** fliken.
+1. Välj din ServiceNow-instans och välj sedan den **etablering** fliken.
 
-4. Ange den **etablering** läge för att **automatisk**. 
+1. Ange den **etablering** läge till **automatisk**. 
 
     ![etablering](./media/servicenow-provisioning-tutorial/provisioning.png)
 
-5. Under avsnittet autentiseringsuppgifter som administratör utför du följande steg:
+1. Under avsnittet autentiseringsuppgifter som administratör utför du följande steg:
    
-    a. I den **ServiceNow instansnamn** textruta skriver du namnet på ServiceNow-instansen.
+    a. I den **ServiceNow-instansnamn** textrutan skriver du namnet på ServiceNow-instansen.
 
-    b. I den **ServiceNow-administratörsanvändarnamnet** textruta anger användarnamn för en administratör.
+    b. I den **ServiceNow-användarnamn för administratör** textrutan skriver du användarnamnet för en administratör.
 
-    c. I den **ServiceNow adminlösenord** textruta administratörslösenord.
+    c. I den **ServiceNow adminlösenord** textrutan administratörens lösenord.
 
-6. I Azure-portalen klickar du på **Testanslutningen** så Azure AD kan ansluta till din ServiceNow-app. Om anslutningen misslyckas, kontrollera ditt ServiceNow-konto har administratörsbehörigheter för teamet och försök den **”administratörsautentiseringsuppgifter”** steg igen.
+1. I Azure-portalen klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till din ServiceNow-app. Om anslutningen misslyckas, kontrollera din ServiceNow-kontot har administratörsbehörighet för Team och försök på **”administratörsautentiseringsuppgifter”** steg igen.
 
-7. Ange e-postadressen för en person eller grupp som ska få meddelanden om etablering fel i den **e-postmeddelande** fält och markera kryssrutan.
+1. Ange e-postadress för en person eller grupp som ska få meddelanden om etablering fel i den **e-postmeddelande** fältet och markera kryssrutan.
 
-8. Klicka på **spara.**
+1. Klicka på **spara.**
 
-9. Välj under avsnittet mappningar **synkronisera Azure Active Directory-användare ServiceNow.**
+1. Under avsnittet mappningar väljer **synkronisera Azure Active Directory-användare till ServiceNow.**
 
-10. I den **attributmappning** avsnittet kan du granska användarattribut som synkroniseras från Azure AD till ServiceNow. De attribut som valts som **matchande** egenskaper som används för att matcha användarkonton i ServiceNow för uppdateringsåtgärder. Välj knappen Spara för att genomföra ändringarna.
+1. I den **attributmappningar** går du igenom användarattribut som synkroniseras från Azure AD till ServiceNow. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkontona i ServiceNow för uppdateringsåtgärder. Välj knappen Spara för att genomföra ändringarna.
 
-11. Om du vill aktivera Azure AD-tjänsten för ServiceNow-etablering, ändra den **Status för etablering** till **på** i avsnittet Inställningar
+1. Om du vill aktivera den Azure AD-etableringstjänsten för ServiceNow, ändra den **Etableringsstatus** till **på** i avsnittet Inställningar
 
-12. Klicka på **spara.**
+1. Klicka på **spara.**
 
-Startar den första synkroniseringen av användare och/eller grupper som tilldelas till ServiceNow i avsnittet användare och grupper. Den första synkroniseringen tar längre tid än efterföljande synkroniseringar som sker ungefär var 40 minuter så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsloggar som beskriver alla åtgärder som utförs av tjänsten etablering på ServiceNow-app.
+Den startar den första synkroniseringen av användare och/eller grupper som har tilldelats till ServiceNow i avsnittet användare och grupper. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar som beskriver alla åtgärder som utförs av etableringstjänsten på din ServiceNow-app.
 
-Mer information om hur du tolkar Azure AD-etablering loggar finns [rapportering om automatisk konto användaretablering](../active-directory-saas-provisioning-reporting.md).
+Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användare konto-etablering för företag-appar](tutorial-list.md)
+* [Hantering av användarkontoetablering för Företagsappar](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](servicenow-tutorial.md)
 

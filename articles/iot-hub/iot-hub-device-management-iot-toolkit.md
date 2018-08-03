@@ -1,0 +1,92 @@
+---
+title: Azure IoT-enhetshantering med Azure IoT Toolkit-tillägget för Visual Studio Code | Microsoft Docs
+description: Använda Azure IoT Toolkit-tillägget för Visual Studio Code för Azure IoT Hub-enhetshantering med direkta metoder och hanteringsalternativ för den läsningen önskade egenskaper.
+author: formulahendry
+ms.service: iot-hub
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 8/3/2018
+ms.author: junhan
+ms.openlocfilehash: ef99f4be97f5168add44d373a7e74de62347d110
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449738"
+---
+# <a name="use-azure-iot-toolkit-extension-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Använd Azure IoT Toolkit-tillägget för Visual Studio Code för Azure IoT Hub-enhetshantering
+
+![Slutpunkt till slutpunkt-diagram](media/iot-hub-get-started-e2e-diagram/2.png)
+
+[Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) är ett användbart Visual Studio Code-tillägg som underlättar IoT Hub-hantering. Den innehåller alternativ som du kan använda för att utföra olika uppgifter.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
+| Management-alternativ          | Aktivitet                                                                                                                            |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| Direkta metoder             | Se en enhet som fungerar, till exempel starta eller stoppa skicka meddelanden eller att enheten startas om.                                        |
+| Läs enhetstvilling           | Hämta det rapporterade tillståndet för en enhet. Enheten rapporterar till exempel LAMPAN blinkar nu.                                    |
+| Uppdatera enhetstvillingen         | Placera en enhet i vissa lägen, till exempel ställa in en LED grönt eller 30 minuter att ställa in skicka telemetriintervall.         |
+| Meddelanden från moln till enhet   | Skicka meddelanden till en enhet. Exempel: ”det är mycket troligt att regn idag. Glöm inte att ta med en samlingsnamnet ”.              |
+
+Mer detaljerad förklaring om skillnaderna och hjälp med att använda de här alternativen finns i [enhet till molnet kommunikation vägledning](iot-hub-devguide-d2c-guidance.md) och [moln till enhet kommunikation vägledning](iot-hub-devguide-c2d-guidance.md).
+
+Enhetstvillingar är JSON-dokument som lagrar information om enhetstillstånd (metadata, konfigurationer och villkor). IoT Hub lagrar en enhetstvilling för varje enhet som ansluter till den. Läs mer om enhetstvillingar [Kom igång med enhetstvillingar](iot-hub-node-node-twin-getstarted.md).
+
+## <a name="what-you-learn"></a>Detta får du får lära dig
+
+Du lär dig använda Azure IoT Toolkit-tillägget för Visual Studio Code med olika hanteringsalternativ på utvecklingsdatorn.
+
+## <a name="what-you-do"></a>Vad du gör
+
+Kör Azure IoT Toolkit-tillägget för Visual Studio Code med olika alternativ.
+
+## <a name="what-you-need"></a>Vad du behöver
+
+- En aktiv Azure-prenumeration.
+- Azure IoT hub i din prenumeration.
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
+
+## <a name="sign-in-to-access-your-iot-hub"></a>Logga in att få åtkomst till din IoT-hubb
+
+1. I **Explorer** av VS Code, expanderar **Azure IoT Hub-enheter** avsnitt i det nedre vänstra hörnet.
+1. Klicka på **Välj IoT Hub** i snabbmenyn.
+1. Ett popup-fönster visas i det nedre högra hörnet så att du kan logga in på Azure för första gången.
+1. När du har loggat in din Azure-prenumeration lista visas och välj sedan Azure-prenumeration och IoT Hub.
+1. Listan över enheter visas i **Azure IoT Hub-enheter** fliken på några sekunder.
+
+   > [!Note]
+   > Du kan också slutföra konfigurationen genom att välja **Set IoT Hub Connection String** (Ange IoT Hub-anslutningssträng). Ange anslutningssträngen för IoT-hubb som din IoT-enhet som ansluter till i popup-fönstret.
+
+## <a name="direct-methods"></a>Direkta metoder
+
+1. Högerklicka på enheten och välj **anropa direkt metod**. 
+1. Ange metodnamnet och nyttolast i textrutan.
+1. Resultaten visas i **utdata** > **Azure IoT Toolkit** vy.
+
+## <a name="read-device-twin"></a>Läs enhetstvilling
+
+1. Högerklicka på enheten och välj **redigera Enhetstvilling**. 
+1. En **azure-iot-device-twin.json** filen öppnas med innehållet i enhetstvillingen.
+
+## <a name="update-device-twin"></a>Uppdatera enhetstvillingen
+
+1. Göra vissa ändringar av **taggar** eller **properties.desired** fält.
+1. Högerklicka på den **azure-iot-device-twin.json** fil.
+1. Välj **uppdatera Enhetstvillingen** att uppdatera enhetstvillingen.
+
+## <a name="send-cloud-to-device-messages"></a>Skicka meddelanden från moln till enhet
+
+Om du vill skicka ett meddelande från IoT hub till enheten, Följ dessa steg:
+ 
+1. Högerklicka på enheten och välj **C2D skicka meddelande till enhet**. 
+1. Skriv meddelandet i textrutan.
+1. Resultaten visas i **utdata** > **Azure IoT Toolkit** vy.
+
+## <a name="next-steps"></a>Nästa steg
+
+Du har lärt dig hur du använder Azure IoT Toolkit-tillägget för Visual Studio Code med olika alternativ.
+
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

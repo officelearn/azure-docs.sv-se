@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: 5859a48034339fafa59acb003c117dd8873850c2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 52f582f0cac55aaff90cf21097e679617a50ef0b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39052877"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428469"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>Självstudier: Azure Active Directory-integration med Evidence.com
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Evidence.com från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-evidencecom-from-the-gallery"></a>Att lägga till Evidence.com från galleriet
 För att konfigurera integrering av Evidence.com i Azure AD, som du behöver lägga till Evidence.com från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av Evidence.com i Azure AD, som du behöver lä
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Evidence.com**väljer **Evidence.com** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Evidence.com**väljer **Evidence.com** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Evidence.com i resultatlistan](./media/evidence-tutorial/tutorial_evidence.com_addfromgallery.png)
 
@@ -87,10 +87,10 @@ I Evidence.com, tilldela värdet för den **användarnamn** i Azure AD som värd
 Om du vill konfigurera och testa Azure AD enkel inloggning med Evidence.com, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Evidence.com](#create-a-evidencecom-test-user)**  – du har en motsvarighet för Britta Simon i Evidence.com som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Evidence.com](#create-a-evidencecom-test-user)**  – du har en motsvarighet för Britta Simon i Evidence.com som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -102,11 +102,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/evidence-tutorial/tutorial_evidence.com_samlbase.png)
 
-3. På den **Evidence.com domän och URL: er** avsnittet, utför följande steg:
+1. På den **Evidence.com domän och URL: er** avsnittet, utför följande steg:
 
     ![Evidence.com domän och URL: er med enkel inloggning för information](./media/evidence-tutorial/tutorial_evidence.com_url.png)
 
@@ -117,29 +117,29 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Evidence.com klienten supportteamet](https://communities.taser.com/support/SupportContactUs?typ=LE) att hämta dessa värden. 
 
-4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/evidence-tutorial/tutorial_evidence.com_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/evidence-tutorial/tutorial_general_400.png)
 
-6. På den **Evidence.com Configuration** klickar du på **konfigurera Evidence.com** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **Evidence.com Configuration** klickar du på **konfigurera Evidence.com** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Evidence.com konfiguration](./media/evidence-tutorial/tutorial_evidence.com_configure.png) 
 
-7. I ett separat webbläsarfönster, logga in på din Evidence.com klient som administratör och navigera till **Admin** fliken
+1. I ett separat webbläsarfönster, logga in på din Evidence.com klient som administratör och navigera till **Admin** fliken
 
-8. Klicka på **myndighet för enkel inloggning**
+1. Klicka på **myndighet för enkel inloggning**
 
-9. Välj **SAML-baserad enkel inloggning på**
+1. Välj **SAML-baserad enkel inloggning på**
 
-10. Kopiera den **SAML entitets-ID**, **SAML enkel inloggning för tjänst-URL** och **URL: en för utloggning** värden som visas i Azure-portalen och att motsvarande fält i Evidence.com.
+1. Kopiera den **SAML entitets-ID**, **SAML enkel inloggning för tjänst-URL** och **URL: en för utloggning** värden som visas i Azure-portalen och att motsvarande fält i Evidence.com.
 
-11. Öppna din hämtade Certificate(Base64)-filen i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **säkerhetscertifikat** box. 
+1. Öppna din hämtade Certificate(Base64)-filen i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **säkerhetscertifikat** box. 
 
-12. Spara konfigurationen i Evidence.com.
+1. Spara konfigurationen i Evidence.com.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -157,15 +157,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/evidence-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/evidence-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/evidence-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/evidence-tutorial/create_aaduser_04.png)
 
@@ -185,13 +185,13 @@ För Azure AD-användare för att kunna logga in, måste de etableras för åtko
 
 1. Logga in på webbplatsen Evidence.com företag som en administratör i ett webbläsarfönster.
 
-2. Gå till **Admin** fliken.
+1. Gå till **Admin** fliken.
 
-3. Klicka på **lägga till användare**.
+1. Klicka på **lägga till användare**.
 
-4. Klicka på knappen **Lägg till**.
+1. Klicka på knappen **Lägg till**.
 
-5. Den **e-postadress** för den tillagda användaren måste matcha användarnamnet för användare i Azure AD som du vill ge åtkomst. Om användarnamnet och e-postadress inte är samma värde i din organisation, kan du använda den **Evidence.com > attribut > enkel inloggning** avsnitt av Azure portal för att ändra nameidenitifer som skickas till Evidence.com ska vara den e-postadress.
+1. Den **e-postadress** för den tillagda användaren måste matcha användarnamnet för användare i Azure AD som du vill ge åtkomst. Om användarnamnet och e-postadress inte är samma värde i din organisation, kan du använda den **Evidence.com > attribut > enkel inloggning** avsnitt av Azure portal för att ändra nameidenitifer som skickas till Evidence.com ska vara den e-postadress.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -205,23 +205,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Evidence.com**.
+1. I listan med program väljer **Evidence.com**.
 
     ![Länken Evidence.com i listan med program](./media/evidence-tutorial/tutorial_evidence.com_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

@@ -1,6 +1,6 @@
 ---
-title: Integrera din ILB Apptjänst-miljö med Azure Programgateway
-description: Genomgång av hur du integrerar en app i din ILB Apptjänst-miljö med en Programgateway
+title: Integrera din ILB App Service-miljö med Azure Application Gateway
+description: Genomgång av hur du integrerar en app i din ILB App Service Environment med en Application Gateway
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,112 +13,112 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
-ms.openlocfilehash: 31aea1d19ed6da856bb5fc634a919819513cb6b2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 749b554b8cf99ce849e0e3ab7b3a9478d8705e54
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30833592"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423002"
 ---
-# <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrera din ILB Apptjänst-miljö med Azure Programgateway #
+# <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrera din ILB App Service-miljö med Azure Application Gateway #
 
-Den [Apptjänstmiljö](./intro.md) är en distribution av Azure App Service i undernätet för kundens virtuella Azure-nätverket. Den kan användas med en offentlig eller privat slutpunkt för åtkomst till appen. Distributionen av Apptjänst-miljön med en privat slutpunkt (det vill säga en intern belastningsutjämnare) kallas en ILB Apptjänst-miljö.  
+Den [App Service Environment](./intro.md) är en distribution av Azure App Service i undernätet för en kunds Azure-nätverk. Den kan distribueras med en offentlig eller privat slutpunkt för åtkomst till appen. Distribution av App Service Environment med en privat slutpunkt (det vill säga en intern belastningsutjämnare) kallas för en ILB App Service Environment.  
 
-Webbprogrammet brandväggar hjälp säkra webbprogram genom att kontrollera inkommande webbtrafik att blockera SQL injektionerna globala webbplatsskript, skadlig kod överföringar & DDoS-program och andra attacker. Den kontrollerar också svar från backend-webbservrar för Data går förlorade förebyggande (DLP). Du kan hämta en Brandvägg enhet från Azure marketplace eller kan du använda den [Azure Programgateway][appgw].
+Hjälper till att säkra brandväggar för webbaserade program dina webbprogram genom att kontrollera ingående webbtrafik för att blockera SQL-inmatningar, skriptkörning över flera webbplatser, överföring av skadlig kod & program-DDoS och andra attacker. Den kontrollerar även svar från backend-webbservrar för Data skydd mot dataförlust (DLP). Du kan hämta en WAF-enhet från Azure marketplace eller använda den [Azure Application Gateway][appgw].
 
-Azure Application Gateway är en virtuell installation som tillhandahåller layer 7 belastningsutjämning, SSL-avlastning och web application firewall (Brandvägg) skydd. Det kan lyssna på en offentlig IP-adress och vidarebefordra trafik till programslutpunkten. Följande information beskriver hur du integrerar en konfigurerad Brandvägg Programgateway med en app i en ILB Apptjänst-miljö.  
+Azure Application Gateway är en virtuell installation som tillhandahåller layer 7 belastningsutjämning, SSL-avlastning och web application firewall (WAF) skydd. Det kan lyssna på en offentlig IP-adressen och dirigera trafiken till programslutpunkten för ditt. Följande information beskriver hur du integrerar en WAF-konfigurerat application gateway med en app i en ILB App Service Environment.  
 
-Integrering av programgatewayen med ILB Apptjänst-miljön är på en appnivå. När du konfigurerar programgatewayen med din ILB Apptjänst-miljö kan vill du göra det för specifika appar i din ILB Apptjänst-miljö. Den här tekniken kan värd säkra flera program i en enda ILB Apptjänst-miljö.  
+Integrering av application gateway med ILB App Service Environment är en app-nivå. När du konfigurerar programgatewayen med ILB App Service Environment kan gör du det för specifika appar i din ILB App Service Environment. Den här tekniken möjliggör som är värd för säkra program i en enda ILB App Service-miljö för flera innehavare.  
 
-![Programgateway pekar till appen på en ILB Apptjänst-miljö][1]
+![Application gateway som pekar på appen på en ILB App Service Environment][1]
 
 I den här genomgången kommer du att:
 
-* Skapa en Gateway för Azure-program.
-* Konfigurera Programgateway peka till en app i din ILB Apptjänst-miljö.
-* Konfigurera appen för att respektera det anpassade domännamnet.
-* Redigera den offentliga DNS-värdnamn som pekar på din Programgateway.
+* Skapa en Programgateway i Azure.
+* Konfigurera Programgatewayen så att den pekar till en app i din ILB App Service Environment.
+* Konfigurera din app för att respektera det anpassade domännamnet.
+* Redigera den offentliga DNS-värdnamn som pekar på din application gateway.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill integrera din Programgateway med din ILB Apptjänst-miljö, behöver du:
+För att integrera din Application Gateway med ILB App Service Environment, behöver du:
 
-* En ILB Apptjänst-miljö.
-* En app som körs i ILB Apptjänst-miljön.
-* Ett dirigerbart domännamn som ska användas med din app i ILB Apptjänst-miljön.
-* ILB-adressen som använder din ILB Apptjänst-miljö. Den här informationen är i Apptjänst-miljö portal under **inställningar** > **IP-adresser**:
+* En ILB App Service Environment.
+* En app som körs i ILB App Service Environment.
+* Ett internet dirigerbar domännamn som ska användas med din app i ILB App Service Environment.
+* ILB-adressen som använder din ILB App Service Environment. Den här informationen är i App Service Environment-portalen under **inställningar** > **IP-adresser**:
 
-    ![Exempel lista över IP-adresser som används av ILB Apptjänst-miljön][9]
+    ![Exempellistan över IP-adresser som används av ILB App Service Environment][9]
     
-* Offentliga DNS-namnet som används senare för att peka till Application Gateway. 
+* En offentlig DNS-namn som används senare för att peka på Application Gateway. 
 
-Mer information om hur du skapar en ILB Apptjänst-miljö finns [skapa och använda en ILB Apptjänstmiljö][ilbase].
+Mer information om hur du skapar en ILB App Service Environment finns i [skapa och använda en ILB App Service Environment][ilbase].
 
-Den här artikeln förutsätter att du vill att en Programgateway i samma virtuella Azure-nätverket där Apptjänst-miljön har distribuerats. Innan du börjar skapa Programgatewayen, Välj eller skapa ett undernät som ska användas som värd för gatewayen. 
+Den här artikeln förutsätter att du vill att en Application Gateway i samma virtuella Azure-nätverket där App Service Environment har distribuerats. Innan du börjar skapa Application Gateway, Välj eller skapa ett undernät som använder du som värd för gatewayen. 
 
-Du bör använda ett undernät som är inte en med namnet GatewaySubnet. Om du placerar Programgatewayen i GatewaySubnet kommer du att det går inte att skapa en virtuell nätverksgateway senare. 
+Du bör använda ett undernät som är inte en med namnet GatewaySubnet. Om du placerar Application Gateway i GatewaySubnet, kommer du att det går inte att skapa en virtuell nätverksgateway senare. 
 
-Du kan också placera gatewayen i undernätet som använder din ILB Apptjänst-miljö. Apptjänst-miljön är det enda som kan vara i det här undernätet.
+Du kan också placera gatewayen i det undernät som använder din ILB App Service Environment. App Service Environment är det enda som kan finnas i det här undernätet.
 
 ## <a name="configuration-steps"></a>Konfigurationssteg ##
 
-1. I Azure-portalen går du till **ny** > **nätverk** > **Programgateway**.
+1. I Azure-portalen går du till **New** > **nätverk** > **Application Gateway**.
 
-2. I den **grunderna** område:
+1. I den **grunderna** området:
 
-   a. För **namn**, ange namnet på Programgatewayen.
+   a. För **namnet**, anger du namnet på Application Gateway.
 
-   b. För **nivå**väljer **Brandvägg**.
+   b. För **nivå**väljer **WAF**.
 
-   c. För **prenumeration**, Välj samma prenumeration som använder det virtuella nätverket för Apptjänst-miljö.
+   c. För **prenumeration**, Välj samma prenumeration som det virtuella nätverket för App Service Environment.
 
-   d. För **resursgruppen**, skapa eller välja en resursgrupp.
+   d. För **resursgrupp**, skapa eller välj resursgruppen.
 
-   e. För **plats**, välj platsen för det virtuella nätverket för Apptjänst-miljö.
+   e. För **plats**, välj platsen för det virtuella nätverket för App Service Environment.
 
-   ![Nya Programgateway skapa grunderna][2]
+   ![Ny grunderna för skapande av Application Gateway][2]
 
-3. I den **inställningar** område:
+1. I den **inställningar** området:
 
-   a. För **för virtuella nätverk**, Välj det virtuella nätverket för Apptjänst-miljö.
+   a. För **virtuellt nätverk**, Välj det virtuella nätverket för App Service Environment.
 
-   b. För **undernät**, markerar du undernätet där Programgatewayen måste distribueras. Använd inte GatewaySubnet, eftersom den förhindrar att skapa VPN-gatewayer.
+   b. För **undernät**, Välj det undernät där Programgatewayen måste distribueras. Använd inte GatewaySubnet, eftersom den förhindrar du att VPN-gatewayer.
 
-   c. För **IP-adresstypen**väljer **offentliga**.
+   c. För **IP-adresstyp**väljer **offentliga**.
 
    d. För **offentliga IP-adressen**, Välj en offentlig IP-adress. Om du inte har någon kan du skapa en nu.
 
    e. För **protokollet**väljer **HTTP** eller **HTTPS**. Om du konfigurerar för HTTPS, måste du ange ett PFX-certifikat.
 
-   f. För **Brandvägg för webbaserade program**, du kan aktivera brandväggen och även ange antingen **identifiering** eller **förebyggande** efter önskemål.
+   f. För **Brandvägg för webbaserade program**, du kan aktivera brandväggen och också ange den för antingen **identifiering** eller **Dataförlustskydd** som du vill.
 
-   ![Nya inställningar för skapande av Programgateway][3]
+   ![Nya inställningar för skapande av Application Gateway][3]
     
-4. I den **sammanfattning** , granskar du inställningarna och välj **OK**. Application Gateway kan ta lite mer än 30 minuter att slutföra installationen.  
+1. I den **sammanfattning** , granskar du inställningarna och väljer **OK**. Application Gateway kan ta lite mer än 30 minuter att slutföra installationen.  
 
-5. Gå till portalen för Programgateway när installationen är klar i Application Gateway. Välj **serverdelspool**. Lägg till ILB-adress för din ILB Apptjänst-miljö.
+1. När Application Gateway är klar installationen går du till din Application Gateway-portal. Välj **serverdelspool**. Lägg till ILB-adressen för din ILB App Service Environment.
 
-   ![Konfigurera serverdelspool][4]
+   ![Konfigurera serverdelspoolen][4]
 
-6. När konfigureringen av backend-adresspool har slutförts, Välj **hälsoavsökning**. Skapa en hälsoavsökningen för det domännamn som du vill använda för din app. 
+1. När konfigureringen av backend-poolen är klar väljer **hälsoavsökningar**. Skapa en hälsoavsökning för det domännamn som du vill använda för din app. 
 
    ![Konfigurera hälsotillståndsavsökningar][5]
     
-7. När konfigureringen av din hälsoavsökningar har slutförts, Välj **HTTP-inställningar**. Redigera de befintliga inställningarna genom att markera **Använd anpassad avsökningen**, och välj avsökningen som du har konfigurerat.
+1. När processen med att konfigurera din hälsokontroller av slutpunkter är klar väljer **HTTP-inställningar**. Redigera de befintliga inställningarna genom att markera **Använd anpassad avsökning**, och välj avsökningen som du har konfigurerat.
 
    ![Konfigurera HTTP-inställningar][6]
     
-8. Gå till den Programgateway **översikt** avsnitt och kopiera den offentliga IP-adressen som använder Application Gateway. Ange IP-adressen som en A-post för din app-domännamnet eller Använd DNS-namn för den adressen i en CNAME-post. Det är lättare att välja den offentliga IP-adressen och kopiera den från Gränssnittet för den offentliga IP-adressen i stället för att kopiera den från länken i den Programgateway **översikt** avsnitt. 
+1. Gå till Application Gateway **översikt** avsnitt och kopiera den offentliga IP-adressen som Application Gateway använder. Ange IP-adress som en A-post för din app-domännamnet eller Använd DNS-namnet för den här adressen i en CNAME-post. Det är lättare att välja den offentliga IP-adressen och kopiera den offentliga IP-adressens användargränssnittet i stället för att kopiera den från länken i Application Gateway **översikt** avsnittet. 
 
-   ![Programmet Gateway-portalen][7]
+   ![Application Gateway-portalen][7]
 
-9. Ange det anpassade domännamnet för din app i din ILB Apptjänst-miljö. Gå till din app i portalen och under **inställningar**väljer **anpassade domäner**.
+1. Ange det anpassade domännamnet för din app i din ILB App Service Environment. Gå till din app i portalen och under **inställningar**väljer **anpassade domäner**.
 
-   ![Ange namnet på domänen i appen][8]
+   ![Ange anpassat domännamn för appen][8]
 
-Det finns information om hur anpassade domännamn för web apps i artikeln [definiera anpassade domännamn för din webbapp][custom-domain]. Men det finns inte någon validering på domännamnet för en app i en ILB Apptjänst-miljö. Eftersom du äger DNS som hanterar app-slutpunkter kan placera du vad du vill i dit. Det anpassade domännamnet som du lägger till i det här fallet behöver inte finnas i din DNS-Server, men fortfarande behöver konfigureras med din app. 
+Det finns information om hur anpassade domännamn för dina webbprogram i artikeln [ställa in anpassade domännamn för din webbapp][custom-domain]. Men det finns inte någon verifiering på domännamnet för en app i en ILB App Service Environment. Du kan ange vad du vill där eftersom du äger DNS som hanterar app-slutpunkter. Det anpassade domännamnet som du lägger till i det här fallet behöver inte finnas i din DNS-Server, men den fortfarande behöver konfigureras med din app. 
 
-När installationen är klar och du har angett en kort tidsperiod för att ändringarna DNS sprids, kan du komma åt din app med hjälp av det anpassade domännamnet som du skapade. 
+När installationen är klar och du har tillåtit en kort tidsperiod för din DNS-ändringarna att spridas, kan du komma åt din app med hjälp av det anpassade domännamnet som du skapade. 
 
 
 <!--IMAGES-->

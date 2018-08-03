@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 90100461d7db93ece23bf2420a1b7e8c43da915b
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 94d443505c5c1634c9da00d455e0163b2762d969
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343057"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426042"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Hur du kör varaktiga funktioner som WebJobs
 
@@ -223,7 +223,7 @@ Den huvudsakliga ändringen som introducerades av 3.x är användningen av .NET 
   * `Microsoft.Azure.WebJobs.Extensions`
   * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-2. Ändra `Main` koden för att hämta anslutningssträngen för lagring och Application Insights-instrumentationsnyckeln från en *appsettings.json* fil, med hjälp av .NET Core configuration-ramverket.  Här är ett exempel:
+1. Ändra `Main` koden för att hämta anslutningssträngen för lagring och Application Insights-instrumentationsnyckeln från en *appsettings.json* fil, med hjälp av .NET Core configuration-ramverket.  Här är ett exempel:
 
    ```cs
    static void Main(string[] args)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 1dbcb2999afedcea03013b258073d39350b4fcdb
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 2da548b0d3a13dfac5d3928d8d692ac8e083bf58
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051677"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>Självstudier: Azure Active Directory-integration med NetDocuments
 
@@ -52,7 +52,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till NetDocuments från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-netdocuments-from-the-gallery"></a>Att lägga till NetDocuments från galleriet
 För att konfigurera integrering av NetDocuments i Azure AD, som du behöver lägga till NetDocuments från galleriet i din lista över hanterade SaaS-appar.
@@ -63,19 +63,19 @@ För att konfigurera integrering av NetDocuments i Azure AD, som du behöver lä
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **NetDocuments**.
+1. I sökrutan skriver **NetDocuments**.
 
     ![Skapa en Azure AD-användare för testning](./media/netdocuments-tutorial/tutorial_netdocuments_search.png)
 
-5. I resultatpanelen väljer **NetDocuments**, och klicka sedan på **Lägg till** för att lägga till programmet.
+1. I resultatpanelen väljer **NetDocuments**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
     ![Skapa en Azure AD-användare för testning](./media/netdocuments-tutorial/tutorial_netdocuments_addfromgallery.png)
 
@@ -89,10 +89,10 @@ I NetDocuments, tilldela värdet för den **användarnamn** i Azure AD som värd
 Om du vill konfigurera och testa Azure AD enkel inloggning med NetDocuments, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare NetDocuments](#creating-a-netdocuments-test-user)**  – du har en motsvarighet för Britta Simon i NetDocuments som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare NetDocuments](#creating-a-netdocuments-test-user)**  – du har en motsvarighet för Britta Simon i NetDocuments som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -104,11 +104,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/netdocuments-tutorial/tutorial_netdocuments_samlbase.png)
 
-3. På den **NetDocuments domän och URL: er** avsnittet, utför följande steg:
+1. På den **NetDocuments domän och URL: er** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/netdocuments-tutorial/tutorial_netdocuments_url.png)
 
@@ -119,27 +119,27 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och svars-URL. Kontakta [NetDocuments supportteam](https://support.netdocuments.com/hc/) att hämta dessa värden.
  
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/netdocuments-tutorial/tutorial_netdocuments_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/netdocuments-tutorial/tutorial_general_400.png)
 
-6. Logga in på webbplatsen NetDocuments företag som en administratör i ett annat webbläsarfönster.
+1. Logga in på webbplatsen NetDocuments företag som en administratör i ett annat webbläsarfönster.
 
-7. Gå till **Admin**.
+1. Gå till **Admin**.
 
-8. Klicka på **Lägg till och ta bort användare och grupper**.
+1. Klicka på **Lägg till och ta bort användare och grupper**.
    
     ![Databasen](./media/netdocuments-tutorial/ic795047.png "lagringsplats")
 
-9. Klicka på **konfigurera avancerade autentiseringsalternativ**.
+1. Klicka på **konfigurera avancerade autentiseringsalternativ**.
     
     ![Konfigurera avancerade autentiseringsalternativ](./media/netdocuments-tutorial/ic795048.png "konfigurera avancerade autentiseringsalternativ")
 
-10. På den **federerad identitet** dialogrutan utför följande steg:
+1. På den **federerad identitet** dialogrutan utför följande steg:
    
     ![Federerad Identitty](./media/netdocuments-tutorial/ic795049.png "federerad Identitty")
    
@@ -163,15 +163,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](./media/netdocuments-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
     ![Skapa en Azure AD-användare för testning](./media/netdocuments-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
     ![Skapa en Azure AD-användare för testning](./media/netdocuments-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
     ![Skapa en Azure AD-användare för testning](./media/netdocuments-tutorial/create_aaduser_04.png) 
 
@@ -192,15 +192,15 @@ När det gäller NetDocuments är etablering en manuell aktivitet.
 
 1. Registrerar in på din **NetDocuments** företagets plats som administratör.
 
-2. Klicka på menyn längst upp **Admin**.
+1. Klicka på menyn längst upp **Admin**.
    
     ![Administratören](./media/netdocuments-tutorial/ic795051.png "Admin")
 
-3. Klicka på **Lägg till och ta bort användare och grupper**.
+1. Klicka på **Lägg till och ta bort användare och grupper**.
    
     ![Databasen](./media/netdocuments-tutorial/ic795047.png "lagringsplats")
 
-4. I den **e-postadress** textrutan skriver du ett giltigt Azure Active Directory-konto du vill etablera och klicka sedan på e-postadress **Lägg till användare**.
+1. I den **e-postadress** textrutan skriver du ett giltigt Azure Active Directory-konto du vill etablera och klicka sedan på e-postadress **Lägg till användare**.
    
     ![E-postadress](./media/netdocuments-tutorial/ic795053.png "e-postadress")
    
@@ -219,23 +219,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **NetDocuments**.
+1. I listan med program väljer **NetDocuments**.
 
     ![Konfigurera enkel inloggning](./media/netdocuments-tutorial/tutorial_netdocuments_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: 4a592a20d009b269f1e8f7079311caa4c33cf613
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d3438f42753cba82a28d16be2b63926c4762b26b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113114"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421941"
 ---
 # <a name="deploy-docker-ce-cluster"></a>Distribuera Docker CE-kluster
 
@@ -28,7 +28,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras.
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras.
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *westus2* plats.
 
@@ -53,7 +53,7 @@ Resultat:
 
 ## <a name="create-docker-swarm-cluster"></a>Skapa Docker Swarm-kluster
 
-Skapa ett Docker CE-kluster i Azure Container Service med kommandot [az acs create](/cli/azure/acs#az_acs_create). Information om region availaiblity av Docker CE finns [ACS regioner för Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
+Skapa ett Docker CE-kluster i Azure Container Service med kommandot [az acs create](/cli/azure/acs#az-acs-create). Information om region availaiblity av Docker CE finns [ACS regioner för Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
 
 I följande exempel skapas ett kluster med namnet *mySwarmCluster* med en Linux-huvudnod och tre Linux-agentnoder.
 
@@ -61,7 +61,7 @@ I följande exempel skapas ett kluster med namnet *mySwarmCluster* med en Linux-
 az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-I vissa fall, som vid en begränsad utvärderingsversion, har en Azure-prenumeration begränsad åtkomst till Azure-resurser. Om distributionen misslyckas på grund av begränsade tillgängliga kärnor minskar du antalet standardagenter genom att lägga till `--agent-count 1` till kommandot [az acs create](/cli/azure/acs#az_acs_create). 
+I vissa fall, som vid en begränsad utvärderingsversion, har en Azure-prenumeration begränsad åtkomst till Azure-resurser. Om distributionen misslyckas på grund av begränsade tillgängliga kärnor minskar du antalet standardagenter genom att lägga till `--agent-count 1` till kommandot [az acs create](/cli/azure/acs#az-acs-create). 
 
 Efter flera minuter slutförs kommandot och returnerar JSON-formaterad information om klustret.
 
@@ -153,7 +153,7 @@ Gå till FQDN för Swarm-agentpoolen för att testa Azure Vote-programmet.
 ![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Ta bort klustret
-När klustret inte längre behövs du använda kommandot [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen, containertjänsten och alla relaterade resurser.
+När klustret inte längre behövs du använda kommandot [az group delete](/cli/azure/group#az-group-delete) för att ta bort resursgruppen, containertjänsten och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

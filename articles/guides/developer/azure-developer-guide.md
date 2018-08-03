@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: f4dfc376e49ac26f0c054282994a29d9a7d2b54b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2c6db85763b448133d53b22c0600b27b533b2041
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442179"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424236"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
 
@@ -162,7 +162,7 @@ Det är viktigt att inte bara veta vem som använder dina program utan också f�
 
     >**När du ska använda**: Om du vill att tillhandahålla enkel inloggning kan arbeta med graf-baserade data eller autentisera domänbaserade användare.
 
-    >**Kom igång**: Mer information finns i den [Utvecklarhandbok för Azure Active Directory](../../active-directory/develop/active-directory-developers-guide.md).
+    >**Kom igång**: Mer information finns i den [Utvecklarhandbok för Azure Active Directory](../../active-directory/develop/azure-ad-developers-guide.md).
 
 -   **App Service-autentisering**: när du väljer App Service som värd för din app kan du också hämta inbyggda autentiseringsstöd för Azure AD, tillsammans med sociala identitetsleverantörer, inklusive Facebook, Google, Microsoft och Twitter.
 

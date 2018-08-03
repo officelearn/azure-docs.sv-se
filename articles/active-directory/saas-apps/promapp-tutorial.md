@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Promapp | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integration med Promapp | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Promapp.
 services: active-directory
 documentationCenter: na
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 729644e350e3c0ad4a5ea695d24ddaf4164952fc
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6bcd1add3985112fe60aab22f1799e40ad8889b2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213985"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421870"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Självstudier: Azure Active Directory-integrering med Promapp
+# <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Självstudier: Azure Active Directory-integration med Promapp
 
-I kursen får lära du att integrera Promapp med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Promapp med Azure Active Directory (AD Azure).
 
 Integrera Promapp med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Promapp
-- Du kan aktivera användarna att automatiskt hämta loggat in på Promapp (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan aktivera användarna att automatiskt få loggat in på Promapp (Single Sign-On) med sina Azure AD-konton
+- Du kan hantera dina konton på en central plats – Azure portal
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med Promapp, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Promapp, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En Promapp enkel inloggning aktiverad prenumeration
+- En Promapp enkel inloggning aktiverat prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Promapp från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-promapp-from-the-gallery"></a>Att lägga till Promapp från galleriet
-Du måste lägga till Promapp från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Promapp i Azure AD.
+För att konfigurera integrering av Promapp i Azure AD, som du behöver lägga till Promapp från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Promapp från galleriet:**
 
@@ -63,36 +63,36 @@ Du måste lägga till Promapp från galleriet i listan över hanterade SaaS-appa
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **Promapp**.
+1. I sökrutan skriver **Promapp**.
 
-    ![Skapa en testanvändare i Azure AD](./media/promapp-tutorial/tutorial_promapp_search.png)
+    ![Skapa en Azure AD-användare för testning](./media/promapp-tutorial/tutorial_promapp_search.png)
 
-5. Välj i resultatpanelen **Promapp**, och klicka sedan på **Lägg till** för att lägga till programmet.
+1. I resultatpanelen väljer **Promapp**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/promapp-tutorial/tutorial_promapp_addfromgallery.png)
+    ![Skapa en Azure AD-användare för testning](./media/promapp-tutorial/tutorial_promapp_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Promapp baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Promapp baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till användaren i Promapp motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Promapp upprättas.
+För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Promapp är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Promapp upprättas.
 
-I Promapp, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+I Promapp, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Promapp, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Promapp](#creating-a-promapp-test-user)**  – du har en motsvarighet för Britta Simon i Promapp som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Promapp](#creating-a-promapp-test-user)**  – du har en motsvarighet för Britta Simon i Promapp som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -100,19 +100,19 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Promapp:**
 
-1. I Azure-portalen på den **Promapp** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Promapp** program integration-sidan klickar du på **enkel inloggning**.
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/promapp-tutorial/tutorial_promapp_samlbase.png)
 
-3. På den **Promapp domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+1. På den **Promapp domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/promapp-tutorial/tutorial_promapp_url.png)
 
-    a. I den **identifierare** textruta Skriv en URL med följande mönster:
+    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:
     | |
     |--|
     | `https://go.promapp.com/TENANTNAME/`|
@@ -122,130 +122,130 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://ca.promapp.com/TENANTNAME/`|
     
     > [!NOTE] 
-    > Azure AD-integrering med Promapp har för närvarande endast konfigurerats för initierade autentiseringen av tjänsten t.ex. Gå till en URL för Promapp initierar autentiseringen. Men Reply-URL är ett obligatoriskt fält.
+    > Azure AD-integrering med Promapp har för närvarande endast konfigurerats för initierad tjänstautentisering t.ex. Gå till en URL för Promapp initierar autentiseringen. Men svars-URL måste anges.
     
-    b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
+    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
 
-4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
+1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/promapp-tutorial/tutorial_promapp_url1.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
+    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL, identifierare och Reply-URL. Kontakta [Promapp klienten supportteamet](https://www.promapp.com/about-us/contact-us/) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL, identifierare och svars-URL. Kontakta [Promapp klienten supportteamet](https://www.promapp.com/about-us/contact-us/) att hämta dessa värden.
 
-5. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/promapp-tutorial/tutorial_promapp_certificate.png) 
 
-6. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/promapp-tutorial/tutorial_general_400.png)
 
-7. På den **Promapp Configuration** klickar du på **konfigurera Promapp** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+1. På den **Promapp Configuration** klickar du på **konfigurera Promapp** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Konfigurera enkel inloggning](./media/promapp-tutorial/tutorial_promapp_configure.png) 
 
-8. Inloggning på webbplatsen Promapp företag som administratör. 
+1. Inloggning till webbplatsen Promapp företag som administratör. 
 
-9. Klicka på menyn högst upp **Admin**. 
+1. Klicka på menyn längst upp **Admin**. 
    
-    ![Azure AD-Single Sign-On][12]
+    ![Azure AD enkel inloggning][12]
 
-10. Klicka på **Konfigurera**. 
+1. Klicka på **Konfigurera**. 
    
-    ![Azure AD-Single Sign-On][13]
+    ![Azure AD enkel inloggning][13]
 
-11. På den **säkerhet** dialogrutan, utför följande steg:
+1. På den **Security** dialogrutan utför följande steg:
    
-    ![Azure AD-Single Sign-On][14]
+    ![Azure AD enkel inloggning][14]
     
-    a. Klistra in **SAML enkel inloggning Tjänstwebbadress**, som du har kopierat från Azure-portalen i den **SSO inloggnings-URL** textruta.
+    a. Klistra in **SAML enkel inloggning för tjänst-URL**, som du har kopierat från Azure-portalen till den **SSO-inloggnings-URL** textrutan.
     
-    b. Som **SSO - läget för enkel inloggning**väljer **valfritt**, och klicka sedan på **spara**.
+    b. Som **SSO - läge för enkel inloggning**väljer **valfritt**, och klicka sedan på **spara**.
 
     > [!NOTE]
-    > **Valfria** läge är endast för testning. När du är nöjd med konfiguration, Välj **krävs** läge för att tillämpa alla användare att autentisera med Azure AD.
+    > **Valfritt** läge är endast för testning. När du är nöjd med konfigurationen, Välj **krävs** läge för att tillämpa alla användare att autentisera med hjälp av Azure AD.
 
-    c. Öppna hämtade certifikatet i anteckningar, kopiera certifikatet innehållet utan att den första raden (---**börjar certifikat**---) och den sista raden (---**END CERTIFICATE**---), klistrar in den i  **SSO-x.509-certifikat** textruta och klicka sedan på **spara**.
+    c. Öppna det nedladdade certifikatet i anteckningar, kopiera certifikatet innehållet utan att den första raden (---**börjar certifikat**---) och den sista raden (---**END CERTIFICATE**---), klistra in den i  **SSO-x.509-certifikat** textrutan och klicka sedan på **spara**.
         
 > [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+![Skapa en Azure AD-användare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
 
-    ![Skapa en testanvändare i Azure AD](./media/promapp-tutorial/create_aaduser_01.png) 
+    ![Skapa en Azure AD-användare för testning](./media/promapp-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
-    ![Skapa en testanvändare i Azure AD](./media/promapp-tutorial/create_aaduser_02.png) 
+    ![Skapa en Azure AD-användare för testning](./media/promapp-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
-    ![Skapa en testanvändare i Azure AD](./media/promapp-tutorial/create_aaduser_03.png) 
+    ![Skapa en Azure AD-användare för testning](./media/promapp-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
-    ![Skapa en testanvändare i Azure AD](./media/promapp-tutorial/create_aaduser_04.png) 
+    ![Skapa en Azure AD-användare för testning](./media/promapp-tutorial/create_aaduser_04.png) 
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    a. I den **namn** textrutan typ **BrittaSimon**.
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
  
-### <a name="creating-a-promapp-test-user"></a>Skapa en testanvändare Promapp
+### <a name="creating-a-promapp-test-user"></a>Skapa en Promapp testanvändare
 
-Promapp programmet stöder Just-in-Time-etablering. Det innebär ett konto skapas automatiskt om det behövs vid ett försök att komma åt programmet med hjälp av panelen åtkomst.
+Promapp programmet stöder Just-in-Time-etablering. Det innebär att ett användarkonto skapas automatiskt om det behövs vid ett försök till åtkomst till programmet från åtkomstpanelen.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Promapp.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Promapp.
 
 ![Tilldela användare][200] 
 
-**Om du vill tilldela Promapp Britta Simon utför du följande steg:**
+**Om du vill tilldela Britta Simon Promapp, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **Promapp**.
+1. I listan med program väljer **Promapp**.
 
     ![Konfigurera enkel inloggning](./media/promapp-tutorial/tutorial_promapp_app.png) 
 
-3. Klicka på menyn till vänster **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
-Att testa ditt program i **SP** initierade läge, måste du starta autentisering från webbplatsen Promapp. Detta kan göras genom att klicka på Logga in med enkel inloggning på sidan logga in medan **valfritt** läge är aktiverat.
+Att testa ditt program i **SP** initierade läge, måste du initiera autentisering från webbplatsen Promapp. Detta kan göras genom att klicka på knappen Logga in med enkel inloggning på inloggningssidan anger även om **valfritt** läge är aktiverat.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

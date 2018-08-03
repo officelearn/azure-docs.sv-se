@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: b5ab8a87fe3075951b3fb9935c9a06d9c99e3f85
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: be49cbba53441124bd538a5d82e8c0e1d20d9e45
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053394"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433070"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Självstudier: Azure Active Directory-integration med Grovo
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Grovo från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-grovo-from-the-gallery"></a>Att lägga till Grovo från galleriet
 För att konfigurera integrering av Grovo i Azure AD, som du behöver lägga till Grovo från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av Grovo i Azure AD, som du behöver lägga til
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Grovo**väljer **Grovo** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Grovo**väljer **Grovo** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Grovo i resultatlistan](./media/grovo-tutorial/tutorial_grovo_addfromgallery.png)
 
@@ -87,10 +87,10 @@ I Grovo, tilldela värdet för den **användarnamn** i Azure AD som värde för 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Grovo, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Grovo](#create-a-grovo-test-user)**  – du har en motsvarighet för Britta Simon i Grovo som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Grovo](#create-a-grovo-test-user)**  – du har en motsvarighet för Britta Simon i Grovo som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -102,11 +102,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/grovo-tutorial/tutorial_grovo_samlbase.png)
 
-3. På den **Grovo domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+1. På den **Grovo domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Grovo domän och URL: er med enkel inloggning för information](./media/grovo-tutorial/tutorial_grovo_url.png)
 
@@ -114,7 +114,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
-4. Kontrollera **visa avancerade URL-inställningar**, utföra följande steg:
+1. Kontrollera **visa avancerade URL-inställningar**, utföra följande steg:
 
     ![Grovo domän och URL: er med enkel inloggning för information](./media/grovo-tutorial/tutorial_grovo_url1.png)
 
@@ -129,11 +129,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska identifierare, svars-URL, inloggnings-URL och Relay. Kontakta [Grovo supportteamet](https://www.grovo.com/contact-us) att hämta dessa värden.
  
-5. Grovo program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Mappa **användaridentifierare** med **user.mail** och konfigurera andra attribut som visas i skärmbilden nedan.
+1. Grovo program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Mappa **användaridentifierare** med **user.mail** och konfigurera andra attribut som visas i skärmbilden nedan.
     
     ![Konfigurera enkel inloggning attb](./media/grovo-tutorial/tutorial_grovo_attribute.png)
     
-6. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden och utför följande steg:
+1. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden och utför följande steg:
     
     | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |    
@@ -157,29 +157,29 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     e. Klicka på **OK**.
 
 
-7. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/grovo-tutorial/tutorial_grovo_certificate.png) 
 
-8. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/grovo-tutorial/tutorial_general_400.png)
 
-9. På den **Grovo Configuration** klickar du på **konfigurera Grovo** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **Grovo Configuration** klickar du på **konfigurera Grovo** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Grovo konfiguration](./media/grovo-tutorial/tutorial_grovo_configure.png) 
 
-10. I ett annat webbläsarfönster, logga in på Grovo som administratör.
+1. I ett annat webbläsarfönster, logga in på Grovo som administratör.
 
-11. Gå till **Admin** > **integreringar**.
+1. Gå till **Admin** > **integreringar**.
  
     ![Grovo konfiguration](./media/grovo-tutorial/tutorial_grovo_admin.png) 
 
-12. Klicka på **SET UP** under **SP-initierat SAML 2.0** avsnittet.
+1. Klicka på **SET UP** under **SP-initierat SAML 2.0** avsnittet.
 
     ![Grovo konfiguration](./media/grovo-tutorial/tutorial_grovo_setup.png)
 
-13. I **SP-initierat SAML 2.0** popup-fönstret utför följande steg:
+1. I **SP-initierat SAML 2.0** popup-fönstret utför följande steg:
 
     ![Grovo konfiguration](./media/grovo-tutorial/tutorial_grovo_saml.png)
 
@@ -208,15 +208,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/grovo-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/grovo-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/grovo-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/grovo-tutorial/create_aaduser_04.png)
 
@@ -246,23 +246,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Grovo**.
+1. I listan med program väljer **Grovo**.
 
     ![Länken Grovo i listan med program](./media/grovo-tutorial/tutorial_grovo_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

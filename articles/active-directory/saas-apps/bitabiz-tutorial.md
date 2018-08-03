@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: add86c04cc43d9742576b5c733d18b7117be2c61
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 2a05a4f1b9162a69e074bf6243236df48c8ce536
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053832"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429670"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Självstudier: Azure Active Directory-integration med BitaBIZ
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till BitaBIZ från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-bitabiz-from-the-gallery"></a>Att lägga till BitaBIZ från galleriet
 För att konfigurera integrering av BitaBIZ i Azure AD, som du behöver lägga till BitaBIZ från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av BitaBIZ i Azure AD, som du behöver lägga t
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **BitaBIZ**väljer **BitaBIZ** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **BitaBIZ**väljer **BitaBIZ** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![BitaBIZ i resultatlistan](./media/bitabiz-tutorial/tutorial_bitabiz_addfromgallery.png)
 
@@ -87,10 +87,10 @@ I BitaBIZ, tilldela värdet för den **användarnamn** i Azure AD som värde fö
 Om du vill konfigurera och testa Azure AD enkel inloggning med BitaBIZ, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare BitaBIZ](#create-a-bitabiz-test-user)**  – du har en motsvarighet för Britta Simon i BitaBIZ som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare BitaBIZ](#create-a-bitabiz-test-user)**  – du har en motsvarighet för Britta Simon i BitaBIZ som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -102,11 +102,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/bitabiz-tutorial/tutorial_bitabiz_samlbase.png)
 
-3. På den **BitaBIZ domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i IDP-initierad läge:
+1. På den **BitaBIZ domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i IDP-initierad läge:
 
     ![BitaBIZ domän och URL: er med enkel inloggning för information](./media/bitabiz-tutorial/tutorial_bitabiz_url.png)
 
@@ -115,35 +115,35 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Värdet i URL: en ovan är bara exempel. Uppdatera värdet med den faktiska identifieraren som beskrivs senare i självstudien.
 
-4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![BitaBIZ domän och URL: er med enkel inloggning för information](./media/bitabiz-tutorial/tutorial_bitabiz_url1.png)
 
     I den **inloggnings-URL** textrutan anger du URL: `https://www.bitabiz.com/dashboard`
 
-5. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/bitabiz-tutorial/tutorial_bitabiz_certificate.png) 
 
-6. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/bitabiz-tutorial/tutorial_general_400.png)
     
-7. På den **BitaBIZ Configuration** klickar du på **konfigurera BitaBIZ** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **BitaBIZ Configuration** klickar du på **konfigurera BitaBIZ** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![BitaBIZ konfiguration](./media/bitabiz-tutorial/tutorial_bitabiz_configure.png) 
 
-8. I ett annat webbläsarfönster inloggning till BitaBIZ-klienten som administratör.
+1. I ett annat webbläsarfönster inloggning till BitaBIZ-klienten som administratör.
 
-9. Klicka på **installationsprogrammet ADMIN**.
+1. Klicka på **installationsprogrammet ADMIN**.
 
     ![BitaBIZ konfiguration](./media/bitabiz-tutorial/settings1.png)
 
-10. Klicka på **Microsoft integreringar** under **mervärde** avsnittet.
+1. Klicka på **Microsoft integreringar** under **mervärde** avsnittet.
 
     ![BitaBIZ konfiguration](./media/bitabiz-tutorial/settings2.png)
 
-11. Rulla ned till avsnittet **Microsoft Azure AD (aktivera enkel inloggning)** och utför följande steg:
+1. Rulla ned till avsnittet **Microsoft Azure AD (aktivera enkel inloggning)** och utför följande steg:
 
     ![BitaBIZ konfiguration](./media/bitabiz-tutorial/settings3.png)
 
@@ -176,15 +176,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/bitabiz-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/bitabiz-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/bitabiz-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/bitabiz-tutorial/create_aaduser_04.png)
 
@@ -205,19 +205,19 @@ När det gäller BitaBIZ är etablering en manuell aktivitet.
 
 1. Logga in på webbplatsen BitaBIZ företag som administratör.
 
-2. Klicka på **installationsprogrammet ADMIN**.
+1. Klicka på **installationsprogrammet ADMIN**.
 
     ![BitaBIZ lägga till användare](./media/bitabiz-tutorial/settings1.png)
 
-3. Klicka på **lägga till användare** under **organisation** avsnittet.
+1. Klicka på **lägga till användare** under **organisation** avsnittet.
 
     ![BitaBIZ lägga till användare](./media/bitabiz-tutorial/user1.png)
 
-4. Klicka på **Lägg till ny medarbetare**.
+1. Klicka på **Lägg till ny medarbetare**.
 
     ![BitaBIZ lägga till användare](./media/bitabiz-tutorial/user2.png)
 
-5. På den **”Lägg till ny medarbetare”** dialogrutan utför följande steg:
+1. På den **”Lägg till ny medarbetare”** dialogrutan utför följande steg:
 
     ![BitaBIZ lägga till användare](./media/bitabiz-tutorial/user3.png)
 
@@ -248,23 +248,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **BitaBIZ**.
+1. I listan med program väljer **BitaBIZ**.
 
     ![Länken BitaBIZ i listan med program](./media/bitabiz-tutorial/tutorial_bitabiz_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

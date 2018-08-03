@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 70615726ed313884a977ae1b338d3c484fc32a1a
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 7a9adc8e9b7bcf69cce6b8ecf00e44477c1b0da3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326181"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430747"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -105,21 +105,21 @@ Följ dessa steg om du vill använda tokenautentisering för service principal-b
     - Programnyckel
     - Klient-ID:t
 
-2. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  för Azure SQL-servern på Azure portal om du inte redan gjort det. Azure AD-administratör kan vara en Azure AD-användare eller Azure AD-grupp. Om du ger gruppen med MSI en administratörsroll kan du hoppa över steg 3 och 4. Administratören har fullständig åtkomst till databasen.
+1. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  för Azure SQL-servern på Azure portal om du inte redan gjort det. Azure AD-administratör kan vara en Azure AD-användare eller Azure AD-grupp. Om du ger gruppen med MSI en administratörsroll kan du hoppa över steg 3 och 4. Administratören har fullständig åtkomst till databasen.
 
-3. **[Skapa oberoende databasanvändare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  för tjänstens huvudnamn. Ansluta till datalagret från eller som du vill kopiera data med hjälp av verktyg som SSMS, med en Azure AD-identitet som har minst behörigheten ALTER ANY användare. Kör följande T-SQL:
+1. **[Skapa oberoende databasanvändare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  för tjänstens huvudnamn. Ansluta till datalagret från eller som du vill kopiera data med hjälp av verktyg som SSMS, med en Azure AD-identitet som har minst behörigheten ALTER ANY användare. Kör följande T-SQL:
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Bevilja behörigheter krävs för tjänstens huvudnamn** som du brukar för SQL-användare eller andra. Kör följande kod:
+1. **Bevilja behörigheter krävs för tjänstens huvudnamn** som du brukar för SQL-användare eller andra. Kör följande kod:
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-5. **Konfigurera en länkad Azure SQL Data Warehouse-tjänsten** i Azure Data Factory.
+1. **Konfigurera en länkad Azure SQL Data Warehouse-tjänsten** i Azure Data Factory.
 
 
 #### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Länkad tjänst-exempel som använder autentisering av tjänstens huvudnamn
@@ -168,21 +168,21 @@ Följ dessa steg om du vill använda MSI-baserad Azure AD-token autentisering:
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  för Azure SQL-servern på Azure portal om du inte redan gjort det.
+1. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  för Azure SQL-servern på Azure portal om du inte redan gjort det.
 
-3. **[Skapa oberoende databasanvändare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  för Azure AD-gruppen. Ansluta till datalagret från eller som du vill kopiera data med hjälp av verktyg som SSMS, med en Azure AD-identitet som har minst behörigheten ALTER ANY användare. Kör följande T-SQL. 
+1. **[Skapa oberoende databasanvändare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  för Azure AD-gruppen. Ansluta till datalagret från eller som du vill kopiera data med hjälp av verktyg som SSMS, med en Azure AD-identitet som har minst behörigheten ALTER ANY användare. Kör följande T-SQL. 
     
     ```sql
     CREATE USER [your Azure AD group name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Bevilja behörigheter krävs för Azure AD-gruppen** som du brukar för SQL-användare och andra. Till exempel köra följande kod.
+1. **Bevilja behörigheter krävs för Azure AD-gruppen** som du brukar för SQL-användare och andra. Till exempel köra följande kod.
 
     ```sql
     EXEC sp_addrolemember [role name], [your Azure AD group name];
     ```
 
-5. **Konfigurera en länkad Azure SQL Data Warehouse-tjänsten** i Azure Data Factory.
+1. **Konfigurera en länkad Azure SQL Data Warehouse-tjänsten** i Azure Data Factory.
 
 #### <a name="linked-service-example-that-uses-msi-authentication"></a>Länkad tjänst-exempel som använder MSI-autentisering
 
@@ -398,13 +398,13 @@ SQL Data Warehouse PolyBase stöder direkt Azure Blob och Azure Data Lake Store.
 Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och faller automatiskt tillbaka till BULKINSERT mekanism för dataförflyttning.
 
 1. Den **källa länkad tjänst** typen är **AzureStorage** eller **AzureDataLakeStore** med autentisering av tjänstens huvudnamn.
-2. Den **indatauppsättningen** typen är **AzureBlob** eller **AzureDataLakeStoreFile**. Formattyp under `type` egenskaper är **OrcFormat**, **ParquetFormat**, eller **TextFormat**, med följande konfigurationer:
+1. Den **indatauppsättningen** typen är **AzureBlob** eller **AzureDataLakeStoreFile**. Formattyp under `type` egenskaper är **OrcFormat**, **ParquetFormat**, eller **TextFormat**, med följande konfigurationer:
 
    1. `rowDelimiter` måste vara **\n**.
-   2. `nullValue` anges antingen till **tom sträng** (””) eller till vänster som standard och `treatEmptyAsNull` inte är inställt på FALSKT.
-   3. `encodingName` anges till **utf-8**, vilket är standardvärdet.
-   4. `escapeChar`, `quoteChar` och `skipLineCount` inte anges. Stöd för PolyBase hoppa över rubrikraden, vilket kan konfigureras som `firstRowAsHeader` i ADF.
-   5. `compression` kan vara **ingen komprimering**, **GZip**, eller **Deflate**.
+   1. `nullValue` anges antingen till **tom sträng** (””) eller till vänster som standard och `treatEmptyAsNull` inte är inställt på FALSKT.
+   1. `encodingName` anges till **utf-8**, vilket är standardvärdet.
+   1. `escapeChar`, `quoteChar` och `skipLineCount` inte anges. Stöd för PolyBase hoppa över rubrikraden, vilket kan konfigureras som `firstRowAsHeader` i ADF.
+   1. `compression` kan vara **ingen komprimering**, **GZip**, eller **Deflate**.
 
     ```json
     "typeProperties": {
@@ -549,7 +549,7 @@ När du kopierar data från eller till Azure SQL Data Warehouse, används följa
 | Azure SQL Data Warehouse-datatyp | Data Factory tillfälliga datatyp |
 |:--- |:--- |
 | bigint | Int64 |
-| binär | byte] |
+| binär | Byte] |
 | bitars | Boolesk |
 | Char | Sträng, Char] |
 | datum | DateTime |
@@ -557,9 +557,9 @@ När du kopierar data från eller till Azure SQL Data Warehouse, används följa
 | datetime2 | DateTime |
 | DateTimeOffset | DateTimeOffset |
 | decimaltal | decimaltal |
-| FILESTREAM-attributet (varbinary(max)) | byte] |
-| Flyttal | Double-värde |
-| image | byte] |
+| FILESTREAM-attributet (varbinary(max)) | Byte] |
+| flyttal | Double-värde |
+| image | Byte] |
 | int | Int32 |
 | pengar | decimaltal |
 | nchar | Sträng, Char] |
@@ -567,17 +567,17 @@ När du kopierar data från eller till Azure SQL Data Warehouse, används följa
 | numeriskt | decimaltal |
 | nvarchar | Sträng, Char] |
 | verkliga | Enkel |
-| ROWVERSION | byte] |
+| ROWVERSION | Byte] |
 | smalldatetime | DateTime |
 | smallint | Int16 |
 | smallmoney | decimaltal |
 | sql_variant | Objektet * |
 | text | Sträng, Char] |
 | time | Tidsintervall |
-| tidsstämpel | byte] |
-| tinyint | Byte |
+| tidsstämpel | Byte] |
+| tinyint | Mottagna byte |
 | uniqueidentifier | GUID |
-| varbinary | byte] |
+| varbinary | Byte] |
 | varchar | Sträng, Char] |
 | xml | Xml |
 

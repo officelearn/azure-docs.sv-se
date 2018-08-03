@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: 7833147e455d5f43f05d87261287061db4291e45
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: c76941d366ecd7aa44c8fa64dbe2245103db715b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036854"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425834"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Använda Resource Manager-autentisering-API för att få åtkomst till prenumerationer
 ## <a name="introduction"></a>Introduktion
@@ -106,7 +106,7 @@ Begäran misslyckas eftersom användaren inte har loggat in ännu, men du kan h�
 ## <a name="get-user--app-access-token"></a>Hämta användare + app åtkomst-token
 Programmet omdirigeras användaren till Azure AD med en OAuth 2.0 godkänna begäran – autentisera användarens autentiseringsuppgifter och få tillbaka en auktoriseringskod. Programmet använder Auktoriseringskoden för att hämta en åtkomsttoken för Resource Manager. Den [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) metoden skapar begäran om godkännande.
 
-Den här artikeln visar REST API-begäranden för att autentisera användaren. Du kan också använda helper-bibliotek för att utföra autentisering i din kod. Läs mer om dessa bibliotek [Azure Active Directory Authentication Libraries](../active-directory/active-directory-authentication-libraries.md). Anvisningar för att integrera Identitetshantering i ett program finns i [Utvecklarhandbok för Azure Active Directory](../active-directory/active-directory-developers-guide.md).
+Den här artikeln visar REST API-begäranden för att autentisera användaren. Du kan också använda helper-bibliotek för att utföra autentisering i din kod. Läs mer om dessa bibliotek [Azure Active Directory Authentication Libraries](../active-directory/active-directory-authentication-libraries.md). Anvisningar för att integrera Identitetshantering i ett program finns i [Utvecklarhandbok för Azure Active Directory](../active-directory/develop/azure-ad-developers-guide.md).
 
 ### <a name="auth-request-oauth-20"></a>Auth-begäranden (OAuth 2.0)
 Göra en öppna ID Connect/OAuth2.0 auktorisera begäran till slutpunkten för auktorisering av Azure AD:

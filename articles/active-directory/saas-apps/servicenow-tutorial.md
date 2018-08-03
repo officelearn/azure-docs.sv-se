@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 1963c2f45bc37741a6d00c8dae985bfa5237ce7f
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 5d5c4d5e26fa21488dd637805a4c22bd3ed18a7f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259236"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421091"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Självstudier: Azure Active Directory-integration med ServiceNow
 
@@ -56,7 +56,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till ServiceNow från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-servicenow-from-the-gallery"></a>Att lägga till ServiceNow från galleriet
 För att konfigurera integrering av ServiceNow i Azure AD, som du behöver lägga till ServiceNow från galleriet i din lista över hanterade SaaS-appar.
@@ -67,15 +67,15 @@ För att konfigurera integrering av ServiceNow i Azure AD, som du behöver lägg
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **ServiceNow**väljer **ServiceNow** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **ServiceNow**väljer **ServiceNow** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![ServiceNow i resultatlistan](./media/servicenow-tutorial/tutorial_servicenow_addfromgallery.png)
 
@@ -90,11 +90,11 @@ I ServiceNow, tilldela värdet för den **användarnamn** i Azure AD som värde 
 Om du vill konfigurera och testa Azure AD enkel inloggning med ServiceNow, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning för ServiceNow](#configure-azure-ad-single-sign-on-for-servicenow)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Azure AD enkel inloggning för ServiceNow Express](#configure-azure-ad-single-sign-on-for-servicenow-express)**  – om du vill ge användarna använda den här funktionen.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Skapa en testanvändare för ServiceNow](#create-a-servicenow-test-user)**  – du har en motsvarighet för Britta Simon i ServiceNow som är länkad till en Azure AD-representation av användaren.
-5. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning för ServiceNow Express](#configure-azure-ad-single-sign-on-for-servicenow-express)**  – om du vill ge användarna använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare för ServiceNow](#create-a-servicenow-test-user)**  – du har en motsvarighet för Britta Simon i ServiceNow som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on-for-servicenow"></a>Konfigurera Azure AD enkel inloggning för ServiceNow
 
@@ -106,11 +106,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/servicenow-tutorial/tutorial_servicenow_samlbase.png)
 
-3. På den **ServiceNow domän och URL: er** avsnittet, utför följande steg:
+1. På den **ServiceNow domän och URL: er** avsnittet, utför följande steg:
 
     ![ServiceNow-domän och URL: er med enkel inloggning för information](./media/servicenow-tutorial/tutorial_servicenow_url.png)
 
@@ -121,7 +121,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Dessa värden är inte verkliga. Du måste uppdatera dessa värden från faktiska inloggnings-URL och identifierare som beskrivs senare i självstudien.
 
-4. På den **SAML-signeringscertifikat** avsnittet, utför följande steg: 
+1. På den **SAML-signeringscertifikat** avsnittet, utför följande steg: 
 
     ![Länk för hämtning av certifikat](./media/servicenow-tutorial/tutorial_servicenow_certificate.png)
 
@@ -129,13 +129,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. Klicka på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/servicenow-tutorial/tutorial_general_400.png)
 
-6. Logga in på ditt ServiceNow-program som administratör.
+1. Logga in på ditt ServiceNow-program som administratör.
 
-7. Aktivera den **Integration - flera enkel inloggning för installationsprogrammet för providern** plugin-programmet genom att följa nästa steg:
+1. Aktivera den **Integration - flera enkel inloggning för installationsprogrammet för providern** plugin-programmet genom att följa nästa steg:
 
     a. Sök i navigeringsfönstret till vänster **System Definition** avsnittet från sökfältet och klicka sedan på **plugin-program**.
 
@@ -149,9 +149,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     d. Klicka på den **aktivera** knappen.
 
-8. Det finns två sätt som **ServiceNow** kan vara konfigurerade automatiskt och manuellt.
+1. Det finns två sätt som **ServiceNow** kan vara konfigurerade automatiskt och manuellt.
 
-9. För att konfigurera **ServiceNow** automatiskt i stegen nedan
+1. För att konfigurera **ServiceNow** automatiskt i stegen nedan
 
     a. Gå tillbaka till den **ServiceNow** enkel inloggning i Azure-portalen.
 
@@ -187,15 +187,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     * Klicka på **aktivera** i det övre högra hörnet på sidan.
 
-10. För att konfigurera **ServiceNow** manuellt följer du de stegen nedan
+1. För att konfigurera **ServiceNow** manuellt följer du de stegen nedan
 
-11. Logga in på ditt ServiceNow-program som administratör.
+1. Logga in på ditt ServiceNow-program som administratör.
 
-12. Sök i navigeringsfönstret till vänster **Multi-provider SSO** avsnittet från sökfältet och klicka sedan på **egenskaper**.
+1. Sök i navigeringsfönstret till vänster **Multi-provider SSO** avsnittet från sökfältet och klicka sedan på **egenskaper**.
 
     ![Konfigurera app-URL](./media/servicenow-tutorial/tutorial_servicenow_06.png "konfigurera app-URL")
 
-13. På den **flera egenskaper för enkel inloggning** dialogrutan utför följande steg:
+1. På den **flera egenskaper för enkel inloggning** dialogrutan utför följande steg:
 
     ![Konfigurera app-URL](./media/servicenow-tutorial/ic7694981.png "konfigurera app-URL")
 
@@ -209,15 +209,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     e. Klicka på **Spara**.
 
-14. Sök i navigeringsfönstret till vänster **Multi-provider SSO** avsnittet från sökfältet och klicka sedan på **x509 certifikat**.
+1. Sök i navigeringsfönstret till vänster **Multi-provider SSO** avsnittet från sökfältet och klicka sedan på **x509 certifikat**.
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/tutorial_servicenow_05.png "Konfigurera enkel inloggning")
 
-15. På den **X.509-certifikat** dialogrutan klickar du på **New**.
+1. På den **X.509-certifikat** dialogrutan klickar du på **New**.
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/ic7694974.png "Konfigurera enkel inloggning")
 
-16. På den **X.509-certifikat** dialogrutan utför följande steg:
+1. På den **X.509-certifikat** dialogrutan utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/ic7694975.png "Konfigurera enkel inloggning")
 
@@ -233,19 +233,19 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
      f. Klicka på **skicka**.
 
-17. I navigeringsfönstret till vänster klickar du på **Identitetsprovidrar**.
+1. I navigeringsfönstret till vänster klickar du på **Identitetsprovidrar**.
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/tutorial_servicenow_07.png "Konfigurera enkel inloggning")
 
-18. På den **Identitetsprovidrar** dialogrutan klickar du på **New**.
+1. På den **Identitetsprovidrar** dialogrutan klickar du på **New**.
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/ic7694977.png "Konfigurera enkel inloggning")
 
-19. På den **Identitetsprovidrar** dialogrutan klickar du på **SAML2 Update1?**.
+1. På den **Identitetsprovidrar** dialogrutan klickar du på **SAML2 Update1?**.
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/ic7694978.png "Konfigurera enkel inloggning")
 
-20. I dialogrutan Egenskaper för SAML2 Update1 utför du följande steg:
+1. I dialogrutan Egenskaper för SAML2 Update1 utför du följande steg:
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/idp.png "Konfigurera enkel inloggning")
 
@@ -255,7 +255,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     c. Klicka på **Importera**.
 
-21. Den läser metadata-URL för IDP: N och fylls informationen för fält.
+1. Den läser metadata-URL för IDP: N och fylls informationen för fält.
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/ic7694982.png "Konfigurera enkel inloggning")
 
@@ -278,19 +278,19 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE]
     > ServiceNow tillåter inte aktivering av IDP: N utan att klicka på knappen Testa anslutning, om du vill åsidosätta samma följer du de stegen nedan.
 
-22. Klicka på ikonen menyn från din nya identitetsprovider som du har skapat som en del av konfigurationen och väljer du den **kopiera sys_id**
+1. Klicka på ikonen menyn från din nya identitetsprovider som du har skapat som en del av konfigurationen och väljer du den **kopiera sys_id**
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/ic7694992.png "Konfigurera enkel inloggning")
 
-23. I det övre vänstra sökrutan söker du efter **sys_properties.list** och tryck på RETUR.
+1. I det övre vänstra sökrutan söker du efter **sys_properties.list** och tryck på RETUR.
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/ic7694993.png "Konfigurera enkel inloggning")
 
-24. Klicka på **Ny**.
+1. Klicka på **Ny**.
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/ic7694994.png "Konfigurera enkel inloggning")
 
-25. I den **Systemegenskapen** avsnittet, utför följande steg:
+1. I den **Systemegenskapen** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/ic7694995.png "Konfigurera enkel inloggning")
 
@@ -302,11 +302,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     d. Klicka på **skicka**.
 
-26. Klicka på **Ny**.
+1. Klicka på **Ny**.
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/ic7694994.png "Konfigurera enkel inloggning")
 
-27. I den **Systemegenskapen** avsnittet, utför följande steg:
+1. I den **Systemegenskapen** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/ic7694996.png "Konfigurera enkel inloggning")
 
@@ -316,7 +316,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     c. Klicka på **skicka**.
 
-28. Efter detta steget ovan nu kommer du att kunna aktivera din nya identitetsprovider och din SSO ska fungera
+1. Efter detta steget ovan nu kommer du att kunna aktivera din nya identitetsprovider och din SSO ska fungera
 
 > [!NOTE]
 > . Observera att du behöver testa den nya Idp-konfigurationen i ett nytt incognito-fönster
@@ -327,11 +327,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/tutorial_servicenow_samlbase.png)
 
-3. På den **ServiceNow domän och URL: er** avsnittet, utför följande steg:
+1. På den **ServiceNow domän och URL: er** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/tutorial_servicenow_url.png)
 
@@ -342,29 +342,29 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL och identifierare. Kontakta [ServiceNow klienten supportteamet](https://www.servicenow.com/support/contact-support.html) att hämta dessa värden.
 
-4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/tutorial_servicenow_certificates.png)
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/tutorial_general_400.png)
 
-6. Ett enda klick konfigurera tjänsten har angetts för ServiceNow det vill säga att Azure AD automatiskt konfigurera ServiceNow för SAML-baserad autentisering. Aktivera den här tjänsten genom att gå till **ServiceNow Configuration** klickar du på **konfigurera ServiceNow** öppna Konfigurera inloggnings-fönstret.
+1. Ett enda klick konfigurera tjänsten har angetts för ServiceNow det vill säga att Azure AD automatiskt konfigurera ServiceNow för SAML-baserad autentisering. Aktivera den här tjänsten genom att gå till **ServiceNow Configuration** klickar du på **konfigurera ServiceNow** öppna Konfigurera inloggnings-fönstret.
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/tutorial_servicenow_configure.png)
 
-7. Anger namn på ServiceNow-instans, administratörsanvändarnamn och administratörslösenord i den **konfigurera inloggning** formuläret och klicka på **konfigurera nu**. Observera att administratörsanvändarnamnet som angetts måste ha den **security_admin** roll som tilldelats i ServiceNow för detta ska fungera. Annars för att manuellt konfigurera ServiceNow för att använda Azure AD som en SAML-identitetsprovider, klickar du på **manuellt konfigurera enkel inloggning** och kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från avsnittet Snabbreferens.
+1. Anger namn på ServiceNow-instans, administratörsanvändarnamn och administratörslösenord i den **konfigurera inloggning** formuläret och klicka på **konfigurera nu**. Observera att administratörsanvändarnamnet som angetts måste ha den **security_admin** roll som tilldelats i ServiceNow för detta ska fungera. Annars för att manuellt konfigurera ServiceNow för att använda Azure AD som en SAML-identitetsprovider, klickar du på **manuellt konfigurera enkel inloggning** och kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från avsnittet Snabbreferens.
 
     ![Konfigurera app-URL](./media/servicenow-tutorial/configure.png "konfigurera app-URL")
 
-8. Logga in på ditt ServiceNow Express-program som administratör.
+1. Logga in på ditt ServiceNow Express-program som administratör.
 
-9. I navigeringsfönstret till vänster klickar du på **enkel inloggning**.
+1. I navigeringsfönstret till vänster klickar du på **enkel inloggning**.
 
     ![Konfigurera app-URL](./media/servicenow-tutorial/ic7694980ex.png "konfigurera app-URL")
 
-10. På den **enkel inloggning** dialogrutan, klicka på konfigurationsikonen i det övre högra hörnet och ange följande egenskaper:
+1. På den **enkel inloggning** dialogrutan, klicka på konfigurationsikonen i det övre högra hörnet och ange följande egenskaper:
 
     ![Konfigurera app-URL](./media/servicenow-tutorial/ic7694981ex.png "konfigurera app-URL")
 
@@ -374,11 +374,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     c. I **fältet på användaren tabell som...**  textrutan typ **user_name**.
 
-11. På den **enkel inloggning** dialogrutan klickar du på **Lägg till nytt certifikat**.
+1. På den **enkel inloggning** dialogrutan klickar du på **Lägg till nytt certifikat**.
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/ic7694973ex.png "Konfigurera enkel inloggning")
 
-12. På den **X.509-certifikat** dialogrutan utför följande steg:
+1. På den **X.509-certifikat** dialogrutan utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/ic7694975.png "Konfigurera enkel inloggning")
 
@@ -394,11 +394,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     f. Klicka på **Update**
 
-13. På den **enkel inloggning** dialogrutan klickar du på **lägga till nya IDP: N**.
+1. På den **enkel inloggning** dialogrutan klickar du på **lägga till nya IDP: N**.
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/ic7694976ex.png "Konfigurera enkel inloggning")
 
-14. På den **lägga till nya identitetsprovider** dialogrutan under **konfigurera identitetsprovider**, utför följande steg:
+1. På den **lägga till nya identitetsprovider** dialogrutan under **konfigurera identitetsprovider**, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/ic7694982ex.png "Konfigurera enkel inloggning")
 
@@ -412,7 +412,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     e. Som **providern identitetscertifikat**, väljer du det certifikat som du har skapat i föregående steg.
 
-15. Klicka på **avancerade inställningar**, och under **ytterligare identitetsegenskaper providern**, utför följande steg:
+1. Klicka på **avancerade inställningar**, och under **ytterligare identitetsegenskaper providern**, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/ic7694983ex.png "Konfigurera enkel inloggning")
 
@@ -424,7 +424,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     d. Avmarkera **skapa en AuthnContextClass**.
 
-16. Under **ytterligare egenskaper för providern**, utför följande steg:
+1. Under **ytterligare egenskaper för providern**, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/servicenow-tutorial/ic7694984ex.png "Konfigurera enkel inloggning")
 
@@ -458,15 +458,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/servicenow-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/servicenow-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/servicenow-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/servicenow-tutorial/create_aaduser_04.png)
 
@@ -497,23 +497,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **ServiceNow**.
+1. I listan med program väljer **ServiceNow**.
 
     ![ServiceNow-länk i listan med program](./media/servicenow-tutorial/tutorial_servicenow_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

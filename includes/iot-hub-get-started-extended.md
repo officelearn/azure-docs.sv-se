@@ -7,6 +7,7 @@ Använd andra Azure-tjänster och -verktyg. När du har anslutit din enhet till 
 | [Hantera IoT Hub-meddelanden][Mg_IoT_Hub_Msg]                  | Verktyget iothub-explorer               |
 | [Hantera IoT Hub-meddelanden][Mg_IoT_Toolkit]                  | VS Code Azure IoT Toolkit-tillägget|
 | [Hantera din IoT-enhet][Mg_IoT_Dv]                        | Azure CLI 2.0 och IoT-tillägget|
+| [Hantera din IoT-enhet][Mg_IoT_Dv_Toolkit]                | VS Code Azure IoT Toolkit-tillägget|
 | [Spara IoT Hub-meddelanden till Azure-lagring][Sv_IoT_Msg_Stor]  | Azure Table Storage                |
 | [Visualisera sensordata][Vis_Data_PBI]                      | Microsoft Power BI                 |
 | [Visualisera sensordata][Vis_Data_Web]                      | Azure Web Apps                     |
@@ -21,6 +22,7 @@ När du har slutfört dessa självstudiekurser kan du fortsätta att utforska fu
 [Mg_IoT_Hub_Msg]: ../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md
 [Mg_IoT_Toolkit]: ../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
 [Mg_IoT_Dv]: ../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md
+[Mg_IoT_Dv_Toolkit]: ../articles/iot-hub/iot-hub-device-management-iot-toolkit.md
 [Sv_IoT_Msg_Stor]: ../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md
 [Vis_Data_Web]: ../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md
 [Vis_Data_PBI]: ../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md

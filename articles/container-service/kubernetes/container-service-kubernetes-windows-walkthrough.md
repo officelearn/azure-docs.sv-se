@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 74ce913548fbcefdc441d0d2b772c864dacd4482
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b20f19c504a7967d01d51d976315fa49c2317885
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38485452"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424810"
 ---
-# <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Distribuera Kubernets-kluster för Windows-behållare
+# <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Distribuera Kubernets-kluster för Windows-containrar
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här guiden beskriver hur Azure CLI används för att distribuera ett [Kubernetes](https://kubernetes.io/docs/home/)-kluster i [Azure Container Service](../container-service-intro.md). När klustret distribueras kan du ansluta till det med kommandoradsverktyget för Kubernetes `kubectl` och distribuera din första Windows-behållare.
+Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här guiden beskriver hur Azure CLI används för att distribuera ett [Kubernetes](https://kubernetes.io/docs/home/)-kluster i [Azure Container Service](../container-service-intro.md). När klustret distribueras kan du ansluta till det med kommandoradsverktyget för Kubernetes `kubectl` och distribuera din första Windows-container.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -34,7 +34,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. 
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. 
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-kubernetes-cluster"></a>Skapa Kubernetes-kluster
-Skapa ett Kubernetes-kluster i Azure Container Service med kommandot [az acs create](/cli/azure/acs#az_acs_create). 
+Skapa ett Kubernetes-kluster i Azure Container Service med kommandot [az acs create](/cli/azure/acs#az-acs-create). 
 
 I följande exempel skapas ett kluster med namnet *myK8sCluster* med en Linux master-nod och två noder för Windows-agenten. Det här exemplet skapar SSH-nycklar som krävs för att ansluta till Linux-mastern. Det här exemplet använder *azureuser* som administrativt användarnamn och *myPassword12* som lösenord. Uppdatera dessa värden till något som är lämpligt för din miljö. 
 
@@ -98,13 +98,13 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
 ```
 
-## <a name="deploy-a-windows-iis-container"></a>Distribuera en Windows-IIS-behållare
+## <a name="deploy-a-windows-iis-container"></a>Distribuera en Windows-IIS-container
 
-Du kan köra en dockerbehållare i en Kubernetes-*pod*, som innehåller en eller flera behållare. 
+Du kan köra en Docker-container i en Kubernetes-*pod*, som innehåller en eller flera containrar. 
 
-Det här grundläggande exemplet använder en JSON-fil för att ange en behållare för Microsoft Internet Information Server (IIS) och skapar sedan poden med hjälp av `kubctl apply`. 
+Det här grundläggande exemplet använder en JSON-fil för att ange en container för Microsoft Internet Information Server (IIS) och skapar sedan poden med hjälp av `kubctl apply`. 
 
-Skapa en lokal fil med namnet `iis.json` och kopiera följande text. Filen uppmanar Kubernetes att köra IIS på Windows Server 2016 Nano Server med en offentlig avbildning från [Docker Hub](https://hub.docker.com/r/microsoft/iis/). Behållaren använder port 80, men är ursprungligen endast tillgänglig i nätverket för klustret.
+Skapa en lokal fil med namnet `iis.json` och kopiera följande text. Filen uppmanar Kubernetes att köra IIS på Windows Server 2016 Nano Server med en offentlig containeravbildning från [Docker Hub](https://hub.docker.com/r/microsoft/iis/). Containern använder port 80, men är ursprungligen endast tillgänglig i nätverket för klustret.
 
  ```JSON
  {
@@ -147,7 +147,7 @@ För att spåra distributionen, skriver du:
 kubectl get pods
 ```
 
-Medan poden distribueras är statusen `ContainerCreating`. Det kan ta några minuter för poden att ange tillståndet `Running`.
+Medan poden distribueras är statusen `ContainerCreating`. Det kan ta några minuter för containern att ange tillståndet `Running`.
 
 ```azurecli-interactive
 NAME     READY        STATUS        RESTARTS    AGE
@@ -184,7 +184,7 @@ Du kan använda en webbläsare som du väljer för att se IIS-välkomstsidan på
 
 
 ## <a name="delete-cluster"></a>Ta bort klustret
-När klustret inte längre behövs du använda kommandot [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
+När klustret inte längre behövs du använda kommandot [az group delete](/cli/azure/group#az-group-delete) för att ta bort resursgruppen, containertjänsten och alla relaterade resurser.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
@@ -193,7 +193,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstartsguide du har distribuerat ett Kubernetes-kluster med `kubectl` och distribuerat en pod med en IIS-behållare. Om du vill veta mer om Azure Container Service kan fortsätta till självstudiekursen om Kubernetes.
+I den här snabbstartsguiden du har distribuerat ett Kubernetes-kluster med `kubectl` och distribuerat en pod med en IIS-container. Om du vill veta mer om Azure Container Service kan fortsätta till självstudiekursen om Kubernetes.
 
 > [!div class="nextstepaction"]
 > [Hantera ett ACS Kubernets-kluster](container-service-tutorial-kubernetes-prepare-app.md)

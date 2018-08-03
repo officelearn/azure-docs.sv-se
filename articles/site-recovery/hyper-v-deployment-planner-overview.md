@@ -9,12 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 120c78d9adb83ca58ae61700ae70d07ead42ebd0
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 9981db7e2994b9a4f20f99f4997a89b0368d343c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226568"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423682"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Distributionshanteraren för site Recovery för Hyper-V till Azure
 
@@ -96,7 +96,7 @@ Verktyget har tre huvudfaser för Hyper-V: hämta listan med virtuella datorer, 
 
             set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
-2.  Varje Hyper-V-värd som ska profileras ska ha:
+1.  Varje Hyper-V-värd som ska profileras ska ha:
 
     a. Den virtuella dator som verktyget ska köras från i listan TrustedHosts. Kör följande kommando från en utökad PowerShell-session på Hyper-V-värden:
 
@@ -111,10 +111,10 @@ Verktyget har tre huvudfaser för Hyper-V: hämta listan med virtuella datorer, 
 1.  Ladda ned den senaste versionen av [Azure Site Recovery-kapacitetsplaneraren](https://aka.ms/asr-deployment-planner).
 Verktyget är paketerat i en komprimerad mapp. Samma verktyg har stöd för båda haveriberedskapsscenarierna VMware till Azure och Hyper-V till Azure. Du kan använda det här verktyget för scenariot Hyper-V-till sekundär plats också, men då måste du ignorera rekommendationen om Azure-infrastruktur i rapporten.
 
-2.  Kopiera den komprimerade mappen till den Windows Server du vill köra verktyget från. Du kan köra verktyget på en Windows Server 2012 R2 eller Windows Server 2016. Servern måste ha nätverksåtkomst för anslutning till Hyper-V-klustret eller Hyper-V-värden som innehåller de virtuella datorer som ska profileras. Vi rekommenderar att du använder samma maskinvarukonfiguration för den virtuella dator där verktyget ska köras som den Hyper-V-server du vill skydda. En sådan konfiguration garanterar att det uppnådda dataflödet som verktyget rapporterar matchar det faktiska dataflöde som Azure Site Recovery kan uppnå under replikeringen. Dataflödesberäkningen är beroende av den tillgängliga nätverksbandbredden och maskinvarukonfigurationen (processor, lagringsutrymme och så vidare) på servern. Dataflödet beräknas från servern där verktyget körs till Azure. Om servern har en annan maskinvarukonfiguration än Hyper-V-servern kommer verktyget att rapportera ett felaktigt dataflöde.
+1.  Kopiera den komprimerade mappen till den Windows Server du vill köra verktyget från. Du kan köra verktyget på en Windows Server 2012 R2 eller Windows Server 2016. Servern måste ha nätverksåtkomst för anslutning till Hyper-V-klustret eller Hyper-V-värden som innehåller de virtuella datorer som ska profileras. Vi rekommenderar att du använder samma maskinvarukonfiguration för den virtuella dator där verktyget ska köras som den Hyper-V-server du vill skydda. En sådan konfiguration garanterar att det uppnådda dataflödet som verktyget rapporterar matchar det faktiska dataflöde som Azure Site Recovery kan uppnå under replikeringen. Dataflödesberäkningen är beroende av den tillgängliga nätverksbandbredden och maskinvarukonfigurationen (processor, lagringsutrymme och så vidare) på servern. Dataflödet beräknas från servern där verktyget körs till Azure. Om servern har en annan maskinvarukonfiguration än Hyper-V-servern kommer verktyget att rapportera ett felaktigt dataflöde.
 Den rekommenderade konfigurationen för de virtuella datorerna: 8 virtuella processorer, 16 GB RAM, 300 GB hårddisk.
 
-3.  Extrahera .zip-filen.
+1.  Extrahera .zip-filen.
 Mappen innehåller flera filer och undermappar. Den körbara filen är ASRDeploymentPlanner.exe i den överordnade mappen.
 
 Exempel: Kopiera .zip-filen till enheten E:\ och packa upp den. E:\ASR Deployment Planner_v2.2.zip

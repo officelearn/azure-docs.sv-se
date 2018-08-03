@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 330dbf31a1c1af6146ae1272a42ecc3621271bb1
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a93acc79fc447018b5cf63b2e2456bc394c1f78e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046577"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>Självstudier: Azure Active Directory-integration med Onit
 
@@ -54,7 +54,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Onit från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-onit-from-the-gallery"></a>Att lägga till Onit från galleriet
 För att konfigurera integrering av Onit i Azure AD, som du behöver lägga till Onit från galleriet i din lista över hanterade SaaS-appar.
@@ -65,15 +65,15 @@ För att konfigurera integrering av Onit i Azure AD, som du behöver lägga till
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Onit**väljer **Onit** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Onit**väljer **Onit** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Onit i resultatlistan](./media/onit-tutorial/tutorial_onit_addfromgallery.png)
 
@@ -88,10 +88,10 @@ I Onit, tilldela värdet för den **användarnamn** i Azure AD som värde för d
 Om du vill konfigurera och testa Azure AD enkel inloggning med Onit, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Onit](#create-an-onit-test-user)**  – du har en motsvarighet för Britta Simon i Onit som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  att kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Onit](#create-an-onit-test-user)**  – du har en motsvarighet för Britta Simon i Onit som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  att kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -103,11 +103,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/onit-tutorial/tutorial_onit_samlbase.png)
 
-3. På den **Onit domän och URL: er** avsnittet, utför följande steg:
+1. På den **Onit domän och URL: er** avsnittet, utför följande steg:
 
     ![Onit domän och URL: er med enkel inloggning för information](./media/onit-tutorial/tutorial_onit_url.png)
 
@@ -118,15 +118,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Onit klienten supportteamet](https://www.onit.com/support) att hämta dessa värden. 
  
-4. På den **SAML-signeringscertifikat** avsnittet, kopiera den **TUMAVTRYCK** värdet för certifikatet.
+1. På den **SAML-signeringscertifikat** avsnittet, kopiera den **TUMAVTRYCK** värdet för certifikatet.
 
     ![Länk för hämtning av certifikat](./media/onit-tutorial/tutorial_onit_certificate.png) 
 
-5. Onit program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **”Atrribute”** fliken av programmet. Följande skärmbild visar ett exempel för detta. 
+1. Onit program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **”Atrribute”** fliken av programmet. Följande skärmbild visar ett exempel för detta. 
 
     ![Konfigurera enkel inloggning](./media/onit-tutorial/tutorial_onit_attribute.png) 
 
-6. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden och utför följande steg:
+1. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden och utför följande steg:
     
     | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |
@@ -146,28 +146,28 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     e. Klicka på **OK**.
 
-7. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/onit-tutorial/tutorial_general_400.png)
 
-8. På den **Onit Configuration** klickar du på **konfigurera Onit** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning, enkel inloggning för tjänsten URL för SAML** från den **Snabbreferens avsnittet.**
+1. På den **Onit Configuration** klickar du på **konfigurera Onit** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning, enkel inloggning för tjänsten URL för SAML** från den **Snabbreferens avsnittet.**
 
     ![Onit konfiguration](./media/onit-tutorial/tutorial_onit_configure.png)
 
-9. Logga in på webbplatsen Onit företag som en administratör i ett annat webbläsarfönster.
+1. Logga in på webbplatsen Onit företag som en administratör i ett annat webbläsarfönster.
 
-10. Klicka på menyn längst upp **Administration**.
+1. Klicka på menyn längst upp **Administration**.
    
    ![Administration](./media/onit-tutorial/IC791174.png "Administration")
-11. Klicka på **redigera Corporation**.
+1. Klicka på **redigera Corporation**.
    
    ![Redigera Corporation](./media/onit-tutorial/IC791175.png "redigera Corporation")
    
-12. Klicka på den **Security** fliken.
+1. Klicka på den **Security** fliken.
     
     ![Redigera företagsinformation](./media/onit-tutorial/IC791176.png "Redigera företagsinformation")
 
-13. På den **Security** fliken, utför följande steg:
+1. På den **Security** fliken, utför följande steg:
 
     ![Enkel inloggning](./media/onit-tutorial/IC791177.png "enkel inloggning")
 
@@ -195,15 +195,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/onit-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/onit-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/onit-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/onit-tutorial/create_aaduser_04.png)
 
@@ -224,15 +224,15 @@ När det gäller Onit är etablering en manuell aktivitet.
 **Utför följande steg för att konfigurera användaretablering:**
 
 1. Logga in på din **Onit** företagets plats som administratör.
-2. Klicka på **lägga till användare**.
+1. Klicka på **lägga till användare**.
    
    ![Administration](./media/onit-tutorial/IC791180.png "Administration")
-3. På den **Lägg till användare** dialogrutan utför följande steg:
+1. På den **Lägg till användare** dialogrutan utför följande steg:
    
    ![Lägg till användare](./media/onit-tutorial/IC791181.png "lägga till användare")
    
   1. Typen i **namn** och **e-postadress** av en giltig Azure AD-konto som du vill etablera till relaterade textrutor.
-  2. Klicka på **Skapa**.    
+  1. Klicka på **Skapa**.    
    
  > [!NOTE]
  > Azure Active Directory-kontoinnehavare tar emot ett e-postmeddelande och följer en länk för att bekräfta sina konton innan den blir aktiv.
@@ -249,23 +249,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Onit**.
+1. I listan med program väljer **Onit**.
 
     ![Länken Onit i listan med program](./media/onit-tutorial/tutorial_onit_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

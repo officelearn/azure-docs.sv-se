@@ -1,10 +1,12 @@
 - VNet:et måste vara i samma Azure-**region** och -**prenumeration** som Batch-kontot.
 
-- För pooler som skapats med en virtuell datorkonfiguration, stöds enbart Azure Resource Manager-baserade VNet. För pooler som skapats med en moljntjänstkonfiguration, stöds bara klassiska VNet. 
+- För pooler som skapats med en virtuell datorkonfiguration, stöds enbart Azure Resource Manager-baserade VNet. För pooler som skapats med en moljntjänstkonfiguration, stöds bara klassiska VNet.
   
 - Om du vill använda en klassisk VNet, `MicrosoftAzureBatch` måste tjänstens huvudnamn ha `Classic Virtual Machine Contributor` rollen rollbaserad åtkomstkontroll (RBAC) för den angivna VNet. För att använda en Azure Resource Manager-baserad VNet måste du ha behörigheter att komma åt VNet och distribuera virtuella datorer i undernätet.
 
 - Det undernät som anges för poolen måste ha tillräckliga otilldelade IP-adresser för det antal virtuella datorer som är mål för poolen. Summan av egenskaperna `targetDedicatedNodes` och `targetLowPriorityNodes` för poolen. Om undernätet inte har tillräckligt med lediga IP-adresser, allokerar poolen datornoderna partiellt och ett storleksändringsfel inträffar. 
+
+- Pooler i konfigurationen av virtuell dator som distribuerats i ett virtuellt Azure-nätverk tilldelar automatiskt ytterligare Azure-nätverksresurser. Följande resurser krävs för 50 poolnoder i ett virtuellt nätverk: 1 nätverkssäkerhetsgrupp, 1 offentlig IP-adress och 1 lastbalanserare. Dessa resurser begränsas av [kvoter](../articles/batch/batch-quota-limit.md) i prenumerationen som innehåller det angivna virtuella nätverket när Batch-poolen skapas.
 
 - VNet:et måste tillåta kommunikation från Batch-tjänsten för att kunna schemalägga uppgifter på beräkningsnoderna. Detta kan verifieras genom att kontrollera om VNet:et har några associerade nätverkssäkerhetsgrupper (NSG:er). Om kommunikation till beräkningsnoderna i det angivna undernätet nekas av en NSG, ställer Batch-tjänsten in status för beräkningsnoderna till **oanvändbara**. 
 

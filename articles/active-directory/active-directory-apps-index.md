@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 5c6a4ac68694c74f9a7ed99a2d7b4939b84dc33f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 38e5e37111c6996fcf1342b123b5fc034b58fc0b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054887"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431002"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Artikelindex för programhantering i Azure Active Directory
 Den här sidan innehåller en fullständig lista över alla dokument som skrivits om de olika programrelaterade funktionerna i Azure Active Directory (AD Azure).
@@ -143,7 +143,7 @@ Om din organisation utvecklar eller underhållet av line-of-business (LoB) appar
 
 | Artikeln Guide |  |
 |:---:| --- |
-| Vägledning för både IT-proffs och utvecklare av företagsprogram om integrering av appar med Azure AD |[IT Pro's Guide för att utveckla program för Azure AD](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Utvecklarguide för Azure Active Directory](active-directory-developers-guide.md) |
+| Vägledning för både IT-proffs och utvecklare av företagsprogram om integrering av appar med Azure AD |[IT Pro's Guide för att utveckla program för Azure AD](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Utvecklarguide för Azure Active Directory](develop/azure-ad-developers-guide.md) |
 | Hur programmet leverantörer kan lägga till sina appar till Azure AD-Appgalleri |[Lista ditt program i Azure Active Directory-Programgalleriet](active-directory-app-gallery-listing.md) |
 | Hantera åtkomst till utvecklade program med Azure Active Directory |[Så här aktiverar du Användartilldelning för utvecklade program](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Tilldela användare till din App](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[Tilldela gruppen till din App](active-directory-applications-guiding-developers-assigning-groups.md) |
 

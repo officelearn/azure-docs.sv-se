@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 6e3cec5cc537fcb03df856933e0609d2d037455d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c3a91509238534bed37cfd169c66f37732546bfb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042885"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425127"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Självstudier: Azure Active Directory-integration med Envoy
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Envoy från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-envoy-from-the-gallery"></a>Att lägga till Envoy från galleriet
 För att konfigurera integrering av Envoy i Azure AD, som du behöver lägga till Envoy från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av Envoy i Azure AD, som du behöver lägga til
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Envoy**väljer **Envoy** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Envoy**väljer **Envoy** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Envoy i resultatlistan](./media/envoy-tutorial/tutorial_envoy_addfromgallery.png)
 
@@ -87,10 +87,10 @@ I Envoy, tilldela värdet för den **användarnamn** i Azure AD som värde för 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Envoy, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Envoy](#create-an-envoy-test-user)**  – du har en motsvarighet för Britta Simon i Envoy som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Envoy](#create-an-envoy-test-user)**  – du har en motsvarighet för Britta Simon i Envoy som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -102,11 +102,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/envoy-tutorial/tutorial_envoy_samlbase.png)
 
-3. På den **Envoy domän och URL: er** avsnittet, utför följande steg:
+1. På den **Envoy domän och URL: er** avsnittet, utför följande steg:
 
     ![Envoy domän och URL: er med enkel inloggning för information](./media/envoy-tutorial/tutorial_envoy_url.png)
 
@@ -115,33 +115,33 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Envoy klienten supportteamet](https://envoy.com/contact/) att hämta det här värdet.
 
-4. På den **SAML-signeringscertifikat** avsnittet, kopiera den **TUMAVTRYCK** värdet för certifikat...
+1. På den **SAML-signeringscertifikat** avsnittet, kopiera den **TUMAVTRYCK** värdet för certifikat...
 
     ![Länk för hämtning av certifikat](./media/envoy-tutorial/tutorial_envoy_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/envoy-tutorial/tutorial_general_400.png)
 
-6. På den **Envoy Configuration** klickar du på **konfigurera Envoy** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **Envoy Configuration** klickar du på **konfigurera Envoy** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Envoy konfiguration](./media/envoy-tutorial/tutorial_envoy_configure.png)
 
-7. Logga in på webbplatsen Envoy företag som en administratör i ett annat webbläsarfönster.
+1. Logga in på webbplatsen Envoy företag som en administratör i ett annat webbläsarfönster.
 
-8. I verktygsfältet högst upp, klickar du på **inställningar**.
+1. I verktygsfältet högst upp, klickar du på **inställningar**.
 
     ![Envoy](./media/envoy-tutorial/ic776782.png "Envoy")
 
-9. Klicka på **företagets**.
+1. Klicka på **företagets**.
 
     ![Företagets](./media/envoy-tutorial/ic776783.png "företag")
 
-10. Klicka på **SAML**.
+1. Klicka på **SAML**.
 
     ![SAML](./media/envoy-tutorial/ic776784.png "SAML")
 
-11. I den **SAML-autentisering** konfiguration och utför följande steg:
+1. I den **SAML-autentisering** konfiguration och utför följande steg:
 
     ![SAML-autentisering](./media/envoy-tutorial/ic776785.png "SAML-autentisering")
     
@@ -170,15 +170,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/envoy-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/envoy-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/envoy-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/envoy-tutorial/create_aaduser_04.png)
 
@@ -206,23 +206,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Envoy**.
+1. I listan med program väljer **Envoy**.
 
     ![Envoy länken i listan med program](./media/envoy-tutorial/tutorial_envoy_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

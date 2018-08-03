@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 4ae5c9834352bd2413075e87c79e27a9a3c354b9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b0660e14b858cc77026ea008fcf122c79e656c13
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047651"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433222"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Självstudier: Azure Active Directory-integrering med plattare filer
 
@@ -52,7 +52,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Lägga till plattare filer från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-flatter-files-from-the-gallery"></a>Lägga till plattare filer från galleriet
 Om du vill konfigurera integreringen av plattare filer till Azure AD, som du behöver lägga till plattare filer från galleriet i din lista över hanterade SaaS-appar.
@@ -63,19 +63,19 @@ Om du vill konfigurera integreringen av plattare filer till Azure AD, som du beh
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **plattare filer**.
+1. I sökrutan skriver **plattare filer**.
 
     ![Skapa en Azure AD-användare för testning](./media/flatter-files-tutorial/tutorial_flatterfiles_search.png)
 
-5. I resultatpanelen väljer **plattare filer**, och klicka sedan på **Lägg till** för att lägga till programmet.
+1. I resultatpanelen väljer **plattare filer**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
     ![Skapa en Azure AD-användare för testning](./media/flatter-files-tutorial/tutorial_flatterfiles_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Plattare filer, tilldela värdet för den **användarnamn** i Azure AD som värd
 Om du vill konfigurera och testa Azure AD enkel inloggning med plattare filer, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare plattare filer](#creating-a-flatter-files-test-user)**  – du har en motsvarighet för Britta Simon i plattare filer som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare plattare filer](#creating-a-flatter-files-test-user)**  – du har en motsvarighet för Britta Simon i plattare filer som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -104,33 +104,33 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/flatter-files-tutorial/tutorial_flatterfiles_samlbase.png)
 
-3. På den **plattare filer domän och URL: er** avsnittet användaren behöver inte utföra några steg som appen är redan förintegrerade med Azure.
+1. På den **plattare filer domän och URL: er** avsnittet användaren behöver inte utföra några steg som appen är redan förintegrerade med Azure.
 
     ![Konfigurera enkel inloggning](./media/flatter-files-tutorial/tutorial_flatterfiles_url.png)
  
-4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/flatter-files-tutorial/tutorial_flatterfiles_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/flatter-files-tutorial/tutorial_general_400.png)
 
-6. På den **plattare filer Configuration** klickar du på **konfigurera plattare filer** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **plattare filer Configuration** klickar du på **konfigurera plattare filer** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Konfigurera enkel inloggning](./media/flatter-files-tutorial/tutorial_flatterfiles_configure.png) 
 
-7. Inloggning till programmet plattare filer som en administratör.
+1. Inloggning till programmet plattare filer som en administratör.
 
-8. Klicka på **INSTRUMENTPANELEN**. 
+1. Klicka på **INSTRUMENTPANELEN**. 
    
     ![Konfigurera enkel inloggning](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
-9. Klicka på **inställningar**, och utför följande steg på den **företagets** fliken: 
+1. Klicka på **inställningar**, och utför följande steg på den **företagets** fliken: 
    
     ![Konfigurera enkel inloggning](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
@@ -138,7 +138,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     b. Klicka på **konfigurerar du SAML**.
 
-8. På den **SAML-konfiguration** dialogrutan utför följande steg: 
+1. På den **SAML-konfiguration** dialogrutan utför följande steg: 
    
     ![Konfigurera enkel inloggning](./media/flatter-files-tutorial/tutorial_flatter_files_08.png)  
    
@@ -168,15 +168,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](./media/flatter-files-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
     ![Skapa en Azure AD-användare för testning](./media/flatter-files-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
     ![Skapa en Azure AD-användare för testning](./media/flatter-files-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
     ![Skapa en Azure AD-användare för testning](./media/flatter-files-tutorial/create_aaduser_04.png) 
 
@@ -196,13 +196,13 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 1. Logga in på din **plattare filer** företagets plats som administratör.
 
-2. I navigeringsfönstret till vänster klickar du på **inställningar**, och klicka sedan på den **användare** fliken.
+1. I navigeringsfönstret till vänster klickar du på **inställningar**, och klicka sedan på den **användare** fliken.
    
     ![Skapa en plattare filer användare](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 
-3. Klicka på **lägga till användare**. 
+1. Klicka på **lägga till användare**. 
 
-4. På den **Lägg till användare** dialogrutan utför följande steg:
+1. På den **Lägg till användare** dialogrutan utför följande steg:
    
     ![Skapa en plattare filer användare](./media/flatter-files-tutorial/tutorial_flatter_files_10.png)
 
@@ -227,23 +227,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **plattare filer**.
+1. I listan med program väljer **plattare filer**.
 
     ![Konfigurera enkel inloggning](./media/flatter-files-tutorial/tutorial_flatterfiles_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 

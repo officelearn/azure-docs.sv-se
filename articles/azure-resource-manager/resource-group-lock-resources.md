@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1a0f813e1857d2f1c1cc36b34b6339d26fa91c13
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7a630de281932358b0cecf841dc745a4d818aad4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488609"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424178"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Låsresurser för att förhindra oväntade ändringar 
 
@@ -158,7 +158,7 @@ Remove-AzureRmResourceLock -LockId $lockId
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Du Lås distribuerade resurser med Azure CLI med hjälp av den [az lock skapa](/cli/azure/lock#az_lock_create) kommando.
+Du Lås distribuerade resurser med Azure CLI med hjälp av den [az lock skapa](/cli/azure/lock#az-lock-create) kommando.
 
 Ange namnet på resursen och dess resurstyp dess resursgruppens namn om du vill låsa en resurs.
 
@@ -172,7 +172,7 @@ Om du vill låsa en resursgrupp, ange namnet på resursgruppen.
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-Hämta information om ett lås [az lock list](/cli/azure/lock#az_lock_list). Hämta alla Lås i din prenumeration med:
+Hämta information om ett lås [az lock list](/cli/azure/lock#az-lock-list). Hämta alla Lås i din prenumeration med:
 
 ```azurecli
 az lock list

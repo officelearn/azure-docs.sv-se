@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: c4fd48e40eb4f03daf4bcb7e3b7d6794880799cf
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: f2cf26bc9f980729e74c4a4e0b4e3f4b311fd754
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036497"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421142"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Registrera HPC-jobb från lokala datorer till ett HPC Pack-kluster som distribuerats i Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -47,34 +47,34 @@ Detaljerade anvisningar finns [installerar Microsoft HPC Pack Webbkomponenter](h
 **Att installera webbkomponenter**
 
 1. Ansluta till huvudnoden VM med hjälp av autentiseringsuppgifterna för en Klusteradministratör.
-2. Kör HpcWebComponents.msi från installationsmappen för HPC Pack på huvudnoden.
-3. Följ stegen i guiden för att installera webbkomponenter
+1. Kör HpcWebComponents.msi från installationsmappen för HPC Pack på huvudnoden.
+1. Följ stegen i guiden för att installera webbkomponenter
 
 **Konfigurera webbkomponenterna**
 
 1. Starta HPC PowerShell som administratör på klustrets huvudnod.
-2. Om du vill ändra katalogen till platsen för skript för konfiguration, skriver du följande kommando:
+1. Om du vill ändra katalogen till platsen för skript för konfiguration, skriver du följande kommando:
    
     ```powershell
     cd $env:CCP_HOME\bin
     ```
-3. Om du vill konfigurera REST-gränssnittet och starta HPC-webbtjänsten, skriver du följande kommando:
+1. Om du vill konfigurera REST-gränssnittet och starta HPC-webbtjänsten, skriver du följande kommando:
    
     ```powershell
     .\Set-HPCWebComponents.ps1 –Service REST –enable
     ```
-4. När du uppmanas att välja ett certifikat, väljer du det certifikat som motsvarar det offentliga DNS-namnet för huvudnoden. Till exempel om du distribuerar huvudnoden virtuell dator med den klassiska distributionsmodellen certifikatnamnet ser ut som CN =&lt;*HeadNodeDnsName*&gt;. cloudapp.net. Om du använder Resource Manager-distributionsmodellen certifikatnamnet ser ut som CN =&lt;*HeadNodeDnsName*&gt;.&lt; *region*&gt;. cloudapp.azure.com.
+1. När du uppmanas att välja ett certifikat, väljer du det certifikat som motsvarar det offentliga DNS-namnet för huvudnoden. Till exempel om du distribuerar huvudnoden virtuell dator med den klassiska distributionsmodellen certifikatnamnet ser ut som CN =&lt;*HeadNodeDnsName*&gt;. cloudapp.net. Om du använder Resource Manager-distributionsmodellen certifikatnamnet ser ut som CN =&lt;*HeadNodeDnsName*&gt;.&lt; *region*&gt;. cloudapp.azure.com.
    
    > [!NOTE]
    > Du väljer det här certifikatet senare när du skickar in jobb till huvudnoden från en lokal dator. Inte välja eller konfigurera ett certifikat som motsvarar namnet på huvudnod i Active Directory-domänen (till exempel CN =*MyHPCHeadNode.HpcAzure.local*).
    > 
    > 
-5. Om du vill konfigurera webbportalen för jobbinlämningar, skriver du följande kommando:
+1. Om du vill konfigurera webbportalen för jobbinlämningar, skriver du följande kommando:
    
     ```powershell
     .\Set-HPCWebComponents.ps1 –Service Portal -enable
     ```
-6. När skriptet har slutförts kan du stoppa och starta om Schemaläggaren för HPC-jobb genom att skriva följande kommandon:
+1. När skriptet har slutförts kan du stoppa och starta om Schemaläggaren för HPC-jobb genom att skriva följande kommandon:
    
     ```powershell
     net stop hpcscheduler
@@ -89,18 +89,18 @@ Om du vill använda HPC Pack-klientverktyg för att skicka jobb till huvudnoden 
 **Exportera certifikatet från klustrets huvudnod**
 
 1. Lägg till snapin-modulen certifikat till en Microsoft Management Console för det lokala datorkontot på klustrets huvudnod. Anvisningar om att lägga till snapin-modulen finns i [lägga till snapin-modulen certifikat i en MMC](https://technet.microsoft.com/library/cc754431.aspx).
-2. I konsolträdet expanderar **certifikat – lokal dator** > **personliga**, och klicka sedan på **certifikat**.
-3. Leta upp det certifikat som du har konfigurerat för HPC Pack webbkomponenterna i [steg 1: Installera och konfigurera webbkomponenterna på huvudnoden](#step-1-install-and-configure-the-web-components-on-the-head-node) (till exempel CN =&lt;*HeadNodeDnsName* &gt;. cloudapp.net).
-4. Högerklicka på certifikatet och klicka på **alla uppgifter** > **exportera**.
-5. I guiden Exportera certifikat klickar du på **nästa**, och se till att **Nej, exportera inte den privata nyckeln** har valts.
-6. Följ stegen i guiden för att exportera certifikatet i DER-kodad binärfil X.509 (. CER)-format.
+1. I konsolträdet expanderar **certifikat – lokal dator** > **personliga**, och klicka sedan på **certifikat**.
+1. Leta upp det certifikat som du har konfigurerat för HPC Pack webbkomponenterna i [steg 1: Installera och konfigurera webbkomponenterna på huvudnoden](#step-1-install-and-configure-the-web-components-on-the-head-node) (till exempel CN =&lt;*HeadNodeDnsName* &gt;. cloudapp.net).
+1. Högerklicka på certifikatet och klicka på **alla uppgifter** > **exportera**.
+1. I guiden Exportera certifikat klickar du på **nästa**, och se till att **Nej, exportera inte den privata nyckeln** har valts.
+1. Följ stegen i guiden för att exportera certifikatet i DER-kodad binärfil X.509 (. CER)-format.
 
 **Importera certifikatet på klientdatorn**
 
 1. Kopiera certifikatet som du exporterade från huvudnoden till en mapp på klientdatorn.
-2. Kör certmgr.msc på klientdatorn.
-3. I Certifikathanteraren Expandera **certifikat – aktuell användare** > **betrodda rotcertifikatutfärdare**, högerklicka på **certifikat**, och sedan Klicka på **alla uppgifter** > **Import**.
-4. I guiden Importera certifikat klickar du på **nästa** och följ stegen för att importera certifikatet som du exporterade från huvudnoden till arkivet Betrodda rotcertifikatutfärdare.
+1. Kör certmgr.msc på klientdatorn.
+1. I Certifikathanteraren Expandera **certifikat – aktuell användare** > **betrodda rotcertifikatutfärdare**, högerklicka på **certifikat**, och sedan Klicka på **alla uppgifter** > **Import**.
+1. I guiden Importera certifikat klickar du på **nästa** och följ stegen för att importera certifikatet som du exporterade från huvudnoden till arkivet Betrodda rotcertifikatutfärdare.
 
 > [!TIP]
 > Du kanske ser en säkerhetsvarning, eftersom certifikatutfärdare på huvudnoden inte känns igen av klientdatorn. I testsyfte kan du ignorera den här varningen och slutför Importera certifikat.
@@ -113,7 +113,7 @@ Du kan kontrollera konfigurationen, försök att köra jobb på klustret i Azure
 **Att köra jobbet skicka kommandon på klientdatorn**
 
 1. Starta Kommandotolken på en klientdator där HPC Pack-klientverktyg installeras.
-2. Ange en Exempelkommando. Om du vill visa alla jobb i klustret, exempelvis ett kommando som liknar en av följande, beroende på det fullständiga DNS-namnet för huvudnoden:
+1. Ange en Exempelkommando. Om du vill visa alla jobb i klustret, exempelvis ett kommando som liknar en av följande, beroende på det fullständiga DNS-namnet för huvudnoden:
    
     ```command
     job list /scheduler:https://<HeadNodeDnsName>.cloudapp.net /all
@@ -129,7 +129,7 @@ Du kan kontrollera konfigurationen, försök att köra jobb på klustret i Azure
    > Använd det fullständiga DNS-namnet på huvudnoden, inte IP-adress, i scheduler-URL. Om du anger IP-adress, ser ett fel ut som ”servercertifikatet måste antingen ha en giltig certifikatkedja eller placeras i arkivet Betrodda rotcertifikatutfärdare”.
    > 
    > 
-3. När du uppmanas att ange användarnamnet (i formatet &lt;DomainName&gt;\\&lt;användarnamn&gt;) och lösenordet för administratören för HPC-kluster eller en annan användare i klustret som du har konfigurerat. Du kan välja att spara autentiseringsuppgifterna lokalt för mer jobbåtgärder.
+1. När du uppmanas att ange användarnamnet (i formatet &lt;DomainName&gt;\\&lt;användarnamn&gt;) och lösenordet för administratören för HPC-kluster eller en annan användare i klustret som du har konfigurerat. Du kan välja att spara autentiseringsuppgifterna lokalt för mer jobbåtgärder.
    
     En lista över jobb visas.
 
@@ -142,8 +142,8 @@ Du kan kontrollera konfigurationen, försök att köra jobb på klustret i Azure
     b. Klicka på **Windows-autentiseringsuppgifter** > **Lägg till autentiseringsuppgift för allmän**.
    
     c. Ange Internetadressen (till exempel https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler eller https://&lt;HeadNodeDnsName&gt;.&lt; region&gt;.cloudapp.azure.com/HpcScheduler), och användarnamn (&lt;DomainName&gt;\\&lt;användarnamn&gt;) och lösenordet för Klusteradministratören eller någon annan kluster-användare som du har konfigurerat.
-2. Starta HPC Job Manager på klientdatorn.
-3. I den **Välj huvudnod** dialogrutan, ange Webbadressen till klustrets huvudnod i Azure (till exempel https://&lt;HeadNodeDnsName&gt;. cloudapp.net och https://&lt;HeadNodeDnsName&gt;.&lt; region&gt;. cloudapp.azure.com).
+1. Starta HPC Job Manager på klientdatorn.
+1. I den **Välj huvudnod** dialogrutan, ange Webbadressen till klustrets huvudnod i Azure (till exempel https://&lt;HeadNodeDnsName&gt;. cloudapp.net och https://&lt;HeadNodeDnsName&gt;.&lt; region&gt;. cloudapp.azure.com).
    
     HPC Job Manager öppnas och visar en lista över jobb på huvudnoden.
 
@@ -160,13 +160,13 @@ Du kan kontrollera konfigurationen, försök att köra jobb på klustret i Azure
     ```
     https://<HeadNodeDnsName>.<region>.cloudapp.azure.com/HpcPortal
     ```
-2. I dialogrutan säkerhet skriver du autentiseringsuppgifter för domänen till administratören för HPC-kluster. (Du kan också lägga till andra användare i klustret i olika roller. Se [hantera klustret användare](https://technet.microsoft.com/library/ff919335.aspx).)
+1. I dialogrutan säkerhet skriver du autentiseringsuppgifter för domänen till administratören för HPC-kluster. (Du kan också lägga till andra användare i klustret i olika roller. Se [hantera klustret användare](https://technet.microsoft.com/library/ff919335.aspx).)
    
     Webbportalen öppnas jobblistevyn.
-3. För att skicka ett exempeljobb som returnerar strängen ”Hello World” från klustret, klickar du på **nytt jobb** i det vänstra navigeringsfältet.
-4. På den **nytt jobb** sidan under **från bidrag sidor**, klickar du på **HelloWorld**. Skicka jobbsidan visas.
-5. Klicka på **skicka**. Om du uppmanas ange domänautentiseringsuppgifter för administratör för HPC-kluster. Jobbet skickas och jobb-ID som visas på den **Mina jobb** sidan.
-6. Om du vill visa resultatet av jobbet som du skickade, klickar du på jobb-ID och klicka sedan på **uppgiftsvyn** att visa kommandoutdata (under **utdata**).
+1. För att skicka ett exempeljobb som returnerar strängen ”Hello World” från klustret, klickar du på **nytt jobb** i det vänstra navigeringsfältet.
+1. På den **nytt jobb** sidan under **från bidrag sidor**, klickar du på **HelloWorld**. Skicka jobbsidan visas.
+1. Klicka på **skicka**. Om du uppmanas ange domänautentiseringsuppgifter för administratör för HPC-kluster. Jobbet skickas och jobb-ID som visas på den **Mina jobb** sidan.
+1. Om du vill visa resultatet av jobbet som du skickade, klickar du på jobb-ID och klicka sedan på **uppgiftsvyn** att visa kommandoutdata (under **utdata**).
 
 ## <a name="next-steps"></a>Nästa steg
 * Du kan också skicka jobb till Azure-kluster med den [HPC Pack REST API](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).

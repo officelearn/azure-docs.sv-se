@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 01d4f3873c854776078986918e6ece55017c9193
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: d5b3bf62999c197c437e55a66ee6ba935bdc6ea8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917480"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428538"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapporten Kostnadsuppskattning från Distributionshanteraren för Azure Site Recovery 
 
@@ -105,7 +105,7 @@ Så här lägger du till virtuella datorer manuellt:
 
 1. Välj **Infoga rad** och infoga en ny rad mellan **start-** och **slutraderna**.
 
-2. Fyll i följande kolumner baserat på ungefärlig storlek och antalet virtuella datorer som matchar den här konfigurationen: 
+1. Fyll i följande kolumner baserat på ungefärlig storlek och antalet virtuella datorer som matchar den här konfigurationen: 
 
     a. **Antal virtuella datorer**
 
@@ -125,9 +125,9 @@ Så här lägger du till virtuella datorer manuellt:
 
     i. **Azure Hybrid-förmån**
 
-3. Du kan använda samma värde för alla virtuella datorer i tabellen genom att välja **Använd för alla**, för kolumnerna **Antal DR-tester under ett år**, **Varaktighet för varje DR-test (dagar)**, **Dataredundans** och **Azure Hybrid-förmån**.
+1. Du kan använda samma värde för alla virtuella datorer i tabellen genom att välja **Använd för alla**, för kolumnerna **Antal DR-tester under ett år**, **Varaktighet för varje DR-test (dagar)**, **Dataredundans** och **Azure Hybrid-förmån**.
 
-4. Välj alternativet Re-calculate cost (Beräkna kostnaden på nytt) om du vill uppdatera kostnaden.
+1. Välj alternativet Re-calculate cost (Beräkna kostnaden på nytt) om du vill uppdatera kostnaden.
 
 **Namn på virtuell dator**: namnet på den virtuella datorn.
 

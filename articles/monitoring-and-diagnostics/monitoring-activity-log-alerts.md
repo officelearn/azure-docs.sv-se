@@ -1,6 +1,6 @@
 ---
-title: Skapa klassiska aktivitet Logga varningar
-description: Ett meddelande via SMS, webhook och e-post när vissa händelser inträffar i aktivitetsloggen.
+title: Skapa aviseringar för klassiska aktivitetsloggen
+description: Meddelas via SMS, webhook och e-post när vissa händelser i aktivitetsloggen.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,111 +8,111 @@ ms.topic: conceptual
 ms.date: 03/18/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 84bd82f479ce516152f50d5753e8d91940724c93
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 120fd3552ad36b3d19179f39ca95ce2b3ee2c2e6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263532"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426626"
 ---
-# <a name="create-activity-log-alerts-classic"></a>Skapa aktivitet Logga varningar (klassisk)
+# <a name="create-activity-log-alerts-classic"></a>Skapa aviseringar (klassisk) för aktivitetsloggen
 
 ## <a name="overview"></a>Översikt
-Aktiviteten loggen aviseringar är aviseringar som aktiverar när en ny aktivitet logga en händelse inträffar som matchar de villkor som anges i aviseringen. De är Azure-resurser, så att de kan skapas med hjälp av en Azure Resource Manager-mall. De kan också skapa, uppdatera, eller tas bort i Azure-portalen. Den här artikeln beskriver begrepp bakom aktivitet loggen aviseringar. Den sedan visar hur du använder Azure-portalen för att ställa in en avisering på aktiviteten logghändelser.
+Aktivitetsloggsaviseringar är aviseringar som aktiverar när en ny händelse i aktivitetsloggen inträffar som matchar de villkor som anges i aviseringen. De är Azure-resurser, så att de kan skapas med hjälp av en Azure Resource Manager-mall. De kan också vara skapas, uppdateras eller tas bort i Azure-portalen. Den här artikeln beskrivs koncepten bakom aktivitetsloggaviseringar. Den sedan visar hur du använder Azure-portalen för att ställa in en avisering på händelser i aktivitetsloggen.
 
 > [!NOTE]
 
->  Den nya [aviseringar](monitoring-overview-unified-alerts.md) upplevelse har ersatts av den här proceduren. Den här artikeln ges som referens för tidigare erfarenheter. [Läs mer](monitoring-activity-log-alerts-new-experience.md).
+>  Den nya [aviseringar](monitoring-overview-unified-alerts.md) upplevelse har ersatt den här proceduren. Den här artikeln ges som referens för den tidigare upplevelsen. [Läs mer](monitoring-activity-log-alerts-new-experience.md).
 
-Normalt skapar du aktiviteten loggen aviseringar för att ta emot meddelanden när:
+Normalt kan du skapa aviseringar för aktivitetsloggen kan ta emot meddelanden när:
 
-* Vissa ändringar sker för resurser i din Azure-prenumeration som omfattar ofta enskilda resursgrupper eller resurser. Du kanske vill meddelas när en virtuell dator i myProductionResourceGroup tas bort. Eller så kanske du vill meddelas om några nya roller har tilldelats en användare i din prenumeration.
-* En service hälsa händelse inträffar. Tjänsten hälsa händelser innehåller meddelanden om incidenter och underhållshändelser som gäller för resurser i din prenumeration.
+* Specifika dataändringar på resurser i din Azure-prenumeration som omfattar ofta enskilda resursgrupper eller resurser. Du kanske exempelvis vill meddelas när alla virtuella datorer i myProductionResourceGroup tas bort. Eller så kanske du vill få ett meddelande om eventuella nya roller har tilldelats en användare i din prenumeration.
+* En service health-händelse inträffar. Service health-händelser innehåller aviseringar incidenter och underhållshändelser som gäller för resurser i din prenumeration.
 
-I båda fallen övervakar en aktivitet loggen avisering bara för händelser i prenumerationen som aviseringen skapades.
+I båda fallen övervakar en aktivitetsloggavisering endast för händelser i prenumerationen som aviseringen har skapats.
 
-Du kan konfigurera en aktivitet loggen avisering baserat på någon översta egenskap i JSON-objekt för en aktivitet händelselogg. Dock visar portalen de vanligaste alternativen:
+Du kan konfigurera en aktivitetsloggavisering baserat på översta egenskaper i JSON-objekt för en händelse i aktivitetsloggen. Portalen visar dock de vanligaste alternativen:
 
-- **Kategori**: administrativa, tjänsten hälsa och Autoskala rekommendation. Mer information finns i [översikt över Azure aktivitetsloggen](./monitoring-overview-activity-logs.md#categories-in-the-activity-log). Mer information om hälsa av tjänsten-händelser finns [varningar aktivitet loggen på tjänstmeddelanden](./monitoring-activity-log-alerts-on-service-notifications.md).
+- **Kategori**: administration, tjänstens hälsotillstånd, automatisk skalning och rekommendation. Mer information finns i [översikt över Azure-aktivitetsloggen](./monitoring-overview-activity-logs.md#categories-in-the-activity-log). Läs mer om service health-händelser i [ta emot aviseringar för aktivitetsloggar för tjänstmeddelanden](./monitoring-activity-log-alerts-on-service-notifications.md).
 - **Resursgrupp**
 - **Resurs**
 - **Resurstyp**
-- **Åtgärdsnamnet**: The Resource Manager Role-Based åtkomstkontroll åtgärdsnamn.
-- **Nivå**: allvarlighetsgrad för händelse (utförlig information, varning, fel eller kritiskt).
-- **Status för**: status för händelsen, startas normalt, misslyckades eller lyckades.
-- **Händelse som initieras av**: kallas även ”anroparen”. E-postadressen eller Azure Active Directory-identifieraren för användaren som utförde åtgärden.
+- **Åtgärdens namn**: The Resource Manager Role-Based Access Control åtgärdens namn.
+- **Nivå**: allvarlighetsgraden för händelse (utförlig, information, varning, fel eller kritiskt).
+- **Status för**: status för händelsen, vanligtvis igång, misslyckades eller lyckades.
+- **Händelsen initierad av**: kallas även ”anroparen”. E-postadress eller Azure Active Directory-ID för användaren som utförde åtgärden.
 
 > [!NOTE]
-> När kategorin som är ”administrativa” måste du ange minst en av de föregående villkoren i aviseringen. Du kan inte skapa en avisering som aktiveras varje gång en händelse skapas i aktivitetsloggarna.
+> När kategorin är ”administrativa” måste du ange minst en av de föregående kriterierna i aviseringen. Du kan inte skapa en avisering som aktiveras varje gång en händelse skapas i aktivitetsloggarna.
 
-När en aktivitet loggen avisering aktiveras använder en grupp för att generera meddelanden eller åtgärder. En grupp är en återanvändbar uppsättning notification mottagare, till exempel e-postadresser, webhook URL: er eller SMS telefonnummer. Mottagarna kan refereras från flera aviseringar centralisera och gruppera dina aviseringskanaler. När du definierar aviseringen aktivitet loggen har du två alternativ. Du kan:
+När en aktivitetsloggavisering är aktiverad, används en åtgärdsgrupp för att generera åtgärder eller aviseringar. En åtgärdsgrupp är en återanvändbar uppsättning meddelande olika mottagare, till exempel e-postadresser, telefonnummer för webhook-URL: er eller SMS. Mottagarna kan refereras från flera aviseringar centralisera och gruppera dina meddelandekanaler. När du definierar din aktivitetsloggsavisering har du två alternativ. Du kan:
 
-* Använd en befintlig grupp i din logg varning.
-* Skapa en ny grupp.
+* Använd en befintlig åtgärdsgrupp i din aktivitetsloggsavisering.
+* Skapa en ny åtgärdsgrupp.
 
-Läs mer om åtgärdsgrupper i [skapa och hantera åtgärdsgrupper i Azure portal](monitoring-action-groups.md).
+Läs mer om åtgärdsgrupper i [skapa och hantera åtgärdsgrupper i Azure-portalen](monitoring-action-groups.md).
 
-Läs mer om meddelanden om hälsostatus i [varningar aktivitet loggen på meddelanden om hälsostatus](monitoring-activity-log-alerts-on-service-notifications.md).
+Läs mer om service health meddelanden i [ta emot varningar för aktivitetsloggar för health tjänstmeddelanden](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="create-an-alert-classic-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Skapa en avisering (klassiskt) på en aktivitet logga en händelse med en ny grupp med hjälp av Azure portal
+## <a name="create-an-alert-classic-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Skapa en avisering (klassisk) på en händelse i aktivitetsloggen med en ny åtgärdsgrupp med hjälp av Azure portal
 1. I den [portal](https://portal.azure.com)väljer **övervakaren**.
 
-    ![Tjänsten ”Övervakaren”](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. I den **aktivitetsloggen** väljer **aviseringar (klassisk)**.
+    ![”Övervakningstjänsten”](./media/monitoring-activity-log-alerts/home-monitor.png)
+1. I den **aktivitetsloggen** väljer **aviseringar (klassisk)**.
 
     ![Fliken ”aviseringar”](./media/monitoring-activity-log-alerts/alerts-blades.png)
-3. Välj **Lägg till aktivitet loggen avisering**, och Fyll i fälten.
+1. Välj **Lägg till aktivitetsloggavisering**, och Fyll i fälten.
 
-4. Ange ett namn i den **aktivitet avisering loggnamn** och välj en **beskrivning**.
+1. Ange ett namn i den **namn på aktivitetsloggavisering** och väljer en **beskrivning**.
 
-    ![Kommandot ”Lägg till aktivitet loggen avisering”](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
+    ![Kommandot ”Lägg till aktivitetsloggavisering”](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
 
-5. Den **prenumeration** rutan autofills med din aktuella prenumeration. Den här prenumerationen är den som åtgärdsgruppen sparas. Aviseringen resursen har distribuerats till den här prenumerationen och övervakar aktivitetshändelser från den.
+1. Den **prenumeration** rutan autofills med din aktuella prenumeration. Den här prenumerationen är där åtgärdsgruppen sparas. Aviseringen resursen har distribuerats till den här prenumerationen och övervakar händelser i aktivitetsloggen därifrån.
 
-    ![Dialogrutan ”Lägg till loggen varning”](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
+    ![Dialogrutan ”Lägg till aktivitetsloggavisering”](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
 
-6. Välj den **resursgruppen** i aviseringen resursen har skapats. Detta är inte den resursgrupp som övervakas av aviseringen. Det är istället resursgruppen där aviseringen resursen finns.
+1. Välj den **resursgrupp** i aviseringen resursen har skapats. Detta är inte den resursgrupp som övervakas av aviseringen. Det är den resursgrupp där aviseringen resursen finns.
 
-7. Du kan också välja en **händelsekategori** att ändra ytterligare filter som visas. För administrativa händelser filtren är **resursgruppen**, **resurs**, **resurstypen**, **åtgärdsnamn**, **Nivå**, **Status**, och **händelse som initieras av**. Dessa värden identifiera vilka händelser som bör du övervaka den här aviseringen.
+1. Alternativt kan du välja en **händelsekategori** att ändra de ytterligare filter som visas. För administrativa händelser filtren är **resursgrupp**, **Resource**, **resurstyp**, **Åtgärdsnamnet**, **Nivå**, **Status**, och **händelsen initieras av**. Värdena identifierar vilka händelser som den här aviseringen ska övervaka.
 
     >[!NOTE]
-    >Du måste ange minst en av de föregående villkoren i aviseringen. Du kan inte skapa en avisering som aktiveras varje gång en händelse skapas i aktivitetsloggarna.
+    >Du måste ange minst en av de föregående kriterierna i aviseringen. Du kan inte skapa en avisering som aktiveras varje gång en händelse skapas i aktivitetsloggarna.
     >
     >
 
-8. Ange ett namn i den **åtgärd gruppnamn** och ange ett namn i den **kortnamnet** rutan. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
+1. Ange ett namn i den **namn på åtgärdsgrupp** och ange ett namn i den **kortnamnet** box. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
 
-9.  Definiera en lista med åtgärder genom att tillhandahålla åtgärden:
+1.  Definiera en lista med åtgärder genom att tillhandahålla åtgärdens:
 
-    a. **Namnet**: Ange åtgärdens namn, alias eller identifierare.
+    a. **Namn på**: Ange åtgärdens namn, alias eller identifierare.
 
-    b. **Åtgärdstyp**: Välj SMS, e-post eller webhooken.
+    b. **Åtgärdstyp**: Välj SMS, e-post eller webhook.
 
     c. **Information om**: baserat på typen av, ange ett telefonnummer, e-postadress eller webhook URI.
 
-10. Välj **OK** att skapa aviseringen.
+1.  Välj **OK** att skapa aviseringen.
 
-Aviseringen tar några minuter att sprida fullständigt och sedan aktiveras. Utlöser nya händelser som matchar den avisering kriterier.
+Aviseringen tar några minuter att sprida fullständigt och bli aktiv. Utlöser när nya händelser som matchar aviseringens villkor.
 
-Mer information finns i [förstå webhook-schemat som används i loggen Aktivitetsaviseringar](monitoring-activity-log-alerts-webhook.md).
+Mer information finns i [förstå webhook-schema som används i aktivitetsloggaviseringar](monitoring-activity-log-alerts-webhook.md).
 
 >[!NOTE]
->Åtgärdsgruppen som definierats i de här stegen är återanvändbara som en befintlig grupp för alla framtida definitioner för aviseringen.
+>Åtgärdsgrupp som definierats i de här stegen är återanvändbara som en befintlig åtgärdsgrupp för alla framtida varningsdefinitioner.
 >
 >
 
-## <a name="create-an-alert-on-an-activity-log-event-for-an-existing-action-group-by-using-the-azure-portal"></a>Skapa en avisering på en aktivitet logga en händelse för en befintlig grupp med hjälp av Azure portal
-1. Följ steg 1 till 7 i föregående avsnitt för att skapa aviseringen aktivitet loggen.
+## <a name="create-an-alert-on-an-activity-log-event-for-an-existing-action-group-by-using-the-azure-portal"></a>Skapa en avisering på en händelse i aktivitetsloggen för en befintlig åtgärdsgrupp med hjälp av Azure portal
+1. Följ steg 1 till och med 7 i föregående avsnitt för att skapa din aktivitetsloggsavisering.
 
-2. Under **meddela**, Välj den **befintliga** åtgärdsknappen för gruppen. Välj en befintlig grupp i listan.
+1. Under **meddela via**väljer den **befintliga** knappen för åtgärden grupp. Välj en befintlig åtgärdsgrupp i listan.
 
-3. Välj **OK** att skapa aviseringen.
+1. Välj **OK** att skapa aviseringen.
 
-Aviseringen tar några minuter att sprida fullständigt och sedan aktiveras. Utlöser nya händelser som matchar den avisering kriterier.
+Aviseringen tar några minuter att sprida fullständigt och bli aktiv. Utlöser när nya händelser som matchar aviseringens villkor.
 
 ## <a name="manage-your-alerts"></a>Hantera aviseringar
 
-När du skapar en avisering, är det visas i avsnittet aviseringar i övervakaren bladet. Väljer du den avisering du vill hantera att:
+När du skapar en avisering, är det visas i avsnittet aviseringar i Monitor-bladet. Välj den avisering du vill hantera till:
 
 * Redigera den.
 * Ta bort den.
@@ -121,8 +121,8 @@ När du skapar en avisering, är det visas i avsnittet aviseringar i övervakare
 ## <a name="next-steps"></a>Nästa steg
 - Hämta en [översikt över aviseringar](monitoring-overview-alerts.md).
 - Lär dig mer om [meddelande hastighetsbegränsning](monitoring-alerts-rate-limiting.md).
-- Granska de [avisering webhook för aktivitetslogg](monitoring-activity-log-alerts-webhook.md).
-- Lär dig mer om [åtgärdsgrupper](monitoring-action-groups.md).  
-- Lär dig mer om [tjänsten meddelanden om hälsostatus](monitoring-service-notifications.md).
-- Skapa en [loggen varning att övervaka alla Autoskala motorn åtgärder för din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
-- Skapa en [loggen varning att övervaka alla misslyckade Autoskala skala-/ skalbar åtgärder för din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+- Granska den [avisering webhook för aktivitetslogg](monitoring-activity-log-alerts-webhook.md).
+- Läs mer om [åtgärdsgrupper](monitoring-action-groups.md).  
+- Lär dig mer om [service health meddelanden](monitoring-service-notifications.md).
+- Skapa en [aktivitetsloggavisering att övervaka alla Autoskala motorn åtgärder för din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
+- Skapa en [aktivitetsloggavisering att övervaka alla misslyckade Autoskala skala-/ skalbar åtgärder för din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).

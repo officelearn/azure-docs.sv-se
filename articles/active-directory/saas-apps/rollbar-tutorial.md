@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 6b1bc9b0eaf7ff94a2ba51a521ba6fb75cef13f9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e12e3187893690b75dc69835312ec86a0e601d32
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041848"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431913"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Självstudier: Azure Active Directory-integration med Rollbar
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Rollbar från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-rollbar-from-the-gallery"></a>Att lägga till Rollbar från galleriet
 För att konfigurera integrering av Rollbar i Azure AD, som du behöver lägga till Rollbar från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av Rollbar i Azure AD, som du behöver lägga t
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Rollbar**väljer **Rollbar** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Rollbar**väljer **Rollbar** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Rollbar i resultatlistan](./media/rollbar-tutorial/tutorial_rollbar_addfromgallery.png)
 
@@ -87,10 +87,10 @@ I Rollbar, tilldela värdet för den **användarnamn** i Azure AD som värde fö
 Om du vill konfigurera och testa Azure AD enkel inloggning med Rollbar, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Rollbar](#create-a-rollbar-test-user)**  – du har en motsvarighet för Britta Simon i Rollbar som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Rollbar](#create-a-rollbar-test-user)**  – du har en motsvarighet för Britta Simon i Rollbar som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -102,11 +102,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/rollbar-tutorial/tutorial_rollbar_samlbase.png)
 
-3. På den **Rollbar domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+1. På den **Rollbar domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Rollbar domän och URL: er med enkel inloggning för information](./media/rollbar-tutorial/tutorial_rollbar_url.png)
 
@@ -114,7 +114,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://rollbar.com/<accountname>/saml/sso/azure/`
 
-4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Rollbar domän och URL: er med enkel inloggning för information](./media/rollbar-tutorial/tutorial_rollbar_url1.png)
 
@@ -123,25 +123,25 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska svars-URL och inloggnings-URL. Kontakta [Rollbar klienten supportteamet](mailto:support@rollbar.com) att hämta dessa värden. 
 
-5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/rollbar-tutorial/tutorial_rollbar_certificate.png) 
 
-6. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/rollbar-tutorial/tutorial_general_400.png)
     
-7. I ett annat webbläsarfönster logga du in på webbplatsen Rollbar företag som administratör.
+1. I ett annat webbläsarfönster logga du in på webbplatsen Rollbar företag som administratör.
 
-8. Klicka på den **profilinställningar** i övre högra hörnet och sedan på **kontonamn inställningar**.
+1. Klicka på den **profilinställningar** i övre högra hörnet och sedan på **kontonamn inställningar**.
     
     ![Konfiguration](./media/rollbar-tutorial/general.png)
 
-9. Klicka på **identitetsprovider** under säkerhet.
+1. Klicka på **identitetsprovider** under säkerhet.
 
     ![Konfiguration](./media/rollbar-tutorial/configure1.png)
 
-10. I den **SAML-identitetsprovider** avsnittet, utför följande steg:
+1. I den **SAML-identitetsprovider** avsnittet, utför följande steg:
     
     ![Konfiguration](./media/rollbar-tutorial/configure2.png)
 
@@ -151,7 +151,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     c. Klicka på **Spara**.
 
-11. När du klickar på Spara knappen skärmen blir så här:
+1. När du klickar på Spara knappen skärmen blir så här:
     
     ![Konfiguration](./media/rollbar-tutorial/configure3.png)
     > [!NOTE] 
@@ -177,15 +177,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/rollbar-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/rollbar-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/rollbar-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/rollbar-tutorial/create_aaduser_04.png)
 
@@ -205,23 +205,23 @@ Om du vill aktivera Azure AD-användare att logga in på Rollbar, måste de etab
 
 1. Logga in på webbplatsen Rollbar företag som administratör.
 
-2. Klicka på den **profilinställningar** i övre högra hörnet och sedan på **kontonamn inställningar**.
+1. Klicka på den **profilinställningar** i övre högra hörnet och sedan på **kontonamn inställningar**.
 
     ![Användare](./media/rollbar-tutorial/general.png)
 
-3. Klicka på **användare**.
+1. Klicka på **användare**.
     
     ![Lägg till medarbetare](./media/rollbar-tutorial/user1.png)
 
-4. Klicka på **bjuda in gruppmedlemmar**.
+1. Klicka på **bjuda in gruppmedlemmar**.
 
     ![Bjuda in](./media/rollbar-tutorial/user2.png)
 
-5. I textrutan, anger du namnet på användaren som **brittasimon@contoso.com** och klicka på **Lägg till/inbjudan**.
+1. I textrutan, anger du namnet på användaren som **brittasimon@contoso.com** och klicka på **Lägg till/inbjudan**.
 
     ![Bjuda in](./media/rollbar-tutorial/user3.png)
 
-6. Användaren får en inbjudan och efter att du godkänt den han/hon har skapats i systemet.
+1. Användaren får en inbjudan och efter att du godkänt den han/hon har skapats i systemet.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -235,23 +235,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Rollbar**.
+1. I listan med program väljer **Rollbar**.
 
     ![Länken Rollbar i listan med program](./media/rollbar-tutorial/tutorial_rollbar_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

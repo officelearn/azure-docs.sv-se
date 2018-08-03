@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: e0128d4422c462d4424583306af0b30174178bac
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: cf925e0e0e7b6b4c10b6b21d17214f91473a9026
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049260"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432957"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Självstudier: Azure Active Directory-integration med Boomi
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Boomi från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-boomi-from-the-gallery"></a>Att lägga till Boomi från galleriet
 För att konfigurera integrering av Boomi i Azure AD, som du behöver lägga till Boomi från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av Boomi i Azure AD, som du behöver lägga til
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Boomi**väljer **Boomi** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Boomi**väljer **Boomi** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Boomi i resultatlistan](./media/boomi-tutorial/tutorial_boomi_addfromgallery.png)
 
@@ -87,10 +87,10 @@ I Boomi, tilldela värdet för den **användarnamn** i Azure AD som värde för 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Boomi, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Boomi](#create-a-boomi-test-user)**  – du har en motsvarighet för Britta Simon i Boomi som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Boomi](#create-a-boomi-test-user)**  – du har en motsvarighet för Britta Simon i Boomi som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -102,11 +102,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/boomi-tutorial/tutorial_boomi_samlbase.png)
 
-3. På den **Boomi domän och URL: er** avsnittet, utför följande steg:
+1. På den **Boomi domän och URL: er** avsnittet, utför följande steg:
 
     ![Boomi domän och URL: er med enkel inloggning för information](./media/boomi-tutorial/tutorial_boomi_url.png)
 
@@ -117,11 +117,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Svars-URL-värdet är inte verkliga. Uppdatera värdet med faktiska svars-URL. Kontakta [Boomi supportteamet](https://boomi.com/company/contact/) att hämta värdet.
  
-4. Boomi program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Följande skärmbild visar ett exempel för detta.
+1. Boomi program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Följande skärmbild visar ett exempel för detta.
     
     ![Konfigurera enkel inloggning](./media/boomi-tutorial/tutorial_attribute.png)
 
-5. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan för varje rad som visas i tabellen nedan, utför följande steg:
+1. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan för varje rad som visas i tabellen nedan, utför följande steg:
 
     | Attributnamn | Attributvärde |
     | -------------- | --------------- |
@@ -139,23 +139,23 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     d. Klicka på **OK**.
 
-6. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/boomi-tutorial/tutorial_boomi_certificate.png) 
 
-7. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/boomi-tutorial/tutorial_general_400.png)
 
-8. På den **Boomi Configuration** klickar du på **konfigurera Boomi** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **Boomi Configuration** klickar du på **konfigurera Boomi** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Boomi konfiguration](./media/boomi-tutorial/tutorial_boomi_configure.png) 
 
-9. Logga in på webbplatsen Boomi företag som en administratör i ett annat webbläsarfönster. 
+1. Logga in på webbplatsen Boomi företag som en administratör i ett annat webbläsarfönster. 
 
-10. Gå till **företagsnamn** och gå till **konfigurera**.
+1. Gå till **företagsnamn** och gå till **konfigurera**.
 
-11. Klicka på den **SSO alternativ** fliken och utföra stegen nedan.
+1. Klicka på den **SSO alternativ** fliken och utföra stegen nedan.
 
     ![Konfigurera enkel inloggning på App-sida](./media/boomi-tutorial/tutorial_boomi_11.png)
 
@@ -184,15 +184,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/boomi-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/boomi-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/boomi-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/boomi-tutorial/create_aaduser_04.png)
 
@@ -212,11 +212,11 @@ För att aktivera Azure AD-användare att logga in på Boomi, måste de etablera
 
 1. Logga in på webbplatsen Boomi företag som administratör.
 
-2. När du loggat in öppnar du **Användarhantering** och gå till **användare**.
+1. När du loggat in öppnar du **Användarhantering** och gå till **användare**.
 
     ![Användare](./media/boomi-tutorial/tutorial_boomi_001.png "användare")
 
-3. Klicka på **+** ikonen och **Lägg till/Underhåll användarroller** dialogruta öppnas.
+1. Klicka på **+** ikonen och **Lägg till/Underhåll användarroller** dialogruta öppnas.
 
     ![Användare](./media/boomi-tutorial/tutorial_boomi_002.png "användare")
 
@@ -249,23 +249,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Boomi**.
+1. I listan med program väljer **Boomi**.
 
     ![Länken Boomi i listan med program](./media/boomi-tutorial/tutorial_boomi_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

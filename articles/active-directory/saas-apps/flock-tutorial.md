@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: f0bb2b336927b4279403bf87d44a9a5ef1539607
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6589bbe581ec5e4ca3a18363ede427bf08f8b7cc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053112"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428132"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>Självstudier: Azure Active Directory-integration med besättningen
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till besättningen från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-flock-from-the-gallery"></a>Att lägga till besättningen från galleriet
 Om du vill konfigurera integreringen av besättningen till Azure AD, som du behöver lägga till besättningen från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ Om du vill konfigurera integreringen av besättningen till Azure AD, som du beh�
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **besättningen**väljer **besättningen** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **besättningen**väljer **besättningen** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Besättningen i resultatlistan](./media/flock-tutorial/tutorial_flock_addfromgallery.png)
 
@@ -85,10 +85,10 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 Om du vill konfigurera och testa Azure AD enkel inloggning med besättningen, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare i besättningen](#create-a-flock-test-user)**  – du har en motsvarighet för Britta Simon i besättningen som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare i besättningen](#create-a-flock-test-user)**  – du har en motsvarighet för Britta Simon i besättningen som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -100,11 +100,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
     ![Enkel inloggning för dialogrutan](./media/flock-tutorial/tutorial_flock_samlbase.png)
 
-3. På den **besättningen domän och URL: er** avsnittet, utför följande steg:
+1. På den **besättningen domän och URL: er** avsnittet, utför följande steg:
 
     ![Besättningen domän och URL: er med enkel inloggning för information](./media/flock-tutorial/tutorial_flock_url.png)
 
@@ -115,25 +115,25 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [besättningen klienten supportteamet](mailto:support@flock.com) att hämta dessa värden.
 
-4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/flock-tutorial/tutorial_flock_certificate.png)
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/flock-tutorial/tutorial_general_400.png)
 
-6. På den **besättningen Configuration** klickar du på **konfigurera besättningen** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **besättningen Configuration** klickar du på **konfigurera besättningen** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Besättningen konfiguration](./media/flock-tutorial/tutorial_flock_configure.png) 
 
-7. I ett annat webbläsarfönster logga du in på webbplatsen besättningen företagets som administratör.
+1. I ett annat webbläsarfönster logga du in på webbplatsen besättningen företagets som administratör.
 
-8. Välj **autentisering** fliken från den vänstra navigeringspanelen och välj sedan **SAML-autentisering**.
+1. Välj **autentisering** fliken från den vänstra navigeringspanelen och välj sedan **SAML-autentisering**.
 
     ![Besättningen konfiguration](./media/flock-tutorial/configure1.png)
 
-9. I den **SAML-autentisering** avsnittet, utför följande steg:
+1. I den **SAML-autentisering** avsnittet, utför följande steg:
 
     ![Besättningen konfiguration](./media/flock-tutorial/configure2.png)
 
@@ -157,15 +157,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/flock-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/flock-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/flock-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/flock-tutorial/create_aaduser_04.png)
 
@@ -185,15 +185,15 @@ Om du vill aktivera Azure AD-användare att logga in på besättningen, måste d
 
 1. Logga in på webbplatsen besättningen företagets som administratör.
 
-2. Klicka på **hantera Team** från den vänstra navigeringspanelen.
+1. Klicka på **hantera Team** från den vänstra navigeringspanelen.
 
     ![Lägg till medarbetare](./media/flock-tutorial/user1.png)
 
-3. Klicka på **Lägg till medlem** fliken och välj sedan **teammedlemmar**.
+1. Klicka på **Lägg till medlem** fliken och välj sedan **teammedlemmar**.
 
     ![Lägg till medarbetare](./media/flock-tutorial/user2.png)
 
-4. Ange e-postadress för användaren som **Brittasimon@contoso.com** och välj sedan **Lägg till användare**.
+1. Ange e-postadress för användaren som **Brittasimon@contoso.com** och välj sedan **Lägg till användare**.
 
     ![Lägg till medarbetare](./media/flock-tutorial/user3.png)
 
@@ -209,23 +209,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201]
 
-2. I listan med program väljer **besättningen**.
+1. I listan med program väljer **besättningen**.
 
     ![Länken besättningen i listan med program](./media/flock-tutorial/tutorial_flock_app.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

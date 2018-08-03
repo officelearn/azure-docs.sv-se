@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: f51f9eff7a2ab0dd7ca466931f9de78355b917c0
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f4247a24905b5865635495774412237118e3372a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050732"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Självstudier: Azure Active Directory-integration med Work.com
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Lägg till Work.com från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="add-workcom-from-the-gallery"></a>Lägg till Work.com från galleriet
 För att konfigurera integrering av Work.com i Azure AD, som du behöver lägga till Work.com från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av Work.com i Azure AD, som du behöver lägga 
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **Work.com**väljer **Work.com** från resultatrutan klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Work.com**väljer **Work.com** från resultatrutan klickar **Lägg till** för att lägga till programmet.
 
     ![Lägg till från galleriet](./media/work-com-tutorial/tutorial_work-com_addfromgallery.png)
 
@@ -86,10 +86,10 @@ I Work.com, tilldela värdet för den **användarnamn** i Azure AD som värde f�
 Om du vill konfigurera och testa Azure AD enkel inloggning med Work.com, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Work.com](#create-a-workcom-test-user)**  – du har en motsvarighet för Britta Simon i Work.com som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Work.com](#create-a-workcom-test-user)**  – du har en motsvarighet för Britta Simon i Work.com som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -104,11 +104,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![SAML-baserad inloggning](./media/work-com-tutorial/tutorial_work-com_samlbase.png)
 
-3. På den **Work.com domän och URL: er** avsnittet, gör du följande:
+1. På den **Work.com domän och URL: er** avsnittet, gör du följande:
 
     ![Work.com domän och URL: er](./media/work-com-tutorial/tutorial_work-com_url.png)
 
@@ -117,42 +117,42 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Work.com klienten supportteamet](https://help.salesforce.com/articleView?id=000159855&type=3) att hämta det här värdet. 
 
-4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
     ![Avsnittet för SAML-signeringscertifikat](./media/work-com-tutorial/tutorial_work-com_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Knappen Spara](./media/work-com-tutorial/tutorial_general_400.png)
 
-6. På den **Work.com Configuration** klickar du på **konfigurera Work.com** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **Work.com Configuration** klickar du på **konfigurera Work.com** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Konfigurationsavsnittet för Work.com](./media/work-com-tutorial/tutorial_work-com_configure.png) 
-7. Logga in på din Work.com-klient som administratör.
+1. Logga in på din Work.com-klient som administratör.
 
-8. Gå till **installationsprogrammet**.
+1. Gå till **installationsprogrammet**.
    
     ![Installationsprogrammet](./media/work-com-tutorial/ic794108.png "installationen")
 
-9. I det vänstra navigeringsfönstret i den **administrera** klickar du på **domänhantering** Expandera avsnittet relaterade och klicka sedan på **min domän** att öppna **Min domän** sidan. 
+1. I det vänstra navigeringsfönstret i den **administrera** klickar du på **domänhantering** Expandera avsnittet relaterade och klicka sedan på **min domän** att öppna **Min domän** sidan. 
    
     ![Min domän](./media/work-com-tutorial/ic767825.png "min domän")
 
-10. För att verifiera att din domän har ställts in korrekt, se till att den är i ”**steg 4 distribueras till användarna**” och granska din ”**Mina Domäninställningar**”.
+1. För att verifiera att din domän har ställts in korrekt, se till att den är i ”**steg 4 distribueras till användarna**” och granska din ”**Mina Domäninställningar**”.
    
     ![Domän som har distribuerats till användaren](./media/work-com-tutorial/ic784377.png "domän som har distribuerats till användare")
 
-11. Logga in på din Work.com-klient.
+1. Logga in på din Work.com-klient.
 
-12. Gå till **installationsprogrammet**.
+1. Gå till **installationsprogrammet**.
     
     ![Installationsprogrammet](./media/work-com-tutorial/ic794108.png "installationen")
 
-13. Expandera den **säkerhetskontroller** menyn och klicka sedan på **inställningar för enkel inloggning**.
+1. Expandera den **säkerhetskontroller** menyn och klicka sedan på **inställningar för enkel inloggning**.
     
     ![Enkel inloggning inställningar](./media/work-com-tutorial/ic794113.png "enkel inloggnings-inställningar")
 
-14. På den **inställningar för enkel inloggning** dialogrutan utför följande steg:
+1. På den **inställningar för enkel inloggning** dialogrutan utför följande steg:
     
     ![SAML aktiverat](./media/work-com-tutorial/ic781026.png "SAML aktiverat")
     
@@ -160,7 +160,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     b. Klicka på **Ny**.
 
-15. I den **SAML enkel inloggning inställningar** avsnittet, utför följande steg:
+1. I den **SAML enkel inloggning inställningar** avsnittet, utför följande steg:
     
     ![SAML enkel inloggning inställningen](./media/work-com-tutorial/ic794114.png "SAML enkel inloggning för inställningen")
     
@@ -187,15 +187,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     j. Klicka på **Spara**.
 
-16. I den klassiska portalen i Work.com, i det vänstra navigeringsfönstret klickar du på **domänhantering** Expandera avsnittet relaterade och klicka sedan på **min domän** att öppna den **min domän** sidan. 
+1. I den klassiska portalen i Work.com, i det vänstra navigeringsfönstret klickar du på **domänhantering** Expandera avsnittet relaterade och klicka sedan på **min domän** att öppna den **min domän** sidan. 
     
     ![Min domän](./media/work-com-tutorial/ic794115.png "min domän")
 
-17. På den **min domän** sidan den **inloggning anpassningen** klickar du på **redigera**.
+1. På den **min domän** sidan den **inloggning anpassningen** klickar du på **redigera**.
     
     ![Inloggningssidan anpassning](./media/work-com-tutorial/ic767826.png "inloggningssidan för anpassning")
 
-14. På den **inloggning anpassningen** sidan den **autentiseringstjänst** avsnittet, namnet på din **SAML SSO-inställningar** visas. Markera den och klicka sedan på **spara**.
+1. På den **inloggning anpassningen** sidan den **autentiseringstjänst** avsnittet, namnet på din **SAML SSO-inställningar** visas. Markera den och klicka sedan på **spara**.
     
     ![Inloggningssidan anpassning](./media/work-com-tutorial/ic784366.png "inloggningssidan för anpassning")
 
@@ -214,15 +214,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](./media/work-com-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
     ![Användare och grupper -> alla användare](./media/work-com-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
     ![Lägg till](./media/work-com-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
     ![Dialogrutan användarsidan](./media/work-com-tutorial/create_aaduser_04.png) 
 
@@ -240,18 +240,18 @@ För Azure Active Directory-användare för att kunna logga in måste de etabler
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Utför följande steg för att konfigurera användaretablering:
 1. Logga in på webbplatsen Work.com företag som administratör.
 
-2. Gå till **installationsprogrammet**.
+1. Gå till **installationsprogrammet**.
    
     ![Installationsprogrammet](./media/work-com-tutorial/IC794108.png "installationen")
-3. Gå till **hantera användare \> användare**.
+1. Gå till **hantera användare \> användare**.
    
     ![Hantera användare](./media/work-com-tutorial/IC784369.png "hantera användare")
 
-4. Klicka på **ny användare**.
+1. Klicka på **ny användare**.
    
     ![Alla användare](./media/work-com-tutorial/IC794117.png "alla användare")
 
-5. I avsnittet användaren redigera utför du följande steg, i attributen för en giltig Azure AD-konto som du vill etablera till relaterade textrutor:
+1. I avsnittet användaren redigera utför du följande steg, i attributen för en giltig Azure AD-konto som du vill etablera till relaterade textrutor:
    
     ![Redigera användare](./media/work-com-tutorial/ic794118.png "Redigera användare")
    
@@ -288,23 +288,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Work.com**.
+1. I listan med program väljer **Work.com**.
 
     ![Work.com i appens lista](./media/work-com-tutorial/tutorial_work-com_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

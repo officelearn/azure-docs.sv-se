@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/02/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b8fec9a263eee6bf1e8bf347a9b6dd256840738f
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2ee54ca3d6e787267010736343a570e614c4204d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391769"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427558"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Självstudie: Konfigurera hybrid Azure Active Directory-anslutna enheter manuellt 
 
-Med enhetshantering i Azure Active Directory (AD Azure), kan du se till att dina användare kommer åt dina resurser från enheter som uppfyller dina krav för säkerhet och efterlevnad. Mer information finns i [... / Introduktionen till enhetshantering i Azure Active Directory](../device-management-introduction.md).
+Med enhetshantering i Azure Active Directory (AD Azure), kan du se till att dina användare kommer åt dina resurser från enheter som uppfyller dina krav för säkerhet och efterlevnad. Mer information finns i den [introduktionen till enhetshantering i Azure Active Directory](overview.md).
 
 Om du har en lokal Active Directory-miljö och du vill ansluta till dina domänanslutna enheter till Azure AD, kan du göra detta genom att konfigurera hybrid Azure AD-anslutna enheter. Den här artikeln ger relaterade steg. 
 
@@ -114,15 +114,15 @@ Använd tabellen nedan för att få en översikt över de steg som krävs för d
 
 | Steg                                      | Windows aktuella och lösenord hash-synkronisering | Windows aktuella och federation | Windows klientversioner |
 | :--                                        | :-:                                    | :-:                            | :-:                |
-| Steg 1: Konfigurera tjänstanslutningspunkten | ![Markera][1]                            | ![Markera][1]                    | ![Markera][1]        |
-| Steg 2: Konfigurera utfärdande av anspråk           |                                        | ![Markera][1]                    | ![Markera][1]        |
-| Steg 3: Aktivera Windows 10-enheter      |                                        |                                | ![Markera][1]        |
-| Steg 4: Kontrollera distributionen     | ![Markera][1]                            | ![Markera][1]                    | ![Markera][1]        |
-| Steg 5: Kontrollera domänanslutna enheter          | ![Markera][1]                            | ![Markera][1]                    | ![Markera][1]        |
+| Konfigurera tjänstanslutningspunkt | ![Markera][1]                            | ![Markera][1]                    | ![Markera][1]        |
+| Konfigurera utfärdande av anspråk           |                                        | ![Markera][1]                    | ![Markera][1]        |
+| Aktivera Windows 10-enheter      |                                        |                                | ![Markera][1]        |
+| Kontrollera distributionen     | ![Markera][1]                            | ![Markera][1]                    | ![Markera][1]        |
+| Kontrollera domänanslutna enheter          | ![Markera][1]                            | ![Markera][1]                    | ![Markera][1]        |
 
 
 
-## <a name="step-1-configure-service-connection-point"></a>Steg 1: Konfigurera tjänstanslutningspunkten
+## <a name="configure-service-connection-point"></a>Konfigurera tjänstanslutningspunkt
 
 Tjänsten anslutningsobjektet punkt (SCP) används av dina enheter under registreringen för att identifiera Azure AD-klient-information. SCP-objektet för hybrid Azure AD-anslutna enheter måste finnas i konfigurationen namnge kontext partition av datorns skog i din lokala Active Directory (AD). Det finns bara en konfigurationsnamngivningen per skog. Tjänstanslutningspunkten måste finnas i alla skogar som innehåller domänanslutna datorer i en konfiguration för flera skogar Active Directory.
 
@@ -200,7 +200,7 @@ Om du vill hämta en lista över verifierade företagets domäner, kan du använ
 
 ![Get-AzureADDomain](./media/hybrid-azuread-join-manual-steps/01.png)
 
-## <a name="step-2-setup-issuance-of-claims"></a>Steg 2: Konfigurera utfärdande av anspråk
+## <a name="setup-issuance-of-claims"></a>Konfigurera utfärdande av anspråk
 
 I en federerad Azure AD-konfiguration enheter förlitar sig på Active Directory Federation Services (AD FS) eller en 3 parten den lokala federationstjänsten att autentisera till Azure AD. Enheter autentiseras för att få en åtkomsttoken för att registrera mot den Azure Active Directory Device Registration Service (Azure DRS).
 
@@ -504,7 +504,7 @@ Följande skript kan du skapa den utfärdande regler som beskrivs ovan.
 
 - Om du redan har skickat en **ImmutableID** anspråk för användarkonton genom att ange värdet för **$immutableIDAlreadyIssuedforUsers** i skriptet till **$true**.
 
-## <a name="step-3-enable-windows-down-level-devices"></a>Steg 3: Aktivera Windows äldre enheter
+## <a name="enable-windows-down-level-devices"></a>Aktivera Windows äldre enheter
 
 Om några av dina domänanslutna enheter är Windows äldre enheter, måste du:
 
@@ -562,7 +562,7 @@ Uppmanar när användare i registrera enheter autentiserar till Azure AD som du 
 
 `https://device.login.microsoftonline.com`
 
-## <a name="step-4-control-deployment-and-rollout"></a>Steg 4: Kontrollera distributionen
+## <a name="control-deployment-and-rollout"></a>Kontrollera distributionen
 
 När du har slutfört steg som krävs, är du redo att automatiskt ansluta till Azure AD-domänanslutna enheter:
 
@@ -611,15 +611,24 @@ Du kan distribuera paketet med hjälp av ett system för programvarudistribution
 
 Installationsprogrammet skapar en schemalagd aktivitet på system som körs i användarens kontext. Aktiviteten utlöses när användaren loggar in på Windows. Uppgiften kopplar tyst enhet med Azure AD med autentiseringsuppgifterna för användaren när de har autentiserat med integrerad Windows-autentisering. Om du vill se den schemalagda aktiviteten, i enheten, går du till **Microsoft** > **Arbetsplatsanslutning**, och gå sedan till Schemaläggaren-biblioteket.
 
-## <a name="step-5-verify-joined-devices"></a>Steg 5: Kontrollera domänanslutna enheter
+## <a name="verify-joined-devices"></a>Kontrollera domänanslutna enheter
 
 Du kan kontrollera lyckad domänanslutna enheter i organisationen med hjälp av den [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet i den [Azure Active Directory PowerShell-modulen](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 Utdata från denna cmdlet visar enheter som har registrerats och anslutits med Azure AD. Hämta alla enheter med den **-alla** parameter, och sedan filtrera dem med hjälp av den **deviceTrustType** egenskapen. Domänanslutna enheter har värdet **domänanslutna**.
 
+
+
+## <a name="troubleshoot-your-implementation"></a>Felsöka din implementering
+
+Om du har problem med att slutföra hybrid Azure AD join för domän anslutna Windows-enheter, se:
+
+- [Felsöka Hybrid Azure AD-anslutning för befintliga Windows-enheter](troubleshoot-hybrid-join-windows-current.md)
+- [Felsöka Hybrid Azure AD-anslutning för Windows äldre enheter](troubleshoot-hybrid-join-windows-legacy.md)
+
 ## <a name="next-steps"></a>Nästa steg
 
-* [Introduktion till hantering av enheter i Azure Active Directory](../device-management-introduction.md)
+* [Introduktion till hantering av enheter i Azure Active Directory](overview.md)
 
 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2018
 ms.author: rithorn
-ms.openlocfilehash: fab26fec44b671a9f779b114c1521bc8142d9427
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 04d5f5dc340d6be47a26baf05aa3d2f2ea7458ae
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389406"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428826"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera dina resurser med hanteringsgrupper
 
@@ -254,4 +254,4 @@ Mer information om hanteringsgrupper finns:
 - [Skapa hanteringsgrupper för att organisera Azure-resurser](management-groups-create.md)
 - [Installera Azure Powershell-modulen](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Granska REST API-specifikationen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Installera Azure CLI-tillägg](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [Installera Azure CLI-tillägg](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)

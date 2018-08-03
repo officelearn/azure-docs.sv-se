@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 1ad18bd1aea36c5f185f7a8e3062b1c2103017c5
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 4f25768cc7e4f5865c6cfa96ebfe3b0df97deeb6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049797"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421380"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Självstudier: Azure Active Directory-integration med TINFOIL SECURITY
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Lägg till TINFOIL SECURITY från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="add-tinfoil-security-from-the-gallery"></a>Lägg till TINFOIL SECURITY från galleriet
 För att konfigurera integrering av TINFOIL SECURITY i Azure AD, som du behöver lägga till TINFOIL SECURITY från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av TINFOIL SECURITY i Azure AD, som du behöver
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **TINFOIL SECURITY**väljer **TINFOIL SECURITY** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **TINFOIL SECURITY**väljer **TINFOIL SECURITY** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![TINFOIL SECURITY från galleriet](./media/tinfoil-security-tutorial/tutorial_tinfoil-security_addfromgallery.png)
 
@@ -86,10 +86,10 @@ TINFOIL Security, tilldela värdet för den **användarnamn** i Azure AD som vä
 Om du vill konfigurera och testa Azure AD enkel inloggning med TINFOIL SECURITY, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare TINFOIL SECURITY](#create-a-tinfoil-security-test-user)**  – du har en motsvarighet för Britta Simon i TINFOIL SECURITY som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare TINFOIL SECURITY](#create-a-tinfoil-security-test-user)**  – du har en motsvarighet för Britta Simon i TINFOIL SECURITY som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -101,20 +101,20 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![SAML-baserad inloggning](./media/tinfoil-security-tutorial/tutorial_tinfoil-security_samlbase.png)
 
-3. På den **TINFOIL SECURITY domän och URL: er** avsnittet användaren behöver inte utföra några steg som appen är redan förintegrerade med Azure.
+1. På den **TINFOIL SECURITY domän och URL: er** avsnittet användaren behöver inte utföra några steg som appen är redan förintegrerade med Azure.
 
     ![Konfigurera enkel inloggning](./media/tinfoil-security-tutorial/tutorial_tinfoil-security_url.png)
 
 
-4. På den **SAML-signeringscertifikat** avsnittet, kopiera den **TUMAVTRYCK** värde.
+1. På den **SAML-signeringscertifikat** avsnittet, kopiera den **TUMAVTRYCK** värde.
 
     ![Avsnittet för SAML-signeringscertifikat](./media/tinfoil-security-tutorial/tutorial_tinfoil-security_certificate.png) 
 
-5. Om du vill lägga till de nödvändiga attributmappningarna, utför du följande steg:
+1. Om du vill lägga till de nödvändiga attributmappningarna, utför du följande steg:
     
     ![Attribut](./media/tinfoil-security-tutorial/tutorial_tinfoil-security_attribute1.png "attribut")
     
@@ -134,25 +134,25 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     d. Klicka på **OK**.    
 
-6. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Knappen Spara](./media/tinfoil-security-tutorial/tutorial_general_400.png)
 
-7. På den **TINFOIL SECURITY Configuration** klickar du på **konfigurera TINFOIL SECURITY** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **TINFOIL SECURITY Configuration** klickar du på **konfigurera TINFOIL SECURITY** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![TINFOIL SECURITY-konfiguration](./media/tinfoil-security-tutorial/tutorial_tinfoil-security_configure.png) 
 
-8. Logga in på webbplatsen för företagets TINFOIL SECURITY som en administratör i ett annat webbläsarfönster.
+1. Logga in på webbplatsen för företagets TINFOIL SECURITY som en administratör i ett annat webbläsarfönster.
 
-9. I verktygsfältet högst upp, klickar du på **mitt konto**.
+1. I verktygsfältet högst upp, klickar du på **mitt konto**.
    
     ![Instrumentpanelen](./media/tinfoil-security-tutorial/ic798971.png "instrumentpanel")
 
-10. Klicka på **Security**.
+1. Klicka på **Security**.
    
     ![Security](./media/tinfoil-security-tutorial/ic798972.png "säkerhet")
 
-11. På den **enkel inloggning** configuration utför följande steg:
+1. På den **enkel inloggning** configuration utför följande steg:
    
     ![Enkel inloggning](./media/tinfoil-security-tutorial/ic798973.png "enkel inloggning")
    
@@ -183,15 +183,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](./media/tinfoil-security-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
     ![Användare och grupper -> alla användare ](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
     ![Användare](./media/tinfoil-security-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
     ![Skapa en Azure AD-användare för testning](./media/tinfoil-security-tutorial/create_aaduser_04.png) 
 
@@ -211,7 +211,7 @@ För att aktivera Azure AD-användare att logga in på TINFOIL SECURITY, måste 
 
 1. Om användaren är en del av ett Enterprise-konto, måste du [kontakta supporten TINFOIL SECURITY](https://www.tinfoilsecurity.com/contact) att hämta det användarkonto som har skapats.
 
-2. Om användaren är en vanlig TINFOIL SECURITY SaaS-användare, kan du lägga till medarbetare till någon av användarens platser. Detta utlöser en process för att skicka en inbjudan till den angivna e-posten för att skapa ett nytt användarkonto TINFOIL SECURITY.
+1. Om användaren är en vanlig TINFOIL SECURITY SaaS-användare, kan du lägga till medarbetare till någon av användarens platser. Detta utlöser en process för att skicka en inbjudan till den angivna e-posten för att skapa ett nytt användarkonto TINFOIL SECURITY.
 
 > [!NOTE]
 > Du kan använda andra verktyg för TINFOIL SECURITY användare konto att skapa eller API: er som tillhandahålls av TINFOIL SECURITY för att etablera användarkonton i Azure AD.
@@ -230,23 +230,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **TINFOIL SECURITY**.
+1. I listan med program väljer **TINFOIL SECURITY**.
 
     ![Välj TINFOIL SECURITY](./media/tinfoil-security-tutorial/tutorial_tinfoil-security_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

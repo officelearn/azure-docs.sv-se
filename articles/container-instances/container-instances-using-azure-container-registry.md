@@ -1,6 +1,6 @@
 ---
-title: Distribuera till Azure-Behållarinstanser från Azure-behållaren registret
-description: Lär dig hur du distribuerar behållare i Azure-Behållarinstanser som använder behållaren bilder i registret för en Azure-behållaren.
+title: Distribuera till Azure Container Instances från Azure Container Registry
+description: Lär dig hur du distribuerar behållare i Azure Container Instances via behållaravbildningar i ett Azure container registry.
 services: container-instances
 author: mmacy
 manager: jeconnoc
@@ -9,34 +9,34 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 7a7d2aa61f25bc4782c6a1a6744e329935477f8c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5c3cf162caf5cf9aa88b012257d4caab37b7893c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168123"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424219"
 ---
-# <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Distribuera till Azure-Behållarinstanser från Azure-behållaren registret
+# <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Distribuera till Azure Container Instances från Azure Container Registry
 
-Azure Container registret är en Azure-baserade, privat bilderna Docker-behållaren i registret. Den här artikeln beskriver hur du distribuerar behållare bilderna som lagras i en Azure-behållaren registret till Behållarinstanser som Azure.
+Azure Container Registry är en Azure-baserat och privat register för Docker-behållaravbildningar. Den här artikeln beskriver hur du distribuerar behållaravbildningar lagras i ett Azure container registry till Azure Container Instances.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-**Azure Container registret**: du behöver ett Azure-behållaren registret-- och minst en behållare bilden i registret--för att slutföra stegen i den här artikeln. Om du behöver ett register finns [skapa en behållare registret med hjälp av Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
+**Azure Container Registry**: du behöver ett Azure-behållarregister – och minst en behållaravbildning i registret – för att slutföra stegen i den här artikeln. Om du behöver ett register, se [skapa ett behållarregister med hjälp av Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
 
-**Azure CLI**: exemplen i den här artikeln används den [Azure CLI](/cli/azure/) och formateras för Bash-gränssnitt. Du kan [installerar Azure CLI](/cli/azure/install-azure-cli) lokalt, eller använda den [Azure Cloud Shell][cloud-shell-bash].
+**Azure CLI**: exemplen i den här artikeln i [Azure CLI](/cli/azure/) och formateras för Bash-gränssnittet. Du kan [installera Azure CLI](/cli/azure/install-azure-cli) lokalt, eller Använd den [Azure Cloud Shell][cloud-shell-bash].
 
-## <a name="configure-registry-authentication"></a>Konfigurera registret autentisering
+## <a name="configure-registry-authentication"></a>Konfigurera registerautentisering
 
-I någon form av produktionsscenario, åtkomst till en Azure-behållaren registret ska tillhandahållas med hjälp av [tjänsten säkerhetsobjekt](../container-registry/container-registry-auth-service-principal.md). Tjänstens huvudnamn kan du ge rollbaserad åtkomstkontroll till bilderna behållare. Du kan till exempel konfigurera ett huvudnamn för tjänsten med pull åtkomst till ett register.
+I alla scenarier för produktion, åtkomst till ett Azure container registry måste anges med hjälp av [tjänsthuvudnamn](../container-registry/container-registry-auth-service-principal.md). Med tjänstens huvudnamn får du rollbaserad åtkomstkontroll till containeravbildningarna. Du kan till exempel konfigurera ett huvudnamn för tjänsten med enbart hämtningsåtkomst till ett register.
 
-I det här avsnittet, skapa ett Azure key vault och ett huvudnamn för tjänsten och lagra autentiseringsuppgifter för tjänstens huvudnamn i valvet.
+I det här avsnittet ska du skapa ett Azure key vault och ett huvudnamn för tjänsten och lagra autentiseringsuppgifter för tjänstens huvudnamn i valvet.
 
 ### <a name="create-key-vault"></a>Skapa nyckelvalv
 
-Om du inte redan har ett valv [Azure Key Vault](/azure/key-vault/), skapa ett med Azure CLI med hjälp av följande kommandon.
+Om du inte redan har ett valv i [Azure Key Vault](/azure/key-vault/), skapar du ett med Azure CLI och följande kommandon.
 
-Uppdatering av `RES_GROUP` variabeln med namnet på resursgruppen där du vill skapa nyckelvalvet, och `ACR_NAME` med namnet på behållaren registret. Ange ett namn för din nya nyckelvalvet i `AKV_NAME`. Valvnamnet måste vara unikt i Azure och måste bestå av 3 till 24 alfanumeriska tecken långt, börja med en bokstav, sluta med en bokstav eller siffra, och får inte innehålla bindestreck efter varandra.
+Uppdatera den `RES_GROUP` variabeln med namnet på resursgruppen där du vill skapa key vault och `ACR_NAME` med namnet på ditt behållarregister. Ange ett namn för ett nytt nyckelvalv i `AKV_NAME`. Valvnamnet måste vara unikt i Azure och måste vara 3-24 alfanumeriska tecken långt, börja med en bokstav, sluta med en bokstav eller siffra, och får inte innehålla bindestreck.
 
 ```azurecli
 RES_GROUP=myresourcegroup # Resource Group name
@@ -48,9 +48,9 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 ### <a name="create-service-principal-and-store-credentials"></a>Skapa tjänstens huvudnamn och lagra autentiseringsuppgifter
 
-Du måste nu skapa ett huvudnamn för tjänsten och lagra sina autentiseringsuppgifter i nyckelvalvet.
+Du måste nu skapa ett huvudnamn för tjänsten och lagra dess autentiseringsuppgifter i nyckelvalvet.
 
-Följande kommando använder [az ad sp skapa-för-rbac] [ az-ad-sp-create-for-rbac] att skapa tjänstens huvudnamn och [az keyvault hemlig ställa] [ az-keyvault-secret-set] att lagra den tjänstens huvudnamn **lösenord** i valvet.
+Följande kommando använder [az ad sp create-for-rbac] [ az-ad-sp-create-for-rbac] att skapa tjänstens huvudnamn, och [az keyvault secret set] [ az-keyvault-secret-set] att lagra den tjänstens huvudnamn **lösenord** i valvet.
 
 ```azurecli
 # Create service principal, store its password in AKV (the registry *password*)
@@ -65,9 +65,9 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-Den `--role` argumentet i föregående kommando konfigurerar huvudnamn för tjänsten med den *reader* vilket ger den pull åtkomst till registret. Om du vill bevilja åtkomst till både push och pull åtkomst måste du ändra den `--role` argumentet för *deltagare*.
+Argumentet `--role` i föregående kommando konfigurerar huvudnamnet för tjänsten med rollen *läsare*, vilket endast ger den hämtningsåtkomst till registret. Om du vill bevilja både sändnings- och hämtningsåtkomst ändrar du argumentet `--role` till *deltagare*.
 
-Därefter lagra tjänstens huvudnamn *appId* i valvet, vilket är den **användarnamn** du skickar till Azure-behållare registret för autentisering.
+Nu ska lagra tjänstens huvudnamn *appId* i valvet, vilket är den **användarnamn** du skickar till Azure Container Registry för autentisering.
 
 ```azurecli
 # Store service principal ID in AKV (the registry *username*)
@@ -77,18 +77,20 @@ az keyvault secret set \
     --value $(az ad sp show --id http://$ACR_NAME-pull --query appId --output tsv)
 ```
 
-Du har skapat ett Azure Key Vault och lagras två hemligheter i den:
+Du har skapat ett Azure Key Vault och lagrat två hemligheter i det:
 
-* `$ACR_NAME-pull-usr`: Tjänsten ägar-ID, som ska användas som behållare registret **användarnamn**.
-* `$ACR_NAME-pull-pwd`: Lösenordet för tjänstens huvudnamn, som ska användas som behållare registret **lösenord**.
+* 
+  `$ACR_NAME-pull-usr`: ID för tjänstens huvudnamn som ska användas som containerregistrets **användarnamn**.
+* 
+  `$ACR_NAME-pull-pwd`: Lösenord för tjänstens huvudnamn som ska användas som containerregistrets **lösenord**.
 
-Nu kan du referera dessa hemligheter efter namn när du eller ditt program och tjänster pull-avbildningar från registret.
+Nu kan du referera till dessa hemligheter efter namn när du eller dina program och tjänster hämtar avbildningar från registret.
 
-## <a name="deploy-container-with-azure-cli"></a>Distribuera behållare med Azure CLI
+## <a name="deploy-container-with-azure-cli"></a>Distribuera containrar med Azure CLI
 
-Nu när tjänstens huvudnamn autentiseringsuppgifterna lagras i Azure Key Vault hemligheter, kan dina program och tjänster använda dem åtkomst till privata registret.
+Nu när autentiseringsuppgifter för tjänstens huvudnamn är lagrade i Azure Key Vault-hemligheter, kan dina program och tjänster använda dem för att få åtkomst till ditt privata register.
 
-Kör följande [az behållaren skapa] [ az-container-create] kommando för att distribuera en instans i behållaren. Kommandot använder tjänstens huvudnamn autentiseringsuppgifter lagras i Azure Key Vault för att autentisera till registret behållare och förutsätter att du har tidigare pushas den [aci helloworld](container-instances-quickstart.md) avbildningen till registret. Uppdatering av `--image` värde om du vill använda en annan bild från registret.
+Kör kommandot [az container create][az-container-create] för att distribuera en behållarinstans. Kommandot använder autentiseringsuppgifter för tjänstens huvudnamn i Azure Key Vault för att autentisera till behållarregistret och förutsätter att du tidigare har push-överfört den [aci-helloworld](container-instances-quickstart.md) avbildningen till registret. Uppdatera den `--image` värde om du vill använda en annan avbildning från ditt register.
 
 ```azurecli
 az container create \
@@ -102,18 +104,18 @@ az container create \
     --query ipAddress.fqdn
 ```
 
-Den `--dns-name-label` värdet måste vara unikt i Azure, så föregående kommando lägger till ett slumptal till behållarens DNS-namnetikett. Utdata från kommandot visar behållarens fullständigt kvalificerade domännamnet (FQDN), till exempel:
+Den `--dns-name-label` värdet måste vara unikt i Azure, så föregående kommando lägger till ett slumptal till behållarens DNS-namnetikett. Utdata från kommandot visar containerns fullständiga domännamn (FQDN), till exempel:
 
 ```console
 $ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_NAME.azurecr.io/aci-helloworld:v1 --registry-login-server $ACR_NAME.azurecr.io --registry-username $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-usr --query value -o tsv) --registry-password $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-pwd --query value -o tsv) --dns-name-label aci-demo-$RANDOM --query ipAddress.fqdn
 "aci-demo-25007.eastus.azurecontainer.io"
 ```
 
-När behållaren har startats, kan du navigera till dess FQDN i webbläsaren och kontrollera programmet körts.
+När behållaren har startat, kan du navigera till dess FQDN i webbläsaren för att kontrollera programmet körts.
 
 ## <a name="deploy-with-azure-resource-manager-template"></a>Distribuera med Azure Resource Manager-mall
 
-Du kan ange egenskaper för Azure-behållare registret i en Azure Resource Manager-mall genom att inkludera den `imageRegistryCredentials` egenskap i Gruppdefinition behållare:
+Du kan ange egenskaperna för ditt Azure-Behållarregister i en Azure Resource Manager-mall genom att inkludera den `imageRegistryCredentials` -egenskapen i definitionen för behållargruppen:
 
 ```JSON
 "imageRegistryCredentials": [
@@ -125,29 +127,29 @@ Du kan ange egenskaper för Azure-behållare registret i en Azure Resource Manag
 ]
 ```
 
-Mer information om refererar till Azure Key Vault hemligheter i en Resource Manager-mall finns [Använd Azure Key Vault för att skicka säkra parametervärdet under distributionen av](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+Mer information för att hänvisa till Azure Key Vault-hemligheter i Resource Manager-mall finns i [använda Azure Key Vault för att skicka säkra parametervärdet under distributionen](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
 ## <a name="deploy-with-azure-portal"></a>Distribuera med Azure-portalen
 
-Om du underhåller behållaren avbildningar i Azure Container registret kan du enkelt skapa en behållare i Azure Container instanser med Azure-portalen.
+Om du behåller behållaravbildningar i Azure Container Registry kan du enkelt skapa en behållare i Azure Container Instances via Azure-portalen.
 
-1. Navigera till behållaren registret i Azure-portalen.
+1. Gå till ditt behållarregister i Azure-portalen.
 
-1. Välj **databaser**, välj sedan databasen som du vill distribuera, högerklicka på taggen för behållaren-avbildning som du vill distribuera och välj **kör instans**.
+1. Välj **databaser**, och välj sedan databasen som du vill distribuera från, högerklicka på taggen för den behållaravbildning som du vill distribuera och välj **kör instans**.
 
-    ![”Kör instans” i registret för Azure-behållaren i Azure-portalen][acr-runinstance-contextmenu]
+    ![”Kör instans” i Azure Container Registry på Azure-portalen][acr-runinstance-contextmenu]
 
-1. Ange ett namn för behållaren och ett namn för resursgruppen. Du kan också ändra standardvärden om du vill.
+1. Ange ett namn för behållaren och ett namn för resursgruppen. Du kan också ändra standardinställningarna om du vill.
 
-    ![Skapa meny för Azure-Behållarinstanser][acr-create-deeplink]
+    ![Skapa meny för Azure Container Instances][acr-create-deeplink]
 
-1. När distributionen är klar kan du gå till behållargruppen från fönstret meddelanden för att hitta sin IP-adress och andra egenskaper.
+1. När distributionen är klar kan du navigera till behållargruppen via meddelandefönstret för att hitta dess IP-adress och andra egenskaper.
 
-    ![Detaljvyn för Azure-behållare instansgrupp behållare][aci-detailsview]
+    ![Detaljer för Azure Container Instances-behållargrupp][aci-detailsview]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure-behållare registret autentisering [autentisera med en Azure-behållaren registret](../container-registry/container-registry-authentication.md).
+Läs mer om Azure Container Registry authentication [autentisera med ett Azure container registry](../container-registry/container-registry-authentication.md).
 
 <!-- IMAGES -->
 [acr-create-deeplink]: ./media/container-instances-using-azure-container-registry/acr-create-deeplink.png
@@ -160,5 +162,5 @@ Läs mer om Azure-behållare registret autentisering [autentisera med en Azure-b
 
 <!-- LINKS - Internal -->
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-container-create]: /cli/azure/container#az_container_create
+[az-container-create]: /cli/azure/container#az-container-create
 [az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set

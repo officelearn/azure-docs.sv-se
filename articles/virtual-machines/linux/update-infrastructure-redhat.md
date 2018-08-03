@@ -1,6 +1,6 @@
 ---
-title: Infrastrukturen för Red Hat | Microsoft Docs
-description: Lär dig mer om infrastrukturen för Red Hat för på begäran Red Hat Enterprise Linux-instanser i Microsoft Azure
+title: Uppdateringsinfrastruktur för Red Hat | Microsoft Docs
+description: Läs mer om Red Hat-Uppdateringsinfrastruktur för Red Hat Enterprise Linux på begäran-instanser i Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: BorisB2015
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: borisb
-ms.openlocfilehash: b69cc226ca5b4f48747b033e0da5e7f991be112e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 570b820e21df6db70b9cadf33d5a120132be62ed
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915478"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426759"
 ---
-# <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update infrastruktur för att på begäran Red Hat Enterprise Linux virtuella datorer i Azure
- [Infrastrukturen för Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) gör att molntjänstleverantörer, till exempel Azure att spegla Red Hat-värdbaserad databasinnehåll, skapa anpassade databaser med Azure-specifika innehåll och gör den tillgänglig för slutanvändaren virtuella datorer.
+# <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Uppdateringsinfrastruktur för Red Hat för på begäran Red Hat Enterprise Linux-datorer i Azure
+ [Uppdateringsinfrastruktur för Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) gör att cloud-leverantörer, till exempel Azure för spegling av Red Hat-värdbaserade databasinnehåll, skapa anpassade databaser med Azure-specifika innehåll och gör den tillgänglig för slutanvändaren virtuella datorer.
 
-Red Hat Enterprise Linux (RHEL) betala per användning (PAYG) bilder levereras förinställda åtkomst till Azure RHUI. Ingen ytterligare konfiguration krävs. För att få de senaste uppdateringarna, köra `sudo yum update` när RHEL-instans är klar. Den här tjänsten ingår som en del av RHEL PAYG programvara avgifter.
+Red Hat Enterprise Linux (RHEL) betala per användning (PAYG) avbildningar kommer förkonfigurerade för att komma åt Azure RHUI. Ingen ytterligare konfiguration krävs. För att få de senaste uppdateringarna, köra `sudo yum update` när din RHEL-instans är klar. Den här tjänsten ingår som en del av RHEL PAYG-programvaruavgifter.
 
 ## <a name="important-information-about-azure-rhui"></a>Viktig information om Azure RHUI
-* Azure RHUI stöder för närvarande endast den senaste minor-versionen i varje RHEL familj (RHEL6 eller RHEL7). Om du vill uppgradera en RHEL VM-instans som är anslutna till RHUI till den senaste versionen av mindre kör `sudo yum update`.
+* Azure RHUI stöder för närvarande endast den senaste mindre versionen i varje RHEL-serien (RHEL6 eller RHEL7). Om du vill uppgradera en RHEL VM-instans som är anslutna till RHUI till den senaste minor-versionen, kör `sudo yum update`.
 
-    Om du vill etablera en virtuell dator från en avbildning RHEL 7.2 PAYG och kör till exempel `sudo yum update`, du får en RHEL 7.4 virtuell dator (senaste lägre version i familjen RHEL7).
+    Exempel: Om du vill etablera en virtuell dator från en RHEL 7.2 PAYG-avbildning och kör `sudo yum update`, att avslutas med en RHEL 7.4 virtuell dator (de senaste mindre versionen i RHEL7-serien).
 
-    Om du vill undvika det här problemet måste du skapa en egen avbildning som beskrivs i den [skapa och ladda upp en Red Hat-baserad virtuell dator för Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artikel. Sedan måste du ansluta till en annan uppdatering infrastruktur ([innehåll direkt leverans servrar till Red Hat](https://access.redhat.com/solutions/253273) eller en [Red Hat satellit server](https://access.redhat.com/products/red-hat-satellite)).
+    För att undvika det här beteendet kan du behöva skapa en egen avbildning enligt beskrivningen i den [skapa och ladda upp en Red Hat-baserad virtuell dator för Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artikeln. Måste du ansluta den till en annan uppdatering-infrastruktur ([direkt till Red Hat innehåll servrar](https://access.redhat.com/solutions/253273) eller en [Red Hat satellit server](https://access.redhat.com/products/red-hat-satellite)).
 
-* Åtkomst till Azure-baserad RHUI ingår i RHEL PAYG avbildningen priset. Om du avregistrerar en virtuell dator RHEL PAYG från Azure-baserad RHUI konverterar som inte den virtuella datorn till en bring-your-äger-licens (BYOL) typ för den virtuella datorn. Om du registrerar av samma virtuella dator med en annan källa för uppdateringar, du kan innebära _indirekt_ dubbla avgifter. Du är debiteras första gången för Azure RHEL programvara avgift. Du är debiteras en gång för Red Hat-prenumerationer som köpts tidigare. Om du behöver konsekvent att använda en annan infrastruktur än Azure-baserad RHUI kan du skapa och distribuera dina egna avbildningar (BYOL-typ). Den här processen beskrivs i [skapa och ladda upp en Red Hat-baserad virtuell dator för Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Åtkomst till Azure som värd-RHUI ingår i priset för RHEL PAYG-avbildningen. Om du avregistrerar en PAYG RHEL virtuell dator från Azure som värd-RHUI konverterar som den virtuella datorn inte till en bring-your-own-license (BYOL) typ av virtuell dator. Om du har registrerat samma virtuella dator med en annan källa för uppdateringar kan roamingavgifter _indirekt_ dubbelklicka avgifter. Du debiteras för första gången för avgiften för Azure RHEL-programvara. Du debiteras den andra gången för Red Hat-prenumerationer som köpts tidigare. Om du behöver konsekvent att använda en uppdateringsinfrastruktur än Azure-värdbaserade RHUI kan du skapa och distribuera dina egna avbildningar (BYOL-typ). Den här processen beskrivs i [skapa och ladda upp en Red Hat-baserad virtuell dator för Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-* Två klasser av RHEL PAYG avbildningar i Azure (RHEL för SAP HANA) och RHEL för SAP Business-program är anslutna till dedikerade RHUI kanaler som finns kvar på RHEL specifika lägre version som krävs för SAP-certifiering. 
+* Två klasser av RHEL PAYG-avbildningar i Azure (RHEL for SAP HANA) och RHEL for SAP Business Applications är anslutna till RHUI kanaler som finns kvar på den specifika RHEL lägre versionen som krävs för SAP-certifiering. 
 
-* Åtkomst till Azure-baserad RHUI är begränsad till de virtuella datorerna inom de [IP-adressintervall för Azure-datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Om du är proxyanslutning alla VM-trafik via ett lokalt nätverksinfrastruktur, du kan behöva konfigurera användardefinierade vägar för de virtuella datorerna PAYG RHEL åtkomst till Azure-RHUI.
+* Åtkomst till Azure-värdbaserade RHUI är begränsad till de virtuella datorerna inom de [Azure datacenter IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653). Om du är proxy är alla VM-trafik via en lokal nätverksinfrastruktur, du kan behöva konfigurera användardefinierade vägar för RHEL PAYG virtuella datorer till Azure-RHUI.
 
-### <a name="the-ips-for-the-rhui-content-delivery-servers"></a>IP-adresser för servrar för RHUI leverans av innehåll
+### <a name="the-ips-for-the-rhui-content-delivery-servers"></a>IP-adresser för servrarna som RHUI
 
-RHUI är tillgänglig i alla regioner där RHEL på begäran bilder är tillgängliga. För närvarande innehåller alla offentliga områden som anges på den [Azure status instrumentpanelen](https://azure.microsoft.com/status/) sida, Azure som tillhör amerikanska myndigheter och Tyskland för Microsoft Azure-regioner. 
+RHUI är tillgänglig i alla regioner där RHEL-avbildningar på begäran är tillgängliga. Omfattar för närvarande alla offentliga regioner som visas på den [Azure statusinstrumentpanelen](https://azure.microsoft.com/status/) sida, Azure US Government och Microsoft Azure Tyskland-regioner. 
 
-Om du använder en nätverkskonfiguration för att begränsa åtkomsten ytterligare från RHEL PAYG virtuella datorer kontrollerar du att följande IP-adresser tillåts för `yum update` ska fungera beroende på miljön som du använder: 
+Om du använder en nätverkskonfiguration för att ytterligare begränsa åtkomst från RHEL PAYG virtuella datorer, se till att följande IP-adresser tillåts för `yum update` ska fungera beroende på den miljö som du använder: 
 
 ```
 # Azure Global
@@ -61,27 +61,27 @@ Om du använder en nätverkskonfiguration för att begränsa åtkomsten ytterlig
 51.4.228.145
 ```
 
-## <a name="rhui-azure-infrastructure-update"></a>Uppdatering av RHUI Azure-infrastrukturen
+## <a name="rhui-azure-infrastructure-update"></a>Uppdatering av RHUI-Azure-infrastrukturen
 
-I September 2016 distribuerade vi en uppdaterad RHUI i Azure. I April 2017 Stäng vi gamla Azure RHUI. Om du har använt RHEL PAYG-bilder (eller deras ögonblicksbilder) från September 2016 eller senare måste ansluter du automatiskt till den nya Azure-RHUI. Om men du har äldre ögonblicksbilder på dina virtuella datorer, måste du manuellt uppdatera konfigurationen för att komma åt Azure-RHUI som beskrivs i följande avsnitt.
+I September 2016 kommer distribuerade vi en uppdaterade Azure RHUI. I April 2017 stänga vi av den gamla Azure-RHUI. Om du har använt RHEL PAYG-bilder (eller deras ögonblicksbilder) från September 2016 eller senare måste ansluter du automatiskt till den nya Azure-RHUI. Om du har dock äldre ögonblicksbilder på dina virtuella datorer kan behöva du manuellt uppdatera konfigurationen för att komma åt Azure-RHUI enligt beskrivningen i följande avsnitt.
 
-De nya Azure RHUI-servrarna distribueras med [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). I Traffic Manager en enda slutpunkt (rhui 1.microsoft.com) kan användas av en virtuell dator oavsett region. 
+De nya Azure RHUI-servrarna distribueras med [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). I Traffic Manager, en enda slutpunkt (rhui-1.microsoft.com) kan användas av alla virtuella datorer, oavsett region. 
 
-### <a name="troubleshoot-connection-problems-to-azure-rhui"></a>Felsökning av anslutningsproblem med till Azure RHUI
-Följ dessa steg om du får problem med att ansluta till Azure RHUI från din Azure RHEL PAYG VM:
+### <a name="troubleshoot-connection-problems-to-azure-rhui"></a>Felsök anslutningsproblem till Azure RHUI
+Om du får problem med att ansluta till Azure RHUI från Azure RHEL PAYG-VM, gör du följande:
 
-1. Kontrollera konfigurationen för virtuell dator för Azure RHUI slutpunkten:
+1. Kontrollera konfigurationen för virtuell dator för Azure RHUI-slutpunkten:
 
-    a. Kontrollera om den `/etc/yum.repos.d/rh-cloud.repo` filen innehåller en referens till `rhui-[1-3].microsoft.com` i den `baseurl` av den `[rhui-microsoft-azure-rhel*]` avsnitt i filen. Om du använder den nya Azure-RHUI.
+    a. Kontrollera om den `/etc/yum.repos.d/rh-cloud.repo` filen innehåller en referens till `rhui-[1-3].microsoft.com` i den `baseurl` av den `[rhui-microsoft-azure-rhel*]` i filen. I annat fall använder du den nya Azure-RHUI.
 
-    b. Om den pekar på en plats med följande mönster `mirrorlist.*cds[1-4].cloudapp.net`, en konfiguration måste uppdateras. Du använder den gamla VM-ögonblicksbilden och du behöver uppdatera den att peka mot den nya Azure-RHUI.
+    b. Om den pekar på en plats med följande mönster `mirrorlist.*cds[1-4].cloudapp.net`, krävs en konfigurationsuppdatering. Du använder den gamla VM-ögonblicksbilden och du måste du uppdatera den så att den pekar till den nya Azure-RHUI.
 
-2. Åtkomst till Azure-baserad RHUI begränsas till virtuella datorer [Azure-datacenter IP-adressintervall] (https://www.microsoft.com/download/details.aspx?id=41653).
+1. Åtkomst till Azure-värdbaserade RHUI begränsas till virtuella datorer [Azure-datacenter IP-adressintervall] (https://www.microsoft.com/download/details.aspx?id=41653).
  
-3. Om du använder den nya konfigurationen har verifierat att den virtuella datorn ansluter från Azure IP-adressintervall och fortfarande inte kan ansluta till Azure RHUI, filen ett supportärende med Microsoft eller Red Hat.
+1. Om du använder den nya konfigurationen har verifierat att den virtuella datorn ansluter från Azure-IP-adressintervall och fortfarande inte kan ansluta till Azure RHUI, filen ett supportärende med Microsoft eller Red Hat.
 
-### <a name="manual-update-procedure-to-use-the-azure-rhui-servers"></a>Manuell uppdatering metod du använder Azure RHUI-servrar
-Den här proceduren tillhandahålls endast för referens. RHEL PAYG bilder har redan rätt konfiguration för att ansluta till Azure RHUI. För att manuellt uppdatera konfigurationen för att använda Azure RHUI servrarna, gör du följande:
+### <a name="manual-update-procedure-to-use-the-azure-rhui-servers"></a>Manuell uppdateringsproceduren för att använda Azure RHUI-servrar
+Den här proceduren tillhandahålls endast för referens. RHEL PAYG-avbildningar har redan rätt konfiguration för att ansluta till Azure RHUI. För att manuellt uppdatera konfigurationen för att använda Azure RHUI-servrarna, gör du följande:
 
 1. Hämta den offentliga nyckel signaturen via curl.
 
@@ -89,13 +89,13 @@ Den här proceduren tillhandahålls endast för referens. RHEL PAYG bilder har r
    curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc 
    ```
 
-2. Verifiera att den hämta nyckeln.
+1. Verifiera att den nedladdade nyckeln.
 
    ```bash
    gpg --list-packets --verbose < RPM-GPG-KEY-microsoft-azure-release
    ```
 
-3. Kontrollera utdata och sedan den `keyid` och `user ID packet`.
+1. Kontrollera utdata och kontrollera den `keyid` och `user ID packet`.
 
    ```bash
    Version: GnuPG v1.4.7 (GNU/Linux)
@@ -119,19 +119,19 @@ Den här proceduren tillhandahålls endast för referens. RHEL PAYG bilder har r
            data: [2047 bits]
    ```
 
-4. Installera den offentliga nyckeln.
+1. Installera den offentliga nyckeln.
 
    ```bash
    sudo install -o root -g root -m 644 RPM-GPG-KEY-microsoft-azure-release /etc/pki/rpm-gpg
    sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-microsoft-azure-release
    ```
 
-5. Hämta, kontrollera och installera en klient RPM Package Manager (RPM).
+1. Hämta, kontrollera och installera en klient RPM Package Manager (RPM).
     
     >[!NOTE]
-    >Paketversionerna ändra. Om du manuellt ansluta till Azure RHUI hittar du den senaste versionen av klientpaketet för varje RHEL familj av etablering senaste bilden från galleriet.
+    >Paketversioner ändra. Om du ansluter manuellt till Azure RHUI kan hitta du den senaste versionen av klientpaketet för respektive RHEL-familj genom att etablera den senaste avbildningen från galleriet.
   
-   a. Hämta. 
+   a. Ladda ned. 
    
     - För RHEL 6:
         ```bash
@@ -149,7 +149,7 @@ Den här proceduren tillhandahålls endast för referens. RHEL PAYG bilder har r
    rpm -Kv azureclient.rpm
    ```
 
-   c. Kontrollera utdata så att signaturen för paketet är OK.
+   c. Kontrollera utdata för att säkerställa att signaturen för paketet är OK.
 
    ```bash
    azureclient.rpm:
@@ -165,7 +165,7 @@ Den här proceduren tillhandahålls endast för referens. RHEL PAYG bilder har r
     sudo rpm -U azureclient.rpm
     ```
 
-6. När du är klar kontrollerar du att du kan komma åt Azure RHUI från den virtuella datorn.
+1. När du är klar kan du kontrollera att du kan komma åt Azure RHUI från den virtuella datorn.
 
 ## <a name="next-steps"></a>Nästa steg
-Skapa en Red Hat Enterprise Linux virtuell dator från en avbildning för Azure Marketplace PAYG och använda Azure-baserad RHUI, gå till den [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/). 
+Skapar en Red Hat Enterprise Linux virtuell dator från en Azure Marketplace PAYG-avbildning och kan använda Azure-värdbaserade RHUI går du till den [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/). 

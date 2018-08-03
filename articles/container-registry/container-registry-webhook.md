@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: marsma
-ms.openlocfilehash: aff8f1b18c60610ff1d231661fe142eb6c69f3d7
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: e85b69e452f4d76dfdf974698fa7d3b5cdbc0c30
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887584"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426096"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Med Azure Container Registry-webhookar
 
@@ -28,7 +28,7 @@ Mer information om webhook-begäranden finns [Schemareferens i Azure Container R
 
 ## <a name="create-webhook-azure-portal"></a>Skapa webhook Azure-portalen
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com)
+1. Logga in på [Azure-portalen](https://portal.azure.com)
 1. Gå till behållarregistret som du vill skapa en webhook.
 1. Under **SERVICES**väljer **Webhooks**.
 1. Välj **Lägg till** i webhook-verktygsfältet.
@@ -49,7 +49,7 @@ Exempelformulär för webhook:
 
 ## <a name="create-webhook-azure-cli"></a>Skapa webhook Azure CLI
 
-Skapa en webhook som använder Azure CLI för att använda den [az acr webhook skapa](/cli/azure/acr/webhook#az_acr_webhook_create) kommando.
+Skapa en webhook som använder Azure CLI för att använda den [az acr webhook skapa](/cli/azure/acr/webhook#az-acr-webhook-create) kommando.
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -69,7 +69,7 @@ Tidigare med hjälp av webhook behållaren bild push och ta bort åtgärder, du 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Om du vill testa en ACR webhook med Azure CLI, använder den [az acr webhook ping](/cli/azure/acr/webhook#az_acr_webhook_ping) kommando.
+Om du vill testa en ACR webhook med Azure CLI, använder den [az acr webhook ping](/cli/azure/acr/webhook#az-acr-webhook-ping) kommando.
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01

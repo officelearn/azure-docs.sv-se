@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 5ae7a0d3aa0606fd02bfbaa0dcebdfaed5d11eb7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: a6f6beedfc6c23be70693428388f6d0e585260bc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283109"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433178"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Skapa miljöer för flera virtuella datorer och PaaS-resurser med Azure Resource Manager-mallar
 
@@ -136,7 +136,7 @@ När du har sparat en Resource Manager-mall och anpassade efter dina behov kan a
 - [Distribuera resurser med Resource Manager-mallar och Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) beskriver hur du använder Azure CLI med Resource Manager-mallar för att distribuera dina resurser till Azure.
 
 > [!NOTE]
-> Endast användare med lab ägarbehörighet kan skapa virtuella datorer från en Resource Manager-mall med hjälp av Azure PowerShell. Om du vill automatisera skapa en virtuell dator med en Resource Manager-mall och du bara har användarbehörigheter, du kan använda den [ **az lab vm skapa** i CLI](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
+> Endast användare med lab ägarbehörighet kan skapa virtuella datorer från en Resource Manager-mall med hjälp av Azure PowerShell. Om du vill automatisera skapa en virtuell dator med en Resource Manager-mall och du bara har användarbehörigheter, du kan använda den [ **az lab vm skapa** i CLI](https://docs.microsoft.com/cli/azure/lab/vm#az-lab-vm-create).
 
 ### <a name="general-limitations"></a>Allmänna begränsningar 
 

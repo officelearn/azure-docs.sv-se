@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 1a1a868302c4cd140d799fdf4962a0badf060c98
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 117ca9b5dc617ec982823e7653f67fc5e64ea003
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043119"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425909"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>Självstudier: Azure Active Directory-integration med Dow Jones Factiva
 
@@ -52,7 +52,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Dow Jones Factiva från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-dow-jones-factiva-from-the-gallery"></a>Att lägga till Dow Jones Factiva från galleriet
 För att konfigurera integrering av Dow Jones Factiva i Azure AD, som du behöver lägga till Dow Jones Factiva från galleriet i din lista över hanterade SaaS-appar.
@@ -63,19 +63,19 @@ För att konfigurera integrering av Dow Jones Factiva i Azure AD, som du behöve
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **Dow Jones Factiva**.
+1. I sökrutan skriver **Dow Jones Factiva**.
 
     ![Skapa en Azure AD-användare för testning](./media/dowjones-factiva-tutorial/tutorial_dowjonesfactiva_search.png)
 
-5. I resultatpanelen väljer **Dow Jones Factiva**, och klicka sedan på **Lägg till** för att lägga till programmet.
+1. I resultatpanelen väljer **Dow Jones Factiva**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
     ![Skapa en Azure AD-användare för testning](./media/dowjones-factiva-tutorial/tutorial_dowjonesfactiva_addfromgallery.png)
 
@@ -89,10 +89,10 @@ I Dow Jones Factiva tilldela värdet för den **användarnamn** i Azure AD som v
 Om du vill konfigurera och testa Azure AD enkel inloggning med Dow Jones Factiva, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Dow Jones Factiva](#creating-a-dow-jones-factiva-test-user)**  – du har en motsvarighet för Britta Simon i Dow Jones Factiva som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Dow Jones Factiva](#creating-a-dow-jones-factiva-test-user)**  – du har en motsvarighet för Britta Simon i Dow Jones Factiva som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -104,23 +104,23 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/dowjones-factiva-tutorial/tutorial_dowjonesfactiva_samlbase.png)
 
-3. På den **Dow Jones Factiva domän och URL: er** avsnittet användaren behöver inte utföra några steg som appen är redan förintegrerade med Azure.
+1. På den **Dow Jones Factiva domän och URL: er** avsnittet användaren behöver inte utföra några steg som appen är redan förintegrerade med Azure.
 
     ![Konfigurera enkel inloggning](./media/dowjones-factiva-tutorial/tutorial_dowjonesfactiva_url.png)
 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/dowjones-factiva-tutorial/tutorial_dowjonesfactiva_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/dowjones-factiva-tutorial/tutorial_general_400.png)
 
-6. Att konfigurera enkel inloggning på **Dow Jones Factiva** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Dow Jones Factiva supportteamet](https://www.dowjones.com/contact/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **Dow Jones Factiva** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Dow Jones Factiva supportteamet](https://www.dowjones.com/contact/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -136,15 +136,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](./media/dowjones-factiva-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
     ![Skapa en Azure AD-användare för testning](./media/dowjones-factiva-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
     ![Skapa en Azure AD-användare för testning](./media/dowjones-factiva-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
     ![Skapa en Azure AD-användare för testning](./media/dowjones-factiva-tutorial/create_aaduser_04.png) 
 
@@ -172,23 +172,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Dow Jones Factiva**.
+1. I listan med program väljer **Dow Jones Factiva**.
 
     ![Konfigurera enkel inloggning](./media/dowjones-factiva-tutorial/tutorial_dowjonesfactiva_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 

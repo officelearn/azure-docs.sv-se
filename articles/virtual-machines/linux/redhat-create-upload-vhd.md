@@ -1,5 +1,5 @@
 ---
-title: Skapa och ladda upp en Red Hat Enterprise Linux VHD för användning i Azure | Microsoft Docs
+title: Skapa och ladda upp en Red Hat Enterprise Linux-VHD för användning i Azure | Microsoft Docs
 description: Lär dig att skapa och ladda upp en Azure virtuell hårddisk (VHD) som innehåller en Red Hat Linux-operativsystem.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,48 +15,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: 9893ab83584e2fc93ea9cf29c0b74b957080d5ad
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d809b71c1fff953e946b842332146f982fca7b74
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778400"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422366"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Förbered en Red Hat-baserad virtuell dator för Azure
-I den här artikeln får du lära dig hur du förbereder en virtuell dator för Red Hat Enterprise Linux (RHEL) för användning i Azure. De versioner av RHEL som beskrivs i den här artikeln är 6.7 + och 7.1 +. Hypervisorer för förberedelse som beskrivs i den här artikeln är Hyper-V, kernel-baserad virtuell dator (KVM) och VMware. Läs mer om behörighetskraven för deltagande i programmet för Red Hat Molnåtkomst [Red Hat Molnåtkomst webbplats](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) och [kör RHEL på Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
+I den här artikeln får lära du dig att förbereda en virtuell dator för Red Hat Enterprise Linux (RHEL) för användning i Azure. RHEL-versioner som beskrivs i den här artikeln är 6.7 + och 7.1 +. Hypervisorer för förberedelse av som beskrivs i den här artikeln är Hyper-V, kernel-baserad virtuell dator (KVM) och VMware. Läs mer om krav för berättigande för att du deltar i programmet för Red Hat Cloud Access [Red Hat Cloud Access webbplats](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) och [kör RHEL på Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Förbered en Red Hat-baserad virtuell dator från Hyper-V Manager
 
 ### <a name="prerequisites"></a>Förutsättningar
-Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbplatsen för Red Hat och installerat RHEL-avbildning till en virtuell hårddisk (VHD). Mer information om hur du använder Hyper-V Manager för att installera en operativsystemavbildning finns [installera Hyper-V-rollen och konfigurera en virtuell dator](http://technet.microsoft.com/library/hh846766.aspx).
+Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat-webbplats och installerade RHEL-avbildning till en virtuell hårddisk (VHD). Mer information om hur du använder Hyper-V Manager för att installera en operativsystemavbildning finns i [installera Hyper-V-rollen och konfigurera en virtuell dator](http://technet.microsoft.com/library/hh846766.aspx).
 
-**RHEL installationsinformation**
+**RHEL-installationsinformation**
 
-* Azure har inte stöd för VHDX-format. Azure stöder endast fast virtuell Hårddisk. Du kan använda Hyper-V Manager för att konvertera disken till VHD-format eller så kan använda cmdleten convert-vhd. Om du använder VirtualBox markerar **fast storlek** till skillnad från standardvärdet dynamiskt allokerade alternativet när du skapar disken.
-* Azure stöder endast generering 1 för virtuella datorer. Du kan konvertera en virtuell dator i generation 1 från VHDX till VHD-format och dynamiskt expanderande till en disk med fast storlek. Du kan inte ändra en virtuell dator generation. Mer information finns i [bör jag skapa en virtuell dator i generation 1 eller 2 i Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+* Azure har inte stöd för VHDX-formatet. Azure stöder endast fast virtuell Hårddisk. Du kan använda Hyper-V Manager för att konvertera disken till VHD-format eller du kan använda cmdleten convert-vhd. Om du använder VirtualBox välja **fast storlek** istället för standard dynamiskt allokerad alternativet när du skapar disken.
+* Azure stöder endast generering 1 virtuell datorer. Du kan konvertera en virtuell dator i generation 1 från VHDX till VHD-format och dynamiskt expanderande till en disk med fast storlek. Du kan inte ändra generering av en virtuell dator. Mer information finns i [bör jag skapa en virtuell dator i generation 1 eller 2 i Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 * Den maximala storleken som tillåts för den virtuella Hårddisken är 1,023 GB.
-* Vi rekommenderar att du använder standard partitioner i stället för logisk volym Manager (LVM), vilket ofta är standard för många installationer när du installerar Linux-operativsystem. Denna praxis undviker LVM står i konflikt med den klonade virtuella datorer, särskilt om du behöver för att koppla en operativsystemdisk till en annan identisk virtuell dator för felsökning. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) får användas i datadiskar.
-* Kernel-stöd för att montera Universal Disk (UDF) filsystem krävs. Vid första start på Azure skickar UDF-formaterad media som är kopplad till gästen etablering konfigurationen till den virtuella Linux-datorn. Azure Linux-agenten måste kunna montera UDF-filsystemet för att läsa konfigurationen och etablera den virtuella datorn.
-* Versioner av Linux-kärnan som är äldre än 2.6.37 stöder inte icke-enhetlig minnesåtkomst (NUMA) på Hyper-V med större storlekar för virtuella datorer. Det här problemet påverkar huvudsakligen äldre distributioner som använder den överordnade Red Hat 2.6.32 kernel och åtgärdades i RHEL 6.6 (kernel-2.6.32-504). System som kör anpassade kärnor som är äldre än 2.6.37 eller RHEL-baserade kernlar som är äldre än 2.6.32-504 måste ange den `numa=off` starta parametern på kommandoraden kernel i grub.conf. Mer information finns i Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
-* Konfigurera inte en byte-partition på disken för operativsystemet. Linux-agenten kan konfigureras för att skapa en växlingsfil på tillfällig disken.  Mer information om detta finns i följande steg.
-* Alla virtuella hårddiskar på Azure måste ha en virtuell storlek justeras till 1MB. Vid konvertering från en rå disk till virtuell Hårddisk måste du kontrollera att rådata diskens storlek är en multipel av 1MB innan konverteringen. Mer information finns i stegen nedan. Se även [Linux installationsinformation](create-upload-generic.md#general-linux-installation-notes) för mer information.
+* När du installerar Linux-operativsystem rekommenderar vi att du använder standard partitioner i stället för logiska Volume Manager (LVM), vilket ofta är standard för många installationer. Denna praxis undviker LVM namnet står i konflikt med den klonade virtuella datorer, särskilt om du behöver att koppla en operativsystemdisk till en annan identisk virtuell dator för felsökning. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kan användas för datadiskar.
+* Kernel-stöd för att montera filsystem för Universal Disk (UDF) krävs. Vid första start på Azure skickar UDF-formaterad mediet som är kopplad till gästen etablering konfigurationen till Linux-datorn. Azure Linux Agent måste kunna montera UDF-filsystemet för att läsa konfigurationen och etablera den virtuella datorn.
+* Versioner av Linux-kernel som är äldre än 2.6.37 stöder inte icke-enhetlig minnesåtkomst (NUMA) på Hyper-V med större storlekar för virtuella datorer. I detta fall främst påverkar äldre distributioner som använder den överordnade Red Hat 2.6.32 kernel och åtgärdades i RHEL 6.6 (kernel-2.6.32-504). System som kör anpassade kernlar som är äldre än 2.6.37 eller RHEL-baserade kernlar som är äldre än 2.6.32-504 måste ställa in den `numa=off` starta parametern på kommandoraden kernel i grub.conf. Mer information finns i Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+* Konfigurera inte swap-partition på operativsystemdisken. Linux-agenten kan konfigureras för att skapa en växlingsfil på temporär disk.  Mer information om detta finns i följande steg.
+* Alla virtuella hårddiskar på Azure måste ha en virtuell storlek justeras till 1MB. Vid konvertering från en rå disk till virtuell Hårddisk måste du kontrollera att rådata diskens storlek är en multipel av 1MB före omvandlingen. Mer information finns i stegen nedan. Se även [Linux installationsinformation](create-upload-generic.md#general-linux-installation-notes) för mer information.
 
 ### <a name="prepare-a-rhel-6-virtual-machine-from-hyper-v-manager"></a>Förbered en RHEL 6 virtuell dator från Hyper-V Manager
 
 1. Välj den virtuella datorn i Hyper-V Manager.
 
-2. Klicka på **Anslut** att öppna ett konsolfönster för den virtuella datorn.
+1. Klicka på **Connect** att öppna ett konsolfönster för den virtuella datorn.
 
-3. I RHEL 6 kan NetworkManager störa Azure Linux-agenten. Avinstallera paketet genom att köra följande kommando:
+1. I RHEL 6 kan NetworkManager störa Azure Linux-agent. Avinstallera det här paketet genom att köra följande kommando:
    
         # sudo rpm -e --nodeps NetworkManager
 
-4. Skapa eller redigera den `/etc/sysconfig/network` filen och Lägg till följande text:
+1. Skapa eller redigera den `/etc/sysconfig/network` filen och Lägg till följande text:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-5. Skapa eller redigera den `/etc/sysconfig/network-scripts/ifcfg-eth0` filen och Lägg till följande text:
+1. Skapa eller redigera den `/etc/sysconfig/network-scripts/ifcfg-eth0` filen och Lägg till följande text:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -66,25 +66,25 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
         PEERDNS=yes
         IPV6INIT=no
 
-6. Flytta (eller ta bort) udev-regler för att undvika att generera statiska regler för Ethernet-gränssnitt. Dessa regler orsaka problem när du klonar en virtuell dator i Microsoft Azure eller Hyper-V:
+1. Flytta (eller ta bort) udev-regler för att undvika att generera statiska regler för Ethernet-gränssnitt. Dessa regler orsaka problem när du klonar en virtuell dator i Microsoft Azure eller Hyper-V:
 
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
         
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 
-7. Se till att nätverkstjänsten som startar när datorn startas genom att köra följande kommando:
+1. Se till att nätverkstjänsten startar när datorn startas genom att köra följande kommando:
 
         # sudo chkconfig network on
 
-8. Registrera prenumerationen Red Hat för att aktivera installationen av paket från RHEL databasen genom att köra följande kommando:
+1. Registrera din Red Hat-prenumeration för att aktivera installationen av paket från RHEL-lagringsplatsen genom att köra följande kommando:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-9. Paketets WALinuxAgent `WALinuxAgent-<version>`, har aviserats i databasen för Red Hat-tillägg. Aktivera tillägg databasen genom att köra följande kommando:
+1. Paketets WALinuxAgent `WALinuxAgent-<version>`, har överförts till lagringsplatsen för Red Hat-tillägg. Aktivera tillägg databasen genom att köra följande kommando:
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-10. Ändra raden kernel Start i grub konfigurationen så att ytterligare kernel parametrar för Azure. Om du vill göra den här ändringen öppna `/boot/grub/menu.lst` i en textredigerare och se till att standard-kärnan innehåller följande parametrar:
+1. Ändra i kernel boot line i din grub konfiguration och omfattar ytterligare kernel parametrar för Azure. Om du vill göra den här ändringen, öppna `/boot/grub/menu.lst` i en textredigerare och se till att standardkernel innehåller följande parametrar:
     
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300
     
@@ -94,16 +94,16 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
     
         rhgb quiet crashkernel=auto
     
-    Grafisk och tyst Start inte är användbara i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten.  Du kan lämna den `crashkernel` alternativet konfigureras om så önskas. Observera att den här parametern minskar mängden tillgängligt minne i den virtuella datorn med 128 MB eller mer. Den här konfigurationen kan vara problematiskt på mindre storlekar för virtuella datorer.
+    Grafiska och tyst start är inte användbart i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten.  Du kan lämna den `crashkernel` alternativet konfigureras om så önskas. Observera att den här parametern minskar mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer. Den här konfigurationen kan vara problematiskt på mindre storlekar för virtuella datorer.
 
     >[!Important]
-    RHEL 6.5 och tidigare måste också ange den `numa=off` kernel-parametern. Se Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+    RHEL 6.5 och tidigare måste också ange den `numa=off` kernel-parameter. Se Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 
-11. Se till att secure shell (SSH)-server har installerats och konfigurerats för att starta när datorn startas, vilket vanligtvis är standard. Ändra /etc/ssh/sshd_config för att inkludera följande rad:
+1. Se till att secure shell (SSH)-server har installerats och konfigurerats för att starta när datorn startas, som vanligtvis är standard. Ändra /etc/ssh/sshd_config för att inkludera följande rad:
 
         ClientAliveInterval 180
 
-12. Installera Azure Linux-agenten genom att köra följande kommando:
+1. Installera Azure Linux Agent genom att köra följande kommando:
 
         # sudo yum install WALinuxAgent
 
@@ -111,9 +111,9 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
 
     Installera paketet WALinuxAgent tar bort NetworkManager och NetworkManager gör väldigt lätt paket om de inte har redan tagits bort i steg 3.
 
-13. Skapa inte växlingsutrymme på operativsystemets disk.
+1. Skapa inte växlingsutrymme på operativsystemdisken.
 
-    Azure Linux-agenten kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resurs disk som är kopplad till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resursen är en tillfällig disk och att den kan tömmas när den virtuella datorn avetableras. Ändra följande parametrar i /etc/waagent.conf på rätt sätt när du har installerat Azure Linux-agenten i föregående steg:
+    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och att den kan tömmas när virtuella datorn avetableras. Ändra följande parametrar i /etc/waagent.conf på rätt sätt när du har installerat Azure Linux Agent i föregående steg:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -121,11 +121,11 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-14. Avregistrera prenumerationen (vid behov) genom att köra följande kommando:
+1. Avregistrera prenumerationen (vid behov) genom att köra följande kommando:
 
         # sudo subscription-manager unregister
 
-15. Kör följande kommandon för att ta bort etableringen av den virtuella datorn och förbereda den för att etablera i Azure:
+1. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
 
         # sudo waagent -force -deprovision
 
@@ -133,21 +133,21 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
 
         # logout
 
-16. Klicka på **åtgärd** > **Stäng** i Hyper-V Manager. Din Linux VHD är nu redo att överföras till Azure.
+1. Klicka på **åtgärd** > **stänga** i Hyper-V Manager. VHD för Linux är nu redo att överföras till Azure.
 
 
-### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>Förbered en RHEL 7 virtuell dator från Hyper-V Manager
+### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>Förbered en virtuell RHEL 7-dator från Hyper-V Manager
 
 1. Välj den virtuella datorn i Hyper-V Manager.
 
-2. Klicka på **Anslut** att öppna ett konsolfönster för den virtuella datorn.
+1. Klicka på **Connect** att öppna ett konsolfönster för den virtuella datorn.
 
-3. Skapa eller redigera den `/etc/sysconfig/network` filen och Lägg till följande text:
+1. Skapa eller redigera den `/etc/sysconfig/network` filen och Lägg till följande text:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-4. Skapa eller redigera den `/etc/sysconfig/network-scripts/ifcfg-eth0` filen och Lägg till följande text:
+1. Skapa eller redigera den `/etc/sysconfig/network-scripts/ifcfg-eth0` filen och Lägg till följande text:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -158,45 +158,45 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
         IPV6INIT=no
         NM_CONTROLLED=no
 
-5. Se till att nätverkstjänsten som startar när datorn startas genom att köra följande kommando:
+1. Se till att nätverkstjänsten startar när datorn startas genom att köra följande kommando:
 
         # sudo systemctl enable network
 
-6. Registrera prenumerationen Red Hat för att aktivera installationen av paket från RHEL databasen genom att köra följande kommando:
+1. Registrera din Red Hat-prenumeration för att aktivera installationen av paket från RHEL-lagringsplatsen genom att köra följande kommando:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7. Ändra raden kernel Start i grub konfigurationen så att ytterligare kernel parametrar för Azure. Om du vill göra den här ändringen öppna `/etc/default/grub` i en textredigerare och redigera den `GRUB_CMDLINE_LINUX` parameter. Exempel:
+1. Ändra i kernel boot line i din grub konfiguration och omfattar ytterligare kernel parametrar för Azure. Om du vill göra den här ändringen, öppna `/etc/default/grub` i en textredigerare och redigera den `GRUB_CMDLINE_LINUX` parametern. Exempel:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
-   Detta säkerställer också att alla konsolmeddelanden skickas till den första seriella porten som kan hjälpa Azure support med felsökning av problem. Den här konfigurationen stänger också av nya RHEL 7 namnkonventionerna för nätverkskort. Vi rekommenderar dessutom att du tar bort följande parametrar:
+   Detta säkerställer också att alla konsolmeddelanden skickas till den första seriella porten som kan hjälpa Azure support med felsökning av problem. Den här konfigurationen ger också inaktiverar de nya namnkonventionerna för RHEL 7 för nätverkskort. Vi rekommenderar dessutom att du tar bort följande parametrar:
    
         rhgb quiet crashkernel=auto
    
-    Grafisk och tyst Start inte är användbara i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten. Du kan lämna den `crashkernel` alternativet konfigureras om så önskas. Observera att den här parametern minskar mängden tillgängligt minne i den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på mindre storlekar för virtuella datorer.
+    Grafiska och tyst start är inte användbart i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten. Du kan lämna den `crashkernel` alternativet konfigureras om så önskas. Observera att den här parametern minskar mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på mindre storlekar för virtuella datorer.
 
-8. När du är klar med redigering `/etc/default/grub`, kör följande kommando för att återskapa grub konfigurationen:
+1. När du är klar redigering `/etc/default/grub`, kör följande kommando för att återskapa grub-konfigurationen:
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-9. Se till att SSH-server har installerats och konfigurerats för att starta när datorn startas, vilket vanligtvis är standard. Ändra `/etc/ssh/sshd_config` till följande kommando:
+1. Kontrollera att SSH-servern är installerad och konfigurerad för att starta när datorn startas, som vanligtvis är standard. Ändra `/etc/ssh/sshd_config` att inkludera följande rad:
 
         ClientAliveInterval 180
 
-10. Paketets WALinuxAgent `WALinuxAgent-<version>`, har aviserats i databasen för Red Hat-tillägg. Aktivera tillägg databasen genom att köra följande kommando:
+1. Paketets WALinuxAgent `WALinuxAgent-<version>`, har överförts till lagringsplatsen för Red Hat-tillägg. Aktivera tillägg databasen genom att köra följande kommando:
 
         # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
-11. Installera Azure Linux-agenten genom att köra följande kommando:
+1. Installera Azure Linux Agent genom att köra följande kommando:
 
         # sudo yum install WALinuxAgent
 
         # sudo systemctl enable waagent.service
 
-12. Skapa inte växlingsutrymme på operativsystemets disk.
+1. Skapa inte växlingsutrymme på operativsystemdisken.
 
-    Azure Linux-agenten kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resurs disk som är kopplad till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resursen är en tillfällig disk och kan tömmas när den virtuella datorn avetableras. När du installerar Azure Linux-agenten i föregående steg, ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
+    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och kan tömmas när virtuella datorn avetableras. När du har installerat Azure Linux Agent i föregående steg kan du ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -204,11 +204,11 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-13. Om du vill att avregistrera prenumerationen, kör du följande kommando:
+1. Om du vill avregistrera prenumerationen, kör du följande kommando:
 
         # sudo subscription-manager unregister
 
-14. Kör följande kommandon för att ta bort etableringen av den virtuella datorn och förbereda den för att etablera i Azure:
+1. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
 
         # sudo waagent -force -deprovision
 
@@ -216,21 +216,21 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
 
         # logout
 
-15. Klicka på **åtgärd** > **Stäng** i Hyper-V Manager. Din Linux VHD är nu redo att överföras till Azure.
+1. Klicka på **åtgärd** > **stänga** i Hyper-V Manager. VHD för Linux är nu redo att överföras till Azure.
 
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-kvm"></a>Förbered en Red Hat-baserad virtuell dator från KVM
-### <a name="prepare-a-rhel-6-virtual-machine-from-kvm"></a>Förbered en virtuell dator för RHEL 6 från KVM
+### <a name="prepare-a-rhel-6-virtual-machine-from-kvm"></a>Förbered en virtuell dator i RHEL 6 från KVM
 
-1. Ladda ned avbildningen KVM RHEL 6 från Red Hat-webbplats.
+1. Ladda ned KVM-bild av RHEL 6 från Red Hat-webbplatsen.
 
-2. Ange ett rotlösenord.
+1. Ange ett rotlösenord.
 
-    Generera ett krypterat lösenord och kopiera resultatet av kommandot:
+    Generera ett krypterat lösenord och kopiera kommandots utdata:
 
         # openssl passwd -1 changeme
 
-    Ange en rotlösenordet med guestfish:
+    Ange ett rotlösenord med guestfish:
         
         # guestfish --rw -a <image-name>
         > <fs> run
@@ -239,16 +239,16 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
         > <fs> vi /etc/shadow
         > <fs> exit
 
-   Ändra rotanvändaren från andra fältet ””! till det krypterade lösenordet.
+   Ändra andra fält i rotanvändaren från ””! till det krypterade lösenordet.
 
-3. Skapa en virtuell dator i KVM qcow2-avbildningen. Ange typ av disk till **qcow2**, och enhetsmodell för virtuellt nätverk gränssnittet **virtio**. Sedan starta den virtuella datorn och logga in som rot.
+1. Skapa en virtuell dator i KVM från qcow2-avbildning. Ange typ av disk **qcow2**, och ange enhetsmodell för virtuellt nätverksgränssnittet till **virtio**. Sedan starta den virtuella datorn och logga in som rot.
 
-4. Skapa eller redigera den `/etc/sysconfig/network` filen och Lägg till följande text:
+1. Skapa eller redigera den `/etc/sysconfig/network` filen och Lägg till följande text:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-5. Skapa eller redigera den `/etc/sysconfig/network-scripts/ifcfg-eth0` filen och Lägg till följande text:
+1. Skapa eller redigera den `/etc/sysconfig/network-scripts/ifcfg-eth0` filen och Lägg till följande text:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -258,21 +258,21 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
         PEERDNS=yes
         IPV6INIT=no
 
-6. Flytta (eller ta bort) udev-regler för att undvika att generera statiska regler för Ethernet-gränssnitt. Dessa regler orsaka problem när du klonar en virtuell dator i Azure eller Hyper-V:
+1. Flytta (eller ta bort) udev-regler för att undvika att generera statiska regler för Ethernet-gränssnitt. Dessa regler orsaka problem när du klonar en virtuell dator i Azure eller Hyper-V:
 
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 
-7. Se till att nätverkstjänsten som startar när datorn startas genom att köra följande kommando:
+1. Se till att nätverkstjänsten startar när datorn startas genom att köra följande kommando:
 
         # chkconfig network on
 
-8. Registrera prenumerationen Red Hat för att aktivera installationen av paket från RHEL databasen genom att köra följande kommando:
+1. Registrera din Red Hat-prenumeration för att aktivera installationen av paket från RHEL-lagringsplatsen genom att köra följande kommando:
 
         # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-9. Ändra raden kernel Start i grub konfigurationen så att ytterligare kernel parametrar för Azure. Om du vill göra den här konfigurationen, öppna `/boot/grub/menu.lst` i en textredigerare och se till att standard-kärnan innehåller följande parametrar:
+1. Ändra i kernel boot line i din grub konfiguration och omfattar ytterligare kernel parametrar för Azure. Om du vill göra den här konfigurationen, öppna `/boot/grub/menu.lst` i en textredigerare och se till att standardkernel innehåller följande parametrar:
     
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300
     
@@ -282,12 +282,12 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
     
         rhgb quiet crashkernel=auto
     
-    Grafisk och tyst Start inte är användbara i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten. Du kan lämna den `crashkernel` alternativet konfigureras om så önskas. Observera att den här parametern minskar mängden tillgängligt minne i den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på mindre storlekar för virtuella datorer.
+    Grafiska och tyst start är inte användbart i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten. Du kan lämna den `crashkernel` alternativet konfigureras om så önskas. Observera att den här parametern minskar mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på mindre storlekar för virtuella datorer.
 
     >[!Important]
-    RHEL 6.5 och tidigare måste också ange den `numa=off` kernel-parametern. Se Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+    RHEL 6.5 och tidigare måste också ange den `numa=off` kernel-parameter. Se Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 
-10. Lägg till Hyper-V-modulerna initramfs:  
+1. Lägg till Hyper-V-modulerna i initramfs:  
 
     Redigera `/etc/dracut.conf`, och Lägg till följande innehåll:
 
@@ -297,11 +297,11 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
 
         # dracut -f -v
 
-11. Avinstallera molnet init:
+1. Avinstallera cloud-init:
 
         # yum remove cloud-init
 
-12. Se till att SSH-server har installerats och konfigurerats för att starta när datorn startas:
+1. Kontrollera att SSH-servern är installerad och konfigurerad för att starta när datorn startas:
 
         # chkconfig sshd on
 
@@ -310,17 +310,17 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
         PasswordAuthentication yes
         ClientAliveInterval 180
 
-13. Paketets WALinuxAgent `WALinuxAgent-<version>`, har aviserats i databasen för Red Hat-tillägg. Aktivera tillägg databasen genom att köra följande kommando:
+1. Paketets WALinuxAgent `WALinuxAgent-<version>`, har överförts till lagringsplatsen för Red Hat-tillägg. Aktivera tillägg databasen genom att köra följande kommando:
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-14. Installera Azure Linux-agenten genom att köra följande kommando:
+1. Installera Azure Linux Agent genom att köra följande kommando:
 
         # yum install WALinuxAgent
 
         # chkconfig waagent on
 
-15. Azure Linux-agenten kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resurs disk som är kopplad till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resursen är en tillfällig disk och kan tömmas när den virtuella datorn avetableras. När du installerar Azure Linux-agenten i föregående steg, ändra följande parametrar i **/etc/waagent.conf** på rätt sätt:
+1. Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och kan tömmas när virtuella datorn avetableras. När du har installerat Azure Linux Agent i föregående steg kan du ändra följande parametrar i **/etc/waagent.conf** på rätt sätt:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -328,11 +328,11 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-16. Avregistrera prenumerationen (vid behov) genom att köra följande kommando:
+1. Avregistrera prenumerationen (vid behov) genom att köra följande kommando:
 
         # subscription-manager unregister
 
-17. Kör följande kommandon för att ta bort etableringen av den virtuella datorn och förbereda den för att etablera i Azure:
+1. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
 
         # waagent -force -deprovision
 
@@ -340,12 +340,12 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
 
         # logout
 
-18. Stäng av den virtuella datorn i KVM.
+1. Stäng av den virtuella datorn i KVM.
 
-19. Konvertera qcow2 bilden till VHD-format.
+1. Konvertera qcow2 avbildningen till VHD-format.
 
 > [!NOTE]
-> Det finns ett känt fel i qemu img versioner > = 2.2.1 som resulterar i en felaktigt formaterad virtuell Hårddisk. Problemet har åtgärdats i QEMU 2.6. Det rekommenderas att använda qemu img 2.2.0 eller lägre eller uppdatera till 2.6 eller senare. Referens: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Det finns ett känt fel i qemu img versioner > = 2.2.1 som resulterar i en felaktigt formaterad virtuell Hårddisk. Problemet har åtgärdats i QEMU 2.6. Det rekommenderas att använda qemu img 2.2.0 eller lägre eller uppdatera 2.6 eller högre. Referens: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -373,15 +373,15 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
         
 ### <a name="prepare-a-rhel-7-virtual-machine-from-kvm"></a>Förbered en virtuell dator för RHEL 7 från KVM
 
-1. Ladda ned avbildningen KVM RHEL 7 från Red Hat-webbplats. Den här proceduren använder RHEL 7 som exemplet.
+1. Ladda ned KVM-bild av RHEL 7 från Red Hat-webbplatsen. Den här proceduren använder RHEL 7 som exempel.
 
-2. Ange ett rotlösenord.
+1. Ange ett rotlösenord.
 
-    Generera ett krypterat lösenord och kopiera resultatet av kommandot:
+    Generera ett krypterat lösenord och kopiera kommandots utdata:
 
         # openssl passwd -1 changeme
 
-    Ange en rotlösenordet med guestfish:
+    Ange ett rotlösenord med guestfish:
 
         # guestfish --rw -a <image-name>
         > <fs> run
@@ -390,16 +390,16 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
         > <fs> vi /etc/shadow
         > <fs> exit
 
-   Ändra rotanvändaren från andra fältet ””! till det krypterade lösenordet.
+   Ändra andra fält i rotanvändare från ””! till det krypterade lösenordet.
 
-3. Skapa en virtuell dator i KVM qcow2-avbildningen. Ange typ av disk till **qcow2**, och enhetsmodell för virtuellt nätverk gränssnittet **virtio**. Sedan starta den virtuella datorn och logga in som rot.
+1. Skapa en virtuell dator i KVM från qcow2-avbildning. Ange typ av disk **qcow2**, och ange enhetsmodell för virtuellt nätverksgränssnittet till **virtio**. Sedan starta den virtuella datorn och logga in som rot.
 
-4. Skapa eller redigera den `/etc/sysconfig/network` filen och Lägg till följande text:
+1. Skapa eller redigera den `/etc/sysconfig/network` filen och Lägg till följande text:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-5. Skapa eller redigera den `/etc/sysconfig/network-scripts/ifcfg-eth0` filen och Lägg till följande text:
+1. Skapa eller redigera den `/etc/sysconfig/network-scripts/ifcfg-eth0` filen och Lägg till följande text:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -410,29 +410,29 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
         IPV6INIT=no
         NM_CONTROLLED=no
 
-6. Se till att nätverkstjänsten som startar när datorn startas genom att köra följande kommando:
+1. Se till att nätverkstjänsten startar när datorn startas genom att köra följande kommando:
 
         # sudo systemctl enable network
 
-7. Registrera prenumerationen Red Hat för att aktivera installationen av paket från RHEL databasen genom att köra följande kommando:
+1. Registrera din Red Hat-prenumeration för att aktivera installation av paket från RHEL-lagringsplatsen genom att köra följande kommando:
 
         # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-8. Ändra raden kernel Start i grub konfigurationen så att ytterligare kernel parametrar för Azure. Om du vill göra den här konfigurationen, öppna `/etc/default/grub` i en textredigerare och redigera den `GRUB_CMDLINE_LINUX` parameter. Exempel:
+1. Ändra i kernel boot line i din grub konfiguration och omfattar ytterligare kernel parametrar för Azure. Om du vill göra den här konfigurationen, öppna `/etc/default/grub` i en textredigerare och redigera den `GRUB_CMDLINE_LINUX` parametern. Exempel:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
-   Detta kommando säkerställer också att alla konsolmeddelanden skickas till den första seriella porten som kan hjälpa Azure support med felsökning av problem. Kommandot stänger också av nya RHEL 7 namnkonventionerna för nätverkskort. Vi rekommenderar dessutom att du tar bort följande parametrar:
+   Det här kommandot innebär också att alla konsolmeddelanden skickas till den första seriella porten som kan hjälpa Azure support med felsökning av problem. Kommandot stängs även av de nya namnkonventionerna för RHEL 7 för nätverkskort. Vi rekommenderar dessutom att du tar bort följande parametrar:
    
         rhgb quiet crashkernel=auto
    
-    Grafisk och tyst Start inte är användbara i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten. Du kan lämna den `crashkernel` alternativet konfigureras om så önskas. Observera att den här parametern minskar mängden tillgängligt minne i den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på mindre storlekar för virtuella datorer.
+    Grafiska och tyst start är inte användbart i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten. Du kan lämna den `crashkernel` alternativet konfigureras om så önskas. Observera att den här parametern minskar mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på mindre storlekar för virtuella datorer.
 
-9. När du är klar med redigering `/etc/default/grub`, kör följande kommando för att återskapa grub konfigurationen:
+1. När du är klar redigering `/etc/default/grub`, kör följande kommando för att återskapa grub-konfigurationen:
 
         # grub2-mkconfig -o /boot/grub2/grub.cfg
 
-10. Lägg till Hyper-V-modulerna i initramfs.
+1. Lägg till Hyper-V-modulerna i initramfs.
 
     Redigera `/etc/dracut.conf` och lägga till innehåll:
 
@@ -442,11 +442,11 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
 
         # dracut -f -v
 
-11. Avinstallera molnet init:
+1. Avinstallera cloud-init:
 
         # yum remove cloud-init
 
-12. Se till att SSH-server har installerats och konfigurerats för att starta när datorn startas:
+1. Kontrollera att SSH-servern är installerad och konfigurerad för att starta när datorn startas:
 
         # systemctl enable sshd
 
@@ -455,11 +455,11 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
         PasswordAuthentication yes
         ClientAliveInterval 180
 
-13. Paketets WALinuxAgent `WALinuxAgent-<version>`, har aviserats i databasen för Red Hat-tillägg. Aktivera tillägg databasen genom att köra följande kommando:
+1. Paketets WALinuxAgent `WALinuxAgent-<version>`, har överförts till lagringsplatsen för Red Hat-tillägg. Aktivera tillägg databasen genom att köra följande kommando:
 
         # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
-14. Installera Azure Linux-agenten genom att köra följande kommando:
+1. Installera Azure Linux Agent genom att köra följande kommando:
 
         # yum install WALinuxAgent
 
@@ -467,9 +467,9 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
 
         # systemctl enable waagent.service
 
-15. Skapa inte växlingsutrymme på operativsystemets disk.
+1. Skapa inte växlingsutrymme på operativsystemdisken.
 
-    Azure Linux-agenten kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resurs disk som är kopplad till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resursen är en tillfällig disk och kan tömmas när den virtuella datorn avetableras. När du installerar Azure Linux-agenten i föregående steg, ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
+    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och kan tömmas när virtuella datorn avetableras. När du har installerat Azure Linux Agent i föregående steg kan du ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -477,11 +477,11 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-16. Avregistrera prenumerationen (vid behov) genom att köra följande kommando:
+1. Avregistrera prenumerationen (vid behov) genom att köra följande kommando:
 
         # subscription-manager unregister
 
-17. Kör följande kommandon för att ta bort etableringen av den virtuella datorn och förbereda den för att etablera i Azure:
+1. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
 
         # sudo waagent -force -deprovision
 
@@ -489,12 +489,12 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
 
         # logout
 
-18. Stäng av den virtuella datorn i KVM.
+1. Stäng av den virtuella datorn i KVM.
 
-19. Konvertera qcow2 bilden till VHD-format.
+1. Konvertera qcow2 avbildningen till VHD-format.
 
 > [!NOTE]
-> Det finns ett känt fel i qemu img versioner > = 2.2.1 som resulterar i en felaktigt formaterad virtuell Hårddisk. Problemet har åtgärdats i QEMU 2.6. Det rekommenderas att använda qemu img 2.2.0 eller lägre eller uppdatera till 2.6 eller senare. Referens: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Det finns ett känt fel i qemu img versioner > = 2.2.1 som resulterar i en felaktigt formaterad virtuell Hårddisk. Problemet har åtgärdats i QEMU 2.6. Det rekommenderas att använda qemu img 2.2.0 eller lägre eller uppdatera 2.6 eller högre. Referens: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -522,23 +522,23 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från webbpla
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Förbered en Red Hat-baserad virtuell dator från VMware
 ### <a name="prerequisites"></a>Förutsättningar
-Det här avsnittet förutsätter att du redan har installerat en RHEL virtuell dator i VMware. Mer information om hur du installerar ett operativsystem i VMware finns [VMware gäst operativsystemet installationsguiden](http://partnerweb.vmware.com/GOSIG/home.html).
+Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VMware. Mer information om hur du installerar ett operativsystem i VMware finns i [installationsguide för VMware Guest Operating System](http://partnerweb.vmware.com/GOSIG/home.html).
 
-* När du installerar Linux-operativsystem, rekommenderar vi att du använder standard partitioner i stället för LVM, vilket ofta är standard för många installationer. Det här undviker LVM står i konflikt med den klonade virtuella datorn, särskilt om en operativsystemdisk någonsin måste vara kopplad till en annan virtuell dator för felsökning. LVM eller RAID kan användas på datadiskar om önskade.
-* Konfigurera inte en byte-partition på disken för operativsystemet. Du kan konfigurera Linux-agenten för att skapa en växlingsfil på tillfällig disken. Du hittar mer information om detta i de steg som följer.
+* När du installerar Linux-operativsystem rekommenderar vi att du använder standard partitioner i stället för LVM, vilket ofta är standard för många installationer. Detta undviker LVM namnet står i konflikt med den klonade virtuella datorn, särskilt om en operativsystemdisk någonsin måste kopplas till en annan virtuell dator för felsökning. LVM eller RAID kan användas på datadiskar om du så föredrar.
+* Konfigurera inte swap-partition på operativsystemdisken. Du kan konfigurera Linux-agenten för att skapa en växlingsfil på temporär disk. Du hittar mer information om detta i stegen nedan.
 * När du skapar den virtuella hårddisken, Välj **Store virtuell disk som en enda fil**.
 
 ### <a name="prepare-a-rhel-6-virtual-machine-from-vmware"></a>Förbered en virtuell dator för RHEL 6 från VMware
-1. I RHEL 6 kan NetworkManager störa Azure Linux-agenten. Avinstallera paketet genom att köra följande kommando:
+1. I RHEL 6 kan NetworkManager störa Azure Linux-agent. Avinstallera det här paketet genom att köra följande kommando:
    
         # sudo rpm -e --nodeps NetworkManager
 
-2. Skapa en fil med namnet **nätverk** i/etc/sysconfig/katalogen som innehåller följande text:
+1. Skapa en fil med namnet **nätverk** i/etc/sysconfig/katalogen som innehåller följande text:
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-3. Skapa eller redigera den `/etc/sysconfig/network-scripts/ifcfg-eth0` filen och Lägg till följande text:
+1. Skapa eller redigera den `/etc/sysconfig/network-scripts/ifcfg-eth0` filen och Lägg till följande text:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -548,25 +548,25 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL virtuell d
         PEERDNS=yes
         IPV6INIT=no
 
-4. Flytta (eller ta bort) udev-regler för att undvika att generera statiska regler för Ethernet-gränssnitt. Dessa regler orsaka problem när du klonar en virtuell dator i Azure eller Hyper-V:
+1. Flytta (eller ta bort) udev-regler för att undvika att generera statiska regler för Ethernet-gränssnitt. Dessa regler orsaka problem när du klonar en virtuell dator i Azure eller Hyper-V:
 
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 
-5. Se till att nätverkstjänsten som startar när datorn startas genom att köra följande kommando:
+1. Se till att nätverkstjänsten startar när datorn startas genom att köra följande kommando:
 
         # sudo chkconfig network on
 
-6. Registrera prenumerationen Red Hat för att aktivera installationen av paket från RHEL databasen genom att köra följande kommando:
+1. Registrera din Red Hat-prenumeration för att aktivera installationen av paket från RHEL-lagringsplatsen genom att köra följande kommando:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7. Paketets WALinuxAgent `WALinuxAgent-<version>`, har aviserats i databasen för Red Hat-tillägg. Aktivera tillägg databasen genom att köra följande kommando:
+1. Paketets WALinuxAgent `WALinuxAgent-<version>`, har överförts till lagringsplatsen för Red Hat-tillägg. Aktivera tillägg databasen genom att köra följande kommando:
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-8. Ändra raden kernel Start i grub konfigurationen så att ytterligare kernel parametrar för Azure. Det gör du genom att öppna `/etc/default/grub` i en textredigerare och redigera den `GRUB_CMDLINE_LINUX` parameter. Exempel:
+1. Ändra i kernel boot line i din grub konfiguration och omfattar ytterligare kernel parametrar för Azure. Gör detta genom att öppna `/etc/default/grub` i en textredigerare och redigera den `GRUB_CMDLINE_LINUX` parametern. Exempel:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
    
@@ -574,9 +574,9 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL virtuell d
    
         rhgb quiet crashkernel=auto
    
-    Grafisk och tyst Start inte är användbara i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten. Du kan lämna den `crashkernel` alternativet konfigureras om så önskas. Observera att den här parametern minskar mängden tillgängligt minne i den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på mindre storlekar för virtuella datorer.
+    Grafiska och tyst start är inte användbart i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten. Du kan lämna den `crashkernel` alternativet konfigureras om så önskas. Observera att den här parametern minskar mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på mindre storlekar för virtuella datorer.
 
-9. Lägg till Hyper-V-modulerna initramfs:
+1. Lägg till Hyper-V-modulerna i initramfs:
 
     Redigera `/etc/dracut.conf`, och Lägg till följande innehåll:
 
@@ -586,19 +586,19 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL virtuell d
 
         # dracut -f -v
 
-10. Se till att SSH-server har installerats och konfigurerats för att starta när datorn startas, vilket vanligtvis är standard. Ändra `/etc/ssh/sshd_config` till följande kommando:
+1. Kontrollera att SSH-servern är installerad och konfigurerad för att starta när datorn startas, som vanligtvis är standard. Ändra `/etc/ssh/sshd_config` att inkludera följande rad:
 
     ClientAliveInterval 180
 
-11. Installera Azure Linux-agenten genom att köra följande kommando:
+1. Installera Azure Linux Agent genom att köra följande kommando:
 
         # sudo yum install WALinuxAgent
 
         # sudo chkconfig waagent on
 
-12. Skapa inte växlingsutrymme på operativsystemets disk.
+1. Skapa inte växlingsutrymme på operativsystemdisken.
 
-    Azure Linux-agenten kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resurs disk som är kopplad till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resursen är en tillfällig disk och kan tömmas när den virtuella datorn avetableras. När du installerar Azure Linux-agenten i föregående steg, ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
+    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och kan tömmas när virtuella datorn avetableras. När du har installerat Azure Linux Agent i föregående steg kan du ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -606,11 +606,11 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL virtuell d
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-13. Avregistrera prenumerationen (vid behov) genom att köra följande kommando:
+1. Avregistrera prenumerationen (vid behov) genom att köra följande kommando:
 
         # sudo subscription-manager unregister
 
-14. Kör följande kommandon för att ta bort etableringen av den virtuella datorn och förbereda den för att etablera i Azure:
+1. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
 
         # sudo waagent -force -deprovision
 
@@ -618,10 +618,10 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL virtuell d
 
         # logout
 
-15. Stäng av den virtuella datorn och omvandla VMDK-filen till en VHD-fil.
+1. Stäng av den virtuella datorn och omvandla VMDK-fil till en VHD-fil.
 
 > [!NOTE]
-> Det finns ett känt fel i qemu img versioner > = 2.2.1 som resulterar i en felaktigt formaterad virtuell Hårddisk. Problemet har åtgärdats i QEMU 2.6. Det rekommenderas att använda qemu img 2.2.0 eller lägre eller uppdatera till 2.6 eller senare. Referens: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Det finns ett känt fel i qemu img versioner > = 2.2.1 som resulterar i en felaktigt formaterad virtuell Hårddisk. Problemet har åtgärdats i QEMU 2.6. Det rekommenderas att använda qemu img 2.2.0 eller lägre eller uppdatera 2.6 eller högre. Referens: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -653,7 +653,7 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL virtuell d
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-2. Skapa eller redigera den `/etc/sysconfig/network-scripts/ifcfg-eth0` filen och Lägg till följande text:
+1. Skapa eller redigera den `/etc/sysconfig/network-scripts/ifcfg-eth0` filen och Lägg till följande text:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -664,29 +664,29 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL virtuell d
         IPV6INIT=no
         NM_CONTROLLED=no
 
-3. Se till att nätverkstjänsten som startar när datorn startas genom att köra följande kommando:
+1. Se till att nätverkstjänsten startar när datorn startas genom att köra följande kommando:
 
         # sudo systemctl enable network
 
-4. Registrera prenumerationen Red Hat för att aktivera installationen av paket från RHEL databasen genom att köra följande kommando:
+1. Registrera din Red Hat-prenumeration för att aktivera installationen av paket från RHEL-lagringsplatsen genom att köra följande kommando:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-5. Ändra raden kernel Start i grub konfigurationen så att ytterligare kernel parametrar för Azure. Om du vill göra den här ändringen öppna `/etc/default/grub` i en textredigerare och redigera den `GRUB_CMDLINE_LINUX` parameter. Exempel:
+1. Ändra i kernel boot line i din grub konfiguration och omfattar ytterligare kernel parametrar för Azure. Om du vill göra den här ändringen, öppna `/etc/default/grub` i en textredigerare och redigera den `GRUB_CMDLINE_LINUX` parametern. Exempel:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
-   Den här konfigurationen säkerställer också att alla konsolmeddelanden skickas till den första seriella porten som kan hjälpa Azure support med felsökning av problem. Även stängs av nya RHEL 7 namnkonventionerna för nätverkskort. Vi rekommenderar dessutom att du tar bort följande parametrar:
+   Den här konfigurationen säkerställer också att alla konsolmeddelanden skickas till den första seriella porten som kan hjälpa Azure support med felsökning av problem. Den stängs även av de nya namnkonventionerna för RHEL 7 för nätverkskort. Vi rekommenderar dessutom att du tar bort följande parametrar:
    
         rhgb quiet crashkernel=auto
    
-    Grafisk och tyst Start inte är användbara i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten. Du kan lämna den `crashkernel` alternativet konfigureras om så önskas. Observera att den här parametern minskar mängden tillgängligt minne i den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på mindre storlekar för virtuella datorer.
+    Grafiska och tyst start är inte användbart i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten. Du kan lämna den `crashkernel` alternativet konfigureras om så önskas. Observera att den här parametern minskar mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på mindre storlekar för virtuella datorer.
 
-6. När du är klar med redigering `/etc/default/grub`, kör följande kommando för att återskapa grub konfigurationen:
+1. När du är klar redigering `/etc/default/grub`, kör följande kommando för att återskapa grub-konfigurationen:
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-7. Lägg till Hyper-V-modulerna initramfs.
+1. Lägga till Hyper-V-modulerna i initramfs.
 
     Redigera `/etc/dracut.conf`, lägga till innehåll:
 
@@ -696,23 +696,23 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL virtuell d
 
         # dracut -f -v
 
-8. Se till att SSH-server har installerats och konfigurerats för att starta när datorn startas. Den här inställningen är vanligtvis standard. Ändra `/etc/ssh/sshd_config` till följande kommando:
+1. Kontrollera att SSH-servern är installerad och konfigurerad för att starta när datorn startas. Den här inställningen är vanligtvis standard. Ändra `/etc/ssh/sshd_config` att inkludera följande rad:
 
         ClientAliveInterval 180
 
-9. Paketets WALinuxAgent `WALinuxAgent-<version>`, har aviserats i databasen för Red Hat-tillägg. Aktivera tillägg databasen genom att köra följande kommando:
+1. Paketets WALinuxAgent `WALinuxAgent-<version>`, har överförts till lagringsplatsen för Red Hat-tillägg. Aktivera tillägg databasen genom att köra följande kommando:
 
         # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
-10. Installera Azure Linux-agenten genom att köra följande kommando:
+1. Installera Azure Linux Agent genom att köra följande kommando:
 
         # sudo yum install WALinuxAgent
 
         # sudo systemctl enable waagent.service
 
-11. Skapa inte växlingsutrymme på operativsystemets disk.
+1. Skapa inte växlingsutrymme på operativsystemdisken.
 
-    Azure Linux-agenten kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resurs disk som är kopplad till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resursen är en tillfällig disk och kan tömmas när den virtuella datorn avetableras. När du installerar Azure Linux-agenten i föregående steg, ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
+    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisk som är kopplat till den virtuella datorn när den virtuella datorn har etablerats på Azure. Observera att den lokala resurs disken är en tillfällig disk och kan tömmas när virtuella datorn avetableras. När du har installerat Azure Linux Agent i föregående steg kan du ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -720,11 +720,11 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL virtuell d
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-12. Om du vill att avregistrera prenumerationen, kör du följande kommando:
+1. Om du vill avregistrera prenumerationen, kör du följande kommando:
 
         # sudo subscription-manager unregister
 
-13. Kör följande kommandon för att ta bort etableringen av den virtuella datorn och förbereda den för att etablera i Azure:
+1. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
 
         # sudo waagent -force -deprovision
 
@@ -732,10 +732,10 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL virtuell d
 
         # logout
 
-14. Stäng den virtuella datorn och omvandla VMDK-filen till VHD-format.
+1. Stäng av den virtuella datorn och konvertera filen VMDK till VHD-format.
 
 > [!NOTE]
-> Det finns ett känt fel i qemu img versioner > = 2.2.1 som resulterar i en felaktigt formaterad virtuell Hårddisk. Problemet har åtgärdats i QEMU 2.6. Det rekommenderas att använda qemu img 2.2.0 eller lägre eller uppdatera till 2.6 eller senare. Referens: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Det finns ett känt fel i qemu img versioner > = 2.2.1 som resulterar i en felaktigt formaterad virtuell Hårddisk. Problemet har åtgärdats i QEMU 2.6. Det rekommenderas att använda qemu img 2.2.0 eller lägre eller uppdatera 2.6 eller högre. Referens: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -761,10 +761,10 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL virtuell d
         # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
 
 
-## <a name="prepare-a-red-hat-based-virtual-machine-from-an-iso-by-using-a-kickstart-file-automatically"></a>Förbereda en Red Hat-baserad virtuell dator från en ISO med hjälp av en kickstart fil automatiskt
-### <a name="prepare-a-rhel-7-virtual-machine-from-a-kickstart-file"></a>Förbered en RHEL 7 virtuell dator från en kickstart-fil
+## <a name="prepare-a-red-hat-based-virtual-machine-from-an-iso-by-using-a-kickstart-file-automatically"></a>Förbered en Red Hat-baserad virtuell dator från en ISO med hjälp av en kickstart-fil automatiskt
+### <a name="prepare-a-rhel-7-virtual-machine-from-a-kickstart-file"></a>Förbered en RHEL 7-dator från en kickstart-fil
 
-1.  Skapa en kickstart-fil som innehåller följande innehåll och spara filen. Mer information om kickstart installation finns den [Kickstart installationsguiden](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
+1.  Skapa en kickstart-fil som innehåller följande innehåll och spara filen. Mer information om kickstart installation finns den [Kickstart installationsguide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
         # Kickstart for provisioning a RHEL 7 Azure VM
 
@@ -885,30 +885,30 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL virtuell d
 
         %end
 
-2. Placera filen kickstart där installationen system kan komma åt den.
+1. Placera kickstart-fil där installation av systemet kan komma åt den.
 
-3. Skapa en ny virtuell dator i Hyper-V Manager. På den **Anslut virtuell hårddisk** väljer **koppla en virtuell hårddisk senare**, och slutför guiden Ny virtuell dator.
+1. Skapa en ny virtuell dator i Hyper-V Manager. På den **Anslut virtuell hårddisk** väljer **koppla en virtuell hårddisk senare**, och slutför guiden Ny virtuell dator.
 
-4. Öppna inställningarna för virtuella datorer:
+1. Öppna inställningarna för virtuella datorer:
 
-    a.  Koppla en ny virtuell hårddisk till den virtuella datorn. Se till att välja **VHD-Format** och **med fast storlek**.
+    a.  Koppla en ny virtuell hårddisk till den virtuella datorn. Se till att välja **VHD-Format** och **fast storlek**.
 
-    b.  Koppla ISO installationen från DVD-enheten.
+    b.  Koppla installationen ISO från DVD-enheten.
 
     c.  Ange BIOS för start från CD: N.
 
-5. Startar den virtuella datorn. När installationsguiden visas trycker **fliken** konfigurera startalternativ för.
+1. Startar den virtuella datorn. När installationsguiden visas trycker du **fliken** konfigurera startalternativ för.
 
-6. Ange `inst.ks=<the location of the kickstart file>` i slutet av startalternativ och tryck på **RETUR**.
+1. Ange `inst.ks=<the location of the kickstart file>` i slutet av startalternativ och tryck på **RETUR**.
 
-7. Vänta på att installationen ska slutföras. När den är klar, stängs den virtuella datorn automatiskt. Din Linux VHD är nu redo att överföras till Azure.
+1. Vänta tills installationen är klar. När det är klart stängs den virtuella datorn automatiskt. VHD för Linux är nu redo att överföras till Azure.
 
 ## <a name="known-issues"></a>Kända problem
-### <a name="the-hyper-v-driver-could-not-be-included-in-the-initial-ram-disk-when-using-a-non-hyper-v-hypervisor"></a>Hyper-V-drivrutinen kan inte ingå i inledande RAM-disk när du använder en icke-Hyper-V hypervisor
+### <a name="the-hyper-v-driver-could-not-be-included-in-the-initial-ram-disk-when-using-a-non-hyper-v-hypervisor"></a>Hyper-V-drivrutinen kan inte ingå i den första RAM-disken när du använder en icke-Hyper-V-hypervisor
 
-I vissa fall kanske Linux installationsprogram inte innehåller drivrutiner för Hyper-V på den första RAM-disken (initrd eller initramfs) såvida inte Linux upptäcker att den körs i en miljö med Hyper-V.
+I vissa fall kan kanske Linux installationsprogram inte innehåller drivrutiner för Hyper-V i den första RAM-disken (initrd eller initramfs) såvida inte Linux upptäcker att den körs i en Hyper-V-miljö.
 
-När du använder en annan virtualisering system (det vill säga Virtualbox, Xen osv.) för att förbereda avbildningen Linux kan du behöva återskapa initrd för att se till att minst kernel-modulerna hv_vmbus och hv_storvsc är tillgängliga på den första disken RAM-minne. Detta är ett känt problem minst på system som är baserade på den överordnade Red Hat-distributionen.
+När du använder ett annat virtualiseringssystem (det vill säga Virtualbox, Xen, osv.) för att förbereda din Linux-avbildning kan du behöva återskapa initrd för att säkerställa att minst de hv_vmbus och hv_storvsc kernel-modulerna är tillgängliga på den första disken i RAM-minne. Det här är ett känt problem minst på system som baseras på den överordnade Red Hat-distributionen.
 
 Lägg till Hyper-V-modulerna i initramfs och återskapa den för att lösa problemet:
 
@@ -920,9 +920,9 @@ Redigera `/etc/dracut.conf`, och Lägg till följande innehåll:
 
         # dracut -f -v
 
-Mer information finns i informationen [återskapa initramfs](https://access.redhat.com/solutions/1958).
+Mer information finns i informationen om [återskapa initramfs](https://access.redhat.com/solutions/1958).
 
 ## <a name="next-steps"></a>Nästa steg
-Nu är du redo att använda din virtuella hårddisk Red Hat Enterprise Linux för att skapa nya virtuella datorer i Azure. Om att du överföra VHD-filen till Azure Se [skapa ett Linux VM från en anpassad disk](upload-vhd.md#option-1-upload-a-vhd).
+Du är nu redo att använda dina Red Hat Enterprise Linux-virtuell hårddisk för att skapa nya virtuella datorer i Azure. Om detta är första gången som du laddar upp VHD-filen till Azure, se [skapa en Linux VM från en anpassad disk](upload-vhd.md#option-1-upload-a-vhd).
 
-Mer information om hypervisorer som är certifierade för att köra Red Hat Enterprise Linux finns [Red Hat-webbplatsen](https://access.redhat.com/certified-hypervisors).
+Mer information om hypervisor-program som är certifierade för att köra Red Hat Enterprise Linux finns i [Red Hat-webbplatsen](https://access.redhat.com/certified-hypervisors).

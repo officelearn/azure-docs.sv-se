@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 07/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: e4712b94be94eb6d4cf363fc120b72c74f29f0a2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 52f0e6c90aa9fa0dc439eae3801b2d4ac29387a9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059664"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429688"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profilera live-Azure-webbappar med Application Insights
 
@@ -33,15 +33,15 @@ Profiler fungerar för närvarande för ASP.NET och ASP.NET Core web apps som k�
 När du har distribuerat en Webbapp, gör oavsett om du ingår i App Insights SDK i källkoden, du följande:
 
 1. Gå till den **Apptjänster** fönstret i Azure-portalen.
-2. Gå till **Inställningar > övervakning** fönstret.
+1. Gå till **Inställningar > övervakning** fönstret.
 
    ![Aktivera App Insights på App Services-portalen](./media/app-insights-profiler/AppInsights-AppServices.png)
 
-3. Antingen följer du anvisningarna i fönstret för att skapa en ny resurs eller välj en befintlig App Insights-resurs för att övervaka ditt webbprogram. Acceptera alla standardalternativ. **Diagnostik på kodnivå** är aktiverad som standard och gör det möjligt för Profiler.
+1. Antingen följer du anvisningarna i fönstret för att skapa en ny resurs eller välj en befintlig App Insights-resurs för att övervaka ditt webbprogram. Acceptera alla standardalternativ. **Diagnostik på kodnivå** är aktiverad som standard och gör det möjligt för Profiler.
 
    ![Lägg till App Insights-webbplatstillägg][Enablement UI]
 
-4. Profiler har installerats med App Insights-webbplatstillägg och aktiveras med hjälp av en Appinställning för App Services.
+1. Profiler har installerats med App Insights-webbplatstillägg och aktiveras med hjälp av en Appinställning för App Services.
 
     ![App-inställning för Profiler][profiler-app-setting]
 
@@ -214,14 +214,14 @@ Dessa parametrar ta bort mappen som används av Application Insights Profiler oc
 När du konfigurerar Profiler görs uppdateringar till webbappens inställningar. Du kan aktivera uppdateringar manuellt om miljön kräver den. Ett exempel kan vara att ditt program körs i en miljö med Web Apps för PowerApps.
 
 1. I den **Web App Control** rutan Öppna **inställningar**.
-2. Ange **.Net Framework-version** till **v4.6**.
-3. Ange **Always On** till **på**.
-4. Lägg till den **APPINSIGHTS_INSTRUMENTATIONKEY** app inställning och ange värdet till samma instrumenteringsnyckeln som används av SDK: N.
-5. Öppna **Avancerade analysverktyg**.
-6. Välj **Gå** att öppna Kudu-webbplatsen.
-7. Välj på Kudu-webbplatsen **Platstillägg**.
-8. Installera **Programinsikter** från Azure Web Apps-galleriet.
-9. Starta om webbappen.
+1. Ange **.Net Framework-version** till **v4.6**.
+1. Ange **Always On** till **på**.
+1. Lägg till den **APPINSIGHTS_INSTRUMENTATIONKEY** app inställning och ange värdet till samma instrumenteringsnyckeln som används av SDK: N.
+1. Öppna **Avancerade analysverktyg**.
+1. Välj **Gå** att öppna Kudu-webbplatsen.
+1. Välj på Kudu-webbplatsen **Platstillägg**.
+1. Installera **Programinsikter** från Azure Web Apps-galleriet.
+1. Starta om webbappen.
 
 ## <a id="profileondemand"></a> Utlös Profiler manuellt
 
@@ -272,7 +272,7 @@ Det kan finnas två orsaker till varför du ser det här felet:
 
 1. På begäran profiler sessionen är klar men Application Insights tog längre tid att bearbeta insamlade data. Om data inte slutfördes bearbetas på 15 minuter, visas ett timeout-meddelande i portalen. Även om efter ett tag visas Profiler-spårningar. Om detta inträffar kan bara Ignorera felmeddelandet för tillfället. Vi arbetar på att lösa
 
-2. Webbappen har en äldre version av Profiler-agent som inte har funktionen på begäran. Om du har aktiverat Application Insights-profilen tidigare litar du behöver uppdatera dina Profiler-agent ska starta med hjälp av funktionen på begäran.
+1. Webbappen har en äldre version av Profiler-agent som inte har funktionen på begäran. Om du har aktiverat Application Insights-profilen tidigare litar du behöver uppdatera dina Profiler-agent ska starta med hjälp av funktionen på begäran.
   
 Följ stegen nedan för att kontrollera och installera den senaste Profiler:
 
@@ -281,25 +281,25 @@ Följ stegen nedan för att kontrollera och installera den senaste Profiler:
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0 om någon av dessa inställningar inte ställs in, gå till fönstret Application Insights aktivering att installera den senaste webbplatstillägg.
 
-2. Gå till Application Insights-fönstret i App Services-portalen.
+1. Gå till Application Insights-fönstret i App Services-portalen.
 
     ![Aktivera Application Insights från App Services-portalen][enable-app-insights]
 
-3. Om en ”uppdatera”-knappen på följande sida visas klickar du på den för att uppdatera Application Insights-webbplatstillägg som installerar den senaste versionen Profiler-agenten.
+1. Om en ”uppdatera”-knappen på följande sida visas klickar du på den för att uppdatera Application Insights-webbplatstillägg som installerar den senaste versionen Profiler-agenten.
 ![Uppdatera webbplatstillägg][update-site-extension]
 
-4. Klicka sedan på **ändra** till att se till att Profiler är på och välj **OK** att spara ändringarna.
+1. Klicka sedan på **ändra** till att se till att Profiler är på och välj **OK** att spara ändringarna.
 
     ![Ändra och spara appinsikter][change-and-save-appinsights]
 
-5. Gå tillbaka till **Appinställningar** fliken för den App Service för att kontrollera följande för app-inställningar är inställda:
+1. Gå tillbaka till **Appinställningar** fliken för den App Service för att kontrollera följande för app-inställningar är inställda:
     * **APPINSIGHTS_INSTRUMENTATIONKEY**: Ersätt med rätt instrumenteringsnyckeln för application insights.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
     ![appinställningar för profiler][app-settings-for-profiler]
 
-6. Du kan också kontrollera tilläggsversion och se till att ingen uppdatering är tillgänglig.
+1. Du kan också kontrollera tilläggsversion och se till att ingen uppdatering är tillgänglig.
 
     ![Sök efter uppdatering av webbappstillägget][check-for-extension-update]
 

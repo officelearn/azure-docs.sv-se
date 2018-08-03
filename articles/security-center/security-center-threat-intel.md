@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 832998a6028a8977b43e343ed778cc0b60388728
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8f1c6aa2e691a11e8920db8ca8bfdef5b8eb61b9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561372"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434198"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Hotinformation i Azure Security Center
 Den här artikeln hjälper dig använda hotinformationen i Azure Security Center till att åtgärda säkerhetsrelaterade problem.
@@ -50,22 +50,22 @@ Om du vill visualisera aktuell hotinformation för din miljö måste du först m
 
 1. Öppna instrumentpanelen för **Security Center**.
 
-2. I den vänstra rutan under **Hotskydd** Välj **Hotinformation**. En karta öppnas.
+1. I den vänstra rutan under **Hotskydd** Välj **Hotinformation**. En karta öppnas.
 
     ![Karta för hotinformation](./media/security-center-threat-intel/security-center-threat-intel.png)
 
-3. Högst upp på kartan, Välj **Visa klassiska hotinformation**. Den **Hotinformation** instrumentpanelen öppnas.
+1. Högst upp på kartan, Välj **Visa klassiska hotinformation**. Den **Hotinformation** instrumentpanelen öppnas.
 
     ![Instrumentpanelen Hotinformation](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
     > Om kolumnen längst till höger visar **UPGRADE PLAN** (Uppgradera abonnemang) använder den här arbetsytan den kostnadsfria prenumerationen. Uppgradera till Standard om du vill använda den här funktionen. Om kolumnen längst till höger visar **REQUIRES UPDATE** (Kräver uppdatering) uppdaterar [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) om du vill använda funktionen. Mer information om prissättning finns i Azure Security Center pricing (Azure Security Center-prissättning).
     >
-3. Om du har fler än en arbetsyta att undersöka prioriterar du undersökningen enligt kolumnen **Skadlig IP-adress**. Den visar det aktuella antalet skadliga IP-adresser på den här arbetsytan. Välj den arbetsyta du vill använda så visas instrumentpanelen **Hotinformation**.
+1. Om du har fler än en arbetsyta att undersöka prioriterar du undersökningen enligt kolumnen **Skadlig IP-adress**. Den visar det aktuella antalet skadliga IP-adresser på den här arbetsytan. Välj den arbetsyta du vill använda så visas instrumentpanelen **Hotinformation**.
 
     ![Hotinformation](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-4. Instrumentpanelen är indelad i fyra paneler:
+1. Instrumentpanelen är indelad i fyra paneler:
 
     a.  **Hottyper**. Sammanfattar de typer av hot som upptäcktes på den valda arbetsytan.
 

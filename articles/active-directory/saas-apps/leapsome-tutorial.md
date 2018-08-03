@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 4b2c23745a5e624bcf668dfbfe5d085392d7a583
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e55d161b7c95118736f4443c3fed0312418feee7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39052459"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441943"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Självstudier: Azure Active Directory-integration med Leapsome
 
@@ -52,7 +52,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Leapsome från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-leapsome-from-the-gallery"></a>Att lägga till Leapsome från galleriet
 För att konfigurera integrering av Leapsome i Azure AD, som du behöver lägga till Leapsome från galleriet i din lista över hanterade SaaS-appar.
@@ -63,15 +63,15 @@ För att konfigurera integrering av Leapsome i Azure AD, som du behöver lägga 
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Leapsome**väljer **Leapsome** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Leapsome**väljer **Leapsome** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Leapsome i resultatlistan](./media/leapsome-tutorial/tutorial_leapsome_addfromgallery.png)
 
@@ -84,10 +84,10 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 Om du vill konfigurera och testa Azure AD enkel inloggning med Leapsome, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Leapsome](#create-a-leapsome-test-user)**  – du har en motsvarighet för Britta Simon i Leapsome som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Leapsome](#create-a-leapsome-test-user)**  – du har en motsvarighet för Britta Simon i Leapsome som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -99,11 +99,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/leapsome-tutorial/tutorial_leapsome_samlbase.png)
 
-3. På den **Leapsome domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+1. På den **Leapsome domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Leapsome domän och URL: er med enkel inloggning för information](./media/leapsome-tutorial/tutorial_leapsome_url.png)
 
@@ -111,7 +111,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://www.leapsome.com/api/users/auth/saml/<CLIENTID>/assert`
 
-4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Leapsome domän och URL: er med enkel inloggning för information](./media/leapsome-tutorial/tutorial_leapsome_url1.png)
 
@@ -120,11 +120,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Föregående svars-URL och inloggnings-URL-värdet är inte verkliga värdet. Uppdaterar du dem med de faktiska värdena som förklaras senare under kursen.
 
-5. Leapsome program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel.
+1. Leapsome program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel.
     
     ![Konfigurera enkel inloggning](./media/leapsome-tutorial/tutorial_Leapsome_attribute.png)
 
-6. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
+1. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
     
     | Attributnamn | Attributvärde | Namnrymd |
     | ---------------| --------------- | --------- |   
@@ -150,25 +150,25 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     e. Klicka på **Ok**
 
-7. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/leapsome-tutorial/tutorial_leapsome_certificate.png) 
 
-8. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/leapsome-tutorial/tutorial_general_400.png)
     
-9. På den **Leapsome Configuration** klickar du på **konfigurera Leapsome** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **Leapsome Configuration** klickar du på **konfigurera Leapsome** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Leapsome konfiguration](./media/leapsome-tutorial/tutorial_leapsome_configure.png)
 
-10. I ett annat webbläsarfönster, logga in på Leapsome som en administratör.
+1. I ett annat webbläsarfönster, logga in på Leapsome som en administratör.
 
-11. Klicka på inställningar logotyp längst upp till höger, och klicka sedan på **administratörsinställningar**. 
+1. Klicka på inställningar logotyp längst upp till höger, och klicka sedan på **administratörsinställningar**. 
 
     ![Leapsome set](./media/leapsome-tutorial/tutorial_leapsome_admin.png)
 
-12. Klicka på den vänstra menyraden **enkel inloggning (SSO)**, och på den **SAML-baserad enkel inloggning (SSO)** sidan utför följande steg:
+1. Klicka på den vänstra menyraden **enkel inloggning (SSO)**, och på den **SAML-baserad enkel inloggning (SSO)** sidan utför följande steg:
     
     ![Leapsome saml](./media/leapsome-tutorial/tutorial_leapsome_samlsettings.png)
 
@@ -196,15 +196,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/leapsome-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/leapsome-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/leapsome-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/leapsome-tutorial/create_aaduser_04.png)
 
@@ -232,23 +232,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Leapsome**.
+1. I listan med program väljer **Leapsome**.
 
     ![Länken Leapsome i listan med program](./media/leapsome-tutorial/tutorial_leapsome_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

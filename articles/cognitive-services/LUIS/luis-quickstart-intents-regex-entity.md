@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 07/30/2018
 ms.author: diberry
-ms.openlocfilehash: 99f796bf26df755ca938c3023057e2e9de1706a1
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 9da2454afa130c4c2ccab458099a90d78354b3e2
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238343"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358312"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>Självstudie: 3. Lägg till entitet för reguljära uttryck
 I den här självstudien skapar du en app som visar hur det går till att extrahera konsekvent formaterade data från ett yttrande med hjälp av entiteten **Regular Expression** (Reguljärt uttryck).
@@ -28,7 +28,7 @@ I den här självstudien skapar du en app som visar hur det går till att extrah
 > * Träna och publicera app
 > * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar
 
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#luis-website) för att kunna redigera LUIS-programmet.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 Om du inte har appen Human Resources (Personalfrågor) från självstudien om [fördefinierade entiteter](luis-tutorial-prebuilt-intents-entities.md) ska du [importera](luis-how-to-start-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website) från [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json)-GitHub-lagringsplatsen.
@@ -67,11 +67,7 @@ LUIS tokeniserar yttrandet när yttrandet läggs till i en avsikt. Tokeniseringe
 
 1. Kontrollera att Human Resources-appen (Personalfrågor) finns i avsnittet **Build** (Skapa) i LUIS. Du kan ändra till det här avsnittet genom att välja **Build** (Skapa) i menyraden längst upp till höger. 
 
-    [ ![Skärmbild på LUIS-app med Build (Skapa) markerat i navigeringsfältet längst upp till höger](./media/luis-quickstart-intents-regex-entity/first-image.png)](./media/luis-quickstart-intents-regex-entity/first-image.png#lightbox)
-
 2. Välj **Create new intent** (Skapa ny avsikt). 
-
-    [ ![Skärmbild på sidan Intents (Avsikter) med knappen ”Create new intent” (Skapa ny avsikt) markerad](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png) ](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png#lightbox)
 
 3. Ange `FindForm` i popup-dialogrutan och välj sedan **Done** (Klar). 
 
@@ -96,14 +92,12 @@ LUIS tokeniserar yttrandet när yttrandet läggs till i en avsikt. Tokeniseringe
 
     Programmet har en fördefinierad nummerentitet som lagts till från den föregående självstudien. Därför är varje formulärnummer taggat. Det här kan vara tillräckligt för klientprogrammet, men numret kommer inte att märkas med den typen av nummer. Om en ny entitet med ett lämpligt namn skapas kan klientprogrammet bearbeta entiteten på rätt sätt när den returneras från LUIS.
 
-## <a name="create-a-hrf-number-regular-expression-entity"></a>Skapa en entitet för reguljära uttryck för HRF-nummer 
+## <a name="create-an-hrf-number-regular-expression-entity"></a>Skapa en entitet för reguljära uttryck för HRF-nummer 
 Skapa en entitet för reguljära uttryck för att ange för LUIS vad ett HRF-nummerformat är med följande steg:
 
 1. Välj **Entities** (Entiteter) på den vänstra panelen.
 
 2. Välj knappen **Create new entity** (Skapa ny entitet) på sidan Entities (Entiteter). 
-
-    [![Skärmbild på sidan Entities (Entiteter) med knappen ”Create new intent” (Skapa ny avsikt) markerad](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png)](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png#lightbox)
 
 3. I popop-dialogrutan anger du det nya entitetsnamnet `HRF-number`, väljer **RegEx** som enhetstyp, anger `hrf-[0-9]{6}` som Regex och väljer sedan **Done** (Klar).
 
@@ -127,22 +121,12 @@ Entiteter för reguljära uttryck kräver inte träning, men det behöver dock d
     ![Bild på meddelandefält om att processen är klar](./media/luis-quickstart-intents-regex-entity/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
-För att få en LUIS-förutsägelse i en chattrobot eller i ett annat program måste du publicera appen. 
 
-1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Publish** (Publicera). 
-
-    ![Skärmbild på FindKnowledgeBase knappen Publish (Publicera) i det översta navigeringsfältet markerad](./media/luis-quickstart-intents-regex-entity/publish-button.png)
-
-2. Välj platsen Production (Produktionsplats) och knappen **Publish** (Publicera).
-
-    ![Skärmbild på sidan Publish (Publicera) med knappen Publish to production slot (Publicera till produktionsplats) markerad](./media/luis-quickstart-intents-regex-entity/publish-to-production.png)
-
-3. Publiceringen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Skicka fråga till slutpunkten med ett annat yttrande
-1. På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunkts-URL i adressfältet. 
 
-    ![Skärmbild på sidan Publish (Publicera) med slutpunkts-URL markerad](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Gå till slutet av URL:en i adressen och ange `When were HRF-123456 and hrf-234567 published in the last year?`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `FindForm` med de två formulärnumren `HRF-123456` och `hrf-234567`.
 

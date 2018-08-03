@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/19/2018
+ms.date: 08/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3303050311a30473bb973ac4f49bbeb707c16a33
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 59c41d4303cad00107793f3c09382347fbb1fb5b
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173817"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480393"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Azure Event Grid-Händelseschema för prenumerationer
 
@@ -36,7 +36,7 @@ Azure-prenumerationer generera management händelser från Azure Resource Manage
 
 ## <a name="example-event"></a>Exempel-händelse
 
-I följande exempel visar schemat för en resurs som skapas händelse: 
+I följande exempel visas schemat för en **ResourceWriteSuccess** händelse. Samma schema används för **ResourceWriteFailure** och **ResourceWriteCancel** händelser med olika värden för `eventType`.
 
 ```json
 [{
@@ -96,7 +96,7 @@ I följande exempel visar schemat för en resurs som skapas händelse:
 }]
 ```
 
-Schemat för en resurs har tagits bort händelsen liknar:
+I följande exempel visas schemat för en **ResourceDeleteSuccess** händelse. Samma schema används för **ResourceDeleteFailure** och **ResourceDeleteCancel** händelser med olika värden för `eventType`.
 
 ```json
 [{
@@ -184,7 +184,7 @@ Dataobjektet har följande egenskaper:
 | Auktorisering | objekt | Den begärda auktoriseringen för åtgärden. |
 | anspråk | objekt | Egenskaper för anspråken. Mer information finns i [JWT-specifikationen](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | sträng | En Operations-ID för felsökning. |
-| httpRequest | objekt | Information om åtgärden. |
+| httpRequest | objekt | Information om åtgärden. Det här objektet är endast ingår när du uppdaterar en befintlig resurs eller ta bort en resurs. |
 | ResourceProvider | sträng | Resursprovidern som utför åtgärden. |
 | resourceUri | sträng | URI för resursen i åtgärden. |
 | operationName | sträng | Åtgärden som utfördes. |

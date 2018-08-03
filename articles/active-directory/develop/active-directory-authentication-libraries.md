@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory-Autentiseringsbibliotek | Microsoft Docs
-description: Azure AD Authentication Library (ADAL) kan klienten programvaruutvecklare autentisera enkelt användare till molnet eller lokala Active Directory (AD) och sedan hämta åtkomsttoken för att skydda API-anrop.
+description: Azure AD Authentication Library (ADAL) kan klienten utvecklare att enkelt autentisera användare till molnet eller lokala Active Directory (AD) och sedan hämta åtkomsttoken för att skydda API-anrop.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,34 +17,34 @@ ms.date: 04/13/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a01db6a0bebb670d0e30a4962ede6b12bba8e84e
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: bb8191ee715c2fee99e408035209e0d2c8f9f02b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751249"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447565"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory-Autentiseringsbibliotek
 
-Azure Active Directory Authentication Library (ADAL) v1.0 gör det möjligt för programutvecklare att autentisera användare till molnet eller lokala Active Directory (AD) och hämta token för att skydda API-anrop. ADAL underlättar autentisering för utvecklare med hjälp av funktioner som:
+Azure Active Directory Authentication Library (ADAL) v1.0 programmet ger utvecklare möjlighet att autentisera användare till molnet eller lokala Active Directory (AD) och hämta token för att skydda API-anrop. ADAL underlättar autentisering för utvecklare via funktioner som:
 
-- Konfigurerbara token-cache att komma åt token och uppdatera token
-- Automatisk token uppdatering när en åtkomst-token upphör att gälla och en uppdateringstoken är tillgänglig
+- Konfigurerbara tokencache att butiker åtkomsttoken och uppdatera token
+- Automatisk tokenuppdatering när en åtkomst-token upphör att gälla och en uppdateringstoken är tillgänglig
 - Stöd för asynkrona metodanrop
 
 > [!NOTE]
-> Letar du efter Azure AD v2.0-bibliotek (MSAL)? Checka ut den [MSAL biblioteket guiden](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).
+> Letar du efter Azure AD v2.0-bibliotek (MSAL)? Kolla in den [MSAL biblioteket guiden](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).
 >
 >
 
-## <a name="microsoft-supported-client-libraries"></a>Stöds av Microsoft klientbibliotek
+## <a name="microsoft-supported-client-libraries"></a>Stöds av Microsoft-klientbibliotek
 
-| Plattform | Bibliotek | Ladda ned | Källkoden | Exempel | Referens
+| Plattform | Bibliotek | Ladda ned | Källkod | Exempel | Referens
 | --- | --- | --- | --- | --- | --- |
-| .NET-klient Windows Store UWP Xamarin-iOS och Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Skrivbordsapp](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Referens](https://docs.microsoft.com/dotnet/api/?view=identitymodelclientsad-3.13.9) |
-| .NET-klient Windows Store, Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [Skrivbordsapp](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | |
+| .NET-klient, Windows Store, UWP, Xamarin iOS och Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Skrivbordsapp](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Referens](https://docs.microsoft.com/dotnet/api/?view=identitymodelclientsad-3.13.9) |
+| .NET-klienten, Windows Store, Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [Skrivbordsapp](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | |
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Den enda sidan App](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
-| iOS macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[iOS-app](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-ios) | [Referens](http://cocoadocs.org/docsets/ADAL/2.5.1/)|
+| iOS, macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[iOS-app](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-ios) | [Referens](http://cocoadocs.org/docsets/ADAL/2.5.1/)|
 | Android |ADAL |[Den centrala databasen](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android-app](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](http://javadoc.io/doc/com.microsoft.aad/adal/)|
 | Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | [Node.js-webbapp](https://github.com/Azure-Samples/active-directory-node-webapp-openidconnect)|[Referens](https://docs.microsoft.com/en-us/javascript/api/adal-node/?view=azure-node-latest) |
 | Java |ADAL4J |[Maven 3.](http://search.maven.org/#search%7Cga%7C1%7Ca%3Aadal4j%20g%3Acom.microsoft.azure) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Java-webbapp](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) |[Referens](http://javadoc.io/doc/com.microsoft.azure/adal4j) |
@@ -52,9 +52,9 @@ Azure Active Directory Authentication Library (ADAL) v1.0 gör det möjligt för
 
 ## <a name="microsoft-supported-server-libraries"></a>Stöds av Microsoft Server-bibliotek
 
-| Plattform | Bibliotek | Ladda ned | Källkoden | Exempel | Referens
+| Plattform | Bibliotek | Ladda ned | Källkod | Exempel | Referens
 | --- | --- | --- | --- | --- | --- |
-| .NET |OWIN för AzureAD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |[MVC-App](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-dotnet) | |
+| .NET |OWIN for AzureAD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |[MVC-App](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-dotnet) | |
 | .NET |OWIN för OpenIDConnect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) |[Webbapp](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |
 | .NET |OWIN för WS-Federation |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.WsFederation) |[CodePlex](http://katanaproject.codeplex.com) |[MVC-Webbapp](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) | |
 | .NET |Tillägg för Identity-protokollet för .NET 4.5 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
@@ -63,26 +63,26 @@ Azure Active Directory Authentication Library (ADAL) v1.0 gör det möjligt för
 
 ## <a name="scenarios"></a>Scenarier
 
-Här följer tre vanliga scenarier för att använda ADAL i en klient som ansluter till en fjärresurs:
+Här är tre vanliga scenarier för att använda ADAL i en klient som ansluter till en fjärresurs:
 
-### <a name="authenticating-users-of-a-native-client-application-running-on-a-device"></a>Autentisering av användare av en native client-program som körs på en enhet
+### <a name="authenticating-users-of-a-native-client-application-running-on-a-device"></a>Autentisera användare av ett internt klientprogram som körs på en enhet
 
-I detta scenario har en utvecklare en mobil klient eller program som behöver åtkomst till en fjärresurs, till exempel ett webb-API. Webb-API tillåter inte anonyma anrop och måste anropas i kontexten för en autentiserad användare. Webb-API som är förkonfigurerad att lita på åtkomst-token som utfärdas av en specifik Azure AD-klient. Azure AD är förkonfigurerad att utfärda åtkomsttoken för den här resursen. Om du vill anropa webb-API från klienten använder utvecklaren ADAL för att underlätta autentisering med Azure AD. Det säkraste sättet att använda ADAL är den återge användargränssnittet för att samla in autentiseringsuppgifter (renderas som webbläsarfönster).
+I det här scenariot kan får en utvecklare en mobil klient eller program som behöver åtkomst till en fjärransluten resurs, till exempel ett webb-API. Webb-API: tillåter inte anonyma anrop och måste anropas i kontexten för en autentiserad användare. Webb-API är förinställd på att lita på åtkomsttoken som utfärdas av en viss Azure AD-klient. Azure AD är förinställd på att utfärda åtkomsttoken för den resursen. För att anropa webb-API från klienten använder utvecklaren ADAL för att underlätta autentisering med Azure AD. Det säkraste sättet att använda ADAL är att återge användargränssnittet för att samla in autentiseringsuppgifter (återgiven som webbläsarfönster).
 
-ADAL gör det enkelt att autentisera användaren får en åtkomst-token och uppdateringstoken från Azure AD och sedan anropa webb-API: et med åtkomst-token.
+ADAL gör det enkelt att autentisera användaren, hämta en åtkomsttoken och uppdateringstoken från Azure AD och sedan anropa webb-API med hjälp av åtkomst-token.
 
-Kodexempel som visar det här scenariot använder autentisering till Azure AD, se [intern WPF klientprogrammet Web API](https://github.com/azureadsamples/nativeclient-dotnet).
+Ett kodexempel som visar det här scenariot med autentisering till Azure AD, se [Native Client WPF-program till webb-API](https://github.com/azureadsamples/nativeclient-dotnet).
 
-### <a name="authenticating-a-confidential-client-application-running-on-a-web-server"></a>Autentisering av ett konfidentiellt klientprogram som körs på en webbserver
+### <a name="authenticating-a-confidential-client-application-running-on-a-web-server"></a>Autentisera en konfidentiell klient-program som körs på en webbserver
 
-I det här scenariot kan har en utvecklare ett program som körs på en server som behöver åtkomst till en fjärresurs, till exempel ett webb-API. Web API inte tillåter anonym anropar så måste anropas från en auktoriserad tjänst. Webb-API som är förkonfigurerad att lita på åtkomst-token som utfärdas av en specifik Azure AD-klient. Azure AD är förkonfigurerad att utfärda åtkomsttoken för den här resursen till en tjänst med klientens autentiseringsuppgifter (klient-ID och hemligt). ADAL underlättar autentisering av tjänsten med Azure AD som returnerar en åtkomsttoken som kan användas för att anropa webb-API. ADAL hanterar också hantera livslängden för åtkomst-token med cachelagringen och förnya efter behov. Kodexempel som visar det här scenariot, se [Daemon konsolen programmet till webb-API](https://github.com/AzureADSamples/Daemon-DotNet).
+I det här scenariot kan får en utvecklare du ett program som körs på en server som behöver åtkomst till en fjärransluten resurs, till exempel ett webb-API. Web API inte tillåter anonyma anropar så måste den anropas från en auktoriserad tjänst. Webb-API är förinställd på att lita på åtkomsttoken som utfärdas av en viss Azure AD-klient. Azure AD är förinställd på att utfärda åtkomsttoken för den resursen till en tjänst med klientens autentiseringsuppgifter (klient-ID och hemlighet). ADAL underlättar autentisering av tjänsten med Azure AD som returnerar en åtkomsttoken som kan användas för att anropa webb-API. ADAL hanterar också hantera livslängden för åtkomst-token genom att cachelagra och förnya den efter behov. Ett kodexempel som visar det här scenariot finns [Daemon konsolen program till webb-API](https://github.com/AzureADSamples/Daemon-DotNet).
 
-### <a name="authenticating-a-confidential-client-application-running-on-a-server-on-behalf-of-a-user"></a>Autentisering av ett konfidentiellt klientprogram som körs på en server för en användares räkning
+### <a name="authenticating-a-confidential-client-application-running-on-a-server-on-behalf-of-a-user"></a>Autentisera ett konfidentiellt klientprogram som körs på en server för en användares räkning
 
-I det här scenariot kan har en utvecklare ett webbprogram som körs på en server som behöver åtkomst till en fjärresurs, till exempel ett webb-API. Webb-API tillåter inte anonym anrop, så måste anropas från en auktoriserad tjänst på uppdrag av en autentiserad användare. Webb-API som är förkonfigurerad för att lita på åtkomsttoken som utfärdats av en viss Azure AD-klient och Azure AD har förkonfigurerats att utfärda åtkomsttoken för den här resursen till en tjänst med klientens autentiseringsuppgifter. När användaren har autentiserats i webbprogrammet kan programmet hämta ett auktoriseringskod för användaren från Azure AD. Webbprogrammet kan sedan använda ADAL för att få en åtkomst-token och uppdatera token för en användare som använder de kod och klient-autentiseringsuppgifter som är kopplade till programmet från Azure AD. När webbprogrammet åtkomsttoken tillgång kan anropa det webb-API förrän token upphör att gälla. När token upphör att gälla kan webbprogrammet använda ADAL för att få en ny åtkomsttoken med hjälp av uppdateringen token som tidigare togs emot. Kodexempel som visar det här scenariot, se [Native client webb-API: et för Web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
+I det här scenariot kan får en utvecklare du ett webbprogram som körs på en server som behöver åtkomst till en fjärransluten resurs, till exempel ett webb-API. Webb-API: tillåter inte anonyma anrop, så måste den anropas från en auktoriserad tjänst för en autentiserad användare. Webb-API är förinställd på att lita på åtkomsttoken som utfärdas av en viss Azure AD-klient och Azure AD är förinställd på att utfärda åtkomsttoken för den resursen till en tjänst med klientens autentiseringsuppgifter. När användaren har autentiserats i webbprogrammet kan programmet hämta en auktoriseringskod för användaren från Azure AD. Webbprogrammet kan sedan använda ADAL för att hämta en åtkomsttoken och uppdatera token för en användare med hjälp av kod och klienten autentiseringsuppgifterna som är associerade med programmet från Azure AD. När webbprogrammet är tillgång åtkomsttoken kan anropa det webb-API: tills token upphör att gälla. När token upphör att gälla kan webbprogrammet använder ADAL för att få en ny åtkomsttoken med hjälp av uppdateringen åtkomsttoken som tidigare togs emot. Ett kodexempel som visar det här scenariot finns [Native client till webb-API till webb-API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
 ## <a name="see-also"></a>Se även
 
-- [Utvecklarhandbok för Azure Active Directory](active-directory-developers-guide.md)
+- [Utvecklarhandbok för Azure Active Directory](azure-ad-developers-guide.md)
 - [Autentiseringsscenarier för Azure Active directory](active-directory-authentication-scenarios.md)
 - [Azure Active Directory-kodexempel](active-directory-code-samples.md)

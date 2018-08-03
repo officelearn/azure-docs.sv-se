@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: f3f479de8bc3975f4da07a7761ffc99f976db20e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 785041b41395af385dcbbdc30df30e9d83db9e73
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235483"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447589"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Skapa en offentlig Load Balancer Standard med zonredundant klientdel med Azure CLI
 
@@ -30,7 +30,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kontrollerar du att du har installerat senast [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och är inloggad på ett Azure-konto med [az-inloggning](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az_login).
+Om du väljer att installera och använda CLI lokalt kontrollerar du att du har installerat senast [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och är inloggad på ett Azure-konto med [az-inloggning](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).
 
 > [!NOTE]
  Stöd för Tillgänglighetszoner är tillgänglig för väljer Azure-resurser och regioner och VM-storlekar. Mer information om hur du kommer igång och vilka Azure-resurser, regioner, och VM-storlekar som du kan prova tillgänglighetszoner med finns i [översikt över Tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview). Du kan få support via [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) eller genom att [öppna ett Azure-supportärende](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
@@ -52,7 +52,7 @@ Skapa en offentlig IP-Standard med följande kommando:
 az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku Standard
 ```
 
-## <a name="create-a-load-balancer"></a>Skapa en belastningsutjämnare
+## <a name="create-a-load-balancer"></a>Skapa en lastbalanserare
 
 Skapa en offentlig Load Balancer Standard med den offentliga IP som du skapade i föregående steg med följande kommando:
 

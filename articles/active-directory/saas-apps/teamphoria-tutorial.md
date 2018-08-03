@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 794945caeea113dc6f1cc2ab5e11a76c3e88c83e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 554930b18a271a677aeb5e82c3e62a94965a8e7f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041916"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439617"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Självstudier: Azure Active Directory-integration med Teamphoria
 
@@ -53,7 +53,7 @@ I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö.
 Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Teamphoria från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-teamphoria-from-the-gallery"></a>Att lägga till Teamphoria från galleriet
 För att konfigurera integrering av Teamphoria i Azure AD, som du behöver lägga till Teamphoria från galleriet i din lista över hanterade SaaS-appar.
@@ -64,19 +64,19 @@ För att konfigurera integrering av Teamphoria i Azure AD, som du behöver lägg
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Klicka på **Lägg till** knappen överst i dialogrutan.
+1. Klicka på **Lägg till** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **Teamphoria**.
+1. I sökrutan skriver **Teamphoria**.
 
     ![Skapa en Azure AD-användare för testning](./media/teamphoria-tutorial/tutorial_teamphoria_search.png)
 
-5. I resultatpanelen väljer **Teamphoria**, och klicka sedan på **Lägg till** för att lägga till programmet.
+1. I resultatpanelen väljer **Teamphoria**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
     ![Skapa en Azure AD-användare för testning](./media/teamphoria-tutorial/tutorial_teamphoria_addfromgallery.png)
 
@@ -88,10 +88,10 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 Om du vill konfigurera och testa Azure AD enkel inloggning med Teamphoria, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Teamphoria](#creating-a-teamphoria-test-user)**  – du har en motsvarighet för Britta Simon i Teamphoria som är länkad till en Azure AD-representation av henne.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Teamphoria](#creating-a-teamphoria-test-user)**  – du har en motsvarighet för Britta Simon i Teamphoria som är länkad till en Azure AD-representation av henne.
+1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -103,11 +103,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
     ![Konfigurera enkel inloggning](./media/teamphoria-tutorial/tutorial_teamphoria_samlbase.png)
 
-3. På den **Teamphoria domän och URL: er** avsnittet, utför följande steg:
+1. På den **Teamphoria domän och URL: er** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/teamphoria-tutorial/tutorial_teamphoria_url.png)
 
@@ -116,29 +116,29 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Inloggnings-URL-värdet är inte verkliga. Du måste uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Teamphoria klienten supportteamet](https://www.teamphoria.com/) att hämta inloggnings URL.
 
-4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatet på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatet på datorn.
 
     ![Konfigurera enkel inloggning](./media/teamphoria-tutorial/tutorial_teamphoria_certificate.png)
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/teamphoria-tutorial/tutorial_general_400.png)
 
-6. På den **Teamphoria Configuration** klickar du på **konfigurera Teamphoria** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **Teamphoria Configuration** klickar du på **konfigurera Teamphoria** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Konfigurera enkel inloggning](./media/teamphoria-tutorial/tutorial_teamphoria_configure.png)
 
-7. Att konfigurera enkel inloggning på **Teamphoria** sida, logga in på ditt Teamphoria program som administratör.
+1. Att konfigurera enkel inloggning på **Teamphoria** sida, logga in på ditt Teamphoria program som administratör.
 
-8. Gå till **ADMINISTRATÖRSINSTÄLLNINGAR** alternativet i det vänstra verktygsfältet och på fliken Konfigurera klickar du på **enkel inloggning** att öppna fönstret SSO-konfiguration.
+1. Gå till **ADMINISTRATÖRSINSTÄLLNINGAR** alternativet i det vänstra verktygsfältet och på fliken Konfigurera klickar du på **enkel inloggning** att öppna fönstret SSO-konfiguration.
 
     ![Konfigurera enkel inloggning](./media/teamphoria-tutorial/admin_sso_configure.png)
 
-9. Klicka på **lägga till nya IDENTITETSPROVIDER** alternativet i det övre högra hörnet för att öppna formuläret för att lägga till inställningar för enkel inloggning.
+1. Klicka på **lägga till nya IDENTITETSPROVIDER** alternativet i det övre högra hörnet för att öppna formuläret för att lägga till inställningar för enkel inloggning.
 
     ![Konfigurera enkel inloggning](./media/teamphoria-tutorial/add_new_identity_provider.png)
 
-10. Ange information i fälten som beskrivs nedan-
+1. Ange information i fälten som beskrivs nedan-
 
     ![Konfigurera enkel inloggning](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
@@ -163,15 +163,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](./media/teamphoria-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![Skapa en Azure AD-användare för testning](./media/teamphoria-tutorial/create_aaduser_02.png) 
 
-3. Överst i dialogrutan klickar du på **Lägg till** att öppna den **användaren** dialogrutan.
+1. Överst i dialogrutan klickar du på **Lägg till** att öppna den **användaren** dialogrutan.
  
     ![Skapa en Azure AD-användare för testning](./media/teamphoria-tutorial/create_aaduser_03.png)
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
     ![Skapa en Azure AD-användare för testning](./media/teamphoria-tutorial/create_aaduser_04.png) 
 
@@ -191,15 +191,15 @@ För att aktivera Azure AD-användare att logga in på Teamphoria, måste de eta
 
 1. Logga in på webbplatsen Teamphoria företag som administratör.
 
-2. Klicka på **ADMIN** inställningar i det vänstra verktygsfältet och under den **hantera** fliken klickar du på på **användare** att öppna sidan för användare.
+1. Klicka på **ADMIN** inställningar i det vänstra verktygsfältet och under den **hantera** fliken klickar du på på **användare** att öppna sidan för användare.
 
     ![Lägg till medarbetare](./media/teamphoria-tutorial/admin_manage_users.png)
 
-3. Klicka på den **manuell bjuda in** alternativet.
+1. Klicka på den **manuell bjuda in** alternativet.
 
     ![Bjuda in](./media/teamphoria-tutorial/admin_manage_add_users.png)
 
-4. På den här sidan kan du utföra följande åtgärd.
+1. På den här sidan kan du utföra följande åtgärd.
     
     ![Bjuda in](./media/teamphoria-tutorial/manual_user_invite.png)
 
@@ -223,23 +223,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201]
 
-2. I listan med program väljer **Teamphoria**.
+1. I listan med program väljer **Teamphoria**.
 
     ![Konfigurera enkel inloggning](./media/teamphoria-tutorial/tutorial_teamphoria_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
 
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 

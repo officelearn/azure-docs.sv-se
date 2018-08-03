@@ -9,27 +9,30 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: fc6ef4ccbe6e392b991bd375afcc63a54f58db02
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 0cd6d984ac9329112aa388e8d8ee808d4c3e6227
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285467"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445642"
 ---
 # <a name="what-is-the-speech-service-preview"></a>Vad är taltjänst (förhandsversion)?
 
-Tjänsten tal, en del av Microsofts Cognitive Services och unites flera Azure taltjänster som tidigare var tillgängliga separat: Bing-tal (som består av taligenkänning och text till tal), anpassat tal och Talöversättning. Som dess ämnen drivs Speech-tjänsten av de tekniker som används i andra Microsoftprodukter, inklusive Cortana och Microsoft Office.
+Med taltjänsten drivs av de tekniker som används i andra Microsoftprodukter, inklusive Cortana och Microsoft Office.  Samma tjänsten är tillgänglig för alla kunder som en Cognitive Service. 
 
 > [!NOTE]
 > Speech-tjänsten är för närvarande i offentlig förhandsversion. Gå tillbaka här regelbundet efter uppdateringar till dokumentation och ytterligare exempel.
 
-Med en prenumeration ger enhetliga Speech-tjänsten utvecklare ett enkelt sätt att ge sina program kraftfulla talbaserade funktioner. Dina appar kan nu funktionen voice-kommandot, transkription, diktering, talsyntes och översättning.
+Med en prenumeration ger våra Speech service utvecklare ett enkelt sätt att ge sina program kraftfulla talbaserade funktioner. Dina appar kan nu funktionen voice-kommandot, transkription, diktering, talsyntes och översättning.
+
+## <a name="speech-service-features"></a>Speech service-funktioner
 
 |Funktion|Beskrivning|
 |-|-|
-|Tal till text|Konverterar kontinuerlig tal till text som kan användas som indata för ditt program. Kan integreras med den [tjänst för Språkförståelse](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) för att härleda användaravsikt från yttranden.|
-|Text till tal|: Texten omvandlas till ljudfiler naturligt standardrösttyper syntetiserade tal.|
-|Tal&nbsp;översättning|Ge översättningar av tal till andra språk, text eller tal utdata.|
+|[Tal till text](speech-to-text.md)| Transkriberar ljud till text som ditt program kan acceptera som indata. Är integrerat med den [tjänst för Språkförståelse](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) för att härleda användaravsikt från yttranden.|
+|[Text till tal](text-to-speech.md)| Konverterar oformaterad text till tal för naturlig standardrösttyper, levereras till ditt program i en ljudfil. Flera röster, varierande i kön eller accent, är tillgängliga för många språk som stöds. |
+|[Talöversättning –](speech-translation.md)| Kan användas antingen för att översätta strömmande ljud i nära realtid eller för att behandla inspelade tal. |
+|[Tal enheter SDK](speech-devices-sdk.md)| Med introduktionen av enhetliga Speech-tjänsten erbjuder Microsoft och dess samarbetspartner en plattform för integrerad maskin-och programvara som optimerats för utveckla tal-aktiverade enheter |
 
 ## <a name="using-the-speech-service"></a>Med Speech-tjänsten
 
@@ -39,52 +42,6 @@ Speech-tjänsten är tillgänglig på två sätt. [SDK: N](speech-sdk.md) avläg
 |-|-|-|-|-|
 |[SDK: er](speech-sdk.md)|Ja|Nej|Ja|Bibliotek för specifika programmeringsspråk som förenklar utveckling.|
 |[REST](rest-apis.md)|Ja|Ja|Nej|En enkel HTTP-baserad API som gör det enkelt att lägga till tal i ditt program.|
-
-## <a name="speech-to-text"></a>Tal till text
-
-Den [tal till Text](speech-to-text.md) (STT) eller taligenkänning, API transkriberar ljud till text som ditt program kan acceptera som indata. Sedan kan programmet till exempel ange texten i ett dokument eller agera utifrån den som ett kommando.
-
-Tal till Text separat har optimerats för interaktiva, konversationen och diktering scenarier. Här följer några vanliga användningsområden för tal till Text-API. 
-
-* Identifiera en kort uttryck, till exempel ett kommando utan mellanliggande resultat
-* Transkribera långa, inspelade uttryck, till exempel ett röstmeddelande
-* Transkribera strömmande tal i realtid med ofullständiga resultat för diktering
-* Ta reda på vad användare vill göra baserat på en begäran om talat naturligt språk
-
-Tal till Text-API har stöd för interaktiva taltranskription med igenkänning av kontinuerlig-i realtid och mellanliggande resultat. Det finns även stöd för identifiering av talslut, valfri automatisk ändring till versal och skiljetecken, svordomsmaskning och textnormalisering.
-
-Du kan anpassa tal till Text akustiska och språkmodeller för att anpassa specialiserade ordförråd bort störande miljöer och flera olika sätt att tala.
-
-## <a name="text-to-speech"></a>Text till tal
-
-Den [Text till tal](text-to-speech.md) (text till tal), eller talsyntes, API konverterar oformaterad text till tal för naturlig standardrösttyper, levereras till ditt program i en ljudfil. Flera röster, varierande i kön eller accent, är tillgängliga för många språk som stöds.
-
-API: et stöder [tal syntes Markup Language (SSML)](speech-synthesis-markup.md) taggar, så att du kan ange exakta Fonetiskt uttal för problematiska orden. SSML kan även ange talegenskaper (inklusive betoning, hastighet, volym, kön och tonläge) direkt i texten.
-
-Här följer några vanliga användningsområden för Text till tal-API.
-
-* Tal-utdata som alternativa skärmutdata för användare med nedsatt syn
-* Röst fråga om bilar program som t.ex navigering
-* Konversationsanpassad användargränssnitt tillsammans med tal till Text-API
-
-Om du behöver en dialekt som inte stöds eller bara vill ha en unik röst för ditt program, Text till tal-API stöder [anpassade röst modeller](how-to-customize-voice-font.md).
-
-## <a name="speech-translation"></a>Talöversättning
-
-Den [Talöversättning](speech-translation.md) API kan användas antingen för att översätta strömmande ljud i nära realtid eller för att behandla inspelade tal. Vid direktuppspelning translation returnerar tjänsten mellanliggande resultat som kan visas för användaren att ange translation förlopp. Resultaten kan returneras som text eller som röst.
-
-Användningsområden för Talöversättning är följande.
-
-* Implementera en ”konversationsanpassade” translation mobila app eller enhet för resenärer 
-* Ange automatiska översättningar för textning av ljud- och inspelningar
-
-## <a name="speech-devices-sdk"></a>Speech Devices SDK
-
-Med introduktionen av enhetliga Speech-tjänsten, Microsoft och dess samarbetspartner erbjuder en plattform för integrerad maskin-och programvara som optimerats för att utveckla tal-aktiverade enheter: den [tal Devices SDK](speech-devices-sdk.md). Detta SDK lämpar sig för utveckling av smarta talenheter för alla typer av program.
-
-Tal Devices SDK kan du skapa egna omgivande enheter med ett ord på anpassade wake, så att stack-ikonen som utlöser ljud avbildning är unikt för ditt varumärke. Det ger också överlägsen ljudbearbetning från källor med flera kanaler för bättre taligenkänning, inklusive bullerdämpning, långdistansidentifiering och beamforming.
-
-SDK: N är baserad på webbsockets via port 443.
 
 ## <a name="next-steps"></a>Nästa steg
 

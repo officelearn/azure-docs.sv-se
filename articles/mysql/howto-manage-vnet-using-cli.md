@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 06/01/2018
-ms.openlocfilehash: fd8b21d1273b1bd02b0a949894be53cdc4a5c3c0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 22cf09a799b9eff6311b75291665a4f2844291ee
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597888"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442459"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-using-azure-cli"></a>Skapa och hantera Azure Database för MySQL-VNet-tjänstslutpunkter med Azure CLI
 Virtuella nätverk (VNet) services-slutpunkter och regler kan du utöka det privata adressutrymmet för ett virtuellt nätverk till Azure Database för MySQL-server. Med praktiska Azure kommandoradsgränssnitt (CLI) kommandon kan du skapa, uppdatera, ta bort, lista och visa tjänstslutpunkter för virtuellt nätverk och regler för att hantera servern. En översikt över Azure Database för MySQL-VNet-tjänstslutpunkter, inklusive begränsningar, finns i [Azure Database för MySQL Server VNet-tjänstslutpunkter](concepts-data-access-and-security-vnet.md). Tjänstslutpunkter i virtuella nätverk finns i offentlig förhandsversion i alla regioner som stöds för Azure Database för MySQL.
@@ -58,7 +58,7 @@ Utdata från kommandot visar alla installerade tillägg. Azure Database for MySQ
 > [!NOTE]
 > Avinstallera CLI-tillägg som kör den `az extension remove -n rdbms-vnet` kommando. 
 
-Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Välj det specifika prenumerations-ID:t under ditt konto med hjälp av kommandot [az account set](/cli/azure/account#az_account_set). Ersätt egenskapen **ID** från **az login**-utdata för din prenumeration i platshållaren för prenumerations-ID.
+Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Välj det specifika prenumerations-ID:t under ditt konto med hjälp av kommandot [az account set](/cli/azure/account#az-account-set). Ersätt egenskapen **ID** från **az login**-utdata för din prenumeration i platshållaren för prenumerations-ID.
 
 - Kontot måste ha tillräcklig behörighet för att skapa ett virtuellt nätverk och tjänstslutpunkten.
 

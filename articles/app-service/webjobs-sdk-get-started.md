@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 68377ffd53d5f2b99ddc08386529a40dda12e1b2
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: c0795a620ebd2c1e1cfaf52dde8e7ceb4ef40763
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901559"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434714"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Kom igång med Azure WebJobs-SDK för händelsedrivna Bakgrundsbearbetning
 
@@ -63,9 +63,9 @@ Den här artikeln förutsätter att du har [ett Azure-konto](https://azure.micro
 
 1. I Visual Studio väljer **Arkiv > Nytt projekt**.
 
-2. Välj **Windows Classic Desktop > konsolprogram (.NET Framework)**.
+1. Välj **Windows Classic Desktop > konsolprogram (.NET Framework)**.
 
-3. Ge projektet namnet *WebJobsSDKSample*, och välj sedan **OK**.
+1. Ge projektet namnet *WebJobsSDKSample*, och välj sedan **OK**.
 
    ![Dialogrutan Nytt projekt](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -121,13 +121,13 @@ I det här avsnittet ska ställa du in loggning i konsolen som använder det nya
    Install-Package Microsoft.Extensions.Logging.Console -version 2.0.1
    ``` 
 
-2. I *Program.cs*, lägga till en `using` instruktionen:
+1. I *Program.cs*, lägga till en `using` instruktionen:
 
    ```cs
    using Microsoft.Extensions.Logging;
    ```
 
-3. I den `Main` metoden lägger du till kod för att uppdatera den `JobHostConfiguration` innan du skapar den `JobHost`:
+1. I den `Main` metoden lägger du till kod för att uppdatera den `JobHostConfiguration` innan du skapar den `JobHost`:
  
    ```
    config.DashboardConnectionString = "";
@@ -190,9 +190,9 @@ Azure Storage-emulatorn som körs lokalt har inte alla funktioner som krävs fö
 
    ![Skapa Lagringskontots meny](./media/webjobs-sdk-get-started/create-storage-account-menu.png)
 
-2. I den **skapa Lagringskonto** dialogrutan, ange ett unikt namn för lagringskontot.
+1. I den **skapa Lagringskonto** dialogrutan, ange ett unikt namn för lagringskontot.
 
-3. Välj samma **Region** att du har skapat din App Service-app i eller en region nära dig.
+1. Välj samma **Region** att du har skapat din App Service-app i eller en region nära dig.
 
 1. Välj **Skapa**.
 
@@ -202,7 +202,7 @@ Azure Storage-emulatorn som körs lokalt har inte alla funktioner som krävs fö
 
    ![Anslutningen sträng ellipsen](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 
-2. Kopiera anslutningssträngen och spara det här värdet någonstans att du kan kopiera igen lätt.
+1. Kopiera anslutningssträngen och spara det här värdet någonstans att du kan kopiera igen lätt.
 
    ![Kopiera anslutningssträngen](./media/webjobs-sdk-get-started/copy-key.png)
 
@@ -218,7 +218,7 @@ WebJobs SDK söker efter lagringsanslutningssträngen i samlingen Appinställnin
    </connectionStrings>
    ```
 
-2. Ersätt *{lagringsanslutningssträng}* med den anslutningssträng som du kopierade tidigare.
+1. Ersätt *{lagringsanslutningssträng}* med den anslutningssträng som du kopierade tidigare.
 
    Senare ska du använda anslutningssträngen igen när du konfigurerar App Service-app i Azure.
 
@@ -243,27 +243,27 @@ I det här avsnittet skapar du och köra projektet lokalt och Utlös funktionen 
 
    Du kan se ett varningsmeddelande om en `ServicePointManager` inställningen. För testning du kommer att göra med det här projektet, kan du ignorera varningen. Mer information om varningen finns [hur du använder WebJobs-SDK](webjobs-sdk-how-to.md#jobhost-servicepointmanager-settings).
 
-2. Stäng konsolfönstret.
+1. Stäng konsolfönstret.
 
 1. I **Server Explorer**, expanderar du noden för det nya kontot och högerklicka på **köer**. 
 
-2. Välj **Skapa kö**. 
+1. Välj **Skapa kö**. 
 
-3. Ange *kö* som namn på kön och välj sedan **OK**.
+1. Ange *kö* som namn på kön och välj sedan **OK**.
 
    ![Skapa kö](./media/webjobs-sdk-get-started/create-queue.png)
 
-4. Högerklicka på noden för den nya kön och välj sedan **Visa kö**.
+1. Högerklicka på noden för den nya kön och välj sedan **Visa kö**.
 
-5. Välj den **Lägg till meddelande** ikon.
+1. Välj den **Lägg till meddelande** ikon.
 
    ![Skapa kö](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-6. I den **Lägg till meddelande** dialogrutan Ange *Hello World!* som den **meddelandetext**, och välj sedan **OK**.
+1. I den **Lägg till meddelande** dialogrutan Ange *Hello World!* som den **meddelandetext**, och välj sedan **OK**.
 
    ![Skapa kö](./media/webjobs-sdk-get-started/hello-world-text.png)
 
-7. Kör projektet igen.
+1. Kör projektet igen.
 
    Eftersom du har använt den `QueueTrigger` attribut i den `ProcessQueueMessage` funktion, WeJobs SDK-körning lyssnar efter meddelanden i kön när den startas. Ett nytt kömeddelande hittas i kön med namnet *kö* och anropar funktionen.
 
@@ -288,7 +288,7 @@ I det här avsnittet skapar du och köra projektet lokalt och Utlös funktionen 
    Executed 'Functions.ProcessQueueMessage' (Succeeded, Id=ebcb275d-0d7c-4293-a1af-93e0804b9e49)
    ```
 
-8. Stäng konsolfönstret.
+1. Stäng konsolfönstret.
 
 ## <a name="add-application-insights-logging"></a>Lägg till Application Insights-loggning
 
@@ -304,9 +304,9 @@ I det här avsnittet ska göra du följande uppgifter för att konfigurera Appli
 
 1. Om du inte redan har en App Service-app som du kan använda [skapar ett](app-service-web-get-started-dotnet-framework.md).
 
-2. Om du inte redan har en Application Insights-resurs som du kan använda [skapar ett](../application-insights/app-insights-create-new-resource.md). Ange **programtyp** till **Allmänt**, och hoppa över avsnitten som följer **kopierar du instrumentationsnyckeln**.
+1. Om du inte redan har en Application Insights-resurs som du kan använda [skapar ett](../application-insights/app-insights-create-new-resource.md). Ange **programtyp** till **Allmänt**, och hoppa över avsnitten som följer **kopierar du instrumentationsnyckeln**.
 
-3. Om du redan har en Application Insights-resurs som du vill använda, [kopierar du instrumentationsnyckeln](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
+1. Om du redan har en Application Insights-resurs som du vill använda, [kopierar du instrumentationsnyckeln](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
 
 ### <a name="configure-app-settings"></a>Konfigurera appinställningar 
 
@@ -314,23 +314,23 @@ I det här avsnittet ska göra du följande uppgifter för att konfigurera Appli
 
 1. Expandera resursgruppen som din App Service-app och högerklicka på App Service-appen.
 
-3. Välj **visa inställningarna för**.
+1. Välj **visa inställningarna för**.
 
-4. I den **anslutningssträngar** lägger du till följande post.
+1. I den **anslutningssträngar** lägger du till följande post.
 
    |Namn  |anslutningssträngen  |Databastyp|
    |---------|---------|------|
    |AzureWebJobsStorage | {lagringsanslutningssträngen som du kopierade tidigare}|Anpassat|
    
-6. Om den **programinställningar** box har inte en Application Insights-instrumentation nyckeln, lägga till det som du kopierade tidigare. (Instrumenteringsnyckeln kan redan vara det, beroende på hur du skapade App Service-appen.)
+1. Om den **programinställningar** box har inte en Application Insights-instrumentation nyckeln, lägga till det som du kopierade tidigare. (Instrumenteringsnyckeln kan redan vara det, beroende på hur du skapade App Service-appen.)
 
    |Namn  |Värde  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {instrumenteringsnyckeln} |
 
-2. Ersätt *{instrumenteringsnyckeln}* med instrumenteringsnyckeln från Application Insights-resurs som du använder.
+1. Ersätt *{instrumenteringsnyckeln}* med instrumenteringsnyckeln från Application Insights-resurs som du använder.
 
-2. Välj **Spara**.
+1. Välj **Spara**.
 
 1. Lägg till följande XML-filen till den *App.config* filen omedelbart efter anslutningen strängar samlingen.
 
@@ -340,11 +340,11 @@ I det här avsnittet ska göra du följande uppgifter för att konfigurera Appli
    </appSettings>
    ```
 
-2. Ersätt *{instrumenteringsnyckeln}* med instrumenteringsnyckeln från Application Insights-resurs som du använder.
+1. Ersätt *{instrumenteringsnyckeln}* med instrumenteringsnyckeln från Application Insights-resurs som du använder.
 
    Att lägga till dessa data till den *App.config* filen kan du testa Application Insights-anslutning när du kör projektet lokalt. 
 
-3. Spara ändringarna.
+1. Spara ändringarna.
 
 ### <a name="add-application-insights-logging-provider"></a>Lägg till Application Insights loggningsprovider
 
@@ -364,13 +364,13 @@ I det här avsnittet ska göra du följande uppgifter för att konfigurera Appli
    Install-Package System.Configuration.ConfigurationManager -version 4.4.1
    ``` 
 
-2. Öppna *Program.cs* och Lägg till en `using` instruktionen för configuration manager:
+1. Öppna *Program.cs* och Lägg till en `using` instruktionen för configuration manager:
 
    ```csharp
    using System.Configuration;
    ```
 
-2. Ersätt Koden i den `Main` metoden med följande kod:
+1. Ersätt Koden i den `Main` metoden med följande kod:
 
    ```csharp
    using (var loggerFactory = new LoggerFactory())
@@ -406,7 +406,7 @@ I det här avsnittet kör du lokalt igen för att verifiera att loggningsdata nu
 
 1. Öppna den [Azure-portalen](https://portal.azure.com/), och gå till Application Insights-resursen.
 
-2. Välj **Search**.
+1. Välj **Search**.
 
    ![Välj sökning](./media/webjobs-sdk-get-started/select-search.png)
 
@@ -414,7 +414,7 @@ I det här avsnittet kör du lokalt igen för att verifiera att loggningsdata nu
 
    ![Loggar i Application Insights](./media/webjobs-sdk-get-started/logs-in-ai.png)
 
-3. Stäng konsolfönstret.
+1. Stäng konsolfönstret.
 
 ## <a name="deploy-as-a-webjob"></a>Distribuera som ett WebJob
 
@@ -444,7 +444,7 @@ I det här avsnittet distribuerar du projektet som ett WebJob. Du distribuerar d
 
 1. Använd **Server Explorer** för att skapa ett kömeddelande, på samma sätt som du gjorde [tidigare](#trigger-the-function), förutom att ange *Hello Azure!*.
 
-7. Uppdatera den **kö** sida i Visual Studio och det nya meddelandet har tagits bort eftersom den funktion som körs i Azure App Service bearbetas den.
+1. Uppdatera den **kö** sida i Visual Studio och det nya meddelandet har tagits bort eftersom den funktion som körs i Azure App Service bearbetas den.
 
    > [!TIP]
    > När du testar i Azure, använda [utvecklingsläge](webjobs-sdk-how-to.md#jobhost-development-settings) att säkerställa att en funktion för en kö-utlösare anropas direkt och undvika förseningar på grund av [kö avsökning exponentiell backoff](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm).
@@ -453,7 +453,7 @@ I det här avsnittet distribuerar du projektet som ett WebJob. Du distribuerar d
 
 1. Öppna den [Azure-portalen](https://portal.azure.com/), och gå till Application Insights-resursen.
 
-2. Välj **Search**.
+1. Välj **Search**.
 
 1. Om du inte ser den *Hello Azure!* meddelandet markerar **uppdatera** regelbundet i flera minuter.
 
@@ -477,19 +477,19 @@ Indatabindningar förenkla kod som läser data. I det här exemplet kömeddeland
 
    I den här koden `queueTrigger` är en [bindning uttryck](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns), vilket innebär att det matchar ett annat värde vid körning.  Vid körning har innehållet i kömeddelandet.
 
-2. Lägg till en `using`:
+1. Lägg till en `using`:
 
    ```cs
    using System.IO;
    ```
 
-3. Skapa en blobbehållare i ditt storage-konto.
+1. Skapa en blobbehållare i ditt storage-konto.
 
    a. I **Server Explorer**och expanderar du noden för ditt lagringskonto, högerklickar på **Blobar**, och välj sedan **skapa Blobbehållare**.
 
    b. I den **skapa Blobbehållare** dialogrutan Ange *behållare* som behållarens namn och klicka sedan på **OK**.
 
-4. Ladda upp den *Program.cs* till blobbehållaren. (Den här filen används här som ett exempel; du kan ladda upp en textfil och skapa ett kömeddelande med filens namn.)
+1. Ladda upp den *Program.cs* till blobbehållaren. (Den här filen används här som ett exempel; du kan ladda upp en textfil och skapa ett kömeddelande med filens namn.)
 
    a. I **Server Explorer**, dubbelklickar du på noden för den behållare som du nyss skapade.
 
@@ -499,11 +499,11 @@ Indatabindningar förenkla kod som läser data. I det här exemplet kömeddeland
 
    c. Hitta och välja *Program.cs*, och välj sedan **OK**.
 
-5. Skapa ett kömeddelande i kön som du skapade tidigare, med *Program.cs* som meddelandets text.
+1. Skapa ett kömeddelande i kön som du skapade tidigare, med *Program.cs* som meddelandets text.
 
    ![Kömeddelande Program.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
 
-6. Kör projektet.
+1. Kör projektet.
 
    Kömeddelandet utlöser funktionen, som sedan läser blob och loggar dess längd. Konsolens utdata ser ut så här:
 
@@ -535,9 +535,9 @@ Utdatabindningar förenkla kod som skriver data. Det här exemplet ändrar det f
    }
    ```
 
-5. Skapa en annan kömeddelande med *Program.cs* som meddelandets text.
+1. Skapa en annan kömeddelande med *Program.cs* som meddelandets text.
 
-6. Kör projektet.
+1. Kör projektet.
 
    Kömeddelandet utlöser funktionen som sedan läser blob, loggar dess längd och skapar en ny blob. Konsolens utdata är detsamma, men när du gå till fönstret blob-behållare och väljer **uppdatera**, visas en ny blob med namnet *kopiera Program.cs.*
 

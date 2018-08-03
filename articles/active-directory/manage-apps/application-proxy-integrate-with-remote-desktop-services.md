@@ -15,12 +15,12 @@ ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 61ac0d823322b919952b7ea426c447e070a09fc1
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 5d8af50e3007342a5cd46e4862623f2cf7145172
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363204"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480429"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicera Fjärrskrivbord med Azure AD Application Proxy
 
@@ -64,14 +64,14 @@ När du har installerat RDS och Azure AD-programproxy för din miljö, följer d
 ### <a name="publish-the-rd-host-endpoint"></a>Publicera slutpunkten för RD-värd
 
 1. [Publicera ett nytt Application Proxy-program](application-proxy-publish-azure-portal.md) med följande värden:
-   - Intern URL: https://\<rdhost\>.com / där \<rdhost\> är vanliga roten som webbåtkomst och fjärrskrivbordsgateway delar.
+   - Intern URL: `https://\<rdhost\>.com/`, där `\<rdhost\>` är vanliga roten som webbåtkomst och fjärrskrivbordsgateway delar.
    - Externa URL: en: Det här fältet fylls i automatiskt baserat på namnet på programmet, men du kan ändra den. Användarna kommer att gå till denna URL när de ansluter till Fjärrskrivbordstjänster.
    - Förautentiseringsmetoden: Azure Active Directory
    - Översätt URL-huvuden: Nej
 2. Tilldela användare till det publicerade RD-programmet. Kontrollera att de har åtkomst till RDS, för.
 3. Lämna den enda inloggnings-metoden för programmet som **Azure AD enkel inloggning inaktiverad**. Användarna uppmanas att autentisera en gång till Azure AD och en gång till webbåtkomst, men har enkel inloggning till RD Gateway.
 4. Gå till **Azure Active Directory** > **Appregistreringar** > *programmets* > **inställningar**.
-5. Välj **egenskaper** och uppdatera den **-URL-Adressen** fält så att den pekar till Webbåtkomst slutpunkten (som https://\<rdhost\>.com/RDWeb).
+5. Välj **egenskaper** och uppdatera den **-URL-Adressen** fält så att den pekar till Webbåtkomst slutpunkten (t.ex. `https://\<rdhost\>.com/RDWeb`).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>RDS trafiken till Application Proxy
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 74ab20c7ae7e70f04cce224e4fb45d7eb646c085
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d78276fad3da1b0ef4a860f147b17bc715932971
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050767"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438808"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Självstudier: Azure Active Directory-integration med Showpad
 
@@ -52,7 +52,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Showpad från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-showpad-from-the-gallery"></a>Att lägga till Showpad från galleriet
 
@@ -64,19 +64,19 @@ För att konfigurera integrering av Showpad i Azure AD, som du behöver lägga t
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **Showpad**.
+1. I sökrutan skriver **Showpad**.
 
     ![Skapa en Azure AD-användare för testning](./media/showpad-tutorial/tutorial_showpad_search.png)
 
-5. I resultatpanelen väljer **Showpad**, och klicka sedan på **Lägg till** för att lägga till programmet.
+1. I resultatpanelen väljer **Showpad**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
     ![Skapa en Azure AD-användare för testning](./media/showpad-tutorial/tutorial_showpad_addfromgallery.png)
 
@@ -91,10 +91,10 @@ I Showpad, tilldela värdet för den **användarnamn** i Azure AD som värde fö
 Om du vill konfigurera och testa Azure AD enkel inloggning med Showpad, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Showpad](#creating-a-showpad-test-user)**  – du har en motsvarighet för Britta Simon i Showpad som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Showpad](#creating-a-showpad-test-user)**  – du har en motsvarighet för Britta Simon i Showpad som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -106,11 +106,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/showpad-tutorial/tutorial_showpad_samlbase.png)
 
-3. På den **Showpad domän och URL: er** avsnittet, utför följande steg:
+1. På den **Showpad domän och URL: er** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/showpad-tutorial/tutorial_showpad_url.png)
 
@@ -123,25 +123,25 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
  
 
 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/showpad-tutorial/tutorial_showpad_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/showpad-tutorial/tutorial_general_400.png)
 
-6. Inloggning till Showpad-klienten som administratör.
+1. Inloggning till Showpad-klienten som administratör.
 
-7. Klicka på menyn längst upp i **inställningar**.
+1. Klicka på menyn längst upp i **inställningar**.
    
     ![Konfigurera enkel inloggning på App-sida](./media/showpad-tutorial/tutorial_showpad_001.png) 
 
-8. Navigera till ”**enkel inloggning**” och klicka på ”**aktivera**”.
+1. Navigera till ”**enkel inloggning**” och klicka på ”**aktivera**”.
    
     ![Konfigurera enkel inloggning på App-sida](./media/showpad-tutorial/tutorial_showpad_002.png)
 
-9. På den **lägga till en SAML 2.0-tjänst** dialogrutan utför följande steg:
+1. På den **lägga till en SAML 2.0-tjänst** dialogrutan utför följande steg:
    
     ![Konfigurera enkel inloggning på App-sida](./media/showpad-tutorial/tutorial_showpad_003.png) 
    
@@ -170,15 +170,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](./media/showpad-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
     ![Skapa en Azure AD-användare för testning](./media/showpad-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
     ![Skapa en Azure AD-användare för testning](./media/showpad-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
     ![Skapa en Azure AD-användare för testning](./media/showpad-tutorial/create_aaduser_04.png) 
 
@@ -210,23 +210,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Showpad**.
+1. I listan med program väljer **Showpad**.
 
     ![Konfigurera enkel inloggning](./media/showpad-tutorial/tutorial_showpad_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 

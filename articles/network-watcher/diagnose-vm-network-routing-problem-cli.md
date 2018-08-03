@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: fcb7ec2e40b5c0e8794d2f4d70395dcbecca019c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 15fb39a74047bdeffed0076501f0129eb00de4e8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618958"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443331"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnostisera en virtuell dator problem med nätverksroutning – Azure CLI
 
@@ -36,13 +36,13 @@ Om du väljer att installera och använda CLI lokalt måste den här artikeln kr
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
-Innan du kan skapa en virtuell dator måste du skapa en resursgrupp som innehåller den virtuella datorn. Skapa en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Innan du kan skapa en virtuell dator måste du skapa en resursgrupp som innehåller den virtuella datorn. Skapa en resursgrupp med [az group create](/cli/azure/group#az-group-create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). Om det inte redan finns SSH-nycklar på en standardnyckelplats skapar kommandot dem. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`. I följande exempel skapas en virtuell dator med namnet *myVm*:
+Skapa en virtuell dator med [az vm create](/cli/azure/vm#az-vm-create). Om det inte redan finns SSH-nycklar på en standardnyckelplats skapar kommandot dem. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`. I följande exempel skapas en virtuell dator med namnet *myVm*:
 
 ```azurecli-interactive
 az vm create \
@@ -153,7 +153,7 @@ Som du ser i utdata från den `az network watcher nic show-effective-route-table
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När resurserna inte behövs längre kan du använda [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen och alla relaterade resurser den innehåller:
+När resurserna inte behövs längre kan du använda [az group delete](/cli/azure/group#az-group-delete) för att ta bort resursgruppen och alla relaterade resurser den innehåller:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes

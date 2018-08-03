@@ -14,24 +14,27 @@ ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 5d6254efbb6051bf4fcd01abd4fbf858b0211319
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: f5d53b75b8cc47fc8405a334ae9af32faa67a439
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399948"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39481061"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
 Med Azure Active Directory (Azure AD) kan ange du separata administratörer att hantera olika funktioner. Administratörer kan utses i Azure AD-portalen för att utföra åtgärder som att lägga till eller ändra användare, tilldela administrativa roller, återställa användarlösenord, hantera användarlicenser och hantera domännamn.
 
 ## <a name="details-about-the-global-administrator-role"></a>Information om rollen global administratör
+
 Globala administratörer har åtkomst till alla administrativa funktioner. Som standard tilldelas den person som registrerar sig för en Azure-prenumeration rollen som global administratör för katalogen. Endast globala administratörer kan tilldela andra administratörsroller.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Tilldela eller ta bort administratörsroller
+
 Om du vill lära dig mer om att tilldela administrativa roller till en användare i Azure Active Directory, se [tilldela en användare till administratörsroller i Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="available-roles"></a>Tillgängliga roller
+
 Följande administratörsroller är tillgängliga:
 
 * **[Programadministratör](#application-administrator)**: användare i den här rollen kan skapa och hantera alla aspekter av företagsprogram och programregistreringar proxyinställningarna för programmet. Den här rollen ger även möjlighet att godkänna delegerade behörigheter och programbehörigheter exklusive Microsoft Graph och Azure AD Graph. Medlemmar i den här rollen har inte lagts som ägare när du skapar nya programregistreringar eller företagsprogram.
@@ -48,7 +51,7 @@ Följande administratörsroller är tillgängliga:
   > [!NOTE]
   > Om du vill distribuera Exchange ActiveSync villkorsstyrd åtkomstprincip i Azure, måste användaren också vara en Global administratör.
   
-* **[Enhetsadministratörer](#device-administrators)**: användare med den här rollen blir lokala administratörer på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte behörighet att hantera enhetsobjekt i Azure Active Directory.
+* **[Enhetsadministratörer](#device-administrators)**: den här rollen är tilldelas endast som en ytterligare lokal administratör i [Enhetsinställningar](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Användare med den här rollen blir administratörer för den lokala datorn på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte behörighet att hantera enheters objekt i Azure Active Directory. 
 
 * **[Katalogläsare](#directory-readers)**: det här är en äldre roll som ska tilldelas till program som inte stöder den [godkänna Framework](../develop/active-directory-integrating-applications.md). Det ska inte tilldelas alla användare.
 
@@ -353,15 +356,13 @@ Kan hantera funktioner för villkorsstyrd åtkomst.
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | Uppdatera ConditionalAccessPolicys.Owners-egenskapen i Azure Active Directory. |
 
 ### <a name="device-administrators"></a>Enhetsadministratörer
-Medlemmar i den här rollen har lagts till i gruppen lokala administratörer på Azure AD-anslutna enheter.
+
+Användare med den här rollen blir administratörer för den lokala datorn på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte behörighet att hantera enhetsobjekt i Azure Active Directory.
 
   > [!NOTE]
   > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
   >
   >
-
-| **Åtgärder** | **Beskrivning** |
-| --- | --- |
 
 ### <a name="directory-readers"></a>Katalogläsare
 Kan läsa grundläggande kataloginformation. För att bevilja åtkomst till program.
@@ -846,7 +847,7 @@ Kan läsa information om Service Health och hantera supportärenden.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Läs Organizations.TrustedCAsForPasswordlessAuth-egenskapen i Azure Active Directory. |
+| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Läsa Organizations.TrustedCAsForPasswordlessAuth-egenskapen i Azure Active Directory. |
 | microsoft.aad.accessservice/AllEntities/AllActions | Skapa och ta bort alla resurser och läsa och uppdatera standardegenskaper i Azure Access Control. |
 | microsoft.aad.supporttickets/AllEntities/AllActions | Skapa och hantera Office 365-supportbegäranden. |
 | microsoft.aad.servicehealth/AllEntities/AllActions | Läsa och konfigurera Office 365 Service Health. |
@@ -898,11 +899,11 @@ Kan hantera alla aspekter av användare och grupper
 | microsoft.aad.directory/Group/Update/Members | Uppdatera Groups.Members-egenskapen i Azure Active Directory. |
 | microsoft.aad.directory/Group/Update/Owners | Uppdatera Groups.Owners-egenskapen i Azure Active Directory. |
 | microsoft.aad.directory/Group/Update/Settings | Uppdatera Groups.Settings-egenskapen i Azure Active Directory. |
-| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Läs Organizations.TrustedCAsForPasswordlessAuth-egenskapen i Azure Active Directory. |
+| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Läsa Organizations.TrustedCAsForPasswordlessAuth-egenskapen i Azure Active Directory. |
 | microsoft.aad.directory/User/AssignLicense | Hantera licenser för användare i Azure Active Directory. |
 | microsoft.aad.directory/User/Create | Skapa användare i Azure Active Directory. |
 | microsoft.aad.directory/User/Delete | Ta bort användare i Azure Active Directory. |
-| microsoft.aad.directory/User/InvalidateAllRefreshTokens | Invalidera alla tokens för användaruppdatering i Azure Active Directory. |
+| microsoft.aad.directory/User/InvalidateAllRefreshTokens | Ogiltigförklaras alla tokens för användaruppdatering i Azure Active Directory. |
 | microsoft.aad.directory/User/Restore | Återställa borttagna användare i Azure Active Directory. |
 | microsoft.aad.directory/User/Update | Uppdatera standardegenskaper för användare i Azure Active Directory. |
 | microsoft.aad.directory/User/Update/AppRoleAssignments | Uppdatera Users.AppRoleAssignments-egenskapen i Azure Active Directory. |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: jeedes
-ms.openlocfilehash: c8ec2b8e312b9bedbd19cb203c0a59177c7fd6a5
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 8001f2d38ac80bb6c67419faa54bf834531f0332
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265020"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439410"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Självstudier: Azure Active Directory-integration med G Suite
 
@@ -56,19 +56,19 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
     S: Ja. Google Cloud Platform och Google Apps delar samma autentiseringsplattform. Så om du vill göra GCP integrationen måste du konfigurera SSO med Google Apps.
 
 
-2. **F: är Chromebooks och andra Chrome enheter kompatibla med Azure AD enkel inloggning?**
+1. **F: är Chromebooks och andra Chrome enheter kompatibla med Azure AD enkel inloggning?**
    
     S: Ja, användare kan logga in på sina Chromebook-enheter med sina autentiseringsuppgifter för Azure AD. Se den här [G Suite support-artikeln](https://support.google.com/chrome/a/answer/6060880) för information om varför användare kan få du tillfrågas om autentiseringsuppgifter två gånger.
 
-3. **F: om jag aktiverar enkel inloggning, kommer användare att kunna använda sina autentiseringsuppgifter för Azure AD för att logga in på en Google-produkt, till exempel Google Classroom, GMail, Google Drive, YouTube och så vidare?**
+1. **F: om jag aktiverar enkel inloggning, kommer användare att kunna använda sina autentiseringsuppgifter för Azure AD för att logga in på en Google-produkt, till exempel Google Classroom, GMail, Google Drive, YouTube och så vidare?**
    
     S: Ja, beroende på [vilka G Suite](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) du väljer att aktivera eller inaktivera för din organisation.
 
-4. **F: kan jag aktivera enkel inloggning för endast en delmängd av Mina G Suite-användare?**
+1. **F: kan jag aktivera enkel inloggning för endast en delmängd av Mina G Suite-användare?**
    
     S: Nej, aktivera enkel inloggning omedelbart kräver att alla dina G Suite-användare att autentisera med sina autentiseringsuppgifter för Azure AD. Eftersom G Suite har inte stöd för att ha flera Identitetsproviders, identitetsleverantören för din G Suite-miljö kan antingen vara Azure AD eller Google – men inte båda på samma gång.
 
-5. **F: om en användare har loggat in via Windows, är de automatiskt autentisera till G Suite utan ett lösenord uppmanas?**
+1. **F: om en användare har loggat in via Windows, är de automatiskt autentisera till G Suite utan ett lösenord uppmanas?**
    
     S: det finns två alternativ för att aktivera det här scenariot. Först måste användare kan logga in på Windows 10-enheter via [Azure Active Directory Join](../device-management-introduction.md). Du kan också användare kan logga in på Windows-enheter som är anslutna till en domän till en lokal Active Directory som har aktiverats för enkel inloggning till Azure AD via en [Active Directory Federation Services (AD FS)](../connect/active-directory-aadconnect-user-signin.md) distribution. I båda fallen måste du utföra stegen i följande självstudie för att aktivera enkel inloggning mellan Azure AD och G Suite.
 
@@ -76,7 +76,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till G Suite från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-g-suite-from-the-gallery"></a>Att lägga till G Suite från galleriet
 Om du vill konfigurera integreringen av G Suite till Azure AD, som du behöver lägga till G Suite från galleriet i din lista över hanterade SaaS-appar.
@@ -87,15 +87,15 @@ Om du vill konfigurera integreringen av G Suite till Azure AD, som du behöver l
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **G Suite**väljer **G Suite** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **G Suite**väljer **G Suite** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![G Suite i resultatlistan](./media/google-apps-tutorial/tutorial_googleapps_addfromgallery.png)
 
@@ -110,10 +110,10 @@ I G Suite, tilldela värdet för den **användarnamn** i Azure AD som värde fö
 Om du vill konfigurera och testa Azure AD enkel inloggning med G Suite, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare för G Suite](#create-a-g-suite-test-user)**  – du har en motsvarighet för Britta Simon i G Suite som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare för G Suite](#create-a-g-suite-test-user)**  – du har en motsvarighet för Britta Simon i G Suite som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -125,11 +125,11 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
     ![Enkel inloggning för dialogrutan](./media/google-apps-tutorial/tutorial_googleapps_samlbase.png)
 
-3. På den **G Suite-domän och URL: er** om du vill konfigurera för den **Gmail** utför följande steg:
+1. På den **G Suite-domän och URL: er** om du vill konfigurera för den **Gmail** utför följande steg:
 
     ![G Suite-domän och URL: er med enkel inloggning för information](./media/google-apps-tutorial/tutorial_googleapps_urlgmail.png)
 
@@ -146,7 +146,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [G Suite klienten supportteamet](https://www.google.com/contact/) att hämta dessa värden.
 
-4. På den **G Suite-domän och URL: er** om du vill konfigurera för den **Google Cloud Platform** utför följande steg:
+1. På den **G Suite-domän och URL: er** om du vill konfigurera för den **Google Cloud Platform** utför följande steg:
 
     ![G Suite-domän och URL: er med enkel inloggning för information](./media/google-apps-tutorial/tutorial_googleapps_url1.png)
 
@@ -163,29 +163,29 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [G Suite klienten supportteamet](https://www.google.com/contact/) att hämta dessa värden. 
 
-5. På den **SAML-signeringscertifikat** klickar du på **certifikat** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **certifikat** och spara certifikatfilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/google-apps-tutorial/tutorial_googleapps_certificate.png) 
 
-6. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/google-apps-tutorial/tutorial_general_400.png)
 
-7. På den **G Suite-konfiguration** klickar du på **konfigurera G Suite** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML enkel inloggning för tjänst-URL och ändra URL: en lösenord** från den **Snabbreferens avsnittet.**
+1. På den **G Suite-konfiguration** klickar du på **konfigurera G Suite** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML enkel inloggning för tjänst-URL och ändra URL: en lösenord** från den **Snabbreferens avsnittet.**
 
     ![G Suite-konfiguration](./media/google-apps-tutorial/tutorial_googleapps_configure.png) 
 
-8. Öppna en ny flik i webbläsaren och logga in på den [G Suite-administratörskonsolen](http://admin.google.com/) med ditt administratörskonto.
+1. Öppna en ny flik i webbläsaren och logga in på den [G Suite-administratörskonsolen](http://admin.google.com/) med ditt administratörskonto.
 
-9. Klicka på **Security**. Om du inte ser länken, det kan vara dolda den **fler kontroller** menyn längst ned på skärmen.
+1. Klicka på **Security**. Om du inte ser länken, det kan vara dolda den **fler kontroller** menyn längst ned på skärmen.
    
     ![Klicka på Security.][10]
 
-10. På den **Security** klickar du på **Konfigurera enkel inloggning (SSO).**
+1. På den **Security** klickar du på **Konfigurera enkel inloggning (SSO).**
    
     ![Klicka på enkel inloggning.][11]
 
-11. Utför följande konfigurationsändringar:
+1. Utför följande konfigurationsändringar:
    
     ![Konfigurera enkel inloggning][12]
    
@@ -219,15 +219,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/google-apps-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/google-apps-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/google-apps-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/google-apps-tutorial/create_aaduser_04.png)
 
@@ -258,23 +258,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **G Suite**.
+1. I listan med program väljer **G Suite**.
 
     ![G Suite-länk i listan med program](./media/google-apps-tutorial/tutorial_googleapps_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

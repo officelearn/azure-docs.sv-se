@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: ad8b69bfe6f3261f00cd33846efc86ce3b198954
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b7b5dcd88b6e4e09dd9beb21e83ef405df148115
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919700"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443392"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Felsök fel när du växlar en virtuell dator till Azure
 
@@ -50,26 +50,26 @@ Det gick inte att skapa en misslyckad över klassisk virtuell dator i Azure site
 Om knappen Anslut är nedtonad och du inte är ansluten till Azure via en Express Route eller plats-till-plats-VPN-anslutning, sedan
 
 1. Gå till **VM** > **nätverk**, klicka på namnet på nätverksgränssnittet som krävs.  ![nätverksskrivare](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-2. Gå till **Ip-konfigurationer**, klicka sedan på namnfältet på IP-konfiguration som krävs. ![IP-konfigurationer](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
-3. Om du vill aktivera offentlig IP-adress, klickar du på **aktivera**. ![Aktivera IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. Klicka på **konfigurera nödvändiga inställningar** > **Skapa ny**. ![Skapa en ny](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
-5. Ange namnet på offentlig adress, välj sedan standardalternativen för **SKU** och **tilldelning**, klicka sedan på **OK**.
-6. Om du vill spara ändringarna, klicka på **spara**.
-7. Stäng panelerna och gå till **översikt** delen av virtuell dator för att ansluta/RDP.
+1. Gå till **Ip-konfigurationer**, klicka sedan på namnfältet på IP-konfiguration som krävs. ![IP-konfigurationer](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+1. Om du vill aktivera offentlig IP-adress, klickar du på **aktivera**. ![Aktivera IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
+1. Klicka på **konfigurera nödvändiga inställningar** > **Skapa ny**. ![Skapa en ny](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+1. Ange namnet på offentlig adress, välj sedan standardalternativen för **SKU** och **tilldelning**, klicka sedan på **OK**.
+1. Om du vill spara ändringarna, klicka på **spara**.
+1. Stäng panelerna och gå till **översikt** delen av virtuell dator för att ansluta/RDP.
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-even-though-connect-button-is-available-not-grayed-out-on-the-virtual-machine"></a>Det går inte att ansluta/RDP/SSH till den via virtuella datorn även om Connect knappen är tillgänglig (inte grå) på den virtuella datorn
 
 Kontrollera **Startdiagnostik** på den virtuella datorn och Sök efter fel som anges i den här artikeln.
 
 1. Om den virtuella datorn inte har startats försöker du växla till en tidigare återställningspunkt.
-2. Om programmet i den virtuella datorn inte är igång försöka att växla till en programkonsekvent återställningspunkt.
-3. Om den virtuella datorn är ansluten till en domän, se till att domänkontrollanten fungerar korrekt. Detta kan göras genom att följa den angivna stegen nedan.
+1. Om programmet i den virtuella datorn inte är igång försöka att växla till en programkonsekvent återställningspunkt.
+1. Om den virtuella datorn är ansluten till en domän, se till att domänkontrollanten fungerar korrekt. Detta kan göras genom att följa den angivna stegen nedan.
     a. Skapa en ny virtuell dator i samma nätverk
 
     b.  Se till att den ska kunna ansluta till samma domän som den redundansväxlade virtuella datorn förväntas hamna.
 
     c. Om domänkontrollanten är **inte** fungerar korrekt, försök logga in på den redundansväxlade virtuella datorn med ett lokalt administratörskonto
-4. Om du använder en anpassad DNS-server, se till att den kan nås. Detta kan göras genom att följa den angivna stegen nedan.
+1. Om du använder en anpassad DNS-server, se till att den kan nås. Detta kan göras genom att följa den angivna stegen nedan.
     a. Skapa en ny virtuell dator i samma nätverk och b. Kontrollera om den virtuella datorn kan utföra namnmatchning med hjälp av anpassad DNS-Server
 
 >[!Note]

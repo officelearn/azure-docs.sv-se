@@ -1,6 +1,6 @@
 ---
 title: Azure Storage Service Encryption för data i vila | Microsoft Docs
-description: Funktionen Azure Storage Service Encryption för att kryptera Azure Blob-lagring på serversidan vid lagring av data och dekryptera det vid hämtning av data.
+description: Funktionen Azure Storage Service Encryption för att kryptera Azure Managed Disks, Azure Blob storage, Azure Files, Azure Queue storage och Azure Table storage på serversidan vid lagring av data och dekryptera det vid hämtning av data.
 services: storage
 author: lakasa
 manager: jeconnoc
@@ -8,26 +8,28 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: f35697139a4be49be8a645cfd4d451ad8e3c8094
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 1a127f7e3dd57376ecd05d4ae7030becb33f1159
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412363"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480313"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service Encryption för vilande data
-Azure Storage Service Encryption för vilande data kan du skydda dina data för att uppfylla organisationens säkerhets- och efterlevnadsbestämmelser. Med den här funktionen krypterar Azure storage-plattformen automatiskt dina data före beständig Azure Blob storage, Azure Files eller Azure Queue storage och dekrypterar data innan hämtning. Hantering av kryptering, kryptering på rest, dekryptering och nyckelhantering på kryptering av lagringstjänst är transparent för användarna. Alla data som skrivs till Azure storage-plattformen krypteras med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste blockchiffer som finns.
+Azure Storage Service Encryption för vilande data kan du skydda dina data för att uppfylla organisationens säkerhets- och efterlevnadsbestämmelser. Med den här funktionen krypterar Azure storage-plattformen automatiskt dina data före beständig Azure Managed Disks, Azure Blob storage, Azure Files eller Azure Queue storage och dekrypterar data innan hämtning. Hantering av kryptering, kryptering på rest, dekryptering och nyckelhantering på kryptering av lagringstjänst är transparent för användarna. Alla data som skrivs till Azure storage-plattformen krypteras med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste blockchiffer som finns.
 
 Kryptering av lagringstjänst är aktiverat för alla nya och befintliga lagringskonton och kan inte inaktiveras. Eftersom dina data är skyddade som standard, behöver du inte ändra din kod eller ett program för att dra nytta av kryptering av lagringstjänst.
 
 Funktionen krypterar automatiskt data på:
 
-- Azure Blob storage, Azure Files, Azure Queue storage, Azure Table storage.  
+- Azure storage-tjänster:
+    - Azure Managed Disks
+    - Azure Blob Storage
+    - Azure Files
+    - Azure-kölagring
+    - Azure Table storage.  
 - Båda prestandanivåer (Standard och Premium).
 - Båda distributionsmodellerna (Azure Resource Manager och klassisk).
-
-> [!Note]  
-> Kryptering av lagringstjänst är inte tillgänglig för [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Vi rekommenderar att du använder kryptering på OS-nivå, till exempel [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), som använder vanliga [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) på Windows och [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) på Linux för att tillhandahålla kryptering är integrerad med KeyVault.
 
 Kryptering av lagringstjänst påverkar inte prestanda för Azure storage-tjänster.
 
@@ -55,13 +57,10 @@ Kryptering är aktiverat som standard och det finns inga etablera att inaktivera
 Det finns ingen extra kostnad.
 
 **Kan jag använda min egen krypteringsnycklar?**  
-Ja, du kan använda dina egna krypteringsnycklar. Mer information finns i [kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+För Azure Blob storage och Azure Files, Ja, kan du använda dina egna krypteringsnycklar. Kundhanterade nycklar stöds inte för närvarande av Azure Managed Disks. Mer information finns i [kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 **Kan jag återkalla åtkomst till krypteringsnycklarna?**  
 Ja, om du [använda era egna krypteringsnycklar](storage-service-encryption-customer-managed-keys.md) i Azure Key Vault.
-
-**Är kryptering av lagringstjänst tillgängligt på Azure Managed Disks?**  
-Nej, kryptering av lagringstjänst är inte tillgänglig för [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Vi rekommenderar att du använder kryptering på OS-nivå, till exempel [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), som använder vanliga [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) på Windows och [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) på Linux för att tillhandahålla kryptering är integrerad med KeyVault.
 
 **Hur skiljer sig kryptering av lagringstjänst från Azure Disk Encryption?**  
 Azure Disk Encryption innehåller integrering mellan OS-baserade lösningar, till exempel BitLocker och DM-Crypt och Azure KeyVault. Kryptering av lagringstjänst tillhandahåller kryptering internt i Azure storage-plattformen lager, under den virtuella datorn.

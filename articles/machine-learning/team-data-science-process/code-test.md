@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: 7d9d63d6c3d5c8ccf1777a46832457670d307d4a
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 46d156ce09b1ebcdcceb27ede6e7fa1595d30da6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970867"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439505"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Data science kod testning med UCI vuxet inkomst förutsägelse datauppsättningen
 Den här artikeln ger preliminär riktlinjer för att testa koden i ett arbetsflöde för datavetenskap. Sådant test ger datatekniker ett systematiskt och effektivt sätt att kontrollera kvaliteten och förväntade resultatet av sin kod. Vi använder ett Team Data Science Process (TDSP) [projekt som använder UCI vuxet inkomst datauppsättningen](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) som vi har publicerat tidigare för att visa hur kod testning kan göras. 
@@ -60,11 +60,11 @@ Använd följande steg för att konfigurera och köra kod testning och en automa
 
     ![Solution Explorer](./media/code-test/solution_explorer_in_vs.PNG)
 
-3. Skicka projektkoden till VSTS-kodlagringsplatsen projekt: 
+1. Skicka projektkoden till VSTS-kodlagringsplatsen projekt: 
 
     ![Lagringsplatsen för projektet](./media/code-test/create_repo.PNG)
 
-4. Anta att du har gjort vissa förberedelse av data, som datainmatning, funktionsframställning och skapa etikettkolumner. Du vill kontrollera att din kod genererar resultat som du förväntar dig. Här följer ett kodexempel som du kan använda för att testa om databearbetning koden fungerar korrekt:
+1. Anta att du har gjort vissa förberedelse av data, som datainmatning, funktionsframställning och skapa etikettkolumner. Du vill kontrollera att din kod genererar resultat som du förväntar dig. Här följer ett kodexempel som du kan använda för att testa om databearbetning koden fungerar korrekt:
 
     * Kontrollera att kolumnnamnen är rätt:
     
@@ -83,7 +83,7 @@ Använd följande steg för att konfigurera och köra kod testning och en automa
       ![Kod för saknas](./media/code-test/check_missing_rate.PNG)
 
 
-5. När du har gjort databehandlingen och funktionen engineering arbete, och du har tränat en bra modell, se till att poängsätta du tränade modellen nya datauppsättningar på rätt sätt. Du kan använda följande två tester för att kontrollera förutsägelse nivåer och distribution av etikettvärden:
+1. När du har gjort databehandlingen och funktionen engineering arbete, och du har tränat en bra modell, se till att poängsätta du tränade modellen nya datauppsättningar på rätt sätt. Du kan använda följande två tester för att kontrollera förutsägelse nivåer och distribution av etikettvärden:
 
     * Kontrollera förutsägelse nivåer:
     
@@ -93,58 +93,58 @@ Använd följande steg för att konfigurera och köra kod testning och en automa
 
       ![Kod för att kontrollera värdena för förutsägelse](./media/code-test/check_prediction_values.PNG)
 
-6. Placera alla testa functions tillsammans i ett pythonskript som heter **test_funcs.py**:
+1. Placera alla testa functions tillsammans i ett pythonskript som heter **test_funcs.py**:
 
     ![Python-skript för att testa functions](./media/code-test/create_file_test_func.PNG)
 
 
-7. När test-koder bereds, kan du ställa in testmiljön i Visual Studio.
+1. När test-koder bereds, kan du ställa in testmiljön i Visual Studio.
 
    Skapa en Python-fil som heter **test1.py**. Skapa en klass som innehåller alla tester som du vill göra i den här filen. I följande exempel visas sex tester förberett:
     
     ![Python-fil med en lista över tester i en klass](./media/code-test/create_file_test1_class.PNG)
 
-8. Dessa tester kan identifieras automatiskt om du placerar **codetest.testCase** efter din klassnamn. Öppna Utforskaren i Test i den högra rutan och välj **kör alla**. Alla tester körs sekventiellt och talar om testet lyckas eller inte.
+1. Dessa tester kan identifieras automatiskt om du placerar **codetest.testCase** efter din klassnamn. Öppna Utforskaren i Test i den högra rutan och välj **kör alla**. Alla tester körs sekventiellt och talar om testet lyckas eller inte.
 
     ![Kör testerna](./media/code-test/run_tests.PNG)
 
-9. Kontrollera i din kod till lagringsplatsen för projektet genom att använda Git-kommandon. Senaste arbetet visas snart i VSTS.
+1. Kontrollera i din kod till lagringsplatsen för projektet genom att använda Git-kommandon. Senaste arbetet visas snart i VSTS.
 
     ![Git-kommandon för att kontrollera i kod](./media/code-test/git_check_in.PNG)
 
     ![Senaste arbete i VSTS](./media/code-test/git_check_in_most_recent_work.PNG)
 
-10. Konfigurera automatisk build och testa i VSTS:
+1. Konfigurera automatisk build och testa i VSTS:
 
     a. I lagringsplatsen för projektet, väljer **Build and Release**, och välj sedan **+ ny** att skapa en ny build-process.
 
-       ![Val för att starta en ny build-process](./media/code-test/create_new_build.PNG)
+       ![Selections for starting a new build process](./media/code-test/create_new_build.PNG)
 
     b. Följ anvisningarna för att välja din kod för källplats, projektnamn, lagringsplatsen och grenen information.
     
-       ![Källa, namn, lagringsplatsen och grenen information](./media/code-test/fill_in_build_info.PNG)
+       ![Source, name, repository, and branch information](./media/code-test/fill_in_build_info.PNG)
 
     c. Välj en mall. Eftersom det finns inga Python-projektmallen, starta genom att välja **tom process**. 
 
-       ![Lista över mallar och ”tom process” knappen](./media/code-test/start_empty_process_template.PNG)
+       ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
     d. Namnge versionen och välj agenten. Du kan välja standard här om du vill använda en DSVM för att slutföra skapandeprocessen. Mer information om inställningen agenter finns i [skapa och släpp agenter](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts).
     
-       ![Bygg- och agenten val](./media/code-test/select_agent.PNG)
+       ![Build and agent selections](./media/code-test/select_agent.PNG)
 
     e. Välj **+** i den vänstra rutan, att lägga till en uppgift för den här build-fasen. Eftersom vi ska köra Python-skriptet **test1.py** för att slutföra alla kontroller, den här uppgiften använder ett PowerShell-kommando för att köra Python-kod.
     
-       ![”Lägg till uppgifter” fönstret med PowerShell valt](./media/code-test/add_task_powershell.PNG)
+       !["Add tasks" pane with PowerShell selected](./media/code-test/add_task_powershell.PNG)
 
     f. Fyll i nödvändig information, till exempel namn och version av PowerShell i PowerShell-information. Välj **infogat skript** som typ av. 
     
-       I rutan under **infogat skript**, du kan skriva **python test1.py**. Kontrollera att miljövariabeln är korrekt konfigurerad för Python. Om du behöver en annan version eller kernel av Python, kan du uttryckligen ange sökvägen som visas i bilden: 
+       In the box under **Inline Script**, you can type **python test1.py**. Make sure the environment variable is set up correctly for Python. If you need a different version or kernel of Python, you can explicitly specify the path as shown in the figure: 
     
-       ![PowerShell-information](./media/code-test/powershell_scripts.PNG)
+       ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
     g. Välj **spara och köa** att slutföra processen för build-definition.
 
-       ![Knappen ”Spara & kö”](./media/code-test/save_and_queue_build_definition.PNG)
+       !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
 Varje gång en ny allokering skickas till kodlagringsplatsen, startas nu skapandeprocessen automatiskt. (Använder här vi master som lagringsplats, men du kan definiera valfri gren.) Processen körs den **test1.py** fil på agentdatorn att se till att allt definieras i koden körs korrekt. 
 

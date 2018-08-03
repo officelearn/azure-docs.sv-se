@@ -1,6 +1,6 @@
 ---
-title: Distribution av Azure virtuella datorer för SAP NetWeaver | Microsoft Docs
-description: Lär dig hur du distribuerar SAP-program på Linux-datorer i Azure.
+title: Azure Virtual Machines-distribution för SAP NetWeaver | Microsoft Docs
+description: Lär dig mer om att distribuera SAP-program på Linux-datorer i Azure.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: cb402f51ca20551bf34140322f3f259470a637ac
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9de1811768a7e81f6f8e755b96d5328ce89e7983
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656405"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442028"
 ---
-# <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Distribution av Azure virtuella datorer för SAP NetWeaver
+# <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -79,18 +79,18 @@ ms.locfileid: "34656405"
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
 
-[dbms-guide]:dbms-guide.md (Azure virtuella datorer DBMS-distribution för SAP)
+[dbms-guide]:dbms-guide.md (Azure Virtual Machines DBMS-distribution för SAP)
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Cachelagring för virtuella datorer och virtuella hårddiskar)
-[dbms-guide-2.2]:dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 (Programvarubaserad RAID)
+[dbms-guide-2.2]:dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 (Programvaru-RAID)
 [dbms-guide-2.3]:dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 (Microsoft Azure Storage)
 [dbms-guide-2]:dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 (Struktur för en RDBMS-distribution)
 [dbms-guide-3]:dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 (Hög tillgänglighet och katastrofåterställning återställning med virtuella Azure-datorer)
 [dbms-guide-5.5.1]:dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 SP1 CU4 och senare)
 [dbms-guide-5.5.2]:dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 SP1 CU3 och tidigare versioner)
 [dbms-guide-5.6]:dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (Med hjälp av en SQL Server-avbildning från Azure Marketplace)
-[dbms-guide-5.8]:dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 (Allmänna SQL Server för SAP på Azure sammanfattning)
+[dbms-guide-5.8]:dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 (Allmänt SQL Server för SAP på Azure sammanfattning)
 [dbms-guide-5]:dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 (Specifik information skrivs till SQLServer RDBMS)
-[dbms-guide-8.4.1]:dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Lagringskonfigurationen)
+[dbms-guide-8.4.1]:dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Lagringskonfiguration)
 [dbms-guide-8.4.2]:dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (Säkerhetskopiering och återställning)
 [dbms-guide-8.4.3]:dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c (Prestandaöverväganden för säkerhetskopiering och återställning)
 [dbms-guide-8.4.4]:dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 (Andra)
@@ -106,27 +106,27 @@ ms.locfileid: "34656405"
 [dbms-guide-figure-800]:media/virtual-machines-shared-sap-dbms-guide/800-azure-vm-sap-content-server.png
 [dbms-guide-figure-900]:media/virtual-machines-shared-sap-dbms-guide/900-sap-cache-server-on-premises.png
 
-[deployment-guide]:deployment-guide.md (Distribution av Azure virtuella datorer för SAP)
+[deployment-guide]:deployment-guide.md (Azure Virtual Machines-distribution för SAP)
 [deployment-guide-2.2]:deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (SAP-resurser)
 [deployment-guide-3.1.2]:deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab (Distribuera en virtuell dator med hjälp av en anpassad avbildning)
 [deployment-guide-3.2]:deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 (Scenario 1: Distribuera en virtuell dator från Azure Marketplace för SAP)
 [deployment-guide-3.3]:deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 (Scenario 2: Distribuera en virtuell dator med en anpassad avbildning för SAP)
-[deployment-guide-3.4]:deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 (Scenario 3: Flytta en virtuell dator från lokalt med hjälp av en ej generaliserad Azure VHD med SAP)
-[deployment-guide-3]:deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e (Scenarier för distribution av virtuella datorer för SAP på Microsoft Azure)
+[deployment-guide-3.4]:deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 (Scenario 3: Flytta en virtuell dator från en lokal plats med en icke-generaliserad Azure i virtuell Hårddisk med SAP)
+[deployment-guide-3]:deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e (Distributionsscenarier för virtuella datorer för SAP på Microsoft Azure)
 [deployment-guide-4.1]:deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Distribuera Azure PowerShell-cmdlets)
-[deployment-guide-4.2]:deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e (Hämta och importera SAP-relevanta PowerShell-cmdlets)
-[deployment-guide-4.3]:deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Anslut en virtuell dator till en lokal domän - bara Windows)
+[deployment-guide-4.2]:deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e (Hämta och importera SAP-relevanta PowerShell-cmdletar)
+[deployment-guide-4.3]:deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Ansluta en virtuell dator till en lokal domän - endast Windows)
 [deployment-guide-4.4.2]:deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 (Linux)
-[deployment-guide-4.4]:deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Hämta, installera och aktivera Azure VM-agenten)
+[deployment-guide-4.4]:deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Hämta, installera och aktivera Azure VM-Agent)
 [deployment-guide-4.5.1]:deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell)
 [deployment-guide-4.5.2]:deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f (Azure CLI)
-[deployment-guide-4.5]:deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Konfigurera Azure förbättrad övervakning tillägget för SAP)
-[deployment-guide-5.1]:deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Beredskapskontrollen för Azure-förbättrad övervakning för SAP)
-[deployment-guide-5.2]:deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Hälsokontroll av för Azure-övervakning infrastrukturen)
+[deployment-guide-4.5]:deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Konfigurera Azure förbättrad Övervakningstillägget för SAP)
+[deployment-guide-5.1]:deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Beredskapskontrollen för Azure förbättrad övervakning för SAP)
+[deployment-guide-5.2]:deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Hälsokontrollen för Azure-övervakning infrastrukturen)
 [deployment-guide-5.3]:deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Felsöka Azure övervakning för SAP)
 
 [deployment-guide-configure-monitoring-scenario-1]:deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Konfigurera övervakning)
-[deployment-guide-configure-proxy]:deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d (Konfigurera proxy)
+[deployment-guide-configure-proxy]:deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d (Konfigurera proxyn)
 [deployment-guide-figure-100]:media/virtual-machines-shared-sap-deployment-guide/100-deploy-vm-image.png
 [deployment-guide-figure-1000]:media/virtual-machines-shared-sap-deployment-guide/1000-service-properties.png
 [deployment-guide-figure-11]:deployment-guide.md#figure-11
@@ -149,7 +149,7 @@ ms.locfileid: "34656405"
 [deployment-guide-figure-azure-cli-installed]:deployment-guide.md#402488e5-f9bb-4b29-8063-1c5f52a892d0
 [deployment-guide-figure-azure-cli-version]:deployment-guide.md#0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda
 [deployment-guide-install-vm-agent-windows]:deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
-[deployment-guide-troubleshooting-chapter]:deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Kontroller och felsökning för att konfigurera övervakning för slutpunkt till slutpunkt)
+[deployment-guide-troubleshooting-chapter]:deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Kontroller och felsökning för att konfigurera övervakning av slutpunkt till slutpunkt)
 
 [deploy-template-cli]:../../../resource-group-template-deploy-cli.md
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
@@ -178,33 +178,33 @@ ms.locfileid: "34656405"
 
 [msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
 
-[planning-guide]:planning-guide.md (Azure virtuella datorer planering och implementering för SAP)
+[planning-guide]:planning-guide.md (Azure virtuella datorer, planering och implementering av SAP)
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Resurser)
-[planning-guide-11]:planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 (Hög tillgänglighet och katastrofåterställning återställning för SAP NetWeaver körs på Azure Virtual Machines)
+[planning-guide-11]:planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 (Hög tillgänglighet och katastrofåterställning återställning för SAP NetWeaver på Azure virtuella datorer som körs)
 [planning-guide-11.4.1]:planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (Hög tillgänglighet för SAP-programservrar)
 [planning-guide-11.5]:planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f (Med hjälp av Autostart för SAP-instanser)
-[planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (Endast molnbaserad - distributioner på virtuella datorer i Azure utan beroenden på lokala kundens nätverk)
-[planning-guide-2.2]:planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (Anslutningar mellan lokala - distribution av en eller flera SAP virtuella datorer i Azure integrerat helt med det lokala nätverket)
+[planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (Molnbaserad - distributioner av virtuella datorer i Azure utan beroenden på den lokala kundens nätverk)
+[planning-guide-2.2]:planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (Flera platser – distribution av en eller flera SAP-datorer i Azure som är helt integrerat med det lokala nätverket)
 [planning-guide-3.1]:planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a (Azure-regioner)
 [planning-guide-3.2.1]:planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 (Feldomäner)
 [planning-guide-3.2.2]:planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (Uppgradera domäner)
-[planning-guide-3.2.3]:planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Azure tillgänglighetsuppsättningar)
-[planning-guide-3.2]:planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (Konceptet för Microsoft Azure-virtuella datorer)
-[planning-guide-3.3.2]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure Premium-lagring)
-[planning-guide-5.1.1]:planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Flytta en virtuell dator från lokal till Azure med en icke-generaliserad disk)
-[planning-guide-5.1.2]:planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (Distribuera en virtuell dator med en viss kund-bild)
-[planning-guide-5.2.1]:planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Förberedelser för att flytta en virtuell dator från lokal till Azure med en icke-generaliserad disk)
-[planning-guide-5.2.2]:planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 (Förberedelser för att distribuera en virtuell dator med en viss kund-bild för SAP)
+[planning-guide-3.2.3]:planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Azures tillgänglighetsuppsättningar)
+[planning-guide-3.2]:planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (Koncept för Microsoft Azure-datorer)
+[planning-guide-3.3.2]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure Premium Storage)
+[planning-guide-5.1.1]:planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Flytta en virtuell dator från en lokal plats till Azure med en icke-generaliserad disk)
+[planning-guide-5.1.2]:planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (Distribuera en virtuell dator med en viss kund-avbildning)
+[planning-guide-5.2.1]:planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Förberedelser för att flytta en virtuell dator från en lokal plats till Azure med en icke-generaliserad disk)
+[planning-guide-5.2.2]:planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 (Förberedelser för att distribuera en virtuell dator med en viss kund-avbildning för SAP)
 [planning-guide-5.2]:planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 (Förbereda virtuella datorer med SAP för Azure)
-[planning-guide-5.3.1]:planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 (Skillnaden mellan en Azure-disken och en Azure-avbildning)
-[planning-guide-5.3.2]:planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a (Ladda upp en lokal VHD till Azure)
-[planning-guide-5.4.2]:planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Kopiera diskar mellan Azure Storage-konton)
+[planning-guide-5.3.1]:planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 (Skillnaden mellan en Azure-disk och en Azure-avbildning)
+[planning-guide-5.3.2]:planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a (Ladda upp en VHD från en lokal plats till Azure)
+[planning-guide-5.4.2]:planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Kopierar diskar mellan Azure Storage-konton)
 [planning-guide-5.5.1]:planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (VM/VHD-strukturen för SAP-distributioner)
 [planning-guide-5.5.3]:planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (Ange automount för anslutna diskar)
-[planning-guide-7.1]:planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 (Enskild virtuell dator med SAP NetWeaver demo/utbildning scenario)
-[planning-guide-7]:planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Begreppet endast molnbaserad distribution av SAP-instanser)
+[planning-guide-7.1]:planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 (Enstaka virtuell dator med SAP NetWeaver demo/utbildning scenario)
+[planning-guide-7]:planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Begreppet molnbaserad distribution av SAP-instanser)
 [planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Azure övervakningslösning för SAP)
-[planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure Premium-lagring)
+[planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure Premium Storage)
 [planning-guide-managed-disks]:planning-guide.md#c55b2c6e-3ca1-4476-be16-16c81927550f (Hanterade diskar)
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
@@ -230,7 +230,7 @@ ms.locfileid: "34656405"
 [planning-guide-figure-700]:media/virtual-machines-shared-sap-planning-guide/700-decision-tree-deploy-to-azure.png
 [planning-guide-figure-800]:media/virtual-machines-shared-sap-planning-guide/800-portal-vm-overview.png
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure-nätverk)
-[planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Lagringsutrymme: Microsoft Azure-lagring och data diskar med)
+[planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Lagring: Microsoft Azure Storage- och datadiskar)
 
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
@@ -311,60 +311,60 @@ ms.locfileid: "34656405"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Azure Virtual Machines är lösningen för organisationer som behöver resurser för beräkning och lagring, minimalt, och utan långa inköp cykler. Du kan använda Azure virtuella datorer för att distribuera klassisk program som SAP NetWeaver-baserade program i Azure. Utöka tillförlitlighet och tillgänglighet utan ytterligare lokala resurser för ett program. Virtuella Azure-datorer stöder korsanslutningar, så du kan integrera Azure virtuella datorer i din organisations lokala domäner, privata moln och SAP system liggande.
+Azure Virtual Machines är lösningen för organisationer som behöver beräknings- och lagringsresurser på minimal tid och utan sätt långa anskaffningscykler cykler. Du kan använda Azure Virtual Machines för att distribuera klassisk program, till exempel SAP NetWeaver-baserade program i Azure. Utöka programmets tillförlitlighet och tillgänglighet utan ytterligare lokala resurser. Azure-datorer stöder flera platsanslutningar, så att du kan integrera Azure-datorer i organisationens lokala domäner, privata moln och SAP-landskap som system.
 
-I den här artikeln beskriver vi hur du distribuerar SAP-program på virtuella datorer (VM) i Azure, inklusive alternativ distributionsalternativ och felsökning. Den här artikeln bygger på informationen i [Azure Virtual Machines planering och implementering för SAP NetWeaver][planning-guide]. Den kompletterar SAP dokumentationen och SAP anteckningar, vilka är de primära resurserna för att installera och distribuera program.
+I den här artikeln beskriver vi hur du distribuerar SAP-program på virtuella datorer (VM) i Azure, inklusive alternativa distributionsalternativ och felsökning. Den här artikeln bygger på informationen i [Azure Virtual Machines planering och implementering av SAP NetWeaver][planning-guide]. Den kompletterar dokumentationen för installation av SAP och SAP Notes, vilka är de viktigaste resurserna för att installera och distribuera SAP-program.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Konfigurera en virtuell Azure-dator för SAP programdistribution omfattar flera steg och resurser. Innan du börjar bör du kontrollera att du uppfyller kraven för att installera program på virtuella datorer i Azure.
+Konfigurera en Azure-dator för distribution av SAP omfattar flera steg och resurser. Innan du börjar bör du kontrollera att du uppfyller kraven för att installera SAP-program på virtuella datorer i Azure.
 
 ### <a name="local-computer"></a>Lokal dator
-För att hantera Windows- eller Linux-datorer, kan du använda ett PowerShell-skript och Azure portal. För båda verktygen behöver du en lokal dator som kör Windows 7 eller en senare version av Windows. Om du vill hantera endast Linux virtuella datorer och du vill använda en Linux-dator för den här uppgiften kan du använda Azure CLI.
+För att hantera Windows- eller Linux-datorer, kan du använda ett PowerShell-skript och Azure-portalen. För båda verktygen behöver du en lokal dator som kör Windows 7 eller en senare version av Windows. Om du vill hantera Linux-datorer och du vill använda en Linux-dator för den här uppgiften, kan du använda Azure CLI.
 
 ### <a name="internet-connection"></a>Internet-anslutning
-Om du vill hämta och köra verktyg och skript som krävs för SAP programdistribution, måste du vara ansluten till Internet. Den virtuella Azure-datorn som kör Azure förbättrad övervakning av tillägget för SAP måste också tillgång till Internet. Om Azure VM är en del av ett virtuellt Azure-nätverk eller lokal domän, kontrollera att proxyinställningarna är inställda, enligt beskrivningen i [konfigurerar du proxyservern][deployment-guide-configure-proxy].
+Om du vill ladda ned och kör verktyg och skript som krävs för distribution av programvara för SAP, måste du vara ansluten till Internet. Den virtuella Azure-datorer som kör Azure förbättrad övervakning av tillägget för SAP måste också åtkomst till Internet. Om den virtuella Azure-datorn är en del av en Azure-nätverk eller en lokal domän, kontrollerar du att proxyinställningarna är inställda, enligt beskrivningen i [konfigurerar du proxyservern][deployment-guide-configure-proxy].
 
 ### <a name="microsoft-azure-subscription"></a>Microsoft Azure-prenumeration
 Du behöver ett Azure-konto.
 
 ### <a name="topology-and-networking"></a>Topologi och nätverk
-Du behöver definiera topologi och arkitektur för SAP-distribution i Azure:
+Du behöver definiera topologi och arkitektur för SAP-distributionen i Azure:
 
 * Azure storage-konton som ska användas
 * Virtuellt nätverk där du vill distribuera SAP-system
 * Resursgruppen som du vill distribuera SAP-system
 * Azure-region där du vill distribuera SAP-system
-* SAP-konfiguration (två eller tre skikt)
-* VM-storlekar och antalet ytterligare hårddiskar som ska monteras till VM: ar
-* Konfiguration av SAP korrigering och Transport System (CTS)
+* SAP-konfigurationen (två eller tre nivåer)
+* VM-storlekar och antalet diskar som ytterligare data som ska monteras till de virtuella datorerna
+* SAP-korrigering och Transport System (CTS)
 
-Skapa och konfigurera Azure storage-konton (vid behov) eller virtuella Azure-nätverk innan du börjar SAP programdistributionen. Information om hur du skapar och konfigurerar de här resurserna finns [Azure Virtual Machines planering och implementering för SAP NetWeaver][planning-guide].
+Skapa och konfigurera Azure storage-konton (vid behov) eller Azure-nätverk innan du börjar Distributionsprocess för programvara för SAP. Information om hur du skapar och konfigurerar de här resurserna finns i [Azure Virtual Machines planering och implementering av SAP NetWeaver][planning-guide].
 
-### <a name="sap-sizing"></a>Storlek för SAP
+### <a name="sap-sizing"></a>SAP-storlek
 Känna till följande information för SAP storlek:
 
-* Den planerade SAP arbetsbelastning, till exempel med hjälp av verktyget SAP snabbt ange storlek och den SAP programmet prestanda Standard (SAP) number
-* Nödvändiga resurs och minne processoranvändningen för SAP-system
-* Krävs för in-/ utdata (I/O)-åtgärder per sekund
+* Planerat SAP-arbetsbelastningar, till exempel med hjälp av verktyget SAP snabb Ange storlek och de SAP-program prestanda Standard (SAP) nummer
+* Nödvändiga CPU-resurs- och minnesförbrukningen av SAP-system
+* Nödvändiga indata/utdata (I/O)-åtgärder per sekund
 * Krävs bandbredd på eventuell kommunikation mellan virtuella datorer i Azure
-* Nödvändiga nätverksbandbredden mellan lokala tillgångar och Azure distribuerade SAP-system
+* Nödvändig nätverksbandbredd mellan lokala resurser och Azure-distribuerade SAP-system
 
 ### <a name="resource-groups"></a>Resursgrupper
-Azure Resource Manager du använda resursgrupper för att hantera alla programresurser i din Azure-prenumeration. Mer information finns i [översikt över Azure Resource Manager][resource-group-overview].
+I Azure Resource Manager kan du använda resursgrupper för att hantera alla resurser som programmet i Azure-prenumerationen. Mer information finns i [översikt över Azure Resource Manager][resource-group-overview].
 
 ## <a name="resources"></a>Resurser
 
 ### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>SAP-resurser
-När du konfigurerar din SAP-programdistribution måste följande SAP-resurser:
+När du ställer in din SAP-programvarudistribution, behöver du följande SAP-resurser:
 
-* SAP-kommentar [1928533], som innehåller:
-  * Lista över Azure VM-storlekar som stöds för distribution av program
+* SAP-kommentar [1928533], som har:
+  * Lista över Azure VM-storlekar som stöds för distribution av SAP-program
   * Viktiga kapacitetsinformation för Azure VM-storlekar
-  * Stöds SAP-programvara och operativsystem (OS) och kombinationer av databasen
-  * SAP kernel version som krävs för Windows och Linux i Microsoft Azure
+  * SAP-program som stöds, och operativsystem (OS) och kombinationer av databas
+  * Nödvändiga SAP kernel-version för Windows och Linux på Microsoft Azure
 
-* SAP-kommentar [2015553] listar kraven för stöd för SAP SAP programvarudistributioner i Azure.
-* SAP-kommentar [2178632] innehåller detaljerad information om all övervakning mått som rapporterats för SAP i Azure.
+* SAP-kommentar [2015553] visar en lista över kraven för distribution av SAP-stöd för SAP-programvara i Azure.
+* SAP-kommentar [2178632] mer information om all övervakning mått som rapporterats för SAP i Azure.
 * SAP-kommentar [1409604] har Värdagenten för SAP-version som krävs för Windows i Azure.
 * SAP-kommentar [2191498] har Värdagenten för SAP-version som krävs för Linux i Azure.
 * SAP-kommentar [2243692] har licensieringsinformation SAP på Linux i Azure.
@@ -372,446 +372,446 @@ När du konfigurerar din SAP-programdistribution måste följande SAP-resurser:
 * SAP-kommentar [2002167] har allmän information om Red Hat Enterprise Linux 7.x.
 * SAP-kommentar [2069760] har allmän information om Oracle Linux 7.x.
 * SAP-kommentar [1999351] innehåller ytterligare felsökningsinformation för Azure förbättrad övervakning av tillägget för SAP.
-* SAP-kommentar [1597355] har allmän information om växlingsutrymme – för Linux.
-* [SAP på Azure Tillståndsändringsavisering sidan](https://wiki.scn.sap.com/wiki/x/Pia7Gg) har nyheter och en mängd användbara resurser.
-* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP anteckningar för Linux.
+* SAP-kommentar [1597355] har allmän information om växlingsutrymme i procent för Linux.
+* [SAP på Azure Tillståndsändringsavisering sidan](https://wiki.scn.sap.com/wiki/x/Pia7Gg) har nyheter och en samling av användbara resurser.
+* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP Notes för Linux.
 * SAP-specifika PowerShell-cmdletar som ingår i [Azure PowerShell][azure-ps].
-* SAP-specifika Azure CLI-kommandona som ingår i [Azure CLI][azure-cli].
+* SAP-specifika Azure CLI-kommandon som ingår i [Azure CLI][azure-cli].
 
 ### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>Windows-resurser
-Dessa Microsoft-artiklarna omfatta SAP-distributioner i Azure:
+Dessa Microsoft-artiklar beskriver SAP-distributioner i Azure:
 
-* [Azure virtuella datorer planering och implementering för SAP NetWeaver][planning-guide]
-* [Distribution av Azure virtuella datorer för SAP NetWeaver (den här artikeln)][deployment-guide]
-* [Azure virtuella datorer DBMS-distribution för SAP NetWeaver][dbms-guide]
+* [Azure virtuella datorer, planering och implementering av SAP NetWeaver][planning-guide]
+* [Azure Virtual Machines-distribution för SAP NetWeaver (den här artikeln)][deployment-guide]
+* [Azure Virtual Machines DBMS-distribution för SAP NetWeaver][dbms-guide]
 
 ## <a name="b3253ee3-d63b-4d74-a49b-185e76c4088e"></a>Distributionsscenarier för SAP-program på Azure Virtual Machines
-Du har flera alternativ för att distribuera virtuella datorer och associerade diskar i Azure. Det är viktigt att förstå skillnaderna mellan distributionsalternativen, eftersom du kan vidta olika steg för att förbereda dina virtuella datorer för distribution, baserat på vilken distributionstyp som du väljer.
+Du har flera alternativ för att distribuera virtuella datorer och associerade diskar i Azure. Det är viktigt att förstå skillnaderna mellan distributionsalternativen, eftersom du kan ta olika steg för att förbereda dina virtuella datorer för distribution av baserat på vilken distributionstyp som du väljer.
 
 ### <a name="db477013-9060-4602-9ad4-b0316f8bb281"></a>Scenario 1: Distribuera en virtuell dator från Azure Marketplace för SAP
-Du kan använda en avbildning av Microsoft eller tredje part i Azure Marketplace för att distribuera den virtuella datorn. Marketplace erbjuder vissa standard operativsystemsavbildningar av Windows Server och olika Linux-distributioner. Du kan också distribuera en avbildning som innehåller databashantering system (DBMS) SKU: er, till exempel Microsoft SQL Server. Mer information om hur du använder bilder med DBMS SKU: er finns [Azure virtuella datorer DBMS-distribution för SAP NetWeaver][dbms-guide].
+Du kan använda en avbildning av Microsoft eller tredje part i Azure Marketplace för att distribuera den virtuella datorn. Marketplace erbjuder vissa standard OS-avbildningar av Windows Server och olika Linux-distributioner. Du kan även distribuera en avbildning som innehåller databashantering system (DBMS) SKU: er, till exempel Microsoft SQL Server. Mer information om hur du använder avbildningar med DBMS SKU: er finns i [DBMS i Azure Virtual Machines-distribution för SAP NetWeaver][dbms-guide].
 
-I följande flödesschema visar stegen för att distribuera en virtuell dator från Azure Marketplace SAP-specifika:
+I följande flödesschema visas de SAP-specifika stegen för att distribuera en virtuell dator från Azure Marketplace:
 
-![Flödesdiagram för distribution av Virtuella datorer för SAP-system med hjälp av en VM-avbildning från Azure Marketplace][deployment-guide-figure-100]
+![Flödesdiagram för distribution av virtuella datorer för SAP-system med hjälp av en VM-avbildning från Azure Marketplace][deployment-guide-figure-100]
 
 #### <a name="create-a-virtual-machine-by-using-the-azure-portal"></a>Skapa en virtuell dator med hjälp av Azure portal
 Det enklaste sättet att skapa en ny virtuell dator med en avbildning från Azure Marketplace är med hjälp av Azure portal.
 
-1.  Gå till <https://portal.azure.com/#create/hub>.  Välj i Azure portal menyn **+ ny**.
-2.  Välj **Compute**, och välj sedan typ av operativsystem som du vill distribuera. Till exempel Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7.2 (RHEL 7.2) och Oracle Linux 7.2. Standardvyn för listan visar inte alla operativsystem som stöds. Välj **se alla** för en fullständig lista. Mer information om operativsystem som stöds för SAP programdistribution finns SAP-kommentar [1928533].
-3.  Granska villkoren på nästa sida.
-4.  I den **Välj en distributionsmodell** väljer **Resource Manager**.
-5.  Välj **Skapa**.
+1.  Gå till <https://portal.azure.com/#create/hub>.  Eller i Azure portal-menyn, Välj **+ ny**.
+1.  Välj **Compute**, och välj sedan typ av operativsystem som du vill distribuera. Till exempel Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7.2 (RHEL 7.2) eller Oracle Linux 7.2. Standardlistvyn visar inte alla operativsystem som stöds. Välj **se alla** en fullständig lista. Mer information om operativsystem som stöds för SAP-programdistribution finns i SAP-kommentar [1928533].
+1.  Granska villkoren på nästa sida.
+1.  I den **Välj en distributionsmodell** väljer **Resource Manager**.
+1.  Välj **Skapa**.
 
-Guiden leder dig genom de obligatoriska parametrarna för att skapa den virtuella datorn, förutom att alla nödvändiga resurser, t.ex. nätverksgränssnitt och storage-konton. Några av dessa parametrar är:
+Guiden vägleder dig genom att ange de obligatoriska parametrarna för att skapa den virtuella datorn, förutom att alla nödvändiga resurser, t.ex. nätverksgränssnitt och storage-konton. Några av dessa parametrar är:
 
 1. **Grunderna**:
- * **Namnet**: namnet på resursen (virtuella datornamn).
- * **VM disktyp**: Välj den som disktyp av OS-disk. Om du vill använda Premium-lagring för datadiskarna bör du använda Premium-lagring för OS-disken.
- * **Användarnamn och lösenord** eller **offentliga SSH-nyckeln**: Ange användarnamn och lösenord för den användare som har skapats under etableringen. För en virtuell Linux-dator, kan du ange den offentliga nyckeln för SSH (Secure Shell) som används för att logga in på datorn.
- * **Prenumerationen**: Välj den prenumeration som du vill använda för att etablera den nya virtuella datorn.
- * **Resursgruppen**: namnet på resursgruppen för den virtuella datorn. Du kan ange namnet på en ny resursgrupp eller namnet på en resursgrupp som redan finns.
- * **Plats**: var du vill distribuera den nya virtuella datorn. Om du vill ansluta den virtuella datorn till ditt lokala nätverk, kontrollera att du väljer att platsen för det virtuella nätverket som ansluter Azure till ditt lokala nätverk. Mer information finns i [Microsoft Azure-nätverk] [ planning-guide-microsoft-azure-networking] i [Azure Virtual Machines planering och implementering för SAP NetWeaver] [ planning-guide].
-2. **Storlek**:
+ * **Namn på**: namnet på resursen (virtuella datornamn).
+ * **Typ av virtuell datordisk**: Välj typ av disk av OS-disken. Om du vill använda Premium Storage för din datadiskar bör du använda Premium Storage för OS-disken.
+ * **Användarnamn och lösenord** eller **offentlig SSH-nyckel**: Ange användarnamn och lösenord för den användare som har skapats under etableringen. För en Linux-dator, kan du ange den offentliga nyckeln för SSH (Secure Shell) som används för att logga in på datorn.
+ * **Prenumeration**: Välj den prenumeration som du vill använda för att etablera den nya virtuella datorn.
+ * **Resursgrupp**: namnet på resursgruppen för den virtuella datorn. Du kan ange namnet på en ny resursgrupp eller namnet på en resursgrupp som redan finns.
+ * **Plats**: var du vill distribuera den nya virtuella datorn. Om du vill ansluta den virtuella datorn till ditt lokala nätverk kan du kontrollera att du väljer plats för det virtuella nätverket som ansluter Azure till ditt lokala nätverk. Mer information finns i [Microsoft Azure-nätverk] [ planning-guide-microsoft-azure-networking] i [Azure Virtual Machines planering och implementering av SAP NetWeaver] [ planning-guide].
+1. **Storlek**:
 
-     En lista över VM-typer som stöds finns i SAP-kommentar [1928533]. Var noga med att du väljer rätt VM-typ. Om du vill använda Azure Premium-lagring. Inte alla VM-typer stöder Premium-lagring. Mer information finns i [lagring: Microsoft Azure Storage- och datadiskar] [ planning-guide-storage-microsoft-azure-storage-and-data-disks] och [Azure Premium Storage] [ planning-guide-azure-premium-storage] i [ Azure virtuella datorer planering och implementering för SAP NetWeaver][planning-guide].
+     En lista över VM-typer som stöds finns i SAP-kommentar [1928533]. Var noga med att du väljer rätt typ av virtuell dator om du vill använda Azure Premium Storage. Inte alla typer av virtuella datorer stöd för Premium Storage. Mer information finns i [lagring: Microsoft Azure Storage- och datadiskar] [ planning-guide-storage-microsoft-azure-storage-and-data-disks] och [Azure Premium Storage] [ planning-guide-azure-premium-storage] i [ Azure virtuella datorer, planering och implementering av SAP NetWeaver][planning-guide].
 
-3. **Inställningar för**:
+1. **Inställningar för**:
   * **Storage**
-    * **Disktyp**: Välj den som disktyp av OS-disk. Om du vill använda Premium-lagring för datadiskarna bör du använda Premium-lagring för OS-disken.
-    * **Använda hanterade diskar**: Välj Ja om du vill använda hanterade diskar. Mer information om hanterade diskar finns i kapitlet [hanterade diskar] [ planning-guide-managed-disks] i Planeringsguiden.
-    * **Lagringskontot**: Välj ett befintligt lagringskonto eller skapa en ny. Inte alla lagringstyper av fungerar för SAP-program som körs. Mer information om lagringstyper finns [Microsoft Azure Storage] [ dbms-guide-2.3] i [Azure virtuella datorer DBMS-distribution för SAP NetWeaver] [ dbms-guide].
+    * **Disktyp**: Välj typ av disk av OS-disken. Om du vill använda Premium Storage för din datadiskar bör du använda Premium Storage för OS-disken.
+    * **Använda hanterade diskar**: Välj Ja om du vill använda Managed Disks. Mer information om Managed Disks finns i kapitlet [Managed Disks] [ planning-guide-managed-disks] i Planeringsguiden.
+    * **Storage-konto**: Välj ett befintligt lagringskonto eller skapa en ny. Inte alla lagringstyper av fungerar för att köra SAP-program. Mer information om lagringskontotyper finns i [Microsoft Azure Storage] [ dbms-guide-2.3] i [DBMS i Azure Virtual Machines-distribution för SAP NetWeaver] [ dbms-guide].
   * **Nätverk**
-    * **Virtuellt nätverk** och **undernät**: Om du vill integrera den virtuella datorn med ditt intranät, Välj det virtuella nätverk som är anslutet till det lokala nätverket.
-    * **Offentliga IP-adressen**: Välj offentlig IP-adressen som du vill använda, eller ange parametrar för att skapa en ny offentlig IP-adress. Du kan använda en offentlig IP-adress för att få åtkomst till den virtuella datorn via Internet. Kontrollera att du också skapa en säkerhetsgrupp för nätverk för att skydda åtkomsten till den virtuella datorn.
-    * **Nätverkssäkerhetsgruppen**: Mer information finns i [styr flödet i nätverkstrafiken med nätverkssäkerhetsgrupper][virtual-networks-nsg].
-  * **Tillägg**: du kan installera tillägg för virtuell dator genom att lägga till dem i distributionen. Du behöver inte lägga till tillägg i det här steget. De tillägg som krävs för stöd för SAP installeras senare. Se kapitel [konfigurera Azure förbättrad övervakning av tillägget för SAP] [ deployment-guide-4.5] i den här guiden.
-  * **Hög tillgänglighet**: Välj en tillgänglighetsuppsättning eller ange parametrar för att skapa en ny tillgänglighetsuppsättning. Mer information finns i [Azure tillgänglighetsuppsättningar][planning-guide-3.2.3].
+    * **Virtuellt nätverk** och **undernät**: Välj det virtuella nätverk som är ansluten till ditt lokala nätverk om du vill integrera den virtuella datorn med intranätet.
+    * **Offentliga IP-adressen**: Välj den offentliga IP-adressen som du vill använda eller ange parametrar för att skapa en ny offentlig IP-adress. Du kan använda en offentlig IP-adress för att få åtkomst till den virtuella datorn via Internet. Se till att du också skapa en nätverkssäkerhetsgrupp för att säkra åtkomsten till den virtuella datorn.
+    * **Nätverkssäkerhetsgrupp**: Mer information finns i [styra flödet i nätverkstrafiken med nätverkssäkerhetsgrupper][virtual-networks-nsg].
+  * **Tillägg**: du kan installera tillägg för virtuell dator genom att lägga till dem i distributionen. Du behöver inte lägga till tillägg i det här steget. De tillägg som krävs för SAP support installeras senare. Se kapitel [konfigurera Azure förbättrad övervakning av tillägget för SAP] [ deployment-guide-4.5] i den här guiden.
+  * **Hög tillgänglighet**: Välj en tillgänglighetsuppsättning eller ange parametrar för att skapa en ny tillgänglighetsuppsättning. Mer information finns i [Azures tillgänglighetsuppsättningar][planning-guide-3.2.3].
   * **Övervakning**
-    * **Starta diagnostik**: du kan välja **inaktivera** för startdiagnostikinställningar.
+    * **Startdiagnostik**: du kan välja **inaktivera** för startdiagnostik.
     * **Diagnostik för Gästoperativsystem**: du kan välja **inaktivera** för övervakning av diagnostik.
 
-4. **Sammanfattning**:
+1. **Sammanfattning av**:
 
-  Granska dina val och välj sedan **OK**.
+  Granska dina val och väljer sedan **OK**.
 
 Den virtuella datorn har distribuerats i resursgruppen som du har valt.
 
 #### <a name="create-a-virtual-machine-by-using-a-template"></a>Skapa en virtuell dator med hjälp av en mall
-Du kan skapa en virtuell dator med hjälp av en av SAP-mallar som publicerats i den [GitHub-lagringsplatsen för azure-snabbstartsmallar][azure-quickstart-templates-github]. Du kan också manuellt skapa en virtuell dator med hjälp av den [Azure-portalen][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms], eller [Azure CLI][virtual-machines-linux-tutorial].
+Du kan skapa en virtuell dator med hjälp av någon av de SAP-mallarna publicerats i den [GitHub-lagringsplatsen för azure-snabbstartsmallar][azure-quickstart-templates-github]. Du kan också manuellt skapa en virtuell dator med hjälp av den [Azure-portalen][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms], eller [Azure CLI] [virtual-machines-linux-tutorial].
 
-* [**Tvålagers-(endast en virtuell dator) konfigurationsmallen** (sap-2-nivå-marketplace-avbildning)][sap-templates-2-tier-marketplace-image]
+* [**Tvålagers-konfigurationsmall (endast en virtuell dator)** (sap-2-nivå-marketplace-avbildning)][sap-templates-2-tier-marketplace-image]
 
-  Använd den här mallen för att skapa en system på två nivåer med endast en virtuell dator.
-* [**Tvålagers-(endast en virtuell dator) konfigurationsmall - hanterade diskar** (sap-2-tier-marketplace-image-md)][sap-templates-2-tier-marketplace-image-md]
+  Använd den här mallen om du vill skapa en tvålagers-system med hjälp av enbart en virtuell dator.
+* [**Tvålagers-(endast en virtuell dator) konfigurationsmall – Managed Disks** (sap-2-tier-marketplace-image-md)][sap-templates-2-tier-marketplace-image-md]
 
-  Använd den här mallen för att skapa en system på två nivåer med bara en virtuell dator och hanterade diskar.
-* [**Trelagers-(flera virtuella datorer) konfigurationsmallen** (sap-3-nivå-marketplace-avbildning)][sap-templates-3-tier-marketplace-image]
+  Använd den här mallen om du vill skapa en tvålagers-system genom att använda endast en virtuell dator och Managed Disks.
+* [**(Flera virtuella datorer) för trelagers-konfigurationsmall** (sap-3-nivå-marketplace-avbildning)][sap-templates-3-tier-marketplace-image]
 
-  Använd den här mallen för att skapa ett system med tre nivåer med hjälp av flera virtuella datorer.
-* [**Trelagers-(flera virtuella datorer) konfigurationsmall - hanterade diskar** (sap-3-tier-marketplace-image-md)][sap-templates-3-tier-marketplace-image-md]
+  Använd den här mallen om du vill skapa en trelagers-system med hjälp av flera virtuella datorer.
+* [**Trelagers-(flera virtuella datorer) konfigurationsmall – Managed Disks** (sap-3-tier-marketplace-image-md)][sap-templates-3-tier-marketplace-image-md]
 
-  Använd den här mallen för att skapa en trelagers-system med flera virtuella datorer och hanterade diskar.
+  Använd den här mallen om du vill skapa en trelagers-system med hjälp av flera virtuella datorer och hanterade diskar.
 
 Ange följande parametrar för mallen i Azure-portalen:
 
 1. **Grunderna**:
-  * **Prenumerationen**: prenumerationen ska användas för att distribuera mallen.
-  * **Resursgruppen**: resursgruppen du använder för att distribuera mallen. Du kan skapa en ny resursgrupp eller du kan välja en befintlig resursgrupp i prenumerationen.
-  * **Plats**: var du vill distribuera mallen. Om du har valt en befintlig resursgrupp används platsen för resursgruppen.
+  * **Prenumeration**: prenumerationen som ska använda för att distribuera mallen.
+  * **Resursgrupp**: resursgruppen som ska använda för att distribuera mallen. Du kan skapa en ny resursgrupp eller du kan välja en befintlig resursgrupp i prenumerationen.
+  * **Plats**: var du vill distribuera mallen. Om du har valt en befintlig resursgrupp används för platsen för resursgruppen.
 
-2. **Inställningar för**:
-  * **System-ID för SAP**: SAP System-ID (SID).
-  * **OS-typen**: operativsystemet som du vill distribuera, till exempel, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7.2 (RHEL 7.2) eller Oracle Linux 7.2.
+1. **Inställningar för**:
+  * **SAP System-ID**: SAP System-ID (SID).
+  * **OS-typ**: operativsystemet som du vill distribuera, till exempel, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7.2 (RHEL 7.2) eller Oracle Linux 7.2.
 
-    Listvyn visas inte alla operativsystem som stöds. Mer information om operativsystem som stöds för SAP programdistribution finns SAP-kommentar [1928533].
-  * **SAP systemstorlek**: storleken på SAP-system.
+    Listvyn visas inte alla operativsystem som stöds. Mer information om operativsystem som stöds för SAP-programdistribution finns i SAP-kommentar [1928533].
+  * **Storlek för SAP-system**: storleken på SAP-system.
 
-    Antal SAP som innehåller det nya systemet. Om du inte vet hur många SAP systemet kräver, be din SAP-teknikpartner eller systemintegreraren.
-  * **Filsystemets tillgänglighet** (endast tre skikt mall): filsystemets tillgänglighet.
+    Antal SAP som innehåller det nya systemet. Om du inte vet hur många SAP kräver att systemet, be din SAP-teknikpartner eller systemintegratör.
+  * **Systemets tillgänglighet** (endast trelagers-mall): systemets tillgänglighet.
 
-    Välj **HA** för en konfiguration som passar för en installation med hög tillgänglighet. Två databasservrar och två servrar för ABAP SAP centrala tjänster (ASCS) skapas.
-  * **Lagringstyp** (endast två nivåer mall): lagringstyp som ska användas.
+    Välj **HA** för en konfiguration som passar för en installation för hög tillgänglighet. Två databasservrar och två servrar för ABAP SAP Central Services (ASCS) skapas.
+  * **Lagringstyp** (endast tvålagers-mall): typ av lagring du använder.
 
-    Vi rekommenderar med Azure Premium-lagring för större system. Mer information om lagringstyper finns i följande källor:
-      * [Användning av Azure Premium SSD-lagring för SAP DBMS-instans][2367194]
-      * [Microsoft Azure Storage] [ dbms-guide-2.3] i [Azure virtuella datorer DBMS-distribution för SAP NetWeaver][dbms-guide]
-      * [Premium-lagring: Högpresterande lagring för arbetsbelastningar på Azure-dator][storage-premium-storage-preview-portal]
+    För stora system vi rekommenderar starkt att använda Azure Premium Storage. Mer information om lagringskontotyper finns i följande källor:
+      * [Användning av Azure Premium SSD-lagringen för SAP DBMS-instans][2367194]
+      * [Microsoft Azure Storage] [ dbms-guide-2.3] i [DBMS i Azure Virtual Machines-distribution för SAP NetWeaver][dbms-guide]
+      * [Premium Storage: Högpresterande lagring för arbetsbelastningar på Azure virtuella datorer][storage-premium-storage-preview-portal]
       * [Introduktion till Microsoft Azure Storage][storage-introduction]
-  * **Administratörsanvändarnamnet** och **adminlösenord**: ett användarnamn och lösenord.
+  * **Administratörens användarnamn** och **adminlösenord**: ett användarnamn och lösenord.
     En ny användare skapas för att logga in till den virtuella datorn.
-  * **Ny eller befintlig undernät**: Anger om skapas ett nytt virtuellt nätverk och undernät eller ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är anslutna till ditt lokala nätverk väljer **befintliga**.
-  * **Undernät-ID**: ID för undernätet som de virtuella datorerna ska ansluta till. Välj undernät virtuellt privat nätverk (VPN) eller Azure ExpressRoute virtuella nätverk som ska användas för att ansluta den virtuella datorn till ditt lokala nätverk. ID som ser oftast ut så här: /subscriptions/&lt;prenumerations-id > /resourceGroups/&lt;resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/&lt;virtuella nätverksnamnet > /subnets/&lt;undernätsnamn >
+  * **Nytt eller befintligt undernät**: avgör om ett nytt virtuellt nätverk och undernät skapas eller ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är ansluten till ditt lokala nätverk, Välj **befintliga**.
+  * **Undernät-ID**: ID för undernätet som de virtuella datorerna ska ansluta till. Välj undernät för ditt virtuella privata nätverk (VPN) eller Azure ExpressRoute virtuellt nätverk för att ansluta den virtuella datorn till ditt lokala nätverk. ID: T ser oftast ut så här: /subscriptions/&lt;prenumerations-id > /resourceGroups/&lt;resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/&lt;virtuellt nätverksnamn > /subnets/&lt;undernätets namn >
 
-3. **Villkor**:  
-    Granska och Godkänn villkoren.
+1. **Allmänna villkor**:  
+    Granska och Godkänn de juridiska villkoren.
 
-4.  Välj **inköp**.
+1.  Välj **Köp**.
 
 Azure VM-agenten distribueras som standard när du använder en avbildning från Azure Marketplace.
 
 #### <a name="configure-proxy-settings"></a>Konfigurera proxyinställningar
-Beroende på hur det lokala nätverket är konfigurerat, kan du behöva ställa in proxy på den virtuella datorn. Om den virtuella datorn är ansluten till det lokala nätverket via VPN eller ExpressRoute, den virtuella datorn kanske inte kan ansluta till Internet och kommer inte att hämta nödvändiga tillägg eller samla in övervakningsdata. Mer information finns i [konfigurerar du proxyservern][deployment-guide-configure-proxy].
+Beroende på hur ditt lokala nätverk är konfigurerat kan behöva du konfigurera proxy på den virtuella datorn. Om den virtuella datorn är ansluten till ditt lokala nätverk via VPN eller ExpressRoute, den virtuella datorn kanske inte kan få åtkomst till Internet och kommer inte att hämta nödvändiga tillägg eller samla in övervakningsdata. Mer information finns i [konfigurerar du proxyservern][deployment-guide-configure-proxy].
 
 #### <a name="join-a-domain-windows-only"></a>Anslut till en domän (endast Windows)
-Om din Azure-distribution är ansluten till en lokal Active Directory eller DNS-instans via en Azure-plats-till-plats VPN-anslutning eller ExpressRoute (Detta kallas *mellan lokala* i [planering av virtuella datorer i Azure och implementeringen för SAP NetWeaver][planning-guide]), det förväntas att den virtuella datorn ska anslutas till en lokal domän. Mer information om överväganden för den här aktiviteten finns [ansluta en virtuell dator till en lokal domän (Windows)][deployment-guide-4.3].
+Om din Azure-distribution är ansluten till en lokal Active Directory eller DNS-instans via en Azure VPN-anslutning för plats-till-plats eller ExpressRoute (Detta kallas *mellan lokala* i [planering för Azure Virtual Machines och implementering av SAP NetWeaver][planning-guide]), det förväntas att den virtuella datorn ska anslutas till en lokal domän. Mer information om överväganden för den här uppgiften finns [ansluta en virtuell dator till en lokal domän (endast Windows)][deployment-guide-4.3].
 
 #### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>Konfigurera övervakning
-Att konfigurera Azure övervakning tillägget för SAP enligt beskrivningen i din miljö stöd för SAP [konfigurera Azure förbättrad övervakning av tillägget för SAP][deployment-guide-4.5]. Kontrollera krav för SAP övervakning och minsta operativsystemversioner som krävs av SAP Kernel och SAP Värdagenten för resurser som anges i [SAP resurser][deployment-guide-2.2].
+Att SAP har stöd för din miljö, ställa in Azure Monitoring-tillägg för SAP, enligt beskrivningen i [konfigurera Azure förbättrad övervakning av tillägget för SAP][deployment-guide-4.5]. Kontrollera krav för övervakning av SAP och nödvändiga minimiversioner av SAP Kernel och SAP Värdagenten, i resurserna som anges i [SAP resurser][deployment-guide-2.2].
 
-#### <a name="monitoring-check"></a>Övervakning av kontrollen
-Kontrollera om övervakning fungerar, enligt beskrivningen i [kontroller och felsökning för att ställa in slutpunkt till slutpunkt övervakning][deployment-guide-troubleshooting-chapter].
+#### <a name="monitoring-check"></a>Övervakning av kontroll
+Kontrollera om fungerar övervakning, enligt beskrivningen i [kontroller och felsökning för att konfigurera övervakning av slutpunkt till slutpunkt][deployment-guide-troubleshooting-chapter].
 
-#### <a name="post-deployment-steps"></a>Efter distributionen steg
-När du skapar den virtuella datorn och den virtuella datorn har distribuerats, måste du installera de nödvändiga programvarukomponenter i den virtuella datorn. På grund av distribution och programvara installationen sekvens i den här typen av distribution av Virtuella datorer, måste programvara ska installeras redan finnas, antingen i Azure, på en annan virtuell dator eller som en disk som kan bifogas. Eller Överväg att använda en scenarion med flera lokaler, vilka anslutningen till lokalt tillgångar (Installationsresurser) är angivet.
+#### <a name="post-deployment-steps"></a>Steg efter distribution
+När du skapar den virtuella datorn och den virtuella datorn har distribuerats, måste du installera de nödvändiga programvarukomponenter i den virtuella datorn. På grund av installation distribution/programvara sekvensen i den här typen av distribution av virtuella datorer, måste programvara ska kunna installeras redan finnas, antingen i Azure, på en annan virtuell dator eller som en disk som kan kopplas. Eller så kan du överväga att använda ett scenario med flera platser i vilka anslutningen till lokalerna tillgångar (Installationsresurser) ges.
 
-När du distribuerar den virtuella datorn i Azure, följer du samma riktlinjer och verktyg för att installera SAP-program på den virtuella datorn som i en lokal miljö. För att installera program på en Azure VM, rekommenderar både SAP och Microsoft att du överför och lagra SAP installationsmediet på Azure virtuella hårddiskar eller hanterade diskar eller att du skapar en virtuell Azure-dator som fungerar som en filserver som har alla nödvändiga SAP installationsmediet.
+Följ samma riktlinjer och verktyg för att installera SAP-program på den virtuella datorn precis som i en lokal miljö när du har distribuerat den virtuella datorn i Azure. Om du vill installera SAP-program på en Azure VM, rekommenderar både SAP och Microsoft att du överföra och lagra installationsmediet SAP på virtuella Azure-hårddiskar eller Managed Disks, eller som du skapar en Azure-dator som fungerar som en filserver som har alla nödvändiga SAP installationsmediet.
 
 ### <a name="54a1fc6d-24fd-4feb-9c57-ac588a55dff2"></a>Scenario 2: Distribuera en virtuell dator med en anpassad avbildning för SAP
-Eftersom olika versioner av ett operativsystem eller DBMS har olika krav, kan de bilder som du hittar i Azure Marketplace inte uppfyller dina behov. Du kan i stället vill skapa en virtuell dator med hjälp av en egen OS/DBMS VM-avbildning som du kan distribuera igen senare.
+Eftersom olika versioner av ett operativsystem eller DBMS har olika krav, kan de avbildningar som du hittar i Azure Marketplace inte uppfyller dina behov. Du kan i stället vill skapa en virtuell dator genom att använda din egen OS/DBMS VM-avbildning, vilka du kan distribuera igen senare.
 Du kan använda olika steg för att skapa en privat avbildning för Linux än om du vill skapa en för Windows.
 
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> För att förbereda en Windows-avbildning som du kan använda för att distribuera flera virtuella datorer, Windows-inställningar (t.ex. Windows-SID och värdnamn) tas ut eller generaliserad på den lokala virtuella datorn. Du kan använda [sysprep](https://msdn.microsoft.com/library/hh825084.aspx) att göra detta.
+> För att förbereda en Windows-avbildning som du kan använda för att distribuera flera virtuella datorer, vara Windows-inställningar (t.ex. Windows-SID och värdnamn) sådant eller generaliserad på den lokala virtuella datorn. Du kan använda [sysprep](https://msdn.microsoft.com/library/hh825084.aspx) att göra detta.
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Vissa inställningar för Linux måste tas ut eller generaliserad på den lokala virtuella datorn för att förbereda en Linux-avbildning som du kan använda för att distribuera flera virtuella datorer. Du kan använda `waagent -deprovision` att göra detta. Mer information finns i [avbilda en Linux-dator som körs på Azure] [ virtual-machines-linux-capture-image] och [Azure Linux-agenten användarhandboken][virtual-machines-linux-agent-user-guide-command-line-options].
+> För att förbereda en Linux-avbildning som du kan använda för att distribuera flera virtuella datorer, måste vissa Linux-inställningar sådant eller generaliserad på den lokala virtuella datorn. Du kan använda `waagent -deprovision` att göra detta. Mer information finns i [avbilda en Linux-dator som körs på Azure] [ virtual-machines-linux-capture-image] och [Användarguide för Azure Linux agent][virtual-machines-linux-agent-user-guide-command-line-options].
 >
 >
 
 - - -
-Du kan förbereda och skapa en anpassad avbildning och sedan använda den för att skapa flera nya virtuella datorer. Detta beskrivs i [Azure Virtual Machines planering och implementering för SAP NetWeaver][planning-guide]. Ställ in innehållet i databasen med hjälp av SAP programvara etablering hanteraren för att installera ett nytt SAP-system (återställer en säkerhetskopia av databasen från en disk som är kopplad till den virtuella datorn) eller genom att återställa en säkerhetskopia av databasen direkt från Azure storage, om ditt DBMS stöder den. Mer information finns i [Azure virtuella datorer DBMS-distribution för SAP NetWeaver][dbms-guide]. Om du redan har installerat en SAP-system på den lokala virtuella datorn (särskilt för tvålagers-system), kan du anpassa systeminställningar SAP efter distributionen av den virtuella Azure-datorn med hjälp av proceduren för Byt namn på System som stöds av SAP programvara etablering Manager (SAP-kommentar [1619720]). Annars kan installera du SAP-program när du har distribuerat Azure VM.
+Du kan förbereda och skapa en anpassad avbildning och sedan använda den för att skapa flera nya virtuella datorer. Detta beskrivs i [Azure Virtual Machines planering och implementering av SAP NetWeaver][planning-guide]. Ställa in innehållet i databasen med hjälp av SAP Software etablering Manager för att installera en ny SAP-system (återställer en säkerhetskopia av databasen från en disk som är kopplad till den virtuella datorn) eller genom att återställa en säkerhetskopia av databasen direkt från Azure storage, om din DBMS stöder den. Mer information finns i [DBMS i Azure Virtual Machines-distribution för SAP NetWeaver][dbms-guide]. Om du redan har installerat ett SAP-system på den lokala virtuella datorn (särskilt för tvålagers-system), kan du anpassa SAP-systeminställningar efter distributionen av den virtuella Azure-datorn med hjälp av proceduren för Byt namn på System som stöds av SAP Software etablering Manager (SAP Observera [1619720]). Annars kan installera du SAP-program när du har distribuerat Azure VM.
 
-I följande flödesschema visar stegen för att distribuera en virtuell dator från en anpassad avbildning SAP-specifika:
+I följande flödesschema visas de SAP-specifika stegen för att distribuera en virtuell dator från en anpassad avbildning:
 
-![Flödesdiagram för distribution av Virtuella datorer för SAP-system med hjälp av en VM-avbildning i privata Marketplace][deployment-guide-figure-300]
+![Flödesdiagram för distribution av virtuella datorer för SAP-system med hjälp av en VM-avbildning i privata Marketplace][deployment-guide-figure-300]
 
 #### <a name="create-a-virtual-machine-by-using-the-azure-portal"></a>Skapa en virtuell dator med hjälp av Azure portal
-Det enklaste sättet att skapa en ny virtuell dator från en hanterad diskavbildning är med hjälp av Azure portal. Mer information om hur du skapar en hantera diskavbildning [samla in en hanterad avbildning av en generaliserad virtuell dator i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)
+Det är det enklaste sättet att skapa en ny virtuell dator från en avbildning av en hanterad Disk med hjälp av Azure portal. Mer information om hur du skapar en hantera diskavbildning [avbilda en hanterad avbildning av en generaliserad virtuell dator i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)
 
-1.  Gå till <https://ms.portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages>. Välj i Azure portal menyn **bilder**.
-2.  Välj den hanterade diskavbildning som du vill distribuera och klicka på **Skapa virtuell dator**
+1.  Gå till <https://ms.portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages>. Eller i Azure portal-menyn, Välj **avbildningar**.
+1.  Välj en hanterad Disk-avbildning som du vill distribuera och klicka på **Skapa virtuell dator**
 
-Guiden leder dig genom de obligatoriska parametrarna för att skapa den virtuella datorn, förutom att alla nödvändiga resurser, t.ex. nätverksgränssnitt och storage-konton. Några av dessa parametrar är:
+Guiden vägleder dig genom att ange de obligatoriska parametrarna för att skapa den virtuella datorn, förutom att alla nödvändiga resurser, t.ex. nätverksgränssnitt och storage-konton. Några av dessa parametrar är:
 
 1. **Grunderna**:
- * **Namnet**: namnet på resursen (virtuella datornamn).
- * **VM disktyp**: Välj den som disktyp av OS-disk. Om du vill använda Premium-lagring för datadiskarna bör du använda Premium-lagring för OS-disken.
- * **Användarnamn och lösenord** eller **offentliga SSH-nyckeln**: Ange användarnamn och lösenord för den användare som har skapats under etableringen. För en virtuell Linux-dator, kan du ange den offentliga nyckeln för SSH (Secure Shell) som används för att logga in på datorn.
- * **Prenumerationen**: Välj den prenumeration som du vill använda för att etablera den nya virtuella datorn.
- * **Resursgruppen**: namnet på resursgruppen för den virtuella datorn. Du kan ange namnet på en ny resursgrupp eller namnet på en resursgrupp som redan finns.
- * **Plats**: var du vill distribuera den nya virtuella datorn. Om du vill ansluta den virtuella datorn till ditt lokala nätverk, kontrollera att du väljer att platsen för det virtuella nätverket som ansluter Azure till ditt lokala nätverk. Mer information finns i [Microsoft Azure-nätverk] [ planning-guide-microsoft-azure-networking] i [Azure Virtual Machines planering och implementering för SAP NetWeaver] [ planning-guide].
-2. **Storlek**:
+ * **Namn på**: namnet på resursen (virtuella datornamn).
+ * **Typ av virtuell datordisk**: Välj typ av disk av OS-disken. Om du vill använda Premium Storage för din datadiskar bör du använda Premium Storage för OS-disken.
+ * **Användarnamn och lösenord** eller **offentlig SSH-nyckel**: Ange användarnamn och lösenord för den användare som har skapats under etableringen. För en Linux-dator, kan du ange den offentliga nyckeln för SSH (Secure Shell) som används för att logga in på datorn.
+ * **Prenumeration**: Välj den prenumeration som du vill använda för att etablera den nya virtuella datorn.
+ * **Resursgrupp**: namnet på resursgruppen för den virtuella datorn. Du kan ange namnet på en ny resursgrupp eller namnet på en resursgrupp som redan finns.
+ * **Plats**: var du vill distribuera den nya virtuella datorn. Om du vill ansluta den virtuella datorn till ditt lokala nätverk kan du kontrollera att du väljer plats för det virtuella nätverket som ansluter Azure till ditt lokala nätverk. Mer information finns i [Microsoft Azure-nätverk] [ planning-guide-microsoft-azure-networking] i [Azure Virtual Machines planering och implementering av SAP NetWeaver] [ planning-guide].
+1. **Storlek**:
 
-     En lista över VM-typer som stöds finns i SAP-kommentar [1928533]. Var noga med att du väljer rätt VM-typ. Om du vill använda Azure Premium-lagring. Inte alla VM-typer stöder Premium-lagring. Mer information finns i [lagring: Microsoft Azure Storage- och datadiskar] [ planning-guide-storage-microsoft-azure-storage-and-data-disks] och [Azure Premium Storage] [ planning-guide-azure-premium-storage] i [ Azure virtuella datorer planering och implementering för SAP NetWeaver][planning-guide].
+     En lista över VM-typer som stöds finns i SAP-kommentar [1928533]. Var noga med att du väljer rätt typ av virtuell dator om du vill använda Azure Premium Storage. Inte alla typer av virtuella datorer stöd för Premium Storage. Mer information finns i [lagring: Microsoft Azure Storage- och datadiskar] [ planning-guide-storage-microsoft-azure-storage-and-data-disks] och [Azure Premium Storage] [ planning-guide-azure-premium-storage] i [ Azure virtuella datorer, planering och implementering av SAP NetWeaver][planning-guide].
 
-3. **Inställningar för**:
+1. **Inställningar för**:
   * **Storage**
-    * **Disktyp**: Välj den som disktyp av OS-disk. Om du vill använda Premium-lagring för datadiskarna bör du använda Premium-lagring för OS-disken.
-    * **Använda hanterade diskar**: Välj Ja om du vill använda hanterade diskar. Mer information om hanterade diskar finns i kapitlet [hanterade diskar] [ planning-guide-managed-disks] i Planeringsguiden.
+    * **Disktyp**: Välj typ av disk av OS-disken. Om du vill använda Premium Storage för din datadiskar bör du använda Premium Storage för OS-disken.
+    * **Använda hanterade diskar**: Välj Ja om du vill använda Managed Disks. Mer information om Managed Disks finns i kapitlet [Managed Disks] [ planning-guide-managed-disks] i Planeringsguiden.
   * **Nätverk**
-    * **Virtuellt nätverk** och **undernät**: Om du vill integrera den virtuella datorn med ditt intranät, Välj det virtuella nätverk som är anslutet till det lokala nätverket.
-    * **Offentliga IP-adressen**: Välj offentlig IP-adressen som du vill använda, eller ange parametrar för att skapa en ny offentlig IP-adress. Du kan använda en offentlig IP-adress för att få åtkomst till den virtuella datorn via Internet. Kontrollera att du också skapa en säkerhetsgrupp för nätverk för att skydda åtkomsten till den virtuella datorn.
-    * **Nätverkssäkerhetsgruppen**: Mer information finns i [styr flödet i nätverkstrafiken med nätverkssäkerhetsgrupper][virtual-networks-nsg].
-  * **Tillägg**: du kan installera tillägg för virtuell dator genom att lägga till dem i distributionen. Du behöver inte lägga till tillägget i det här steget. De tillägg som krävs för stöd för SAP installeras senare. Se kapitel [konfigurera Azure förbättrad övervakning av tillägget för SAP] [ deployment-guide-4.5] i den här guiden.
-  * **Hög tillgänglighet**: Välj en tillgänglighetsuppsättning eller ange parametrar för att skapa en ny tillgänglighetsuppsättning. Mer information finns i [Azure tillgänglighetsuppsättningar][planning-guide-3.2.3].
+    * **Virtuellt nätverk** och **undernät**: Välj det virtuella nätverk som är ansluten till ditt lokala nätverk om du vill integrera den virtuella datorn med intranätet.
+    * **Offentliga IP-adressen**: Välj den offentliga IP-adressen som du vill använda eller ange parametrar för att skapa en ny offentlig IP-adress. Du kan använda en offentlig IP-adress för att få åtkomst till den virtuella datorn via Internet. Se till att du också skapa en nätverkssäkerhetsgrupp för att säkra åtkomsten till den virtuella datorn.
+    * **Nätverkssäkerhetsgrupp**: Mer information finns i [styra flödet i nätverkstrafiken med nätverkssäkerhetsgrupper][virtual-networks-nsg].
+  * **Tillägg**: du kan installera tillägg för virtuell dator genom att lägga till dem i distributionen. Du behöver inte att lägga till tillägget i det här steget. De tillägg som krävs för SAP support installeras senare. Se kapitel [konfigurera Azure förbättrad övervakning av tillägget för SAP] [ deployment-guide-4.5] i den här guiden.
+  * **Hög tillgänglighet**: Välj en tillgänglighetsuppsättning eller ange parametrar för att skapa en ny tillgänglighetsuppsättning. Mer information finns i [Azures tillgänglighetsuppsättningar][planning-guide-3.2.3].
   * **Övervakning**
-    * **Starta diagnostik**: du kan välja **inaktivera** för startdiagnostikinställningar.
+    * **Startdiagnostik**: du kan välja **inaktivera** för startdiagnostik.
     * **Diagnostik för Gästoperativsystem**: du kan välja **inaktivera** för övervakning av diagnostik.
 
-4. **Sammanfattning**:
+1. **Sammanfattning av**:
 
-  Granska dina val och välj sedan **OK**.
+  Granska dina val och väljer sedan **OK**.
 
 Den virtuella datorn har distribuerats i resursgruppen som du har valt.
 #### <a name="create-a-virtual-machine-by-using-a-template"></a>Skapa en virtuell dator med hjälp av en mall
-Använd någon av följande SAP-mallar för att skapa en distribution med hjälp av en privat operativsystemsavbildning från Azure-portalen. Dessa mallar har publicerats i den [GitHub-lagringsplatsen för azure-snabbstartsmallar][azure-quickstart-templates-github]. Du kan också manuellt skapa en virtuell dator med hjälp av [PowerShell][virtual-machines-upload-image-windows-resource-manager].
+Använd någon av följande SAP-mallar för att skapa en distribution med hjälp av en privat OS-avbildning från Azure-portalen. Dessa mallar har publicerats i den [GitHub-lagringsplatsen för azure-snabbstartsmallar][azure-quickstart-templates-github]. Du kan också manuellt skapa en virtuell dator med hjälp av [PowerShell][virtual-machines-upload-image-windows-resource-manager].
 
-* [**Tvålagers-(endast en virtuell dator) konfigurationsmallen** (sap-2-nivå-användaren-bild)][sap-templates-2-tier-user-image]
+* [**Tvålagers-konfigurationsmall (endast en virtuell dator)** (sap-2-nivå-användare-bild)][sap-templates-2-tier-user-image]
 
-  Använd den här mallen för att skapa en system på två nivåer med endast en virtuell dator.
+  Använd den här mallen om du vill skapa en tvålagers-system med hjälp av enbart en virtuell dator.
 * [**Tvålagers-(endast en virtuell dator) konfigurationsmall - hanterade diskavbildning** (sap-2-tier-user-image-md)][sap-templates-2-tier-user-image-md]
 
-  Använd den här mallen för att skapa en system på två nivåer med hjälp av endast en virtuell dator och en hanterad diskavbildning.
-* [**Trelagers-(flera virtuella datorer) konfigurationsmallen** (sap-3-nivå-användaren-bild)][sap-templates-3-tier-user-image]
+  Använd den här mallen om du vill skapa en tvålagers-system med hjälp av enbart en virtuell dator och en avbildning av en hanterad Disk.
+* [**(Flera virtuella datorer) för trelagers-konfigurationsmall** (sap-3-nivå-användare-bild)][sap-templates-3-tier-user-image]
 
-  Använd den här mallen för att skapa en trelagers-system med flera virtuella datorer eller egna OS-avbildningen.
+  Använd den här mallen om du vill skapa en trelagers-system med hjälp av flera virtuella datorer eller en egen OS-avbildning.
 * [**Trelagers-(flera virtuella datorer) konfigurationsmall - hanterade diskavbildning** (sap-3-tier-user-image-md)][sap-templates-3-tier-user-image-md]
 
-  Använd den här mallen för att skapa en trelagers-system med flera virtuella datorer eller egna OS-avbildningen och en hanterad diskavbildning.
+  Använd den här mallen om du vill skapa en trelagers-system med hjälp av flera virtuella datorer eller en egen OS-avbildning och en avbildning av en hanterad Disk.
 
 Ange följande parametrar för mallen i Azure-portalen:
 
 1. **Grunderna**:
-  * **Prenumerationen**: prenumerationen ska användas för att distribuera mallen.
-  * **Resursgruppen**: resursgruppen du använder för att distribuera mallen. Du kan skapa en ny resursgrupp eller välj en befintlig resursgrupp i prenumerationen.
-  * **Plats**: var du vill distribuera mallen. Om du har valt en befintlig resursgrupp används platsen för resursgruppen.
-2. **Inställningar för**:
-  * **System-ID för SAP**: SAP System-ID.
-  * **OS-typen**: typ av operativsystem som du vill distribuera (Windows eller Linux).
-  * **SAP systemstorlek**: storleken på SAP-system.
+  * **Prenumeration**: prenumerationen som ska använda för att distribuera mallen.
+  * **Resursgrupp**: resursgruppen som ska använda för att distribuera mallen. Du kan skapa en ny resursgrupp eller välj en befintlig resursgrupp i prenumerationen.
+  * **Plats**: var du vill distribuera mallen. Om du har valt en befintlig resursgrupp används för platsen för resursgruppen.
+1. **Inställningar för**:
+  * **SAP System-ID**: SAP System-ID.
+  * **OS-typ**: typ av operativsystem som du vill distribuera (Windows eller Linux).
+  * **Storlek för SAP-system**: storleken på SAP-system.
 
-    Antal SAP som innehåller det nya systemet. Om du inte vet hur många SAP systemet kräver, be din SAP-teknikpartner eller systemintegreraren.
-  * **Filsystemets tillgänglighet** (endast tre skikt mall): filsystemets tillgänglighet.
+    Antal SAP som innehåller det nya systemet. Om du inte vet hur många SAP kräver att systemet, be din SAP-teknikpartner eller systemintegratör.
+  * **Systemets tillgänglighet** (endast trelagers-mall): systemets tillgänglighet.
 
-    Välj **HA** för en konfiguration som passar för en installation med hög tillgänglighet. Två databasservrar och två servrar för ASCS skapas.
-  * **Lagringstyp** (endast två nivåer mall): lagringstyp som ska användas.
+    Välj **HA** för en konfiguration som passar för en installation för hög tillgänglighet. Två databasservrar och två servrar för ASCS skapas.
+  * **Lagringstyp** (endast tvålagers-mall): typ av lagring du använder.
 
-    Vi rekommenderar med Azure Premium-lagring för större system. Mer information om lagringstyper finns i följande resurser:
-      * [Användning av Azure Premium SSD-lagring för SAP DBMS-instans][2367194]
-      * [Microsoft Azure Storage] [ dbms-guide-2.3] i [Azure virtuella datorer DBMS-distribution för SAP NetWeaver][dbms-guide]
-      * [Premium-lagring: Högpresterande lagring för arbetsbelastningar på virtuella Azure-datorn][storage-premium-storage-preview-portal]
+    För stora system vi rekommenderar starkt att använda Azure Premium Storage. Mer information om lagringskontotyper finns i följande resurser:
+      * [Användning av Azure Premium SSD-lagringen för SAP DBMS-instans][2367194]
+      * [Microsoft Azure Storage] [ dbms-guide-2.3] i [DBMS i Azure Virtual Machines-distribution för SAP NetWeaver][dbms-guide]
+      * [Premium Storage: Högpresterande lagring för arbetsbelastningar på Azure virtuella datorer][storage-premium-storage-preview-portal]
       * [Introduktion till Microsoft Azure Storage][storage-introduction]
-  * **Användaravbildningen VHD-URI** (endast ohanterade disk image mall): URI: N av privata OS bild virtuell Hårddisk, till exempel https://&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
-  * **Användaren avbildningens lagringskonto** (endast ohanterade disk image mall): namnet på det lagringskonto där den privata OS-avbildningen lagras, till exempel &lt;accountname > i https://&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
-  * **userImageId** (endast hanterade diskar avbildningen mall): Id för den hanterade diskavbildning som du vill använda
-  * **Administratörsanvändarnamnet** och **adminlösenord**: användarnamn och lösenord.
+  * **Användaravbildningen VHD-URI** (endast ohanterad disk bild mall): URI: N för privata Operativsystemet bild virtuell Hårddisk, till exempel https://&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
+  * **Användaren avbildningens lagringskonto** (endast ohanterad disk bild mall): namnet på det lagringskonto där den privata OS-avbildningen lagras, till exempel &lt;accountname > i https://&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
+  * **userImageId** (endast hanterade diskar bild mall): Id för den hanterade diskavbildningen som du vill använda
+  * **Administratörens användarnamn** och **adminlösenord**: användarnamn och lösenord.
 
     En ny användare skapas för att logga in till den virtuella datorn.
-  * **Ny eller befintlig undernät**: Anger om ett nytt virtuellt nätverk och undernät har skapats eller ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är anslutna till ditt lokala nätverk väljer **befintliga**.
-  * **Undernät-ID**: ID för undernätet som de virtuella datorerna ska ansluta till. Välj undernätet i ditt VPN eller ExpressRoute virtuella nätverk för att ansluta den virtuella datorn till ditt lokala nätverk. ID: T ser oftast ut så här:
+  * **Nytt eller befintligt undernät**: avgör om ett nytt virtuellt nätverk och undernät skapas eller ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är ansluten till ditt lokala nätverk, Välj **befintliga**.
+  * **Undernät-ID**: ID för det undernät som de virtuella datorerna ska ansluta till. Välj undernät för ditt VPN eller ExpressRoute virtuellt nätverk för att ansluta den virtuella datorn till ditt lokala nätverk. ID: T ser oftast ut så här:
 
-    /subscriptions/&lt;prenumerations-id > /resourceGroups/&lt;resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/&lt;virtuella nätverksnamnet > /subnets/&lt;undernätsnamn >
+    /subscriptions/&lt;prenumerations-id > /resourceGroups/&lt;resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/&lt;virtuellt nätverksnamn > /subnets/&lt;undernätets namn >
 
-3. **Villkor**:  
-    Granska och Godkänn villkoren.
+1. **Allmänna villkor**:  
+    Granska och Godkänn de juridiska villkoren.
 
-4.  Välj **inköp**.
+1.  Välj **Köp**.
 
-#### <a name="install-the-vm-agent-linux-only"></a>Installera den Virtuella Datoragenten (endast Linux)
-Om du vill använda mallar som beskrivs i föregående avsnitt, Linux-agenten måste vara installerad i användaravbildningen eller distributionen misslyckas. Hämta och installera den Virtuella Datoragenten användaren bild enligt beskrivningen i [hämta, installera och aktivera Azure VM-agenten][deployment-guide-4.4]. Om du inte använder mallar kan kan du också installera den Virtuella Datoragenten senare.
+#### <a name="install-the-vm-agent-linux-only"></a>Installera VM-agenten (endast Linux)
+Om du vill använda mallar som beskrivs i föregående avsnitt, Linux-agenten måste vara installerad i användaravbildningen eller distributionen kommer att misslyckas. Ladda ned och installera VM-agenten i användaravbildningen enligt beskrivningen i [hämta, installera och aktivera Azure VM-agenten][deployment-guide-4.4]. Om du inte använder mallarna kan kan du också installera VM-agenten senare.
 
 #### <a name="join-a-domain-windows-only"></a>Anslut till en domän (endast Windows)
-Om din Azure-distribution är ansluten till en lokal Active Directory eller DNS-instans via en Azure-plats-till-plats VPN-anslutning eller Azure ExpressRoute (Detta kallas *mellan lokala* i [Azure virtuella datorer planering och implementering för SAP NetWeaver][planning-guide]), det förväntas att den virtuella datorn ska anslutas till en lokal domän. Mer information om överväganden för det här steget finns [ansluta en virtuell dator till en lokal domän (Windows)][deployment-guide-4.3].
+Om din Azure-distribution är ansluten till en lokal Active Directory eller DNS-instans via en Azure VPN-anslutning för plats-till-plats eller Azure ExpressRoute (Detta kallas *mellan lokala* i [Azure Virtual Machines planering och implementering av SAP NetWeaver][planning-guide]), det förväntas att den virtuella datorn ska anslutas till en lokal domän. Mer information om överväganden för det här steget finns i [ansluta en virtuell dator till en lokal domän (endast Windows)][deployment-guide-4.3].
 
 #### <a name="configure-proxy-settings"></a>Konfigurera proxyinställningar
-Beroende på hur det lokala nätverket är konfigurerat, kan du behöva ställa in proxy på den virtuella datorn. Om den virtuella datorn är ansluten till det lokala nätverket via VPN eller ExpressRoute, den virtuella datorn kanske inte kan ansluta till Internet och kommer inte att hämta nödvändiga tillägg eller samla in övervakningsdata. Mer information finns i [konfigurerar du proxyservern][deployment-guide-configure-proxy].
+Beroende på hur ditt lokala nätverk är konfigurerat kan behöva du konfigurera proxy på den virtuella datorn. Om den virtuella datorn är ansluten till ditt lokala nätverk via VPN eller ExpressRoute, den virtuella datorn kanske inte kan få åtkomst till Internet och kommer inte att hämta nödvändiga tillägg eller samla in övervakningsdata. Mer information finns i [konfigurerar du proxyservern][deployment-guide-configure-proxy].
 
 #### <a name="configure-monitoring"></a>Konfigurera övervakning
-Att konfigurera Azure övervakning tillägget för SAP enligt beskrivningen i din miljö stöd för SAP [konfigurera Azure förbättrad övervakning av tillägget för SAP][deployment-guide-4.5]. Kontrollera krav för SAP övervakning och minsta operativsystemversioner som krävs av SAP Kernel och SAP Värdagenten för resurser som anges i [SAP resurser][deployment-guide-2.2].
+Att SAP har stöd för din miljö, ställa in Azure Monitoring-tillägg för SAP, enligt beskrivningen i [konfigurera Azure förbättrad övervakning av tillägget för SAP][deployment-guide-4.5]. Kontrollera krav för övervakning av SAP och nödvändiga minimiversioner av SAP Kernel och SAP Värdagenten, i resurserna som anges i [SAP resurser][deployment-guide-2.2].
 
-#### <a name="monitoring-check"></a>Övervakning av kontrollen
-Kontrollera om övervakning fungerar, enligt beskrivningen i [kontroller och felsökning för att ställa in slutpunkt till slutpunkt övervakning][deployment-guide-troubleshooting-chapter].
+#### <a name="monitoring-check"></a>Övervakning av kontroll
+Kontrollera om fungerar övervakning, enligt beskrivningen i [kontroller och felsökning för att konfigurera övervakning av slutpunkt till slutpunkt][deployment-guide-troubleshooting-chapter].
 
 
-### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Scenario 3: Flytta en virtuell dator lokalt med hjälp av en ej generaliserad Azure VHD med SAP
-I det här scenariot som du tänker flytta ett särskilt SAP-system från en lokal miljö till Azure. Du kan göra detta genom att överföra den virtuella Hårddisken som Operativsystemet, SAP-binärfiler och slutligen DBMS-binärfiler, samt de virtuella hårddiskarna med data och loggfilen filer med DBMS till Azure. Till skillnad från det scenario som beskrivs i [Scenario 2: distribuera en virtuell dator med en anpassad avbildning för SAP][deployment-guide-3.3], i detta fall kan du behålla värdnamn, SAP-SID och SAP användarkonton i Azure VM, eftersom de har konfigurerats i den lokala miljön. Du behöver inte att generalisera Operativsystemet. Det här scenariot gäller oftast mellan lokala scenarier där en del av SAP-liggande körs lokalt och en del av den körs på Azure.
+### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Scenario 3: Flytta en lokal virtuell dator med hjälp av en icke-generaliserad Azure VHD med SAP
+I det här scenariot planerar du att flytta ett särskilt SAP-system från en lokal miljö till Azure. Du kan göra detta genom att ladda upp den virtuella Hårddisken som Operativsystemet, SAP-binärfiler och så småningom DBMS-binärfiler, plus de virtuella hårddiskarna med filer för data och loggfiler för DBMS till Azure. Till skillnad från det scenario som beskrivs i [Scenario 2: distribuera en virtuell dator med en anpassad avbildning för SAP][deployment-guide-3.3], i detta fall använder du behåller värdnamn, SAP-SID och SAP användarkonton i Azure-dator, eftersom de har konfigurerats i den lokala miljön. Du behöver inte att generalisera Operativsystemet. Det här scenariot gäller oftast mellan lokala scenarier där en del av SAP-landskap körs lokalt och en del av den körs på Azure.
 
-I det här fallet är den Virtuella Datoragenten **inte** automatiskt installerade under distributionen. Eftersom den Virtuella Datoragenten och Azure förbättrad övervakning av tillägget för SAP krävs för att köra SAP NetWeaver på Azure, måste du hämta, installera och aktivera båda komponenterna manuellt när du har skapat den virtuella datorn.
+I det här scenariot VM-agenten är **inte** automatiskt installerade under distributionen. Eftersom VM-agenten och Azure förbättrad övervakning av tillägget för SAP krävs för att köra SAP NetWeaver på Azure, måste du hämta, installera och aktivera båda komponenterna manuellt när du har skapat den virtuella datorn.
 
 Mer information om Azure VM-agenten finns i följande resurser.
 
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> [Översikt över Azure virtuella datorns Agent][virtual-machines-windows-agent-user-guide]
+> [Översikt över Azure VM-agenten][virtual-machines-windows-agent-user-guide]
 >
 > ![Linux][Logo_Linux] Linux
 >
-> [Användarhandboken för Azure Linux-Agent][virtual-machines-linux-agent-user-guide]
+> [Användarhandbok för Azure Linux-Agent][virtual-machines-linux-agent-user-guide]
 >
 >
 
 - - -
 
-I följande flödesschema visar stegen för att flytta en virtuell dator lokalt med hjälp av en ej generaliserad Azure VHD:
+Flödesschemat visar stegen för att flytta en lokal virtuell dator med hjälp av en icke-generaliserad Azure-VHD:
 
-![Flödesdiagram för distribution av Virtuella datorer för SAP-system med hjälp av en virtuell disk][deployment-guide-figure-400]
+![Flödesdiagram för distribution av virtuella datorer för SAP-system med hjälp av en virtuell datordisk][deployment-guide-figure-400]
 
-Om disken är redan överförts och definieras i Azure (se [Azure Virtual Machines planering och implementering för SAP NetWeaver][planning-guide]), gör uppgifterna som beskrivs i nästa avsnitten.
+Om disken redan har laddats upp och definieras i Azure (se [Azure Virtual Machines planering och implementering av SAP NetWeaver][planning-guide]), gör uppgifterna som beskrivs i nästa avsnitt.
 
 #### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
-Om du vill skapa en distribution med hjälp av en privat OS-disk via Azure portal, Använd SAP mallen publicerats i den [GitHub-lagringsplatsen för azure-snabbstartsmallar][azure-quickstart-templates-github]. Du kan också manuellt skapa en virtuell dator med hjälp av PowerShell.
+Om du vill skapa en distribution med hjälp av en privat OS-disk via Azure portal, använda SAP-mallen som publicerats i den [GitHub-lagringsplatsen för azure-snabbstartsmallar][azure-quickstart-templates-github]. Du kan också manuellt skapa en virtuell dator med hjälp av PowerShell.
 
-* [**Tvålagers-(endast en virtuell dator) konfigurationsmallen** (sap-2-nivå-användaren-disk)][sap-templates-2-tier-os-disk]
+* [**Tvålagers-konfigurationsmall (endast en virtuell dator)** (sap-2-nivå-användare-disk)][sap-templates-2-tier-os-disk]
 
-  Använd den här mallen för att skapa en system på två nivåer med endast en virtuell dator.
-* [**Tvålagers-(endast en virtuell dator) konfigurationsmall - hanterade disken** (sap-2-tier-user-disk-md)][sap-templates-2-tier-os-disk-md]
+  Använd den här mallen om du vill skapa en tvålagers-system med hjälp av enbart en virtuell dator.
+* [**Tvålagers-(endast en virtuell dator) konfigurationsmall – hanterad Disk** (sap-2-tier-user-disk-md)][sap-templates-2-tier-os-disk-md]
 
-  Använd den här mallen för att skapa en system på två nivåer med hjälp av endast en virtuell dator och en Disk som hanteras.
+  Använd den här mallen om du vill skapa en tvålagers-system med hjälp av enbart en virtuell dator och en hanterad Disk.
 
 Ange följande parametrar för mallen i Azure-portalen:
 
 1. **Grunderna**:
-  * **Prenumerationen**: prenumerationen ska användas för att distribuera mallen.
-  * **Resursgruppen**: resursgruppen du använder för att distribuera mallen. Du kan skapa en ny resursgrupp eller välj en befintlig resursgrupp i prenumerationen.
-  * **Plats**: var du vill distribuera mallen. Om du har valt en befintlig resursgrupp används platsen för resursgruppen.
-2. **Inställningar för**:
-  * **System-ID för SAP**: SAP System-ID.
-  * **OS-typen**: typ av operativsystem som du vill distribuera (Windows eller Linux).
-  * **SAP systemstorlek**: storleken på SAP-system.
+  * **Prenumeration**: prenumerationen som ska använda för att distribuera mallen.
+  * **Resursgrupp**: resursgruppen som ska använda för att distribuera mallen. Du kan skapa en ny resursgrupp eller välj en befintlig resursgrupp i prenumerationen.
+  * **Plats**: var du vill distribuera mallen. Om du har valt en befintlig resursgrupp används för platsen för resursgruppen.
+1. **Inställningar för**:
+  * **SAP System-ID**: SAP System-ID.
+  * **OS-typ**: typ av operativsystem som du vill distribuera (Windows eller Linux).
+  * **Storlek för SAP-system**: storleken på SAP-system.
 
-    Antal SAP som innehåller det nya systemet. Om du inte vet hur många SAP systemet kräver, be din SAP-teknikpartner eller systemintegreraren.
-  * **Lagringstyp** (endast två nivåer mall): lagringstyp som ska användas.
+    Antal SAP som innehåller det nya systemet. Om du inte vet hur många SAP kräver att systemet, be din SAP-teknikpartner eller systemintegratör.
+  * **Lagringstyp** (endast tvålagers-mall): typ av lagring du använder.
 
-    Vi rekommenderar med Azure Premium-lagring för större system. Mer information om lagringstyper finns i följande resurser:
-      * [Användning av Azure Premium SSD-lagring för SAP DBMS-instans][2367194]
-      * [Microsoft Azure Storage] [ dbms-guide-2.3] i [Azure virtuella DBMS-distribution för SAP NetWeaver][dbms-guide]
-      * [Premium-lagring: Högpresterande lagring för arbetsbelastningar på Azure-dator][storage-premium-storage-preview-portal]
+    För stora system vi rekommenderar starkt att använda Azure Premium Storage. Mer information om lagringskontotyper finns i följande resurser:
+      * [Användning av Azure Premium SSD-lagringen för SAP DBMS-instans][2367194]
+      * [Microsoft Azure Storage] [ dbms-guide-2.3] i [DBMS i Azure VM-distribution för SAP NetWeaver][dbms-guide]
+      * [Premium Storage: Högpresterande lagring för arbetsbelastningar på Azure virtuella datorer][storage-premium-storage-preview-portal]
       * [Introduktion till Microsoft Azure Storage][storage-introduction]
-  * **OS-disken VHD-URI** (endast mall ohanterade disk): URI: N för privata OS-disk, till exempel https://&lt;accountname >.blob.core.windows.net/vhds/osdisk.vhd.
-  * **OS-disken hanteras Disk-Id** (endast hanterade diskar mall): Id för hanterade disken OS-disk /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
-  * **Ny eller befintlig undernät**: Anger om skapas ett nytt virtuellt nätverk och undernät eller ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är anslutna till ditt lokala nätverk väljer **befintliga**.
-  * **Undernät-ID**: ID för undernätet som de virtuella datorerna ska ansluta till. Välj undernätet i ditt VPN eller Azure ExpressRoute virtuella nätverk för att ansluta den virtuella datorn till ditt lokala nätverk. ID: T ser oftast ut så här:
+  * **VHD-URI för operativsystemdisk** (endast mall ohanterad disk): den URI för den privata OS-disken, till exempel https://&lt;accountname >.blob.core.windows.net/vhds/osdisk.vhd.
+  * **Managed Disk-Id på operativsystemdisk** (endast mall hanterade diskar): Id för hanterad Disk OS-disken /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
+  * **Nytt eller befintligt undernät**: bestämmer om skapas ett nytt virtuellt nätverk och undernät eller ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är ansluten till ditt lokala nätverk, Välj **befintliga**.
+  * **Undernät-ID**: ID för det undernät som de virtuella datorerna ska ansluta till. Välj undernät för virtuellt nätverk VPN eller Azure ExpressRoute för att ansluta den virtuella datorn till ditt lokala nätverk. ID: T ser oftast ut så här:
 
-    /subscriptions/&lt;prenumerations-id > /resourceGroups/&lt;resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/&lt;virtuella nätverksnamnet > /subnets/&lt;undernätsnamn >
+    /subscriptions/&lt;prenumerations-id > /resourceGroups/&lt;resursgruppens namn > /providers/Microsoft.Network/virtualNetworks/&lt;virtuellt nätverksnamn > /subnets/&lt;undernätets namn >
 
-3. **Villkor**:  
-    Granska och Godkänn villkoren.
+1. **Allmänna villkor**:  
+    Granska och Godkänn de juridiska villkoren.
 
-4.  Välj **inköp**.
+1.  Välj **Köp**.
 
-#### <a name="install-the-vm-agent"></a>Installera den Virtuella Datoragenten
-Om du vill använda mallar som beskrivs i föregående avsnitt VM-agenten måste installeras på OS-disken eller distributionen misslyckas. Hämta och installera den Virtuella Datoragenten i den virtuella datorn, enligt beskrivningen i [hämta, installera och aktivera Azure VM-agenten][deployment-guide-4.4].
+#### <a name="install-the-vm-agent"></a>Installera VM-agenten
+Om du vill använda mallar som beskrivs i föregående avsnitt, VM-agenten måste installeras på OS-disken eller distributionen kommer att misslyckas. Ladda ned och installera VM-agenten på den virtuella datorn, enligt beskrivningen i [hämta, installera och aktivera Azure VM-agenten][deployment-guide-4.4].
 
-Om du inte använder mallar som beskrivs i föregående avsnitt, kan du även installera den Virtuella Datoragenten efteråt.
+Om du inte använder mallar som beskrivs i föregående avsnitt, kan du även installera VM-agenten efteråt.
 
 #### <a name="join-a-domain-windows-only"></a>Anslut till en domän (endast Windows)
-Om din Azure-distribution är ansluten till en lokal Active Directory eller DNS-instans via en Azure-plats-till-plats VPN-anslutning eller ExpressRoute (Detta kallas *mellan lokala* i [planering av virtuella datorer i Azure och implementeringen för SAP NetWeaver][planning-guide]), det förväntas att den virtuella datorn ska anslutas till en lokal domän. Mer information om överväganden för den här aktiviteten finns [ansluta en virtuell dator till en lokal domän (Windows)][deployment-guide-4.3].
+Om din Azure-distribution är ansluten till en lokal Active Directory eller DNS-instans via en Azure VPN-anslutning för plats-till-plats eller ExpressRoute (Detta kallas *mellan lokala* i [planering för Azure Virtual Machines och implementering av SAP NetWeaver][planning-guide]), det förväntas att den virtuella datorn ska anslutas till en lokal domän. Mer information om överväganden för den här uppgiften finns [ansluta en virtuell dator till en lokal domän (endast Windows)][deployment-guide-4.3].
 
 #### <a name="configure-proxy-settings"></a>Konfigurera proxyinställningar
-Beroende på hur det lokala nätverket är konfigurerat, kan du behöva ställa in proxy på den virtuella datorn. Om den virtuella datorn är ansluten till det lokala nätverket via VPN eller ExpressRoute, den virtuella datorn kanske inte kan ansluta till Internet och kommer inte att hämta nödvändiga tillägg eller samla in övervakningsdata. Mer information finns i [konfigurerar du proxyservern][deployment-guide-configure-proxy].
+Beroende på hur ditt lokala nätverk är konfigurerat kan behöva du konfigurera proxy på den virtuella datorn. Om den virtuella datorn är ansluten till ditt lokala nätverk via VPN eller ExpressRoute, den virtuella datorn kanske inte kan få åtkomst till Internet och kommer inte att hämta nödvändiga tillägg eller samla in övervakningsdata. Mer information finns i [konfigurerar du proxyservern][deployment-guide-configure-proxy].
 
 #### <a name="configure-monitoring"></a>Konfigurera övervakning
-Att konfigurera Azure övervakning tillägget för SAP enligt beskrivningen i din miljö stöd för SAP [konfigurera Azure förbättrad övervakning av tillägget för SAP][deployment-guide-4.5]. Kontrollera krav för SAP övervakning och minsta operativsystemversioner som krävs av SAP Kernel och SAP Värdagenten för resurser som anges i [SAP resurser][deployment-guide-2.2].
+Att SAP har stöd för din miljö, ställa in Azure Monitoring-tillägg för SAP, enligt beskrivningen i [konfigurera Azure förbättrad övervakning av tillägget för SAP][deployment-guide-4.5]. Kontrollera krav för övervakning av SAP och nödvändiga minimiversioner av SAP Kernel och SAP Värdagenten, i resurserna som anges i [SAP resurser][deployment-guide-2.2].
 
-#### <a name="monitoring-check"></a>Övervakning av kontrollen
-Kontrollera om övervakning fungerar, enligt beskrivningen i [kontroller och felsökning för att ställa in slutpunkt till slutpunkt övervakning][deployment-guide-troubleshooting-chapter].
+#### <a name="monitoring-check"></a>Övervakning av kontroll
+Kontrollera om fungerar övervakning, enligt beskrivningen i [kontroller och felsökning för att konfigurera övervakning av slutpunkt till slutpunkt][deployment-guide-troubleshooting-chapter].
 
 ## <a name="update-the-monitoring-configuration-for-sap"></a>Uppdatera konfigurationen av övervakningen för SAP
-Uppdatera SAP konfigurationen av övervakningen i något av följande scenarier:
+Uppdatera övervakningskonfigurationen för SAP i någon av följande scenarier:
 * Gemensamma Microsoft/SAP-teamet utökar övervakningsfunktionerna och begär fler eller färre räknare.
-* Microsoft introducerar en ny version av underliggande Azure-infrastrukturen som levererar övervakningsdata och Azure förbättrad övervakning av tillägget för SAP måste anpassas till dessa ändringar.
-* Du monterar ytterligare datadiskar för Azure-VM eller du tar bort en datadisk. Uppdatera datainsamlingen lagringsrelaterade i det här scenariot. Konfigurationen av övervakningen påverkas inte om du ändrar konfigurationen genom att lägga till eller ta bort slutpunkter eller genom att tilldela IP-adresser till en virtuell dator.
-* Du kan ändra storlek på den virtuella datorn i Azure, till exempel från storlek A5 till andra VM-storlek.
-* Du lägger till nya nätverksgränssnitt Azure VM.
+* Microsoft presenterar en ny version av den underliggande Azure-infrastrukturen som levererar övervakningsdata och Azure förbättrad övervakning av tillägget för SAP måste anpassas till dessa ändringar.
+* Du har monterat ytterligare datadiskar till din Azure-VM eller du tar bort en datadisk. Uppdatera insamlingen av storage-relaterade data i det här scenariot. Konfigurationen av övervakningen påverkas inte om du ändrar konfigurationen genom att lägga till eller ta bort slutpunkter eller genom att tilldela IP-adresser till en virtuell dator.
+* Du kan ändra storleken på din Azure-dator, till exempel från storlek A5 till andra VM-storlek.
+* Du kan lägga till nya nätverksgränssnitt till den virtuella Azure-datorn.
 
-Om du vill uppdatera inställningarna för övervakning, kan du uppdatera den övervaka infrastrukturen genom att följa stegen i [konfigurera Azure förbättrad övervakning av tillägget för SAP][deployment-guide-4.5].
+Uppdatera inställningarna för övervakning genom att uppdatera den övervaka infrastrukturen genom att följa stegen i [konfigurera Azure förbättrad övervakning av tillägget för SAP][deployment-guide-4.5].
 
-## <a name="detailed-tasks-for-sap-software-deployment"></a>Detaljerad information om programdistribution för SAP
-Det här avsnittet innehåller detaljerad steg för specifika uppgifter i processen för konfiguration och distribution.
+## <a name="detailed-tasks-for-sap-software-deployment"></a>Detaljerad information om SAP-programvarudistribution
+Det här avsnittet har detaljerade steg för att göra specifika uppgifter i processen för konfiguration och distribution.
 
 ### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Distribuera Azure PowerShell-cmdlets
 1.  Gå till [Microsoft Azure hämtar](https://azure.microsoft.com/downloads/).
-2.  Under **kommandoradsverktyg**under **PowerShell**väljer **Windows installera**.
-3.  Välj i dialogrutan Microsoft Download Manager för den hämta filen (till exempel WindowsAzurePowershellGet.3f.3f.3fnew.exe) **kör**.
-4.  Om du vill köra Microsoft Web Platform Installer (Microsoft Web PI) **Ja**.
-5.  En sida som ser ut som om det här visas:
+1.  Under **kommandoradsverktyg**under **PowerShell**väljer **Windows installerar**.
+1.  I dialogrutan Microsoft Download Manager för den nedladdade filen (till exempel WindowsAzurePowershellGet.3f.3f.3fnew.exe), Välj **kör**.
+1.  För att köra Microsoft Web Platform Installer (Microsoft Web PI), Välj **Ja**.
+1.  En sida som ser ut som det visas:
 
   ![Installationssidan för Azure PowerShell-cmdlets][deployment-guide-figure-500]<a name="figure-5"></a>
 
-6.  Välj **installera**, och acceptera Licensvillkor för programvara från Microsoft.
-7.  PowerShell har installerats. Välj **Slutför** att stänga installationsguiden.
+1.  Välj **installera**, och acceptera licensvillkoren för programvara från Microsoft.
+1.  PowerShell har installerats. Välj **Slutför** att stänga installationsguiden.
 
-Kontrollera ofta efter uppdateringar till PowerShell-cmdletar som vanligtvis uppdateras varje månad. Det enklaste sättet att söka efter uppdateringar som gör det föregående installation, upp till installationssidan visas i steg 5. Versionsnumret för datum och en version av cmdlets finns på sidan som visas i steg 5. Om inget annat anges i SAP-kommentar [1928533] eller SAP-kommentar [2015553], rekommenderar vi att du arbetar med den senaste versionen av Azure PowerShell-cmdlets.
+Efter uppdateringar för PowerShell-cmdletar, som vanligtvis uppdateras varje månad ofta. Det enklaste sättet att söka efter uppdateringar som gör det föregående installation, upp till installationssidan visas i steg 5. Versionsnumret för datum och versionen av cmdletarna finns på sidan som visas i steg 5. Om inget annat anges i SAP-kommentar [1928533] eller SAP-kommentar [2015553], vi rekommenderar att du arbetar med den senaste versionen av Azure PowerShell-cmdlets.
 
-Kör PowerShell-kommando för att kontrollera vilken version av Azure PowerShell-cmdlets som är installerade på datorn:
+Om du vill kontrollera vilken version av Azure PowerShell-cmdlets som är installerade på datorn, kör du följande PowerShell-kommando:
 ```powershell
 (Get-Module AzureRm.Compute).Version
 ```
 Resultatet ser ut så här:
 
-![Resultatet av kontroll av Azure PowerShell-cmdlet-version][deployment-guide-figure-600]
+![Resultatet av versionskontroll för Azure PowerShell-cmdlet][deployment-guide-figure-600]
 <a name="figure-6"></a>
 
-Om Azure cmdlet-version som är installerad på din dator är den aktuella versionen, första sidan i guiden anger den genom att lägga till **(installerad)** till Produkttitel (se följande skärmbild). PowerShell Azure-cmdlets är uppdaterade. Om du vill stänga guiden, Välj **avsluta**.
+Om Azure cmdlet-versionen som installerats på datorn är den aktuella versionen, första sidan i guiden anger den genom att lägga till **(installerat)** till produkttiteln (se följande skärmbild). PowerShell Azure-cmdletar är uppdaterade. Om du vill stänga installationsguiden väljer **avsluta**.
 
-![Installationssidan för Azure PowerShell-cmdlets som anger att den senaste versionen av Azure PowerShell-cmdlets är installerade][deployment-guide-figure-700]
+![Installationssidan för Azure PowerShell-cmdlets som indikerar att den senaste versionen av Azure PowerShell-cmdletar har installerats][deployment-guide-figure-700]
 <a name="figure-7"></a>
 
 ### <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Distribuera Azure CLI
 1.  Gå till [Microsoft Azure hämtar](https://azure.microsoft.com/downloads/).
-2.  Under **kommandoradsverktyg**under **Azure-kommandoradsgränssnittet**, Välj den **installera** länk för ditt operativsystem.
-3.  Välj i dialogrutan Microsoft Download Manager för den hämta filen (till exempel WindowsAzureXPlatCLI.3f.3f.3fnew.exe) **kör**.
-4.  Om du vill köra Microsoft Web Platform Installer (Microsoft Web PI) **Ja**.
-5.  En sida som ser ut som om det här visas:
+1.  Under **kommandoradsverktyg**under **kommandoradsgränssnittet**väljer den **installera** länk för ditt operativsystem.
+1.  I dialogrutan Microsoft Download Manager för den nedladdade filen (till exempel WindowsAzureXPlatCLI.3f.3f.3fnew.exe), Välj **kör**.
+1.  För att köra Microsoft Web Platform Installer (Microsoft Web PI), Välj **Ja**.
+1.  En sida som ser ut som det visas:
 
   ![Installationssidan för Azure PowerShell-cmdlets][deployment-guide-figure-500]<a name="figure-5"></a>
 
-6.  Välj **installera**, och acceptera Licensvillkor för programvara från Microsoft.
-7.  Azure CLI är installerad. Välj **Slutför** att stänga installationsguiden.
+1.  Välj **installera**, och acceptera licensvillkoren för programvara från Microsoft.
+1.  Azure CLI är installerat. Välj **Slutför** att stänga installationsguiden.
 
-Kontrollera ofta uppdateringar av Azure CLI, som vanligtvis uppdateras varje månad. Det enklaste sättet att söka efter uppdateringar som gör det föregående installation, upp till installationssidan visas i steg 5.
+Efter uppdateringar för Azure CLI, som vanligtvis uppdateras varje månad ofta. Det enklaste sättet att söka efter uppdateringar som gör det föregående installation, upp till installationssidan visas i steg 5.
 
-Kör det här kommandot för att kontrollera vilken version av Azure CLI som är installerad på datorn:
+Om du vill kontrollera vilken version av Azure CLI som är installerad på datorn, kör du följande kommando:
 ```
 azure --version
 ```
 
 Resultatet ser ut så här:
 
-![Resultatet av kontroll av Azure CLI version][deployment-guide-figure-760]
+![Resultatet av kontroll av Azure CLI-version][deployment-guide-figure-760]
 <a name="0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda"></a>
 
-### <a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Anslut en virtuell dator till en lokal domän (endast Windows)
-Om du distribuerar SAP virtuella datorer i ett scenario med mellan platser där lokala Active Directory och DNS-utökas i Azure, förväntas att de virtuella datorerna ansluter till en lokal domän. Detaljerade anvisningar du vidta för att ansluta till en virtuell dator till en lokal domän och ytterligare programvara som krävs för att vara medlem i en lokal domän, varierar av kunden. Vanligtvis för att ansluta en virtuell dator till en lokal domän, måste du installera ytterligare programvara, t.ex. program mot skadlig kod och programvara för säkerhetskopiering och övervakning.
+### <a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Ansluta en virtuell dator till en lokal domän (endast Windows)
+Om du distribuerar SAP-datorer i ett scenario med flera platser där den lokala Active Directory och DNS har utökats i Azure, förväntas det att de virtuella datorerna ansluter till en lokal domän. Detaljerade anvisningar du vidta för att ansluta en dator till en lokal domän och ytterligare programvara som krävs för att vara medlem i en lokal domän, varierar beroende på kunden. Vanligtvis för att ansluta en virtuell dator till en lokal domän, måste du installera ytterligare programvara, t.ex. program mot skadlig kod och programvara för säkerhetskopiering eller övervakning.
 
-I det här scenariot måste du också se till att Windows lokala System-kontot (S-1-5-18) i gäst-VM om Internet-proxyinställningarna tvingas när en virtuell dator ansluter till en domän i din miljö, har samma proxyinställningar. Det enklaste alternativet är att tvinga proxy med hjälp av en domän Grupprincip som gäller för datorer i domänen.
+I det här scenariot måste du också se till att Windows lokala System-kontot (S-1-5-18) i den Virtuella gästdatorn om internetproxyinställningarna tvingas när en virtuell dator ansluter till en domän i din miljö, har samma proxyinställningar. Det enklaste alternativet är att tvinga proxyn med hjälp av en domän gruppolicy som gäller för system i domänen.
 
-### <a name="c7cbb0dc-52a4-49db-8e03-83e7edc2927d"></a>Hämta, installera och aktivera Azure VM-agenten
-För virtuella datorer som distribueras från en operativsystemavbildning som inte är generaliserad (till exempel en avbildning som inte kommer från Windows-systemförberedelse eller sysprep-verktyget), som du behöver hämta, installera och aktivera Azure VM-agenten manuellt.
+### <a name="c7cbb0dc-52a4-49db-8e03-83e7edc2927d"></a>Hämta, installera och aktivera Azure VM-Agent
+För virtuella datorer som distribueras från en OS-avbildning som inte är generaliserad (t.ex, en avbildning som inte härrör från Windows-systemförberedelse eller sysprep-verktyget), som du behöver hämta, installera och aktivera Azure VM-agenten manuellt.
 
-Det här steget är inte nödvändigt om du distribuerar en virtuell dator från Azure Marketplace. Bilder från Azure Marketplace redan Azure VM-agenten.
+Om du distribuerar en virtuell dator från Azure Marketplace kan det här steget krävs inte. Avbildningar från Azure Marketplace har redan Azure VM-agenten.
 
 #### <a name="b2db5c9a-a076-42c6-9835-16945868e866"></a>Windows
-1.  Hämta Azure VM-agenten:
-  1.  Hämta den [Azure VM-agenten installationspaketet](https://go.microsoft.com/fwlink/?LinkId=394789).
-  2.  Lagra VM-agenten MSI-paketet lokalt på en dator eller server.
-2.  Installera Azure VM-agenten:
-  1.  Ansluta till den distribuerade virtuella Azure-datorn med hjälp av Remote Desktop Protocol (RDP).
-  2.  Öppna Utforskaren på den virtuella datorn och välj målkatalogen för MSI-filen för den Virtuella Datoragenten.
-  3.  Dra Azure VM-agenten Installer MSI-filen från din lokala dator/server målkatalogen för VM-agenten på den virtuella datorn.
-  4.  Dubbelklicka på MSI-filen på den virtuella datorn.
-3.  För virtuella datorer som är anslutna till lokala domäner, kontrollera att eventuell Internet proxy-inställningar också tillämpas på kontot Lokalt System i Windows (S-1-5-18) på den virtuella datorn, enligt beskrivningen i [konfigurerar du proxyservern][deployment-guide-configure-proxy]. VM-agenten körs i den här kontexten och måste kunna ansluta till Azure.
+1.  Ladda ned Azure VM-agenten:
+  1.  Ladda ned den [installationspaketet för Azure VM-agenten](https://go.microsoft.com/fwlink/?LinkId=394789).
+  1.  Store VM-agenten MSI-paketet lokalt på en personlig dator eller server.
+1.  Installera Azure VM-agenten:
+  1.  Anslut till den distribuerade virtuella Azure-datorn genom att använda Remote Desktop Protocol (RDP).
+  1.  Öppna en Windows Explorer-fönstret på den virtuella datorn och välj målkatalogen för MSI-filen för VM-agenten.
+  1.  Dra Azure VM Agent Installer MSI-filen från din lokala dator/server till målkatalogen för VM-agenten på den virtuella datorn.
+  1.  Dubbelklicka på MSI-filen på den virtuella datorn.
+1.  För virtuella datorer som är anslutna till den lokala domäner, se till att eventuell internetproxyinställningarna också gäller för kontot Lokalt System i Windows (S-1-5-18) i den virtuella datorn, enligt beskrivningen i [konfigurerar du proxyservern][deployment-guide-configure-proxy]. VM-agenten körs i den här kontexten och måste kunna ansluta till Azure.
 
-Inga användaråtgärder krävs för att uppdatera Azure VM-agenten. Den Virtuella Datoragenten uppdateras automatiskt och kräver inte en VM-omstart.
+Inga åtgärder från användaren krävs för att uppdatera Azure VM-agenten. VM-agenten uppdateras automatiskt och kräver inte en omstart av virtuella datorer.
 
 #### <a name="6889ff12-eaaf-4f3c-97e1-7c9edc7f7542"></a>Linux
-Använd följande kommandon för att installera den Virtuella Datoragenten för Linux:
+Använd följande kommandon för att installera VM-agenten för Linux:
 
 * **SUSE Linux Enterprise Server (SLES)**
 
@@ -825,25 +825,25 @@ Använd följande kommandon för att installera den Virtuella Datoragenten för 
   sudo yum install WALinuxAgent
   ```
 
-Om agenten redan är installerad, gör för att uppdatera Azure Linux-agenten stegen som beskrivs i [uppdatera Azure Linux-agenten på en virtuell dator till den senaste versionen från GitHub][virtual-machines-linux-update-agent].
+Om agenten redan är installerad, om du vill uppdatera Azure Linux Agent, gör stegen som beskrivs i [uppdatera Azure Linux Agent på en virtuell dator till den senaste versionen från GitHub][virtual-machines-linux-update-agent].
 
-### <a name="baccae00-6f79-4307-ade4-40292ce4e02d"></a>Konfigurera proxy
-De steg du vidta för att konfigurera proxyn i Windows skiljer sig från hur du konfigurerar du proxyservern i Linux.
+### <a name="baccae00-6f79-4307-ade4-40292ce4e02d"></a>Konfigurera proxyn
+Vilka steg du utför för att konfigurera proxyn i Windows skiljer sig från hur du konfigurerar du proxyservern i Linux.
 
 #### <a name="windows"></a>Windows
-Proxyinställningar måste ställas in korrekt för det lokala systemkontot åtkomst till Internet. Om proxyinställningarna inte har angetts av en Grupprincip kan du konfigurera inställningarna för det lokala systemkontot.
+Proxyinställningar måste ställas in korrekt för det lokala systemkontot för åtkomst till Internet. Om proxyinställningarna inte har angetts av en Grupprincip kan du konfigurera inställningarna för det lokala systemkontot.
 
 1. Gå till **starta**, ange **gpedit.msc**, och välj sedan **RETUR**.
-2. Välj **Datorkonfiguration** > **Administrationsmallar** > **Windows-komponenter** > **Internet Explorer**. Se till att inställningen **Se proxy inställningar per dator (i stället för per användare)** är inaktiverad eller inte konfigurerad.
-3. I **Kontrollpanelen**, gå till **nätverks- och delningscenter** > **Internetalternativ**.
-4. På den **anslutningar** väljer den **LAN-inställningar** knappen.
-5. Avmarkera den **automatisk identifiering av inställningar** kryssrutan.
-6. Välj den **använder en proxyserver för nätverket** kryssrutan och sedan ange proxyadress och port.
-7. Välj den **Avancerat** knappen.
-8. I den **undantag** ange IP-adressen **168.63.129.16**. Välj **OK**.
+1. Välj **Datorkonfiguration** > **Administrationsmallar** > **Windows-komponenter**  >   **Internet Explorer**. Se till att inställningen **Kontrollera proxy inställningar per dator (snarare än per användare)** är inaktiverad eller inte konfigurerad.
+1. I **Kontrollpanelen**går du till **nätverks- och delningscenter** > **Internetalternativ**.
+1. På den **anslutningar** fliken den **LAN-inställningar** knappen.
+1. Rensa den **automatisk identifiering av inställningar** markerar du kryssrutan.
+1. Välj den **använder en proxyserver för ditt lokala nätverk** kryssrutan och ange sedan proxyadress och port.
+1. Välj den **Avancerat** knappen.
+1. I den **undantag** anger du IP-adressen **168.63.129.16**. Välj **OK**.
 
 #### <a name="linux"></a>Linux
-Konfigurera rätt proxy i konfigurationsfilen för Microsoft Azure-Gästagenten, som finns på \\etc\\waagent.conf.
+Konfigurera rätt proxy i konfigurationsfilen för den Microsoft Azure-Gästagentversionen, som finns i \\osv\\waagent.conf.
 
 Ange följande parametrar:
 
@@ -852,47 +852,47 @@ Ange följande parametrar:
   HttpProxy.Host=<proxy host>
 
   ```
-2.  **HTTP-Proxyport**. Till exempel ange **80**.
+1.  **HTTP-Proxyport**. Till exempel ange **80**.
   ```
   HttpProxy.Port=<port of the proxy host>
 
   ```
-3.  Starta om agenten.
+1.  Starta om agenten.
 
   ```
   sudo service waagent restart
   ```
 
-Proxyinställningarna i \\etc\\waagent.conf gäller även för VM-tillägg som krävs. Om du vill använda Azure-databaser, kontrollera att skickas trafik till dessa databaser inte via lokalt intranät. Om du har skapat användardefinierade vägar för att aktivera Tvingad tunneling kontrollerar du att du lägger till en väg dirigerar som trafik till databaser direkt till Internet och inte via plats-till-plats VPN-anslutningen.
+Proxyinställningarna i \\osv\\waagent.conf gäller även för nödvändig VM-tillägg. Om du vill använda Azure-lagringsplatser, se till att genomgår trafik till dessa databaser inte lokala intranätet. Om du har skapat användardefinierade vägar för att aktivera Tvingad tunneltrafik, se till att du lägger till en väg dirigerar som trafik till databaser direkt till Internet och inte via plats-till-plats VPN-anslutningen.
 
 * **SLES**
 
-  Du måste också lägga till vägar för IP-adresser som anges i \\etc\\regionserverclnt.cfg. Följande bild visar ett exempel:
+  Du måste också lägga till vägar för IP-adresser som finns i \\osv\\regionserverclnt.cfg. Följande bild visar ett exempel:
 
   ![Tvingad tunneltrafik][deployment-guide-figure-50]
 
 
 * **RHEL**
 
-  Du måste också lägga till vägar för IP-adresserna för de värdar som anges i \\etc\\yum.repos.d\\rhui belastningsutjämnare. Ett exempel finns i föregående bild.
+  Du måste också lägga till vägar för IP-adresserna för de värdar som anges i \\osv\\yum.repos.d\\rhui-belastningsutjämnare. Ett exempel finns i föregående bild.
 
 * **Oracle Linux**
 
-  Det finns inga databaser för Oracle Linux på Azure. Du måste konfigurera egna databaser för Oracle Linux eller använda offentliga databaser.
+  Det finns inga databaser för Oracle Linux på Azure. Du måste konfigurera dina egna lagringsplatser för Oracle Linux eller använda de offentliga lagringsplatserna.
 
-Mer information om användardefinierade vägar finns [användardefinierade vägar och IP-vidarebefordring][virtual-networks-udr-overview].
+Mer information om användardefinierade vägar finns i [användardefinierade vägar och IP-vidarebefordring][virtual-networks-udr-overview].
 
-### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Konfigurera Azure förbättrad övervakning tillägget för SAP
-När du har skapat den virtuella datorn enligt beskrivningen i [scenarier för distribution av virtuella datorer för SAP på Azure][deployment-guide-3], Azure VM-agenten är installerad på den virtuella datorn. Nästa steg är att distribuera Azure förbättrad övervakning av tillägget för SAP, som finns i databasen för Azure-tillägget i det globala Azure-datacentret. Mer information finns i [Azure Virtual Machines planering och implementering för SAP NetWeaver][planning-guide-9.1].
+### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Konfigurera Azure förbättrad Övervakningstillägget för SAP
+När du har förberett den virtuella datorn enligt beskrivningen i [distributionsscenarier för virtuella datorer för SAP på Azure][deployment-guide-3], Azure VM-agenten är installerad på den virtuella datorn. Nästa steg är att distribuera Azure förbättrad övervakning av tillägget för SAP, som är tillgänglig i Azure-Tilläggscentrallagret i globala Azure-datacenter. Mer information finns i [Azure Virtual Machines planering och implementering av SAP NetWeaver][planning-guide-9.1].
 
-Du kan använda PowerShell eller Azure CLI för att installera och konfigurera Azure förbättrad övervakning av tillägget för SAP. Om du vill installera tillägget på en Windows- eller Linux-VM med hjälp av en Windows-dator, [Azure PowerShell][deployment-guide-4.5.1]. Om du vill installera tillägget på en Linux-VM med hjälp av en Linux-dator, [Azure CLI][deployment-guide-4.5.2].
+Du kan använda PowerShell eller Azure CLI för att installera och konfigurera Azure förbättrad övervakning av tillägget för SAP. För att installera tillägget på en Windows- eller Linux VM med hjälp av en Windows-dator, se [Azure PowerShell][deployment-guide-4.5.1]. För att installera tillägget på en Linux VM med hjälp av en Linux-dator, se [Azure CLI][deployment-guide-4.5.2].
 
-#### <a name="987cf279-d713-4b4c-8143-6b11589bb9d4"></a>Azure PowerShell för Linux och Windows-datorer
+#### <a name="987cf279-d713-4b4c-8143-6b11589bb9d4"></a>Azure PowerShell för Linux- och Windows-datorer
 Installera Azure förbättrad övervakning av tillägget för SAP med hjälp av PowerShell:
 
-1. Kontrollera att du har installerat den senaste versionen av Azure PowerShell-cmdlet. Mer information finns i [distribution av Azure PowerShell-cmdlets][deployment-guide-4.1].  
-2. Kör följande PowerShell-cmdlet:
-    En lista över tillgängliga miljöer, kör `commandlet Get-AzureRmEnvironment`. Om du vill använda globala Azure miljön är **AzureCloud**. Azure i Kina, Välj **AzureChinaCloud**.
+1. Kontrollera att du har installerat den senaste versionen av Azure PowerShell-cmdleten. Mer information finns i [distribution av Azure PowerShell-cmdlets][deployment-guide-4.1].  
+1. Kör följande PowerShell-cmdlet:
+    En lista över tillgängliga miljöer, kör `commandlet Get-AzureRmEnvironment`. Om du vill använda globala Azure din miljö är **AzureCloud**. Azure i Kina, Välj **AzureChinaCloud**.
 
     ```powershell
     $env = Get-AzureRmEnvironment -Name <name of the environment>
@@ -902,51 +902,51 @@ Installera Azure förbättrad övervakning av tillägget för SAP med hjälp av 
     Set-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
     ```
 
-När du anger data för ditt konto och identifiera den virtuella Azure-datorn, distribuerar tillägg som krävs i skriptet och gör nödvändiga funktioner. Det kan ta flera minuter.
-Mer information om `Set-AzureRmVMAEMExtension`, se [Set AzureRmVMAEMExtension][msdn-set-azurermvmaemextension].
+När du har angett dina kontodata och identifiera Azure-dator skriptet distribuerar tillägg som krävs och gör att de nödvändiga funktionerna. Det kan ta flera minuter.
+Mer information om `Set-AzureRmVMAEMExtension`, se [Set-AzureRmVMAEMExtension][msdn-set-azurermvmaemextension].
 
-![SAP-specifika har körts Azure cmdlet Set-AzureRmVMAEMExtension][deployment-guide-figure-900]
+![Lyckad körning av SAP-specifika Azure cmdlet Set-AzureRmVMAEMExtension][deployment-guide-figure-900]
 
 Den `Set-AzureRmVMAEMExtension` konfiguration har alla steg för att konfigurera övervakning för SAP-värd.
 
 Utdata från skriptet innehåller följande information:
 
 * Bekräfta att övervakning av OS-disken och alla ytterligare datadiskar har konfigurerats.
-* Följande två meddelanden bekräfta konfigurationen av Storage-mätvärden för ett visst lagringskonto.
+* De kommande två meddelandena bekräfta konfigurationen av Storage-mätvärden för ett specifikt lagringskonto.
 * En rad med utdata ger status för den faktiska uppdateringen av konfigurationen av övervakningen.
 * Ytterligare en rad i utdata bekräftar att konfigurationen har distribuerats eller uppdateras.
-* Den sista raden i utdata visas i informationssyfte. Den visar alternativen för att testa konfigurationen av övervakningen.
-* Om du vill kontrollera att alla steg i Azure-förbättrad övervakning har utförts korrekt och att Azure-infrastrukturen tillhandahåller nödvändiga data, fortsätta med beredskapskontrollen för Azure förbättrad övervakning av tillägget för SAP, enligt beskrivningen i [beredskapskontrollen för Azure-förbättrad övervakning för SAP][deployment-guide-5.1].
-* Vänta 15 30 minuter för Azure-diagnostik att samla in relevanta data.
+* Den sista raden i utdata visas endast i informationssyfte. Den visar dina alternativ för att testa konfigurationen av övervakningen.
+* Om du vill kontrollera att alla steg i Azure-förbättrad övervakning har körts har och att Azure-infrastrukturen innehåller nödvändiga data, fortsätter du med beredskapskontrollen för Azure förbättrad övervakning av tillägget för SAP, enligt beskrivningen i [Beredskapskontrollen för Azure förbättrad övervakning för SAP][deployment-guide-5.1].
+* Vänta 15 – 30 minuter för Azure-diagnostik att samla in relevanta data.
 
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Azure CLI för virtuella Linux-datorer
 Installera Azure förbättrad övervakning av tillägget för SAP med hjälp av Azure CLI:
 
-1. Installera Azure CLI version 1.0, enligt beskrivningen i [installera Azure CLI 1.0][azure-cli].
-2. Logga in med ditt Azure-konto:
+1. Installera Azure CLI 1.0, enligt beskrivningen i [installera Azure CLI 1.0][azure-cli].
+1. Logga in med ditt Azure-konto:
 
   ```
   azure login
   ```
 
-3. Växla till läget Azure Resource Manager:
+1. Växla till läget Azure Resource Manager:
 
   ```
   azure config mode arm
   ```
 
-4. Aktivera Azure utökad övervakning:
+1. Aktivera Azure utökad övervakning:
 
   ```
   azure vm enable-aem <resource-group-name> <vm-name>
   ```
 
-5. Kontrollera att Azure förbättrad övervakning av tillägget är aktiv på Azure Linux-VM. Kontrollera om filen \\var\\lib\\AzureEnhancedMonitor\\PerfCounters finns. Kör detta kommando för att visa information som samlas in av Azure förbättrad övervakaren om den finns i en kommandotolk:
+1. Kontrollera att Azure förbättrad övervakning av tillägget är aktiv på virtuell Linux-dator. Kontrollera om filen \\var\\lib\\AzureEnhancedMonitor\\PerfCounters finns. Om den finns i en kommandotolk kör du följande kommando för att visa information som samlas in av Azure förbättrad Monitor:
 ```
 cat /var/lib/AzureEnhancedMonitor/PerfCounters
 ```
 
-Resultatet ser ut så här:
+Utdata ser ut så här:
 ```
 2;cpu;Current Hw Frequency;;0;2194.659;MHz;60;1444036656;saplnxmon;
 2;cpu;Max Hw Frequency;;0;2194.659;MHz;0;1444036656;saplnxmon;
@@ -954,57 +954,57 @@ Resultatet ser ut så här:
 ???
 ```
 
-## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Kontroller och felsökning för slutpunkt till slutpunkt övervakning
-När du har distribuerat Azure-VM och konfigurera relevanta Azure-övervakning infrastrukturen, kontrollera om alla komponenter i Azure förbättrad övervakning tillägg fungerar som förväntat.
+## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Kontroller och felsökning för övervakning av slutpunkt till slutpunkt
+När du har distribuerat den virtuella Azure-datorn och konfigurera relevanta Azure-övervakning infrastrukturen, kontrollerar du om alla komponenter i Azure förbättrad övervakning tillägg fungerar som förväntat.
 
-Kör beredskapskontrollen för Azure förbättrad övervakning av tillägget för SAP enligt beskrivningen i [beredskapskontrollen för Azure förbättrad övervakning av tillägget för SAP][deployment-guide-5.1]. Om alla resultat av beredskap är positiva och alla relevanta prestandaräknare visas OK, har Azure övervakning ställts in korrekt. Du kan fortsätta med installationen av SAP Värdagenten enligt beskrivningen i SAP-anteckningar i [SAP resurser][deployment-guide-2.2]. Om kontrollen visar att räknare saknas, köra hälsokontrollen för Azure-övervakning infrastrukturen, enligt beskrivningen i [hälsokontrollen för Azure infrastructure övervakningskonfigurationen][deployment-guide-5.2]. Fler alternativ för felsökning, se [felsökning Azure-övervakning för SAP][deployment-guide-5.3].
+Kör beredskapskontrollen för Azure förbättrad övervakning av tillägget för SAP som beskrivs i [beredskapskontrollen för Azure förbättrad övervakning av tillägget för SAP][deployment-guide-5.1]. Om alla resultat av beredskap är positiva och alla relevanta prestandaräknare visas OK, har Azure-övervakning ställts in korrekt. Du kan fortsätta med installationen av SAP Värdagenten enligt beskrivningen i SAP Notes i [SAP resurser][deployment-guide-2.2]. Om kontrollen visar att räknare saknas måste köra hälsokontroller för Azure-övervakning infrastrukturen enligt beskrivningen i [hälsokontrollen för Azure infrastruktur övervakningskonfigurationen] [ deployment-guide-5.2]. Mer felsökning alternativ finns i [felsökning av Azure-övervakning för SAP][deployment-guide-5.3].
 
 ### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Beredskapskontrollen för Azure förbättrad övervakning av tillägget för SAP
-Den här kontrollen ser till att alla prestandamått som visas i din SAP-program som tillhandahålls av den underliggande Azure övervaka infrastrukturen.
+Den här kontrollen ser till att alla prestandamått som visas i din SAP-programmet tillhandahålls av den underliggande infrastrukturen för Azure övervakning.
 
-#### <a name="run-the-readiness-check-on-a-windows-vm"></a>Kör beredskapskontrollen på en Windows VM
+#### <a name="run-the-readiness-check-on-a-windows-vm"></a>Kör beredskapskontrollen på en virtuell Windows-dator
 
-1.  Logga in på den virtuella Azure-datorn (med ett administratörskonto är inte nödvändigt).
-2.  Öppna ett kommandotolksfönster.
-3.  I Kommandotolken, ändra katalogen till installationsmappen för Azure förbättrad övervakning av tillägget för SAP: C:\\paket\\plugin-program\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;version >\\släppa
+1.  Logga in på Azure-datorer (med ett administratörskonto är inte nödvändigt).
+1.  Öppna ett kommandotolksfönster.
+1.  I Kommandotolken, ändra katalogen till installationsmappen för Azure förbättrad övervakning av tillägget för SAP: C:\\paket\\plugin-program\\ Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;version >\\släppa
 
-  Den *version* i sökvägen till tillägget övervakning kan variera. Om du ser mappar för flera versioner av tillägget övervakning i installationsmappen Kontrollera konfigurationen av AzureEnhancedMonitoring Windows-tjänsten och sedan växla till mappen som anges som *sökvägen till den körbara filen*.
+  Den *version* i sökvägen till övervakningstillägget kan variera. Om du ser mappar för flera versioner av övervakningstillägget i installationsmappen för Kontrollera konfigurationen för AzureEnhancedMonitoring Windows-tjänsten och sedan växla till den mapp som anges som *sökvägen till körbara filen* .
 
-  ![Egenskaper för tjänsten som körs på Azure förbättrad övervakning av tillägget för SAP][deployment-guide-figure-1000]
+  ![Egenskaper för tjänst som körs på Azure förbättrad övervakning av tillägget för SAP][deployment-guide-figure-1000]
 
-4.  I Kommandotolken, kör **azperflib.exe** utan några parametrar.
+1.  I Kommandotolken, kör **azperflib.exe** utan några parametrar.
 
   > [!NOTE]
-  > Azperflib.exe körs i en slinga och uppdaterar de insamlade räknarna var 60: e sekund. Stäng Kommandotolkens fönster för att avsluta slingan.
+  > Azperflib.exe körs i en loop och uppdaterar de insamlade räknarna var 60: e sekund. Stäng Kommandotolkens fönster om du vill avsluta slingan.
   >
   >
 
-Om Azure förbättrad övervakning av tillägget inte har installerats eller körs inte tjänsten AzureEnhancedMonitoring, har filnamnstillägget inte konfigurerats korrekt. Detaljerad information om hur du distribuerar tillägget finns [felsökning Azure övervakade infrastrukturen för SAP][deployment-guide-5.3].
+Om Azure förbättrad övervakning av tillägget inte har installerats eller AzureEnhancedMonitoring-tjänsten inte körs, har tillägget inte konfigurerats korrekt. Detaljerad information om hur du distribuerar tillägget finns i [felsökning Azure övervakade infrastrukturen för SAP][deployment-guide-5.3].
 
 ##### <a name="check-the-output-of-azperflibexe"></a>Kontrollera resultatet av azperflib.exe
-Azperflib.exe utdata visar alla fyllts i Azure prestandaräknare för SAP. Längst ned i listan över insamlade räknare visar en sammanfattning och hälsa indikator status för övervakning av Azure.
+Azperflib.exe utdata visar all ifylld Azure prestandaräknare för SAP. Längst ned i listan över insamlade räknare visar en sammanfattning och hälsa indikator status för Azure-övervakning.
 
-![Utdata för hälsokontrollen genom att köra azperflib.exe som anger att det inte finns några problem][deployment-guide-figure-1100]
+![Utdata för hälsokontroll genom att köra azperflib.exe, vilket betyder att det inte finns några problem][deployment-guide-figure-1100]
 <a name="figure-11"></a>
 
-Kontrollera resultatet som returneras för den **räknare totalt** utdata som rapporteras som tom och för **hälsostatus**, visas i föregående bild.
+Kontrollera resultatet som returneras för den **räknare totalt** utdata som rapporteras som tom och för **hälsostatus**, visas i bilden ovan.
 
-Tolka resultatet av följande:
+Tolka resultatvärdena på följande sätt:
 
-| Azperflib.exe resultatvärden | Azure övervakningsstatusen hälsa |
+| Azperflib.exe resultatvärden | Hälsostatus för Azure |
 | --- | --- |
-| **API-anrop - inte tillgänglig** | Räknare som inte är tillgänglig kanske inte gäller för den virtuella datorkonfigurationen eller är fel. Se **hälsostatus**. |
-| **Prestandaräknare för totala – tomt** |Följande två Azure storage-räknare kan vara tom: <ul><li>Op svarstid för läsning Server msek</li><li>Op svarstid för läsning E2E msek</li></ul>Alla räknare måste ha värden. |
-| **Hälsotillstånd** |Endast OK om returnerar status visas **OK**. |
+| **API-anrop – inte tillgänglig** | Räknare som inte är tillgängliga kan vara antingen inte gäller för den virtuella datorkonfigurationen eller är fel. Se **hälsostatus**. |
+| **Prestandaräknare för totala – tom** |Följande två Azure storage-räknare kan vara tom: <ul><li>Storage Op Läsfördröjning Server MS.</li><li>Storage Op Läsfördröjning E2E MS.</li></ul>Alla andra räknare måste ha värden. |
+| **Hälsostatus** |Endast OK om returnera statusen **OK**. |
 | **Diagnostik** |Detaljerad information om hälsostatus. |
 
-Om den **hälsostatus** värdet är inte **OK**, följ instruktionerna i [hälsokontrollen för Azure infrastructure övervakningskonfigurationen][deployment-guide-5.2].
+Om den **hälsostatus** värdet är inte **OK**, följer du anvisningarna i [hälsokontrollen för Azure infrastruktur övervakningskonfigurationen] [ deployment-guide-5.2].
 
-#### <a name="run-the-readiness-check-on-a-linux-vm"></a>Kör beredskapskontrollen på en Linux-VM
+#### <a name="run-the-readiness-check-on-a-linux-vm"></a>Kör beredskapskontrollen på en Linux VM
 
-1.  Ansluta till Azure-dator med hjälp av SSH.
+1.  Anslut till Azure-dator med hjälp av SSH.
 
-2.  Kontrollera utdata från Azure förbättrad övervakning av tillägget.
+1.  Kontrollera utdata från Azure förbättrad övervakning av tillägget.
 
   a.  Kör `more /var/lib/AzureEnhancedMonitor/PerfCounters`
 
@@ -1012,35 +1012,35 @@ Om den **hälsostatus** värdet är inte **OK**, följ instruktionerna i [hälso
 
  b. Kör `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
 
-   **Förväntat resultat**: returnerar en rad där felet är **ingen**, till exempel **3; config; Fel; 0; 0; Ingen; 1456416792; 0 tst-servercs;**
+   **Förväntat resultat**: returnerar en rad där felet är **ingen**, till exempel **3; config; Error; 0, 0. Ingen; 0; 1456416792; tst-servercs;**
 
   c. Kör `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`
 
-    **Förväntat resultat**: returnerar som tom eller finns inte.
+    **Förväntat resultat**: returnerar som tom eller så finns inte.
 
-Om inte den föregående kontrollen lyckades kör dessa ytterligare kontroller:
+Om föregående kontrollen inte lyckades, kör du dessa ytterligare kontroller:
 
 1.  Kontrollera att waagent är installerat och aktiverat.
 
   a.  Kör `sudo ls -al /var/lib/waagent/`
 
-      **Förväntat resultat**: Visar innehållet i katalogen waagent.
+      **Förväntat resultat**: Visar en lista över innehållet i katalogen waagent.
 
   b.  Kör `ps -ax | grep waagent`
 
    **Förväntat resultat**: Visar en post som liknar: `python /usr/sbin/waagent -daemon`
 
-3.   Kontrollera att Azure förbättrad övervakning av tillägget är installerad och körs.
+1.   Se till att Azure förbättrad övervakning av tillägget är installerat och körs.
 
   a.  Kör `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
 
-    **Förväntat resultat**: Visar innehållet i katalogen Azure förbättrad övervakning av tillägget.
+    **Förväntat resultat**: Visar en lista över innehållet i katalogen Azure förbättrad övervakning av tillägget.
 
   b. Kör `ps -ax | grep AzureEnhanced`
 
      **Förväntat resultat**: Visar en post som liknar: `python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
 
-3. Installera SAP Värdagenten enligt beskrivningen i SAP-kommentar [1031096], och kontrollera resultatet av `saposcol`.
+1. Installera SAP Värdagenten enligt beskrivningen i SAP-kommentar [1031096], och kontrollera resultatet av `saposcol`.
 
   a.  Kör `/usr/sap/hostctrl/exe/saposcol -d`
 
@@ -1048,15 +1048,15 @@ Om inte den föregående kontrollen lyckades kör dessa ytterligare kontroller:
 
   c.  Kontrollera om den **Virtualization_Configuration\Enhanced övervakning åtkomst** mått är **SANT**.
 
-Om du redan har en programserver för SAP NetWeaver ABAP installerat öppna transaktionen ST06 och kontrollera om utökad övervakning är aktiverad.
+Om du redan har en SAP NetWeaver ABAP-programserver installerat, öppna transaktion ST06 och kontrollera om utökad övervakning är aktiverad.
 
-Om någon av de här kontrollerna misslyckas och detaljerad information om hur du distribuerar tillägget finns [felsökning Azure övervakade infrastrukturen för SAP][deployment-guide-5.3].
+Om någon av de här kontrollerna misslyckas och detaljerad information om hur du distribuerar om tillägget finns i [felsökning Azure övervakade infrastrukturen för SAP][deployment-guide-5.3].
 
-### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Kontrollera hälsotillstånd Azure konfigurationen av övervakningen infrastruktur
-Om några av övervakningen data levereras inte på rätt sätt som anges av prov som beskrivs i [beredskapskontrollen för Azure-förbättrad övervakning för SAP][deployment-guide-5.1]kör den `Test-AzureRmVMAEMExtension` för att kontrollera om Azure övervakning av infrastruktur och övervakning för SAP är korrekt konfigurerade.
+### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Hälsokontrollen för Azure konfigurationen av övervakningen infrastruktur
+Om några av övervakningen data levereras inte korrekt som anges av det prov som beskrivs i [beredskapskontrollen för Azure förbättrad övervakning för SAP][deployment-guide-5.1], kör den `Test-AzureRmVMAEMExtension` cmdlet för att kontrollera om den Azure-övervakning av infrastruktur och övervakningstillägget för SAP har konfigurerats korrekt.
 
-1.  Kontrollera att du har installerat den senaste versionen av Azure PowerShell-cmdlet, enligt beskrivningen i [distribution av Azure PowerShell-cmdlets][deployment-guide-4.1].
-2.  Kör följande PowerShell-cmdlet: En lista över tillgängliga miljöer, kör du cmdlet `Get-AzureRmEnvironment`. Om du vill använda globala Azure, Välj den **AzureCloud** miljö. Azure i Kina, Välj **AzureChinaCloud**.
+1.  Se till att du har installerat den senaste versionen av Azure PowerShell-cmdlet, enligt beskrivningen i [distribution av Azure PowerShell-cmdlets][deployment-guide-4.1].
+1.  Kör följande PowerShell-cmdlet: En lista över tillgängliga miljöer, kör du cmdleten `Get-AzureRmEnvironment`. Om du vill använda globala Azure, Välj den **AzureCloud** miljö. Azure i Kina, Välj **AzureChinaCloud**.
   ```powershell
   $env = Get-AzureRmEnvironment -Name <name of the environment>
   Connect-AzureRmAccount -Environment $env
@@ -1064,71 +1064,71 @@ Om några av övervakningen data levereras inte på rätt sätt som anges av pro
   Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
   ```
 
-3.  Ange kontodata för och identifiera den virtuella Azure-datorn.
+1.  Ange dina kontodata och identifiera virtuella Azure-datorer.
 
-  ![Inkommande sida i SAP-specifika Azure cmdleten Test-VMConfigForSAP_GUI][deployment-guide-figure-1200]
+  ![Inkommande sidan i SAP-specifika Azure cmdlet Test-VMConfigForSAP_GUI][deployment-guide-figure-1200]
 
-4. Skriptet testar konfigurationen av den virtuella datorn som du väljer.
+1. Skriptet testar konfigurationen av den virtuella datorn som du väljer.
 
   ![Utdata från lyckad test av Azure-övervakning infrastrukturen för SAP][deployment-guide-figure-1300]
 
-Se till att varje hälsotillstånd resultat är **OK**. Om vissa kontroller inte visas **OK**, köra cmdlet update enligt beskrivningen i [konfigurera Azure förbättrad övervakning av tillägget för SAP][deployment-guide-4.5]. Vänta 15 minuter och upprepar de kontroller som beskrivs i [beredskapskontrollen för Azure-förbättrad övervakning för SAP] [ deployment-guide-5.1] och [hälsokontrollen för konfiguration av Azure övervakning][deployment-guide-5.2]. Om kontrollerna som fortfarande tyda på ett problem med vissa eller alla räknare, se [felsökning Azure övervakade infrastrukturen för SAP][deployment-guide-5.3].
+Se till att varje hälsotillstånd resultat är **OK**. Om vissa kontroller inte visas **OK**, kör cmdleten uppdateringen som beskrivs i [konfigurera Azure förbättrad övervakning av tillägget för SAP][deployment-guide-4.5]. Vänta 15 minuter och upprepa de kontroller som beskrivs i [beredskapskontrollen för Azure förbättrad övervakning för SAP] [ deployment-guide-5.1] och [hälsokontrollen för Azure övervakning av infrastruktur konfigurationen] [deployment-guide-5.2]. Om kontrollerna tyda på ett problem med vissa eller alla räknare, se [felsökning Azure övervakade infrastrukturen för SAP][deployment-guide-5.3].
 
-### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Felsöka Azure-övervakning infrastrukturen för SAP
+### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Felsökning Azure övervakade infrastrukturen för SAP
 
 #### <a name="windowslogowindows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Azure prestandaräknare visas inte alls
-AzureEnhancedMonitoring Windows-tjänsten samlar in prestandamått i Azure. Om tjänsten inte har installerats korrekt, eller om den inte körs i den virtuella datorn, kan inga prestandamått samlas in.
+AzureEnhancedMonitoring Windows-tjänsten samlar in prestandamått i Azure. Om tjänsten inte har installerats korrekt, eller om den inte körs i den virtuella datorn, kan ingen prestandamått samlas in.
 
-##### <a name="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty"></a>Installationskatalog för Azure förbättrad övervakning av tillägget är tom
+##### <a name="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty"></a>Installationskatalogen för Azure förbättrad övervakning av tillägget är tom
 
 ###### <a name="issue"></a>Problem
-Installationskatalogen C:\\paket\\plugin-program\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;version >\\släpp är tom.
+Installationskatalogen C:\\paket\\plugin-program\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;version >\\avlämning är tom.
 
 ###### <a name="solution"></a>Lösning
-Tillägget har inte installerats. Avgöra om detta är en proxy-problemet (enligt beskrivningen ovan). Du kan behöva starta om datorn eller kör den `Set-AzureRmVMAEMExtension` konfigurationsskript.
+Tillägget har inte installerats. Avgöra om det finns en proxy-problemet (enligt beskrivningen ovan). Du kan behöva starta om datorn eller köra den `Set-AzureRmVMAEMExtension` konfigurationsskript.
 
-##### <a name="service-for-azure-enhanced-monitoring-does-not-exist"></a>Tjänsten för Azure-förbättrad övervakning finns inte
+##### <a name="service-for-azure-enhanced-monitoring-does-not-exist"></a>Tjänsten för Azure förbättrad övervakning finns inte
 
 ###### <a name="issue"></a>Problem
 AzureEnhancedMonitoring Windows-tjänsten finns inte.
 
 Azperflib.exe utdata genererar ett fel:
 
-![Körningen av azperflib.exe anger att tjänsten för Azure förbättrad övervakning av tillägget för SAP inte körs][deployment-guide-figure-1400]
+![Körningen av azperflib.exe indikerar att tjänsten Azure förbättrad övervakning av tillägget för SAP inte är igång][deployment-guide-figure-1400]
 <a name="figure-14"></a>
 
 ###### <a name="solution"></a>Lösning
-Om tjänsten inte finns har på Azure förbättrad övervakning av tillägget för SAP inte installerats korrekt. Distribuera om tillägget med hjälp av stegen som beskrivs för distributionsscenariot i [scenarier för distribution av virtuella datorer för SAP i Azure][deployment-guide-3].
+Om tjänsten inte finns, har Azure förbättrad övervakning av tillägget för SAP inte installerats korrekt. Distribuera om tillägget med hjälp av stegen som beskrivs för distributionsscenariot i [distributionsscenarier för virtuella datorer för SAP i Azure][deployment-guide-3].
 
-När du har distribuerat tillägget efter en timme, Kontrollera igen om Azure prestandaräknare finns i Azure-VM.
+När du har distribuerat tillägg, efter en timme, Kontrollera igen om Azure prestandaräknare finns i Azure VM.
 
-##### <a name="service-for-azure-enhanced-monitoring-exists-but-fails-to-start"></a>Tjänsten för Azure-förbättrad övervakning finns, men inte startar
+##### <a name="service-for-azure-enhanced-monitoring-exists-but-fails-to-start"></a>Tjänsten för Azure förbättrad övervakning finns, men går inte att starta
 
 ###### <a name="issue"></a>Problem
 AzureEnhancedMonitoring Windows-tjänsten finns och är aktiverad, men inte startar. Mer information finns i programmets händelselogg.
 
 ###### <a name="solution"></a>Lösning
-Konfigurationen är felaktig. Starta om filnamnstillägget övervakning för den virtuella datorn, enligt beskrivningen i [konfigurera Azure förbättrad övervakning av tillägget för SAP][deployment-guide-4.5].
+Konfigurationen är felaktig. Starta om övervakningstillägget för den virtuella datorn, enligt beskrivningen i [konfigurera Azure förbättrad övervakning av tillägget för SAP][deployment-guide-4.5].
 
 #### <a name="windowslogowindows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] Vissa Azure prestandaräknare saknas
-AzureEnhancedMonitoring Windows-tjänsten samlar in prestandamått i Azure. Tjänsten hämtar data från flera källor. Några konfigurationsdata som samlas in lokalt och vissa prestandamått läses från Azure-diagnostik. Räknare för lagring som används från din loggning på lagringsnivå för prenumerationen.
+AzureEnhancedMonitoring Windows-tjänsten samlar in prestandamått i Azure. Tjänsten hämtar data från flera källor. Vissa configuration-data som samlas in lokalt och vissa prestandamått läses från Azure-diagnostik. Räknare för lagring som används från din loggning på prenumerationsnivå för lagring.
 
-Om felsökning med hjälp av SAP-kommentar [1999351] inte löser problemet genom att köra den `Set-AzureRmVMAEMExtension` konfigurationsskript. Du måste kanske vänta en timma eftersom storage analytics eller diagnostik räknare inte kan skapas direkt när de är aktiverade. Öppna meddelandet SAP customer support på komponenten BC-OP-NT-AZR för Windows eller BC-OP-LNX-AZR för en virtuell Linux-dator om problemet kvarstår.
+Om felsökning med hjälp av SAP-kommentar [1999351] inte löser problemet, kör den `Set-AzureRmVMAEMExtension` konfigurationsskript. Du måste kanske vänta en timme eftersom storage analytics eller diagnostik räknare inte kan skapas omedelbart efter att de är aktiverade. Om problemet kvarstår öppnar du meddelandet SAP customer support på komponenten BC-OP-NT-AZR för Windows eller BC-OP-LNX-AZR för en Linux-dator.
 
 #### <a name="linuxlogolinux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Azure prestandaräknare visas inte alls
 Prestandamått i Azure samlas in av en daemon. Om bakgrundsprogrammet inte körs kan inga prestandamått samlas in.
 
-##### <a name="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty"></a>Installationskatalog för förbättrad övervakning av Azure-tillägget är tom
+##### <a name="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty"></a>Installationskatalogen för Azure Enhanced Monitoring-tillägget är tom
 
 ###### <a name="issue"></a>Problem
-Katalogen \\var\\lib\\waagent\\ har inte en underkatalog för förbättrad övervakning av Azure-tillägget.
+Katalogen \\var\\lib\\waagent\\ har inte en underkatalog för Azure Enhanced Monitoring-tillägget.
 
 ###### <a name="solution"></a>Lösning
-Tillägget har inte installerats. Avgöra om detta är en proxy-problemet (enligt beskrivningen ovan). Du kan behöva starta om datorn och/eller köra den `Set-AzureRmVMAEMExtension` konfigurationsskript.
+Tillägget har inte installerats. Avgöra om det finns en proxy-problemet (enligt beskrivningen ovan). Du kan behöva starta om datorn och/eller köra den `Set-AzureRmVMAEMExtension` konfigurationsskript.
 
 #### <a name="linuxlogolinux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Vissa Azure prestandaräknare saknas
-Prestandamått i Azure samlas in av en daemon som hämtar data från flera källor. Några konfigurationsdata som samlas in lokalt och vissa prestandamått läses från Azure-diagnostik. Räknare för lagring komma från loggarna i prenumerationen lagring.
+Prestandamått i Azure samlas in av en daemon som hämtar data från flera källor. Vissa configuration-data som samlas in lokalt och vissa prestandamått läses från Azure-diagnostik. Storage räknare kommer från loggarna i ditt storage-prenumeration.
 
-En fullständig och uppdaterad lista över kända problem finns i SAP-kommentar [1999351], som innehåller ytterligare felsökningsinformation för förbättrad Azure-övervakning för SAP.
+En fullständig och uppdaterad lista över kända problem finns i SAP-kommentar [1999351], som innehåller ytterligare felsökningsinformation för förbättrad Azure övervakning för SAP.
 
-Om felsökning med hjälp av SAP-kommentar [1999351] inte löser problemet, kör den `Set-AzureRmVMAEMExtension` konfigurationsskript enligt beskrivningen i [konfigurera Azure förbättrad övervakning av tillägget för SAP][deployment-guide-4.5]. Du kan behöva vänta på en timme eftersom storage analytics eller diagnostik räknare inte kan skapas direkt när de är aktiverade. Öppna meddelandet SAP customer support på komponenten BC-OP-NT-AZR för Windows eller BC-OP-LNX-AZR för en virtuell Linux-dator om problemet kvarstår.
+Om felsökning med hjälp av SAP-kommentar [1999351] inte löser problemet, kör den `Set-AzureRmVMAEMExtension` konfigurationsskript enligt beskrivningen i [konfigurera Azure förbättrad övervakning av tillägget för SAP] [deployment-guide-4.5]. Du kan behöva vänta en timme eftersom storage analytics eller diagnostik räknare inte kan skapas omedelbart efter att de är aktiverade. Om problemet kvarstår öppnar du meddelandet SAP customer support på komponenten BC-OP-NT-AZR för Windows eller BC-OP-LNX-AZR för en Linux-dator.

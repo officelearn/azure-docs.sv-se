@@ -1,6 +1,6 @@
 ---
-title: Konfigurera aviseringar för Azure-tjänstens hälsotillstånd med ServiceNow | Microsoft Docs
-description: Hämta anpassade meddelanden om tjänstens hälsa händelser till ServiceNow-instans.
+title: Konfigurera Azure service health-aviseringar med ServiceNow | Microsoft Docs
+description: Få personligt anpassade meddelanden om service health-händelser till din ServiceNow-instans.
 author: shawntabrizi
 services: service-health
 documentationcenter: service-health
@@ -12,47 +12,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 867a8c0b478df9d2b7690b8b914ded7c42558583
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1f5984f8f28832c33d3a5a844fde72e7286ad251
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30178876"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433797"
 ---
-# <a name="configure-service-health-alerts-with-servicenow"></a>Konfigurera tjänsten health-aviseringar med ServiceNow
+# <a name="configure-service-health-alerts-with-servicenow"></a>Konfigurera service health-aviseringar med ServiceNow
 
-Den här artikeln visar hur du integrerar hälsovarningar för Azure-tjänsten med ServiceNow med hjälp av en webhook. När du har skapat webhooken integrering med din ServiceNow-instans, får du aviseringar via din befintliga infrastruktur för meddelanden när problem med Azure-tjänsten påverkar dig. Varje gång en Azure-tjänstens hälsa avisering utlöses anropar en webhook via Servicenows skripta REST API.
+Den här artikeln visar hur du integrerar Azure service health-aviseringar med ServiceNow med en webhook. När du skapat webhook-integrering med din ServiceNow-instans kan få du aviseringar via din befintliga infrastruktur för meddelanden när problem med Azure-tjänsten påverkar dig. Varje gång en Azure Service Health-avisering utlöses, anropar en webhook via Servicenows skriptade REST-API.
 
-## <a name="creating-a-scripted-rest-api-in-servicenow"></a>Skapa ett skript REST-API i ServiceNow
+## <a name="creating-a-scripted-rest-api-in-servicenow"></a>Skapa ett skriptbaserade REST-API i ServiceNow
 1.  Kontrollera att du har registrerat dig för och är inloggad på ditt [ServiceNow](https://www.servicenow.com/) konto.
 
-2.  Navigera till den **System webbtjänster** i avsnittet ServiceNow och välj **skripta REST API: er**.
+1.  Navigera till den **System webbtjänster** i avsnittet ServiceNow och välj **skriptade REST API: er**.
 
-    ![Avsnittet ”Skriptfönster webbtjänsten” i ServiceNow](./media/webhook-alerts/servicenow-sws-section.png)
+    ![Avsnittet ”skriptade webbtjänsten” i ServiceNow](./media/webhook-alerts/servicenow-sws-section.png)
 
-3.  Välj **ny** att skapa en ny skripta REST-tjänst.
+1.  Välj **New** att skapa en ny skriptade REST-tjänst.
  
-    ![Knappen ”Ny skripta REST-API” i ServiceNow](./media/webhook-alerts/servicenow-new-button.png)
+    ![Knappen ”Ny skriptade REST-API” i ServiceNow](./media/webhook-alerts/servicenow-new-button.png)
 
-4.  Lägg till en **namn** till REST-API och ange den **API-ID** till `azureservicehealth`.
+1.  Lägg till en **namn** för REST API och ange den **API-ID** till `azureservicehealth`.
 
-5.  Välj **skicka**.
+1.  Välj **skicka**.
 
-    ![”REST API inställningarna” i ServiceNow](./media/webhook-alerts/servicenow-restapi-settings.png)
+    ![De ”REST API Settings” i ServiceNow](./media/webhook-alerts/servicenow-restapi-settings.png)
 
-6.  Välj REST-API som du skapade och under den **resurser** väljer **ny**.
+1.  Välj REST-API som du skapade och under den **resurser** fliken väljer **New**.
 
-    ![”Fliken resurs” i ServiceNow](./media/webhook-alerts/servicenow-resources-tab.png)
+    ![”Resource fliken” i ServiceNow](./media/webhook-alerts/servicenow-resources-tab.png)
 
-7.  **Namnet** ny resurs `event` och ändra den **HTTP-metoden** till `POST`.
+1.  **Namnet** din nya resurs `event` och ändra den **HTTP-metoden** till `POST`.
 
-8.  I den **skriptet** lägger du till följande JavaScript-kod:
+1.  I den **skriptet** lägger du till följande JavaScript-kod:
 
     >[!NOTE]
-    >Du måste uppdatera de `<secret>`,`<group>`, och `<email>` värdet i skriptet nedan.
-    >* `<secret>` måste vara en slumpmässig sträng som ett GUID
-    >* `<group>` bör vara den ServiceNow-grupp som du vill tilldela incident till
-    >* `<email>` bör vara specifika personer som du vill tilldela incident till (valfritt)
+    >Du måste uppdatera den `<secret>`,`<group>`, och `<email>` värdet i skriptet nedan.
+    >* `<secret>` ska vara en slumpmässig sträng, t.ex. ett GUID
+    >* `<group>` bör vara den ServiceNow-grupp som du vill tilldela incidenten till
+    >* `<email>` bör vara den specifika person som du vill tilldela incidenten till (valfritt)
     >
 
     ```javascript
@@ -139,54 +139,54 @@ Den här artikeln visar hur du integrerar hälsovarningar för Azure-tjänsten m
     })(request, response);
     ```
 
-9.  På säkerhetsfliken avmarkera **kräver autentisering** och välj **skicka**. Den `<secret>` du ange skyddar denna API i stället.
+1.  På säkerhetsfliken, avmarkera **kräver autentisering** och välj **skicka**. Den `<secret>` du set skyddar detta API i stället.
 
     ![Kryssrutan ”kräver autentisering” i ServiceNow](./media/webhook-alerts/servicenow-resource-settings.png)
 
-10.  Tillbaka på avsnittet skripta REST API: er, bör du hitta på **Base API sökvägen** för ditt nya REST-API:
+1.  Tillbaka på avsnittet skriptade REST API: er, bör du hitta den **Base API sökvägen** för nya REST-API:
 
      ![Den ”basera API sökvägen” i ServiceNow](./media/webhook-alerts/servicenow-base-api-path.png)
 
-11.  Det ser ut så fullständig integrering URL: en:
+1.  Din fullständig integrering URL-Adressen liknar:
         
          https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
 
 
-## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Skapa en avisering med hjälp av ServiceNow i Azure-portalen
-### <a name="for-a-new-action-group"></a>För en ny grupp:
-1. Följ steg 1 till 8 i [i den här artikeln](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) att skapa en avisering med en ny grupp.
+## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Skapa en avisering med ServiceNow i Azure-portalen
+### <a name="for-a-new-action-group"></a>För en ny åtgärdsgrupp:
+1. Följ steg 1 till och med 8 i [i den här artikeln](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) att skapa en avisering med en ny åtgärdsgrupp.
 
-2. Definiera i listan över **åtgärder**:
+1. Definiera i listan över **åtgärder**:
 
-    a. **Åtgärdstyp:** *Webhooken*
+    a. **Åtgärdstyp:** *Webhook*
 
-    b. **Information:** på ServiceNow **integrering URL** du sparat tidigare.
+    b. **Information:** ServiceNow **integrering URL** du sparat tidigare.
 
     c. **Namn:** Webhook's, alias eller identifierare.
 
-3. Välj **spara** när du är klar för att skapa aviseringen.
+1. Välj **spara** när du är klar för att skapa aviseringen.
 
-### <a name="for-an-existing-action-group"></a>För en befintlig grupp:
+### <a name="for-an-existing-action-group"></a>För en befintlig åtgärdsgrupp:
 1. I den [Azure-portalen](https://portal.azure.com/)väljer **övervakaren**.
 
-2. I den **inställningar** väljer **åtgärdsgrupper**.
+1. I den **inställningar** väljer **åtgärdsgrupper**.
 
-3. Hitta och välj den grupp du vill redigera.
+1. Hitta och välj åtgärdsgrupp som du vill redigera.
 
-4. Lägga till listan över **åtgärder**:
+1. Lägg till i listan över **åtgärder**:
 
-    a. **Åtgärdstyp:** *Webhooken*
+    a. **Åtgärdstyp:** *Webhook*
 
-    b. **Information:** på ServiceNow **integrering URL** du sparat tidigare.
+    b. **Information:** ServiceNow **integrering URL** du sparat tidigare.
 
     c. **Namn:** Webhook's, alias eller identifierare.
 
-5. Välj **spara** när du är klar för att uppdatera åtgärdsgruppen.
+1. Välj **spara** när du är klar för att uppdatera åtgärdsgruppen.
 
-## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testa din webhook-integrering via en HTTP POST-begäran
-1. Skapa service hälsa nyttolast som du vill skicka. Du hittar en exempel-tjänsten hälsa webhook nyttolast på [Webhooks för Azure aktiviteten Logga varningar](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testa webhook-integrering via en HTTP POST-begäran
+1. Skapa service health-nyttolasten som du vill skicka. Du hittar ett exempel service health webhook-nyttolasten på [Webhooks för Azure-aktivitetsloggar loggaviseringar](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
-2. Skapa en HTTP POST-begäran på följande sätt:
+1. Skapa en HTTP POST-begäran enligt följande:
 
     ```
     POST        https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
@@ -195,12 +195,12 @@ Den här artikeln visar hur du integrerar hälsovarningar för Azure-tjänsten m
 
     BODY        <service health payload>
     ```
-3. Du bör få ett `200 OK` svar med meddelandet ”Incident skapad”.
+1. Du bör få ett `200 OK` svar med meddelandet ”Incident skapad”.
 
-4. Gå till [ServiceNow](https://www.servicenow.com/) att bekräfta att din integrering har ställts in.
+1. Gå till [ServiceNow](https://www.servicenow.com/) att bekräfta att din integrering har har ställts in.
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig hur du [konfigurera webhook-meddelanden för befintliga problem system](service-health-alert-webhook-guide.md).
-- Granska de [avisering webhook för aktivitetslogg](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
-- Lär dig mer om [tjänsten meddelanden om hälsostatus](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Lär dig mer om [åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- Lär dig hur du [konfigurera webhook-aviseringar för befintliga problem system](service-health-alert-webhook-guide.md).
+- Granska den [avisering webhook för aktivitetslogg](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Lär dig mer om [service health meddelanden](../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Läs mer om [åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md).

@@ -1,11 +1,11 @@
 ### <a name="prepare-for-a-push-installation-on-a-linux-server"></a>Förbereda en push-installation på en Linux-server
 
 1. Kontrollera att det finns nätverksanslutning mellan Linux-datorn och processervern.
-2. Skapa ett konto som processervern kan använda för att komma åt datorn. Kontot måste vara en **rotanvändare** på Linux-källservern. Använd det här kontot bara för push-installation och för uppdateringar.
-3. Kontrollera att /etc/hosts-filen på Linux-källservern innehåller poster som mappar det lokala värdnamnet till IP-adresser som är associerade med alla nätverkskort.
-4. Installera de senaste openssh-, openssh-server- och openssl-paketen på den dator som du vill replikera.
-5. Kontrollera att Secure Shell (SSH) är aktiverat och körs på port 22.
-6. Aktivera SFTP undersystemet och lösenordsautentisering i sshd_config-filen. Följ de här stegen:
+1. Skapa ett konto som processervern kan använda för att komma åt datorn. Kontot måste vara en **rotanvändare** på Linux-källservern. Använd det här kontot bara för push-installation och för uppdateringar.
+1. Kontrollera att /etc/hosts-filen på Linux-källservern innehåller poster som mappar det lokala värdnamnet till IP-adresser som är associerade med alla nätverkskort.
+1. Installera de senaste openssh-, openssh-server- och openssl-paketen på den dator som du vill replikera.
+1. Kontrollera att Secure Shell (SSH) är aktiverat och körs på port 22.
+1. Aktivera SFTP undersystemet och lösenordsautentisering i sshd_config-filen. Följ de här stegen:
 
     a. Logga in som **rot**.
 
@@ -19,7 +19,7 @@
 
     e. Starta om **sshd**-tjänsten.
 
-7. Lägg till kontot som du skapat i CSPSConfigtool. Följ de här stegen:
+1. Lägg till kontot som du skapat i CSPSConfigtool. Följ de här stegen:
 
     a. Logga in på konfigurationsservern.
 

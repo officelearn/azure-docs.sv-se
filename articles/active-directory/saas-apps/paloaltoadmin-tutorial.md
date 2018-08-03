@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: b39879cc8548139879a3039c5e0c6b924e83c107
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fed368c0df265495d9fee764f86825957fae8bab
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046679"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447432"
 ---
 # <a name="integrate-azure-active-directory-with-palo-alto-networks---admin-ui"></a>Integrera Azure Active Directory med Palo Alto Networks - Admin-Gränssnittet
 
@@ -64,15 +64,15 @@ Om du vill konfigurera integrering av Azure AD med Palo Alto Networks - administ
 
     ![Azure Active Directory-knappen][1]
 
-2. Välj **företagsprogram** > **alla program**.
+1. Välj **företagsprogram** > **alla program**.
 
     ![Fönstret ”program”][2]
     
-3. Om du vill lägga till ett nytt program, Välj den **nytt program** längst upp i fönstret.
+1. Om du vill lägga till ett nytt program, Välj den **nytt program** längst upp i fönstret.
 
     ![”Det nya programmet” knappen][3]
 
-4. I sökrutan skriver **Palo Alto Networks - administratör UI**väljer **Palo Alto Networks - administratör UI** i resultatlistan och välj sedan **Lägg till**.
+1. I sökrutan skriver **Palo Alto Networks - administratör UI**väljer **Palo Alto Networks - administratör UI** i resultatlistan och välj sedan **Lägg till**.
 
     ![Palo Alto Networks - administratör UI i resultatlistan](./media/paloaltoadmin-tutorial/tutorial_step4-add-from-the-gallery.png)
 
@@ -94,11 +94,11 @@ Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inlogg
 
     ![Länken ”enkel inloggning”][4]
 
-2. I den **enkel inloggning** fönstret i den **läge för enkel inloggning** väljer **SAML-baserad inloggning**.
+1. I den **enkel inloggning** fönstret i den **läge för enkel inloggning** väljer **SAML-baserad inloggning**.
  
     ![Fönstret ”enkel inloggning”](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_samlbase.png)
 
-3. Under **Palo Alto Networks - domänen för Admin-Gränssnittet och URL: er**, gör du följande:
+1. Under **Palo Alto Networks - domänen för Admin-Gränssnittet och URL: er**, gör du följande:
 
     ![”Palo Alto Networks - domänen för Admin-Gränssnittet och URL: er” enkel inloggning för information](./media/paloaltoadmin-tutorial/tutorial_general_show_advanced_url.png)
     
@@ -111,7 +111,7 @@ Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inlogg
     > [!NOTE] 
     > Föregående värden är inte verkliga. Uppdatera dem med faktiska inloggnings-URL och identifierare. Kontakta för att få värdena [Palo Alto Networks - Användargränssnittet administratörsklient supportteamet](https://support.paloaltonetworks.com/support). 
  
-4. Eftersom Palo Alto Networks - administratör UI program förväntar sig SAML-intyg i ett visst format, konfigurera anspråk som du ser i följande bild. Hantera attributvärdena i den **användarattribut** delen av den **programintegrering** sidan genom att göra följande:
+1. Eftersom Palo Alto Networks - administratör UI program förväntar sig SAML-intyg i ett visst format, konfigurera anspråk som du ser i följande bild. Hantera attributvärdena i den **användarattribut** delen av den **programintegrering** sidan genom att göra följande:
     
     ![Listan över SAML-Tokenattribut](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_attribute.png)
     
@@ -144,23 +144,23 @@ Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inlogg
     > * [Enhetsdomän åtkomst för Admin-UI (accessdomain)](https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-access-domain)
     >
 
-5. Under **SAML-signeringscertifikat**väljer **XML-Metadata för**, och välj sedan **spara**.
+1. Under **SAML-signeringscertifikat**väljer **XML-Metadata för**, och välj sedan **spara**.
 
     ![Den XML-Metadata nedladdningslänk](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_certificate.png) 
 
     ![Knappen Spara](./media/paloaltoadmin-tutorial/tutorial_general_400.png)
 
-6. Öppna Admin-Gränssnittet Palo Alto Networks-brandväggen som en administratör i ett nytt fönster.
+1. Öppna Admin-Gränssnittet Palo Alto Networks-brandväggen som en administratör i ett nytt fönster.
 
-7. Välj den **enhet** fliken.
+1. Välj den **enhet** fliken.
 
     ![Fliken enhet](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin1.png)
 
-8. I den vänstra rutan väljer **SAML-identitetsprovider**, och välj sedan **importera** att importera metadatafilen.
+1. I den vänstra rutan väljer **SAML-identitetsprovider**, och välj sedan **importera** att importera metadatafilen.
 
     ![Knappen Importera metadata-fil](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin2.png)
 
-9. I den **SAML identifiera providern Server-profilimport** fönstret gör du följande:
+1. I den **SAML identifiera providern Server-profilimport** fönstret gör du följande:
 
     ![Fönstret ”SAML identifiera providern Server-profilimport”](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
 
@@ -174,11 +174,11 @@ Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inlogg
     
     e. För att genomföra konfigurationerna i brandväggen, Välj **Commit**.
 
-10. I den vänstra rutan väljer **SAML-identitetsprovider**, och välj sedan SAML identitet Provider-profilen (till exempel **AzureAD Admin-Gränssnittet**) som du skapade i föregående steg. 
+1. I den vänstra rutan väljer **SAML-identitetsprovider**, och välj sedan SAML identitet Provider-profilen (till exempel **AzureAD Admin-Gränssnittet**) som du skapade i föregående steg. 
 
     ![SAML-profilen identitets-Provider](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp_select.png)
 
-11. I den **SAML identitet providern Server-profil** fönstret gör du följande:
+1. I den **SAML identitet providern Server-profil** fönstret gör du följande:
 
     ![Fönstret ”SAML identitet providern Server-profil”](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
   
@@ -186,20 +186,20 @@ Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inlogg
   
     b. Välj **OK**.
 
-12. På Palo Alto nätverk brandväggen Admin UI väljer **enhet**, och välj sedan **Administratörsrollerna**.
+1. På Palo Alto nätverk brandväggen Admin UI väljer **enhet**, och välj sedan **Administratörsrollerna**.
 
-13. Välj den **Lägg till** knappen. 
+1. Välj den **Lägg till** knappen. 
 
-14. I den **Admin-profil för användarroller** fönstret i den **namn** ange ett namn för administratörsrollen (till exempel **fwadmin**).  
+1. I den **Admin-profil för användarroller** fönstret i den **namn** ange ett namn för administratörsrollen (till exempel **fwadmin**).  
     Rollnamnet administratör måste matcha attributnamnet SAML-administratörsroll som skickades av identitetsleverantören. Administratören rollnamn och värde skapades i steg 4.
 
     ![Konfigurera Palo Alto Networks-administratörsrollen](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
   
-15. I brandväggen Admin UI, Välj **enhet**, och välj sedan **autentisering profil**.
+1. I brandväggen Admin UI, Välj **enhet**, och välj sedan **autentisering profil**.
 
-16. Välj den **Lägg till** knappen. 
+1. Välj den **Lägg till** knappen. 
 
-17. I den **autentisering profil** fönstret gör du följande: 
+1. I den **autentisering profil** fönstret gör du följande: 
 
     ![Fönstret ”autentisering profil”](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
 
@@ -222,17 +222,17 @@ Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inlogg
 
     g. Välj **OK**.
 
-18. Välj för att aktivera administratörer kan använda SAML SSO med hjälp av Azure **enhet** > **installationsprogrammet**. I den **installationsprogrammet** väljer den **Management** fliken och välj **autentiseringsinställningar**väljer den **inställningar** (”kugghjulsikonen”)-knappen . 
+1. Välj för att aktivera administratörer kan använda SAML SSO med hjälp av Azure **enhet** > **installationsprogrammet**. I den **installationsprogrammet** väljer den **Management** fliken och välj **autentiseringsinställningar**väljer den **inställningar** (”kugghjulsikonen”)-knappen . 
 
  ![Knappen Inställningar](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
 
-19. Välj den SAML-autentisering-profil som du skapade i steg 17 (till exempel **AzureSAML_Admin_AuthProfile**).
+1. Välj den SAML-autentisering-profil som du skapade i steg 17 (till exempel **AzureSAML_Admin_AuthProfile**).
 
  ![Fältet autentisering profil](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
 
-20. Välj **OK**.
+1. Välj **OK**.
 
-21. Om du vill tillämpa konfigurationen, Välj **Commit**.
+1. Om du vill tillämpa konfigurationen, Välj **Commit**.
 
 
 > [!TIP]
@@ -249,17 +249,17 @@ I det här avsnittet skapar du testanvändare Britta Simon i Azure portal genom 
 
     ![Azure Active Directory-länk](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över aktuella användare, Välj **användare och grupper** > **alla användare**.
+1. Om du vill visa en lista över aktuella användare, Välj **användare och grupper** > **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
-3. Överst på den **alla användare** väljer **Lägg till**.
+1. Överst på den **alla användare** väljer **Lägg till**.
 
     ![Knappen Lägg till](./media/paloaltoadmin-tutorial/create_aaduser_03.png)
     
     Den **användaren** öppnas.
 
-4. I den **användaren** fönstret gör du följande:
+1. I den **användaren** fönstret gör du följande:
 
     ![Fönstret användare](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
 
@@ -285,23 +285,23 @@ I det här avsnittet ska aktivera du användaren Britta Simon att använda Azure
 
     ![”Program” och ”alla program”-länkar][201] 
 
-2. I den **program** väljer **Palo Alto Networks - administratör UI**.
+1. I den **program** väljer **Palo Alto Networks - administratör UI**.
 
     ![Palo Alto nätverk - administratör UI-länk](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_app.png)  
 
-3. I den vänstra rutan väljer **användare och grupper**.
+1. I den vänstra rutan väljer **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Välj **Lägg till** och klicka sedan på **Lägg till tilldelning** väljer **användare och grupper**.
+1. Välj **Lägg till** och klicka sedan på **Lägg till tilldelning** väljer **användare och grupper**.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. I den **användare och grupper** fönstret i den **användare** väljer **Britta Simon**.
+1. I den **användare och grupper** fönstret i den **användare** väljer **Britta Simon**.
 
-6. Välj den **Välj** knappen.
+1. Välj den **Välj** knappen.
 
-7. I den **Lägg till tilldelning** väljer **tilldela**.
+1. I den **Lägg till tilldelning** väljer **tilldela**.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

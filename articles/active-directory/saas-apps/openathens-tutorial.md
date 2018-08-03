@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.openlocfilehash: ddd669bb8ff8e520c5538457789d4f660a82255d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 269b216a94b1233c5f9f9a634fda3c05e46cac90
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051432"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435921"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Självstudier: Azure Active Directory-integration med OpenAthens
 
@@ -50,7 +50,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till OpenAthens från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-openathens-from-the-gallery"></a>Att lägga till OpenAthens från galleriet
 För att konfigurera integrering av OpenAthens i Azure AD, som du behöver lägga till OpenAthens från galleriet i din lista över hanterade SaaS-appar.
@@ -61,15 +61,15 @@ För att konfigurera integrering av OpenAthens i Azure AD, som du behöver lägg
 
     ![Azure Active Directory-knappen][1]
 
-2. Bläddra till **företagsprogram**, och gå till **alla program**.
+1. Bläddra till **företagsprogram**, och gå till **alla program**.
 
     ![Fönstret för Enterprise-program][2]
     
-3. Om du vill lägga till nytt program, Välj den **nytt program** knappen överst i dialogrutan.
+1. Om du vill lägga till nytt program, Välj den **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **OpenAthens**väljer **OpenAthens** i resultatrutan och välj sedan den **Lägg till** knappen.
+1. I sökrutan skriver **OpenAthens**väljer **OpenAthens** i resultatrutan och välj sedan den **Lägg till** knappen.
 
     ![OpenAthens i resultatlistan](./media/openathens-tutorial/tutorial_openathens_addfromgallery.png)
 
@@ -84,10 +84,10 @@ I OpenAthens, tilldela värdet för den **användarnamn** i Azure AD som värde 
 Om du vill konfigurera och testa Azure AD enkel inloggning med OpenAthens, måste du utföra följande byggblock:
 
 1. [Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on), för att ge användarna använda den här funktionen.
-2. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user), för att testa Azure AD enkel inloggning med Britta Simon.
-3. [Skapa en testanvändare OpenAthens](#create-a-openathens-test-user), har en motsvarighet för Britta Simon i OpenAthens som är länkad till en Azure AD-representation av användaren.
-4. [Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)att aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. [Testa enkel inloggning](#test-single-sign-on), för att kontrollera om konfigurationen fungerar.
+1. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user), för att testa Azure AD enkel inloggning med Britta Simon.
+1. [Skapa en testanvändare OpenAthens](#create-a-openathens-test-user), har en motsvarighet för Britta Simon i OpenAthens som är länkad till en Azure AD-representation av användaren.
+1. [Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)att aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. [Testa enkel inloggning](#test-single-sign-on), för att kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -99,37 +99,37 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera länken för enkel inloggning][4]
 
-2. Att aktivera enkel inloggning, i den **enkel inloggning** dialogrutan **SAML-baserad inloggning** som den **läge**.
+1. Att aktivera enkel inloggning, i den **enkel inloggning** dialogrutan **SAML-baserad inloggning** som den **läge**.
  
     ![Enkel inloggning för dialogrutan](./media/openathens-tutorial/tutorial_openathens_samlbase.png)
 
-3. I den **OpenAthens domän och URL: er** anger värdet `https://login.openathens.net/saml/2/metadata-sp` i den **identifierare** textrutan.
+1. I den **OpenAthens domän och URL: er** anger värdet `https://login.openathens.net/saml/2/metadata-sp` i den **identifierare** textrutan.
 
     ![OpenAthens domän och URL: er med enkel inloggning för information](./media/openathens-tutorial/tutorial_openathens_url.png)
 
-4. I den **SAML-signeringscertifikat** väljer **XML-Metadata för**, och spara sedan metadatafilen på datorn.
+1. I den **SAML-signeringscertifikat** väljer **XML-Metadata för**, och spara sedan metadatafilen på datorn.
 
     ![Signeringscertifikat för AMSL nedladdningslänk](./media/openathens-tutorial/tutorial_openathens_certificate.png) 
 
-5. Välj knappen **Spara**.
+1. Välj knappen **Spara**.
 
     ![Den enkel inloggning spara knappen](./media/openathens-tutorial/tutorial_general_400.png)
 
-6. I ett annat webbläsarfönster logga du in på webbplatsen OpenAthens företag som administratör.
+1. I ett annat webbläsarfönster logga du in på webbplatsen OpenAthens företag som administratör.
 
-7. Välj **anslutningar** i listan under den **Management** fliken. 
+1. Välj **anslutningar** i listan under den **Management** fliken. 
 
     ![Konfigurera enkel inloggning](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
-8. Välj **SAML 1.1/2.0**, och välj sedan den **konfigurera** knappen.
+1. Välj **SAML 1.1/2.0**, och välj sedan den **konfigurera** knappen.
 
     ![Konfigurera enkel inloggning](./media/openathens-tutorial/tutorial_openathens_application2.png)
     
-9. Om du vill lägga till konfigurationen, Välj den **Bläddra** om du vill överföra metadata XML-filen som du laddade ned från Azure-portalen och välj sedan **Lägg till**.
+1. Om du vill lägga till konfigurationen, Välj den **Bläddra** om du vill överföra metadata XML-filen som du laddade ned från Azure-portalen och välj sedan **Lägg till**.
 
     ![Konfigurera enkel inloggning](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
-10. Utför följande steg under den **information** fliken.
+1. Utför följande steg under den **information** fliken.
 
     ![Konfigurera enkel inloggning](./media/openathens-tutorial/tutorial_openathens_application4.png)
 
@@ -162,15 +162,15 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/openathens-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och välj sedan **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och välj sedan **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/openathens-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/openathens-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/openathens-tutorial/create_aaduser_04.png)
 
@@ -198,23 +198,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I den **program** väljer **OpenAthens**.
+1. I den **program** väljer **OpenAthens**.
 
     ![Länken OpenAthens i listan med program](./media/openathens-tutorial/tutorial_openathens_app.png)  
 
-3. I menyn till vänster väljer **användare och grupper**.
+1. I menyn till vänster väljer **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Välj den **Lägg till** knappen. Välj sedan **användare och grupper** i den **Lägg till tilldelning** fönstret.
+1. Välj den **Lägg till** knappen. Välj sedan **användare och grupper** i den **Lägg till tilldelning** fönstret.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. I den **användare och grupper** väljer **Britta Simon**.
+1. I den **användare och grupper** väljer **Britta Simon**.
 
-6. Välj den **Välj** knappen i den **användare och grupper** lista.
+1. Välj den **Välj** knappen i den **användare och grupper** lista.
 
-7. Välj den **tilldela** knappen i den **Lägg till tilldelning** fönstret.
+1. Välj den **tilldela** knappen i den **Lägg till tilldelning** fönstret.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/31/2018
 ms.author: rithorn
-ms.openlocfilehash: 146ded37dbf517528af23574cd5b9325f4b5f9d0
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: edc57d146ccb034ac3fd627386000a1953b0e558
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358777"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480330"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organisera dina resurser med Azure-hanteringsgrupper
 
@@ -82,7 +82,7 @@ Följande diagram visar en lista över roller och åtgärder som stöds på hant
 
 | RBAC rollnamn             | Skapa | Byt namn | Flytta | Ta bort | Tilldela åtkomst | Tilldela princip | Läsa  |
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
-|Ägare                       | X      | X      | X    | X      | X             |               | X     |
+|Ägare                       | X      | X      | X    | X      | X             | X             | X     |
 |Deltagare                 | X      | X      | X    | X      |               |               | X     |
 |MG deltagare *             | X      | X      | X    | X      |               |               | X     |
 |Läsare                      |        |        |      |        |               |               | X     |
@@ -104,4 +104,4 @@ Mer information om hanteringsgrupper finns:
 - [Ändra, ta bort eller hantera dina hanteringsgrupper](management-groups-manage.md)
 - [Installera Azure PowerShell-modulen](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Granska REST API-specifikationen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Installera Azure CLI-tillägg](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [Installera Azure CLI-tillägg](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 77625296797ec8ed8364e7d8bff3e5a15b4b74b5
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: dc6664321588d383b4656199c3e8ea79159ca850
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048046"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437686"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Självstudier: Azure Active Directory-integration med BambooHR
 
@@ -55,7 +55,7 @@ I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö.
 Det scenario som beskrivs i den här kursen består av två viktigaste byggstenarna:
 
 1. Att lägga till BambooHR från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="add-bamboohr-from-the-gallery"></a>Lägg till BambooHR från galleriet
 För att konfigurera integrering av BambooHR i Azure AD, lägga till BambooHR från galleriet i listan över hanterade SaaS-appar genom att göra följande:
@@ -64,15 +64,15 @@ För att konfigurera integrering av BambooHR i Azure AD, lägga till BambooHR fr
 
     ![Azure Active Directory-knappen][1]
 
-2. Välj **företagsprogram** > **alla program**.
+1. Välj **företagsprogram** > **alla program**.
 
     ![Fönstret för Enterprise-program][2]
     
-3. Om du vill lägga till ett program, Välj **nytt program**.
+1. Om du vill lägga till ett program, Välj **nytt program**.
 
     ![”Det nya programmet” knappen][3]
 
-4. I sökrutan skriver **BambooHR**. I resultatlistan väljer **BambooHR**, och välj sedan **Lägg till**.
+1. I sökrutan skriver **BambooHR**. I resultatlistan väljer **BambooHR**, och välj sedan **Lägg till**.
 
     ![BambooHR i resultatlistan](./media/bamboo-hr-tutorial/tutorial_bamboohr_addfromgallery.png)
 
@@ -94,11 +94,11 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. I den **enkel inloggning** fönstret i den **läge** listrutan, väljer **SAML-baserad inloggning**.
+1. I den **enkel inloggning** fönstret i den **läge** listrutan, väljer **SAML-baserad inloggning**.
  
     ![Fönstret för enkel inloggning](./media/bamboo-hr-tutorial/tutorial_bamboohr_samlbase.png)
 
-3. Under **BambooHR domän och URL: er**, gör du följande:
+1. Under **BambooHR domän och URL: er**, gör du följande:
 
     ![Avsnittet BambooHR domän och URL: er](./media/bamboo-hr-tutorial/tutorial_bamboohr_url.png)
 
@@ -109,21 +109,21 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     > [!NOTE] 
     > Den **inloggnings-URL** värdet är inte verkliga. Uppdatera den med din faktiska inloggnings-URL. Du kan hämta värdet genom att kontakta den [BambooHR klienten supportteamet](https://www.bamboohr.com/contact.php). 
  
-4. Under **SAML-signeringscertifikat**väljer **certifikat (Base64)**, och sedan spara certifikatfilen på datorn.
+1. Under **SAML-signeringscertifikat**väljer **certifikat (Base64)**, och sedan spara certifikatfilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/bamboo-hr-tutorial/tutorial_bamboohr_certificate.png) 
 
-5. Välj **Spara**.
+1. Välj **Spara**.
 
     ![Knappen Spara](./media/bamboo-hr-tutorial/tutorial_general_400.png)
 
-6. Under **BambooHR Configuration**väljer **konfigurera BambooHR** att öppna den **konfigurera inloggning** fönster. I den **Snabbreferens** avsnittet, kopiera den **SAML inloggnings-tjänst-URL för enkel** för senare användning.
+1. Under **BambooHR Configuration**väljer **konfigurera BambooHR** att öppna den **konfigurera inloggning** fönster. I den **Snabbreferens** avsnittet, kopiera den **SAML inloggnings-tjänst-URL för enkel** för senare användning.
 
     ![BambooHR konfiguration](./media/bamboo-hr-tutorial/tutorial_bamboohr_configure.png) 
 
-7. I ett nytt fönster, loggar du in din BambooHR företagets webbplats som administratör.
+1. I ett nytt fönster, loggar du in din BambooHR företagets webbplats som administratör.
 
-8. Gör följande på startsidan:
+1. Gör följande på startsidan:
    
     ![Sidan BambooHR Single Sign-On](./media/bamboo-hr-tutorial/ic796691.png "enkel inloggning")   
 
@@ -133,7 +133,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
    
     c. Välj **SAML enkel inloggning**.
 
-9. I den **SAML enkel inloggning** fönstret gör du följande:
+1. I den **SAML enkel inloggning** fönstret gör du följande:
    
     ![Fönstret SAML enkel inloggning](./media/bamboo-hr-tutorial/IC796692.png "SAML enkel inloggning")
    
@@ -159,15 +159,15 @@ Om du vill skapa en testanvändare i Azure AD, gör du följande:
 
     ![Azure Active Directory-knappen](./media/bamboo-hr-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och välj sedan **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och välj sedan **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/bamboo-hr-tutorial/create_aaduser_02.png)
 
-3. Överst på den **alla användare** väljer **Lägg till**.
+1. Överst på den **alla användare** väljer **Lägg till**.
 
     ![Knappen Lägg till](./media/bamboo-hr-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** fönstret gör du följande:
+1. I den **användaren** fönstret gör du följande:
 
     ![Fönstret användare](./media/bamboo-hr-tutorial/create_aaduser_04.png)
 
@@ -185,17 +185,17 @@ Om du vill aktivera Azure AD-användare att logga in på BambooHR lägga upp dem
 
 1. Logga in på din **BambooHR** plats som administratör.
 
-2. I verktygsfältet högst upp väljer **inställningar**.
+1. I verktygsfältet högst upp väljer **inställningar**.
    
     ![Knappen Inställningar](./media/bamboo-hr-tutorial/IC796694.png "inställningen")
 
-3. Välj **Översikt**.
+1. Välj **Översikt**.
 
-4. I den vänstra rutan väljer **Security** > **användare**.
+1. I den vänstra rutan väljer **Security** > **användare**.
 
-5. Skriv användarnamnet, lösenordet och e-postadress av giltig Azure AD-konto som du vill konfigurera.
+1. Skriv användarnamnet, lösenordet och e-postadress av giltig Azure AD-konto som du vill konfigurera.
 
-6. Välj **Spara**.
+1. Välj **Spara**.
         
 >[!NOTE]
 >Om du vill konfigurera Azure AD-användarkonton kan du också använda BambooHR användaren kontoskapandet verktyg eller API: er.
@@ -212,23 +212,23 @@ Om du vill tilldela användaren Britta Simon BambooHR, gör du följande:
 
     ![Tilldela användare][201] 
 
-2. I den **företagsprogram** väljer **BambooHR**.
+1. I den **företagsprogram** väljer **BambooHR**.
 
     ![Länken BambooHR i listan över företagsprogram](./media/bamboo-hr-tutorial/tutorial_bamboohr_app.png)  
 
-3. I den vänstra rutan väljer **användare och grupper**.
+1. I den vänstra rutan väljer **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Välj den **Lägg till** knappen och klicka sedan på **Lägg till tilldelning** väljer **användare och grupper**.
+1. Välj den **Lägg till** knappen och klicka sedan på **Lägg till tilldelning** väljer **användare och grupper**.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. I den **användare och grupper** fönstret i den **användare** väljer **Britta Simon**.
+1. I den **användare och grupper** fönstret i den **användare** väljer **Britta Simon**.
 
-6. Välj den **Välj** knappen.
+1. Välj den **Välj** knappen.
 
-7. I den **Lägg till tilldelning** väljer den **tilldela** knappen.
+1. I den **Lägg till tilldelning** väljer den **tilldela** knappen.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

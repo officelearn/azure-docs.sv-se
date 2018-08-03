@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services fragmenterad MP4 live infognings-specifikationen | Microsoft Docs
-description: Den här specifikationen beskriver protokollet och format för fragmenterad MP4-baserade direktsänd strömning införandet för Azure Media Services. Du kan använda Azure Media Services för att strömma direktsända händelser och broadcast innehåll i realtid med hjälp av Azure som molnplattform. Det här dokumentet beskriver också bästa praxis för att skapa mycket överflödiga och robusta live infognings-metoder.
+title: Specifikation för Azure Media Services fragmenterad MP4 live-inmatning | Microsoft Docs
+description: Den här specifikationen beskriver protokollet och format för fragmenterad MP4-baserade live direktuppspelning inmatning för Azure Media Services. Du kan använda Azure Media Services för att strömma direktsändningar och skicka innehållet i realtid genom att använda Azure som molnplattformen. Det här dokumentet beskriver också bästa metoder för att skapa mycket redundant och robust live mata in mekanismer.
 services: media-services
 documentationcenter: ''
 author: cenkdin
@@ -14,180 +14,180 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 367066b0073775ae10fd5e9d084c5bc78ebf6677
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 88c152872ef8b571b8bc3e3f06ce486943e724b1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788979"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443536"
 ---
-# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services fragmenterad MP4 live infognings-specifikationen
-Den här specifikationen beskriver protokollet och format för fragmenterad MP4-baserade direktsänd strömning införandet för Azure Media Services. Media Services tillhandahåller en liveströmningstjänst som kunder använder för att strömma direktsända händelser och broadcast innehåll i realtid med hjälp av Azure som molnplattform. Det här dokumentet beskriver också bästa praxis för att skapa mycket överflödiga och robusta live infognings-metoder.
+# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Specifikation för Azure Media Services fragmenterad MP4 live-inmatning
+Den här specifikationen beskriver protokollet och format för fragmenterad MP4-baserade live direktuppspelning inmatning för Azure Media Services. Media Services tillhandahåller en liveuppspelningstjänst som kunder kan använda för att strömma direktsändningar och skicka innehållet i realtid genom att använda Azure som molnplattformen. Det här dokumentet beskriver också bästa metoder för att skapa mycket redundant och robust live mata in mekanismer.
 
-## <a name="1-conformance-notation"></a>1. Överensstämmelse notation
-Nyckeln ord ”måste”, ”får inte”, ”krävs”, ”skall”, ”skall inte”, ”SHOULD”, ”bör inte”, ”rekommenderade” ”får” och ”valfritt” i det här dokumentet är tolkas som de beskrivs i RFC 2119.
+## <a name="1-conformance-notation"></a>1. Efterlevnadsstatus notation
+Nyckeln ”måste”, ”måste inte”, ”krävs”, ”skall”, ”skall inte”, ”SHOULD”, ”bör inte” ord ”rekommenderade”, ”MAY” och ”valfritt” i det här dokumentet är att tolkas som de beskrivs i RFC 2119.
 
-## <a name="2-service-diagram"></a>2. Diagram för tjänsten
-Följande diagram visar liveströmningstjänst övergripande arkitektur i Media Services:
+## <a name="2-service-diagram"></a>2. Tjänstdiagram
+Följande diagram visar den övergripande arkitekturen i tjänsten för live direktuppspelning i Media Services:
 
-1. En livekodare skickar live feeds till kanaler som skapas och etableras via Azure Media Services SDK.
-2. Kanaler, program och strömningsslutpunkter i Media Services hanterar alla funktioner för liveströmning, inklusive infogande, formatering, DVR, säkerhet, skalbarhet och redundans för moln.
-3. Kunder kan du kan också välja att distribuera ett Azure Content Delivery Network lager mellan den strömmande slutpunkten och klientslutpunkterna.
-4. Klienten slutpunkter ström från den strömmande slutpunkten med hjälp av anpassningsbar strömning av HTTP-protokoll. Exempel: Microsoft Smooth Streaming, dynamiska anpassningsbar strömning via HTTP (TANKSTRECK eller MPEG-DASH) och Apple HTTP Live Streaming (HLS).
+1. En livekodare skickar live feeds till kanaler som skapas och etablerats via Azure Media Services SDK.
+1. Kanaler, program och slutpunkter för direktuppspelning i Media Services hanterar alla liveuppspelningsfunktioner, bland annat inmatning, formatering, DVR, säkerhet, skalbarhet och redundans i molnet.
+1. Kunder kan också välja att distribuera ett Azure Content Delivery Network-lager mellan slutpunkten för direktuppspelning och klientslutpunkterna.
+1. Klienten slutpunkter ström från slutpunkten för direktuppspelning med hjälp av anpassad strömning av HTTP-protokoll. Exempel innefattar Microsoft Smooth Streaming, Dynamic Adaptive Streaming via HTTP (DASH eller MPEG-DASH) och Apple HTTP Live Streaming (HLS).
 
-![infognings-flöde][image1]
+![mata in flödet][image1]
 
-## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. Formatet för Bitstream – ISO 14496 12 fragmenterad MP4
-Kabelformat för direktsänd strömning infognings som beskrivs i det här dokumentet är baserad på [ISO-14496-12]. En detaljerad förklaring av fragmenterad MP4-format och tillägg både för video-on-demand-filer och direktsänd strömning införandet finns [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx).
+## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. Bitstream format – ISO 14496 – 12 fragmenterad MP4
+Kabelformat för direktsänd strömning mata in beskrivs i det här dokumentet är baserat på [ISO-14496-12]. En detaljerad förklaring av fragmenterad MP4-format och tillägg både för filer för video på begäran och direktsänd strömning datainmatning, se [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx).
 
-### <a name="live-ingest-format-definitions"></a>Live infognings-format definitioner
-I följande lista beskrivs specialformat definitioner som gäller för levande mata in i Azure Media Services:
+### <a name="live-ingest-format-definitions"></a>Liveinmatning filformatet
+I följande lista beskrivs specialformat definitioner som tillämpas på live-inmatning i Azure Media Services:
 
-1. Den **ftyp**, **Live Manifest serverrutan**, och **moov** rutor måste skickas med varje begäran (HTTP POST). Dessa rutor måste skickas i början av dataströmmen och infognings-helst kodaren måste ansluta för att återuppta dataströmmen. Mer information finns i avsnittet 6 i [1].
-2. [1] avsnitt 3.3.2 definierar en valfri ruta som kallas **StreamManifestBox** för live mata in. På grund av Routning logiken för Azure belastningsutjämnare är med den här rutan föråldrad. Rutan bör inte när du vill föra in till Media Services. Om den här rutan finns ignoreras Media Services tyst det.
-3. Den **TrackFragmentExtendedHeaderBox** rutan som definierats i 3.2.3.2 i [1] måste finnas för varje fragment.
-4. Version 2 av den **TrackFragmentExtendedHeaderBox** kryssrutan ska användas för att generera media-segment som har identiska URL: er i flera datacenter. Fältet fragment index är REQUIRED mellan datacenter växling vid fel i index-baserad strömningsformat, till exempel Apple HLS och indexbaserade MPEG-DASH. Om du vill aktivera cross-datacenter redundans fragment-index måste synkroniseras mellan flera kodare och ökas med 1 för varje efterföljande media fragment även över kodare omstarter eller fel.
-5. [1] avsnitt 3.3.6 definierar en ruta som kallas **MovieFragmentRandomAccessBox** (**mfra**) som kan skickas i slutet av live införandet anger slutet på dataströmmen (EOS) till kanalen. På grund av infognings-logiken för Media Services med EOS är inaktuell och **mfra** rutan för live införandet inte ska skickas. Om skickas ignoreras Media Services tyst det. Du kan återställa infognings-punkt, rekommenderar vi att du använder [kanal återställa](https://docs.microsoft.com/rest/api/media/operations/channel#reset_channels). Vi rekommenderar också att du använder [programmet avslutas](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) att avsluta en presentation och dataströmmen.
-6. MP4 fragment varaktigheten ska vara konstant, för att minska storleken på klientmanifesten. En konstant MP4 fragment varaktighet förbättrar också klienten hämta heuristik med Upprepa taggar. Varaktigheten kan variera för att kompensera för hastigheterna heltal.
-7. MP4 fragment varaktigheten ska vara mellan 2 och cirka 6 sekunder.
-8. MP4 Fragmentera tidsstämplar och index (**TrackFragmentExtendedHeaderBox** `fragment_ absolute_ time` och `fragment_index`) ska komma in i stigande ordning. Även om Media Services är motståndskraftiga mot dubbla fragment, har den begränsad möjlighet att ordna om fragment enligt media tidslinjen.
+1. Den **ftyp**, **Live Server Manifest Box**, och **moov** rutorna måste skickas med varje begäran (HTTP-POST). Dessa rutor måste skickas i början av strömmen och när som helst kodaren måste ansluta igen om du vill återuppta stream mata in. Mer information finns i avsnitt 6 i [1].
+1. Avsnitt 3.3.2 i [1] definierar en valfri ruta som kallas **StreamManifestBox** för liveinmatning. På grund av Routning logik på Azure-belastningsutjämnaren är med hjälp av den här rutan inaktuell. Rutan bör inte vara närvarande när mata in till Media Services. Om den här rutan finns ignorerar medietjänster tyst den.
+1. Den **TrackFragmentExtendedHeaderBox** box som definierats i 3.2.3.2 i [1] måste vara tillgänglig för varje fragment.
+1. Version 2 av den **TrackFragmentExtendedHeaderBox** box som ska användas för att generera media-segment som har identiska URL: er i flera datacenter. Fragment index-fältet är obligatoriskt för redundans över flera datacenter för index-baserade strömningsformat, till exempel Apple HLS och index-baserade MPEG-DASH. För att aktivera redundans över flera datacenter, fragment indexet måste synkroniseras mellan flera kodare och öka med 1 för varje efterföljande media-fragment även över encoder omstarter eller fel.
+1. Avsnittet 3.3.6 i [1] definierar en ruta som kallas **MovieFragmentRandomAccessBox** (**mfra**) som kan skickas i slutet av live-inmatning att ange slutet av stream (EOS) till kanalen. På grund av logiken för inmatning av Media Services, med hjälp av EOS är inaktuell, och **mfra** rutan för live-inmatning inte bör skickas. Om skickas ignorerar medietjänster tyst den. Du kan återställa punktens inmatning, rekommenderar vi att du använder [kanal återställa](https://docs.microsoft.com/rest/api/media/operations/channel#reset_channels). Vi rekommenderar också att du använder [programmet stoppa](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) att avsluta en presentation och stream.
+1. MP4 fragment varaktighet måste vara konstanta att minska storleken på klientmanifesten. En konstant MP4 fragment varaktighet förbättrar också klienten ladda ned heuristik med Upprepa taggar. Varaktigheten kan variera för att kompensera för heltal bildrutehastigheter.
+1. MP4 fragment varaktighet måste vara mellan 2 och cirka 6 sekunder.
+1. MP4 Fragmentera tidsstämplar och index (**TrackFragmentExtendedHeaderBox** `fragment_ absolute_ time` och `fragment_index`) ska tas emot i stigande ordning. Även om Media Services är motståndskraftig mot duplicerade fragment, har det begränsad möjlighet att ändra ordning på fragment enligt media-tidslinje.
 
 ## <a name="4-protocol-format--http"></a>4. Protokollet formatet – HTTP
-ISO fragmenterad MP4-baserade live infognings för Media Services använder en standard tidskrävande HTTP POST-begäran för att överföra data för kodade media som är packade fragmenterad MP4-format till tjänsten. Varje HTTP POST skickar en fullständig fragmenterad MP4 bitstream (”stream”), från början med rubriken rutor (**ftyp**, **Live Manifest serverrutan**, och **moov** rutor ), och fortsätter med en sekvens av fragment (**moof** och **mdat** rutor). URL-syntax för HTTP POST-begäran, finns i avsnittet 9.2 i [1]. Ett exempel på POST-URL är: 
+ISO fragmenterad MP4-baserade live mata in för Media Services använder en standard tidskrävande HTTP POST-begäran för att överföra kodade media data som är paketerat i fragmenterad MP4-format till tjänsten. Varje HTTP POST-skickar ett komplett fragmenterad MP4 bitstream (”stream”), med start i början med rubriken rutorna (**ftyp**, **Live Server Manifest Box**, och **moov** rutor ), och du fortsätter med en sekvens med fragment (**moof** och **mdat** rutorna). URL-syntax för HTTP POST-begäran, finns i avsnittet 9.2 in [1]. Ett exempel på POST-URL är: 
 
     http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
 
 ### <a name="requirements"></a>Krav
-Här följer detaljerade krav:
+Här följer de detaljerade krav:
 
-1. Kodaren ska starta sändningen genom att skicka en HTTP POST-begäran med ett tomt ”text” (nollängd innehåll) med hjälp av samma införandet URL. Detta kan hjälpa kodaren snabbt identifiera om live införandet slutpunkten är giltig och om det inte finns någon autentisering eller andra villkor som krävs. Per HTTP-protokollet på servern kan inte skicka tillbaka ett HTTP-svar förrän hela begäran, inklusive POST meddelandetexten, tas emot. Eftersom en direktsänd händelse, utan det här steget tidskrävande kanske kodaren inte kan identifiera eventuella fel tills den är klar skickar alla data.
-2. Kodaren måste hantera fel eller autentiseringsfrågor på grund av (1). Om (1) lyckas med svaret 200 fortsätta.
-3. Kodaren måste starta en ny HTTP POST-begäran med fragmenterad MP4-dataström. Nyttolasten måste börja med rutorna sidhuvud följt av fragment. Observera att den **ftyp**, **Live Manifest serverrutan**, och **moov** rutorna (i ordning) måste skickas med varje begäran, även om kodaren måste ansluta eftersom den tidigare begäran avbröts innan slutet på dataströmmen. 
-4. Kodaren måste använda chunked-överföringskodning för att ladda upp, eftersom det är omöjligt att förutsäga hela innehållslängden för direktsänd händelse.
-5. När händelsen är över, när du har skickat det senaste fragmentet måste avslutas kodaren avslutas chunked överföringskodning meddelandesekvens (de flesta HTTP klientstackar hantera automatiskt). Kodaren måste vänta på att tjänsten för att returnera den sista svarskoden och avslutar anslutningen. 
-6. Kodaren måste inte använda den `Events()` substantiv enligt beskrivningen i 9.2 i [1] för live införandet till Media Services.
-7. Om HTTP POST-begäran avslutas eller med ett TCP-fel innan slutet på dataströmmen, måste kodaren utfärda en ny POST-begäran med hjälp av en ny anslutning och följ de föregående krav. Kodaren måste dessutom skicka föregående två MP4 fragment för varje spår i dataströmmen och fortsätta utan att en avvikelse i tidslinjen för media. Skicka om de två sista MP4-fragment för varje spår säkerställer att det finns inga data går förlorade. Med andra ord om en dataström som innehåller både ljud och video spåra och aktuell POST-begäran misslyckas, måste kodaren återansluta och skicka om två sista fragment för ljud spår som tidigare har skickats, och de två sista fragment för videon spåra, som tidigare har skickats, så att det finns inga data går förlorade. Kodaren måste upprätthålla en ”vidarebefordra” buffert på media fragment som skickas igen när anslutningen upprättas.
+1. Kodaren starta sändningen genom att skicka en HTTP POST-begäran med en tom ”body” (noll innehållslängd) med hjälp av URL: en för samma inmatning. Detta kan hjälpa kodaren snabbt identifiera om live-inmatning slutpunkten är giltig och om det inte finns någon autentisering eller andra villkor som krävs. Per HTTP-protokollet servern kan inte skicka tillbaka ett HTTP-svar tills hela begäran, inklusive själva POST tas emot. Den tidskrävande naturen för en direktsändning, utan det här steget kanske kodaren inte kan identifiera eventuella fel tills den är klar skickar alla data.
+1. Kodaren måste hantera några fel eller autentiseringsfrågor på grund av (1). Om (1) lyckas med svaret 200 fortsätta.
+1. Kodaren måste börja en ny HTTP POST-begäran med fragmenterad MP4-dataström. Nyttolasten måste börja med rutorna rubrik, följt av fragment. Observera att den **ftyp**, **Live Server Manifest Box**, och **moov** rutorna (i den ordningen) måste skickas med varje begäran, även om kodaren måste ansluta igen eftersom den tidigare begäran avbröts innan slutet av dataströmmen. 
+1. Kodaren måste använda Chunked-kodning för att ladda upp, eftersom det är omöjligt att förutsäga direktsändningen hela innehåll längd.
+1. När händelsen är över, när du har skickat det senaste fragmentet måste kodaren ett smidigt sätt att sluta den Chunked-kodning Meddelandeordningen (de flesta stackar för HTTP-klienten hanterar det automatiskt). Kodaren måste vänta på att tjänsten ska returnera den sista svarskoden och avslutar anslutningen. 
+1. Kodaren måste inte använda den `Events()` substantiv enligt beskrivningen i 9.2 in [1] för live-inmatning till Media Services.
+1. Om HTTP POST-begäran avslutas eller tidsgränsen uppnås med en TCP-fel före slutet av strömmen, måste kodaren skicka en ny POST-begäran med hjälp av en ny anslutning och följ föregående kraven. Kodaren måste dessutom skicka om de föregående två MP4-fragment för varje spår i strömmen och återuppta utan introduktion till en avvikelse i media-tidslinje. Skicka om de två sista MP4-fragment för varje spår säkerställer att det finns inga data går förlorade. Med andra ord, om en dataström som innehåller både en ljud och video reda och aktuell POST-begäran misslyckas, måste kodaren återansluta och skicka om de två sista fragment för ljudspår, som tidigare har skickats, och de två sista fragment för videon spåra, som tidigare har skickats, så att det finns inga data går förlorade. Kodaren måste ha en ”vidarebefordra” buffert för media fragment som innehållsuppsättning när anslutningen upprättas.
 
-## <a name="5-timescale"></a>5. tidsrymd
-[[MS-SSTR] ](https://msdn.microsoft.com/library/ff469518.aspx) beskriver användningen av tidsrymd för **SmoothStreamingMedia** (avsnittet 2.2.2.1) **StreamElement** (avsnittet 2.2.2.3) **StreamFragmentElement** () Avsnittet 2.2.2.6) och **LiveSMIL** (punkt 2.2.7.3.1). Om tidsrymd värdet inte finns, är används standardvärdet 10 000 000 (10 MHz). Även om formatspecifikationen Smooth Streaming inte blockerar användningen av andra tidsrymd värden, de flesta implementeringar av encoder använda denna standardinställning värde (10 MHz) för att generera Smooth Streaming mata in data. På grund av att den [Azure Media dynamisk paketering](media-services-dynamic-packaging-overview.md) funktion, rekommenderar vi att du använder en 90-KHz tidsrymd för videoströmmar och 44,1 eller 48.1 KHz för ljudströmmar. Om du använder olika tidsrymd värden för olika dataströmmar, måste dataström-nivå tidsrymd skickas. Mer information finns i [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
+## <a name="5-timescale"></a>5. tidsskalan
+[[MS-SSTR] ](https://msdn.microsoft.com/library/ff469518.aspx) beskriver användningen av tidsram för **SmoothStreamingMedia** (avsnittet 2.2.2.1), **StreamElement** (avsnittet 2.2.2.3), **StreamFragmentElement** () Avsnittet 2.2.2.6), och **LiveSMIL** (punkt 2.2.7.3.1). Om värdet för tidsskalan inte är tillgänglig, är standardvärdet används 10 000 000 (10 MHz). Även om formatspecifikationen Smooth Streaming inte blockerar användningen av andra tidsskalan värden, de flesta implementeringar av kodare använda denna standardinställning värde (10 MHz) för att generera Smooth Streaming mata in data. På grund av den [dynamisk paketering för Azure Media](media-services-dynamic-packaging-overview.md) funktion, rekommenderar vi att du använder en 90-KHz tid för video strömmar och 44,1 eller 48.1 KHz för ljudströmmar. Om du använder olika tidsskalan värden för olika dataströmmar, måste stream på servernivå tidsskalan skickas. Mer information finns i [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
 
-## <a name="6-definition-of-stream"></a>6. Definitionen för ”dataströmmen”
-Dataströmmen är den grundläggande enheten av åtgärden i live införandet för att skapa direktsända presentationer hantering strömmande växling vid fel och redundans scenarier. Dataströmmen har definierats som en unik, fragmenterad MP4-bitstream som kan innehålla en enda spåra eller flera band. En fullständig presentation kan innehålla en eller flera strömmar, beroende på konfigurationen av direktsänd kodare. Följande exempel visar olika alternativ för att använda dataströmmar för att skapa en fullständig presentation.
+## <a name="6-definition-of-stream"></a>6. Definitionen av ”stream”
+Stream är den grundläggande körningsenheten på åtgärden i live-inmatning för att skapa presentationer, hantering av strömmande redundans och scenarier för redundans. Stream har definierats som en unik, fragmenterad MP4-bitstream som kan innehålla ett enda spår eller flera band. En fullständig direktpresentation kan innehålla en eller flera strömmar, beroende på konfigurationen av livekodare. I följande exempel visas olika alternativ för att använda strömmar till att skapa en fullständig direktpresentation.
 
 **Exempel:** 
 
-En kund vill skapa en direktsänd strömning presentation som innehåller följande ljud/video bithastighet:
+En kund vill skapa en live direktuppspelning presentation som innehåller följande ljud/video olika bithastigheter:
 
-Video – 3000 kbit/s, 1500 kbit/s, 750 kbit/s
+Video – 3000 kbit/s, 1 500 kbit/s, 750 kbit/s
 
 Ljud – 128 kbit/s
 
-### <a name="option-1-all-tracks-in-one-stream"></a>Alternativ 1: Alla spår i en dataström
-I det här alternativet, en enda kodare genererar alla ljud/video spår och paketerar dem till en fragmenterad MP4-bitstream. Fragmenterad MP4-bitstream skickas via en HTTP POST-anslutning. I det här exemplet finns bara en dataström för live presentationen.
+### <a name="option-1-all-tracks-in-one-stream"></a>Alternativ 1: Alla spår i en ström
+I det här alternativet kan en enda encoder genererar alla ljud/video spår och paketerar dem i en fragmenterad MP4-bitstream. Fragmenterad MP4-bitstream skickas via en enkel HTTP POST-anslutning. I det här exemplet har endast en ström för den här direktsändningen.
 
-![Dataströmmar-ett spåra][image2]
+![Strömmar-ett spår][image2]
 
 ### <a name="option-2-each-track-in-a-separate-stream"></a>Alternativ 2: Varje spår i en separat ström
-I det här alternativet kodaren placerar en spårning i varje fragment MP4-bitstream och publicerar alla strömmar över separat HTTP-anslutningar. Detta kan göras med en kodare eller flera kodare. Live införandet ser live presentationen som består av fyra dataströmmar.
+I det här alternativet kodaren placerar ett spår i varje fragment MP4-bitstream och publicerar alla strömmar över separat HTTP-anslutningar. Detta kan göras med en kodare eller med flera kodare. Live-inmatning ser den här direktsändningen som består av fyra strömmar.
 
-![Dataströmmar separat spår][image3]
+![Strömmar separat spår][image3]
 
-### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>Alternativ 3: Paketera ljud spåra med lägsta bithastighet video spåret till en dataström
-I det här alternativet väljer kunden att paketera ljud spåra med lägsta bithastighet video spår i en fragment MP4 bitstream och lämna de andra två video spår som separata dataströmmar. 
+### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>Alternativ 3: Samlings ljudspår med bithastighet lägsta video spåret till en ström
+Det här alternativet kan väljer kunden du paketerar ljudspår med lägsta bithastigheter video spår i ett fragment MP4 bitstream och lämna de andra två video spår som separata strömmar. 
 
-![Spårar dataströmmar ljud och video][image4]
+![Strömmar ljud och video spår][image4]
 
 ### <a name="summary"></a>Sammanfattning
-Detta är inte en fullständig förteckning över alla möjliga införandet alternativ för det här exemplet. Som ett faktiskt stöds grupperingen spår i dataströmmar av live införandet. Kunder och kodare leverantörer kan välja sina egna implementeringar baserat på engineering komplexitet, kodare kapacitet och redundans och överväganden för växling vid fel. I de flesta fall är det dock bara en ljud spåra för hela live presentationen. Därför är det viktigt att säkerställa infognings-dataström som innehåller ljud spåra hälsa. Den här beräkningen ofta resulterar i att placera ljud spåra i sin egen dataström (som alternativ 2) eller paketering med lägsta bithastighet video spår (som alternativ 3). Dessutom för bättre redundans och feltolerans skicka samma ljud spår i två olika dataströmmar (alternativ 2 med redundant ljud spår) eller paketering ljud spåra med minst två av video spårar lägsta bithastighet (alternativ 3 med ljud paketerade i minst två videoströmmar) rekommenderas för Direktmigrering mata in i Media Services.
+Detta är inte en uttömmande förteckning över alla möjliga inmatning alternativ för det här exemplet. Så det är faktiskt, stöds någon gruppering av spår till byteströmmar av live-inmatning. Kunder och leverantörer encoder kan välja sina egna implementeringar baserat på tekniska komplexiteten, encoder kapacitet och redundans och tänka på vid. I de flesta fall är det dock endast ett ljudspår för hela live-presentationen. Därför är det viktigt att säkerställa att dataströmmen inmatning som innehåller ljudspåret hälsa. Den här beräkningen ofta ger placera ljudspåret i sin egen stream (som i alternativ 2) eller paketera med lägsta bithastigheter video banan (som alternativ 3). Dessutom för bättre dataredundans och feltolerans, skicka samma ljudspåret i två olika dataströmmar (alternativ 2 med redundant ljudspår) eller paketera ljudspår med minst två av lägsta bithastigheter video spår (alternativ 3 med ljud paketeras i minst två video strömmar) rekommenderas starkt live för inmatning i Media Services.
 
-## <a name="7-service-failover"></a>7. -Redundans
-Hänsyn till direktsänd strömning, är stöd för bra redundans viktigt för att säkerställa tillgängligheten för tjänsten. Media Services har utformats för att hantera olika typer av fel, inklusive nätverksfel, fel och problem med lagring. När den används tillsammans med rätt redundanslogiken från livekodaren sida, kan kunder uppnå en hög tillförlitlig tjänst för liveströmning från molnet.
+## <a name="7-service-failover"></a>7. Tjänstredundans
+Den angivna natur direktsänd strömning, är bra redundansstöd viktiga för att säkerställa tillgängligheten för tjänsten. Media Services är utformad för att hantera olika typer av fel, inklusive nätverksfel, fel och problem med lagring. När detta används tillsammans med rätt redundanslogiken från live-kodare sida kan kan kunderna nå en mycket pålitlig liveuppspelningstjänst från molnet.
 
-I det här avsnittet diskuterar vi tjänsten redundanssituationer. I det här fallet felet sker någonstans i tjänsten och den visar sig som ett nätverksfel. Här följer några rekommendationer för kodare implementeringen för att hantera redundans för tjänsten:
+I det här avsnittet diskuterar vi redundansscenarier för tjänsten. I det här fallet felet inträffar någonstans i tjänsten och det visar sig som ett nätverksfel. Här följer några rekommendationer för kodare implementeringen för hantering av tjänstredundans:
 
-1. Använd en 10 sekunder timeout för TCP-anslutningen upprättas. Om ett försök att upprätta anslutningen tar längre än 10 sekunder, avbryta åtgärden och försök igen. 
-2. Använd en kort tidsgräns för att skicka meddelandet segment för HTTP-begäran. Om mål MP4 fragment varaktighet N sekunder Använd en skicka-timeout mellan N och 2 N: e sekund. till exempel om MP4 fragment varaktighet 6 sekunder, använda en tidsgräns på 6 och 12 sekunder. Om en timeout uppstår, återställa anslutningen, öppna en ny anslutning och återgå till dataströmmen mata in på den nya anslutningen. 
-3. Underhålla en rullande buffert som har två sista fragment för varje spår som har och helt skickades till tjänsten.  Om HTTP POST-begäran för en dataström avslutas eller timeout före slutet på dataströmmen öppna en ny anslutning och börjar en annan HTTP POST-begäran, skicka dataströmmen huvuden, skicka de senaste två fragment för varje spår och återuppta dataströmmen utan att en d iscontinuity i tidslinjen media. Detta minskar risken för dataförluster.
-4. Vi rekommenderar att kodaren inte begränsar antalet försök att upprätta en anslutning eller återuppta strömning efter ett TCP-fel har inträffat.
-5. Efter ett TCP-fel:
+1. Använd en 10 sekunder timeout för TCP-anslutningen upprättas. Om ett försök att upprätta anslutningen tar längre tid än tio sekunder, avbryta åtgärden och försök igen. 
+1. Använd en kort timeout för att skicka HTTP-begäran meddelande segment. Om målet MP4 fragment varaktighet är N sekunder Använd en timeout för sändning mellan N och 2 N sekunder. till exempel om hela MP4 fragment är 6 sekunder, använda en tidsgräns på 6 och 12 sekunder. Om en timeout inträffar, Återställ anslutningen, öppnar en ny anslutning och återuppta stream mata in på den nya anslutningen. 
+1. Underhålla en löpande buffert som har de två sista fragment för varje spår som har och helt skickades till tjänsten.  Om HTTP POST-begäran för en dataström avslutas eller tidsgränsen uppnås före slutet på strömmen, öppnar en ny anslutning och börjar en annan HTTP POST-begäran, skicka om stream-rubriker, skicka om de två sista fragment för varje spår och återuppta dataströmmen utan att en d iscontinuity media-tidslinje. Detta minskar risken för dataförlust.
+1. Vi rekommenderar att kodaren inte begränsar antalet försök att upprätta en anslutning eller återuppta strömning efter ett TCP-fel uppstår.
+1. När du har en TCP-fel:
   
-    a. Den aktuella anslutningen måste stängas och en ny anslutning måste skapas för en ny HTTP POST-begäran.
+    a. Den aktuella anslutningen avslutas och en ny anslutning måste skapas för en ny HTTP POST-begäran.
 
-    b. Den nya HTTP POST URL måste vara samma som den första POST-URL.
+    b. Den nya HTTP POST-URL måste vara samma som den första POST-URL.
   
-    c. Den nya HTTP POST inkludera dataströmmen huvuden (**ftyp**, **Live Manifest serverrutan**, och **moov** rutor) som är identiska med stream-huvudena i första POST.
+    c. Den nya måste för HTTP POST inkludera stream rubriker (**ftyp**, **Live Server Manifest Box**, och **moov** rutorna) som är identiska till stream-rubriker i det första INLÄGGET.
   
-    d. De två sista fragment skickas för varje spår skickas och strömning måste fortsätta utan att en avvikelse i tidslinjen för media. MP4 fragment tidsstämplar öka kontinuerligt, även över HTTP POST-förfrågningar.
-6. Kodaren ska avsluta HTTP POST-begäran om data inte skickas med en hastighet som motsvarar MP4 fragment varaktighet.  En HTTP POST-begäran som inte skickar data kan förhindra Media Services snabbt kopplar från kodaren vid en tjänstuppdatering. Därför HTTP POST för sparse (ad signal) spårar bör vara kortvarigt och avslutar som sparse fragment skickas.
+    d. De två sista fragment skickas för varje spår skickas och direktuppspelning måste fortsätta utan introduktion till en avvikelse i media-tidslinje. MP4 fragment tidsstämplar måste öka kontinuerligt, även över HTTP POST-förfrågningar.
+1. Kodaren ska avsluta HTTP POST-begäran om data inte skickas till en kostnad som proportion till MP4 fragment varaktighet.  En HTTP POST-begäran som inte skickar data kan förhindra att Media Services snabbt kopplar från kodaren i händelse av en tjänstuppdatering. Därför HTTP-POST för null-optimerade (ad signal) spårar bör vara kortvarigt och avslutar så snart det null-optimerade fragmentet skickas.
 
-## <a name="8-encoder-failover"></a>8. kodaren växling vid fel
-Kodaren redundans är den andra typen av failover-scenariot som måste åtgärdas för slutpunkt till slutpunkt live strömmande leverans. Felet inträffar på kodare sida i det här scenariot. 
+## <a name="8-encoder-failover"></a>8. Kodaren redundans
+Kodaren redundans är den andra typen av redundansscenario som måste åtgärdas för slutpunkt till slutpunkt live strömmande leverans. I det här scenariot inträffar feltillstånd på encoder-sida. 
 
-![kodaren växling vid fel][image5]
+![kodaren redundans][image5]
 
-Följande förväntningar gäller från slutpunkten live införandet när kodaren redundans inträffar:
+Följande förväntningar gäller från slutpunkten för live inmatning när encoder redundans inträffar:
 
-1. En ny instans av kodaren ska skapas om du vill fortsätta direktuppspelning, enligt beskrivningen i diagrammet (dataströmmen för 3000k video med streckad linje).
-2. Nya kodaren måste använda samma URL för HTTP POST-begäranden som misslyckats instans.
-3. Nya kodaren POST-begäran måste innehålla samma fragmenterad MP4-huvud rutorna instans som misslyckats.
-4. Nya kodaren måste synkroniseras korrekt med alla andra körs kodare för samma live presentation att generera synkroniserade ljud/video prover med justerade fragment gränser.
-5. Nya dataströmmen måste vara samma sak med föregående dataströmmen och utbytbara på rubriken och fragment.
-6. Nya kodaren bör försöka minimera dataförlust. Den `fragment_absolute_time` och `fragment_index` av media fragment bör öka från den punkt där kodaren senast avbröts. Den `fragment_absolute_time` och `fragment_index` bör öka i ett kontinuerligt sätt, men det är tillåtet att införa en avvikelse om det behövs. Media Services ignorerar fragment som den redan har tagit emot och bearbetas, så är det bättre att ta till en viss skicka fragment än att införa avbrott i tidslinjen media. 
+1. En ny encoder-instans ska skapas om du vill fortsätta streaming, vilket visas i diagrammet (Stream för 3000k video med streckad linje).
+1. Den nya encoder måste använda samma URL: en för HTTP POST-begäran som den felaktiga instansen.
+1. Den nya encoder POST-begäran måste innehålla samma fragmenterad MP4-huvud rutorna som den felaktiga instansen.
+1. Den nya encoder måste synkroniseras korrekt med alla andra pågående kodare för samma direktpresentation att generera synkroniserade ljud/video-exempel med justerade fragment gränser.
+1. Ny dataströmmen måste vara samma sak med föregående stream och utbytbara på rubriken och fragment.
+1. Den nya encoder bör försöka minimera dataförlust. Den `fragment_absolute_time` och `fragment_index` av media fragment bör öka från den punkt där kodaren senast stoppad. Den `fragment_absolute_time` och `fragment_index` bör öka i ett kontinuerligt sätt, men det är möjligt att introducera ett avbrott, om det behövs. Media Services ignorerar fragment som den redan har tagit emot och bearbetas, så är det bättre att ta till en viss skickas igen fragment än att introducera avbrott på tidslinjen för media. 
 
-## <a name="9-encoder-redundancy"></a>9. kodaren redundans
-För vissa viktiga live-händelser att begäran ännu högre tillgänglighet och kvalitet rekommenderar vi att du gör aktiv / aktiv-kodare för sömlös redundans utan att förlora data.
+## <a name="9-encoder-redundancy"></a>9. Kodaren redundans
+För vissa viktiga live-händelser som kräver ännu högre tillgänglighet och kvalitet rekommenderar vi att du använder redundanta aktiv-aktiv-kodare för problemfri sömlös redundans utan att förlora data.
 
 ![kodaren redundans][image6]
 
-Enligt beskrivningen i det här diagrammet push två grupper av kodare två kopior av varje dataström samtidigt i live-tjänsten. Den här inställningen stöds eftersom Media Services kan filtrera ut dubbla fragment baserat på dataström-ID och fragment tidsstämpel. Resulterande direktsänd dataström och arkivera är en enda kopia av alla dataströmmar som är den bästa möjliga aggregeringen från två källor. Till exempel i hypotetiska extrema fall så länge det finns en kodare (det inte behöver vara samma) körs vid en viss tidpunkt för varje ström, den resulterande direktsända dataströmmen från tjänsten är kontinuerligt utan dataförlust. 
+Enligt beskrivningen i det här diagrammet, skicka två grupper av kodare två kopior av varje dataström samtidigt till live-tjänsten. Den här konfigurationen stöds eftersom Media Services kan filtrera bort duplicerade fragment baserat på stream-ID och i fragmentbegäran tidsstämpel. Resulterande direktsänd ström och arkivlagring är en enda kopia av alla dataströmmar som är den bästa möjliga sammansättning från två källor. Till exempel i hypotetisk extrema fall så länge det finns en kodare (det inte behöver vara samma konto) som körs vid en given tidpunkt för varje dataström resulterande live stream från tjänsten är kontinuerligt utan dataförlust. 
 
-Kraven för det här scenariot är nästan desamma som kraven i ”kodare redundans” fallet, med undantaget att den andra uppsättningen kodare körs vid samma tillfälle som de primära kodare.
+Kraven för det här scenariot är nästan samma sätt kraven i ”Encoder redundans” fall med undantag som den andra uppsättningen av kodare körs samtidigt som de primära kodarna.
 
-## <a name="10-service-redundancy"></a>10. tjänsten redundans
-För hög redundant global distributionsplatsen måste ibland du ha mellan region säkerhetskopiering ska hantera regionala katastrofer. Expandera ”kodare redundans”-topologi kan kunder välja att en redundant tjänstdistribution i en annan region som är kopplad till den andra uppsättningen kodare. Kunder kan arbeta med en innehållsleveransnätverk provider för att distribuera en Global Traffic Manager framför de två distributionerna för att skicka sömlöst klienttrafik. Kraven för kodare är samma som ”kodare redundans”. Det enda undantaget är att den andra uppsättningen kodare måste vara pekar på en annan live infognings-slutpunkten. Följande diagram visar den här installationen:
+## <a name="10-service-redundancy"></a>10. Tjänstredundans
+För mycket redundant global distribution, måste ibland du ha interregionala säkerhetskopiering för att hantera regionala katastrofer. Som ett led i ”Encoder redundans”-topologi, kan kunderna välja att ha en redundant tjänstdistribution i en annan region som är kopplad till den andra uppsättningen av kodare. Kunder kan också arbeta med en Content Delivery Network-provider för att distribuera en Global Traffic Manager framför distributionerna av två tjänster för att dirigera sömlöst klienttrafik. Kraven för för kodarna som är samma som ”Encoder redundans”. Det enda undantaget är att den andra uppsättningen av kodare måste vara pekar på en annan live mata in slutpunkt. Följande diagram visar den här konfigurationen:
 
-![tjänsten redundans][image7]
+![tjänstredundans][image7]
 
-## <a name="11-special-types-of-ingestion-formats"></a>11. Särskilda typer av införandet format
-Det här avsnittet beskriver särskilda typer av live införandet som utformats för att hantera specifika scenarier.
+## <a name="11-special-types-of-ingestion-formats"></a>11. Särskilda typer av inmatning format
+Det här avsnittet beskriver särskilda typer av live-inmatning format som är utformade för att hantera specifika scenarier.
 
-### <a name="sparse-track"></a>Sparse spåra
-När en presentation direktsänd strömning med en rich-klient-upplevelse, ofta det är nödvändigt att överföra tid-synkroniserade händelser eller signalerar band med huvudsakliga media-data. Ett exempel på detta är dynamiska live ad infogning. Den här typen av händelse-signalering skiljer sig från vanlig ljud/video streaming sin sparse natur. Med andra ord signaling data sker vanligtvis inte kontinuerligt och intervallet kan vara svårt att förutse. Begreppet sparse spåra har utformats för att mata in och broadcast signaling i band-data.
+### <a name="sparse-track"></a>Null-optimerade spåra
+När du levererar direktuppspelning direktpresentation en rich-klient-upplevelse, ofta det krävs för att överföra tid-synkroniserade händelser eller signalerar till band med de viktigaste media-data. Ett exempel på detta är dynamiska live ad-insättning. Den här typen av händelse signalering skiljer sig från vanlig ljud/video på grund av sin natur som null-optimerade för direktuppspelning. Med andra ord signaling data sker vanligtvis inte kontinuerligt och intervallet kan vara svårt att förutse. Begreppet sparse spåra har utformats för att mata in och skicka in-band-signaling data.
 
-Följande är en rekommenderad implementering för att föra in sparse spåra:
+Följande är en rekommenderad implementering för att föra in sparse track:
 
 1. Skapa en separat fragmenterad MP4-bitstream som innehåller endast sparse spårar utan ljud/video spår.
-2. I den **Live Manifest serverrutan** som definieras i avsnitt 6 i [1], använda den *parentTrackName* parametern för att ange namnet på det överordnade spåret. Mer information finns i avsnittet 4.2.1.2.1.2 i [1].
-3. I den **Live Manifest serverrutan**, **manifestOutput** måste anges till **SANT**.
-4. Eftersom sparse signaling händelsen, rekommenderar vi följande:
+1. I den **Live Server Manifest Box** enligt definitionen i avsnitt 6 i [1], använda den *parentTrackName* parametern för att ange namnet på den överordnade kursen. Mer information finns i avsnitt 4.2.1.2.1.2 i [1].
+1. I den **Live Server Manifest Box**, **manifestOutput** måste anges till **SANT**.
+1. Den null-optimerade naturen för händelsen signaling, rekommenderar vi följande:
    
-    a. I början av direktsänd händelse skickar kodaren rutorna första huvud tjänsten, vilket gör att tjänsten för att registrera sparse spåra i manifestet för klienten.
+    a. I början av direktsändningen skickar kodaren rutorna inledande rubriken till tjänsten, som kan registrera den null-optimerade kursen i klient-manifest-tjänsten.
    
-    b. Kodaren ska upphöra HTTP POST-begäran om data inte skickas. En tidskrävande HTTP POST som inte skickar data kan förhindra Media Services snabbt kopplar från kodaren vid service update eller server startas om. I dessa fall har mediaserver blockerats tillfälligt i en receive-åtgärd på socketen.
+    b. Kodaren ska upphöra HTTP POST-begäran om data inte skickas. En tidskrävande HTTP POST som inte skickar data kan förhindra att Media Services snabbt kopplar från kodaren i händelse av service update eller server startas om. I dessa fall kan blockeras temporärt mediaserver i en receive-åtgärd på socket.
    
-    c. Under den tid när signaling data inte är tillgänglig, kodaren SHOULD Stäng HTTP POST för begäran. När POST-begäran är aktiv ska kodaren skicka data.
+    c. Under den tid då signaling data inte är tillgänglig, kodaren SHOULD Stäng HTTP POST för begäran. POST-begäran är aktiv, ska vilken kodare som skicka data.
 
     d. När du skickar sparse fragment kan kodaren ange ett explicit content-length-huvud, om den är tillgänglig.
 
-    e. När du skickar sparse fragment med en ny anslutning ska kodaren börja skicka i rutorna sidhuvud, följt av de nya fragment. Detta är i de fall där växling sker mellan och den nya sparse-anslutningen upprättas till en ny server som inte har visas sparse spåra innan.
+    e. När du skickar sparse fragment med en ny anslutning ska kodaren börja skicka från rutorna rubrik, följt av de nya fragment. Det här är i de fall som redundans inträffar däremellan, och nya sparse anslutningen upprättas till en ny server som inte påträffats sparse spåra innan.
 
-    f. Sparse spåra fragment blir tillgängliga för klienten när motsvarande överordnade spåra-fragment som har ett lika mycket eller större tidsstämpelvärde görs tillgänglig för klienten. Till exempel om sparse fragment har en tidsstämpel för t = 1000, förväntas som när klienten ser ”video” (förutsatt att namnet på överordnade spåra är ”video”) Fragmentera tidsstämpel 1000 eller senare, den kan hämta sparse fragment-t = 1000. Observera att den faktiska signalen kunde användas för en annan plats i en presentation tidslinje för den avsedda syften. I det här exemplet är det möjligt som sparse fragment av t = 1000 har en nyttolast för XML, vilket är för att infoga en annons i ett läge som ett par sekunder senare.
+    f. Null-optimerade spåra fragment blir tillgängliga för klienten när motsvarande överordnade track-fragment som har en lika stor eller större tidsstämpelvärde görs tillgänglig för klienten. Till exempel om null-optimerade fragment har en tidsstämpel för t = 1000, förväntas som när klienten ser ”video” (förutsatt att dess överordnade namn är ”video”) Fragmentera tidsstämpel 1000 eller senare, den kan hämta sparse fragment t = 1000. Observera att den faktiska signalen kan användas för en annan plats i presentationen tidslinjen för sitt avsedda ändamål. I det här exemplet är det möjligt som null-optimerade fragment av t = 1000 har en nyttolast för XML, vilket är för att infoga en annons i ett läge som är ett par sekunder senare.
 
-    g. Nyttolasten för sparse spåra fragment kan finnas i olika format (till exempel XML, text eller binär), beroende på scenario.
+    g. Nyttolasten för null-optimerade spåra fragment kan finnas i olika format (till exempel XML, text eller binär), beroende på scenario.
 
-### <a name="redundant-audio-track"></a>Redundant ljud spåra
-I ett typiskt HTTP anpassningsbar strömning scenario (till exempel Smooth Streaming eller TANKSTRECK), ofta finns bara ett ljud spår i hela presentationen. Till skillnad från video spår som har flera olika för klienten i felvillkor välja kan ljud spåra vara en enskild felpunkt om införandet av strömmen som innehåller ljud spåra har brutits. 
+### <a name="redundant-audio-track"></a>Redundant ljudspår
+I en typisk HTTP anpassningsbar direktuppspelningsredundans (till exempel Smooth Streaming eller DASH), ofta finns bara ett ljudspår i hela presentationen. Till skillnad från video spår, som har flera servicenivåer för klienten att välja bland i felvillkor kan ljudspåret vara en enskild felpunkt om inmatning av strömmen som innehåller ljudspåret är bruten. 
 
-Media Services stöder live införandet av redundanta ljud spår för att lösa problemet. Tanken är att samma ljud spår kan skickas flera gånger i olika dataströmmar. Även om tjänsten registrerar endast ljud spåra en gång i manifestet för klienten, kan den använda redundant ljud spår som reserver för att hämta ljud fragment om det primära ljud spåret har problem. För att mata in redundant ljud spårar kodaren måste:
+Lös problemet, stöder Media Services live inmatning av redundanta ljudspår. Tanken är att samma ljudspåret kan skickas som flera gånger i olika dataströmmar. Även om tjänsten registrerar endast ljudspåret en gång i manifestet klienten, kan den använda redundanta ljudspår som säkerhetskopieringar för att hämta ljud fragment om det primära ljudspåret har problem med. För att mata in redundant ljudspår kodaren måste:
 
-1. Skapa samma ljud spår i flera fragment MP4 bitstreams. Redundant ljud spårar måste vara samma sak med samma fragment tidsstämplar och vara utbytbara på rubriken och fragment.
-2. Kontrollera att posten ”ljud” i den Live Server Manifest (avsnittet 6 i [1]) är detsamma för alla redundant ljud spår.
+1. Skapa samma ljudspåret i flera fragment MP4 bitstreams. Redundant ljudspår måste vara samma sak med samma fragment tidsstämplarna och vara utbytbara på rubriken och fragment.
+1. Kontrollera att posten ”ljud” i den Live Server Manifest (avsnitt 6 i [1]) är detsamma för alla redundant ljudspår.
 
-Följande implementeringen rekommenderas för redundant ljud spårar:
+Följande implementering rekommenderas för redundant ljudspår:
 
-1. Skicka varje unik ljud spår i en dataström med sig själv. Dessutom skicka en redundant dataström för var och en av dessa ljud spåra strömmar, där andra dataströmmen skiljer sig från först endast av identifieraren i HTTP POST-URL: {protokollet} :// {server address} / {publicera punkt path}/Streams({identifier}).
-2. Använda separata dataströmmar för att skicka två lägsta video bithastighet. Var och en av dessa strömmar måste även innehålla en kopia av varje unik ljud spår. När flera språk stöds ska dessa strömmar innehålla ljud spår för varje språk.
-3. Använda separata serverinstanser (kodare) för att koda och skicka redundant strömmar som nämns i (1) och (2). 
+1. Skicka varje unik ljudspår i en ström med sig själv. Dessutom skicka en redundant ström för var och en av dessa ljudspår strömmar, där andra dataströmmen skiljer sig från först bara av ID i HTTP POST-URL: {protokollet} :// {serveradress} / {publicera punkt path}/Streams({identifier}).
+1. Använda separata strömmar för att skicka två lägsta video bithastighet. Var och en av dessa strömmar bör också innehålla en kopia av varje unikt ljudspår. När flera språk stöds ska dessa strömmar innehålla ljudspår för varje språk.
+1. Använda separata serverinstanser (kodare) för att koda och skicka redundant ström nämns i (1) och (2). 
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

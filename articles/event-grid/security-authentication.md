@@ -1,6 +1,6 @@
 ---
-title: Azure händelse rutnätet säkerhet och autentisering
-description: Beskriver Azure händelse rutnätet och dess begrepp.
+title: Azure Event Grid säkerhet och autentisering
+description: Beskriver Azure Event Grid och dess begrepp.
 services: event-grid
 author: banisadr
 manager: timlt
@@ -8,36 +8,49 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 783766c3e12da2c6fd77f919cf0ec44aea7db3b7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: d2bc0d8f78e6fe0806afb3208c88df28b8cce1f9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39460242"
 ---
-# <a name="event-grid-security-and-authentication"></a>Händelsen rutnätet säkerhet och autentisering 
+# <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
 
-Azure händelse rutnätet har tre typer av autentisering:
+Azure Event Grid har tre typer av autentisering:
 
 * Prenumerationer på händelser
 * Publicering av händelser
-* WebHook händelse leverans
+* WebHook-händelseleverans
 
-## <a name="webhook-event-delivery"></a>WebHook-händelse leverans
+## <a name="webhook-event-delivery"></a>WebHook-händelseleverans
 
-Webhooks är en av många olika sätt att ta emot händelser från Azure Event rutnät. När en ny händelse är klar, skickar händelse rutnätet Webhooken en HTTP-begäran till konfigurerade HTTP-slutpunkten med händelsen i brödtexten.
+Webhooks är en av de många sätt att ta emot händelser från Azure Event Grid. När en ny händelse är klar skickar EventGrid-tjänsten en HTTP-begäran till den konfigurera slutpunkten med händelsen i begärandetexten.
 
-När du registrerar WebHook slutpunkten med händelsen rutnät skickar den en POST-begäran med en enkel verifieringskoden att bevisa ägarskapet för slutpunkten. Din app behöver svara genom eko tillbaka verifieringskoden. Händelsen rutnätet leverera inte händelser till WebHook-slutpunkter som inte har gått verifieringen. Om du använder en tredjeparts-API-tjänsten (t.ex. [Zapier](https://zapier.com) eller [IFTTT](https://ifttt.com/)), kan du inte kunna programmässigt echo verifieringskoden. Du kan manuellt verifiera prenumerationen med hjälp av en verifiering URL som skickas i händelsen prenumeration verifiering för dessa tjänster. Kopiera Webbadressen och skickar en GET-begäran via ett REST-klient eller webbläsaren.
+Liksom många andra tjänster som stöder webhooks måste EventGrid du bevisa ”ägare” till Webhook-slutpunkt innan den startar leverera händelser till denna slutpunkt. Det här kravet är att förhindra att en godtrogna slutpunkt blir slutpunkten för händelseleverans från EventGrid mål. Men när du använder någon av de tre Azure-tjänster som anges nedan, hanterar Azure-infrastrukturen automatiskt den här verifieringen:
 
-Det är manuell verifiering i förhandsgranskningen. Om du vill använda den, måste du installera den [händelse rutnätet tillägget](/cli/azure/azure-cli-extensions-list) för [AZ CLI 2.0](/cli/azure/install-azure-cli). Du kan installera den med `az extension add --name eventgrid`. Om du använder REST-API, se till att du använder `api-version=2018-05-01-preview`.
+* Azure Logic Apps
+* Azure Automation
+* Azure Functions för EventGrid-utlösare.
 
-### <a name="validation-details"></a>Valideringsinformation
+Om du använder någon annan typ av slutpunkt, t.ex. en HTTP-utlösare baserade Azure-funktion, måste din slutpunkt kod att delta i en verifiering handskakning med EventGrid. EventGrid stöder två olika verifiering handskakning modeller:
 
-* Vid tidpunkten för händelsen prenumeration skapa/uppdatera bokför händelse rutnätet en ”SubscriptionValidationEvent”-händelse till mål-slutpunkten.
-* Innehåller ett huvudvärde ”Aeg Händelsetyp: SubscriptionValidation”.
-* Händelsemeddelandet innehåller samma schema som andra händelser med händelse rutnätet.
-* Händelsedata som innehåller egenskapen ”validationCode” med en slumpmässigt genererad sträng. Till exempel ”validationCode: acb13...”.
-* Händelsedata som inkluderar en ”validationUrl”-egenskap med en URL för manuellt verifiera prenumerationen.
-* Matrisen innehåller validering händelsen. Andra händelser skickas i en separat begäran när du tillbaka echo verifieringskoden.
+1. ValidationCode baserat handskakning: vid tidpunkten för händelsen prenumeration har skapats, EventGrid publicerar en ”prenumeration verifiering händelse” till slutpunkten. Schemat för den här händelsen är ungefär som andra EventGridEvent och datamängden i den här händelsen innehåller en ”validationCode”-egenskap. När ditt program har verifierat att begäran om verifiering är för en förväntad händelse-prenumeration, måste din programkod ska svara på eko tillbaka verifieringskoden till EventGrid. Den här mekanismen för handskakning stöds i alla EventGrid-versioner.
+
+2. ValidationURL baserat handskakning (manuell handskakning): I vissa fall kan du kanske inte har kontroll över källkoden för slutpunkten för att kunna implementera ValidationCode baserat-handskakningen. Exempel: Om du använder en tjänst från tredje part (t.ex. [Zapier](https://zapier.com) eller [IFTTT](https://ifttt.com/)), kan du inte kunna programmässigt svarar med verifieringskoden. Därför stöder från och med versionen 2018-05-01-preview, EventGrid nu en manuell verifiering-handskakning. Om du skapar en händelseprenumeration med hjälp av SDK/verktyg som använder den här nya API-versionen (2018-05-01-preview), EventGrid skickar en ”validationUrl”-egenskap (utöver egenskapen ”validationCode”) som en del av datamängden i valideringen av prenumeration händelsen. För att slutföra handskakningen bara en hämtning begära på URL: en, antingen via en REST-klient eller med hjälp av webbläsaren. Den angivna validationUrl är endast giltig för ungefär 10 minuter, så om du inte slutföra manuell verifiering inom den här tiden, provisioningState händelseprenumerationen övergår till ”misslyckades” och du behöver ett nytt försök att skapa händelsen prenumerationen innan du försöker utföra manuell verifiering igen.
+
+Den här mekanismen för manuell validering är i förhandsversion. Om du vill använda den måste du installera [Event Grid-tillägget](/cli/azure/azure-cli-extensions-list) för [AZ CLI 2.0](/cli/azure/install-azure-cli). Du kan installera det med `az extension add --name eventgrid`. Om du använder REST API måste du använda `api-version=2018-05-01-preview`.
+
+### <a name="validation-details"></a>Verifieringsinformation
+
+* Vid tidpunkten för händelsen skapande/uppdatering av prenumeration publicerar Event Grid en händelse för verifiering av prenumerationen till mål-slutpunkten. 
+* Händelsen innehåller ett huvudvärde ”Aeg Händelsetyp: SubscriptionValidation”.
+* Händelsemeddelandet har samma schema som andra Event Grid-händelser.
+* Händelsetyp-egenskapen för händelsen är ”Microsoft.EventGrid.SubscriptionValidationEvent”.
+* Dataegenskapen för händelsen innehåller en ”validationCode”-egenskap med en slumpmässigt genererad sträng. Till exempel ”validationCode: acb13...”.
+* Om du använder API-versionen 2018-05-01-preview inkluderar händelsedata även en ”validationUrl”-egenskap med en URL för manuell verifiering av prenumerationen.
+* Matrisen innehåller endast händelsen verifiering. Andra händelser skickas i en separat begäran när du tillbaka echo verifieringskoden.
+* SDK: er för EventGrid dataplanen har klasser som motsvarar prenumerationen verifiering händelsedata och verifieringssvaret för prenumerationen.
 
 Ett exempel SubscriptionValidationEvent visas i följande exempel:
 
@@ -57,7 +70,7 @@ Ett exempel SubscriptionValidationEvent visas i följande exempel:
 }]
 ```
 
-För att bevisa endpoint ägarskap echo tillbaka i egenskapen validationResponse verifieringskoden som visas i följande exempel:
+För att bevisa ägarskapet för slutpunkten echo tillbaka verifieringskoden i egenskapen validationResponse som visas i följande exempel:
 
 ```json
 {
@@ -65,43 +78,54 @@ För att bevisa endpoint ägarskap echo tillbaka i egenskapen validationResponse
 }
 ```
 
-Eller så kan du manuellt verifiera prenumerationen genom att skicka en GET-begäran till URL: en för verifiering. Händelseprenumerationen förblir väntar tills verifieras.
+Du kan också manuellt verifiera prenumerationen genom att skicka en GET-begäran till URL: en för verifiering. Händelseprenumerationen kvar i ett väntande tillstånd tills verifieras.
+
+Du kan hitta C#-exempel som visar hur du hanterar prenumerationen verifiering handskakning vid https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs.
+
+### <a name="checklist"></a>Checklista
+
+När händelsen prenumeration skapas om du ser ett felmeddelande visas som ”försök att verifiera den angivna slutpunkten https://your-endpoint-here misslyckades. Mer information på https://aka.ms/esvalidation”, betyder det att det finns ett fel i valideringen-handskakningen. Lös felet genom att kontrollera följande aspekter:
+
+* Har du kontroll över programkoden i mål-slutpunkten? Till exempel om du skriver en HTTP-utlösare baserade Azure-funktion, har du åtkomst till programkod för att göra ändringar i den?
+* Om du har åtkomst till programkoden kan implementera ValidationCode baserat handskakning mekanism som visas i exemplet ovan.
+
+* Om du inte har åtkomst till programkoden (t.ex. Om du använder en tredjeparts-tjänst som stöder webhooks), du kan använda mekanismen för manuell handskakning. För att kunna göra detta, se till att du använder API-versionen 2018-05-01-preview (t.ex. med den EventGrid CLI-tillägg som beskrivs ovan) för att få validationUrl i händelsen verifiering. Hämta värdet för egenskapen ”validationUrl” och gå till URL: en i webbläsaren för att slutföra manuell verifiering-handskakningen. Om verifieringen lyckas, bör du se ett meddelande i din webbläsare att valideringen går bra och du ser att händelsen prenumerationens provisioningState är ”lyckades”. 
 
 ### <a name="event-delivery-security"></a>Säkerhet med händelser leverans
 
-Du kan skydda webhook-slutpunkten genom att lägga till frågeparametrar Webhooksadressen när du skapar en händelse-prenumeration. Ange en av parametrarna fråga ska vara en hemlighet som en [åtkomsttoken](https://en.wikipedia.org/wiki/Access_token) som webhooken kan använda för att identifiera händelsen kommer från händelsen rutnät med giltig behörighet. Händelsen rutnätet tas dessa Frågeparametrar i varje händelse leverans till webhooken.
+Du kan skydda din webhook-slutpunkt genom att lägga till frågeparametrar webhook-URL när du skapar en händelseprenumeration. Ange ett av dessa frågeparametrar ska vara en hemlighet som en [åtkomsttoken](https://en.wikipedia.org/wiki/Access_token) som webhooken kan använda för att identifiera händelsen kommer från Event Grid med giltig behörighet. Event Grid tas dessa Frågeparametrar i varje händelseleverans till webhooken.
 
-När du redigerar händelseprenumerationen frågeparametrar inte ska visas eller returneras om den [--inkluderar-full-slutpunkt-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parameter används i Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+När du redigerar händelseprenumerationen frågeparametrar inte ska visas eller returneras, såvida inte den [--inkludera-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parametern används i Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
-Slutligen är det viktigt att Observera att Azure händelse rutnätet endast stöder HTTPS webhook-slutpunkter.
+Slutligen är det viktigt att notera att Azure Event Grid endast stöder HTTPS webhook-slutpunkter.
 
-## <a name="event-subscription"></a>Händelseprenumerationen
+## <a name="event-subscription"></a>Händelseprenumeration
 
-Om du vill prenumerera på en händelse, måste du ha den **Microsoft.EventGrid/EventSubscriptions/Write** behörighet för den begärda resursen. Du behöver den här behörigheten eftersom du skriver en ny prenumeration på omfattningen av resursen. Resursen som krävs varierar beroende på om du prenumerera på ett Systemavsnittet eller anpassade avsnittet. Båda typerna beskrivs i det här avsnittet.
+Om du vill prenumerera på en händelse, måste du ha den **Microsoft.EventGrid/EventSubscriptions/Write** behörighet på resursen som krävs. Du behöver den här behörigheten eftersom du skriver en ny prenumeration på omfånget för resursen. Den begärda resursen skiljer sig beroende på om du prenumerera på ett system ämne eller ett anpassat ämne. Båda typerna beskrivs i det här avsnittet.
 
-### <a name="system-topics-azure-service-publishers"></a>System avsnitt (utgivare Azure-tjänst)
+### <a name="system-topics-azure-service-publishers"></a>System-avsnitt (Azure-tjänsten utgivare)
 
-För system ämnen behöver du behörighet att skriva en ny händelseprenumeration på omfattningen av resurspublicerings händelsen. Formatet för resursen är: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+För system ämnen behöver du behörighet att skriva en händelseprenumeration definitionsområdet för resursen publiceringen av händelsen. Formatet för resursen är: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
 Till exempel att prenumerera på en händelse på ett lagringskonto med namnet **MITTKONTO**, du måste ha behörighet för Microsoft.EventGrid/EventSubscriptions/Write på: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
 
-### <a name="custom-topics"></a>Anpassade avsnitt
+### <a name="custom-topics"></a>Anpassade ämnen
 
-För anpassade avsnitt behöver behörighet att skriva en ny händelseprenumeration på omfattningen av händelse rutnätet ämnet. Formatet för resursen är: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+För anpassade ämnen behöver du behörighet att skriva en händelseprenumeration definitionsområdet för event grid-ämne. Formatet för resursen är: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
-Om du till exempel att prenumerera på en anpassad avsnittet namnet **mytopic**, du måste ha behörighet för Microsoft.EventGrid/EventSubscriptions/Write på: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
+Till exempel att prenumerera på ett anpassat ämne med namnet **mytopic**, du måste ha behörighet för Microsoft.EventGrid/EventSubscriptions/Write på: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
 ## <a name="topic-publishing"></a>Avsnittet publicering
 
-Avsnitt om använda delade signatur åtkomst (SAS) eller nyckelautentisering. Vi rekommenderar SAS, men nyckelautentisering ger enkel programmering och är kompatibel med många befintliga webhook-utgivare. 
+Avsnitt om använda signatur för delad åtkomst (SAS) eller nyckelautentisering. Vi rekommenderar SAS, men nyckelautentisering ger enkel programmering och är kompatibel med många befintliga webhook-utgivare. 
 
-Du kan inkludera autentiseringsvärdet för i HTTP-huvudet. Använd för SAS, **aeg-sas-token** för huvudets värde. Nyckelautentisering, Använd **aeg-sas-nyckeln** för huvudets värde.
+Du kan inkludera autentiseringsvärdet för i HTTP-huvudet. SAS, använda **aeg-sas-token** för huvudets värde. Nyckelautentisering, använda **aeg-sas-nyckeln** för huvudets värde.
 
-### <a name="key-authentication"></a>Autentisering med nyckel
+### <a name="key-authentication"></a>Nyckelautentisering
 
 Nyckelautentisering är den enklaste formen av autentisering. Använd formatet: `aeg-sas-key: <your key>`
 
-Exempelvis kan du ange en nyckel med:
+Exempelvis kan skicka du en nyckel med:
 
 ```
 aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
@@ -109,19 +133,19 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 ### <a name="sas-tokens"></a>SAS-token
 
-SAS-token för händelsen rutnätet är resursen, en förfallotid och en signatur. Formatet på SAS-token är: `r={resource}&e={expiration}&s={signature}`.
+SAS-token för Event Grid är resursen, en förfallotid och en signatur. Formatet för SAS-token är: `r={resource}&e={expiration}&s={signature}`.
 
-Resursen är sökvägen till avsnittet händelse rutnät som du skickar händelser. Till exempel är en giltig resurs-sökväg: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+Resursen är sökvägen för event grid-ämne som du skickar händelser. Till exempel är en giltig resurssökväg: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 Du kan skapa signaturen från en nyckel.
 
-Till exempel en giltig **aeg-sas-token** värde är:
+Till exempel en giltig **aeg-sas-token** värdet är:
 
 ```http
 aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2feventGrid%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=a4oNHpRZygINC%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
 ```
 
-I följande exempel skapas en SAS-token för användning med händelsen rutnät:
+I följande exempel skapas en SAS-token för användning med Event Grid:
 
 ```cs
 static string BuildSharedAccessSignature(string resource, DateTime expirationUtc, string key)
@@ -146,13 +170,13 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 }
 ```
 
-## <a name="management-access-control"></a>Åtkomstkontroll för hantering
+## <a name="management-access-control"></a>Hantering av åtkomstkontroll
 
-Azure händelse rutnätet kan du styra nivån för olika användare att utföra olika hanteringsåtgärder, till exempel listan händelseprenumerationer, skapa nya och generera nycklar. Azures rollbaserad åtkomst Kontrollera (RBAC) används av rutnätet för händelsen.
+Azure Event Grid kan du kontrollera åtkomstnivån som ges till olika användare att utföra olika hanteringsåtgärder, till exempel listan händelseprenumerationer, skapa nya och generera nycklar. Event Grid använder Azures rollbaserad Kontrollera (RBAC).
 
 ### <a name="operation-types"></a>Åtgärdstyper
 
-Azure händelse rutnätet har stöd för följande åtgärder:
+Azure event grid stöd följande åtgärder:
 
 * Microsoft.EventGrid/*/read
 * Microsoft.EventGrid/*/write
@@ -161,17 +185,17 @@ Azure händelse rutnätet har stöd för följande åtgärder:
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-De tre sista åtgärderna returnera potentiellt hemliga information, som hämtar filtrerat utanför normal läsåtgärder. Det är bäst för dig att begränsa åtkomsten till dessa åtgärder. Anpassade roller kan skapas med [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure-kommandoradsgränssnittet (CLI)](../role-based-access-control/role-assignments-cli.md), och [REST API](../role-based-access-control/role-assignments-rest.md).
+De tre sista åtgärderna returnera potentiellt hemlig information, som hämtar filtrerade utanför normal läsåtgärder. Det är bäst för dig att begränsa åtkomsten till dessa åtgärder. Anpassade roller kan skapas med [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure kommandoradsgränssnitt (CLI)](../role-based-access-control/role-assignments-cli.md), och [REST API](../role-based-access-control/role-assignments-rest.md).
 
 ### <a name="enforcing-role-based-access-check-rbac"></a>Framtvinga roll baserad åtkomstkontroll (RBAC)
 
-Använd följande steg för att genomdriva RBAC för olika användare:
+Använd följande steg för att upprätthålla RBAC för olika användare:
 
-#### <a name="create-a-custom-role-definition-file-json"></a>Skapa en anpassad roll definitionsfil (JSON)
+#### <a name="create-a-custom-role-definition-file-json"></a>Skapa en anpassad roll-definitionsfil (.json)
 
-Följande är exempel händelse rutnätet rolldefinitioner som tillåter användare att utföra olika uppsättningar av åtgärder.
+Följande är exempel Event Grid rolldefinitioner som tillåter användare att utföra olika uppsättningar med åtgärder.
 
-**EventGridReadOnlyRole.json**: Tillåt bara skrivskyddade åtgärder.
+**EventGridReadOnlyRole.json**: Tillåt endast skrivskyddade åtgärder.
 
 ```json
 {
@@ -213,7 +237,7 @@ Följande är exempel händelse rutnätet rolldefinitioner som tillåter använd
 }
 ```
 
-**EventGridContributorRole.json**: tillåter alla händelse rutnätet åtgärder.
+**EventGridContributorRole.json**: tillåter alla event grid-åtgärder.
 
 ```json
 {
@@ -235,9 +259,9 @@ Följande är exempel händelse rutnätet rolldefinitioner som tillåter använd
 }
 ```
 
-#### <a name="create-and-assign-custom-role-with-azure-cli"></a>Skapa och tilldela en anpassad roll med Azure CLI
+#### <a name="create-and-assign-custom-role-with-azure-cli"></a>Skapa och tilldela anpassade roll med Azure CLI
 
-Använd för att skapa en anpassad roll:
+Om du vill skapa en anpassad roll, använder du:
 
 ```azurecli
 az role definition create --role-definition @<file path>
@@ -251,4 +275,4 @@ az role assignment create --assignee <user name> --role "<name of role>"
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till händelse rutnätet finns [om händelsen rutnätet](overview.md)
+* En introduktion till Event Grid finns i [om Event Grid](overview.md)

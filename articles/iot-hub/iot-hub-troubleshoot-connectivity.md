@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: eb186f4b6e1d742c9cae51e68b3d3dbda1bb751c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 91e435c60a342768093b3bc869a78fa61df8782f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400422"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446572"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Identifiera och felsöka kopplar bort med Azure IoT Hub
 
@@ -52,7 +52,7 @@ Om du vill få aviseringar när Koppla från enheter, konfigurera aviseringar f�
 
 Mer information finns i [vad är klassiska aviseringar i Microsoft Azure?](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
 
-## <a name="resolve-common-connectivity-errors"></a>Lös vanliga anslutningsfel
+## <a name="resolve-connectivity-errors"></a>Lösa anslutningsfel
 
 När diagnostiska loggar och aviseringar för anslutna enheter är aktiverat kan få du aviseringar om något går fel. Det här avsnittet beskriver hur du löser vanliga problem när du får en avisering. Stegen nedan förutsätter att du har konfigurerat Log Analytics för dina diagnostikloggar. 
 
@@ -76,8 +76,8 @@ När diagnostiska loggar och aviseringar för anslutna enheter är aktiverat kan
     |---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | 404104 DeviceConnectionClosedRemotely | Anslutningen stängdes av enheten men IoT Hub vet inte varför. Vanliga orsaker kan vara MQTT/AMQP anslutningsförlust timeout och internet. | Kontrollera att enheten kan ansluta till IoT Hub med [testar anslutningen](tutorial-connectivity.md). Om anslutningen är bra, men enheten kopplas från periodvis, se till att implementera logik som rätt keep alive enheten för ditt val av protokollet (MQTT/AMPQ). |
     | 401003 IoTHubUnauthorized | IoT Hub gick inte att autentisera anslutningen. | Kontrollera att SAS eller andra säkerhetstoken som du använder inte gått ut. [Azure IoT SDK: er](iot-hub-devguide-sdks.md) automatiskt generera token utan att kräva särskild konfiguration. |
-    | 409002 LinkCreationConflict | Det finns flera anslutningar för samma enhet. När en ny anslutningsbegäran gäller för en enhet, stängs den tidigare med det här felet i IoT Hub. | Se till att utfärda en ny begäran om anslutning om anslutningen bryts. |
-    | 500001 ServerError | IoT Hub råkade ut för ett problem på serversidan. Mest sannolikt att problemet är tillfälligt. När IoT Hub-teamet fungerar svårt att underhålla [serviceavtalet](https://azure.microsoft.com/support/legal/sla/iot-hub/), små undergrupper av noder för IoT Hub kan ibland uppstår tillfälliga fel. När enheten försöker ansluta till en nod som har problem, får du detta felmeddelande. | För att lösa tillfälliga fel, utfärda ett nytt försök från enheten. Att [automatiskt hantera återförsök](iot-hub-reliability-features-in-sdks.md), kontrollera att du använder den senaste versionen av den [Azure IoT SDK: er](iot-hub-devguide-sdks.md).<br><br>Bästa metoder för hantering av tillfälliga fel och återförsök Se [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults.md).  <br><br>Kontrollera om problemet kvarstår efter återförsök [Resource Health](iot-hub-monitor-resource-health.md#use-azure-resource-health) och [Azure-Status](https://azure.microsoft.com/status/history/) om IoT Hub har ett känt problem. Om det finns några kända problem och problemet kvarstår [supporten](https://azure.microsoft.com/support/options/) för vidare studier. |
+    | 409002 LinkCreationConflict | Det finns flera anslutningar för samma enhet. När en ny anslutningsbegäran gäller för en enhet, stängs den tidigare med det här felet i IoT Hub. | I de flesta fallen en enhet identifierar ett frånkoppling och försöker återupprätta anslutningen, men IoT Hub har inte betraktas som frånkopplad ännu så att den stängs den tidigare anslutningen och loggar det här felet. Det här felet visas vanligtvis som en sidoeffekt av ett annat tillfälliga problem, så att leta efter andra fel i loggarna till felsökningen. Annars kan du se till att utfärda en ny begäran om anslutning om anslutningen bryts. |
+    | 500001 ServerError | IoT Hub råkade ut för ett problem på serversidan. Mest sannolikt att problemet är tillfälligt. När IoT Hub-teamet fungerar svårt att underhålla [serviceavtalet](https://azure.microsoft.com/support/legal/sla/iot-hub/), små undergrupper av noder för IoT Hub kan ibland uppstår tillfälliga fel. När enheten försöker ansluta till en nod som har problem, får du detta felmeddelande. | För att lösa tillfälliga fel, utfärda ett nytt försök från enheten. Att [automatiskt hantera återförsök](iot-hub-reliability-features-in-sdks.md#connection-and-retry), kontrollera att du använder den senaste versionen av den [Azure IoT SDK: er](iot-hub-devguide-sdks.md).<br><br>Bästa metoder för hantering av tillfälliga fel och återförsök Se [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults.md).  <br><br>Kontrollera om problemet kvarstår efter återförsök [Resource Health](iot-hub-monitor-resource-health.md#use-azure-resource-health) och [Azure-Status](https://azure.microsoft.com/status/history/) om IoT Hub har ett känt problem. Om det finns några kända problem och problemet kvarstår [supporten](https://azure.microsoft.com/support/options/) för vidare studier. |
     | 500008 GenericTimeout | IoT Hub gick inte att slutföra begäran innan den avbryts. Det här felet är förmodligen övergående som 500001 ServerError. | Följ felsökningsstegen för 500001 ServerError orsak och åtgärda felet.|
 
 ## <a name="other-steps-to-try"></a>Du gör
@@ -89,6 +89,11 @@ Om stegen ovan inte hjälpte, är här några saker att prova:
 * Få hjälp från [Azure IoT Hub-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub), eller [Azure-supporten](https://azure.microsoft.com/support/options/).
 
 Lämna en kommentar nedan för att förbättra dokumentationen för alla användare, om den här guiden hjälpte dig.
+
+## <a name="next-steps"></a>Nästa steg
+
+* Mer information om hur du löser problem finns [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults.md).
+* Läs mer om Azure IoT SDK och hantera återförsök, se [hur du hanterar anslutningar och tillförlitlig meddelandehantering med hjälp av Azure IoT Hub device-SDKs](iot-hub-reliability-features-in-sdks.md#connection-and-retry).
 
 <!-- Images -->
 [1]: ../../includes/media/iot-hub-diagnostics-settings/turnondiagnostics.png

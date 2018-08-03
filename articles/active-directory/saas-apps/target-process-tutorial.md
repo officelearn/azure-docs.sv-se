@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: ae49e60188c554a2eaa0221c05b49ca67c835f0c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b79fa31aed1a264ba52675857c9a80dc65746173
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055944"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434096"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Självstudier: Azure Active Directory-integration med TargetProcess
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Lägg till TargetProcess från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="add-targetprocess-from-the-gallery"></a>Lägg till TargetProcess från galleriet
 För att konfigurera integrering av TargetProcess i Azure AD, som du behöver lägga till TargetProcess från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av TargetProcess i Azure AD, som du behöver l�
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **TargetProcess**väljer **TargetProcess** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **TargetProcess**väljer **TargetProcess** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Lägg till TargetProcess från galleriet](./media/target-process-tutorial/tutorial_target-process_addfromgallery.png)
 
@@ -86,10 +86,10 @@ I TargetProcess, tilldela värdet för den **användarnamn** i Azure AD som vär
 Om du vill konfigurera och testa Azure AD enkel inloggning med TargetProcess, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare TargetProcess](#create-a-targetprocess-test-user)**  – du har en motsvarighet för Britta Simon i TargetProcess som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare TargetProcess](#create-a-targetprocess-test-user)**  – du har en motsvarighet för Britta Simon i TargetProcess som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -101,11 +101,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![SAML-baserad inloggning](./media/target-process-tutorial/tutorial_target-process_samlbase.png)
 
-3. På den **TargetProcess domän och URL: er** avsnittet, utför följande steg:
+1. På den **TargetProcess domän och URL: er** avsnittet, utför följande steg:
 
     ![TargetProcess domän och URL: er](./media/target-process-tutorial/tutorial_target-process_url.png)
 
@@ -116,33 +116,33 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [TargetProcess klienten supportteamet](mailto:support@targetprocess.com) att hämta dessa värden. 
  
-4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
     ![Avsnittet för SAML-signeringscertifikat](./media/target-process-tutorial/tutorial_target-process_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Knappen Spara](./media/target-process-tutorial/tutorial_general_400.png)
 
-6. På den **TargetProcess Configuration** klickar du på **konfigurera TargetProcess** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **TargetProcess Configuration** klickar du på **konfigurera TargetProcess** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![TargetProcess konfigurationsavsnittet](./media/target-process-tutorial/tutorial_target-process_configure.png) 
 
-7. Inloggning till TargetProcess-programmet som en administratör.
+1. Inloggning till TargetProcess-programmet som en administratör.
 
-8. Klicka på menyn längst upp **installationsprogrammet**.
+1. Klicka på menyn längst upp **installationsprogrammet**.
    
-    ![Inställningar](./media/target-process-tutorial/tutorial_target_process_05.png)
+    ![Konfiguration](./media/target-process-tutorial/tutorial_target_process_05.png)
 
-9. Klicka på **inställningar**.
+1. Klicka på **inställningar**.
    
     ![Inställningar](./media/target-process-tutorial/tutorial_target_process_06.png) 
 
-10. Klicka på **enkel inloggning**.
+1. Klicka på **enkel inloggning**.
    
     ![Klicka på enkel inloggning](./media/target-process-tutorial/tutorial_target_process_07.png) 
 
-11. Utför följande steg på inställningsdialogrutan enkel inloggning:
+1. Utför följande steg på inställningsdialogrutan enkel inloggning:
    
     ![Konfigurera enkel inloggning](./media/target-process-tutorial/tutorial_target_process_08.png)
     
@@ -171,15 +171,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](./media/target-process-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
     ![Att visa en lista över användare](./media/target-process-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
     ![Knappen Lägg till](./media/target-process-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
     ![Användare](./media/target-process-tutorial/create_aaduser_04.png) 
 
@@ -211,23 +211,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **TargetProcess**.
+1. I listan med program väljer **TargetProcess**.
 
     ![TargetProcess i applistan](./media/target-process-tutorial/tutorial_target-process_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

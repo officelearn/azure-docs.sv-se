@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: jeedes
-ms.openlocfilehash: adf3b1310a3e79b12be5294fe9d7a012bfc0d433
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 065225bb6c206f980c19955c682fc2c8a5deb950
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042946"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441776"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Självstudier: Azure Active Directory-integration med ClickTime
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till ClickTime från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-clicktime-from-the-gallery"></a>Att lägga till ClickTime från galleriet
 För att konfigurera integrering av ClickTime i Azure AD, som du behöver lägga till ClickTime från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av ClickTime i Azure AD, som du behöver lägga
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **ClickTime**väljer **ClickTime** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **ClickTime**väljer **ClickTime** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![ClickTime i resultatlistan](./media/clicktime-tutorial/tutorial_clicktime_addfromgallery.png)
 
@@ -87,10 +87,10 @@ I ClickTime, tilldela värdet för den **användarnamn** i Azure AD som värde f
 Om du vill konfigurera och testa Azure AD enkel inloggning med ClickTime, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare ClickTime](#create-a-clicktime-test-user)**  – du har en motsvarighet för Britta Simon i ClickTime som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare ClickTime](#create-a-clicktime-test-user)**  – du har en motsvarighet för Britta Simon i ClickTime som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -102,11 +102,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/clicktime-tutorial/tutorial_clicktime_samlbase.png)
 
-3. På den **ClickTime domän och URL: er** avsnittet, utför följande steg:
+1. På den **ClickTime domän och URL: er** avsnittet, utför följande steg:
 
     ![ClickTime domän och URL: er med enkel inloggning för information](./media/clicktime-tutorial/tutorial_clicktime_url.png)
 
@@ -119,23 +119,23 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://app.clicktime.com/Login/` |
     | `https://app.clicktime.com/App/Login/Consume.aspx` |
 
-4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/clicktime-tutorial/tutorial_clicktime_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/clicktime-tutorial/tutorial_general_400.png)
 
-6. På den **ClickTime Configuration** klickar du på **konfigurera ClickTime** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **ClickTime Configuration** klickar du på **konfigurera ClickTime** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![ClickTime konfiguration](./media/clicktime-tutorial/tutorial_clicktime_configure.png) 
 
-7. Logga in på webbplatsen ClickTime företag som en administratör i ett annat webbläsarfönster.
+1. Logga in på webbplatsen ClickTime företag som en administratör i ett annat webbläsarfönster.
 
-8. I verktygsfältet högst upp, klickar du på **inställningar**, och klicka sedan på **säkerhetsinställningar**.
+1. I verktygsfältet högst upp, klickar du på **inställningar**, och klicka sedan på **säkerhetsinställningar**.
 
-9. I den **inställningar för enkel inloggning** konfiguration och utför följande steg:
+1. I den **inställningar för enkel inloggning** konfiguration och utför följande steg:
    
     ![Säkerhetsinställningar](./media/clicktime-tutorial/tic777280.png "säkerhetsinställningar")
    
@@ -161,15 +161,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/clicktime-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
     
     ![”Användare och grupper” och ”alla användare”-länkar](./media/clicktime-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
  
     ![Knappen Lägg till](./media/clicktime-tutorial/create_aaduser_03.png) 
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
  
     ![Dialogrutan användare](./media/clicktime-tutorial/create_aaduser_04.png) 
 
@@ -191,13 +191,13 @@ När det gäller ClickTime är etablering en manuell aktivitet.
 
 **Utför följande steg för att etablera ett användarkonto:**
 1. Logga in på din **ClickTime** klient.
-2. I verktygsfältet högst upp, klickar du på **företagets**, och klicka sedan på **personer**.
+1. I verktygsfältet högst upp, klickar du på **företagets**, och klicka sedan på **personer**.
    
     ![Personer](./media/clicktime-tutorial/tic777282.png "personer")
-3. Klicka på **Person till**.
+1. Klicka på **Person till**.
    
     ![Lägg till Person](./media/clicktime-tutorial/tic777283.png "Person till")
-4. I avsnittet ny Person att utföra följande steg:
+1. I avsnittet ny Person att utföra följande steg:
    
     ![Personer](./media/clicktime-tutorial/tic777284.png "personer")
    
@@ -222,23 +222,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **ClickTime**.
+1. I listan med program väljer **ClickTime**.
 
     ![ClickTimne länk i listan med program](./media/clicktime-tutorial/tutorial_clicktime_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: iainfou
-ms.openlocfilehash: 0466f416568b2a1a82e264a8508697fc9de87287
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2730ab1d909ead0431f0dd7fd0061d3080834296
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952486"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443740"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Använda Virtual Kubelet med Azure Kubernetes Service (AKS)
 
@@ -204,7 +204,7 @@ Läs mer om Virtual Kubelet på den [Virtual Kubelet Github projet][vk-github].
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
 [aks-remove-connector]: /cli/azure/aks#az-aks-remove-connector
-[az-container-list]: /cli/azure/aks#az_aks_list
+[az-container-list]: /cli/azure/aks#az-aks-list
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
 
 <!-- LINKS - external -->

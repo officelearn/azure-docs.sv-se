@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 6c13bb4c10adeeba59ff8d0f2c8d7120d6fae43a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a5910689f34c511c6cf7d8a044ef4358d2e0570d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050654"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445588"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Självstudier: Azure Active Directory-integration med TeamSeer
 
@@ -52,7 +52,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till TeamSeer från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-teamseer-from-the-gallery"></a>Att lägga till TeamSeer från galleriet
 Om du vill konfigurera integreringen av TeamSeer i till Azure AD, som du behöver lägga till TeamSeer från galleriet i din lista över hanterade SaaS-appar.
@@ -63,19 +63,19 @@ Om du vill konfigurera integreringen av TeamSeer i till Azure AD, som du behöve
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **TeamSeer**.
+1. I sökrutan skriver **TeamSeer**.
 
     ![Skapa en Azure AD-användare för testning](./media/teamseer-tutorial/tutorial_teamseer_search.png)
 
-5. I resultatpanelen väljer **TeamSeer**, och klicka sedan på **Lägg till** för att lägga till programmet.
+1. I resultatpanelen väljer **TeamSeer**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
     ![Skapa en Azure AD-användare för testning](./media/teamseer-tutorial/tutorial_teamseer_addfromgallery.png)
 
@@ -89,10 +89,10 @@ I TeamSeer, tilldela värdet för den **användarnamn** i Azure AD som värde f�
 Om du vill konfigurera och testa Azure AD enkel inloggning med TeamSeer, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare TeamSeer](#creating-a-teamseer-test-user)**  – du har en motsvarighet för Britta Simon i TeamSeer som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare TeamSeer](#creating-a-teamseer-test-user)**  – du har en motsvarighet för Britta Simon i TeamSeer som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -104,11 +104,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/teamseer-tutorial/tutorial_teamseer_samlbase.png)
 
-3. På den **TeamSeer domän och URL: er** avsnittet, utför följande steg:
+1. På den **TeamSeer domän och URL: er** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/teamseer-tutorial/tutorial_teamseer_url.png)
 
@@ -117,33 +117,33 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Värdet är inte verkliga. Uppdatera värdet med faktiska inloggnings-URL: en. Kontakta [TeamSeer klienten supportteamet](http://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html) att hämta värdet. 
  
-4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/teamseer-tutorial/tutorial_teamseer_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/teamseer-tutorial/tutorial_general_400.png)
 
-6. På den **TeamSeer Configuration** klickar du på **konfigurera TeamSeer** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **TeamSeer Configuration** klickar du på **konfigurera TeamSeer** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Konfigurera enkel inloggning](./media/teamseer-tutorial/tutorial_teamseer_configure.png)
 
-7. I ett annat webbläsarfönster logga du in på webbplatsen TeamSeer företag som administratör.
+1. I ett annat webbläsarfönster logga du in på webbplatsen TeamSeer företag som administratör.
 
-8. Gå till **HR Admin**.
+1. Gå till **HR Admin**.
    
     ![HR-administratören](./media/teamseer-tutorial/ic789634.png "HR-administratör")
 
-9. Klicka på **installationsprogrammet**.
+1. Klicka på **installationsprogrammet**.
    
     ![Installationsprogrammet](./media/teamseer-tutorial/ic789635.png "installationen")
 
-10. Klicka på **ställa in information om SAML-provider**.
+1. Klicka på **ställa in information om SAML-provider**.
    
     ![SAML-inställningar](./media/teamseer-tutorial/ic789636.png "SAML-inställningar")
 
-11. Utför följande steg i informationsavsnittet för SAML-providern:
+1. Utför följande steg i informationsavsnittet för SAML-providern:
    
     ![SAML-inställningar](./media/teamseer-tutorial/ic789637.png "SAML-inställningar")   
 
@@ -151,7 +151,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
           
     b. Öppna din Base64-kodat certifikat i anteckningar, kopiera innehållet i den i till Urklipp och klistra in den till den **IdP offentligt certifikat** textrutan.
 
-12. Utför följande steg för att slutföra konfigurationen av SAML-providern:
+1. Utför följande steg för att slutföra konfigurationen av SAML-providern:
     
     ![SAML-inställningar](./media/teamseer-tutorial/ic789638.png "SAML-inställningar") 
 
@@ -176,15 +176,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](./media/teamseer-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
     ![Skapa en Azure AD-användare för testning](./media/teamseer-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
     ![Skapa en Azure AD-användare för testning](./media/teamseer-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
     ![Skapa en Azure AD-användare för testning](./media/teamseer-tutorial/create_aaduser_04.png) 
 
@@ -204,7 +204,7 @@ Om du vill aktivera Azure AD-användare att logga in på TeamSeer, måste de var
 
 1. Logga in på din **TeamSeer** företagets plats som administratör.
 
-2. Utför följande steg:
+1. Utför följande steg:
    
     ![HR-administratören](./media/teamseer-tutorial/ic789640.png "HR-administratör")  
  
@@ -212,7 +212,7 @@ Om du vill aktivera Azure AD-användare att logga in på TeamSeer, måste de var
   
     b. Klicka på **kör guiden Ny användare**.
 
-3. I den **användarinformation** avsnittet, utför följande steg:
+1. I den **användarinformation** avsnittet, utför följande steg:
    
     ![Information om användare](./media/teamseer-tutorial/ic789641.png "användarinformation")
 
@@ -220,7 +220,7 @@ Om du vill aktivera Azure AD-användare att logga in på TeamSeer, måste de var
   
     b. Klicka på **Nästa**.
 
-4. Följ den på skärmen för att lägga till en ny användare och klicka på **Slutför**.
+1. Följ den på skärmen för att lägga till en ny användare och klicka på **Slutför**.
 
 >[!NOTE]
 >Du kan använda alla andra TeamSeer användare konto verktyg för att skapa eller API: er som tillhandahålls av TeamSeer att etablera användarkonton i Azure AD. 
@@ -237,23 +237,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **TeamSeer**.
+1. I listan med program väljer **TeamSeer**.
 
     ![Konfigurera enkel inloggning](./media/teamseer-tutorial/tutorial_teamseer_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 

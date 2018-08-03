@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: a93e4863a8466ad6599b11e6fe6e53d8d4d971a4
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 35b1b9492b7bcd09c79cb5bd2509a6cfea205ae9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049923"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445474"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Självstudier: Azure Active Directory-integration med UNIFI
 
@@ -52,7 +52,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till UNIFI från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-unifi-from-the-gallery"></a>Att lägga till UNIFI från galleriet
 För att konfigurera integrering av UNIFI i Azure AD, som du behöver lägga till UNIFI från galleriet i din lista över hanterade SaaS-appar.
@@ -63,19 +63,19 @@ För att konfigurera integrering av UNIFI i Azure AD, som du behöver lägga til
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **UNIFI**.
+1. I sökrutan skriver **UNIFI**.
 
     ![Skapa en Azure AD-användare för testning](./media/unifi-tutorial/tutorial_unifi_search.png)
 
-5. I resultatpanelen väljer **UNIFI**, och klicka sedan på **Lägg till** för att lägga till programmet.
+1. I resultatpanelen väljer **UNIFI**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
     ![Skapa en Azure AD-användare för testning](./media/unifi-tutorial/tutorial_unifi_addfromgallery.png)
 
@@ -89,10 +89,10 @@ I UNIFI, tilldela värdet för den **användarnamn** i Azure AD som värde för 
 Om du vill konfigurera och testa Azure AD enkel inloggning med UNIFI, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en UNIFI testanvändare](#creating-a-unifi-test-user)**  – du har en motsvarighet för Britta Simon i UNIFI som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en UNIFI testanvändare](#creating-a-unifi-test-user)**  – du har en motsvarighet för Britta Simon i UNIFI som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -104,45 +104,45 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/unifi-tutorial/tutorial_unifi_samlbase.png)
 
-3. På den **UNIFI domän och URL: er** om du vill konfigurera programmet i **IDP** initierade läge:
+1. På den **UNIFI domän och URL: er** om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/unifi-tutorial/tutorial_unifi_url1.png)
 
     I den **identifierare** textrutan angett värde: `INVIEWlabs` 
 
-4. Kontrollera **visa avancerade URL-inställningar**, om du vill konfigurera programmet i **SP** initierade läge:
+1. Kontrollera **visa avancerade URL-inställningar**, om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/unifi-tutorial/tutorial_unifi_url2.png)
 
     I den **inloggnings-URL** textrutan anger du URL: `https://app.discoverunifi.com/login`
 
-5. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/unifi-tutorial/tutorial_unifi_certificate.png) 
 
-6. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/unifi-tutorial/tutorial_general_400.png)
     
-7. På den **UNIFI Configuration** klickar du på **konfigurera UNIFI** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **UNIFI Configuration** klickar du på **konfigurera UNIFI** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Konfigurera enkel inloggning](./media/unifi-tutorial/tutorial_unifi_configure.png)
 
-8. I ett annat webbläsarfönster, loggar du in på ditt **UNIFI** företagets plats som administratör.
+1. I ett annat webbläsarfönster, loggar du in på ditt **UNIFI** företagets plats som administratör.
 
-9. Klicka på den **användare**.
+1. Klicka på den **användare**.
 
     ![Konfigurera enkel inloggning](./media/unifi-tutorial/app1.png) 
 
-10. Klicka på den **Lägg till ny identitetsprovider**.
+1. Klicka på den **Lägg till ny identitetsprovider**.
 
     ![Konfigurera enkel inloggning](./media/unifi-tutorial/app2.png)
 
-11. I den **Lägg till identitetsprovider** avsnittet, utför följande steg:   
+1. I den **Lägg till identitetsprovider** avsnittet, utför följande steg:    
 
     ![Konfigurera enkel inloggning](./media/unifi-tutorial/app3.png) 
 
@@ -169,15 +169,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](./media/unifi-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
     ![Skapa en Azure AD-användare för testning](./media/unifi-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
     ![Skapa en Azure AD-användare för testning](./media/unifi-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
     ![Skapa en Azure AD-användare för testning](./media/unifi-tutorial/create_aaduser_04.png) 
 
@@ -205,23 +205,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **UNIFI**.
+1. I listan med program väljer **UNIFI**.
 
     ![Konfigurera enkel inloggning](./media/unifi-tutorial/tutorial_unifi_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 

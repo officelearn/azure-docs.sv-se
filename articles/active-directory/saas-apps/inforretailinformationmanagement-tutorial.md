@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: a5f599295c9a6b74f9cb0fbd81365da924aa7002
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8676ae32de72a52f88d212d225610053b7ee5c4c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047152"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441484"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Självstudier: Azure Active Directory-integration med Infor detaljhandeln – informationshantering
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Infor detaljhandeln – informationshantering från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-infor-retail--information-management-from-the-gallery"></a>Att lägga till Infor detaljhandeln – informationshantering från galleriet
 Om du vill konfigurera integreringen av Infor detaljhandeln – informationshantering i Azure AD som du behöver lägga till Infor detaljhandeln – informationshantering från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ Om du vill konfigurera integreringen av Infor detaljhandeln – informationshant
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Infor detaljhandeln – informationshantering**väljer **Infor detaljhandeln – informationshantering** resultatet panelen klickar **Lägg till** för att lägga till den programmet.
+1. I sökrutan skriver **Infor detaljhandeln – informationshantering**väljer **Infor detaljhandeln – informationshantering** resultatet panelen klickar **Lägg till** för att lägga till den programmet.
 
     ![Infor detaljhandeln – informationshantering i resultatlistan](./media/inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_addfromgallery.png)
 
@@ -87,10 +87,10 @@ I Infor detaljhandeln – informationshantering, tilldela värdet för den **anv
 Om du vill konfigurera och testa Azure AD enkel inloggning med Infor detaljhandeln – informationshantering, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en Infor detaljhandeln – informationshantering testanvändare](#create-an-infor-retail--information-management-test-user)**  – du har en motsvarighet för Britta Simon i Infor detaljhandeln – informationshantering som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en Infor detaljhandeln – informationshantering testanvändare](#create-an-infor-retail--information-management-test-user)**  – du har en motsvarighet för Britta Simon i Infor detaljhandeln – informationshantering som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -102,11 +102,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_samlbase.png)
 
-3. På den **Infor detaljhandeln – domänen för hantering av Information och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i IDP-initierad läge:
+1. På den **Infor detaljhandeln – domänen för hantering av Information och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i IDP-initierad läge:
 
     ![Infor detaljhandeln – domänen för hantering av Information och URL: er med enkel inloggning information IDP](./media/inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_url.png)
 
@@ -118,7 +118,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<company name>.mingle.infor.com/sp/ACS.saml2`
 
-4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Infor detaljhandeln – Information Management domän och URL: er enkel inloggning information SP](./media/inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_url1.png)
 
@@ -127,15 +127,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [Infor detaljhandeln – Information Hanteringsklient supportteamet](mailto:innovate@infor.com) att hämta dessa värden. 
 
-5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_certificate.png) 
 
-6. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/inforretailinformationmanagement-tutorial/tutorial_general_400.png)
     
-7. Att konfigurera enkel inloggning på **Infor detaljhandeln – informationshantering** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Infor detaljhandeln – informationshantering supportteamet](mailto:innovate@infor.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **Infor detaljhandeln – informationshantering** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Infor detaljhandeln – informationshantering supportteamet](mailto:innovate@infor.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -152,15 +152,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/inforretailinformationmanagement-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/inforretailinformationmanagement-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/inforretailinformationmanagement-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/inforretailinformationmanagement-tutorial/create_aaduser_04.png)
 
@@ -188,23 +188,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Infor detaljhandeln – informationshantering**.
+1. I listan med program väljer **Infor detaljhandeln – informationshantering**.
 
     ![Infor detaljhandeln – informationshantering länk i listan med program](./media/inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

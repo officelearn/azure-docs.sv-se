@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 9f1db693ac75d7ab4b9776d60f63a0ca7524f760
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 81e86df270a7286426363c26a0e8a87b99082428
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050192"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438281"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Självstudier: Azure Active Directory-integrering med en Zoho
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till en Zoho från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-zoho-one-from-the-gallery"></a>Att lägga till en Zoho från galleriet
 Om du vill konfigurera integreringen av en Zoho i Azure AD, som du behöver lägga till en Zoho från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ Om du vill konfigurera integreringen av en Zoho i Azure AD, som du behöver läg
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Zoho en**väljer **Zoho en** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Zoho en**väljer **Zoho en** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![En Zoho i resultatlistan](./media/zohoone-tutorial/tutorial_zohoone_addfromgallery.png)
 
@@ -85,10 +85,10 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 Om du vill konfigurera och testa Azure AD enkel inloggning med en Zoho, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en Zoho en testanvändare](#create-a-zoho-one-test-user)**  – du har en motsvarighet för Britta Simon i Zoho en som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en Zoho en testanvändare](#create-a-zoho-one-test-user)**  – du har en motsvarighet för Britta Simon i Zoho en som är kopplad till Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -100,11 +100,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/zohoone-tutorial/tutorial_zohoone_samlbase.png)
 
-3. På den **Zoho en domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+1. På den **Zoho en domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Zoho en domän och URL: er med enkel inloggning för information](./media/zohoone-tutorial/tutorial_zohoone_url.png)
 
@@ -116,32 +116,32 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     d. I den **Vidarebefordransstatus** textrutan anger du ett URL:`https://one.zoho.com`
 
-4. Om du vill konfigurera programmet i **SP** initierad läge utföra följande steg:
+1. Om du vill konfigurera programmet i **SP** initierad läge utföra följande steg:
 
     I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://accounts.zoho.com/samlauthrequest/<domain_name>?serviceurl=https://one.zoho.com`
      
     > [!NOTE] 
     > Föregående **svars-URL** och **inloggnings-URL** värdet är inte verkliga. Du ska uppdatera värdet med faktiska svars-URL och inloggnings-URL som beskrivs senare i självstudien. 
 
-5. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/zohoone-tutorial/tutorial_zohoone_certificate.png) 
 
-6. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/zohoone-tutorial/tutorial_general_400.png)
     
-7. På den **Zoho en konfiguration** klickar du på **konfigurera Zoho en** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **Zoho en konfiguration** klickar du på **konfigurera Zoho en** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Zoho en konfiguration](./media/zohoone-tutorial/tutorial_zohoone_configure.png) 
 
-8. I ett annat webbläsarfönster logga du in på webbplatsen Zoho ett företag som administratör.
+1. I ett annat webbläsarfönster logga du in på webbplatsen Zoho ett företag som administratör.
 
-9. På den **organisation** fliken, klickar du på **installationsprogrammet** under **SAML-autentisering**.
+1. På den **organisation** fliken, klickar du på **installationsprogrammet** under **SAML-autentisering**.
 
     ![En Zoho org](./media/zohoone-tutorial/tutorial_zohoone_setup.png)
 
-10. På sidan popup utför du följande steg:
+1. På sidan popup utför du följande steg:
 
     ![En Zoho sig](./media/zohoone-tutorial/tutorial_zohoone_save.png)
 
@@ -153,15 +153,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     d. Klicka på **Spara**.
 
-11. När du har sparat inställningarna för SAML-autentisering, kopiera den **SAML-Identfier** värde och använda det här värdet i den **svars-URL** i Azure-portalen under **Zoho en domän och URL: er** avsnittet.
+1. När du har sparat inställningarna för SAML-autentisering, kopiera den **SAML-Identfier** värde och använda det här värdet i den **svars-URL** i Azure-portalen under **Zoho en domän och URL: er** avsnittet.
 
     ![Zoho en saml](./media/zohoone-tutorial/tutorial_zohoone_samlidenti.png)
 
-12. Gå till den **domäner** fliken och klicka sedan på **Lägg till domän**.
+1. Gå till den **domäner** fliken och klicka sedan på **Lägg till domän**.
 
     ![Zoho en domän](./media/zohoone-tutorial/tutorial_zohoone_domain.png)
 
-13. På den **Lägg till domän** utför följande steg:
+1. På den **Lägg till domän** utför följande steg:
 
     ![Zoho en Lägg till domän](./media/zohoone-tutorial/tutorial_zohoone_adddomain.png)
 
@@ -184,15 +184,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/zohoone-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/zohoone-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/zohoone-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/zohoone-tutorial/create_aaduser_04.png)
 
@@ -212,11 +212,11 @@ Om du vill aktivera Azure AD-användare att logga in på en Zoho, måste de etab
 
 1. Logga in på Zoho en som en administratör.
 
-2. På den **användare** fliken, klicka på **användaren logotyp**.
+1. På den **användare** fliken, klicka på **användaren logotyp**.
 
     ![Zoho en användare](./media/zohoone-tutorial/tutorial_zohoone_users.png)
 
-3. På den **Lägg till användare** utför följande steg:
+1. På den **Lägg till användare** utför följande steg:
 
     ![En Zoho lägga till användare](./media/zohoone-tutorial/tutorial_zohoone_adduser.png)
     
@@ -241,23 +241,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Zoho en**.
+1. I listan med program väljer **Zoho en**.
 
     ![Zoho en länk i listan med program](./media/zohoone-tutorial/tutorial_zohoone_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

@@ -10,12 +10,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: cc1c9c9385d34f317ff911d131058b9210065edf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: eca5e308399b9fb694a8e5060d72c12790a8f78d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237051"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434966"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatisera replikeringen av schemaändringar i Azure SQL Data Sync
 
@@ -23,9 +23,9 @@ SQL Data Sync kan användarna synkronisera data mellan Azure SQL-databaser och e
 
 Den här artikeln introducerar en lösning för att replikera ändringar av entitetsschemat automatiskt till alla SQL Data Sync-slutpunkter.
 1. Den här lösningen använder en DDL-utlösare för att spåra ändringar av entitetsschemat.
-2. Utlösaren Infoga kommandona schemat ändras i en spårning.
-3. Den här spårningstabell synkroniseras till alla slutpunkter med hjälp av tjänsten Data Sync.
-4. DML-utlösare efter infogning används för att tillämpa schemaändringarna på de andra slutpunkterna.
+1. Utlösaren Infoga kommandona schemat ändras i en spårning.
+1. Den här spårningstabell synkroniseras till alla slutpunkter med hjälp av tjänsten Data Sync.
+1. DML-utlösare efter infogning används för att tillämpa schemaändringarna på de andra slutpunkterna.
 
 Den här artikeln använder ALTER TABLE som ett exempel på en schemaändring, men den här lösningen fungerar även för andra typer av ändringar av entitetsschemat.
 
@@ -136,31 +136,31 @@ När schemaändringarna replikeras till alla slutpunkter, måste du också vidta
 
 1.  Göra schemat ändras.
 
-2.  Undvika att data om de nya kolumnerna genomförs förrän du har slutfört steg som skapar utlösaren.
+1.  Undvika att data om de nya kolumnerna genomförs förrän du har slutfört steg som skapar utlösaren.
 
-3.  Vänta tills schemaändringarna tillämpas på alla slutpunkter.
+1.  Vänta tills schemaändringarna tillämpas på alla slutpunkter.
 
-4.  Uppdatera databasschemat och Lägg till den nya kolumnen till i synkroniseringsschemat.
+1.  Uppdatera databasschemat och Lägg till den nya kolumnen till i synkroniseringsschemat.
 
-5.  Data i den nya kolumnen har synkroniserats under nästa synkronisering.
+1.  Data i den nya kolumnen har synkroniserats under nästa synkronisering.
 
 #### <a name="remove-columns"></a>Ta bort kolumner
 
 1.  Ta bort kolumner från synkroniseringsschemat. Datasynkronisering stoppar synkroniserar data i dessa kolumner.
 
-2.  Göra schemat ändras.
+1.  Göra schemat ändras.
 
-3.  Uppdatera databasschemat.
+1.  Uppdatera databasschemat.
 
 #### <a name="update-data-types"></a>Uppdatera datatyper
 
 1.  Göra schemat ändras.
 
-2.  Vänta tills schemaändringarna tillämpas på alla slutpunkter.
+1.  Vänta tills schemaändringarna tillämpas på alla slutpunkter.
 
-3.  Uppdatera databasschemat.
+1.  Uppdatera databasschemat.
 
-4.  Om nya och gamla datatyperna inte är helt kompatibla – till exempel om du ändrar från `int` till `bigint` -synkroniseringen misslyckas innan de steg som skapar utlösare har utförts. Synkronisera lyckas efter ett nytt försök.
+1.  Om nya och gamla datatyperna inte är helt kompatibla – till exempel om du ändrar från `int` till `bigint` -synkroniseringen misslyckas innan de steg som skapar utlösare har utförts. Synkronisera lyckas efter ett nytt försök.
 
 #### <a name="rename-columns-or-tables"></a>Byt namn på kolumner eller tabeller
 
@@ -176,25 +176,25 @@ Replikering logiken i den här artikeln slutar fungera i vissa situationer – t
 
 1.  Inaktivera DDL-utlösare och undvika eventuella ytterligare schemaändringar förrän problemet har lösts.
 
-2.  Inaktivera AFTER INSERT-utlösare på den slutpunkt som där en schemaändring inte kan göras i endpoint-databasen där problemet sker. Denna åtgärd kan kommandot schemat ändras för att synkroniseras.
+1.  Inaktivera AFTER INSERT-utlösare på den slutpunkt som där en schemaändring inte kan göras i endpoint-databasen där problemet sker. Denna åtgärd kan kommandot schemat ändras för att synkroniseras.
 
-3.  Utlös sync för att synkronisera Ändringsspårningsregistret schemat.
+1.  Utlös sync för att synkronisera Ändringsspårningsregistret schemat.
 
-4.  I endpoint-databasen där problemet sker, ändra frågan schemat historiktabellen att hämta ID för senaste tillämpade schemat ändra kommandot.
+1.  I endpoint-databasen där problemet sker, ändra frågan schemat historiktabellen att hämta ID för senaste tillämpade schemat ändra kommandot.
 
-5.  Fråga schemat för ändringsspårning tabell om du vill visa alla kommandon med ett ID som är större än det ID-värdet som du hämtade i föregående steg.
+1.  Fråga schemat för ändringsspårning tabell om du vill visa alla kommandon med ett ID som är större än det ID-värdet som du hämtade i föregående steg.
 
     a.  Ignorera de kommandon som inte kan köras i databasen för slutpunkten. Du behöver åtgärda inkonsekvens i schemat. Återställa de ursprungliga schemaändringarna om inkonsekvensen påverkar ditt program.
 
     b.  Tillämpa manuellt de kommandon som ska användas.
 
-6.  Uppdatera schemat ändra historik tabell och ange ID för senaste tillämpade till det korrekta värdet.
+1.  Uppdatera schemat ändra historik tabell och ange ID för senaste tillämpade till det korrekta värdet.
 
-7.  Kontrollera om schemat är uppdaterad.
+1.  Kontrollera om schemat är uppdaterad.
 
-8.  Återaktivera AFTER INSERT utlösaren inaktiverad i det andra steget.
+1.  Återaktivera AFTER INSERT utlösaren inaktiverad i det andra steget.
 
-9.  Återaktivera DDL-utlösare som inaktiverade i det första steget.
+1.  Återaktivera DDL-utlösare som inaktiverade i det första steget.
 
 Om du vill rensa posterna i tabellen schema ändra spårning, använder du borttagning i stället för TRUNCATE. Aldrig reseed identitetskolumnen i schemat Ändringsspårningsregistret med hjälp av DBCC CHECKIDENT. Du kan skapa ny schemaändring spårningstabeller och uppdatera tabellnamnet i DDL-utlösare om omläggning krävs.
 

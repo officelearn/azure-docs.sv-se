@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: dc5b5cbe9b1f000d8ddf9d38cfe13f5275e698f2
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 0ee2654b313f453f7485c89c789edc8efc068d7b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348537"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442657"
 ---
 # <a name="create-an-external-app-service-environment"></a>Skapa extern App Service environment #
 
@@ -64,27 +64,27 @@ Skapa en ASE när du skapar en App Service plan:
 
     ![Skapa en webbapp][1]
 
-2. Välj din prenumeration. Appen och ASE skapas i samma abonnemang.
+1. Välj din prenumeration. Appen och ASE skapas i samma abonnemang.
 
-3. Välj eller skapa en Resursgrupp. Du kan hantera relaterade Azure-resurser med resursgrupper, som en enhet. Resursgrupper är också användbara när du etablerar regler för rollbaserad åtkomstkontroll för dina appar. Mer information finns i den [översikt över Azure Resource Manager][ARMOverview].
+1. Välj eller skapa en Resursgrupp. Du kan hantera relaterade Azure-resurser med resursgrupper, som en enhet. Resursgrupper är också användbara när du etablerar regler för rollbaserad åtkomstkontroll för dina appar. Mer information finns i den [översikt över Azure Resource Manager][ARMOverview].
 
-4. Välj ditt operativsystem (Windows, Linux eller Docker). 
+1. Välj ditt operativsystem (Windows, Linux eller Docker). 
 
-5. Välj App Service-planen och välj sedan **Skapa ny**. Webbappar i Linux och Windows web apps får inte finnas i samma App Service-planen, men kan finnas i samma App Service Environment. 
+1. Välj App Service-planen och välj sedan **Skapa ny**. Webbappar i Linux och Windows web apps får inte finnas i samma App Service-planen, men kan finnas i samma App Service Environment. 
 
     ![Ny App Service-plan][2]
 
-6. I den **plats** listrutan, Välj den region där du vill skapa ASE. Om du väljer en befintlig ASE är inte en ny ASE skapas. App Service-planen har skapats i ASE som du har valt. 
+1. I den **plats** listrutan, Välj den region där du vill skapa ASE. Om du väljer en befintlig ASE är inte en ny ASE skapas. App Service-planen har skapats i ASE som du har valt. 
 
-7. Välj **prisnivå**, och välj ett av de **isolerad** priser för SKU: er. Om du väljer en **isolerad** SKU-kort och en plats som inte är en ASE, en ny ASE har skapats på den platsen. För att starta processen för att skapa en Apptjänstmiljö markerar **Välj**. Den **isolerad** SKU är endast tillgängliga i tillsammans med en ase-miljö. Du också kan inte använda andra priser SKU i en ASE än **isolerad**. 
+1. Välj **prisnivå**, och välj ett av de **isolerad** priser för SKU: er. Om du väljer en **isolerad** SKU-kort och en plats som inte är en ASE, en ny ASE har skapats på den platsen. För att starta processen för att skapa en Apptjänstmiljö markerar **Välj**. Den **isolerad** SKU är endast tillgängliga i tillsammans med en ase-miljö. Du också kan inte använda andra priser SKU i en ASE än **isolerad**. 
 
     ![Val av prisnivå][3]
 
-8. Ange namn för din ASE. Det här namnet används i adresserbara namnet för dina appar. Om namnet på ASE är _appsvcenvdemo_, domännamnet är *. appsvcenvdemo.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*, är det adresserbara på mytestapp.appsvcenvdemo.p.azurewebsites.net. Du kan inte använda blanksteg i namnet. Om du använder versaler är domännamnet den totala gemenversionen med det namnet.
+1. Ange namn för din ASE. Det här namnet används i adresserbara namnet för dina appar. Om namnet på ASE är _appsvcenvdemo_, domännamnet är *. appsvcenvdemo.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*, är det adresserbara på mytestapp.appsvcenvdemo.p.azurewebsites.net. Du kan inte använda blanksteg i namnet. Om du använder versaler är domännamnet den totala gemenversionen med det namnet.
 
     ![Ny App Service-planens namn][4]
 
-9. Ange din Azure information för virtuella nätverk. Välj antingen **skapa en ny** eller **Välj befintlig**. Möjlighet att välja ett befintligt VNet är endast tillgängligt om du har ett virtuellt nätverk i den valda regionen. Om du väljer **Skapa ny**, ange ett namn för det virtuella nätverket. Ett nytt Resource Manager-VNet med samma namn skapas. Den använder adressutrymmet `192.168.250.0/23` i den valda regionen. Om du väljer **Välj befintligt**, måste du:
+1. Ange din Azure information för virtuella nätverk. Välj antingen **skapa en ny** eller **Välj befintlig**. Möjlighet att välja ett befintligt VNet är endast tillgängligt om du har ett virtuellt nätverk i den valda regionen. Om du väljer **Skapa ny**, ange ett namn för det virtuella nätverket. Ett nytt Resource Manager-VNet med samma namn skapas. Den använder adressutrymmet `192.168.250.0/23` i den valda regionen. Om du väljer **Välj befintligt**, måste du:
 
     a. Välj Adressblock för virtuellt nätverk om du har fler än en.
 
@@ -94,7 +94,7 @@ Skapa en ASE när du skapar en App Service plan:
 
     d. Välj IP-adressintervall för undernätet.
 
-10. Välj **skapa** att skapa ASE. Den här processen skapar även App Service-planen och appen. ASE, App Service-plan och app är allt under samma prenumeration och även i samma resursgrupp. Om din ASE behöver en separat resursgrupp, eller om du behöver en ILB ASE, följer du stegen för att skapa en Apptjänstmiljö ensamt.
+1. Välj **skapa** att skapa ASE. Den här processen skapar även App Service-planen och appen. ASE, App Service-plan och app är allt under samma prenumeration och även i samma resursgrupp. Om din ASE behöver en separat resursgrupp, eller om du behöver en ILB ASE, följer du stegen för att skapa en Apptjänstmiljö ensamt.
 
 ## <a name="create-an-ase-and-a-linux-web-app-using-a-custom-docker-image-together"></a>Skapa en ase-miljö och en Linux-webbapp med en anpassad dockeravbildning tillsammans
 
@@ -102,25 +102,25 @@ Skapa en ASE när du skapar en App Service plan:
 
     ![Skapa en webbapp][7]
 
-2. Välj din prenumeration. Appen och ASE skapas i samma abonnemang.
+1. Välj din prenumeration. Appen och ASE skapas i samma abonnemang.
 
-3. Välj eller skapa en Resursgrupp. Du kan hantera relaterade Azure-resurser med resursgrupper, som en enhet. Resursgrupper är också användbara när du etablerar regler för rollbaserad åtkomstkontroll för dina appar. Mer information finns i den [översikt över Azure Resource Manager][ARMOverview].
+1. Välj eller skapa en Resursgrupp. Du kan hantera relaterade Azure-resurser med resursgrupper, som en enhet. Resursgrupper är också användbara när du etablerar regler för rollbaserad åtkomstkontroll för dina appar. Mer information finns i den [översikt över Azure Resource Manager][ARMOverview].
 
-4. Välj App Service-planen och välj sedan **Skapa ny**. Webbappar i Linux och Windows web apps får inte finnas i samma App Service-planen, men kan finnas i samma App Service Environment. 
+1. Välj App Service-planen och välj sedan **Skapa ny**. Webbappar i Linux och Windows web apps får inte finnas i samma App Service-planen, men kan finnas i samma App Service Environment. 
 
     ![Ny App Service-plan][8]
 
-5. I den **plats** listrutan, Välj den region där du vill skapa ASE. Om du väljer en befintlig ASE är inte en ny ASE skapas. App Service-planen har skapats i ASE som du har valt. 
+1. I den **plats** listrutan, Välj den region där du vill skapa ASE. Om du väljer en befintlig ASE är inte en ny ASE skapas. App Service-planen har skapats i ASE som du har valt. 
 
-6. Välj **prisnivå**, och välj ett av de **isolerad** priser för SKU: er. Om du väljer en **isolerad** SKU-kort och en plats som inte är en ASE, en ny ASE har skapats på den platsen. För att starta processen för att skapa en Apptjänstmiljö markerar **Välj**. Den **isolerad** SKU är endast tillgängliga i tillsammans med en ase-miljö. Du också kan inte använda andra priser SKU i en ASE än **isolerad**. 
+1. Välj **prisnivå**, och välj ett av de **isolerad** priser för SKU: er. Om du väljer en **isolerad** SKU-kort och en plats som inte är en ASE, en ny ASE har skapats på den platsen. För att starta processen för att skapa en Apptjänstmiljö markerar **Välj**. Den **isolerad** SKU är endast tillgängliga i tillsammans med en ase-miljö. Du också kan inte använda andra priser SKU i en ASE än **isolerad**. 
 
     ![Val av prisnivå][3]
 
-7. Ange namn för din ASE. Det här namnet används i adresserbara namnet för dina appar. Om namnet på ASE är _appsvcenvdemo_, domännamnet är *. appsvcenvdemo.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*, är det adresserbara på mytestapp.appsvcenvdemo.p.azurewebsites.net. Du kan inte använda blanksteg i namnet. Om du använder versaler är domännamnet den totala gemenversionen med det namnet.
+1. Ange namn för din ASE. Det här namnet används i adresserbara namnet för dina appar. Om namnet på ASE är _appsvcenvdemo_, domännamnet är *. appsvcenvdemo.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*, är det adresserbara på mytestapp.appsvcenvdemo.p.azurewebsites.net. Du kan inte använda blanksteg i namnet. Om du använder versaler är domännamnet den totala gemenversionen med det namnet.
 
     ![Ny App Service-planens namn][4]
 
-8. Ange din Azure information för virtuella nätverk. Välj antingen **skapa en ny** eller **Välj befintlig**. Möjlighet att välja ett befintligt VNet är endast tillgängligt om du har ett virtuellt nätverk i den valda regionen. Om du väljer **Skapa ny**, ange ett namn för det virtuella nätverket. Ett nytt Resource Manager-VNet med samma namn skapas. Den använder adressutrymmet `192.168.250.0/23` i den valda regionen. Om du väljer **Välj befintligt**, måste du:
+1. Ange din Azure information för virtuella nätverk. Välj antingen **skapa en ny** eller **Välj befintlig**. Möjlighet att välja ett befintligt VNet är endast tillgängligt om du har ett virtuellt nätverk i den valda regionen. Om du väljer **Skapa ny**, ange ett namn för det virtuella nätverket. Ett nytt Resource Manager-VNet med samma namn skapas. Den använder adressutrymmet `192.168.250.0/23` i den valda regionen. Om du väljer **Välj befintligt**, måste du:
 
     a. Välj Adressblock för virtuellt nätverk om du har fler än en.
 
@@ -130,12 +130,12 @@ Skapa en ASE när du skapar en App Service plan:
 
     d. Välj IP-adressintervall för undernätet.
 
-9.  Välj ”Konfigurera behållaren”.
+1.  Välj ”Konfigurera behållaren”.
     * Ange ditt namn på anpassad avbildning (du kan använda Azure Container Registry, Docker Hub och ditt eget privata register). Om du inte vill använda en egen anpassad behållare kan du bara ta med din kod och använda en inbyggd avbildning med App Service på Linux, med hjälp av anvisningarna ovan. 
 
     ![Konfigurera behållaren][9]
 
-10. Välj **skapa** att skapa ASE. Den här processen skapar även App Service-planen och appen. ASE, App Service-plan och app är allt under samma prenumeration och även i samma resursgrupp. Om din ASE behöver en separat resursgrupp, eller om du behöver en ILB ASE, följer du stegen för att skapa en Apptjänstmiljö ensamt.
+1. Välj **skapa** att skapa ASE. Den här processen skapar även App Service-planen och appen. ASE, App Service-plan och app är allt under samma prenumeration och även i samma resursgrupp. Om din ASE behöver en separat resursgrupp, eller om du behöver en ILB ASE, följer du stegen för att skapa en Apptjänstmiljö ensamt.
 
 
 ## <a name="create-an-ase-by-itself"></a>Skapa en Apptjänstmiljö ensamt ##
@@ -144,17 +144,17 @@ Om du skapar en ASE-fristående har ingenting i den. En tom ASE fortfarande medf
 
 1. Sök på Azure Marketplace för **App Service Environment**, eller välj **skapa en resurs** > **Web Mobile** > **App Tjänsten miljö**. 
 
-2. Ange namnet på din ASE. Det här namnet används för appar som skapats i ASE. Om namnet är *mynewdemoase*, underdomän heter *. mynewdemoase.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*, är det adresserbara på mytestapp.mynewdemoase.p.azurewebsites.net. Du kan inte använda blanksteg i namnet. Om du använder versaler är domännamnet den totala gemenversionen av namnet. Om du använder en ILB ASE-namn används inte i din underdomän men i stället anges under ASE-generering.
+1. Ange namnet på din ASE. Det här namnet används för appar som skapats i ASE. Om namnet är *mynewdemoase*, underdomän heter *. mynewdemoase.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*, är det adresserbara på mytestapp.mynewdemoase.p.azurewebsites.net. Du kan inte använda blanksteg i namnet. Om du använder versaler är domännamnet den totala gemenversionen av namnet. Om du använder en ILB ASE-namn används inte i din underdomän men i stället anges under ASE-generering.
 
     ![Namngivning av ASE][5]
 
-3. Välj din prenumeration. Den här prenumerationen är också det som alla appar i ASE använder. Du kan inte lägga din ASE i ett virtuellt nätverk som tillhör en annan prenumeration.
+1. Välj din prenumeration. Den här prenumerationen är också det som alla appar i ASE använder. Du kan inte lägga din ASE i ett virtuellt nätverk som tillhör en annan prenumeration.
 
-4. Välj eller ange en ny resursgrupp. Resursgruppen som används för din ASE måste vara samma konto som används för ditt virtuella nätverk. Om du väljer ett befintligt VNet har på val av resursgrupp för din ASE uppdaterats för att avspegla för ditt VNet. *Du kan skapa en ASE med en resursgrupp som skiljer sig från resursgruppen virtuellt nätverk om du använder Resource Manager-mall.* För att skapa en ASE från en mall, se [skapa en App Service-miljö från en mall][MakeASEfromTemplate].
+1. Välj eller ange en ny resursgrupp. Resursgruppen som används för din ASE måste vara samma konto som används för ditt virtuella nätverk. Om du väljer ett befintligt VNet har på val av resursgrupp för din ASE uppdaterats för att avspegla för ditt VNet. *Du kan skapa en ASE med en resursgrupp som skiljer sig från resursgruppen virtuellt nätverk om du använder Resource Manager-mall.* För att skapa en ASE från en mall, se [skapa en App Service-miljö från en mall][MakeASEfromTemplate].
 
     ![Val av resursgrupp][6]
 
-5. Välj virtuellt nätverk och plats. Du kan skapa ett nytt VNet eller välja ett befintligt VNet: 
+1. Välj virtuellt nätverk och plats. Du kan skapa ett nytt VNet eller välja ett befintligt VNet: 
 
     * Om du väljer ett nytt virtuellt nätverk, kan du ange ett namn och en plats. 
     

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 5679c815b26bf0b5e3a427e9551dde7b5dffa3d2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e23d76074f4b428b672e0cd5aeeaba99d080a4cf
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046550"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435942"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>Självstudier: Azure Active Directory-integration med Organisationsschema nu
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till organisationsschema nu från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-orgchart-now-from-the-gallery"></a>Att lägga till organisationsschema nu från galleriet
 För att konfigurera integrering av organisationsschema nu i Azure AD, som du behöver lägga till organisationsschema nu från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av organisationsschema nu i Azure AD, som du be
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Organisationsschema nu**väljer **Organisationsschema nu** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Organisationsschema nu**väljer **Organisationsschema nu** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Organisationsschema nu i resultatlistan](./media/orgchartnow-tutorial/tutorial_orgchartnow_addfromgallery.png)
 
@@ -85,10 +85,10 @@ För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Organisationsschema nu, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Organisationsschema nu](#create-an-orgchart-now-test-user)**  – du har en motsvarighet för Britta Simon Organisationsschema nu som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Organisationsschema nu](#create-an-orgchart-now-test-user)**  – du har en motsvarighet för Britta Simon Organisationsschema nu som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -100,17 +100,17 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/orgchartnow-tutorial/tutorial_orgchartnow_samlbase.png)
 
-3. På den **Organisationsschema nu domän och URL: er** om du vill konfigurera programmet i **IDP** initierade läge:
+1. På den **Organisationsschema nu domän och URL: er** om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Organisationsschema nu domän och URL: er med enkel inloggning för information](./media/orgchartnow-tutorial/tutorial_orgchartnow_url.png)
 
     I den **identifierare** textrutan anger du ett URL: `https://sso2.orgchartnow.com`
 
-4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Organisationsschema nu domän och URL: er med enkel inloggning för information](./media/orgchartnow-tutorial/tutorial_orgchartnow_url1.png)
 
@@ -119,19 +119,19 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE]
     > `<YourEntityID>` SAML entitets-ID som kopieras från avsnittet Snabbreferens beskrivs senare i självstudien.
 
-5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/orgchartnow-tutorial/tutorial_orgchartnow_certificate.png) 
 
-6. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/orgchartnow-tutorial/tutorial_general_400.png)
     
-7. På den **Organisationsschema nu Configuration** klickar du på **konfigurera Organisationsschema nu** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID** från den **Snabbreferens avsnittet** och använda den för att slutföra **inloggnings-URL** i **Organisationsschema nu domän och URL: er avsnittet**.
+1. På den **Organisationsschema nu Configuration** klickar du på **konfigurera Organisationsschema nu** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID** från den **Snabbreferens avsnittet** och använda den för att slutföra **inloggnings-URL** i **Organisationsschema nu domän och URL: er avsnittet**.
 
     ![Organisationsschema nu konfiguration](./media/orgchartnow-tutorial/tutorial_orgchartnow_configure.png) 
 
-8. Att konfigurera enkel inloggning på **Organisationsschema nu** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Organisationsschema nu supportteamet](mailto:ocnsupport@officeworksoftware.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **Organisationsschema nu** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Organisationsschema nu supportteamet](mailto:ocnsupport@officeworksoftware.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -145,15 +145,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/orgchartnow-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/orgchartnow-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/orgchartnow-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/orgchartnow-tutorial/create_aaduser_04.png)
 
@@ -187,7 +187,7 @@ Om du vill aktivera Azure AD-användare att logga in på organisationsschema nu 
 
     ![Låser Organisationsschema nu](./media/orgchartnow-tutorial/tutorial_orgchartnow_lock.png)
 
-2. Skapa **Admin** användare och **Läs/Skriv** användare, måste du manuellt skapa en användare för att få åtkomst till sina Privilegienivå via enkel inloggning. Utför följande steg för att etablera ett användarkonto:
+1. Skapa **Admin** användare och **Läs/Skriv** användare, måste du manuellt skapa en användare för att få åtkomst till sina Privilegienivå via enkel inloggning. Utför följande steg för att etablera ett användarkonto:
 
     a. Logga in på organisationsschema nu som en administratör.
 
@@ -217,23 +217,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Organisationsschema nu**.
+1. I listan med program väljer **Organisationsschema nu**.
 
     ![Organisationsschema nu länken i listan med program](./media/orgchartnow-tutorial/tutorial_orgchartnow_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

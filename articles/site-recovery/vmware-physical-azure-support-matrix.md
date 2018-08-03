@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 08/01/2018
 ms.author: raynew
-ms.openlocfilehash: 96fc44ad7f69b4de0ec5ea3967fe5495086ba53a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: fc45b9e4a568842b5a935d7c28de5ef0a57e1b86
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413611"
+ms.locfileid: "39442538"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Supportmatris för VMware och fysisk serverreplikering till Azure
 
@@ -112,7 +112,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | SP1 3.12.49-11-default 
 **Komponent** | **Stöds**
 --- | ---
 Filsystem | ext3, ext4, XFS.
-Volymhanterare | LVM2.
+Volymhanterare | LVM2. LVM stöds för data-diskar. Azure virtuella datorer har bara en enda OS-disk.
 Paravirtualiserade lagringsenheter | Enheter som exporteras av paravirtualiserade drivrutiner stöds inte.
 Flera kö blockera-i/o-enheter | Stöds ej.
 Fysiska servrar med lagringsstyrenhet HP CCISS | Stöds ej.

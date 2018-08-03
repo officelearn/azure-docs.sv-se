@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: dad37a0d66ff1af9ad7e7f3b6a807ef1104da39f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fb985b389139bfd8d54e6c54d101bbfa8a68a6d4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041100"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444631"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Självstudier: Azure Active Directory-integration med Vodeclic
 
@@ -53,7 +53,7 @@ Följ dessa rekommendationer för att testa stegen i den här självstudien:
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Vodeclic från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="add-vodeclic-from-the-gallery"></a>Lägg till Vodeclic från galleriet
 För att konfigurera integrering av Vodeclic i Azure AD, som du behöver lägga till Vodeclic från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av Vodeclic i Azure AD, som du behöver lägga 
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Om du vill lägga till ett nytt program, Välj den **nytt program** längst upp i dialogrutan.
+1. Om du vill lägga till ett nytt program, Välj den **nytt program** längst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Vodeclic**. Välj **Vodeclic** i resultatrutan och välj sedan den **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Vodeclic**. Välj **Vodeclic** i resultatrutan och välj sedan den **Lägg till** för att lägga till programmet.
 
     ![Vodeclic i resultatlistan](./media/vodeclic-tutorial/tutorial_vodeclic_addfromgallery.png)
 
@@ -87,10 +87,10 @@ I Vodeclic, ger värdet **användarnamn** samma värde som **användarnamn** i A
 Om du vill konfigurera och testa Azure AD enkel inloggning med Vodeclic, utför du följande byggblock:
 
 1. [Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on) vill tillåta att användarna använda den här funktionen.
-2. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) att testa Azure AD enkel inloggning med Britta Simon.
-3. [Skapa en testanvändare Vodeclic](#create-a-vodeclic-test-user) har en motsvarighet för Britta Simon i Vodeclic som är länkad till en Azure AD-representation av användaren.
-4. [Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user) att aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. [Testa enkel inloggning](#test-single-sign-on) att kontrollera om konfigurationen fungerar.
+1. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) att testa Azure AD enkel inloggning med Britta Simon.
+1. [Skapa en testanvändare Vodeclic](#create-a-vodeclic-test-user) har en motsvarighet för Britta Simon i Vodeclic som är länkad till en Azure AD-representation av användaren.
+1. [Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user) att aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. [Testa enkel inloggning](#test-single-sign-on) att kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -102,11 +102,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. I den **enkel inloggning** dialogrutan **Single-Sign-on-läge**väljer **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. I den **enkel inloggning** dialogrutan **Single-Sign-on-läge**väljer **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/vodeclic-tutorial/tutorial_vodeclic_samlbase.png)
 
-3. Om du vill konfigurera programmet i **IDP** har initierat läge, den **Vodeclic domän och URL: er** avsnittet, gör följande:
+1. Om du vill konfigurera programmet i **IDP** har initierat läge, den **Vodeclic domän och URL: er** avsnittet, gör följande:
 
     ![Vodeclic domän och URL: er med enkel inloggning för information](./media/vodeclic-tutorial/tutorial_vodeclic_url.png)
 
@@ -114,7 +114,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. I den **svars-URL** skriver du en URL med följande mönster: `https://<companyname>.lms.vodeclic.net/auth/saml/callback`
 
-4. Om du vill konfigurera programmet i **SP** initierad läge, väljer den **visa avancerade URL-inställningar** och utför du följande steg:
+1. Om du vill konfigurera programmet i **SP** initierad läge, väljer den **visa avancerade URL-inställningar** och utför du följande steg:
 
     ![Vodeclic domän och URL: er med enkel inloggning för information](./media/vodeclic-tutorial/tutorial_vodeclic_url1.png)
 
@@ -123,15 +123,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren svars-URL och inloggnings-URL. Kontakta den [Vodeclic klienten supportteamet](mailto:hotline@vodeclic.com) att hämta dessa värden.
 
-5. I den **SAML-signeringscertifikat** väljer **XML-Metadata för**. Spara metadatafilen på datorn.
+1. I den **SAML-signeringscertifikat** väljer **XML-Metadata för**. Spara metadatafilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/vodeclic-tutorial/tutorial_vodeclic_certificate.png) 
 
-6. Välj **Spara**.
+1. Välj **Spara**.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/vodeclic-tutorial/tutorial_general_400.png)
     
-7. Att konfigurera enkel inloggning på den **Vodeclic** sida, skicka de hämtade **XML-Metadata för** till den [Vodeclic supportteamet](mailto:hotline@vodeclic.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på den **Vodeclic** sida, skicka de hämtade **XML-Metadata för** till den [Vodeclic supportteamet](mailto:hotline@vodeclic.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com) medan du installerar appen. När du lägger till den här appen från den **Active Directory** > **företagsprogram** väljer den **enkel inloggning** fliken och komma åt den inbäddade dokumentation genom den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen embedded-dokumentation på [embedded-dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -148,15 +148,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/vodeclic-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**. Välj sedan **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**. Välj sedan **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/vodeclic-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/vodeclic-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan rutan, gör följande:
+1. I den **användaren** dialogrutan rutan, gör följande:
 
     ![Dialogrutan användare](./media/vodeclic-tutorial/create_aaduser_04.png)
 
@@ -187,23 +187,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Vodeclic**.
+1. I listan med program väljer **Vodeclic**.
 
     ![Länken Vodeclic i listan med program](./media/vodeclic-tutorial/tutorial_vodeclic_app.png)  
 
-3. I menyn till vänster väljer **användare och grupper**.
+1. I menyn till vänster väljer **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Välj den **Lägg till** knappen. Välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+1. Välj den **Lägg till** knappen. Välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. I den **användare och grupper** dialogrutan **Britta Simon** i den **användare** lista.
+1. I den **användare och grupper** dialogrutan **Britta Simon** i den **användare** lista.
 
-6. I den **användare och grupper** dialogrutan den **Välj** knappen.
+1. I den **användare och grupper** dialogrutan den **Välj** knappen.
 
-7. I den **Lägg till tilldelning** dialogrutan den **tilldela** knappen.
+1. I den **Lägg till tilldelning** dialogrutan den **tilldela** knappen.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

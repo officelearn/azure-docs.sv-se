@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/08/2018
 ms.author: glenga
-ms.openlocfilehash: 5f629ea791a839e1eca25e7487ea395638d136ab
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 02c21453aca01ec0659d0b31738512525d2af51d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344638"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444325"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Event Grid-utlösare för Azure Functions
 
@@ -279,7 +279,7 @@ Mer information om hur du skapar prenumerationer med hjälp av Azure portal finn
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Skapa en prenumeration med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), använda den [az eventgrid-händelseprenumeration skapa](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) kommando.
+Skapa en prenumeration med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), använda den [az eventgrid-händelseprenumeration skapa](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) kommando.
 
 Kommandot kräver slutpunkts-URL som anropar funktionen. I följande exempel visar mönstret för URL:
 
@@ -340,7 +340,7 @@ Om du vill testa en Event Grid-utlösare lokalt, måste du hämta Event Grid HTT
 4. [Skapa en begäran](#generate-a-request) och kopiera begärandetexten från viewer-appen.
 5. [Manuellt efter begäran](#manually-post-the-request) till localhost-URL: en för Event Grid-Utlösarfunktion.
 
-När du är klar testning, du kan använda samma prenumeration för produktion genom att uppdatera slutpunkten. Använd den [az eventgrid händelseprenumeration uppdatering](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI-kommando.
+När du är klar testning, du kan använda samma prenumeration för produktion genom att uppdatera slutpunkten. Använd den [az eventgrid händelseprenumeration uppdatering](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI-kommando.
 
 ### <a name="create-a-viewer-web-app"></a>Skapa en webbapp för viewer
 
@@ -406,7 +406,7 @@ Ett annat sätt att testa en Event Grid-utlösare lokalt är att automatisera HT
 5. [Skapa en Event Grid-prenumeration](#create-a-subscription) som skickar händelser till ngrok-slutpunkten.
 6. [Utlös en händelse](#trigger-an-event).
 
-När du är klar testning, du kan använda samma prenumeration för produktion genom att uppdatera slutpunkten. Använd den [az eventgrid händelseprenumeration uppdatering](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI-kommando.
+När du är klar testning, du kan använda samma prenumeration för produktion genom att uppdatera slutpunkten. Använd den [az eventgrid händelseprenumeration uppdatering](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI-kommando.
 
 ### <a name="create-an-ngrok-endpoint"></a>Skapa en ngrok-slutpunkt
 

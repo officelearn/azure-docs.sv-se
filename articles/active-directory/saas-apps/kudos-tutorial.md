@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 5807ab0090f401c02599db40f110b7a9b1504060
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 878bbe16e2d33375c160c17d458654541e2f4174
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047060"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435187"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Självstudier: Azure Active Directory-integration med bra jobbat av
 
@@ -52,7 +52,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Bra jobbat av för att lägga till från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-kudos-from-the-gallery"></a>Bra jobbat av för att lägga till från galleriet
 För att konfigurera integrering av Bra jobbat av i Azure AD, som du behöver lägga till Bra jobbat av från galleriet i din lista över hanterade SaaS-appar.
@@ -63,19 +63,19 @@ För att konfigurera integrering av Bra jobbat av i Azure AD, som du behöver l�
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **Bra jobbat av**.
+1. I sökrutan skriver **Bra jobbat av**.
 
     ![Skapa en Azure AD-användare för testning](./media/kudos-tutorial/tutorial_kudos_search.png)
 
-5. I resultatpanelen väljer **Bra jobbat av**, och klicka sedan på **Lägg till** för att lägga till programmet.
+1. I resultatpanelen väljer **Bra jobbat av**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
     ![Skapa en Azure AD-användare för testning](./media/kudos-tutorial/tutorial_kudos_addfromgallery.png)
 
@@ -89,10 +89,10 @@ I Bra jobbat av, tilldela värdet för den **användarnamn** i Azure AD som vär
 Om du vill konfigurera och testa Azure AD enkel inloggning med bra jobbat av, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en bra jobbat av testanvändare](#creating-a-kudos-test-user)**  – du har en motsvarighet för Britta Simon i Bra jobbat av som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en bra jobbat av testanvändare](#creating-a-kudos-test-user)**  – du har en motsvarighet för Britta Simon i Bra jobbat av som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -104,11 +104,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/kudos-tutorial/tutorial_kudos_samlbase.png)
 
-3. På den **Bra jobbat av domän och URL: er** avsnittet, utför följande steg:
+1. På den **Bra jobbat av domän och URL: er** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/kudos-tutorial/tutorial_kudos_url.png)
 
@@ -117,27 +117,27 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Bra jobbat av klienten supportteamet](http://success.kudosnow.com/home) att hämta det här värdet. 
  
-4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/kudos-tutorial/tutorial_kudos_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/kudos-tutorial/tutorial_general_400.png)
 
-6. På den **Bra jobbat av konfigurationen** klickar du på **konfigurera Bra jobbat av** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **Bra jobbat av konfigurationen** klickar du på **konfigurera Bra jobbat av** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Konfigurera enkel inloggning](./media/kudos-tutorial/tutorial_kudos_configure.png) 
 
-7. Logga in på webbplatsen Bra jobbat av företag som en administratör i ett annat webbläsarfönster.
+1. Logga in på webbplatsen Bra jobbat av företag som en administratör i ett annat webbläsarfönster.
 
-8. Klicka på menyn längst upp **inställningar**.
+1. Klicka på menyn längst upp **inställningar**.
    
     ![Inställningar för](./media/kudos-tutorial/ic787806.png "inställningar")
 
-9. Klicka på **integreringar \> SSO**.
+1. Klicka på **integreringar \> SSO**.
 
-10. I den **SSO** avsnittet, utför följande steg:
+1. I den **SSO** avsnittet, utför följande steg:
    
     ![SSO](./media/kudos-tutorial/ic787807.png "SSO")
    
@@ -166,15 +166,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](./media/kudos-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
     ![Skapa en Azure AD-användare för testning](./media/kudos-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
     ![Skapa en Azure AD-användare för testning](./media/kudos-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
     ![Skapa en Azure AD-användare för testning](./media/kudos-tutorial/create_aaduser_04.png) 
 
@@ -196,17 +196,17 @@ När det gäller Bra jobbat av är etablering en manuell aktivitet.
 
 1. Logga in på din **Bra jobbat av** företagets plats som administratör.
 
-2. Klicka på menyn längst upp **inställningar**.
+1. Klicka på menyn längst upp **inställningar**.
    
    ![Inställningar för](./media/kudos-tutorial/ic787806.png "inställningar")
 
-3. Klicka på **Användaradministration**.
+1. Klicka på **Användaradministration**.
 
-4. Klicka på den **användare** fliken och klicka sedan på **lägga till en användare**.
+1. Klicka på den **användare** fliken och klicka sedan på **lägga till en användare**.
    
    ![Användaradministration](./media/kudos-tutorial/ic787809.png "Användaradministration")
 
-5. I den **lägga till en användare** avsnittet, utför följande steg:
+1. I den **lägga till en användare** avsnittet, utför följande steg:
    
     ![Lägga till en användare](./media/kudos-tutorial/ic787810.png "lägga till en användare")
    
@@ -229,23 +229,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Bra jobbat av**.
+1. I listan med program väljer **Bra jobbat av**.
 
     ![Konfigurera enkel inloggning](./media/kudos-tutorial/tutorial_kudos_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 

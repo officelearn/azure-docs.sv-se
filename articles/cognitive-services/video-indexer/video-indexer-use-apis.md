@@ -9,14 +9,17 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 82416c7c653438fcd8b8f4a4ead7591bad0ac022
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 73359955861b88f2bc5ca297c32fa78c2632148c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391521"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449508"
 ---
 # <a name="use-azure-video-indexer-api"></a>Använda Azure API för Videoindexering
+
+> [!Note]
+> Video Indexer V1 API upphörde den 1 augusti 2018. Nu bör du använda Video Indexer v2 API: et. <br/>Om du vill utveckla med API: er för Video Indexer-v2, se instruktionerna [här](https://api-portal.videoindexer.ai/). 
 
 Video Indexer konsoliderar olika ljud- och artificiell intelligens (AI)-tekniker som erbjuds av Microsoft i en integrerad tjänst, vilket förenklar utvecklingen. API: erna är utformade för att aktivera som utvecklare kan fokusera på förbrukar Media AI tekniker utan att oroa dig över skalning, global räckvidd, tillgänglighet och tillförlitlighet för molnplattform. Du kan använda API: et för att överföra dina filer, hämta detaljerad information i video och få URL: er i widgetar insikt och spelare om du vill bädda in dem i ditt program och andra uppgifter.
 

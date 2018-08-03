@@ -8,12 +8,12 @@ manager: jpconnock
 ms.service: devops
 ms.custom: jenkins
 ms.date: 07/31/2018
-ms.openlocfilehash: 1b01eb760fa36c9f0fb6180c12dc3e5c1bf9de6f
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f54e4e8f64fe444f264b547d5af475c533c5723f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391494"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441688"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Distribuera till Azure App Service med hjälp av Jenkins-plugin-programmet 
 
@@ -65,7 +65,7 @@ Du kan ladda upp din byggartefakter (till exempel en WAR-fil i Java) för att di
 Innan du konfigurerar jobbet i Jenkins behöver du en Azure App Service-plan och en webbapp för att köra Java-app.
 
 
-1. Skapa en Azure App Service-plan med den **kostnadsfri** prisnivån med hjälp av den `az appservice plan create` [Azure CLI-kommando](/cli/azure/appservice/plan#az_appservice_plan_create). App Service-planen definierar vilka fysiska resurser som används som värd för dina appar. Alla program som har tilldelats en App Service-plan delar dessa resurser. Delade resurser hjälper dig att minska kostnaderna när flera appar.
+1. Skapa en Azure App Service-plan med den **kostnadsfri** prisnivån med hjälp av den `az appservice plan create` [Azure CLI-kommando](/cli/azure/appservice/plan#az-appservice-plan-create). App Service-planen definierar vilka fysiska resurser som används som värd för dina appar. Alla program som har tilldelats en App Service-plan delar dessa resurser. Delade resurser hjälper dig att minska kostnaderna när flera appar.
 2. Skapa en webbapp. Du kan använda den [Azure-portalen](/azure/app-service-web/web-sites-configure) eller följande `az` Azure CLI-kommando:
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>

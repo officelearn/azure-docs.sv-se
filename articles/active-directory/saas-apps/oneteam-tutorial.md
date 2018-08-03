@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: ecc8799e9d9fa711d2e2f52427cd5314a64dfc26
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 76b7c2ac18a683ccbe07c7c4cdc750399d8466c2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051313"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446979"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Självstudier: Azure Active Directory-integration med Oneteam
 
@@ -52,7 +52,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Oneteam från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-oneteam-from-the-gallery"></a>Att lägga till Oneteam från galleriet
 För att konfigurera integrering av Oneteam i Azure AD, som du behöver lägga till Oneteam från galleriet i din lista över hanterade SaaS-appar.
@@ -63,19 +63,19 @@ För att konfigurera integrering av Oneteam i Azure AD, som du behöver lägga t
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **Oneteam**.
+1. I sökrutan skriver **Oneteam**.
 
     ![Skapa en Azure AD-användare för testning](./media/oneteam-tutorial/tutorial_oneteam_search.png)
 
-5. I resultatpanelen väljer **Oneteam**, och klicka sedan på **Lägg till** för att lägga till programmet.
+1. I resultatpanelen väljer **Oneteam**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
     ![Skapa en Azure AD-användare för testning](./media/oneteam-tutorial/tutorial_oneteam_addfromgallery.png)
 
@@ -89,10 +89,10 @@ I Oneteam, tilldela värdet för den **användarnamn** i Azure AD som värde fö
 Om du vill konfigurera och testa Azure AD enkel inloggning med Oneteam, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Oneteam](#creating-a-oneteam-test-user)**  – du har en motsvarighet för Britta Simon i Oneteam som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Oneteam](#creating-a-oneteam-test-user)**  – du har en motsvarighet för Britta Simon i Oneteam som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -104,11 +104,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/oneteam-tutorial/tutorial_oneteam_samlbase.png)
 
-3. På den **Oneteam domän och URL: er** om du vill konfigurera programmet i **IDP** initierade läge:
+1. På den **Oneteam domän och URL: er** om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/oneteam-tutorial/tutorial_oneteam_url.png)
 
@@ -116,7 +116,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://api.one-team.io/teams/<team name>/auth/saml/callback`
 
-4. Kontrollera **visa avancerade URL-inställningar**, om du vill konfigurera programmet i **SP** initierade läge:
+1. Kontrollera **visa avancerade URL-inställningar**, om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/oneteam-tutorial/tutorial_oneteam_url1.png)
 
@@ -127,15 +127,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 
 
-5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/oneteam-tutorial/tutorial_oneteam_certificate.png) 
 
-6. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/oneteam-tutorial/tutorial_general_400.png)
     
-7. För att få SSO konfigurerats för ditt program kan du höja supportärende med [Oneteam supportteamet](https://support.one-team.com/hc/requests/new) och ge dem den hämtade **Metadata**. 
+1. För att få SSO konfigurerats för ditt program kan du höja supportärende med [Oneteam supportteamet](https://support.one-team.com/hc/requests/new) och ge dem den hämtade **Metadata**. 
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -152,15 +152,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](./media/oneteam-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
     ![Skapa en Azure AD-användare för testning](./media/oneteam-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
     ![Skapa en Azure AD-användare för testning](./media/oneteam-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
     ![Skapa en Azure AD-användare för testning](./media/oneteam-tutorial/create_aaduser_04.png) 
 
@@ -193,23 +193,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Oneteam**.
+1. I listan med program väljer **Oneteam**.
 
     ![Konfigurera enkel inloggning](./media/oneteam-tutorial/tutorial_oneteam_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 

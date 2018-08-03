@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1d73142931a5cfa84cb24df7a85c799a0f508385
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d4a1a687700badc550d37bf74f6a7e1680388897
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358837"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440323"
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Exportera Azure Resource Manager-mallar med Azure CLI
 
@@ -26,14 +26,14 @@ Med Resource Manager kan du exportera en Resource Manager-mall från befintliga 
 
 Det är viktigt att Observera att det finns två sätt att exportera en mall:
 
-* Du kan exportera den **faktiska mall som används för en distribution**. Den exporterade mallen innehåller alla parametrar och variabler exakt som de visas i den ursprungliga mallen. Den här metoden är användbar när du vill hämta en mall.
-* Du kan exportera en **genererad mall som representerar resursgruppens aktuella tillstånd**. Den exporterade mallen baseras inte på en mall som du har använt för distribution. I stället skapar en mall som är en ”ögonblicksbild” eller ”backup” av resursgruppen. Den exporterade mallen har många hårdkodade värden och troligen inte så många parametrar som du vanligtvis definierar. Använd det här alternativet om du vill distribuera resurser i samma resursgrupp. För att använda den här mallen för en annan resursgrupp måste kanske du ändra avsevärt den.
+* Du kan exportera de **mall som används för en distribution**. Den exporterade mallen innehåller alla parametrar och variabler exakt som de visas i den ursprungliga mallen. Den här metoden är användbar när du vill hämta en mall.
+* Du kan exportera en **genererad mall som representerar resursgruppens aktuella tillstånd**. Den exporterade mallen baseras inte på en mall som du har använt för distribution. I stället skapar den en mall som är en ”ögonblicksbild” eller ”säkerhetskopiering” för resursgruppen. Den exporterade mallen har många hårdkodade värden och troligen inte så många parametrar som du vanligtvis definierar. Använd det här alternativet för att distribuera om resurser till samma resursgrupp. Du kan behöva ändra avsevärt den om du vill använda den här mallen för en annan resursgrupp.
 
 Den här artikeln visar båda metoderna.
 
 ## <a name="deploy-a-solution"></a>Distribuera en lösning
 
-För att illustrera båda metoderna för att exportera en mall, börja med att distribuera en lösning till din prenumeration. Om du redan har en resursgrupp i din prenumeration som du vill exportera, behöver du inte distribuera den här lösningen. Men handlar resten av den här artikeln mallen för den här lösningen. Exempelskriptet distribuerar ett lagringskonto.
+För att illustrera båda metoderna för att exportera en mall, låt oss börja med att distribuera en lösning till din prenumeration. Om du redan har en resursgrupp i din prenumeration som du vill exportera, behöver du inte distribuera den här lösningen. Men handlar resten av den här artikeln om att mallen för den här lösningen. Exempelskriptet distribuerar ett lagringskonto.
 
 ```azurecli
 az group create --name ExampleGroup --location "Central US"
@@ -45,24 +45,24 @@ az group deployment create \
 
 ## <a name="save-template-from-deployment-history"></a>Spara mallen från distributionshistoriken
 
-Du kan hämta en mall från distributionshistoriken med hjälp av den [az distribution exportera](/cli/azure/group/deployment#az_group_deployment_export) kommando. I följande exempel sparas den mall som du distribuerar tidigare:
+Du kan hämta en mall från distributionshistoriken med hjälp av den [az group deployment export](/cli/azure/group/deployment#az-group-deployment-export) kommando. I följande exempel sparar den mall som du tidigare har distribuerat:
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
 ```
 
-Returnerar den mallen. Kopiera JSON och spara som en fil. Observera att det är exakt mallen som du använde för distribution. Parametrar och variabler matchar mallen från GitHub. Du kan distribuera den här mallen.
+Returnerar den mallen. Kopiera JSON och spara som en fil. Observera att det är den exakta mallen som du använde för distributionen. Parametrar och variabler matchar mallen från GitHub. Du kan distribuera om den här mallen.
 
 
 ## <a name="export-resource-group-as-template"></a>Exportera resursgrupp som mall
 
-I stället för att hämta en mall från distributionshistoriken, kan du hämta en mall som representerar det aktuella tillståndet för en resursgrupp med hjälp av den [az exportera](/cli/azure/group#az_group_export) kommando. Du kan använda det här kommandot när du har gjort många ändringar i resursgruppen och inga befintliga mallen som representerar alla ändringar. Den är avsedd som en ögonblicksbild av resursgrupp, där du kan distribuera att samma resursgrupp. Om du vill använda den exporterade mallen andra lösningar ändra du avsevärt den.
+I stället för att hämta en mall från distributionshistoriken, kan du hämta en mall som representerar det aktuella tillståndet för en resursgrupp med hjälp av den [az exportera](/cli/azure/group#az-group-export) kommando. Du använder det här kommandot när du har gjort många ändringar i resursgruppen och inga befintliga mall som representerar alla ändringar. Den är avsedd som en ögonblicksbild av resursgruppen som du kan använda för att distribuera om till samma resursgrupp. Om du vill använda den exporterade mallen andra lösningar, måste du avsevärt ändra den.
 
 ```azurecli
 az group export --name ExampleGroup
 ```
 
-Returnerar den mallen. Kopiera JSON och spara som en fil. Observera att det skiljer sig från mallen i GitHub. Mallen har olika parametrar och inga variabler. SKU-lagring och plats är hårdkodat till värden. I följande exempel visas den exporterade mallen, men mallen har ett något annorlunda parameternamn:
+Returnerar den mallen. Kopiera JSON och spara som en fil. Observera att det är annorlunda än mallen i GitHub. Mallen har olika parametrar och inga variabler. Lagrings-SKU och plats är hårdkodade värden. I följande exempel visas den exporterade mallen, men mallen har ett något annorlunda parameternamn:
 
 ```json
 {
@@ -94,7 +94,7 @@ Returnerar den mallen. Kopiera JSON och spara som en fil. Observera att det skil
 }
 ```
 
-Du kan distribuera den här mallen, men det krävs ett unikt namn för storage-konto för att gissa. Namnet på parametern är något annorlunda.
+Du kan distribuera om den här mallen, men det krävs att gissa ett unikt namn för lagringskontot. Namnet på parametern är något annorlunda.
 
 ```azurecli
 az group deployment create --name NewStorage --resource-group ExampleGroup \
@@ -104,13 +104,13 @@ az group deployment create --name NewStorage --resource-group ExampleGroup \
 
 ## <a name="customize-exported-template"></a>Anpassa exporterad mall
 
-Du kan ändra den här mallen för att göra det enklare att använda och mer flexibelt. Ändra Platsegenskapen om du vill använda samma plats som resursgruppen för att tillåta för flera platser:
+Du kan ändra den här mallen för att göra det enklare att använda och mer flexibel. Om du vill tillåta för flera platser, ändrar du egenskapen location om du vill använda samma plats som resursgruppen:
 
 ```json
 "location": "[resourceGroup().location]",
 ```
 
-Ta bort parametern för lagringskontonamn om du vill undvika att gissa ett uniques namn för storage-konto. Lägga till en parameter för ett namnsuffix för lagring och lagring SKU:
+Ta bort parametern för lagringskontonamn så att du slipper gissa ett uniques namn för lagringskontot. Lägg till en parameter för ett storage-namnsuffix och en lagrings-SKU:
 
 ```json
 "parameters": {
@@ -133,7 +133,7 @@ Ta bort parametern för lagringskontonamn om du vill undvika att gissa ett uniqu
 },
 ```
 
-Lägg till en variabel som konstruktioner lagringskontonamnet med funktionen uniqueString:
+Lägg till en variabel som konstruerar lagringskontonamnet med funktionen uniqueString:
 
 ```json
 "variables": {
@@ -147,7 +147,7 @@ Ange namnet på lagringskontot till variabeln:
 "name": "[variables('storageAccountName')]",
 ```
 
-Ange SKU: N i parametern:
+Ange SKU-parameter:
 
 ```json
 "sku": {
@@ -206,5 +206,5 @@ Distribuera om den ändrade mallen.
 
 ## <a name="next-steps"></a>Nästa steg
 * Information om hur du använder portalen för att exportera en mall finns i [exportera en Azure Resource Manager-mall från befintliga resurser](resource-manager-export-template.md).
-* Om du vill definiera parametrar i mallen, se [Webbsidemallar](resource-group-authoring-templates.md#parameters).
-* Tips om hur du löser vanliga distributionsfel finns [felsöka vanliga Azure-distribution med Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* För att definiera parametrar i mallen, se [Webbsidemallar](resource-group-authoring-templates.md#parameters).
+* Tips om hur du löser vanliga distributionsfel finns [felsöka vanliga Azure-distributionsfel med Azure Resource Manager](resource-manager-common-deployment-errors.md).

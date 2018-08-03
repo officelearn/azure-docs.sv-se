@@ -8,23 +8,27 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f36f05789424cfd3213525dd501333f852a0d9c2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: fd278ad6865c871ed0a5ed9272c9fadfca0f38db
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971728"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440437"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Loggaviseringar i Azure Monitor - aviseringar 
-Den här artikeln innehåller information om aviseringar är en av typerna av aviseringar som stöds i den nya [Azure Alerts](monitoring-overview-unified-alerts.md) och Tillåt användare att använda Azures analysplattform som bas för aviseringar... Information om mått aviseringar via loggar i [aviseringar i nära realtid mått](monitoring-near-real-time-metric-alerts.md)
+Den här artikeln innehåller information om aviseringar är en av typerna av aviseringar som stöds i den nya [Azure Alerts](monitoring-overview-unified-alerts.md) och Tillåt användare att använda Azures analysplattform som bas för aviseringar.
 
 
-Log aviseringen består av Loggsökning regler som har skapats för [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events)
+Log aviseringen består av Loggsökning regler som har skapats för [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Information om priser för loggvarningar är tillgängligt på den [priser för Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/) sidan. I Azure-fakturor loggvarningar representeras som typ `microsoft.insights/scheduledqueryrules` med:
+- Aviseringar i Application Insights visas med exakt aviseringsnamn tillsammans med resursgruppen och egenskaper för aviseringen
+- Loggaviseringar på Log Analytics som visas med aviseringsnamn som `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` tillsammans med resursgruppen och egenskaper för aviseringen
 
+    > [!NOTE]
+    > Namnet på alla sparade sökningar, scheman och åtgärder som skapats med Log Analytics-API måste vara i gemener. Om ogiltiga tecken som `<, >, %, &, \, ?, /` är används – de kommer att ersättas med `_` på fakturan.
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Sök loggvarningsregel - definitions- och typer
 
-Log search regler skapas av Azure-aviseringar för att köra angivna loggfrågor automatiskt med jämna mellanrum.  Om log frågans resultat matchar särskilda villkor, skapas en aviseringspost. Regeln kan sedan automatiskt köra en eller flera åtgärder med hjälp av [åtgärdsgrupper](monitoring-action-groups.md). 
+Loggsökningsregler skapas av Azure-aviseringar för att automatiskt köra angivna loggfrågor med jämna mellanrum.  Om resultatet av loggfrågan matchar särskilda villkor skapas en aviseringspost. Regeln kan sedan automatiskt köra en eller flera åtgärder med hjälp av [Åtgärdsgrupper](monitoring-action-groups.md). 
 
 Regler för log search definieras av följande information:
 - **Loggar frågor**.  Den fråga som körs varje gång regeln utlöses.  Poster som returneras av den här frågan används för att avgöra om en avisering skapas. *Azure Application Insights* fråga kan också innehålla [schemaläggningskapacitet mellan program anrop](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), förutsatt att användaren har behörighet att externa program. 
@@ -86,7 +90,7 @@ Tänk dig ett scenario där du vill ha en avisering om en dator har överskridit
 - **Fråga:** Perf | där ObjectName == ”Processor” och CounterName == ”% processortid” | sammanfatta AggregatedValue = avg(CounterValue) efter bin (TimeGenerated, 5 m), dator<br>
 - **Tidsperiod:** 30 minuter<br>
 - **Aviseringsfrekvens:** fem minuter<br>
-- **Aggregera värde:** bra än 90<br>
+- **Aggregera värde:** överstiger 90<br>
 - **Utlös aviseringen baserat på:** totalt dataintrång är större än 2<br>
 
 Frågan skapar ett genomsnittligt värde för varje dator med 5 minuters mellanrum.  Den här frågan skulle köras var femte minut för data som samlas in under de föregående 30 minuterna.  Exempeldata visas nedan för tre datorer.
@@ -104,7 +108,7 @@ Log avisering samt dess consisting search loggvarningsregel kan visas, skapas el
 - Azure Resource Manager-mallar
 
 ### <a name="azure-portal"></a>Azure Portal
-Ända sedan den [nya Azure-aviseringar](monitoring-overview-unified-alerts.md), nu användarna kan hantera alla typer av aviseringar i Azure-portalen från en enda plats och liknande steg. Läs mer om [med nya Azure-aviseringar](monitor-alerts-unified-usage.md).
+Ända sedan den [nya Azure-aviseringar](monitoring-overview-unified-alerts.md), nu användarna kan hantera alla typer av aviseringar i Azure-portalen från en enda plats och med liknande steg för användning. Läs mer om [med nya Azure-aviseringar](monitor-alerts-unified-usage.md).
 
 Användare kan dessutom förbättrar deras frågor i Analytics plattform i Azure och sedan *importera dem för användning i aviseringar genom att spara frågan*. Steg att följa:
 - *För Application Insights*: ska analysportalen verifiera frågan och dess resultat. Spara med unikt namn i *delade frågor*.
@@ -131,7 +135,7 @@ För information samt exempel om hur du använder Resource Manager-mallar, se:
  
 
 ## <a name="next-steps"></a>Nästa steg
-* Förstå [loggaviseringar i Azure](monitor-alerts-unified-log-webhook.md).
+* Förstå [webhooks i loggaviseringar i Azure](monitor-alerts-unified-log-webhook.md).
 * Lär dig mer om den nya [Azure Alerts](monitoring-overview-unified-alerts.md).
 * Läs mer om [Application Insights](../application-insights/app-insights-analytics.md).
 * Läs mer om [Log Analytics](../log-analytics/log-analytics-overview.md).    

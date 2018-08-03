@@ -1,6 +1,6 @@
 ---
 title: Ta bort ett kluster i Azure Kubernetes Service (AKS)
-description: Ta bort och AKS kluster med CLI eller Azure-portalen.
+description: Ta bort och AKS-kluster med CLI eller Azure-portalen.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 2/05/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 66dcebb702695a6601f6ed17b85a04d5bb4e01f6
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: c8eab17a5c635560d9a5274eb038845238968e02
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100051"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439943"
 ---
 # <a name="delete-an-azure-kubernetes-service-aks-cluster"></a>Ta bort ett kluster i Azure Kubernetes Service (AKS)
 
-När du tar bort ett Azure Kubernetes Service-kluster, den resursgrupp som klustret har distribuerats finns kvar, men alla AKS-relaterade resurser tas bort. Det här dokumentet beskrivs hur du tar bort ett AKS kluster med hjälp av Azure CLI och Azure-portalen.
+När du tar bort ett Azure Kubernetes Service-kluster, kvar resursgruppen som klustret har distribuerats, men alla AKS-relaterade resurser tas bort. Det här dokumentet visar hur du tar bort ett AKS-kluster med hjälp av Azure CLI och Azure-portalen.
 
-Förutom att ta bort klustret, kan den resursgrupp som du distribuerat tas bort, som tar bort klustret AKS.
+Förutom att ta bort klustret, kan den resursgrupp som du distribuerat tas bort, som tar bort AKS-klustret.
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -36,14 +36,14 @@ Följande alternativ är tillgängliga med den `az aks delete` kommando.
 |---|---|:---:|
 | `--name` `-n` | Resursnamnet för hanterat kluster. | ja |
 | `--resource-group` `-g` | Namnet på resursgruppen Azure Kubernetes Service. | ja |
-| `--no-wait` | Vänta inte tidskrävande-åtgärd ska slutföras. | nej |
+| `--no-wait` | Vänta inte på den tidskrävande åtgärden slutförs. | nej |
 | `--yes` `-y` | Fråga inte efter bekräftelse. | nej |
 
 ## <a name="azure-portal"></a>Azure Portal
 
-Bläddra till den resursgrupp som innehåller Azure Kubernetes Service (AKS)-resurs i Azure-portalen, markera resursen och på **ta bort**. Du uppmanas att bekräfta borttagningen.
+I Azure-portalen bläddrar du till resursgruppen som innehåller Azure Kubernetes Service (AKS)-resurs, Välj resursen och på **ta bort**. Du uppmanas att bekräfta borttagningen.
 
-![Ta bort AKS klustret portal](media/container-service-delete-cluster/delete-aks-portal.png)
+![Ta bort AKS-kluster-portalen](media/container-service-delete-cluster/delete-aks-portal.png)
 
 <!-- LINKS - internal -->
-[az-aks-delete]: /cli/azure/aks?view=azure-cli-latest#az_aks_delete
+[az-aks-delete]: /cli/azure/aks?view=azure-cli-latest#az-aks-delete

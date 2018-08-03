@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Ceridian Dayforce HCM | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Ceridian Dayforce HCM.
+title: 'Självstudier: Azure Active Directory-integration med Ceridian Dayforce HCM | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Ceridian Dayforce HCM-system.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,269 +15,269 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 47ed72667b46edb06a7d07cbc971810cb97e6f90
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 41ec8d2c900367a8ae3d1dde67ff0198996c9ed1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211619"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443502"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Självstudier: Azure Active Directory-integrering med Ceridian Dayforce HCM
+# <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Självstudier: Azure Active Directory-integration med Ceridian Dayforce HCM-system
 
-I kursen får lära du att integrera Ceridian Dayforce HCM med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Ceridian Dayforce HCM-system med Azure Active Directory (AD Azure).
 
-Integrera Ceridian Dayforce HCM med Azure AD ger dig följande fördelar:
+Integrera Ceridian Dayforce HCM-system med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Ceridian Dayforce HCM.
-- Du kan aktivera användarna att automatiskt hämta loggat in på Ceridian Dayforce HCM (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton i en central plats - Azure-portalen.
+- Du kan styra i Azure AD som har åtkomst till Ceridian Dayforce HCM-system.
+- Du kan aktivera användarna att automatiskt få loggat in på Ceridian Dayforce HCM-system (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton på en central plats – Azure portal.
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med Ceridian Dayforce HCM behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Ceridian Dayforce HCM, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En Ceridian Dayforce HCM enkel inloggning på aktiverade prenumeration
+- En Ceridian Dayforce HCM enkel inloggning aktiverad prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Ceridian Dayforce HCM från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Att lägga till Ceridian Dayforce HCM-system från galleriet
+1. Konfigurera och testa Azure AD enkel inloggning
 
-## <a name="adding-ceridian-dayforce-hcm-from-the-gallery"></a>Att lägga till Ceridian Dayforce HCM från galleriet
-Du måste lägga till Ceridian Dayforce HCM från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Ceridian Dayforce HCM i Azure AD.
+## <a name="adding-ceridian-dayforce-hcm-from-the-gallery"></a>Att lägga till Ceridian Dayforce HCM-system från galleriet
+Om du vill konfigurera integreringen av Ceridian Dayforce HCM-system till Azure AD, som du behöver lägga till Ceridian Dayforce HCM-system från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Ceridian Dayforce HCM från galleriet:**
+**Utför följande steg för att lägga till Ceridian Dayforce HCM-system från galleriet:**
 
 1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Bladet Enterprise program][2]
+    ![Bladet för Enterprise-program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Ceridian Dayforce HCM**väljer **Ceridian Dayforce HCM** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Ceridian Dayforce HCM**väljer **Ceridian Dayforce HCM** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Ceridian Dayforce HCM i resultatlistan](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Ceridian Dayforce HCM baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Ceridian Dayforce HCM-system baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till användaren i Ceridian Dayforce HCM motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Ceridian Dayforce HCM upprättas.
+För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Ceridian Dayforce HCM-system är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Ceridian Dayforce HCM upprättas.
 
-I Ceridian Dayforce HCM tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+I Ceridian Dayforce HCM-system, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Ceridian Dayforce HCM, måste du utföra följande byggblock:
+Om du vill konfigurera och testa Azure AD enkel inloggning med Ceridian Dayforce HCM-system, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Ceridian Dayforce HCM](#create-a-ceridian-dayforce-hcm-test-user)**  – har en motsvarighet för Britta Simon Ceridian Dayforce HCM som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Ceridian Dayforce HCM](#create-a-ceridian-dayforce-hcm-test-user)**  – du har en motsvarighet för Britta Simon i Ceridian Dayforce HCM-system som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Ceridian Dayforce HCM-program.
+I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Ceridian Dayforce HCM-program.
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Ceridian Dayforce HCM:**
 
-1. I Azure-portalen på den **Ceridian Dayforce HCM** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Ceridian Dayforce HCM** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning länk][4]
+    ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
-    ![Enkel inloggning dialogrutan](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_samlbase.png)
+    ![Enkel inloggning för dialogrutan](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_samlbase.png)
 
-3. På den **Ceridian Dayforce HCM domän och URL: er** avsnittet, utför följande steg:
+1. På den **Ceridian Dayforce HCM domän och URL: er** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_url.png)
     
-    a. I den **logga URL** textruta, Skriv URL: en som används av dina användare logga in i tillämpningsprogrammet Ceridian Dayforce HCM.
+    a. I den **inloggning på URL: en** textrutan, skriver du in URL: en används av användarna logga in till ditt Ceridian Dayforce HCM-program.
     
     | Miljö | URL |
     | :-- | :-- |
     | För produktion | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
-    | För testet | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>` |
+    | För testning | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>` |
     
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:
+    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:
     
     | Miljö | URL |
     | :-- | :-- |
     | För produktion | `https://ncpingfederate.dayforcehcm.com/sp` |
-    | För testet | `https://fs-test.dayforcehcm.com/sp` |
+    | För testning | `https://fs-test.dayforcehcm.com/sp` |
     
-    c. I den **Reply URL** textruta, Skriv URL-Adressen används av Azure AD publicera svaret.
+    c. I den **svars-URL** textrutan, skriver du in URL: en används av Azure AD för att publicera svaret.
     
     | Miljö | URL |
     | :-- | :-- |
     | För produktion | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
-    | För testet | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |
+    | För testning | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |
     
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska identifierare, Reply URL och inloggnings-URL. Kontakta [Ceridian Dayforce HCM klienten supportteamet](https://www.ceridian.com/contact-us/index.html) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [Ceridian Dayforce HCM klienten supportteamet](https://www.ceridian.com/contact-us/index.html) att hämta dessa värden.
 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
-    ![Länken hämta certifikatet](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_certificate.png) 
+    ![Länk för hämtning av certifikat](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_certificate.png) 
 
-5. Tillämpningsprogrammet Ceridian Dayforce HCM förväntar SAML-intyg i ett specifikt format. Arbeta med [Ceridian Dayforce HCM supportteamet](https://www.ceridian.com/contact-us/index.html) först för att identifiera rätt användar-ID. Microsoft rekommenderar att du använder den **”name”** attribut som användaridentifierare. Du kan hantera värden för attributen från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för det här.  
+1. Programmets Ceridian Dayforce HCM förväntar sig SAML-intyg i ett visst format. Arbeta med [Ceridian Dayforce HCM-supportteamet](https://www.ceridian.com/contact-us/index.html) först för att identifiera rätt användar-ID. Microsoft rekommenderar att du använder den **”name”** attribut som användaridentifierare. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för detta.  
 
     ![Konfigurera enkel inloggning](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_07.png)
 
-6. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden ovan och utför följande steg:
+1. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
     
     | Attributnamn  | Attributvärde |
     | --------------- | -------------------- |    
     | namn  | User.extensionattribute2 |    
 
-    a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
+    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
 
     ![Konfigurera enkel inloggning](./media/ceridiandayforcehcm-tutorial/tutorial_attribute_04.png)
 
     ![Konfigurera enkel inloggning](./media/ceridiandayforcehcm-tutorial/tutorial_attribute_05.png)
     
-    b. I den **namn** textruta ange attributets namn visas för den raden.
+    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
 
-    c. I den **värdet** väljer användarattribut som du vill använda för din implementering.
-    Till exempel om du vill använda EmployeeID som unikt identifierare och du har lagrat attributvärdet i ExtensionAttribute2, välj sedan **user.extensionattribute2**.
+    c. I den **värdet** väljer du det användarattribut som du vill använda för din implementering.
+    Till exempel om du vill använda EmployeeID som unika användare identifierare och du har lagrat attributvärdet i ExtensionAttribute2, välj sedan **user.extensionattribute2**.
     
     d. Klicka på **OK**.
 
-7. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara](./media/ceridiandayforcehcm-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning spara-knapp](./media/ceridiandayforcehcm-tutorial/tutorial_general_400.png)
     
-8. På den **Ceridian Dayforce HCM Configuration** klickar du på **konfigurera Ceridian Dayforce HCM** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+1. På den **Ceridian Dayforce HCM Configuration** klickar du på **konfigurera Ceridian Dayforce HCM** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Ceridian Dayforce HCM-konfiguration](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_configure.png) 
 
-9. Konfigurera enkel inloggning på **Ceridian Dayforce HCM** sida, måste du skicka den hämtade **XML-Metadata för** och **Sign-Out URL, SAML enhets-ID och SAML inloggning tjänst-URL för enkel** till [Ceridian Dayforce HCM supportteamet](https://www.ceridian.com/contact-us/index.html).
+1. Att konfigurera enkel inloggning på **Ceridian Dayforce HCM** sida, som du behöver skicka de hämtade **XML-Metadata för** och **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** till [Ceridian Dayforce HCM-supportteamet](https://www.ceridian.com/contact-us/index.html).
 
 > [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-   ![Skapa en testanvändare i Azure AD][100]
+   ![Skapa en Azure AD-testanvändare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
     ![Azure Active Directory-knappen](./media/ceridiandayforcehcm-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-    ![”Användare och grupper” och ”alla användare” länkar](./media/ceridiandayforcehcm-tutorial/create_aaduser_02.png)
+    ![”Användare och grupper” och ”alla användare”-länkar](./media/ceridiandayforcehcm-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/ceridiandayforcehcm-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/ceridiandayforcehcm-tutorial/create_aaduser_04.png)
 
     a. I den **namn** skriver **BrittaSimon**.
 
-    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
 
-    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
+    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
 
     d. Klicka på **Skapa**.
  
-### <a name="create-a-ceridian-dayforce-hcm-test-user"></a>Skapa en Ceridian Dayforce HCM testanvändare
+### <a name="create-a-ceridian-dayforce-hcm-test-user"></a>Skapa en Ceridian Dayforce HCM-testanvändare
 
-Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i Ceridian Dayforce HCM. Arbeta med den [Ceridian Dayforce HCM supportteamet](https://www.ceridian.com/contact-us/index.html) att hämta användare som lagts till i Ceridian Dayforce HCM-programmet. 
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Ceridian Dayforce HCM-system. Arbeta med den [Ceridian Dayforce HCM-supportteamet](https://www.ceridian.com/contact-us/index.html) att hämta användare har lagts till i Ceridian Dayforce HCM-programmet. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Ceridian Dayforce HCM.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Ceridian Dayforce HCM-system.
 
 ![Tilldela användare][200] 
 
 **Om du vill tilldela Ceridian Dayforce HCM Britta Simon utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **Ceridian Dayforce HCM**.
+1. I listan med program väljer **Ceridian Dayforce HCM**.
 
     ![Konfigurera enkel inloggning](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_app.png) 
 
-3. Klicka på menyn till vänster **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Ceridian Dayforce HCM.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Ceridian Dayforce HCM-system.
 
 ![Tilldela rollen][200] 
 
 **Om du vill tilldela Ceridian Dayforce HCM Britta Simon utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **Ceridian Dayforce HCM**.
+1. I listan med program väljer **Ceridian Dayforce HCM**.
 
-    ![Länken Ceridian Dayforce HCM i listan med program](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_app.png)  
+    ![Ceridian Dayforce HCM-länk i listan med program](./media/ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_app.png)  
 
-3. Klicka på menyn till vänster **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-Syftet med det här avsnittet är att testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.  
-När du klickar på panelen Ceridian Dayforce HCM på åtkomstpanelen du bör få automatiskt loggat in på ditt Ceridian Dayforce HCM-program. 
+Målet med det här avsnittet är att prova Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.  
+När du klickar på panelen Ceridian Dayforce HCM i åtkomstpanelen du bör få automatiskt loggat in på ditt Ceridian Dayforce HCM-program. 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

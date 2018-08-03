@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med LiquidFiles | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integration med LiquidFiles | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och LiquidFiles.
 services: active-directory
 documentationCenter: na
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: e9d4d1c0d0ff629e6c0c2d0844b28725995eecd4
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f1fc9be81cb5ada628c253351746dbaf11fe3b84
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215961"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446106"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Självstudier: Azure Active Directory-integrering med LiquidFiles
+# <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Självstudier: Azure Active Directory-integration med LiquidFiles
 
-I kursen får lära du att integrera LiquidFiles med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar LiquidFiles med Azure Active Directory (AD Azure).
 
 Integrera LiquidFiles med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till LiquidFiles
-- Du kan aktivera användarna att automatiskt hämta loggat in på LiquidFiles (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan aktivera användarna att automatiskt få loggat in på LiquidFiles (Single Sign-On) med sina Azure AD-konton
+- Du kan hantera dina konton på en central plats – Azure portal
 
-Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med LiquidFiles, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med LiquidFiles, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En LiquidFiles enkel inloggning aktiverad prenumeration
+- En LiquidFiles enkel inloggning aktiverat prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
+Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
-- Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö, om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till LiquidFiles från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-liquidfiles-from-the-gallery"></a>Att lägga till LiquidFiles från galleriet
-Du måste lägga till LiquidFiles från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av LiquidFiles i Azure AD.
+För att konfigurera integrering av LiquidFiles i Azure AD, som du behöver lägga till LiquidFiles från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till LiquidFiles från galleriet:**
 
@@ -63,36 +63,36 @@ Du måste lägga till LiquidFiles från galleriet i listan över hanterade SaaS-
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **LiquidFiles**.
+1. I sökrutan skriver **LiquidFiles**.
 
-    ![Skapa en testanvändare i Azure AD](./media/liquidfiles-tutorial/tutorial_liquidfiles_search.png)
+    ![Skapa en Azure AD-användare för testning](./media/liquidfiles-tutorial/tutorial_liquidfiles_search.png)
 
-5. Välj i resultatpanelen **LiquidFiles**, och klicka sedan på **Lägg till** för att lägga till programmet.
+1. I resultatpanelen väljer **LiquidFiles**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/liquidfiles-tutorial/tutorial_liquidfiles_addfromgallery.png)
+    ![Skapa en Azure AD-användare för testning](./media/liquidfiles-tutorial/tutorial_liquidfiles_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med LiquidFiles baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med LiquidFiles baserat på en testanvändare som kallas ”Britta Simon”.
 
-Azure AD måste du känna till användaren i LiquidFiles motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i LiquidFiles upprättas.
+För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i LiquidFiles är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i LiquidFiles upprättas.
 
-I LiquidFiles, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+I LiquidFiles, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med LiquidFiles, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare LiquidFiles](#creating-a-liquidfiles-test-user)**  – du har en motsvarighet för Britta Simon i LiquidFiles som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare LiquidFiles](#creating-a-liquidfiles-test-user)**  – du har en motsvarighet för Britta Simon i LiquidFiles som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -100,139 +100,139 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med LiquidFiles:**
 
-1. I Azure-portalen på den **LiquidFiles** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **LiquidFiles** program integration-sidan klickar du på **enkel inloggning**.
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/liquidfiles-tutorial/tutorial_liquidfiles_samlbase.png)
 
-3. På den **LiquidFiles domän och URL: er** avsnittet, utför följande steg:
+1. På den **LiquidFiles domän och URL: er** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/liquidfiles-tutorial/tutorial_liquidfiles_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: `https://<YOUR_SERVER_URL>/saml/init`
+    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<YOUR_SERVER_URL>/saml/init`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster: `https://<YOUR_SERVER_URL>`
+    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<YOUR_SERVER_URL>`
 
-    c. b. I den **Reply URL** textruta Skriv en URL med följande mönster: `https://<YOUR_SERVER_URL>/saml/consume`
+    c. b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<YOUR_SERVER_URL>/saml/consume`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL, identifierare och Reply-URL. Kontakta [LiquidFiles klienten supportteamet](https://www.liquidfiles.com/support.html) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL: en, identifierare och svars-URL. Kontakta [LiquidFiles klienten supportteamet](https://www.liquidfiles.com/support.html) att hämta dessa värden. 
  
-4. På den **SAML-signeringscertifikat** avsnittet, kopiera den **TUMAVTRYCKET** värdet för certifikatet.
+1. På den **SAML-signeringscertifikat** avsnittet, kopiera den **TUMAVTRYCK** värdet för certifikatet.
 
     ![Konfigurera enkel inloggning](./media/liquidfiles-tutorial/tutorial_liquidfiles_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/liquidfiles-tutorial/tutorial_general_400.png)
 
-6. På den **LiquidFiles Configuration** klickar du på **konfigurera LiquidFiles** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+1. På den **LiquidFiles Configuration** klickar du på **konfigurera LiquidFiles** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Konfigurera enkel inloggning](./media/liquidfiles-tutorial/tutorial_liquidfiles_configure.png)
  
-7. Inloggning på webbplatsen LiquidFiles företag som administratör.
+1. Inloggning till webbplatsen LiquidFiles företag som administratör.
 
-8. Klicka på **enkel inloggning** i den **Admin > Configuration** på menyn.
+1. Klicka på **enkel inloggning** i den **Admin > Configuration** på menyn.
 
-9. På den **konfiguration för enkel inloggning** utför följande steg
+1. På den **konfigurationen för enkel inloggning** utför följande steg
 
     ![Konfigurera enkel inloggning](./media/liquidfiles-tutorial/tutorial_single_01.png)
 
     a. Som **enkel inloggning på metoden**väljer **SAML 2**.
 
-    b. I den **IDP inloggnings-URL** textruta klistra in värdet för **SAML inloggning tjänst-URL för enkel**, som du har kopierat från Azure-portalen.
+    b. I den **inloggnings-URL för IDP: N** textrutan klistra in värdet för **SAML enkel inloggning för tjänst-URL**, som du har kopierat från Azure-portalen.
 
-    c. I den **IDP logga ut URL** textruta klistra in värdet för **Sign-Out URL**, som du har kopierat från Azure-portalen.
+    c. I den **utloggnings-URL för IDP: N** textrutan klistra in värdet för **URL: en för utloggning**, som du har kopierat från Azure-portalen.
 
-    d. I den **IDP Cert fingeravtryck** textruta klistra in den **TUMAVTRYCKET** värde som du har kopierat från Azure-portalen...
+    d. I den **IDP Cert fingeravtryck** textrutan klistra in den **TUMAVTRYCK** värde som du har kopierat från Azure-portalen...
 
-    e. Ange värdet i textrutan identifierare namnformat **urn: oasis: namn: tc: SAML:1.1:nameid-format: e-postadress**.
+    e. Skriv ett värde i textrutan Format för namn på identifierare **urn: oasis: namn: tc: SAML:1.1:nameid-format: e-postadress**.
 
-    f. Skriv ett värde i textrutan Authn kontexten **urn: oasis: namn: tc: SAML:2.0:ac:classes:PasswordProtectedTransport**.
+    f. Skriv ett värde i textrutan Authn kontext **urn: oasis: namn: tc: SAML:2.0:ac:classes:PasswordProtectedTransport**.
 
     g. Klicka på **Spara**.  
 
 > [!TIP]
-> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
-Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+![Skapa en Azure AD-användare][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
 
-    ![Skapa en testanvändare i Azure AD](./media/liquidfiles-tutorial/create_aaduser_01.png) 
+    ![Skapa en Azure AD-användare för testning](./media/liquidfiles-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
-    ![Skapa en testanvändare i Azure AD](./media/liquidfiles-tutorial/create_aaduser_02.png) 
+    ![Skapa en Azure AD-användare för testning](./media/liquidfiles-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
-    ![Skapa en testanvändare i Azure AD](./media/liquidfiles-tutorial/create_aaduser_03.png) 
+    ![Skapa en Azure AD-användare för testning](./media/liquidfiles-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
-    ![Skapa en testanvändare i Azure AD](./media/liquidfiles-tutorial/create_aaduser_04.png) 
+    ![Skapa en Azure AD-användare för testning](./media/liquidfiles-tutorial/create_aaduser_04.png) 
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    a. I den **namn** textrutan typ **BrittaSimon**.
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
 
     d. Klicka på **Skapa**.
  
-### <a name="creating-a-liquidfiles-test-user"></a>Skapa en testanvändare LiquidFiles
+### <a name="creating-a-liquidfiles-test-user"></a>Skapa en LiquidFiles testanvändare
 
-Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i LiquidFiles. Arbeta med serveradministratören LiquidFiles få själv läggas till som en användare innan du loggar in i tillämpningsprogrammet LiquidFiles.
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i LiquidFiles. Arbeta med serveradministratören LiquidFiles att hämta till dig själv som en användare innan du loggar in till ditt LiquidFiles program.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till LiquidFiles.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till LiquidFiles.
 
 ![Tilldela användare][200] 
 
-**Om du vill tilldela LiquidFiles Britta Simon utför du följande steg:**
+**Om du vill tilldela Britta Simon LiquidFiles, utför du följande steg:**
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **LiquidFiles**.
+1. I listan med program väljer **LiquidFiles**.
 
     ![Konfigurera enkel inloggning](./media/liquidfiles-tutorial/tutorial_liquidfiles_app.png) 
 
-3. Klicka på menyn till vänster **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
-Syftet med det här avsnittet är att testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+Målet med det här avsnittet är att prova Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen LiquidFiles på åtkomstpanelen du bör få automatiskt loggat in på ditt LiquidFiles program.
+När du klickar på panelen LiquidFiles i åtkomstpanelen du bör få automatiskt loggat in på ditt LiquidFiles program.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

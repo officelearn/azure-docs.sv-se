@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: f3dd1c0043a4516bfba0801d403f4b475fa2817a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 794e3f6fe568d76f0687caa36709185f2a538270
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041933"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Självstudier: Azure Active Directory-integration med Pingboard
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Pingboard från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-pingboard-from-the-gallery"></a>Att lägga till Pingboard från galleriet
 För att konfigurera integrering av Pingboard i Azure AD, som du behöver lägga till Pingboard från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av Pingboard i Azure AD, som du behöver lägga
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Enterprise-program][2]
 
-3. Klicka på **Lägg till** knappen överst i dialogrutan.
+1. Klicka på **Lägg till** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Pingboard**väljer **Pingboard** resultatet panelen och klicka sedan på **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Pingboard**väljer **Pingboard** resultatet panelen och klicka sedan på **Lägg till** för att lägga till programmet.
 
     ![Pingboard i resultatlistan](./media/pingboard-tutorial/tutorial_pingboard_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Den här länken relationen upprättas genom att tilldela värdet för den **anv
 Om du vill konfigurera och testa Azure AD enkel inloggning med Pingboard, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Pingboard](#create-a-pingboard-test-user)**  – du har en motsvarighet för Britta Simon i Pingboard som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Pingboard](#create-a-pingboard-test-user)**  – du har en motsvarighet för Britta Simon i Pingboard som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -102,11 +102,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2.  På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1.  På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
     ![Enkel inloggning för dialogrutan](./media/pingboard-tutorial/tutorial_pingboard_samlbase.png)
 
-3. På den **Pingboard domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+1. På den **Pingboard domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Pingboard domän och URL: er med enkel inloggning information IDP](./media/pingboard-tutorial/tutorial_pingboard_url.png)
 
@@ -114,7 +114,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<entity-id>.pingboard.com/auth/saml/consume`
 
-4. Kontrollera **visa avancerade URL-inställningar**, om du vill konfigurera programmet i **SP** initierade läge:
+1. Kontrollera **visa avancerade URL-inställningar**, om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Enkel inloggning information SP Pingboard domän och URL: er](./media/pingboard-tutorial/tutorial_pingboard_sp_initiated01.png)
 
@@ -123,33 +123,33 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE]
     > Observera att värdena inte är verkliga. Uppdatera dessa värden med de faktiska svars-URL och inloggnings-URL. Kontakta [Pingboard klienten supportteamet](https://support.pingboard.com/) att hämta dessa värden.
 
-5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara XML-filen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara XML-filen på datorn.
 
     ![Xml-metadata för Pingboard](./media/pingboard-tutorial/tutorial_pingboard_certificate.png)
 
-6. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/pingboard-tutorial/tutorial_general_400.png)
 
-7. För att konfigurera enkel inloggning på Pingboard sida, öppna ett nytt webbläsarfönster och logga in på ditt Pingboard-konto. Du måste vara administratör för Pingboard att konfigurera enkel inloggning.
+1. För att konfigurera enkel inloggning på Pingboard sida, öppna ett nytt webbläsarfönster och logga in på ditt Pingboard-konto. Du måste vara administratör för Pingboard att konfigurera enkel inloggning.
 
-8. På den översta menyn, Välj **appar > integreringar**
+1. På den översta menyn, Välj **appar > integreringar**
 
     ![Konfigurera enkel inloggning](./media/pingboard-tutorial/Pingboard_integration.png)
 
-9. På den **integreringar** sidan, hitta den **”Azure Active Directory”** panelen och klicka på den.
+1. På den **integreringar** sidan, hitta den **”Azure Active Directory”** panelen och klicka på den.
 
     ![Pingboard Single-Sign-On-integrering](./media/pingboard-tutorial/Pingboard_aad.png)
 
-10. I modal som följer Klicka **”konfigurera”**
+1. I modal som följer Klicka **”konfigurera”**
 
     ![Pingboard configuration knappen](./media/pingboard-tutorial/Pingboard_configure.png)
 
-11. På sidan Observera att ”Azure SSO-integrering är aktiverat”. Öppna den hämta Metadata XML-filen i anteckningar och klistra in innehållet i **IDP Metadata**.
+1. På sidan Observera att ”Azure SSO-integrering är aktiverat”. Öppna den hämta Metadata XML-filen i anteckningar och klistra in innehållet i **IDP Metadata**.
 
     ![Skärm för konfiguration av Pingboard SSO](./media/pingboard-tutorial/Pingboard_sso_configure.png)
 
-12. Filen har verifierats och om allt är korrekt, enkel inloggning kommer nu att aktiveras.
+1. Filen har verifierats och om allt är korrekt, enkel inloggning kommer nu att aktiveras.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -163,15 +163,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/pingboard-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/pingboard-tutorial/create_aaduser_02.png)
 
-3. Överst i dialogrutan klickar du på **Lägg till** att öppna den **användaren** dialogrutan.
+1. Överst i dialogrutan klickar du på **Lägg till** att öppna den **användaren** dialogrutan.
 
     ![Knappen Lägg till](./media/pingboard-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/pingboard-tutorial/create_aaduser_04.png)
 
@@ -191,11 +191,11 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 1. Logga in på webbplatsen Pingboard företag som administratör.
 
-2. Klicka på **”Lägg till medarbetare”** knappen **Directory** sidan.
+1. Klicka på **”Lägg till medarbetare”** knappen **Directory** sidan.
 
     ![Lägg till medarbetare](./media/pingboard-tutorial/create_testuser_add.png)
 
-3. På den **”Lägg till medarbetare”** dialogrutan utför följande steg:
+1. På den **”Lägg till medarbetare”** dialogrutan utför följande steg:
 
     ![Bjuda in](./media/pingboard-tutorial/create_testuser_name.png)
 
@@ -209,7 +209,7 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
     e. Klicka på **Lägg till**.
 
-4. En bekräftelseskärm visas för att bekräfta att lägga till användaren.
+1. En bekräftelseskärm visas för att bekräfta att lägga till användaren.
 
     ![Bekräfta](./media/pingboard-tutorial/create_testuser_confirm.png)
 
@@ -228,23 +228,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Pingboard**.
+1. I listan med program väljer **Pingboard**.
 
     ![Länken Pingboard i listan med program](./media/pingboard-tutorial/tutorial_pingboard_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

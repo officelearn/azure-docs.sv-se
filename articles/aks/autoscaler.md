@@ -9,16 +9,18 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 4f8df8e7004ca3cee832b6230dc153b21e2a6c18
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 8431181c1f3d5fbe31fa6c96303367ee71f83b17
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186721"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480466"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Autoskalningen-kluster på Azure Kubernetes Service (AKS) – förhandsversion
 
-Azure Kubernetes Service (AKS) ger en flexibel lösning för att distribuera ett hanterat Kubernetes-kluster i Azure. Som resurs efterfrågan ökar, klustret autoskalningen innebär din klustret kan växa för att uppfylla som kräver utifrån villkor du anger. Klustret autoskalningen (CA) gör detta genom att skala din agentnoder utifrån väntande poddar. Den söker igenom klustret med jämna mellanrum för att söka efter väntande poddar eller tom noder och ökar storleken om det är möjligt. Som standard CA: N söker efter väntande poddar var tionde sekund och tar bort en nod om det inte behövs i mer än 10 minuter. När det används med vågrät pod autoskalningen (HPA), uppdateras HPA poddrepliker och resurser enligt begäran. Om det inte finns tillräckligt med noder eller onödiga noder enligt den här pod som skalning, CA: N kommer att besvara och schemalägga poddarna på den nya uppsättningen noder.
+Azure Kubernetes Service (AKS) ger en flexibel lösning för att distribuera ett hanterat Kubernetes-kluster i Azure. Som resurs efterfrågan ökar, klustret autoskalningen innebär din klustret kan växa för att uppfylla som kräver utifrån villkor du anger. Klustret autoskalningen (CA) gör detta genom att skala din agentnoder utifrån väntande poddar. Den söker igenom klustret med jämna mellanrum för att söka efter väntande poddar eller tom noder och ökar storleken om det är möjligt. Som standard CA: N söker efter väntande poddar var tionde sekund och tar bort en nod om det inte behövs i mer än 10 minuter. När det används med den [vågrät pod autoskalningen](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) (HPA), HPA uppdateras poddrepliker och resurser enligt begäran. Om det inte finns tillräckligt med noder eller onödiga noder enligt den här pod som skalning, CA: N kommer att besvara och schemalägga poddarna på den nya uppsättningen noder.
+
+Den här artikeln beskriver hur du distribuerar klustret autoskalningen på agentnoderna. Men eftersom autoskalningen kluster distribueras i namnområdet kube system, skalas autoskalningen inte ned noden som kör den pod.
 
 > [!IMPORTANT]
 > Azure Kubernetes Service (AKS) kluster autoskalningen-integrering är för närvarande i **förhandsversion**. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
@@ -32,41 +34,70 @@ Det här dokumentet förutsätter att du har ett RBAC-aktiverade AKS-kluster. Om
 
 ## <a name="gather-information"></a>Samla in information
 
-I följande lista visas all information du måste ange i definitionen för autoskalningen.
+Om du vill generera behörigheter för ditt kluster autoskalningen att köras i ditt kluster, kör du följande bash-skript:
 
-- *Prenumerations-ID*: ID som motsvarar den prenumeration som används för det här klustret
-- *Namn på resursgrupp* : namnet på resursgruppen som klustret tillhör 
-- *Klusternamn*: namnet på klustret
-- *Klient-ID*: App-ID som har beviljats av behörighet som genererar steg
-- *Klienthemlighet*: apphemlighet har beviljats av behörighet som genererar steg
-- *Klient-ID*: ID för innehavaren (ägare)
-- *Resursgrupp för noden*: namnet på resursgruppen som innehåller agentnoder i klustret
-- *Nodnamnet för poolen*: namnet på noden programpool du vill skala
-- *Lägsta antal noder*: minsta antal noder som finns i klustret
-- *Maximalt antal noder*: maximalt antal noder som finns i klustret
-- *Typ av virtuell dator*: replikeringstjänsten som används för att skapa Kubernetes-kluster
+```sh
+#! /bin/bash
+ID=`az account show --query id -o json`
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' `
 
-Få ditt prenumerations-ID med: 
+TENANT=`az account show --query tenantId -o json`
+TENANT_ID=`echo $TENANT | tr -d '"' | base64`
 
-``` azurecli
-az account show --query id
+read -p "What's your cluster name? " cluster_name
+read -p "Resource group name? " resource_group
+
+CLUSTER_NAME=`echo $cluster_name | base64`
+RESOURCE_GROUP=`echo $resource_group | base64`
+
+PERMISSIONS=`az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$SUBSCRIPTION_ID" -o json`
+CLIENT_ID=`echo $PERMISSIONS | sed -e 's/^.*"appId"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+CLIENT_SECRET=`echo $PERMISSIONS | sed -e 's/^.*"password"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' | base64 `
+
+CLUSTER_INFO=`az aks show --name $cluster_name  --resource-group $resource_group -o json`
+NODE_RESOURCE_GROUP=`echo $CLUSTER_INFO | sed -e 's/^.*"nodeResourceGroup"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+
+echo "---
+apiVersion: v1
+kind: Secret
+metadata:
+    name: cluster-autoscaler-azure
+    namespace: kube-system
+data:
+    ClientID: $CLIENT_ID
+    ClientSecret: $CLIENT_SECRET
+    ResourceGroup: $RESOURCE_GROUP
+    SubscriptionID: $SUBSCRIPTION_ID
+    TenantID: $TENANT_ID
+    VMType: QUtTCg==
+    ClusterName: $CLUSTER_NAME
+    NodeResourceGroup: $NODE_RESOURCE_GROUP
+---"
 ```
 
-Skapa en uppsättning autentiseringsuppgifter för Azure genom att köra följande kommando:
+När du har följt stegen i skriptet skriptets utdata är din information i form av en hemlighet, t.ex:
 
-```console
-$ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription-id>" --output json
-
-"appId": <app-id>,
-"displayName": <display-name>,
-"name": <name>,
-"password": <app-password>,
-"tenant": <tenant-id>
+```yaml
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-autoscaler-azure
+  namespace: kube-system
+data:
+  ClientID: <base64-encoded-client-id>
+  ClientSecret: <base64-encoded-client-secret>$
+  ResourceGroup: <base64-encoded-resource-group>  SubscriptionID: <base64-encode-subscription-id>
+  TenantID: <base64-encoded-tenant-id>
+  VMType: QUtTCg==
+  ClusterName: <base64-encoded-clustername>
+  NodeResourceGroup: <base64-encoded-node-resource-group>
+---
 ```
 
-App-ID, lösenord och Klientorganisations-ID är din clientID, clientSecret och tenantID i följande steg.
-
-Hämta namnet på noden poolen genom att köra följande kommando. 
+Hämta sedan namnet på noden poolen genom att köra följande kommando. 
 
 ```console
 $ kubectl get nodes --show-labels
@@ -81,49 +112,7 @@ aks-nodepool1-37756013-0   Ready     agent     1h        v1.10.3   agentpool=nod
 
 Extrahera värdet för etiketten **agentpool**. Standardnamnet för nodpoolen i ett kluster är ”nodepool1”.
 
-Hämtar namnet på resursgruppen noden genom att extrahera värdet för etiketten **kubernetes.azure.com<span></span>/cluster**. Noden resursgruppens namn är vanligtvis formulärets MC_ [resursgrupp]\_[klusternamnet] _ [plats].
-
-Parametern vmType refererar till den tjänst som används, vilket är här AKS.
-
-Du bör nu ha följande information:
-
-- prenumerations-ID
-- ResourceGroup
-- Klusternamn
-- ClientID
-- ClientSecret
-- TenantID
-- NodeResourceGroup
-- VMType
-
-Därefter koda allt av följande värden med base64. Till exempel att koda VMType värdet med base64:
-
-```console
-$ echo AKS | base64
-QUtTCg==
-```
-
-## <a name="create-secret"></a>Skapa hemliga
-Med dessa data kan skapa en hemlighet för distributionen med värdena i de föregående stegen i följande format:
-
-```yaml
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: cluster-autoscaler-azure
-  namespace: kube-system
-data:
-  ClientID: <base64-encoded-client-id>
-  ClientSecret: <base64-encoded-client-secret>
-  ResourceGroup: <base64-encoded-resource-group>
-  SubscriptionID: <base64-encode-subscription-id>
-  TenantID: <base64-encoded-tenant-id>
-  VMType: QUtTCg==
-  ClusterName: <base64-encoded-clustername>
-  NodeResourceGroup: <base64-encoded-node-resource-group>
----
-```
+Med hjälp av din hemlighet och nod-pool, skapar du en distribution-diagram.
 
 ## <a name="create-a-deployment-chart"></a>Skapa ett diagram för distribution
 
@@ -327,7 +316,7 @@ Distribuera kluster – autoskalningen genom att köra
 kubectl create -f cluster-autoscaler-containerservice.yaml
 ```
 
-Om du vill kontrollera om klustret autoskalningen körs, använder du följande kommando och kontrollera listan över poddar. Om det finns en pod prefixet ”kluster-autoskalningen” som körs, har kluster-autoskalningen distribuerats.
+Om du vill kontrollera om klustret autoskalningen körs, använder du följande kommando och kontrollera listan över poddar. Det bör finnas en pod prefixet ”kluster-autoskalningen” som körs. Om du ser det här har klustret-autoskalningen distribuerats.
 
 ```console
 kubectl -n kube-system get pods
@@ -338,6 +327,68 @@ Om du vill visa status för autoskalningen kluster, kör
 ```console
 kubectl -n kube-system describe configmap cluster-autoscaler-status
 ```
+
+## <a name="interpreting-the-cluster-autoscaler-status"></a>Tolka autoskalningen klusterstatus
+
+```console
+$ kubectl -n kube-system describe configmap cluster-autoscaler-status
+Name:         cluster-autoscaler-status
+Namespace:    kube-system
+Labels:       <none>
+Annotations:  cluster-autoscaler.kubernetes.io/last-updated=2018-07-25 22:59:22.661669494 +0000 UTC
+
+Data
+====
+status:
+----
+Cluster-autoscaler status at 2018-07-25 22:59:22.661669494 +0000 UTC:
+Cluster-wide:
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 registered=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+NodeGroups:
+  Name:        nodepool1
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0 cloudProviderTarget=1 (minSize=1, maxSize=5))
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 cloudProviderTarget=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+
+Events:  <none>
+```
+
+Autoskalningen klusterstatus kan du se status för autoskalningen kluster på två olika nivåer: hela och inom varje nodgrupp. Eftersom AKS stöder för närvarande endast en nodpool, är desamma i de här måtten.
+
+* Hälsotillstånd anger den övergripande hälsan för noderna. Om klustret autoskalningen struggles du skapar eller tar bort noder i klustret, ändras den här statusen till ”inte felfri”. Det finns också en detaljerad analys av status för olika noder:
+    * ”Klar” syftar på en nod är klara att ha poddar som schemalagts på den.
+    * ”Unready” innebär att en nod som delades upp när den startats.
+    * ”Ej startad” innebär att en nod inte är fullständigt startat ännu.
+    * ”LongNotStarted” innebär att en nod inte kunde starta inom en rimlig tidsgräns.
+    * ”Registrerade innebär en nod registreras i gruppen
+    * ”Avregistrera” innebär att en nod är tillgänglig på klustret providern sida men kunde inte registreras i Kubernetes.
+  
+* ScaleUp kan du kontrollera när klustret anger en skala upp ska ske i klustret.
+    * En övergång är när antalet noder i klustret ändras eller status för en nod ändras.
+    * Antalet noder som är klar är antalet noder som är tillgänglig och redo i klustret. 
+    * CloudProviderTarget är antalet noder som klustret autoskalningen har fastställt att klustret behöver hantera belastningen.
+
+* ScaleDown kan du kontrollera om det finns kandidater för att skala ned. 
+    * En kandidat för skala ned är en nod har fastställt att klustret autoskalningen kan tas bort utan att påverka klustrets förmåga att hantera belastningen. 
+    * De tid som anges visar senast checkades klustret för att skala ned kandidater och dess senaste övergångstid.
+
+Slutligen under händelser kan du få upp alla skalor eller skala ned händelser, misslyckad eller lyckad, och deras tider som klustret autoskalningen utfört.
 
 ## <a name="next-steps"></a>Nästa steg
 

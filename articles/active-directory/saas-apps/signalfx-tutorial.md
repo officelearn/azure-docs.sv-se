@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 24a5c1a260cf86f0860e0292c2eb9527f976a363
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0d21a409669cc7d7fceeec9787efbe31d880597c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040518"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437856"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Självstudier: Azure Active Directory-integration med SignalFx
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till SignalFx från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-signalfx-from-the-gallery"></a>Att lägga till SignalFx från galleriet
 För att konfigurera integrering av SignalFx i Azure AD, som du behöver lägga till SignalFx från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av SignalFx i Azure AD, som du behöver lägga 
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **SignalFx**väljer **SignalFx** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **SignalFx**väljer **SignalFx** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![SignalFx i resultatlistan](./media/signalfx-tutorial/tutorial_signalfx_addfromgallery.png)
 
@@ -85,10 +85,10 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 Om du vill konfigurera och testa Azure AD enkel inloggning med SignalFx, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare SignalFx](#create-a-signalfx-test-user)**  – du har en motsvarighet för Britta Simon i SignalFx som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare SignalFx](#create-a-signalfx-test-user)**  – du har en motsvarighet för Britta Simon i SignalFx som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -100,11 +100,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/signalfx-tutorial/tutorial_signalfx_samlbase.png)
 
-3. På den **SignalFx domän och URL: er** avsnittet, utför följande steg:
+1. På den **SignalFx domän och URL: er** avsnittet, utför följande steg:
 
     ![SignalFx domän och URL: er med enkel inloggning för information](./media/signalfx-tutorial/tutorial_signalfx_url.png)
 
@@ -115,11 +115,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Föregående värde är inte verkliga värdet. Du kan uppdatera värdet med faktiska svars-URL som beskrivs senare i självstudien.
 
-4. SignalFx program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för detta.   
+1. SignalFx program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för detta.   
 
     ![Konfigurera enkel inloggning](./media/signalfx-tutorial/tutorial_signalfx_attribute.png)
 
-5. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden och utför följande steg:
+1. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden och utför följande steg:
     
     | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |    
@@ -142,7 +142,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     e. Klicka på **OK**.
  
-6. På den **SAML-signeringscertifikat** avsnittet, utför följande steg: 
+1. På den **SAML-signeringscertifikat** avsnittet, utför följande steg: 
 
     ![Länk för hämtning av certifikat](./media/signalfx-tutorial/tutorial_signalfx_certificate.png)
 
@@ -150,25 +150,25 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. Klicka på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
-7. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/signalfx-tutorial/tutorial_general_400.png)
 
-8. På den **SignalFx Configuration** klickar du på **konfigurera SignalFx** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID** från den **Snabbreferens avsnittet.**
+1. På den **SignalFx Configuration** klickar du på **konfigurera SignalFx** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID** från den **Snabbreferens avsnittet.**
 
     ![SignalFx konfiguration](./media/signalfx-tutorial/tutorial_signalfx_configure.png) 
 
-9. Inloggning till webbplatsen SignalFx företag som administratör.
+1. Inloggning till webbplatsen SignalFx företag som administratör.
 
-10. I SignalFx på den översta klickar du på **integreringar** att öppna sidan integreringar.
+1. I SignalFx på den översta klickar du på **integreringar** att öppna sidan integreringar.
 
     ![SignalFx-integrering](./media/signalfx-tutorial/tutorial_signalfx_intg.png)
 
-11. Klicka på **Azure Active Directory** panelen **inloggningstjänster** avsnittet.
+1. Klicka på **Azure Active Directory** panelen **inloggningstjänster** avsnittet.
  
     ![SignalFx saml](./media/signalfx-tutorial/tutorial_signalfx_saml.png)
 
-12. Klicka på **ny INTEGRATION** och under den **installera** fliken utför följande steg:
+1. Klicka på **ny INTEGRATION** och under den **installera** fliken utför följande steg:
  
     ![SignalFx samlintgpage](./media/signalfx-tutorial/tutorial_signalfx_azure.png)
 
@@ -196,15 +196,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/signalfx-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/signalfx-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/signalfx-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/signalfx-tutorial/create_aaduser_04.png)
 
@@ -237,23 +237,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **SignalFx**.
+1. I listan med program väljer **SignalFx**.
 
     ![Länken SignalFx i listan med program](./media/signalfx-tutorial/tutorial_signalfx_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

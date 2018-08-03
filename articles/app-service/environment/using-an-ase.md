@@ -1,6 +1,6 @@
 ---
-title: Använda en Azure Apptjänst-miljö
-description: Skapa, publicera och skala appar i Azure Apptjänst-miljö
+title: Använda Azure App Service environment
+description: Skapa, publicera och skala appar i Azure App Service environment
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,156 +13,156 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 66ef20616df77dc809a79e516a53133a80759dc7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b3550c771b4c2916987c66f318010e5bb246fa39
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355312"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446858"
 ---
-# <a name="use-an-app-service-environment"></a>Använd en Apptjänst-miljö #
+# <a name="use-an-app-service-environment"></a>Använda en App Service environment #
 
 ## <a name="overview"></a>Översikt ##
 
-Azure Apptjänst-miljön är en distribution av Azure App Service till ett undernät i kundens virtuella Azure-nätverket. Det består av:
+Azure App Service Environment är en distribution av Azure App Service i ett undernät i kundens Azure-nätverk. Det består av:
 
-- **Främre ends**: frontwebbservrarna är där HTTP/HTTPS avslutas i en Apptjänst-miljö (ASE).
-- **Anställda**: arbetare är de resurser som är värdar för dina appar.
+- **Klientdelens ends**: frontend-datorer är där HTTP/HTTPS avslutas i en App Service environment (ASE).
+- **Arbetare**: arbetarna är de resurser som är värdar för dina appar.
 - **Databasen**: databasen innehåller information som definierar miljön.
-- **Lagring**: lagringsutrymmet som används som värd för kund-publicerade appar.
+- **Storage**: lagringen används som värd för apparna som publicerats av kunden.
 
 > [!NOTE]
-> Det finns två versioner av Apptjänstmiljö: ASEv1 och ASEv2. Du måste hantera resurserna innan du kan använda dem i ASEv1. Information om hur du konfigurerar och hanterar ASEv1 finns [konfigurerar du en Apptjänst-miljö v1][ConfigureASEv1]. Resten av den här artikeln fokuserar på ASEv2.
+> Det finns två versioner av App Service Environment: ASEv1 och ASEv2. Du måste hantera resurserna innan du kan använda dem i ASEv1. Information om hur du konfigurerar och hanterar ASEv1 finns [konfigurera en App Service environment v1][ConfigureASEv1]. Resten av den här artikeln fokuserar på ASEv2.
 >
 >
 
-Du kan distribuera en ASE (ASEv1 och ASEv2) med en extern eller intern VIP för åtkomst till appen. Distribution med en extern VIP kallas vanligtvis en extern ASE. Den interna versionen kallas ILB ASE eftersom den använder en intern belastningsutjämnare (ILB). Läs mer om ILB ASE i [skapa och använda en ILB ASE][MakeILBASE].
+Du kan distribuera en ase-miljö (ASEv1 och ASEv2) med en extern eller intern VIP för åtkomst till appen. Distribution med extern VIP kallas vanligtvis en extern ASE. Den interna versionen kallas ILB ASE eftersom den använder en intern belastningsutjämnare (ILB). Läs mer om ILB ASE i [skapa och använda en ILB ASE][MakeILBASE].
 
 ## <a name="create-a-web-app-in-an-ase"></a>Skapa en webbapp i en ASE ##
 
-Om du vill skapa en webbapp i en ASE måste använda samma process som när du skapar normalt, men med några mindre skillnader. När du skapar en ny programtjänstplan:
+Om du vill skapa en webbapp i en ase-miljö använda samma process som när du skapar vanligtvis, men med några små skillnader. När du skapar en ny App Service-plan:
 
-- I stället för att välja en geografisk plats där du vill distribuera din app kan välja du en ASE som din plats.
-- Alla programtjänstplaner som skapats i en ASE måste finnas i en isolerad prisnivån.
+- I stället för att välja en geografisk plats där du kan distribuera din app kan välja du en ASE som din plats.
+- Alla App Service-planer som skapats i en ASE måste finnas i en isolerad prisnivå.
 
-Om du inte har en ASE, kan du skapa en genom att följa instruktionerna i [skapa en Apptjänst-miljö][MakeExternalASE].
+Om du inte har en ase-miljö kan du skapa en genom att följa anvisningarna i [skapa en App Service environment][MakeExternalASE].
 
 Skapa en webbapp i en ASE:
 
-1. Välj **skapar du en resurs** > **webb + mobilt** > **Web App**.
+1. Välj **skapa en resurs** > **webb + mobilt** > **Webbapp**.
 
-2. Ange ett namn för webbappen. Om du redan har valt en apptjänstplan i en ASE visar domännamnet för ASE domännamnet för appen.
+1. Ange ett namn för webbappen. Om du redan har valt en App Service-plan i en ASE visar domännamnet för appen domännamnet för ASE.
 
     ![Val av nätverksnamn för Web app][1]
 
-3. Välj en prenumeration.
+1. Välj en prenumeration.
 
-4. Ange ett namn för en ny resursgrupp eller välj **använda befintliga** och välj en från den nedrullningsbara listan.
+1. Ange ett namn för en ny resursgrupp eller välj **Använd befintlig** och välj en från den nedrullningsbara listan.
 
-5. Välj ditt operativsystem. 
+1. Välj ditt operativsystem. 
 
-    * Värd för en Linux-app i en ASE är en ny funktion i förhandsversionen, så vi rekommenderar att du inte lägger till Linux-appar i en ASE som körs för tillfället produktionsarbetsbelastningar. 
-    * Att lägga till en Linux-app i en ASE innebär att ASE också i förhandsgranskningsläge. 
+    * Som är värd för en Linux-app i en ASE är en ny förhandsgranskningsfunktion, så vi rekommenderar att du inte lägger till Linux-appar i en ASE som kör produktionsarbetsbelastningar. 
+    * Lägga till en Linux-app i en ASE innebär att ASE också i förhandsgranskningsläge. 
 
-5. Välj en befintlig programtjänstplan i din ASE eller skapa en ny genom att följa dessa steg:
+1. Välj en befintlig App Service-plan i din ASE eller skapa en ny genom att följa dessa steg:
 
-    a. Välj **skapa nya**.
+    a. Välj **skapa en ny**.
 
-    b. Ange namn för din programtjänstplan.
+    b. Ange namn för din App Service-plan.
 
-    c. Välj din ASE i den **plats** listrutan. Värd för en Linux-app i en ASE är endast aktiverad i 6 områden för tillfället: **västra USA, östra USA, västra Europa, Norra Europa, östra, Sydostasien.** 
+    c. Välj din ASE i den **plats** listrutan. Som är värd för en Linux-app i en ASE är endast aktiverad i 6 regioner för tillfället: **västra USA, östra USA, Västeuropa, Nordeuropa, östra, Asien, sydöstra.** 
 
-    d. Välj en **isolerad** prisnivån. Välj **Välj**.
+    d. Välj en **isolerad** prisnivå. Välj **Välj**.
 
     e. Välj **OK**.
     
     ![Isolerade prisnivåer][2]
 
     > [!NOTE]
-    > Linux-webbprogram och Windows web apps får inte finnas i den samma App Service-Plan, men kan vara i samma Apptjänst-miljön. 
+    > Webbappar i Linux och Windows web apps får inte finnas i samma App Service-planen, men kan finnas i samma App Service Environment. 
     >
 
-6. Välj **Skapa**.
+1. Välj **Skapa**.
 
 ## <a name="how-scale-works"></a>Hur skala fungerar ##
 
-Varje App Service-appen körs i en apptjänstplan. Behållaren modellen är miljöer håller App Service-planer och programtjänstplaner håller appar. När du skalar en app, skala App Service-plan och skala därför alla appar i samma plan.
+Varje App Service-app körs i en App Service plan. Behållare-modellen är miljöer Håll App Service-planer, App Service-planer och håll och appar. När du skalar en app, skala App Service-planen och därmed skala alla appar i samma plan.
 
-I ASEv2, när du skalar en apptjänstplan läggs den nödvändiga infrastrukturen automatiskt. Det finns en tidsfördröjning till skalningsåtgärder när infrastrukturen har lagts till. ASEv1, måste infrastrukturen som behövs läggas innan du kan skapa eller skala upp din programtjänstplan. 
+I ASEv2, när du skalar en App Service-plan läggs den nödvändiga infrastrukturen automatiskt. Det finns en tidsfördröjning till att skala driften när infrastrukturen har lagts till. I ASEv1 måste du lägga den nödvändiga infrastrukturen innan du kan skapa eller skala ut App Service-planen. 
 
-I multitenant Apptjänst är skalning vanligtvis omedelbar eftersom en pool av resurser är tillgängliga att stödja den. Det finns ingen sådan buffert i en ASE och resurser vid behov.
+I multitenant App Service är skalning vanligtvis omedelbar eftersom en pool av resurser är tillgängliga för den. Det finns ingen sådan buffert i en ASE och resurser vid behov.
 
-Du kan skala upp till 100 instanser i en ASE. De 100 instanserna kan finnas i en enda App Service-plan eller fördelade på flera programtjänstplaner.
+Du kan skala upp till 100 instanser i en ASE. De 100 instanserna kan finnas i en enda App Service-plan eller fördelade på flera App Service-planer.
 
 ## <a name="ip-addresses"></a>IP-adresser ##
 
-Apptjänst har möjlighet att allokera en dedicerad IP-adress till en app. Den här funktionen är tillgänglig när du har konfigurerat IP-baserade SSL, enligt beskrivningen i [binda ett befintligt anpassat SSL-certifikat till Azure-webbappar][ConfigureSSL]. Men i en ASE finns viktiga undantag. Du kan inte lägga till ytterligare IP-adresser som ska användas för en IP-baserade SSL i en ASE ILB.
+App Service har möjlighet att allokera en dedikerad IP-adress till en app. Den här funktionen är tillgänglig när du har konfigurerat en IP-baserad SSL, enligt beskrivningen i [binda ett befintligt anpassat SSL-certifikat till Azure web apps][ConfigureSSL]. I en ASE är det dock en viktig undantag. Du kan inte lägga till ytterligare IP-adresser som ska användas för en IP-baserad SSL i en ILB ASE.
 
-Du måste tilldela IP-adresser som resurser innan du kan använda dem i ASEv1. I ASEv2 använder du dem från din app precis som i multitenant Apptjänst. Det finns alltid en ledig adress i ASEv2 upp till 30 IP-adresser. Varje gång läggs du använder någon annan så att en adress alltid är tillgängliga för användning. Fördröjningen är att tilldela en annan IP-adress, vilket förhindrar att lägga till IP-adresser i snabb följd.
+Du måste tilldela IP-adresser som resurser innan du kan använda dem i ASEv1. I ASEv2 använder du dem från din app precis som i App Service för flera innehavare. Det finns alltid en ledig adress i ASEv2 upp till 30 IP-adresser. Varje gång läggs du använder en, en annan så att en adress alltid är tillgängliga för användning. Taget fördröjning krävs för att tilldela en annan IP-adress, vilket förhindrar att lägga till IP-adresser i snabb följd.
 
-## <a name="front-end-scaling"></a>Frontend skalning ##
+## <a name="front-end-scaling"></a>Klientdelskalning ##
 
-I ASEv2, när du skalar upp din App Service-planer läggs arbetare automatiskt till de stöds. Varje ASE skapas med två frontwebbservrarna. Dessutom slutar framför automatiskt skala ut med en hastighet av en klientdel för varje 15 instanser i App Service-planer. Till exempel om du har 15 instanser måste ha du tre frontwebbservrarna. Om du skalar till 30 instanser, finns det fyra front slutar och så vidare.
+I ASEv2, när du skalar ut din App Service-planer läggs arbetare automatiskt som stöder dem. Varje ASE har skapats med två klientdelar. Dessutom slutar framför automatiskt skala ut enligt en taxa på en klientdel för varje 15 instanser i din App Service-planer. Till exempel, om du har 15 instanser, finns så det tre klientdelar. Om du skalar upp till 30 instanser, så finns det fyra klientdelens avslutas och så vidare.
 
-Det här antalet frontwebbservrarna bör vara mer än tillräckligt för de flesta scenarier. Du kan dock skala ut i en snabbare takt. Du kan ändra förhållandet till så låg som en främre slut för varje fem instanser. Det finns en avgift för att ändra förhållandet. Mer information finns i [priser för Azure App Service][Pricing].
+Det här antalet klientdelar ska vara mer än tillräckligt för de flesta scenarier. Dock kan du skala ut i en snabbare takt. Du kan ändra förhållande till så låg som en främre slut för varje fem instanser. Det finns en avgift för att ändra förhållandet. Mer information finns i [Azure App Service-priser][Pricing].
 
-Frontend resurser är HTTP/HTTPS-slutpunkt för ASE. Minnesanvändningen per klientdelen är konsekvent cirka 60 procent med frontend standardkonfigurationen. Kundens arbetsbelastningar körs inte på en klientdel. Avgörande för en klientdel vad gäller skala är CPU, som styrs i första hand av HTTPS-trafik.
+Klientdelsresurserna är HTTP/HTTPS-slutpunkt för ASE. Minnesanvändning per klient är konsekvent cirka 60 procent med frontend standardkonfigurationen. Slutkundsarbetsbelastningar kör inte på en klientdel. Viktiga faktorer för klientsidan med respekt att skala är processor, som drivs i första hand av HTTPS-trafik.
 
 ## <a name="app-access"></a>Appåtkomst ##
 
-I en extern ASE skiljer den domän som används när du skapar appar sig från multitenant Apptjänst. Den innehåller namnet på ASE. Läs mer om hur du skapar en extern ASE [skapa en Apptjänst-miljö][MakeExternalASE]. Domännamnet i en extern ASE ser ut som *.&lt; asename&gt;. p.azurewebsites.net*. Om din ASE heter exempelvis _externa ase_ och du är värd för en app som kallas _contoso_ i att ASE, du når den på följande webbadresser:
+I en extern ASE skiljer den domän som används när du skapar appar sig från App Service för flera innehavare. Den innehåller namnet på ASE. Mer information om hur du skapar en extern ASE finns i [skapa en App Service environment][MakeExternalASE]. Domännamnet i en extern ASE ut *.&lt; asename&gt;. p.azurewebsites.net*. Exempel: om din ASE heter _extern ase_ och du vara värd för en app som kallas _contoso_ eftersom ASE måste du nå den på följande webbadresser:
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
-URL: en contoso.scm.external-ase.p.azurewebsites.net används för att få åtkomst till Kudu-konsolen eller för att publicera en app med hjälp av web distribuera. Information om Kudu-konsolen finns [Kudu-konsol för Azure App Service][Kudu]. Kudu-konsolen ger dig en webbgränssnittet för felsökning, överför filer, redigera filer och mycket mer.
+URL: en contoso.scm.external-ase.p.azurewebsites.net används för att få åtkomst till Kudu-konsolen eller för att publicera din app med hjälp av web distribuera. Information om Kudu-konsolen finns i [Kudu-konsolen för Azure App Service][Kudu]. Kudu-konsolen ger dig ett webbgränssnitt för felsökning, ladda upp filer, redigerar filer och mycket mer.
 
-I en ILB ASE bestämma domänen vid tidpunkten för distribution. Läs mer om hur du skapar en ILB ASE [skapa och använda en ILB ASE][MakeILBASE]. Om du anger domännamnet _ilb ase.info_, appar i den ASE använda denna domän under skapande av app. För program med namnet _contoso_, URL: er är:
+I en ILB ASE måste fastställa du domänen vid tidpunkten för distribution. Läs mer om hur du skapar en ILB ASE, [skapa och använda en ILB ASE][MakeILBASE]. Om du anger domännamnet _ilb-ase.info_, för appar i denna ASE använder domänen under skapa appar. För appen med namnet _contoso_, URL: er är:
 
 - Contoso.ilb ase.info
 - Contoso.SCM.ilb ase.info
 
 ## <a name="publishing"></a>Publicering ##
 
-Precis som med multitenant Apptjänst i en ASE kan du publicera med:
+Precis som med multitenant App Service i en ASE kan du publicera med:
 
-- Web-distribution.
+- Webbdistribution.
 - FTP.
 - Kontinuerlig integrering.
 - Dra och släpp i Kudu-konsolen.
-- IDE-miljö, till exempel för Visual Studio, Eclipse eller IntelliJ IDEA.
+- En IDE, till exempel Visual Studio, Eclipse och IntelliJ IDEA.
 
-Med en extern ASE fungerar alternativen publishing alla på samma sätt. Mer information finns i [distribution i Azure App Service][AppDeploy]. 
+Med en extern ASE fungerar dessa alla publiceringsalternativ på samma sätt. Mer information finns i [distribution i Azure App Service][AppDeploy]. 
 
-Den största skillnaden med publicering är med avseende på en ILB ASE. Med en ILB ASE publishing slutpunkter alla bara är tillgängliga via ILB. ILB finns på en privat IP-adress i ASE undernät i det virtuella nätverket. Om du inte har åtkomst till ILB kan du publicera alla appar på den ASE. Enligt beskrivningen i [skapa och använda en ILB ASE][MakeILBASE], måste du konfigurera DNS för program i systemet. Som innehåller SCM-slutpunkten. Om de inte är rätt definierad, kan du publicera. Din IDEs måste också ha tillgång till ILB nätverk för att publicera till den.
+Den största skillnaden publicering är med avseende på en ILB ASE. Med en ILB ASE publiceringsslutpunkterna alla bara är tillgängliga via den interna Belastningsutjämnaren. Den interna Belastningsutjämnaren finns på en privat IP-adress i ASE-undernät i det virtuella nätverket. Om du inte har åtkomst till den interna Belastningsutjämnaren kan publicera du inte alla appar i denna ASE. Enligt vad som anges i [skapa och använda en ILB ASE][MakeILBASE], måste du konfigurera DNS för appar i systemet. Det omfattar SCM-slutpunkten. Om de inte har definierats korrekt kan publicera du inte. Din IDE: er måste också ha nätverksåtkomst till den interna Belastningsutjämnaren för att publicera direkt till den.
 
-Internet-baserade CI system, t.ex GitHub och Visual Studio Team Services fungerar inte med en ILB ASE eftersom publishing slutpunkt inte är tillgänglig Internet. Istället måste du använda ett CI-system som använder en pull-modell, som Dropbox.
+Internet-baserad CI-system, till exempel GitHub och Visual Studio Team Services, fungerar inte med en ILB ASE eftersom publiceringsslutpunkten inte är åtkomlig via Internet. Istället måste du använda ett CI-system som använder en pull-modell, som Dropbox.
 
-Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Du kan se den i appens publiceringsprofilen och appens portalbladet (i **översikt** > **Essentials** och även i **egenskaper**). 
+Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Du kan se det i appens publiceringsprofil och i appens portalblad (i **översikt** > **Essentials** och även i **egenskaper**). 
 
 ## <a name="pricing"></a>Prissättning ##
 
-Priser SKU kallas **isolerad** skapades för ASEv2. Alla programtjänstplaner som finns i ASEv2 är isolerad priser SKU. Isolerade priser för Apptjänst-planen kan variera per region. 
+Priserna som kallas SKU **isolerad** har skapats för användning endast med ASEv2. Alla App Service-planer som finns i ASEv2 finns i SKU med isolerad prissättning. Isolerad App Service-plan priser kan variera per region. 
 
-Förutom priset för din App Service-planer finns en plan för ASE sig själv. Fast stöd ändras inte med storleken på din ASE och betalar för ASE infrastruktur på en standard skalning av ytterligare 1 frontend för varje 15 App Service-plan instanser.  
+Det finns en fast avgift för ASE själva förutom priset för din App Service-planer. Det fasta priset inte ändras med storleken på din ASE och betalar för ASE-infrastrukturen på en standard-skalning mängden ytterligare 1 klientdel för varje 15 App Service-planinstanser.  
 
-Om standard skala antalet 1 klientdelen för varje 15 App Service-plan instanser inte är tillräckligt snabbt, kan du justera förhållandet vid vilka framför-servrar har lagts till eller storleken på framsidan-servrar.  När du justerar förhållande eller storlek, betalar för frontend kärnor som inte skulle läggas till som standard.  
+Om standard skala antalet 1 klientdel för varje 15 App Service-planinstanser inte är tillräckligt fort, kan du justera förhållandet vid vilka klientdelar läggs eller storleken på klientdelarna.  När du justerar förhållande eller storlek, betalar du för frontend-kärnor som inte skulle läggas till som standard.  
 
-Till exempel om du ändrar skala förhållandet mellan-10 en klientdel har lagts till för varje 10 instanser i App Service-planer. Fasta avgifter omfattar en skala andel en klientdel för varje 15 instanser. Med en skala förhållandet mellan 10 betala en avgift för tredje klientdelen som har lagts till för de 10 App Service-plan instanserna. Du behöver inte betala för den när du når 15 instanser eftersom den har lagts till automatiskt.
+Till exempel om du ändrar skalan förhållandet och 10 en klientdel har lagts till för varje 10 instanser i din App Service-planer. Fast pris täcker tariffen skala en klientdel för varje 15 instanser. Med en skala förhållandet mellan 10 betala en avgift för tredje klientdelen som läggs till för de 10 App Service-planinstanser. Du behöver inte betala för den när du når 15 instanser eftersom den har lagts till automatiskt.
 
-Om du justeras storleken på fram till slutet på 2 kärnor men inte ändra förhållandet betala för extra kärnor.  En ASE skapas med 2 framför-servrar, så även under automatisk skalning tröskelvärdet som du ska betala för extra 2 kärnor om du ökar storleken till 2 kärnor framför-servrar.
+Om du justera storleken på klientdelarna till 2 kärnor, men inte justera förhållandet betala för extra kärnor.  En ASE skapas med 2 klientdelar, så även under automatisk skalning tröskeln du betala för 2 extra kärnor om du ökar storleken till 2 kärnor klientdelar.
 
-Mer information finns i [priser för Azure App Service][Pricing].
+Mer information finns i [Azure App Service-priser][Pricing].
 
 ## <a name="delete-an-ase"></a>Ta bort en ASE ##
 
-Ta bort en ASE: 
+Ta bort en ase-miljö: 
 
-1. Använd **ta bort** överst i den **Apptjänstmiljö** bladet. 
+1. Använd **ta bort** överst i den **App Service Environment** bladet. 
 
-2. Ange namnet på din ASE att bekräfta att du vill ta bort den. När du tar bort en ASE kan du ta bort allt innehåll i den samt. 
+1. Ange namnet på din ASE att bekräfta att du vill ta bort den. När du tar bort en ase-miljö kan du ta bort allt innehåll i den också. 
 
-    ![Ta bort ASE][3]
+    ![ASE-borttagning][3]
 
 <!--Image references-->
 [1]: ./media/using_an_app_service_environment/usingase-appcreate.png

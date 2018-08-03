@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f4b45c743c0efa1c9df665018b28a8b4ffb76f73
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: e42bc63b0c2b6edf4dc0de204bbac5fe90071a67
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238411"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480520"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Typer av program som kan användas i Active Directory B2C
 
@@ -60,7 +60,13 @@ Mer information om vilka typer av token och anspråk som är tillgängliga för 
 
 I ett webbprogram, varje körning av en [princip](active-directory-b2c-reference-policies.md) utförs följande övergripande steg:
 
-![Bild i spaltformat som illustrerar ett webbappsflöde](./media/active-directory-b2c-apps/webapp.png)
+1. Användaren bläddrar i webbprogrammet.
+2. Webbprogrammet omdirigeras användaren till Azure AD B2C som anger principen att köra.
+3. Användaren uppfyller principen.
+4. Azure AD B2C returnerar ett `id_token` till webbläsaren.
+5. Den `id_token` publiceras omdirigerings-URI.
+6. Den `id_token` verifieras och en sessions-cookie har angetts.
+7. En säker sida returneras till användaren.
 
 Valideringen av `id_token` med hjälp av en offentlig signeringsnyckel som fås från Azure AD är tillräckligt för att verifiera användarens identitet. Åtgärden konfigurerar även en sessions-cookie som kan användas för att identifiera användaren vid efterföljande sidförfrågningar.
 
@@ -89,7 +95,15 @@ Webb-API:et kan sedan använda token för att verifiera API-anroparens identitet
 
 Ett webb-API kan ta emot token från många typer av klienter, inklusive webbprogram, fjärrskrivbord och mobilprogram, en sida program, server-deamon och andra webb-API: er. Här är ett exempel på det fullständiga flödet för ett webbprogram som anropar ett webb-API:
 
-![Bild i spaltformat som illustrerar webb-API:et för en webbapp](./media/active-directory-b2c-apps/webapi.png)
+1. Webbprogrammet körs en princip och användaren Slutför användarupplevelsen.
+2. Azure AD B2C returnerar ett `access_token` och en auktoriseringskod till webbläsaren.
+3. Webbläsaren inlägg i `access_token` och auktoriseringskod omdirigerings-URI.
+4. Webbservern bekräftar den `access token` och anger en sessions-cookie.
+5. Den `access_token` tillhandahålls till Azure AD B2C med auktoriseringskod programklients-ID och autentiseringsuppgifter.
+6. Den `access_token` och `refresh_token` returneras till webbservern.
+7. Webb-API anropas med den `access_token` i en auktoriseringsrubrik.
+8. Webb-API: verifierar token.
+9. Säkra data returneras till webbservern.
 
 Mer information om auktoriseringskoder, uppdateringstoken och stegen för att hämta token finns i [OAuth 2.0-protokollet](active-directory-b2c-reference-oauth-code.md).
 
@@ -105,8 +119,6 @@ I det här flödet att programmet kör [principer](active-directory-b2c-referenc
 > Azure AD-B2C stöder för närvarande endast token som används för att komma åt en programmets egen backend-webbtjänst. Fullständig programmet kan exempelvis omfatta en iOS-App, ett Android-program och ett backend-webb-API. Den här arkitekturen stöds fullt ut. Så att dina iOS-program att få åtkomst till ett partnerwebb-API med hjälp av OAuth 2.0-åtkomsttoken stöds inte för närvarande. Alla komponenter i ditt fullständiga program måste dela ett enda program-ID.
 >
 >
-
-![Bild i spaltformat som illustrerar en intern app](./media/active-directory-b2c-apps/native.png)
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 

@@ -1,6 +1,6 @@
 ---
-title: Lägga till en Kubernetes-kluster i Azure-stacken Marketplace | Microsoft Docs
-description: Lär dig hur du lägger till ett kluster Kubernetes Stack Azure Marketplace.
+title: Lägg till ett Kubernetes-kluster i Azure Stack Marketplace | Microsoft Docs
+description: Lär dig hur du lägger till ett Kubernetes-kluster i Azure Stack Marketplace.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,128 +14,128 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 0ba0e1f3d9e0f1cbb6ba4109a21fc29dc41df5fc
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: ed2d55b8346acb79563a882bbaf2f46110dcf1bb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603461"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442725"
 ---
-# <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Lägga till en Kubernetes-kluster i Azure-stacken Marketplace
+# <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Lägg till ett Kubernetes-kluster i Azure Stack Marketplace
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!note]  
-> Azure Container insamlingstjänsten (ACS) Kubernetes på Azure-stacken är i privat förhandsvisning. Att begära åtkomst till Kubernetes Marketplace-objektet som behövs för att utföra instruktionerna i den här artikeln [skicka en begäran om att få tillgång till](https://aka.ms/azsk8).
+> Azure Container Services (ACS) Kubernetes på Azure Stack är i privat förhandsversion. Att begära åtkomst till Kubernetes marknadsplats-objektet som behövs för att göra det som beskrivs i den här artikeln [ansöka om att få åtkomst](https://aka.ms/azsk8).
 
-Du kan erbjuda ett Kubernetes kluster som ett Marketplace-objekt till användarna. Användarna kan distribuera Kubernetes i en enda, samordnad åtgärd.
+Du kan erbjuda ett Kubernetes-kluster som ett Marketplace-objekt till dina användare. Användarna kan distribuera Kubernetes i en enda, samordnad åtgärd.
 
-I följande artikel titta på med en Azure Resource Manager-mall för att distribuera och tillhandahålla resurser för ett fristående Kubernetes kluster. Innan du börjar, kontrollera din Azure-stacken och Azure-klient som globala inställningar. Samla in nödvändig information om Azure-stacken. Lägga till nödvändiga resurser för din klient och Azure-stacken Marketplace. Klustret beror på en Ubuntu server, anpassat skript och Kubernetes kluster-objekt i marketplace.
+I följande artikel titta på med en Azure Resource Manager-mall för att distribuera och etablera resurser för ett fristående Kubernetes-kluster. Innan du börjar, kontrollera Azure Stack och inställningar för globala Azure-klient. Samla in nödvändig information om Azure Stack. Lägga till nödvändiga resurser i din klient och Azure Stack Marketplace. Klustret är beroende av en Ubuntu-server, anpassade skript och Kubernetes-kluster-objekt i marketplace.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>Skapa en plan, ett erbjudande och en prenumeration
 
-Skapa en plan, ett erbjudande och en prenumeration för Kubernetes klustret Marketplace-objektet. Du kan också använda en befintlig plan och erbjuder.
+Skapa en plan, ett erbjudande och en prenumeration för Kubernetes-kluster Marketplace-objekt. Du kan också använda en befintlig plan och erbjudande.
 
-1. Logga in på den [-administrationsportalen.](https://adminportal.local.azurestack.external)
+1. Logga in på den [administrationsportalen.](https://adminportal.local.azurestack.external)
 
-2. Skapa en plan som den grundläggande planen. Instruktioner finns i [skapar en plan i Azure-stacken](azure-stack-create-plan.md).
+1. Skapa en plan som den grundläggande planen. Anvisningar finns i [skapa en plan i Azure Stack](azure-stack-create-plan.md).
 
-3. Skapa ett erbjudande. Instruktioner finns i [skapa ett erbjudande på Azure-stacken](azure-stack-create-offer.md).
+1. Skapa ett erbjudande. Anvisningar finns i [skapa ett erbjudande i Azure Stack](azure-stack-create-offer.md).
 
-4. Välj **erbjuder**, och hitta det erbjudande som du skapade.
+1. Välj **erbjuder**, och hitta erbjudandet som du skapade.
 
-5. Välj **översikt** i bladet erbjudandet.
+1. Välj **översikt** på bladet erbjudandet.
 
-6. Välj **ändra tillståndet**. Välj **offentliga**.
+1. Välj **ändra tillståndet**. Välj **offentliga**.
 
-7. Välj **+ ny** > **erbjuder och planerar** > **prenumeration** att skapa en ny prenumeration.
+1. Välj **+ ny** > **erbjudanden och planer** > **prenumeration** att skapa en ny prenumeration.
 
     a. Ange en **visningsnamn**.
 
-    b. Ange en **användaren**. Använda Azure AD-kontot som är associerade med din klient.
+    b. Ange en **användaren**. Använda Azure AD-konto som är associerade med din klient.
 
     c. **Beskrivning av lagringsprovider**
 
-    d. Ange den **Directory-klient** till Azure AD-klient för din Azure-stacken. 
+    d. Ange den **Directory-klient** till Azure AD-klient för Azure Stack. 
 
-    e. Välj **erbjuder**. Välj namnet på det erbjudande som du skapade. Anteckna prenumerations-ID.
+    e. Välj **erbjuder**. Välj namnet på erbjudandet som du skapade. Anteckna prenumerations-ID.
 
-## <a name="add-an-ubuntu-server-image"></a>Lägga till en bild för Ubuntu server
+## <a name="add-an-ubuntu-server-image"></a>Lägg till en Ubuntu server-avbildning
 
 Lägg till följande Ubuntu Server bild Marketplace:
 
-1. Logga in på den [-administrationsportalen](https://adminportal.local.azurestack.external).
+1. Logga in på den [administrationsportalen](https://adminportal.local.azurestack.external).
 
-2. Välj **fler tjänster** > **Marketplace Management**.
+1. Välj **fler tjänster** > **Marketplace Management**.
 
-3. Välj **+ Lägg till från Azure**.
+1. Välj **+ Lägg till från Azure**.
 
-4. Ange `UbuntuServer`.
+1. Ange `UbuntuServer`.
 
-5. Välj servern med följande länk:
-    - **Publisher**: kanoniska
+1. Välj server med följande profil:
+    - **Publisher**: Canonical
     - **Erbjuder**: UbuntuServer
     - **SKU**: 16.04 LTS
     - **Version**: 16.04.201802220
 
     > [!Note]  
-    > Mer än en version av Ubuntu Server 16.04 LTS får anges. Du behöver lägga till den version som matchar. Klustret Kubernetes kräver exakt vilken version av objektet.
+    > Mer än en version av Ubuntu Server 16.04 LTS finnas. Du behöver att lägga till den version som matchar. Kubernetes-kluster kräver den exakta versionen av objektet.
 
-6. Välj **hämta.**
+1. Välj **ladda ned.**
 
-## <a name="add-a-custom-script-for-linux"></a>Lägga till ett anpassat skript för Linux
+## <a name="add-a-custom-script-for-linux"></a>Lägg till ett anpassat skript för Linux
 
-Lägg till klustret Kubernetes från Marketplace:
+Lägg till Kubernetes-klustret från Marketplace:
 
-1. Öppna den [-administrationsportalen](https://adminportal.local.azurestack.external).
+1. Öppna den [administrationsportalen](https://adminportal.local.azurestack.external).
 
-2. Välj **fler tjänster** > **Marketplace Management**.
+1. Välj **fler tjänster** > **Marketplace Management**.
 
-3. Välj **+ Lägg till från Azure**.
+1. Välj **+ Lägg till från Azure**.
 
-4. Ange `Custom Script for Linux`.
+1. Ange `Custom Script for Linux`.
 
-5. Välj skriptet med följande länk:
+1. Väljer du skriptet med följande profil:
     - **Erbjuder**: anpassat skript för Linux 2.0
     - **Version**: 2.0.3
     - **Publisher**: Microsoft Corp
 
     > [!Note]  
-    > Mer än en version för anpassat skript för Linux får anges. Du behöver lägga till den version som matchar. Klustret Kubernetes kräver exakt vilken version av objektet.
+    > Mer än en version av anpassat skript för Linux kan anges. Du behöver att lägga till den version som matchar. Kubernetes-kluster kräver den exakta versionen av objektet.
 
-6. Välj **hämta.**
+1. Välj **ladda ned.**
 
 
-## <a name="add-the-kubernetes-cluster-to-the-marketplace"></a>Lägga till Kubernetes klustret marketplace
+## <a name="add-the-kubernetes-cluster-to-the-marketplace"></a>Lägg till Kubernetes-klustret på Marketplace
 
-1. Öppna den [-administrationsportalen](https://adminportal.local.azurestack.external).
+1. Öppna den [administrationsportalen](https://adminportal.local.azurestack.external).
 
-2. Välj **fler tjänster** > **Marketplace Management**.
+1. Välj **fler tjänster** > **Marketplace Management**.
 
-3. Välj **+ Lägg till från Azure**.
+1. Välj **+ Lägg till från Azure**.
 
-4. Ange `Kubernetes Cluster`.
+1. Ange `Kubernetes Cluster`.
 
-5. Välj `Kubernetes Cluster`.
+1. Välj `Kubernetes Cluster`.
 
-6. Välj **hämta.**
+1. Välj **ladda ned.**
 
     > [!note]  
-    > Det kan ta fem minuter för marketplace-objektet ska visas i Marketplace.
+    > Det kan ta fem minuter för marketplace-objekt ska visas i Marketplace.
 
-    ![Kubernetes kluster](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
+    ![Kubernetes-kluster](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
 
-## <a name="update-or-remove-the-kubernetes-cluster"></a>Uppdatera eller ta bort klustret Kubernetes 
+## <a name="update-or-remove-the-kubernetes-cluster"></a>Uppdatera eller ta bort Kubernetes-kluster 
 
-När du uppdaterar objektet Kubernetes klustret, behöver du ta bort objektet som är i Marketplace. Följ sedan anvisningarna i den här artikeln för att lägga till klustret Kubernetes på Marketplace.
+När du uppdaterar Kubernetes-kluster-objektet, måste du ta bort objekt som finns i Marketplace. Sedan kan du följa anvisningarna i den här artikeln för att lägga till Kubernetes-klustret i marketplace.
 
-Ta bort objektet Kubernetes klustret:
+Ta bort objektet Kubernetes-kluster:
 
-1. Notera namnet på det aktuella objektet som `Microsoft.AzureStackKubernetesCluster.0.1.0`
+1. Notera namnet på det aktuella objektet, till exempel `Microsoft.AzureStackKubernetesCluster.0.1.0`
 
-2. Ansluta till Azure-stacken med PowerShell.
+1. Anslut till Azure Stack med PowerShell.
 
-3. Använd följande PowerShell-cmdlet för att ta bort objektet:
+1. Använd följande PowerShell-cmdlet för att ta bort objekt:
 
     ```PowerShell  
     $Itemname="Microsoft.AzureStackKubernetesCluster.0.1.0"
@@ -145,8 +145,8 @@ Ta bort objektet Kubernetes klustret:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera ett Kubernetes kluster till Azure-stacken](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
+[Distribuera ett Kubernetes-kluster till Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
 
 
 
-[Översikt över erbjuda tjänster i Azure-stacken](azure-stack-offer-services-overview.md)
+[Översikt över erbjudna tjänster i Azure Stack](azure-stack-offer-services-overview.md)

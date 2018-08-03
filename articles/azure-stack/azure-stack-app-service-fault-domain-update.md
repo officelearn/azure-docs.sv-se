@@ -1,6 +1,6 @@
 ---
-title: 'Apptjänst Azure stacken: Fault-domänen | Microsoft Docs'
-description: Hur du distribuerar Azure App Service på Azure-stacken över feldomäner
+title: 'App Service i Azure Stack: fel domän Update | Microsoft Docs'
+description: Hur du distribuera om Azure App Service i Azure Stack via feldomäner
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: anwestg
-ms.openlocfilehash: ce57e153dcab6a386150ebefe1ecb4a018514247
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 53766099f283f802482fe8e84144502d386b1d69
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130378"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440159"
 ---
-# <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Hur du distribuerar Azure App Service på Azure-stacken över feldomäner
+# <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Hur du distribuera om Azure App Service i Azure Stack via feldomäner
 
-*Gäller för: Azure Stack integrerat system*
+*Gäller för: integrerade Azure Stack-system*
 
-Med uppdateringen 1802 stöder Azure stacken nu distribution av arbetsbelastningar över feldomäner, en funktion som är viktiga för hög tillgänglighet.
+Med den 1802 uppdateringen stöder Azure Stack nu distribution av arbetsbelastningar över feldomäner, en funktion som är viktiga för hög tillgänglighet.
 
 >[!IMPORTANT]
->Om du vill dra nytta av domänstöd för fel, måste du uppdatera din Azure-stacken integrerat system till 1802. Det här dokumentet gäller bara för Apptjänst resource provider distributioner som har slutförts innan 1802 uppdateringen. Om du har distribuerat Apptjänst Azure stacken när 1802 uppdatering har installerats på Azure-stacken är redan resursprovidern fördelad över feldomäner.
+>Om du vill dra nytta av domänstöd för fel, måste du uppdatera integrerade Azure Stack-system till 1802. Det här dokumentet gäller endast för App Service resource provider-distributioner som har slutförts innan du 1802 uppdateringen. Om du har distribuerat App Service i Azure Stack när 1802 uppdateringen har tillämpats på Azure Stack resursprovidern redan har distribuerats över feldomäner.
 
-## <a name="rebalance-an-app-service-resource-provider-across-fault-domains"></a>Balansera en Apptjänst-resursprovidern över feldomäner
+## <a name="rebalance-an-app-service-resource-provider-across-fault-domains"></a>Balansera om en App Service-resursprovider över feldomäner
 
-Du måste utföra stegen i den här artikeln för varje skaluppsättning för att distribuera skaluppsättningar distribuerat för resursprovidern Apptjänst. Som standard är scaleset namn:
+Du måste utföra stegen i den här artikeln för varje skalningsuppsättning för att distribuera om skalningsuppsättningar distribueras för App Service-resursprovidern. Som standard är scaleset namnen:
 
 * ManagementServersScaleSet
 * FrontEndsScaleSet
@@ -43,17 +43,17 @@ Du måste utföra stegen i den här artikeln för varje skaluppsättning för at
 * LargeWorkerTierScaleSet
 
 >[!NOTE]
-> Om du inte har instanser distribuerade i några av worker-nivå skalningsuppsättningar, behöver du inte balansera dessa skaluppsättningar. Skala anger balanseras korrekt när du skala ut dem i framtiden.
+> Om du inte har distribuerade instanser i några av skalningsuppsättningar för worker-nivå, behöver du inte balansera om dessa skalningsuppsättningar. Vilka skalningsuppsättningar balanseras korrekt när du skalar ut dem i framtiden.
 
-Följ dessa steg om du vill skala ut skala anger:
+Följ dessa steg om du vill skala ut vilka skalningsuppsättningar:
 
 1. Logga in på Azure Stack-Administratörsportalen.
-2. Välj **fler tjänster**.
-3. Välj under beräkning, **skalningsuppsättningar i virtuella**. Befintliga skaluppsättningar distribueras som en del av Apptjänst-distributionen visas med information om processinstans count. Följande skärmbild visar ett exempel på skaluppsättningar.
+1. Välj **fler tjänster**.
+1. Välj under beräkning, **VM-skalningsuppsättningar**. Befintliga skalningsuppsättningar distribueras som en del av App Service-distributionen visas med information om processinstans antal. Följande skärmdump visar ett exempel på skalningsuppsättningar.
 
-      ![Azure App Service Skaluppsättningar som listas i virtuell dator skala anger UX][1]
+      ![Azure App Service Skalningsuppsättningar som anges i Virtual Machine Scale Sets UX][1]
 
-4. Skala ut varje uppsättning. Till exempel om du har tre befintliga instanser i skaluppsättning måste du skalar upp till 6 så att de tre nya instanserna distribueras över feldomäner. Följande PowerShell-exempel som visar ut för att skala ut skaluppsättning.
+1. Skala ut varje uppsättning. Till exempel om du har tre befintliga instanser i skalningsuppsättningen skalar du ut till 6 så att de tre nya instanserna distribueras över feldomäner. Följande PowerShell-exempel som visar dig för att skala ut skalningsuppsättningen.
 
    ```powershell
    Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
@@ -67,22 +67,22 @@ Följ dessa steg om du vill skala ut skala anger:
    ```
 
    >[!NOTE]
-   >Det här steget kan ta flera timmar att slutföra beroende på typ av roll och antalet instanser.
+   >Det här steget kan ta flera timmar att slutföra beroende på typ av roll och hur många instanser.
 
-5. I **App Service Administration roller**, övervaka status för de nya rollinstanserna. Om du vill kontrollera status för en rollinstans, väljer du vilken roll i listan
+1. I **App Service-administratörsroller**, övervaka status för de nya rollinstanserna. Du kan kontrollera status för en rollinstans kan du välja vilken roll i listan
 
-    ![Azure App Service på Azure-stacken roller][2]
+    ![Azure App Service i Azure Stack-roller][2]
 
-6. När statusen för de nya rollinstanserna är **klar**, gå tillbaka till **Skaluppsättning för virtuell dator** och **ta bort** gamla rollinstanser.
+1. När statusen för de nya rollinstanserna är **redo**, går tillbaka till **Virtual Machine Scale Sets** och **ta bort** gamla rollinstanserna.
 
-7. Upprepa dessa steg för **varje** skaluppsättning för virtuell dator.
+1. Upprepa dessa steg för **varje** virtual machine scale Sets.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan också prova att använda andra [plattform som en tjänst (PaaS) services](azure-stack-tools-paas-services.md).
+Du kan också prova att använda andra [plattform som en tjänst (PaaS) tjänster](azure-stack-tools-paas-services.md).
 
-* [SQL Server-resursprovidern](azure-stack-sql-resource-provider-deploy.md)
-* [MySQL-resursprovidern](azure-stack-mysql-resource-provider-deploy.md)
+* [SQL Server-resursleverantör](azure-stack-sql-resource-provider-deploy.md)
+* [MySQL-resursprovider](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-fault-domain-update/app-service-scale-sets.png

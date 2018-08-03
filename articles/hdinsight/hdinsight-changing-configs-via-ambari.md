@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: 2f0956c1cbbc6a351b2fc76a6918280dbead298f
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 6fe7092b2038b5cf53906e537ef02e457370d0d3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951224"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434670"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Använda Ambari och optimera klusterkonfigurationer för HDInsight
 
@@ -44,19 +44,19 @@ NameNode Java heap storleken beror på många faktorer, till exempel belastninge
 
     ![HDFS-konfiguration](./media/hdinsight-changing-configs-via-ambari/hdfs-config.png)
 
-2. Sök efter inställningen **NameNode Java stackstorlek**. Du kan också använda den **filter** textrutan för att ange och hitta en viss inställning. Välj den **penna** ikonen bredvid Inställningens namn.
+1. Sök efter inställningen **NameNode Java stackstorlek**. Du kan också använda den **filter** textrutan för att ange och hitta en viss inställning. Välj den **penna** ikonen bredvid Inställningens namn.
 
     ![NameNode Java heap-storlek](./media/hdinsight-changing-configs-via-ambari/java-heap-size.png)
 
-3. Skriv det nya värdet i textrutan och tryck sedan på **RETUR** att spara ändringen.
+1. Skriv det nya värdet i textrutan och tryck sedan på **RETUR** att spara ändringen.
 
     ![Redigera NameNode Java heap-storlek](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-4. NameNode Java heap-storlek ändras från 1 GB till 2 GB.
+1. NameNode Java heap-storlek ändras från 1 GB till 2 GB.
 
     ![Redigera NameNode Java heap-storlek](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
-5. Spara ändringarna genom att klicka på gröna **spara** knappen överst på konfigurationsskärmen.
+1. Spara ändringarna genom att klicka på gröna **spara** knappen överst på konfigurationsskärmen.
 
     ![Spara ändringar](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
 
@@ -65,7 +65,7 @@ NameNode Java heap storleken beror på många faktorer, till exempel belastninge
 I följande avsnitt beskrivs alternativ för att optimera prestandan för Hive.
 
 1. Om du vill ändra Hive konfigurationsparametrar, Välj **Hive** på sidopanelen tjänster.
-2. Navigera till den **Peeringkonfigurationer** fliken.
+1. Navigera till den **Peeringkonfigurationer** fliken.
 
 ### <a name="set-the-hive-execution-engine"></a>Ange motorn för körning av Hive
 
@@ -75,7 +75,7 @@ Hive tillhandahåller två motorer för körningen: MapReduce och Tez. Tez är s
 
     ![Motorn för körning](./media/hdinsight-changing-configs-via-ambari/search-execution.png)
 
-2. Den **optimering** standardvärde är **Tez**.
+1. Den **optimering** standardvärde är **Tez**.
 
     ![Optimering - Tez](./media/hdinsight-changing-configs-via-ambari/optimization-tez.png)
 
@@ -92,7 +92,7 @@ Till exempel om du vill ange fyra mapper aktiviteter för datastorlekar 128 MB s
 
 1. Om du vill ändra parametrarna gränsen, navigera till den **Peeringkonfigurationer** fliken Tez-tjänsten. Expandera den **Allmänt** panelen och leta upp den `tez.grouping.max-size` och `tez.grouping.min-size` parametrar.
 
-2. Ange båda parametrarna **33,554,432** byte (32 MB).
+1. Ange båda parametrarna **33,554,432** byte (32 MB).
 
     ![Tez gruppering storlekar](./media/hdinsight-changing-configs-via-ambari/tez-grouping-size.png)
  
@@ -112,13 +112,13 @@ Den `hive.exec.reducers.bytes.per.reducer` parametern anger antalet byte som bea
 
     ![Data per Reducer](./media/hdinsight-changing-configs-via-ambari/data-per-reducer.png)
  
-2. Välj **redigera** att ändra värdet till 128 MB (134,217,728 byte) och tryck sedan på **RETUR** att spara.
+1. Välj **redigera** att ändra värdet till 128 MB (134,217,728 byte) och tryck sedan på **RETUR** att spara.
 
     ![Data per Reducer - redigeras](./media/hdinsight-changing-configs-via-ambari/data-per-reducer-edited.png)
   
     Får en Indatastorleken på 1 024 MB, med upp till 128 MB data per reducer, det finns 8 reducerare (1024/128).
 
-3. Ett ogiltigt värde för den **Data per Reducer** parameter kan resultera i ett stort antal reducerare som negativt påverkar prestanda för frågor. För att begränsa det maximala antalet reducerare, ange `hive.exec.reducers.max` till ett lämpligt värde. Standardvärdet är 1009.
+1. Ett ogiltigt värde för den **Data per Reducer** parameter kan resultera i ett stort antal reducerare som negativt påverkar prestanda för frågor. För att begränsa det maximala antalet reducerare, ange `hive.exec.reducers.max` till ett lämpligt värde. Standardvärdet är 1009.
 
 ### <a name="enable-parallel-execution"></a>Aktivera parallell körning
 
@@ -126,7 +126,7 @@ En Hive-frågan körs i ett eller flera steg. Om oberoende stegen kan köras par
 
 1.  Om du vill aktivera parallell frågekörning, navigera till Hive **Config** fliken och Sök efter den `hive.exec.parallel` egenskapen. Standardvärdet är FALSKT. Ändra värdet true och tryck sedan på **RETUR** att spara värdet.
  
-2.  För att begränsa antalet jobb som ska köras parallellt, ändra den `hive.exec.parallel.thread.number` egenskapen. Standardvärdet är 8.
+1.  För att begränsa antalet jobb som ska köras parallellt, ändra den `hive.exec.parallel.thread.number` egenskapen. Standardvärdet är 8.
 
     ![Hive exec parallellt](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -137,7 +137,7 @@ Hive bearbetar data rad för rad. Vectorization dirigerar Hive att bearbeta data
 
 1. Om du vill aktivera en vectorized frågekörning, navigera till Hive **Peeringkonfigurationer** fliken och Sök efter den `hive.vectorized.execution.enabled` parametern. Standardvärdet är sant för Hive 0.13.0 eller senare.
  
-2. Om du vill aktivera vectorized körning för minska sida av frågan, ange den `hive.vectorized.execution.reduce.enabled` parametern till true. Standardvärdet är FALSKT.
+1. Om du vill aktivera vectorized körning för minska sida av frågan, ange den `hive.vectorized.execution.reduce.enabled` parametern till true. Standardvärdet är FALSKT.
 
     ![Vectorized hive-körning](./media/hdinsight-changing-configs-via-ambari/hive-vectorized-execution.png)
 
@@ -193,9 +193,9 @@ Som en allmän regel är viktigt att ha komprimeringsmetoden delbara, annars myc
     > [!NOTE]
     > Om du vill komprimera mellanliggande filer, väljer du en komprimerings-codec med lägre processor kostnaderna, även om codec-enheten inte har en hög komprimering utdata.
 
-2. Ange mellanliggande komprimerings-codec genom att lägga till den anpassade egenskapen `mapred.map.output.compression.codec` till den `hive-site.xml` eller `mapred-site.xml` fil.
+1. Ange mellanliggande komprimerings-codec genom att lägga till den anpassade egenskapen `mapred.map.output.compression.codec` till den `hive-site.xml` eller `mapred-site.xml` fil.
 
-3. Lägga till en anpassad inställning:
+1. Lägga till en anpassad inställning:
 
     a. Gå till Hive **Peeringkonfigurationer** fliken och markera den **Avancerat** fliken.
 
@@ -220,7 +220,7 @@ Den slutgiltiga utdata för Hive kan också komprimeras.
 
 1. Om du vill komprimera den slutgiltiga utdata för Hive, navigera till Hive **Peeringkonfigurationer** fliken och ange sedan den `hive.exec.compress.output` parametern till true. Standardvärdet är FALSKT.
 
-2. Välj komprimerings-codec utdata genom att lägga till den `mapred.output.compression.codec` egenskapen till anpassade hive-fönstret, enligt beskrivningen i föregående avsnitt steg 3.
+1. Välj komprimerings-codec utdata genom att lägga till den `mapred.output.compression.codec` egenskapen till anpassade hive-fönstret, enligt beskrivningen i föregående avsnitt steg 3.
 
     ![Hive anpassad egenskap](./media/hdinsight-changing-configs-via-ambari/hive-custom-property2.png)
 
@@ -240,11 +240,11 @@ Hive kan skapa dynamiska partitioner vid infogning poster i en tabell, utan att 
 
 1. För Hive att göra dynamiska partitioner, den `hive.exec.dynamic.partition` parametervärdet måste vara sant (standard).
 
-2. Ändra partitionsläge för dynamisk att *strikt*. Minst en partition måste vara statiska i strikt läge. Detta förhindrar frågor utan att behöva partition filtret i WHERE-satsen, det vill säga *strikt* förhindrar frågor som genomsöka alla partitioner. Gå till Hive **Peeringkonfigurationer** fliken och sedan ange `hive.exec.dynamic.partition.mode` till **strikt**. Standardvärdet är **nonstrict**.
+1. Ändra partitionsläge för dynamisk att *strikt*. Minst en partition måste vara statiska i strikt läge. Detta förhindrar frågor utan att behöva partition filtret i WHERE-satsen, det vill säga *strikt* förhindrar frågor som genomsöka alla partitioner. Gå till Hive **Peeringkonfigurationer** fliken och sedan ange `hive.exec.dynamic.partition.mode` till **strikt**. Standardvärdet är **nonstrict**.
  
-3. För att begränsa antalet dynamiska partitioner som ska skapas, ändra den `hive.exec.max.dynamic.partitions` parametern. Standardvärdet är 5 000.
+1. För att begränsa antalet dynamiska partitioner som ska skapas, ändra den `hive.exec.max.dynamic.partitions` parametern. Standardvärdet är 5 000.
  
-4. För att begränsa det totala antalet dynamiska partitioner per nod, ändra `hive.exec.max.dynamic.partitions.pernode`. Standardvärdet är 2000.
+1. För att begränsa det totala antalet dynamiska partitioner per nod, ändra `hive.exec.max.dynamic.partitions.pernode`. Standardvärdet är 2000.
 
 ### <a name="enable-local-mode"></a>Aktivera lokalt läge
 
@@ -294,9 +294,9 @@ Pig egenskaper kan ändras från Ambari-webbgränssnittet att justera Pig frågo
 
 1. Om du vill ändra egenskaper för Pig, navigera till Pig **Peeringkonfigurationer** fliken och expandera sedan den **avancerade pig-egenskaper** fönstret.
 
-2. Hitta, ta bort och ändra värdet på egenskapen som du vill ändra.
+1. Hitta, ta bort och ändra värdet på egenskapen som du vill ändra.
 
-3. Välj **spara** på upp till höger i fönstret för att spara det nya värdet. Vissa egenskaper kan kräva en omstart av tjänsten.
+1. Välj **spara** på upp till höger i fönstret för att spara det nya värdet. Vissa egenskaper kan kräva en omstart av tjänsten.
 
     ![Avancerade pig-egenskaper](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
@@ -309,7 +309,7 @@ Två motorer för körningen är tillgängliga att köra Pig-skript: MapReduce o
 
 1. Ändra motorn för körning i den **avancerade pig-egenskaper** fönstret hitta egenskapen `exectype`.
 
-2. Standardvärdet är **MapReduce**. Ändra det till **Tez**.
+1. Standardvärdet är **MapReduce**. Ändra det till **Tez**.
 
 
 ### <a name="enable-local-mode"></a>Aktivera lokalt läge
@@ -318,7 +318,7 @@ Ett liknande sätt som Hive, lokalt läge används för att påskynda jobb med r
 
 1. Om du vill aktivera lokalt läge, ange `pig.auto.local.enabled` till **SANT**. Standardvärdet är FALSKT.
 
-2. Jobb med en storlek för indata understiger `pig.auto.local.input.maxbytes` egenskapsvärdet anses vara små jobb. Standardvärdet är 1 GB.
+1. Jobb med en storlek för indata understiger `pig.auto.local.input.maxbytes` egenskapsvärdet anses vara små jobb. Standardvärdet är 1 GB.
 
 
 ### <a name="copy-user-jar-cache"></a>Kopiera jar användarcachen
@@ -327,7 +327,7 @@ Pig kopierar JAR-filerna som krävs av UDF: er till en distribuerad cache för a
 
 1. Aktivera, ange `pig.user.cache.enabled` till true. Standardvärdet är FALSKT.
 
-2. Att ställa in grundläggande sökvägen till de cachelagrade JAR-filer `pig.user.cache.location` till rotsökvägen. Standardvärdet är `/tmp`.
+1. Att ställa in grundläggande sökvägen till de cachelagrade JAR-filer `pig.user.cache.location` till rotsökvägen. Standardvärdet är `/tmp`.
 
 
 ### <a name="optimize-performance-with-memory-settings"></a>Optimera prestanda med minnesinställningarna
@@ -372,7 +372,7 @@ HBase-stackstorlek anger den maximala mängden heap som ska användas i megabyte
 
 1. Om du vill ändra, gå till den **avancerade HBase-env** fönstret i HBase **Peeringkonfigurationer** fliken och hitta den `HBASE_HEAPSIZE` inställningen.
 
-2. Ändra standardvärdet till 5 000 MB.
+1. Ändra standardvärdet till 5 000 MB.
 
     ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/hbase-heapsize.png)
 
@@ -389,7 +389,7 @@ Blockera cache är läsningscachen. Storleken styrs av den `hfile.block.cache.si
 
     ![HBase blockstorlek för cache](./media/hdinsight-changing-configs-via-ambari/hbase-block-cache-size.png)
  
-2. Om du vill ändra värdet, Välj den **redigera** ikon.
+1. Om du vill ändra värdet, Välj den **redigera** ikon.
 
 
 #### <a name="memstore-size"></a>Memstores storlek

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 26ab8c0547bb533a032dec59183f8152be9180cf
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364553"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448449"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Kontinuerlig integrering och distribution i Azure Data Factory
 
@@ -53,15 +53,15 @@ Här är hela livscykeln för kontinuerlig integration och distribution som du k
 
 1.  Konfigurera en data factory för utveckling med VSTS där alla utvecklare kan skapa Data Factory-resurser som pipelines, datauppsättningar och så vidare.
 
-2.  Utvecklare kan sedan ändra resurser, till exempel pipelines. När de gör ändringarna kan de välja **felsöka** att se hur pipelinekörningarna med de senaste ändringarna.
+1.  Utvecklare kan sedan ändra resurser, till exempel pipelines. När de gör ändringarna kan de välja **felsöka** att se hur pipelinekörningarna med de senaste ändringarna.
 
-3.  När utvecklare är nöjd med ändringarna, kan de skapa en pull-begäran från deras gren till mastergrenen (eller grenen samarbete) för att hämta ändringarna granskas av peer-datorer.
+1.  När utvecklare är nöjd med ändringarna, kan de skapa en pull-begäran från deras gren till mastergrenen (eller grenen samarbete) för att hämta ändringarna granskas av peer-datorer.
 
-4.  När det finns ändringar i huvudgrenen, de publicerar till utveckling factory genom att välja **publicera**.
+1.  När det finns ändringar i huvudgrenen, de publicerar till utveckling factory genom att välja **publicera**.
 
-5.  När teamet är redo att göra ändringar i fabriken för testning och produktion fabriken, kan de exportera Resource Manager-mallen från huvudgrenen eller från andra grenen om deras huvudgrenen säkerhetskopierar live utvecklingen Data Factory.
+1.  När teamet är redo att göra ändringar i fabriken för testning och produktion fabriken, kan de exportera Resource Manager-mallen från huvudgrenen eller från andra grenen om deras huvudgrenen säkerhetskopierar live utvecklingen Data Factory.
 
-6.  Den exporterade Resource Manager-mallen kan distribueras med olika parameterfiler fabriken för testning och produktion fabriken.
+1.  Den exporterade Resource Manager-mallen kan distribueras med olika parameterfiler fabriken för testning och produktion fabriken.
 
 ## <a name="automate-continuous-integration-with-vsts-releases"></a>Automatisera kontinuerlig integrering med VSTS-versioner
 
@@ -81,19 +81,19 @@ Här följer stegen för att konfigurera en VSTS-version så att du kan automati
 
 1.  Gå till din VSTS-sida i samma projekt som konfigurerats med Data Factory.
 
-2.  Klicka på den översta menyn **Build and Release** &gt; **versioner** &gt; **skapa versionsdefinition**.
+1.  Klicka på den översta menyn **Build and Release** &gt; **versioner** &gt; **skapa versionsdefinition**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-3.  Välj den **tom process** mall.
+1.  Välj den **tom process** mall.
 
-4.  Ange namnet på din miljö.
+1.  Ange namnet på din miljö.
 
-5.  Lägg till en Git-artefakt och välj på samma lagringsplats som konfigurerats med Data Factory. Välj `adf_publish` som standardgren med senaste standardversionen.
+1.  Lägg till en Git-artefakt och välj på samma lagringsplats som konfigurerats med Data Factory. Välj `adf_publish` som standardgren med senaste standardversionen.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
-7.  Lägg till en uppgift för Azure Resource Manager-distribution:
+1.  Lägg till en uppgift för Azure Resource Manager-distribution:
 
     a.  Skapa en ny uppgift, Sök efter **Azure Resursgruppsdistribution**, och lägger till den.
 
@@ -109,9 +109,9 @@ Här följer stegen för att konfigurera en VSTS-version så att du kan automati
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-8.  Spara versionsdefinitionen.
+1.  Spara versionsdefinitionen.
 
-9.  Skapa en ny version från den här versionsdefinitionen.
+1.  Skapa en ny version från den här versionsdefinitionen.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -144,7 +144,7 @@ Det finns två sätt att hantera hemligheterna:
 
     -   Parameterfilen måste vara i grenen publicera.
 
-2.  Lägg till en [Azure Key Vault uppgift](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) innan Azure Resource Manager-distribution som beskrivs i föregående avsnitt:
+1.  Lägg till en [Azure Key Vault uppgift](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) innan Azure Resource Manager-distribution som beskrivs i föregående avsnitt:
 
     -   Välj den **uppgifter** fliken, skapa en ny uppgift, Sök efter **Azure Key Vault** och lägga till den.
 
@@ -160,9 +160,9 @@ Distributionen kan misslyckas om du försöker uppdatera active utlösare. För 
 
 1.  I fliken uppgifter i VSTS-versionen, söker du efter **Azure Powershell** och lägga till den.
 
-2.  Välj **Azure Resource Manager** som anslutningen skriver och välj din prenumeration.
+1.  Välj **Azure Resource Manager** som anslutningen skriver och välj din prenumeration.
 
-3.  Välj **infogat skript** som skriptet som skriver och ange sedan din kod. Följande exempel stoppar utlösare:
+1.  Välj **infogat skript** som skriptet som skriver och ange sedan din kod. Följande exempel stoppar utlösare:
 
     ```powershell
     $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 2f78cfc9918222fd22c2894b5e920a5c07efe522
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 2a63b9b6d256a84edc25bf257d175455717c43c2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069901"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434745"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Skapa en Programgateway med flera webbplatser med hjälp av Azure CLI
 
@@ -52,7 +52,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser 
 
-Skapa ett virtuellt nätverk med namnet *myVNet* och ett undernät med namnet *myAGSubnet* med [az network vnet create](/cli/azure/network/vnet#az_net). Du kan sedan lägga till undernätet med namnet *myBackendSubnet* som servrarna i serverdelen behöver med [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Skapa den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
+Skapa ett virtuellt nätverk med namnet *myVNet* och ett undernät med namnet *myAGSubnet* med [az network vnet create](/cli/azure/network/vnet#az-net). Du kan sedan lägga till undernätet med namnet *myBackendSubnet* som servrarna i serverdelen behöver med [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Skapa den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -102,7 +102,7 @@ Det kan ta flera minuter att skapa programgatewayen. När programgatewayen har s
 
 ### <a name="add-the-backend-pools"></a>Lägga till serverdelspoolerna
 
-Lägg till backend-pooler med namnet *contosoPool* och *fabrikamPool* som behövs för att innehålla backend-servrarna med hjälp av [az network application-gateway adresspool skapa](/cli/azure/application-gateway#az_network_application_gateway_address_pool_create).
+Lägg till backend-pooler med namnet *contosoPool* och *fabrikamPool* som behövs för att innehålla backend-servrarna med hjälp av [az network application-gateway adresspool skapa](/cli/azure/application-gateway#az-network_application_gateway_address_pool_create).
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -119,7 +119,7 @@ az network application-gateway address-pool create \
 
 Du behöver en lyssnare så att programgatewayen kan dirigera trafiken till serverdelspoolen på rätt sätt. I den här självstudien skapar du två lyssnare för de två domänerna. I det här exemplet skapas lyssnare för domänerna *www.contoso.com* och *www.fabrikam.com*. 
 
-Lägg till lyssnare med namnet *contosoListener* och *fabrikamListener* som behövs för att dirigera trafik med hjälp av [az network application-gateway http-listener skapa](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
+Lägg till lyssnare med namnet *contosoListener* och *fabrikamListener* som behövs för att dirigera trafik med hjälp av [az network application-gateway http-listener skapa](/cli/azure/application-gateway#az-network_application_gateway_http_listener_create).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -142,7 +142,7 @@ az network application-gateway http-listener create \
 
 Regler bearbetas i den ordning som de skapas och trafik dirigeras med hjälp av den första regeln som matchar URL som skickas till application gateway. Om du till exempel har en regel med en grundläggande lyssnare och en regel med en lyssnare för flera webbplatser för samma port så måste regeln med lyssnare för flera platser stå innan regeln med den grundläggande lyssnaren om regeln för flera platser ska fungera som förväntat. 
 
-I det här exemplet skapar du två nya regler och tar bort standardregeln som skapades när du skapade programgatewayen. Du kan lägga till regeln med [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create).
+I det här exemplet skapar du två nya regler och tar bort standardregeln som skapades när du skapade programgatewayen. Du kan lägga till regeln med [az network application-gateway rule create](/cli/azure/application-gateway#az-network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -213,7 +213,7 @@ done
 
 ## <a name="create-a-cname-record-in-your-domain"></a>Skapa en CNAME-post i domänen
 
-När du har skapat programgatewayen med dess offentliga IP-adress kan du hämta DNS-adressen och använda den till att skapa en CNAME-post i domänen. Hämta den DNS-adressen till programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Kopiera värdet *fqdn* för DNSSettings och använd det som värde för CNAME-posten du skapar. 
+När du har skapat programgatewayen med dess offentliga IP-adress kan du hämta DNS-adressen och använda den till att skapa en CNAME-post i domänen. Hämta den DNS-adressen till programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Kopiera värdet *fqdn* för DNSSettings och använd det som värde för CNAME-posten du skapar. 
 
 ```azurecli-interactive
 az network public-ip show \

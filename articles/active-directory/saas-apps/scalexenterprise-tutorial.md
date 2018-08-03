@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b2da2680adbc92655030351cc9e1269a4cccccd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 04708806b9e1ba224e7b438f11c68dca82d6320e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041011"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448826"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Självstudier: Azure Active Directory-integrering med ScaleX Enterprise
 
@@ -52,7 +52,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till ScaleX Enterprise från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-scalex-enterprise-from-the-gallery"></a>Att lägga till ScaleX Enterprise från galleriet
 Om du vill konfigurera integreringen av ScaleX Enterprise i Azure AD, som du behöver lägga till ScaleX Enterprise från galleriet i din lista över hanterade SaaS-appar.
@@ -63,19 +63,19 @@ Om du vill konfigurera integreringen av ScaleX Enterprise i Azure AD, som du beh
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Klicka på **Lägg till** knappen överst i dialogrutan.
+1. Klicka på **Lägg till** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **ScaleX Enterprise**.
+1. I sökrutan skriver **ScaleX Enterprise**.
 
     ![Skapa en Azure AD-användare för testning](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_search.png)
 
-5. I resultatpanelen väljer **ScaleX Enterprise**, och klicka sedan på **Lägg till** för att lägga till programmet.
+1. I resultatpanelen väljer **ScaleX Enterprise**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
     ![Skapa en Azure AD-användare för testning](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Den här länken relationen upprättas genom att tilldela värdet för den **anv
 Om du vill konfigurera och testa Azure AD enkel inloggning med ScaleX Enterprise, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare ScaleX Enterprise](#creating-a-scalex-enterprise-test-user)**  – du har en motsvarighet för Britta Simon i ScaleX företag som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare ScaleX Enterprise](#creating-a-scalex-enterprise-test-user)**  – du har en motsvarighet för Britta Simon i ScaleX företag som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -104,11 +104,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan som **läge** Välj **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan som **läge** Välj **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_samlbase.png)
 
-3. På den **ScaleX Enterprise domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+1. På den **ScaleX Enterprise domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
 
@@ -116,7 +116,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://platform.rescale.com/saml2/<company id>/acs/`
 
-4. Kontrollera **visa avancerade URL-inställningar**, om du vill konfigurera programmet i **SP** initierade läge:
+1. Kontrollera **visa avancerade URL-inställningar**, om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
 
@@ -125,7 +125,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Detta är inte de verkliga värden. Uppdatera dessa värden med faktiska identifierare, svars-URL eller inloggnings-URL. Kontakta [ScaleX Enterprise Client supportteamet](http://info.rescale.com/contact_sales) att hämta dessa värden. 
 
-5. Programmets ScaleX förväntar sig SAML-intyg i ett visst format, som kräver att du vill ändra anpassade attributmappningar i SAML-tokenattribut konfigurationen. Klicka på **visa och redigera alla andra användarattribut** kryssrutan för att öppna anpassat attribut inställningar.
+1. Programmets ScaleX förväntar sig SAML-intyg i ett visst format, som kräver att du vill ändra anpassade attributmappningar i SAML-tokenattribut konfigurationen. Klicka på **visa och redigera alla andra användarattribut** kryssrutan för att öppna anpassat attribut inställningar.
 
     ![Konfigurera enkel inloggning](./media/scalexenterprise-tutorial/scalex_attributes.png)
     
@@ -137,32 +137,32 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/scalexenterprise-tutorial/edit_email_attribute.png) 
     
-5. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_certificate.png) 
 
-6. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/scalexenterprise-tutorial/tutorial_general_400.png)
     
-7. På den **ScaleX företagskonfiguration** klickar du på **konfigurera ScaleX Enterprise** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID** och **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **ScaleX företagskonfiguration** klickar du på **konfigurera ScaleX Enterprise** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID** och **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Konfigurera enkel inloggning](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_configure.png) 
 
-8. Att konfigurera enkel inloggning på **ScaleX Enterprise** sida, inloggning till webbplatsen för företagets ScaleX Enterprise som administratör.
+1. Att konfigurera enkel inloggning på **ScaleX Enterprise** sida, inloggning till webbplatsen för företagets ScaleX Enterprise som administratör.
 
-9. Klicka på menyn längst upp till höger och sedan **Contoso Administration**.
+1. Klicka på menyn längst upp till höger och sedan **Contoso Administration**.
 
     > [!NOTE] 
     > Contoso är bara ett exempel. Det bör vara faktiska företagets namn. 
 
     ![Konfigurera enkel inloggning](./media/scalexenterprise-tutorial/Test_Admin.png) 
 
-10. Välj **integreringar** från den översta menyn och välj **enkel inloggning**.
+1. Välj **integreringar** från den översta menyn och välj **enkel inloggning**.
 
     ![Konfigurera enkel inloggning](./media/scalexenterprise-tutorial/admin_sso.png) 
 
-11. Fyll i formuläret på följande sätt:
+1. Fyll i formuläret på följande sätt:
 
     ![Konfigurera enkel inloggning](./media/scalexenterprise-tutorial/scalex_admin_save.png) 
     
@@ -197,15 +197,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](./media/scalexenterprise-tutorial/create_aaduser_01.png) 
 
-2. Gå till **användare och grupper** och klicka på **alla användare** att visa en lista över användare.
+1. Gå till **användare och grupper** och klicka på **alla användare** att visa en lista över användare.
     
     ![Skapa en Azure AD-användare för testning](./media/scalexenterprise-tutorial/create_aaduser_02.png) 
 
-3. Överst i dialogrutan klickar du på **Lägg till** att öppna den **användaren** dialogrutan.
+1. Överst i dialogrutan klickar du på **Lägg till** att öppna den **användaren** dialogrutan.
  
     ![Skapa en Azure AD-användare för testning](./media/scalexenterprise-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
     ![Skapa en Azure AD-användare för testning](./media/scalexenterprise-tutorial/create_aaduser_04.png) 
 
@@ -233,23 +233,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **ScaleX Enterprise**.
+1. I listan med program väljer **ScaleX Enterprise**.
 
     ![Konfigurera enkel inloggning](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
 
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 

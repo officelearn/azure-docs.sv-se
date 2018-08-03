@@ -1,6 +1,6 @@
 ---
-title: DNS-Analytics lösning i Azure Log Analytics | Microsoft Docs
-description: Konfigurera och använda DNS-Analytics-lösning i logganalys att samla in insikter om DNS-infrastrukturen på säkerhet, prestanda och åtgärder.
+title: DNS Analytics-lösningen i Azure Log Analytics | Microsoft Docs
+description: Konfigurera och använda DNS Analytics-lösningen i Log Analytics för att samla in insikter om DNS-infrastrukturen på säkerhet, prestanda och åtgärder.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,28 +15,28 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a6f63fac85008425f473f431ae85d04f62eed667
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 56ad633807a59eaa7ae75dc334aa630fb3bf94a3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127599"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436734"
 ---
-# <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in insikter om din DNS-infrastruktur med DNS-Analytics Preview-lösning
+# <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in information om DNS-infrastrukturen med förhandsversionen av DNS Analytics-lösning
 
-![DNS-Analytics symbol](./media/log-analytics-dns/dns-analytics-symbol.png)
+![Symbol för DNS-analys](./media/log-analytics-dns/dns-analytics-symbol.png)
 
 Den här artikeln beskriver hur du ställer in och använda Azure DNS Analytics-lösning i Azure Log Analytics för att samla in insikter om DNS-infrastrukturen på säkerhet, prestanda och åtgärder.
 
-DNS-analyser kan du:
+DNS Analytics hjälper dig att:
 
 - Identifiera klienter som försöker matcha skadliga domännamn.
 - Identifiera inaktuella poster.
-- Identifiera ofta efterfrågade domännamn och talkative DNS-klienter.
-- Visa belastningen på DNS-servrar.
+- Identifiera ofta efterfrågade domännamn och pratsam DNS-klienter.
+- Visa belastning för begäranden på DNS-servrar.
 - Visa dynamiska DNS-registreringsfel.
 
-Lösningen samlar in, analyseras och korrelerar Windows DNS analytiska och granskningsloggar och andra relaterade data från DNS-servrar.
+Lösningen samlar in, analyserar och korrelerar Windows DNS analytiska och granskningsloggar och andra relaterade data från dina DNS-servrar.
 
 ## <a name="connected-sources"></a>Anslutna källor
 
@@ -45,149 +45,149 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | **Ansluten källa** | **Support** | **Beskrivning** |
 | --- | --- | --- |
 | [Windows-agenter](log-analytics-windows-agent.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
-| [Linux-agenter](log-analytics-linux-agents.md) | Nej | Lösningen inte samlar in DNS-information direkt Linux-agenter. |
-| [System Center Operations Manager-hanteringsgruppen](log-analytics-om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten hanteringsgrupp för Operations Manager. En direkt anslutning från Operations Manager-agenten till Operations Management Suite krävs inte. Data skickas från hanteringsgruppen till Operations Management Suite-databasen. |
-| [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Azure-lagring används inte av lösningen. |
+| [Linux-agenter](log-analytics-linux-agents.md) | Nej | Lösningen samlar inte in DNS-information från direkt Linux-agenter. |
+| [System Center Operations Manager-hanteringsgrupp](log-analytics-om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten hanteringsgrupp för Operations Manager. En direktanslutning från Operations Manager-agenten till Operations Management Suite krävs inte. Data vidarebefordras från hanteringsgruppen till Operations Management Suite-databasen. |
+| [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Azure storage används inte av lösningen. |
 
-### <a name="data-collection-details"></a>Information om samlingen
+### <a name="data-collection-details"></a>Information om insamling av data
 
-Lösningen samlar in DNS-inventerings- och DNS-händelse-relaterade data från DNS-servrar där en Log Analytics-agent har installerats. Dessa data överförs till logganalys sedan och visas i instrumentpanelen för lösningen. Lager-relaterad data, till exempel antal DNS-servrar, zoner och resursposter, samlas in genom att köra DNS-PowerShell-cmdlets. Data uppdateras en gång var två dagar. Händelse-relaterade data samlas in nära realtid från den [analytiska och granskningsloggar](https://technet.microsoft.com/library/dn800669.aspx#enhanc) tillhandahålls av utökade DNS-loggning och diagnostik i Windows Server 2012 R2.
+Lösningen samlar in DNS-inventering och DNS-händelse-relaterade data från DNS-servrar där en Log Analytics-agenten är installerad. Dessa data överförs till Log Analytics sedan och visas i instrumentpanelen för lösningen. Inventeringsrelaterade data, till exempel antalet DNS-servrar, zoner och resursposter som samlas in genom att köra DNS PowerShell-cmdlets. Data uppdateras en gång varannan dag. Händelse-relaterade data samlas nära realtid från den [analytiska och granskningsloggar](https://technet.microsoft.com/library/dn800669.aspx#enhanc) tillhandahålls av förbättrad DNS-loggning och diagnostik i Windows Server 2012 R2.
 
 ## <a name="configuration"></a>Konfiguration
 
 Använd följande information för att konfigurera lösningen:
 
 - Du måste ha en [Windows](log-analytics-windows-agent.md) eller [Operations Manager](log-analytics-om-agents.md) agenten på varje DNS-server som du vill övervaka.
-- Du kan lägga till DNS-Analytics lösningen till Operations Management Suite-arbetsyta från den [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Du kan också använda processen som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).
+- Du kan lägga till DNS Analytics-lösningen i din Operations Management Suite-arbetsyta från den [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Du kan också använda metoden som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
 
 Lösningen börjar samla in data utan behov av ytterligare konfiguration. Du kan dock använda följande konfiguration för att anpassa datainsamling.
 
 ### <a name="configure-the-solution"></a>Konfigurera lösningen
 
-Klicka på instrumentpanelen i lösningen **Configuration** att öppna sidan DNS-konfiguration. Det finns två typer av konfigurationsändringar som du kan göra:
+Klicka på instrumentpanelen för lösningen **Configuration** att öppna sidan konfiguration av DNS Analytics. Det finns två typer av konfigurationsändringar som du kan göra:
 
-- **Listan över godkända domännamn**. Lösningen bearbetar inte sökning-frågor. Det finns en godkänd lista över namnsuffix. Sökning-frågor som matchar de domännamn som matchar namnsuffix i den här listan över godkända bearbetas inte av lösningen. Icke-bearbetning av listan över godkända domännamn hjälper till att optimera data som skickas till logganalys. Standard-listan innehåller populära offentliga domännamn, till exempel www.google.com och www.facebook.com. Du kan visa den fullständiga listan genom att bläddra.
+- **Godkänd domännamn**. Lösningen bearbetar inte sökning-frågor. Den upprätthåller en lista över tillåtna domännamnssuffix. Sökning-frågor som matchar de domännamn som matchar domännamnssuffixen i den här listan bearbetas inte av lösningen. Icke-bearbetning av listan över godkända domännamn som hjälper dig för att optimera de data som skickas till Log Analytics. Standardlistan över tillåtna objekt omfattar populära offentliga domännamn, t.ex www.google.com och www.facebook.com. Du kan visa listan över slutförts genom att bläddra.
 
- Du kan ändra listan för att lägga till alla domänsuffix namn som du vill visa sökning insikter för. Du kan också ta bort alla domänens namnsuffix som du inte vill visa sökning insikter för.
+ Du kan ändra listan för att lägga till alla domänens namnsuffix som du vill visa sökning insikter för. Du kan också ta bort alla domänens namnsuffix som du inte vill visa sökning insikter för.
 
-- **Tröskelvärdet för talkative klienter**. DNS-klienter som överskrider tröskelvärdet för antalet sökningsbegäranden är markerade i den **DNS-klienter** bladet. Standardtröskeln är 1 000. Du kan redigera tröskelvärdet.
+- **Tröskelvärde för pratsam klient**. DNS-klienter som överskrider tröskelvärdet för antalet uppslagsförfrågningar är markerade på den **DNS-klienter** bladet. Standardtröskeln är 1 000. Du kan redigera tröskelvärdet.
 
-    ![Listan över godkända domännamn](./media/log-analytics-dns/dns-config.png)
+    ![Godkänd domännamn](./media/log-analytics-dns/dns-config.png)
 
 ## <a name="management-packs"></a>Hanteringspaket
 
-Om du använder Microsoft Monitoring Agent för att ansluta till Operations Management Suite-arbetsyta installeras följande hanteringspaket:
+Om du använder Microsoft Monitoring Agent för att ansluta till Operations Management Suite-arbetsytan installeras följande hanteringspaket:
 
-- Microsoft DNS-Data Collector informationspaketet (Microsft.IntelligencePacks.Dns)
+- Microsoft DNS-Data Collector-informationspaketet (Microsft.IntelligencePacks.Dns)
 
-Om din Operations Manager-hanteringsgrupp är ansluten till Operations Management Suite-arbetsyta, installeras följande hanteringspaket i Operations Manager när du lägger till den här lösningen. Det finns ingen konfiguration eller underhåll av dessa hanteringspaket:
+Om din hanteringsgrupp för Operations Manager är ansluten till Operations Management Suite-arbetsytan kan installeras följande hanteringspaket i Operations Manager när du lägger till den här lösningen. Det finns ingen konfiguration som krävs eller underhåll av dessa hanteringspaket:
 
-- Microsoft DNS-Data Collector informationspaketet (Microsft.IntelligencePacks.Dns)
-- Microsoft System Center Advisor DNS-konfiguration (Microsoft.IntelligencePack.Dns.Configuration)
+- Microsoft DNS-Data Collector-informationspaketet (Microsft.IntelligencePacks.Dns)
+- Konfiguration av Microsoft System Center Advisor DNS Analytics (Microsoft.IntelligencePack.Dns.Configuration)
 
 Mer information om hur lösningens hanteringspaket uppdateras finns i [Anslut Operations Manager till Log Analytics](log-analytics-om-agents.md).
 
-## <a name="use-the-dns-analytics-solution"></a>Använda DNS-Analytics-lösning
+## <a name="use-the-dns-analytics-solution"></a>Använda DNS Analytics-lösningen
 
-Det här avsnittet beskriver alla instrumentpanelen funktioner och hur de används.
+Det här avsnittet beskrivs alla instrumentpanelen funktioner och hur de används.
 
-När du har lagt till lösningen till din arbetsyta, ger panelen lösning på översiktssidan Operations Management Suite en snabb översikt över DNS-infrastrukturen. Den innehåller antalet DNS-servrar där data som samlas in. Den innehåller också antalet begäranden som görs av klienter för att matcha skadliga domäner under de senaste 24 timmarna. När du klickar på ikonen öppnas lösning instrumentpanelen.
+När du har lagt till lösningen till din arbetsyta, ger panelen på sidan Översikt över Operations Management Suite en snabb sammanfattning av DNS-infrastrukturen. Den innehåller antalet DNS-servrar där data samlas in. Den innehåller också antalet begäranden som görs av klienter du löser skadliga domäner under de senaste 24 timmarna. När du klickar på panelen öppnas instrumentpanelen för lösningen.
 
-![DNS-Analytics sida vid sida](./media/log-analytics-dns/dns-tile.png)
+![DNS Analytics-ikonen](./media/log-analytics-dns/dns-tile.png)
 
 ### <a name="solution-dashboard"></a>Instrumentpanel för lösningen
 
-Lösning instrumentpanelen visar sammanfattningsinformation för de olika funktionerna i lösningen. Den innehåller också länkar till den detaljerade vyn för kriminalteknisk analys och diagnos. Som standard visas data för de senaste sju dagarna. Du kan ändra intervallet datum och tid genom att använda den **tid markering**, enligt följande bild:
+Lösningens instrumentpanel visar sammanfattningsinformation för de olika funktionerna i lösningen. Den innehåller också länkar till den detaljerade vyn för kriminalteknisk analys och diagnostik. Som standard visas data för de senaste sju dagarna. Du kan ändra intervallet för datum och tid genom att använda den **val av datum / tid-kontroll**, enligt följande bild:
 
-![Tid markering](./media/log-analytics-dns/dns-time.png)
+![Kontroll för val av tid](./media/log-analytics-dns/dns-time.png)
 
-Lösning instrumentpanelen visar följande blad:
+Lösningens instrumentpanel visar följande blad:
 
-**DNS-säkerhet**. Rapporter om DNS-klienter som försöker kommunicera med skadliga domäner. Med hjälp av Microsoft threat intelligence feeds identifiera DNS Analytics klientens IP-adresser som försöker komma åt skadliga domäner. I många fall uppringning enheter som infekterats av skadlig kod ”” till ”kommando- och” mitten av skadliga domänen genom att lösa domännamn skadlig kod.
+**DNS-säkerhet**. Rapporter om DNS-klienter som försöker kommunicera med skadliga domäner. Med hjälp av Microsoft hotinformation identifiera DNS Analytics klientens IP-adresser som försöker få åtkomst till skadliga domäner. I många fall kan uppringning enheter som infekterats av skadlig kod ”” till ”kommando och kontroll” mitten av skadliga domänen genom att lösa domännamn för skadlig kod.
 
-![DNS-säkerhet bladet](./media/log-analytics-dns/dns-security-blade.png)
+![Bladet DNS-säkerhet](./media/log-analytics-dns/dns-security-blade.png)
 
-När du klickar på en klient-IP-adress i listan loggen sökning öppnas och visar information om respektive frågan sökning. I följande exempel visas DNS Analytics upptäckte att kommunikationen har utförts med en [IRCbot](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=Win32/IRCbot):
+När du klickar på en klientens IP-adress i listan Log Search öppnas och visar information om respektive frågan sökning. I följande exempel visas DNS Analytics upptäckte att kommunikationen gjordes med en [IRCbot](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=Win32/IRCbot):
 
-![Loggen sökresultat visar ircbot](./media/log-analytics-dns/ircbot.png)
+![Loggsökningen som visar ircbot](./media/log-analytics-dns/ircbot.png)
 
 Informationen hjälper dig att identifiera den:
 
 - Klientens IP-adress som initierade kommunikationen.
-- Domännamnet som matchas till skadliga IP-Adressen.
-- IP-adresser som motsvarar namnet på en domän.
+- Domännamnet som matchas till skadlig IP-adress.
+- IP-adresser som matchar domännamnet.
 - Skadliga IP-adress.
 - Problemets allvarlighetsgrad.
-- Orsak till att godkänna skadliga IP-Adressen.
-- Identifieringstiden.
+- Orsaken till att godkänna skadlig IP-adress.
+- Tidpunkten för identifieringen.
 
-**Domäner som efterfrågas**. Innehåller de vanligaste domännamn som efterfrågas av DNS-klienter i din miljö. Du kan visa listan över alla domännamn som efterfrågas. Du kan också öka detaljnivån sökning begäran detaljer om ett visst domännamn i loggen sökningen.
+**Domäner som efterfrågas**. Innehåller de vanligaste domännamn som efterfrågas av DNS-klienter i din miljö. Du kan visa listan över alla domännamn som efterfrågas. Du kan också granska nedåt i Frågedetaljer lookup för ett specifikt domännamn i Loggsökning.
 
 ![Domäner sökt bladet](./media/log-analytics-dns/domains-queried-blade.png)
 
-**DNS-klienter**. Rapporterar klienter *brott mot tröskelvärdet* för antal frågor i den valda tidsperioden. Du kan visa listan över DNS-klienter och detaljerna för de frågor som gjorts av dem i loggen sökningen.
+**DNS-klienter**. Rapporterar klienterna *brott mot tröskelvärdet* för antal frågor under den valda tidsperioden. Du kan visa listan över DNS-klienter och information om de frågor som gjorts av dem i Loggsökning.
 
-![Bladet för DNS-klienter](./media/log-analytics-dns/dns-clients-blade.png)
+![Bladet DNS-klienter](./media/log-analytics-dns/dns-clients-blade.png)
 
-**Dynamiska DNS-registreringar**. Rapporter namnge registreringsfel. Alla registreringsfel för adress [resursposter](https://en.wikipedia.org/wiki/List_of_DNS_record_types) (typ A och AAAA) markeras tillsammans med klienten IP-adresser som gjort registrerings-begäranden. Du kan sedan använda den här informationen för att hitta orsaken till felet registreringen genom att följa dessa steg:
+**Dynamiska DNS-registreringar**. Rapporter namnge registreringsfel. Alla registreringsfel för adress [resursposter](https://en.wikipedia.org/wiki/List_of_DNS_record_types) (typ A och AAAA) är markerade tillsammans med klienten IP-adresser som gjorts i registreringsbegäranden. Du kan sedan använda den här informationen för att hitta orsaken till felet registreringen genom att följa dessa steg:
 
-1. Hitta zonen som är auktoritär för namnet som klienten försöker uppdatera.
+1. Hitta de zoner som är auktoritära för namn som klienten försöker att uppdatera.
 
-2. Använda lösningen för att kontrollera inventeringsinformation för zonen.
+1. Använd lösningen för att kontrollera inventeringsinformation för zonen.
 
-3. Kontrollera att dynamisk uppdatering för zonen är aktiverad.
+1. Kontrollera att dynamisk uppdatering för zonen är aktiverad.
 
-4. Kontrollera om zonen är konfigurerat för säkra dynamiska uppdateringar eller inte.
+1. Kontrollera om zonen är konfigurerad för säker dynamisk uppdatering eller inte.
 
-    ![Bladet för dynamisk DNS-registrering](./media/log-analytics-dns/dynamic-dns-reg-blade.png)
+    ![Bladet för dynamisk DNS-registreringar](./media/log-analytics-dns/dynamic-dns-reg-blade.png)
 
-**Namnge förfrågningar om klientregistrering**. Den övre panelen visas en trendlinje för lyckade och misslyckade DNS dynamisk uppdatering. Den nedre panelen visas de översta 10 klienter som skickar misslyckade DNS-uppdatering begäranden till DNS-servrar, sorterade efter antalet fel.
+**Namnge registreringsbegäranden**. Den övre panelen visas en trendlinje av begäranden om lyckade och misslyckade DNS-dynamiska uppdateringar. Lägre panelen visar de översta 10 klienter som skickar begäranden om indexuppdatering av misslyckade DNS till DNS-servrar, sorterade efter antalet fel.
 
-![Namnet registrering begäranden bladet ](./media/log-analytics-dns/name-reg-req-blade.png)
+![Namn på registrering begäranden bladet ](./media/log-analytics-dns/name-reg-req-blade.png)
 
-**Exempel på DDI Analytics frågor**. Innehåller en lista över de vanligaste sökfrågor som hämta rådata analysdata direkt.
+**Exempel på DDI analysfrågor**. Innehåller en lista över de vanligaste sökfrågorna som hämtar raw analysdata direkt.
 
 
 ![Exempelfrågor](./media/log-analytics-dns/queries.png)
 
-Du kan använda de här frågorna som utgångspunkt för att skapa egna frågor för anpassad rapportering. Länken frågor till DNS-Analytics loggen söksidan där resultat visas:
+Du kan använda de här frågorna som utgångspunkt för att skapa egna frågor för anpassad rapportering. Frågorna länka till sidan DNS Analytics-Loggsökning där resultatet visas:
 
-- **Lista över DNS-servrar**. Visar en lista över alla DNS-servrar med deras associerade FQDN, domännamn, skogsnamnet och servern IP-adresser.
-- **Lista över DNS-zoner**. Visar en lista över alla DNS-zoner med associerade zonnamnet, status för dynamisk uppdatering, namnservrar och DNSSEC-signering.
-- **Oanvända resursposter**. Visar en lista över alla oanvända/inaktuell resursposterna. Den här listan innehåller resurs postens namn, typ av resurspost, associerade DNS-server, registrera Genereringstid och zonnamnet. Du kan använda den här listan för att identifiera de DNS-poster som inte längre används. Baserat på den här informationen kan du kan sedan ta bort dessa poster från DNS-servrar.
-- **DNS-servrar fråga belastningen**. Visar information så att du kan få ett perspektiv DNS-belastningen på din DNS-servrar. Den här informationen kan hjälpa dig att planera kapaciteten för servrarna. Du kan gå till den **mått** att ändra vyn till en grafisk visualisering. Den här vyn hjälper dig att förstå hur DNS belastningen distribueras över DNS-servrar. DNS-fråga visar trender i frekvensen för varje server.
+- **Lista över DNS-servrar**. Visar en lista över alla DNS-servrar med deras associerade FQDN, domännamn, skogsnamnet och server IP-adresser.
+- **Lista över DNS-zoner**. Visar en lista över alla DNS-zoner med associerade zonnamnet, status för dynamisk uppdatering, DNS-servrar och DNSSEC-signering.
+- **Oanvända resursposter**. Visar en lista över alla de oanvända/föråldrade resursposterna. Den här listan innehåller resursnamn för posten, typ av resurspost, associerade DNS-server, registrera Genereringstid och zonnamnet. Du kan använda den här listan för att identifiera de DNS-poster som inte längre används. Baserat på den här informationen kan du kan sedan ta bort dessa poster från DNS-servrar.
+- **Frågeinläsning i DNS-servrar**. Visar information så att du kan få en översikt över DNS-belastningen på dina DNS-servrar. Den här informationen kan hjälpa dig att planera kapacitet för servrarna. Du kan gå till den **mått** flik för att ändra vyn till en grafisk visualisering. Den här vyn hjälper dig att förstå hur DNS-belastningen fördelas över DNS-servrar. DNS-fråga visar trender i frekvensen för varje server.
 
-    ![Sökresultat för DNS-servrar frågan logg](./media/log-analytics-dns/dns-servers-query-load.png)
+    ![DNS-servrar log search-frågeresultat](./media/log-analytics-dns/dns-servers-query-load.png)
 
-- **DNS-zoner fråga belastningen**. Visar DNS-zonen frågan per sekund statistik över alla zoner på DNS-servrar som hanteras av lösningen. Klicka på den **mått** att ändra vyn från detaljerad poster till en grafisk visualisering av resultaten.
-- **Konfigurationshändelser**. Visar alla DNS-konfigurationsändringshändelserna och associerade meddelanden. Därefter kan du filtrera händelserna baserat på tid för händelse, händelse-ID, DNS-servern eller aktivitetskategori. Med hjälp av data kan du granska ändringar som gjorts i specifika DNS-servrar vid specifika tidpunkter.
-- **DNS-analytiska loggen**. Visar alla händelser som analytiska på alla DNS-servrar som hanteras av lösningen. Därefter kan du filtrera händelserna baserat på tid för händelse, händelse-ID, DNS-servern klientens IP-Adressen som gjorts sökning frågan och fråga kategori för aktiviteten. DNS-server-analyshändelser aktivera Aktivitetsspårning på DNS-servern. En analytiska händelse loggas varje gång servern skickar och tar emot DNS-information.
+- **Frågeinläsning i DNS-zoner**. Visar DNS-zon fråga per sekund statistik över alla zoner på DNS-servrar som hanteras av lösningen. Klicka på den **mått** flik för att ändra vyn från detaljerad poster i en grafisk visualisering av resultaten.
+- **Konfigurationshändelser**. Visar alla DNS-konfigurationsändringshändelserna och tillhörande meddelanden. Sedan kan du filtrera händelserna baserat på tid för händelse, händelse-ID, DNS-server eller aktivitetskategori. Med hjälp av data kan du granska ändringar som gjorts till specifika DNS-servrar vid specifika tidpunkter.
+- **DNS-Analyslogg**. Visar alla händelser som analytiska på alla DNS-servrar som hanteras av lösningen. Sedan kan du filtrera händelserna baserat på tid för händelse, händelse-ID, DNS-server, klient-IP som gjorts lookup fråga och kategori för aktiviteten fråga. DNS-server-analyshändelser aktivera Aktivitetsspårning på DNS-servern. En analytiska händelse loggas varje gång servern skickar eller tar emot DNS-information.
 
-### <a name="search-by-using-dns-analytics-log-search"></a>Sök med hjälp av DNS-Analytics loggen sökning
+### <a name="search-by-using-dns-analytics-log-search"></a>Sök med hjälp av DNS Analytics-Loggsökning
 
-På sidan Logga, kan du skapa en fråga. Du kan filtrera sökresultaten genom att använda aspekten kontroller. Du kan också skapa avancerade frågor för att transformera, filter och rapporten på dina resultat. Starta med hjälp av följande frågor:
+På sidan Log Search kan du skapa en fråga. Du kan filtrera sökresultaten genom att använda aspekten kontroller. Du kan också skapa avancerade frågor för att transformera, filtrera och rapporten på dina resultat. Starta med hjälp av följande frågor:
 
-1. I den **frågan sökrutan**, typen `DnsEvents` att visa alla DNS-händelser som genererats av DNS-servrar som hanteras av lösningen. Loggdata för alla händelser relaterade till sökning-frågor, dynamiska registreringar och konfigurationsändringar resultatlistan.
+1. I den **fråga sökrutan**, typ `DnsEvents` att visa alla DNS-händelser som genererats av DNS-servrar som hanteras av lösningen. I resultatlistan loggdata för alla händelser som rör sökning-frågor, dynamiska registreringar och ändringar i konfigurationen.
 
-    ![DnsEvents loggen Sök](./media/log-analytics-dns/log-search-dnsevents.png)  
+    ![DnsEvents loggsökning](./media/log-analytics-dns/log-search-dnsevents.png)  
 
-    a. Om du vill visa loggdata för sökning-frågor, Välj **LookUpQuery** som den **undertyp** filter från aspekten kontrollen till vänster. En tabell som visar alla händelser för sökning-frågan för den valda tidsperioden visas.
+    a. Om du vill visa loggdata för sökning-frågor, Välj **LookUpQuery** som den **undertyp** filter från aspekten kontrollen till vänster. En tabell som visar alla händelser för lookup-fråga för den valda tidsperioden visas.
 
-    b. Om du vill visa loggdata för dynamiska registreringar **DynamicRegistration** som den **undertyp** filter från aspekten kontrollen till vänster. En tabell som visar alla händelser som dynamisk registrering för den valda tidsperioden visas.
+    b. Om du vill visa loggdata för dynamiska registreringar, Välj **DynamicRegistration** som den **undertyp** filter från aspekten kontrollen till vänster. En tabell som listar alla dynamiska registreringshändelser för den valda tidsperioden visas.
 
-    c. Om du vill visa loggdata för konfigurationsändringar **ConfigurationChange** som den **undertyp** filter från aspekten kontrollen till vänster. En tabell som listar alla konfigurationsändringshändelserna för den valda tidsperioden visas.
+    c. Om du vill visa loggdata för konfigurationsändringar, Välj **ConfigurationChange** som den **undertyp** filter från aspekten kontrollen till vänster. En tabell som listar alla konfigurationsändringshändelserna för den valda tidsperioden visas.
 
-2. I den **frågan sökrutan**, typen `DnsInventory` att visa alla DNS-inventeringsrelaterade data för de DNS-servrar som hanteras av lösningen. Loggdata för DNS-servrar, DNS-zoner och resursposter resultatlistan.
+1. I den **fråga sökrutan**, typ `DnsInventory` att visa alla DNS-inventeringsrelaterade data för DNS-servrar som hanteras av lösningen. I resultatlistan loggdata för DNS-servrar, DNS-zoner och resursposter.
 
-    ![DnsInventory loggen Sök](./media/log-analytics-dns/log-search-dnsinventory.png)
+    ![DnsInventory loggsökning](./media/log-analytics-dns/log-search-dnsinventory.png)
 
 ## <a name="feedback"></a>Feedback
 
-Det finns två sätt kan du ge feedback:
+Det finns två sätt som du kan ge feedback:
 
-- **UserVoice**. Bokför idéer för DNS-Analytics funktioner fungerar på. Besök den [Operations Management Suite UserVoice sidan](https://aka.ms/dnsanalyticsuservoice).
-- **Ansluta till vår kommittén**. Vi vill alltid med nya kunder ansluta till vår kohorter för att få snabb åtkomst till nya funktioner och hjälp oss att förbättra DNS Analytics. Om du vill ansluta till vår kohorter fylla [snabb undersökningen](https://aka.ms/dnsanalyticssurvey).
+- **UserVoice**. Publicera idéer om DNS Analytics-funktioner att arbeta med. Gå till den [Operations Management Suite UserVoice-sida](https://aka.ms/dnsanalyticsuservoice).
+- **Ansluta till vår kohort**. Vi är alltid intresserade med nya kunder ansluta till vår kohorter för att få snabb åtkomst till nya funktioner och hjälp oss att förbättra DNS-analys. Om du vill ansluta till vår kohorter fyller [den här snabba undersökningen](https://aka.ms/dnsanalyticssurvey).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Söka i loggar](log-analytics-log-searches.md) att visa detaljerad DNS-poster.
+[Söka loggarna](log-analytics-log-searches.md) att visa detaljerad DNS-poster.

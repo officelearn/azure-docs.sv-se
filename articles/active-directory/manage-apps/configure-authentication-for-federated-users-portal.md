@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: b8d0a8026c140545a5029d2772fdcbc5090e7b00
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: eccf570a0bdcf896a40d8c49f400647e247f6d65
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363600"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435785"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurera Azure Active Directory-inloggning i beteendet för ett program med hjälp av en princip för identifiering av startsfär
 
@@ -263,4 +263,4 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ## <a name="next-steps"></a>Nästa steg
 - Mer information om hur autentisering fungerar i Azure AD finns i [autentiseringsscenarier för Azure AD](../develop/active-directory-authentication-scenarios.md).
 - Mer information om användare enkel inloggning finns i [programåtkomst och enkel inloggning med Azure Active Directory](configure-single-sign-on-portal.md).
-- Gå till den [utvecklarguide för Active Directory](../develop/active-directory-developers-guide.md) en översikt över alla developer-relaterat innehåll.
+- Gå till den [utvecklarguide för Active Directory](../develop/azure-ad-developers-guide.md) en översikt över alla developer-relaterat innehåll.

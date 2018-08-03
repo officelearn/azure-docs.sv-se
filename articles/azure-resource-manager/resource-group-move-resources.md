@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4f73b6d735997b663ca6769aaceaf363b6d3eda7
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 81e50b53e8a8069fc0698240e7b1f2ead2c611a8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346492"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439523"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -412,7 +412,7 @@ Om du vill flytta till en ny prenumeration kan innehålla ett värde för den `D
 
 ## <a name="use-azure-cli"></a>Använda Azure CLI
 
-Flytta befintliga resurser till en annan resursgrupp eller prenumeration genom att använda den [az resursflytt](/cli/azure/resource?view=azure-cli-latest#az_resource_move) kommando. Ange resurs-ID resurser att flytta. I följande exempel visas hur du flyttar flera resurser till en ny resursgrupp. I den `--ids` parameter, ange en blankstegsavgränsad lista med resurs-ID för att flytta.
+Flytta befintliga resurser till en annan resursgrupp eller prenumeration genom att använda den [az resursflytt](/cli/azure/resource?view=azure-cli-latest#az-resource-move) kommando. Ange resurs-ID resurser att flytta. I följande exempel visas hur du flyttar flera resurser till en ny resursgrupp. I den `--ids` parameter, ange en blankstegsavgränsad lista med resurs-ID för att flytta.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)

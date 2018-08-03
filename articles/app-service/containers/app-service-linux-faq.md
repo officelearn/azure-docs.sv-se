@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: yili
-ms.openlocfilehash: ea2e9d9fd1d9390cdd689b4f33b72cd471feeb8c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: cd107ddc5ac443daee592c40bbed451c913a8a3b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916864"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444597"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service i Linux vanliga frågor och svar
 
@@ -49,7 +49,7 @@ Den här åtgärden är samma som en Docker-omstart.
 Ja, kan du göra det via källplatsen control management (SCM).
 
 > [!NOTE]
-> Du kan också ansluta till appbehållaren direkt från din lokala utvecklingsdator med SSH, SFTP eller Visual Studio Code (för livefelsökning av Node.js-appar). Mer information finns i [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug) (Fjärrfelsökning och SSH i App Service på Linux).
+> Du kan också ansluta till appcontainern direkt från din lokala utvecklingsdator med SSH, SFTP eller Visual Studio Code (för livefelsökning av Node.js-appar). Mer information finns i [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug) (Fjärrfelsökning och SSH i App Service på Linux).
 >
 
 **Hur kan jag skapa en Linux App Service-plan via ett SDK eller en mall för Azure Resource Manager?**
@@ -84,7 +84,7 @@ Om det inte går att webbappen Linux Git-distribution, väljer du något av föl
 
    Om du får ett felmeddelande som den `curl` kommando inte hittas, måste du installera curl med hjälp av `apt-get install curl` innan du kör den tidigare `curl` kommando.
 
-## <a name="language-support"></a>Språkstöd
+## <a name="language-support"></a>Stöd för språk
 
 **Jag vill använda webbsockets i mitt Node.js-program, eventuella specialinställningar eller konfigurationer för att ställa in?**
 
@@ -123,7 +123,7 @@ Ange URL som fullständig registret, inklusive `http://` eller `https://`.
 
 **Vad är formatet för avbildningens namn på privat register-alternativet?**
 
-Lägg till den fullständiga avbildningsnamn, inklusive privat register-URL (till exempel myacr.azurecr.io/dotnet:latest). Avbildningar som använder en anpassad port [kan inte anges via portalen](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Ange `docker-custom-image-name`, använda den [ `az` kommandoradsverktyget](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set).
+Lägg till den fullständiga avbildningsnamn, inklusive privat register-URL (till exempel myacr.azurecr.io/dotnet:latest). Avbildningar som använder en anpassad port [kan inte anges via portalen](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Ange `docker-custom-image-name`, använda den [ `az` kommandoradsverktyget](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 **Kan jag lägga upp mer än en port på min anpassade behållaravbildning?**
 

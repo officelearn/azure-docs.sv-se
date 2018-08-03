@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 45adcc4566fc90f2eff1938297e43e516c9cf8c4
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: dd98886e2bdcaecdd685dd714b6d4bacd96e6e29
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050093"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438355"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zwayam"></a>Självstudier: Azure Active Directory-integration med Zwayam
 
@@ -53,7 +53,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Zwayam från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-zwayam-from-the-gallery"></a>Att lägga till Zwayam från galleriet
 För att konfigurera integrering av Zwayam i Azure AD, som du behöver lägga till Zwayam från galleriet i din lista över hanterade SaaS-appar.
@@ -64,15 +64,15 @@ För att konfigurera integrering av Zwayam i Azure AD, som du behöver lägga ti
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Zwayam**väljer **Zwayam** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Zwayam**väljer **Zwayam** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Zwayam i resultatlistan](./media/zwayam-tutorial/tutorial_Zwayam_addfromgallery.png)
 
@@ -85,10 +85,10 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 Om du vill konfigurera och testa Azure AD enkel inloggning med Zwayam, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Zwayam](#create-a-zwayam-test-user)**  – du har en motsvarighet för Britta Simon i Zwayam som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Zwayam](#create-a-zwayam-test-user)**  – du har en motsvarighet för Britta Simon i Zwayam som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -100,11 +100,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/zwayam-tutorial/tutorial_Zwayam_samlbase.png)
 
-3. På den **Zwayam domän och URL: er** avsnittet, utför följande steg:
+1. På den **Zwayam domän och URL: er** avsnittet, utför följande steg:
 
     ![Zwayam domän och URL: er med enkel inloggning för information](./media/zwayam-tutorial/tutorial_Zwayam_url.png)
 
@@ -115,19 +115,19 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Inloggnings-URL-värdet är inte verkliga. **SAML entitets-ID** värde beskrivs senare i den här självstudien.
 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/zwayam-tutorial/tutorial_Zwayam_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/zwayam-tutorial/tutorial_general_400.png)
 
-6. På den **Zwayam Configuration** klickar du på **konfigurera Zwayam** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID** från den **Snabbreferens avsnittet** och klistra in den **SAML entitets-ID** värde i **inloggnings-URL** textrutan i  **Zwayam domän och URL: er** avsnittet.
+1. På den **Zwayam Configuration** klickar du på **konfigurera Zwayam** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID** från den **Snabbreferens avsnittet** och klistra in den **SAML entitets-ID** värde i **inloggnings-URL** textrutan i  **Zwayam domän och URL: er** avsnittet.
 
     ![Zwayam konfiguration](./media/zwayam-tutorial/tutorial_Zwayam_configure.png) 
 
-7. Att konfigurera enkel inloggning på **Zwayam** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Zwayam supportteamet](mailto:opendoors@zwayam.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **Zwayam** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Zwayam supportteamet](mailto:opendoors@zwayam.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -145,15 +145,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/zwayam-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/zwayam-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/zwayam-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/zwayam-tutorial/create_aaduser_04.png)
 
@@ -181,23 +181,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Zwayam**.
+1. I listan med program väljer **Zwayam**.
 
     ![Länken Zwayam i listan med program](./media/zwayam-tutorial/tutorial_Zwayam_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

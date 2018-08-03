@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e83e6dc66ec6192db589a0964e235c395a26eba
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: cc1ee04c9d614e895c4e8a021564e9b9405fa8c0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048114"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438968"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Självstudier: Azure Active Directory-integration med Autotask arbetsplats
 
@@ -56,7 +56,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Autotask arbetsplats från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-autotask-workplace-from-the-gallery"></a>Att lägga till Autotask arbetsplats från galleriet
 För att konfigurera integrering av Autotask arbetsplats i Azure AD, som du behöver lägga till Autotask arbetsplats från galleriet i din lista över hanterade SaaS-appar.
@@ -67,15 +67,15 @@ För att konfigurera integrering av Autotask arbetsplats i Azure AD, som du beh�
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Autotask arbetsplats**väljer **Autotask arbetsplats** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **Autotask arbetsplats**väljer **Autotask arbetsplats** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Autotask arbetsplats i resultatlistan](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_addfromgallery.png)
 
@@ -90,10 +90,10 @@ I Autotask arbetsplats, tilldela värdet för den **användarnamn** i Azure AD s
 Om du vill konfigurera och testa Azure AD enkel inloggning med Autotask arbetsplats, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Autotask arbetsplats](#create-an-autotask-workplace-test-user)**  – du har en motsvarighet för Britta Simon i Autotask arbetsplats som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Autotask arbetsplats](#create-an-autotask-workplace-test-user)**  – du har en motsvarighet för Britta Simon i Autotask arbetsplats som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -105,11 +105,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_samlbase.png)
 
-3. Om du vill konfigurera programmet i **IDP** initierade läge, utför följande steg på den **Autotask arbetsplats domän och URL: er** avsnittet:
+1. Om du vill konfigurera programmet i **IDP** initierade läge, utför följande steg på den **Autotask arbetsplats domän och URL: er** avsnittet:
 
     ![Autotask arbetsplats domän och URL: er enkel inloggning information för IDP: N](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_url.png)
 
@@ -117,7 +117,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.awp.autotask.net/singlesignon/saml/SSO`
 
-4. Om du vill konfigurera programmet i **SP** initierad läge, kontrollera **visa avancerade URL-inställningar** och utför följande steg:
+1. Om du vill konfigurera programmet i **SP** initierad läge, kontrollera **visa avancerade URL-inställningar** och utför följande steg:
 
     ![Autotask arbetsplats domän och URL: er enkel inloggning information för SP](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_url1.png)
 
@@ -126,21 +126,21 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [Autotask arbetsplats klienten supportteamet](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) att hämta dessa värden. 
 
-5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_certificate.png) 
 
-6. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/autotaskworkplace-tutorial/tutorial_general_400.png)
 
-7. Logga in på arbetsplatsen Online med administratörsautentiseringsuppgifterna som i ett annat webbläsarfönster.
+1. Logga in på arbetsplatsen Online med administratörsautentiseringsuppgifterna som i ett annat webbläsarfönster.
 
     >[!Note]
     >När du konfigurerar IDP: N, måste en underdomän anges. Att fastställa rätt underdomänen, logga in på arbetsplatsen Online. När du loggat in kan du anteckna underdomänen i URL-Adressen visas.
     >Underdomänen ingår mellan ”https://” och ”.awp.autotask.net/” och ska vara oss, eu, Kanada eller Australien.
 
-8. Gå till **Configuration** > **enkel inloggning** och utför följande steg:
+1. Gå till **Configuration** > **enkel inloggning** och utför följande steg:
 
     ![Konfiguration för Autotask enkel inloggning](./media/autotaskworkplace-tutorial/tutorial_autotaskssoconfig1.png)
  
@@ -172,15 +172,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/autotaskworkplace-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/autotaskworkplace-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/autotaskworkplace-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/autotaskworkplace-tutorial/create_aaduser_04.png)
 
@@ -208,23 +208,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Autotask arbetsplats**.
+1. I listan med program väljer **Autotask arbetsplats**.
 
     ![Länken Autotask arbetsplats i listan med program](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

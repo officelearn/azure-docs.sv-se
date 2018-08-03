@@ -1,5 +1,5 @@
 ---
-title: Samla in data från din miljö med Azure Log Analytics | Microsoft Docs
+title: Samla in data i en hybridmiljö med Azure Log Analytics-agenten | Microsoft Docs
 description: Det här avsnittet hjälper dig att samla in data och övervaka datorer i din lokala eller andra moln med Log Analytics.
 services: log-analytics
 documentationcenter: ''
@@ -12,25 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 2a21c7867bf0dd2d6ca6ee0bd9025739315c8d0a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fa1d86bade0981a000d9310c4734b1e93d50944d
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003326"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480871"
 ---
-# <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Samla in data från datorer i din miljö med Log Analytics
+# <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Samla in data i en hybridmiljö med Log Analytics-agenten
 
-Azure Log Analytics kan samla in och agera på data från Windows eller Linux-datorer som finns i:
+Azure Log Analytics kan samla in och agera på data från datorer som kör operativsystemet Windows eller Linux som körs i:
 
 * [Azure-datorer](log-analytics-quick-collect-azurevm.md) med Log Analytics VM-tillägg 
 * Ditt datacenter som fysiska servrar eller virtuella datorer
 * Virtuella datorer i en molnbaserad tjänst som Amazon Web Services (AWS)
 
-Datorer i din miljö kan anslutas direkt till Log Analytics, eller om du redan övervakar de här datorerna med System Center Operations Manager 2012 R2, 2016 eller version 1801, kan du integrera din Operations Manager-hanteringsgruppen med Log Analytics och fortsätta att underhålla IT service operations-processen.  
+Datorer i din miljö kan anslutas direkt till Log Analytics eller om du redan övervakar de här datorerna med System Center Operations Manager 2012 R2 eller senare kan du integrera din Operations Manager-hanteringsgrupp med Log Analytics och fortsätta att underhålla IT service operations-processen.  
 
 ## <a name="overview"></a>Översikt
 
@@ -40,7 +40,7 @@ Innan du analysera och agera på insamlade data, måste du först installera och
 
 Agenten för Linux och Windows kommunicerar utgående med Log Analytics-tjänsten via TCP-port 443 och om datorn är ansluten till en brandvägg eller proxy server kommunicerar via Internet, granska [krav](#prerequisites) till Förstå nätverkskonfigurationer som krävs.  Om din IT-säkerhetsprinciper inte tillåter att datorer i nätverket att ansluta till Internet, kan du konfigurera en [OMS-gatewayen](log-analytics-oms-gateway.md) och sedan konfigurera agenten för att ansluta via gatewayen till Log Analytics. Agenten kan sedan ta emot konfigurationsinformation och skicka data som samlas in beroende på vilka regler för insamling av data och lösningar som du har aktiverat. 
 
-Om du övervakar datorn med System Center 2016 – Operations Manager eller Operations Manager 2012 R2 kan det vara multihomed med Log Analytics-tjänsten för att samla in data och vidarebefordra till tjänsten och fortfarande att övervakas av [Operations Manager ](log-analytics-om-agents.md). Linux-datorer som övervakas av en Operations Manager-hanteringsgrupp som är integrerat med Log Analytics tar inte emot konfiguration för datakällor och vidarebefordra insamlade data via hanteringsgruppen. Windows-agent kan rapportera upp till fyra arbetsytor, medan Linux-agenten stöder endast rapporterar till en enda arbetsyta.  
+Om du övervakar datorer med System Center Operations Manager 2012 R2 eller senare, kan det vara multihomed med Log Analytics-tjänsten för att samla in data och vidarebefordra till tjänsten och fortfarande att övervakas av [Operations Manager](log-analytics-om-agents.md). Linux-datorer som övervakas av en Operations Manager-hanteringsgrupp som är integrerat med Log Analytics tar inte emot konfiguration för datakällor och vidarebefordra insamlade data via hanteringsgruppen. Windows-agent kan rapportera upp till fyra arbetsytor, medan Linux-agenten stöder endast rapporterar till en enda arbetsyta.  
 
 Agenten för Linux och Windows är inte bara för att ansluta till Log Analytics, det stöder även Azure Automation Hybrid Runbook worker-roll-värd och hanteringslösningar som ändringsspårning och uppdateringshantering.  Mer information om Hybrid Runbook Worker-rollen finns i [Azure Automation Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).  
 

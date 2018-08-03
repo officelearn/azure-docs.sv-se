@@ -1,6 +1,6 @@
 ---
-title: Konvergerade registrering för Azure AD SSPR och MFA
-description: Registrering av återställning av Azure AD Multi-Factor Authentication så och lösenordsåterställning via självbetjäning
+title: Konvergerade registrering för Azure AD SSPR och MFA (offentlig förhandsversion)
+description: Azure AD Multi-Factor Authentication så och självbetjäning lösenordsåterställning registrering (offentlig förhandsversion)
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: cdd100d113c3fbeda8ac840d479b065d648ac3ff
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: a0fec9743cd213d0d41d9143a2b1e9e1c3db9967
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414905"
+ms.locfileid: "39447969"
 ---
-# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication"></a>Konvergerade registrering för lösenordsåterställning via självbetjäning och Azure Multi-Factor Authentication
+# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Konvergerade registrering för lösenordsåterställning via självbetjäning och Azure Multi-Factor Authentication (förhandsversion)
 
 Fram till nu var användare behöver registrera autentiseringsmetoder för Azure Multi-Factor Authentication (MFA) och lösenordsåterställning via självbetjäning (SSPR) i två olika portaler. Många användare har förvirrad av det faktum att liknande metoder har använts för både Azure MFA och SSPR och inte vill registrera i båda portalerna. Den här olikheterna ledde till vissa användare att det inte går att använda Azure MFA eller SSPR vid behov, vilket leder till ett helpdesk-anrop och eventuellt en upprörd användare. Användare kan nu registrera en gång och få fördelarna med både Azure MFA och SSPR, vilket eliminerar behovet av att registrera sina autentiseringsmetoder för dessa funktioner två gånger.  
 

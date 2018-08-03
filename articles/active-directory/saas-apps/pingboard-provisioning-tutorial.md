@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera Pingboard för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera Pingboard för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till Pingboard.
 services: active-directory
 documentationcenter: ''
@@ -16,91 +16,91 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 6d9562697c8135ba4b92b1bbf304a41af8c426c0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: c5cc20b4f20e3a4f746ab15aa5f139c8e7201a2c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220391"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447174"
 ---
-# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Pingboard för automatisk användaretablering
+# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Pingboard för automatisk användaretablering
 
-Syftet med den här kursen är att visa de steg som du måste utföra om du vill aktivera automatisk etablering och avetablering av användarkonton från Azure Active Directory (AD Azure) till Pingboard.
+Målet med den här självstudien är att visa dig vad du behöver utföra för att aktivera automatisk aktivering och inaktivering av användarkonton från Azure Active Directory (AD Azure) till Pingboard.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Det scenario som beskrivs i den här kursen förutsätter att du redan har följande objekt:
+Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
 *   En Azure AD-klient
-*   En klient Pingboard [Pro-konto](https://pingboard.com/pricing) 
-*   Ett användarkonto i Pingboard med administratörsbehörigheter 
+*   En Pingboard klient [Pro-konto](https://pingboard.com/pricing) 
+*   Ett användarkonto i Pingboard med administratörsbehörighet 
 
 > [!NOTE] 
-> Azure AD-etablering integration förlitar sig på den [Pingboard API](`https://your_domain.pingboard.com/scim/v2`), som är tillgänglig för ditt konto.
+> Azure AD etablering integration förlitar sig på den [Pingboard API](`https://your_domain.pingboard.com/scim/v2`), som är tillgängliga för ditt konto.
 
 ## <a name="assign-users-to-pingboard"></a>Tilldela användare till Pingboard
 
-Azure AD använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare ska få åtkomst till valda program. I samband med automatisk konto användaretablering, synkroniseras de användare som tilldelats ett program i Azure AD. 
+Azure AD använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda program. I samband med automatisk användarkontoetablering, synkroniseras de användare som tilldelats till ett program i Azure AD. 
 
-Innan du konfigurerar och aktiverar tjänsten etablering, måste du bestämma vilka användare i Azure AD behöver åtkomst till appen Pingboard. Du kan sedan tilldela dessa användare i appen Pingboard genom att följa anvisningarna här:
+Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vilka användare i Azure AD behöver åtkomst till din Pingboard-app. Du kan sedan tilldela dessa användare till Pingboard appen genom att följa instruktionerna här:
 
-[Tilldela en användare till en enterprise-app](../manage-apps/assign-user-or-group-access-portal.md)
+[Tilldela en användare till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-pingboard"></a>Viktiga tips för att tilldela användare till Pingboard
 
-Vi rekommenderar att du ger en enda Azure AD-användare till Pingboard att testa allokering konfigurationen. Ytterligare användare kan tilldelas senare.
+Vi rekommenderar att du tilldelar en enda Azure AD-användare till Pingboard att testa etablering konfigurationen. Ytterligare användare kan tilldelas senare.
 
 ## <a name="configure-user-provisioning-to-pingboard"></a>Konfigurera användaretablering till Pingboard 
 
-Det här avsnittet hjälper dig att ansluta din Azure AD Pingboard användarkontot etablering API. Du kan också konfigurera tjänsten etablering för att skapa, uppdatera och inaktivera tilldelade användarkonton i Pingboard baserat på användare i Azure AD.
+Det här avsnittet hjälper dig att ansluta din Azure AD till användarkontot Pingboard etablering API. Du kan också konfigurera etableringstjänsten för att skapa, uppdatera och inaktivera tilldelade användarkonton i Pingboard baserat på användare i Azure AD.
 
 > [!TIP]
-> Om du vill aktivera SAML-baserade enkel inloggning för Pingboard, följ instruktionerna i den [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om dessa två funktioner kompletterar varandra.
+> Om du vill aktivera SAML-baserad enkel inloggning för Pingboard, följer du instruktionerna i den [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna kompletterar varandra.
 
-### <a name="to-configure-automatic-user-account-provisioning-to-pingboard-in-azure-ad"></a>Så här konfigurerar du automatiska konto användaretablering till Pingboard i Azure AD
+### <a name="to-configure-automatic-user-account-provisioning-to-pingboard-in-azure-ad"></a>Konfigurera automatisk etablering av användarkonto till Pingboard i Azure AD
 
-1. I den [Azure-portalen](https://portal.azure.com), bläddra till den **Azure Active Directory** > **Företagsappar** > **alla program** avsnitt.
+1. I den [Azure-portalen](https://portal.azure.com), bläddra till den **Azure Active Directory** > **Företagsappar** > **alla program** avsnittet.
 
-2. Om du redan har konfigurerat Pingboard för enkel inloggning kan du söka efter din instans av Pingboard med hjälp av sökfältet. Annars väljer **Lägg till** och Sök efter **Pingboard** i programgalleriet. Välj **Pingboard** i sökresultatet och lägga till den i listan över program.
+1. Om du redan har konfigurerat Pingboard för enkel inloggning kan du söka efter din instans av Pingboard med hjälp av sökfältet. Annars väljer **Lägg till** och Sök efter **Pingboard** i programgalleriet. Välj **Pingboard** i sökresultatet och lägga till den i din lista över program.
 
-3. Välj din instans av Pingboard och välj sedan den **etablering** fliken.
+1. Välj din instans av Pingboard och välj sedan den **etablering** fliken.
 
-4. Ange **Etableringsläge** till **automatisk**.
+1. Ange **Etableringsläge** till **automatisk**.
 
     ![Pingboard etablering](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
     
-5. Under den **administratörsautentiseringsuppgifter** avsnittet, utför följande steg:
+1. Under den **administratörsautentiseringsuppgifter** avsnittet, utför följande steg:
 
-    a. I **klient URL**, ange `https://your_domain.pingboard.com/scim/v2`, och Ersätt ”domän” med den verkliga domänen.
+    a. I **klient-URL**, ange `https://your_domain.pingboard.com/scim/v2`, och Ersätt ”domän” med din verkliga domän.
 
     b. Logga in på [Pingboard](https://pingboard.com/) med ditt administratörskonto.
 
     c. Välj **tillägg** > **integreringar** > **Azure Active Directory**.
 
-    d. Gå till den **konfigurera** fliken och markera **aktivera användarförsörjning från Azure**.
+    d. Gå till den **konfigurera** och sedan **aktivera etableringen av användare från Azure**.
 
     e. Kopiera token i **OAuth ägar-Token**, och ange den i **hemlighet Token**.
 
-6. I Azure portal, väljer **Testanslutningen** så Azure AD kan ansluta till din Pingboard app. Om anslutningen misslyckas, kontrollera att ditt konto för Pingboard har administratörsbehörigheter och försök den **Testanslutningen** steg igen.
+1. I Azure-portalen väljer du **Testanslutningen** att se till att Azure AD kan ansluta till din Pingboard-app. Om anslutningen misslyckas, kontrollera att din Pingboard-kontot har administratörsbehörighet och försök på **Testanslutningen** steg igen.
 
-7. Ange e-postadressen för en person eller grupp som du vill ta emot meddelanden om etablering fel i **e-postmeddelande**. Markera kryssrutan under.
+1. Ange e-postadress för en person eller grupp som du vill ta emot meddelanden om etablering fel i **e-postmeddelande**. Markera kryssrutan under.
 
-8. Välj **Spara**. 
+1. Välj **Spara**. 
 
-9. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare Pingboard**.
+1. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till Pingboard**.
 
-10. I den **attributmappning** avsnittet kan du granska användarattribut ska synkroniseras från Azure AD med Pingboard. De attribut som valts som **matchande** egenskaper som används för att matcha användarkonton i Pingboard för uppdateringsåtgärder. Välj **spara** att genomföra ändringarna. Mer information finns i [anpassa användaretablering attributmappning](../active-directory-saas-customizing-attribute-mappings.md).
+1. I den **attributmappningar** går du igenom användarattribut som ska synkroniseras från Azure AD med Pingboard. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkontona i Pingboard för uppdateringsåtgärder. Välj **spara** att genomföra ändringarna. Mer information finns i [anpassa attributmappningar för användaretablering](../active-directory-saas-customizing-attribute-mappings.md).
 
-11. Aktivera Azure AD etableras för Pingboard, i den **inställningar** ändrar **Status för etablering** till **på**.
+1. Så här aktiverar du den Azure AD-etableringstjänsten för Pingboard, i den **inställningar** ändrar **Etableringsstatus** till **på**.
 
-12. Välj **spara** att starta den första synkroniseringen av användare som tilldelats Pingboard.
+1. Välj **spara** att starta den första synkroniseringen av användare som tilldelats Pingboard.
 
-Den första synkroniseringen tar längre tid än efterföljande synkroniseringar som sker ungefär var 40 minuter så länge som tjänsten körs. Använd den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsloggar. Loggarna beskrivs alla åtgärder som utförs av tjänsten etablering Pingboard appen.
+Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Använd den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar. Loggarna beskrivs alla åtgärder som utförs av etableringstjänsten på Pingboard appen.
 
-Mer information om hur du tolkar Azure AD-etablering loggar finns [rapport om automatisk konto användaretablering](../active-directory-saas-provisioning-reporting.md).
+Mer information om hur du läser den Azure AD etablering loggar finns i [rapportera om automatisk användarkontoetablering](../active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användare konto-etablering för företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användarkontoetablering för företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](pingboard-tutorial.md)

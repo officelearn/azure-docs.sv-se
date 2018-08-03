@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 89c1daf1d5d257e02a8253a82d543605ff4cacb0
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: c300782432350c1997e25313b4301d94c29e2ed6
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126358"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39481000"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -132,9 +132,10 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
     Om du testar på hög genomströmning nivåer (> 50 000 RU/s), klientprogrammet kan bli en flaskhals på grund av den datorn tak som skall ut på CPU- eller användning. Om du når den här punkten kan fortsätta du att skicka ytterligare Azure Cosmos DB-kontot genom att skala ut dina klientprogram på flera servrar.
 8. **Cachelagra dokumentet URI: er för lägre lässvarstid**
 
-    Cachelagra dokumentet URI: er när det är möjligt för bästa prestanda för läsning.
+    Cachelagra dokumentet URI: er när det är möjligt för bästa prestanda för läsning. Du måste definiera logik för att cachelagra resourceid när du skapar resursen. ResourceId baserade sökningar är snabbare än datornamnsbaserad sökningar, så cachelagring av dessa värden förbättrar prestandan. 
+
    <a id="tune-page-size"></a>
-9. **Finjustera sidstorleken för frågor/läsning feeds för bättre prestanda**
+1. **Finjustera sidstorleken för frågor/läsning feeds för bättre prestanda**
 
     När du utför en massinläsning läsa dokument genom att använda Läs feed-funktioner (till exempel ReadDocumentFeedAsync) eller när en SQL-fråga, returneras resultatet i ett segmenterade sätt om resultatet är för stor. Resultaten returneras i segment om 100 objekt eller 1 MB som standard, uppnås för beroende på vilken gräns först.
 

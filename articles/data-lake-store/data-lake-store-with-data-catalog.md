@@ -12,72 +12,72 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 3f1bc925b772265a9f72c34f5ac661088123bb1a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8da9f0f8aeb36d9ff2f87511c902dd719bc755b9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626145"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441612"
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Registrera data från Data Lake Store i Azure Data Catalog
-I den här artikeln får lära du dig att integrera Azure Data Lake Store med Azure Data Catalog att göra data synlig i en organisation genom att integrera med Data Catalog. Mer information om katalogiserar data finns [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Scenarier där du kan använda Data Catalog finns [vanliga scenarier för Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
+I den här artikeln får du lära dig hur du integrerar Azure Data Lake Store med Azure Data Catalog för att göra data synlig inom en organisation genom att integrera dem med Data Catalog. Mer information om katalogiserar data finns i [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Information om scenarier där du kan använda Data Catalog finns i [vanliga scenarier för Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar de här självstudierna måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Aktivera din Azure-prenumeration** för Data Lake Store Public Preview. Se [instruktioner](data-lake-store-get-started-portal.md).
-* **Azure Data Lake Store-konto**. Följ instruktionerna i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md). Skapa ett Data Lake Store-konto som kallas för den här självstudiekursen **datacatalogstore**.
+* **Azure Data Lake Store-konto**. Följ instruktionerna i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md). Den här självstudien skapar du ett Data Lake Store-konto med namnet **datacatalogstore**.
 
-    När du har skapat kontot, ladda upp exempeldata data till den. I den här självstudien Låt oss överför CSV-filer under den **AmbulanceData** mapp i den [Azure Data Lake Git-lagringsplatsen](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). Du kan använda olika klienter som [Azure Lagringsutforskaren](http://storageexplorer.com/), för att överföra data till en blob-behållare.
+    När du har skapat kontot, ladda upp en exempeldatauppsättning till den. I den här självstudien kan vi överför CSV-filer under den **AmbulanceData** mapp i den [Azure Data Lake Git-lagringsplats](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). Du kan använda olika klienter, till exempel [Azure Storage Explorer](http://storageexplorer.com/), för att ladda upp data till en blob-behållare.
 * **Azure Data Catalog**. Din organisation måste redan ha en Azure Data Catalog som skapats för din organisation. Endast en katalog är tillåten för varje organisation.
 
-## <a name="register-data-lake-store-as-a-source-for-data-catalog"></a>Registrera Data Lake Store som källa för Data Catalog
+## <a name="register-data-lake-store-as-a-source-for-data-catalog"></a>Registrera Data Lake Store som en källa för Data Catalog
 
 > [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/ADCwithADL/player]
 
-1. Gå till `https://azure.microsoft.com/services/data-catalog`, och klicka på **Kom igång**.
-2. Logga in på Azure Data Catalog-portalen och på **publicera data**.
+1. Gå till `https://azure.microsoft.com/services/data-catalog`, och klicka på **börjar**.
+1. Logga in på Azure Data Catalog-portalen och klicka på **publicera data**.
 
-    ![Registrera en datakälla](./media/data-lake-store-with-data-catalog/register-data-source.png "registrera en datakälla")
-3. Klicka på nästa sida **starta program**. Detta hämtar programmanifestfilen på datorn. Dubbelklicka på manifestfilen om du vill starta programmet.
-4. På sidan Välkommen **logga in**, och ange dina autentiseringsuppgifter.
+    ![Registrera en datakälla](./media/data-lake-store-with-data-catalog/register-data-source.png "registrerar en datakälla")
+1. På nästa sida klickar du på **starta program**. Detta hämtar program-manifestfilen på datorn. Dubbelklicka på manifestfilen om du vill starta programmet.
+1. På sidan Välkommen **logga in**, och ange dina autentiseringsuppgifter.
 
     ![Välkomstskärmen](./media/data-lake-store-with-data-catalog/welcome.screen.png "välkomstskärmen")
-5. På sidan Välj en datakälla sidan Välj **Azure Data Lake**, och klicka sedan på **nästa**.
+1. I Välj en datakälla sida **Azure Data Lake**, och klicka sedan på **nästa**.
 
     ![Välj datakälla](./media/data-lake-store-with-data-catalog/select-source.png "Välj datakälla")
-6. Ange Data Lake Store-kontonamn som du vill registrera i Data Catalog på nästa sida. Lämna de andra alternativen som standard och klicka sedan på **Anslut**.
+1. Ange namnet på Data Lake Store-kontot som du vill registrera i Data Catalog på nästa sida. Lämna de andra alternativen som standard och klicka sedan på **Connect**.
 
     ![Anslut till datakällan](./media/data-lake-store-with-data-catalog/connect-to-source.png "Anslut till datakällan")
-7. Nästa sida kan delas in i följande segment.
+1. Nästa sida kan delas in i följande segment.
 
-    a. Den **Serverhierarki** ruta representerar mappstrukturen för Data Lake Store-konto. **$Root** representerar roten Data Lake Store-konto och **AmbulanceData** representerar den mapp som skapats i roten på Data Lake Store-konto.
+    a. Den **Serverhierarki** ruta representerar mappstrukturen för Data Lake Store-konto. **$Root** representerar roten för Data Lake Store-konto, och **AmbulanceData** representerar den mapp som skapas i roten för Data Lake Store-konto.
 
-    b. Den **tillgängliga objekt** visas i rutan filer och mappar under den **AmbulanceData** mapp.
+    b. Den **tillgängliga objekt** box Listar filerna och mapparna under den **AmbulanceData** mapp.
 
-    c. **Objekt som ska registreras** visas i rutan filer och mappar som du vill registrera i Azure Data Catalog.
+    c. **Objekt som ska registreras** rutan visas de filer och mappar som du vill registrera i Azure Data Catalog.
 
     ![Visa datastruktur](./media/data-lake-store-with-data-catalog/view-data-structure.png "visa datastruktur")
-8. Du bör registrera alla filer i katalogen för den här självstudiekursen. Klickar du på den (![flytta objekt](./media/data-lake-store-with-data-catalog/move-objects.png "flytta objekt")) för att flytta alla filer och **objekt som ska registreras** rutan.
+1. I den här självstudiekursen ska du registrera alla filer i katalogen. För det, klickar du på den (![flytta objekt](./media/data-lake-store-with-data-catalog/move-objects.png "flytta objekt")) för att flytta alla filer och **objekt som ska registreras** box.
 
-    Eftersom data registreras i en katalog för hela organisationen, är en rekommenderad metod för att lägga till vissa metadata som du senare kan använda för att snabbt hitta data. Du kan till exempel lägga till en e-postadress för dataägaren (till exempel en som laddar upp data) eller lägga till en etikett för att identifiera data. Den här skärmbilden nedan visar en tagg som du lägger till data.
+    Eftersom data kommer att registreras i en organisationsomfattande data catalog, är det en rekommenderad metod för att lägga till vissa metadata som du senare kan använda för att snabbt hitta data. Du kan till exempel lägga till en e-postadress för dataägaren (till exempel en som överför data) eller lägga till en tagg för att identifiera vilka data. Skärmdumpen nedan visar en tagg för att du lägger till data.
 
     ![Visa datastruktur](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "visa datastruktur")
 
     Klicka på **registrera**.
-9. Följande skärmdump anger att data har registrerats i Data Catalog.
+1. Följande skärmdump anger att data har registrerats i Data Catalog.
 
     ![Registreringen har slutförts](./media/data-lake-store-with-data-catalog/registration-complete.png "visa datastruktur")
-10. Klicka på **visa Portal** att gå tillbaka till Data Catalog-portalen och kontrollera att du kan nu komma åt registrerade data från portalen. Du kan använda den tagg som du använde vid registrering av data om du vill söka efter data.
+1. Klicka på **visa Portal** att gå tillbaka till Data Catalog-portalen och verifiera att du kan nu komma åt registrerade data från portalen. Om du vill söka efter data, kan du använda taggen som du använde när du registrerar data.
 
      ![Söka efter data i katalogen](./media/data-lake-store-with-data-catalog/search-data-in-catalog.png "söka efter data i katalogen")
-11. Du kan nu utföra åtgärder som att lägga till anteckningar och dokumentation data. Mer information finns i följande länkar.
+1. Du kan nu utföra åtgärder som att lägga till anteckningar och dokumentation om data. Mer information finns i följande länkar.
 
     * [Kommentera datakällor i Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
-    * [Dokumentdatakällor i Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
+    * [Dokumentera datakällor i Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 
 ## <a name="see-also"></a>Se också
 * [Kommentera datakällor i Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
-* [Dokumentdatakällor i Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
+* [Dokumentera datakällor i Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integrera Data Lake Store med andra Azure-tjänster](data-lake-store-integrate-with-other-services.md)

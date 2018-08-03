@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 37cabadb18bf065de64b7ae24c4ed19994e60625
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 9f086687540ed12590429fb73b05083a8b8d7f33
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413645"
+ms.locfileid: "39435127"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Anslut Operations Manager till Log Analytics
 För att underhålla din befintliga investering i System Center Operations Manager och använda utökade funktioner med Log Analytics, kan du integrera Operations Manager med ditt Log Analytics-arbetsområde.  På så sätt kan du utnyttja möjligheterna i Log Analytics samtidigt som du använder Operations Manager till att:
@@ -90,32 +90,32 @@ Vid första registreringen av din Operations Manager-hanteringsgrupp med en arbe
 1. Öppna en upphöjd kommandotolk.
    a. Gå till **starta** och skriv **cmd**.
    b. Högerklicka på **kommandotolk** och välj Kör som administratör **.
-2. Ange följande kommando och tryck på **Enter**:
+1. Ange följande kommando och tryck på **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
 När du har slutfört följande steg för att integrera med Log Analytics kan du ta bort konfigurationen genom att köra `netsh winhttp reset proxy` och sedan använda alternativet **Konfigurera proxyserver** i Operations-konsolen för att ange proxy- eller OMS-gatewayserver. 
 
 1. Välj arbetsytan **Administration** i Operations Manager-konsolen.
-2. Expandera noden Operations Management Suite och klicka på **Anslutning**.
-3. Klicka på länken för att **registrera till Operations Management Suite**.
-4. På sidan **Guiden Operations Management Suite Onboarding: Autentisering** anger du e-postadress eller telefonnummer och lösenordet för administratörskontot som är kopplat till din OMS-prenumeration och klickar på **Logga in**.
-5. När du har autentiserats, på den **guiden Operations Management Suite Onboarding: Välj arbetsyta** sidan, uppmanas du för att välja din Azure-klient, prenumeration och Log Analytics-arbetsyta.  Om du har mer än en arbetsyta väljer du arbetsytan som du vill registrera med Operations Manager-hanteringsgruppen från listrutan och klickar på **Nästa**.
+1. Expandera noden Operations Management Suite och klicka på **Anslutning**.
+1. Klicka på länken för att **registrera till Operations Management Suite**.
+1. På sidan **Guiden Operations Management Suite Onboarding: Autentisering** anger du e-postadress eller telefonnummer och lösenordet för administratörskontot som är kopplat till din OMS-prenumeration och klickar på **Logga in**.
+1. När du har autentiserats, på den **guiden Operations Management Suite Onboarding: Välj arbetsyta** sidan, uppmanas du för att välja din Azure-klient, prenumeration och Log Analytics-arbetsyta.  Om du har mer än en arbetsyta väljer du arbetsytan som du vill registrera med Operations Manager-hanteringsgruppen från listrutan och klickar på **Nästa**.
    
    > [!NOTE]
    > Operations Manager stöder bara en Log Analytics-arbetsyta i taget. Anslutningen och de datorer som registrerades till Log Analytics med den förra arbetsytan tas bort från Log Analytics.
    > 
    > 
-6. På sidan **Guiden Operations Management Suite Onboarding: Sammanfattning** bekräftar du dina inställningar och om de är korrekta klickar du på **Skapa**.
-7. På sidan **Guiden Operations Management Suite Onboarding: Slutför** klickar du på **Stäng**.
+1. På sidan **Guiden Operations Management Suite Onboarding: Sammanfattning** bekräftar du dina inställningar och om de är korrekta klickar du på **Skapa**.
+1. På sidan **Guiden Operations Management Suite Onboarding: Slutför** klickar du på **Stäng**.
 
 ### <a name="add-agent-managed-computers"></a>Lägg till datorer som hanteras med agent
 När du har konfigurerat integrering med Log Analytics-arbetsytan, den bara upprättar en anslutning till tjänsten, inga data har samlats in från agenter som rapporterar till hanteringsgruppen. Detta sker inte fram när du har konfigurerat vilka specifika agenthanterade datorer samla in data för Log Analytics. Du kan antingen välja datorobjekt individuellt eller välja en grupp som innehåller Windows-datorobjekt. Du kan inte välja en grupp som innehåller instanser av en annan klass, till exempel logiska diskar eller SQL-databaser.
 
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
-2. Expandera noden Operations Management Suite och klicka på **Anslutning**.
-3. Klicka på länken **Lägg till en dator/grupp** under rubriken Åtgärder på höger sida av fönstret.
-4. I dialogrutan **Datorsökning** kan du söka efter datorer eller grupper som övervakas av Operations Manager. Välj datorer eller grupper för att publicera dem i Log Analytics, klicka på **Lägg till** och sedan på **OK**.
+1. Expandera noden Operations Management Suite och klicka på **Anslutning**.
+1. Klicka på länken **Lägg till en dator/grupp** under rubriken Åtgärder på höger sida av fönstret.
+1. I dialogrutan **Datorsökning** kan du söka efter datorer eller grupper som övervakas av Operations Manager. Välj datorer eller grupper för att publicera dem i Log Analytics, klicka på **Lägg till** och sedan på **OK**.
 
 Du kan visa datorer och grupper som konfigurerats för att samla in data från noden för hanterade datorer under Operations Management Suite i arbetsytan **Administration** i Operations-konsolen.  Härifrån kan du lägga till eller ta bort datorer och grupper efter behov.
 
@@ -123,20 +123,20 @@ Du kan visa datorer och grupper som konfigurerats för att samla in data från n
 Utför följande steg om en intern proxyserver mellan hanteringsgruppen och Log Analytics-tjänsten.  De här inställningarna hanteras centralt från hanteringsgruppen och distribueras till agenthanterade system som ingår i omfånget för att samla in data för Log Analytics.  Detta är fördelaktigt när vissa lösningar förbigår hanteringsservern och skickar data direkt till tjänsten.
 
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
-2. Expandera Operations Management Suite och klicka sedan på **Anslutningar**.
-3. I vyn OMS-anslutning klickar du på **Konfigurera proxyserver**.
-4. På sidan med **guiden Operations Management Suite: Proxyserver** väljer du alternativet för att **använda en proxyserver för att få åtkomst till Operational Management Suite** och anger sedan webbadressen med portnumret, till exempel http://corpproxy:80 och klickar på **Slutför**.
+1. Expandera Operations Management Suite och klicka sedan på **Anslutningar**.
+1. I vyn OMS-anslutning klickar du på **Konfigurera proxyserver**.
+1. På sidan med **guiden Operations Management Suite: Proxyserver** väljer du alternativet för att **använda en proxyserver för att få åtkomst till Operational Management Suite** och anger sedan webbadressen med portnumret, till exempel http://corpproxy:80 och klickar på **Slutför**.
 
 Om proxyservern kräver autentisering utför du följande steg för att konfigurera de autentiseringsuppgifter och inställningar som behöver spridas till hanterade datorer som rapporterar till OMS i hanteringsgruppen.
 
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
-2. Under **Kör som-konfiguration** väljer du **Profiler**.
-3. Öppna profilen **Kör som-profilproxy för System Center Advisor**.
-4. I guiden Kör som-profil klickar du på Lägg till för att använda ett Kör som-konto. Du kan skapa ett [Kör som-konto](https://technet.microsoft.com/library/hh321655.aspx) eller använda ett befintligt konto. Det här kontot måste ha tillräcklig behörighet för att kunna passera genom proxyservern.
-5. Ange vilket konto som ska hanteras genom att välja **En vald klass, grupp eller objekt**, klicka på **Välj...** och sedan klicka på **Grupp...** för att öppna **Gruppsökning**.
-6. Sök efter och välj **Övervakning av servergrupp i Microsoft System Center Advisor**.  Klicka på **OK** när du har valt grupp för att stänga rutan **Gruppsökning**.
-7. Klicka på **OK** för att stänga rutan **Lägg till ett Kör som-konto**.
-8. Klicka på **Spara** för att slutföra guiden och spara dina ändringar.
+1. Under **Kör som-konfiguration** väljer du **Profiler**.
+1. Öppna profilen **Kör som-profilproxy för System Center Advisor**.
+1. I guiden Kör som-profil klickar du på Lägg till för att använda ett Kör som-konto. Du kan skapa ett [Kör som-konto](https://technet.microsoft.com/library/hh321655.aspx) eller använda ett befintligt konto. Det här kontot måste ha tillräcklig behörighet för att kunna passera genom proxyservern.
+1. Ange vilket konto som ska hanteras genom att välja **En vald klass, grupp eller objekt**, klicka på **Välj...** och sedan klicka på **Grupp...** för att öppna **Gruppsökning**.
+1. Sök efter och välj **Övervakning av servergrupp i Microsoft System Center Advisor**.  Klicka på **OK** när du har valt grupp för att stänga rutan **Gruppsökning**.
+1. Klicka på **OK** för att stänga rutan **Lägg till ett Kör som-konto**.
+1. Klicka på **Spara** för att slutföra guiden och spara dina ändringar.
 
 När anslutningen har skapats och du konfigurerar vilka agenter som ska samla in och rapportera data till Log Analytics, används följande konfiguration i hanteringsgruppen (inte nödvändigtvis i den här ordningen):
 
@@ -156,11 +156,11 @@ Om du vill fortsätta efter din befintliga Ändra kontroll process för att styr
 
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Växla en Operations Manager-grupp till en ny Log Analytics-arbetsyta
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
-2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics** och skapa en arbetsyta.  
-3. Öppna Operations Manager-konsolen med ett konto med rollen Operations Manager-administratör och välj arbetsytan **Administration**.
-4. Expandera Operations Management Suite och klicka på **Anslutningar**.
-5. Välj länken för att **konfigurera om Operation Management Suite** i mitten av fönstret.
-6. Följ **Guiden Operations Management Suite Onboarding** och ange e-postadress eller telefonnummer och lösenordet för administratörskontot som är kopplat till din nya Log Analytics-arbetsyta.
+1. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics** och skapa en arbetsyta.  
+1. Öppna Operations Manager-konsolen med ett konto med rollen Operations Manager-administratör och välj arbetsytan **Administration**.
+1. Expandera Operations Management Suite och klicka på **Anslutningar**.
+1. Välj länken för att **konfigurera om Operation Management Suite** i mitten av fönstret.
+1. Följ **Guiden Operations Management Suite Onboarding** och ange e-postadress eller telefonnummer och lösenordet för administratörskontot som är kopplat till din nya Log Analytics-arbetsyta.
    
    > [!NOTE]
    > På sidan **Guiden Operations Management Suite Onboarding: Välj arbetsyta** visas den befintliga arbetsytan som används.
@@ -172,17 +172,17 @@ Det finns olika sätt att verifiera att integrationen av Log Analytics med Opera
 
 ### <a name="to-confirm-integration-from-the-azure-portal"></a>Bekräfta integrationen från Azure Portal
 1. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver.
-2. Välj arbetsyta i listan över Log Analytics-arbetsytor.  
-3. Välj **Avancerade inställningar**, **Anslutna källor**, och sedan **System Center**. 
-4. Du bör se namnet på hanteringsgruppen tillsammans med antalet agenter och status när data togs emot senast i tabellen i avsnittet System Center Operations Manager.
+1. Välj arbetsyta i listan över Log Analytics-arbetsytor.  
+1. Välj **Avancerade inställningar**, **Anslutna källor**, och sedan **System Center**. 
+1. Du bör se namnet på hanteringsgruppen tillsammans med antalet agenter och status när data togs emot senast i tabellen i avsnittet System Center Operations Manager.
    
    ![oms-settings-connectedsources](./media/log-analytics-om-agents/oms-settings-connectedsources.png)
 
 ### <a name="to-confirm-integration-from-the-operations-console"></a>Bekräfta integrationen från Operations-konsolen
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
-2. Välj **Hanteringspaket** och i textrutan för att **söka** skriver du **Advisor** eller **Intelligence**.
-3. Beroende på vilka lösningar du har aktiverat kan du se motsvarande hanteringspaket i sökresultaten.  Om du har aktiverat lösningen för aviseringshantering visas hanteringspaket Microsoft System Center Advisor aviseringshantering i listan.
-4. Från vyn **Övervakning** navigerar du till vyn **Operations Management Suite\Hälsotillstånd**.  Välj en hanteringsserver under fönstret för **hanteringsservertillstånd** och i fönstret **Detaljvy** kontrollerar du att värdet för egenskapen **Authentication service URI** (URI för autentiseringstjänst) matchar Log Analytics arbetsyte-ID.
+1. Välj **Hanteringspaket** och i textrutan för att **söka** skriver du **Advisor** eller **Intelligence**.
+1. Beroende på vilka lösningar du har aktiverat kan du se motsvarande hanteringspaket i sökresultaten.  Om du har aktiverat lösningen för aviseringshantering visas hanteringspaket Microsoft System Center Advisor aviseringshantering i listan.
+1. Från vyn **Övervakning** navigerar du till vyn **Operations Management Suite\Hälsotillstånd**.  Välj en hanteringsserver under fönstret för **hanteringsservertillstånd** och i fönstret **Detaljvy** kontrollerar du att värdet för egenskapen **Authentication service URI** (URI för autentiseringstjänst) matchar Log Analytics arbetsyte-ID.
    
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
@@ -197,29 +197,29 @@ Det är inte helt enkelt att ta bort hanteringspaketen för lösningarna som du 
     > Kontrollera att du inte har några anpassade hanteringspaket som innehåller ordet Advisor eller IntelligencePack i namnet innan du fortsätter. I annat fall kan du ta bort dem från hanteringsgruppen.
     > 
 
-2. Från kommandotolken skriver du: `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-3. Skriv sedan `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-4. För att ta bort återstående hanteringspaket med beroenden till andra System Center Advisor-hanteringspaket använder du skriptet *RecursiveRemove.ps1* som du laddade ned innan från TechNet Script Center.  
+1. Från kommandotolken skriver du: `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+1. Skriv sedan `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+1. För att ta bort återstående hanteringspaket med beroenden till andra System Center Advisor-hanteringspaket använder du skriptet *RecursiveRemove.ps1* som du laddade ned innan från TechNet Script Center.  
  
     > [!NOTE]
     > Steg för att ta bort Advisor-hanteringspaketen med PowerShell tas inte bort Microsoft System Center Advisor eller Microsoft System Center Advisor internt hanteringspaket automatiskt.  Försök inte att ta bort dem.  
     >  
 
-5. Öppna Operations-konsolen i Operations Manager med ett konto som har rollen Operations Manager-administratör.
-6. Under **Administration** väljer du noden **Hanteringspaket** och i rutan för att **söka** skriver du **Advisor** och kontrollerar att följande hanteringspaket fortfarande importeras i hanteringsgruppen:
+1. Öppna Operations-konsolen i Operations Manager med ett konto som har rollen Operations Manager-administratör.
+1. Under **Administration** väljer du noden **Hanteringspaket** och i rutan för att **söka** skriver du **Advisor** och kontrollerar att följande hanteringspaket fortfarande importeras i hanteringsgruppen:
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
 
-7. Klicka på panelen **Inställningar** på OMS-portalen.
-8. Välj **anslutna källor**.
-9. Du bör se namnet på hanteringsgruppen som du vill ta bort från arbetsytan i tabellen i System Center Operations Manager-avsnittet.  Under kolumnen **Senaste data** klickar du på **Ta bort**.  
+1. Klicka på panelen **Inställningar** på OMS-portalen.
+1. Välj **anslutna källor**.
+1. Du bör se namnet på hanteringsgruppen som du vill ta bort från arbetsytan i tabellen i System Center Operations Manager-avsnittet.  Under kolumnen **Senaste data** klickar du på **Ta bort**.  
    
     > [!NOTE]
     > Länken **Ta bort** blir inte tillgänglig förrän efter att den anslutna hanteringsgruppen känner av 14 dagar utan aktivitet.  
     > 
 
-10. Ett fönster visas där du uppmanas att bekräfta att du vill ta bort volymen.  Klicka på **Ja** för att gå vidare. 
+1. Ett fönster visas där du uppmanas att bekräfta att du vill ta bort volymen.  Klicka på **Ja** för att gå vidare. 
 
 För att radera de två anslutningsprogrammen – Microsoft.SystemCenter.Advisor.DataConnector och Advisor Connector – sparar du PowerShell-skriptet nedan på datorn och kör det med följande exempel:
 

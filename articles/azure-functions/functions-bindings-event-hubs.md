@@ -4,7 +4,7 @@ description: Förstå hur du använder Azure Event Hubs-bindningar i Azure Funct
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: Azure functions, funktioner, händelsebearbetning, dynamisk beräkning, serverlös arkitektur
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: cd5c3316fd41bbd10d4469a6551ae7bd76a881c8
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 961126f62c3e8fbb947b9d1b34ac157bf37a8cba
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345446"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480945"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindningar för Azure Functions
 
@@ -337,9 +337,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**typ** | Saknas | Måste anges till `eventHubTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**riktning** | Saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar objektet händelse i funktionskoden. | 
-|**Sökväg** |**EventHubName** | Fungerar endast 1.x. Namnet på händelsehubben.  | 
-|**eventHubName** |**EventHubName** | Fungerar endast 2.x. Namnet på händelsehubben.  |
-|**ConsumerGroup** |**ConsumerGroup** | En valfri egenskap som anger den [konsumentgrupp](../event-hubs/event-hubs-features.md#event-consumers) används för att prenumerera på händelser i hubben. Om det utelämnas används den `$Default` konsumentgrupp används. | 
+|**Sökväg** |**EventHubName** | Fungerar endast 1.x. Namnet på händelsehubben. När namnet på händelsehubben finns också i anslutningssträngen, åsidosätter det värdet den här egenskapen vid körning. | 
+|**eventHubName** |**EventHubName** | Fungerar endast 2.x. Namnet på händelsehubben. När namnet på händelsehubben finns också i anslutningssträngen, åsidosätter det värdet den här egenskapen vid körning. |
+|**consumerGroup** |**consumerGroup** | En valfri egenskap som anger den [konsumentgrupp](../event-hubs/event-hubs-features.md#event-consumers) används för att prenumerera på händelser i hubben. Om det utelämnas används den `$Default` konsumentgrupp används. | 
 |**kardinalitet** | Saknas | För Javascript. Ange `many` för att aktivera Batchbearbetning.  Om detta utelämnas eller värdet `one`, enskilt meddelande som skickades till funktionen. | 
 |**anslutning** |**anslutning** | Namnet på en appinställning som innehåller anslutningssträngen till namnområdet för event hub. Kopiera denna anslutningssträng genom att klicka på den **anslutningsinformation** för den [namnområde](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), inte händelsehubben själva. Den här anslutningssträngen måste ha minst läsbehörighet till aktivera utlösaren.|
 
@@ -557,8 +557,8 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**typ** | Saknas | Måste anges till ”eventHub”. |
 |**riktning** | Saknas | Måste anges till ”ut”. Den här parametern anges automatiskt när du skapar bindningen i Azure-portalen. |
 |**Namn** | Saknas | Variabelnamnet som används i Funktionskoden som representerar händelsen. | 
-|**Sökväg** |**EventHubName** | Fungerar endast 1.x. Namnet på händelsehubben.  | 
-|**eventHubName** |**EventHubName** | Fungerar endast 2.x. Namnet på händelsehubben.  |
+|**Sökväg** |**EventHubName** | Fungerar endast 1.x. Namnet på händelsehubben. När namnet på händelsehubben finns också i anslutningssträngen, åsidosätter det värdet den här egenskapen vid körning. | 
+|**eventHubName** |**EventHubName** | Fungerar endast 2.x. Namnet på händelsehubben. När namnet på händelsehubben finns också i anslutningssträngen, åsidosätter det värdet den här egenskapen vid körning. |
 |**anslutning** |**anslutning** | Namnet på en appinställning som innehåller anslutningssträngen till namnområdet för event hub. Kopiera denna anslutningssträng genom att klicka på den **anslutningsinformation** för den *namnområde*, inte händelsehubben själva. Den här anslutningssträngen måste ha behörighet att skicka att skicka meddelandet till händelseströmmen.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

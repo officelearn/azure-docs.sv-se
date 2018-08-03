@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: cb23db13d67047225102c6888e27e8f79a3e5abf
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: e12cc37c579c10d3b59197d126589d36e80a8451
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259321"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444529"
 ---
 # <a name="configure-managed-service-identity-on-an-azure-vm-using-azure-cli"></a>Konfigurera hanterad tjänstidentitet på en Azure-dator med Azure CLI
 
@@ -54,19 +54,19 @@ I det här avsnittet får du lära dig hur du aktiverar och inaktiverar systemti
 
 Skapa en Azure-dator med systemtilldelad identitet som aktiverat:
 
-1. Om du använder Azure CLI i en lokal konsol börjar du med att logga in i Azure med [az login](/cli/azure/reference-index#az_login). Använd ett konto som är associerat med den Azure-prenumeration som du vill distribuera den virtuella datorn i:
+1. Om du använder Azure CLI i en lokal konsol börjar du med att logga in i Azure med [az login](/cli/azure/reference-index#az-login). Använd ett konto som är associerat med den Azure-prenumeration som du vill distribuera den virtuella datorn i:
 
    ```azurecli-interactive
    az login
    ```
 
-2. Skapa en [resursgrupp](../../azure-resource-manager/resource-group-overview.md#terminology) för inneslutning och distribution av den virtuella datorn och dess relaterade resurser med hjälp av [az group create](/cli/azure/group/#az_group_create). Du kan hoppa över det här steget om du redan har en resursgrupp som du vill använda i stället:
+2. Skapa en [resursgrupp](../../azure-resource-manager/resource-group-overview.md#terminology) för inneslutning och distribution av den virtuella datorn och dess relaterade resurser med hjälp av [az group create](/cli/azure/group/#az-group-create). Du kan hoppa över det här steget om du redan har en resursgrupp som du vill använda i stället:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-3. Skapa en virtuell dator med [az vm create](/cli/azure/vm/#az_vm_create). I följande exempel skapas en virtuell dator med namnet *myVM* med en systemtilldelade identiteter, enligt en förfrågan från den `--assign-identity` parametern. Parametrarna `--admin-username` och `--admin-password` anger namnet och lösenordet för administratörer för inloggning på den virtuella datorn. Uppdatera dessa värden baserat på din miljö: 
+3. Skapa en virtuell dator med [az vm create](/cli/azure/vm/#az-vm-create). I följande exempel skapas en virtuell dator med namnet *myVM* med en systemtilldelade identiteter, enligt en förfrågan från den `--assign-identity` parametern. Parametrarna `--admin-username` och `--admin-password` anger namnet och lösenordet för administratörer för inloggning på den virtuella datorn. Uppdatera dessa värden baserat på din miljö: 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
@@ -76,13 +76,13 @@ Skapa en Azure-dator med systemtilldelad identitet som aktiverat:
 
 Om du vill aktivera den systemtilldelade identiteten på en befintlig virtuell dator:
 
-1. Om du använder Azure CLI i en lokal konsol börjar du med att logga in i Azure med [az login](/cli/azure/reference-index#az_login). Använd ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn.
+1. Om du använder Azure CLI i en lokal konsol börjar du med att logga in i Azure med [az login](/cli/azure/reference-index#az-login). Använd ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn.
 
    ```azurecli-interactive
    az login
    ```
 
-2. Använd [az identitet för virtuell dator tilldelar](/cli/azure/vm/identity/#az_vm_identity_assign) med den `identity assign` kommandot aktivera systemtilldelad identitet till en befintlig virtuell dator:
+2. Använd [az identitet för virtuell dator tilldelar](/cli/azure/vm/identity/#az-vm-identity-assign) med den `identity assign` kommandot aktivera systemtilldelad identitet till en befintlig virtuell dator:
 
    ```azurecli-interactive
    az vm identity assign -g myResourceGroup -n myVm
@@ -119,13 +119,13 @@ I det här avsnittet får lära du dig att lägga till och ta bort Användartill
 
 Det här avsnittet vägleder dig genom skapandet av en virtuell dator med tilldelningen av en Användartilldelad identitet. Om du redan har en virtuell dator som du vill använda kan du hoppa över det här avsnittet och gå vidare till nästa.
 
-1. Du kan hoppa över det här steget om du redan har en resursgrupp som du vill använda. Skapa en [resursgrupp](~/articles/azure-resource-manager/resource-group-overview.md#terminology) för inneslutning och distribution av din hanterade tjänstidentitet, med hjälp av [az gruppen skapa](/cli/azure/group/#az_group_create). Ersätt parametervärdena `<RESOURCE GROUP>` och `<LOCATION>` med dina egna värden. :
+1. Du kan hoppa över det här steget om du redan har en resursgrupp som du vill använda. Skapa en [resursgrupp](~/articles/azure-resource-manager/resource-group-overview.md#terminology) för inneslutning och distribution av din hanterade tjänstidentitet, med hjälp av [az gruppen skapa](/cli/azure/group/#az-group-create). Ersätt parametervärdena `<RESOURCE GROUP>` och `<LOCATION>` med dina egna värden. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
    ```
 
-2. Skapa en Användartilldelad identitet med hjälp av [az identitet skapa](/cli/azure/identity#az_identity_create).  Den `-g` parametern anger resursgruppen där Användartilldelad identitet skapas, och `-n` parametern anger dess namn.    
+2. Skapa en Användartilldelad identitet med hjälp av [az identitet skapa](/cli/azure/identity#az-identity-create).  Den `-g` parametern anger resursgruppen där Användartilldelad identitet skapas, och `-n` parametern anger dess namn.    
     
    [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -149,7 +149,7 @@ Det här avsnittet vägleder dig genom skapandet av en virtuell dator med tillde
    }
    ```
 
-3. Skapa en virtuell dator med [az vm create](/cli/azure/vm/#az_vm_create). I följande exempel skapas en virtuell dator som är associerade med den nya användartilldelade-identiteten som anges av den `--assign-identity` parametern. Ersätt parametervärdena `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` och `<MSI ID>` med dina egna värden. För `<MSI ID>`, använda Användartilldelad identitet resurs `id` egenskap som skapats i föregående steg: 
+3. Skapa en virtuell dator med [az vm create](/cli/azure/vm/#az-vm-create). I följande exempel skapas en virtuell dator som är associerade med den nya användartilldelade-identiteten som anges av den `--assign-identity` parametern. Ersätt parametervärdena `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` och `<MSI ID>` med dina egna värden. För `<MSI ID>`, använda Användartilldelad identitet resurs `id` egenskap som skapats i föregående steg: 
 
    ```azurecli-interactive 
    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>

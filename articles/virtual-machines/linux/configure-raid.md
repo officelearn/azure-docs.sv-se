@@ -1,5 +1,5 @@
 ---
-title: Konfigurera programvarubaserad RAID på en virtuell dator som kör Linux | Microsoft Docs
+title: Konfigurera programvaru-RAID på en virtuell dator som kör Linux | Microsoft Docs
 description: Lär dig hur du använder mdadm för att konfigurera RAID på Linux i Azure.
 services: virtual-machines-linux
 documentationcenter: na
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
-ms.openlocfilehash: d6e831692da37645e264c6674f1ba54bb16d25d4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2376ade49b990ff22683a14ecd4ae6b4dda356c3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30911765"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434551"
 ---
 # <a name="configure-software-raid-on-linux"></a>Konfigurera programvaru-RAID på Linux
-Det är ett vanligt scenario du använder programvarubaserad RAID på Linux virtuella datorer i Azure för att presentera flera diskar i bifogade data som en enkel RAID-enhet. Vanligtvis kan detta användas för att förbättra prestanda och möjliggöra bättre genomflöde jämfört med bara en enda disk.
+Det är ett vanligt scenario du använder programvaru-RAID på Linux-datorer i Azure för att presentera flera anslutna datadiskar som en enkel RAID-enhet. Vanligtvis kan detta användas för att förbättra prestanda och tillåter bättre genomflöde jämfört med användningen av bara en enda disk.
 
-## <a name="attaching-data-disks"></a>Bifoga datadiskar
-Två eller flera tom datadiskar behövs för att konfigurera en RAID-enhet.  Den främsta orsaken till att skapa en RAID-enhet är att förbättra prestanda för disken i/o.  Baserat på i/o-behov kan du välja att koppla diskar som är lagrade i vår standardlagring med upp till 500-i/o/ps per disk eller våra Premium-lagring med upp till 5 000 IO/ps per disk. Den här artikeln går inte in i detalj att etablera och koppla datadiskar till en virtuell Linux-dator.  Finns i Microsoft Azure-artikel [ansluta en disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) detaljerade anvisningar om hur du kopplar en tom datadisk till en virtuell Linux-dator på Azure.
+## <a name="attaching-data-disks"></a>Koppla datadiskar
+Två eller flera tomma datadiskar behövs för att konfigurera en RAID-enhet.  Den främsta orsaken för att skapa en RAID-enhet är att förbättra prestanda av din i/o.  Baserat på dina i/o-behov kan välja du att lägga till diskar som lagras i våra Standard-lagring, med upp till 500-i/o/ps per disk eller vår Premium-lagring med upp till 5 000 i/o/ps per disk. Den här artikeln går inte in i detalj på hur du etablerar och koppla datadiskar till en Linux-dator.  Finns i Microsoft Azure-artikeln [ansluta en disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) detaljerade anvisningar om hur du kopplar en tom datadisk till en Linux-dator på Azure.
 
 ## <a name="install-the-mdadm-utility"></a>Installera verktyget mdadm
 * **Ubuntu**
@@ -46,7 +46,7 @@ zypper install mdadm
 ```
 
 ## <a name="create-the-disk-partitions"></a>Skapa diskpartitioner
-I det här exemplet skapar vi en enskild diskpartition på /dev/sdc. Den nya diskpartitionen kallas /dev/sdc1.
+I det här exemplet skapar vi en enskild disk-partition på /dev/sdc. Den nya diskpartitionen kallas /dev/sdc1.
 
 1. Starta `fdisk` att börja skapa partitioner
 
@@ -62,13 +62,13 @@ I det här exemplet skapar vi en enskild diskpartition på /dev/sdc. Den nya dis
                     sectors (command 'u').
     ```
 
-2. Tryck på ”n” i Kommandotolken för att skapa en **n**ny partition:
+1. Tryck på ”n” i Kommandotolken för att skapa en **n**TT-partition:
 
     ```bash
     Command (m for help): n
     ```
 
-3. Tryck sedan på p om du vill skapa en **p**rimär partition:
+1. Tryck sedan på ”p” för att skapa en **p**rimär partition:
 
     ```bash 
     Command action
@@ -76,27 +76,27 @@ I det här exemplet skapar vi en enskild diskpartition på /dev/sdc. Den nya dis
             p   primary partition (1-4)
     ```
 
-4. Tryck '1' för att markera partitionsnumret 1:
+1. Tryck på '1' och välj partitionsnumret 1:
 
     ```bash
     Partition number (1-4): 1
     ```
 
-5. Välj startpunkten för den nya partitionen eller tryck på `<enter>` att acceptera standardvärdet om du vill placera partitionen i början av det lediga utrymmet på enheten:
+1. Välj startpunkten för den nya partitionen eller tryck på `<enter>` att acceptera standardinställningarna om du vill placera partitionen i början av det lediga utrymmet på enheten:
 
     ```bash   
     First cylinder (1-1305, default 1):
     Using default value 1
     ```
 
-6. Välj storleken på partitionen, till exempel skriver ”+10G' om du vill skapa en 10 GB-partition. Eller tryck på `<enter>` skapa en enda partition som sträcker sig över hela enheten:
+1. Välj storleken på partitionen, till exempel skriva ”+10G” om du vill skapa en partition med 10 GB. Eller tryck på `<enter>` skapa en enda partition som sträcker sig över hela enheten:
 
     ```bash   
     Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
     Using default value 1305
     ```
 
-7. Ändra ID och **t**typ av partitionen från standard-ID '83' (Linux)-ID: t 'fd' (Linux raid auto):
+1. Sedan ändra-ID och **t**typ av partitionen från standard-ID '83 ”(Linux) till ID: T 'fd” (Linux raid auto):
 
     ```bash  
     Command (m for help): t
@@ -104,7 +104,7 @@ I det här exemplet skapar vi en enskild diskpartition på /dev/sdc. Den nya dis
     Hex code (type L to list codes): fd
     ```
 
-8. Slutligen skriva partitionstabellen till enheten och avsluta fdisk:
+1. Slutligen skriver partitionstabellen till enheten och avsluta fdisk:
 
     ```bash   
     Command (m for help): w
@@ -112,14 +112,14 @@ I det här exemplet skapar vi en enskild diskpartition på /dev/sdc. Den nya dis
     ```
 
 ## <a name="create-the-raid-array"></a>Skapa RAID-matris
-1. I följande exempel startas ”stripe” (RAID-nivå 0) tre partitioner finns på tre separata hårddiskar (sdc1, sdd1, sde1).  När du kör detta kommando en ny RAID-enhet kallas **/dev/md127** skapas. Observera också att om dessa data diskar vi tidigare tillhör en annan felaktiga RAID-matris det kan vara nödvändigt att lägga till den `--force` parametern till den `mdadm` kommando:
+1. Följande exempel som ”stripe” (RAID-nivå 0) tre partitioner som finns på tre separata datadiskar (sdc1, sdd1, sde1).  När du kör det här kommandot en ny RAID-enhet kallas **/dev/md127** har skapats. Observera också att om dessa data diskar vi tidigare en del av en annan RAID-matris som inte gäller längre det kan vara nödvändigt att lägga till den `--force` parametern till den `mdadm` kommando:
 
     ```bash  
     sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
         /dev/sdc1 /dev/sdd1 /dev/sde1
     ```
 
-2. Skapa filsystemet på den nya RAID-enheten
+1. Skapa filsystemet på den nya RAID-enheten
    
     a. **CentOS, Oracle Linux, SLES 12, openSUSE och Ubuntu**
 
@@ -141,20 +141,20 @@ I det här exemplet skapar vi en enskild diskpartition på /dev/sdc. Den nya dis
     ```
    
    > [!NOTE]
-   > En omstart kan krävas när du har gjort dessa ändringar på SUSE system. Det här steget är *inte* krävs på SLES 12.
+   > En omstart kan krävas när du har gjort dessa ändringar på SUSE-system. Det här steget är *inte* krävs på SLES 12.
    > 
    > 
 
-## <a name="add-the-new-file-system-to-etcfstab"></a>Lägg till det nya filsystemet /etc/fstab
+## <a name="add-the-new-file-system-to-etcfstab"></a>Lägg till det nya filsystemet i/etc/fstab
 > [!IMPORTANT]
-> Redigera filen /etc/fstab felaktigt kan det leda till att ett system som inte kan startas. Om du är osäker, i den distribution dokumentationen finns information om hur du ska redigera den här filen. Vi rekommenderar också att en säkerhetskopia av /etc/fstab-filen har skapats innan du redigerar.
+> Felaktigt redigerar/etc/fstab-filen kan resultera i ett system som inte kan startas. Om du är osäker, finns det distribution dokumentationen för information om hur du ska redigera den här filen. Vi rekommenderar också att en säkerhetskopia av/etc/fstab-filen har skapats innan du redigerar.
 
-1. Skapa den önskade monteringspunkten för det nya filsystemet, till exempel:
+1. Skapa den önskade monteringspunkten för ditt nya filsystem, till exempel:
 
     ```bash
     sudo mkdir /data
     ```
-2. När du redigerar /etc/fstab, den **UUID** ska användas för att referera till filsystemet i stället för namnet på en enhet.  Använd den `blkid` verktyg för att fastställa UUID för det nya filsystemet:
+1. När du redigerar/etc/fstab, den **UUID** bör användas för att referera till filsystemet i stället för namnet på enheten.  Använd den `blkid` verktyg för att fastställa UUID för det nya filsystemet:
 
     ```bash   
     sudo /sbin/blkid
@@ -162,7 +162,7 @@ I det här exemplet skapar vi en enskild diskpartition på /dev/sdc. Den nya dis
     /dev/md127: UUID="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" TYPE="ext4"
     ```
 
-3. Öppna /etc/fstab i en textredigerare och Lägg till en post för det nya filsystemet, till exempel:
+1. Öppna/etc/fstab i en textredigerare och Lägg till en post för det nya filsystemet, till exempel:
 
     ```bash   
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
@@ -174,17 +174,17 @@ I det här exemplet skapar vi en enskild diskpartition på /dev/sdc. Den nya dis
     /dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
     ```
    
-    Spara och Stäng /etc/fstab.
+    Spara och Stäng/etc/fstab.
 
-4. Testa att/etc/fstab posten är korrekt:
+1. Testa att/etc/fstab posten är korrekt:
 
     ```bash  
     sudo mount -a
     ```
 
-    Om det här kommandot resulterar i ett felmeddelande, kontrollera syntax i filen /etc/fstab.
+    Om det här kommandot resulterar i ett felmeddelande, kontrollera syntax i filen/etc/fstab.
    
-    Kör nästa gång den `mount` kommando för att se till att filsystemet är monterad:
+    Nästa körning i `mount` kommandot för att säkerställa att filsystemet är monterad:
 
     ```bash   
     mount
@@ -192,11 +192,11 @@ I det här exemplet skapar vi en enskild diskpartition på /dev/sdc. Den nya dis
     /dev/md127 on /data type ext4 (rw)
     ```
 
-5. (Valfritt) Felsäker start-parametrar
+1. (Valfritt) Felsäker start-parametrar
    
-    **fstab konfiguration**
+    **fstab-konfiguration**
    
-    Många distributioner innehålla antingen den `nobootwait` eller `nofail` montera parametrar som kan läggas till i filen/etc/fstab. Dessa parametrar tillåta fel när du monterar en viss filsystemet och Tillåt Linux-datorn och fortsätta att starta även om det inte går att montera korrekt RAID-filsystemet. Finns i dokumentationen för din distribution för mer information om dessa parametrar.
+    Många distributioner innehålla antingen den `nobootwait` eller `nofail` montera parametrar som kan läggas till i/etc/fstab-filen. Dessa parametrar Tillåt för fel när du monterar en viss fil-system och att Linux-datorn och fortsätta att starta även om det inte går att montera filsystemet RAID korrekt. I din distribution dokumentationen för mer information om dessa parametrar.
    
     Exempel (Ubuntu):
 
@@ -204,20 +204,20 @@ I det här exemplet skapar vi en enskild diskpartition på /dev/sdc. Den nya dis
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,nobootwait  0  2
     ```   
 
-    **Linux-Startparametrar**
+    **Linux Start-parametrar**
    
-    Förutom ovanstående parametrar, kernel-parametern ”`bootdegraded=true`” kan tillåta systemet att starta även om RAID uppfattas som skadade eller försämrad för exempel om en dataenhet oavsiktligt tas bort från den virtuella datorn. Det kan också leda till ett ej startbar system för som standard.
+    Förutom ovanstående parametrar, kernel-parameter ”`bootdegraded=true`” kan göra att systemet att starta även om RAID uppfattas som skadad eller försämrad för exempel om en dataenhet oavsiktligt tas bort från den virtuella datorn. Detta kan också resultera i ett icke startbart system för som standard.
    
-    Se dokumentationen för din distribution om hur du redigerar korrekt kernel-parametrar. Till exempel i många distributioner (CentOS, Oracle Linux, SLES 11) dessa parametrar kan läggas till manuellt till det ”`/boot/grub/menu.lst`” filen.  På Ubuntu den här parametern kan läggas till i `GRUB_CMDLINE_LINUX_DEFAULT` variabeln på ”/ etc/standard/grub”.
+    Läs dokumentationen för din distribution om hur du redigerar korrekt kernel parametrar. Till exempel i många distributioner (CentOS, Oracle Linux, SLES 11) dessa parametrar kan läggas till manuellt till den ”`/boot/grub/menu.lst`” fil.  I Ubuntu den här parametern kan läggas till i `GRUB_CMDLINE_LINUX_DEFAULT` variabeln på ”/ etc/standard/grub”.
 
 
 ## <a name="trimunmap-support"></a>Stöd för TRIM/UNMAP
-Vissa Linux kärnor stöd för TRIM/UNMAP åtgärder för att ta bort oanvända block på disken. Dessa åtgärder är främst användbart för standardlagring att meddela Azure som bort sidor som inte längre är giltig och kan tas bort. Ignorera sidor kan du spara kostnader om du skapar stora filer och ta bort dem.
+Vissa Linux-kernel stöd för TRIM/UNMAP åtgärder för att ta bort oanvända block på disken. Dessa åtgärder är främst användbart för standardlagring att meddela Azure som tagits bort sidor som inte längre är giltiga och kan ignoreras. Tar bort sidor kan minska kostnaderna om du skapar stora filer och ta bort dem.
 
 > [!NOTE]
-> RAID kan inte utfärda kommandon på Ignorera om segmentstorleken för matrisen anges till mindre än standardvärdet (512KB). Detta beror på att unmap granularitet på värden är också 512KB. Om du har ändrat matrisens segmentstorleken via mdadm's `--chunk=` parameter och sedan ta bort TRIMNING/mappning begäranden ignoreras av kernel.
+> RAID kan inte skicka kommandon för borttagna objekt om segmentstorleken för matrisen är inställt på mindre än standardvärdet (512KB). Det beror på att unmap kornighet på värden är också 512KB. Om du har ändrat matrisens segmentstorleken via mdadm's `--chunk=` parametern och sedan rensa/Avmappa begäranden ignoreras av kernel.
 
-Det finns två sätt att aktivera TRIMNING stöd i Linux-VM. Som vanligt, kontakta din distribution för den rekommenderade metoden:
+Det finns två sätt att aktivera TRIMNING stöd i din Linux-VM. Som vanligt finns distributionen för den rekommenderade metoden:
 
 - Använd den `discard` montera alternativet i `/etc/fstab`, till exempel:
 
@@ -225,7 +225,7 @@ Det finns två sätt att aktivera TRIMNING stöd i Linux-VM. Som vanligt, kontak
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2
     ```
 
-- I vissa fall den `discard` alternativet kanske prestanda. Du kan också köra den `fstrim` kommandot manuellt från kommandoraden eller lägga till den i din crontab att köras regelbundet:
+- I vissa fall den `discard` alternativet kanske prestanda. Du kan också köra den `fstrim` kommandot manuellt från kommandoraden eller lägga till den i din crontab ska köras regelbundet:
 
     **Ubuntu**
 

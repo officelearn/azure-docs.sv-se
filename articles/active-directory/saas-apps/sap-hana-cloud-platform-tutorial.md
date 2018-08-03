@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 176ed1718818b24866620d86d7eff4d9af1d378f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 07b3c32601d90fdeed1c335c0f36a5ccbdbe4f1d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050882"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446722"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Självstudier: Azure Active Directory-integrering med SAP-Molnplattform
 
@@ -56,7 +56,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till SAP Cloud Platform från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-sap-cloud-platform-from-the-gallery"></a>Att lägga till SAP Cloud Platform från galleriet
 För att konfigurera integrering av SAP Cloud Platform i Azure AD, som du behöver lägga till SAP Cloud Platform från galleriet i din lista över hanterade SaaS-appar.
@@ -67,15 +67,15 @@ För att konfigurera integrering av SAP Cloud Platform i Azure AD, som du behöv
 
     ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **SAP Cloud Platform**väljer **SAP Cloud Platform** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. I sökrutan skriver **SAP Cloud Platform**väljer **SAP Cloud Platform** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![SAP-Molnplattform i resultatlistan](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_addfromgallery.png)
 
@@ -90,10 +90,10 @@ I SAP-Molnplattform, tilldela värdet för den **användarnamn** i Azure AD som 
 Om du vill konfigurera och testa Azure AD enkel inloggning med SAP-Molnplattform, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare för SAP-Molnplattform](#create-a-sap-cloud-platform-test-user)**  – du har en motsvarighet för Britta Simon i SAP-Molnplattform som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare för SAP-Molnplattform](#create-a-sap-cloud-platform-test-user)**  – du har en motsvarighet för Britta Simon i SAP-Molnplattform som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -105,11 +105,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_samlbase.png)
 
-3. På den **SAP Cloud Platform domän och URL: er** avsnittet, utför följande steg:
+1. På den **SAP Cloud Platform domän och URL: er** avsnittet, utför följande steg:
 
     ![SAP Cloud Platform domän och URL: er med enkel inloggning för information](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_url.png)
 
@@ -149,21 +149,21 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL, identifierare och svars-URL. Kontakta [SAP Cloud Platform-klienten supportteamet](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html) att hämta inloggnings-URL och identifierare. Svars-URL som du kan hämta från förtroende hanteringsavsnittet som beskrivs senare i självstudien.
     > 
      
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/sap-hana-cloud-platform-tutorial/tutorial_general_400.png)
 
-6. I ett annat webbläsarfönster, loggar in på SAP Cloud Platform Cockpit på `https://account.<landscape host>.ondemand.com/cockpit`(till exempel: https://account.hanatrial.ondemand.com/cockpit).
+1. I ett annat webbläsarfönster, loggar in på SAP Cloud Platform Cockpit på `https://account.<landscape host>.ondemand.com/cockpit`(till exempel: https://account.hanatrial.ondemand.com/cockpit).
 
-7. Klicka på den **förtroende** fliken.
+1. Klicka på den **förtroende** fliken.
    
     ![Lita på](./media/sap-hana-cloud-platform-tutorial/ic790800.png "förtroende")
 
-8. I avsnittet förtroende Management under **lokala tjänstleverantör**, utför följande steg:
+1. I avsnittet förtroende Management under **lokala tjänstleverantör**, utför följande steg:
 
     ![Lita på Management](./media/sap-hana-cloud-platform-tutorial/ic793931.png "lita på hantering")
    
@@ -181,7 +181,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     g. Klicka på **Spara**.
 
-9. När du har sparat den **lokala tjänstleverantör** inställningar, utför följande för att hämta svars-URL:
+1. När du har sparat den **lokala tjänstleverantör** inställningar, utför följande för att hämta svars-URL:
    
     ![Hämta Metadata för](./media/sap-hana-cloud-platform-tutorial/ic793930.png "hämta Metadata")
 
@@ -191,7 +191,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
  
     c. Kopiera värdet för den **plats** attributet och klistra in den i den **svars-URL** i Azure AD-konfiguration för SAP-Molnplattform.
 
-10. Klicka på den **betrodd identitetsleverantör** fliken och klicka sedan på **Lägg till betrodd identitetsleverantör**.
+1. Klicka på den **betrodd identitetsleverantör** fliken och klicka sedan på **Lägg till betrodd identitetsleverantör**.
    
     ![Lita på Management](./media/sap-hana-cloud-platform-tutorial/ic790802.png "lita på hantering")
    
@@ -200,7 +200,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > 
     > 
 
-11. Klicka på den **Allmänt** fliken och klicka sedan på **Bläddra** att ladda upp den hämtade metadatafilen.
+1. Klicka på den **Allmänt** fliken och klicka sedan på **Bläddra** att ladda upp den hämtade metadatafilen.
     
     ![Lita på Management](./media/sap-hana-cloud-platform-tutorial/ic793932.png "lita på hantering")
     
@@ -208,9 +208,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     >När du har överfört metadatafilen, värdena för **URL för enkel inloggning**, **URL för enkel utloggning**, och **signeringscertifikat** fylls i automatiskt.
     > 
      
-12. Klicka på fliken **Attribut**.
+1. Klicka på fliken **Attribut**.
 
-13. På den **attribut** fliken, utföra följande steg:
+1. På den **attribut** fliken, utföra följande steg:
     
     ![Attribut](./media/sap-hana-cloud-platform-tutorial/ic790804.png "attribut") 
 
@@ -256,15 +256,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/sap-hana-cloud-platform-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/sap-hana-cloud-platform-tutorial/create_aaduser_02.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/sap-hana-cloud-platform-tutorial/create_aaduser_03.png)
 
-4. I den **användaren** dialogrutan utför följande steg:
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/sap-hana-cloud-platform-tutorial/create_aaduser_04.png)
 
@@ -284,7 +284,7 @@ För att aktivera Azure AD-användare att logga in till SAP Cloud Platform måst
 
 1. Logga in på din **SAP Cloud Platform** cockpit.
 
-2. Utför följande:
+1. Utför följande:
    
     ![Auktoriseringar](./media/sap-hana-cloud-platform-tutorial/ic790805.png "auktoriseringar")
    
@@ -310,23 +310,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **SAP Cloud Platform**.
+1. I listan med program väljer **SAP Cloud Platform**.
 
     ![Länken SAP Cloud Platform i listan med program](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_app.png)  
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

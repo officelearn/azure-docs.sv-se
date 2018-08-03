@@ -1,32 +1,30 @@
 ---
-title: Azure överordnade resurs fel | Microsoft Docs
-description: Beskriver hur du löser problem när du arbetar med en överordnad resurs.
+title: Azure överordnad resurs fel | Microsoft Docs
+description: Beskriver hur du löser fel när du arbetar med en överordnad resurs.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/13/2017
+ms.date: 08/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: c996a644f206051cb58522065f87f95a4058cdee
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3042ea1a523f12ae0311545a1b9bc67306f266dd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357783"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447310"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Åtgärda fel för överordnade resurser
 
-Den här artikeln beskriver de fel som kan uppstå när du distribuerar en resurs som är beroende av en överordnad resurs.
+Den här artikeln beskriver de fel som du kan få när du distribuerar en resurs som är beroende av en överordnad resurs.
 
 ## <a name="symptom"></a>Symtom
 
-När du distribuerar en resurs som är en underordnad till en annan resurs får du följande fel:
+När du distribuerar en resurs som är underordnad till en annan resurs kan felmeddelande följande visas:
 
 ```
 Code=ParentResourceNotFound;
@@ -35,7 +33,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 ## <a name="cause"></a>Orsak
 
-När en resurs är en underordnad till en annan resurs, måste den överordnade resursen finnas innan du skapar den underordnade resursen. Namnet på den underordnade resursen innehåller namnet på överordnade. Till exempel kan en SQL-databas definieras som:
+När en resurs är en underordnad till en annan resurs, måste den överordnade resursen finnas innan du skapar den underordnade resursen. Namnet på den underordnade resursen definierar anslutningen med den överordnade resursen. Namnet på den underordnade resursen är i formatet `<parent-resource-name>/<child-resource-name>`. Till exempel kan en SQL-databas definieras som:
 
 ```json
 {
@@ -44,11 +42,13 @@ När en resurs är en underordnad till en annan resurs, måste den överordnade 
   ...
 ```
 
-Men om du inte anger ett beroende på servern, databas-distributionen kan startas innan servern har distribuerats.
+Om du distribuerar både servern och databasen i samma mall, men inte anger ett beroende på servern, kan databasen distributionen startar innan servern har distribuerats. 
+
+Om den överordnade resursen redan finns och är inte distribueras i samma mall, får du det här felet när Resource Manager inte kan koppla underordnade resursen överordnade. Det här felet kan inträffa när den underordnade resursen inte finns i rätt format eller den underordnade resursen har distribuerats till en resursgrupp som skiljer sig från resursgruppen för överordnad resurs.
 
 ## <a name="solution"></a>Lösning
 
-Innehåller ett beroende för att lösa det här felet.
+För att lösa det här felet när överordnade och underordnade resurser distribueras i samma mall kan du inkludera ett beroende.
 
 ```json
 "dependsOn": [
@@ -56,4 +56,34 @@ Innehåller ett beroende för att lösa det här felet.
 ]
 ```
 
-Mer information finns i [definiera ordningen för att distribuera resurser i Azure Resource Manager-mallar](resource-group-define-dependencies.md).
+För att lösa det här felet när den överordnade resursen redan har distribuerats i en annan mall, kan du inte anger ett beroende. Distribuera underordnat till samma resursgrupp och ange namnet på den överordnade resursen istället.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sqlServerName": {
+            "type": "string"
+        },
+        "databaseName": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2014-04-01",
+            "type": "Microsoft.Sql/servers/databases",
+            "location": "[resourceGroup().location]",
+            "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
+            "properties": {
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "edition": "Basic"
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Mer information finns i [definierar ordningen för att distribuera resurser i Azure Resource Manager-mallar](resource-group-define-dependencies.md).

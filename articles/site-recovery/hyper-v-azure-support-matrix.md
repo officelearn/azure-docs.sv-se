@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/01/2018
 ms.author: raynew
-ms.openlocfilehash: 709afe03570ca4cf81718fb071778439444d6bf6
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3fdaaf4bc671996350b8138fb0f7fc3d7adaf567
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171991"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442776"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Stödmatris för Hyper-V-replikering till Azure
 
@@ -113,7 +113,8 @@ RDM | Ej tillämpligt | Ej tillämpligt
 Disk > 1 TB | Ja, upp till 4095 GB | Ja, upp till 4095 GB
 Disk: 4K logisk och fysisk sektor | Stöds inte: Gen 1/Gen 2 | Stöds inte: Gen 1/Gen 2
 Disk: 4K logisk och fysisk 512 byte-sektor | Ja |  Ja
-Volym med stripe-disk > 1 TB<br/><br/> Hantering av logisk volym (LVM) | Ja | Ja
+Hantering av logisk volym (LVM). LVM stöds på data-diskar. Azure tillhandahåller endast en enda OS-disk. | Ja | Ja
+Volym med stripe-disk > 1 TB | Ja | Ja
 Lagringsutrymmen | Ja | Ja
 Frekvent Lägg till/ta bort disk | Nej | Nej
 Uteslut disk | Ja | Ja

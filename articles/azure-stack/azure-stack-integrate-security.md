@@ -1,6 +1,6 @@
 ---
-title: Integration av Azure Stack datacenter - säkerhet
-description: Lär dig hur du integrerar Azure Stack säkerheten med din datacenter
+title: Integrering med Azure Stack datacenter - säkerhet
+description: Lär dig hur du integrerar Azure Stack-säkerhet med din datacenter
 services: azure-stack
 author: jeffgilb
 manager: femila
@@ -10,87 +10,87 @@ ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 8ce9045a3e4fd12d61e9b1600ee98880762bc544
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f356b814ac1ac6ca8b6d6efe7cb9f5d9ed66270
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29734435"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442483"
 ---
-# <a name="azure-stack-datacenter-integration---security"></a>Integration av Azure Stack datacenter - säkerhet
-Azure-stacken är utformat och skapat med säkerhet i åtanke. Azure stacken är ett system för låst, så Programvaruinstallation security-agenten inte stöds.
+# <a name="azure-stack-datacenter-integration---security"></a>Integrering med Azure Stack datacenter - säkerhet
+Azure Stack utformades och byggdes med säkerhet i åtanke. Azure Stack är en låsning av systemet, så Programvaruinstallation security-agenten inte stöds.
 
-Den här artikeln hjälper dig att integrera Azure Stack säkerhetsfunktioner med säkerhetslösningar som redan har distribuerats i ditt datacenter.
+Den här artikeln hjälper dig att integrera Azure Stack-säkerhetsfunktioner med säkerhetslösningar som redan har distribuerats i ditt datacenter.
 
 ## <a name="security-logs"></a>Säkerhetsloggar
 
-Azure-stacken samlar in operativsystemet och säkerhetshändelser för infrastrukturroller och skala enhet noder varannan minut. Loggfilerna lagras i blob-behållare för storage-konto.
+Azure Stack samlar in operativsystem och säkerhetshändelser för infrastrukturroller och skala enhet noder varannan minut. Loggfilerna lagras i blob-behållare för storage-konto.
 
-Det finns ett lagringskonto per roll för infrastruktur och ett allmänt lagringskonto för alla vanliga operativsystem-händelser.
+Det finns ett lagringskonto per roll för infrastruktur och ett allmänt lagringskonto för vanligt operativsystemhändelser.
 
-Resursprovidern hälsa kan anropas via REST-protokollet för att hämta URL: en till blob-behållare. Säkerhetslösningar från tredje part kan använda API: et och storage-konton för att hämta händelser att bearbeta.
+Resursprovidern hälsotillstånd kan anropas via REST-protokollet för att hämta URL: en till blob-behållaren. Säkerhetslösningar från tredje part kan använda API: et och storage-konton för att hämta händelser för bearbetning.
 
-### <a name="use-azure-storage-explorer-to-view-events"></a>Använda Azure Lagringsutforskaren för att visa händelser
+### <a name="use-azure-storage-explorer-to-view-events"></a>Använda Azure Storage Explorer för att visa händelser
 
-Du kan hämta händelser som samlas in av Azure-stacken med verktyget Azure Lagringsutforskaren. Du kan hämta Azure Lagringsutforskaren från [http://storageexplorer.com](http://storageexplorer.com).
+Du kan hämta händelser som samlas in av Azure Stack med hjälp av verktyget Azure Storage Explorer. Du kan ladda ned Azure Storage Explorer från [ http://storageexplorer.com ](http://storageexplorer.com).
 
-Följande procedur är ett exempel som du kan använda för att konfigurera Azure Lagringsutforskaren för Azure-Stack:
+Följande procedur är ett exempel som du kan använda för att konfigurera Azure Storage Explorer för Azure Stack:
 
-1. Logga in på Azure Stack-administratörsportalen som en operator.
-2. Bläddra **lagringskonton** och leta efter **frphealthaccount**. Den **frphealthaccount** kontot är allmänt storage-konto som används för att lagra alla händelser i operativsystemet.
+1. Logga in på Azure Stack-administratörsportalen som en operatör.
+1. Bläddra **lagringskonton** och leta efter **frphealthaccount**. Den **frphealthaccount** kontot är det allmänna lagringskonto som används för att lagra alla händelser i operativsystemet.
 
    ![Lagringskonton](media/azure-stack-integrate-security/storage-accounts.png)
 
-3. Välj **frphealthaccount**, klicka på **åtkomstnycklar**.
+1. Välj **frphealthaccount**, klicka sedan på **åtkomstnycklar**.
 
    ![Åtkomstnycklar](media/azure-stack-integrate-security/access-keys.png)
 
-4. Kopiera åtkomstnyckeln till Urklipp.
-5. Öppna Utforskaren i Azure Storage.
-6. På den **redigera** väljer du **mål Azure Stack**.
-7. Välj **Lägg till konto**, och välj sedan **använder ett lagringskontonamn och nyckel**.
+1. Kopiera åtkomstnyckeln till Urklipp.
+1. Öppna Azure Storage Explorer.
+1. På den **redigera** menyn och välj **Target Azure Stack**.
+1. Välj **Lägg till konto**, och välj sedan **använder en lagringskontonamnet och nyckeln**.
 
-   ![Anslut lagringsutrymmet](media/azure-stack-integrate-security/connect-storage.png)
+   ![Ansluta storage](media/azure-stack-integrate-security/connect-storage.png)
 
-8. Klicka på **Nästa**.
-9. På den **Anslut extern lagring** sidan:
+1. Klicka på **Nästa**.
+1. På den **Anslut extern lagring** sidan:
 
-   a. Ange kontonamnet **frphealthaccount**.
+   a. Skriv kontonamnet **frphealthaccount**.
 
    b. Klistra in åtkomstnyckeln för lagringskontot.
 
-   c. Under **lagring slutpunkter domän**väljer **andra**, och ange lagring slutpunkten **[Region]. [ Domännamn]**.
+   c. Under **domän för lagringsslutpunkter**väljer **andra**, och anger lagringsslutpunkten **[Region]. [ Domännamn]**.
 
-   d. Välj den **Använd HTTP** kryssrutan.
+   d. Välj den **Använd HTTP** markerar du kryssrutan.
 
    ![Anslut extern lagring](media/azure-stack-integrate-security/attach-storage.png)
 
-10. Klicka på **nästa**, Granska sammanfattningen och **Slutför** i guiden.
-11. Du kan nu bläddra enskilda blob-behållare och hämta händelser.
+1. Klicka på **nästa**, granskar du sammanfattningen och **Slutför** i guiden.
+1. Du kan nu bläddra enskilda blob-behållare och hämta händelser.
 
-   ![Bläddra blobbar](media/azure-stack-integrate-security/browse-blob.png)
+   ![Bläddra efter blobar](media/azure-stack-integrate-security/browse-blob.png)
 
-### <a name="use-programming-languages-to-access-events"></a>Använd programmeringsspråk till händelser
+### <a name="use-programming-languages-to-access-events"></a>Använda programmeringsspråk på åtkomsthändelser
 
-Du kan använda olika programmeringsspråk för att få åtkomst till ett lagringskonto. Använd följande dokumentation om du vill välja ett exempel som matchar ditt språk:
+Du kan använda olika programmeringsspråk för att få åtkomst till ett lagringskonto. Använd följande dokumentation för att välja ett exempel som matchar ditt språk:
 
 [https://azure.microsoft.com/resources/samples/?term=storage+account](https://azure.microsoft.com/resources/samples/?term=storage+account)
 
-## <a name="device-access-auditing"></a>Enheten granskning
+## <a name="device-access-auditing"></a>Enheten åtkomstgranskning
 
-Alla fysiska enheter i Azure-stacken stöder användning av TACACS eller RADIUS. Detta inbegriper tillgång till hanteringsstyrenhet för baskort (BMC) och nätverksväxlar.
+Alla fysiska enheter i Azure Stack stöd för användning av TACACS eller RADIUS. Detta inkluderar åtkomst till hanteringsstyrenheten för baskort (BMC) och nätverksväxlar.
 
-Azure Stack lösningar levereras inte med RADIUS eller TACACS inbyggda. Men har lösningarna validerats för att stödja användning av befintliga RADIUS eller TACACS lösningar som är tillgängliga på marknaden.
+Azure Stack-lösningar levereras inte med RADIUS eller TACACS inbyggda. Lösningarna har har godkänt för att stödja användning av befintliga RADIUS eller TACACS lösningar som är tillgängliga på marknaden.
 
-För RADIUS, har MSCHAPv2 verifierats. Detta representerar den mest säkra implementeringen med RADIUS.
-Kontakta OEM-maskinvaruleverantören att aktivera TACAS eller RADIUS i enheter som ingår i din Azure Stack-lösning.
+För RADIUS, har MSCHAPv2 verifierats. Detta representerar den säkraste implementeringen med RADIUS.
+Kontakta maskinvaruleverantören OEM för att aktivera TACAS eller RADIUS i de enheter som ingår i din Azure Stack-lösning.
 
 ## <a name="syslog"></a>Syslog
 
-Alla fysiska enheter i Azure-stacken kan skicka Syslog-meddelanden. Azure Stack lösningar levereras inte med en Syslog-server. Men har lösningarna validerats för att stödja skicka meddelanden till befintliga Syslog lösningar som är tillgängliga på marknaden.
+Alla fysiska enheter i Azure Stack kan skicka Syslog-meddelanden. Azure Stack-lösningar levereras inte med en Syslog-server. Lösningarna har har godkänt för att stödja skicka meddelanden till befintliga Syslog lösningar som är tillgängliga på marknaden.
 
-Måladress Syslog är en valfri parameter som samlats in för distribution, men det kan också läggas efter distributionen.
+Syslog-måladressen är en valfri parameter som samlats in för distribution, men den kan också läggas till efter distribution.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Behandling av princip](azure-stack-servicing-policy.md)
+[Hanteringsprincip](azure-stack-servicing-policy.md)

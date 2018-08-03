@@ -1,6 +1,6 @@
 ---
-title: Skapa en Programgateway - Azure CLI | Microsoft Docs
-description: Lär dig hur du skapar en Programgateway med Azure CLI.
+title: Skapa en application gateway – Azure CLI | Microsoft Docs
+description: Lär dig hur du skapar en Programgateway med hjälp av Azure CLI.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -12,28 +12,28 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: victorh
-ms.openlocfilehash: 791cc8bca95fc2264b485c23f30e24254067f513
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ebe22f72d25b8f181e75a263df63fd5a0b4a6a6f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201835"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436197"
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>Skapa en Programgateway med hjälp av Azure CLI
 
-Du kan använda Azure CLI för att skapa eller hantera programgatewayer från kommandoraden eller i skript. Den här snabbstarten visar hur du skapar nätverksresurser backend-servrar och en Programgateway.
+Du kan använda Azure CLI för att skapa eller hantera programgatewayer från kommandoraden eller i skript. Den här snabbstarten visar hur du skapar nätverksresurser serverdelsservrar och en Programgateway.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt denna Snabbstart kräver att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resurs med [az gruppen skapa](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. 
+Skapa en resursgrupp med [az group create](/cli/azure/group#az-group-create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. 
 
-I följande exempel skapas en resursgrupp med namnet *myResourceGroupAG* i den *eastus* plats.
+I följande exempel skapas en resursgrupp med namnet *myResourceGroupAG* på platsen *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -41,7 +41,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser 
 
-Skapa virtuella nätverk och undernät med [az network vnet skapa](/cli/azure/vnet#az_vnet_create). Skapa en offentlig IP-adress med hjälp av [az nätverket offentliga IP-skapa](/cli/azure/public-ip#az_public_ip_create).
+Skapa det virtuella nätverket och undernätet med [az network vnet create](/cli/azure/vnet#az-vnet-create). Skapa den offentliga IP-adressen med [az network public-ip create](/cli/azure/public-ip#az-public-ip-create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -63,7 +63,7 @@ az network public-ip create \
 
 ## <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
-I det här exemplet skapar du två virtuella datorer som ska användas som backend-servrar för programgatewayen. Du kan också installera NGINX på de virtuella datorerna för att verifiera att programgatewayen har skapats.
+I det här exemplet skapar du två virtuella datorer som ska användas som serverdelsservrar för programgatewayen. Du kan även installera NGINX på de virtuella datorerna för att verifiera att programgatewayen har skapats.
 
 ### <a name="create-two-virtual-machines"></a>Skapa två virtuella datorer
 
@@ -111,7 +111,7 @@ runcmd:
   - nodejs index.js
 ```
 
-Skapa nätverksgränssnitt med [az nätverket nic skapa](/cli/azure/network/nic#az_network_nic_create). Skapa de virtuella datorerna med [az vm create](/cli/azure/vm#az_vm_create).
+Skapa nätverksgränssnitten med [az network nic create](/cli/azure/network/nic#az-network-nic-create). Skapa de virtuella datorerna med [az vm create](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -133,7 +133,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
-Skapa en gateway som använder [az nätverket Programgateway skapa](/cli/azure/application-gateway#az_application_gateway_create). När du skapar en Programgateway med hjälp av Azure CLI kan ange du konfigurationsinformation, till exempel kapacitet, sku och HTTP-inställningar. Privata IP-adresser för nätverksgränssnitten läggs till som servrar i serverdelspoolen för programgatewayen.
+Skapa en programgateway med [az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create). När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation, till exempel kapacitet, sku och HTTP-inställningar. De privata IP-adresserna för nätverksgränssnitten läggs till som servrar i serverdelspoolen för programgatewayen.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
@@ -151,17 +151,17 @@ az network application-gateway create \
   --servers "$address1" "$address2"
 ```
 
-Det kan ta flera minuter för Programgateway ska skapas. När programgatewayen har skapats kan se du dessa funktioner i den:
+Det kan ta flera minuter att skapa programgatewayen. När programgatewayen har skapats kan se du dessa funktioner i den:
 
-- *appGatewayBackendPool* -en Programgateway måste ha minst en backend-adresspool.
-- *appGatewayBackendHttpSettings* -anger att port 80 och en HTTP-protokollet används för kommunikation.
-- *appGatewayHttpListener* -standard lyssnaren som är associerade med *appGatewayBackendPool*.
-- *appGatewayFrontendIP* -tilldelar *myAGPublicIPAddress* till *appGatewayHttpListener*.
-- *regel 1* - standard routning regel som är associerad med *appGatewayHttpListener*.
+- *appGatewayBackendPool* – en programgateway måste ha minst en serverdelsadresspool.
+- *appGatewayBackendHttpSettings* – anger att port 80 och ett HTTP-protokoll används för kommunikation.
+- *appGatewayHttpListener* – standardlyssnaren som är associerad med *appGatewayBackendPool*.
+- *appGatewayFrontendIP* – tilldelar *myAGPublicIPAddress* till *appGatewayHttpListener*.
+- *regel 1* – standardroutningsregel som är associerad med *appGatewayHttpListener*.
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Offentliga IP-adressen för programgatewayen får använda [az nätverket offentliga ip-visa](/cli/azure/network/public-ip#az_network_public_ip_show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
+Hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -171,11 +171,11 @@ az network public-ip show \
   --output tsv
 ``` 
 
-![Testa Programgateway](./media/application-gateway-create-gateway-cli/application-gateway-nginxtest.png)
+![Testa programgatewayen](./media/application-gateway-create-gateway-cli/application-gateway-nginxtest.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behövs kan du använda den [ta bort grupp az](/cli/azure/group#az_group_delete) kommando för att ta bort resursgruppen, Programgateway och alla relaterade resurser.
+När du inte längre behövs kan du använda den [az group delete](/cli/azure/group#az-group-delete) att ta bort resursgruppen, Programgateway, och alla relaterade resurser.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG
@@ -183,5 +183,5 @@ az group delete --name myResourceGroupAG
  
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du en resursgrupp, nätverksresurser och serverdelsservrar. Du kan sedan använda resurserna för att skapa en Programgateway. Mer information om programgatewayer och deras associerade resurser fortsätter du att artiklarna.
+I den här snabbstarten skapade du en resursgrupp, nätverksresurser och serverdelsservrar. Du använde sedan dessa resurser för att skapa en Programgateway. Om du vill veta mer om application gateway och deras associerade resurser kan du fortsätta i instruktionsartiklarna.
 

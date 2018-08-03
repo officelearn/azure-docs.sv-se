@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9fb2d2ccabf79a95a108d4ecf39a4957fc9ffff4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 2452389605db0654fb9d8dc06d89a8195f9ae372
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113682"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480852"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0-auktoriseringskodflöde
 Du kan använda OAuth 2.0-auktoriseringskod i appar som installerats på en enhet för att få åtkomst till skyddade resurser, till exempel webb API: er. Genom att använda den Azure Active Directory B2C (Azure AD B2C) implementering av OAuth 2.0, du kan lägga till registrering, inloggning och andra Identitetshantering uppgifter till dina appar och program. Den här artikeln är språkoberoende. I artikeln beskrivs hur du skickar och tar emot HTTP-meddelanden utan att använda alla bibliotek med öppen källkod.
 
 <!-- TODO: Need link to libraries -->
 
-OAuth 2.0-auktoriseringskodflödet beskrivs i [avsnitt 4.1 i OAuth 2.0-specifikationen](http://tools.ietf.org/html/rfc6749). Du kan använda för autentisering och auktorisering i de flesta [programtyper](active-directory-b2c-apps.md), inklusive webb- och internt installerade program. Du kan använda OAuth 2.0-auktoriseringskodflödet att på ett säkert sätt hämta åtkomsttoken för din applicationss som kan användas för att komma åt resurser som skyddas av en [auktoriseringsservern](active-directory-b2c-reference-protocols.md).
+OAuth 2.0-auktoriseringskodflödet beskrivs i [avsnitt 4.1 i OAuth 2.0-specifikationen](http://tools.ietf.org/html/rfc6749). Du kan använda för autentisering och auktorisering i de flesta [programtyper](active-directory-b2c-apps.md), inklusive webb- och internt installerade program. Du kan använda OAuth 2.0-auktoriseringskodflödet på ett säkert sätt hämta åtkomsttoken och uppdateringstoken för dina program, som kan användas för att komma åt resurser som skyddas av en [auktoriseringsservern](active-directory-b2c-reference-protocols.md).  Uppdateringstoken gör att klienten kan få nya åtkomst (och uppdatera) token när åtkomsttoken upphör att gälla, vanligtvis efter en timme.
 
 Den här artikeln fokuserar på de **offentliga klienter** OAuth 2.0-auktoriseringskodflödet. En offentlig klient är klientprogram som inte är betrott för att upprätthålla integriteten hos ett hemligt lösenord på ett säkert sätt. Detta inkluderar mobilappar, program och i stort sett alla program som körs på en enhet och behöver få åtkomst-token. 
 

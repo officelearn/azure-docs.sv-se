@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: ebbd6efaa2acccebcfdafa5ccd7c945b588d763b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9ec0b27defdc4c859415e78e1cb6e43f5ed0b208
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046526"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435085"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Självstudier: Azure Active Directory-integration med Mixpanel
 
@@ -52,7 +52,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Mixpanel från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-mixpanel-from-the-gallery"></a>Att lägga till Mixpanel från galleriet
 För att konfigurera integrering av Mixpanel i Azure AD, som du behöver lägga till Mixpanel från galleriet i din lista över hanterade SaaS-appar.
@@ -63,19 +63,19 @@ För att konfigurera integrering av Mixpanel i Azure AD, som du behöver lägga 
 
     ![Active Directory][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Program][3]
 
-4. I sökrutan skriver **Mixpanel**.
+1. I sökrutan skriver **Mixpanel**.
 
     ![Skapa en Azure AD-användare för testning](./media/mixpanel-tutorial/tutorial_mixpanel_search.png)
 
-5. I resultatpanelen väljer **Mixpanel**, och klicka sedan på **Lägg till** för att lägga till programmet.
+1. I resultatpanelen väljer **Mixpanel**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
     ![Skapa en Azure AD-användare för testning](./media/mixpanel-tutorial/tutorial_mixpanel_addfromgallery.png)
 
@@ -89,10 +89,10 @@ I Mixpanel, tilldela värdet för den **användarnamn** i Azure AD som värde f�
 Om du vill konfigurera och testa Azure AD enkel inloggning med Mixpanel, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare i Mixpanel](#creating-a-mixpanel-test-user)**  – du har en motsvarighet för Britta Simon i Mixpanel som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare i Mixpanel](#creating-a-mixpanel-test-user)**  – du har en motsvarighet för Britta Simon i Mixpanel som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -104,11 +104,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Konfigurera enkel inloggning](./media/mixpanel-tutorial/tutorial_mixpanel_samlbase.png)
 
-3. På den **Mixpanel domän och URL: er** avsnittet, utför följande steg:
+1. På den **Mixpanel domän och URL: er** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/mixpanel-tutorial/tutorial_mixpanel_url.png)
 
@@ -117,37 +117,37 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Registrera dig på [ https://mixpanel.com/register/ ](https://mixpanel.com/register/) att ställa in dina inloggningsuppgifter och kontakta den [Mixpanel supportteamet](mailto:support@mixpanel.com) att aktivera SSO-inställningar för din klient. Du kan också få logga på URL-värdet om det behövs från din Mixpanel supportteam. 
  
-4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/mixpanel-tutorial/tutorial_mixpanel_certificate.png) 
 
-5. Klicka på **spara** knappen.
+1. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/mixpanel-tutorial/tutorial_general_400.png)
 
-6. På den **Mixpanel Configuration** klickar du på **konfigurera Mixpanel** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **Mixpanel Configuration** klickar du på **konfigurera Mixpanel** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Konfigurera enkel inloggning](./media/mixpanel-tutorial/tutorial_mixpanel_configure.png) 
 
-7. I ett annat webbläsarfönster inloggning till Mixpanel-programmet som en administratör.
+1. I ett annat webbläsarfönster inloggning till Mixpanel-programmet som en administratör.
 
-8. Längst ned på sidan, klicka på den lilla **kugghjulsikonen** i det vänstra hörnet. 
+1. Längst ned på sidan, klicka på den lilla **kugghjulsikonen** i det vänstra hörnet. 
    
     ![Mixpanel Single Sign-On](./media/mixpanel-tutorial/tutorial_mixpanel_06.png) 
 
-9. Klicka på den **programåtkomst** fliken och klicka sedan på **ändra inställningarna för**.
+1. Klicka på den **programåtkomst** fliken och klicka sedan på **ändra inställningarna för**.
    
     ![Mixpanel inställningar](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
 
-10. På den **ändra certifikatet** dialogrutan sidan, klickar du på **Välj fil** ladda upp nedladdade certifikatet och klicka sedan på **nästa**.
+1. På den **ändra certifikatet** dialogrutan sidan, klickar du på **Välj fil** ladda upp nedladdade certifikatet och klicka sedan på **nästa**.
    
     ![Mixpanel inställningar](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
 
-11.  I URL-textrutan för autentisering på den **ändra autentiserings-URL** dialogrutan klistrar du in värdet för **SAML inloggnings-tjänst-URL för enkel** som du har kopierat från Azure-portalen och klicka sedan på **Nästa**.
+1.  I URL-textrutan för autentisering på den **ändra autentiserings-URL** dialogrutan klistrar du in värdet för **SAML inloggnings-tjänst-URL för enkel** som du har kopierat från Azure-portalen och klicka sedan på **Nästa**.
    
    ![Mixpanel inställningar](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
 
-12. Klicka på **Klar**.
+1. Klicka på **Klar**.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -163,15 +163,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](./media/mixpanel-tutorial/create_aaduser_01.png) 
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
+1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
     ![Skapa en Azure AD-användare för testning](./media/mixpanel-tutorial/create_aaduser_02.png) 
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
     ![Skapa en Azure AD-användare för testning](./media/mixpanel-tutorial/create_aaduser_03.png) 
 
-4. På den **användaren** dialogrutan utför följande steg:
+1. På den **användaren** dialogrutan utför följande steg:
  
     ![Skapa en Azure AD-användare för testning](./media/mixpanel-tutorial/create_aaduser_04.png) 
 
@@ -189,15 +189,15 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 1. Logga in på webbplatsen Mixpanel företag som administratör.
 
-2. Längst ned på sidan klickar du på knappen lite gear i det vänstra hörnet för att öppna den **inställningar** fönster.
+1. Längst ned på sidan klickar du på knappen lite gear i det vänstra hörnet för att öppna den **inställningar** fönster.
 
-3. Klicka på den **Team** fliken.
+1. Klicka på den **Team** fliken.
 
-4. I den **teammedlem** textrutan skriver Brittas e-postadress i Azure.
+1. I den **teammedlem** textrutan skriver Brittas e-postadress i Azure.
    
     ![Mixpanel inställningar](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
 
-5. Klicka på **bjuda in**. 
+1. Klicka på **bjuda in**. 
 
 > [!Note]
 > Användaren får ett e-postmeddelande för att konfigurera profilen.
@@ -214,23 +214,23 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-2. I listan med program väljer **Mixpanel**.
+1. I listan med program väljer **Mixpanel**.
 
     ![Konfigurera enkel inloggning](./media/mixpanel-tutorial/tutorial_mixpanel_app.png) 
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+1. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Tilldela användare][202] 
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Tilldela användare][203]
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
     
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 

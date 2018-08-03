@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: f954bc3be01d7ac1698e21ac3e3f038fe931541d
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: b6547bee13d039dcd34377565eb518eeb6739a38
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325487"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480909"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
@@ -133,7 +133,7 @@ Mer information finns i [tjänstbegränsningar för belastningsutjämnaren](http
 
 En offentlig belastningsutjämnare mappar det offentliga IP-adress och port antalet inkommande trafik till privata IP-adressen och porten numret för den virtuella datorn och vice versa för svarstrafik från den virtuella datorn. Du kan distribuera specifika typer av trafik över flera virtuella datorer eller tjänster genom att tillämpa regler för belastningsutjämning. Exempelvis kan sprida du belastningen på begäran webbtrafik över flera webbservrar.
 
-Följande bild visar en belastningsutjämnad slutpunkt för webbtrafik som delas mellan tre virtuella datorer för den offentliga och privata TCP-porten 80. Dessa tre virtuella datorer finns i en belastningsutjämnad uppsättning.
+Följande bild visar en belastningsutjämnad slutpunkt för webbtrafik som delas mellan tre virtuella datorer för offentliga och TCP-port 80. Dessa tre virtuella datorer finns i en belastningsutjämnad uppsättning.
 
 ![Exempel på offentliga belastningsutjämnare](./media/load-balancer-overview/IC727496.png)
 

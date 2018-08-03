@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Autoskala i Azure
-description: Lär dig att skala din resurs Web App är Cloud Service, virtuell dator eller virtuella datorn i Azure.
+title: Kom igång med automatisk skalning i Azure
+description: Lär dig att skala din resurs Web App, molntjänst, virtuell dator eller virtuell Datorskalning som angetts i Azure.
 author: rajram
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,45 +8,45 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
 ms.component: autoscale
-ms.openlocfilehash: 2781e718e3829c13dcc8cdd998936cfba30d8550
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b303632c236e492bbf57ee60d5e7b0cc7b2f9e5c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263654"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448976"
 ---
-# <a name="get-started-with-autoscale-in-azure"></a>Kom igång med Autoskala i Azure
-Den här artikeln beskriver hur du ställer in Autoskala inställningarna för din resurs i Microsoft Azure-portalen.
+# <a name="get-started-with-autoscale-in-azure"></a>Kom igång med automatisk skalning i Azure
+Den här artikeln beskriver hur du konfigurerar dina inställningar för automatisk skalning för din resurs i Microsoft Azure-portalen.
 
-Azure övervakaren Autoskala gäller bara för virtuella datorer, cloud services, Azure App Service-planer och apptjänstmiljöer. 
+Automatisk skalning i Azure Monitor gäller enbart för skalningsuppsättningar för virtuella datorer, molntjänster, Azure App Service-planer och App Service-miljöer. 
 
-## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Identifiera Autoskala inställningarna i din prenumeration
-Du kan identifiera alla resurser som autoskalning kan tillämpas i Azure-Monitor. Använd följande steg för steg för steg:
+## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Identifiera inställningarna för automatisk skalning i din prenumeration
+Du kan identifiera alla resurser som automatisk skalning gäller i Azure Monitor. Använd följande steg för en stegvis genomgång:
 
 1. Öppna den [Azure-portalen.][1]
-2. Klicka på ikonen Azure i den vänstra rutan.
-  ![Öppna Azure Övervakare][2]
-3. Klicka på **Autoskala** att visa alla resurser som autoskalning kan tillämpas, tillsammans med deras aktuella Autoskala status.
-  ![Identifiera Autoskala i Azure-Monitor][3]
+1. Klicka på ikonen Azure Monitor i den vänstra rutan.
+  ![Öppna Azure Monitor][2]
+1. Klicka på **Autoskala** att visa alla resurser som automatisk skalning är tillämplig, tillsammans med deras aktuella status för automatisk skalning.
+  ![Identifiera automatisk skalning i Azure Monitor][3]
 
-Du kan använda filterfönstret längst upp till scope nedåt i listan välja resurser i en viss resursgrupp, specifika resurstyper eller en viss resurs.
+Du kan använda filterfönstret längst upp till omfånget nedåt i listan för att välja resurser i en specifik resursgrupp, specifika resurstyper eller en specifik resurs.
 
-Du kommer märka aktuella standardinstansantalet och Autoskala status för varje resurs. Autoskala status kan vara:
+För varje resurs hittar du det aktuella instansantalet och status för autoskalning. Status för autoskalning kan vara:
 
-- **Inte konfigurerad**: du har inte aktiverat Autoskala ännu för den här resursen.
-- **Aktiverad**: du har aktiverat Autoskala för den här resursen.
-- **Inaktiverad**: du har inaktiverat Autoskala för den här resursen.
+- **Inte konfigurerad**: du har inte aktiverats Autoskala ännu för den här resursen.
+- **Aktiverad**: du har aktiverat automatisk skalning för den här resursen.
+- **Inaktiverad**: du har inaktiverat automatisk skalning för den här resursen.
 
 ## <a name="create-your-first-autoscale-setting"></a>Skapa din första autoskalningsinställning
 
-Nu ska vi gå via en enkla steg för steg att skapa din första autoskalningsinställning.
+Nu ska vi gå via en enkel stegvis genomgång för att skapa din första autoskalningsinställning.
 
-1. Öppna den **Autoskala** bladet i Azure-Monitor och välj en resurs som du vill skala. (Följande använda en App Service-plan som är associerade med ett webbprogram. Du kan [skapa din första ASP.NET-webbapp i Azure på fem minuter.] [4])
-2. Observera att den aktuella standardinstansantalet är 1. Klicka på **aktivera Autoskala**.
+1. Öppna den **Autoskala** bladet i Azure Monitor och välj en resurs som du vill skala. (Följande använda en App Service-plan som är associerade med en webbapp. Du kan [skapa din första ASP.NET-webbapp i Azure på fem minuter.] [4])
+1. Observera att det aktuella instansantalet är 1. Klicka på **aktivera autoskalning**.
   ![Skalinställningen för ny webbapp][5]
-3. Ange ett namn för inställningen skala och klicka sedan på **lägga till en regel**. Lägg märke till regelalternativ för skalan som öppnas som en kontext rutan till höger. Som standard anger det här alternativet för att skala din instansantalet av 1 om CPU-procent av resursen överskrider 70 procent. Lämna till sina standardvärden och klicka på **Lägg till**.
+1. Ange ett namn för skalinställningen och klicka sedan på **lägga till en regel**. Observera regeln skalningsalternativ som öppnas som en kontext-rutan på höger sida. Som standard anger det här alternativet för att skala din instansantalet med 1 om CPU-procent på resursen överskrider 70 procent. Lämnar det på standardvärdena och klicka på **Lägg till**.
   ![Skapa skalinställningen för en webbapp][6]
-4. Nu har du skapat din första skalningsregeln. Observera att UX rekommenderar metodtips och säger att ”bör ha minst en skala i regeln”. Gör så här:
+1. Nu har du skapat din första skalningsregeln. Observera att UX rekommenderar metodtips och säger att ”rekommenderar vi att du har minst en skala i regeln”. Gör så här:
   
     a. Klicka på **lägga till en regel**. 
 
@@ -54,69 +54,69 @@ Nu ska vi gå via en enkla steg för steg att skapa din första autoskalningsins
 
     c. Ange **tröskelvärdet** till **20**.
 
-    d. Ange **åtgärden** till **minska antalet av**.
+    d. Ange **åtgärden** till **minska antal med**.
 
-   Du bör nu ha en skalinställningen att skala ut/skalar i baserat på CPU-användning.
+   Du bör nu ha en skalinställningen att skalas ut/skalar i baserat på CPU-användning.
    ![Skala baserat på CPU][8]
-5. Klicka på **Spara**.
+1. Klicka på **Spara**.
 
-Grattis! Du har nu skapat din första skalinställningen Autoskala ditt webbprogram baserat på CPU-användning.
+Grattis! Du har nu har skapat din första skalinställningen för automatisk skalning webbappen baserat på CPU-användning.
 
 > [!NOTE] 
-> Samma steg kan användas för att komma igång med en skaluppsättning för virtuell dator eller moln rolltjänst.
+> Samma steg kan användas för att komma igång med en skalningsuppsättning för virtuell dator eller ett molnkluster rollen.
 
-## <a name="other-considerations"></a>Andra överväganden
-### <a name="scale-based-on-a-schedule"></a>Skala enligt ett schema
-Förutom att skala baserat på CPU, kan du ange nivå på olika sätt för särskilda dagar i veckan.
+## <a name="other-considerations"></a>Annat att tänka på
+### <a name="scale-based-on-a-schedule"></a>Skala baserat på ett schema
+Förutom skala baserat på CPU, kan du ange nivå på olika sätt för särskilda dagar i veckan.
 
-1. Klicka på **Lägg till ett villkor för skala**.
-2. Skala-läge och regler är densamma som standard villkor.
-3. Välj **Upprepa särskilda dagar** för schemat.
-4. Välj dagarna och Starttid/Sluttid för när villkoret skala tillämpas.
+1. Klicka på **lägga till en skalningsvillkoret**.
+1. Ställa in Skalningsläge och reglerna är samma som standard-villkor.
+1. Välj **Upprepa specifika dagar** för schemat.
+1. Välj dagarna och Starttid/Sluttid för när skalningsvillkoret tillämpas.
 
-![Skala villkor baserat på schema][9]
-### <a name="scale-differently-on-specific-dates"></a>Skala annorlunda på specifika datum
-Förutom att skala baserat på CPU, kan du ange nivå på olika sätt för specifika datum.
+![Skalningsvillkoret baserat på schema][9]
+### <a name="scale-differently-on-specific-dates"></a>Skala på olika sätt på specifika datum
+Förutom skala baserat på CPU, kan du ange nivå på olika sätt för specifika datum.
 
-1. Klicka på **Lägg till ett villkor för skala**.
-2. Skala-läge och regler är densamma som standard villkor.
-3. Välj **ange start-/ slutdatum** för schemat.
-4. Välj start-/ slutdatum och Starttid/Sluttid för när villkoret skala tillämpas.
+1. Klicka på **lägga till en skalningsvillkoret**.
+1. Ställa in Skalningsläge och reglerna är samma som standard-villkor.
+1. Välj **ange start/slutdatum** för schemat.
+1. Välj start/slut-datum och Starttid/Sluttid för när skalningsvillkoret tillämpas.
 
-![Skala villkor baserat på datum][10]
+![Skalningsvillkoret utifrån datum][10]
 
-### <a name="view-the-scale-history-of-your-resource"></a>Visa historiken skala för din resurs
-När din resurs skalas upp eller ned loggas en händelse i aktivitetsloggen. Du kan visa historiken skala för din resurs för de senaste 24 timmarna genom att växla till den **kör historik** fliken.
+### <a name="view-the-scale-history-of-your-resource"></a>Visa historiken för skala för din resurs
+När din resurs skalas upp eller ned loggas en händelse i aktivitetsloggen. Du kan visa historiken skala för din resurs för de senaste 24 timmarna genom att växla till den **Körningshistorik** fliken.
 
 ![Körningshistorik][11]
 
-Om du vill visa historiken för fullständig skala (för upp till 90 dagar) Välj **Klicka här om du vill se mer information**. Aktivitetsloggen öppnas med Autoskala markerat för din resurs och kategori.
+Om du vill visa fullständig skala historik (för upp till 90 dagar), Välj **Klicka här om du vill se mer information om**. Aktivitetsloggen öppnas med automatisk skalning förvalt för din resurs och kategori.
 
-### <a name="view-the-scale-definition-of-your-resource"></a>Visa skala definition av din resurs
-Autoskala är en Azure Resource Manager-resurs. Du kan visa skala-definition i JSON genom att växla till den **JSON** fliken.
+### <a name="view-the-scale-definition-of-your-resource"></a>Visa skala definitionen av din resurs
+Automatisk skalning är en Azure Resource Manager-resurs. Du kan visa skala definitionen i JSON genom att växla till den **JSON** fliken.
 
 ![Skala definition][12]
 
 Du kan göra ändringar i JSON direkt, om det behövs. Dessa ändringar visas när du har sparat.
 
-### <a name="disable-autoscale-and-manually-scale-your-instances"></a>Inaktivera Autoskala och skala dina instanser manuellt
-Det kan finnas tillfällen när du vill inaktivera din aktuella skalinställningen och skala resursen manuellt.
+### <a name="disable-autoscale-and-manually-scale-your-instances"></a>Inaktivera automatisk skalning och manuellt skala dina instanser
+Det kan finnas tillfällen när du vill inaktivera din aktuella skalinställningen och manuellt skala din resurs.
 
-Klicka på den **inaktivera Autoskala** längst upp.
-![Inaktivera Autoskala][13]
+Klicka på den **inaktivera automatisk skalning** längst upp.
+![Inaktivera automatisk skalning][13]
 
 > [!NOTE] 
-> Det här alternativet inaktiverar konfigurationen. Men kan du få tillgång till den när du har aktiverat Autoskala igen. 
+> Det här alternativet inaktiverar din konfiguration. Men kan du gå tillbaka till den när du har aktiverat automatisk skalning igen. 
 
 Du kan nu ange antalet instanser som du vill skala till manuellt.
 
 ![Ange manuell skala][14]
 
-Du kan alltid gå tillbaka till Autoskala genom att klicka på **aktivera Autoskala** och sedan **spara**.
+Du kan alltid återgå till automatisk skalning genom att klicka på **aktivera autoskalning** och sedan **spara**.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Skapa en aktivitet loggen aviseringen om du vill övervaka alla Autoskala motorn åtgärder för din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [Skapa en aktivitet loggen aviseringen om du vill övervaka alla misslyckade Autoskala skala-/ skalbar åtgärder för din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+- [Skapa en aktivitet Log aviseringen om du vill övervaka alla Autoskala motorn åtgärder för din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Skapa en aktivitet Log aviseringen om du vill övervaka alla misslyckade Autoskala skala-/ skalbar åtgärder på din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 
 <!--Reference-->
 [1]:https://portal.azure.com

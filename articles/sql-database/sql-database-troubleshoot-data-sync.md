@@ -9,12 +9,12 @@ author: allenwux
 ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 2be6d0321db41772116078d5308824fe8e1b64fd
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 2853310df1183a8b32450c5b5c79289b78d1a26d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113907"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422509"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Felsöka problem med SQL Data Sync
 
@@ -61,16 +61,16 @@ Något av följande villkor kan resultera i en synkroniseringsgrupp som fastnat 
 - **Lösning**. Om klientagenten avinstallerats eller på annat sätt saknas:
 
     1. Ta bort agenten XML-filen från installationsmappen för SQL Data Sync, om filen finns.
-    2. Installera agenten på den lokala datorn (det kan vara samma eller en annan dator). Skicka agentnyckeln som genereras i portalen för den agent som visas som offline.
+    1. Installera agenten på den lokala datorn (det kan vara samma eller en annan dator). Skicka agentnyckeln som genereras i portalen för den agent som visas som offline.
 
 - **Orsak**. SQL Data Sync-tjänsten har stoppats.
 
 - **Lösning**. Starta om SQL Data Sync-tjänsten.
 
     1. I den **starta** -menyn, Sök efter **Services**.
-    2. I sökresultaten väljer **Services**.
-    3. Hitta den **SQL Data Sync** service.
-    4. Om status för tjänsten är **stoppad**, högerklicka på tjänstenamnet och välj sedan **starta**.
+    1. I sökresultaten väljer **Services**.
+    1. Hitta den **SQL Data Sync** service.
+    1. Om status för tjänsten är **stoppad**, högerklicka på tjänstenamnet och välj sedan **starta**.
 
 > [!NOTE]
 > Om informationen inte flytta din synkroniseringsgruppen ur tillståndet för bearbetning, kan Microsoft Support återställa statusen för din synkroniseringsgrupp. Ha din grupp synkroniseringsstatus återställa, i den [Azure SQL Database-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted), skapa ett inlägg. I inlägget, inkludera ditt prenumerations-ID och synkronisera grupp-ID för gruppen som ska återställas. En Microsoft Support-tekniker svarar på ditt inlägg och meddelar dig när status har återställts.
@@ -179,14 +179,14 @@ Du upptäcker att agenten inte körs på en dator som är värd för SQL Server.
     b. I sökrutan anger **services.msc**.  
     c. I sökresultaten väljer **Services**.  
     d. I den **Services** och rulla till posten för **SQL Data Sync-agenten**.  
-  2. Högerklicka på **SQL Data Sync-agenten**, och välj sedan **stoppa**.
-  3. Högerklicka på **SQL Data Sync-agenten**, och välj sedan **egenskaper**.
-  4. På **agentegenskaper för SQL Data Sync**väljer den **logga in** fliken.
-  5. I den **lösenord** , ange ditt lösenord.
-  6. I den **Bekräfta lösenord** rutan, ange ditt lösenord igen.
-  7. Tryck på **Tillämpa** och välj sedan **OK**.
-  8. I den **Services** fönstret högerklickar du på den **SQL Data Sync-agenten** tjänsten och klicka sedan på **starta**.
-  9. Stäng den **Services** fönster.
+  1. Högerklicka på **SQL Data Sync-agenten**, och välj sedan **stoppa**.
+  1. Högerklicka på **SQL Data Sync-agenten**, och välj sedan **egenskaper**.
+  1. På **agentegenskaper för SQL Data Sync**väljer den **logga in** fliken.
+  1. I den **lösenord** , ange ditt lösenord.
+  1. I den **Bekräfta lösenord** rutan, ange ditt lösenord igen.
+  1. Tryck på **Tillämpa** och välj sedan **OK**.
+  1. I den **Services** fönstret högerklickar du på den **SQL Data Sync-agenten** tjänsten och klicka sedan på **starta**.
+  1. Stäng den **Services** fönster.
 
 ### <a name="agent-key"></a> Jag kan inte skicka agentnyckeln
 
@@ -212,17 +212,17 @@ När du skapar eller återskapa en nyckel för en agent, som du försöker skick
 - **Lösning**. Om din agent inte fungerar, beror det på att en eller båda av dessa villkor inte uppfylls. Hämta din agenten ska fungera igen:
 
   1. Skapa en ny nyckel.
-  2. Tillämpa den nya nyckeln till agenten.
+  1. Tillämpa den nya nyckeln till agenten.
 
   Tillämpa den nya nyckeln för agenten:
 
   1. I Utforskaren går du till din katalog för agentinstallation. Standardkatalogen för installationen är C:\\programfiler (x86)\\Microsoft SQL Data Sync.
-  2. Dubbelklicka på bin-katalogen.
-  3. Öppna SqlAzureDataSyncAgent-programmet.
-  4. Välj **skicka Agentnyckeln**.
-  5. Klistra in nyckeln från Urklipp i det angivna området.
-  6. Välj **OK**.
-  7. Stäng programmet.
+  1. Dubbelklicka på bin-katalogen.
+  1. Öppna SqlAzureDataSyncAgent-programmet.
+  1. Välj **skicka Agentnyckeln**.
+  1. Klistra in nyckeln från Urklipp i det angivna området.
+  1. Välj **OK**.
+  1. Stäng programmet.
 
 ### <a name="agent-delete"></a> Klientens agent kan inte tas bort från portalen om dess associerade lokal databas inte kan nås
 
@@ -240,12 +240,12 @@ Om en lokal slutpunkt (det vill säga en databas) som har registrerats hos en SQ
 - **Lösning**. Prova följande steg:
 
   1. Avsluta appen.  
-  2. Öppna panelen Component Services.  
+  1. Öppna panelen Component Services.  
     a. I sökrutan i Aktivitetsfältet, ange **services.msc**.  
     b. I sökresultaten dubbelklickar du på **Services**.  
-  3. Stoppa den **SQL Data Sync** service.
-  4. Starta om den **SQL Data Sync** service.  
-  5. Öppna appen.
+  1. Stoppa den **SQL Data Sync** service.
+  1. Starta om den **SQL Data Sync** service.  
+  1. Öppna appen.
 
 ## <a name="setup-and-maintenance-issues"></a>Problem med installation och underhåll
 
@@ -312,9 +312,9 @@ Det går inte att ditt försök att ta bort en synkroniseringsgrupp. Något av f
     e. Om tjänsten körs stoppa den.  
     f. Högerklicka på tjänsten och välj sedan **starta**.  
     g. Kontrollera om databasen fortfarande är registrerad. Om den inte längre är registrerat, är du klar. Annars fortsätter du med nästa steg.
-  2. Öppna agenten klientappen (SqlAzureDataSyncAgent).
-  3. Välj **redigera autentiseringsuppgifter**, och sedan ange autentiseringsuppgifterna för databasen.
-  4. Fortsätt med avregistrering.
+  1. Öppna agenten klientappen (SqlAzureDataSyncAgent).
+  1. Välj **redigera autentiseringsuppgifter**, och sedan ange autentiseringsuppgifterna för databasen.
+  1. Fortsätt med avregistrering.
 
 ### <a name="setup-perms"></a> Jag har inte tillräcklig behörighet för att starta systemtjänster
 
@@ -325,10 +325,10 @@ Det går inte att ditt försök att ta bort en synkroniseringsgrupp. Något av f
 - **Lösning**. Bevilja log-på-as-a-service-autentiseringsuppgifter för användarkontot:
 
   1. Gå till **starta** > **Kontrollpanelen** > **Administrationsverktyg** > **lokal säkerhetsprincip**  >  **Lokal princip** > **användaren Rights Management**.
-  2. Välj **logga in som en tjänst**.
-  3. I den **egenskaper** dialogrutan lägger du till användarkontot.
-  4. Tryck på **Tillämpa** och välj sedan **OK**.
-  5. Stäng alla fönster.
+  1. Välj **logga in som en tjänst**.
+  1. I den **egenskaper** dialogrutan lägger du till användarkontot.
+  1. Tryck på **Tillämpa** och välj sedan **OK**.
+  1. Stäng alla fönster.
 
 ### <a name="setup-date"></a> En databas med statusen ”inaktuell”
 
@@ -339,7 +339,7 @@ Det går inte att ditt försök att ta bort en synkroniseringsgrupp. Något av f
   Om status för en databas är **inaktuella**:
 
   1. Ta bort databasen med en **inaktuella** status från synkroniseringsgruppen.
-  2. Lägga till databasen igen i synkroniseringsgruppen.
+  1. Lägga till databasen igen i synkroniseringsgruppen.
 
   > [!WARNING]
   > Du förlorar alla ändringar som gjorts i den här databasen när den var offline.
@@ -359,8 +359,8 @@ Du kan inte ta bort en synkroniseringsgrupp inom tre minuter efter att avinstall
 - **Lösning**.
 
   1. Ta bort en synkroniseringsgrupp medan de associerade synkroniseringsagenter är online (rekommenderas).
-  2. Om agenten är offline men är installerat, kan du ta den online på den lokala datorn. Vänta tills statusen för agenten ska visas som **Online** i SQL Data Sync-portalen. Ta sedan bort synkroniseringsgruppen.
-  3. Om agenten är offline eftersom det avinstallerades:  
+  1. Om agenten är offline men är installerat, kan du ta den online på den lokala datorn. Vänta tills statusen för agenten ska visas som **Online** i SQL Data Sync-portalen. Ta sedan bort synkroniseringsgruppen.
+  1. Om agenten är offline eftersom det avinstallerades:  
     a.  Ta bort agenten XML-filen från installationsmappen för SQL Data Sync, om filen finns.  
     b.  Installera agenten på den lokala datorn (det kan vara samma eller en annan dator). Skicka agentnyckeln som genereras i portalen för den agent som visas som offline.  
     c. Försök att ta bort synkroniseringsgruppen.

@@ -8,7 +8,7 @@
 #### [Faktureringsalternativ för Azure Marketplace](./billing-options-azure-marketplace.md)  
 #### [Spårning av kundanvändning för Azure-partner](./azure-partner-customer-usage-attribution.md)
 
-### Butiker [Jämföra AppSource och Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
+### [Butiker](./comparing-appsource-azure-marketplace.md)  
 
 ### [Fastställa publiceringsalternativet för lösningen](./determine-your-listing-type.md)  
 
@@ -17,7 +17,8 @@
 #### [Azure-program: lösningsmallar](./marketplace-solution-templates.md)
 #### [Azure-program: hanterade program](./marketplace-managed-apps.md)
 #### [SaaS-appar](./marketplace-saas-applications-technical-publishing-guide.md) 
-#### [Containrar](./marketplace-containers.md)
+#### 
+  [Containrar](./marketplace-containers.md)
 #### [Konsulttjänst](./consulting-services.md)  
 #### [Publiceringsguide för Office 365, Dynamics 365 och Power BI](./appsource-offer-publishing-guide.md)
 #### [Aktivera din utvärderingsversion av Marketplace med Azure Active Directory](./enable-trial-using-azure-ad.md)
@@ -25,6 +26,6 @@
 ### [Låt din verksamhet växa genom marknadsplatsen](./grow-your-business-with-azure-marketplace.md)  
 #### [Önskade lösningar](./preferred-solutions.md) 
 
-### Support [Support för Azure Marketplace och AppSource](./support-azure-marketplace.md)  
+### [Support för Azure Marketplace och AppSource](./support-azure-marketplace.md)  
 
 ## [Partnerportalen i molnet](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  

@@ -211,6 +211,8 @@
           href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
         - name: Konfigurera PTR för SMTP-banderollskontroll
           href: create-ptr-for-smtp-service.md
+        - name: Felsöka checklista för virtuella installationer
+          href: virtual-network-troubleshoot-nva.md
     - name: Klassisk
       items:
         - name: Skapa och hantera ett virtuellt nätverk

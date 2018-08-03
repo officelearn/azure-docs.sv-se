@@ -1,6 +1,6 @@
 ---
-title: Anslut Azure Stack till Azure med hjälp av ExpressRoute
-description: Hur du ansluter virtuella nätverk i Azure-stacken till virtuella nätverk i Azure med hjälp av ExpressRoute.
+title: Ansluta Azure Stack till Azure med ExpressRoute
+description: Lär dig hur du ansluter virtuella nätverk i Azure Stack till virtuella nätverk i Azure med ExpressRoute.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,81 +12,99 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
+ms.date: 06/14/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 544fc1bcc9212fd38938d58447f5050df2a08796
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9322c364832a12e711ee7e1b6ad9722ec82d8468
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29844929"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449974"
 ---
-# <a name="connect-azure-stack-to-azure-using-expressroute"></a>Anslut Azure Stack till Azure med hjälp av ExpressRoute
+# <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Ansluta Azure Stack till Azure med Azure ExpressRoute
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Det finns två sätt att ansluta virtuella nätverk i Azure-stacken till virtuella nätverk i Azure:
-   * **Plats-till-plats**
+Den här artikeln visar hur du ansluter ett virtuellt nätverk för Azure Stack till ett Azure-nätverk via en direkt anslutning till Microsoft Azure ExpressRoute.
 
-     En VPN-anslutning via IPsec (IKE v1 och v2 för IKE). Den här typen av anslutning kräver en VPN-enhet eller RRAS. Mer information finns i [ansluta Azure-stacken till Azure med hjälp av VPN](azure-stack-connect-vpn.md).
-   * **ExpressRoute**
+Du kan använda den här artikeln som en vägledning och använda exemplen för att ställa in samma testmiljön. Eller du kan använda i artikeln som en genomgång som hjälper dig att konfigurera din egen ExpressRoute-miljö.
 
-     En direkt anslutning till Azure från Azure Stack-distribution. ExpressRoute är **inte** en VPN-anslutning via det offentliga Internet. Läs mer om Azure ExpressRoute [ExpressRoute översikt](../expressroute/expressroute-introduction.md).
+## <a name="overview-assumptions-and-prerequisites"></a>Översikt över, förutsättningar och krav
 
-Den här artikeln visar ett exempel som ansluter Azure Stack till Azure via ExpressRoute.
-## <a name="requirements"></a>Krav
-Följande är kraven för att ansluta Azure-stacken och Azure med hjälp av ExpressRoute:
-* En Azure-prenumeration vill skapa en ExpressRoute-krets och Vnet i Azure.
-* En etablerad ExpressRoute-krets via en [anslutning providern](../expressroute/expressroute-locations.md).
-* En router som har ExpressRoute-kretsen anslutna till WAN-portar.
-* LAN-sidan för routern är kopplad till Azure-stacken Multitenant Gateway.
-* Routern måste ha stöd för plats-till-plats VPN-anslutningar mellan sina LAN-gränssnitt och Azure-stacken Multitenant Gateway.
-* Om mer än en klient har lagts till i distributionen av Azure-stacken, måste routern kunna skapa flera VRFs (virtuella Routning och vidarebefordran).
+Azure ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som tillhandahålls av en anslutningsprovider. ExpressRoute är inte en VPN-anslutning via det offentliga Internet.
 
-Följande diagram visar en översikt för nätverk när du har slutfört konfigurationen:
+Läs mer om Azure ExpressRoute, den [översikt över ExpressRoute](../expressroute/expressroute-introduction.md).
 
-![Konceptuellt diagram](media/azure-stack-connect-expressroute/Conceptual.png)
+### <a name="assumptions"></a>Antaganden
 
-**Diagram 1**
+Den här artikeln förutsätter att:
 
-Följande Arkitekturdiagram visar hur flera innehavare ansluta från Azure Stack-infrastrukturen via ExpressRoute-router till Azure i Microsoft edge:
+* Du har kunskaper om Azure.
+* Du har grundläggande kunskaper om Azure Stack.
+* Du har en grundläggande förståelse för nätverk.
 
-![Arkitekturdiagram](media/azure-stack-connect-expressroute/Architecture.png)
+### <a name="prerequisites"></a>Förutsättningar
 
-**Diagram 2**
+För att ansluta Azure Stack och Azure med ExpressRoute, måste du uppfylla följande krav:
 
-Exemplet som visas i den här artikeln använder samma arkitektur för att ansluta till Azure via privata ExpressRoute-peering. Detta görs med hjälp av en plats-till-plats VPN-anslutning från gateway för virtuellt nätverk i Azure-stacken till en ExpressRoute-router. Följande steg i den här artikeln visar hur du skapar en anslutning från slutpunkt till slutpunkt mellan två Vnet från två olika klienter i Azure-stacken till sina respektive Vnet i Azure. Du kan välja att lägga till många Vnet-klient och replikera stegen för varje klient eller använda det här exemplet för att distribuera bara en enskild klient VNet.
+* En etablerad [ExpressRoute-krets](../expressroute/expressroute-circuit-peerings.md) via en [anslutningsleverantör](../expressroute/expressroute-locations.md).
+* En Azure-prenumeration att skapa en ExpressRoute-krets och virtuella nätverk i Azure.
+* En router som måste:
+  * Stöd för plats-till-plats-VPN-anslutningar mellan LAN-gränssnitt och Azure Stack Multitenant Gateway.
+  * Stöd för att skapa flera VRFs (virtuella Routning och vidarebefordran) om det finns fler än en klient i Azure Stack-distributioner.
+* En router som har:
+  * En WAN-port som är anslutna till ExpressRoute-kretsen.
+  * En LAN-port som är anslutna till Azure Stack Multitenant Gateway.
+
+### <a name="expressroute-network-architecture"></a>ExpressRoute nätverksarkitektur
+
+I nästa diagram visas de Azure Stack och Azure-miljöer när du har slutfört konfigurationen av ExpressRoute med exempel i den här artikeln.
+
+*Bild 1. ExpressRoute-nätverket*
+
+![ExpressRoute-nätverket](media/azure-stack-connect-expressroute/Conceptual.png)
+
+Nästa arkitekturdiagrammet visas hur flera innehavare ansluta från Azure Stack-infrastruktur via ExpressRoute-router till Azure på Microsoft edge.
+
+*Figur 2. Anslutningar för flera innehavare*
+
+![Flera innehavare anslutningar med ExpressRoute](media/azure-stack-connect-expressroute/Architecture.png)
+
+I exemplet i den här artikeln används samma arkitektur för flera innehavare som visas i *bild 2* att ansluta Azure Stack till Azure med ExpressRoute privat peering. Med hjälp av en plats-till-plats-VPN-anslutning från den virtuella nätverksgatewayen i Azure Stack till en ExpressRoute-routern är klar.
+
+Stegen i den här artikeln visar hur du skapar en slutpunkt till slutpunkt-anslutning mellan två virtuella nätverk från två olika klienter i Azure Stack allt till motsvarande virtuella nätverk i Azure. Ställa in två klienter är valfri, du kan också använda de här stegen för en enda klient.
 
 ## <a name="configure-azure-stack"></a>Konfigurera Azure Stack
-Nu kan du skapa resurser måste du ställa in din Azure Stack-miljö som en klient. Följande steg visar vad du behöver göra. Dessa instruktioner visar hur du skapar resurser med hjälp av Azure Stack-portalen, men du kan också använda PowerShell.
 
-![Nätverket resurs steg](media/azure-stack-connect-expressroute/image2.png)
+Om du vill konfigurera Azure Stack-miljön för den första klienten använder du stegen i följande diagram som vägledning. Upprepa dessa steg om du lägger upp fler än en klient.
+
+>[!NOTE]
+>De här stegen visar hur du skapar resurser med hjälp av Azure Stack-portalen, men du kan också använda PowerShell.
+
+![Konfigurationen av Azure Stack-nätverk](media/azure-stack-connect-expressroute/image2.png)
+
 ### <a name="before-you-begin"></a>Innan du börjar
-Innan du börjar konfigurationen måste du:
-* En Azure-Stack-distribution.
 
-   Information om hur du distribuerar Azure Stack Development Kit finns [Azure Stack Development Kit distribution quickstart](azure-stack-deploy-overview.md).
-* Ett erbjudande på Azure-stacken som dina användare kan prenumerera på.
+Innan du börjar konfigurera Azure Stack, behöver du:
 
-  Instruktioner finns i [tillgängliggöra virtuella datorer till Azure-stacken användarna](azure-stack-tutorial-tenant-vm.md).
+* En distribution för integrerade Azure Stack-system eller en distribution för Azure Stack Development Kit (ASDK). Information om hur du distribuerar ASDK finns i den [Snabbstart för utveckling med Azure Stack Development Kit](azure-stack-deploy-overview.md).
+* Ett erbjudande i Azure Stack som dina användare kan prenumerera. Mer information finns i [planer, erbjudanden och prenumerationer](azure-stack-plan-offer-quota-overview.md).
 
-### <a name="create-network-resources-in-azure-stack"></a>Skapa nätverksresurser i Azure-stacken
+### <a name="create-network-resources-in-azure-stack"></a>Skapa nätverksresurser i Azure Stack
 
-Använd följande procedurer för att skapa de nödvändiga nätverksresurserna i Azure-stacken för varje klient:
+Använd följande procedurer för att skapa de nödvändiga nätverksresurserna i Azure Stack för en klient.
 
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>Skapa ett undernät för det virtuella nätverket och den virtuella datorn
+
 1. Logga in på användarportalen med ett användarkonto (klient).
+1. I portalen, väljer **New**.
 
-2. I portalen klickar du på **ny**.
+1. Under **Azure Marketplace**väljer **nätverk**.
 
-   ![](media/azure-stack-connect-expressroute/MAS-new.png)
+1. Under **aktuell**väljer **virtuellt nätverk**.
 
-3. Välj **Nätverk** på menyn Marketplace.
-
-4. Klicka på **Virtuellt nätverk** på menyn.
-
-5. Skriv värden till relevanta fält med hjälp av följande tabell:
+1. Under **skapa virtuellt nätverk**, ange de värden som visas i följande tabell i lämpliga fält.
 
    |Fält  |Värde  |
    |---------|---------|
@@ -95,104 +113,128 @@ Använd följande procedurer för att skapa de nödvändiga nätverksresurserna 
    |Namn på undernät     |Tenant1 Ab1|
    |Adressintervall för undernätet     |10.1.1.0/24|
 
-6. Du bör se prenumerationen du skapade tidigare i fältet **Prenumeration**.
+1. Du bör se prenumerationen du skapade tidigare i fältet **Prenumeration**. För återstående fält:
 
-    a. För resursgrupp, kan du antingen skapa en resursgrupp eller om du redan har en, Välj **använda befintliga**.
-
-    b. Verifiera den förvalda platsen.
-
-    c. Klicka på **fäst på instrumentpanelen**.
-
-    d. Klicka på **Skapa**.
-
-
+    * Under **resursgrupp**väljer **Skapa nytt** att skapa en ny resurs grupp eller om du redan har en, Välj **Använd befintlig**.
+    * Verifiera förvalet **plats**.
+    * Välj **Skapa**.
+    * (Valfritt) Välj **fäst på instrumentpanelen**.
 
 #### <a name="create-the-gateway-subnet"></a>Skapa gateway-undernätet
-1. Öppna resursen virtuella nätverk som du skapade (Tenant1VNet1) från instrumentpanelen.
-2. Välj på avsnittet inställningar **undernät**.
-3. Klicka på **Gateway Subnet** (Gateway-undernät) för att lägga till ett gateway-undernät till det virtuella nätverket.
-   
-    ![](media/azure-stack-connect-expressroute/gatewaysubnet.png)
-4. Namnet på undernätet ställs in på **GatewaySubnet** som standard.
-   Gatewayundernät är speciella och måste ha det här specifika namnet för att fungera ordentligt.
-5. I den **adressintervall** fältet, kontrollera att adressen är **10.1.0.0/24**.
-6. Klicka på **OK** att skapa gateway-undernätet.
+
+1. Under **virtuellt nätverk**, Välj Tenant1VNet1.
+1. Under **INSTÄLLNINGAR** väljer du **Undernät**.
+1. Välj **+ Gateway-undernät** att lägga till ett gateway-undernät till det virtuella nätverket.
+1. Namnet på undernätet ställs in på **GatewaySubnet** som standard. Gateway-undernät är ett specialfall och måste använda det här namnet ska fungera korrekt.
+1. Kontrollera att den **adressintervall** är **10.1.0.0/24**.
+1. Välj **OK** att skapa gateway-undernätet.
 
 #### <a name="create-the-virtual-network-gateway"></a>Skapa den virtuella nätverksgatewayen
-1. Klicka på användarportalen Azure Stack **ny**.
-   
-2. Välj **Nätverk** på menyn Marketplace.
-3. Välj **Virtuell nätverksgateway** från listan med nätverksresurser.
-4. I fältet **Namn** skriver du **GW1**.
-5. Klicka på **Virtuellt nätverk** för att välja ett virtuellt nätverk.
-   Välj **Tenant1VNet1** från listan.
-6. Klicka på menyposten **Offentlig IP-adress**. När den **Välj offentlig IP-adress** avsnittet öppnas klickar du på **Skapa nytt**.
-7. I fältet **Namn** skriver du **GW1-PiP** och klickar på **OK**.
-8. **VPN-typen**  ska ha **Routningsbaserad** valt som standard.
-    Behåll den inställningen.
-9. Verifiera att **Prenumeration** och **Plats** stämmer. Du kan fästa på instrumentpanelen till resursen om du vill. Klicka på **Skapa**.
+
+1. Välj i användarportalen för Azure Stack **New**.
+1. Under **Azure Marketplace**väljer **nätverk**.
+1. Välj **Virtuell nätverksgateway** från listan med nätverksresurser.
+1. I den **namn** anger **GW1**.
+1. Välj **virtuellt nätverk**.
+1. Välj **Tenant1VNet1** från den nedrullningsbara listan.
+1. Välj **offentliga IP-adressen**>**Välj offentlig IP-adress**, och välj sedan **Skapa ny**.
+1. I den **namn** anger **GW1-PiP** och välj **OK**.
+1. **VPN-typen**  ska ha **Routningsbaserad** valt som standard. Behåll den inställningen.
+1. Verifiera att **Prenumeration** och **Plats** stämmer. Välj **Skapa**.
 
 #### <a name="create-the-local-network-gateway"></a>Skapa den lokala nätverksgatewayen
 
-Syftet med den lokala gateway nätverksresursen är att ange fjärrgatewayen i slutet av VPN-anslutningen. I det här exemplet är fjärrparten LAN undergränssnittet för ExpressRoute-routern. Klient 1 i det här exemplet är fjärradressen 10.60.3.255 som visas i Diagram 2.
+Lokala gateway-resurs identifierar en fjärrgateway i den andra änden av VPN-anslutningen. I det här exemplet är fjärransluten änden av anslutningen LAN-undergränssnittet för ExpressRoute-routern. För klient 1, som visas i *bild 2*, fjärradressen är 10.60.3.255.
 
-1. Logga in på den fysiska Azure Stack-datorn.
-2. Logga in på användarportalen med ditt användarkonto och klicka på **ny**.
-3. Välj **Nätverk** på menyn Marketplace.
-4. Välj **lokal nätverksgateway** från listan med resurser.
-5. I den **namn** fälttyp **ER-Router-GW**.
-6. För den **IP-adress** fältet finns för Diagram 2. IP-adressen för routern ExpressRoute LAN subinterface för klient-1 är 10.60.3.255. Ange IP-adressen för routern motsvarande gränssnitt för din egen miljö.
-7. I den **adressutrymme** anger adressutrymmet för Vnet som du vill ansluta till i Azure. Det här exemplet finns Diagram 2. För klient-1, Lägg märke till att de nödvändiga undernäten **192.168.2.0/24** (detta är Hub Vnet i Azure) och **10.100.0.0/16** (detta är pinnar VNet i Azure). Ange motsvarande undernät för din egen miljö.
+1. Logga in på användarportalen för Azure Stack med ditt konto och välj **New**.
+1. Under **Azure Marketplace**väljer **nätverk**.
+1. Välj **lokal nätverksgateway** från listan med resurser.
+1. I den **namn** anger **ER-Router-GW**.
+1. För den **IP-adress** fältet, referera till *bild 2*. IP-adressen för routern ExpressRoute LAN undergränssnittet för klient 1 är 10.60.3.255. Ange IP-adressen för motsvarande din router-gränssnitt för din egen miljö.
+1. I den **adressutrymme** fältet, anger du adressutrymmet för de virtuella nätverken som du vill ansluta till i Azure. Undernät för klient 1 i *bild 2* är:
+
+   * 192.168.2.0/24 är det virtuella hubbnätverket i Azure.
+   * 10.100.0.0/16 är eker virtuellt nätverk i Azure.
+
    > [!IMPORTANT]
-   > Det här exemplet förutsätter att du använder statiska vägar för plats-till-plats VPN-anslutning mellan Azure Stack-gateway och ExpressRoute-router.
+   > Det här exemplet förutsätts att du använder statiska vägar för plats-till-plats VPN-anslutning mellan Azure Stack-gateway och ExpressRoute-router.
 
-8. Kontrollera att din **prenumeration**, **resursgruppen**, och **plats** är korrekta och klicka på **skapa**.
+1. Kontrollera att din **prenumeration**, **resursgrupp**, och **plats** är korrekta. Välj **Skapa**.
 
 #### <a name="create-the-connection"></a>Skapa anslutningen
-1. Klicka på användarportalen Azure Stack **ny**.
-2. Välj **Nätverk** på menyn Marketplace.
-3. Välj **Anslutning** i listan över resurser.
-4. I den **grunderna** inställningar, väljer **plats-till-plats (IPSec)** som den **anslutningstypen**.
-5. Välj den **prenumeration**, **resursgruppen**, och **plats** och på **OK**.
-6. I den **inställningar** klickar du på **virtuell nätverksgateway** klickar du på **GW1**.
-7. Klicka på **lokal nätverksgateway**, och klicka på **ER Router GW**.
-8. I den **anslutningsnamn** anger **ConnectToAzure**.
-9. I den **delad nyckel (PSK)** anger **abc123** och på **OK**.
-10. På den **sammanfattning** klickar du på **OK**.
 
-    När anslutningen har skapats kan se du den offentliga IP-adressen som används av den virtuella nätverksgatewayen. Om du vill hitta adressen i Azure Stack-portalen, bläddra till din virtuella nätverksgateway. I **översikt**, hitta den **offentliga IP-adressen**. Observera att den här adressen; Du kommer att använda den som den *interna IP-adressen* i nästa avsnitt (om tillämpligt för din distribution).
+1. Välj i användarportalen för Azure Stack **New**.
+1. Under **Azure Marketplace**väljer **nätverk**.
+1. Välj **Anslutning** i listan över resurser.
+1. Under **grunderna**, Välj **plats-till-plats (IPSec)** som den **anslutningstypen**.
+1. Välj den **prenumeration**, **resursgrupp**, och **plats**. Välj **OK**.
+1. Under **inställningar**väljer **virtuell nätverksgateway**, och välj sedan **GW1**.
+1. Välj **lokal nätverksgateway**, och välj sedan **ER Router GW**.
+1. I den **anslutningsnamn** anger **ConnectToAzure**.
+1. I den **delad nyckel (PSK)** anger **abc123** och välj sedan **OK**.
+1. Under **sammanfattning**väljer **OK**.
 
-    ![](media/azure-stack-connect-expressroute/GWPublicIP.png)
+**Hämta virtuella nätverk gatewayens offentliga IP-adress**
+
+Du kan hämta gatewayens offentliga IP-adressen när du har skapat den virtuella nätverksgatewayen. Anteckna den här adressen om du behöver den senare för din distribution. Beroende på din distribution, den här adressen används som den ***interna IP-adress***.
+
+1. Välj i användarportalen för Azure Stack **alla resurser**.
+1. Under **alla resurser**, Välj den virtuella nätverksgatewayen, vilket är **GW1** i det här exemplet.
+1. Under **virtuell nätverksgateway**väljer **översikt**. i listan över resurser. Du kan även välja **egenskaper**.
+1. IP-adressen som du vill Observera anges under **offentliga IP-adressen**. Den här adressen är 192.68.102.1 för exempel-konfigurationen.
 
 #### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
-För att validera data som överförs via VPN-anslutningen måste virtuella datorer för att skicka och ta emot data i Azure-stacken virtuella nätverk. Skapa en virtuell dator nu och placera den i ditt Virtuella undernät i det virtuella nätverket.
 
-1. Klicka på användarportalen Azure Stack **ny**.
-2. Välj **virtuella datorer** på Marketplace-menyn.
-3. I listan över virtuella datoravbildningar, väljer du den **Windows Server 2016 Datacenter Eval** bild och klicka på **skapa**.
-4. På den **grunderna** avsnitt i den **namn** fälttyp **VM01**.
-5. Skriv ett giltigt användarnamn och lösenord. Du kommer att använda det här kontot för att logga in på den virtuella datorn när den har skapats.
-6. Ange en **prenumeration**, **resursgruppen**, och **plats** och klicka sedan på **OK**.
-7. På den **storlek** , på en virtuell datorstorlek för den här instansen och klicka sedan på **Välj**.
-8. På den **inställningar** avsnitt, du kan acceptera standardinställningarna. Men se till att det virtuella nätverket som valts är **Tenant1VNet1** och undernätet är inställd på **10.1.1.0/24**. Klicka på **OK**.
-9. Granska inställningarna på den **sammanfattning** avsnittet och klicka på **OK**.
+Testa trafik via VPN-anslutningen, behöver du virtuella datorer för att skicka och ta emot data i Azure Stack virtuella nätverk. Skapa en virtuell dator och distribuera den till VM-undernät för det virtuella nätverket.
 
-Upprepa föregående steg från för varje klient VNet som du vill ansluta **skapa virtuella nätverk och Virtuellt datornät** via **skapa en virtuell dator** avsnitt.
+1. Välj i användarportalen för Azure Stack **New**.
+1. Under **Azure Marketplace**väljer **Compute**.
+1. I listan över avbildningar av virtuella datorer, väljer du den **Windows Server 2016 Datacenter utvärdering** bild.
 
-### <a name="configure-the-nat-virtual-machine-for-gateway-traversal"></a>Konfigurera NAT virtuell dator för gateway-traversal
+   >[!NOTE]
+   >Om den avbildning som användes i den här artikeln är inte tillgängligt, kan du be Azure Stack-operatör att ange en annan Windows Server-avbildning.
+
+1. I **Skapa virtuell dator**>**grunderna**, ange **VM01** som den **namn**.
+1. Ange ett giltigt användarnamn och lösenord. Det här kontot ska du använda för att logga in på den virtuella datorn när den har skapats.
+1. Ange en **prenumeration**, **resursgrupp**, och en **plats**. Välj **OK**.
+1. Under **väljer du en storlek**, välja en VM-storlek för den här instansen och välj sedan **Välj**.
+1. Under **inställningar**, bekräftar du att:
+
+   * Det virtuella nätverket är **Tenant1VNet1**.
+   * Att undernätet är inställt på **10.1.1.0/24**.
+
+   Använd standardinställningarna och välj **OK**.
+
+1. Under **sammanfattning**granskar VM-konfigurationen och välj sedan **OK**.
+
+>[!NOTE]
+>
+>Upprepa steg som i följande avsnitt för att lägga till fler klienter:
+>
+>* Skapa ett undernät för det virtuella nätverket och den virtuella datorn
+>* Skapa gateway-undernätet
+>* Skapa den virtuella nätverksgatewayen
+>* Skapa den lokala nätverksgatewayen
+>* Skapa anslutningen
+>* Skapa en virtuell dator
+>
+>Om du planerar att använda klient 2 som exempel, Kom ihåg att ändra IP-adresser för att undvika överlappningar.
+
+### <a name="configure-the-nat-virtual-machine-for-gateway-traversal"></a>Konfigurera den virtuella datorn i NAT för gatewayöverträdelse
+
 > [!IMPORTANT]
-> Det här avsnittet avser endast Azure-stacken Development Kit-distributioner. NAT behövs inte för distributioner med flera noder.
+> Det här avsnittet avser endast Azure Stack Development Kit-distributioner. NAT behövs inte för distributioner med flera noder.
 
-Azure-stacken Development Kit är fristående och isolerade från ett nätverk som är distribuerad på den fysiska värden. Är inte extern så ”externa” VIP-nätverk som gateway är ansluten till, men i stället döljs bakom en router som gör NAT (Network Address Translation).
- 
-Routern är en virtuell dator med Windows Server (**AzS BGPNAT01**) kör rollen Routning och fjärråtkomsttjänster (RRAS) i Azure-stacken Development Kit-infrastruktur. Du måste konfigurera NAT på den virtuella datorn i AzS BGPNAT01 att plats-till-plats VPN-anslutningen att ansluta på båda ändarna.
+Azure Stack Development Kit är fristående och isolerad från nätverket där den fysiska värden har distribuerats. VIP-nätverket som gatewayerna är anslutna till inte externt, det är dolt bakom en router som utför NAT (Network adress Translation).
+
+Routern är en Windows Server-dator (AzS-BGPNAT01) som kör rollen Routing och Remote Access Services (RRAS). Du måste konfigurera NAT på den virtuella datorn i AzS-BGPNAT01 ska aktivera VPN-anslutningen för plats-till-plats att ansluta i båda ändar.
 
 #### <a name="configure-the-nat"></a>Konfigurera NAT
 
-1. Logga in på den fysiska datorn med Azure-stacken med ditt administratörskonto.
-2. Kopiera och redigera följande PowerShell-skript och köra i en upphöjd Windows PowerShell ISE. Ersätt ditt administratörslösenord. Adressen som returnerades är din *externa BGPNAT adress*.
+1. Logga in på Azure Stack-värddatorn med ditt administratörskonto.
+1. Kopiera och redigera följande PowerShell-skript.  Ersätt `"<your administrator password>"` med administratörslösenordet och kör skriptet i en upphöjd PowerShell ISE. Det här skriptet returnerar din *externa BGPNAT adress*.
 
-   ```
+   ```PowerShell
    cd \AzureStack-Tools-master\connect
    Import-Module .\AzureStack.Connect.psm1
    $Password = ConvertTo-SecureString "<your administrator password>" `
@@ -201,12 +243,17 @@ Routern är en virtuell dator med Windows Server (**AzS BGPNAT01**) kör rollen 
    Get-AzureStackNatServerAddress `
     -HostComputer "azs-bgpnat01" `
     -Password $Password
-   ```
-4. För att konfigurera NAT, kopiera och redigera följande PowerShell-skript och köra i en upphöjd Windows PowerShell ISE. Redigera skriptet för att ersätta den *externa BGPNAT adress* och *interna IP-adress* (som du antecknade tidigare i den **skapa anslutningen** avsnitt).
-
-   Exempel-diagram i *externa BGPNAT adress* är 10.10.0.62 och *interna IP-adress* är 192.168.102.1.
 
    ```
+
+1. Om du vill konfigurera NAT, kopiera och redigera följande PowerShell-skript. Redigera skriptet för att ersätta den `'<External BGPNAT address>'` och `'<Internal IP address>'` med följande exempelvärden:
+
+   * För *externa BGPNAT adress* använder 10.10.0.62
+   * För *interna IP-adress* använder 192.168.102.1
+
+   Kör följande skript från en upphöjd PowerShell ISE:
+
+   ```PowerShell
    $ExtBgpNat = '<External BGPNAT address>'
    $IntBgpNat = '<Internal IP address>'
 
@@ -225,8 +272,7 @@ Routern är en virtuell dator med Windows Server (**AzS BGPNAT01**) kör rollen 
       -IPAddress $Using:ExtBgpNat `
       -PortStart 4499 `
       -PortEnd 4501}
-   # create a static NAT mapping to map the external address to the Gateway
-   # Public IP Address to map the ISAKMP port 500 for PHASE 1 of the IPSEC tunnel
+   # Create a static NAT mapping to map the external address to the Gateway public IP address to map the ISAKMP port 500 for PHASE 1 of the IPSEC tunnel.
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatStaticMapping `
@@ -236,8 +282,7 @@ Routern är en virtuell dator med Windows Server (**AzS BGPNAT01**) kör rollen 
       -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 500 `
       -InternalPort 500}
-   # Finally, configure NAT traversal which uses port 4500 to
-   # successfully establish the complete IPSEC tunnel over NAT devices
+   # Configure NAT traversal which uses port 4500 to  establish the complete IPSEC tunnel over NAT devices.
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatStaticMapping `
@@ -247,73 +292,85 @@ Routern är en virtuell dator med Windows Server (**AzS BGPNAT01**) kör rollen 
       -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
       -InternalPort 4500}
+
    ```
 
 ## <a name="configure-azure"></a>Konfigurera Azure
-Nu när du har slutfört konfigurationen av Azure-stacken, kan du distribuera en Azure-resurser. Följande diagram visar en exempel-klient virtuellt nätverk i Azure. Du kan använda alla namn och adresseringsschema för din VNet i Azure. Adressintervall Vnet i Azure och Azure-stacken måste dock vara unika och inte överlappa varandra.
 
-![Azure Vnet](media/azure-stack-connect-expressroute/AzureArchitecture.png)
+När du har konfigurerat Azure Stack, kan du distribuera Azure-resurser. Följande diagram visar ett exempel på ett virtuellt klientnätverk i Azure. Du kan använda alla namn och adresseringsschema för ditt virtuella nätverk i Azure. Adressintervallet för de virtuella nätverken i Azure och Azure Stack måste dock vara unika och inte överlappar.
 
-**Diagram 3**
+*Bild 3. Virtuella Azure-nätverk*
 
-De resurser som du distribuerar i Azure liknar de resurser som du distribuerade i Azure-stacken. På liknande sätt kan distribuera du:
+![Virtuella Azure-nätverk](media/azure-stack-connect-expressroute/AzureArchitecture.png)
+
+De resurser som du distribuerar i Azure liknar de resurser som du distribuerade i Azure Stack. Du ska distribuera följande komponenter:
+
 * Virtuella nätverk och undernät
 * Ett gateway-undernät
 * En virtuell nätverksgateway
 * En anslutning
 * En ExpressRoute-krets
 
-Exemplet Azure nätverksinfrastrukturen konfigureras på följande sätt:
-* En standard nav (192.168.2.0/24) och ekrar (10.100.0.0./16) VNet modellen används.
-* Arbetsbelastningarna som har distribuerats i ekrar Vnet och ExpressRoute-kretsen är ansluten till hubben virtuella nätverk.
-* Två Vnet länkas med hjälp av funktionen VNet-peering.
+Exemplet Azure nätverksinfrastrukturen är konfigurerad på följande sätt:
 
-### <a name="configure-vnets"></a>Konfigurera Vnet
+* En standard hub (192.168.2.0/24) och eker (10.100.0.0./16) VNet-modellen. Mer information om en hub-spoke för nätverk finns i [implementerar en hub-spoke för nätverk i Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+* Arbetsbelastningarna som distribueras i eker virtuellt nätverk och ExpressRoute-kretsen är ansluten till det virtuella hubbnätverket.
+* De två virtuella nätverken är anslutna med VNet-peering.
+
+### <a name="configure-the-azure-vnets"></a>Konfigurera den virtuella Azure-nätverken
+
 1. Logga in på Azure-portalen med dina autentiseringsuppgifter för Azure.
-2. Skapa hubben VNet med 192.168.2.0/24-adressutrymme. Skapa ett undernät med 192.168.2.0/25 adressintervallet och Lägg till en gateway-undernätet med 192.168.2.128/27 adressintervallet.
-3. Skapa ekrar VNet och undernät med hjälp av 10.100.0.0/16-adressintervall.
+1. Skapa det virtuella hubbnätverket med 192.168.2.0/24-adressintervall.
+1. Skapa ett undernät med 192.168.2.0/25-adressintervall och Lägg till en gateway-undernät med 192.168.2.128/27 adressintervallet.
+1. Skapa ekern VNet och undernät med hjälp av 10.100.0.0/16 adressintervall.
 
-
-Mer information om hur du skapar virtuella nätverk i Azure finns [skapa ett virtuellt nätverk](../virtual-network/manage-virtual-network.md#create-a-virtual-network).
+Mer information om hur du skapar virtuella nätverk i Azure finns i [skapa ett virtuellt nätverk](../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
 ### <a name="configure-an-expressroute-circuit"></a>Konfigurera en ExpressRoute-krets
 
-1. Granska ExpressRoute-krav i [ExpressRoute krav & checklista](../expressroute/expressroute-prerequisites.md).
-2. Följ stegen i [skapa och ändra en ExpressRoute-krets](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) att skapa en ExpressRoute-krets med din Azure-prenumeration.
-3. Dela nyckeln för tjänsten från föregående steg med hoster-leverantören att etablera ExpressRoute-krets sina slutet.
-4. Följ stegen i [skapa och ändra peering för en ExpressRoute-krets](../expressroute/expressroute-howto-routing-portal-resource-manager.md) Konfigurera privat peering i ExpressRoute-kretsen.
+1. Gå igenom kraven för ExpressRoute i [ExpressRoute-krav och checklista](../expressroute/expressroute-prerequisites.md).
+
+1. Följ stegen i [skapa och ändra en ExpressRoute-krets](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) att skapa en ExpressRoute-krets med hjälp av din Azure-prenumeration.
+
+   >[!NOTE]
+   >Ge tjänstnyckeln för din krets till din tjänst så att de kan konfigurera ExpressRoute-kretsen sina slutet.
+
+1. Följ stegen i [skapa och ändra peering för en ExpressRoute-krets](../expressroute/expressroute-howto-routing-portal-resource-manager.md) att konfigurera privat peering i ExpressRoute-kretsen.
 
 ### <a name="create-the-virtual-network-gateway"></a>Skapa den virtuella nätverksgatewayen
 
-* Följ stegen i [konfigurera en virtuell nätverksgateway för ExpressRoute med hjälp av PowerShell](../expressroute/expressroute-howto-add-gateway-resource-manager.md) att skapa en virtuell nätverksgateway expressroute i hubben virtuella nätverk.
+Följ stegen i [konfigurera en virtuell nätverksgateway för ExpressRoute med PowerShell](../expressroute/expressroute-howto-add-gateway-resource-manager.md) skapar en virtuell nätverksgateway för ExpressRoute i det virtuella hubbnätverket.
 
 ### <a name="create-the-connection"></a>Skapa anslutningen
 
-* Om du vill länka ExpressRoute-kretsen till hubben VNet, följer du stegen i [ansluta ett virtuellt nätverk till en ExpressRoute-krets](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
+Om du vill länka ExpressRoute-kretsen till det virtuella hubbnätverket, följer du stegen i [ansluta ett virtuellt nätverk till en ExpressRoute-krets](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
 
-### <a name="peer-the-vnets"></a>Peer-till Vnet
+### <a name="peer-the-vnets"></a>Peer-koppla virtuella nätverk
 
-* Peer-NAV- och pinnar Vnet med hjälp av stegen i [skapa ett virtuellt nätverk peering med Azure-portalen](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md). När du konfigurerar VNet-peering, se till att du väljer du följande alternativ:
-   * Från NAV och ekrar: **Tillåt gateway överföring**
-   * Från ekrar till hubben: **Använd fjärr-gateway**
+Peer-NAV och ekrar virtuella nätverk med stegen i [skapa vnet-peering med hjälp av Azure portal](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md). När du konfigurerar VNet-peering kan du kontrollera att du använder du följande alternativ:
+
+* Från hubben till ekern **Tillåt gatewayöverföring**.
+* Från eker till hubb, **Använd fjärrgateway**.
 
 ### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-* Distribuera din arbetsbelastning virtuella datorer i ekrar virtuella nätverk.
+Distribuera dina virtuella datorer för arbetsbelastningen i virtuellt ekernätverk.
 
-Upprepa dessa steg för varje ytterligare klient Vnet som du vill ansluta i Azure via sina respektive ExpressRoute-kretsar.
+Upprepa dessa steg för alla ytterligare klient virtuella nätverk som du vill ansluta i Azure via sina respektive ExpressRoute-kretsar.
 
 ## <a name="configure-the-router"></a>Konfigurera routern
 
-Du kan använda följande infrastrukturdiagram för slutpunkt till slutpunkt-för att styra konfigurationen av ExpressRoute-Router. Det här diagrammet visar två klienter (klient 1 och 2 för klient) med deras respektive Expressroute-kretsar. Varje är kopplad till sina egna VRF (virtuella Routning och vidarebefordran) i ExpressRoute-router för att säkra isolering av slutpunkt till slutpunkt mellan två klienter LAN och WAN sida. Observera de IP-adresser som används i router-gränssnitt som du följer exempelkonfiguration.
+Du kan använda följande *ExpressRoute routerkonfiguration* diagram som en vägledning för att konfigurera din ExpressRoute-Router. Det här diagrammet visar två klientorganisationer (klient 1 och 2 för klient) med sina respektive Expressroute-kretsar. Varje klient är länkad till sina egna VRF (virtuella Routning och vidarebefordran) i LAN och WAN-sida av ExpressRoute-router. Den här konfigurationen garanterar slutpunkt till slutpunkt isolering mellan de två innehavarna. Anteckna IP-adresser som används i router-gränssnitt du följer konfigurationsexemplet.
 
-![Slut till slut diagram](media/azure-stack-connect-expressroute/EndToEnd.png)
+*Bild 4. Konfiguration av ExpressRoute-router*
 
-**Diagram över 4**
+![Konfiguration av ExpressRoute-router](media/azure-stack-connect-expressroute/EndToEnd.png)
 
-Du kan använda en router som har stöd för IKEv2 VPN och BGP för att avsluta plats-till-plats VPN-anslutning från Azure-stacken. Samma router används för att ansluta till Azure med hjälp av en ExpressRoute-krets. 
+Du kan använda en router som har stöd för IKEv2 VPN och BGP om du vill avsluta plats-till-plats VPN-anslutning från Azure Stack. Samma router används för att ansluta till Azure med en ExpressRoute-krets.
 
-Här är ett exempel på konfiguration från en Cisco ASR 1000 som stöder infrastruktur för nätverk som visas i Diagram 4:
+Följande Konfigurationsexempel för Cisco Azure Site Recovery 1000 stöder nätverksinfrastruktur som visas i den *ExpressRoute routerkonfiguration* diagram.
+
+**Konfigurationsexempel för Cisco ASR 1000**
 
 ```
 ip vrf Tenant 1
@@ -324,30 +381,30 @@ ip vrf Tenant 2
  description Routing Domain for PRIVATE peering to Azure for Tenant 2
  rd 1:5
 !
-crypto ikev2 proposal V2-PROPOSAL2 
-description IKEv2 proposal for Tenant 1 
+crypto ikev2 proposal V2-PROPOSAL2
+description IKEv2 proposal for Tenant 1
 encryption aes-cbc-256
  integrity sha256
  group 2
-crypto ikev2 proposal V4-PROPOSAL2 
-description IKEv2 proposal for Tenant 2 
+crypto ikev2 proposal V4-PROPOSAL2
+description IKEv2 proposal for Tenant 2
 encryption aes-cbc-256
  integrity sha256
  group 2
 !
-crypto ikev2 policy V2-POLICY2 
-description IKEv2 Policy for Tenant 1 
+crypto ikev2 policy V2-POLICY2
+description IKEv2 Policy for Tenant 1
 match fvrf Tenant 1
  match address local 10.60.3.255
  proposal V2-PROPOSAL2
 description IKEv2 Policy for Tenant 2
-crypto ikev2 policy V4-POLICY2 
+crypto ikev2 policy V4-POLICY2
  match fvrf Tenant 2
  match address local 10.60.3.251
  proposal V4-PROPOSAL2
 !
 crypto ikev2 profile V2-PROFILE
-description IKEv2 profile for Tenant 1 
+description IKEv2 profile for Tenant 1
 match fvrf Tenant 1
  match address local 10.60.3.255
  match identity remote any
@@ -364,17 +421,17 @@ description IKEv2 profile for Tenant 2
  authentication local pre-share key abc123
  ivrf Tenant 2
 !
-crypto ipsec transform-set V2-TRANSFORM2 esp-gcm 256 
+crypto ipsec transform-set V2-TRANSFORM2 esp-gcm 256
  mode tunnel
-crypto ipsec transform-set V4-TRANSFORM2 esp-gcm 256 
+crypto ipsec transform-set V4-TRANSFORM2 esp-gcm 256
  mode tunnel
 !
 crypto ipsec profile V2-PROFILE
- set transform-set V2-TRANSFORM2 
+ set transform-set V2-TRANSFORM2
  set ikev2-profile V2-PROFILE
 !
 crypto ipsec profile V4-PROFILE
- set transform-set V4-TRANSFORM2 
+ set transform-set V4-TRANSFORM2
  set ikev2-profile V4-PROFILE
 !
 interface Tunnel10
@@ -431,7 +488,7 @@ description Secondary WAN interface of Tenant 1
  ip address 192.168.1.5 255.255.255.252
 !
 interface GigabitEthernet0/0/2.102
-description Secondary WAN interface of Tenant 2 
+description Secondary WAN interface of Tenant 2
 description BACKUP ER link supporting Tenant 2 to Azure
  encapsulation dot1Q 102
  ip vrf forwarding Tenant 2
@@ -458,7 +515,7 @@ description LAN interface of Tenant 2
 router bgp 65530
  bgp router-id <removed>
  bgp log-neighbor-changes
- description BGP neighbor config and route advertisement for Tenant 1 VRF 
+ description BGP neighbor config and route advertisement for Tenant 1 VRF
  address-family ipv4 vrf Tenant 1
   network 10.1.0.0 mask 255.255.0.0
   network 10.60.3.254 mask 255.255.255.254
@@ -487,7 +544,7 @@ router bgp 65530
   maximum-paths 8
  exit-address-family
  !
-description BGP neighbor config and route advertisement for Tenant 2 VRF 
+description BGP neighbor config and route advertisement for Tenant 2 VRF
 address-family ipv4 vrf Tenant 2
   network 10.1.0.0 mask 255.255.0.0
   network 10.60.3.250 mask 255.255.255.254
@@ -534,40 +591,53 @@ route-map VNET-ONLY permit 10
 
 ## <a name="test-the-connection"></a>Testa anslutningen
 
-Testa anslutningen efter att plats-till-plats-anslutning och ExpressRoute-kretsen. Den här uppgiften är enkelt.  Logga in på någon av de virtuella datorerna som du skapade i ditt Azure VNet och pinga den virtuella datorn som du skapade i Azure Stack-miljö, och vice versa. 
+Testa anslutningen när du har skapat anslutningen för plats-till-plats och ExpressRoute-kretsen.
 
-För att säkerställa att du skickar trafik via plats-till-plats och ExpressRoute-anslutningar, måste du pinga den dedicerade IP-Adressen (DIP)-adressen för den virtuella datorn i slutet av både och inte VIP-adressen för den virtuella datorn. Du måste därför hitta och anteckna adressen på den andra änden av anslutningen.
+Gör följande ping-test:
+
+* Logga in till någon av de virtuella datorerna i ditt Azure VNet och pinga den virtuella datorn som du skapade i Azure Stack.
+* Logga in på någon av de virtuella datorerna som du skapade i Azure Stack och pinga den virtuella datorn som du skapade i Azure VNet.
+
+>[!NOTE]
+>Om du vill se till att du skickar trafik över plats-till-plats och ExpressRoute-anslutningar, måste du pinga den dedikerade IP (DIP)-adressen för den virtuella datorn i både ändar och inte VIP-adressen för den virtuella datorn.
 
 ### <a name="allow-icmp-in-through-the-firewall"></a>Tillåta ICMP i genom brandväggen
-Som standard tillåter inte Windows Server 2016 ICMP-paket i genom brandväggen. Så för varje virtuell dator som du använder i testet, kör du följande cmdlet i ett upphöjt PowerShell-fönster:
 
+Som standard tillåter inte Windows Server 2016 inkommande ICMP-paket genom brandväggen. Du måste tillåta inkommande ICMP-paket för varje virtuell dator som du använder för Pingtest. Om du vill skapa en brandväggsregel för ICMP, kör du följande cmdlet i en upphöjd PowerShell-fönster:
 
-   ```
-   New-NetFirewallRule `
-    –DisplayName “Allow ICMPv4-In” `
-    –Protocol ICMPv4
-   ```
+```PowerShell
+# Create ICMP firewall rule.
+New-NetFirewallRule `
+  –DisplayName “Allow ICMPv4-In” `
+  –Protocol ICMPv4
 
-### <a name="ping-the-azure-stack-virtual-machine"></a>Pinga virtuella Azure-stacken
+```
 
-1. Logga in på Azure-stacken användarportalen med ett klient-konto.
-2. Klicka på **Virtuella datorer** i det vänstra navigeringsfältet.
-3. Hitta den virtuella datorn som du skapade tidigare och klicka på den.
-4. Klicka på avsnittet för den virtuella datorn **Anslut**.
-5. Öppna en upphöjd PowerShell och skriv **ipconfig/all**.
-6. Hitta IPv4-adress i utdata och notera den. Pinga denna adress från den virtuella datorn i Azure VNet. I exempel-miljö är adressen från undernätet som 10.1.1.x/24. Adressen kan vara annorlunda i din miljö. Det bör dock i undernätet som du skapade för klient-VNet-undernätet.
+### <a name="ping-the-azure-stack-virtual-machine"></a>Pinga den virtuella datorn i Azure Stack
 
+1. Logga in på användarportalen för Azure Stack med ett klientkonto.
+
+1. Hitta den virtuella datorn som du skapade och välj den virtuella datorn.
+
+1. Välj **Anslut**.
+
+1. Från en Windows- eller PowerShell kommandotolk, ange **ipconfig/all**. Anteckna IPv4-adressen som returneras i resultatet.
+
+1. Pinga IPv4-adress från den virtuella datorn i Azure VNet.
+
+   I exempelmiljön är IPv4-adress från 10.1.1.x/24 undernät. Adressen kan vara annorlunda i din miljö. Men det bör finnas i det undernät du skapade för klienten VNet-undernät.
 
 ### <a name="view-data-transfer-statistics"></a>Visa statistik för överföring av data
 
-Om du vill veta hur mycket trafik som passerar genom din anslutning hittar den här informationen i avsnittet anslutning i Azure-stacken användarportalen. Den här informationen är också ett annat bra sätt att kontrollera att ping som skickas bara faktiskt har gått igenom VPN- och ExpressRoute-anslutningarna.
+Om du vill veta hur mycket trafik som passerar genom din anslutning hittar den här informationen på Azure Stack-användarportalen. Detta är också ett bra sätt att ta reda på om huruvida din ping testdata har gått igenom VPN och ExpressRoute-anslutningar.
 
-1. Logga in på Microsoft Azure-stacken användarportalen med ditt innehavarkonto.
-2. Navigera till resursgruppen där din VPN-Gateway har skapats och markera den **anslutningar** objekttypen.
-3. Klicka på den **ConnectToAzure** anslutningen i listan.
-4. På den **anslutning** avsnitt, kan du visa statistik för **Data i** och **ut Data**. Du bör se några nollvärden där.
+1. Logga in på användarportalen för Azure Stack med klientkontot och välj **alla resurser**.
+1. Navigera till resursgruppen för din VPN-Gateway och markera den **anslutning** objekttyp.
+1. Välj den **ConnectToAzure** anslutningen i listan.
+1. Under **anslutningar**>**översikt**, du kan se statistik för **Data i** och **Data ut**. Du bör se några nollvärden.
 
-   ![Data i ut Data](media/azure-stack-connect-expressroute/DataInDataOut.png)
+   ![Data i och Data ut](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Distribuera appar till Azure och Azure Stack](azure-stack-solution-pipeline.md)

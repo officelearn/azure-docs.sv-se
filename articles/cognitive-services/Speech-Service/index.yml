@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 0db6620c7433486babebe95090f3682582f1c212
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422169"
 documentType: LandingData
-title: Dokumentation om Speech Service (Förhandsversion)
+title: Dokumentation om Speech Service och SDK (förhandsversion)
 metadata:
   title: Dokumentation om Speech Service – självstudier, snabbstarter, API-referens – Cognitive Services | Microsoft Docs
-  meta.description: The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications, such as voice command control and dialog, natural speech conversation, speech transcription and dictation, and speech translation.
+  meta.description: "The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications. \nExamples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.\n"
   services: cognitive-services
   author: noellelacharite
   manager: nolachar
@@ -15,19 +21,16 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/16/2018
   ms.author: nolachar
-  ms.openlocfilehash: 2b82b50972c2c61c9dda5d1b1862c0c4cc8a9052
-  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 07/17/2018
-  ms.locfileid: "39070118"
 abstract:
-  description: Microsoft Speech Service ger utvecklare ett enkelt sätt att lägga till kraftfulla talbaserade funktioner i sina program, till exempel röstkontroll, transkription, diktering och översättning med hjälp av <a href="rest-apis">REST API</a> eller SDK för <a href="speech-sdk">C#, C++ eller Java</a>.<p>Med Speech Service kan du anpassa modeller för <a href="how-to-customize-speech-models">Tal till text</a> för att hantera specialvokabulär, miljöstörningar och olika sätt att tala. Det finns även anpassade funktioner för <a href="https://cris.ai/Home/customvoice">Text till tal</a> och <a href="https://www.microsoft.com/translator/customization.aspx">Talöversättning</a>.<p>Mer information finns i <a href="overview">Vad är Speech Service?</a>
+  description: >
+    Via Speech SDK kan utvecklare med hjälp av <a href="overview">Speech Service</a> lägga till talaktiverade funktioner i sina appar.<br/>
+
+    Bland funktionerna finns&#58; <i>tal till text</i> (taligenkänning/SR), <i>avsikt</i>, <i>översättning</i> och <i>text till tal</i> (TTS).
 sections:
-- title: Snabbstarter på tio minuter
+- title: SDK-nedladdning och snabbstart på fem minuter
   items:
   - type: paragraph
-    text: 'Lär dig hur du installerar SDK för Speech och kommer igång:'
+    text: Lär du hur du laddar ned, installerar och använder produkten genom att klicka på önskad länk <img src="media/index/link.jpg" height="15" width="15"></img> nedan.
   - type: table
     style: dataMatrix
     columns:
@@ -40,13 +43,13 @@ sections:
     - image:
         src: media/index/logo_netcore.svg
     - image:
-        src: media/index/logo_java.svg
+        src: media/index/logo_java.jpg
     - image:
         src: media/index/logo_rest_sr.svg
     - image:
         src: media/index/logo_rest_tts.svg
     rows:
-    - title: Windows
+    - title: Windows (x86/x64)
       values:
       - href: quickstart-csharp-uwp
       - href: quickstart-csharp-windows
@@ -55,14 +58,14 @@ sections:
       - href: 
       - href: 
       - href: 
-    - title: Linux
+    - title: Linux (x86/x64)
       values:
       - href: 
       - href: 
       - href: quickstart-cpp-linux
       - href: 
       - href: 
-    - title: Android SDK
+    - title: Android (ARM32/ARM64)
       values:
       - href: 
       - href: 
@@ -71,7 +74,7 @@ sections:
       - href: quickstart-java-android
       - href: 
       - href: 
-    - title: SDK för enheter
+    - title: Devices SDK (ARM64)
       values:
       - href: 
       - href: 
@@ -89,17 +92,40 @@ sections:
       - href: 
       - href: rest-apis
       - href: rest-apis
-- title: Exempel och referenser
+- title: Exempel och referenser för Speech SDK
   items:
   - type: list
     style: cards
     className: cardsD
     items:
     - title: Exempel
-      html: <ul><li><a href="speech-to-text-sample.md">Taligenkänning</a></li><li><a href="intent.md">Avsiktsigenkänning</a></li><li><a href="translation.md">Översättning</a></li></ul>
+      html: >
+        &nbsp;&#8226; <a href="speech-to-text-sample.md">Tal till text (SR)</a><br/>
+
+        &nbsp;&#8226; <a href="intent.md">Avsiktsigenkänning</a><br/>
+
+        &nbsp;&#8226; <a href="translation.md">Översättning</a>
     - title: API-referens
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C#-API (inklusive UWP och .NET Standard)</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java-API</a> för SDK för Speech<br>och SDK för Speech-enheter</li></ul>
-- title: Speech Devices SDK
+      html: >
+        &nbsp;&#8226; <a href="https://aka.ms/csspeech/csharpref">C# API (UWP och .NET)</a><br/>
+
+        &nbsp;&#8226; <a href="https://aka.ms/csspeech/cppref">C++ API</a><br/>
+
+        &nbsp;&#8226; <a href="https://aka.ms/csspeech/javaref">Java API</a>
+  - type: paragraph
+    text: Använd exemplet och API:t ovan med din prenumerationsnyckel (läs <a href="get-started.md">Prova Speech Service kostnadsfritt</a>).
+- title: Anpassa Speech med dina egna data
   items:
   - type: paragraph
-    text: "Efter introduktionen av den enhetliga tjänsten Speech Service erbjuder Microsoft och dess partner nu en integrerad plattform för maskin-och programvara som är optimerad för att utveckla talbaserade enheter: <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Speech Devices SDK</a>. Detta SDK passar för utveckling av ambient-enheter för alla typer av program och gör det möjligt att definiera ett anpassat <I>nyckelord (wake word)</I>, unikt för ditt varumärke. Maskinvaran tillhandahåller överlägsen ljudbearbetning från källor med flera kanaler för bättre taligenkänning, inklusive bullerdämpning, långdistansidentifiering och beamforming."
+    text: >
+      Med Speech Service kan du även anpassa modeller för att hantera specialvokabulär, bullriga miljöer och olika sätt att tala.<br/>
+
+      &nbsp;&#8226; <a href="how-to-customize-speech-models">Anpassat tal till text</a><br/>
+
+      &nbsp;&#8226; <a href="https://www.microsoft.com/translator/customization.aspx">Anpassad talöversättning</a><br/>
+
+      &nbsp;&#8226; <a href="https://cris.ai/Home/customvoice">Anpassad text till tal</a>
+- title: Referensdesign för Speech-aktiverad maskinvara
+  items:
+  - type: paragraph
+    text: De som vill bygga ny Speech-aktiverad enhetsmaskinvara hittar vår referensenhet på <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Speech Devices SDK</a>.

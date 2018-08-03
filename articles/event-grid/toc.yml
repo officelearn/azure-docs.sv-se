@@ -47,8 +47,34 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
+      items:
+        - name: Skapa anpassat ämne
+          href: scripts/event-grid-cli-create-custom-topic.md
+        - name: Prenumerera på Azure-prenumeration
+          href: scripts/event-grid-cli-azure-subscription.md
+        - name: Prenumerera på Blob Storage
+          href: scripts/event-grid-cli-blob.md
+        - name: Prenumerera på anpassat ämne
+          href: scripts/event-grid-cli-subscribe-custom-topic.md
+        - name: Prenumerera på resursgrupp
+          href: scripts/event-grid-cli-resource-group.md
+        - name: Prenumerera på och filtrera händelser för en resursgrupp
+          href: scripts/event-grid-cli-resource-group-filter.md
     - name: Azure PowerShell
       href: powershell-samples.md
+      items:
+        - name: Skapa anpassat ämne
+          href: scripts/event-grid-powershell-create-custom-topic.md
+        - name: Prenumerera på Azure-prenumeration
+          href: scripts/event-grid-powershell-azure-subscription.md
+        - name: Prenumerera på Blob Storage
+          href: scripts/event-grid-powershell-blob.md
+        - name: Prenumerera på anpassat ämne
+          href: scripts/event-grid-powershell-subscribe-custom-topic.md
+        - name: Prenumerera på resursgrupp
+          href: scripts/event-grid-powershell-resource-group.md
+        - name: Prenumerera på och filtrera händelser för en resursgrupp
+          href: scripts/event-grid-powershell-resource-group-filter.md
     - name: Mallar för Resurshanteraren
       href: template-samples.md
     - name: Kodexempel
@@ -71,7 +97,7 @@
       href: post-to-custom-topic.md
     - name: Ta emot händelser vid HTTP-slutpunkt
       href: receive-events.md
-    - name: Hantera händelseleverans
+    - name: Obeställbara meddelanden och nytt försök
       href: manage-event-delivery.md
     - name: Övervaka händelseleverans
       href: monitor-event-delivery.md

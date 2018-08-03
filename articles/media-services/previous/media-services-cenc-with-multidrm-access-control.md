@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: e606ff09c3b3a867170b783e69879d609b69c11d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: f2e2dd59d7fc58fa0c275fb44cbab1958a5637b0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076500"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443957"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Designen av ett system för innehållsskydd med åtkomstkontroll med Azure Media Services
 
@@ -148,7 +148,7 @@ I följande tabell visar mappningen.
 | **Byggblock** | **Teknik** |
 | --- | --- |
 | **Player** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
-| **Identitetsprovider (IDP)** |Azure Active Directory (AD Azure) |
+| **Identitetsprovider (IDP)** |Azure Active Directory (Azure AD) |
 | **Säkerhetstokentjänst (STS)** |Azure AD |
 | **Arbetsflöde för DRM-skydd** |Media Services dynamisk skydd |
 | **DRM-licensleverans** |* Media Services-licensleverans (PlayReady, Widevine, FairPlay) <br/>* Axinom licensserver <br/>* Anpassade PlayReady-licensserver |
@@ -225,7 +225,7 @@ Mer information finns i [autentisering för JWT-token i Azure Media Services och
 
 Mer information om Azure AD:
 
-* Du kan hitta information för utvecklare i den [Utvecklarhandbok för Azure Active Directory](../../active-directory/active-directory-developers-guide.md).
+* Du kan hitta information för utvecklare i den [Utvecklarhandbok för Azure Active Directory](../../active-directory/develop/azure-ad-developers-guide.md).
 * Du kan hitta information för administratörer i [administrera Azure AD-klient-katalogen](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### <a name="some-issues-in-implementation"></a>Vissa problem i implementeringen

@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 33a447e2161925d23385cbd0c471e0f5babd618f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 292540100096b26a652094cb0ea8d8f585961a22
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473757"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422441"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Hur du använder Mobile Apps Node.js-SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -50,7 +50,7 @@ Varje Mobile Apps Node.js-serverdel startar som ett ExpressJS program. ExpressJS
 1. Skapa en katalog för ditt projekt i ett kommando eller en PowerShell-fönster:
 
         mkdir basicapp
-2. Kör `npm init` att initiera paket-struktur:
+1. Kör `npm init` att initiera paket-struktur:
 
         cd basicapp
         npm init
@@ -58,10 +58,10 @@ Varje Mobile Apps Node.js-serverdel startar som ett ExpressJS program. ExpressJS
    Den `npm init` kommandot frågar en uppsättning frågor att initiera projektet. Se Exempelutdata:
 
    ![Npm init-utdata][0]
-3. Installera den `express` och `azure-mobile-apps` bibliotek från npm-databasen:
+1. Installera den `express` och `azure-mobile-apps` bibliotek från npm-databasen:
 
         npm install --save express azure-mobile-apps
-4. Skapa en app.js-filen om du vill implementera grundläggande mobila server:
+1. Skapa en app.js-filen om du vill implementera grundläggande mobila server:
 
         var express = require('express'),
             azureMobileApps = require('azure-mobile-apps');
@@ -94,18 +94,18 @@ Du hittar koden för det här grundläggande programmet i den [basicapp exemplet
 Visual Studio 2015 kräver ett tillägg för att utveckla Node.js-program i din IDE. Börja genom att installera den [Node.js Tools 1.1 för Visual Studio]. Skapa en Express 4.x-program när du är klar med installationen:
 
 1. Öppna den **nytt projekt** dialogrutan (från **filen** > **New** > **projekt**).
-2. Expandera **mallar** > **JavaScript** > **Node.js**.
-3. Välj **grundläggande Azure Node.js Express 4-program**.
-4. Fyll i projektets namn. Välj **OK**.
+1. Expandera **mallar** > **JavaScript** > **Node.js**.
+1. Välj **grundläggande Azure Node.js Express 4-program**.
+1. Fyll i projektets namn. Välj **OK**.
 
    ![Visual Studio 2015 nytt projekt][1]
-5. Högerklicka på den **npm** noden och väljer **installera nya npm-paket**.
-6. Du kan behöva uppdatera npm-katalogen när du har skapat ditt första Node.js-program. Välj **uppdatera** om det behövs.
-7. Ange **azure mobile apps** i sökrutan. Välj den **azure mobile apps 2.0.0** paketera och välj sedan **installera paket**.
+1. Högerklicka på den **npm** noden och väljer **installera nya npm-paket**.
+1. Du kan behöva uppdatera npm-katalogen när du har skapat ditt första Node.js-program. Välj **uppdatera** om det behövs.
+1. Ange **azure mobile apps** i sökrutan. Välj den **azure mobile apps 2.0.0** paketera och välj sedan **installera paket**.
 
    ![Installera nya npm-paket][2]
-8. Välj **Stäng**.
-9. Öppna filen app.js för att lägga till stöd för Mobile Apps-SDK. AT rad 6 at längst ned i biblioteket `require` instruktioner, Lägg till följande kod:
+1. Välj **Stäng**.
+1. Öppna filen app.js för att lägga till stöd för Mobile Apps-SDK. AT rad 6 at längst ned i biblioteket `require` instruktioner, Lägg till följande kod:
 
         var bodyParser = require('body-parser');
         var azureMobileApps = require('azure-mobile-apps');
@@ -120,10 +120,10 @@ Visual Studio 2015 kräver ett tillägg för att utveckla Node.js-program i din 
         app.use(mobile);
 
    Spara filen.
-10. Antingen köra programmet lokalt (API: et levereras på http://localhost:3000) eller publicera till Azure.
+1. Antingen köra programmet lokalt (API: et levereras på http://localhost:3000) eller publicera till Azure.
 
 ### <a name="create-node-backend-portal"></a>Skapa en Node.js-serverdel med hjälp av Azure portal
-Du kan skapa en Mobile Apps-serverdel direkt i den [Azure Portal]. Du kan utföra följande steg eller skapa en klient och server tillsammans genom att följa den [skapa en mobilapp](app-service-mobile-ios-get-started.md) självstudien. Självstudien innehåller en förenklad version av dessa anvisningar och är bäst för proof of concept-projekt.
+Du kan skapa en Mobile Apps-serverdel direkt i den [Azure-portalen]. Du kan utföra följande steg eller skapa en klient och server tillsammans genom att följa den [skapa en mobilapp](app-service-mobile-ios-get-started.md) självstudien. Självstudien innehåller en förenklad version av dessa anvisningar och är bäst för proof of concept-projekt.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
@@ -136,13 +136,13 @@ När du skapar en Node.js Mobile Apps-serverdelen med hjälp av portalen **Snabb
 Följande procedur använder en Git-lagringsplats för att hämta snabbstartskoden för projektet:
 
 1. Installera Git om du inte redan gjort det. De steg som krävs för att installera Git variera mellan olika operativsystem. Operativsystemspecifika distributioner och installationer finns i [installerar Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
-2. Se [förbereda din lagringsplats](../app-service/app-service-deploy-local-git.md#prepare-your-repository) att aktivera Git-lagringsplats för backend-webbplatsen. Anteckna distributionsanvändarnamn och lösenord.
-3. I fönstret för Mobile Apps-serverdel, notera den **URL för Git-klonen** inställningen.
-4. Kör den `git clone` kommandot med hjälp av URL för Git-klonen. Ange lösenordet vid behov, som i följande exempel:
+1. Se [förbereda din lagringsplats](../app-service/app-service-deploy-local-git.md#prepare-your-repository) att aktivera Git-lagringsplats för backend-webbplatsen. Anteckna distributionsanvändarnamn och lösenord.
+1. I fönstret för Mobile Apps-serverdel, notera den **URL för Git-klonen** inställningen.
+1. Kör den `git clone` kommandot med hjälp av URL för Git-klonen. Ange lösenordet vid behov, som i följande exempel:
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
-5. Bläddra till den lokala katalogen (`/todolist` i föregående exempel), och Lägg märke till att project-filer har laddats ned. Leta upp filen todoitem.json i den `/tables` directory. Den här filen definierar behörigheter för tabellen. Filen todoitem.js finns i samma katalog. Den definierar CRUD-skript för åtgärden för tabellen.
-6. När du gör ändringar i projektfiler, kör följande kommandon för att lägga till, genomför och överför sedan ändringarna till platsen:
+1. Bläddra till den lokala katalogen (`/todolist` i föregående exempel), och Lägg märke till att project-filer har laddats ned. Leta upp filen todoitem.json i den `/tables` directory. Den här filen definierar behörigheter för tabellen. Filen todoitem.js finns i samma katalog. Den definierar CRUD-skript för åtgärden för tabellen.
+1. När du gör ändringar i projektfiler, kör följande kommandon för att lägga till, genomför och överför sedan ändringarna till platsen:
 
         $ git commit -m "updated the table script"
         $ git push origin master
@@ -252,7 +252,7 @@ Mobile Apps Node.js-SDK använder den [mssql Node.js-paket] upprätta och använ
 >
 
 1. Ladda ned och installera [Microsoft SQL Server 2014 Express]. Se till att du installerar SQL Server 2014 Express med verktyg-versionen. Om du inte uttryckligen behöver stöd för 64 bitar, förbrukar 32-bitarsversionen mindre minne vid körning.
-2. Kör Konfigurationshanteraren för SQL Server 2014:
+1. Kör Konfigurationshanteraren för SQL Server 2014:
 
    a. Expandera den **nätverkskonfiguration för SQL Server** nod i träd-menyn.
 
@@ -275,25 +275,25 @@ Mobile Apps Node.js-SDK använder den [mssql Node.js-paket] upprätta och använ
    i. Högerklicka på **SQL Server (SQLEXPRESS)** och välj **starta om**.
 
    j. Stäng Konfigurationshanteraren för SQL Server 2014.
-3. Kör SQL Server 2014 Management Studio och ansluta till din lokala SQL Server Express-instans:
+1. Kör SQL Server 2014 Management Studio och ansluta till din lokala SQL Server Express-instans:
 
    1. Högerklicka på din instans i Object Explorer och välj **egenskaper**.
-   2. Välj den **Security** sidan.
-   3. Se till att **SQL Server och Windows-autentisering läge** har valts.
-   4. Välj **OK**.
+   1. Välj den **Security** sidan.
+   1. Se till att **SQL Server och Windows-autentisering läge** har valts.
+   1. Välj **OK**.
 
       ![Konfigurera SQL Server Express-autentisering][4]
-   5. Expandera **Security** > **inloggningar** i Object Explorer.
-   6. Högerklicka på **inloggningar** och välj **ny inloggning**.
-   7. Ange ett inloggningsnamn. Välj **SQL Server-autentisering**. Ange ett lösenord och sedan anger du samma lösenord i **Bekräfta lösenord**. Lösenordet måste uppfylla kraven på komplexitet Windows.
-   8. Välj **OK**.
+   1. Expandera **Security** > **inloggningar** i Object Explorer.
+   1. Högerklicka på **inloggningar** och välj **ny inloggning**.
+   1. Ange ett inloggningsnamn. Välj **SQL Server-autentisering**. Ange ett lösenord och sedan anger du samma lösenord i **Bekräfta lösenord**. Lösenordet måste uppfylla kraven på komplexitet Windows.
+   1. Välj **OK**.
 
       ![Lägga till en ny användare i SQL Server Express][5]
-   9. Högerklicka på din nya inloggning och välj **egenskaper**.
-   10. Välj den **serverroller** sidan.
-   11. Markera kryssrutan för den **dbcreator** serverrollen.
-   12. Välj **OK**.
-   13. Stäng SQL Server 2015 Management Studio.
+   1. Högerklicka på din nya inloggning och välj **egenskaper**.
+   1. Välj den **serverroller** sidan.
+   1. Markera kryssrutan för den **dbcreator** serverrollen.
+   1. Välj **OK**.
+   1. Stäng SQL Server 2015 Management Studio.
 
 Kom ihåg att registrera användarnamnet och lösenordet som du har valt. Du kan behöva tilldela ytterligare serverroller eller behörigheter, beroende på dina databaskrav.
 
@@ -304,7 +304,7 @@ Node.js-program läser den `SQLCONNSTR_MS_TableConnectionString` miljövariabeln
 Åtkomst till databasen via en TCP/IP-anslutning. Ange ett användarnamn och lösenord för anslutningen.
 
 ### <a name="howto-config-localdev"></a>Konfigurera ditt projekt för lokal utveckling
-Mobile Apps läser en JavaScript-fil som heter *azureMobile.js* från det lokala filsystemet. Använd inte den här filen för att konfigurera SDK för Mobile Apps i produktion. Använd i stället **appinställningar** i den [Azure Portal]. 
+Mobile Apps läser en JavaScript-fil som heter *azureMobile.js* från det lokala filsystemet. Använd inte den här filen för att konfigurera SDK för Mobile Apps i produktion. Använd i stället **appinställningar** i den [Azure-portalen]. 
 
 Filen azureMobile.js exporterar ett konfigurationsobjekt. De vanligaste inställningarna är:
 
@@ -330,10 +330,10 @@ Den här azureMobile.js-exempelfil implementerar föregående databasinställnin
         }
     };
 
-Vi rekommenderar att du lägger till azureMobile.js .gitignore-fil (eller andra källkodskontroll ignorera filen) till att förhindra att lösenord lagras i molnet. Konfigurera inställningar för produktion i alltid **appinställningar** inom den [Azure Portal].
+Vi rekommenderar att du lägger till azureMobile.js .gitignore-fil (eller andra källkodskontroll ignorera filen) till att förhindra att lösenord lagras i molnet. Konfigurera inställningar för produktion i alltid **appinställningar** inom den [Azure-portalen].
 
 ### <a name="howto-appsettings"></a>Konfigurera inställningar för din mobilapp
-De flesta inställningarna i filen azureMobile.js har en motsvarande appinställning i den [Azure Portal]. Använd listan nedan för att konfigurera din app i **appinställningar**:
+De flesta inställningarna i filen azureMobile.js har en motsvarande appinställning i den [Azure-portalen]. Använd listan nedan för att konfigurera din app i **appinställningar**:
 
 | App-inställning | azureMobile.js inställningen | Beskrivning | Giltiga värden |
 |:--- |:--- |:--- |:--- |
@@ -347,14 +347,14 @@ De flesta inställningarna i filen azureMobile.js har en motsvarande appinställ
 
 Ange en appinställning:
 
-1. Logga in på [Azure Portal].
-2. Välj **alla resurser** eller **Apptjänster**, och välj sedan namnet på din mobila app.
-3. Den **inställningar** öppnas fönstret som standard. Om det inte, väljer **inställningar**.
-4. På den **Allmänt** menyn och välj **programinställningar**.
-5. Bläddra till den **appinställningar** avsnittet.
-6. Om din appinställningen redan finns, väljer du värdet på appinställningen som du vill redigera värdet.
+1. Logga in på [Azure-portalen].
+1. Välj **alla resurser** eller **Apptjänster**, och välj sedan namnet på din mobila app.
+1. Den **inställningar** öppnas fönstret som standard. Om det inte, väljer **inställningar**.
+1. På den **Allmänt** menyn och välj **programinställningar**.
+1. Bläddra till den **appinställningar** avsnittet.
+1. Om din appinställningen redan finns, väljer du värdet på appinställningen som du vill redigera värdet.
    Om din appinställningen inte finns, anger du appinställningen i den **nyckel** box och värdet i den **värdet** box.
-8. Välj **Spara**.
+1. Välj **Spara**.
 
 Ändrar inställningar för de flesta måste tjänsten startas om.
 
@@ -363,10 +363,10 @@ Ange en appinställning:
 
 Med Azure SQL Database som ett datalager är identiska för alla Azure App Service-programtyper. Om du redan inte har gjort det, Följ stegen nedan för att skapa en Mobile Apps-serverdel:
 
-1. Logga in på [Azure Portal].
-2. I det övre vänstra hörnet i fönstret väljer du den **+ ny** knappen > **webb + mobilt** > **Mobilapp**, och sedan ange ett namn för Mobile Apps-serverdel.
-3. I den **resursgrupp** ange samma namn som din app.
-4. Standard App Service-plan har valts. Om du vill ändra App Service-planen:
+1. Logga in på [Azure-portalen].
+1. I det övre vänstra hörnet i fönstret väljer du den **+ ny** knappen > **webb + mobilt** > **Mobilapp**, och sedan ange ett namn för Mobile Apps-serverdel.
+1. I den **resursgrupp** ange samma namn som din app.
+1. Standard App Service-plan har valts. Om du vill ändra App Service-planen:
 
    a. Välj **Apptjänstplan** > **+ Skapa ny**. 
    
@@ -377,7 +377,7 @@ Med Azure SQL Database som ett datalager är identiska för alla Azure App Servi
    d. Klicka på den **Välj** knappen. 
    
    e. I den **apptjänstplan** väljer **OK**.
-5. Välj **Skapa**. 
+1. Välj **Skapa**. 
 
 Etablera en Mobile Apps kan serverdel ta några minuter. När Mobile Apps tillbaka slutet etableras, öppnas den **inställningar** för Mobile Apps-serverdel.
 
@@ -389,20 +389,20 @@ Du kan välja att antingen ansluta en befintlig SQL-databas till serverdelen fö
 >
 
 1. I den nya Mobile Apps-serverdelen, Välj **inställningar** > **Mobilapp** > **Data** > **+ Lägg till**.
-2. I den **Lägg till dataanslutning** väljer **SQL Database - Konfigurera obligatoriska inställningar** > **skapa en ny databas**. Ange namnet på den nya databasen i den **namn** box.
-3. Välj **Server**. I den **ny server** rutan Ange ett unikt namn i den **servernamn** rutan och ange en lämplig användarnamn och lösenord. Se till att **ge azure-tjänster åtkomst till servern** har valts. Välj **OK**.
+1. I den **Lägg till dataanslutning** väljer **SQL Database - Konfigurera obligatoriska inställningar** > **skapa en ny databas**. Ange namnet på den nya databasen i den **namn** box.
+1. Välj **Server**. I den **ny server** rutan Ange ett unikt namn i den **servernamn** rutan och ange en lämplig användarnamn och lösenord. Se till att **ge azure-tjänster åtkomst till servern** har valts. Välj **OK**.
 
    ![Skapa en Azure SQL Database][6]
-4. I den **ny databas** väljer **OK**.
-5. I den **Lägg till dataanslutning** väljer **anslutningssträngen**, och ange det användarnamn och lösenord som du angav när du skapade databasen. Om du använder en befintlig databas, kan du ange inloggningsuppgifterna för den här databasen. Välj **OK**.
-6. I den **Lägg till dataanslutning** panelen igen och väljer **OK** att skapa databasen.
+1. I den **ny databas** väljer **OK**.
+1. I den **Lägg till dataanslutning** väljer **anslutningssträngen**, och ange det användarnamn och lösenord som du angav när du skapade databasen. Om du använder en befintlig databas, kan du ange inloggningsuppgifterna för den här databasen. Välj **OK**.
+1. I den **Lägg till dataanslutning** panelen igen och väljer **OK** att skapa databasen.
 
 <!--- END OF ALTERNATE INCLUDE -->
 
 Skapa databasen kan ta några minuter. Använd den **meddelanden** område för att övervaka förloppet för distributionen. Fortsätter inte förrän databasen har distribuerats. När databasen har distribuerats skapas en anslutningssträng för SQL Database-instans i inställningarna för Mobile Apps serverdelsappen. Du kan se den här appinställningen i **inställningar** > **programinställningar** > **anslutningssträngar**.
 
 ### <a name="howto-tables-auth"></a>Kräv autentisering för åtkomst till tabeller
-Om du vill använda App Service-autentisering med den `tables` slutpunkt, måste du konfigurera App Service-autentisering i den [Azure Portal] första. Mer information finns i konfigurationsguiden för den identitetsprovider som du planerar att använda:
+Om du vill använda App Service-autentisering med den `tables` slutpunkt, måste du konfigurera App Service-autentisering i den [Azure-portalen] första. Mer information finns i konfigurationsguiden för den identitetsprovider som du planerar att använda:
 
 * [Konfigurera Azure Active Directory-autentisering]
 * [Konfigurera Facebook-autentisering]
@@ -682,7 +682,7 @@ När du registrerat för push-meddelanden från en autentiserad klient kan du se
 ### <a name="howto-customapi-basic"></a>Definiera en anpassad API
 Förutom API: et för Data-åtkomst via den `/tables` slutpunkt, Mobile Apps kan tillhandahålla anpassade API-täckning. Anpassade API: er har definierats i ett liknande sätt att tabelldefinitionerna och kan komma åt samma anläggningar, inklusive autentisering.
 
-Om du vill använda App Service-autentisering med ett anpassat API måste du konfigurera App Service-autentisering i den [Azure Portal] första. Mer information finns i konfigurationsguiden för den identitetsprovider som du planerar att använda:
+Om du vill använda App Service-autentisering med ett anpassat API måste du konfigurera App Service-autentisering i den [Azure-portalen] första. Mer information finns i konfigurationsguiden för den identitetsprovider som du planerar att använda:
 
 * [Konfigurera Azure Active Directory-autentisering]
 * [Konfigurera Facebook-autentisering]
@@ -693,8 +693,8 @@ Om du vill använda App Service-autentisering med ett anpassat API måste du kon
 Anpassade API: er har definierats på ungefär samma sätt som tabeller-API:
 
 1. Skapa en `api` directory.
-2. Skapa en API-definition JavaScript-fil i den `api` directory.
-3. Använda importmetoden för att importera den `api` directory.
+1. Skapa en API-definition JavaScript-fil i den `api` directory.
+1. Använda importmetoden för att importera den `api` directory.
 
 Här är prototyp API-definition som är baserat på basic-appexempel som vi använde tidigare:
 
@@ -819,7 +819,7 @@ Börja felsöka dina Node.js Mobile Apps-serverdel, finns i följande artiklar:
 * [Aktivera Diagnostisk loggning i Azure App Service]
 * [Felsöka Azure App Service i Visual Studio]
 
-Node.js-program har åtkomst till en mängd olika diagnostiklogg verktyg. Node.js-SDK för Mobile Apps använder internt, [Winston] för Diagnostisk loggning. Loggning aktiveras automatiskt när du aktiverar debug läge eller anger den `MS_DebugMode` appinställningen på Sant i den [Azure Portal]. Genererade loggar visas i diagnostikloggar i den [Azure Portal].
+Node.js-program har åtkomst till en mängd olika diagnostiklogg verktyg. Node.js-SDK för Mobile Apps använder internt, [Winston] för Diagnostisk loggning. Loggning aktiveras automatiskt när du aktiverar debug läge eller anger den `MS_DebugMode` appinställningen på Sant i den [Azure-portalen]. Genererade loggar visas i diagnostikloggar i den [Azure-portalen].
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Arbeta med enkla tabeller i Azure portal
 Du kan använda enkla tabeller för att skapa och arbeta med tabeller direkt i portalen. Du kan ladda upp datauppsättningen enkla tabeller i CSV-format. Observera att du inte kan använda egenskapsnamn (i din CSV-datauppsättning) som står i konflikt med egenskapsnamn som Mobile Apps-serverdel. System-egenskapsnamnen är:
@@ -857,7 +857,7 @@ Du kan redigera dina Node.js-backend-skriptfiler i App Service Editor utan att b
 1. I fönstret för Mobile Apps-serverdel, väljer **alla inställningar** > antingen **enkla tabeller** eller **enkla API: er**. Välj en tabell eller API och välj sedan **Redigera skript**. Skriptfilen öppnas i App Service Editor.
 
    ![App Service Editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
-2. Gör dina ändringar till kodfil i online-redigeraren. Ändringar sparas automatiskt när du skriver.
+1. Gör dina ändringar till kodfil i online-redigeraren. Ändringar sparas automatiskt när du skriver.
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png
@@ -893,7 +893,7 @@ Du kan redigera dina Node.js-backend-skriptfiler i App Service Editor utan att b
 [Express]: http://expressjs.com/
 [Swagger]: http://swagger.io/
 
-[Azure Portal]: https://portal.azure.com/
+[Azure-portalen]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Löftet]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp exemplet på GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

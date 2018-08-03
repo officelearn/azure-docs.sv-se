@@ -6,15 +6,15 @@
       href: key-vault-overview.md
 - name: Snabbstarter
   items:
-    - name: Skapa Key Vault – CLI
+    - name: Ange och hämta en hemlighet – CLI
       href: quick-create-cli.md
-    - name: Skapa Key Vault – PowerShell
+    - name: Ange och hämta en hemlighet – PowerShell
       href: quick-create-powershell.md
-    - name: Skapa Key Vault – Portal
+    - name: Ange och hämta en hemlighet – Portal
       href: quick-create-portal.md
-    - name: Läsa från Key Vault – .NET
+    - name: Ange och hämta en hemlighet – .NET
       href: quick-create-net.md
-    - name: Läsa från Key Vault – Node.js
+    - name: Ange och hämta en hemlighet – Node.js
       href: quick-create-node.md
 - name: Självstudier
   items:
@@ -82,6 +82,8 @@
       href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
     - name: Python
       href: /python/api/overview/azure/key-vault?view=azure-python
+    - name: REST
+      href: /rest/api/keyvault
     - name: Utveckla
       items:
         - name: Snabbstartsvideo för utvecklare
@@ -143,3 +145,5 @@
       href: 'https://azure.microsoft.com/pricing/details/key-vault/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Produktfeedback
+      href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

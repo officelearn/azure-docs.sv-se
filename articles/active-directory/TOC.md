@@ -102,11 +102,13 @@
 ### [Visa alla grupper](fundamentals/active-directory-groups-view-azure-portal.md)
 ### [Hantera gruppåtkomst till SaaS-appar](users-groups-roles/groups-saasapps.md)
 ### [Återställa en borttagen Office 365-grupp](fundamentals/active-directory-groups-restore-azure-portal.md)
-### [Hantera gruppinställningar](fundamentals/active-directory-groups-settings-azure-portal.md) 
-### Skapa avancerade regler
-#### [Azure-portalen](users-groups-roles/groups-dynamic-membership.md)
+### [Hantera gruppinställningar](fundamentals/active-directory-groups-settings-azure-portal.md)
 ### [Konfigurera självbetjäningsgrupper](users-groups-roles/groups-self-service-management.md)
-### [Felsöka](users-groups-roles/groups-troubleshooting.md)
+### Dynamiska grupper
+#### [Skapa en dynamisk grupp](users-groups-roles/groups-create-rule.md)
+#### [Regelsyntax och egenskaper](users-groups-roles/groups-dynamic-membership.md)
+#### [Ändra typ av gruppmedlemskap](users-groups-roles/groups-change-type.md)
+#### [Felsöka](users-groups-roles/groups-troubleshooting.md)
 
 ## [Hantera rapporter](active-directory-reporting-azure-portal.md)
 ### [Inloggningsaktiviteter](active-directory-reporting-activity-sign-ins.md)

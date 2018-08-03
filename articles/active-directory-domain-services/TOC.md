@@ -36,6 +36,9 @@
 #### [Uppgift 1: Hämta ett certifikat för säkert LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Uppgift 2: Exportera certifikatet för säkert LDAP](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
 #### [Uppgift 3: Aktivera säkert LDAP för den hanterade domänen med Azure Portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Uppgift 4: Konfigurera DNS att komma åt den hanterade domänen från Internet](active-directory-ds-ldaps-configure-dns.md)
+#### [Uppgift 5: Bind till den hanterade domänen och lås åtkomst med säkert LDAP](active-directory-ds-ldaps-bind-lockdown.md)
+#### [Felsöka säkert LDAP](active-directory-ds-ldaps-troubleshoot.md)
 
 ### [Skapa en OU på en hanterad domän](active-directory-ds-admin-guide-create-ou.md)
 ### [Skapa ett grupphanterat tjänstkonto på en hanterad domän](active-directory-ds-create-gmsa.md)

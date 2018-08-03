@@ -1,13 +1,13 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
-- name: Dokumentation om Speech Service API
+- name: Dokumentation om Speech Service och SDK
   href: index.yml
 - name: Översikt
   items:
     - name: Tal-scenarier
       href: speech-scenarios.md
-    - name: Vad är Speech Service?
-      href: overview.md
       expanded: true
+    - name: Tjänst för taligenkänning
+      href: overview.md
     - name: Speech SDK
       href: speech-sdk.md
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'

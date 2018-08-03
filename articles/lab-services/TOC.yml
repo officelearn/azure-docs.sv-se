@@ -61,6 +61,8 @@
           href: devtest-lab-create-lab.md
         - name: Skapa en virtuell dator i labbet
           href: devtest-lab-create-first-vm.md
+        - name: Ta bort ett labb eller en virtuell dator i ett labb
+          href: devtest-lab-delete-lab-vm.md
         - name: Ange principer för labbet
           href: devtest-lab-get-started-with-lab-policies.md
         - name: Spara hemligheter i Azure Key Vault

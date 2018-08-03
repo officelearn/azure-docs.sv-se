@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.reviewer: ramach
 ms.author: mbullwin
-ms.openlocfilehash: 9eb99ecea8efbbce322e61ac281cd534a112728b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2da281f52a85992c6fade360c94fbf473c38dc20
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950683"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424032"
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Aktivera Application Insights Profiler för virtuella Azure-datorer, Service Fabric och Azure Cloud Services
 
@@ -44,11 +44,11 @@ Innan du kan utnyttja Profiler, måste du ändra konfigurationen på tre platser
 
 1. [Skapa en ny Application Insights-resurs](https://docs.microsoft.com/azure/application-insights/app-insights-create-new-resource), eller välj en befintlig. 
 
-2. Gå till Application Insights-resursen och sedan kopiera instrumenteringsnyckeln.
+1. Gå till Application Insights-resursen och sedan kopiera instrumenteringsnyckeln.
 
    ![Platsen för instrumenteringsnyckeln](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. Om du vill slutföra konfigurationen av Application Insights-instans för Profiler, slutför du proceduren som beskrivs i [aktivera Profiler. Du behöver inte att länka webbappar, eftersom steg som är specifika för app services-resursen. Kontrollera att Profiler är aktiverat i den **konfigurera Profiler** fönstret.
+1. Om du vill slutföra konfigurationen av Application Insights-instans för Profiler, slutför du proceduren som beskrivs i [aktivera Profiler. Du behöver inte att länka webbappar, eftersom steg som är specifika för app services-resursen. Kontrollera att Profiler är aktiverat i den **konfigurera Profiler** fönstret.
 
 
 ## <a name="set-up-the-application-source-code"></a>Ställ in programmets källkod
@@ -74,7 +74,7 @@ Förutom att du har slutfört föregående steg om ditt program är *inte* en AS
         ```
       Läs mer om den här nyckeln globala instrumentation är konfigurerad, [används Service Fabric med Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
 
-  2. För alla typer av kod som du vill att instrumentera, lägga till en `StartOperation<RequestTelemetry>` **USING** instruktionen runt den som visas i följande exempel:
+  1. För alla typer av kod som du vill att instrumentera, lägga till en `StartOperation<RequestTelemetry>` **USING** instruktionen runt den som visas i följande exempel:
 
         ```csharp
         using Microsoft.ApplicationInsights;
@@ -143,7 +143,7 @@ Fullständigt exempel finns:
 Om du vill konfigurera din miljö, gör du följande:
 1. Så att du använder [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) eller senare, så är tillräckliga för att bekräfta att det distribuerade Operativsystemet är `Windows Server 2012 R2` eller senare.
 
-2. Sök efter den [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) tillägget på distributionsmallen för filen och Lägg sedan till följande `SinksConfig` avsnittet som ett underordnat element av `WadCfg`. Ersätt den `ApplicationInsightsProfiler` egenskapsvärdet med din egen Application Insights-instrumenteringsnyckeln:  
+1. Sök efter den [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) tillägget på distributionsmallen för filen och Lägg sedan till följande `SinksConfig` avsnittet som ett underordnat element av `WadCfg`. Ersätt den `ApplicationInsightsProfiler` egenskapsvärdet med din egen Application Insights-instrumenteringsnyckeln:  
 
       ```json
       "SinksConfig": {
@@ -165,13 +165,13 @@ Om du vill konfigurera din miljö, gör du följande:
 
 1. Så att du använder [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) eller senare, så är tillräckliga för att bekräfta att den *ServiceConfiguration.\*. cscfg* filer har en `osFamily` värdet av ”5” eller senare.
 
-2. Leta upp den [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* filen för din programroll som visas här:  
+1. Leta upp den [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* filen för din programroll som visas här:  
 
    ![Platsen för konfigurationsfilen diagnostik](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
 
    Om du inte hittar filen, information om hur du aktivera tillägget diagnostik i Azure Cloud Services-projektet finns [konfigurera diagnostik för Azure Cloud Services och virtuella datorer](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
 
-3. Lägg till följande `SinksConfig` avsnittet som ett underordnat element av `WadCfg`:  
+1. Lägg till följande `SinksConfig` avsnittet som ett underordnat element av `WadCfg`:  
 
       ```xml
       <WadCfg>
@@ -212,7 +212,7 @@ Om du vill konfigurera din miljö, gör du följande:
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
     ```
 
-2. Om det avsedda programmet körs [IIS](https://www.microsoft.com/web/downloads/platform.aspx), aktivera den `IIS Http Tracing` Windows-funktionen genom att göra följande:  
+1. Om det avsedda programmet körs [IIS](https://www.microsoft.com/web/downloads/platform.aspx), aktivera den `IIS Http Tracing` Windows-funktionen genom att göra följande:  
 
    a. Upprätta fjärråtkomst till miljön och sedan använda den [lägga till Windows-funktioner]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) fönster och kör sedan följande kommando i PowerShell (som administratör):  
 

@@ -244,6 +244,8 @@
       items:
         - name: IaaS-webbprogram
           href: ./blueprints/ukofficial-iaaswa-overview.md
+        - name: PaaS-webbprogram
+          href: ./blueprints/ukofficial-paaswa-overview.md
 - name: White paper-faktablad
   href: security-white-papers.md
 - name: Säkerhetstjänster i Azure

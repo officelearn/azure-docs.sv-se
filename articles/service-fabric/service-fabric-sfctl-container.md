@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl behållare | Microsoft Docs
-description: Beskriver kommandona Service Fabric CLI sfctl behållare.
+title: Azure Service Fabric CLI - sfctl container | Microsoft Docs
+description: Beskriver sfctl container-kommandon för Service Fabric CLI.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -12,78 +12,79 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: cd3725ac547a1ed1fd9207dc48ba3b6227e85ef1
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 27108d27ee27346e4cba44e6778faff56df70a36
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34764037"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495136"
 ---
-# <a name="sfctl-container"></a>sfctl behållare
-Kör behållaren-relaterade kommandon på en klusternod.
+# <a name="sfctl-container"></a>sfctl container
+Kör behållaren relaterade kommandon på en klusternod.
 
 ## <a name="commands"></a>Kommandon
 
 |Kommando|Beskrivning|
 | --- | --- |
-| anropa api | Anropa behållaren REST API. |
-| loggar | Hämta loggar för behållaren. |
+| anropa api | Anropa behållare REST API. |
+| loggar | Hämta behållarloggarna. |
 
-## <a name="sfctl-container-invoke-api"></a>anropa sfctl-behållaren-api
-Anropa behållaren REST API.
-
-### <a name="arguments"></a>Argument
-
-|Argumentet|Beskrivning|
-| --- | --- |
-| --program-id [krävs] | Tillämpningsprogrammets identitet. |
-| --kod-paketet-instans-id [krävs] | Koden paketet instans-ID som kan hämtas av 'service code-paketet-list'. |
-| ---paketet-kodnamnet [krävs] | Koden paketnamn. |
-| --behållarens-api-uri-sökväg [krävs] | Behållaren REST API-URI-sökväg, Använd {ID} i stället för behållarens namn/id. |
-| --nodnamn [krävs] | Namnet på noden. |
-| ---manifest-tjänstnamn [krävs] | Manifestet tjänstnamn. |
-| ---api-behållaren | HTTP-begärandetexten för behållaren REST API. |
-| --behållaren-api-content-type | Content-type för behållaren REST-API som standard application/json. |
-| --behållaren-api-http-verb | HTTP-verbet i behållaren REST-API som standard GET. |
-| --timeout -t | Servern tidsgräns i sekunder.  Som standard\: 60. |
-
-### <a name="global-arguments"></a>Globala argument
-
-|Argumentet|Beskrivning|
-| --- | --- |
-| – Felsökning | Öka loggning detaljnivå om du vill visa alla debug-loggar. |
-| --hjälp -h | Visa den här hjälpmeddelandet och avsluta. |
-| --utdata -o | Format för utdata.  Tillåtna värden\: json jsonc, tabell, TVs.  Som standard\: json. |
-| --fråga | JMESPath frågesträngen. Se http\://jmespath.org/ för mer information och exempel. |
-| -verbose | Öka loggning detaljnivå. Använd--debug för fullständig felsökningsloggar. |
-
-## <a name="sfctl-container-logs"></a>sfctl behållaren loggar
-Hämta loggar för behållaren.
+## <a name="sfctl-container-invoke-api"></a>sfctl behållaren anropa API: er
+Anropa behållare REST API.
 
 ### <a name="arguments"></a>Argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --program-id [krävs] | Tillämpningsprogrammets identitet. |
-| --kod-paketet-instans-id [krävs] | Koden paketet instans-ID som kan hämtas av 'service code-paketet-list'. |
-| ---paketet-kodnamnet [krävs] | Koden paketnamn. |
-| --nodnamn [krävs] | Namnet på noden. |
-| ---manifest-tjänstnamn [krävs] | Manifestet tjänstnamn. |
-| --pilslut | Bara returnera loggen rader i från slutet av loggarna. Ange som ett heltal eller alla Visa alla rader i loggen. Som standard för alla. |
-| --timeout -t | Servern tidsgräns i sekunder.  Som standard\: 60. |
+| – program-id [krävs] | Programidentitet. |
+| --code-package-instans-id [krävs] | Koda paketet instans-ID, som kan hämtas efter ”service code-package-list”. |
+| --code-package-name [krävs] | Kod paketnamn. |
+| --container-api-uri-sökväg [krävs] | Behållaren REST API-URI-sökväg, Använd {id} i stället för behållar-namn/id. |
+| --Nodnamnet [krävs] | Namnet på noden. |
+| --manifest-tjänstnamnet [krävs] | Namn på manifest. |
+| ---api-behållaren | HTTP-begärandetexten för REST API-behållare. |
+| --container-api-content-type | Innehållstyp för REST API-behållare som standard ”application/json”. |
+| --container-api-http-verb | HTTP-verb för REST API-behållare som standard GET. |
+| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Globala argument
+### <a name="global-arguments"></a>Global argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| – Felsökning | Öka loggning detaljnivå om du vill visa alla debug-loggar. |
-| --hjälp -h | Visa den här hjälpmeddelandet och avsluta. |
-| --utdata -o | Format för utdata.  Tillåtna värden\: json jsonc, tabell, TVs.  Som standard\: json. |
-| --fråga | JMESPath frågesträngen. Se http\://jmespath.org/ för mer information och exempel. |
-| -verbose | Öka loggning detaljnivå. Använd--debug för fullständig felsökningsloggar. |
+| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
+| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
+| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
+| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+
+## <a name="sfctl-container-logs"></a>sfctl behållarloggar
+Hämta behållarloggarna.
+
+### <a name="arguments"></a>Argument
+
+|Argumentet|Beskrivning|
+| --- | --- |
+| – program-id [krävs] | Programidentitet. |
+| --code-package-instans-id [krävs] | Koda paketet instans-ID, som kan hämtas efter ”service code-package-list”. |
+| --code-package-name [krävs] | Kod paketnamn. |
+| --Nodnamnet [krävs] | Namnet på noden. |
+| --manifest-tjänstnamnet [krävs] | Namn på manifest. |
+| --pilslut | Returnera endast log rader i från slutet av loggarna. Ange som ett heltal eller alla för att mata ut alla rader i loggen. Som standard för alla. |
+| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+
+### <a name="global-arguments"></a>Global argument
+
+|Argumentet|Beskrivning|
+| --- | --- |
+| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
+| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
+| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
+| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+
 
 ## <a name="next-steps"></a>Nästa steg
-- [Ställ in](service-fabric-cli.md) Service Fabric CLI.
-- Lär dig att använda Service Fabric CLI med hjälp av den [exempel på skript](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Konfigurera](service-fabric-cli.md) Service Fabric CLI.
+- Lär dig hur du använder Service Fabric CLI med hjälp av den [exempel på skript](/azure/service-fabric/scripts/sfctl-upgrade-application).

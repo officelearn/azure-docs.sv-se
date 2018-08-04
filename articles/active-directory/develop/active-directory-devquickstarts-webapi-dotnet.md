@@ -17,12 +17,12 @@ ms.date: 01/23/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4c5f0bc7f6f23ce16a3e1d6c7ecac1692ca43d9b
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ca506d821fe3534468c0d370dd51464e5df90f79
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398240"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504669"
 ---
 # <a name="azure-ad-net-web-api-getting-started"></a>Azure AD .NET webb-API: et komma igång
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -41,7 +41,7 @@ Om du vill skapa att göra-lista API: et, måste du först:
 2. Konfigurera appen för att använda OWIN-autentiseringspipelinen.
 3. Konfigurera ett klientprogram att anropa webb-API.
 
-Du kommer igång [ladda ned stommen app](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) eller [hämta det färdiga exemplet](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Var och en är en Visual Studio 2013-lösning. Du behöver också en Azure AD-klient som ska registrera ditt program. Om du inte har ett redan, [Lär dig hur du skaffa ett](active-directory-howto-tenant.md).
+Du kommer igång [ladda ned stommen app](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) eller [hämta det färdiga exemplet](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Var och en är en Visual Studio 2013-lösning. Du behöver också en Azure AD-klient som ska registrera ditt program. Om du inte har ett redan, [Lär dig hur du skaffa ett](quickstart-create-new-tenant.md).
 
 ## <a name="step-1-register-an-application-with-azure-ad"></a>Steg 1: Registrera ett program med Azure AD
 Om du vill att skydda ditt program, du måste först skapa ett program i din klient och ger Azure AD med några viktiga uppgifter.

@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: bc0ec09e28c5540eb919ac4e5f970f877ae27e44
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: ee954a951d3fc07709e3f27b4ced71a9ec525410
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37919095"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492970"
 ---
 # <a name="install-the-mobility-service"></a>Installera mobilitetstjänsten 
 
@@ -42,11 +42,14 @@ Utför dessa nödvändiga steg innan du installerar Mobilitetstjänsten på serv
 
 ### <a name="mobility-service-installer-to-operating-system-mapping"></a>Mobility installationsprogrammet för att driva systemmappning
 
+Visa en lista över operativsystem versioner med en kompatibel Mobilitetstjänsten-paketet finns på listan över [operativsystem som stöds för VMware-datorer och fysiska servrar](vmware-physical-azure-support-matrix.md#replicated-machines).
+
 | Mallnamn för Installer-fil| Operativsystem |
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bitars) </br> Windows Server 2012 (64-bitars) </br> Windows Server 2012 R2 (64-bitars) </br> Windows Server 2016 (64-bitars) |
-|Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6,9 (endast 64-bitars) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6,9 (endast 64-bitars) |
-|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (endast 64-bitars) </br> CentOS 7.0, 7.1, 7.2, 7.3 (endast 64-bitars) |
+|Microsoft-ASR\_UA\*RHEL6 64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6.* (endast 64-bitars) </br> CentOS 6.* (endast 64-bitars) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.* (endast 64-bitars) </br> CentOS 7.* (endast 64-bitars) |
+|Microsoft-ASR\_UA\*SLES12 64\*release.tar.gz | SUSE Linux Enterprise Server 12 SP1, SP2, SP3 (endast 64-bitars)|
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (endast 64-bitars)|
 |Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (endast 64-bitars)|
 |Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (endast 64-bitars)|
@@ -54,7 +57,6 @@ Utför dessa nödvändiga steg innan du installerar Mobilitetstjänsten på serv
 |Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server (endast 64-bitars)|
 |Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (endast 64-bitars)|
 |Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (endast 64-bitars)|
-
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Installera Mobilitetstjänsten manuellt med hjälp av det grafiska Användargränssnittet
 

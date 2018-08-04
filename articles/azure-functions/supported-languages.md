@@ -4,7 +4,7 @@ description: Lär dig vilka språk som stöds (GA) och som är experimentella ve
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 ms.service: functions
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 00f291e903948bf43bc997816b6072186cf1f889
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 2de2ebdea41ca35e853b37ab804e516eb7f4df9f
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343091"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494456"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Språk som stöds i Azure Functions
 
@@ -41,13 +41,13 @@ Det finns tre nivåer av support:
 
 ### <a name="experimental-languages"></a>Experimentella språk
 
-Experimentella språk i 1.x skalbarheten inte och stöder inte alla bindningar. Till exempel Python är långsam eftersom Functions-körningen körs *python.exe* med varje funktionsanrop. Och medan Python har stöd för HTTP-bindningar, den kan inte komma åt Begäranobjektet.
+Experimentella språk i version 1.x inte skalbarheten och stöder inte alla bindningar. Till exempel Python är långsam eftersom Functions-körningen körs *python.exe* med varje funktionsanrop. Och medan Python har stöd för HTTP-bindningar, den kan inte komma åt Begäranobjektet.
 
-Experimentella stöd för PowerShell är begränsad till version 4.0 eftersom det är vad som är installerat på de virtuella datorerna som funktionsappar körs på. Om du vill köra PowerShell-skript kan du överväga att [Azure Automation](https://azure.microsoft.com/services/automation/).
-
-2.x-körningen stöder inte experimentella språk. I 2.x kan vi lägga till stöd för ett språk som endast när den goda och har stöd för avancerade utlösare.
+Experimentella stöd för PowerShell är begränsad till version 5.1, eftersom det är vad som är installerat som standard på de virtuella datorerna på vilka funktionsappar kör. Om du vill köra PowerShell-skript kan du överväga att [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 Om du vill använda en av de språk som är tillgängliga i 1.x kvar på 1.x-körningen. Men Använd inte experimentella språk för sådant som du litar på, eftersom det finns inget officiella stöd för dessa. Du kan be om hjälp genom [skapa GitHub-ärenden](https://github.com/Azure/azure-webjobs-sdk-script/issues), men bör inte att öppna supportärenden för problem med experimentella språk. 
+
+Version 2.x-körningen stöder inte experimentella språk. Stöd för nya språk läggs endast när språket som kan användas i produktion. 
 
 ### <a name="language-extensibility"></a>Utökningsbarhet för språk
 

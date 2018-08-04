@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: darosa
-ms.openlocfilehash: 8388a8988dec2629c5ab309f32b72ae45a157a02
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 51f2ad736ccbf27cafb05b8f68653f5effdecbf0
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281468"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503510"
 ---
-# <a name="azure-event-hubs-for-apache-kafka"></a>Azure Event Hubs för Apache Kafka
+# <a name="azure-event-hubs-for-apache-kafka-preview"></a>Händelsehubbar i Azure för Apache Kafka (förhandsgranskning)
 
 Event Hubs ger en Kafka-slutpunkt som kan användas av din befintliga Kafka-baserade program som ett alternativ till att köra dina egna Kafka-kluster. Har stöd för Händelsehubbar [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) och nyare-klientversioner och fungerar med dina befintliga Kafka-program, inklusive MirrorMaker. Ändra anslutningssträngen och starta direktuppspelning av händelser från dina program som använder Kafka-protokollet till Event Hubs.
 

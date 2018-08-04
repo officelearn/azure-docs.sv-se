@@ -13,24 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: 0558a5647267dda26890ba3a6dc1af326fae94f6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: d8a11a3289037602535d1b5727d041e376012bd8
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308171"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502448"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Ansluta till en säker tjänst med omvänd proxy
 
-Den här artikeln förklarar hur du upprättar säker anslutning mellan omvänd proxy och tjänster, vilket gör att en säker kanal från slutpunkt till slutpunkt.
+Den här artikeln förklarar hur du upprättar säker anslutning mellan omvänd proxy och tjänster, vilket gör att en säker kanal från slutpunkt till slutpunkt. Läs mer om omvänd proxy i [omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy.md)
 
-Ansluter till säker tjänster stöds endast när omvänd proxy är konfigurerad för att lyssna på HTTPS. Resten av dokumentet förutsätter att detta är fallet.
-Referera till [omvänd proxy i Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) konfigurera omvänd proxy i Service Fabric.
+Ansluter till säker tjänster stöds endast när omvänd proxy är konfigurerad för att lyssna på HTTPS. Den här artikeln förutsätter att detta är fallet.
+Referera till [installationsprogrammet omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy-setup.md) konfigurera omvänd proxy i Service Fabric.
 
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Upprätta säker anslutning mellan omvänd proxy och tjänster 
 
 ### <a name="reverse-proxy-authenticating-to-services"></a>Omvänd proxy som autentiserar till tjänster:
-Omvänd proxy identifierar sig själv för tjänster med hjälp av dess certifikat som angetts med ***reverseProxyCertificate*** -egenskapen i den **kluster** [typ avsnittet](../azure-resource-manager/resource-group-authoring-templates.md). Tjänster kan implementera logik för att verifiera certifikatet från den omvända proxyn. Tjänsterna kan ange godkända klienten certifikatinformation som konfigurationsinställningar i konfigurationspaketet. Detta kan läsa vid körning och används för att verifiera certifikatet från den omvända proxyn. Referera till [hantera programparametrar](service-fabric-manage-multiple-environment-app-configuration.md) att lägga till konfigurationsinställningarna. 
+Omvänd proxy identifierar sig själv för tjänster med hjälp av dess certifikat. För certifikatet för Azure-kluster har angetts med ***reverseProxyCertificate*** -egenskapen i den [ **Microsoft.ServiceFabric/clusters** ](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [resurs Skriv avsnittet](../azure-resource-manager/resource-group-authoring-templates.md) av Resource Manager-mallen. Certifikatet som angetts för fristående kluster med antingen den ***ReverseProxyCertificate*** eller ***ReverseProxyCertificateCommonNames*** -egenskapen i den **Security**delen av ClusterConfig.json. Mer information finns i [aktivera omvänd proxy i fristående kluster](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
+
+Tjänster kan implementera logik för att verifiera certifikatet från den omvända proxyn. Tjänsterna kan ange godkända klienten certifikatinformation som konfigurationsinställningar i konfigurationspaketet. Detta kan läsa vid körning och används för att verifiera certifikatet från den omvända proxyn. Referera till [hantera programparametrar](service-fabric-manage-multiple-environment-app-configuration.md) att lägga till konfigurationsinställningarna. 
 
 ### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Omvänd proxy som verifierar tjänstidentitet via certifikatet som presenterades av tjänsten:
 Omvänd proxy har stöd för följande principer för att utföra valideringen av servercertifikatet för de certifikat som presenteras av tjänster: Ingen, ServiceCommonNameAndIssuer och ServiceCertificateThumbprints.
@@ -193,6 +195,7 @@ Om klienten inte ett certifikat, omvänd proxy vidarebefordrar en tom rubrik och
 
 
 ## <a name="next-steps"></a>Nästa steg
+* [Installera och konfigurera omvänd proxy i ett kluster](service-fabric-reverseproxy-setup.md).
 * Referera till [konfigurera omvänd proxy för att ansluta till säker tjänster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) för Azure Resource Manager-mallexempel konfigurera secure omvänd proxy med olika Tjänstcertifikatet verifieringsalternativ.
 * Se ett exempel på HTTP-kommunikation mellan tjänster i en [exempelprojektet på GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [RPC-anrop med Reliable Services-fjärrkommunikation](service-fabric-reliable-services-communication-remoting.md)

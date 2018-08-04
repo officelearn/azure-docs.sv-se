@@ -17,12 +17,12 @@ ms.date: 04/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bd71124e9134fc4d5692bb3b95a1673f111ccbde
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 35d837f346e3aab4f8b08286f1e0806f385762ec
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444393"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493459"
 ---
 # <a name="azure-active-directory-code-samples-v1-endpoint"></a>Kodexempel för Azure Active Directory (V1-slutpunkt)
 
@@ -35,7 +35,7 @@ Det här avsnittet innehåller länkar till exempel som du kan använda för att
 > [!NOTE]
 > Om du är intresserad av kodexempel för Azure AD V2, se [v2.0-kodexempel efter scenario](active-directory-v2-code-samples.md).
 
-Information om grundläggande scenario för varje typ av exemplet finns i [autentiseringsscenarier för Azure AD](active-directory-authentication-scenarios.md).
+Information om grundläggande scenario för varje typ av exemplet finns i [autentiseringsscenarier för Azure AD](authentication-scenarios.md).
 
 Du kan också bidra till vårt exempel på GitHub. Läs hur genom att läsa [Microsoft Azure Active Directory-exempel och dokumentation](https://github.com/Azure-Samples?page=3&query=active-directory).
 

@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 42ec8aa6119dbf01297743cd509285145c7bea29
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 1dc00e62a297b55d05c5bf96081974fd95bae3a3
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34594096"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493786"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Att lägga till en Azure Active Directory med hjälp av Connected Services i Visual Studio
 
@@ -74,5 +74,5 @@ När du lägger till den anslutna tjänsten guiden lägger Azure Active Director
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Autentiseringsscenarier för Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Lägga till logga in med Microsoft i en ASP.NET-webbapp](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Autentiseringsscenarier för Azure Active Directory](authentication-scenarios.md)
+- [Lägga till logga in med Microsoft i en ASP.NET-webbapp](quickstart-v1-aspnet-webapp.md)

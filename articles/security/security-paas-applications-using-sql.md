@@ -1,6 +1,6 @@
 ---
-title: Skydda PaaS databaser i Azure | Microsoft Docs
-description: " Läs mer om Azure SQL Database och SQL Data Warehouse Säkerhet Metodtips för att skydda din PaaS webb- och mobilprogram. "
+title: Skydda PaaS-databaser i Azure | Microsoft Docs
+description: " Läs mer om Azure SQL Database och SQL Data Warehouse-säkerhet metoder för att skydda din PaaS-webbprogram och mobilappar. "
 services: security
 documentationcenter: na
 author: techlake
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 054a3987cfd67fbd558fe9d4b482aac3d9b467fd
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ee606540bef47b11ad8fd9e820af2f5b51d47b0b
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114685"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493029"
 ---
-# <a name="securing-paas-databases-in-azure"></a>Att säkra PaaS-databaser i Azure
+# <a name="securing-paas-databases-in-azure"></a>Skydda PaaS-databaser i Azure
 
-I den här artikeln tar vi upp en samling [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) och [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/) säkerhetsmetoder för att skydda din PaaS webb- och mobilprogram. Följande rekommendationer härleds från våra erfarenhet av Azure och upplevelser för kunder som själv.
+I den här artikeln diskuterar vi en samling [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) och [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/) rekommenderade säkerhetsmetoder för att skydda din PaaS-webbprogram och mobilappar. Dessa metodtips härleds från vår erfarenhet av Azure och erfarenheter från kunder som dig själv.
 
 ## <a name="azure-sql-database-and-sql-data-warehouse"></a>Azure SQL Database och SQL Data Warehouse
-[Azure SQL Database](../sql-database/sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) betjäna relationsdatabas för din Internet-baserade program. Nu ska vi titta på tjänster som hjälper dig skydda dina program och data när du använder Azure SQL Database och SQL Data Warehouse i en PaaS-distribution:
+[Azure SQL Database](../sql-database/sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tillhandahåller en relationsdatabastjänst för din Internet-baserade program. Låt oss titta på tjänster som hjälper dig skydda dina program och data när du använder Azure SQL Database och SQL Data Warehouse i en PaaS-distribution:
 
 - Azure Active Directory-autentisering (i stället för SQL Server-autentisering)
 - Azure SQL-brandväggen
@@ -38,57 +38,57 @@ I den här artikeln tar vi upp en samling [Azure SQL Database](https://azure.mic
 
 Azure SQL-databaser kan konfigureras för att använda en av två typer av autentisering:
 
-- **SQL-autentisering** använder ett användarnamn och lösenord. När du skapade den logiska servern för databasen angav du en "serveradministratörsinloggning” med ett användarnamn och lösenord. Med dessa autentiseringsuppgifter, kan du autentisera till en databas på servern som databasägaren.
+- **SQL-autentisering** använder ett användarnamn och lösenord. När du skapade den logiska servern för databasen angav du en "serveradministratörsinloggning” med ett användarnamn och lösenord. Med dessa autentiseringsuppgifter kan autentisera du till valfri databas på servern som databasens ägare.
 
-- **Azure Active Directory-autentisering** använder identiteter som hanteras av Azure Active Directory och stöds för hanterade och integrerad domäner. Om du vill använda Azure Active Directory-autentisering måste du skapa en annan serveradministratör kallas den ”Azure AD admin”, som tillåts administrera Azure AD-användare och grupper. Den här administratören kan också utföra alla åtgärder som en vanlig serveradministratören kan.
+- **Azure Active Directory-autentisering** använder identiteter som hanteras av Azure Active Directory och har stöd för hanterade och integrerade domäner. Om du vill använda Azure Active Directory-autentisering, måste du skapa en annan serveradministratör som kallas ”Azure AD-administratören”, som tillåts administrera Azure AD-användare och grupper. Den här administratören kan också utföra alla åtgärder som en vanlig serveradministratören kan.
 
-[Azure Active Directory-autentisering](../active-directory/develop/active-directory-authentication-scenarios.md) är en mekanism för anslutning till Azure SQL Database och SQL Data Warehouse med hjälp av identiteter i Azure Active Directory (AD). Azure AD innehåller ett alternativ till SQL Server-autentisering så du kan stoppa spridning av användaridentiteter över databasservrar. Azure AD-autentisering kan du centralt hantera identiteter för databasanvändare och andra Microsoft-tjänster på en central plats. Central hantering av ID innehåller en enda plats för att hantera användare och förenklar hantering av behörighet.  
+[Azure Active Directory-autentisering](../active-directory/develop/authentication-scenarios.md) är en mekanism för att ansluta till Azure SQL Database och SQL Data Warehouse med hjälp av identiteter i Azure Active Directory (AD). Azure AD tillhandahåller ett alternativ till SQL Server-autentisering så att du kan stoppa spridning av användaridentiteter över databasservrar. Azure AD-autentisering kan du centralt hantera identiteter för databasanvändare och andra Microsoft-tjänster på en central plats. Central hantering av ID innehåller en enda plats för att hantera databasanvändare och förenklar hanteringen av behörighet.  
 
-Fördelarna med att använda Azure AD-autentisering i stället för SQL-autentisering är:
+Fördelar med att använda Azure AD-autentisering i stället för SQL-autentisering är:
 
-- Tillåter lösenord rotation i en enda plats.
-- Hanterar databasen med hjälp av externa Azure AD-grupper.
+- Tillåter lösenordsrotation i en och samma plats.
+- Hanterar databasbehörigheter med hjälp av externa Azure AD-grupper.
 - Eliminerar lagra lösenord genom att aktivera integrerad Windows-autentisering och andra former av autentisering som stöds av Azure AD.
-- Använder finns databasanvändare att autentisera identiteter på databasnivå.
-- Stöder tokenbaserad autentisering för program som ansluter till SQL-databas.
-- Har stöd för ADFS (domänfederation) eller intern användarlösenord autentisering för en lokal Azure AD utan domänsynkronisering.
-- Stöder anslutningar från SQL Server Management Studio som använder Active Directory Universal-autentisering, vilket innefattar [Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md). MFA ingår stark autentisering med ett antal alternativ för enkel verifiering – telefonsamtal, textmeddelande, smartkort och PIN-kod eller meddelande i mobilappen. Mer information finns i [SSMS stöd för Azure AD MFA med SQL Database och SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
+- Använder innesluten databasanvändare för att autentisera identiteter på databasnivå.
+- Har stöd för tokenbaserad autentisering för program som ansluter till SQL-databas.
+- Stöder AD FS (domän federation) eller interna användare/lösenord autentisering för en lokal Azure AD utan domänsynkronisering.
+- Stöder anslutningar från SQL Server Management Studio som använder Active Directory Universal-autentisering, vilket innefattar [Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md). MFA innehåller stark autentisering med en rad enkla verifieringsalternativ – telefonsamtal, textmeddelande, smartkort och PIN-kod eller mobilapp. Mer information finns i [SSMS-stöd för Azure AD MFA med SQL Database och SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
-Mer information om Azure AD-autentisering finns:
+Om du vill veta mer om Azure AD-autentisering, se:
 
-- [Ansluter till SQL Database eller SQL Data Warehouse med hjälp av Azure Active Directory-autentisering](../sql-database/sql-database-aad-authentication.md)
+- [Ansluta till SQL Database eller SQL Data Warehouse med hjälp av Azure Active Directory-autentisering](../sql-database/sql-database-aad-authentication.md)
 - [Autentisera till Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-authentication.md)
-- [Stöd för tokenbaserad autentisering för Azure SQL-databas med hjälp av Azure AD-autentisering](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/)
+- [Stöd för tokenbaserad autentisering för Azure SQL DB med Azure AD-autentisering](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/)
 
 > [!NOTE]
-> För att säkerställa att Azure Active Directory passar bra för din miljö, se [Azure AD-funktioner och begränsningar](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations), särskilt ytterligare överväganden.
+> För att säkerställa att Azure Active Directory är ett bra alternativ för din miljö, se [Azure AD-funktioner och begränsningar](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations), särskilt ytterligare överväganden.
 >
 >
 
-### <a name="restrict-access-based-on-ip-address"></a>Begränsa åtkomst baserat på IP-adress
-Du kan skapa brandväggsregler som anger godkända IP-adressintervall. Dessa regler kan tillämpas på både server och databas. Vi rekommenderar att du använder databasnivå brandväggsregler när det är möjligt att förbättra säkerheten och göra databasen mer bärbara. Brandväggsregler på servernivå är bäst för administratörer och när du har många databaser som har samma krav för åtkomst, men du inte vill ägna tid konfigurerar varje databas individuellt.
+### <a name="restrict-access-based-on-ip-address"></a>Begränsa åtkomsten baserat på IP-adress
+Du kan skapa brandväggsregler som anger intervall med godkända IP-adresser. Dessa regler kan tillämpas på både servern och databasen nivåer. Vi rekommenderar att du använder databasen brandväggsregler på databasnivå när det är möjligt att förbättra säkerheten och göra databasen mer portabel. Brandväggsregler på servernivå är bäst för administratörer och när du har många databaser med samma åtkomstkrav men du inte vill lägga tid på att konfigurera varje databas individuellt.
 
-SQL-databas standard källa IP-adressbegränsningar tillåta åtkomst från alla Azure-adresser (inklusive andra prenumerationer och klienter). Du kan begränsa detta så att bara IP-adresser att komma åt instansen. Även om din SQL-brandvägg och IP-adressbegränsningar behövs stark autentisering fortfarande. Se rekommendationer tidigare i den här artikeln.
+SQL Database standard källa IP-adressbegränsningar Tillåt åtkomst från alla Azure-adresser (inklusive andra prenumerationer och klienter). Du kan begränsa detta så att endast IP-adresser att komma åt instansen. Även med SQL-brandväggen och IP-adressbegränsningar krävs fortfarande stark autentisering. Se rekommendationer tidigare i den här artikeln.
 
-Mer information om Azure SQL-brandvägg och IP-begränsningar finns:
+Mer information om Azure SQL-brandväggen och IP-begränsningar finns:
 
 - [Azure SQL Database-åtkomstkontroll](../sql-database/sql-database-control-access.md)
 - [Konfigurera brandväggsregler för Azure SQL Database - översikt](../sql-database/sql-database-firewall-configure.md)
-- [Konfigurera en Azure SQL Database servernivå brandväggsregel med Azure-portalen](../sql-database/sql-database-configure-firewall-settings.md)
+- [Konfigurera en Azure SQL Database-brandväggsregel på servernivå med hjälp av Azure portal](../sql-database/sql-database-configure-firewall-settings.md)
 
 ### <a name="encryption-of-data-at-rest"></a>Kryptering av vilande data
-[Transparent Data kryptering (TDE)](https://msdn.microsoft.com/library/azure/bb934049) är aktiverad som standard. TDE krypterar transparent SQL Server, Azure SQL Database och Azure SQL Data Warehouse data och loggfilen filer. TDE skyddar mot en kompromettering av direkt åtkomst till filer eller deras säkerhetskopiering. På så sätt kan du kryptera vilande data utan att ändra befintliga program. TDE ska alltid vara aktiverad; Detta kommer dock inte att stoppa en angripare som använder normal åtkomstsökvägen. TDE ger möjlighet att följa många lagar, och riktlinjerna i olika branscher.
+[Transparent datakryptering (TDE)](https://msdn.microsoft.com/library/azure/bb934049) är aktiverat som standard. TDE krypterar transparent SQL Server, Azure SQL Database och Azure SQL Data Warehouse filer för data och loggfiler. TDE skyddar mot en kompromettering av direkt åtkomst till filer eller deras säkerhetskopiering. På så sätt kan du kryptera vilande data utan att ändra befintliga program. TDE bör alltid vara aktiverade; men att detta inte slutar en angripare med hjälp av sökvägen för normal åtkomst. TDE ger möjlighet att följa många lagar, bestämmelser och riktlinjerna i olika branscher.
 
-Azure SQL hanterar viktiga problem för TDE. Som med TDE, lokalt måste vara extra försiktig så återställning och när du flyttar databaser. I mer avancerade scenarier, nycklarna kan uttryckligen hanteras i Azure Key Vault via extensible key management (se [aktivera TDE på SQL Server med hjälp av EKM](/security/encryption/enable-tde-on-sql-server-using-ekm)). Detta kan också för ta med din egen nyckel (BYOK) via Azure nyckeln valv BYOK kapaciteten.
+Azure SQL hanterar viktiga relaterade problem för transparent Datakryptering. Som med transparent Datakryptering, lokala särskild försiktighet måste vidtas för att säkerställa återställning och när du flyttar databaser. I mer avancerade scenarier nycklarna kan uttryckligen hanteras i Azure Key Vault med utökningsbar nyckelhantering (se [aktivera TDE på SQL Server med hjälp av EKM](/security/encryption/enable-tde-on-sql-server-using-ekm)). Detta kan också för ta med din egen nyckel (BYOK) via Azure Key valv BYOK-funktionen.
 
-Azure SQL ger dig kryptering för kolumnerna till [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). På så sätt kan endast auktoriserade program åtkomst till känsliga kolumner. Med den här typen av kryptering begränsar SQL-frågor för krypterade kolumner till baserat på likheten värden.
+Azure SQL ger dig kryptering för kolumnerna till [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). På så sätt kan endast auktoriserade program åtkomst till känsliga kolumner. Med hjälp av den här typen av kryptering begränsar SQL-frågor för krypterade kolumner till likhet-baserade värden.
 
-Programmet kryptering bör också användas för dataåtkomst. Ibland kan du minimera data suveränitet problem genom att kryptera data med en nyckel som används i ett land. Detta förhindrar att även oavsiktliga dataöverföring orsakar problem Eftersom det är omöjligt att dekryptera data utan nyckel, förutsatt att en stark algoritm används (till exempel AES 256).
+Programmet filnivåkryptering bör också användas för dataåtkomst. Ibland kan du minimera data datasuveränitet frågor genom att kryptera data med en nyckel som lagras i ett land. Detta förhindrar att även oavsiktlig dataöverföring orsakar problem Eftersom det är omöjligt att dekryptera data utan nyckeln, förutsatt att en stark algoritmen används (till exempel AES-256).
 
-Du kan använda ytterligare säkerhetsåtgärder för att skydda databasen som en säker system utformas, kryptera konfidentiell tillgångar och skapa en brandvägg runt databasservrar.
+Du kan använda ytterligare säkerhetsåtgärder för att skydda databasen som utformar en säker system, kryptera känsliga tillgångar och att skapa en brandvägg runt database-servrar.
 
 ## <a name="next-steps"></a>Nästa steg
-Den här artikeln introduceras du till en samling med SQL Database och SQL Data Warehouse säkerhetsmetoder för att skydda din PaaS webb- och mobilprogram. Mer information om hur du skyddar dina PaaS-distributioner finns:
+Den här artikeln har du introducerats till en samling med SQL Database och SQL Data Warehouse rekommenderade säkerhetsmetoder för att skydda din PaaS-webbprogram och mobilappar. Mer information om hur du skyddar dina PaaS-distributioner finns:
 
 - [Skydda PaaS-distributioner](security-paas-deployments.md)
-- [Att säkra PaaS-webb- och mobila program med Azure App Service](security-paas-applications-using-app-services.md)
+- [Skydda PaaS-webb- och mobilprogram med Azure App Services](security-paas-applications-using-app-services.md)

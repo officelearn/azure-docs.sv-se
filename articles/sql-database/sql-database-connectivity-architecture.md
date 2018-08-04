@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 0ae05456d957c6ebabe0faec7da4175618b191ef
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: afc82ea666fdbef89348e7453df92b8d8e1adc86
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036776"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493680"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-arkitektur 
 
@@ -51,7 +51,7 @@ Om du ansluter från platser utanför Azure, dina anslutningar har en princip f�
 ![Översikt över arkitekturen](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> När du använder Tjänsteslutpunkter med Azure SQL Database principen är **omdirigera** som standard. Om du vill aktivera anslutningen från i det virtuella nätverket måste du därför kan utgående trafik till alla Azure SQL Database-IP-adresser, inte bara gateway IP-adresser. Detta kan göras med hjälp av Tjänsttaggar för NSG (Nätverkssäkerhetsgrupp), om du vill tillåta utgående trafik endast till gateway-IP-adresser ändra inställningen för att **Proxy**.
+> När du använder Tjänsteslutpunkter med Azure SQL Database principen är **Proxy** som standard. Tillåt utgående anslutningar till Azure SQL Database Gateway IP-adresser som anges i listan nedan om du vill aktivera anslutningen från i det virtuella nätverket. När du använder Tjänsteslutpunkter vi rekommenderar starkt att ändra anslutningsprincipen till **omdirigera** för att förbättra prestanda. Om du ändrar din anslutningsprincip till **omdirigera** det inte blir tillräckliga för att tillåta utgående på din NSG till Azure-SQLDB-gateway IP-adresser som anges nedan, måste du tillåta utgående trafik till alla SQLDB IP-adresser för Azure. Detta kan åstadkommas med hjälp av Tjänsttaggar för NSG (Nätverkssäkerhetsgrupper). Mer information finns i [Tjänsttaggar](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database gateway IP-adresser
 
@@ -69,14 +69,14 @@ I följande tabell visas de primära och sekundära IP-adresserna för Azure SQL
 | Centrala USA | 23.99.160.139 | 13.67.215.62 |
 | Östasien | 191.234.2.139 | 52.175.33.150 |
 | Östra USA 1 | 191.238.6.43 | 40.121.158.30 |
-| Östra USA 2 | 191.239.224.107 | 40.79.84.180 * |
+| USA, östra 2 | 191.239.224.107 | 40.79.84.180 * |
 | Centrala Indien | 104.211.96.159  | |
 | Södra Indien | 104.211.224.146  | |
 | Västra Indien | 104.211.160.80 | |
 | Östra Japan | 191.237.240.43 | 13.78.61.196 |
 | Västra Japan | 191.238.68.11 | 104.214.148.156 |
-| Centrala Korea | 52.231.32.42 | |
-| Sydkorea | 52.231.200.86 |  |
+| Sydkorea, centrala | 52.231.32.42 | |
+| Sydkorea, södra | 52.231.200.86 |  |
 | Norra centrala USA | 23.98.55.75 | 23.96.178.199 |
 | Norra Europa | 191.235.193.75 | 40.113.93.91 |
 | Södra centrala USA | 23.98.162.75 | 13.66.62.124 |

@@ -1,6 +1,6 @@
 ---
-title: Lär dig mer om auktorisering-protokoll som stöds av Azure AD v2.0 | Microsoft Docs
-description: En guide till protokoll som stöds av Azure AD v2.0-slutpunkten.
+title: Lär dig mer om auktoriseringsprotokoll som stöds av Azure AD v2.0 | Microsoft Docs
+description: En guide som protokoll som stöds av Azure AD v2.0-slutpunkten.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,69 +17,69 @@ ms.date: 04/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7c6031bb135c48a8d58f61c3c96bf18e817809ba
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b50d04f843e86f5af8ccd32589a540e38e6e47df
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156229"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502941"
 ---
-# <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0 protokoll - OAuth 2.0 & OpenID Connect
-V2.0-slutpunkten kan använda Azure AD identity-as-a-service med standardprotokollen, OpenID Connect och OAuth 2.0. När tjänsten är standardkompatibel kan finnas det skillnader mellan två implementeringar av dessa protokoll. Informationen här kan vara användbart om du väljer att skriva koden genom att skicka direkt & hanterar HTTP-begäranden eller använda ett 3 part öppen källkod bibliotek i stället för att använda någon av våra [öppna bibliotek källkod](active-directory-v2-libraries.md).
+# <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0 protokoll – OAuth 2.0 och OpenID Connect
+V2.0-slutpunkten kan använda Azure AD för identitets-as-a-service med branschens standardprotokoll, OpenID Connect och OAuth 2.0. Tjänsten är standardkompatibla, kan det finnas skillnader mellan två implementeringar av dessa protokoll. Information om här är praktiskt om du väljer att skriva din kod genom att skicka direkt och hantering av HTTP-begäranden eller använda ett bibliotek med 3 part öppen källkod i stället för att använda någon av våra [öppna bibliotek källkod](active-directory-v2-libraries.md).
 
 > [!NOTE]
-> Inte alla Azure Active Directory-scenarier och funktioner som stöds av v2.0-slutpunkten. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten [v2.0 begränsningar](active-directory-v2-limitations.md).
+> Inte alla Azure Active Directory-scenarier och funktioner som stöds av v2.0-slutpunkten. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [v2.0 begränsningar](active-directory-v2-limitations.md).
 >
 >
 
 ## <a name="the-basics"></a>Grunderna
-I nästan alla OAuth & OpenID Connect flöden finns det fyra parter ingår i exchange:
+I nästan alla flöden som OAuth och OpenID Connect finns det fyra parter som ingår i exchange:
 
 ![OAuth 2.0-roller](../../media/active-directory-v2-flows/protocols_roles.png)
 
-* Den **auktorisering Server** är v2.0-slutpunkten. Den ansvarar för att säkerställa användarens identitet, bevilja och återkalla åtkomst till resurser och utfärdar token. Den kallas även identitetsleverantören. - den hanterar ingenting att göra med information om användaren, deras åtkomst och förtroenderelationer mellan parterna i ett flöde på ett säkert sätt.
-* Den **resursägare** är vanligtvis slutanvändaren. Det är den part som äger data och har rätt att tillåta att tredje part att komma åt data, eller resurs.
-* Den **OAuth-klient** är din app som identifieras av ett program-Id. Det är vanligtvis den part som slutanvändaren samverkar med och begär token från servern auktorisering. Klienten måste ha behörighet att komma åt resursen av resursägare.
-* Den **resursservern** är där resursen och data finns. Den förtroenden auktorisering servern för att autentisera och auktorisera OAuth-klient på ett säkert sätt och använder ägar access_tokens så att du kan få åtkomst till en resurs.
+* Den **Auktoriseringsservern** är v2.0-slutpunkten. Den är ansvarig för att se till att användarens identitet, bevilja och återkalla åtkomst till resurser och utfärda token. Det är även känd som identitetsprovidern – den hanterar något att göra med information om användaren, deras åtkomst och förtroenderelationer mellan parterna i ett flöde på ett säkert sätt.
+* Den **Resursägaren** är vanligtvis slutanvändaren. Det är den part som äger data och har rätt att tillåta tredje part att få åtkomst till den data eller resurs.
+* Den **OAuth klienten** använder din app som identifieras av dess program-Id. Det är vanligtvis den part som slutanvändaren interagerar med och begär token från auktoriseringsservern. Klienten måste beviljas behörighet att komma åt resursen som ägare till resursen.
+* Den **resursservern** är där resursen eller data finns. Den litar på Auktoriseringsservern för att på ett säkert sätt autentisera och auktorisera OAuth-klienten och använder ägar access_tokens så att du kan få åtkomst till en resurs.
 
-## <a name="app-registration"></a>App-registrering
-Alla appar som använder v2.0-slutpunkten måste vara registrerade med [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) innan det kan interagera med hjälp av OAuth eller OpenID Connect. Registreringsprocessen kommer samla in & tilldelar några värden till din app:
+## <a name="app-registration"></a>Appregistrering
+Alla appar som använder v2.0-slutpunkten måste vara registrerade med [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) innan den kan interagera med hjälp av OAuth eller OpenID Connect. Registreringsprocessen kommer samla in & tilldela några värden till appen:
 
 * En **program-Id** som unikt identifierar din app
 * En **omdirigerings-URI** eller **Paketidentifierare** som kan användas för att dirigera svar tillbaka till din app
 * Några andra scenariespecifika-värden.
 
-Om du vill ha mer information lär du dig hur du [registrerar en app](active-directory-v2-app-registration.md).
+Om du vill ha mer information lär du dig hur du [registrerar en app](quickstart-v2-register-an-app.md).
 
 ## <a name="endpoints"></a>Slutpunkter
-När registreringen är klar kommunicerar appen med Azure AD genom att skicka förfrågningar till v2.0-slutpunkten:
+När registrerats är kommunicerar appen med Azure AD genom att skicka förfrågningar till v2.0-slutpunkten:
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 ```
 
-Där den `{tenant}` kan vidta någon av fyra olika värden:
+Där den `{tenant}` kan ha något av fyra olika värden:
 
 | Värde | Beskrivning |
 | --- | --- |
-| `common` |Gör att användare med både personliga Microsoft-konton och arbete/skolkonton från Azure Active Directory för att logga in på programmet. |
-| `organizations` |Kan endast användare med arbete/skolkonton från Azure Active Directory för att logga in på programmet. |
-| `consumers` |Kan endast användare med personliga Microsoft-konton (MSA) för att logga in på programmet. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` |Kan endast användare med arbete/skolkonton från en viss Azure Active Directory-klient för att logga in på programmet. Kan användas antingen det egna namnet för Azure AD-klient eller klientens guid-identifierare. |
+| `common` |Låter användare med både personliga Microsoft-konton och arbets-/ skolkonton från Azure Active Directory för att logga in i programmet. |
+| `organizations` |Tillåter endast användare med arbets-/ skolkonton från Azure Active Directory för att logga in i programmet. |
+| `consumers` |Kan endast användare med personliga Microsoft-konton (MSA) för att logga in i programmet. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` |Tillåter endast användare med arbets-/ skolkonton från en viss Azure Active Directory-klient för att logga in i programmet. Du kan använda antingen det egna domännamnet i Azure AD-klient eller klientens guid-identifierare. |
 
-Välj en viss app typ nedan för mer information om hur du interagerar med dessa slutpunkter.
+Välj en viss apptyp nedan för mer information om hur du interagerar med de här slutpunkterna.
 
 ## <a name="tokens"></a>Token
-V2.0-implementering av OAuth 2.0 och OpenID Connect utnyttja omfattande ägar-token, inklusive ägar-token som JWTs. Ett ägartoken är en förenklad säkerhetstoken som ger ”ägar” åtkomst till en skyddad resurs. På detta sätt är ”innehavaren” någon part som kan ge token. Även om en part måste de först autentisera med Azure AD ta emot ägartoken om de nödvändiga stegen inte vidtas för att skydda token i överföringen och lagringen, kan de snappas upp och används av en oavsiktlig part. Även om vissa säkerhetstoken har en inbyggd mekanism för att förhindra att obehöriga personer använder dem, ägar-token har inte den här mekanismen och måste transporteras i en säker kanal, till exempel transport layer security (HTTPS). Om ett ägartoken skickas i klartext, kan en man-i mitten-attack användas av skadliga part att hämta token och använda den för en obehörig åtkomst till en skyddad resurs. Samma säkerhetsprinciper tillämpas när lagring eller cachelagring ägar-token för senare användning. Se alltid till att appen skickar och lagrar ägar-token på ett säkert sätt. Flera säkerheten på ägar-token finns [RFC 6750 avsnitt 5](http://tools.ietf.org/html/rfc6750).
+V2.0-implementeringen av OAuth 2.0 och OpenID Connect gör omfattande användning av ägar-token, inklusive ägar-token som JWTs. En ägartoken är en förenklad säkerhetstoken som ger ”ägar” åtkomst till en skyddad resurs. I detta avseende är ”ägar” en part som kan utgöra en token. Även om en part måste först autentisera med Azure AD för att ta emot ägartoken om steg som krävs inte vidtas för att skydda token i överföring och lagring, kan den fångas upp och används av en oavsiktlig part. Även om vissa säkerhetstoken har en inbyggd mekanism för att förhindra obehöriga personer från att använda dem, ägar-token har inte den här mekanismen och måste transporteras i en säker kanal, till exempel transport layer security (HTTPS). Om en ägartoken skickas i klartext, kan en man-modul i mitten-attack användas av en obehörig part att hämta token och använda den för en obehörig åtkomst till en skyddad resurs. Samma säkerhetsprinciper gäller när du lagrar eller cachelagring ägar-token för senare användning. Se alltid till att appen överför och lagrar ägar-token på ett säkert sätt. Mer säkerheten på ägartoken, finns [RFC 6750 avsnitt 5](http://tools.ietf.org/html/rfc6750).
 
-Mer information om olika typer av token som används i v2.0-slutpunkten är tillgänglig i [v2.0-slutpunkten tokenreferens](active-directory-v2-tokens.md).
+Ytterligare information om olika typer av token som används i v2.0-slutpunkten är tillgänglig i [tokenreferens för v2.0-slutpunkten](active-directory-v2-tokens.md).
 
 ## <a name="protocols"></a>Protokoll
-Om du är redo att visa vissa exempel begäranden komma igång med en av de nedan självstudier. Var och en motsvarar en viss autentiseringsscenariot. Om du behöver hjälp med att fastställa vilket är rätt flödet för du kolla [typerna av appar som du kan skapa med v2.0](active-directory-v2-flows.md).
+Om du är redo att se vissa exempel begäranden, Kom igång med någon av de nedan självstudier. Var och en motsvarar ett visst autentiseringsscenario. Om du behöver hjälp med att fastställa som är rätt för dig kan du kolla [typer av appar som du kan skapa med v2.0](active-directory-v2-flows.md).
 
-* [Skapa mobila och interna program med OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
-* [Skapa Web Apps med öppna ID Connect](active-directory-v2-protocols-oidc.md)
-* [Skapa Ensidesappar med det implicita flödet för OAuth 2.0](active-directory-v2-protocols-implicit.md)
-* [Build-Daemon eller Server Side processer med OAuth 2.0 klientens autentiseringsuppgifter flöda](active-directory-v2-protocols-oauth-client-creds.md)
-* [Hämta token i Web API med OAuth 2.0 för flöda](active-directory-v2-protocols-oauth-on-behalf-of.md)
+* [Skapa mobila och programspecifika med OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
+* [Skapa webb-appar med öppna ID Connect](active-directory-v2-protocols-oidc.md)
+* [Skapa appar med en sida med det implicita flödet för OAuth 2.0](active-directory-v2-protocols-implicit.md)
+* [Build-Daemon eller sida serverprocesser med OAuth 2.0-klientautentiseringsuppgifter Flow](active-directory-v2-protocols-oauth-client-creds.md)
+* [Hämta token i ett webb-API med OAuth 2.0 för Flow](active-directory-v2-protocols-oauth-on-behalf-of.md)

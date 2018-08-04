@@ -1,6 +1,6 @@
 ---
-title: Övervaka datafabriker med hjälp av Azure-Monitor | Microsoft Docs
-description: Lär dig hur du använder Azure-Monitor för att övervaka Data Factory pipelines genom att aktivera diagnostiska loggar med information från Azure Data Factory.
+title: Övervaka datafabriker med hjälp av Azure Monitor | Microsoft Docs
+description: Lär dig hur du använder Azure Monitor för att övervaka Data Factory-pipelines genom att aktivera diagnostiska loggar med information från Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,44 +13,44 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 1d1b21897975717db7b733e33b7700bc76e3e065
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 25bb455ea46fdc96e32e34d434dd844779b0b650
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046555"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495306"
 ---
-# <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Varna och övervaka datafabriker med hjälp av Azure-Monitor
-Molnprogram är komplicerade med många rörliga delar. Övervakning tillhandahåller data för att säkerställa att programmet in och körs i ett felfritt tillstånd. Det hjälper dig också att stave ut potentiella problem eller felsöka tidigare viktiga. Du kan dessutom använda övervakningsdata och få djupa insikter om ditt program. Den här kunskapen kan hjälpa dig att förbättra programmets prestanda eller underhålla eller automatisera åtgärder som annars skulle kräva manuella åtgärder.
+# <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Varna och övervaka datafabriker med hjälp av Azure Monitor
+Molnprogram är komplexa med alla rörliga delar. Övervakning ger data så att ditt program fungerar och körs i ett felfritt tillstånd. Det hjälper dig också att stave potentiella problem eller felsöka tidigare sådana. Du kan dessutom använda övervakningsdata för att få djupa insikter om ditt program. Den här kunskapen kan hjälpa dig att förbättra programmets prestanda och underhåll eller automatisera åtgärder som annars skulle kräva manuella åtgärder.
 
-Azure-Monitor innehåller basnivån infrastruktur mått och loggar för de flesta tjänster i Microsoft Azure. Mer information finns i [översikt över övervakning](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure diagnostikloggar är loggar orsakat av en resurs som innehåller omfattande, ofta data om användningen av den här resursen. Data Factory matar ut diagnostikloggar i Azure-Monitor.
+Azure Monitor innehåller basnivå infrastruktur mått och loggar för de flesta tjänster i Microsoft Azure. Mer information finns i [Övervakningsöversikt](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure diagnostikloggar är loggar som genereras av en resurs som tillhandahåller omfattande, frekventa data om användningen av den här resursen. Data Factory matar ut diagnostikloggar i Azure Monitor.
 
-## <a name="persist-data-factory-data"></a>Spara Data Factory-Data
-Data Factory lagrar bara pipeline kör data för 45 dagar. Om du vill bevara pipeline kör data mer än 45 dagar med hjälp av Azure-Monitor, du kan inte bara vidarebefordra diagnostikloggar för analys, du kan behålla dem i ett lagringskonto, så att du har factory information för din chossing varaktighet.
+## <a name="persist-data-factory-data"></a>Bevara Data Factory-Data
+Data Factory lagrar bara data för pipelinekörning 45 dagar. Om du vill bevara pipelinekörning data i mer än 45 dagar med Azure Monitor kan du kan inte bara vidarebefordra diagnostikloggar för analys, du kan även spara dem till ett lagringskonto så att du har factory information för hela din chossing.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
-* Spara dem på en **Lagringskonto** för granskning eller Manuell kontroll. Du kan ange kvarhållningstiden (i dagar) med hjälp av inställningarna för diagnostik.
-* Strömma dem till **Händelsehubbar** för införandet av en tjänst från tredje part eller anpassade analytics lösning, till exempel PowerBI.
-* Analysera dem med **logganalys**
+* Sparar dem till en **Lagringskonto** för granskning eller manuell granskning. Du kan ange kvarhållningstid (i dagar) med hjälp av diagnostikinställningarna.
+* Stream att **Händelsehubbar** för inmatning av en tjänst från tredje part eller anpassade analyslösning till exempel Power BI.
+* Analysera dem med **Log Analytics**
 
-Du kan använda en storage-konto eller händelse hubb namnområde som inte är i samma prenumeration som den resurs som avger loggar. Den användare som konfigurerar inställningen måste ha åtkomstbehörighet för rollbaserad åtkomstkontroll (RBAC) åtkomst till båda prenumerationer.
+Du kan använda ett lagring eller event hub-namnområde som inte är i samma prenumeration som den resurs som loggarna. Den användare som konfigurerar inställningen måste ha lämplig åtkomst med rollbaserad åtkomstkontroll (RBAC) åtkomst till båda prenumerationerna.
 
-## <a name="set-up-diagnostic-logs"></a>Ställ in diagnostikloggar
+## <a name="set-up-diagnostic-logs"></a>Konfigurera diagnostikloggar
 
 ### <a name="diagnostic-settings"></a>Diagnostikinställningar
-Diagnostikloggar för icke-beräkningsresurser konfigureras med diagnostikinställningar. Diagnostikinställningar för en resurskontroll:
+Diagnostikloggar för icke-beräkningsresurser konfigureras med hjälp av diagnostikinställningar. Diagnostikinställningar för en resurskontroll:
 
-* Diagnostikloggar mottagna (Storage-konto, Event Hubs och/eller logganalys).
-* Vilka kategorier loggen skickas.
-* Hur länge varje logg kategori ska behållas i ett lagringskonto
-* En kvarhållning av noll dagar innebär loggar behålls alltid. I annat fall kan värdet vara valfritt antal dagar mellan 1 och 2147483647.
-* Om bevarandeprinciper har angetts men lagring loggar i ett storage-konto har inaktiverats (till exempel endast Händelsehubbar eller logganalys alternativ har valts) bevarandeprinciper har ingen effekt.
-* Bevarandeprinciper är tillämpade per dag, så i slutet av dagen (UTC) loggar från den dagen är nu utöver kvarhållning princip tas bort. Till exempel om du har en bevarandeprincip på en dag skulle i början av dagen idag loggar från dag före igår tas bort.
+* Diagnostikloggar mottagna (Storage-konto, Händelsehubbar och/eller Log Analytics).
+* Vilka loggkategorier skickas.
+* Hur länge varje loggkategori ska behållas i ett lagringskonto
+* En kvarhållning av noll dagar innebär loggar hålls alltid. I annat fall kan värdet vara valfritt antal dagar mellan 1 och 2147483647.
+* Om principerna för kvarhållning har angetts men lagra loggar i ett lagringskonto är inaktiverad (till exempel bara Event Hubs eller Log Analytics alternativ har valts) principerna för kvarhållning har ingen effekt.
+* Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort.
 
 ### <a name="enable-diagnostic-logs-via-rest-apis"></a>Aktivera diagnostikloggar via REST API: er
 
-Skapa eller uppdatera en inställning för diagnostik i Azure-Monitor REST-API
+Skapa eller uppdatera en diagnostikinställning i Azure Monitor REST API
 
 **Förfrågan**
 ```
@@ -60,9 +60,9 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 **Headers**
 * Ersätt `{api-version}` med `2016-09-01`.
-* Ersätt `{resource-id}` med resurs-ID för den resurs som du vill redigera inställningar för diagnostik. Mer information [med resursgrupper kan du hantera Azure-resurser](../azure-resource-manager/resource-group-portal.md).
+* Ersätt `{resource-id}` med resurs-ID för den resurs som du vill redigera diagnostikinställningar. Mer information [använda resursgrupper för att hantera dina Azure-resurser](../azure-resource-manager/resource-group-portal.md).
 * Ange den `Content-Type` sidhuvud till `application/json`.
-* Ange authorization-huvud till en JSON web token som du har fått från Azure Active Directory. Mer information finns i [för autentisering av förfrågningar](../active-directory/develop/active-directory-authentication-scenarios.md).
+* Ange auktoriseringsrubriken till en JSON-webbtoken som hämtas från Azure Active Directory. Mer information finns i [autentisering av förfrågningar](../active-directory/develop/authentication-scenarios.md).
 
 **Brödtext**
 ```json
@@ -106,16 +106,16 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Egenskap  | Typ | Beskrivning |
 | --- | --- | --- |
-| storageAccountId |Sträng | Resurs-ID för det lagringskonto som du vill skicka diagnostiska loggar |
-| serviceBusRuleId |Sträng | Service bus regeln ID för service bus-namnrymd där du vill ha Händelsehubbar som skapats för strömning diagnostikloggar. Regel-ID är i formatet ”: {service bus-resurs-ID} /authorizationrules/ {namn}”.|
-| workspaceId | Komplex typ | Matris med mått tid kärnor och deras bevarandeprinciper. Den här egenskapen är för närvarande är tom. |
-|metrics| Parametervärdena för pipelinen körs för att skickas till den anropade pipelinen| Ett JSON-objekt som mappar parameternamn till argumentvärden |
-| loggar| Komplex typ| Namnet på en kategori för diagnostiska loggen för en resurstyp. Om du vill hämta listan över diagnostiska loggen kategorier för en resurs du först göra en diagnostikinställningar för GET-åtgärd. |
-| category| Sträng| Matris med loggen kategorier och deras bevarandeprinciper |
-| Tidskorn | Sträng | Granulariteten för mått som har hämtats i ISO 8601-format för varaktighet. Måste vara PT1M (en minut)|
-| aktiverad| Boolesk | Anger om samling mått eller loggfil kategorin är aktiverat för den här resursen|
-| retentionPolicy| Komplex typ| Beskriver bevarandeprincipen för ett mått eller loggfil kategori. Används för kontot lagringsalternativ endast.|
-| dagar| Int| Antal dagar att behålla loggarna eller mått. Värdet 0 behåller loggarna på obestämd tid. Används för kontot lagringsalternativ endast. |
+| StorageAccountId |Sträng | Resurs-ID för det lagringskonto som du vill skicka diagnostikloggar |
+| serviceBusRuleId |Sträng | Service bus regeln ID för service bus-namnområde som du vill ha Händelsehubbar som skapats för direktuppspelning diagnostikloggar. Regel-ID är i formatet ”: {service bus resurs-ID} /authorizationrules/ {namn}”.|
+| WorkspaceId | Komplex typ | Matris med mått tid kärnor och deras bevarandeprinciper. Den här egenskapen är för närvarande är tom. |
+|metrics| Parametervärdena för pipelinekörningen om du vill ska skickas till anropad pipeline| Ett JSON-objekt som mappar parameternamn till argumentvärden |
+| loggar| Komplex typ| Namnet på en diagnostiklogg kategori för en resurstyp. Du kan hämta listan över diagnostiklogg kategorier för en resurs genom att utföra en åtgärd för hämtning av diagnostikinställningar först. |
+| category| Sträng| Loggkategorier och deras bevarandeprinciper |
+| timeGrain | Sträng | Granulariteten för mått som har hämtats i ISO 8601-format för varaktighet. Måste vara PT1M (en minut)|
+| aktiverad| Boolesk | Anger om insamling av mått eller log kategorin har aktiverats för den här resursen|
+| retentionPolicy| Komplex typ| Beskriver bevarandeprincipen för ett mått eller log kategori. Används för endast lagringskonto visas.|
+| dagar| Int| Antal dagar att behålla mått eller loggar. Värdet 0 behåller loggarna på obestämd tid. Används för endast lagringskonto visas. |
 
 **Svar**
 
@@ -168,7 +168,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-Hämta information om hur du diagnostik i Azure-Monitor REST-API
+Hämta information om hur du diagnostik i Azure Monitor REST API
 
 **Förfrågan**
 ```
@@ -178,9 +178,9 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 **Headers**
 * Ersätt `{api-version}` med `2016-09-01`.
-* Ersätt `{resource-id}` med resurs-ID för den resurs som du vill redigera inställningar för diagnostik. För mer information med resursgrupper kan du hantera Azure-resurser.
+* Ersätt `{resource-id}` med resurs-ID för den resurs som du vill redigera diagnostikinställningar. Mer information groups med hjälp av Resource för att hantera dina Azure-resurser.
 * Ange den `Content-Type` sidhuvud till `application/json`.
-* Ange en JSON Web Token som du har fått från Azure Active Directory authorization-huvud. Mer information finns i Authenticating begäranden.
+* Ange auktoriseringsrubriken till en JSON Web Token som du har fått från Azure Active Directory. Mer information finns i autentisering begäranden.
 
 **Svar**
 
@@ -233,7 +233,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ```
 [Mer information här](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)
 
-## <a name="schema-of-logs--events"></a>Schemat för loggar & händelser
+## <a name="schema-of-logs--events"></a>Schemat för loggar och händelser
 
 ### <a name="activity-run-logs-attributes"></a>Aktiviteten kör loggar attribut
 
@@ -276,22 +276,22 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Egenskap  | Typ | Beskrivning | Exempel |
 | --- | --- | --- | --- |
-| Nivå |Sträng | Nivå av diagnostiska loggar. Nivå 4 är alltid fallet för aktiviteten kör loggar. | `4`  |
+| Nivå |Sträng | Nivån på diagnostikloggarna. Nivå 4 är alltid fallet för aktivitetskörning loggar. | `4`  |
 | correlationId |Sträng | Unikt ID för att spåra en viss begäran slutpunkt till slutpunkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | Sträng | Tid för händelse i timespan UTC-format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | Sträng | Tid för händelse i tiden, UTC-format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| Sträng| ID för aktiviteten kör | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
-|pipelineRunId| Sträng| ID för den pipeline som kör | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|resourceId| Sträng | Associerad resurs-ID för data factory-resurs | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|pipelineRunId| Sträng| ID för pipelinekörningen | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|resourceId| Sträng | Tillhörande resurs-ID för data factory-resursen | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| Sträng | Kategori för diagnostikloggar. Ange den här egenskapen till ”aktivitetskörningen” | `ActivityRuns` |
-|nivå| Sträng | Nivå av diagnostiska loggar. Ange den här egenskapen till ”information” | `Informational` |
-|operationName| Sträng |Namnet på aktiviteten med statusen. Om statusen är start pulsslag, är det `MyActivity -`. Om statusen är slut pulsslag, är det `MyActivity - Succeeded` med slutlig status | `MyActivity - Succeeded` |
-|pipelineName| Sträng | Namnet på pipeline | `MyPipeline` |
-|activityName| Sträng | Namnet på aktiviteten | `MyActivity` |
-|start| Sträng | Början av den aktivitet som körs i timespan UTC-format | `2017-06-26T20:55:29.5007959Z`|
-|slut| Sträng | Ändar av aktiviteten körs i timespan UTC-format. Om aktiviteten inte har avslutats ännu (Diagnostisk loggning för att starta en aktivitet) standardvärdet `1601-01-01T00:00:00Z` har angetts.  | `2017-06-26T20:55:29.5007959Z` |
+|nivå| Sträng | Nivån på diagnostikloggarna. Ange den här egenskapen till ”information” | `Informational` |
+|operationName| Sträng |Namnet på aktivitet med statusen. Om statusen är start-pulsslag, är det `MyActivity -`. Om statusen är slut pulsslag, är det `MyActivity - Succeeded` med slutlig status | `MyActivity - Succeeded` |
+|pipelineName| Sträng | Namn på pipelinen | `MyPipeline` |
+|activityName| Sträng | Namn på aktiviteten | `MyActivity` |
+|start| Sträng | Början av den aktivitet som körs i tiden, UTC-format | `2017-06-26T20:55:29.5007959Z`|
+|slut| Sträng | Slutet av den aktivitet som körs i tiden, UTC-format. Om aktiviteten inte har avslutats ännu (Diagnostisk loggning för att starta en aktivitet), används värdet `1601-01-01T00:00:00Z` har angetts.  | `2017-06-26T20:55:29.5007959Z` |
 
 
-### <a name="pipeline-run-logs-attributes"></a>Pipeline kör loggar attribut
+### <a name="pipeline-run-logs-attributes"></a>Pipeline-körning loggar attribut
 
 ```json
 {
@@ -323,21 +323,21 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Egenskap  | Typ | Beskrivning | Exempel |
 | --- | --- | --- | --- |
-| Nivå |Sträng | Nivå av diagnostiska loggar. Nivå 4 är fallet för aktiviteten kör loggar. | `4`  |
+| Nivå |Sträng | Nivån på diagnostikloggarna. Nivå 4 gäller för aktivitetskörning loggar. | `4`  |
 | correlationId |Sträng | Unikt ID för att spåra en viss begäran slutpunkt till slutpunkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | Sträng | Tid för händelse i timespan UTC-format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|runId| Sträng| ID för den pipeline som kör | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|resourceId| Sträng | Associerad resurs-ID för data factory-resurs | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| time | Sträng | Tid för händelse i tiden, UTC-format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|runId| Sträng| ID för pipelinekörningen | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|resourceId| Sträng | Tillhörande resurs-ID för data factory-resursen | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| Sträng | Kategori för diagnostikloggar. Ange den här egenskapen till ”PipelineRuns” | `PipelineRuns` |
-|nivå| Sträng | Nivå av diagnostiska loggar. Ange den här egenskapen till ”information” | `Informational` |
-|operationName| Sträng |Namnet på rörledningen med status. ”Pipeline - lyckades” med slutlig status när pipeline kör har slutförts| `MyPipeline - Succeeded` |
-|pipelineName| Sträng | Namnet på pipeline | `MyPipeline` |
-|start| Sträng | Början av den aktivitet som körs i timespan UTC-format | `2017-06-26T20:55:29.5007959Z`|
-|slut| Sträng | Slutet av aktiviteten körs i timespan UTC-format. Om aktiviteten inte har avslutats ännu (Diagnostisk loggning för att starta en aktivitet) standardvärdet `1601-01-01T00:00:00Z` har angetts.  | `2017-06-26T20:55:29.5007959Z` |
-|status| Sträng | Slutlig status i pipeline kör (lyckades eller misslyckades) | `Succeeded`|
+|nivå| Sträng | Nivån på diagnostikloggarna. Ange den här egenskapen till ”information” | `Informational` |
+|operationName| Sträng |Namnet på pipelinen med status. ”Pipeline - lyckades” med slutlig status när pipelinekörningen har slutförts| `MyPipeline - Succeeded` |
+|pipelineName| Sträng | Namn på pipelinen | `MyPipeline` |
+|start| Sträng | Början av den aktivitet som körs i tiden, UTC-format | `2017-06-26T20:55:29.5007959Z`|
+|slut| Sträng | Slutet av aktiviteten körs i tiden, UTC-format. Om aktiviteten inte har avslutats ännu (Diagnostisk loggning för att starta en aktivitet), används värdet `1601-01-01T00:00:00Z` har angetts.  | `2017-06-26T20:55:29.5007959Z` |
+|status| Sträng | Slutlig status för pipelinekörningen (lyckades eller misslyckades) | `Succeeded`|
 
 
-### <a name="trigger-run-logs-attributes"></a>Utlösaren kör loggar attribut
+### <a name="trigger-run-logs-attributes"></a>Utlösarkörning loggar attribut
 
 ```json
 {
@@ -368,81 +368,81 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Egenskap  | Typ | Beskrivning | Exempel |
 | --- | --- | --- | --- |
-| Nivå |Sträng | Nivå av diagnostiska loggar. Ange på nivå 4 för aktiviteten kör loggar. | `4`  |
+| Nivå |Sträng | Nivån på diagnostikloggarna. Inställd på nivå 4 för aktivitetskörning loggar. | `4`  |
 | correlationId |Sträng | Unikt ID för att spåra en viss begäran slutpunkt till slutpunkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | Sträng | Tid för händelse i timespan UTC-format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | Sträng | Tid för händelse i tiden, UTC-format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |Utlösarens ID| Sträng| ID för utlösaren kör | `08587023010602533858661257311` |
-|resourceId| Sträng | Associerad resurs-ID för data factory-resurs | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|resourceId| Sträng | Tillhörande resurs-ID för data factory-resursen | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| Sträng | Kategori för diagnostikloggar. Ange den här egenskapen till ”PipelineRuns” | `PipelineRuns` |
-|nivå| Sträng | Nivå av diagnostiska loggar. Ange den här egenskapen till ”information” | `Informational` |
-|operationName| Sträng |Namnet på utlösaren med slutlig status om det har utlösts. ”MyTrigger - lyckades” om pulsslag lyckades| `MyTrigger - Succeeded` |
+|nivå| Sträng | Nivån på diagnostikloggarna. Ange den här egenskapen till ”information” | `Informational` |
+|operationName| Sträng |Namnet på utlösaren med slutlig status om den har utlösts. ”MyTrigger - lyckades” om pulsslag lyckades| `MyTrigger - Succeeded` |
 |Utlösarnamn| Sträng | Namnet på utlösaren | `MyTrigger` |
-|triggerType| Sträng | Typen av utlösare (manuell utlösare eller schema-utlösare) | `ScheduleTrigger` |
+|triggerType| Sträng | Typen av utlösare (manuell utlösare eller Schemautlösare) | `ScheduleTrigger` |
 |triggerEvent| Sträng | Händelse för utlösaren | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|start| Sträng | Start av utlösare brand i timespan UTC-format | `2017-06-26T20:55:29.5007959Z`|
-|status| Sträng | Slutlig status om åtgärden har utlösts (lyckades eller misslyckades) | `Succeeded`|
+|start| Sträng | Början av utlösaren brand i tiden, UTC-format | `2017-06-26T20:55:29.5007959Z`|
+|status| Sträng | Slutgiltiga statusen om åtgärden har utlösts (lyckades eller misslyckades) | `Succeeded`|
 
 ## <a name="metrics"></a>Mått
 
-Azure-Monitor kan du använda telemetri för att få insyn i prestanda och hälsotillståndet för dina arbetsbelastningar i Azure. Viktigaste är Azure telemetridata mätvärdena (kallas även prestandaräknare) sänds av mest Azure-resurser. Azure-Monitor finns flera sätt att konfigurera och använda de här måtten för övervakning och felsökning.
+Azure Monitor kan du använda telemetri för att få insyn i prestanda och hälsa för arbetsbelastningar på Azure. Viktigaste är Azure telemetridata mått (kallas även prestandaräknare) skickas från de flesta Azure-resurser. Azure Monitor innehåller flera olika sätt att konfigurera och använda de här måtten för övervakning och felsökning.
 
 ADFV2 genererar följande mått
 
-| **Mått**           | **Mått visningsnamn**         | **Enhet** | **Sammansättningstyp** | **Beskrivning**                                       |
+| **Mått**           | **Metrisk visningsnamn**         | **Enhet** | **Sammansättningstyp** | **Beskrivning**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRun | Pipelinen körs mått är klar | Antal    | Totalt                | Totalt antal pipelines körs har slutförts inom en minut fönster |
-| PipelineFailedRuns   | Det gick inte pipelinen körs mått    | Antal    | Totalt                | Totalt antal pipelines körs misslyckades inom en minut fönster    |
-| ActiviySucceededRuns | Lyckades aktiviteten körs mått | Antal    | Totalt                | Totalt antal aktiviteten körs har slutförts inom en minut period  |
-| ActivityFailedRuns   | Det gick inte aktiviteten körs mått    | Antal    | Totalt                | Totalt antal aktiviteten körs misslyckades inom en minut period     |
-| TriggerSucceededRuns | Lyckades utlösaren körs mått  | Antal    | Totalt                | Totalt antal trigger kör har slutförts inom en minut period   |
-| TriggerFailedRuns    | Det gick inte utlösaren körs mått     | Antal    | Totalt                | Totalt antal trigger kör misslyckades inom en minut period      |
+| PipelineSucceededRun | Lyckades mått för pipeline-körningar | Antal    | Totalt                | Totalt antal pipelines arbetsflödeskörningar inom ett |
+| PipelineFailedRuns   | Det gick inte mått för pipeline-körningar    | Antal    | Totalt                | Totalt antal pipelines körs misslyckade inom ett    |
+| ActiviySucceededRuns | Lyckades aktivitetsmått för körningar | Antal    | Totalt                | Totalt antal aktiviteten körs lyckades inom ett  |
+| ActivityFailedRuns   | Det gick inte aktivitetsmått för körningar    | Antal    | Totalt                | Totalt antal aktiviteten körs misslyckade inom ett     |
+| TriggerSucceededRuns | Lyckades utlösaren körs mått  | Antal    | Totalt                | Totalt antal utlösaren körs lyckades inom ett   |
+| TriggerFailedRuns    | Det gick inte utlösaren körs mått     | Antal    | Totalt                | Totalt antal utlösaren körs misslyckade inom ett      |
 
-För att komma åt mätvärdena som följer du anvisningarna i artikeln- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
+För att komma åt mätvärden, följer du anvisningarna i artikeln- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
 
 ## <a name="alerts"></a>Aviseringar
 
-Du kan aktivera aviseringar om stöds mått i Data Factory. Klicka på den **aviseringar** Data Factory-knappen **övervakaren** sidan.
+Du kan generera aviseringar på mått som stöds i Data Factory. Klicka på den **aviseringar** knappen i Data Factory **övervakaren** sidan.
 
-![Alternativet för aviseringar](media/monitor-using-azure-monitor/alerts_image1.png)
+![Alternativ för aviseringar](media/monitor-using-azure-monitor/alerts_image1.png)
 
-Då kommer du att den **aviseringar** sidan.
+Då kommer du till den **aviseringar** sidan.
 
 ![Sidan varningar](media/monitor-using-azure-monitor/alerts_image2.png)
 
-Du kan också logga in på Azure portal och klicka på **Monitor -&gt; aviseringar** att nå den **aviseringar** sidan direkt.
+Du kan också logga in på Azure-portalen och klicka på **skärm –&gt; aviseringar** att nå den **aviseringar** sidan direkt.
 
-![Aviseringar i menyn portal](media/monitor-using-azure-monitor/alerts_image3.png)
+![Aviseringar i portalen menyn](media/monitor-using-azure-monitor/alerts_image3.png)
 
 ### <a name="create-alerts"></a>Skapa aviseringar
 
-1.  Klicka på **+ ny varningsregeln** att skapa en ny avisering.
+1.  Klicka på **+ ny aviseringsregel** att skapa en ny avisering.
 
-    ![Ny varningsregel](media/monitor-using-azure-monitor/alerts_image4.png)
+    ![Ny aviseringsregel](media/monitor-using-azure-monitor/alerts_image4.png)
 
-2.  Definiera den **Varna villkoret**.
+2.  Definiera den **Avisera villkor**.
 
     > [!NOTE]
     > Se till att välja **alla** i den **filtrera efter resurstyp**.
 
-    ![Varna villkor, skärm 1 av 3](media/monitor-using-azure-monitor/alerts_image5.png)
+    ![Avisera villkor, skärmen 1 av 3](media/monitor-using-azure-monitor/alerts_image5.png)
 
-    ![Varna villkor, sidan 2 av 3](media/monitor-using-azure-monitor/alerts_image6.png)
+    ![Avisera villkor, skärmen 2 av 3](media/monitor-using-azure-monitor/alerts_image6.png)
 
-    ![Varna villkor, skärmen 3 av 3](media/monitor-using-azure-monitor/alerts_image7.png)
+    ![Avisera villkor, skärmen 3 av 3](media/monitor-using-azure-monitor/alerts_image7.png)
 
 3.  Definiera den **aviseringsinformation**.
 
     ![Aviseringsinformation](media/monitor-using-azure-monitor/alerts_image8.png)
 
-4.  Definiera den **grupp**.
+4.  Definiera den **åtgärdsgrupp**.
 
-    ![Grupp, skärm 1 4](media/monitor-using-azure-monitor/alerts_image9.png)
+    ![Åtgärdsgrupp, skärm 1 av 4](media/monitor-using-azure-monitor/alerts_image9.png)
 
-    ![Grupp, skärmen 2 av 4](media/monitor-using-azure-monitor/alerts_image10.png)
+    ![Åtgärdsgrupp skärmen 2 av 4](media/monitor-using-azure-monitor/alerts_image10.png)
 
-    ![Grupp, skärmen 3 4](media/monitor-using-azure-monitor/alerts_image11.png)
+    ![Åtgärdsgrupp skärmen 3 av 4](media/monitor-using-azure-monitor/alerts_image11.png)
 
-    ![Grupp, skärmen 4 4](media/monitor-using-azure-monitor/alerts_image12.png)
+    ![Åtgärdsgrupp skärmen 4 av 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Se [övervaka och hantera pipelines programmässigt](monitor-programmatically.md) artikeln innehåller information om att övervaka och hantera pipelines genom att köra.
+Se [övervaka och hantera pipelines programmässigt](monitor-programmatically.md) du lär dig om att övervaka och hantera pipelines genom att köra.

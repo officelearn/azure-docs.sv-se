@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: a0fec9743cd213d0d41d9143a2b1e9e1c3db9967
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447969"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492900"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Konvergerade registrering för lösenordsåterställning via självbetjäning och Azure Multi-Factor Authentication (förhandsversion)
 
@@ -71,10 +71,12 @@ Granskningsloggarna för den här nya upplevelsen finns under kategorin autentis
 ## <a name="known-issues"></a>Kända problem
 
 **Standardmetoden för MFA har angetts till telefonsamtal när användare registrerar telefon med SMS**
-   * Vissa användare kanske märker att deras standardmetoden för MFA har angetts till telefonsamtal när de registrerar sina telefonnummer med SMS: et. Användare kan lösa problemet genom att ändra deras standardmetoden genom att följa dessa anvisningar. 
+
+   * Vissa användare kanske märker att deras standardmetoden för MFA har angetts till telefonsamtal när de registrerar sina telefonnummer med SMS: et. Användare kan lösa det här problemet genom att ändra deras standardmetoden genom att följa instruktionerna i artikeln [hantera din säkerhetsinformation (förhandsversion)](../user-help/security-info-manage-settings.md#change-your-info).
 
 **Användaren kan inte komma åt den nya upplevelsen för registrering när administratör inaktiverar sina standardmetoden**
-   * Vissa användare kanske inte kan komma åt den nya upplevelsen för registrering om sina tidigare registrerad standard MFA-metoden har inaktiverats av administratören. Här är ett exempelscenario: 
+
+   * Vissa användare kanske inte kan komma åt den nya upplevelsen för registrering om sina tidigare registrerad standard MFA-metoden har inaktiverats av administratören. Här är ett exempelscenario:
       1. Användaren tidigare registrerad sitt telefonnummer och ange deras standardmetoden till telefonsamtal.
       2. Administratör har inaktiverat telefonsamtal som en MFA-metod för klienten.
       3. Användaren uppmanas att registrera under inloggning eftersom de behöver för att registrera ytterligare en metod för att uppfylla klienten SSPR-principen.

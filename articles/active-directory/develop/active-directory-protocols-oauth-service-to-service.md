@@ -17,12 +17,12 @@ ms.date: 02/08/2017
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7de567b3aaa5719a123a58c172548a4c0bffca64
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 8a331aab32d8bc662026d49e16f63224fbbf6d41
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283248"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503040"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Tjänst till tjänst-anrop med klientautentiseringsuppgifter (delad hemlighet eller certifikat)
 Den OAuth 2.0-klientautentiseringsuppgifter tillåter en webbtjänst (*konfidentiell klient*) att använda sina egna autentiseringsuppgifter i stället för att personifiera en användare för att autentisera vid anrop av en annan webbtjänst. I det här scenariot är klienten vanligtvis en webbtjänst på mellannivå, en daemon-tjänst eller webbplats. Azure AD kan också anropa tjänsten att använda ett certifikat (i stället för en delad hemlighet) som en autentiseringsuppgift för en högre säkerhetsnivå.
@@ -38,7 +38,7 @@ Diagrammet nedan förklaras hur med klientens autentiseringsuppgifter bevilja fl
 4. Data från den skyddade resursen returneras till klientprogrammet.
 
 ## <a name="register-the-services-in-azure-ad"></a>Registrera tjänsterna i Azure AD
-Registrera både den anropande tjänsten och den mottagande tjänsten i Azure Active Directory (AD Azure). Detaljerade anvisningar finns i [integrera program med Azure Active Directory](active-directory-integrating-applications.md).
+Registrera både den anropande tjänsten och den mottagande tjänsten i Azure Active Directory (AD Azure). Detaljerade anvisningar finns i [integrera program med Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md).
 
 ## <a name="request-an-access-token"></a>Begär en åtkomsttoken
 Om du vill begära en åtkomsttoken, använder du en HTTP POST till klient-specifika Azure AD-slutpunkten.

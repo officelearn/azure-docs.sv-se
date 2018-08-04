@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: a6800b18d1bb588c747d4e9ef7049ac4cbb82f60
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 5a0f0594a9ccb27a0f76a679e454e9a3ffe19a43
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213482"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505402"
 ---
 # <a name="azure-network-architecture"></a>Arkitektur för Azure-nätverk
 Arkitektur för Azure-nätverk följer en modifierad version av branschens standard core/distribution/access modellen, med olika maskinvara lager. Lager är:
@@ -38,7 +38,7 @@ Nätverksarkitektur i ett Azure-kluster i ett datacenter består av följande en
 - Digi CMs
 - Kraftfördelningsenheter
 
-Azure har två separata arkitekturer. Vissa befintliga Azure-kunder och delade tjänster finns på standard LAN-högnivåarkitektur (DLA), medan nya regioner och virtuella kunder finns på arkitektur för Quantum 10 (fråga10). DLA-arkitekturen är en traditionell trädet design, med aktiv/passiv åtkomst routrar och security åtkomstkontrollistor (ACL) tillämpas på åtkomst-routrar. Quantum-10-arkitekturen är ett Clos/nät utformningen av routrar, där ACL: er inte kan du använda routrar. I stället, tillämpas ACL: er nedan routning, via Software Load Balancing (SLB) eller programvarudefinierade VLAN.
+Azure har två separata arkitekturer. Vissa befintliga Azure-kunder och delade tjänster finns på standard LAN-högnivåarkitektur (DLA), medan nya regioner och virtuella kunder finns på arkitektur för Quantum 10 (fråga10). DLA-arkitekturen är en traditionell trädet design, med aktiv/passiv åtkomst routrar och security åtkomstkontrollistor (ACL) tillämpas på åtkomst-routrar. Quantum-10-arkitekturen är en Stäng/nät design av routrar, där ACL: er inte kan du använda routrar. I stället, tillämpas ACL: er nedan routning, via Software Load Balancing (SLB) eller programvarudefinierade VLAN.
 
 Följande diagram ger en översikt över nätverksarkitekturen i ett Azure-kluster:
 

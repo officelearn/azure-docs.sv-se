@@ -8,18 +8,26 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 59c41d4303cad00107793f3c09382347fbb1fb5b
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 6eb5cd9a086522bfe5125189f87a2498dda0ef7e
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480393"
+ms.locfileid: "39493582"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Azure Event Grid-Händelseschema för prenumerationer
 
 Den här artikeln innehåller egenskaperna och schema för Azure-prenumerationshändelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
 
 Generera samma händelsetyper Azure-prenumerationer och resursgrupper. Händelsetyperna som är relaterade till ändringar i resurser. Den viktigaste skillnaden är att resursgrupper skickar händelser för resurserna i resursgruppen och Azure-prenumerationer Generera händelser för resurser i prenumerationen.
+
+Resurs-händelser skapas för PUT, PATCH, och ta bort som skickas till `management.azure.com`. Skapa inte händelser POST och GET-åtgärder. Åtgärder som skickas till dataplanet (t.ex. `myaccount.blob.core.windows.net`) skapa inte händelser.
+
+När du prenumererar på händelser för en Azure-prenumeration får din slutpunkt alla händelser för den prenumerationen. Händelser kan omfatta händelse som du vill se, till exempel att uppdatera en virtuell dator, men även händelser som kanske inte är viktiga för dig, till exempel skriver en ny post i distributionshistoriken. Du kan ta emot alla händelser på din slutpunkt och skriva kod som bearbetar händelserna som du vill hantera eller du kan ange ett filter när du skapar händelseprenumerationen.
+
+För att programmässigt hantera händelser, kan du sortera händelser genom att titta på den `operationName` värde. Till exempel händelse slutpunkten endast bearbeta händelser för åtgärder som är lika med `Microsoft.Compute/virtualMachines/write` eller `Microsoft.Storage/storageAccounts/write`.
+
+Ämne för händelsen är resurs-ID för den resurs som är mål för åtgärden. Om du vill filtrera händelser för en resurs, anger du den resursen-ID: T när du skapar händelseprenumerationen. Exempel på skript, se [prenumerera och filter för resursgrupp – PowerShell](scripts/event-grid-powershell-resource-group-filter.md) eller [prenumerera och filter för resursgrupp – Azure CLI](scripts/event-grid-cli-resource-group-filter.md). Om du vill filtrera efter en resurstyp, använder du ett värde i följande format: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
 ## <a name="available-event-types"></a>Tillgängliga händelsetyper
 

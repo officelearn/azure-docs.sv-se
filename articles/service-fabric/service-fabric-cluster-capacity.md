@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: ae670eca3d655e16ddf55da2e2538ba96b7e0115
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 0a5c73728f939fc239f4af79f5f084867856581a
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126059"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494216"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-kluster kapacitetsplanering
 För alla Produktionsdistribution är kapacitetsplanering ett viktigt steg. Här är några av de objekt som du måste väga in som en del av den här processen.
@@ -62,7 +62,7 @@ Service Fabric-systemtjänster (till exempel Cluster Manager-tjänsten eller avb
 * Den **minsta storlek på virtuella datorer** för den primära noden typ bestäms av den **hållbarhetsnivå** du väljer. Hållbarhetsnivå standard är Brons. Se [hållbarhet egenskaper för klustret](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) för mer information.  
 * Den **minsta antal virtuella datorer** för den primära noden typ bestäms av den **tillförlitlighetsnivån** du väljer. Standard tillförlitlighetsnivån är Silver. Se [tillförlitlighetsegenskaper för klustret](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) för mer information.  
 
-Från Azure Resource Manager-mallen den primära nodtypen har konfigurerats med den `isPrimary` attributet den [typdefinition för nod](https://docs.microsoft.com/en-us/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object).
+Från Azure Resource Manager-mallen den primära nodtypen har konfigurerats med den `isPrimary` attributet den [typdefinition för nod](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object).
 
 ### <a name="non-primary-node-type"></a>Icke-primära nodtypen
 
@@ -110,10 +110,6 @@ Använda Silver eller Gold hållbarhet för alla typer av noden som är värdar 
 - Anta säkrare sätt att göra en ändring av VM-SKU (skala upp/ned): ändra VM-SKU på en skalningsuppsättning för virtuell dator sin natur är en osäkra åtgärd och så bör inte användas om det är möjligt. Här är den process som du kan följa för att undvika vanliga problem.
     - **För icke-primär nodtyper:** vi rekommenderar att du skapar nya virtuella datorns skalningsuppsättning, ändra villkoret för tjänsten placering för att inkludera den nya VM scale set/node-typen och minska den gamla VM scale set-instansen antal till 0, en nod i taget (detta är att se till att ta bort noder inte påverkar tillförlitligheten för klustret).
     - **För den primära nodtypen:** vår rekommendation är att du inte ändrar VM-SKU på den primära nodtypen. Ändringar av den primära nodtypen SKU inte stöds. Om orsaken till den nya SKU: N är kapacitet, rekommenderar vi att lägga till fler instanser. Om detta inte möjligt, skapa ett nytt kluster och [Återställ programtillstånd](service-fabric-reliable-services-backup-restore.md) (om tillämpligt) från ditt gamla kluster. Du behöver inte återställa alla systemtillstånd för tjänsten, de återskapas när du distribuerar ditt program till det nya klustret. Om du bara köra tillståndslösa program i klustret och sedan behöver du bara distribuera program till det nya klustret, du har inget att återställa. Om du vill gå stöds inte vägen och vill ändra VM-SKU, ange sedan gör ändringar i VM-skalningsuppsättningen modell-definitionen för att återspegla den nya SKU: N. Om klustret har endast en nodtyp, kontrollerar du att alla dina tillståndskänsliga program att besvara alla [tjänsten Livscykelhändelser för repliken](service-fabric-reliable-services-lifecycle.md) (t.ex. repliken i bygger har fastnat) i god tid och att din tjänsterepliken återskapa varaktighet är mindre än fem minuter (för Silver hållbarhetsnivå). 
-
-    > [!WARNING]
-    > Ändrar storlek på VM-SKU för VM-skalningsuppsättningar som inte kör minst Silver hållbarhet inte rekommenderas. Ändra VM SKU-storlek är en data-destruktiv plats infrastruktur-åtgärd. Det är möjligt att det kan leda till dataförlust för tillståndskänsliga tjänster eller orsakar andra oförutsedda driftsproblem, även för tillståndslösa arbetsbelastningar utan någon möjlighet att fördröja eller övervaka den här ändringen. 
-    > 
     
 - Underhålla ett minsta antal fem noder för alla VM-skalningsuppsättning som har hållbarhetsnivå Gold och Silver aktiverat.
 - Varje VM-skalningsuppsättning med hållbarhetsnivå Silver eller Gold måste mappas till en egen nodtyp i Service Fabric-klustret. Mappa flera Virtuella förhindrar skalningsuppsättningar till en enda nodtyp samordning mellan Service Fabric-kluster och Azure-infrastrukturen fungerar korrekt.

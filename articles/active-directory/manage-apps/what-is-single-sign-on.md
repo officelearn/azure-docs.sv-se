@@ -14,12 +14,12 @@ ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 4ad1416f79b8cf9c03904da5f9efc1d1aae475d9
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1a7ecbe42857e522785d5919d46b783feae4caeb
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364038"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494133"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Vad är programåtkomst och enkel inloggning med Azure Active Directory?
 Enkel inloggning innebär det att kunna komma åt alla program och resurser som du behöver för att göra affärer, genom att logga in med ett enda användarkonto. När du har loggat in, du kan komma åt alla program som du behöver utan att behöva autentisera dig (exempel: Skriv ett lösenord) en andra gång.
@@ -112,7 +112,7 @@ Om ditt program inte finns i Azure AD-programgalleriet, finns följande alternat
 * **Lägg till en ny app som du använder** -använda anpassad kategori i app-galleriet i Azure-portalen för att ansluta ett olistade program som din organisation använder. Du kan lägga till alla program som stöder SAML 2.0 som federerade app eller alla program som har en HTML-baserad på inloggningssidan som ett lösenord för SSO-app. Mer information finns i den här artikeln på [att lägga till ditt eget program](../application-config-sso-how-to-configure-federated-sso-non-gallery.md).
 * **Lägg till dina egna app som du utvecklar** – om du har utvecklat programmet själv, följer du instruktionerna i dokumentationen för Azure AD-utvecklare att implementera federerad enkel inloggning eller etablering med hjälp av Azure AD graph API. Mer information finns i följande källor:
   
-  * [Autentiseringsscenarier för Azure AD](../active-directory-authentication-scenarios.md)
+  * [Autentiseringsscenarier för Azure AD](../develop/authentication-scenarios.md)
   * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)

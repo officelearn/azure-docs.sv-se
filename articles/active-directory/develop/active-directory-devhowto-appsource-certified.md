@@ -17,12 +17,12 @@ ms.date: 08/03/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 8b3254fa9416b1e59f4209ffa00c504d15dddbc4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9c2140d0e482089be632d9a21560349a6381968e
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430835"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495245"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Så här hämtar du AppSource-certifierat för Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) är ett mål för företagsanvändare att identifiera, testa och hantera line-of-business SaaS-program (fristående SaaS och tillägg till befintliga Microsoft SaaS-produkter).
@@ -118,8 +118,8 @@ Vi rekommenderar starkt att du först ställa dina frågor i Stack Overflow och 
 Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss att förfina och forma vårt innehåll.
 
 <!--Reference style links -->
-[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
-[AAD-Auth-Scenarios-Browser-To-WebApp]: ./active-directory-authentication-scenarios.md#web-browser-to-web-application
+[AAD-Auth-Scenarios]:authentication-scenarios.md
+[AAD-Auth-Scenarios-Browser-To-WebApp]:authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: azure-ad-developers-guide.md
 [AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
 [AAD-QuickStart-Web-Apps]: azure-ad-developers-guide.md#get-started

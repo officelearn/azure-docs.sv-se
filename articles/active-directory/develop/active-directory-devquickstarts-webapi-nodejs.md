@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 1137e7164ac83a2ee0bf05804296aeeb5c3496fb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b05512804b35f7df3dfd2899eed975b93d36f951
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437455"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503391"
 ---
 # <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD-Node.js-webb-API: et komma igång
 
 Den här artikeln visar hur du skyddar en [Restify](http://restify.com/) API-slutpunkt med [Passport](http://passportjs.org/) med hjälp av den [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) modul för att hantera kommunikationen med Azure Active Directory (AAD). 
 
-Tillämpningsområdet för den här självstudien omfattar problem angående att säkra API-slutpunkter. Problem med inloggning och behålla autentiseringstoken implementeras inte här och är ansvar för ett klientprogram. Mer information kring implementering av klienten finns [Node.js-webbapp inloggning och utloggning med Azure AD](active-directory-devquickstarts-openidconnect-nodejs.md).
+Tillämpningsområdet för den här självstudien omfattar problem angående att säkra API-slutpunkter. Problem med inloggning och behålla autentiseringstoken implementeras inte här och är ansvar för ett klientprogram. Mer information kring implementering av klienten finns [Node.js-webbapp inloggning och utloggning med Azure AD](quickstart-v1-openid-connect-code.md).
 
 Fullständig kodexemplet som är associerade med den här artikeln är tillgänglig på [GitHub](https://github.com/Azure-Samples/active-directory-node-webapi-basic).
 
@@ -77,7 +77,7 @@ Innan du kan ansluta till Azure Active Directory, behöver du följande informat
 
 | Namn  | Beskrivning | Variabelnamn i konfigurationsfilen |
 | ------------- | ------------- | ------------- |
-| Klientnamn  | [Klientnamn](active-directory-howto-tenant.md) du vill använda för autentisering | `tenantName`  |
+| Klientnamn  | [Klientnamn](quickstart-create-new-tenant.md) du vill använda för autentisering | `tenantName`  |
 | Klient-ID  | Klient-ID är OAuth-term som används för AAD _program-ID_. |  `clientID`  |
 
 Kopiera från registreringssvar i Azure Cloud Shell den `appId` värde och skapa en ny fil med namnet `config.js`. Lägg i följande kod och Ersätt värdena med inom hakparenteser token:
@@ -245,4 +245,4 @@ Nu när du har skapat en säker API kan implementera du en klient som kan skicka
 Enligt informationen i inledningen, måste du implementera en motsvarighet för klienten att ansluta till den server som hanterar loggar in, logga ut och hantera token. Kodbaserad exempel kan du referera till klientprogram i [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) och [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android). En stegvis självstudie finns i följande artikel:
 
 > [!div class="nextstepaction"]
-> [Node.js-webbapp inloggning och utloggning med Azure AD](active-directory-devquickstarts-openidconnect-nodejs.md)
+> [Node.js-webbapp inloggning och utloggning med Azure AD](quickstart-v1-openid-connect-code.md)

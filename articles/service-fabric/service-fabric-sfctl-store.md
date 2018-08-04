@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric CLI - sfctl store | Microsoft Docs
-description: Beskriver Service Fabric CLI sfctl store-kommandon.
+description: Beskriver sfctl store-kommandon för Service Fabric CLI.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -12,91 +12,92 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 39ecf568c5c41c0007b358670af755be1dd5d99e
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2f2da5b38ab39e3636ff0ac09ac2c5515e02b0c1
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763246"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492343"
 ---
 # <a name="sfctl-store"></a>sfctl store
-Utföra grundläggande nivån filåtgärder på klustret image store.
+Utföra grundläggande nivå filåtgärder på avbildningsarkivet kluster.
 
 ## <a name="commands"></a>Kommandon
 
 |Kommando|Beskrivning|
 | --- | --- |
-| radera | Tar bort befintliga avbildningen lagra innehållet. |
-| rot-info | Hämtar innehållsinformationen i roten för image store. |
-| stat | Hämtar innehållsinformation för image store. |
+| delete | Tar bort befintliga bild lagra innehållet. |
+| rot-info | Hämtar innehållsinformationen i avbildningsarkivet roten. |
+| stat | Hämtar innehåll bildinformation store. |
 
-## <a name="sfctl-store-delete"></a>ta bort sfctl-butik
-Tar bort befintliga avbildningen lagra innehållet.
+## <a name="sfctl-store-delete"></a>sfctl store delete
+Tar bort befintliga bild lagra innehållet.
 
-Tar bort befintliga image store innehåll som hittas i angivna bilden lagra relativ sökväg. Det här kommandot kan användas för att ta bort överförda programpaket när de har etablerats.
+Tar bort befintliga store innehållet hittas inom den angivna avbildningen lagra relativ sökväg. Detta kan användas för att ta bort överförda programpaket när de har etablerats.
 
 ### <a name="arguments"></a>Argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --innehåll sökväg [krävs] | Relativ sökväg till filen eller mappen i image store från dess rot. |
-| --timeout -t | Servern tidsgräns i sekunder.  Som standard\: 60. |
+| --innehåll-path [krävs] | Relativ sökväg till filen eller mappen i avbildningsarkivet från dess rot. |
+| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Globala argument
+### <a name="global-arguments"></a>Global argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| – Felsökning | Öka loggning detaljnivå om du vill visa alla debug-loggar. |
-| --hjälp -h | Visa den här hjälpmeddelandet och avsluta. |
-| --utdata -o | Format för utdata.  Tillåtna värden\: json jsonc, tabell, TVs.  Som standard\: json. |
-| --fråga | JMESPath frågesträngen. Se http\://jmespath.org/ för mer information och exempel. |
-| -verbose | Öka loggning detaljnivå. Använd--debug för fullständig felsökningsloggar. |
+| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
+| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
+| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
+| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
 
 ## <a name="sfctl-store-root-info"></a>sfctl store rot-info
-Hämtar innehållsinformationen i roten för image store.
+Hämtar innehållsinformationen i avbildningsarkivet roten.
 
-Returnerar information om image store innehåll i roten för image store.
+Returnerar information om avbildningsarkivet innehåll i roten på avbildningsarkivet.
 
 ### <a name="arguments"></a>Argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --timeout -t | Servern tidsgräns i sekunder.  Som standard\: 60. |
+| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Globala argument
+### <a name="global-arguments"></a>Global argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| – Felsökning | Öka loggning detaljnivå om du vill visa alla debug-loggar. |
-| --hjälp -h | Visa den här hjälpmeddelandet och avsluta. |
-| --utdata -o | Format för utdata.  Tillåtna värden\: json jsonc, tabell, TVs.  Som standard\: json. |
-| --fråga | JMESPath frågesträngen. Se http\://jmespath.org/ för mer information och exempel. |
-| -verbose | Öka loggning detaljnivå. Använd--debug för fullständig felsökningsloggar. |
+| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
+| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
+| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
+| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
 
 ## <a name="sfctl-store-stat"></a>sfctl store stat
-Hämtar innehållsinformation för image store.
+Hämtar innehåll bildinformation store.
 
-Returnerar information om image store innehållet på den angivna contentPath. ContentPath är i förhållande till roten för image store.
+Returnerar information om store innehållet i på den angivna contentPath. ContentPath är i förhållande till roten för avbildningsarkivet.
 
 ### <a name="arguments"></a>Argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --innehåll sökväg [krävs] | Relativ sökväg till filen eller mappen i image store från dess rot. |
-| --timeout -t | Servern tidsgräns i sekunder.  Som standard\: 60. |
+| --innehåll-path [krävs] | Relativ sökväg till filen eller mappen i avbildningsarkivet från dess rot. |
+| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Globala argument
+### <a name="global-arguments"></a>Global argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| – Felsökning | Öka loggning detaljnivå om du vill visa alla debug-loggar. |
-| --hjälp -h | Visa den här hjälpmeddelandet och avsluta. |
-| --utdata -o | Format för utdata.  Tillåtna värden\: json jsonc, tabell, TVs.  Som standard\: json. |
-| --fråga | JMESPath frågesträngen. Se http\://jmespath.org/ för mer information och exempel. |
-| -verbose | Öka loggning detaljnivå. Använd--debug för fullständig felsökningsloggar. |
+| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
+| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
+| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
+| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+
 
 ## <a name="next-steps"></a>Nästa steg
 - [Installationsprogrammet](service-fabric-cli.md) Service Fabric CLI.
-- Lär dig att använda Service Fabric CLI med hjälp av den [exempel på skript](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Lär dig hur du använder Service Fabric CLI med hjälp av den [exempel på skript](/azure/service-fabric/scripts/sfctl-upgrade-application).

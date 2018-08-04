@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: fa399e3644e1050a4f264890583a388f7abd84ed
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 212da85f64f876f40e2d84d79a8c6a990d118aca
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049477"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505094"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept strategibok: komponenter
 
@@ -41,7 +41,7 @@ Här följer några förutsättningar som krävs för alla POC med Azure AD Prem
 
 | Förhandskrav | Resurser |
 | --- | --- |
-| Azure AD-klient som definierats med en giltig Azure-prenumeration | [Skaffa en Azure Active Directory-klient](active-directory-howto-tenant.md)<br/>**Obs:** om du redan har en miljö med Azure AD Premium-licenser kan du få en noll cap-prenumeration genom att gå till https://aka.ms/accessaad <br/>Läs mer på: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ och https://technet.microsoft.com/library/dn832618.aspx |
+| Azure AD-klient som definierats med en giltig Azure-prenumeration | [Skaffa en Azure Active Directory-klient](develop/quickstart-create-new-tenant.md)<br/>**Obs:** om du redan har en miljö med Azure AD Premium-licenser kan du få en noll cap-prenumeration genom att gå till https://aka.ms/accessaad <br/>Läs mer på: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ och https://technet.microsoft.com/library/dn832618.aspx |
 | Domäner som har definierats och verifierats | [Lägga till ett anpassat domännamn i Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Obs:** vissa arbetsbelastningar som till exempel Power BI kunde har etablerat en azure AD-klient under försättsbladen. Om du vill kontrollera om en viss domän är kopplade till en klient, navigera till https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Om du får ett lyckat svar och sedan domänen har redan tilldelats en klient och ta över kan behövas. I så fall kan du kontakta Microsoft för ytterligare vägledning. Mer information om de gäller alternativ på: [självbetjäningsregistrering för Azure?](users-groups-roles/directory-self-service-signup.md) |
 | Azure AD Premium eller EMS utvärdering aktiverad | [Azure Active Directory Premium kostnadsfritt i en månad](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Du har tilldelat Azure AD Premium eller EMS-licenser till PoC-användare | [Licensiera själv och dina användare i Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |

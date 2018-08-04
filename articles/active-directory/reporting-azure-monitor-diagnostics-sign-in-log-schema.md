@@ -16,16 +16,16 @@ ms.component: compliance-reports
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 95153a4661f030824c9b85c10c5b4b1731ff8a91
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 313fb77fe2d66215e1f55a6f75a8b1b3d540b73a
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239999"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505774"
 ---
-# <a name="interpret-the-azure-active-directory-sign-in-logs-schema-in-azure-monitor-preview"></a>Tolka Azure Active Directory-schemat för inloggning loggar i Azure Monitor (förhandsversion)
+# <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor-preview"></a>Tolka Azure AD-inloggningen loggar schemat i Azure Monitor (förhandsversion)
 
-Den här artikeln beskrivs Azure AD-inloggningen log schemat i Azure Monitor. De flesta av den information som rör inloggningar tillhandahålls enligt den *egenskaper* attributet objektets poster.
+Den här artikeln beskrivs Azure Active Directory (Azure AD)-inloggningen log schemat i Azure Monitor. De flesta av den information som rör inloggningar tillhandahålls enligt den *egenskaper* attributet för den `records` objekt.
 
 ```json
 { 
@@ -147,26 +147,29 @@ Den här artikeln beskrivs Azure AD-inloggningen log schemat i Azure Monitor. De
         } 
     } 
 ```
+
+## <a name="field-descriptions"></a>Fältbeskrivningar
+
 | Fältnamn | Beskrivning |
 |------------|-------------|
-| Tid | Datum och tid i UTC |
-| Resurs-ID | Det här värdet är omappade och du kan ignorera det här fältet.  |
-| OperationName | För inloggningar, det här värdet är alltid *inloggningsaktivitet* |
-| operationVersion | REST API-version som begärs av klienten |
-| Kategori | För inloggningar, är detta alltid *inloggning* | 
-| TenantId | Klient-Guid som är associerade med loggarna |
-| resultType | Resultatet av åtgärden logga in kan vara *lyckades* eller *fel* | 
-| resultSignature | Innehåller felkoden för inloggningen. |
-| ResultDescription | Tillhandahåller felbeskrivningen för inloggningen. |
+| Tid | Datum och tid i UTC. |
+| ResourceId | Det här värdet är omappade och du kan ignorera det här fältet.  |
+| OperationName | För inloggningar, det här värdet är alltid *inloggningsaktivitet*. |
+| operationVersion | REST API-versionen som begärs av klienten. |
+| Kategori | För inloggningar, det här värdet är alltid *inloggning från*. | 
+| TenantId | Klient-GUID som är associerat med loggarna. |
+| resultType | Resultatet av åtgärden logga in kan vara *lyckades* eller *fel*. | 
+| resultSignature | Innehåller felkoden för inloggning igen. |
+| ResultDescription | Innehåller felbeskrivningen för logga in igen. |
 | . durationMs |  Det här värdet är omappade och du kan ignorera det här fältet.|
-| callerIpAddress | IP-adressen för klienten som gjorde begäran | 
-| CorrelationId | Valfritt Guid som skickas av klienten. Det här värdet kan hjälpa att korrelera klientsidan åtgärder med serversidan operations och är användbart när spårningsloggarna som sträcker sig över olika tjänster. |
-| Identitet | Identiteten från den token som angavs när den skickar förfrågan. Kan vara ett användarkonto, system-kontot eller tjänstens huvudnamn. |
-| Nivå | Tillhandahåller typ av meddelande. För granskning, är det alltid *information* |
-| Plats | Anger platsen för inloggningsaktivitet |
-| Egenskaper | Visar en lista över alla egenskaper som är associerade med inloggningar. Mer information finns i [MS Graph API-referens](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin). Det här schemat använder attributnamn som resursen inloggning för läsbarhet.
+| callerIpAddress | IP-adressen för klienten som gjorde begäran. | 
+| CorrelationId | Valfritt GUID som skickades av klienten. Det här värdet kan hjälpa att korrelera klientsidan åtgärder med serversidan operations och det är användbart när du följer upp loggar som sträcker sig över tjänster. |
+| Identitet | Identiteten från den token som angavs när du gjorde begäran. Det kan vara ett användarkonto, system-kontot eller tjänstens huvudnamn. |
+| Nivå | Tillhandahåller typ av meddelande. För granskning, är det alltid *information*. |
+| Plats | Anger platsen för inloggningsaktivitet. |
+| Egenskaper | Visar en lista över alla egenskaper som är associerade med inloggningar. Mer information finns i [Microsoft Graph API-referens](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin). Det här schemat använder samma attributnamn som resursen inloggning för läsbarhet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Tolka granska loggarna schemat i Azure monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
-* [Läs mer om Azure-diagnostikloggar](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Tolka granska loggarna schemat i Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+* [Läs mer om Azure diagnostikloggar](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)

@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: maheshu
-ms.openlocfilehash: acae942131903aa86601f023976b0715bf553d4d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ee3f65b7afde19a1f9c730334043cc7dae9ea791
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215039"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503816"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Aktivera Azure Active Directory Domain Services med hjälp av PowerShell
 Den här artikeln visar hur du aktiverar Azure Active Directory (AD) Domain Services med hjälp av PowerShell.
@@ -28,21 +28,21 @@ Den här artikeln visar hur du aktiverar Azure Active Directory (AD) Domain Serv
 ## <a name="task-1-install-the-required-powershell-modules"></a>Uppgift 1: Installera PowerShell-moduler som krävs
 
 ### <a name="install-and-configure-azure-ad-powershell"></a>Installera och konfigurera Azure AD PowerShell
-Följ anvisningarna i artikeln [installera Azure AD PowerShell-modulen och ansluta till Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+Följ instruktionerna i artikeln om du vill [installerar Azure AD PowerShell-modulen och ansluter till Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 ### <a name="install-and-configure-azure-powershell"></a>Installera och konfigurera Azure PowerShell
-Följ anvisningarna i artikeln [installera Azure PowerShell-modulen och ansluta till din Azure-prenumeration](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+Följ instruktionerna i artikeln om du vill [installera Azure PowerShell-modulen och ansluta till din Azure-prenumeration](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 
 ## <a name="task-2-create-the-required-service-principal-in-your-azure-ad-directory"></a>Uppgift 2: Skapa nödvändiga tjänstens huvudnamn i Azure AD-katalogen
-Skriv följande PowerShell-kommando för att skapa tjänstens huvudnamn som krävs för Azure AD Domain Services i Azure AD-katalogen.
+Skriv följande PowerShell-kommando för att skapa tjänstens huvudnamn krävs för Azure AD Domain Services i Azure AD-katalogen.
 ```powershell
 # Create the service principal for Azure AD Domain Services.
 New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
 ```
 
-## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>Uppgift 3: Skapa och konfigurera gruppen AAD DC-administratörer
-Nästa uppgift är att skapa administratörsgruppen som ska användas för att delegera administrationsuppgifter för din hanterade domän.
+## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>Uppgift 3: Skapa och konfigurera gruppen ”AAD DC-administratörer”
+Nästa uppgift är att skapa administratörsgruppen som ska användas för att delegera administrationsuppgifter på din hanterade domän.
 ```powershell
 # Create the delegated administration group for AAD Domain Services.
 New-AzureADGroup -DisplayName "AAD DC Administrators" `
@@ -67,7 +67,7 @@ $UserObjectId = Get-AzureADUser `
 Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjectId.ObjectId
 ```
 
-## <a name="task-4-register-the-azure-ad-domain-services-resource-provider"></a>Uppgift 4: Registerresursleverantören Azure AD Domain Services
+## <a name="task-4-register-the-azure-ad-domain-services-resource-provider"></a>Uppgift 4: Registrera Azure AD Domain Services-resursprovidern
 Skriv följande PowerShell-kommando för att registrera resursprovidern för Azure AD Domain Services:
 ```powershell
 # Register the resource provider for Azure AD Domain Services with Resource Manager.
@@ -86,13 +86,13 @@ New-AzureRmResourceGroup `
   -Location $AzureLocation
 ```
 
-Du kan skapa det virtuella nätverket och den hanterade domänen med Azure AD Domain Services i den här resursgruppen.
+Du kan skapa det virtuella nätverket och den hanterade domänen i Azure AD Domain Services i den här resursgruppen.
 
 
 ## <a name="task-6-create-and-configure-the-virtual-network"></a>Uppgift 6: Skapa och konfigurera det virtuella nätverket
-Nu ska du skapa det virtuella nätverket där du aktiverar Azure AD Domain Services. Se till att du skapar ett dedikerat undernät för Azure AD Domain Services. Distribuera inte arbetsbelastning virtuella datorer i det här dedikerade undernätet.
+Skapa nu det virtuella nätverket där du aktiverar Azure AD Domain Services. Se till att du skapar ett dedikerat undernät för Azure AD Domain Services. Distribuera inte arbetsbelastning virtuella datorer i den här dedikerade undernät.
 
-Skriv följande PowerShell-kommandon för att skapa ett virtuellt nätverk med en dedikerad undernät för Azure AD Domain Services.
+Skriv följande PowerShell-kommandon för att skapa ett virtuellt nätverk med ett dedikerat undernät för Azure AD Domain Services.
 
 ```powershell
 $ResourceGroupName = "ContosoAaddsRg"
@@ -117,7 +117,7 @@ $Vnet=New-AzureRmVirtualNetwork `
 ```
 
 
-## <a name="task-7-provision-the-azure-ad-domain-services-managed-domain"></a>Uppgift 7: Etablera den Azure AD Domain Services-hanterad domänen
+## <a name="task-7-provision-the-azure-ad-domain-services-managed-domain"></a>Åtgärd 7: Etablera den hanterade domänen i Azure AD Domain Services
 Skriv följande PowerShell-kommando för att aktivera Azure AD Domain Services för din katalog:
 
 ```powershell
@@ -137,17 +137,17 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 
 > [!WARNING]
 > **Glöm inte de ytterligare konfigurationsstegen när du har etablerat din hanterade domän.**
-> När din hanterade domän etableras fortfarande måste du utföra följande uppgifter:
-> * **[Uppdatera DNS-inställningarna](active-directory-ds-getting-started-dns.md)**  för det virtuella nätverket så att virtuella datorer kan hitta den hanterade domänen för domänanslutning eller autentisering.
-* **[Aktivera Lösenordssynkronisering till Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)**, så att användarna kan logga in på den hanterade domänen med sina företagsuppgifter.
+> När din hanterade domän har etablerats fortfarande måste du utföra följande åtgärder:
+> * **[Uppdatera DNS-inställningarna](active-directory-ds-getting-started-dns.md)**  för det virtuella nätverket så att virtuella datorer kan hitta den hanterade domänen för en domänanslutning och autentisering.
+* **[Aktivera Lösenordssynkronisering till Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)**, så att slutanvändarna kan logga in på den hanterade domänen med sina företagsuppgifter.
 >
 
 
 ## <a name="powershell-script"></a>PowerShell-skript
-PowerShell-skriptet som används för att utföra alla aktiviteter i den här artikeln är under. Kopiera skriptet och spara den till en fil med tillägget '.ps1'. Kör skriptet i PowerShell eller med hjälp av PowerShell Integrated Scripting Environment (ISE).
+PowerShell-skriptet som används för att utföra alla uppgifter som beskrivs i den här artikeln finns nedan. Kopiera skriptet och spara den till en fil med tillägget '.ps1'. Kör skript i PowerShell eller med hjälp av PowerShell Integrated Scripting Environment (ISE).
 
 > [!NOTE]
-> **Behörigheter som krävs för att köra skriptet** för att aktivera Azure AD Domain Services, du måste vara global administratör för Azure AD-katalog. Dessutom måste minst ”bidragsgivare” privilegier på det virtuella nätverket som aktiverar Azure AD Domain Services.
+> **Behörigheter som krävs för att köra det här skriptet** om du vill aktivera Azure AD Domain Services måste du vara global administratör för Azure AD-katalog. Du måste dessutom minst behörigheten ”deltagare” i det virtuella nätverket som aktiverar Azure AD Domain Services.
 >
 
 ```powershell
@@ -222,9 +222,9 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 
 > [!WARNING]
 > **Glöm inte de ytterligare konfigurationsstegen när du har etablerat din hanterade domän.**
-> När din hanterade domän etableras fortfarande måste du utföra följande uppgifter:
-> * Uppdatera DNS-inställningarna för det virtuella nätverket så att virtuella datorer kan hitta den hanterade domänen för domänanslutning eller autentisering.
-* Aktivera Lösenordssynkronisering till Azure AD Domain Services så att användarna kan logga in på den hanterade domänen med sina företagsuppgifter.
+> När din hanterade domän har etablerats fortfarande måste du utföra följande åtgärder:
+> * Uppdatera DNS-inställningarna för det virtuella nätverket så att virtuella datorer kan hitta den hanterade domänen för en domänanslutning och autentisering.
+* Aktivera Lösenordssynkronisering till Azure AD Domain Services så att slutanvändarna kan logga in på den hanterade domänen med sina företagsuppgifter.
 >
 
 ## <a name="next-steps"></a>Nästa steg

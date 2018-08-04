@@ -5,31 +5,35 @@ services: container-registry
 author: mmacy
 ms.service: container-registry
 ms.topic: include
-ms.date: 04/23/2018
+ms.date: 08/03/2018
 ms.author: marsma
 ms.custom: include file
-ms.openlocfilehash: 6ed114ea6162c9d4888b6f86998cfb422a3944e8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2174ae44f8e78763c1939aee5e6b86c95a0924ce
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32198234"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39513940"
 ---
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Du kan använda följande skript för att skapa ett huvudnamn för tjänsten åtkomst till behållaren registret. Uppdatering av `ACR_NAME` variabeln med namnet på behållaren registret, och eventuellt den `--role` värde i den [az ad sp skapa-för-rbac] [ az-ad-sp-create-for-rbac] kommando för att ge olika behörigheter. Du måste ha den [Azure CLI](/cli/azure/install-azure-cli) installerat för att kunna använda det här skriptet.
+Om du vill skapa ett huvudnamn för tjänsten med åtkomst till ditt behållarregister, kör du följande skript den [Azure Cloud Shell](../articles/cloud-shell/overview.md) eller en lokal installation av den [Azure CLI](/cli/azure/install-azure-cli). Skriptet formateras för Bash-gränssnittet.
 
-När du har kört skriptet anteckna tjänstens huvudnamn **ID** och **lösenord**. När du har dess autentiseringsuppgifter kan konfigurera du dina program och tjänster för att autentisera till behållaren registret som tjänstens huvudnamn.
+Innan du kör skriptet måste du uppdatera den `ACR_NAME` variabeln med namnet på ditt behållarregister. Den `SERVICE_PRINCIPAL_NAME` värdet måste vara unikt i Azure Active Directory-klient. Om du får ett ”`'http://acr-service-principal' already exists.`” fel, ange ett annat namn för tjänstens huvudnamn.
 
-[!code-azurecli-interactive[acr-sp-create](~/cli_scripts/container-registry/service-principal-create/service-principal-create.sh)]
+Du kan ändra den `--role` värde i den [az ad sp create-for-rbac] [ az-ad-sp-create-for-rbac] kommandot om du vill ge olika behörigheter.
+
+När du har kört skriptet anteckna tjänstens huvudnamn **ID** och **lösenord**. När du har autentiseringsuppgifterna kan konfigurera du dina program och tjänster för att autentisera till ditt behållarregister som tjänstens huvudnamn.
+
+<!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh --> [!code-azurecli-interactive[acr-sp-create](~/cli_scripts/container-registry/service-principal-create/service-principal-create.sh)]
 
 ## <a name="use-an-existing-service-principal"></a>Använd ett befintligt huvudnamn för tjänsten
 
-Om du vill ge registeråtkomst till en befintlig tjänstens huvudnamn, måste du tilldela en ny roll till tjänstens huvudnamn. Du kan bevilja pull, push och pull och ägare åtkomst som skapar en ny tjänst huvudnamn.
+Om du vill bevilja registeråtkomst till en befintlig tjänsts huvudnamn, måste du tilldela en ny roll till tjänstens huvudnamn. Precis som med skapar en ny tjänstens huvudnamn, kan du bevilja pull, push och pull och ägaråtkomst.
 
-Följande skript använder den [az rolltilldelning skapa] [ az-role-assignment-create] kommando för att ge *pull* behörigheter till ett huvudnamn för tjänsten som du anger i den `SERVICE_PRINCIPAL_ID` variabeln. Justera det `--role` värde om du vill ge olika nivåer av åtkomst.
+Följande skript använder den [az-rolltilldelning skapa] [ az-role-assignment-create] kommando för att bevilja *pull* behörigheter till ett huvudnamn för tjänsten som du anger i den `SERVICE_PRINCIPAL_ID` variabeln. Justera den `--role` värde om du vill ge olika nivåer för åtkomst.
 
-[!code-azurecli-interactive[acr-sp-role-assign](~/cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
+<!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-assign-role/service-principal-assign-role.sh --> [!code-azurecli-interactive[acr-sp-role-assign](~/cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
 
 <!-- LINKS - Internal -->
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac

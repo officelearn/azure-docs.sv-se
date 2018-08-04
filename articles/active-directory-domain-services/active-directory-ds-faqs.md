@@ -12,93 +12,93 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 41e5d515dcea4a4bc2ebfec8493d44de877a263f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 02b722feece5458a31e89e4041d51104b94e52c6
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214737"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505873"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Vanliga frågor (FAQ)
-Den här sidan svar på vanliga frågor om Azure Active Directory Domain Services. Hålla kontroll för uppdateringar.
+Den här sidan får du svar på vanliga frågor om Azure Active Directory Domain Services. Kontrollera tillbaka för uppdateringar.
 
 ## <a name="troubleshooting-guide"></a>Felsökningsguide
-Referera till den [felsökningsguide](active-directory-ds-troubleshooting.md) efter lösningar på vanliga problem med att konfigurera eller administrera Azure AD Domain Services.
+Referera till den [felsökningsguide för](active-directory-ds-troubleshooting.md) efter lösningar på vanliga problem med att konfigurera och administrera Azure AD Domain Services.
 
 ## <a name="configuration"></a>Konfiguration
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Kan jag skapa flera hanterade domäner för en enda Azure AD-katalog?
 Nej. Du kan bara skapa en enda hanterad domän som underhålls av Azure AD Domain Services för en enda Azure AD-katalog.  
 
-### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Kan jag aktivera Azure AD Domain Services i ett virtuellt nätverk med Azure Resource Manager?
-Ja. Azure AD Domain Services kan aktiveras i ett virtuellt nätverk med Azure Resource Manager. Klassiska virtuella Azure-nätverk stöds inte längre för att skapa nya hanterade domäner.
+### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Kan jag aktivera Azure AD Domain Services i ett Azure Resource Manager-nätverk?
+Ja. Azure AD Domain Services kan aktiveras i ett Azure Resource Manager-nätverk. Klassiska Azure-nätverk stöds inte längre för att skapa nya hanterade domäner.
 
-### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Kan jag migrera Mina befintliga hanterade domänen från ett klassiskt virtuellt nätverk till ett virtuellt nätverk för Resource Manager?
-För närvarande inte. Microsoft levererar en mekanism för att migrera din befintliga hanterade domän från ett klassiskt virtuellt nätverk till ett virtuellt nätverk för hanteraren för filserverresurser i framtiden.
+### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Kan jag migrera min befintliga hanterade domän från ett klassiskt virtuellt nätverk till ett virtuellt nätverk för Resource Manager?
+För närvarande inte. Microsoft levererar en mekanism för att migrera dina befintliga hanterade domän från ett klassiskt virtuellt nätverk till ett virtuellt nätverk för Resource Manager i framtiden.
 
-### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Kan jag aktivera Azure AD Domain Services i en CSP: N (Cloud Solution Provider) för Azure-prenumeration?
-Ja. Se hur du kan aktivera [Azure AD Domain Services i Azure CSP prenumerationer](active-directory-ds-csp.md).
+### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Kan jag aktivera Azure AD Domain Services i en Azure-CSP (Cloud Solution Provider)-prenumeration?
+Ja. Se hur du kan aktivera [Azure AD Domain Services i Azure CSP-prenumerationer](active-directory-ds-csp.md).
 
-### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Kan jag aktivera Azure AD Domain Services i en federerad Azure AD-katalog? Jag synkronisera inte lösenordshashvärden till Azure AD. Kan jag aktivera Azure AD Domain Services för den här katalogen?
-Nej. Azure AD Domain Services behöver åtkomst till lösenordshashvärden av användarkonton, kan autentisera användarna med NTLM eller Kerberos. I en federerad katalog lagras lösenordshashvärden inte i Azure AD-katalog. Därför fungerar inte Azure AD Domain Services med sådana Azure AD-kataloger.
+### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Kan jag aktivera Azure AD Domain Services i en federerad Azure AD-katalog? Jag synkroniserar inte lösenord autentiseringshasher till Azure AD. Kan jag aktivera Azure AD Domain Services för den här katalogen?
+Nej. Azure AD Domain Services behöver åtkomst till lösenords-hash av användarkonton, autentisera användare via NTLM eller Kerberos. I en federerad katalog lagras hashvärden för lösenord inte i Azure AD-katalog. Därför fungerar inte Azure AD Domain Services med sådana Azure AD-kataloger.
 
-### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>Kan jag göra Azure AD Domain Services finns i flera virtuella nätverk i min prenumeration?
-Själva tjänsten stöder inte det här scenariot. Din hanterade domän finns i endast ett virtuellt nätverk i taget. Du kan dock konfigurera anslutningen mellan flera virtuella nätverk för att exponera Azure AD Domain Services till andra virtuella nätverk. Se hur du kan [ansluta virtuella nätverk i Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>Kan jag göra Azure AD Domain Services i flera virtuella nätverk i min prenumeration?
+Själva tjänsten stöder inte det här scenariot. Din hanterade domän finns i endast ett virtuellt nätverk i taget. Du kan dock konfigurera anslutningar mellan flera virtuella nätverk för att exponera Azure AD Domain Services till andra virtuella nätverk. Se hur du [ansluta virtuella nätverk i Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
-### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>Kan jag aktivera Azure AD Domain Services med hjälp av PowerShell?
-Ja. Se [så att aktivera Azure AD Domain Services med hjälp av PowerShell](active-directory-ds-enable-using-powershell.md).
+### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>Kan jag aktivera Azure AD Domain Services med PowerShell?
+Ja. Se [hur att aktivera Azure AD Domain Services med hjälp av PowerShell](active-directory-ds-enable-using-powershell.md).
 
-### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Kan jag aktivera Azure AD Domain Services med hjälp av en Resource Manager-mall?
-Ja. Se [så att aktivera Azure AD Domain Services med hjälp av PowerShell](active-directory-ds-enable-using-powershell.md).
+### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Kan jag aktivera Azure AD Domain Services med hjälp av en Resource Manager-mallen?
+Ja. Se [hur att aktivera Azure AD Domain Services med hjälp av PowerShell](active-directory-ds-enable-using-powershell.md).
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Kan jag lägga till domänkontrollanter i en Azure AD Domain Services-hanterad domän?
-Nej. Den domän som tillhandahålls av Azure AD Domain Services är en hanterad domän. Du inte behöver tillhandahålla, konfigurera eller på annat sätt hantera domänkontrollanter för den här domänen - tillhandahålls dessa hanteringsaktiviteter som en tjänst från Microsoft. Därför kan du lägga till ytterligare domänkontrollanter (skrivskyddad eller skrivskyddad) för den hanterade domänen.
+Nej. Den domän som tillhandahålls av Azure AD Domain Services är en hanterad domän. Du inte behöver etablera, konfigurera eller på annat sätt hantera domänkontrollanter för den här domänen – tillhandahålls dessa hanteringsaktiviteter som en tjänst av Microsoft. Därför kan du lägga till ytterligare domänkontrollanter (skrivskyddad eller skrivskyddade) för den hanterade domänen.
 
 ### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>Gästanvändare bjudits in till min katalog kan använda Azure AD Domain Services?
-Nej. Gästanvändare bjudits in till din Azure AD-katalog med det [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) process inbjudan synkroniseras till din Azure AD Domain Services-hanterad domän. Lösenorden för dessa användare lagras inte i Azure AD-katalogen. Därför Azure AD Domain Services har inget sätt att synkronisera NTLM och Kerberos-hashvärden för dessa användare i din hanterade domän. Därför kan kan inte dessa användare logga in på den hanterade domänen eller ansluta datorer till den hanterade domänen.
+Nej. Gästanvändare bjudits in till din Azure AD directory med hjälp av den [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) inbjudan processen synkroniseras till din hanterade domän i Azure AD Domain Services. Lösenord för dessa användare lagras inte i Azure AD-katalogen. Därför kan Azure AD Domain Services har inget sätt att synkronisera NTLM och Kerberos-hashvärden för dessa användare till din hanterade domän. Därför kan kan inte dessa användare logga in på den hanterade domänen eller ansluta datorer till den hanterade domänen.
 
 ## <a name="administration-and-operations"></a>Administration och åtgärder
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Kan jag ansluta till domänkontrollanten för min hanterade domänen med hjälp av fjärrskrivbord?
-Nej. Du har inte behörighet att ansluta till domänkontrollanterna för den hanterade domänen via fjärrskrivbord. Medlemmar i gruppen AAD DC-administratörer kan administrera den hanterade domänen med hjälp av Administrationsverktyg för AD, till exempel Active Directory Administration Center (ADAC) eller AD PowerShell. Dessa installeras med hjälp av funktionen ”Verktyg för fjärrserveradministration' på en Windows-server som är ansluten till den hanterade domänen.
+Nej. Du har inte behörighet att ansluta till domänkontrollanter för den hanterade domänen via fjärrskrivbord. Medlemmar i gruppen ”AAD DC-administratörer” kan administrera den hanterade domänen med AD verktyg för fjärrserveradministration, till exempel Active Directory Administration Center (ADAC) eller AD PowerShell. De här verktygen är installerade med hjälp av funktionen ”Verktyg för fjärrserveradministration” på en Windows-server som är anslutna till den hanterade domänen.
 
-### <a name="ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain"></a>Jag har aktiverat Azure AD Domain Services. Vilka användarkonto används till domänen ansluta datorer till den här domänen?
-Medlemmar i den administrativa gruppen AAD DC-administratörer kan domänanslutning datorer. Dessutom kan beviljas medlemmar i gruppen fjärråtkomst till skrivbordet till datorer som har varit ansluten till domänen.
+### <a name="ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain"></a>Jag har aktiverat Azure AD Domain Services. Vilka användarkonto kan jag använda för domänen ansluta datorer till den här domänen?
+Medlemmar i den administrativa gruppen ”AAD DC-administratörer” kan domänanslutning datorer. Dessutom har medlemmar i den här gruppen beviljats fjärrskrivbordsåtkomst till datorer som har anslutits till domänen.
 
-### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>Måste jag administratörsbehörighet för domänen för den hanterade domänen som tillhandahålls av Azure AD Domain Services?
-Nej. Du har inte beviljats administratörsbehörighet på den hanterade domänen. Både domän-administratör och företagsadministratörsbehörighet krävs behörighet är inte tillgängliga som du kan använda i domänen. Medlemmar i gruppen domänadministratör eller enterprise administratörsgrupper i din lokala Active Directory beviljas också domän/enterprise administratörsbehörighet på den hanterade domänen inte.
+### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>Måste jag administratörsbehörighet för domänen för den hanterade domänen tillhandahålls av Azure AD Domain Services?
+Nej. Du har inte beviljats administratörsbehörighet på den hanterade domänen. Både domän Administrator och Enterprise Administrator privilegier är inte tillgängliga för dig att använda i domänen. Medlemmar i domänadministratör eller enterprise administratörsgrupper i din lokala Active Directory har också inte beviljats administratörsbehörighet för domänen/enterprise på den hanterade domänen.
 
-### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>Kan jag ändra gruppmedlemskap via LDAP eller andra administrativa verktyg för AD på hanterade domäner?
-Nej. Gruppmedlemskap kan inte ändras i domäner som underhålls av Azure AD Domain Services. Detsamma gäller för användarattribut. Du kan dock ändra gruppmedlemskap eller användarattribut i Azure AD eller på den lokala domänen. Dessa ändringar synkroniseras automatiskt till Azure AD Domain Services.
+### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>Kan jag ändra medlemskap i grupper via LDAP eller andra AD Administrationsverktyg på hanterade domäner?
+Nej. Gruppmedlemskap kan inte ändras på domäner som underhålls av Azure AD Domain Services. Detsamma gäller för användarattribut. Du kan dock ändra gruppmedlemskap eller användarattribut i Azure AD eller på din lokala domän. Dessa ändringar synkroniseras automatiskt till Azure AD Domain Services.
 
-### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Hur lång tid tar det innan ändringarna jag göra i Azure AD-katalog som ska visas i min hanterade domänen?
-Ändringar i Azure AD-katalogen med Azure AD-Gränssnittet eller PowerShell synkroniseras till din hanterade domän. Den här synkroniseringsprocessen körs i bakgrunden. När den första synkroniseringen är klar tar vanligtvis cirka 20 minuter för ändringar som gjorts i Azure AD återspeglas i din hanterade domän.
+### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Hur lång tid tar det innan ändringar jag göra i min Azure AD-katalog som ska visas i min hanterade domänen?
+Ändringar som gjorts i Azure AD-katalogen med Azure AD-Användargränssnittet eller PowerShell synkroniseras till din hanterade domän. Den här synkroniseringsprocessen körs i bakgrunden. När den inledande synkroniseringen är klar tar normalt ungefär 20 minuter för ändringar som görs i Azure AD återspeglas i din hanterade domän.
 
-### <a name="can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services"></a>Kan jag utöka schemat för den hanterade domänen som tillhandahålls av Azure AD Domain Services?
-Nej. Schemat hanteras av Microsoft för den hanterade domänen. Schematillägg stöds inte av Azure AD Domain Services.
+### <a name="can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services"></a>Kan jag utöka schemat för den hanterade domänen tillhandahålls av Azure AD Domain Services?
+Nej. Schemat administreras av Microsoft för den hanterade domänen. Schematillägg stöds inte av Azure AD Domain Services.
 
 ### <a name="can-i-modify-or-add-dns-records-in-my-managed-domain"></a>Kan jag ändra eller lägga till DNS-poster i min hanterade domänen?
-Ja. Medlemmar i gruppen AAD DC-administratörer beviljas behörighet för DNS-administratören om du vill ändra DNS-poster i den hanterade domänen. De kan använda DNS-hanteringskonsolen på en dator som kör Windows Server som är ansluten till den hanterade domänen för att hantera DNS. Installera 'DNS-serververktyg', vilket är en del av funktionen ”Verktyg för fjärrserveradministration' valfritt på servern för att använda DNS-hanteringskonsolen. Mer information om [verktyg för att administrera, övervaka och felsöka DNS](https://technet.microsoft.com/library/cc753579.aspx) finns på TechNet.
+Ja. Medlemmar i gruppen ”AAD DC-administratörer” beviljas behörighet för DNS-administratören om du vill ändra DNS-poster i den hanterade domänen. De kan använda DNS-hanterarens konsol på en dator som kör Windows Server som är anslutna till den hanterade domänen för att hantera DNS. Installera ”DNS-serververktyg”, vilket är en del av funktionen ”Verktyg för fjärrserveradministration' valfritt på servern för att använda DNS-hanteringskonsolen. Mer information om [verktyg för administration, övervakning och felsökning DNS](https://technet.microsoft.com/library/cc753579.aspx) finns på TechNet.
 
-### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>Vad är lösenordsprincipen som livslängd på en hanterad domän?
-Standardlivstid för lösenord på en Azure AD Domain Services-hanterad domän är 90 dagar. Det här lösenordet livstid är inte synkroniserad med lösenord livslängd som konfigurerats i Azure AD. Du kan därför ha en situation där användarnas lösenord ut inom din hanterade domän, men fortfarande är giltiga i Azure AD. I sådana fall kan användarna behöver för att ändra sina lösenord i Azure AD och det nya lösenordet synkroniseras till din hanterade domän. Dessutom synkroniseras 'den lösenordet-har-inte-upphör' och 'user-must-change-password-at-next-logon'-attribut för användarkonton inte med din hanterade domän.
+### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>Vad är livslängd lösenordsprincip på en hanterad domän?
+Standardlivstid för lösenord på en Azure AD Domain Services-hanterad domän är 90 dagar. Det här lösenordet livslängd är inte synkroniserad med livslängden för lösenord som konfigurerats i Azure AD. Därför kan du ha en situation där användarnas lösenord upphör att gälla i den hanterade domänen, men fortfarande är giltiga i Azure AD. I sådana fall kan användare måste ändra sina lösenord i Azure AD och det nya lösenordet synkroniseras till din hanterade domän. Dessutom synkroniseras 'lösenord-gör-not-upphör att gälla' och 'user-must-change-password-at-next-logon' attribut för användarkonton som inte till din hanterade domän.
 
-### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Ger skydd för kontoutelåsning AD i Azure AD Domain Services?
-Ja. Fem ogiltig lösenordsförsök inom 2 minuter på den hanterade domänen orsaka ett användarkonto blir utelåst under 30 minuter. Efter 30 minuter låses användarkontot automatiskt. Ogiltig lösenordsförsök på den hanterade domänen låser inte ut användarkontot i Azure AD. Användarkontot är låst i din Azure AD Domain Services-hanterad domän.
+### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Tillhandahåller Azure AD Domain Services AD kontoutelåsningsskydd?
+Ja. Fem ogiltig lösenordsförsök inom två minuter i den hanterade domänen orsaka ett användarkonto blir utelåst under 30 minuter. Efter 30 minuter låses användarkontot automatiskt. Ogiltig lösenordsförsök i den hanterade domänen låser inte ut användarkontot i Azure AD. Användarkontot är låst endast i Azure AD Domain Services-hanterade domänen.
 
 ## <a name="billing-and-availability"></a>Fakturering och tillgänglighet
-### <a name="is-azure-ad-domain-services-a-paid-service"></a>Är Azure AD Domain Services en betald tjänst?
+### <a name="is-azure-ad-domain-services-a-paid-service"></a>Är Azure AD Domain Services en betalda tjänsten?
 Ja. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
 ### <a name="is-there-a-free-trial-for-the-service"></a>Finns det en kostnadsfri utvärderingsversion för tjänsten?
-Den här tjänsten ingår i den kostnadsfria utvärderingsversionen för Azure. Du kan registrera dig för en [kostnadsfri utvärderingsversion för en månad Azure](https://azure.microsoft.com/pricing/free-trial/).
+Den här tjänsten ingår i den kostnadsfria utvärderingsversionen för Azure. Du kan registrera dig för en [kostnadsfri dagars utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-### <a name="can-i-pause-an-azure-ad-domain-services-managed-domain"></a>Kan jag pausa en Azure AD Domain Services-hanterad domän? 
+### <a name="can-i-pause-an-azure-ad-domain-services-managed-domain"></a>Kan jag pausar en Azure AD Domain Services-hanterad domän? 
 Nej. När du har aktiverat en Azure AD Domain Services-hanterad domän, är tjänsten tillgänglig i det valda virtuella nätverket förrän du inaktivera/ta bort den hanterade domänen. Det går inte att pausa tjänsten. Fakturering fortsätter timme tills du tar bort den hanterade domänen.
 
-### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Kan jag Azure AD Domain Services som en del av Enterprise Mobility Suite (EMS)? Behöver jag Azure AD Premium för att använda Azure AD Domain Services?
-Nej. Azure AD Domain Services är inte en del av EMS är en betala per användning i Azure-tjänsten. Azure AD Domain Services kan användas med alla versioner av Azure AD (ledigt, grundläggande och, Premium). Du debiteras timme, beroende på användning.
+### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Får jag Azure AD Domain Services som en del av Enterprise Mobility Suite (EMS)? Behöver jag Azure AD Premium för att använda Azure AD Domain Services?
+Nej. Azure AD Domain Services är en betala per användning Azure-tjänst och ingår inte i EMS. Azure AD Domain Services kan användas med alla utgåvor av Azure AD (kostnadsfri, Basic och, Premium). Du debiteras per timme, beroende på användning.
 
-### <a name="what-azure-regions-is-the-service-available-in"></a>Vilka Azure-regioner är tjänsten?
-Referera till den [Azure-tjänster efter region](https://azure.microsoft.com/regions/#services/) sidan om du vill se en lista över Azure-regioner där Azure AD Domain Services är tillgängligt.
+### <a name="what-azure-regions-is-the-service-available-in"></a>Vilka Azure-regioner är tillgängliga i tjänsten?
+Referera till den [Azure-tjänster efter region](https://azure.microsoft.com/regions/#services/) och se en lista över vilka Azure-regioner där Azure AD Domain Services är tillgänglig.

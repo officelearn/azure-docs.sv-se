@@ -15,16 +15,16 @@ ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 640df9659dfa65d0eb2a65066085dd7dff7031ca
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1f3511b4d9e75136fd0105785a1e033378d2ebd1
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365561"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494029"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Konfigurera enkel inloggning till program som inte ingår i Azure Active Directory-programgalleriet
 
-Den här artikeln handlar om en funktion som gör att administratörer kan konfigurera enkel inloggning till program som inte finns i appgalleriet för Azure Active Directory *utan att skriva kod*. Den här funktionen har frigjorts från technical preview på den 18 November 2015 och ingår i [Azure Active Directory Premium](fundamentals/active-directory-whatis.md). Om du söker i stället för vägledning för utvecklare om hur du integrerar anpassade appar med Azure AD med hjälp av kod, se [Autentiseringsscenarier för Azure AD](active-directory-authentication-scenarios.md).
+Den här artikeln handlar om en funktion som gör att administratörer kan konfigurera enkel inloggning till program som inte finns i appgalleriet för Azure Active Directory *utan att skriva kod*. Den här funktionen har frigjorts från technical preview på den 18 November 2015 och ingår i [Azure Active Directory Premium](fundamentals/active-directory-whatis.md). Om du söker i stället för vägledning för utvecklare om hur du integrerar anpassade appar med Azure AD med hjälp av kod, se [Autentiseringsscenarier för Azure AD](develop/authentication-scenarios.md).
 
 Azure Active Directory-programgalleriet innehåller en lista över program som är kända för att stödja en form av enkel inloggning med Azure Active Directory, enligt beskrivningen i [i den här artikeln](manage-apps/what-is-single-sign-on.md). När du (som en IT-specialist eller system integrator i din organisation) har hittat programmet som du vill ansluta till, kan du komma igång genom att följa de stegvisa anvisningarna som visas i Azure-portalen för att aktivera enkel inloggning.
 

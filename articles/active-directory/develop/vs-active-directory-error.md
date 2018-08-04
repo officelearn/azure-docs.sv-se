@@ -1,6 +1,6 @@
 ---
-title: Felsökning av problem med Azure Active Directory ansluten tjänst
-description: Tjänsten active directory anslutna upptäckte ett inkompatibelt autentiseringstyp
+title: Hur du diagnostiserar fel med Azure Active Directory ansluten tjänst
+description: Tjänsten active directory-anslutna upptäckte ett inkompatibelt autentiseringstyp
 services: active-directory
 author: ghogen
 manager: douge
@@ -12,49 +12,49 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: 8cd15c59bbe536dba9adb6f44c07844eaf030b55
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f4fc7d11516d2ebf5e091d519333b3cf1fd09c47
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31784895"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495163"
 ---
-# <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnostisera fel med Azure Active Directory anslutna Service
+# <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnostisera fel med den Azure Active Directory Connected Service
 
-Vid identifiering av föregående Autentiseringskod, Azure Active Directory connect-servern upptäckte ett inkompatibelt autentiseringstyp.
+Vid identifiering av föregående Autentiseringskod, ett Azure Active Directory connect-servern upptäckte ett inkompatibelt autentiseringstyp.
 
-För att korrekt identifiera tidigare Autentiseringskod i ett projekt, måste du skapat projektet.  Om detta fel uppstod och du inte har en tidigare Autentiseringskod i projektet, återskapa och försök igen.
+För att korrekt identifiera tidigare Autentiseringskod i ett projekt, skapas projektet.  Om du har stött på det här felet och du inte har en tidigare Autentiseringskod i ditt projekt, återskapa och försök igen.
 
 ## <a name="project-types"></a>Projekttyper
 
-Anslutna tjänsten kontrollerar vilken typ av projekt som du utvecklar så att den kan mata in rätt autentiseringslogiken i projektet. Om det inte finns några domänkontrollanter som härleds från `ApiController` i projektet projektet betraktas som ett WebAPI-projekt. Om det finns endast domänkontrollanter som härleds från `MVC.Controller` i projektet projektet betraktas som en MVC-projektet. Anslutna tjänsten stöder inte någon annan projekttyp.
+Anslutna tjänsten kontrollerar vilken typ av projekt som du utvecklar så att den kan mata in rätt autentiseringslogiken i projektet. Om det inte finns några domänkontrollanter som härleds från `ApiController` i projektet projektet anses vara ett WebAPI-projekt. Om det finns endast de domänkontrollanter som härleds från `MVC.Controller` i projektet projektet anses vara ett MVC-projekt. Anslutna tjänsten stöder inte någon annan projekttyp av.
 
 ## <a name="compatible-authentication-code"></a>Kompatibel Autentiseringskod
 
-Tjänsten anslutna kontrollerar också autentiseringsinställningarna som tidigare har konfigurerats och är kompatibla med tjänsten. Om alla inställningar finns Reentrant fall är det och öppnas för anslutna service visa inställningarna.  Om endast vissa inställningar finns anses ett ärende för fel.
+Tjänsten anslutna söker också efter autentiseringsinställningar som tidigare har konfigurerats eller som är kompatibel med tjänsten. Om alla inställningar finns, anses det Reentrant fall och anslutna tjänsten öppnas visningsinställningar.  Om det bara vissa inställningar, anses en felsituation.
 
-I ett projekt med MVC anslutna tjänsten kontrollerar för någon av följande inställningar som kommer från tidigare användning av tjänsten:
+I ett MVC-projekt anslutna tjänsten kontrollerar för någon av följande inställningar, som tidigare användning av tjänsten:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-Dessutom kontrollerar anslutna tjänsten för någon av följande inställningar i ett Web API-projekt som kommer från tidigare användning av tjänsten:
+Anslutna tjänsten kontrollerar dessutom för någon av följande inställningar i ett webb-API-projekt som tidigare användning av tjänsten:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
     <add key="ida:Audience" value="" />
 
-## <a name="incompatible-authentication-code"></a>Inkompatibel Autentiseringskod
+## <a name="incompatible-authentication-code"></a>Inkompatibla Autentiseringskod
 
-Slutligen försöker anslutna tjänsten identifiera versioner av Autentiseringskod som har konfigurerats med tidigare versioner av Visual Studio. Om du har fått det här felet betyder det att projektet innehåller en inkompatibel autentiseringstyp. Tjänsten anslutna identifierar följande typer av autentisering från tidigare versioner av Visual Studio:
+Slutligen försöker anslutna tjänsten identifiera versioner av Autentiseringskod som har konfigurerats med tidigare versioner av Visual Studio. Om du har fått det här felet betyder projektet innehåller ett inkompatibelt autentiseringstyp. Anslutna tjänsten identifierar följande typer av autentisering från tidigare versioner av Visual Studio:
 
 * Windows-autentisering
 * Enskilda användarkonton
 * Organisationskonton
 
-För att identifiera Windows-autentisering i MVC-projekt som de anslutna som söker efter den `authentication` element i din `web.config` fil.
+För att identifiera Windows-autentisering i ett MVC-projekt som den är ansluten som söker efter den `authentication` element i din `web.config` fil.
 
 ```xml
 <configuration>
@@ -64,7 +64,7 @@ För att identifiera Windows-autentisering i MVC-projekt som de anslutna som sö
 </configuration>
 ```
 
-För att identifiera Windows-autentisering i ett Web API-projekt, anslutna tjänsten söker efter den `IISExpressWindowsAuthentication` element i ditt projekt `.csproj` fil:
+För att identifiera Windows-autentisering i ett webb-API-projekt, anslutna tjänsten söker efter den `IISExpressWindowsAuthentication` element i projektets `.csproj` fil:
 
 ```xml
 <Project>
@@ -74,7 +74,7 @@ För att identifiera Windows-autentisering i ett Web API-projekt, anslutna tjän
 </Project>
 ```
 
-För att identifiera enskilda användarkonton autentisering anslutna tjänsten söker efter elementet paketet i din `packages.config` fil.
+För att identifiera enskilda användarkonton autentisering, anslutna tjänsten söker efter paket-element i din `packages.config` fil.
 
 ```xml
 <packages>
@@ -82,7 +82,7 @@ För att identifiera enskilda användarkonton autentisering anslutna tjänsten s
 </packages>
 ```
 
-För att identifiera en gamla form av autentisering av Organisationskonto tjänsten anslutna ser ut för följande element i`web.config`:
+För att identifiera en gamla form av autentisering av Organisationskonto, anslutna tjänsten ser ut för följande element i`web.config`:
 
 ```xml
 <configuration>
@@ -92,6 +92,6 @@ För att identifiera en gamla form av autentisering av Organisationskonto tjäns
 </configuration>
 ```
 
-Om du vill ändra autentiseringstyp, ta bort inkompatibla autentiseringstypen och försök lägga till anslutna tjänsten igen.
+Om du vill ändra autentiseringstyp, ta bort inkompatibla autentiseringstypen och försök lägga till den anslutna tjänsten igen.
 
-Mer information finns i [Autentiseringsscenarier för Azure AD](active-directory-authentication-scenarios.md).
+Mer information finns i [Autentiseringsscenarier för Azure AD](authentication-scenarios.md).

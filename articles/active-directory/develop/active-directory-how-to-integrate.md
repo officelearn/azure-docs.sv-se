@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 58431e43312046c5a30ebcd4c974849641c05156
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fdc33f4009ce9434b241611851fecec451783a1a
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446474"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495347"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrera med Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -33,7 +33,7 @@ Azure Active Directory kan organisationer företagsklass Identitetshantering fö
 Det finns flera sätt för ditt program att integrera med Azure AD. Dra nytta av så många eller så lite av dessa scenarier som passar ditt program.
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Stöd för Azure AD som ett sätt att logga In på ditt program
-**Minska friktionen inloggning och minska kostnaderna för support.** Genom att använda Azure AD för att logga in på ditt program kan användarna inte har ett mer namn och lösenord för att komma ihåg. Som utvecklare har du en mindre lösenord för att lagra och skydda. Inte behöver hantera glömda lösenordsåterställning kan vara en fristående avsevärda besparingar. Azure AD Driver logga in för några av världens mest populära molnprogram, inklusive Office 365 och Microsoft Azure. Med hundratals miljoner användare från miljontals organisationer risken är användaren redan har loggat in till Azure AD. Läs mer om [lägger till stöd för Azure AD-inloggningen](active-directory-authentication-scenarios.md).
+**Minska friktionen inloggning och minska kostnaderna för support.** Genom att använda Azure AD för att logga in på ditt program kan användarna inte har ett mer namn och lösenord för att komma ihåg. Som utvecklare har du en mindre lösenord för att lagra och skydda. Inte behöver hantera glömda lösenordsåterställning kan vara en fristående avsevärda besparingar. Azure AD Driver logga in för några av världens mest populära molnprogram, inklusive Office 365 och Microsoft Azure. Med hundratals miljoner användare från miljontals organisationer risken är användaren redan har loggat in till Azure AD. Läs mer om [lägger till stöd för Azure AD-inloggningen](authentication-scenarios.md).
 
 **Förenkla logga in för ditt program.**  När du registrerar dig för ditt program, kan Azure AD skicka viktig information om en användare så att du redan fylla din registrering formuläret eller eliminera den helt. Användare kan registrera sig för ditt program med sina Azure AD-konto via en bekant medgivande upplevelse som liknar dem som finns i sociala medier och mobilprogram. Alla användare kan registrera dig och logga in till ett program som är integrerad med Azure AD utan att IT-utrustning. Läs mer om [registrera dig ditt program för Azure AD-kontoinloggning](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
@@ -83,5 +83,5 @@ Integrering med Azure AD levereras med fördelar som inte behöver du skriva ytt
 ## <a name="next-steps"></a>Nästa steg
 [Börja skriva kod](azure-ad-developers-guide.md#get-started).
 
-[Logga In med hjälp av Azure AD användare](active-directory-authentication-scenarios.md)
+[Logga In med hjälp av Azure AD användare](authentication-scenarios.md)
 

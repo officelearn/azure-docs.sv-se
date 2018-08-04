@@ -17,12 +17,12 @@ ms.date: 04/13/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bb8191ee715c2fee99e408035209e0d2c8f9f02b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8bc8fb8c41e8999e227cd4b1b790fb4514a1d007
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447565"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493154"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory-Autentiseringsbibliotek
 
@@ -84,5 +84,5 @@ I det här scenariot kan får en utvecklare du ett webbprogram som körs på en 
 ## <a name="see-also"></a>Se även
 
 - [Utvecklarhandbok för Azure Active Directory](azure-ad-developers-guide.md)
-- [Autentiseringsscenarier för Azure Active directory](active-directory-authentication-scenarios.md)
+- [Autentiseringsscenarier för Azure Active directory](authentication-scenarios.md)
 - [Azure Active Directory-kodexempel](active-directory-code-samples.md)

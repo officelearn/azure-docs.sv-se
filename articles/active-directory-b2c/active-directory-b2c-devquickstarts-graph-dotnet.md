@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: da8aac2968ba020dd2b98253b12e8c9f223966e5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ce2c92f984f835c8e8f49ec94d65a9f3390812f9
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442513"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493130"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använd Azure AD Graph API
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) B2C-klienter brukar vara mycket stor. Det inne
 Det finns två primära lägen för att kommunicera med Graph API för B2C-klienter.
 
 * Interaktiv, körs en gång aktivitetsinformation, bör du fungerar som ett administratörskonto i B2C-klienten när du utför uppgifterna. Det här läget kräver en administratör logga in med autentiseringsuppgifterna innan den administratören kan utföra alla anrop för Graph API.
-* Automatiserad, kontinuerlig aktivitetsinformation, bör du använda någon typ av tjänstkonto som du anger med tillräckliga privilegier att utföra hanteringsuppgifter. I Azure AD kan du göra detta genom att registrera ett program och autentiserar till Azure AD. Detta görs med hjälp av en **program-ID** som använder den [beviljande av autentiseringsuppgifter för OAuth 2.0-klient](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). I det här fallet fungerar programmet som själva inte som en användare att anropa Graph API.
+* Automatiserad, kontinuerlig aktivitetsinformation, bör du använda någon typ av tjänstkonto som du anger med tillräckliga privilegier att utföra hanteringsuppgifter. I Azure AD kan du göra detta genom att registrera ett program och autentiserar till Azure AD. Detta görs med hjälp av en **program-ID** som använder den [beviljande av autentiseringsuppgifter för OAuth 2.0-klient](../active-directory/develop/authentication-scenarios.md#daemon-or-server-application-to-web-api). I det här fallet fungerar programmet som själva inte som en användare att anropa Graph API.
 
 I den här artikeln får du lära dig hur du utför automatiserade användningsfall. Du kommer att skapa en .NET 4.5 `B2CGraphClient` som utför användare skapa, läsa, uppdatera och ta bort CRUD-åtgärder. Klienten har ett Windows-kommandoradsgränssnitt (CLI) som gör att du kan anropa olika metoder. Men är koden skriven ska bete sig i ett icke-interaktiv, automatiserat sätt.
 

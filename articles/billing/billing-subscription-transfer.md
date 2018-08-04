@@ -1,7 +1,7 @@
 ---
 title: Överföra ägarskap för Azure-prenumeration till ett annat konto | Microsoft Docs
-description: Beskriver hur du överför en Azure-prenumeration till en annan användare och några vanliga frågor (FAQ) om processen
-keywords: överföra prenumerationen för överföring av azure-prenumeration, azure, gå azure-prenumeration till ett annat konto, azure ändra prenumerationen ägare och överföra azure-prenumeration till ett annat konto
+description: Beskriver hur du överför en Azure-prenumeration till en annan användare och några vanliga frågor (och svar FAQ) om processen
+keywords: överföra prenumerationen för överföring av azure-prenumeration, azure, flytta azure-prenumeration till ett annat konto, azure ändra Prenumerationens ägare, överföra azure-prenumeration till ett annat konto
 services: ''
 documentationcenter: ''
 author: genlin
@@ -14,79 +14,79 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 06/15/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 110e2f611ba8bfc42fe17de6aa4487683db4a414
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 44e4bedd747c5a0010058efee595402448f6a30b
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069886"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39506229"
 ---
-# <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Överför ägarskapet för en Azure-prenumeration till ett annat konto
+# <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Överföra ägarskapet för en Azure-prenumeration till ett annat konto
 
-Överföra prenumerationen till en annan användare att ändra kontoadministratören och överlämna prenumeration faktureringsägarskapet Account Center. Om du vill ändra prenumerationen till ett annat erbjudande [växla din Azure-prenumeration till ett annat erbjudande](billing-how-to-switch-azure-offer.md).
+Överföra prenumerationen till en annan användare i Kontocentret för att ändra kontoadministratör och överlämna faktureringsägarskapet för prenumerationen. Om du vill ändra din prenumeration till ett annat erbjudande [växla din Azure-prenumeration till ett annat erbjudande](billing-how-to-switch-azure-offer.md).
 
 > [!IMPORTANT]
 > 
-> Om du överför en prenumeration på en ny Azure AD-klient, alla rolltilldelningar i [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) tas bort permanent från käll-klient och migreras inte till mål-klient.
+> Om du överför en prenumeration på en ny Azure AD-klient, alla rolltilldelningar i [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) tas bort permanent från käll-klient och migreras inte till Målklienten.
 
-## <a name="transfer-ownership-of-an-azure-subscription"></a>Överför ägarskapet för en Azure-prenumeration
+## <a name="transfer-ownership-of-an-azure-subscription"></a>Överföra ägarskapet för en Azure-prenumeration
 
 > [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
 >
 >
 
-1. Logga in på [Azure Kontocenter](https://account.windowsazure.com/Subscriptions) som administratören konto. Om du vill veta vem är kontoadministratören för prenumerationen [vanliga frågor och](#faq).
+1. Logga in på [Azure Kontocenter](https://account.windowsazure.com/Subscriptions) som kontoadministratör Om du vill ta reda på vem som är kontoadministratör för prenumerationen kan du se [vanliga frågor och svar](#faq).
 
-1. Välj prenumerationen för att överföra.
+1. Välj prenumerationen du överför.
 
-1. Kontrollera att din prenumeration är berättigad för självbetjäning överföring genom att kontrollera den **erbjuder** och **erbjuder ID** med den [stöds erbjudanden listan](#supported).
+1. Kontrollera att din prenumeration är berättigad för självbetjäning överföring genom att markera den **erbjuder** och **erbjudande-ID** med den [stöds erbjudanden lista](#supported).
 
-   ![Kontrollera erbjudande-ID för prenumerationen i Account Center](./media/billing-subscription-transfer/image0.png)
+   ![Kontrollera erbjudande-ID för prenumerationen i Kontocenter](./media/billing-subscription-transfer/image0.png)
 1. Klicka på **överföra äganderätten till prenumerationen**.
 
-   ![Fliken abonnemang för Azure-konto](./media/billing-subscription-transfer/image1.png)
+   ![Prenumerationsfliken i Azure-konto](./media/billing-subscription-transfer/image1.png)
 1. Ange mottagaren.
 
    > [!IMPORTANT]
    > 
-   > Om du överför en prenumeration på en ny Azure AD-klient, alla rolltilldelningar i [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) tas bort permanent från käll-klient och migreras inte till mål-klient.
+   > Om du överför en prenumeration på en ny Azure AD-klient, alla rolltilldelningar i [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) tas bort permanent från käll-klient och migreras inte till Målklienten.
 
-   ![Överföra prenumerationen dialogrutan](./media/billing-subscription-transfer/image2.PNG)
+   ![Överför prenumeration dialogrutan](./media/billing-subscription-transfer/image2.PNG)
 
 1. Mottagaren hämtar automatiskt ett e-postmeddelande med en länk för godkännande.
 
-   ![E-post i prenumerationen överföring till mottagare](./media/billing-subscription-transfer/image3.png)
+   ![Prenumeration överföring e-postmeddelande till mottagare](./media/billing-subscription-transfer/image3.png)
 1. Mottagaren klickar på länken och följer instruktionerna, inklusive att ange sin betalningsinformation.
 
-   ![Prenumerationen överföring webbsida](./media/billing-subscription-transfer/image4.png)
+   ![Första prenumeration överföring-webbsida](./media/billing-subscription-transfer/image4.png)
 
    ![Webbsida för överföring till andra prenumeration](./media/billing-subscription-transfer/image5.png)
 1. Lyckades! Prenumerationen överförs nu.
 
 <a id="EA"></a>
 
-## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Överför ägarskapet för prenumerationen för kunder med Enterprise-avtal (EA)
+## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Överföra äganderätten till prenumerationen för kunder med Enterprise Agreement (EA)
 
-Företagsadministratören kan överföra ägarskap för prenumerationer inom en registrering. Om du vill komma igång finns [överföra ägarskap för kontot](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) i EA-portalen.
+Enterprise-administratör kan överföra ägarskapet för prenumerationer i en registrering. Kom igång genom att se [överföra ägarskap för kontot](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) i EA-portalen.
 
-## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Nästa steg efter att acceptera ägarskap för en prenumeration
+## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Nästa steg efter att du godkänt ägarskapet för prenumerationen
 
-1. Du är nu konto administratören. Granska och uppdatera tjänstadministratören och Medadministratörer andra RBAC-roller. Läs mer i [lägga till eller ändra Azure-administratörsroller som hanterar prenumerationen eller tjänster](billing-add-change-azure-subscription-administrator.md).
-1. Uppdatera autentiseringsuppgifterna som associeras med den här prenumerationens tjänster, inklusive:
-   1. Av hanteringscertifikat som beviljar användaren administratörsrättigheter att prenumerationsresurser. Mer information finns i [skapa och ladda upp ett certifikat för Azure](../cloud-services/cloud-services-certs-create.md)
+1. Du är nu kontoadministratör Granska och uppdatera tjänstadministratören och Medadministratörer andra RBAC-roller. Mer information finns i [Lägg till eller ändra Azure-administratörsroller som hanterar prenumerationen eller tjänsterna](billing-add-change-azure-subscription-administrator.md).
+1. Uppdatera autentiseringsuppgifter som är associerade med den här prenumerationens tjänster, inklusive:
+   1. Av hanteringscertifikat som och ger användaren administratörsbehörighet till prenumerationsresurser. Mer information finns i [skapa och ladda upp ett certifikat för Azure](../cloud-services/cloud-services-certs-create.md)
    1. Snabbtangenter för tjänster som lagring. Mer information finns i [om Azure storage-konton](../storage/common/storage-create-storage-account.md)
-   1. Remote Access-autentiseringsuppgifter för tjänster som Azure virtuella datorer. 
+   1. Fjärrautentiseringsuppgifter åtkomst för tjänster som Azure Virtual Machines. 
 1. [Uppdatera fakturaaviseringar för den här prenumerationen](billing-set-up-alerts.md) på den [Azure Kontocenter](https://account.windowsazure.com/Subscriptions). 
-1. Om du arbetar med en partner Överväg att uppdatera partner-ID för den här prenumerationen. Du kan uppdatera partner-ID i den [Azure-portalen](https://portal.azure.com).
+1. Om du arbetar med en partner Överväg gå att uppdatera partner-ID för den här prenumerationen. Du kan uppdatera partner-ID i den [Azure-portalen](https://portal.azure.com).
 
 <a id="supported"></a>
 
-## <a name="whats-supported"></a>Det här stöds:
+## <a name="whats-supported"></a>Vad som stöds:
 
-Självbetjäning prenumerationsöverföring är tillgänglig för erbjudanden och prenumeration typ som anges i följande tabell. För närvarande kan du överföra en kostnadsfri utvärderingsversion eller [Azure i Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) prenumerationer. En lösning finns [flytta resurser till en ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md). Om du vill överföra andra prenumerationer som [sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/) eller stöder planer, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Prenumerationsöverföring med självbetjäning är tillgänglig för erbjudanden och prenumerationstyper som visas i följande tabell. För närvarande du kan inte överföra en kostnadsfri utvärderingsversion eller [Azure i Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) prenumerationer. Du hittar en lösning i [flytta resurser till ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md). Om du vill överföra andra prenumerationer, som [sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/) eller supportavtal, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 | Erbjudandets namn                                                                             | Erbjudandets nummer |
 |----------------------------------------------------------------------------------------|--------------|
@@ -94,13 +94,13 @@ Självbetjäning prenumerationsöverföring är tillgänglig för erbjudanden oc
 | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
 | [MSDN-plattformar](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
 | [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
-| [Betala per användning utveckling och testning](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
+| [Betala per användning – utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
 | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
 | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
 | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR-0059P        |
 | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR-0060P        |
 
-\* [Via EA-portal](#EA)
+\* [Via EA-portalen](#EA)
 
 <a id="faq"></a>
 
@@ -108,71 +108,71 @@ Självbetjäning prenumerationsöverföring är tillgänglig för erbjudanden oc
 
 ### <a name="whoisaa"></a> Vem är kontoadministratör för prenumerationen?
 
-Kontoadministratören är den person som registrerade sig för eller har köpt Azure-prenumerationen. De har behörighet att komma åt den [Kontocenter](https://account.azure.com/Subscriptions) och utföra olika hanteringsuppgifter som att skapa prenumerationer, avbryta prenumerationer, ändra faktureringen för en prenumeration eller ändra den tjänstadministratör. Om du inte vet som kontoadministratör för en prenumeration, kan du använda följande steg för att ta reda på.
+Kontoadministratören är den person som har registrerat sig för eller har köpt Azure-prenumeration. De har behörighet att komma åt den [Kontocenter](https://account.azure.com/Subscriptions) och utföra olika hanteringsuppgifter som att skapa prenumerationer, avbryta prenumerationer, ändra faktureringen för en prenumeration eller ändra tjänstadministratör. Om du inte vet som kontoadministratör för en prenumeration, använder du följande steg för att ta reda på.
 
-1. Besök den [prenumerationssidan i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Välj den prenumeration som du vill kontrollera och se **inställningar**.
-1. Välj **egenskaper**. Kontoadministratören för prenumerationen visas i den **kontoadministratören** rutan.
+1. Gå till den [prenumerationssidan i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Välj den prenumeration som du vill kontrollera och tittar sedan under **inställningar**.
+1. Välj **egenskaper**. Kontoadministratör för prenumerationen visas i den **kontoadministratören** box.
 
-### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Överförs allt? Inklusive resursgrupper, virtuella datorer, diskar och andra tjänster som körs?
+### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Allt överföra? Inklusive resursgrupper, virtuella datorer, diskar och andra tjänster som körs?
 
-Alla resurser som virtuella datorer, diskar och webbplatser överföring till den nya ägaren. Men alla [administratörsroller](billing-add-change-azure-subscription-administrator.md) och [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md) principer som du har konfigurerat överför inte i olika kataloger. Dessutom [app registreringar](../active-directory//develop/active-directory-integrating-applications.md) och andra tjänster för klient-specifika inte överföra längs.
+Alla resurser som virtuella datorer, diskar och webbplatser överföring till den nya ägaren. Men alla [administratörsroller](billing-add-change-azure-subscription-administrator.md) och [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md) principer som du har konfigurerat överförs inte över olika kataloger. Dessutom [appregistreringar](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) och andra tjänster för klientspecifik överförs inte tillsammans.
 
 ### <a id="no-button"></a> Varför visas inte knappen ”överföra prenumerationen”?
 
-Självbetjäning prenumerationsöverföring är tyvärr inte tillgänglig för ditt erbjudande eller land. Att överföra din prenumeration, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Prenumerationsöverföring med självbetjäning är tyvärr inte tillgängligt för ditt erbjudande eller ditt land. Att överföra din prenumeration [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>Resulterar en prenumerationsöverföring i avbrott i tjänsten?
+### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>Resulterar en överföring av prenumeration i något avbrott av tjänsten?
 
-Det finns ingen inverkan på tjänsten. Överföra prenumerationen avbryter prenumerationen under det aktuella kontot Administratör och skapar en prenumeration under mottagarens konto. Den nya prenumerationen är kopplad till de underliggande Azure-tjänsterna. Prenumerations-ID är densamma.
+Det finns ingen inverkan på tjänsten. Överför prenumerationen avbryter prenumerationen under det aktuella kontot Administratör och skapar en prenumeration under mottagarens konto. Den nya prenumerationen är kopplad till de underliggande Azure-tjänsterna. Prenumerations-ID förblir densamma.
 
-### <a name="how-do-i-use-this-process-to-change-the-directory-for-subscription"></a>Hur använder den här processen för att ändra katalogen för prenumerationen?
+### <a name="how-do-i-use-this-process-to-change-the-directory-for-subscription"></a>Hur kan jag använda den här processen för att ändra katalogen för prenumeration?
 
-En Azure-prenumeration har skapats i den katalog som kontoadministratör tillhör. Om du vill ändra katalogen överföra prenumerationen till ett användarkonto i målkatalogen. När användaren har slutfört stegen för att godkänna överföring, flyttas automatiskt prenumerationen till målkatalogen.
+En Azure-prenumeration har skapats i den katalog som kontoadministratör tillhör. Om du vill ändra katalog, överföra prenumerationen till ett användarkonto i målkatalogen. När användaren slutför stegen för att acceptera överföringen, flyttas automatiskt prenumerationen till målkatalogen.
 
-### <a name="if-i-take-over-billing-ownership-of-a-subscription-from-another-organization-do-they-continue-to-have-access-to-my-resources"></a>Om jag tar över faktureringsägarskapet för en prenumeration från en annan organisation måste de fortsätter att ha åtkomst till mina resurser?
+### <a name="if-i-take-over-billing-ownership-of-a-subscription-from-another-organization-do-they-continue-to-have-access-to-my-resources"></a>Om jag tar över faktureringsägarskapet för en prenumeration från en annan organisation de fortsätter att ha åtkomst till mina resurser?
 
-Om prenumerationen överförs till en annan innehavare förlora de användare som associeras med den tidigare innehavaren åtkomst till prenumerationen. Även om en användare inte är en tjänstadministratör eller en medadministratör längre, kan de fortfarande ha tillgång till prenumerationen med andra säkerhetsmekanismer, inklusive:
+Om prenumerationen överförs till en annan klientorganisation, förlora användare som är associerade med den tidigare klienten åtkomst till prenumerationen. Även om en användare inte är en tjänstadministratör eller medadministratör längre, kan de fortfarande ha åtkomst till prenumerationen via andra sätt, inklusive:
 
-* Av hanteringscertifikat som beviljar användaren administratörsrättigheter att prenumerationsresurser. Mer information finns i [skapa och ladda upp ett Hanteringscertifikat för Azure](../cloud-services/cloud-services-certs-create.md).
-* Snabbtangenter för tjänster som lagring. Mer information finns i [om Azure storage-konton](../storage/common/storage-create-storage-account.md).
-* Remote Access-autentiseringsuppgifter för tjänster som Azure virtuella datorer.
+* Av hanteringscertifikat som och ger användaren administratörsbehörighet till prenumerationsresurser. Mer information finns i [skapa och ladda upp ett Hanteringscertifikat för Azure](../cloud-services/cloud-services-certs-create.md).
+* Snabbtangenter för tjänster som lagring. Mer information finns i [Om Azure Storage-konton](../storage/common/storage-create-storage-account.md).
+* Fjärrautentiseringsuppgifter åtkomst för tjänster som Azure Virtual Machines.
 
-Om mottagaren behöver begränsa åtkomsten till sina resurser bör uppdatera alla hemligheter som är associerad med tjänsten. De flesta resurser kan uppdateras med hjälp av följande steg:
+Om mottagaren behöver att begränsa åtkomsten till sina resurser, bör de uppdatera alla hemligheter som är kopplade till tjänsten. De flesta resurser kan uppdateras med hjälp av följande steg:
 
   1. Gå till [Azure-portalen](https://portal.azure.com).
   2. På navmenyn väljer **alla resurser**.
   3. Välj resursen.
-  4. I resursbladet klickar du på **inställningar**. Här kan du visa och uppdatera befintliga hemligheter.
+  4. Resursbladet klickar du på **inställningar**. Här kan du visa och uppdatera befintliga hemligheter.
 
-### <a name="if-i-transfer-the-subscription-in-the-middle-of-the-billing-cycle-does-the-recipient-pay-for-the-entire-billing-cycle"></a>Om jag överföra prenumerationen mitt faktureringsperioden mottagaren betala för hela fakturering cykel.
+### <a name="if-i-transfer-the-subscription-in-the-middle-of-the-billing-cycle-does-the-recipient-pay-for-the-entire-billing-cycle"></a>Om jag överföra prenumerationen mitt faktureringsperioden mottagarens betalar för hela faktureringen cykel.
 
-Avsändaren ansvarar för betalning för användning som rapporterades fram till att överföringen är klar. Mottagaren är ansvarig för användning som rapporterats från tiden för överföringen och senare. Det kan finnas vissa användningen som har ägt rum före överföringen men rapporterades efteråt. Användningen är inkluderad i mottagarens faktura.
+Avsändaren ansvarar för betalningen för eventuell användning som rapporterades fram till att överföringen är klar. Mottagaren är ansvarig för användning som rapporteras från tidpunkten för överföring och senare. Det kan finnas vissa användning som ägde rum före överföringen men rapporterades efteråt. Användningen är inkluderat i mottagarens faktura.
 
-### <a name="does-the-recipient-have-access-to-usage-and-billing-history"></a>Mottagaren ha åtkomst till användnings- och faktureringshistorik?
+### <a name="does-the-recipient-have-access-to-usage-and-billing-history"></a>Mottagaren hanteringskonfigurationstjänsten har tillgång till användnings- och faktureringshistorik?
 
-  Den enda informationen som är tillgängliga för mottagaren är den sista faktura eller om prenumerationen överförs innan den första fakturan har genererats Aktuellt saldo. Resten av användnings- och faktureringshistorik överför inte med prenumerationen.
+  Den enda informationen som är tillgängliga för mottagaren är den senaste fakturan eller om prenumerationen har överförts innan första fakturan har genererats Aktuellt saldo. Resten av användnings- och faktureringshistorik överförs inte med prenumerationen.
 
-### <a name="can-the-offer-be-changed-during-a-transfer"></a>Kan erbjudandet ändras under en överföring?
+### <a name="can-the-offer-be-changed-during-a-transfer"></a>Erbjudandet kan ändras under en överföring?
 
-Erbjudandet måste vara samma. Om du vill ändra erbjudandet [växla din Azure-prenumeration till ett annat erbjudande](billing-how-to-switch-azure-offer.md).
+Erbjudandet måste vara samma. Om du vill ändra ditt erbjudande, se [växla din Azure-prenumeration till ett annat erbjudande](billing-how-to-switch-azure-offer.md).
 
 ### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-country"></a>Kan jag överföra en prenumeration till ett användarkonto i ett annat land?
 
-Nej, överföra en prenumeration till ett användarkonto i ett annat land stöds inte. Mottagarens användarkontot måste vara i samma land.
+Nej, överföra en prenumeration till ett användarkonto i ett annat land stöds inte. Mottagarens konto måste vara i samma land.
 
 ### <a name="can-the-recipient-use-a-different-payment-method"></a>Mottagaren kan använda en annan betalningsmetod?
 
-Ja. Men prenumeration faktureringshistorik delas upp mellan två konton.  
+Ja. Men prenumerations faktureringshistorik delas upp mellan två konton.  
 
 ### <a name="is-the-payment-method-impacted-after-i-transferred-an-azure-subscription"></a>Påverkas betalningsmetoden när jag överförde en Azure-prenumeration?
 
-Om du accepterar en prenumerationsöverföring måste ett kreditkort eller liknande betalningsmetod anges för prenumerationen. Om Daniel överför en prenumeration till Jane och Jane accepterar överföringen, måste Jane ange en annan betalningsmetod betala för prenumerationen. När överföringen är klar, debiteras Jane för prenumerationen inte Bob.
+För att godkänna en prenumerationsöverföring, anges ett kreditkort eller liknande betalningsmetod för att betala för prenumerationen. Till exempel om Bob överför en prenumeration till Jane och Jane accepterar överföringen, ange Jane en betalningsmetod till betala för prenumerationen. När överföringen är klar, debiteras Jane för prenumerationen inte Bob.
 
 ### <a name="how-do-i-migrate-data-and-services-for-my-azure-subscription-to-new-subscription"></a>Hur migrerar data och tjänster för min Azure-prenumeration till ny prenumeration?
 
-Om du inte kan överföra ägarskapet för prenumerationen kan du manuellt migrera dina resurser. Se [flytta resurser till en ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
+Om du inte kan överföra äganderätten till prenumerationen kan du migrera dina resurser manuellt. Se [flytta resurser till ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 
-Om du fortfarande behöver hjälp [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) få snabbt lösa problemet.
+Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.

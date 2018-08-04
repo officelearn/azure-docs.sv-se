@@ -16,16 +16,16 @@ ms.component: compliance-reports
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e1ae8e2a4dc9ef9c21300ebfc4df8c0f1c5819f2
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 87799cf5dde9039d3e7b386d726812600a4bbc69
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39240014"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502924"
 ---
-# <a name="interpret-the-azure-active-directory-audit-logs-schema-in-azure-monitor-preview"></a>Tolka Azure Active Directory granska loggarna schemat i Azure Monitor (förhandsversion)
+# <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Tolka Azure AD granska loggarna schemat i Azure Monitor (förhandsversion)
 
-Den här artikeln beskrivs Azure AD audit log schemat i Azure Monitor. Varje enskild loggpost lagras som text, formaterad som en JSON-blob som visas i de två exemplen nedan. 
+Den här artikeln beskrivs Azure Active Directory (Azure AD) Granska loggen schemat i Azure Monitor. Varje enskild loggpost lagras som text och formaterade som en JSON-blob som visas i följande två exempel: 
 
 ```json
 { 
@@ -101,36 +101,39 @@ Den här artikeln beskrivs Azure AD audit log schemat i Azure Monitor. Varje ens
 } 
 ```
 
+## <a name="field-and-property-descriptions"></a>Fältet och egenskapen beskrivningar
+
 | Fältnamn | Beskrivning |
 |------------|-------------|
-| time       | Datum och tid (UTC) |
-| operationName | Åtgärdens namn |
-| operationVersion | REST API-version som begärs av klienten |
-| category | För närvarande *Audit* är det enda värde som stöds |
-| TenantId | Klient-Guid som är associerade med loggarna |
-| resultType | Resultatet av åtgärden, kan vara *lyckades* eller *fel* |
-| resultSignature |  Detta är omappade och du kan ignorera det här fältet. | 
-| resultDescription | Ytterligare beskrivning av resultatet, där det är tillgängligt | 
-| durationMs |  Detta är omappade och du kan ignorera det här fältet. |
-| callerIpAddress | IP-adressen för klienten som gjorde begäran | 
-| correlationId | Valfritt Guid som skickas av klienten. Detta kan hjälpa att korrelera klientsidan åtgärder med serversidan operations och är användbart när spårningsloggarna som sträcker sig över olika tjänster. |
-| identity | Identiteten från den token som angavs när den skickar förfrågan. Kan vara ett användarkonto, system-kontot eller tjänstens huvudnamn. |
-| nivå | Typ av meddelande. För granskningsloggar, är detta alltid *information* |
-| location | Datacenterplats |
-| properties | Visar en lista över egenskaper som stöds relaterade till en granskningslogg. Mer information finns i tabellen nedan. | 
+| time       | Datum och tid (UTC). |
+| operationName | Namnet på åtgärden. |
+| operationVersion | REST API-versionen som begärs av klienten. |
+| category | För närvarande *Audit* är det enda värdet som stöds. |
+| TenantId | Klient-GUID som är associerat med loggarna. |
+| resultType | Resultatet av åtgärden. Resultatet kan bli *lyckades* eller *fel*. |
+| resultSignature |  Det här fältet är omappade och du kan ignorera den. | 
+| resultDescription | Ytterligare en beskrivning av resultatet, där det är tillgängligt. | 
+| durationMs |  Det här fältet är omappade och du kan ignorera den. |
+| callerIpAddress | IP-adressen för klienten som gjorde begäran. | 
+| correlationId | Ett valfritt GUID som skickades av klienten. Det kan hjälpa att korrelera klientsidan åtgärder med serversidan operations och det är användbart när du följer upp loggar som sträcker sig över tjänster. |
+| identity | Identiteten från den token som angavs när du gjorde begäran. Identiteten kan vara ett användarkonto, system-kontot eller tjänstens huvudnamn. |
+| nivå | Meddelandetypen. För granskningsloggar, nivån är alltid *information*. |
+| location | Platsen för datacentret. |
+| properties | Visar en lista över de egenskaper som stöds som är relaterade till en granskningslogg. Mer information finns i nästa tabell. | 
 
+<br>
 
 | Egenskapsnamn | Beskrivning |
 |---------------|-------------|
-| AuditEventCategory | Typ av händelse. Kan vara *Användarhantering*, *programhantering* osv.|
-| Identitetstypen | *Programmet* eller *användare* |
-| Åtgärdstyp | Kan vara *Lägg till*, *uppdatering*, *ta bort* eller *andra* |
-| Målresurstyp | Anger resource måltypen som åtgärden utfördes på. Kan vara *programmet*, *användaren*, *rollen*, *princip* | 
-| Mål-resursnamn | Namnet på målresursen. Detta kan exempelvis vara ett programnamn, ett rollnamn, ett huvudsakligt användarnamn eller tjänstens huvudnamn |
-| additionalTargets | Visar en lista över ytterligare egenskaper för specifika åtgärder. Till exempel för en uppdateringsåtgärd gamla värdena och de nya värdena visas under *targetUpdatedProperties* | 
+| AuditEventCategory | Typ av händelse. Det kan vara *Användarhantering*, *programhantering*, eller en annan typ.|
+| Identitetstypen | Typen kan vara *programmet* eller *användaren*. |
+| Åtgärdstyp | Typen kan vara *Lägg till*, *uppdatering*, *ta bort*. eller *andra*. |
+| Målresurstyp | Anger resource måltypen som åtgärden utfördes på. Typen kan vara *programmet*, *användaren*, *rollen*, *princip* | 
+| Mål-resursnamn | Namnet på målresursen. Det kan vara ett programnamn, ett rollnamn, ett huvudsakligt användarnamn eller tjänstens huvudnamn. |
+| additionalTargets | Visar en lista över ytterligare egenskaper för specifika åtgärder. Till exempel för en uppdateringsåtgärd gamla värdena och de nya värdena visas under *targetUpdatedProperties*. | 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Tolka inloggning loggar schemat i Azure monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+* [Tolka inloggning loggar schemat i Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 * [Läs mer om Azure-diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Vanliga frågor och kända problem](reporting-azure-monitor-diagnostics-overview.md#frequently-asked-questions)

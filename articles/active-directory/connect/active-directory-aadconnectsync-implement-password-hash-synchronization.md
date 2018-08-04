@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: af9a2e47a5e91d9b32a787f8f40ba06b5a1596e7
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: f6ba0fccc6fadffb5f4d1a22b2c2fbcc38f9f0df
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265054"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494989"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering
 Den här artikeln innehåller information du behöver för att synkronisera dina lösenord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory (Azure AD)-instans.
 
 ## <a name="what-is-password-hash-synchronization"></a>Vad är synkronisering av lösenordshash
-Sannolikheten att du är blockerad från att få arbetet gjort på grund av ett glömda lösenord är relaterad till ett antal olika lösenord som du måste komma ihåg. Flera lösenord som du behöver för att komma ihåg, desto högre sannolikhet att glömma en. Frågor och anrop om antalet återställningar av lösenord och andra lösenord-relaterade problem kräver stora resurser för supportavdelningen.
+Sannolikheten att du är blockerad från att få arbetet gjort på grund av ett glömda lösenord är relaterad till ett antal olika lösenord som du måste komma ihåg. Flera lösenord som du behöver för att komma ihåg, desto högre sannolikhet att glömma en. Frågor och anrop om antalet återställningar av lösenord och andra lösenord-relaterade problem kräver mest help desk resurser.
 
-Synkronisering av lösenordshash är en funktion som används för att synkronisera lösenord från en lokal Active Directory-instans till en molnbaserad Azure AD-instans.
+Synkronisering av lösenordshash är en funktion som används för att synkronisera en hash av hash för en användares lösenord från en lokal Active Directory-instans till en molnbaserad Azure AD-instans.
 Använd denna funktion för att logga in på Azure AD-tjänster som Office 365, Microsoft Intune, CRM Online och Azure Active Directory Domain Services (Azure AD DS). Du loggar in till tjänsten genom att använda samma lösenord som du använder för att logga in på din lokala Active Directory-instans.
 
 ![Vad är Azure AD Connect?](./media/active-directory-aadconnectsync-implement-password-hash-synchronization/arch1.png)

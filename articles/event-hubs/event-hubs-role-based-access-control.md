@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: sethm
-ms.openlocfilehash: 9c38f74cd4499fad1feaadb6c1bbc99da791ebd6
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 76c929f482659bb81e0cabb7fb6bffa5331082bf
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888375"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502144"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Aktiva Directory Role-Based Access Control (förhandsversion)
 
@@ -41,7 +41,7 @@ Det här första steget är valfritt. Alla Azure-prenumerationer automatiskt är
 
 Om du vill skapa ett särskilt konto för det här scenariot [gör så här](../automation/automation-create-aduser-account.md). Du måste ha behörighet att skapa konton i Azure Active Directory-klienten, vilket inte kanske är fallet med större företagsscenarier.
 
-### <a name="create-an-event-hubs-namespace"></a>Skapa ett namnområde för Event Hubs
+### <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
 
 Nästa [skapa ett namnområde för Event Hubs](event-hubs-create.md) i någon av de Azure-regioner som har stöd för förhandsversionen av Event Hubs för RBAC: **östra USA**, **USA, Öst 2**, eller **Europa, västra** . 
 
@@ -57,7 +57,7 @@ Innan du kan köra exempelprogrammet måste registrera den i Azure AD och Godkä
 
 Eftersom exempelprogrammet som är ett konsolprogram, måste du registrera ett internt program och lägga till API-behörigheter för **Microsoft.EventHub** till uppsättningen med ”nödvändiga behörigheter”. Interna program behöver också en **omdirigerings-URI** i Azure AD som fungerar som en identifierare; URI: N behöver inte vara ett mål för nätverket. Använd `http://eventhubs.microsoft.com` eftersom exemplet code redan det här exemplet använder du denna URI.
 
-Detaljerad registrering stegen beskrivs i [den här självstudien](../active-directory/develop/active-directory-integrating-applications.md). Följ stegen för att registrera en **interna** appen, och följ sedan instruktionerna update att lägga till den **Microsoft.EventHub** API för att behörigheterna som krävs. Du följer stegen anteckna den **TenantId** och **ApplicationId**, eftersom du behöver dessa värden när du kör programmet.
+Detaljerad registrering stegen beskrivs i [den här självstudien](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Följ stegen för att registrera en **interna** appen, och följ sedan instruktionerna update att lägga till den **Microsoft.EventHub** API för att behörigheterna som krävs. Du följer stegen anteckna den **TenantId** och **ApplicationId**, eftersom du behöver dessa värden när du kör programmet.
 
 ### <a name="run-the-app"></a>Kör appen
 

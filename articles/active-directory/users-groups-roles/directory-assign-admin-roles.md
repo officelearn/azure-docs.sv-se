@@ -14,12 +14,12 @@ ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: f5d53b75b8cc47fc8405a334ae9af32faa67a439
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: c6c388bb98d189d91703c0ce82971b3ec4da4150
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/03/2018
-ms.locfileid: "39481061"
+ms.locfileid: "39505519"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -53,11 +53,11 @@ Följande administratörsroller är tillgängliga:
   
 * **[Enhetsadministratörer](#device-administrators)**: den här rollen är tilldelas endast som en ytterligare lokal administratör i [Enhetsinställningar](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Användare med den här rollen blir administratörer för den lokala datorn på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte behörighet att hantera enheters objekt i Azure Active Directory. 
 
-* **[Katalogläsare](#directory-readers)**: det här är en äldre roll som ska tilldelas till program som inte stöder den [godkänna Framework](../develop/active-directory-integrating-applications.md). Det ska inte tilldelas alla användare.
+* **[Katalogläsare](#directory-readers)**: det här är en äldre roll som ska tilldelas till program som inte stöder den [godkänna Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Det ska inte tilldelas alla användare.
 
 * **[Konton för katalogsynkronisering](#directory-synchronization-accounts)**: Använd inte. Den här rollen är tilldelas automatiskt till Azure AD Connect-tjänsten och inte avsedd eller stöd för annan användning.
 
-* **[Katalogskrivare](#directory-writers)**: det här är en äldre roll som ska tilldelas till program som inte stöder den [godkänna Framework](../develop/active-directory-integrating-applications.md). Det ska inte tilldelas alla användare.
+* **[Katalogskrivare](#directory-writers)**: det här är en äldre roll som ska tilldelas till program som inte stöder den [godkänna Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Det ska inte tilldelas alla användare.
 
 * **[Dynamics 365-tjänstadministratör / CRM-tjänstadministratör](#dynamics-365-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft Dynamics 365 Online när tjänsten finns närvarande, liksom möjlighet att hantera supportbegäranden och Kontrollera tjänstens hälsotillstånd. Mer information på [använda administratörsrollen för att hantera din klient](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
@@ -847,7 +847,7 @@ Kan läsa information om Service Health och hantera supportärenden.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Läsa Organizations.TrustedCAsForPasswordlessAuth-egenskapen i Azure Active Directory. |
+| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Läs Organizations.TrustedCAsForPasswordlessAuth-egenskapen i Azure Active Directory. |
 | microsoft.aad.accessservice/AllEntities/AllActions | Skapa och ta bort alla resurser och läsa och uppdatera standardegenskaper i Azure Access Control. |
 | microsoft.aad.supporttickets/AllEntities/AllActions | Skapa och hantera Office 365-supportbegäranden. |
 | microsoft.aad.servicehealth/AllEntities/AllActions | Läsa och konfigurera Office 365 Service Health. |
@@ -899,11 +899,11 @@ Kan hantera alla aspekter av användare och grupper
 | microsoft.aad.directory/Group/Update/Members | Uppdatera Groups.Members-egenskapen i Azure Active Directory. |
 | microsoft.aad.directory/Group/Update/Owners | Uppdatera Groups.Owners-egenskapen i Azure Active Directory. |
 | microsoft.aad.directory/Group/Update/Settings | Uppdatera Groups.Settings-egenskapen i Azure Active Directory. |
-| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Läsa Organizations.TrustedCAsForPasswordlessAuth-egenskapen i Azure Active Directory. |
+| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Läs Organizations.TrustedCAsForPasswordlessAuth-egenskapen i Azure Active Directory. |
 | microsoft.aad.directory/User/AssignLicense | Hantera licenser för användare i Azure Active Directory. |
 | microsoft.aad.directory/User/Create | Skapa användare i Azure Active Directory. |
 | microsoft.aad.directory/User/Delete | Ta bort användare i Azure Active Directory. |
-| microsoft.aad.directory/User/InvalidateAllRefreshTokens | Ogiltigförklaras alla tokens för användaruppdatering i Azure Active Directory. |
+| microsoft.aad.directory/User/InvalidateAllRefreshTokens | Invalidera alla tokens för användaruppdatering i Azure Active Directory. |
 | microsoft.aad.directory/User/Restore | Återställa borttagna användare i Azure Active Directory. |
 | microsoft.aad.directory/User/Update | Uppdatera standardegenskaper för användare i Azure Active Directory. |
 | microsoft.aad.directory/User/Update/AppRoleAssignments | Uppdatera Users.AppRoleAssignments-egenskapen i Azure Active Directory. |

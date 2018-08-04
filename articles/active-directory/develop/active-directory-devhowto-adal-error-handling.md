@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: 6f3075884131415efa62851b6e2db43bc00b39b8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ea7ee76a97a06b7f91805af8007a466d1b9f111d
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448330"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505285"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Metodtips för felhantering för Azure Active Directory Authentication Library (ADAL) klienter
 
@@ -51,7 +51,7 @@ Det finns en uppsättning med fel som genereras av operativsystemet, vilket kan 
 
 Grunden, det finns två fall av AcquireTokenSilent fel:
 
-| Ärende | Beskrivning |
+| Fall | Beskrivning |
 |------|-------------|
 | **Fall 1**: fel kan matchas med en interaktiv inloggning | En interaktiv förfrågan är nödvändigt för fel som orsakats av brist på giltig token. Mer specifikt kräver cache-sökning och en ogiltig/utgången uppdateringstoken ett AcquireToken-anrop för att lösa.<br><br>I dessa fall måste slutanvändaren uppmanas att logga in. Programmet kan du göra en interaktiv förfrågan omedelbart efter användarinteraktion (till exempel trycka en knapp för inloggning) eller senare. Valet beror på önskat beteende för programmet.<br><br>Visa koden i följande avsnitt för den här specifika fall och de fel som diagnostiserar problemet.|
 | **Fall 2**: fel kan inte matchas med en interaktiv inloggning | För nätverk och tillfälligt/tillfälliga fel eller andra fel löser utför en interaktiv AcquireToken-begäran inte problemet. Onödiga anvisningarna för interaktiv inloggning kan också vara frustrerande för användarna. ADAL försöker automatiskt en enda återförsök för de flesta fel på AcquireTokenSilent fel.<br><br>Klientprogrammet kan också göras ett nytt försök vid en senare tidpunkt, men när och hur du gör det är beroende av programmets beteende och önskad slutanvändarens upplevelse. Programmet kan till exempel göra en AcquireTokenSilent försök igen efter några minuter eller som svar på en slutanvändarens-åtgärd. Ett omedelbart återförsök resulterar i programmet begränsas och bör inte göras.<br><br>En efterföljande återförsök med samma fel innebär inte klienten bör göra en interaktiv förfrågan med AcquireToken, eftersom den inte löser felet.<br><br>Visa koden i följande avsnitt för den här specifika fall och de fel som diagnostiserar problemet. |
@@ -586,7 +586,7 @@ window.Logging = {
 Använd kommentarsavsnittet nedan om du vill ge feedback och hjälp oss att förfina och forma vårt innehåll.
 
 [![Logga in knappen][AAD-Sign-In]] [ AAD-Sign-In] 
- <!--Reference style links --> [AAD-Auth-bibliotek]:./active-directory-authentication-libraries.md [AAD-Auth-scenarier]: [./active-directory-authentication-scenarios.md AAD-Dev-Guide]:azure-ad-developers-guide.md [AAD-integrering-Apps]:./active-directory-integrating-applications.md [AZURE-portal]: https://portal.azure.com
+ <!--Reference style links --> [AAD-Auth-bibliotek]:./active-directory-authentication-libraries.md [AAD-Auth-scenarier]: autentisering-scenarios.md [AAD-Dev-Guide]: Azure-ad-utvecklare – guide.md [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md [AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
 [AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

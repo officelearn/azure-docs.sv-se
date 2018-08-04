@@ -14,12 +14,12 @@ ms.date: 12/12/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: bcae3f51e2245928c8110d06f3514177d57ac883
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6b0933e9aa732cb9a01a454764fb0425465ec078
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450027"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503319"
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Så här associerar du eller lägger till en prenumeration i din Azure Active Directory
 
@@ -59,7 +59,7 @@ Att ändra prenumerationskatalogen är en åtgärd på servicenivå. Det påverk
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du kostnadsfritt skapar en ny Azure Active Directory-katalog finns i [Skaffa en Azure Active Directory-klient](../develop/active-directory-howto-tenant.md)
+* Mer information om hur du kostnadsfritt skapar en ny Azure Active Directory-katalog finns i [Skaffa en Azure Active Directory-klient](../develop/quickstart-create-new-tenant.md)
 * Mer information om att överföra faktureringsägarskapet för en Azure-prenumeration finns i [Överför ägarskapet för en Azure-prenumeration till ett annat konto](../../billing/billing-subscription-transfer.md)
 * Mer information om hur resursåtkomsten hanteras i Microsoft Azure finns i [Förstå resursåtkomst i Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Mer information om hur du tilldelar roller i Azure AD finns i [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)

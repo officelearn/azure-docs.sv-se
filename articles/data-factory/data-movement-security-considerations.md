@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 70225fd59248939c9ea1d5c7c267cdf0da3303e7
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: b05eef79e94cff74b1e02243cd7c8d94e5acbb3c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342410"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493978"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhetsöverväganden för dataförflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,6 +58,9 @@ Om molndatalagret stöder HTTPS- eller TLS, alla data som överförs mellan data
 
 > [!NOTE]
 > Alla anslutningar till Azure SQL Database och Azure SQL Data Warehouse kräver kryptering (SSL/TLS) datakommunikationen till och från databasen. När du är på att redigera en pipeline med hjälp av JSON, lägga till egenskapen och ge den värdet **SANT** i anslutningssträngen. Du kan använda för Azure Storage, **HTTPS** i anslutningssträngen.
+
+> [!NOTE]
+> TLS-version som används är 1.2.
 
 ### <a name="data-encryption-at-rest"></a>Datakryptering i vila
 Vissa datalager stöd för kryptering av vilande data. Vi rekommenderar att du aktiverar krypteringsalgoritm som data för dessa datalager. 

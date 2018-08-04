@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Azure AD i Visual Studio .NET MVC-projekt
-description: Hur du kommer igång med Azure Active Directory i .NET MVC-projekt när du ansluter till eller skapa en Azure AD med hjälp av Visual Studio anslutna tjänster
+title: Kom igång med Azure AD med Visual Studio .NET MVC-projekt
+description: Hur du kommer igång med Azure Active Directory i .NET MVC-projekt när du ansluter till eller skapa en Azure AD med hjälp av Visual Studio-anslutna tjänster
 services: active-directory
 author: ghogen
 manager: douge
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: d521b8c85fb66b6c50d1b9f07e5f4d653e9e57b9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 21354507af475a1b75ce2002d28f6795c4e3e540
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31784079"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494868"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Komma igång med Azure Active Directory (ASP.NET MVC-projekt)
 
@@ -25,17 +25,17 @@ ms.locfileid: "31784079"
 > - [Komma igång](vs-active-directory-dotnet-getting-started.md)
 > - [Vad hände](vs-active-directory-dotnet-what-happened.md)
 
-Den här artikeln innehåller ytterligare vägledning när du har lagt till Active Directory till ett ASP.NET MVC-projektet till den **Project > Connected Services** kommandot av Visual Studio. Om du inte redan har lagt till tjänsten till ditt projekt kan du göra det när som helst.
+Den här artikeln innehåller ytterligare vägledning när du har lagt till Active Directory till ett ASP.NET MVC-projekt i den **projekt > Connected Services** kommandot av Visual Studio. Om du inte redan har lagt till tjänsten i projektet kan du göra det när som helst.
 
-Se [vad hände med min MVC-projektet?](vs-active-directory-dotnet-what-happened.md) för ändringar i ditt projekt när du lägger till tjänsten anslutna.
+Se [vad hände med mitt MVC-projekt?](vs-active-directory-dotnet-what-happened.md) för ändringar som görs i ditt projekt när du lägger till den anslutna tjänsten.
 
-## <a name="requiring-authentication-to-access-controllers"></a>Kräva autentisering till access-domänkontrollanter
+## <a name="requiring-authentication-to-access-controllers"></a>Som kräver autentisering till åtkomst domänkontrollanter
 
-Alla domänkontrollanter i ditt projekt har adorned med den `[Authorize]` attribut. Det här attributet kräver att användaren autentiseras innan du använder dessa domänkontrollanter. Ta bort skrivskyddsattributet från styrenheten för att tillåta att kontrollanten kan användas anonymt. Om du vill ange behörigheter på en mer detaljerad nivå gäller attributet för varje metod som kräver tillstånd i stället för att tillämpas på klassen domänkontrollant.
+Alla domänkontrollanter i ditt projekt har adorned med den `[Authorize]` attribut. Det här attributet kräver att användaren autentiseras innan du använder dessa domänkontrollanter. Ta bort skrivskyddsattributet från kontrollanten för att tillåta den kontrollenheten för att användas anonymt. Om du vill ange behörigheter på en mer detaljerad nivå gäller attributet för varje metod som kräver auktorisering i stället för den tillämpas på klassen controller.
 
-## <a name="adding-signin--signout-controls"></a>Lägga till inloggning / utloggning styr
+## <a name="adding-signin--signout-controls"></a>Att lägga till inloggning / utloggning styr
 
-Om du vill lägga till inloggning/utloggning kontroller i vyn kan du använda den `_LoginPartial.cshtml` partiella vyn för att lägga till funktionen i en av dina vyer. Här är ett exempel på funktioner som lagts till i vanlig `_Layout.cshtml` vyn. (Observera det sista elementet i div med klassen navigeringsfält för komprimera):
+Du kan använda för att lägga till inloggning/utloggning kontroller i vyn i `_LoginPartial.cshtml` partiella vy för att lägga till funktioner till en av dina vyer. Här är ett exempel på funktioner som lagts till i standard `_Layout.cshtml` vy. (Observera att det sista elementet i div med klassen navigeringsfältet komprimera):
 
 ```html
 <!DOCTYPE html>
@@ -84,5 +84,5 @@ Om du vill lägga till inloggning/utloggning kontroller i vyn kan du använda de
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Autentiseringsscenarier för Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Lägga till inloggning med Microsoft till ett ASP.NET-webbprogram](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Autentiseringsscenarier för Azure Active Directory](authentication-scenarios.md)
+- [Lägga till logga in med Microsoft i en ASP.NET-webbapp](quickstart-v1-aspnet-webapp.md)

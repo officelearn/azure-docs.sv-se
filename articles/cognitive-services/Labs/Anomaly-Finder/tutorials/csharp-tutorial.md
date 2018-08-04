@@ -9,12 +9,12 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 2e4100fd7d8e85a6b103c31000176aaaeb3d7151
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c6d33de70fd5b7c03b7af6b85e8ebc567dd2f925
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317687"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502516"
 ---
 # <a name="anomaly-detection-c-application"></a>Avvikelseidentifiering identifiering av C#-program
 
@@ -48,7 +48,7 @@ Tryck på Ctrl + Skift + B, eller på Build på menyfliksområdet-menyn och väl
 
 1. När bygget har slutförts, trycker du på **F5** eller klicka på **starta** på menyn menyfliksområdet för att köra exemplet.
 2. Leta upp fönstret Avvikelseidentifiering användaren gränssnitt med textrutan redigera läsa ”{your_subscription_key}”.
-3. Ersätt filen request.json, som innehåller exempeldata, med dina egna data och klicka sedan på ”Skicka”. Microsoft tar emot de data du ladda upp och använda dem för att identifiera eventuella avvikelseidentifiering punkter mellan sedan. De data som du uppdaterade sparas inte i Microsofts server. För att identifiera avvikelser punkten igen, behöver du överföra data igen.
+3. Ersätt filen request.json, som innehåller exempeldata, med dina egna data och klicka sedan på ”Skicka”. Microsoft tar emot de data du ladda upp och använda dem för att identifiera eventuella avvikelseidentifiering punkter mellan sedan. De data som du läser in sparas inte i Microsofts server. För att identifiera avvikelser punkten igen, behöver du överföra data igen.
 4. Om data är bra, märker Identifieringsresultat avvikelseidentifiering i fältet ”svar”. Om något fel inträffar, visas information om felet i fältet svar.
 
 <a name="Review"></a>

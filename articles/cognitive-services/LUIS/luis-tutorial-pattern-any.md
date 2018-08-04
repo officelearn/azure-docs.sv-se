@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: ca4ed4444cd753c0fe22c6596dfd34d033b7b0cf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 58a1871774683e2af66e12a03bdaf8d6bcea831c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237010"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493266"
 ---
 # <a name="tutorial-improve-app-with-patternany-entity"></a>Självstudie: Förbättra app med pattern.any entitet
 
@@ -26,7 +26,7 @@ I den här självstudien använder du entiteten pattern.any för att öka avsikt
 * Skapa mönster som använder pattern.any
 * Så här verifierar du förutsägelse förbättringar
 
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md) för att kunna redigera LUIS-programmet.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 Om du inte har personalapp från den [mönstret roller](luis-tutorial-pattern-roles.md) självstudien [importera](luis-how-to-start-new-app.md#import-new-app) JSON-koden i en ny app i den [LUIS](luis-reference-regions.md#luis-website) webbplats. App att importera finns i den [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json) GitHub-lagringsplatsen.
@@ -108,7 +108,6 @@ Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i
 
 5. Träna appen.
 
-
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Testa det nya mönstret för extrahering av data för fritt format
 1. Välj **testa** från det översta fältet för att öppna panelen test. 
 
@@ -123,7 +122,8 @@ Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i
 4. Stänga panelen test genom att välja den **testa** knappen i det övre navigeringsfältet.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. Om du vill göra det, Välj ellipsen (***...*** ) till höger om appnamnet i programlistan, Välj **ta bort**. På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

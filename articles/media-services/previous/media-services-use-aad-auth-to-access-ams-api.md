@@ -1,6 +1,6 @@
 ---
-title: Åtkomst till Azure Media Services API med Azure Active Directory-autentisering | Microsoft Docs
-description: Lär dig mer om koncept och steg för att använda Azure Active Directory (Azure AD) för att autentisera åtkomst till Azure Media Services API.
+title: Få åtkomst till Azure Media Services-API med Azure Active Directory-autentisering | Microsoft Docs
+description: Läs mer om begrepp och hur du kan använda Azure Active Directory (Azure AD) för att autentisera åtkomsten till Azure Media Services-API.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,145 +13,145 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: a7f20c22b39458134d3dcd42b7e13860c03bad58
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 08b7f50c3051c174158cff0b4c591a2b22fb4ab4
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790407"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502710"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Åtkomst till Azure Media Services-API med Azure AD-autentisering
  
-Azure Media Services API är en RESTful-API. Du kan använda den för att utföra åtgärder på media resurser med hjälp av REST-API eller genom att använda tillgängliga klient-SDK:. Azure Media Services erbjuder en klient för Media Services SDK för Microsoft .NET. Om du vill ha behörighet att komma åt Media Services-resurser och Media Services-API, måste du först autentiseras. 
+Azure Media Services-API är ett RESTful-API. Du kan använda den för att utföra åtgärder på media resurser med hjälp av ett REST-API eller genom att använda tillgängliga klient-SDK: er. Azure Media Services erbjuder en Media Services-klient SDK för Microsoft .NET. Om du vill ha behörighet att komma åt Media Services-resurser och Media Services-API, måste du först autentiseras. 
 
-Media Services stöder [Azure Active Directory (Azure AD)-baserad autentisering](../../active-directory/active-directory-whatis.md). Azure Media REST-tjänsten kräver att användaren eller programmet som gör REST API-begäranden har antingen den **deltagare** eller **ägare** roll åtkomst till resurser. Mer information finns i [Kom igång med rollbaserad åtkomstkontroll i Azure portal](../../role-based-access-control/overview.md).  
+Media Services stöder [Azure Active Directory (Azure AD)-baserad autentisering](../../active-directory/fundamentals/active-directory-whatis.md). Azure Media REST-tjänsten kräver att användaren eller programmet som gör REST API-begäranden ha antingen den **deltagare** eller **ägare** roll som ska få åtkomst till resurserna. Mer information finns i [Kom igång med rollbaserad åtkomstkontroll i Azure-portalen](../../role-based-access-control/overview.md).  
 
 > [!IMPORTANT]
-> Media Services stöder för närvarande Azure Access Control service autentisering modellen. Access Control tillstånd att bli inaktuell på den 1 juni 2018. Vi rekommenderar att du migrerar till Azure AD-autentiseringsmodellen så snart som möjligt.
+> Media Services stöder för närvarande Azure Access Control service-autentiseringsmodellen. Access Control-auktorisering kommer dock att bli inaktuella den 1 juni 2018. Vi rekommenderar att du migrerar till Azure AD-autentiseringsmodellen så snart som möjligt.
 
-Det här dokumentet ger en översikt över hur åtkomst till Media Services-API med hjälp av REST- eller .NET-API: er.
+Det här dokumentet ger en översikt över hur du kommer åt Media Services-API med hjälp av REST- eller .NET API: er.
 
 ## <a name="access-control"></a>Åtkomstkontroll
 
-Den anropande användaren måste ha en medarbetare eller ägare roll för Media Services-kontot som försöker komma åt för Azure Media REST-begäran ska lyckas.  
-Bara en användare med rollen ägare kan ge åtkomst till företagsresurser (konto) media till nya användare eller appar. Deltagarrollen kan komma åt endast mediaresurs.
-Obehöriga begäranden misslyckas med statuskoden 401. Om du ser felet, kontrollera om användaren har rollen Medarbetare eller ägare som tilldelas för Media Services användarkonto. Du kan kontrollera detta i Azure-portalen. Sök efter media-konto och klicka sedan på den **åtkomstkontroll** fliken. 
+För Azure Media REST-begäran ska lyckas måste den anropande användaren ha rollen deltagare eller ägare för Media Services-kontot som försöker komma åt.  
+Endast användare med rollen ägare kan ge media resursåtkomst (konto) till nya användare eller program. Rollen som deltagare kan komma åt endast mediaresurs.
+Ej begäran misslyckas med statuskod 401. Om du ser den här felkoden, kontrollera om användaren har rollen deltagare eller ägare som tilldelas för användarens Media Services-konto. Du kan kontrollera detta i Azure-portalen. Sök efter media-konto och klicka sedan på den **åtkomstkontroll** fliken. 
 
-![Access control-fliken](./media/media-services-use-aad-auth-to-access-ams-api/media-services-access-control.png)
+![Fliken för kontroll av åtkomst](./media/media-services-use-aad-auth-to-access-ams-api/media-services-access-control.png)
 
 ## <a name="types-of-authentication"></a>Typer av autentisering 
  
-När du använder Azure AD-autentisering med Azure Media Services, har du två alternativ för autentisering:
+När du använder Azure AD-autentisering med Azure Media Services har du två alternativ:
 
-- **Användarautentisering**. Autentisera en person som använder appen för att interagera med Media Services-resurser. Interaktiva program bör först uppmana användaren att användarens autentiseringsuppgifter. Ett exempel är en management konsolapp som används av behöriga användare för att övervaka kodning jobb eller direktsänd strömning. 
-- **Huvudnamn autentiseringen av tjänsten**. Autentisera en tjänst. Program som ofta använder den här autentiseringsmetoden är appar som körs daemon tjänster, mellannivå tjänster eller schemalagda jobb. Exempel är webbappar, funktionen appar, logikappar, API och mikrotjänster.
+- **Användarautentisering**. Autentisera en person som använder appen för att interagera med Media Services-resurser. Interaktivt program bör först frågar användaren om användarens autentiseringsuppgifter. Ett exempel är en management-konsolapp som används av behöriga användare för att övervaka kodningsjobb eller liveuppspelning. 
+- **Autentisering av tjänstens huvudnamn**. Autentisera en tjänst. Program som ofta använder den här autentiseringsmetoden är appar som kör daemon-tjänster, mellannivå tjänster eller schemalagda jobb. Exempel är webbappar, funktionsappar, logic apps, API och mikrotjänster.
 
 ### <a name="user-authentication"></a>Användarautentisering 
 
-Program som ska använda användarautentiseringsmetoden är övervakning av interna appar eller hantering: mobila appar, Windows-appar och konsolprogram. Den här typen av lösningen är användbart när du vill mänsklig interaktion med tjänsten på något av följande scenarier:
+Program som ska använda autentiseringsmetoden som användaren är hantering och övervakning inbyggda appar: mobila appar och appar för Windows-konsolprogram. Den här typen av lösning är användbart när du vill mänsklig interaktion med tjänsten på något av följande scenarier:
 
-- Instrumentpanelen för övervakning för kodning jobb.
-- Instrumentpanelen för övervakning för din direktsända dataströmmar.
-- Hanteringsprogram för stationära och mobila användare att administrera resurser i ett Media Services-konto.
+- Övervakningsinstrumentpanel för kodningsjobben.
+- Övervakning av instrumentpanelen för dina direktsända strömmar.
+- Av hanteringsprogram för stationära och mobila användare att administrera resurser i ett Media Services-konto.
 
 > [!NOTE]
 > Den här autentiseringsmetoden bör inte användas för konsumentinriktade program. 
 
-Det ursprungliga programmet måste du först skaffa en åtkomst-token från Azure AD och använda den när du gör HTTP-förfrågningar till Media Services REST API. Lägg till åtkomst-token i huvudet i begäran. 
+Ett internt program måste du först hämta en åtkomsttoken från Azure AD och sedan använda den när du gör HTTP-begäranden till Media Services REST-API. Lägga till åtkomsttoken i huvudet för begäran. 
 
-Följande diagram visar en typisk interaktiva program autentiseringsflödet: 
+I följande diagram visas en typisk interaktiv autentisering programflödet: 
 
-![Ursprungliga appar diagram](./media/media-services-use-aad-auth-to-access-ams-api/media-services-native-aad-app1.png)
+![Inbyggda appar diagram](./media/media-services-use-aad-auth-to-access-ams-api/media-services-native-aad-app1.png)
 
-I föregående diagram representerar siffrorna flödet av begäranden i kronologisk ordning.
+I det föregående diagrammet representerar talen flödet av begäranden i kronologisk ordning.
 
 > [!NOTE]
-> När du använder användarautentiseringsmetoden dela alla appar samma (standard) programspecifika klient-ID och det ursprungliga programmet omdirigerings-URI. 
+> När du använder autentiseringsmetoden som användaren kan dela samma (standard) internt program klient-ID och programspecifik omdirigerings-URI i alla appar. 
 
 1. Uppmana användaren att ange autentiseringsuppgifter.
-2. Begär en åtkomst-token för Azure AD med följande parametrar:  
+2. Begär en åtkomsttoken för Azure AD med följande parametrar:  
 
-    * Slutpunkten för Azure AD-klient.
+    * Azure AD tenant-slutpunkten.
 
         Klient-informationen kan hämtas från Azure-portalen. Placera markören över namnet på den inloggade användaren i övre högra hörnet.
     * Media Services resurs-URI. 
 
-        Den här URI: N är samma för Media Services-konton som är i samma Azure-miljön (till exempel https://rest.media.azure.net).
+        Den här URI: N är detsamma för Media Services-konton som tillhör samma Azure-miljön (till exempel https://rest.media.azure.net).
 
-    * Media Services (ursprunglig) programmet klient-ID.
-    * Media Services (intern)-programmet omdirigerings-URI.
+    * Media Services (ursprunglig) program klient-ID.
+    * Media Services (ursprunglig) program omdirigerings-URI.
     * Resurs-URI för REST Media Services.
         
-        URI representerar REST API-slutpunkt (till exempel https://test03.restv2.westus.media.azure.net/api/).
+        URI: N representerar REST API-slutpunkt (till exempel https://test03.restv2.westus.media.azure.net/api/).
 
-    Värden för dessa parametrar finns [Använd Azure-portalen för att få åtkomst till Azure AD-autentiseringsinställningar](media-services-portal-get-started-with-aad.md) med alternativet användare för autentisering.
+    Värden för dessa parametrar finns [använder Azure portal för att få åtkomst till Azure AD-autentiseringsinställningar](media-services-portal-get-started-with-aad.md) med alternativet för autentisering av användare.
 
 3. Azure AD-åtkomsttoken skickas till klienten.
 4. Klienten skickar en begäran till Azure Media REST-API med Azure AD-åtkomsttoken.
-5. Klienten hämtar tillbaka data från Media Services.
+5. Klienten får tillbaka data från Media Services.
 
-Information om hur du använder Azure AD-autentisering för att kommunicera med REST-begäranden med klienten för Media Services .NET SDK finns [Använd Azure AD-autentisering för åtkomst till Media Services-API med .NET](media-services-dotnet-get-started-with-aad.md). 
+Information om hur du använder Azure AD-autentisering för att kommunicera med REST-begäranden med hjälp av klienten för Media Services .NET SDK finns i [Använd Azure AD-autentisering för att få åtkomst till Media Services-API med .NET](media-services-dotnet-get-started-with-aad.md). 
 
-Om du inte använder klienten Media Services .NET SDK, måste du manuellt skapa en Tokenbegäran för Azure AD-åtkomst med hjälp av parametrar som beskrivs i steg 2. Mer information finns i [hur du använder Azure AD-Autentiseringsbiblioteket för att hämta Azure AD-token](../../active-directory/develop/active-directory-authentication-libraries.md).
+Om du inte använder SDK för Media Services .NET-klient, måste du manuellt skapa en Azure AD begäran om åtkomsttoken med hjälp av parametrar som beskrivs i steg 2. Mer information finns i [hur du använder Azure AD-Autentiseringsbiblioteket för att hämta Azure AD-token](../../active-directory/develop/active-directory-authentication-libraries.md).
 
 ### <a name="service-principal-authentication"></a>Autentisering av tjänstens huvudnamn
 
-Program som ofta använder den här autentiseringsmetoden är appar som körs på mellannivå tjänster och schemalagda jobb: web apps, funktionen appar, logikappar, API: er och mikrotjänster. Den här autentiseringsmetoden är lämplig för interaktiva program som du kanske vill använda ett tjänstkonto för att hantera resurser.
+Program som ofta använder den här autentiseringsmetoden är appar som kör mellannivå tjänster och schemalagda jobb: web apps, funktionsappar, logic apps, API: er och mikrotjänster. Den här autentiseringsmetoden är lämplig för interaktiva program som du kanske vill använda ett tjänstkonto för att hantera resurser.
 
-När du använder service principal autentiseringsmetoden för att skapa användarscenarier hanteras autentisering vanligtvis i mellannivå (via vissa API) och inte direkt i ett program för mobila eller stationära. 
+När du använder tjänsten huvudnamn autentiseringsmetoden för att skapa användarscenarier hanteras autentisering vanligtvis i mellannivå (via vissa API) och inte direkt i ett mobilt eller skrivbord program. 
 
-Om du vill använda den här metoden skapa en Azure AD-program och tjänstens huvudnamn i sin egen klient. När du har skapat programmet ge appen medarbetare eller ägare rollåtkomst till Media Services-kontot. Du kan göra detta i Azure-portalen med hjälp av Azure CLI eller med ett PowerShell-skript. Du kan också använda ett befintligt Azure AD-program. Du kan registrera och hantera dina Azure AD-program och tjänstens huvudnamn [i Azure portal](media-services-portal-get-started-with-aad.md). Du också kan göra detta med hjälp av [Azure CLI 2.0](media-services-use-aad-auth-to-access-ams-api.md) eller [PowerShell](media-services-powershell-create-and-configure-aad-app.md). 
+Om du vill använda den här metoden, skapa en Azure AD-program och tjänstens huvudnamn i sin egen klientorganisation. När du har skapat programmet kan ge appen deltagare eller ägare rollåtkomst till Media Services-kontot. Du kan göra detta i Azure-portalen med hjälp av Azure CLI eller med ett PowerShell-skript. Du kan också använda ett befintligt Azure AD-program. Du kan registrera och hantera dina Azure AD-app och tjänstens huvudnamn [i Azure-portalen](media-services-portal-get-started-with-aad.md). Du också kan göra detta med hjälp av [Azure CLI](media-services-use-aad-auth-to-access-ams-api.md) eller [PowerShell](media-services-powershell-create-and-configure-aad-app.md). 
 
 ![Mellannivå appar](./media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
-När du har skapat din Azure AD-program får du värden för följande inställningar. Du behöver dessa värden för autentisering:
+När du har skapat din Azure AD-program kan få du värden för följande inställningar. Du behöver dessa värden för autentisering:
 
 - Klient-ID 
 - Klienthemlighet 
 
-I föregående bild representerar siffrorna flödet av begäranden i kronologisk ordning:
+I bilden ovan representerar talen flödet av begäranden i kronologisk ordning:
     
-1. En mellannivå app (web API eller webbprogram) begär en Azure AD-åtkomsttoken som har följande parametrar:  
+1. En mellannivå-app (webb-API eller ett webbprogram) begär en åtkomsttoken för Azure AD som har följande parametrar:  
 
-    * Slutpunkten för Azure AD-klient.
+    * Azure AD tenant-slutpunkten.
 
         Klient-informationen kan hämtas från Azure-portalen. Placera markören över namnet på den inloggade användaren i övre högra hörnet.
     * Media Services resurs-URI. 
 
-        Den här URI: N är samma för Media Services-konton som finns i samma Azure-miljön (till exempel https://rest.media.azure.net).
+        Den här URI: N är detsamma för Media Services-konton som finns i samma Azure-miljön (till exempel https://rest.media.azure.net).
 
     * Resurs-URI för REST Media Services.
 
-        URI representerar REST API-slutpunkt (till exempel https://test03.restv2.westus.media.azure.net/api/).
+        URI: N representerar REST API-slutpunkt (till exempel https://test03.restv2.westus.media.azure.net/api/).
 
     * Azure AD application värden: klient-ID och klienthemlighet.
     
-    Värden för dessa parametrar finns [Använd Azure-portalen för att få åtkomst till Azure AD-autentiseringsinställningar](media-services-portal-get-started-with-aad.md) med hjälp av alternativet service principal autentisering.
+    Värden för dessa parametrar finns [använder Azure portal för att få åtkomst till Azure AD-autentiseringsinställningar](media-services-portal-get-started-with-aad.md) med hjälp av alternativet service principal authentication.
 
 2. Azure AD-åtkomsttoken skickas till mellannivån.
 4. På mellannivå skickar begäran till Azure Media REST-API med Azure AD-token.
-5. Mellannivån hämtar tillbaka data från Media Services.
+5. Mellannivån får tillbaka data från Media Services.
 
-Mer information om hur du använder Azure AD-autentisering för att kommunicera med REST-begäranden med klienten för Media Services .NET SDK finns [använda Azure AD-autentisering för att komma åt Azure Media Services-API med .NET](media-services-dotnet-get-started-with-aad.md). 
+Mer information om hur du använder Azure AD-autentisering för att kommunicera med REST-begäranden med hjälp av klienten för Media Services .NET SDK finns i [Använd Azure AD-autentisering för att få åtkomst till Azure Media Services-API med .NET](media-services-dotnet-get-started-with-aad.md). 
 
-Om du inte använder klienten Media Services .NET SDK, måste du manuellt skapa en Azure AD-tokenbegäran med parametrar som beskrivs i steg 1. Mer information finns i [hur du använder Azure AD-Autentiseringsbiblioteket för att hämta Azure AD-token](../../active-directory/develop/active-directory-authentication-libraries.md).
+Om du inte använder SDK för Media Services .NET-klient, måste du manuellt skapa en begäran om Azure AD-token med hjälp av parametrar som beskrivs i steg 1. Mer information finns i [hur du använder Azure AD-Autentiseringsbiblioteket för att hämta Azure AD-token](../../active-directory/develop/active-directory-authentication-libraries.md).
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Undantag ”: fjärrservern returnerade ett fel: (401) obehörig”.
+Undantag ”: fjärrservern returnerade ett fel: (401) Ej behörig”.
 
-Lösning: För Media Services REST-begäran ska lyckas anropa användaren måste vara en medarbetare eller ägare roll i Media Services-kontot som försöker komma åt. Mer information finns i [åtkomstkontroll](media-services-use-aad-auth-to-access-ams-api.md#access-control) avsnitt.
+Lösning: För Media Services REST-begäran ska lyckas måste den anropande användaren vara en deltagare eller ägare roll i Media Services-kontot som försöker komma åt. Mer information finns i den [åtkomstkontroll](media-services-use-aad-auth-to-access-ams-api.md#access-control) avsnittet.
 
 ## <a name="resources"></a>Resurser
 
-I följande artiklar finns översikter över begrepp för Azure AD-autentisering: 
+I följande artiklar finns en översikt över Azure AD authentication-koncepten: 
 
-- [Autentiseringsscenarier åtgärdas av Azure AD](../../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
-- [Lägga till, uppdatera eller ta bort ett program i Azure AD](../../active-directory/develop/active-directory-integrating-applications.md)
+- [Autentiseringsscenarier som bemöts av Azure AD](../../active-directory/develop/authentication-scenarios.md#basics-of-authentication-in-azure-ad)
+- [Lägga till, uppdatera eller ta bort ett program i Azure AD](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 - [Konfigurera och hantera rollbaserad åtkomstkontroll med hjälp av PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Använda Azure portal och [åtkomst till Azure AD-autentisering för att använda Azure Media Services API](media-services-portal-get-started-with-aad.md).
-* Använda Azure AD-autentisering till [åtkomst till Azure Media Services-API med .NET](media-services-dotnet-get-started-with-aad.md).
+* Använda Azure portal för att [få åtkomst till Azure AD-autentisering för att använda Azure Media Services-API](media-services-portal-get-started-with-aad.md).
+* Använd Azure AD-autentisering till [åtkomst till Azure Media Services-API med .NET](media-services-dotnet-get-started-with-aad.md).
 

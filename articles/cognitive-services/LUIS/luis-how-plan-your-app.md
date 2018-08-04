@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: diberry
-ms.openlocfilehash: 8cafe2be190988cbcbe8da616fe17c9a35c722f3
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cba156d784bfcdd2586073ab5562faf604569cd8
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226031"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505536"
 ---
 # <a name="plan-your-luis-app"></a>Planera din LUIS-app
 
@@ -53,10 +53,10 @@ En hierarkisk entitet är en särskild typ av en **enkel** entitet, definiera en
 
 Se [Dataextrahering](luis-concept-data-extraction.md#hierarchical-entity-data) mer information om hur du extraherar den hierarkiska entiteten från slutpunkten JSON frågesvaret. Försök hierarkisk entiteten [snabbstarten](luis-quickstart-intent-and-hier-entity.md) mer information om hur du använder en hierarkisk entitet.
 
-### <a name="composite-entity"></a>sammansatt entitet
+### <a name="composite-entity"></a>Sammansatt entitet
 En sammansatt entitet består av andra entiteter som utgör delar av en helhet. 
 
-![sammansatt entitet](./media/luis-plan-your-app/composite-entity.png)
+![Sammansatt entitet](./media/luis-plan-your-app/composite-entity.png)
 
 Se [Dataextrahering](luis-concept-data-extraction.md#composite-entity-data) mer information om hur du extraherar den sammansatta entiteten från slutpunkten JSON frågesvaret. Försök sammansatta entiteten [självstudien](luis-tutorial-composite-entity.md) mer information om hur du använder en sammansatt entitet.
 
@@ -65,7 +65,7 @@ LUIS ger [förskapade entiteter](luis-prebuilt-entities.md) för vanliga typer s
 
 ![Antal fördefinierade entitet](./media/luis-plan-your-app/number-entity.png)
 
-Se [Dataextrahering](luis-concept-data-extraction.md#prebuilt-entity-data) mer information om hur du extraherar reguljärt uttryck entiteter från slutpunkten JSON frågesvaret. 
+Se [Dataextrahering](luis-concept-data-extraction.md#prebuilt-entity-data) vill veta mer om att extrahera fördefinierade entitet från slutpunkten JSON frågesvaret. 
 
 ### <a name="list-entity"></a>Lista entitet 
 En lista över entitet är en explicit angiven lista med värden. Varje värde består av en eller flera synonymer. Du kan välja att skapa en lista över entitet som representerar en flygplats namnen i en reseapp.

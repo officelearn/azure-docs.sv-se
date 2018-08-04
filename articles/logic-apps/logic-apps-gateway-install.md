@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.reviewer: yshoukry, LADocs
 ms.suite: integration
-ms.openlocfilehash: 09e3879ed91a0e9c6d27940cae53f3e3f0397d7b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 616e3d81d577fd30e65117ec15c65250d3b3e27e
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145214"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503656"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Installera den lokala datagatewayen för Azure Logic Apps
 
@@ -84,7 +84,7 @@ Information om hur du använder gatewayen med andra tjänster finns i följande 
   > [!TIP]
   > Om du har registrerat dig för ett Office 365-erbjudande och inte angav din faktiska e-postadress, kan du ha en inloggning-adress som ser ut som i följande exempel: `username@domain.onmicrosoft.com` 
   >
-  > Att använda ett microsoftkonto som har en [Visual Studio Standardprenumeration](https://visualstudio.microsoft.com/vs/pricing/), första [skapa en katalog (klient) i Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md), eller använda standardkatalogen med ditt Microsoft-konto. 
+  > Att använda ett microsoftkonto som har en [Visual Studio Standardprenumeration](https://visualstudio.microsoft.com/vs/pricing/), första [skapa en katalog (klient) i Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md), eller använda standardkatalogen med ditt Microsoft-konto. 
   > Lägga till en användare med ett lösenord i katalogen och ge användaråtkomst till din prenumeration. 
   > Du kan logga in under installationen av gateway med den här användarnamn och lösenord.
 

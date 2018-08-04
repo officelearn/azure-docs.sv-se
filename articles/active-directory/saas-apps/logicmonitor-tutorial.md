@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 08/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 36d1229de6eb71a41eeea895e16e3757c800fc16
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a6bc220d15e720662eaa9605421e21ccb99892ab
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429088"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502353"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Självstudier: Azure Active Directory-integration med LogicMonitor
 
@@ -133,27 +133,23 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. Klicka på menyn längst upp **inställningar**.
    
-   ![Inställningar för](./media/logicmonitor-tutorial/ic790052.png "inställningar")
+    ![Inställningar för](./media/logicmonitor-tutorial/ic790052.png "inställningar")
 
 1. I funka navigeringen till vänster klickar du på **enkel inloggning**
    
-   ![Enkel inloggning](./media/logicmonitor-tutorial/ic790053.png "enkel inloggning")
+    ![Enkel inloggning](./media/logicmonitor-tutorial/ic790053.png "enkel inloggning")
 
 1. I den **inställningar för enkel inloggning (SSO)** avsnittet, utför följande steg:
    
-   ![Enkel inloggning inställningar](./media/logicmonitor-tutorial/ic790054.png "enkel inloggnings-inställningar")
+    ![Enkel inloggning inställningar](./media/logicmonitor-tutorial/ic790054.png "enkel inloggnings-inställningar")
    
-   a. Välj **aktivera enkel inloggning**.
+    a. Välj **aktivera enkel inloggning**.
 
-   b. Som **standard rolltilldelning**väljer **readonly**.
+    b. Som **standard rolltilldelning**väljer **readonly**.
    
-   c. Öppna den hämta metadatafilen i anteckningar och klistra in innehållet i filen till den **identitet providern Metadata** textrutan.
+    c. Öppna den hämta metadatafilen i anteckningar och klistra in innehållet i filen till den **identitet providern Metadata** textrutan.
    
-   d. Klicka på **spara ändringar**.
-
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    d. Klicka på **spara ändringar**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
@@ -188,7 +184,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="creating-a-logicmonitor-test-user"></a>Skapa en LogicMonitor testanvändare
 
-För AAD-användare för att kunna logga in, måste de etableras till programmet LogicMonitor med deras Azure Active Directory-användarnamn.
+För Azure AD-användare för att kunna logga in, måste de etableras till programmet LogicMonitor med deras Azure Active Directory-användarnamn.
 
 **Utför följande steg för att konfigurera användaretablering:**
 
@@ -196,19 +192,19 @@ För AAD-användare för att kunna logga in, måste de etableras till programmet
 
 1. Klicka på menyn längst upp **inställningar**, och klicka sedan på **roller och användare**.
    
-   ![Roller och användare](./media/logicmonitor-tutorial/ic790056.png "roller och användare")
+    ![Roller och användare](./media/logicmonitor-tutorial/ic790056.png "roller och användare")
 
 1. Klicka på **Lägg till**.
 
 1. I den **Lägg till ett konto** avsnittet, utför följande steg:
    
-   ![Lägg till ett konto](./media/logicmonitor-tutorial/ic790057.png "Lägg till ett konto")
+    ![Lägg till ett konto](./media/logicmonitor-tutorial/ic790057.png "Lägg till ett konto")
    
-   a. Skriv den **användarnamn**, **e-post**, **lösenord**, och **ange lösenordet** värden för den Azure Active Directory-användare som du vill etablera i den relaterade textrutor.
+    a. Skriv den **användarnamn**, **e-post**, **lösenord**, och **ange lösenordet** värden för den Azure Active Directory-användare som du vill etablera i den relaterade textrutor.
    
-   b. Välj **roller**, **Visa behörigheter**, och **Status**.
+    b. Välj **roller**, **Visa behörigheter**, och **Status**.
    
-   c. Klicka på **skicka**.
+    c. Klicka på **skicka**.
 
 >[!NOTE]
 >Du kan använda alla andra LogicMonitor användare konto verktyg för att skapa eller API: er som tillhandahålls av LogicMonitor för att etablera Azure Active Directory användarkonton. 
@@ -248,7 +244,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
  
 När du klickar på panelen LogicMonitor i åtkomstpanelen du bör få automatiskt loggat in på ditt LogicMonitor program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

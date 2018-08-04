@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: 9de1811768a7e81f6f8e755b96d5328ce89e7983
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 990fe50cefabed7b63eee177b19ec6d74c9929ab
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442028"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494529"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -72,6 +72,7 @@ ms.locfileid: "39442028"
 [2367194]:https://launchpad.support.sap.com/#/notes/2367194
 
 [azure-cli]:../../../cli-install-nodejs.md
+[azure-cli-2]:https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -922,37 +923,61 @@ Utdata från skriptet innehåller följande information:
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Azure CLI för virtuella Linux-datorer
 Installera Azure förbättrad övervakning av tillägget för SAP med hjälp av Azure CLI:
 
-1. Installera Azure CLI 1.0, enligt beskrivningen i [installera Azure CLI 1.0][azure-cli].
-1. Logga in med ditt Azure-konto:
+1. Installera med hjälp av Azure CLI 1.0
 
-  ```
-  azure login
-  ```
+   1. Installera Azure CLI 1.0, enligt beskrivningen i [installera Azure CLI 1.0][azure-cli].
+   1. Logga in med ditt Azure-konto:
 
-1. Växla till läget Azure Resource Manager:
+      ```
+      azure login
+      ```
 
-  ```
-  azure config mode arm
-  ```
+   1. Växla till läget Azure Resource Manager:
 
-1. Aktivera Azure utökad övervakning:
+      ```
+      azure config mode arm
+      ```
 
-  ```
-  azure vm enable-aem <resource-group-name> <vm-name>
-  ```
+   1. Aktivera Azure utökad övervakning:
+
+      ```
+      azure vm enable-aem <resource-group-name> <vm-name>
+      ```
+
+1. Installera med hjälp av Azure CLI 2.0
+
+   1. Installera Azure CLI 2.0, enligt beskrivningen i [installera Azure CLI 2.0][azure-cli-2].
+   1. Logga in med ditt Azure-konto:
+
+      ```
+      az login
+      ```
+
+   1. Installera Azure CLI-AEM-tillägget
+  
+      ```
+      az extension add --name aem
+      ```
+  
+   1. Installera tillägget med
+  
+      ```
+      az vm aem set -g <resource-group-name> -n <vm name>
+      ```
 
 1. Kontrollera att Azure förbättrad övervakning av tillägget är aktiv på virtuell Linux-dator. Kontrollera om filen \\var\\lib\\AzureEnhancedMonitor\\PerfCounters finns. Om den finns i en kommandotolk kör du följande kommando för att visa information som samlas in av Azure förbättrad Monitor:
-```
-cat /var/lib/AzureEnhancedMonitor/PerfCounters
-```
 
-Utdata ser ut så här:
-```
-2;cpu;Current Hw Frequency;;0;2194.659;MHz;60;1444036656;saplnxmon;
-2;cpu;Max Hw Frequency;;0;2194.659;MHz;0;1444036656;saplnxmon;
-???
-???
-```
+   ```
+   cat /var/lib/AzureEnhancedMonitor/PerfCounters
+   ```
+
+   Utdata ser ut så här:
+   ```
+   ...
+   2;cpu;Current Hw Frequency;;0;2194.659;MHz;60;1444036656;saplnxmon;
+   2;cpu;Max Hw Frequency;;0;2194.659;MHz;0;1444036656;saplnxmon;
+   ...
+   ```
 
 ## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Kontroller och felsökning för övervakning av slutpunkt till slutpunkt
 När du har distribuerat den virtuella Azure-datorn och konfigurera relevanta Azure-övervakning infrastrukturen, kontrollerar du om alla komponenter i Azure förbättrad övervakning tillägg fungerar som förväntat.

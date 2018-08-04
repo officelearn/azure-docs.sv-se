@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 889762ae0b401438f25546738268c584ddd58389
-ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
+ms.openlocfilehash: 88bf82805ba46abf79b7899e0428a83485062302
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "35355734"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504975"
 ---
 # <a name="call-bing-custom-search-endpoint-python"></a>Anropa anpassad sökning i Bing slutpunkt (Python)
 
@@ -34,13 +34,18 @@ Följande krävs för att slutföra den här snabbstarten:
 Följ dessa steg för att anropa Bing Custom Search-slutpunkten:
 
 1. Skapa en mapp för din kod.
+
 2. Navigera till mappen som du nyss skapade från en administratörskommandotolk eller terminal.
+
 3. Installera den **begäranden** python-modulen:
+
     <pre>
     pip install pipenv
     pipenv install requests
     </pre>
+    
 7. Skapa filen BingCustomSearch.py och kopiera följande kod till den.
+
 8. Ersätt **YOUR-SUBSCRIPTION-KEY** och **YOUR-anpassad-CONFIG-ID** med ditt ID för nyckeln och konfigurationsdata (se steg 1).
 
     ``` Python

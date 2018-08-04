@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 741affee9d073cd282be4ee7e30dfd7a1a0ff45d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3ec6bbcb9250626f8d6ef75330991c5ebac053a7
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426279"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504725"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 > [!IMPORTANT]
@@ -60,7 +60,7 @@ Azure AD Graph API: et tillhandahåller följande funktioner:
 Azure AD Graph API gör det möjligt för många scenarier för programmet. Följande scenarion är de vanligaste:
 
 * **Verksamhetsspecifika affärsprogram (enskild klient)**: I det här scenariot företagsutvecklare fungerar för en organisation som har en Office 365-prenumeration. Utvecklaren är att skapa ett webbprogram som interagerar med Azure AD för att utföra uppgifter som att tilldela en licens till en användare. Den här uppgiften kräver åtkomst till Azure AD Graph API, så att utvecklare registreras enskild klient-programmet i Azure AD och konfigurerar Läs- och skrivbehörighet för Azure AD Graph API. Programmet konfigureras sedan för att använda sina egna autentiseringsuppgifter eller den av den för närvarande inloggning för att hämta en token för att anropa Azure AD Graph API.
-* **Programvara som en tjänst (flera innehavare)**: I det här scenariot en oberoende programvaruleverantör (ISV) utvecklingen av ett program för värdbaserade webbprogram för flera innehavare som tillhandahåller funktioner för användarhantering för andra organisationer som använder Azure AD. De här funktionerna kräver åtkomst till katalogobjekt, så programmet måste anropa Azure AD Graph API. Utvecklaren registrerar programmet i Azure AD konfigureras för kräver Läs- och skrivbehörighet för Azure AD Graph API och aktiverar sedan extern åtkomst så att andra organisationer kan godkänna att använda programmet i sin katalog. När en användare i en annan organisation autentiseras till programmet för första gången, visas en dialogruta för medgivande med de behörigheter som programmet begär. Ge ditt medgivande sedan ger programmet begärda de behörigheter till Azure AD Graph API i användarens katalog. Mer information om ramverket för medgivande finns [översikt över ramverket för medgivande](active-directory-integrating-applications.md).
+* **Programvara som en tjänst (flera innehavare)**: I det här scenariot en oberoende programvaruleverantör (ISV) utvecklingen av ett program för värdbaserade webbprogram för flera innehavare som tillhandahåller funktioner för användarhantering för andra organisationer som använder Azure AD. De här funktionerna kräver åtkomst till katalogobjekt, så programmet måste anropa Azure AD Graph API. Utvecklaren registrerar programmet i Azure AD konfigureras för kräver Läs- och skrivbehörighet för Azure AD Graph API och aktiverar sedan extern åtkomst så att andra organisationer kan godkänna att använda programmet i sin katalog. När en användare i en annan organisation autentiseras till programmet för första gången, visas en dialogruta för medgivande med de behörigheter som programmet begär. Ge ditt medgivande sedan ger programmet begärda de behörigheter till Azure AD Graph API i användarens katalog. Mer information om ramverket för medgivande finns [översikt över ramverket för medgivande](quickstart-v1-integrate-apps-with-azure-ad.md).
 
 ## <a name="see-also"></a>Se även
 [Snabbstartsguide för Azure AD Graph API](active-directory-graph-api-quickstart.md)

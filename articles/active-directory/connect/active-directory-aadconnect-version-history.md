@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6ca32d51a52cf636b1c41667e20872cfe49fa7e2
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a82cae05bfd11145a1415494908679748870f680
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390161"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494497"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -41,7 +41,7 @@ Ladda ned | [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 
 ### <a name="release-status"></a>Versionsstatus
 
-7/20/2018: släppts för automatisk uppgradering. Versionen för att ladda ned följer inom kort.
+7/20/2018: publicerat om hämtning och automatisk uppgradering. Automatisk uppgraderingsprocessen pågår fortfarande.
 
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 

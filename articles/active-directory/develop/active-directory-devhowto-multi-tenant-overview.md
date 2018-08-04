@@ -17,12 +17,12 @@ ms.date: 04/27/2018
 ms.author: celested
 ms.reviewer: elisol
 ms.custom: aaddev
-ms.openlocfilehash: 9b4bc6c625c19504afd636d8396aa11e37947e30
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cc03f102a590e03538280efaccc23dfb1a05210f
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430424"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504829"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Så här loggar du in alla Azure Active Directory-användare med programmönstret för flera innehavare
 Om du erbjuder en programvara som en tjänst för många organisationer, kan du konfigurera ditt program att godkänna inloggningar från alla Azure Active Directory (AD)-klient. Den här konfigurationen kallas för att göra dina program med flera innehavare. Användare i alla Azure AD-klient kommer att kunna logga in till programmet efter medgivandedialogen använda sitt konto med ditt program. 
@@ -109,7 +109,7 @@ Den här samtycke upplevelsen påverkas av de behörigheter som begärdes av pro
 
 Vissa behörigheter kan vara godkänts av en vanlig användare, medan andra kräver en Innehavaradministratör medgivande. 
 
-### <a name="admin-consent"></a>Administratörens godkännande
+### <a name="admin-consent"></a>Administratörsmedgivande
 Appspecifika behörigheter kräver alltid en Innehavaradministratör godkännande. Om ditt program begär en appspecifik behörighet och en användare försöker logga in på programmet, visas ett felmeddelande visas om användaren inte kan godkänna.
 
 Vissa delegerade behörigheter kräver också en Innehavaradministratör godkännande. Till exempel kräver möjligheten att skriva tillbaka till Azure AD som den inloggade användaren en Innehavaradministratör medgivande. Som appspecifika behörigheter får ditt program ett fel om en vanlig användare försöker logga in till ett program som begär en delegerad behörighet som kräver administratörens godkännande. Om en behörighet kräver administratörens godkännande bestäms av utvecklaren som publiceras till resursen och finns i dokumentationen för resursen. I dokumentationen för behörigheter för den [Azure AD Graph API] [ AAD-Graph-Perm-Scopes] och [Microsoft Graph API] [ MSFT-Graph-permision-scopes] anger vilka behörigheter kräver administratör ditt medgivande.
@@ -181,12 +181,12 @@ I den här artikeln beskrivs hur du skapar en App som kan logga in en användare
 [AAD-App-Branding]: ./active-directory-branding-guidelines.md
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
 [AAD-App-SP-Objects]: ./active-directory-application-objects.md
-[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
-[AAD-Consent-Overview]: ./active-directory-integrating-applications.md#overview-of-the-consent-framework
+[AAD-Auth-Scenarios]:authentication-scenarios.md
+[AAD-Consent-Overview]:quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Graph-Overview]: https://azure.microsoft.com/documentation/articles/active-directory-graph-api/
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
-[AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
+[AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
@@ -202,8 +202,8 @@ I den här artikeln beskrivs hur du skapar en App som kan logga in en användare
 <!--Reference style links -->
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
 [AAD-App-SP-Objects]: ./active-directory-application-objects.md
-[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
-[AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
+[AAD-Auth-Scenarios]:authentication-scenarios.md
+[AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity

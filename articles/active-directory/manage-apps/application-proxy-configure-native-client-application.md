@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 589cf1d297a335c36725917dd7012d877d1dcaeb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 85a7b133655a3b1e4ca60c28e695e3057b293fdc
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363085"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504523"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Så här aktiverar du ursprungliga klientappar kan interagera med proxy-program
 
@@ -30,7 +30,7 @@ Ursprungliga klientappar av tar emot Azure AD som utfärdade token som skickas i
 
 ![Förhållandet mellan användare och Azure Active Directory publicerade program](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Använd Azure AD Authentication Library, som tar hand om autentisering och har stöd för många klientmiljöer att publicera interna program. Programproxy passar in i den [internt program för webb-API-scenario](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api). 
+Använd Azure AD Authentication Library, som tar hand om autentisering och har stöd för många klientmiljöer att publicera interna program. Programproxy passar in i den [internt program för webb-API-scenario](../develop/authentication-scenarios.md#native-application-to-web-api). 
 
 Den här artikeln vägleder dig igenom fyra stegen för att publicera ett internt program med Application Proxy och Azure AD-Autentiseringsbiblioteket. 
 
@@ -48,7 +48,7 @@ Konfigurera ditt interna program enligt följande:
    ![Skapa en ny appregistrering](./media/application-proxy-configure-native-client-application/create.png)
 5. Välj **Skapa**.
 
-Mer information om hur du skapar en ny appregistrering finns [integrera program med Azure Active Directory](./../develop/active-directory-integrating-applications.md).
+Mer information om hur du skapar en ny appregistrering finns [integrera program med Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 
 ## <a name="step-3-grant-access-to-other-applications"></a>Steg 3: Bevilja åtkomst till andra program
@@ -96,6 +96,6 @@ När ADAL har redigerats med följande parametrar måste kunna användarna auten
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om flödet internt program finns i [internt program till webb-API](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
+Mer information om flödet internt program finns i [internt program till webb-API](../develop/authentication-scenarios.md#native-application-to-web-api)
 
 Läs om hur du konfigurerar [enkel inloggning för Application Proxy](application-proxy-single-sign-on.md)

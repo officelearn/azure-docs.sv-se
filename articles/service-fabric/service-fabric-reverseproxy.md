@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: bec2e443b920a1f163b7b328197d3688d207ed35
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 521a7b90b971ff3ba867945a4713b1f6dc8dbebc
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309127"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503527"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Omvänd proxy i Azure Service Fabric
 Omvänd proxy som är inbyggda i Azure Service Fabric hjälper mikrotjänster som körs i ett Service Fabric-kluster identifiera och kommunicera med andra tjänster som har http-slutpunkter.
@@ -146,184 +146,23 @@ Omvänd proxy innebär behöver ett sätt att skilja mellan dessa två metoder. 
 
 Den här HTTP-Svarsrubrik visar en normal HTTP 404-situation där den begärda resursen finns inte och den omvända proxyn inte kommer att matcha tjänstadressen igen.
 
-## <a name="setup-and-configuration"></a>Installation och konfiguration
+## <a name="special-handling-for-services-running-in-containers"></a>Särskild hantering för tjänster som körs i behållare
 
-### <a name="enable-reverse-proxy-via-azure-portal"></a>Aktivera omvänd proxy via Azure-portalen
+För tjänster som körs i behållare, kan du använda miljövariabeln, `Fabric_NodeIPOrFQDN` att konstruera den [omvänd proxy-URL: en](#uri-format-for-addressing-services-by-using-the-reverse-proxy) som i följande kod:
 
-Azure portal innehåller ett alternativ för att aktivera omvänd proxy när du skapar en ny Service Fabric-kluster.
-Under **skapa Service Fabric-kluster**, steg 2: klusterkonfiguration, konfiguration av nodtyp, markera kryssrutan för att ”aktivera omvänd proxy”.
-För att konfigurera säker omvänd proxy SSL-certifikatet kan anges i steg3: säkerhet, konfigurera säkerhetsinställningar för klustret, markera kryssrutan för att ”inkludera ett SSL-certifikat för omvänd proxy” och ange information om certifikat.
-
-### <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>Aktivera omvänd proxy via Azure Resource Manager-mallar
-
-Du kan använda den [Azure Resource Manager-mall](service-fabric-cluster-creation-via-arm.md) att aktivera omvänd proxy i Service Fabric för klustret.
-
-Referera till [konfigurera HTTPS omvänd Proxy i ett säkert kluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) för Azure Resource Manager-mallexempel konfigurera säker omvänd proxy med förnya ett certifikat och hantering av certifikatet.
-
-Först måste hämta du mallen för det kluster som du vill distribuera. Du kan använda exempelmallarna, eller så kan du skapa en egen Resource Manager-mall. Sedan kan du aktivera omvänd proxy med hjälp av följande steg:
-
-1. Definiera en port för omvänd proxy i den [parameteravsnittet](../azure-resource-manager/resource-group-authoring-templates.md) för mallen.
-
-    ```json
-    "SFReverseProxyPort": {
-        "type": "int",
-        "defaultValue": 19081,
-        "metadata": {
-            "description": "Endpoint for Service Fabric Reverse proxy"
-        }
-    },
-    ```
-2. Ange port för varje nodetype objekten i den **kluster** [typ avsnittet](../azure-resource-manager/resource-group-authoring-templates.md).
-
-    Porten som identifieras av parameternamn, reverseProxyEndpointPort.
-
-    ```json
-    {
-        "apiVersion": "2016-09-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        ...
-       "nodeTypes": [
-          {
-           ...
-           "reverseProxyEndpointPort": "[parameters('SFReverseProxyPort')]",
-           ...
-          },
-        ...
-        ],
-        ...
-    }
-    ```
-3. Konfigurera Azure Load Balancer-regler för en port som du angav i steg 1 för att åtgärda den omvända proxyn från utanför Azure-kluster.
-
-    ```json
-    {
-        "apiVersion": "[variables('lbApiVersion')]",
-        "type": "Microsoft.Network/loadBalancers",
-        ...
-        ...
-        "loadBalancingRules": [
-            ...
-            {
-                "name": "LBSFReverseProxyRule",
-                "properties": {
-                    "backendAddressPool": {
-                        "id": "[variables('lbPoolID0')]"
-                    },
-                    "backendPort": "[parameters('SFReverseProxyPort')]",
-                    "enableFloatingIP": "false",
-                    "frontendIPConfiguration": {
-                        "id": "[variables('lbIPConfig0')]"
-                    },
-                    "frontendPort": "[parameters('SFReverseProxyPort')]",
-                    "idleTimeoutInMinutes": "5",
-                    "probe": {
-                        "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
-                    },
-                    "protocol": "tcp"
-                }
-            }
-        ],
-        "probes": [
-            ...
-            {
-                "name": "SFReverseProxyProbe",
-                "properties": {
-                    "intervalInSeconds": 5,
-                    "numberOfProbes": 2,
-                    "port":     "[parameters('SFReverseProxyPort')]",
-                    "protocol": "tcp"
-                }
-            }  
-        ]
-    }
-    ```
-4. Om du vill konfigurera SSL-certifikat på porten för omvänd proxy, lägga till certifikatet till den ***reverseProxyCertificate*** -egenskapen i den **kluster** [typ avsnittet](../resource-group-authoring-templates.md) .
-
-    ```json
-    {
-        "apiVersion": "2016-09-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        "dependsOn": [
-            "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
-        ],
-        "properties": {
-            ...
-            "reverseProxyCertificate": {
-                "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
-                "x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
-            },
-            ...
-            "clusterState": "Default",
-        }
-    }
-    ```
-
-### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Stöd för ett certifikat för omvänd proxy som skiljer sig från klustercertifikatet
- Om certifikatet för omvänd proxy skiljer sig från det certifikat som skyddar klustret, bör sedan det tidigare angivna certifikatet vara installerad på den virtuella datorn och läggs till åtkomstkontrollistan (ACL) så att Service Fabric kan komma åt den. Detta kan göras den **virtualMachineScaleSets** [typ avsnittet](../resource-group-authoring-templates.md). Lägga till certifikatet till osProfile för installation. Tillägget avsnitt i mallen kan uppdatera certifikatet i Åtkomstkontrollistan.
-
-  ```json
-  {
-    "apiVersion": "[variables('vmssApiVersion')]",
-    "type": "Microsoft.Compute/virtualMachineScaleSets",
-    ....
-      "osProfile": {
-          "adminPassword": "[parameters('adminPassword')]",
-          "adminUsername": "[parameters('adminUsername')]",
-          "computernamePrefix": "[parameters('vmNodeType0Name')]",
-          "secrets": [
-            {
-              "sourceVault": {
-                "id": "[parameters('sfReverseProxySourceVaultValue')]"
-              },
-              "vaultCertificates": [
-                {
-                  "certificateStore": "[parameters('sfReverseProxyCertificateStoreValue')]",
-                  "certificateUrl": "[parameters('sfReverseProxyCertificateUrlValue')]"
-                }
-              ]
-            }
-          ]
-        }
-   ....
-   "extensions": [
-          {
-              "name": "[concat(parameters('vmNodeType0Name'),'_ServiceFabricNode')]",
-              "properties": {
-                      "type": "ServiceFabricNode",
-                      "autoUpgradeMinorVersion": false,
-                      ...
-                      "publisher": "Microsoft.Azure.ServiceFabric",
-                      "settings": {
-                        "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
-                        "nodeTypeRef": "[parameters('vmNodeType0Name')]",
-                        "dataPath": "D:\\\\SvcFab",
-                        "durabilityLevel": "Bronze",
-                        "testExtension": true,
-                        "reverseProxyCertificate": {
-                          "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
-                          "x509StoreName": "[parameters('sfReverseProxyCertificateStoreValue')]"
-                        },
-                  },
-                  "typeHandlerVersion": "1.0"
-              }
-          },
-      ]
-    }
-  ```
-> [!NOTE]
-> När du använder certifikat som skiljer sig från klustercertifikat för att aktivera omvänd proxy i ett befintligt kluster, installera certifikatet för omvänd proxy och uppdatera ACL i klustret innan du aktiverar omvänd proxy. Slutför den [Azure Resource Manager-mall](service-fabric-cluster-creation-via-arm.md) distribution med hjälp av inställningarna som vi nämnde tidigare innan du startar en distribution för att aktivera omvänd proxy i steg 1 – 4.
+```csharp
+    var fqdn = Environment.GetEnvironmentVariable("Fabric_NodeIPOrFQDN");
+    var serviceUrl = $"http://{fqdn}:19081/DockerSFApp/UserApiContainer";
+```
+För det lokala klustret `Fabric_NodeIPOrFQDN` är inställd på ”localhost” som standard. Starta det lokala klustret med den `-UseMachineName` parametern för att kontrollera behållare kan nå omvänd proxy som körs på noden. Mer information finns i [konfigurerar utvecklarmiljön för att felsöka behållare](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers).
 
 ## <a name="next-steps"></a>Nästa steg
+* [Installera och konfigurera omvänd proxy i ett kluster](service-fabric-reverseproxy-setup.md).
+* [Konfigurera vidarebefordran till säker HTTP-tjänsten med omvänd proxy](service-fabric-reverseproxy-configure-secure-communication.md)
 * Se ett exempel på HTTP-kommunikation mellan tjänster i en [exempelprojektet på GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
-* [Vidarebefordran till säker HTTP-tjänsten med omvänd proxy](service-fabric-reverseproxy-configure-secure-communication.md)
 * [RPC-anrop med Reliable Services-fjärrkommunikation](service-fabric-reliable-services-communication-remoting.md)
 * [Webb-API som använder OWIN i Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [WCF-kommunikation med Reliable Services](service-fabric-reliable-services-communication-wcf.md)
-* Ytterligare omvänd proxy konfigurationsalternativ finns i ApplicationGateway/Http-avsnittet i [anpassa Service Fabric-klusterinställningar](service-fabric-cluster-fabric-settings.md).
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png

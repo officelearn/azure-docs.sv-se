@@ -1,19 +1,19 @@
 ---
-title: Hantera leveransinställningar för Azure Event Grid-prenumerationer
-description: Beskriver hur du anpassar händelse Leveransalternativ för Event Grid.
+title: Obeställbara meddelanden och principer för återförsök för Azure Event Grid-prenumerationer
+description: Beskriver hur du anpassar händelse Leveransalternativ för Event Grid. Ange ett mål för förlorade och ange hur lång tid att försöka igen leverans.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0e575d668e28be52ee4ca61226693122304c7ea0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5a37fadc179157ba590b31a79fcd98f223cb1869
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441366"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39501957"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Obeställbara meddelanden och principer för återförsök
 
@@ -25,9 +25,9 @@ När du skapar en händelseprenumeration kan anpassa du inställningarna för h�
 
 När Event Grid inte kan skicka en händelse, kan den skicka händelsen inte har levererats till ett lagringskonto. Den här processen kallas dead-lettering. Som standard Aktivera inte Event Grid dead-lettering. Du måste ange ett lagringskonto för att lagra felande händelser när du skapar händelseprenumerationen för att aktivera den. Du hämtar händelser från det här lagringskontot för att lösa leveranser.
 
-Event Grid skickar en händelse till förlorade platsen om det har försökt alla dess återförsök, eller om den får ett felmeddelande som anger leverans aldrig lyckas. Till exempel om Event Grid tar emot ett felaktigt format-fel när du ska leverera en händelse, skickar den omedelbart händelsen till förlorade plats.
+Event Grid skickar en händelse till förlorade platsen om det har försökt alla dess återförsök, eller om den får ett felmeddelande som anger leverans aldrig lyckas. Om Event Grid tar emot ett felaktigt format-fel när du ska leverera en händelse, skickar den till exempel händelsen till platsen för obeställbara meddelanden. Det finns en fördröjning på fem minuter mellan det senaste försöket att leverera en händelse och när de skickas till platsen för obeställbara meddelanden. Den här fördröjningen är avsedd att minska de antal åtgärderna som Blob storage. Om den förlorade platsen är inte tillgängligt i fyra timmar, har händelsen släppts.
 
-Du måste ha ett lagringskonto med en behållare för innan du anger systemkön plats. Du kan ange slutpunkten för den här behållaren när du skapar händelseprenumerationen. Slutpunkten är i formatet: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
+Innan du anger platsen för förlorade måste du ha ett lagringskonto med en behållare. Du kan ange slutpunkten för den här behållaren när du skapar händelseprenumerationen. Slutpunkten är i formatet: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
 Följande skript hämtar resurs-ID för ett befintligt lagringskonto och skapas en händelseprenumeration som använder en behållare i det lagringskontot för förlorade-slutpunkten.
 
@@ -55,7 +55,9 @@ Om du vill inaktivera dead-lettering, kör kommandot för att skapa händelsepre
 
 ## <a name="set-retry-policy"></a>Ange återförsöksprincipen
 
-När du skapar en Event Grid-prenumeration kan ange du värden för hur länge Event Grid bör försöka leverera händelsen. Event Grid som standard försöker i 24 timmar (1 440 minuter) och försöker upp till 30 gånger. Du kan ange något av dessa värden för event grid-prenumeration.
+När du skapar en Event Grid-prenumeration kan ange du värden för hur länge Event Grid bör försöka leverera händelsen. Event Grid som standard försöker i 24 timmar (1 440 minuter) och försöker upp till 30 gånger. Du kan ange något av dessa värden för event grid-prenumeration. Värdet för time to live-händelse måste vara ett heltal mellan 1 och 1440. Värdet för maximal leveransförsök måste vara ett heltal mellan 1 och 30.
+
+Du kan inte konfigurera den [återförsöksintervall](delivery-and-retry.md#retry-intervals-and-duration).
 
 För att ange händelsen time-to-live för ett annat värde än 1 440 minuter, använder du:
 

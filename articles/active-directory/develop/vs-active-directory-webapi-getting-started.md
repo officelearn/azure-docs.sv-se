@@ -1,6 +1,6 @@
 ---
 title: Kom igång med Azure AD i Visual Studio-WebApi-projekt
-description: Hur du kommer igång med Azure Active Directory i WebApi projekt när du ansluter till eller skapa en Azure AD med hjälp av Visual Studio anslutna tjänster
+description: Hur du kommer igång med Azure Active Directory i WebApi-projekt när du ansluter till eller skapa en Azure AD med hjälp av Visual Studio-anslutna tjänster
 services: active-directory
 author: ghogen
 manager: douge
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: 109de9fb78ae3abfc09a37c6b8cb38c554f7613c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 6ddc1e8f7520135092eefbcbf2b4a2b3f1026e66
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31784524"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494721"
 ---
 # <a name="get-started-with-azure-active-directory-webapi-projects"></a>Kom igång med Azure Active Directory (WebApi-projekt)
 
@@ -25,15 +25,15 @@ ms.locfileid: "31784524"
 > - [Komma igång](vs-active-directory-webapi-getting-started.md)
 > - [Vad hände](vs-active-directory-webapi-what-happened.md)
 
-Den här artikeln innehåller ytterligare vägledning när du har lagt till Active Directory till ett ASP.NET-WebAPI-projekt i den **Project > Connected Services** kommandot av Visual Studio. Om du inte redan har lagt till tjänsten till ditt projekt kan du göra det när som helst.
+Den här artikeln innehåller ytterligare vägledning när du har lagt till Active Directory till ett ASP.NET-WebAPI-projekt i den **projekt > Connected Services** kommandot av Visual Studio. Om du inte redan har lagt till tjänsten i projektet kan du göra det när som helst.
 
-Se [vad hände med WebAPI projektet?](vs-active-directory-webapi-what-happened.md) för ändringar i ditt projekt när du lägger till tjänsten anslutna.
+Se [vad hände med mitt WebAPI-projekt?](vs-active-directory-webapi-what-happened.md) för ändringar som görs i ditt projekt när du lägger till den anslutna tjänsten.
 
-## <a name="requiring-authentication-to-access-controllers"></a>Kräva autentisering till access-domänkontrollanter
+## <a name="requiring-authentication-to-access-controllers"></a>Som kräver autentisering till åtkomst domänkontrollanter
 
-Alla domänkontrollanter i ditt projekt har adorned med den `[Authorize]` attribut. Det här attributet kräver att användaren autentiseras innan du använder API: er som definieras av dessa domänkontrollanter. Ta bort skrivskyddsattributet från styrenheten för att tillåta att kontrollanten kan användas anonymt. Om du vill ange behörigheter på en mer detaljerad nivå gäller attributet för varje metod som kräver tillstånd i stället för att tillämpas på klassen domänkontrollant.
+Alla domänkontrollanter i ditt projekt har adorned med den `[Authorize]` attribut. Det här attributet kräver att användaren autentiseras innan du använder API: er som definieras av dessa domänkontrollanter. Ta bort skrivskyddsattributet från kontrollanten för att tillåta den kontrollenheten för att användas anonymt. Om du vill ange behörigheter på en mer detaljerad nivå gäller attributet för varje metod som kräver auktorisering i stället för den tillämpas på klassen controller.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Autentiseringsscenarier för Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Lägga till inloggning med Microsoft till ett ASP.NET-webbprogram](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Autentiseringsscenarier för Azure Active Directory](authentication-scenarios.md)
+- [Lägga till logga in med Microsoft i en ASP.NET-webbapp](quickstart-v1-aspnet-webapp.md)

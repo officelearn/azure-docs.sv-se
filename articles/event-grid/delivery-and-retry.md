@@ -1,57 +1,56 @@
 ---
-title: Azure händelse rutnätet leverans och försök igen
-description: Beskriver hur Azure händelse rutnätet ger händelser och hur den hanterar felande meddelanden.
+title: Azure Event Grid leverans och försök igen
+description: Beskriver hur Azure Event Grid ger händelser och hur den hanterar inte har meddelanden.
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 83852917909d13555e7a0a339d2ecc805eeead42
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 189484291dd337535fe6988f919326b6e997b290
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625805"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39506292"
 ---
-# <a name="event-grid-message-delivery-and-retry"></a>Händelsen rutnätet meddelandeleverans och försök igen 
+# <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelandeleverans och försök igen 
 
-Den här artikeln beskrivs hur Azure händelse rutnätet hanterar händelser när leverans inte bekräftas.
+Den här artikeln beskriver hur Azure Event Grid hanterar händelser när leverans inte bekräftas.
 
-Händelsen rutnätet innehåller varaktiga leverans. Den ger varje meddelande minst en gång för varje prenumeration. Händelser skickas direkt till registrerade webhooken för varje prenumeration. Om en webhook inte bekräfta mottagandet av en händelse inom 60 sekunder från det första försöket leverans, försöker händelse rutnätet leverans av händelsen. 
+Event Grid förser varaktiga. Du får varje meddelande minst en gång för varje prenumeration. Händelser skickas direkt till registrerade webhooken till varje prenumeration. Om en webhook inte igen mottagande av en händelse inom 60 sekunder från den första leveransförsök försöker Event Grid leverans av händelsen. 
 
-För närvarande skickar händelse rutnätet varje händelse individuellt till prenumeranter. Prenumeranten tar emot en matris med en enskild händelse.
+För närvarande skickar Event Grid varje händelse individuellt till prenumeranter. Prenumeranten tar emot en matris med en enda händelse.
 
-## <a name="message-delivery-status"></a>Status för leverans av meddelande
+## <a name="message-delivery-status"></a>Leveransstatus för meddelande
 
-Händelsen rutnätet använder HTTP-svarskoder för att bekräfta mottagandet av händelser. 
+Event Grid använder HTTP-svarskoder för att bekräfta mottagandet av händelser. 
 
 ### <a name="success-codes"></a>Lyckade koder
 
-Följande koder för HTTP-svaret anger att en händelse har har levererats till din webhooken. Händelsen rutnätet anser leverans slutförd.
+Följande HTTP-svarskoder indikerar att en händelse har har levererats till din webhook. Event Grid anser att leveransen är klar.
 
 - 200 OK
-- 202 godkända
+- 202-accepterad
 
 ### <a name="failure-codes"></a>Felkoder
 
-Följande HTTP-svarskoder indikera att en händelse leverans försök misslyckades. 
+Följande HTTP-svarskoder tyda på att en händelse leveransförsök misslyckades. 
 
 - 400 Felaktig förfrågan
-- 401 obehörig
+- 401 Ej behörig
 - 404 Hittades inte
-- 408 begäran-timeout
+- 408 timeout för begäran
 - 414 URI för lång
 - 500 Internt serverfel
 - 503 Tjänsten är inte tillgänglig
 - 504 Gateway-timeout
 
-Om händelsen rutnät får ett felmeddelande som anger att den är inte tillgänglig, försöker den igen skicka händelsen. 
+Om Event Grid tar emot ett fel som anger slutpunkten är inte tillgänglig för tillfället, försöker den igen skicka händelsen. Om Event Grid tar emot ett fel som anger leveransen aldrig lyckas och [förlorade slutpunkten har konfigurerats](manage-event-delivery.md), skickas händelsen till slutpunkten för obeställbara meddelanden. 
 
-## <a name="retry-intervals-and-duration"></a>Återförsöksintervall och varaktighet
+## <a name="retry-intervals-and-duration"></a>Intervall för återförsök och varaktighet
 
-Händelsen rutnätet använder en exponentiell backoff i principen för leverans av händelsen. Om din webhook svarar inte eller returnerar en felkod, försöker händelse rutnätet leverans enligt följande schema:
+Event Grid använder en exponentiell backoff återförsöksprincipen för händelseleverans. Om din webhook inte svarar eller returnerar en felkod, försöker Event Grid leverans enligt följande schema:
 
 1. 10 sekunder
 2. 30 sekunder
@@ -61,12 +60,17 @@ Händelsen rutnätet använder en exponentiell backoff i principen för leverans
 6. 30 minuter
 7. 1 timme
 
-Händelsen rutnätet lägger till en liten slumpmässig alla återförsöksintervall. Efter en timme försöks händelse leverans en gång i timmen.
+Event Grid lägger till en liten slumpmässig i alla återförsöksinterval. Efter en timme görs händelseleverans en gång i timmen.
 
-Händelsen rutnätet slutar att leverera alla händelser som inte levereras inom 24 timmar.
+Som standard Event Grid upphör att gälla alla händelser som inte levereras inom 24 timmar. Du kan [anpassa återförsöksprincipen](manage-event-delivery.md) när du skapar en händelseprenumeration. Ange det maximala antalet leveransförsök (standardvärdet är 30) och händelsen time to live (standardvärdet är 1 440 minuter).
+
+## <a name="dead-letter-events"></a>Förlorade händelser
+
+När Event Grid inte kan skicka en händelse, kan den skicka händelsen inte har levererats till ett lagringskonto. Den här processen kallas dead-lettering. Om du vill se händelser som inte har kan du hämta dem från förlorade plats. Mer information finns i [död enhetsbokstaven och återförsöksprinciper](manage-event-delivery.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill visa status för händelse leveranser [övervakaren händelse rutnätet meddelandeleverans](monitor-event-delivery.md).
+* Om du vill visa status för händelsen leveranser, se [övervaka Event Grid meddelandeleverans](monitor-event-delivery.md).
+* Om du vill anpassa Leveransalternativ för händelsen, se [hantera Event Grid leveransinställningar](manage-event-delivery.md).
 * En introduktion till Event Grid finns i [Om Event Grid](overview.md).
-* Om du vill komma igång snabbt med hjälp av händelse rutnätet kan se [skapa och flöde anpassade händelser med Azure händelse rutnätet](custom-event-quickstart.md).
+* Kom igång snabbt med Event Grid, se [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).

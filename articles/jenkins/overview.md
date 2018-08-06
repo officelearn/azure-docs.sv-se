@@ -1,54 +1,50 @@
 ---
 title: Översikt över Jenkins och Azure | Microsoft Docs
-description: Värd Jenkins skapa och distribuera automationsserver i Azure och använda Azure beräkning och lagring-resurser för att utöka din kontinuerlig integrering och distribution (CI/CD) pipelines.
-services: jenkins
-author: rloutlaw
-manager: justhe
-ms.service: jenkins
-ms.devlang: NA
-ms.topic: article
-ms.workload: na
-ms.date: 08/22/2017
-ms.author: routlaw
-ms.custom: mvc
-ms.openlocfilehash: ca4a6cb886b0453848dc7b29e15de2063878a65d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+description: Använd Azure som värd för en Jenkins-automationsserver för versions- och distributionshantering och använd Azures beräknings- och lagringsresurser för att utöka dina kontinuerliga pipelines för integration och distribution (CI/CD).
+ms.topic: overview
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/25/2018
+ms.openlocfilehash: ecb4ea7aee005cb539910b2cb25f0b84de7ba510
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30832681"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281563"
 ---
 # <a name="azure-and-jenkins"></a>Azure och Jenkins
 
-[Jenkins](https://jenkins.io/) är en populär öppen källkod automation-server som används för att ställa in kontinuerlig integration och leverans (CI/CD) till programvara-projekt. Du kan vara värd för distributionen Jenkins i Azure eller utöka din befintliga Jenkins konfigurationen med hjälp av Azure-resurser. Jenkins plugin-program finns även att förenkla CI/CD-program till Azure.
+[Jenkins](https://jenkins.io/) är en populär automationsserver med öppen källkod för hantering av kontinuerlig integration och leverans (CI/CD) i programvaruprojekt. Du kan använda Azure som värd för din Jenkins-distribution eller utöka din befintliga Jenkins-konfiguration med hjälp av Azure-resurser. Du har också tillgång till Jenkins-plugin-program som underlättar den kontinuerliga integrationen och leveransen för dina program till Azure.
 
-Den här artikeln ger en introduktion till Azure med Jenkins, med information om grundläggande Azure funktioner tillgängliga för Jenkins användare. Om du vill komma igång med din egen Jenkins server i Azure, finns våra [quickstart](install-jenkins-solution-template.md).
+Den här artikeln är en introduktion till Azure med Jenkins och beskriver de viktigaste Azure-funktioner som är tillgängliga för Jenkins-användare. Vår [snabbstart](install-jenkins-solution-template.md) hjälper dig att komma igång med din egen Jenkins-server i Azure.
 
-## <a name="host-your-jenkins-servers-in-azure"></a>Värd för dina Jenkins servrar i Azure
+## <a name="host-your-jenkins-servers-in-azure"></a>Använda Azure som värd för Jenkins-servrar
 
-Värden Jenkins i Azure för att centralisera build-automation och skala distributionen när behoven i din programprojekt växer. Du kan distribuera Jenkins i Azure med hjälp:
+Med Azure som värd för dina Jenkins-servrar kan du centralisera versionsautomatiseringen och skala distributionen i takt med att behoven för dina programvaruprojekt ökar. Du kan distribuera Jenkins i Azure med hjälp av:
  
-- [Lösningsmall Jenkins](install-jenkins-solution-template.md) i Azure Marketplace.
-- [Virtuella Azure-datorer](/azure/virtual-machines/linux/overview). Se vår [kursen](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) att skapa en Jenkins-instans på en virtuell dator.
-- På en Kubernetes kluster som körs i [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), finns våra [anvisningar](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
+- [Jenkins-lösningsmallen](install-jenkins-solution-template.md) på Azure Marketplace.
+- [Virtuella Azure-datorer](/azure/virtual-machines/linux/overview). Anvisningar som beskriver hur du skapar en Jenkins-instans på en virtuell dator finns i vår [självstudie](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd).
+- Läs vår [instruktionsartikel](/azure/container-service/kubernetes/container-service-kubernetes-jenkins) som beskriver ett Kubernetes-kluster som körs i [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough).
 
-Övervaka och hantera din Azure Jenkins med [logganalys](/azure/log-analytics/log-analytics-overview) och [Azure CLI](/cli/azure).
+Övervaka och hantera Azure Jenkins-distributionen med [Log Analytics](/azure/log-analytics/log-analytics-overview) och [Azure CLI](/cli/azure).
 
-## <a name="scale-your-build-automation-on-demand"></a>Skala build-automation på begäran
+## <a name="scale-your-build-automation-on-demand"></a>Skala versionsautomatiseringen på begäran
 
-Lägg till build-agenter till befintliga Jenkins distributionen för att skala din Jenkins build kapacitet som antalet versioner och komplexiteten i dina jobb och pipelines öka. Du kan köra dessa bygga agenter på virtuella Azure-datorer med hjälp av den [plugin-program för Azure VM agenter](jenkins-azure-vm-agents.md). Se vår [kursen](/azure/jenkins/jenkins-azure-vm-agents) för mer information.
+Lägg till versionsagenter i din befintliga Jenkins-distribution och skala upp Jenkins-versionshanteringen i takt med att antalet versioner och komplexiteten i dina jobb och pipelines ökar. Du kan köra dessa versionsagenter på virtuella datorer i Azure med hjälp av [plugin-programmet för VM-agenter i Azure](jenkins-azure-vm-agents.md). Se vår [självstudie](/azure/jenkins/jenkins-azure-vm-agents) för mer information.
 
-En gång konfigurerats med en [Azure tjänstens huvudnamn](/azure/azure-resource-manager/resource-group-overview), Jenkins jobb och pipelines kan använda dessa autentiseringsuppgifter för att:
+När de har konfigurerats med ett [Azure-tjänstobjekt](/azure/azure-resource-manager/resource-group-overview) kan Jenkins-jobb och Jenkins-pipelines använda den här informationen för att:
 
-- Lagra och arkivera bygga artefakter [Azure Storage](/azure/storage/common/storage-introduction) med hjälp av den [plugin-program för Azure Storage](https://plugins.jenkins.io/windows-azure-storage). Granska de [Jenkins lagring anvisningar](/azure/storage/common/storage-java-jenkins-continuous-integration-solution) vill veta mer.
-- Hantera och konfigurera Azure-resurser med den [Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline).
+- På ett säkert sätt lagra och arkivera versionsartefakter i [Azure Storage](/azure/storage/common/storage-introduction) med hjälp av [Azure Storage-plugin-programmet](https://plugins.jenkins.io/windows-azure-storage). Mer information finns i [instruktionsartikeln om Jenkins-lagring](/azure/storage/common/storage-java-jenkins-continuous-integration-solution).
+- Hantera och konfigurera Azure-resurser med [Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline).
 
 ## <a name="deploy-your-code-into-azure-services"></a>Distribuera din kod till Azure-tjänster
 
-Använd Jenkins plugin-program för att distribuera programmen till Azure som en del av din Jenkins CI/CD pipelines. Distribution i [Azure App Service](/azure/app-service/) och [Azure Container Service](/azure/container-service/kubernetes/) kan du steg, testa och versionen uppdateringar för dina program utan att hantera de underliggande infrastrukturen.
+Använd Jenkins-plugin-programmet för att distribuera dina program till Azure som en del av dina Jenkins-pipelines för CI/CD. Genom att distribuera till [Azure App Service](/azure/app-service/) och [Azure Container Service](/azure/container-service/kubernetes/) kan du mellanlagra, testa och ge ut uppdateringar för dina program utan att hantera den underliggande infrastrukturen.
 
  Plugin-program är tillgängliga för distribution till följande tjänster och miljöer:
 
-- [Azure-Webbapp på Linux](/azure/app-service/containers/app-service-linux-intro). Finns det [kursen](java-deploy-webapp-tutorial.md) att komma igång.
-- [Azure-Webbapp](/azure/app-service/app-service-web-overview). Finns det [anvisningar](deploy-Jenkins-app-service-plugin.md) att komma igång.
-
+- [Azure Web App on Linux](/azure/app-service/containers/app-service-linux-intro). Gå [självstudiekursen](java-deploy-webapp-tutorial.md) för att komma igång.
+- [Azure Web App](/azure/app-service/app-service-web-overview). Läs [instruktionsartikeln](deploy-Jenkins-app-service-plugin.md) för att komma igång.

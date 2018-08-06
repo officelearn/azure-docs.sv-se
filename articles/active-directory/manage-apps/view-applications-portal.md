@@ -1,6 +1,6 @@
 ---
-title: Visa alla enterprise-appar som jag kan hantera i Azure Active Directory | Microsoft Docs
-description: Hur du visar en lista över enterprise-appar som du har behörighet att hantera i Azure Active Directory
+title: Visa klientprogram – Azure Active Directory | Microsoft Docs
+description: Använd Azure Portal och visa programmen i din Azure Active Directory-klientorganisation (Azure AD).
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,31 +11,86 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/28/2017
+ms.topic: quickstart
+ms.date: 07/25/2018
 ms.author: barbkess
-ms.reviewer: asteen
+ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: 5054cb3b1b0b886c882dac18131eb73244adb336
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: MT
+ms.openlocfilehash: bedd83426ecb24681fcfa292a049b8d4a3271d6a
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303937"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39266488"
 ---
-# <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Visa alla enterprise-appar som jag kan hantera i Azure Active Directory
-Du kan hantera dina företagsprogram i Azure Active Directory (AD Azure). Du kan visa de appar som du kan hantera, tilldela användare eller grupper i en app, underhålla egenskaper för appen, till exempel program namn/logotyp och även inaktivera ett program så att inga användare kan logga in på den.
+# <a name="view-your-azure-active-directory-tenant-applications"></a>Visa programmen i din Azure Active Directory-klientorganisation
 
-## <a name="how-do-i-view-all-my-apps"></a>Hur visar jag Mina appar?
-1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
-2. Välj **alla tjänster**, ange **Azure Active Directory** i textrutan och välj sedan **RETUR**.
-3. På den **Azure Active Directory -** ***directoryname*** (det vill säga den Azure AD rutan för den katalog som du hanterar) väljer du **företagsprogram**.
+I den här snabbstarten använder du Azure Portal för att visa programmen i din Azure Active Directory-klientorganisation (Azure AD).
 
-    ![Öppna företagsappar](./media/view-applications-portal/open-enterprise-apps.png)
-4. På den **företagsprogram** väljer **alla program**. Du kan välja appar för att hantera, ändra kolumner eller filtrera listan för att hitta den app som du vill använda (till exempel visa endast inaktiverade appar) från det här fönstret.
+## <a name="before-you-begin"></a>Innan du börjar
+
+Det måste finnas minst ett program i Azure AD-klientorganisationen för att du ska se några resultat. Anvisningar som beskriver hur du lägger till ett program finns i snabbstarten [Lägga till ett program](add-application-portal.md).
+
+Logga in på [Azure Portal](https://portal.azure.com) som global administratör för din Azure AD-klientorganisation, som administratör för molnprogram eller som programadministratör.
+
+## <a name="find-the-list-of-tenant-applications"></a>Leta upp listan med program i klientorganisationen
+
+Du kan se programmen i din Azure AD-klientorganisation i avsnittet **Företagsprogram** på Azure Portal.
+
+Så här hittar du programmen i din klientorganisation:
+
+1. Klicka på **Azure Active Directory** på den vänstra navigeringspanelen på **[Azure Portal](https://portal.azure.com)**. 
+
+2. Klicka på **Företagsprogram** på bladet Azure Active Directory. 
+
+3. Välj **Alla program** på den nedrullningsbara menyn **Programtyp** och klicka på **Använd**. Ett slumpmässigt urval av programmen i din klientorganisation visas.
+
+    ![Företagsprogram](media/view-applications-portal/open-enterprise-apps.png)
+   
+4. Om du vill visa fler program klickar du på **Visa fler** längst ned i listan. Om det finns många program i din klientorganisation kan det vara enklare att [söka efter ett visst program](#search-for-a-tenant-application), i stället för att bläddra i listan.
+
+## <a name="select-viewing-options"></a>Välj visningsalternativ
+
+I det här avsnittet väljer du alternativ beroende på vad du letar efter.
+
+1. Du kan visa programmen baserat på alternativen för **Programtyp**, **Programstatus** och **Synlighet för program**. 
+
+    ![Alternativ för sökning](media/view-applications-portal/search-options.png)
+
+2. Välj något av följande alternativ under **Programtyp**:
+
+    - **Företagsprogram** visar andra program än Microsoft-program.
+    - **Microsoft-program** visar Microsoft-program.
+    - **Alla program** visar både Microsoft-program och andra program.
+
+3. Välj **Alla**, **Inaktiverade** eller **Aktiverade** under **Programstatus**. Alternativet **Alla** omfattar både inaktiverade och aktiverade program.
+
+4. Välj **Alla** eller **Dolda** under **Synlighet för program**. Alternativet **Dolda** visar program som finns i samma klientorganisation, men som inte visas för användarna.
+
+5. Klicka på **Använd** när du har valt alternativ.
+ 
+
+## <a name="search-for-a-tenant-application"></a>Söka efter ett klientprogram
+
+Så här söker du efter ett specifikt program:
+
+1. Välj **Alla program** på menyn **Programtyp** och klicka på **Använd**.
+
+2. Ange namnet på det program som du vill söka efter. Om programmet har lagts till i din Azure AD-klientorganisation visas det i sökresultatet. I det här exemplet ser du att GitHub inte har lagts till i programmen för din klientorganisation.
+
+    ![Söka efter ett program](media/view-applications-portal/search-for-tenant-application.png)
+
+3. Prova att skriva de första bokstäverna i ett programnamn.  I det här exemplet visas alla program som börjar med **Sales**.
+
+    ![Söka med ett prefix](media/view-applications-portal/search-by-prefix.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* [Tilldela en användare eller grupp till en enterprise-app](assign-user-or-group-access-portal.md)
-* [Ta bort en användare eller grupp från en enterprise-app](remove-user-or-group-access-portal.md)
-* [Inaktivera användarinloggningar för en enterprise-app](disable-user-sign-in-portal.md)
-* [Ändra namnet eller logotypen av en enterprise-app](change-name-or-logo-portal.md)
+
+I den här snabbstarten har du lärt dig hur du visar programmen i din Azure AD-klientorganisation och hur du filtrerar listan med program baserat på programtyp, status och synlighet. Du har också lärt dig hur du söker efter ett specifikt program.
+
+Nu när du har hittat programmet som du letade efter kan du fortsätta att [lägga till fler program i din klientorganisation](add-application-portal.md) eller klicka på programmet för att visa eller redigera egenskaper och konfigurationsalternativ. Du kan till exempel konfigurera enkel inloggning. 
+
+> [!div class="nextstepaction"]
+> [Konfigurera enkel inloggning](configure-single-sign-on-portal.md)
+
+

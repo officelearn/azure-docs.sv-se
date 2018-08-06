@@ -156,22 +156,27 @@
 
 ## Hantera enheter
 ### [Översikt](devices/overview.md)
-### [Använd Azure Portal](devices/device-management-azure-portal.md)
-### [Planera Azure AD Join](devices/azureadjoin-plan.md)
-### [Vanliga frågor och svar](devices/faq.md)
-### Uppgifter
-#### [Så här planerar du Azure Active Directory Join-hybridimplementeringen](devices/hybrid-azuread-join-plan.md)
-#### [Konfigurera Azure Active Directory Join-hybrid för hanterade domäner](devices/hybrid-azuread-join-managed-domains.md)
-#### [Konfigurera Azure Active Directory Join-hybrid för federerade domäner](devices/hybrid-azuread-join-federated-domains.md)
-#### [Så här kontrollerar du Azure Active Directory Join-hybriden för dina enheter](devices/hybrid-azuread-join-control.md)
+
+### Snabbstarter
 #### [Konfigurera Azure AD-registrerade Windows 10-enheter](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Konfigurera Azure AD-anslutna enheter](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Konfigurera Azure AD-anslutna hybrid-enheter](devices/hybrid-azuread-join-manual-steps.md)
-#### [Distribuera lokalt](active-directory-device-registration-on-premises-setup.md)
-#### [Azure AD-anslutning under första körningen av Windows 10](devices/azuread-joined-devices-frx.md)
-### Felsöka
-#### [Azure AD-anslutna Windows 10- och Windows Server 2016-hybridenheter](devices/troubleshoot-hybrid-join-windows-current.md)
-#### [Tidigare Azure AD-anslutna Windows-hybridenheter ](devices/troubleshoot-hybrid-join-windows-legacy.md)
+
+### Självstudier
+#### [Konfigurera Azure AD Join-hybrid för hanterade domäner](devices/hybrid-azuread-join-managed-domains.md)
+#### [Konfigurera Azure AD Join-hybrid för federerade domäner](devices/hybrid-azuread-join-federated-domains.md)
+#### [Konfigurera Azure AD Join-hybrid manuellt](devices/hybrid-azuread-join-manual-steps.md)
+#### [Konfigurera Azure AD Join under första körningen av Windows 10](devices/azuread-joined-devices-frx.md)
+
+### Anvisningsguider
+#### [Planera Azure AD Join](devices/azureadjoin-plan.md)
+#### [Planera implementering av Azure AD Join-hybrid](devices/hybrid-azuread-join-plan.md)
+#### [Kontrollera Azure AD Join-hybriden för dina enheter](devices/hybrid-azuread-join-control.md)
+#### [Felsöka Azure AD Join-hybriden för aktuella Windows-enheter](devices/troubleshoot-hybrid-join-windows-current.md)
+#### [Felsöka Azure AD Join-hybride för äldre Windows-enheter](devices/troubleshoot-hybrid-join-windows-legacy.md)
+
+### Begrepp
+### [Hantera enheter med Azure Portal](devices/device-management-azure-portal.md)
+### [Vanliga frågor och svar](devices/faq.md)
 
 ## Hantera appar
 ### [Översikt](manage-apps/what-is-application-management.md)
@@ -472,6 +477,7 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # Resurser
+## [Distributionsscheman för Azure AD](./fundamentals/active-directory-deployment-plans.md)
 ## [Azures feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)

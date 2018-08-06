@@ -3,32 +3,30 @@ title: Introduktion till Azure IoT-lösningsacceleratorer | Microsoft Docs
 description: Läs mer om Azure IoT-lösningsacceleratorer. IoT-lösningsacceleratorer är kompletta, heltäckande, distributionsklara IoT-lösningar.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/07/2018
+ms.date: 07/24/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 2a4f0b035ce80809a678731a50921791fc0db928
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7020d8a1756702d8c2b1998eef5a3fc64809ca5e
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097996"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308120"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Vad är Azure IoT-lösningsacceleratorer?
 
 En molnbaserad IoT-lösning använder normalt anpassad kod och flera molntjänster för att hantera anslutningsmöjligheter för enheter, databearbetning och -analys samt presentation.
 
-IoT-lösningsacceleratorerna är en samling kompletta, distributionsklara IoT-lösningar som implementerar vanliga IoT-scenarier som fjärrövervakning, ansluten fabrik och förutsägande underhåll. När du distribuerar en lösningsaccelerator omfattar distributionen alla molnbaserade tjänster som krävs tillsammans med programkod som krävs.
+IoT-lösningsacceleratorerna är en samling kompletta, distributionsklara IoT-lösningar som implementerar vanliga IoT-scenarier som fjärrövervakning, ansluten fabrik, förutsägande underhåll och enhetssimulering. När du distribuerar en lösningsaccelerator omfattar distributionen alla molnbaserade tjänster som krävs tillsammans med programkod som krävs.
 
-Lösningsacceleratorerna är startpunkter för dina egna IoT-lösningar. Källkoden för alla lösningsacceleratorer är öppen källkod och finns i GitHub. Vi rekommenderar att du laddar ned och [anpassar](iot-accelerators-remote-monitoring-customize.md) lösningsacceleratorerna så att de uppfyller dina krav.
+Lösningsacceleratorerna är startpunkter för dina egna IoT-lösningar. Källkoden för alla lösningsacceleratorer är öppen källkod och finns i GitHub. Vi rekommenderar att du laddar ned och anpassar lösningsacceleratorerna så att de uppfyller dina krav.
 
 Du kan även använda lösningsacceleratorerna som utbildningsverktyg innan du skapar en anpassad IoT-lösning från grunden. Lösningsacceleratorer implementerar beprövade metoder för molnbaserade IoT-lösningar som du måste följa.
 
-Programkoden i varje lösningsaccelerator innehåller en instrumentpanel där du kan hantera lösningsacceleratorn. Du kan till exempel använda en instrumentpanel till att visa telemetri från dina anslutna enheter, etablera nya enheter eller uppgradera den inbyggda programvaran på de anslutna enheterna:
-
-[![Instrumentpanel för lösningen](./media/about-iot-accelerators/dashboard-inline.png)](./media/about-iot-accelerators/dashboard-expanded.png#lightbox)
+Programkoden i varje lösningsaccelerator innehåller en webbapp som du kan använda för att hantera lösningsacceleratorn.
 
 ## <a name="supported-iot-scenarios"></a>IoT-scenarier som stöds
 
@@ -38,43 +36,62 @@ Det finns för närvarande fyra lösningsacceleratorer för dig att distribuera:
 
 Använd lösningsacceleratorn till att samla in telemetri från flera fjärrenheter och kontrollera dem. Exempelenheter omfattar kylsystem installerade på kundernas platser eller valv installerade i fjärrpumpstationer.
 
+Du kan använda instrumentpanelen för fjärrövervakning för att visa telemetri från dina anslutna enheter, etablera nya enheter eller uppgradera den inbyggda programvaran på de anslutna enheterna:
+
+[![Visa instrumentpanelen för fjärrövervakningslösningen](./media/about-iot-accelerators/rm-dashboard-inline.png)](./media/about-iot-accelerators/rm-dashboard-expanded.png#lightbox)
+
 ### <a name="connected-factory"></a>Ansluten fabrik
 
 Använd den här lösningsacceleratorn till att samla in telemetri från industriella tillgångar med ett [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/)-gränssnitt och kontrollera dem. Industriella tillgångar kan omfatta sammansättnings- och teststationer vid monteringsbandet på en fabrik.
+
+Du kan använda instrumentpanelen för ansluten fabrik för att övervaka och hantera dina industrienheter:
+
+[![Instrumentpanelen för lösningen för ansluten fabrik](./media/about-iot-accelerators/cf-dashboard-inline.png)](./media/about-iot-accelerators/cf-dashboard-expanded.png#lightbox)
 
 ### <a name="predictive-maintenance"></a>Förutsägande underhåll
 
 Använd den här lösningsacceleratorn till att förutsäga när en det förväntas bli fel på enhet så att du kan utföra underhåll innan det förväntade felet inträffar. Den här lösningsacceleratorn använder maskininlärningsalgoritmer för att förutse fel utifrån enhetstelemetri. Exempel på enheter kan vara flygplansmotorer eller hissar.
 
+Du kan använda instrumentpanelen för förutsägande underhåll för att visa analyser för förutsägande underhåll:
+
+[![Instrumentpanelen för lösningen för ansluten fabrik](./media/about-iot-accelerators/pm-dashboard-inline.png)](./media/about-iot-accelerators/pm-dashboard-expanded.png#lightbox)
+
 ### <a name="device-simulation"></a>Enhetssimulering
 
 Använd den här lösningsacceleratorn till att köra flera simulerade enheter som genererar realistisk telemetri. Du kan använda den här lösningsacceleratorn till att testa beteendet för andra lösningsacceleratorer eller till att testa dina egna anpassade IoT-lösningar.
 
+Du kan använda webbappen för enhetssimulering för att konfigurera och köra simuleringar:
+
+[![Instrumentpanelen för lösningen för ansluten fabrik](./media/about-iot-accelerators/ds-dashboard-inline.png)](./media/about-iot-accelerators/ds-dashboard-expanded.png#lightbox)
+
 ## <a name="design-principles"></a>Designprinciper
 
-Alla lösningsacceleratorer följer samma principer och mål. De är utformade att vara:
+Alla lösningsacceleratorer följer samma principer och mål. De har utformats att vara:
 
 * **skalbara**, så att du kan ansluta och hantera miljontals anslutna enheter
 * **utökningsbara**, så att du kan anpassa dem efter dina behov
-* **begripliga**, så att du kan förstå hur de fungerar och hur de implementeras
+* **begripliga**, så att du kan förstå hur de fungerar och hur de implementeras.
 * **modulära**, så att du kan byta ut tjänster för alternativ
 * **säkra**, med en kombination av Azure-säkerhet och inbyggda säkerhetsfunktioner för anslutningar och enheter.
 
 ## <a name="architectures-and-languages"></a>Arkitekturer och språk
 
-De ursprungliga lösningsacceleratorerna skrevs med .NET med hjälp av en MVC-arkitektur (model-view-controller). Microsoft uppdaterar lösningsacceleratorerna till en ny arkitektur baserad på mikrotjänster. Både [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)- och [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)-versioner av varje mikrotjänst finns i GitHub. I följande tabell visas den nuvarande statusen för lösningsacceleratorerna:
+De ursprungliga lösningsacceleratorerna skrevs med .NET med hjälp av en MVC-arkitektur (model-view-controller). Microsoft uppdaterar lösningsacceleratorerna till en ny arkitektur baserad på mikrotjänster. Följande tabell visar lösningsacceleratorernas aktuella status med länkar till GitHub-lagringsplatserna:
 
 | Lösningsaccelerator   | Arkitektur  | Språk     |
 | ---------------------- | ------------- | ------------- |
-| Fjärrövervakning      | Mikrotjänster | Java och .NET |
-| Förutsägande underhåll | MVC           | .NET          |
-| Ansluten fabrik      | MVC           | .NET          |
+| Fjärrövervakning      | Mikrotjänster | [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) och [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) |
+| Förutsägande underhåll | MVC           | [.NET](https://github.com/Azure/azure-iot-predictive-maintenance)          |
+| Ansluten fabrik      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
+| Enhetssimulering      | Mikrotjänster | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
 Läs mer om arkitekturer för mikrotjänster i [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (.NET-programarkitektur) och [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Mikrotjänster: En programrevolution som drivs av molnet).
 
 ## <a name="deployment-options"></a>Distributionsalternativ
 
-Du kan distribuera mikrotjänstbaserade lösningsacceleratorer i följande konfigurationer:
+Du kan distribuera lösningsacceleratorerna från webbplatsen för [Microsoft Azure IoT-lösningsacceleratorer](https://www.azureiotsolutions.com/Accelerators#) eller från kommandoraden.
+
+Du kan distribuera lösningsacceleratorn för fjärrövervakning i följande konfigurationer:
 
 * **Standard:** Expanderad distribution av infrastruktur för att utveckla en produktionsdistribution. Azure Container Service distribuerar mikrotjänsterna till flera virtuella Azure-datorer. Kubernetes orkestrerar Docker-containrar som värdar för enskilda mikrotjänster.
 * **Basic:** Version till reducerad kostnad för en demonstration eller för att testa en distribution. Alla mikrotjänster distribueras till en enda virtuell Azure-dator.
@@ -84,4 +101,9 @@ Kostnaden för att köra en lösningsaccelerator är en sammanräkning av [kostn
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill prova en IoT-lösningsaccelerator kan du titta på snabbstarten [Distribuera en molnbaserad lösning för fjärrövervakning](quickstart-remote-monitoring-deploy.md).
+Ta en titt på snabbstarterna om du vill prova någon av IoT-lösningsacceleratorerna:
+
+* [Testa en fjärrövervakningslösning](quickstart-remote-monitoring-deploy.md)
+* [Testa en lösning för ansluten fabrik](quickstart-connected-factory-deploy.md)
+* [Testa en lösning för förutsägande underhåll](quickstart-predictive-maintenance-deploy.md)
+* [Testa en enhetssimuleringslösning](quickstart-device-simulation-deploy.md)

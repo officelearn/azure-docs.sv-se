@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 3ec5fede8b4e196a2f7573b4c2f202d589a55f32
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5179f0a81ea67c1b20e9cbf77e18595e0b4bafa4
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282676"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495289"
 ---
 # <a name="speech-scenarios"></a>Tal-scenarier
 
@@ -31,7 +31,7 @@ Många användare vill aktivera röstinmatning på sina program. Röstinmatning 
 
 ### <a name="voice-triggered-apps-with-baseline-models"></a>Röst utlöses appar med basmodeller
 
-Om din app kommer att användas av allmänheten i miljöer där bakgrundsljud inte är orimlig, det enklaste och snabbaste sättet att göra detta på att bara hämta våra [tal SDK](speech-sdk.md) och följer relevant [ Exempel](quickstart-csharp-dotnet-windows.md). SDK: N som drivs av din [Azure prenumerationsnyckel](https://azure.microsoft.com/try/cognitive-services/) gör att utvecklare kan ladda upp ljud till baslinje talmodeller för taligenkänning som driver Cortana och Skype. Mdoels är avancerade och som används av de tidigare nämnda produkterna. Du kan vara igång på några minuter.
+Om din app kommer att användas av allmänheten i miljöer där bakgrundsljud inte är orimlig, det enklaste och snabbaste sättet att göra detta på att bara hämta våra [tal SDK](speech-sdk.md) och följer relevant [ Exempel](quickstart-csharp-dotnet-windows.md). SDK: N som drivs av din [Azure prenumerationsnyckel](https://azure.microsoft.com/try/cognitive-services/) gör att utvecklare kan ladda upp ljud till baslinje talmodeller för taligenkänning som driver Cortana och Skype. Modeller är avancerade och som används av de tidigare nämnda produkterna. Du kan vara igång på några minuter.
 
 ### <a name="voice-triggered-apps-with-custom-models"></a>Röst utlöses appar med anpassade modeller
 
@@ -39,7 +39,7 @@ Om din app adresser en specifik domän, (say kemi, biologi eller särskilda inta
 
 ## <a name="transcribe-call-center-audio-calls"></a>Transkribera anrop center ljud anrop
 
-Call Center ackumuleras stora mängder ljud. Dolda inom dessa ljudfiler ligger-värde som kan hämtas genom avskrift. Varaktigheten för anropet kan sentiment, enligt kunden och allmän värdet anropet till anroparen identifieras genom att hämta anrop avskrifter.
+Call Center ackumuleras stora mängder ljud. Dolda inom dessa ljudfiler ligger-värde som kan köpas genom avskrift. Varaktigheten för anropet kan sentiment, enligt kunden och allmän värdet anropet till anroparen identifieras genom att hämta anrop avskrifter.
 
 Bäst startpunkten är den [Batch avskrift API](batch-transcription.md) tillsammans med relaterade [exempel](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 

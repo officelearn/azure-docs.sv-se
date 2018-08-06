@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/23/2018
+ms.date: 07/26/2018
 ms.author: barclayn
-ms.openlocfilehash: b34b05ae86aed199d80a86c8e1a073cb54b5e75f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cd9dd4d400177e511f23c2677b77198a50420a35
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226721"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283004"
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
 
@@ -37,6 +37,8 @@ Här följer några viktiga begrepp:
 - **[Azure Active Directory](../active-directory/active-directory-whatis.md)** är Azure AD-tjänsten för en viss klientorganisation. Varje katalog har en eller flera domäner. En katalog kan ha många prenumerationer som är associerade med den, men endast en klientorganisation. 
 - **Azure-klientorganisations-ID** – detta är ett unikt sätt att identifiera en Azure Active Directory inom en Azure-prenumeration. 
 - **Hanterad tjänstidentitet** – Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. Hanterad tjänstidentitet (MSI) löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till Key Vault eller alla tjänster som stöder Azure AD-autentisering utan att behöva ha några autentiseringsuppgifter i koden. Läs mer om MSI [här](../active-directory/managed-service-identity/overview.md)
+
+    ![MSI-bild](./media/key-vault-whatis/msi.png)
 
 ## <a name="key-vault-roles"></a>Nyckelvalvroller
 

@@ -9,16 +9,16 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: cdcd30ea29c5c7066a6ae05f64b5bf0720572599
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9ab441bdd30e7598dacfec8dd74702aef0299e1b
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299214"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413498"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Självstudie: Utveckla och distribuera en Node.js IoT Edge-modul till din simulerade enhet
 
-Du kan använda IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. Du kommer att använda den simulerade IoT Edge-enheten som du skapade i självstudien Distribuera Azure IoT Edge på en simulerad enhet i [Windows][lnk-tutorial1-win] eller [Linux][lnk-tutorial1-lin]. I den här guiden får du lära dig hur man:    
+Du kan använda IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. Du kommer att använda den simulerade IoT Edge-enheten som du skapade i självstudien Distribuera Azure IoT Edge på en simulerad enhet i [Windows][lnk-tutorial1-win] eller [Linux][lnk-tutorial1-lin]. I den här guiden får du lära dig att:    
 
 > [!div class="checklist"]
 > * Använda Visual Studio Code för att skapa en IoT Edge Node.js-modul
@@ -29,25 +29,35 @@ Du kan använda IoT Edge-moduler till att distribuera kod som implementerar din 
 
 IoT Edge-modulen som du skapar i den här självstudien filtrerar temperaturdata som genereras av enheten. Den skickar enbart meddelanden uppströms om temperaturen överskrider ett angivet tröskelvärde. Den här typen av analys är användbar för att minska mängden data som kommuniceras till och lagras i molnet. 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Azure IoT Edge-enheten som du skapade i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
-* [Visual Studio Code](https://code.visualstudio.com/). 
-* [Azure IoT Edge-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
-* [Docker](https://docs.docker.com/engine/installation/) på samma dator som har Visual Studio Code. Community Edition (CE) räcker för den här självstudien. 
-* [Node.js och npm](https://nodejs.org). npm distribueras med Node.js, vilket innebär att du automatiskt installerar npm på din dator när du laddar ned Node.js.
+En Azure IoT Edge-enhet:
 
-## <a name="create-a-container-registry"></a>Skapa ett behållarregister
-I den här självstudien använder du Azure IoT Edge-tillägget för VS Code för att skapa en modul och skapa en **behållaravbildning** från filerna. Sedan pushar du avbildningen till ett **register** som lagrar och hanterar dina avbildningar. Slutligen, distribuerar du din avbildning från ditt register så det kör på din IoT Edge-enhet.  
+* Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
+* Azure Machine Learning-modulen stöder inte ARM-processorer.
+
+Molnresurser:
+
+* En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på standardnivå i Azure. 
+
+Utvecklingsresurser:
+
+* [Visual Studio Code](https://code.visualstudio.com/). 
+* [Azure IoT Edge-tillägg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) för Visual Studio Code. 
+* [Docker CE](https://docs.docker.com/engine/installation/). 
+* [Node.js och npm](https://nodejs.org). npm-paketet distribueras med Node.js, vilket innebär att npm installeras automatiskt på din dator när du laddar ned Node.js.
+
+## <a name="create-a-container-registry"></a>Skapa ett containerregister
+I den här självstudien använder du Azure IoT Edge-tillägget för VS Code för att skapa en modul och skapa en **containeravbildning** från filerna. Sedan pushar du avbildningen till ett **register** som lagrar och hanterar dina avbildningar. Slutligen, distribuerar du din avbildning från ditt register så det kör på din IoT Edge-enhet.  
 
 Du kan använda valfritt Docker-kompatibelt register för den här självstudien. Två populära Docker-registertjänster som finns tillgängliga i molnet är [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) och [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). I den här kursen använder vi Azure Container Registry. 
 
 1. I [Azure Portal](https://portal.azure.com) väljer du **Skapa en resurs** > **Behållare** > **Azure Container Registry**.
 2. Namnge ditt register, välj en prenumeration, välj en resursgrupp och ange SKU:n till **Basic**. 
 3. Välj **Skapa**.
-4. När du har skapat ditt behållarregister, navigerar du till det och väljer **Åtkomstnycklar**. 
+4. När du har skapat ditt containerregister, navigerar du till det och väljer **Åtkomstnycklar**. 
 5. Växla till **Administratörsanvändare** för att **Aktivera**.
 6. Kopiera värdena för **Inloggningsserver**, **Användarnamn** och **Lösenord**. Du kommer att använda de här värdena senare i självstudien. 
 
@@ -82,7 +92,7 @@ VS Code läser in arbetsytan för IoT Edge-lösningen. Det finns en **.vscode**-
 
 ### <a name="add-your-registry-credentials"></a>Lägg till autentiseringsuppgifter för registret
 
-Miljöfilen lagrar autentiseringsuppgifterna för behållarlagringsplatsen och delar dem med IoT Edge-körningsmiljön. Körningen behöver dessa autentiseringsuppgifter för att hämta dina privata avbildningar till IoT Edge-enheten. 
+Miljöfilen lagrar autentiseringsuppgifterna för containerlagringsplatsen och delar dem med IoT Edge-körningsmiljön. Körningen behöver dessa autentiseringsuppgifter för att hämta dina privata avbildningar till IoT Edge-enheten. 
 
 1. Öppna **.env**-filen i VS Code-utforskaren. 
 2. Uppdatera fälten med det **användarnamn** och **lösenord** som du kopierade från Azure Container-registret. 
@@ -90,7 +100,7 @@ Miljöfilen lagrar autentiseringsuppgifterna för behållarlagringsplatsen och d
 
 ### <a name="update-the-module-with-custom-code"></a>Uppdatera modulen med anpassad kod
 
-Exempelkod ingår i alla mallar. Den simulerar sensordata från **tempSensor**-modulen och skickar dem till IoT Hub. I det här avsnittet lägger du till kod för att göra så att NodeModule analyserar meddelandena innan de skickas. 
+Exempelkod ingår i alla mallar. Koden simulerar sensordata från **tempSensor**-modulen och skickar dem till IoT Hub. I det här avsnittet lägger du till kod för att göra så att NodeModule analyserar meddelandena innan de skickas. 
 
 1. Öppna **modules** > **NodeModule** > **app.js** i VS Code-utforskaren.
 
@@ -177,7 +187,7 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod till No
 
 När du ger Visual Studio Code kommando att skapa din lösning hämtar den först information i distributionsmallen och genererar en `deployment.json`-fil i en ny **config**-mapp. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar koden, lägger din Node.js-kod i behållare och push-överför till det containerregister som du angav när du initierade lösningen. 
 
-Den fullständiga adressen med tagg för behållaravbildningen i `docker build`-kommandot som körs i den integrerade VS Code-terminalen. Avbildningsadressen skapas utifrån information i filen `module.json` med formatet **\<lagringsplats\>:\<version\>-\<plattform\>**. För den här självstudien ska den se ut så här: **registryname.azurecr.io/nodemodule:0.0.1-amd64**.
+Den fullständiga adressen med tagg för containeravbildningen i `docker build`-kommandot som körs i den integrerade VS Code-terminalen. Avbildningsadressen skapas utifrån information i filen `module.json` med formatet **\<lagringsplats\>:\<version\>-\<plattform\>**. För den här självstudien ska den se ut så här: **registryname.azurecr.io/nodemodule:0.0.1-amd64**.
 
 ## <a name="deploy-and-run-the-solution"></a>Distribuera och kör lösningen
 

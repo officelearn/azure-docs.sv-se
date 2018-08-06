@@ -1,6 +1,6 @@
 ---
 title: Självstudiekurs – Distribuera ASA-jobb till Azure IoT Edge-enheter | Microsoft Docs
-description: Distribuera Azure Stream Analytics som en modul till en IoT Edge-enhet
+description: I den här självstudien distribuerar du Azure Stream Analytics som en modul till en Iot Edge-enhet
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0790f504c978b4302812cffc9b655e817c156da3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f2ef53ee53eb2e95d84fc11f3190f62d0e3c2455
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38540180"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413883"
 ---
-# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Självstudie: Distribuera Azure Stream Analytics som en IoT Edge-modul – förhandsgranskning
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Självstudie: Distribuera Azure Stream Analytics som en IoT Edge-modul (förhandsversion)
 
 Många IoT-lösningar använder analystjänster för att få information om data när de tas emot i molnet från IoT-enheter. Med Azure IoT Edge kan du använda logik från [Azure Stream Analytics][azure-stream] och flytta den till själva enheten. Du kan minska hur mycket data som överförs och minska tiden det tar att reagera på insikter genom att bearbeta telemetriströmmar på gränsen.
 
@@ -36,14 +36,23 @@ I den här guiden får du lära dig att:
 >[!NOTE]
 >Azure Stream Analytics-moduler för IoT Edge finns i en [allmänt tillgänglig förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* En IoT Hub
-* IoT Edge-enheten som du skapade och konfigurerade i snabbstarten för [Windows][lnk-quickstart-win] eller [Linux][lnk-quickstart-lin]. 
+En Azure IoT Edge-enhet:
+
+* Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
+* Azure Machine Learning-modulen stöder inte ARM-processorer.
+
+Molnresurser:
+
+* En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på standardnivå i Azure. 
+
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Skapa ett Azure Stream Analytics-jobb
 
-I det här avsnittet skapar du ett Azure Stream Analytics-jobb för att hämta data från IoT Hub, fråga de telemetridata som skickats från enheten och sedan skicka vidare resultaten till en Azure Blob Storage-behållare. Mer information finns i avsnittet ”Översikt” i [Stream Analytics-dokumentationen][azure-stream]. 
+I det här avsnittet skapar du ett Azure Stream Analytics-jobb för att hämta data från IoT Hub, fråga de telemetridata som skickats från enheten och sedan skicka vidare resultaten till en Azure Blob Storage-container. Mer information finns i avsnittet ”Översikt” i [Stream Analytics-dokumentationen][azure-stream]. 
 
 ### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
@@ -112,7 +121,7 @@ Ett Azure Storage-konto krävs för att Azure Stream Analytics-jobb ska fungera.
 
 15. Välj ditt **Lagringskonto** från den nedrullningsbara menyn.
 
-16. För fältet **Behållare** väljer du **Skapa ny** och anger ett namn för lagringsbehållaren. 
+16. För fältet **Container** väljer du **Skapa ny** och anger ett namn för lagringscontainern. 
 
 17. Välj **Spara**. 
 

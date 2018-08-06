@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 54a8b5f14cc2f9fb0ac887da8995623353e73ac9
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 28d50ac3a4c080062c12c11977eebb61b0e52eed
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115593"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412543"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snabbstart: Distribuera din första IoT Edge-modul från Azure Portal till en Windows.enhet – förhandsgranskning
 
@@ -163,7 +163,7 @@ Konfigurera körningen med anslutningssträngen för IoT Edge-enheten som du kop
   SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
   ```
 
-6. Leta upp avsnittet för **anslutningsinställningar** i filen `config.yaml`. Uppdatera värdena för **management_uri** och **workload_uri** med de IP-adresser och portar som du öppnade i föregående avsnitt. Ersätt **\<GATEWAY_ADDRESS\>** med DockerNAT-IP-adressen som du kopierade.
+6. Leta upp avsnittet för **anslutningsinställningar** i filen `config.yaml`. Uppdatera värdena för **management_uri** och **workload_uri** med de IP-adresser och portar som du öppnade i föregående avsnitt. Ersätt **\<GATEWAY_ADDRESS\>** med IP-adressen för DockerNAT du kopierade.
 
    ```yaml
    connect: 
@@ -179,8 +179,14 @@ Konfigurera körningen med anslutningssträngen för IoT Edge-enheten som du kop
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-8. Leta upp avsnittet med **körningsinställningar för Moby-containrar** och kontrollera att värdet för **nätverk** är satt till `nat`.
+8. Leta upp avsnittet med **inställningar för Moby-containrar** och kontrollera att värdet för **nätverk** är avkommenterat och inställt på **azure iot edge**
 
+   ```yaml
+   moby_runtime:
+     docker_uri: "npipe://./pipe/docker_engine"
+     network: "azure-iot-edge"
+   ```
+   
 9. Spara konfigurationsfilen. 
 
 10. Starta om IoT Edge-tjänsten i PowerShell.
@@ -210,7 +216,8 @@ Kontrollera att körningen har installerats och konfigurerats korrekt.
     -FilterHashtable @{ProviderName= "iotedged";
       LogName = "application"; StartTime = [datetime]::Today} |
     select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false}
+    sort-object @{Expression="TimeCreated";Descending=$false} |
+    format-table -autosize -wrap
    ```
 
 3. Visa alla moduler som körs på din IoT Edge-enhet. Eftersom det är första gången du startar tjänsten, bör du bara kunna se den **edgeAgent**-modul som körs. Modulen edgeAgent körs som standard och hjälper dig att installera och starta ytterligare moduler som du distribuerar till enheten. 

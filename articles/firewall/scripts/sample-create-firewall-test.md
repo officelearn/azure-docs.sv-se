@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 7/11/2018
 ms.author: victorh
-ms.openlocfilehash: ffc9d3c15f045079585ea2aeceab278cf0349041
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: daf847ea9a6b6310afbc8eca7f662065fe75ade6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991970"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397190"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Skapa en testmiljö för Azure Firewall
 
@@ -80,6 +80,11 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Skapar en virtuell datorkonfiguration. Den här konfigurationen omfattar information som virtuellt datornamn, operativsystem och administrativa autentiseringsuppgifter. Konfigurationen används vid skapande av virtuell dator. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Skapa en virtuell dator. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Tar bort en resursgrupp och alla resurser som ingår i gruppen. |
+|New-AzureRmFirewall| Skapar en ny Azure Firewall-brandvägg.|
+|Get-AzureRmFirewall|Hämtar ett Azure Firewall-objekt.|
+|New-AzureRmFirewallApplicationRule|Skapar en ny Azure Firewall-programregel.|
+|Set-AzureRmFirewall|Sparar ändringarna i Azure Firewall-objektet.|
+
 
 ## <a name="next-steps"></a>Nästa steg
 

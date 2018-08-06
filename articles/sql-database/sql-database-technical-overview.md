@@ -7,18 +7,27 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 8e5518e0a2be98cc080a76cdf0697d6812ab22f8
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: f7a314b3de112ad1fa7a5a356c2325846e9371b1
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092111"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413390"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Vad är tjänsten Azure SQL Database? 
 
-SQL-databasen är en hanterad, allmän relationsdatabastjänst i Microsoft Azure som har stöd för strukturer som relationsdata, JSON, spatial och XML. SQL Database erbjuder logiska servrar som kan innehålla [enskilda SQL-databaser](sql-database-servers-databases.md) och [elastiska pooler](sql-database-elastic-pool.md) samt [hanterade instanser](sql-database-managed-instance.md) (i allmän förhandsversion) som innehåller system- och användardatabaser. Med SQL Database får du dynamiskt skalbara prestanda i två olika inköpsmodeller: en [vCore-baserad inköpsmodell](sql-database-service-tiers-vcore.md) och en [DTU-baserad inköpsmodell](sql-database-service-tiers-dtu.md). SQL Database tillhandahåller också alternativ som [kolumnlagringsindex](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) för extrem analytisk analys och rapportering, och [minnesintern OLTP](sql-database-in-memory.md) för extrem transaktionell bearbetning. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-kodbasen sömlöst och avlägsnar all hantering av underliggande den infrastrukturen. 
+SQL-databasen är en hanterad, allmän relationsdatabastjänst i Microsoft Azure som har stöd för strukturer som relationsdata, JSON, spatial och XML. Med SQL Database får du dynamiskt skalbara prestanda i två olika inköpsmodeller: en [vCore-baserad inköpsmodell](sql-database-service-tiers-vcore.md) och en [DTU-baserad inköpsmodell](sql-database-service-tiers-dtu.md). SQL Database tillhandahåller också alternativ som [kolumnlagringsindex](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) för extrem analytisk analys och rapportering, och [minnesintern OLTP](sql-database-in-memory.md) för extrem transaktionell bearbetning. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-kodbasen sömlöst och avlägsnar all hantering av underliggande den infrastrukturen. 
+
+Azure SQL Database innehåller följande distributionsalternativ för en Azure SQL-databas:
+- Som en enda databas med en egen uppsättning resurser som hanteras via en logisk server 
+- Som en poolindelad databas i en [elastisk pool](sql-database-elastic-pool.md) med en delad uppsättning resurser som hanteras via en logisk server
+- Som en del av en uppsättning databaser, en så kallad [hanterad instans](sql-database-managed-instance.md) (offentlig tillgänglig förhandsversion), som innehåller system- och användardatabaser och som delar en uppsättning resurser
+
+Följande bild visar dessa distributionsalternativ:
+
+![distributionsalternativ](./media/sql-database-technical-overview/deployment-options.png) 
 
 SQL-databas delar sin kodbas med [Microsoft SQL Server-databasmotorn](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Med Microsofts moln-först-strategi släpps de senaste funktionerna för SQL Server först till SQL-databasen och sedan till SQL-servern. Den här metoden ger de senaste funktionerna för SQL Server utan merkostnader för uppdatering eller uppgradering och med nya funktioner som testas över miljontals databaser. Mer information om nya funktioner efter hand som de tillkännages finns i:
 

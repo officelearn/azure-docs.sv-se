@@ -6,12 +6,12 @@ description: Lär dig att skapa och hantera kraftfulla program med Microsoft Azu
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 7db35731a7a95a1ba327445a2044050c28fafb4c
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 323b0118d4635b141b2a0f3fb2692d082929c201
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224212"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495483"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -176,8 +176,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">Funktioner utan server</a></li>
-                                                    <li>
-  <a class="barLink" href="/azure/containers/">Containrar</a></li>
+                                                    <li><a class="barLink" href="/azure/containers/">Containrar</a></li>
                                                     <li><a class="barLink" href="/azure/aks/">Mikrotjänster med Kubernetes</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Mikrotjänster med Service Fabric</a></li>
                                                 </ul>
@@ -1045,6 +1044,12 @@ Azure DevOps-projekt</a>
                                             <a href="/azure/storage/files/storage-files-introduction/">
                                                 <img src="media/index/logo_azure-storage-file.svg" alt="" />
                                                 <p>File Storage</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/databox/">
+                                                <img src="media/index/Service-icon.png" alt="" />
+                                                <p>Data Box</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2238,7 +2243,7 @@ Azure DevOps-projekt</a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen2</h3>
-                                                    <p>Mycket skalbar och säker datalagring i Data Lake</p>
+                                                    <p>Extremt skalbar och säker Data Lake-lagring med integrerad Blob-lagring</p>
                                                 </div>
                                             </div>
                                         </div>

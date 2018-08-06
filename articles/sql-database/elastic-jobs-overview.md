@@ -6,14 +6,14 @@ author: srinia
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 06/14/2018
+ms.date: 07/26/2018
 ms.author: srinia
-ms.openlocfilehash: 65e920858b1c859dc9f8e911cdf59d4ab02da6d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0e01270b6ba12bde0e5f379903b80620646c4d1f
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972170"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309052"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Hantera grupper av databaser med Elastic Database-jobb
 
@@ -106,11 +106,25 @@ En *målgrupp* definierar den uppsättning databaser som ett jobbsteg ska köras
 > [!TIP]
 > Vid tidpunkten för jobbkörning omvärderar *dynamisk uppräkning* uppsättningen databaser i de målgrupper som inkluderar servrar eller pooler. Dynamisk uppräkning ser till att **jobb körs över alla databaser som finns i servern eller poolen vid tidpunkten för jobbkörningen**. Omvärdering av lista över databaser vid körning är särskilt användbart för scenarier där pool- eller servermedlemskap ändras ofta.
 
-
 Pooler och enskilda databaser kan anges som inkluderade eller exkluderade från gruppen. På så sätt går det att skapa en målgrupp med valfri kombination av databaser. Till exempel kan du lägga till en server till en målgrupp men exkludera specifika databaser i den elastiska poolen (eller exkludera en hel elastisk pool).
 
 En målgrupp kan inkludera databaser i flera prenumerationer och över flera regioner. Observera att körningar mellan regioner har en högre fördröjning än körningar inom samma region.
 
+Följande exempel visar hur olika målgruppsdefinitioner räknas upp dynamiskt när ett jobb körs för att fastställa vilka databaser jobbet ska köra:
+
+![Exempel med målgrupper](media/elastic-jobs-overview/targetgroup-examples1.png)
+
+**Exempel 1** illustrerar en målgrupp som består av en lista med enskilda databaser. När ett jobbsteg körs med den här målgruppen körs åtgärden i jobbsteget i var och en av dessa databaser.<br>
+**Exempel 2** illustrerar en målgrupp som innehåller en Azure SQL-server som mål. När ett jobbsteg körs med den här målgruppen räknas servern upp dynamiskt för att fastställa vilken listan med databaser som för närvarande finns på servern. Åtgärden i jobbsteget körs i var och en av dessa databaser.<br>
+**Exempel 3** illustrerar en målgrupp liknande den i *exempel 2*, men en databas undantas uttryckligen. Åtgärden i jobbsteget körs *inte* i den undantagna databasen.<br>
+**Exempel 4** illustrerar en målgrupp som innehåller en elastisk pool som mål. Precis som i *exempel 2* räknas poolen upp dynamiskt när jobbet körs för att fastställa listan med databaser i poolen.
+<br><br>
+
+
+![Exempel med målgrupper](media/elastic-jobs-overview/targetgroup-examples2.png)
+
+**Exempel 5** och *exempel 6* illustrerar avancerade scenarier där Azure SQL-servrar, elastiska pooler och databaser kan kombineras med hjälp av inkluderings- och exkluderingsregler.<br>
+**Exempel 7** illustrerar hur shards (fragment) i en shard-karta även kan utvärderas när ett jobb körs.
 
 ### <a name="job"></a>Jobb
 

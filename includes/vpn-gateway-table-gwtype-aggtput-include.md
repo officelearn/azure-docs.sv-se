@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 08/02/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fad9b990b6ff1021efdaf8aadeb1e19d8a55871d
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 4cbbb64489acf23c1248e35269e1441dd2a6878e
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39138055"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39513762"
 ---
 |**SKU**   | **S2S/VNet-till-VNet<br>tunnlar** | **P2S<br>-anslutningar** | **Prestandamått för<br>aggregerat datagenomflöde** |
 |---       | ---                             | ---                    | ---                         |
@@ -24,7 +24,7 @@ ms.locfileid: "39138055"
 
 * (*) Använd [Virtual WAN](../articles/virtual-wan/virtual-wan-about.md) om du behöver fler än 30 S2S VPN-tunnlar.
 
-* (\*\*) Kontakta supporten om du behöver ytterligare anslutningar
+* (\*\*) Kontakta supporten om du behöver ytterligare anslutningar. Detta gäller endast IKEv2. Antalet anslutningar för SSTP kan inte utökas.
 
 * Prestandamått för aggregerat dataflöde baseras på mätningar av flera tunnlar som aggregerats via en enda gateway. Det är inte garanterad genomströmning på grund av villkor för Internet-trafik och dina program.
 

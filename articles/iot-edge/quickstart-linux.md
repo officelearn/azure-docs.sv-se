@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5e0da540b2784ef13986c6089d31f22df992ee59
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: dfcb764d75b7328d1234d47d82afdae8d6a0deef
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005823"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413022"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux x64-enhet
 
@@ -43,18 +43,18 @@ Lägg till Azure IoT-tillägget till Cloud Shell-instansen.
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
-
+   
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Den här snabbstarten använder en Linux-dator som en IoT Edge-enhet. Om du inte har någon tillgänglig för testning kan du skapa en med hjälp av Azure CLI. 
+Molnresurser: 
 
-Skapa en ny resursgrupp. Du kan använda den här resursgruppen för andra Azure-resurser som du skapar i den här snabbstarten för att underlätta hanteringen.  
+* En resursgrupp som du använder för att hantera alla resurser i den här snabbstarten. 
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus
    ```
 
-Skapa den virtuella datorn. Du behöver inte en särskilt stor virtuell dator för att testa IoT Edge. En storlek på **B1ms** räcker.
+* En virtuell Linux-dator som fungerar som din IoT Edge-enhet. 
 
    ```azurecli-interactive
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
@@ -62,18 +62,13 @@ Skapa den virtuella datorn. Du behöver inte en särskilt stor virtuell dator f�
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-Starta snabbstarten genom att skapa din IoT Hub i Azure Portal.
+Starta snabbstarten genom att skapa din IoT Hub med Azure CLI. 
+
 ![Skapa IoT Hub][3]
 
 Den kostnadsfria nivån för IoT Hub fungerar för den här snabbstarten. Om du har använt IoT Hub tidigare och redan har skapat en kostnadsfri hubb kan du använda den. Varje prenumeration kan bara ha en kostnadsfri IoT Hub. 
 
-1. I Azure-molngränssnittet skapar du en resursgrupp om du inte redan gjort det som en del av förutsättningarna. Genom att lägga alla resurser för snabbstarten och självstudierna i en grupp kan du hantera dem tillsammans. 
-
-   ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus
-   ```
-
-1. Skapa en IoT Hub i din nya resursgrupp. Följande kod skapar en kostnadsfri **F1**-hubb i resursgruppen **IoTEdgeResources**. Ersätt *{hub_name}* med ett unikt namn för din IoT Hub.
+Följande kod skapar en kostnadsfri **F1**-hubb i resursgruppen **IoTEdgeResources**. Ersätt *{hub_name}* med ett unikt namn för din IoT Hub.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 

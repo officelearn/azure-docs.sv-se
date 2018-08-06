@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d58418b45192a6c1e31b4c3c918a27fe253d8c34
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dcde63c4bce17993ec9e1a9d83889a001d7880e1
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473994"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264444"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
 Du använder **anpassade inställningar** för Azure AD Connect om du behöver fler installationsalternativ. Du använder dem till exempel om du har flera skogar eller om du vill konfigurera valfria funktioner som inte omfattas av snabbinstallationen. De används i samtliga fall där en [**snabbinstallation**](active-directory-aadconnect-get-started-express.md) inte uppfyller dina distributions- eller topologikrav.
@@ -41,7 +41,7 @@ När du installerar synkroniseringstjänsterna kan du lämna avsnittet för valf
 | Valfri konfiguration | Beskrivning |
 | --- | --- |
 | Använda en befintlig SQL-server |Med det här alternativet kan du ange namnet på SQL-servern och namnet på instansen. Välj det här alternativet om du redan har en databasserver som du vill använda. Ange instansnamnet följt av ett kommatecken och portnummer i **Instansnamn** om bläddring inte är aktiverat för SQL-servern. |
-| Använda ett befintligt tjänstkonto |Som standard använder Azure AD Connect ett lokalt tjänstkonto som ska användas av synkroniseringstjänsterna. Om du använder en fjärransluten SQL-server eller om du använder en proxyserver som kräver autentisering så behöver använda ett **hanterat tjänstkonto** eller ett tjänstkonto i domänen och måste även känna till lösenordet. I detta fall anger du det konto som ska användas. Kontrollera att användaren som kör installationen är en SA i SQL så att en inloggning för tjänstkontot kan skapas.  Se [Azure AD Connect: Konton och behörigheter](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). </br></br>Med den senaste versionen kan SQL-administratören nu distribuera databasen ”out of band” och därefter kan den installeras av Azure AD Connect-administratören med databasägarrättigheter.  Läs mer i informationen om hur du [installerar Azure AD Connect med SQL-delegerade administratörsbehörigheter](active-directory-aadconnect-sql-delegation.md).|
+| Använda ett befintligt tjänstkonto |Som standard använder Azure AD Connect ett lokalt tjänstkonto som ska användas av synkroniseringstjänsterna. Om du använder en fjärransluten SQL-server eller om du använder en proxyserver som kräver autentisering så behöver använda ett **hanterat tjänstkonto** eller ett tjänstkonto i domänen och måste även känna till lösenordet. I detta fall anger du det konto som ska användas. Kontrollera att användaren som kör installationen är en SA i SQL så att en inloggning för tjänstkontot kan skapas.  Se [Azure AD Connect: Konton och behörigheter](active-directory-aadconnect-accounts-permissions.md#adsync-service-account). </br></br>Med den senaste versionen kan SQL-administratören nu distribuera databasen ”out of band” och därefter kan den installeras av Azure AD Connect-administratören med databasägarrättigheter.  Läs mer i informationen om hur du [installerar Azure AD Connect med SQL-delegerade administratörsbehörigheter](active-directory-aadconnect-sql-delegation.md).|
 | Ange anpassade synkroniseringsgrupper |Som standard skapar Azure AD Connect fyra grupper som är lokala på servern när synkroniseringstjänsterna installeras. Dessa grupper är: gruppen Administratörer, gruppen Operatorer, gruppen Bläddra och gruppen Återställning av lösenord. Du kan ange dina egna grupper här. Grupperna måste vara lokala på servern och de kan inte hittas i domänen. |
 
 ### <a name="user-sign-in"></a>Användarinloggning
@@ -83,14 +83,14 @@ När du har angett det första skogsnamnet och klickat på  **Lägg till katalog
 | Alternativ | Beskrivning |
 | --- | --- |
 | Skapa ett nytt konto | Välj det här alternativet om du vill att Azure AD Connect-guiden ska skapa det AD DS-konto som krävs av Azure AD Connect för att ansluta till AD-skogen under katalogsynkronisering. När det är alternativet är valt anger du användarnamnet och lösenordet för ett företagsadministratörskonto. Företagets administratörskonto som angetts används av Azure AD Connect-guiden för att skapa AD DS-kontot som krävs. Du kan ange domändelen i NetBios- eller FQDN-format, d.v.s. FABRIKAM\administrator eller fabrikam.com\administrator. |
-| Använda befintligt konto | Välj det här alternativet om du vill tillhandahålla ett befintligt AD DS-konto som ska användas av Azure AD Connect för att ansluta till AD-skogen under katalogsynkronisering. Du kan ange domändelen i NetBios- eller FQDN-format, dvs. FABRIKAM\syncuser eller fabrikam.com\syncuser. Det här kontot kan vara ett vanligt användarkonto eftersom det bara behöver standardläsbehörighet. Beroende på scenario kan du dock behöva fler behörigheter. Mer information finns i [Azure AD Connect: Konton och behörigheter](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account). |
+| Använda befintligt konto | Välj det här alternativet om du vill tillhandahålla ett befintligt AD DS-konto som ska användas av Azure AD Connect för att ansluta till AD-skogen under katalogsynkronisering. Du kan ange domändelen i NetBios- eller FQDN-format, dvs. FABRIKAM\syncuser eller fabrikam.com\syncuser. Det här kontot kan vara ett vanligt användarkonto eftersom det bara behöver standardläsbehörighet. Beroende på scenario kan du dock behöva fler behörigheter. Mer information finns i [Azure AD Connect: Konton och behörigheter](active-directory-aadconnect-accounts-permissions.md##create-the-ad-ds-connector-account). |
 
 ![Anslut katalog](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
 
 ### <a name="azure-ad-sign-in-configuration"></a>Inloggningskonfiguration för Azure AD
 På den här sidan kan du granska de UPN-domäner som finns i lokala AD DS och som har verifierats i Azure AD. På den här sidan kan du också konfigurera attributet som ska användas för userPrincipalName.
 
-![Overifierade domäner](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
+![Overifierade domäner](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig2.png)  
 Granska varje domän som markerats med **Inte tillagd** och **Inte verifierad**. Kontrollera att de domäner som du använder har verifierats i Azure AD. Klicka på symbolen Uppdatera när du har verifierat dina domäner. Mer information finns i [Lägga till och verifiera domänen](../active-directory-domains-add-azure-portal.md)
 
 **UserPrincipalName** – Attributet userPrincipalName är det attributet som användare använder när de loggar in i Azure AD och Office 365. Domänerna som används, även kallade UPN-suffixet, bör verifieras i Azure AD innan användarna synkroniseras. Microsoft rekommenderar att du behåller standardattributet userPrincipalName. Om det här attributet är icke-dirigerbart och inte kan verifieras går det att välja ett annat attribut. Du kan till exempel välja email som attributet som ska innehålla inloggnings-ID:t. Om du använder ett annat attribut än userPrincipalName kallas det för ett **Alternativt ID**. Attributvärdet för ett alternativt ID måste följa standarden RFC822. Ett alternativt ID kan användas med både lösenordssynkronisering och federation. Attributet måste inte definieras som flera värden i Active Directory, inte ens om den bara har ett enda värde.
@@ -121,7 +121,7 @@ Om du ser den här varningen kontrollerar du att dessa domäner verkligen inte k
 #### <a name="select-how-users-should-be-identified-in-your-on-premises-directories"></a>Välj hur användare ska identifieras i dina lokala kataloger
 Med funktionen Matchande mellan skogar kan du definiera hur användare från AD DS-skogar representeras i Azure AD. En användare kan antingen representeras endast en gång i alla skogar eller ha en kombination av aktiverade och inaktiverade konton. Användaren kan också vara representerad som en kontakt i vissa skogar.
 
-![Unik](./media/active-directory-aadconnect-get-started-custom/unique.png)
+![Unik](./media/active-directory-aadconnect-get-started-custom/unique2.png)
 
 | Inställning | Beskrivning |
 | --- | --- |
@@ -156,7 +156,7 @@ I en komplett produktionsdistribution blir det svårt att underhålla en enda gr
 ### <a name="optional-features"></a>Valfria funktioner
 På den här sidan kan du välja de valfria funktionerna för dina specifika scenarier.
 
-![Valfria funktioner](./media/active-directory-aadconnect-get-started-custom/optional.png)
+![Valfria funktioner](./media/active-directory-aadconnect-get-started-custom/optional2.png)
 
 > [!WARNING]
 > Om DirSync eller Azure AD Sync är aktiverat för närvarande ska du inte aktivera någon av tillbakaskrivningsfunktionerna i Azure AD Connect.
@@ -378,6 +378,28 @@ För att kontrollera att autentiseringen från slutpunkt till slutpunkt lyckades
 * Kontrollera att du kan logga in från en webbläsare från en domänansluten dator i intranätet: Anslut till https://myapps.microsoft.com och kontrollera inloggningen med ditt inloggade konto. Det inbyggda AD DS-administratörskontot synkroniseras inte och kan inte användas för verifiering.
 * Kontrollera att du kan logga in från en enhet från extranätet. Anslut till https://myapps.microsoft.com och ange dina autentiseringsuppgifter på en hemdator eller mobil enhet.
 * Verifiera inloggningen på en rich-klient. Anslut till https://testconnectivity.microsoft.com, välj fliken **Office 365** och sedan **Test av enkel inloggning i Office 365**.
+
+## <a name="troubleshooting"></a>Felsökning
+Följande avsnitt innehåller hjälp och felsökningsinformation som du kan använda om det uppstår problem när du installerar Azure AD Connect.
+
+### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>”ADSync-databasen innehåller redan data och kan inte skrivas över” 
+När du gör en anpassad installation av Azure AD Connect och väljer alternativet **Använd en befintlig SQL-server** på sidan **Installera nödvändiga komponenter** kan det hända att följande felmeddelande visas: **Please remove the existing database and try again. Please remove the existing database and try again.** (ADSync-databasen innehåller redan data och kan inte skrivas över. Ta bort den befintliga databasen och försök igen.)
+
+![Fel](media/active-directory-aadconnect-get-started-custom/error1.png)
+
+Det här felet beror på att det redan finns en befintlig databas med namnet **ADSync** på SQL-instansen av SQL-servern, som du angav i textrutorna ovan.
+
+Detta inträffar vanligtvis när du har avinstallerat Azure AD Connect.  Databasen tas inte bort från SQL Server när du avinstallerar.
+
+För att åtgärda problemet måste du först kontrollera att **ADSync**-databasen som användes av Azure AD Connect innan avinstallationen inte längre används.
+
+Därefter bör du säkerhetskopiera databasen innan du tar bort den. 
+
+Slutligen måste du ta bort databasen.  Du kan göra det genom att använda **Microsoft SQL Server Management Studio** och ansluta till SQL-instansen. Leta upp **ADSync**-databasen, högerklicka på den och välj **Ta bort** på snabbmenyn.  Klicka sedan på **OK** för att ta bort den.
+
+![Fel](media/active-directory-aadconnect-get-started-custom/error2.png)
+
+När du har tagit bort **ADSync**-databasen provar du att installera igen genom att klicka på **Installera**.
 
 ## <a name="next-steps"></a>Nästa steg
 När installationen har slutförts kan du logga ut och logga in igen i Windows innan du använda Synchronization Service Manager eller Synchronization Rule Editor.

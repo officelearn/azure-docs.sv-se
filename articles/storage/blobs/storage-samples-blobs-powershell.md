@@ -1,37 +1,30 @@
 ---
-title: Azure PowerShell-exempel för Azure Blob storage | Microsoft Docs
-description: Azure PowerShell-exempel för att arbeta med Azure Blob storage
+title: Azure PowerShell-exempel för Azure Blob Storage | Microsoft Docs
+description: Azure PowerShell-exempel för att arbeta med Azure Blob Storage
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: tamram
-ms.openlocfilehash: d07161cb5bc08410b0db552f7645e2af776c37df
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.component: blobs
+ms.openlocfilehash: fd553e4cb669d712bc4458ca55864b09a9160862
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/23/2017
-ms.locfileid: "27535237"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399434"
 ---
-# <a name="azure-powershell-samples-for-azure-blob-storage"></a>Azure PowerShell-exempel för Azure Blob storage
+# <a name="azure-powershell-samples-for-azure-blob-storage"></a>Azure PowerShell-exempel för Azure Blob Storage
 
-Följande tabell innehåller länkar till PowerShell skriptexempel som skapar och hanterar Azure Storage.
+Följande tabell innehåller länkar till PowerShell-skriptexempel som skapar och hanterar Azure Storage.
 
 | | |
 |---|---|
-|**Storage-konton**||
+|**Lagringskonton**||
 | [Skapa ett lagringskonto och hämta/rotera åtkomstnycklarna](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Azure Storage-konto och hämtar och roterar en av dess åtkomstnycklar. |
-| [Migrera Blobbar över storage-konton med hjälp av AzCopy i Windows](../scripts/storage-common-transfer-between-storage-accounts.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Migrera blobbar över Azure Storage-konton med hjälp av AzCopy i Windows. |
+| [Migrera blobar mellan lagringskonton med hjälp av AzCopy i Windows](../scripts/storage-common-transfer-between-storage-accounts.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Migrera blobar mellan Azure Storage-konton med hjälp av AzCopy i Windows. |
 |**Blob Storage**||
-| [Beräkna den totala storleken på en behållare för Blob storage](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Beräknar den totala storleken på alla blobbar i en behållare. |
-| [Beräkna storleken på en behållare för Blob storage för fakturering](../scripts/storage-blobs-container-calculate-billing-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Beräknar storleken på en behållare i Blob storage för att uppskatta fakturering kostnader. |
-| [Ta bort behållare med ett specifikt prefix](../scripts/storage-blobs-container-delete-by-prefix-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Tar bort behållare som börjar med en angiven sträng. |
+| [Beräkna den totala storleken på en container för bloblagring](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Beräknar den totala storleken för alla blobbar i en container. |
+| [Beräkna storleken på en Blob Storage-container för faktureringsändamål](../scripts/storage-blobs-container-calculate-billing-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Beräknar storleken på en container i Blob Storage för att ge en uppskattning av kostnaderna. |
+| [Ta bort containrar med ett specifikt prefix](../scripts/storage-blobs-container-delete-by-prefix-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Tar bort containrar som börjar med en angiven sträng. |

@@ -91,8 +91,6 @@
           href: batch-task-dependencies.md
         - name: Användarkonton för att köra aktiviteter
           href: batch-user-accounts.md
-        - name: Kör batchjobb utan kod
-          href: batch-cli-templates.md
     - name: Bevara jobb- och uppgiftsutdata
       href: batch-task-output.md
       items:
@@ -123,10 +121,13 @@
           href: batch-efficient-list-queries.md
     - name: Använd skriptverktyg
       items:
-        - name: Använda PowerShell-cmdletar
+        - name: Använda Azure PowerShell
           href: batch-powershell-cmdlets-get-started.md
         - name: Använda Azure CLI
           href: batch-cli-get-started.md
+          items:
+            - name: Använda Batch CLI-mallar
+              href: batch-cli-templates.md
     - name: Använd Batch Node.js SDK
       href: batch-nodejs-get-started.md
 - name: Referens

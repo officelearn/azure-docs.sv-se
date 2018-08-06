@@ -1,6 +1,6 @@
 ---
 title: Distribuera Azure Machine Learning med Azure IoT Edge | Microsoft Docs
-description: Distribuera Azure Machine Learning som en modul till en Edge-enhet
+description: I den här självstudien distribuerar du Azure Machine Learning som en modul till en gränsenhet
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 62ca816f7bdc183727eb22806ba9e733c8b97c44
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a1b34fe75f76d5f615ab33069f3012f22dc7ef2e
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173513"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413081"
 ---
-# <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Distribuera Azure Machine Learning som en IoT Edge-modul – förhandsgranskning
+# <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Distribuera Azure Machine Learning som en IoT Edge-modul (förhandsversion)
 
 Du kan använda IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudiekursen vägleder dig genom processen att distribuera en Azure Machine Learning-modul som förutsäger när en enhet slutar fungera baserat på simulerade data om datortemperaturen. Mer information om Azure ML på IoT Edge finns i [Dokumentation om Azure Machine Learning](../machine-learning/desktop-workbench/use-azure-iot-edge-ai-toolkit.md).
 
@@ -33,15 +33,23 @@ I den här guiden får du lära dig att:
 >[!NOTE]
 >Azure Machine Learning-moduler på Azure IoT Edge finns i en allmänt tillgänglig förhandsversion. 
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill testa Machine Learning-moduler som du skapar i dessa självstudier behöver du en IoT Edge-enhet. Du kan använda enheten som du konfigurerade i snabbstarten för [Linux](quickstart-linux.md) eller [Windows-enheter](quickstart.md). 
+En Azure IoT Edge-enhet:
 
-Azure Machine Learning-modulen stöder inte ARM-processorer.
+* Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
+* Azure Machine Learning-modulen stöder inte ARM-processorer.
 
-Utvecklingsdatorn behöver ha följande förutsättningar: 
+Molnresurser:
+
+* En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på standardnivå i Azure. 
+
+Utvecklingsresurser:
 * Ett Azure Machine Learning-konto. Följ anvisningarna för att [skapa Azure Machine Learning-konton och installera Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Du behöver inte installera Workbench för den här självstudiekursen. 
-* Modellhantering för Azure ML på din dator. Om du vill konfigurera din miljö och skapa ett konto följer du anvisningarna för [konfigurering av modellhantering](../machine-learning/desktop-workbench/deployment-setup-configuration.md). Under installationen av distributionen rekommenderar vi att du väljer de lokala stegen i stället för klustret, där det är möjligt.
+* Modellhantering för Azure ML. Om du vill konfigurera din miljö och skapa ett konto följer du anvisningarna för [konfigurering av modellhantering](../machine-learning/desktop-workbench/deployment-setup-configuration.md). Under installationen av distributionen rekommenderar vi att du väljer de lokala stegen i stället för klustret, där det är möjligt.
 
 ### <a name="disable-process-identification"></a>Inaktivera processidentifiering
 
@@ -108,7 +116,7 @@ Kontrollera att containeravbildningen skapades och lagras i Azure Container-regi
 4. Kopiera värdena för **inloggningsserver**, **användarnamn** och **lösenord**.  Du behöver dem för att komma åt registret från dina Edge-enheter.
 5. Välj **Lagringsplatser**
 6. Välj **machinelearningmodule**
-7. Nu har du fullständig avbildningssökväg för containern. Anteckna avbildningssökvägen för nästa avsnitt. Det bör se ut så här: **<registry_name>.azureacr.io/machinelearningmodule:1**
+7. Nu har du fullständig avbildningssökväg för containern. Anteckna avbildningssökvägen för nästa avsnitt. Den bör se ut så här: **<registernamn>.azurecr.io/machinelearningmodule:1**
 
 ## <a name="deploy-to-your-device"></a>Distribuera till din nya enhet
 

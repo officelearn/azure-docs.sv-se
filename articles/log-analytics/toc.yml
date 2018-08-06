@@ -9,9 +9,9 @@
   items:
     - name: Samla in – virtuella Azure-datorer
       href: log-analytics-quick-collect-azurevm.md
-    - name: Samla in – Linux-dator
+    - name: Samla in – Linux-hybriddator
       href: log-analytics-quick-collect-linux-computer.md
-    - name: Samla in – Windows-dator
+    - name: Samla in – Windows-hybriddator
       href: log-analytics-quick-collect-windows-computer.md
 - name: Självstudier
   items:

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/29/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 539e41dbd4d9e115c2d8daf90405d7683bcaa462
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e941eb27e9c55f9a4b0e7af8d4cd8efa0220616b
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763195"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264468"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Självstudie: Fråga mot Azure Cosmos DB med hjälp av MongoDB API
 
@@ -27,9 +27,7 @@ I den här artikeln beskrivs följande uppgifter:
 > [!div class="checklist"]
 > * Fråga efter data med MongoDB
 
-Kom igång genom att titta på den här videon om hur du frågar efter data med MongoDB med Andy Hoh, Program Manager för Azure Cosmos DB:
-
->[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
+Du kan sätta igång med hjälp av exemplen i det här dokumentet och titta på videon [Query Azure Cosmos DB with MongoDB shell](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/) (Hämta data från Azure Cosmos DB med MongoDB-gränssnittet).
 
 ## <a name="sample-document"></a>Exempeldokument
 

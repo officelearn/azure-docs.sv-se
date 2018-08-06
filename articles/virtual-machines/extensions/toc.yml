@@ -38,7 +38,9 @@
           href: custom-script-windows.md
         - name: Azure Service Management (klassisk)
           href: custom-script-classic.md
-    - name: Diagnostik
+    - name: IaaS-program mot skadlig kod för Windows
+      href: iaas-antimalware-windows.md
+    - name: VM-ögonblicksbild
       items:
         - name: Linux
           href: vmsnapshot-linux.md

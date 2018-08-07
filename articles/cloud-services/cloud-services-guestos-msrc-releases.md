@@ -12,17 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/6/2018
+ms.date: 8/3/2018
 ms.author: raiye
-ms.openlocfilehash: 440f988744a99d4857c6b9fa58f52e0f1eef1a3f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: aa7ee049177fccbcca7d648ca749eb9fb35a0f53
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902171"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522313"
 ---
 # <a name="azure-guest-os"></a>Azure gäst-OS
 Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Gästoperativsystemet i Azure. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för speciellt [familj] [ family-explain] de introducerades i.
+
+
+## <a name="july-guest-os"></a>Juli gäst-OS
+| Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
+| --- | --- | --- | --- | --- |
+| Rel 18-07 | [4338814] |Windows 10-säkerhet |5.21 |Den 10 juli 2018 |
+| Rel 18-07 | [4338823] |Endast Windows-säkerhet |2.76 |Den 10 juli 2018 |
+| Rel 18-07 | [4338820] |Endast Windows-säkerhet |3.63 |Den 10 juli 2018 |
+| Rel 18-07 | [4338824] |Endast Windows-säkerhet |med 4,56 |Den 10 juli 2018 |
+| Rel 18-07 | [4345459] |Security Samlad uppdatering |2.76 |Den 10 juli 2018 |
+| Rel 18-07 | [4345425] |Security Samlad uppdatering |3.63 |Den 10 juli 2018 |
+| Rel 18-07 | [4345424] |Security Samlad uppdatering |med 4,56 |Den 10 juli 2018 |
+| Rel 18-07 | [4345418] |Security Samlad uppdatering |5.21 |Den 10 juli 2018 |
+| Rel 18-07 | [4338612], [4338602] |.NET 3.5, 4.x-säkerhet |2.76 |Den 10 juli 2018 |
+| Rel 18-07 | [4338601], [4338604] |.NET 3.5, 4.x 4,5 x-säkerhet |3.63 |Den 10 juli 2018 |
+| Rel 18-07 | [4338613], [4338600], [4338605] |.NET 3.5, 4.x 4,5 x-säkerhet |med 4,56|Den 10 juli 2018 |
+| Rel 18-07 | [4338832] |Flash |3.63, 4.76, 5.21 |Den 10 juli 2018 |
+| Rel 18-07 | [4339093] |Internet Explorer |2.76, 3.63, 4.76 |Den 10 juli 2018 |
+| Gäller inte | [4284826] |Insamling av juni icke-säkerhet |2.76 |12 juni 2018 |
+| Gäller inte | [4284855] |Insamling av juni icke-säkerhet |3.63 |12 juni 2018 |
+| Gäller inte | [4284815] |Insamling av juni icke-säkerhet |med 4,56 |12 juni 2018 |
 
 ## <a name="june-guest-os"></a>Juni gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
@@ -674,6 +695,28 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte |[2999802] |Heldragna linjer i stället för kantlinjerna skrivs ut i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | Gäller inte |[2896881] |Länge inloggningstid när du använder kommandot AddPrinterConnection VBScript för att mappa skrivare för användare vid inloggning i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
+
+
+[4338814]: http://support.microsoft.com/kb/4338814
+[4338823]: http://support.microsoft.com/kb/4338823
+[4338820]: http://support.microsoft.com/kb/4338820
+[4338824]: http://support.microsoft.com/kb/4338824
+[4345459]: http://support.microsoft.com/kb/4345459
+[4345425]: http://support.microsoft.com/kb/4345425
+[4345424]: http://support.microsoft.com/kb/4345424
+[4345418]: http://support.microsoft.com/kb/4345418
+[4338612]: http://support.microsoft.com/kb/4338612
+[4338602]: http://support.microsoft.com/kb/4338602
+[4338601]: http://support.microsoft.com/kb/4338601
+[4338604]: http://support.microsoft.com/kb/4338604
+[4338613]: http://support.microsoft.com/kb/4338613
+[4338600]: http://support.microsoft.com/kb/4338600
+[4338605]: http://support.microsoft.com/kb/4338605
+[4338832]: http://support.microsoft.com/kb/4338832
+[4284826]: http://support.microsoft.com/kb/4284826
+[4284855]: http://support.microsoft.com/kb/4284855
+[4284815]: http://support.microsoft.com/kb/4284815
+[4339093]: http://support.microsoft.com/kb/4339093
 
 [4284880]: http://support.microsoft.com/kb/4284880
 [4284867]: http://support.microsoft.com/kb/4284867

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: e5bee65677b85b729a38ce3b902687cfbdb989da
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f42948f0f3acf1bacf6c80010489890f4b8d122b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345913"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523673"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindningar för Azure Functions
 
@@ -374,7 +374,7 @@ let Run(myQueueItem: string, personEntity: Person) =
 
 ### <a name="input---javascript-example"></a>Indata - JavaScript-exempel
 
-I följande exempel visas en tabell indatabindning i en *function.json* fil- och [JavaScript-kod] (functions-referens-node.md) som använder bindningen. Funktionen använder en kö-utlösare för att läsa en tabellrad. 
+I följande exempel visas en tabell indatabindning i en *function.json* fil och [JavaScript-kod](functions-reference-node.md) som använder bindningen. Funktionen använder en kö-utlösare för att läsa en tabellrad. 
 
 Den *function.json* filen anger en `partitionKey` och en `rowKey`. Den `rowKey` värdet ”{queueTrigger}” anger att Radnyckeln kommer från kön Meddelandesträngen.
 
@@ -482,7 +482,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**riktning** | Saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar tabell eller entitet i funktionskoden. | 
 |**Tabellnamn** | **Tabellnamn** | Namnet på tabellen.| 
-|**PartitionKey** | **PartitionKey** |Valfri. Partitionsnyckeln för entiteten tabellen att läsa. Se den [användning](#input---usage) avsnittet anvisningar om hur du använder den här egenskapen.| 
+|**partitionKey** | **partitionKey** |Valfri. Partitionsnyckeln för entiteten tabellen att läsa. Se den [användning](#input---usage) avsnittet anvisningar om hur du använder den här egenskapen.| 
 |**RowKey** |**RowKey** | Valfri. Radnyckel för entiteten tabellen att läsa. Se den [användning](#input---usage) avsnittet anvisningar om hur du använder den här egenskapen.| 
 |**ta** |**ta** | Valfri. Det maximala antalet enheter för att läsa i JavaScript. Se den [användning](#input---usage) avsnittet anvisningar om hur du använder den här egenskapen.| 
 |**Filter** |**Filter** | Valfri. En OData-filteruttryck för tabellen som indata i JavaScript. Se den [användning](#input---usage) avsnittet anvisningar om hur du använder den här egenskapen.| 
@@ -742,7 +742,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**riktning** | Saknas | Måste anges till `out`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen. |
 |**Namn** | Saknas | Variabelnamnet som används i Funktionskoden som representerar tabell eller enhet. Ange `$return` att referera till returvärde för funktion.| 
 |**Tabellnamn** |**Tabellnamn** | Namnet på tabellen.| 
-|**PartitionKey** |**PartitionKey** | Partitionsnyckeln för entiteten tabell att skriva. Se den [användning](#output---usage) anvisningar om hur du använder den här egenskapen.| 
+|**partitionKey** |**partitionKey** | Partitionsnyckeln för entiteten tabell att skriva. Se den [användning](#output---usage) anvisningar om hur du använder den här egenskapen.| 
 |**RowKey** |**RowKey** | Radnyckel för entiteten tabell att skriva. Se den [användning](#output---usage) anvisningar om hur du använder den här egenskapen.| 
 |**anslutning** |**anslutning** | Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
 

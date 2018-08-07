@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 094958911435b899773ef4ee11176f538a4c8fe0
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 6c2f20f74ce90f2876ff4040d34a2ede94c92fb1
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399132"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577345"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>Utöka verksamheten på marketplace 
 När du har publicerat ditt erbjudande i Azure Marketplace eller AppSource, kan du använda din registrering som en startplats för gemensamma (GTM) go-to-market-aktiviteter med Microsoft. Kör trafik till dina Marketplace-erbjudande- och köpet Marketplace leads, till exempel är bra sätt att snabba upp din verksamhet att växa. 
@@ -33,7 +33,7 @@ Tabeller i nästa avsnitt innehåller förslag för att skapa engagerande market
 ### <a name="storefront-offer-details"></a>Storefront erbjudandeinformation
 | Storefront inställningen | Bästa praxis |
 |:--- |:--- |  
-| Erbjudandets namn | Ange ett starkt namn:<br>Appnamnet på din ska kommunicera kärnan som dina kunder får. Inklusive sökord i din app rubrik kan din app att rangordna högre i sökresultat.<br><br>Följ ett set rubrik format för consulting service listor:<br>[Erbjudandets namn]: [varaktighet] [Erbjudandetyp] (till exempel *Contoso: 2 veckor implementering*)<br><br>Följa varumärke riktlinjer:<br>Följ [varumärke riktlinjer och Microsoft Trademark](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) och andra relevanta, produktspecifik riktlinjer när du refererar till Microsofts varumärken och namnen på Microsoft-programvara, produkter och tjänster. |
+| Erbjudandets namn | Ange ett starkt namn:<br>Appnamnet på din ska kommunicera kärnan som dina kunder får. Inklusive sökord i din app rubrik kan din app att rangordna högre i sökresultat.<br><br>Följ ett set rubrik format för consulting service listor:<br>[Erbjudandets namn]: [varaktighet] [Erbjudandetyp] \(till exempel *Contoso: 2 veckor implementering*)<br><br>Följa varumärke riktlinjer:<br>Följ [varumärke riktlinjer och Microsoft Trademark](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) och andra relevanta, produktspecifik riktlinjer när du refererar till Microsofts varumärken och namnen på Microsoft-programvara, produkter och tjänster. |
 | Beskrivning av erbjudande | Ange en beskrivning av Rensa erbjudande:<br>Beskriv tydligt ditt erbjudande förslagsvärde i de första några meningarna beskrivningen. Tänk på att de första några meningarna kan visas i sökresultat. Förlita dig inte på Egenskaper och funktioner för att sälja din produkt. I stället fokusera på det värdet du levererar. Använd branschspecifika ordförråd eller förmånen-baserade formulering så mycket som möjligt.<br><br>Kärnkomponenterna i din förslagsvärde bör innehålla följande information:<ul><li>Beskrivning av produkten</li><li>Typ av användare som kan dra nytta av produkten</li><li>Kunden behöver eller enkelt som åtgärdar produkten</li></ul> |
 
 ### <a name="storefront-listing-details"></a>Storefront lista information

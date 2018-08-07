@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/02/2018
+ms.date: 07/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4dcfb71e0adb05922603715e4dbcbdb243305927
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a2e0bf35f73a355197f821f7cce12294f7b35576
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37438216"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344757"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Vad är rollbaserad åtkomstkontroll (Role-based access control, RBAC)?
 
 Åtkomsthantering för molnresurser är en viktig funktion för alla organisationer som använder molnet. Rollbaserad åtkomstkontroll (RBAC) hjälper till vid hantering av vem som ska ha åtkomst till Azure-resurser, vad de ska kunna göra med resurserna och till vilka områden de ska ha åtkomst.
 
-RBAC är ett auktoriseringssystem som bygger på [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) som ger detaljerad åtkomsthantering av resurser i Azure. Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete. I stället för att ge alla obegränsad behörighet i din Azure-prenumeration eller dina resurser kan du tillåta enbart vissa åtgärder i ett visst omfång.
+RBAC är ett auktoriseringssystem som bygger på [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) som ger detaljerad åtkomsthantering av resurser i Azure.
 
 ## <a name="what-can-i-do-with-rbac"></a>Vad kan jag göra med RBAC?
 
@@ -35,6 +35,14 @@ Här följer några exempel på vad du kan göra med RBAC:
 - Tillåta en DBA-grupp att hantera SQL-databaser i en prenumeration
 - Tillåta en användare att hantera alla resurser i en resursgrupp, till exempel virtuella datorer, webbplatser och undernät
 - Tillåta att ett program får åtkomst till alla resurser i en resursgrupp
+
+## <a name="best-practice-for-using-rbac"></a>Metodtips för att använda RBAC
+
+Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete. I stället för att ge alla obegränsad behörighet i din Azure-prenumeration eller dina resurser kan du tillåta enbart vissa åtgärder i ett visst omfång.
+
+När du planerar din strategi för åtkomstkontroll är det en bra idé att bevilja användare den lägsta behörighet som krävs för att de ska kunna utföra sitt arbete. I följande diagram visas ett föreslaget mönster för att använda RBAC.
+
+![RBAC och lägsta behörighet](./media/overview/rbac-least-privilege.png)
 
 ## <a name="how-rbac-works"></a>Så fungerar RBAC
 
@@ -75,7 +83,7 @@ I Azure kan du ange ett omfång på flera nivåer: prenumeration, resursgrupp el
 
 ![Omfång för en rolltilldelning](./media/overview/rbac-scope.png)
 
-Åtkomst som du tilldelar på ett överordnad omfång ärvs av det underordnade omfånget. Till exempel:
+Åtkomst som du tilldelar på ett överordnad omfång ärvs av det underordnade omfånget. Exempel:
 
 - Om du tilldelar rollen [Läsare](built-in-roles.md#reader) till en grupp i prenumerationsomfånget kan medlemmarna i den gruppen visa alla resursgrupper och resurser i prenumerationen.
 - Om du tilldelar rollen [Deltagare](built-in-roles.md#contributor) till ett program i resursgruppomfånget kan den hantera resurser av alla typer i den resursgruppen, men inte i andra resursgrupper i prenumerationen.

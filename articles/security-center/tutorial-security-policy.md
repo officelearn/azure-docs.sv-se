@@ -3,7 +3,7 @@ title: Azure Security Center-självstudie – Definiera och utvärdera säkerhet
 description: Azure Security Center-självstudie – Definiera och utvärdera säkerhetsprinciper
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,17 +13,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: yurid
-ms.openlocfilehash: 16dc8553fdc1209d1973934a87660ff61df8e68a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 07/30/2018
+ms.author: terrylan
+ms.openlocfilehash: 15c69bce87ede96eb3a7bc0bada4e4f6a6669abb
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779476"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358616"
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Självstudie: Definiera och utvärdera säkerhetsprinciper
-Security Center hjälper till att säkerställa efterlevnaden av företagets eller bestämmelsemässiga säkerhetskrav med säkerhetsprinciper för att definiera den önskade konfigurationen för arbetsbelastningarna. När du definierar principer för dina Azure-prenumerationer och anpassar dem till typen av arbetsbelastning eller dina datas känslighet kan Security Center tillhandahålla säkerhetsrekommendationer för dina resurser för beräkning, nätverk, SQL och lagring och program. I den här självstudien får du lära dig hur man:
+Security Center hjälper till att säkerställa efterlevnaden av företagets eller bestämmelsemässiga säkerhetskrav med säkerhetsprinciper för att definiera den önskade konfigurationen för arbetsbelastningarna. När du definierar principer för dina Azure-prenumerationer och anpassar dem till typen av arbetsbelastning eller dina datas känslighet kan Security Center tillhandahålla säkerhetsrekommendationer för dina resurser för beräkning, program, nätverk, data och lagring samt identitet och åtkomst. I den här självstudien får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Konfigurera säkerhetsprincip
@@ -37,16 +37,20 @@ För att gå igenom funktionerna i den här självstudien måste du ha standardn
 ## <a name="configure-security-policy"></a>Konfigurera säkerhetsprincip
 Security Center skapar automatiskt en standardsäkerhetsprincip för var och en av dina Azure-prenumerationer. Säkerhetsprinciper består av rekommendationer som du kan slå på eller stänga av utifrån prenumerationens säkerhetskrav. För att göra ändringar i en standardsäkerhetsprincip måste du vara ägare, deltagare eller säkerhetsadministratör för prenumerationen.
 
-1. På huvudmenyn i Security Center väljer du **Säkerhetsprincip**. Ange den Azure-prenumeration som du vill använda. Under **PRINCIPKOMPONENTER** väljer du **Säkerhetsprincip**:
+1. På huvudmenyn i Security Center väljer du **Säkerhetsprincip**.
+2. Ange den Azure-prenumeration som du vill använda.
 
   ![Säkerhetsprincip](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
 
-2. För varje säkerhetskonfiguration du vill övervaka väljer du **På**. Security Center utvärderar kontinuerligt miljöns konfiguration och när det finns säkerhetsrisker genererar Security Center en säkerhetsrekommendation. Välj **Av** om säkerhetskonfigurationen inte är rekommenderad eller relevant. I till exempel en dev/test-miljö kanske du inte kräver samma säkerhetsnivå som för en produktionsmiljö. När du har valt de principer som gäller för din miljö klickar du på **Spara**.
+3. Under **PRINCIPKOMPONENTER** väljer du **Säkerhetsprincip**
+4. För varje säkerhetskonfiguration du vill övervaka väljer du **På**. Security Center utvärderar kontinuerligt miljöns konfiguration och när det finns säkerhetsrisker genererar Security Center en säkerhetsrekommendation. Välj **Av** om säkerhetskonfigurationen inte är rekommenderad eller relevant. I till exempel en dev/test-miljö kanske du inte kräver samma säkerhetsnivå som för en produktionsmiljö. När du har valt de principer som gäller för din miljö klickar du på **Spara**.
+
+  ![Säkerhetskonfiguration](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
 
 Vänta tills Security Center behandlar principerna och genererar rekommendationer. Vissa konfigurationer, som systemuppdateringar och OS-konfigurationer kan ta upp till 12 timmar, medan nätverkssäkerhetsgrupper och krypteringskonfigurationer kan utvärderas nästan omedelbart. När du ser rekommendationerna på Security Center-instrumentpanelen kan du fortsätta till nästa steg.
 
 ## <a name="assess-security-of-resources"></a>Utvärdera säkerheten för resurser
-1. Enligt säkerhetsprinciperna vi har aktiverat tillhandahåller Security Center en uppsättning säkerhetsrekommendationer efter behov. Börja med att granska den virtuella datorn och rekommendationer för datorer. På instrumentpanelen för Security Center klickar du på **Översikt** och sedan på **Compute**.
+1. Enligt säkerhetsprinciperna vi har aktiverat tillhandahåller Security Center en uppsättning säkerhetsrekommendationer efter behov. Börja med att granska den virtuella datorn och rekommendationer för datorer. På Security Center-instrumentpanelen väljer du **Översikt** och sedan **Compute och appar**.
 
   ![Compute](./media/tutorial-security-policy/tutorial-security-policy-fig2.png)
 
@@ -56,19 +60,23 @@ Vänta tills Security Center behandlar principerna och genererar rekommendatione
 
   ![Nätverk](./media/tutorial-security-policy/tutorial-security-policy-fig3.png)
 
-  På sidan med nätverksrekommendationer finns en lista över säkerhetsproblem för nätverkskonfiguration, internetuppkopplade slutpunkter och nätverkstopologi. Precis som för **Compute** tillhandahåller vissa nätverksrekommendationer integrerade åtgärder och vissa inte.
+  På sidan med nätverksrekommendationer finns en lista över säkerhetsproblem för nätverkskonfiguration, internetuppkopplade slutpunkter och nätverkstopologi. Precis som för **Compute och appar** tillhandahåller vissa nätverksrekommendationer integrerade åtgärder och vissa inte.
 
-3. När du har gått igenom alla relevanta nätverksrekommendationer ska du gå vidare till nästa arbetsbelastning: lagring och data. På instrumentpanelen för Security Center klickar du på **Översikt** och sedan på **Lagring och data**.
+3. När du har gått igenom alla relevanta nätverksrekommendationer ska du gå vidare till nästa arbetsbelastning: lagring och data. På instrumentpanelen för Security Center klickar du på **Översikt** och sedan på **Data och lagring**.
 
   ![Dataresurser](./media/tutorial-security-policy/tutorial-security-policy-fig4.png)
 
-  På sidan **Dataresurser** finns det rekommendationer för att aktivera granskning för Azure SQL-servrar och -databaser, aktivering av kryptering för SQL-databaser och aktivering av kryptering för ditt Azure-lagringskonto. Om du inte har dessa arbetsbelastningar visas inga rekommendationer. Precis som för **Compute** tillhandahåller vissa rekommendationer för SQL och lagring integrerade åtgärder och vissa inte.
+  På sidan **Dataresurser** finns det rekommendationer för att aktivera granskning för Azure SQL-servrar och -databaser, aktivering av kryptering för SQL-databaser och aktivering av kryptering för ditt Azure-lagringskonto. Om du inte har dessa arbetsbelastningar visas inga rekommendationer. Precis som för **Compute och appar** tillhandahåller vissa rekommendationer för data och lagring integrerade åtgärder och vissa inte.
 
-4. När du har gått igenom alla relevanta rekommendationer för SQL och lagring ska du gå vidare till nästa arbetsbelastning: Program. På instrumentpanelen för Security Center klickar du på **Översikt** och sedan på **Program**.
+4. När du har gått igenom alla relevanta rekommendationer för data och lagring ska du gå vidare till nästa arbetsbelastning: Identitet och åtkomst. På instrumentpanelen för Security Center klickar du på **Översikt** och sedan på **Identitet och åtkomst**.
 
-  ![Program](./media/tutorial-security-policy/tutorial-security-policy-fig5.png)
+  ![Identitet och åtkomst](./media/tutorial-security-policy/tutorial-security-policy-fig5.png)
 
-  På sidan **Program** finns det rekommendationer för distribution av brandvägg för webbaserade program och allmänna riktlinjer för att härda programmet. Om du inte har virtuella datorer eller datorer med webbprogram som körs på Internet Information Service (IIS) ser du inte rekommendationerna.
+  Sidan **Identitet och åtkomst** innehåller rekommendationer som:
+
+   - Aktivera MFA för privilegierade konton för prenumerationen
+   - Ta bort externa konton med skrivbehörigheter från prenumerationen
+   - Ta bort externa privilegierade konton från prenumerationen
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du tänker fortsätta med att arbeta med efterföljande snabbstarter och självstudier ska du fortsätta att köra Standard-nivån och ha automatisk etablering aktiverad. Om du inte tänker fortsätta eller vill återgå till den kostnadsfria nivån:

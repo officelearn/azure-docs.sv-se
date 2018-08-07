@@ -2,18 +2,18 @@
 title: Använda Azure Import/Export för att överföra data till Azure Files | Microsoft Docs
 description: Lär dig hur du skapar importjobb i Azure portal för att överföra data till Azure Files.
 author: alkohli
-manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 4f48097fa1ece66dd9e20a7a7939ac43cb0f48b4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.component: common
+ms.openlocfilehash: d6626b0c27f28f382d0189251fe90879020a69bf
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113485"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523639"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Files
 

@@ -1,41 +1,36 @@
 ---
-title: Utföra åtgärder på Azure Queue storage med PowerShell | Microsoft Docs
-description: Hur du utför åtgärder på Azure Queue storage med PowerShell
+title: Utföra åtgärder på Azure-kölagring med PowerShell | Microsoft Docs
+description: Hur du utför åtgärder på Azure-kölagring med PowerShell
 services: storage
-documentationcenter: storage
 author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 0765e2b36f9d32c43e9f0042d2be0fab53e07b04
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.component: queues
+ms.openlocfilehash: 0b78f822bec2bd545331ed52f3339a07b5dfb466
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37116293"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521055"
 ---
-# <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utföra Azure Queue storage-åtgärder med Azure PowerShell
+# <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utföra åtgärder för Azure Queue storage med Azure PowerShell
 
-Azure Queue storage är en tjänst för att lagra stora mängder meddelanden som kan nås från var som helst i världen via HTTP eller HTTPS. Detaljerad information finns i [introduktion till Azure köer](storage-queues-introduction.md). Den här artikeln beskrivs vanliga Queue storage-åtgärder. Lär dig att:
+Azure Queue storage är en tjänst för att lagra stora mängder meddelanden som kan nås från var som helst i världen via HTTP eller HTTPS. Detaljerad information finns i [introduktion till Azure-köer](storage-queues-introduction.md). I den här artikeln beskriver vanliga Queue storage-åtgärder. Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa en kö
 > * Hämta en kö
-> * Lägga till ett meddelande
+> * Lägg till ett meddelande
 > * Läsa ett meddelande
 > * Ta bort ett meddelande 
 > * Ta bort en kö
 
-Den här anvisningar kräver Azure PowerShell Modulversion 3,6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+Den här anvisningen kräver Azure PowerShell-Modulversion 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
 
-Det finns inga PowerShell-cmdletar för dataplan för köer. Om du vill utföra data plan operations som lägger till ett meddelande som läser ett meddelande och ta bort ett meddelande måste du använda storage-klientbiblioteket för .NET som det visas i PowerShell. Du skapar ett message-objekt och du kan sedan använda kommandon som AddMessage för att utföra åtgärder på meddelandet. Den här artikeln visar hur du gör.
+Det finns ingen PowerShell-cmdletar för dataplanet för köer. Om du vill utföra data kontrollplansåtgärder till exempel lägga till ett meddelande, läsa ett meddelande och ta bort ett meddelande, du måste använda lagringsklientbiblioteket för .NET som det visas i PowerShell. Du skapar ett meddelandeobjekt och du kan sedan använda kommandon, till exempel AddMessage för att utföra åtgärder på meddelandet. Den här artikeln visar hur du gör.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -45,9 +40,9 @@ Logga in på Azure-prenumerationen med kommandot `Connect-AzureRmAccount` och f�
 Connect-AzureRmAccount
 ```
 
-## <a name="retrieve-list-of-locations"></a>Hämta listan över platser
+## <a name="retrieve-list-of-locations"></a>Hämta lista över platser
 
-Om du inte vet vilken plats du vill använda kan du visa en lista med tillgängliga platser. Hitta den du vill använda i listan som visas. Den här övningen använder **eastus**. Lagras i variabeln **plats** för framtida användning.
+Om du inte vet vilken plats du vill använda kan du visa en lista med tillgängliga platser. Hitta den du vill använda i listan som visas. Den här övningen använder **eastus**. Store detta i variabeln **plats** för framtida användning.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -58,7 +53,7 @@ $location = "eastus"
 
 Skapa en resursgrupp med kommandot [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
 
-En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Lagra resursgruppens namn i en variabel för framtida användning. I det här exemplet en resursgrupp med namnet *howtoqueuesrg* skapas i den *eastus* region.
+En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Store resursgruppens namn i en variabel för framtida användning. I det här exemplet, en resursgrupp med namnet *howtoqueuesrg* skapas i den *eastus* region.
 
 ```powershell
 $resourceGroup = "howtoqueuesrg"
@@ -67,7 +62,7 @@ New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 
 ## <a name="create-storage-account"></a>Skapa lagringskonto
 
-Skapa en standard Allmänt lagringskonto med lokalt redundant lagring (LRS) med hjälp av [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Hämta kontexten för lagringskontot som definierar lagringskontot som ska användas. När du arbetar med lagringskonton refererar du till kontexten i stället för att ange autentiseringsuppgifterna flera gånger.
+Skapa ett allmänt standardlagringskonto med lokalt redundant lagring (LRS) med hjälp av [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Hämta lagringskontokontexten som definierar lagringskontot som ska användas. När du arbetar med lagringskonton refererar du till kontexten i stället för att ange autentiseringsuppgifterna flera gånger.
 
 ```powershell
 $storageAccountName = "howtoqueuestorage"
@@ -81,7 +76,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>Skapa en kö
 
-I följande exempel upprättar en anslutning till Azure Storage med hjälp av kontexten för lagringskontot, som innehåller lagringskontonamn och dess åtkomstnyckel först. Därefter anropar [ny AzureStorageQueue](/powershell/module/azure.storage/new-azurestoragequeue) för att skapa en kö med namnet 'könamn'.
+I följande exempel skapar först en anslutning till Azure Storage med kontexten för lagringskontot, som innehåller namnet på lagringskontot och dess åtkomstnyckel. Därefter anropar [New AzureStorageQueue](/powershell/module/azure.storage/new-azurestoragequeue) cmdlet för att skapa en kö med namnet ”könamn'.
 
 ```powershell
 $queueName = "howtoqueue"
@@ -104,11 +99,11 @@ $queue
 Get-AzureStorageQueue -Context $ctx | select Name
 ```
 
-## <a name="add-a-message-to-a-queue"></a>Lägga till ett meddelande till en kö
+## <a name="add-a-message-to-a-queue"></a>Lägg till ett meddelande till en kö
 
-Åtgärder som påverkar de faktiska meddelandena i kön använda storage-klientbiblioteket för .NET som visas i PowerShell. Om du vill lägga till ett meddelande till en kö, skapa en ny instans av meddelandeobjektet [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) klass. Därefter anropar du [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx)-metoden. En CloudQueueMessage kan skapas från en sträng (i UTF-8-format) eller en byte-matris.
+Åtgärder som påverkar själva meddelandena i kön använda lagringsklientbiblioteket för .NET som visas i PowerShell. Om du vill lägga till ett meddelande till en kö, skapa en ny instans av meddelandeobjektet [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) klass. Därefter anropar du [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx)-metoden. En CloudQueueMessage kan skapas från en sträng (i UTF-8-format) eller en bytematris.
 
-Exemplet nedan visar hur du lägger till ett meddelande till kön.
+I följande exempel visar hur du lägger till ett meddelande i kön.
 
 ```powershell
 # Create a new message using a constructor of the CloudQueueMessage class
@@ -126,17 +121,17 @@ $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQ
 $queue.CloudQueue.AddMessage($QueueMessage)
 ```
 
-Om du använder den [Azure Lagringsutforskaren](http://storageexplorer.com), du kan ansluta till ditt Azure-konto och visa köerna i lagringskontot och detaljnivån i en kö för att visa meddelanden i kön. 
+Om du använder den [Azure Storage Explorer](http://storageexplorer.com), du kan ansluta till ditt Azure-konto och visa köer i lagringskontot och granska nedåt i kö för att visa meddelanden i kön. 
 
-## <a name="read-a-message-from-the-queue-then-delete-it"></a>Läs ett meddelande från kön och tar sedan bort den
+## <a name="read-a-message-from-the-queue-then-delete-it"></a>Läs ett meddelande från kön och tar bort den
 
-Meddelanden är skrivskyddade i bäst försök first i first out ordning. Detta är inte säkert. När du läser meddelandet från kön blir osynligt för andra processer som tittar på kön. Detta säkerställer att om din kod inte kan bearbeta meddelandet på grund av maskinvara eller programvara, kan en annan instans av koden hämta samma meddelande och försök igen.  
+Meddelanden läses i bästa Försök först-in-först-ut ordning. Detta är inte säkert. När du läser meddelandet från kön blir det osynligt för andra processer som tittar på kön. Detta säkerställer att om din kod inte kan bearbeta meddelandet på grund av maskin- eller programvarufel, kan en annan instans av koden hämta samma meddelande och försök igen.  
 
-Detta **tidsgränsen för osynlighet** definierar hur länge meddelandet är osynlig innan den är tillgänglig igen för bearbetning. Standardvärdet är 30 sekunder. 
+Detta **tidsgränsen för osynlighet** definierar hur länge meddelandet är osynlig innan den blir tillgänglig igen för bearbetning. Standardvärdet är 30 sekunder. 
 
-Koden läser ett meddelande från kön i två steg. När du anropar den [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) metod du hämtas nästa meddelande i kön. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. För att slutföra borttagningen av meddelandet från kön, du anropar den [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) metod. 
+Din kod läser meddelandet från kön i två steg. När du anropar den [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) metoden du hämtas nästa meddelande i kön. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. Om du vill ta bort meddelandet från kön är klar kan du anropa den [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) metod. 
 
-I följande exempel du läsa igenom tre Kömeddelanden och sedan vänta 10 sekunder (tidsgränsen för osynlighet). Sedan läsa de tre meddelanden igen, ta bort meddelanden efter att ha läst dem genom att anropa **DeleteMessage**. Om du försöker läsa kön efter meddelanden raderas returneras $queueMessage som NULL.
+I följande exempel du läsa igenom tre Kömeddelanden och vänta 10 sekunder (tidsgränsen för osynlighet). Och sedan läsa de tre meddelanden igen, ta bort meddelanden när du har läst dem genom att anropa **DeleteMessage**. Om du försöker läsa kön när meddelanden tas bort returneras $queueMessage som NULL.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue
@@ -163,7 +158,7 @@ $queue.CloudQueue.DeleteMessage($queueMessage)
 ```
 
 ## <a name="delete-a-queue"></a>Ta bort en kö
-Anropa Remove-AzureStorageQueue cmdlet för att ta bort en kö och alla meddelanden i den. I följande exempel visas hur du tar bort den specifika kö som används i den här övningen med cmdlet Remove-AzureStorageQueue.
+Ta bort en kö och alla meddelanden som finns i den genom att anropa cmdleten Remove-AzureStorageQueue. I följande exempel visas hur du tar bort den specifika kö som används i den här övningen med hjälp av cmdleten Remove-AzureStorageQueue.
 
 ```powershell
 # Delete the queue 
@@ -172,7 +167,7 @@ Remove-AzureStorageQueue –Name $queueName –Context $ctx
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort alla tillgångar som du har skapat i den här övningen genom att ta bort resursgruppen. Detta tar även bort alla resurser som ingår i gruppen. I det här fallet den tar bort lagringskonto som skapats och resursgruppen sig själv.
+Om du vill ta bort alla resurser som du har skapat i den här övningen, tar du bort resursgruppen. Detta tar även bort alla resurser som ingår i gruppen. I det här fallet tas bort lagringskontot som skapas och själva resursgruppen.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
@@ -180,17 +175,17 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln du lärt dig om grundläggande lagringshantering för kön med PowerShell, inklusive hur du:
+I den här artikeln berättade om grundläggande Queue storage management med PowerShell, inklusive hur du:
 
 > [!div class="checklist"]
 > * Skapa en kö
 > * Hämta en kö
-> * Lägga till ett meddelande
-> * Läsa nästa meddelande
+> * Lägg till ett meddelande
+> * Läs nästa meddelande
 > * Ta bort ett meddelande 
 > * Ta bort en kö
 
-### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell lagrings-cmdletar
+### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell Storage-cmdletar
 * [Storage PowerShell cmdletar](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer

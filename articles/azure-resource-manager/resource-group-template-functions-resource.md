@@ -1,5 +1,5 @@
 ---
-title: Mallfunktioner Azure Resource Manager - resurser | Microsoft Docs
+title: Azure Resource Manager-Mallfunktioner - resurser | Microsoft Docs
 description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att hämta värden om resurser.
 services: azure-resource-manager
 documentationcenter: na
@@ -14,50 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: f1271a6afba91cf75820f2e4b973b7cd42782449
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d3d2375b0b633beb56232e518202b09777f60cc8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824344"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524516"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
 
-Hanteraren för filserverresurser innehåller följande funktioner för att hämta resurs värden:
+Resource Manager tillhandahåller följande funktioner för att hämta resurs-värden:
 
-* [listKeys](#listkeys)
+* [listAccountSas](#list)
+* [Listnycklar](#listkeys)
 * [listSecrets](#list)
 * [lista *](#list)
-* [providers](#providers)
+* [Providers](#providers)
 * [Referens](#reference)
-* [resourceGroup](#resourcegroup)
+* [ResourceGroup](#resourcegroup)
 * [Resurs-ID](#resourceid)
 * [prenumeration](#subscription)
 
-Om du vill hämta värden från parametrar, variabler eller den aktuella distributionen finns [distribution värdet funktioner](resource-group-template-functions-deployment.md).
+Om du vill hämta värden från parametrar, variabler eller den aktuella distributionen, se [värdet distributionsfunktioner](resource-group-template-functions-deployment.md).
 
 <a id="listkeys" />
 <a id="list" />
 
-## <a name="listkeys-listsecrets-and-list"></a>listKeys listSecrets och listan *
+## <a name="listaccountsas-listkeys-listsecrets-and-list"></a>listAccountSas, Listnycklar, listSecrets och lista *
+`listAccountSas(resourceName or resourceIdentifier, apiVersion, functionValues)`
+
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
 
 `listSecrets(resourceName or resourceIdentifier, apiVersion)`
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion)`
 
-Returnerar värden för någon resurstyp av som har stöd för listan igen. De vanligaste användningarna är `listKeys` och `listSecrets`. 
+Returnerar värden för någon resurstyp som har stöd för liståtgärden. De flesta vanliga användningarna är `listKeys` och `listSecrets`. 
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | resourceName eller resourceIdentifier |Ja |sträng |Unik identifierare för resursen. |
-| apiVersion |Ja |sträng |API-versionen av resursen runtime-tillståndet. Normalt i formatet, **åååå-mm-dd**. |
+| apiVersion |Ja |sträng |API-versionen av resursen runtime-tillståndet. Normalt i format, **åååå-mm-dd**. |
+| functionValues |Nej |objekt | Ett objekt som har värden för funktionen. Endast ger det här objektet för funktioner som stöder tar emot ett objekt med parametervärden, exempelvis **listAccountSas** på ett lagringskonto. | 
 
 ### <a name="return-value"></a>Returvärde
 
-Det returnerade objektet från listKeys har följande format:
+Det returnerade objektet från Listnycklar har följande format:
 
 ```json
 {
@@ -76,90 +80,120 @@ Det returnerade objektet från listKeys har följande format:
 }
 ```
 
-Andra listfunktioner har olika returnerade format. Om du vill se format för en funktion, inkludera den i avsnittet utdata som visas i exemplet mallen. 
+Andra listfunktioner har olika returnerade format. Om du vill se formatet för en funktion, inkludera den i outputs-avsnittet som visas i exemplet mallen. 
 
 ### <a name="remarks"></a>Kommentarer
 
-Alla åtgärder som börjar med **lista** kan användas som en funktion i mallen. De tillgängliga åtgärderna innehåller inte bara listKeys, men även åtgärder som `list`, `listAdminKeys`, och `listStatus`. Du kan dock använda **lista** åtgärder som kräver att värden i begärandetexten. Till exempel den [lista kontots SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) åtgärden kräver begärantext som *signedExpiry*, så du inte kan använda den i en mall.
+Alla åtgärder som börjar med **lista** kan användas som en funktion i mallen. De tillgängliga åtgärderna innehåller inte bara Listnycklar, men även åtgärder som `list`, `listAdminKeys`, och `listStatus`. Den [lista konto SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) åtgärden kräver begärantext som *signedExpiry*. För att använda den här funktionen i en mall måste du ange ett objekt med brödtexten parametervärden.
 
-För att avgöra vilka resurstyper har en liståtgärd har du följande alternativ:
+För att avgöra vilka resurstyper som har en liståtgärden, har du följande alternativ:
 
-* Visa den [REST-API: et](/rest/api/) för resursprovidern och leta efter Liståtgärder. Till exempel lagringskonton har den [listKeys åtgärden](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
-* Använd den [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) PowerShell-cmdlet. I följande exempel hämtas alla Liståtgärder för storage-konton:
+* Visa den [REST API-åtgärder](/rest/api/) för en provider för nätverksresurser och leta efter åtgärder i listan. Till exempel lagringskonton har den [Listnycklar åtgärden](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
+* Använd den [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) PowerShell-cmdlet. I följande exempel hämtas alla åtgärder i listan för storage-konton:
 
   ```powershell
   Get-AzureRmProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
   ```
-* Du kan använda kommandot Azure CLI för att filtrera listan åtgärderna:
+* Använd följande Azure CLI-kommando för att filtrera endast Liståtgärder:
 
   ```azurecli
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
   ```
 
-Ange resursen med hjälp av antingen resursnamnet eller [resourceId funktionen](#resourceid). Använd resursnamnet när du använder den här funktionen i samma mall som distribuerar den refererade resursen.
+Ange resurs med samma resurs eller [resourceId funktionen](#resourceid). När du använder den här funktionen i samma mall som distribuerar den refererade resursen kan du använda resursnamnet.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) visar hur du returnerar de primära och sekundära nycklarna från ett lagringskonto i avsnittet utdata.
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) visar hur du returnerar de primära och sekundära nycklarna från ett lagringskonto i outputs-avsnittet. Den returnerar också en SAS-token för storage-kontot. Om du vill ha den token över ett objekt listAccountSas funktion. Det här exemplet är avsedd att visa hur du använder funktionerna lista. Normalt du skulle använda SAS-token i ett resursvärde i stället returneras som ett utdatavärde. Utdatavärden lagras i distributionshistoriken och är inte säker. Du måste ange en förfallotid i framtiden för att distributionen ska lyckas.
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "storageAccountName": { 
-          "type": "string"
-      }
-  },
-  "resources": [
-    {
-      "name": "[parameters('storageAccountName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-      "referenceOutput": {
-          "type": "object",
-          "value": "[listKeys(parameters('storageAccountName'), '2016-12-01')]"
-      }
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storagename": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "southcentralus"
+        },
+        "requestContent": {
+            "type": "object",
+            "defaultValue": {
+                "signedServices": "b",
+                "signedResourceType": "c",
+                "signedPermission": "r",
+                "signedExpiry": "2018-08-20T11:00:00Z",
+                "signedResourceTypes": "s"
+            }
+    },
+    "resources": [
+        {
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('storagename')]",
+            "location": "[parameters('location')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "properties": {
+                "supportsHttpsTrafficOnly": false,
+                "accessTier": "Hot",
+                "encryption": {
+                    "services": {
+                        "blob": {
+                            "enabled": true
+                        },
+                        "file": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
+            },
+            "dependsOn": []
+        }
+    ],
+    "outputs": {
+        "keys": {
+            "type": "object",
+            "value": "[listKeys(parameters('storagename'), '2018-02-01')]"
+        },
+        "accountSAS": {
+            "type": "object",
+            "value": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('requestContent'))]"
+        }
     }
 }
 ``` 
 
-För att distribuera det här exemplet mallen med Azure CLI, använder du:
+Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storageAccountName=<your-storage-account>
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storagename=<your-storage-account>
 ```
 
-Om du vill distribuera den här exempel mallen med PowerShell använder du:
+Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storageAccountName <your-storage-account>
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storagename <your-storage-account>
 ```
 
 <a id="providers" />
 
-## <a name="providers"></a>providers
+## <a name="providers"></a>Providers
 `providers(providerNamespace, [resourceType])`
 
-Returnerar information om en resursprovider och dess resurstyper som stöds. Om du inte anger en resurstyp returnerar funktionen typerna som stöds för resursprovidern.
+Returnerar information om en resursprovider och dess resurstyper som stöds. Om du inte anger en resurstyp, returnerar funktionen typerna som stöds för resursprovidern.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Ja |sträng |Namespace av providern |
-| resourceType |Nej |sträng |Typ av resurs i det angivna namnområdet. |
+| ResourceType |Nej |sträng |Typ av resurs i det angivna namnområdet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -173,11 +207,11 @@ Varje typ som stöds returneras i följande format:
 }
 ```
 
-Matrisen sorteringen av de returnerade värdena är inte säkert.
+Matris sorteringen av de returnerade värdena är inte garanterad.
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) visar hur du använder funktionen providern:
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) visar hur du använder funktionen provider:
 
 ```json
 {
@@ -201,7 +235,7 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-För den **Microsoft.Web** resursprovidern och **platser** resurstyp, föregående exempel returnerar ett objekt i följande format:
+För den **Microsoft.Web** resursprovidern och **platser** resurstyp i föregående exempel returnerar ett objekt i följande format:
 
 ```json
 {
@@ -223,13 +257,13 @@ För den **Microsoft.Web** resursprovidern och **platser** resurstyp, föregåen
 }
 ```
 
-För att distribuera det här exemplet mallen med Azure CLI, använder du:
+Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json --parameters providerNamespace=Microsoft.Web resourceType=sites
 ```
 
-Om du vill distribuera den här exempel mallen med PowerShell använder du:
+Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json -providerNamespace Microsoft.Web -resourceType sites
@@ -247,22 +281,22 @@ Returnerar ett objekt som representerar en resurs runtime-tillståndet.
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | resourceName eller resourceIdentifier |Ja |sträng |Namn eller unik identifierare för en resurs. |
-| apiVersion |Nej |sträng |API-versionen av den angivna resursen. Inkludera den här parametern när resursen inte är etablerad inom samma mall. Normalt i formatet, **åååå-mm-dd**. |
-| ”Full” |Nej |sträng |Värde som anger om du vill återställa fullständiga resursobjektet. Om du inte anger `'Full'`, egenskaper för objekt av resursen returneras. Objektet fullständig innehåller värden som resurs-ID och plats. |
+| apiVersion |Nej |sträng |API-versionen av den angivna resursen. Inkludera den här parametern när resursen inte är tillhandahållits i samma mall. Normalt i format, **åååå-mm-dd**. |
+| ”Fullständig” |Nej |sträng |Värde som anger om du vill returnera fullständiga resurs-objekt. Om du inte anger `'Full'`, egenskaper för objekt av resursen returneras. Fullständig objektet innehåller värden som resurs-ID och plats. |
 
 ### <a name="return-value"></a>Returvärde
 
-Varje resurstypen returnerar andra egenskaper för funktionen referens. Funktionen returnerar inte ett enda fördefinierade format. Dessutom det returnerade värdet skiljer sig åt beroende på om du har angett det fullständiga objektet. Returnera objektet om du vill visa egenskaperna för en resurstyp i avsnittet utdata som visas i exemplet.
+Alla resurstyper returnerar olika egenskaper för funktionen referens. Funktionen returnerar inte ett enda, fördefinierade format. Dessutom varierar det returnerade värdet beroende på om du har angett det fullständiga objektet. Om du vill visa egenskaperna för en resurstyp, returnerar du objektet i outputs-avsnittet som visas i exemplet.
 
 ### <a name="remarks"></a>Kommentarer
 
-Funktionen referens hämtar sitt värde från en runtime-tillståndet och kan därför inte användas i avsnittet variables. Den kan användas i utdata avsnitt i en mall eller [länkad mall](resource-group-linked-templates.md#link-or-nest-a-template). Den kan inte användas i avsnittet utdata i en [kapslade mallen](resource-group-linked-templates.md#link-or-nest-a-template). Konvertera kapslade mallen till en länkad mall för att returnera värden för en distribuerad resurs i en kapslad mall. 
+Funktionen referens hämtar sitt värde från en runtime-tillståndet och kan därför inte användas i variables-avsnittet. Det kan användas i outputs-avsnittet av en mall eller [länkad mall](resource-group-linked-templates.md#link-or-nest-a-template). Den kan inte användas i avsnittet utdata i en [kapslade mallen](resource-group-linked-templates.md#link-or-nest-a-template). Konvertera kapslade mallen till en länkad mall för att returnera värden för en distribuerad resurs i en kapslad mall. 
 
-Med hjälp av funktionen referens deklarera du implicit att en resurs beror på en annan resurs om den refererade resursen är etablerad inom samma mall och du referera till resursen med namnet (inte resurs-ID). Du behöver inte också använda dependsOn-egenskapen. Funktionen utvärderas inte förrän den refererade resursen har slutfört distributionen.
+Med hjälp av funktionen referens deklarera du implicit att en resurs beror på en annan resurs om refererade resursen har tillhandahållits i samma mall och du referera till resursen med sitt namn (inte resurs-ID). Du behöver inte också använda egenskapen dependsOn. Funktionen utvärderas inte förrän den refererade resursen har slutfört distributionen.
 
-Skapa en mall som returnerar objektet i avsnittet utdata om du vill se egenskapsnamn och värden för en resurstyp. Om du har en befintlig resurs av den typen returnerar mallen för objektet utan att distribuera nya resurser. 
+Skapa en mall som returnerar objektet i outputs-avsnittet om du vill se egenskapsnamn och värden för en resurstyp. Om du har en befintlig resurs av den typen returnerar objektet utan att distribuera nya resurser i din mall. 
 
-Normalt använder du den **referens** funktionen för att returnera ett visst värde från ett objekt, till exempel slutpunkt för blob-URI eller fullständigt domännamn.
+Normalt använder du den **referens** funktionen för att returnera ett visst värde från ett objekt, till exempel blob-slutpunkt URI eller fullständigt domännamn.
 
 ```json
 "outputs": {
@@ -277,7 +311,7 @@ Normalt använder du den **referens** funktionen för att returnera ett visst v�
 }
 ```
 
-Använd `'Full'` när du behöver resurs värden som inte är en del av egenskaper för schemat. Till exempel för att ange åtkomstprinciper för nyckelvalvet, hämta identitetsegenskaperna för en virtuell dator.
+Använd `'Full'` när du behöver resurs-värden som inte ingår i Egenskaper för schemat. Till exempel om du vill ställa in åtkomstprinciper för nyckelvalvet, få identitetsegenskaperna för en virtuell dator.
 
 ```json
 {
@@ -301,7 +335,7 @@ Använd `'Full'` när du behöver resurs värden som inte är en del av egenskap
     ...
 ```
 
-Det fullständiga exemplet av föregående mallen finns [Windows Key Vault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). Det finns liknande exempel för [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
+Det fullständiga exemplet i föregående mall, se [Windows till Key Vault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). Ett liknande exempel är tillgänglig för [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
 
 ### <a name="example"></a>Exempel
 
@@ -344,7 +378,7 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ``` 
 
-Föregående exempel returnerar de två objekten. Egenskaper för objektet är i följande format:
+Föregående exempel returnerar de två objekten. För egenskapsobjektet är i följande format:
 
 ```json
 {
@@ -399,19 +433,19 @@ Fullständig objektet är i följande format:
 }
 ```
 
-För att distribuera det här exemplet mallen med Azure CLI, använder du:
+Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json --parameters storageAccountName=<your-storage-account>
 ```
 
-Om du vill distribuera den här exempel mallen med PowerShell använder du:
+Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json -storageAccountName <your-storage-account>
 ```
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) refererar till ett lagringskonto som inte har distribuerats i den här mallen. Storage-konto finns redan i samma resursgrupp.
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) refererar till ett lagringskonto som inte är distribuerat i den här mallen. Lagringskontot finns redan i samma resursgrupp.
 
 ```json
 {
@@ -432,13 +466,13 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-För att distribuera det här exemplet mallen med Azure CLI, använder du:
+Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json --parameters storageAccountName=<your-storage-account>
 ```
 
-Om du vill distribuera den här exempel mallen med PowerShell använder du:
+Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageAccountName <your-storage-account>
@@ -446,7 +480,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="resourcegroup" />
 
-## <a name="resourcegroup"></a>resourceGroup
+## <a name="resourcegroup"></a>ResourceGroup
 `resourceGroup()`
 
 Returnerar ett objekt som representerar den aktuella resursgruppen. 
@@ -470,7 +504,7 @@ Det returnerade objektet är i följande format:
 
 ### <a name="remarks"></a>Kommentarer
 
-Ett vanligt användningsområde för funktionen resourceGroup är att skapa resurser på samma plats som resursgruppen. I följande exempel används resursgruppens plats tilldelas platsen för en webbplats.
+Ett vanligt användningsområde för resourceGroup-funktionen är att skapa resurser på samma plats som resursgruppen. I följande exempel använder resursgruppens plats för att tilldela en plats för en webbplats.
 
 ```json
 "resources": [
@@ -515,13 +549,13 @@ Föregående exempel returnerar ett objekt i följande format:
 }
 ```
 
-För att distribuera det här exemplet mallen med Azure CLI, använder du:
+Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json
 ```
 
-Om du vill distribuera den här exempel mallen med PowerShell använder du:
+Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json 
@@ -532,17 +566,17 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="resourceid"></a>resourceId
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
-Returnerar den unika identifieraren för en resurs. Du kan använda den här funktionen när resursnamnet är tvetydigt eller inte etablerade inom samma mall. 
+Returnerar den unika identifieraren för en resurs. Du använder den här funktionen när resursnamnet är tvetydigt eller ej etablerad inom samma mall. 
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Nej |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du vill hämta en resurs i en annan prenumeration. |
-| resourceGroupName |Nej |sträng |Standardvärdet är aktuella resursgruppen. Ange det här värdet när du vill hämta en resurs i en annan resursgrupp. |
-| resourceType |Ja |sträng |Typ av resurs inklusive resursleverantörens namnrymd. |
+| subscriptionId |Nej |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. |
+| resourceGroupName |Nej |sträng |Standardvärdet är aktuella resursgruppen. Ange det här värdet när du behöver hämta en resurs i en annan resursgrupp. |
+| ResourceType |Ja |sträng |Typ av resurs, inklusive resursproviderns namnområde. |
 | resourceName1 |Ja |sträng |Namnet på resursen. |
-| resourceName2 |Nej |sträng |Nästa resurs namn segment om resursen är kapslad. |
+| resourceName2 |Nej |sträng |Nästa resurs namnsegmentet om resursen är kapslade. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -554,27 +588,27 @@ Identifieraren returneras i följande format:
 
 ### <a name="remarks"></a>Kommentarer
 
-De parametervärden som du anger beror på om resursen är i samma prenumeration och resurs grupp som den aktuella distributionen.
+De parametervärden som du anger beror på om resursen är i på samma prenumeration och resursgrupp som den aktuella distributionen.
 
-För att få resurs-ID för ett lagringskonto i samma prenumeration och resursgrupp, använder du:
+Hämta resurs-ID för ett lagringskonto i samma prenumeration och resursgrupp med:
 
 ```json
 "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-För att få resurs-ID för ett lagringskonto i samma prenumeration, men en annan resursgrupp, använder du:
+Hämta resurs-ID för ett lagringskonto i samma prenumeration men en annan resursgrupp med:
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-För att få resurs-ID för ett lagringskonto i en annan prenumeration och resursgrupp, använder du:
+Hämta resurs-ID för ett lagringskonto i en annan prenumeration och resursgrupp med:
 
 ```json
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-För att få resurs-ID för en databas i en annan resursgrupp, använder du:
+Hämta resurs-ID för en databas i en annan resursgrupp med:
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
@@ -655,7 +689,7 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-Utdata från det föregående exemplet med standardvärdena är:
+Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
@@ -664,13 +698,13 @@ Utdata från det föregående exemplet med standardvärdena är:
 | differentSubOutput | Sträng | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | nestedResourceOutput | Sträng | /subscriptions/{Current-Sub-ID}/resourceGroups/examplegroup/providers/Microsoft.SQL/Servers/ServerName/Databases/databaseName |
 
-För att distribuera det här exemplet mallen med Azure CLI, använder du:
+Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json
 ```
 
-Om du vill distribuera den här exempel mallen med PowerShell använder du:
+Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json 
@@ -698,7 +732,7 @@ Funktionen returnerar följande format:
 
 ### <a name="example"></a>Exempel
 
-Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) visar funktionen prenumeration anropas i avsnittet utdata. 
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) visar anropa prenumeration-funktionen i outputs-avsnittet. 
 
 ```json
 {
@@ -714,21 +748,21 @@ Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-För att distribuera det här exemplet mallen med Azure CLI, använder du:
+Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json
 ```
 
-Om du vill distribuera den här exempel mallen med PowerShell använder du:
+Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json 
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En beskrivning av avsnitt i en Azure Resource Manager-mallen finns [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
-* Om du vill slå samman flera mallar, se [använda länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
-* Iterera ett angivet antal gånger när du skapar en typ av resurs finns [skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md).
-* Information om hur du distribuerar mallen som du har skapat finns [distribuera ett program med Azure Resource Manager-mall](resource-group-template-deploy.md).
+* En beskrivning av avsnitt i en Azure Resource Manager-mall finns i [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
+* Om du vill slå samman flera mallar, se [med länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
+* Iterera ett angivet antal gånger när du skapar en typ av resurs, finns i [och skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md).
+* Om du vill se hur du distribuerar mallen som du har skapat, se [distribuera ett program med Azure Resource Manager-mall](resource-group-template-deploy.md).
 

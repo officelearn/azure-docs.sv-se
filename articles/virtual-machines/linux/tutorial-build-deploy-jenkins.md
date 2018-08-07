@@ -1,25 +1,24 @@
 ---
 title: Självstudier – CI/CD från Jenkins till virtuella Azure-datorer med Team Services | Microsoft Docs
 description: I dessa självstudier får du lära dig hur du med hjälp av Jenkins kan konfigurera kontinuerlig integration (CI) och kontinuerlig distribution (CD) för en Node.js-app till virtuella Azure-datorer från versionshanteringen i Visual Studio Team Services eller Microsoft Team Foundation Server
-author: ahomer
-manager: douge
-editor: tysonn
+author: tomarcher
+manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: devops
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/19/2017
-ms.author: ahomer
-ms.custom: mvc
-ms.openlocfilehash: 6b74ab4d97df7e1e6b9bec8e3bcb150c99bd5b5c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.date: 07/31/2018
+ms.author: tarcher
+ms.custom: jenkins
+ms.openlocfilehash: d3a4a81f60f4e70c2c7576c3176e2b4d6de08d04
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903459"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390603"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>Självstudier: Distribuera appar till virtuella Linux-datorer i Azure med Jenkins och Visual Studio Team Services
 
@@ -169,6 +168,10 @@ Så här skapar du en versionsdefinition i Team Services:
 6. Gå till källagringsplatsen i Git och ändra innehållet i rubriken **h1** för filen app/views/index.jade.
 7. Checka in ändringarna.
 8. Efter några minuter ser du att en ny version har skapats på sidan med **versioner** i Team Services eller Team Foundation Server. Öppna versionen om du vill se distributionen. Grattis!
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Felsökning av Jenkins-plugin-programmet
+
+Om du stöter på buggar med Jenkins-plugin-programmet kan du rapportera problemet i [Jenkins JIRA](https://issues.jenkins-ci.org/) för en viss komponent.
 
 ## <a name="next-steps"></a>Nästa steg
 

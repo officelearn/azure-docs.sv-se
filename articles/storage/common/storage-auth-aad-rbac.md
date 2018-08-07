@@ -3,17 +3,17 @@ title: Använd RBAC för att hantera åtkomstbehörigheter till Azure Storage-be
 description: Använd rollbaserad åtkomstkontroll (RBA) för att tilldela roller för åtkomst till Azure Storage-data till användare, grupper, tjänsthuvudnamn för programmet eller hanterade tjänstidentiteter. Azure Storage stöder inbyggda och anpassade roller för åtkomst till behållare och köer.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: tamram
-ms.openlocfilehash: cee319c4fb158e95b4a6d996f846038f0654dd32
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.component: common
+ms.openlocfilehash: 9efd9470982f0afaa357114828d51df37a7c2890
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969161"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520936"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Hantera åtkomsträttigheter till Azure Storage-data med RBAC (förhandsversion)
 

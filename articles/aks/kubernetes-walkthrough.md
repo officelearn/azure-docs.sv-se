@@ -6,15 +6,15 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 06/13/2018
+ms.date: 07/31/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 8b9f53b34b75f9827e4976681a78f873b812ad96
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c84b14eb3eaf59e2bb01913c8c3addc02ab0e5db
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055125"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363648"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Snabbstart: Distribuera ett Azure Kubernetes Service-kluster (AKS)
 
@@ -26,13 +26,11 @@ I den här snabbstarten förutsätter vi att du har grundläggande kunskaper om 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.27 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.43 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create][az-group-create]. En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras.
-
-När du skapar en resursgrupp uppmanas du att ange en plats. Det är den plats där resurserna verkar i Azure.
+Skapa en resursgrupp med kommandot [az group create][az-group-create]. En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är där dina resurser körs i Azure.
 
 I följande exempel skapas en resursgrupp med namnet *myAKSCluster* på platsen *eastus*.
 
@@ -57,10 +55,10 @@ Resultat:
 
 ## <a name="create-aks-cluster"></a>Skapa AKS-kluster
 
-Använd kommandot [az aks create] [ az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. När du distribuerar ett AKS-kluster kan du även aktivera övervakningslösningen för containertillstånd. Mer information om att aktivera övervakningslösningen av containertillstånd finns i [Övervaka hälsotillstånd för Azure Kubernets Service][aks-monitor].
+Använd kommandot [az aks create] [ az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. Hälsoövervakning för container aktiveras också med hjälp av parametern *--enable-addons monitoring*. Mer information om att aktivera övervakningslösningen av containertillstånd finns i [Övervaka hälsotillstånd för Azure Kubernets Service][aks-monitor].
 
 ```azurecli-interactive
-az aks create --resource-group myAKSCluster --name myAKSCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group myAKSCluster --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
 ```
 
 Efter flera minuter slutförs kommandot och returnerar JSON-formaterad information om klustret.
@@ -69,20 +67,20 @@ Efter flera minuter slutförs kommandot och returnerar JSON-formaterad informati
 
 Hantera Kubernetes-kluster med [kubectl][kubectl], Kubernetes kommandoradsklient.
 
-Om du använder Azure Cloud Shell är kubectl redan installerat. Vill du installera det lokalt använder du kommandot [az aks install-cli][az-aks-install-cli].
+Om du använder Azure CloudShell är `kubectl` redan installerat. Vill du installera det lokalt använder du kommandot [az aks install-cli][az-aks-install-cli].
 
 
 ```azurecli
 az aks install-cli
 ```
 
-Du konfigurerar kubectl för att ansluta till ditt Kubernetes-kluster med hjälp av kommandot [aaz aks get-credentials][az-aks-get-credentials]. I det här steget laddar vi ned autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem.
+För att konfigurera `kubectl` till att ansluta till ditt Kubernetes-kluster använder du kommandot [az aks get-credentials][az-aks-get-credentials]. I det här steget laddar vi ned autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
 ```
 
-Du kan kontrollera anslutningen till klustret genom att köra kommandot [kubectl get][kubectl-get] för att returnera en lista över klusternoderna. Det kan ta några minuter innan det här visas.
+Du kan kontrollera anslutningen till klustret genom att köra kommandot [kubectl get][kubectl-get] för att returnera en lista över klusternoderna. Det kan ta några minuter för noderna att visas.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -97,7 +95,7 @@ k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 
 ## <a name="run-the-application"></a>Köra programmet
 
-En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka containeravbildningar som ska köras. I det här exemplet används ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet. Det omfattar två [Kubernetes-distributioner][kubernetes-deployment], en för Azure Vote Python-program och den andra för en Redis-instans. Dessutom skapas två [Kubernetes-tjänster][kubernetes-service], en intern tjänst för Redis-instansen och en extern tjänst för att komma åt Azure Vote-programmet från Internet.
+En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka containeravbildningar som ska köras. I det här exemplet används ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet. Det här manifestet innehåller två [Kubernetes-distributioner][kubernetes-deployment], en för Azure Vote Python-program och den andra för en Redis-instans. Dessutom skapas två [Kubernetes-tjänster][kubernetes-service], en intern tjänst för Redis-instansen och en extern tjänst för att komma åt Azure Vote-programmet från Internet.
 
 Skapa en fil med namnet `azure-vote.yaml` och kopiera följande YAML-kod till den. Om du arbetar i Azure Cloud Shell, kan du skapa filen med vi eller Nano som i ett virtuellt eller fysiskt system.
 
@@ -204,6 +202,24 @@ Gå till den externa IP-adressen så att du ser Azure Vote-appen.
 
 ![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
+## <a name="monitor-health-and-logs"></a>Övervaka hälsotillstånd och loggar
+
+När AKS-klustret skapades aktiverades övervakning för att registrera hälsomått för både klusternoderna och poddarna. De här hälsomåtten är tillgängliga i Azure-portalen. Mer information om övervakning av hälsotillstånd för containrar finns i [Övervaka hälsotillstånd för Azure Kubernets Service][aks-monitor].
+
+Om du vill se aktuell status, drifttid och resursanvändning för Azure Vote-poddarna slutför du följande steg:
+
+1. Öppna en webbläsare till Azure-portalen [https://portal.azure.com][azure-portal].
+1. Välj din resursgrupp, till exempel *myResourceGroup*, och välj sedan ditt AKS-kluster, till exempel *myAKSCluster*. 
+1. Välj **Monitor container health** (Övervaka containerhälsa) > välj **standardnamnrymden** > välj sedan **Containers** (Containrar).
+
+Det kan ta några minuter för dessa data att hämtas till Azure-portalen, enligt följande exempel:
+
+![Skapa AKS-kluster ett](media/kubernetes-walkthrough/view-container-health.png)
+
+Om du vill se loggar för podden `azure-vote-front` väljer du länken **Visa loggar** på höger sida av listan över containrar. Loggarna inkluderar strömmarna *stdout* och *stderr* från containern.
+
+![Skapa AKS-kluster ett](media/kubernetes-walkthrough/view-container-logs.png)
+
 ## <a name="delete-cluster"></a>Ta bort klustret
 
 När klustret inte längre behövs kan du använda kommandot [az group delete][az-group-delete] för att ta bort resursgruppen, containertjänsten och alla relaterade resurser.
@@ -250,3 +266,4 @@ Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig dis
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
+[azure-portal]: https://portal.azure.com

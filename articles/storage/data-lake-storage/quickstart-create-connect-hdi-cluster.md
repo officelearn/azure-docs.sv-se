@@ -3,23 +3,20 @@ title: Installationen av kluster för Hadoop, Spark, Kafka, HBase eller R-Server
 description: Ställ in Hadoop-, Kafka, Spark, HBase, R Server eller Storm-kluster för HDInsight från en webbläsare, Azure CLI, Azure PowerShell, REST eller SDK.
 keywords: konfiguration av hadoop, kafka-kluster installation, konfiguration av spark, vad är hadoop-kluster
 services: storage
-documentationcenter: ''
 author: jamesbak
-manager: jahogg
 tags: azure-portal
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 725e79596a919cba4214dba8b3cc86e9bb48cc79
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: e0816e8609ba1ab0ef1b4f685731339378fee844
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136646"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525594"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Snabbstart: Konfigurera kluster i HDInsight
 

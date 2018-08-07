@@ -1,54 +1,49 @@
 ---
-title: Med hjälp av Azure CLI 2.0 med Azure Storage | Microsoft Docs
-description: Lär dig hur du använder Azure-kommandoradsgränssnittet (Azure CLI) 2.0 med Azure Storage för att skapa och hantera storage-konton och arbeta med Azure-blobbar och filer. Azure CLI 2.0 är ett verktyg för flera plattformar som skrivits i Python.
+title: Använda Azure CLI 2.0 med Azure Storage | Microsoft Docs
+description: Lär dig hur du använder Azure-kommandoradsgränssnittet (Azure CLI) 2.0 med Azure Storage för att skapa och hantera storage-konton och arbeta med Azure-blobar och filer. Azure CLI 2.0 är ett plattformsoberoende verktyg som skrivits i Python.
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.openlocfilehash: b7cb8b1ca2f377964f3613ad8e0549418cb2abec
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: common
+ms.openlocfilehash: 12b383267cb90d9305043b52450572add0c1c202
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131879"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527498"
 ---
-# <a name="using-the-azure-cli-20-with-azure-storage"></a>Med hjälp av Azure CLI 2.0 med Azure Storage
+# <a name="using-the-azure-cli-20-with-azure-storage"></a>Använda Azure CLI 2.0 med Azure Storage
 
-Med öppen källkod, plattformsoberoende Azure CLI 2.0 innehåller en uppsättning kommandon för att arbeta med Azure-plattformen. Det ger mycket av samma funktioner som finns i den [Azure-portalen](https://portal.azure.com), inklusive omfattande dataåtkomst.
+Av öppen källkod, plattformsoberoende Azure CLI 2.0 innehåller en uppsättning kommandon för att arbeta med Azure-plattformen. Det ger stor del samma funktioner som finns i den [Azure-portalen](https://portal.azure.com), inklusive omfattande dataåtkomst.
 
-I den här handboken vi hur du använder den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) för flera uppgifter ska arbeta med resurserna i Azure Storage-konto. Vi rekommenderar att du hämtar och installerar eller uppgraderar till den senaste versionen av CLI 2.0 innan du använder den här guiden.
+I den här guiden visar vi dig hur du använder den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) för flera uppgifter ska arbeta med resurserna i ditt Azure Storage-konto. Vi rekommenderar att du ladda ned och installera eller uppgradera till den senaste versionen av CLI 2.0 innan du använder den här guiden.
 
-Exemplen i handboken förutsätter att Bash-gränssnitt på Ubuntu, men andra plattformar ska utföra på samma sätt. 
+Exemplen i handboken förutsätter användning av Bash-gränssnittet på Ubuntu, men andra plattformar som ska utföras på samma sätt. 
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
-Den här handboken förutsätts att du förstår de grundläggande principerna för Azure Storage. Det förutsätts även att du är kan uppfylla kraven för kontot skapas som anges nedan för Azure och Storage-tjänst.
+Den här guiden förutsätter att du förstår de grundläggande principerna för Azure Storage. Det förutsätts även att du är uppfyller kontokraven som anges nedan för Azure och Storage-tjänsten.
 
 ### <a name="accounts"></a>Konton
-* **Azure-konto**: Om du inte redan har en Azure-prenumeration [skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+* **Azure-konto**: Om du inte redan har en Azure-prenumeration [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/).
 * **Lagringskonto**: Se [skapar ett lagringskonto](storage-create-storage-account.md#create-a-storage-account) i [Om Azure-lagringskonton](storage-create-storage-account.md).
 
 ### <a name="install-the-azure-cli-20"></a>Installera Azure CLI 2.0
 
-Hämta och installera Azure CLI 2.0 genom att följa instruktionerna i [installera Azure CLI 2.0](/cli/azure/install-az-cli2).
+Ladda ned och installera Azure CLI 2.0 genom att följa anvisningarna som beskrivs i [installera Azure CLI 2.0](/cli/azure/install-az-cli2).
 
 > [!TIP]
-> Om du har problem med installationen kan ta en titt på [felsökning för installationen](/cli/azure/install-az-cli2#installation-troubleshooting) i artikeln, och [installera felsökning](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) guide på GitHub.
+> Om du har problem med installationen kan ta en titt på [Installation felsökning](/cli/azure/install-az-cli2#installation-troubleshooting) i artikeln, och [installera felsökning](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) guide på GitHub.
 >
 
 ## <a name="working-with-the-cli"></a>Arbeta med CLI
 
-När du har installerat CLI, kan du använda den `az` i din kommandoradsgränssnittet (Bash, Terminal, Kommandotolken) för att komma åt Azure CLI-kommandona. Typ av `az` kommandot för att se en fullständig lista över grundläggande kommandon (följande exempel utdata har trunkerats):
+När du har installerat CLI kan du använda den `az` i ditt kommandoradsgränssnitt (Bash, Terminal, Kommandotolken) för att få åtkomst till Azure CLI-kommandon. Skriv den `az` kommando för att se en fullständig lista över grundläggande kommandon (följande Exempelutdata har trunkerats):
 
 ```
      /\
@@ -70,7 +65,7 @@ Here are the base commands:
     ...
 ```
 
-Kör kommandot i din kommandoradsgränssnittet `az storage --help` listan den `storage` kommandot undergrupper. Beskrivningar av undergrupperna ger en översikt över funktionen Azure CLI tillhandahåller för att arbeta med dina lagringsresurser.
+Kör kommandot i ditt kommandoradsgränssnitt `az storage --help` listan den `storage` kommandot undergrupper. Beskrivningar av undergrupperna ger en översikt över funktioner som Azure CLI tillhandahåller för att arbeta med dina lagringsresurser.
 
 ```
 Group
@@ -92,18 +87,18 @@ Subgroups:
     table    : NoSQL key-value storage using semi-structured datasets.
 ```
 
-## <a name="connect-the-cli-to-your-azure-subscription"></a>Ansluta CLI på Azure-prenumerationen
+## <a name="connect-the-cli-to-your-azure-subscription"></a>Ansluta CLI till din Azure-prenumeration
 
-Om du vill arbeta med resurserna i din Azure-prenumeration, du måste först logga in på ditt Azure-konto med `az login`. Det finns flera sätt som du kan logga in:
+Om du vill arbeta med resurserna i din Azure-prenumeration måste du logga in på Azure-kontot med `az login`. Det finns flera sätt du kan logga in:
 
 * **Interaktiv inloggning**: `az login`
 * **Logga in med användarnamn och lösenord**: `az login -u johndoe@contoso.com -p VerySecret`
-  * Detta fungerar inte med Microsoft-konton eller konton som använder multi-Factor authentication.
+  * Detta fungerar inte med Microsoft-konton eller konton som använder multifaktorautentisering.
 * **Logga in med ett huvudnamn för tjänsten**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
 
-## <a name="azure-cli-20-sample-script"></a>Azure CLI 2.0 exempelskript
+## <a name="azure-cli-20-sample-script"></a>Exempelskript för Azure CLI 2.0
 
-Nu ska arbetar vi med ett litet kommandoskript som utfärdar några grundläggande Azure CLI 2.0-kommandon för att interagera med Azure Storage-resurser. Skriptet först skapar en ny behållare på ditt lagringskonto och överför en befintlig fil (som en blob) till behållaren. Den visar en lista över alla blobbar i behållaren och slutligen hämtas filen till en plats på den lokala datorn som du anger.
+Nu ska arbetar vi med ett litet kommandoskript som utfärdar några grundläggande Azure CLI 2.0-kommandon för att interagera med Azure Storage-resurser. Skriptet kan du först skapar en ny behållare i ditt storage-konto och sedan överför en befintlig fil (som en blob) till behållaren. Den visar en lista över alla blobar i behållaren och slutligen laddar ned filen till ett mål på din lokala dator som du anger.
 
 ```bash
 #!/bin/bash
@@ -134,24 +129,24 @@ echo "Done"
 
 **Konfigurera och köra skriptet**
 
-1. Öppna valfri textredigerare, och sedan kopiera och klistra in det här skriptet i redigeraren.
+1. Öppna valfri textredigerare och sedan kopiera och klistra in det här skriptet i redigeraren.
 
 2. Därefter uppdatera skriptvariabler för att återspegla konfigurationsinställningarna. Ersätt följande värden som anges:
 
    * **\<storage_account_name\>**  namnet på ditt lagringskonto.
-   * **\<storage_account_key\>**  primära eller sekundära åtkomstnyckeln för ditt lagringskonto.
-   * **\<container_name\>**  A namnge den nya behållaren att skapa, till exempel ”azure-cli-exemplet-container”.
-   * **\<blob_name\>**  ett namn för mål-blob-behållare.
-   * **\<file_to_upload\>**  sökvägen till en liten fil på den lokala datorn som ”~ / images/HelloWorld.png”.
-   * **\<destination_file\>**  mål-sökvägen, exempelvis ”~ / downloadedImage.png”.
+   * **\<storage_account_key\>**  den primära eller sekundära åtkomstnyckeln för ditt lagringskonto.
+   * **\<container_name\>**  A namnge den nya behållaren att skapa, till exempel ”azure-cli-exempel-container”.
+   * **\<blob_name\>**  ett namn för målblobben i behållaren.
+   * **\<file_to_upload\>**  sökvägen till liten fil på den lokala datorn som ”~ / images/HelloWorld.png”.
+   * **\<destination_file\>**  mål-filsökväg, till exempel ”~ / downloadedImage.png”.
 
-3. När du har uppdaterat de nödvändiga variablerna, spara skriptet och avsluta redigeringsprogram. Nästa steg förutsätter att du har namngett skriptet **my_storage_sample.sh**.
+3. När du har uppdaterat de nödvändiga variablerna, spara skriptet och avsluta redigeringsprogram. Nästa steg förutsätter att du har gett ditt skript **my_storage_sample.sh**.
 
 4. Markera skriptet som körbara, om det behövs: `chmod +x my_storage_sample.sh`
 
 5. Kör skriptet. Till exempel i Bash: `./my_storage_sample.sh`
 
-Du bör se utdata som liknar följande, och **\<destination_file\>** du angav i skriptet ska visas på den lokala datorn.
+Du bör se utdata som liknar följande, och **\<destination_file\>** du angav i skriptet ska visas på din lokala dator.
 
 ```
 Creating the container...
@@ -172,13 +167,13 @@ Done
 ```
 
 > [!TIP]
-> Föregående utdata är i **tabell** format. Du kan ange vilka utdata format du ska använda genom att ange den `--output` argument i CLI-kommandon eller Ställ in den globalt med `az configure`.
+> Föregående utdatan är i **tabell** format. Du kan ange vilka utdata format som ska användas genom att ange den `--output` argumentet i din CLI-kommandon eller ställa in den globalt med `az configure`.
 >
 
 ## <a name="manage-storage-accounts"></a>Hantera lagringskonton
 
 ### <a name="create-a-new-storage-account"></a>Skapa ett nytt lagringskonto
-Om du vill använda Azure Storage behöver du ett lagringskonto. Du kan skapa ett nytt Azure Storage-konto när du har konfigurerat datorn [ansluta till din prenumeration](#connect-to-your-azure-subscription).
+Om du vill använda Azure Storage behöver du ett lagringskonto. Du kan skapa ett nytt Azure Storage-konto när du har konfigurerat datorn för att [ansluta till din prenumeration](#connect-to-your-azure-subscription).
 
 ```azurecli
 az storage account create \
@@ -188,19 +183,19 @@ az storage account create \
     --sku <account_sku>
 ```
 
-* `--location` [Krävs]: plats. Till exempel ”USA, västra”.
-* `--name` [Krävs]: lagringskontonamn. Namnet måste bestå av 3 till 24 tecken och Använd endast gemener alfanumeriska tecken.
+* `--location` [Krävs]: plats. Till exempel ”USA, västra.
+* `--name` [Krävs]: namnet på lagringskontot. Namnet måste bestå av 3 till 24 tecken och Använd endast gemena alfanumeriska tecken.
 * `--resource-group` [Krävs]: namnet på resursgruppen.
-* `--sku` [Krävs]: lagringskontot SKU. Tillåtna värden:
+* `--sku` [Krävs]: SKU för lagringskontot. Tillåtna värden:
   * `Premium_LRS`
   * `Standard_GRS`
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
 
-### <a name="set-default-azure-storage-account-environment-variables"></a>Ange standardkontot för Azure storage miljövariabler
+### <a name="set-default-azure-storage-account-environment-variables"></a>Miljövariabler för Azure storage-kontot
 
-Du kan ha flera lagringskonton i Azure-prenumerationen. Du kan ange dessa miljövariabler för att välja en av dem ska användas för alla efterföljande lagring-kommandon:
+Du kan ha flera lagringskonton i Azure-prenumerationen. Du kan ange dessa miljövariabler för att välja en av dem ska användas för alla efterföljande storage-kommandon:
 
 Visa först dina lagringskontonycklar med kommandot [az storage account keys list](/cli/azure/storage/account/keys#list):
 
@@ -211,14 +206,14 @@ az storage account keys list \
     --output table
 ```
 
-Nu när du har nyckeln kan du definiera den och kontonamnet som miljövariabler:
+Nu när du har nyckeln kan definiera du den och kontonamnet som miljövariabler:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
 export AZURE_STORAGE_ACCESS_KEY=<key>
 ```
 
-Det är ett annat sätt att ange standardkontot för lagring med hjälp av en anslutningssträng. Först hämta anslutningssträngen med den `show-connection-string` kommando:
+Ett annat sätt att ange ett standard storage-konto är med hjälp av en anslutningssträng. Först hämtar anslutningssträngen med den `show-connection-string` kommando:
 
 ```azurecli
 az storage account show-connection-string \
@@ -226,35 +221,35 @@ az storage account show-connection-string \
     --resource-group <resource_group>
 ```
 
-Kopiera anslutningssträngen utdata och ange den `AZURE_STORAGE_CONNECTION_STRING` miljövariabeln (du kan behöva anslutningssträngen omges av citattecken):
+Kopiera anslutningssträngen utdata och ange den `AZURE_STORAGE_CONNECTION_STRING` miljövariabeln (du kan behöva ange strängen inom citattecken):
 
 ```azurecli
 export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 ```
 
 > [!NOTE]
-> Alla exempel i följande avsnitt i den här artikeln förutsätter att du har ställt in den `AZURE_STORAGE_ACCOUNT` och `AZURE_STORAGE_ACCESS_KEY` miljövariabler.
+> Alla exemplen i följande avsnitt i den här artikeln förutsätter att du har ställt in den `AZURE_STORAGE_ACCOUNT` och `AZURE_STORAGE_ACCESS_KEY` miljövariabler.
 
-## <a name="create-and-manage-blobs"></a>Skapa och hantera blobbar
-Azure Blob storage är en tjänst för att lagra stora mängder Ostrukturerade data, till exempel text eller binära data som kan nås från var som helst i världen via HTTP eller HTTPS. Det här avsnittet förutsätter att du redan är bekant med Azure Blob storage-koncept. Detaljerad information finns i [komma igång med Azure Blob storage med hjälp av .NET](../blobs/storage-dotnet-how-to-use-blobs.md) och [Blob-Tjänstkoncept](/rest/api/storageservices/blob-service-concepts).
+## <a name="create-and-manage-blobs"></a>Skapa och hantera BLOB-objekt
+Azure Blob storage är en tjänst för att lagra stora mängder Ostrukturerade data, exempelvis text eller binära data som kan nås från var som helst i världen via HTTP eller HTTPS. Det här avsnittet förutsätter att du redan är bekant med principerna för Azure Blob storage. Detaljerad information finns i [komma igång med Azure Blob storage med hjälp av .NET](../blobs/storage-dotnet-how-to-use-blobs.md) och [Blob Service-koncept](/rest/api/storageservices/blob-service-concepts).
 
-### <a name="create-a-container"></a>Skapa en behållare
-Varje blobb i Azure-lagring måste vara i en behållare. Du kan skapa en behållare med hjälp av den `az storage container create` kommando:
+### <a name="create-a-container"></a>Skapa en container
+Varje blobb i Azure storage måste vara i en behållare. Du kan skapa en behållare med hjälp av den `az storage container create` kommando:
 
 ```azurecli
 az storage container create --name <container_name>
 ```
 
-Du kan ange en av tre nivåer för läsbehörighet för en ny behållare genom att ange den valfria `--public-access` argument:
+Du kan ange en av tre nivåer av läsbehörighet för en ny behållare genom att ange den valfria `--public-access` argument:
 
-* `off` (standard): behållardata är privat för ägare.
-* `blob`: Offentlig läsbehörighet för blobbar.
-* `container`: Läs- och offentlig åtkomst till hela behållaren.
+* `off` (standard): behållardata är privata för kontoinnehavaren.
+* `blob`: Offentlig läsbehörighet för blobar.
+* `container`: Läs- och lista offentlig åtkomst till hela behållaren.
 
-Mer information finns i [Hantera anonym läsbehörighet till behållare och blobbar](../blobs/storage-manage-access-to-resources.md).
+Mer information finns i [Hantera anonym läsbehörighet till containrar och blobbar](../blobs/storage-manage-access-to-resources.md).
 
-### <a name="upload-a-blob-to-a-container"></a>Ladda upp en blob till en behållare
-Azure Blob storage stöder block, Lägg till och sidblobbar. Överför blobbar till en behållare med hjälp av den `blob upload` kommando:
+### <a name="upload-a-blob-to-a-container"></a>Ladda upp en blob till en container
+Azure Blob storage stöder block, lägga till och sidblobar. Överför BLOB-objekt till en behållare med hjälp av den `blob upload` kommando:
 
 ```azurecli
 az storage blob upload \
@@ -263,13 +258,13 @@ az storage blob upload \
     --name <blob_name>
 ```
 
- Som standard den `blob upload` kommandot överför *.vhd filer till sidblobbar eller blockblobbar på annat sätt. Om du vill ange en annan typ när du överför en blob, kan du använda den `--type` argumentet--tillåtna värden är `append`, `block`, och `page`.
+ Som standard den `blob upload` kommando laddar upp *.vhd filer till sidblobar eller blockblob-objekt som på annat sätt. Om du vill ange en annan typ när du laddar upp en blob, du kan använda den `--type` argumentet--tillåtna värden är `append`, `block`, och `page`.
 
- Mer information om de olika blob-typerna finns [förstå Blockblobbar, Tilläggsblobbar och Sidblobbar](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
+ Mer information om annan blob-typer finns i [förstå Blockblobbar, Tilläggsblobbar och Sidblobbar](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
 
-### <a name="download-a-blob-from-a-container"></a>Hämta en blob från en behållare
-Det här exemplet visar hur du hämtar en blob från en behållare:
+### <a name="download-a-blob-from-a-container"></a>Hämta en blob från en container
+Det här exemplet visar hur du laddar ned en blob från en behållare:
 
 ```azurecli
 az storage blob download \
@@ -278,9 +273,9 @@ az storage blob download \
     --file ~/mydownloadedblob.png
 ```
 
-### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
+### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Visa blobbar i en behållare med den [az storage blob listan](/cli/azure/storage/blob#az_storage_blob_list) kommando.
+Listar blobarna i en behållare med den [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) kommando.
 
 ```azurecli
 az storage blob list \
@@ -288,10 +283,10 @@ az storage blob list \
     --output table
 ```
 
-### <a name="copy-blobs"></a>Kopiera BLOB
+### <a name="copy-blobs"></a>Kopiera blobar
 Du kan kopiera blobar i eller mellan lagringskonton och regioner asynkront.
 
-Följande exempel visar hur du kopierar blobar från ett lagringskonto till ett annat. Vi skapar först en behållare i källagringskontot där vi anger offentlig läsbehörighet för dess blobar. Efter det laddar vi upp en fil till behållaren och slutligen kopierar vi bloben från den behållaren till en behållare i mållagringskontot.
+Följande exempel visar hur du kopierar blobar från ett lagringskonto till ett annat. Vi skapar först en container i källagringskontot där vi anger offentlig läsbehörighet för dess blobar. Efter det laddar vi upp en fil till containern och slutligen kopierar vi bloben från den containern till en container i mållagringskontot.
 
 ```azurecli
 # Create container in source account
@@ -318,42 +313,42 @@ az storage blob copy start \
     --source-uri https://sourceaccountname.blob.core.windows.net/sourcecontainer/sourcefile.png
 ```
 
-I exemplet ovan finnas målbehållare redan i mål-lagringskontot för kopieringen ska lyckas. Dessutom måste källbloben som anges i `--source-uri`-argumentet antingen inkludera en signatur för delad åtkomst (SAS) eller vara offentligt åtkomlig, som i det här exemplet.
+I exemplet ovan måste till Målbehållaren redan finnas i källagringskontot för kopieringen ska fungera. Dessutom måste källbloben som anges i `--source-uri`-argumentet antingen inkludera en signatur för delad åtkomst (SAS) eller vara offentligt åtkomlig, som i det här exemplet.
 
 ### <a name="delete-a-blob"></a>Ta bort en blob
-Om du vill ta bort en blobb, använder den `blob delete` kommando:
+Ta bort en blob genom att använda den `blob delete` kommando:
 
 ```azurecli
 az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
 ## <a name="create-and-manage-file-shares"></a>Skapa och hantera filresurser
-Azure Files erbjuder delad lagring för program som använder Server Message Block (SMB)-protokollet. Microsoft Azure-datorer och molntjänster, samt lokala program kan dela fildata via monterade resurser. Du kan hantera filresurser och fildata via Azure CLI. Mer information om Azure-filer finns [introduktion till Azure Files](../files/storage-files-introduction.md).
+Azure Files erbjuder delad lagring för program som använder protokollet Server Message Block (SMB). Microsoft Azure-datorer och molntjänster, samt lokala program kan dela fildata via monterade resurser. Du kan hantera filresurser och fildata via Azure CLI. Mer information om Azure Files finns i [introduktion till Azure Files](../files/storage-files-introduction.md).
 
 ### <a name="create-a-file-share"></a>Skapa en filresurs
-En Azure-filresursen är en SMB-filresurs i Azure. Alla kataloger och filer måste skapas i en filresurs. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till lagringskontot kapacitetsgränser. Följande exempel skapar en filresurs med namnet **minresurs**.
+En Azure-filresurs är en SMB-filresurs i Azure. Alla kataloger och filer måste skapas i en filresurs. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till kapacitetsbegränsningen för lagringskontot. I följande exempel skapas en filresurs med namnet **myshare**.
 
 ```azurecli
 az storage share create --name myshare
 ```
 
 ### <a name="create-a-directory"></a>Skapa en katalog
-En katalog innehåller en hierarkisk struktur i ett Azure-filresursen. I följande exempel skapas en katalog med namnet **MinMapp** i filresursen.
+En katalog innehåller en hierarkisk struktur i en Azure-filresurs. I följande exempel skapas en katalog med namnet **MinMapp** i filresursen.
 
 ```azurecli
 az storage directory create --name myDir --share-name myshare
 ```
 
-En katalogsökväg kan innehålla flera nivåer, till exempel **dir1/dir2**. Dock måste du kontrollera att alla överordnade kataloger finns innan du skapar en underkatalog. Till exempel för sökvägen **dir1/dir2**, måste du först skapa directory **dir1**, skapa katalog **dir2**.
+En katalogsökväg kan innehålla flera nivåer, till exempel **dir1/dir2**. Du måste dock se till att alla överordnade kataloger finns innan du skapar en underkatalog. Till exempel för sökvägen **dir1/dir2**, måste du först skapa katalogen **dir1**, skapa katalog **dir2**.
 
 ### <a name="upload-a-local-file-to-a-share"></a>Ladda upp en lokal fil till en resurs
-I följande exempel överför en fil från **~/temp/samplefile.txt** roten för den **minresurs** filresurs. Den `--source` argumentet anger den befintliga lokala fil att överföra.
+I följande exempel laddar upp en fil från **~/temp/samplefile.txt** roten för den **myshare** filresurs. Den `--source` argumentet anger den befintliga lokala fil att ladda upp.
 
 ```azurecli
 az storage file upload --share-name myshare --source ~/temp/samplefile.txt
 ```
 
-Med directory skapas ange som en sökväg på resursen att överföra filen till en befintlig katalog på resursen:
+Som med katalogskapandet, kan du ange en sökväg på resursen att överföra filen till en befintlig katalog i resursen:
 
 ```azurecli
 az storage file upload --share-name myshare/myDir --source ~/temp/samplefile.txt
@@ -361,8 +356,8 @@ az storage file upload --share-name myshare/myDir --source ~/temp/samplefile.txt
 
 En fil i resursen kan vara upp till 1 TB i storlek.
 
-### <a name="list-the-files-in-a-share"></a>Visa filer i en resurs
-Du kan visa en lista över filer och kataloger på en resurs med hjälp av den `az storage file list` kommando:
+### <a name="list-the-files-in-a-share"></a>Visa filerna i en resurs
+Du kan lista filer och kataloger på en resurs med hjälp av den `az storage file list` kommando:
 
 ```azurecli
 # List the files in the root of a share
@@ -376,7 +371,7 @@ az storage file list --share-name myshare --path myDir/mySubDir/MySubDir2 --outp
 ```
 
 ### <a name="copy-files"></a>Kopiera filer      
-Du kan kopiera en fil till en annan fil, en fil till en blobb eller en blobb till en fil. Till exempel att kopiera en fil till en katalog på en annan resurs:        
+Du kan kopiera en fil till en annan fil, en fil till en blobb eller en blobb till en fil. Till exempel vill kopiera en fil till en katalog på en annan resurs:        
         
 ```azurecli
 az storage file copy start \
@@ -384,8 +379,8 @@ az storage file copy start \
 --destination-share share2 --destination-path dir2/file.txt     
 ```
 
-## <a name="create-share-snapshot"></a>Skapa resursen ögonblicksbild
-Du kan skapa en ögonblicksbild av en resurs med hjälp av den `az storage share snapshot` kommando:
+## <a name="create-share-snapshot"></a>Skapa ögonblicksbild
+Du kan skapa en ögonblicksbild med hjälp av den `az storage share snapshot` kommando:
 
 ```cli
 az storage share snapshot -n <share name>
@@ -407,7 +402,7 @@ Exempel på utdata
 
 ### <a name="list-share-snapshots"></a>Lista resursögonblicksbilder
 
-Du kan visa resursen ögonblicksbilder av en viss filresurs med hjälp av `az storage share list --include-snapshots`
+Du kan visa ögonblicksbilder för en viss resurs med `az storage share list --include-snapshots`
 
 ```cli
 az storage share list --include-snapshots
@@ -450,7 +445,7 @@ az storage share list --include-snapshots
 ```
 
 ### <a name="browse-share-snapshots"></a>Bläddra resursögonblicksbilder
-Du kan även bläddra i en viss resurs ögonblicksbild för att visa dess innehåll med hjälp av `az storage file list`. Behöver ange resursnamnet `--share-name <snare name>` och tidsstämpeln `--snapshot '2017-10-04T19:45:18.0000000Z'`
+Du kan också gå till en viss resurs ögonblicksbild för att visa dess innehåll med hjälp av `az storage file list`. Om du behöver ange resursnamnet `--share-name <snare name>` och tidsstämpel `--snapshot '2017-10-04T19:45:18.0000000Z'`
 
 ```azurecli-interactive
 az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable
@@ -470,7 +465,7 @@ IMG_1634.JPG    1495999           file
 IMG_1635.JPG    974058            file
 
 ```
-### <a name="restore-from-share-snapshots"></a>Återställa från resursen ögonblicksbilder
+### <a name="restore-from-share-snapshots"></a>Återställa från resursögonblicksbilder
 
 Du kan återställa en fil genom att kopiera eller ladda ned en fil från en resurs med verktyget `az storage file download` kommando
 
@@ -507,8 +502,8 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
   }
 }
 ```
-## <a name="delete-share-snapshot"></a>Ta bort resursen ögonblicksbild
-Du kan ta bort en ögonblicksbild av en resurs med hjälp av den `az storage share delete` kommandot genom att tillhandahålla `--snapshot` parameter med dela ögonblicksbild tidsstämpel:
+## <a name="delete-share-snapshot"></a>Ta bort en ögonblicksbild av filresurs
+Du kan ta bort en resursögonblicksbild med hjälp av den `az storage share delete` kommandot genom att tillhandahålla `--snapshot` parametern med dela ögonblicksbild tidsstämpel:
 
 ```cli
 az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
@@ -522,7 +517,7 @@ Exempel på utdata
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Här följer några ytterligare resurser för att lära dig mer om hur du arbetar med Azure CLI 2.0.
+Här följer några ytterligare resurser för att lära dig mer om att arbeta med Azure CLI 2.0.
 
 * [Kom igång med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Azure CLI 2.0-kommandoreferens](/cli/azure)

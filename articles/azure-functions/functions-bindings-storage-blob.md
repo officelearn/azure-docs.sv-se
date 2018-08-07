@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: b9ddfb6582a4ce483e93b7ea753112d54fe65a9d
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 0bd14e85496da8c6c12ecb98b7c8f1730a16e640
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346376"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524574"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -674,7 +674,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 <!--Same example for input and output. -->
 
-I följande exempel visas blob indata och utdatabindningar i en *function.json* fil- och [JavaScript-kod] (functions-referens-node.md) som använder bindningarna. Funktionen skapar en kopia av en blob. Funktionen utlöses av ett kömeddelande som innehåller namnet på blobben att kopiera. Den nya bloben heter *{originalblobname}-kopia*.
+I följande exempel visas blob indata och utdatabindningar i en *function.json* fil och [JavaScript-kod](functions-reference-node.md) som använder bindningarna. Funktionen skapar en kopia av en blob. Funktionen utlöses av ett kömeddelande som innehåller namnet på blobben att kopiera. Den nya bloben heter *{originalblobname}-kopia*.
 
 I den *function.json* filen, den `queueTrigger` metadata-egenskap för att ange blobnamnet på i den `path` egenskaper:
 

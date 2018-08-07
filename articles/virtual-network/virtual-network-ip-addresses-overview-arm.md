@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: jdial
-ms.openlocfilehash: 30bed569887ce4b25d0b464e9f14a1491c38c736
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: f55dfa8ffadc4ddee1ff3861682e5596b675f0d0
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32767866"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325293"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adresstyper och allokeringsmetoder i Azure
 
@@ -42,20 +42,20 @@ Offentliga IP-adresser tillåter att Internet-resurser kommunicerar inkommande t
 I Azure Resource Manager är en [offentlig IP-adress](virtual-network-public-ip-address.md) en resurs som har sina egna egenskaper. Följande är några av resurserna du kan associera med en offentlig IP-adressresurs:
 
 * Nätverksgränssnitt för virtuella datorer
-* Internetuppkopplade belastningsutjämnare
+* Internetuppkopplade lastbalanserare
 * VPN-gateways
 * Programgateways
 
 ### <a name="ip-address-version"></a>IP-adressversion
 
-Offentliga IP-adresser skapas med en IPv4- eller IPv6-adress. Offentliga IPv6-adresser kan endast tilldelas till internetuppkopplade belastningsutjämnare.
+Offentliga IP-adresser skapas med en IPv4- eller IPv6-adress. Offentliga IPv6-adresser kan endast tilldelas till internetuppkopplade lastbalanserare.
 
 ### <a name="sku"></a>SKU
 
 Offentliga IP-adresser skapas med någon av följande SKU:er:
 
 >[!IMPORTANT]
-> Matchande SKU:er måste användas för belastningsutjämnaren och offentliga IP-resurser. Du kan inte blanda grundläggande SKU-resurser och standard-SKU-resurser. Du kan inte bifoga fristående virtuella datorer, virtuella datorer i en tillgänglighetsuppsättningsresurs eller en virtuell dators skalningsuppsättningsresurser till båda SKU:erna samtidigt.  Ny design bör överväga att använda standard-SKU-resurser.  Mer information finns i [Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+> Matchande SKU:er måste användas för lastbalanseraren och offentliga IP-resurser. Du kan inte blanda grundläggande SKU-resurser och standard-SKU-resurser. Du kan inte bifoga fristående virtuella datorer, virtuella datorer i en tillgänglighetsuppsättningsresurs eller en virtuell dators skalningsuppsättningsresurser till båda SKU:erna samtidigt.  Ny design bör överväga att använda standard-SKU-resurser.  Mer information finns i [Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 #### <a name="basic"></a>Basic
 
@@ -63,7 +63,7 @@ Alla offentliga IP-adresser som skapas före införandet av SKU:er är grundläg
 
 - Tilldelas med en statisk eller dynamisk allokeringsmetod.
 - Är öppna som standard.  Nätverkssäkerhetsgrupper rekommenderas, men är valfritt för att begränsa inkommande eller utgående datatrafik.
-- Tilldelas till en Azure-resurs som kan tilldelas en offentlig IP-adress, t.ex. nätverksgränssnitt, VPN Gateway, Application Gateway och Internetuppkopplade belastningsutjämnare.
+- Tilldelas till en Azure-resurs som kan tilldelas en offentlig IP-adress, t.ex. nätverksgränssnitt, VPN Gateway, Application Gateway och Internetuppkopplade lastbalanserare.
 - Kan tilldelas till en viss zon.
 - Ej zonredundant. Mer information om tillgänglighetszoner finns i [Översikt över tillgänglighetszoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -73,7 +73,7 @@ Offentliga IP-adresser för standard-SKU:
 
 - Tilldelas endast med den statiska allokeringsmetoden.
 - Är säkra som standard och stängda för inkommande trafik. Du måste explicit göra en lista över tillåten inkommande trafik med en [nätverkssäkerhetsgrupp](security-overview.md#network-security-groups).
-- Tilldelas till nätverksgränssnitt eller offentliga belastningsutjämnare av standardtyp. Mer information om standardbelastningsutjämnare i Azure finns i [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Tilldelas till nätverksgränssnitt eller offentliga lastbalanserare av standardtyp. Mer information om standardlastbalanserare i Azure finns i [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Zonredundant som standard. Kan skapas zonindelat och garanteras i en viss tillgänglighetszon. Om du vill veta mer om tillgänglighetszoner kan du läsa [Översikt över tillgänglighetszoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Standard Load Balancer och tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
@@ -83,7 +83,7 @@ Offentliga IP-adresser för standard-SKU:
 
 Både grundläggande och standard-SKU:er för offentliga IP-adresser stöder den *statiska* allokeringsmetoden.  Resursen tilldelas en IP-adress när den skapas, och IP-adressen släpps när resursen tas bort.
 
-Grundläggande SKU:er för offentliga IP-adresser stöder även en *dynamisk* allokeringsmetod, som är standard om ingen allokeringsmetod anges.  Om du väljer *dynamisk* allokeringsmetod för en grundläggande offentlig IP-adressresurs innebär att IP-adressen **inte** allokeras när resursen skapas.  Den offentliga IP-adressen allokeras när du tilldelar den offentliga IP-adressen med en virtuell dator eller när du placerar den första virtuella datorinstansen i serverdelspoolen för en grundläggande belastningsutjämnare.   IP-adressen frisläpps när du stoppar (eller tar bort) resursen.  När IP-adressen exempelvis har släppts från resurs A kan IP-adressen tilldelas till en annan resurs. Om IP-adressen tilldelas till en annan resurs medan resurs A är stoppad kommer en annan IP-adress att tilldelas när du startar om resurs A. Om du byter allokeringsmetod för en grundläggande offentlig IP-adressresurs från *statisk* till *dynamisk* släpps adressen. Om du inte vill att IP-adressen för den associera resursen ska ändras kan du uttryckligen ange allokeringsmetoden till *statisk*. En statisk IP-adress tilldelas direkt.
+Grundläggande SKU:er för offentliga IP-adresser stöder även en *dynamisk* allokeringsmetod, som är standard om ingen allokeringsmetod anges.  Om du väljer *dynamisk* allokeringsmetod för en grundläggande offentlig IP-adressresurs innebär att IP-adressen **inte** allokeras när resursen skapas.  Den offentliga IP-adressen allokeras när du tilldelar den offentliga IP-adressen med en virtuell dator eller när du placerar den första virtuella datorinstansen i serverdelspoolen för en grundläggande lastbalanserare.   IP-adressen frisläpps när du stoppar (eller tar bort) resursen.  När IP-adressen exempelvis har släppts från resurs A kan IP-adressen tilldelas till en annan resurs. Om IP-adressen tilldelas till en annan resurs medan resurs A är stoppad kommer en annan IP-adress att tilldelas när du startar om resurs A. Om du byter allokeringsmetod för en grundläggande offentlig IP-adressresurs från *statisk* till *dynamisk* släpps adressen. Om du inte vill att IP-adressen för den associera resursen ska ändras kan du uttryckligen ange allokeringsmetoden till *statisk*. En statisk IP-adress tilldelas direkt.
 
 > [!NOTE]
 > Även om du anger allokeringsmetoden till *statisk* kan du inte ange själva IP-adressen som tilldelas till den offentliga IP-adressresursen. Azure tilldelar i stället IP-adressen från en pool med tillgängliga IP-adresser på den Azure-plats där resursen skapas.
@@ -97,7 +97,7 @@ Statiska offentliga IP-adresser används ofta i följande scenarier:
 * Du kan använda SSL-certifikat som är kopplade till en IP-adress.
 
 > [!NOTE]
-> Azure allokerar offentliga IP-adresser från ett intervall som är unikt för varje Azure-region. Mer information finns i [Azure Datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653).
+> Azure allokerar offentliga IP-adresser från ett intervall som är unikt för varje region i varje Azure-moln. Du kan ladda ned listan över intervall (prefix) för [offentliga](https://www.microsoft.com/download/details.aspx?id=56519) Azure-moln och för Azure-moln för [amerikanska myndigheter](https://www.microsoft.com/download/details.aspx?id=57063), [Kina](https://www.microsoft.com/download/details.aspx?id=57062) eller [Tyskland](https://www.microsoft.com/download/details.aspx?id=57064).
 >
 
 ### <a name="dns-hostname-resolution"></a>Matchning av DNS-värdnamn
@@ -111,14 +111,13 @@ Du kan ange en DNS-domännamnsetikett för en offentlig IP-resurs, vilket skapar
 
 Du kan associera en offentlig IP-adress med en [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)- eller [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)-baserad virtuell dator genom att tilldela den till dess **nätverksgränssnitt**. Du kan tilldela antingen en dynamisk eller en statisk offentlig IP-adress till en virtuell dator. Lär dig mer om att [tilldela IP-adresser till nätverksgränssnitt](virtual-network-network-interface-addresses.md).
 
-### <a name="internet-facing-load-balancers"></a>Internetuppkopplade belastningsutjämnare
+### <a name="internet-facing-load-balancers"></a>Internetuppkopplade lastbalanserare
 
-Du kan associera en offentlig IP-adress som skapas med en [SKU](#SKU) till en [Azure Load Balancer](../load-balancer/load-balancer-overview.md) genom att tilldela den till belastningsutjämnarens konfiguration på **klientsidan**. Den offentliga IP-adressen fungerar som en belastningsutjämnad virtuell IP-adress (VIP). Du kan tilldela antingen en dynamisk eller en statisk offentlig IP-adress till klientsidan för en belastningsutjämnare. Du kan också tilldela flera offentliga IP-adresser till klientsidan för en belastningsutjämnare, t.ex. för scenarier med [flera virtuella IP-adresser](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), exempelvis i en miljö med flera klientorganisationer med SSL-baserade webbplatser. Mer information om SKU:er för belastningsutjämnare i Azure finns i [Standard-SKU för Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Du kan associera en offentlig IP-adress som skapas med en [SKU](#SKU) till en [Azure Load Balancer](../load-balancer/load-balancer-overview.md) genom att tilldela den till lastbalanserarens konfiguration på **klientsidan**. Den offentliga IP-adressen fungerar som en belastningsutjämnad virtuell IP-adress (VIP). Du kan tilldela antingen en dynamisk eller en statisk offentlig IP-adress till klientsidan för en lastbalanserare. Du kan också tilldela flera offentliga IP-adresser till klientsidan för en lastbalanserare, t.ex. för scenarier med [flera virtuella IP-adresser](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), exempelvis i en miljö med flera klientorganisationer med SSL-baserade webbplatser. Mer information om SKU:er för lastbalanserare i Azure finns i [Standard-SKU för Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="vpn-gateways"></a>VPN-gateways
 
-
-  [VPN Gateway i Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ansluter ett virtuellt Azure-nätverk (VNet) till andra virtuella Azure-nätverk eller till ett lokalt nätverk. En offentlig IP-adress tilldelas till VPN Gateway så att den kan kommunicera med fjärrnätverket. Du kan endast tilldela en *dynamisk* grundläggande offentlig IP-adress till en VPN-gateway.
+[VPN Gateway i Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ansluter ett virtuellt Azure-nätverk (VNet) till andra virtuella Azure-nätverk eller till ett lokalt nätverk. En offentlig IP-adress tilldelas till VPN Gateway så att den kan kommunicera med fjärrnätverket. Du kan endast tilldela en *dynamisk* grundläggande offentlig IP-adress till en VPN-gateway.
 
 ### <a name="application-gateways"></a>Programgateways
 
@@ -130,7 +129,7 @@ Följande tabell visar den specifika egenskapen som kan användas för att assoc
 | Resurs på den översta nivån | IP-adressassociation | Dynamisk | Statisk |
 | --- | --- | --- | --- |
 | Virtuell dator |Nätverksgränssnitt |Ja |Ja |
-| Internetuppkopplad belastningsutjämnare |Konfiguration på klientsidan |Ja |Ja |
+| Internetuppkopplad lastbalanserare |Konfiguration på klientsidan |Ja |Ja |
 | VPN gateway |IP-konfiguration för gateway |Ja |Nej |
 | Programgateway |Konfiguration på klientsidan |Ja |Nej |
 
@@ -140,12 +139,12 @@ Privata IP-adresser gör att Azure-resurser kan kommunicera med andra resurser i
 I Azure Resource Manager-distributionsmodellen associeras en privat IP-adress med följande typer av Azure-resurser:
 
 * Nätverksgränssnitt för virtuella datorer
-* Interna belastningsutjämnare (ILB)
+* Interna lastbalanserare (ILB)
 * Programgateways
 
 ### <a name="ip-address-version"></a>IP-adressversion
 
-Privata IP-adresser skapas med en IPv4- eller IPv6-adress. Privata IPv6-adresser kan endast tilldelas med den dynamiska allokeringsmetoden. Du kan inte kommunicera mellan privata IPv6-adresser i ett virtuellt nätverk. Du kan kommunicera inkommande till en privat IPv6-adress från Internet via en internetuppkopplad belastningsutjämnare. Mer information finns i [Skapa en belastningsutjämnare mot Internet med IPv6 (CLI)](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Privata IP-adresser skapas med en IPv4- eller IPv6-adress. Privata IPv6-adresser kan endast tilldelas med den dynamiska allokeringsmetoden. Du kan inte kommunicera mellan privata IPv6-adresser i ett virtuellt nätverk. Du kan kommunicera inkommande till en privat IPv6-adress från Internet via en internetuppkopplad lastbalanserare. Mer information finns i [Skapa en lastbalanserare mot Internet med IPv6 (CLI)](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="allocation-method"></a>Allokeringsmetod
 
@@ -168,9 +167,9 @@ När du skapar en virtuell dator läggs en mappning till för värdnamnet till d
 
 Virtuella datorer som konfigurerats med Azure-hanterade DNS-servrar kan matcha värdnamnen för alla virtuella datorer i samma virtuella nätverk till sina privata IP-adresser. Du måste använda en anpassad DNS-server för att matcha värdnamn på virtuella datorer i anslutna virtuella nätverk.
 
-### <a name="internal-load-balancers-ilb--application-gateways"></a>Interna belastningsutjämnare (ILB) och programgateways
+### <a name="internal-load-balancers-ilb--application-gateways"></a>Interna lastbalanserare (ILB) och programgateways
 
-Du kan tilldela en privat IP-adress till konfigurationen på **klientsidan** för en [intern belastningsutjämnare i Azure Load Balancer](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB) eller till en [programgateway i Azure Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Den här privata IP-adressen fungerar som en intern slutpunkt som bara kan nås av resurserna i dess virtuella nätverk och fjärrnätverken som är anslutna till det virtuella nätverket. Du kan tilldela antingen en dynamisk eller privat IP-adress till konfigurationen på klientsidan.
+Du kan tilldela en privat IP-adress till konfigurationen på **klientsidan** för en [intern lastbalanserare i Azure Load Balancer](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB) eller till en [programgateway i Azure Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Den här privata IP-adressen fungerar som en intern slutpunkt som bara kan nås av resurserna i dess virtuella nätverk och fjärrnätverken som är anslutna till det virtuella nätverket. Du kan tilldela antingen en dynamisk eller privat IP-adress till konfigurationen på klientsidan.
 
 ### <a name="at-a-glance"></a>En snabb översikt
 Följande tabell visar den specifika egenskapen som kan användas för att associera en privat IP-adress till en resurs på den översta nivån, samt de metoder (dynamisk eller statisk) som kan användas.
@@ -178,7 +177,7 @@ Följande tabell visar den specifika egenskapen som kan användas för att assoc
 | Resurs på den översta nivån | IP-adressassociation | Dynamisk | Statisk |
 | --- | --- | --- | --- |
 | Virtuell dator |Nätverksgränssnitt |Ja |Ja |
-| Belastningsutjämnare |Konfiguration på klientsidan |Ja |Ja |
+| Lastbalanserare |Konfiguration på klientsidan |Ja |Ja |
 | Programgateway |Konfiguration på klientsidan |Ja |Ja |
 
 ## <a name="limits"></a>Begränsningar

@@ -1,3 +1,16 @@
+---
+author: Rajeswari-Mamilla
+ms.service: site-recovery
+ms.topic: include
+ms.date: 08/06/2018
+ms.author: ramamill
+ms.openlocfilehash: 81390d38b4c0c38b7ac6883ae2bf18c64542fa00
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39583026"
+---
 Anvisningarna för att avregistrera en processerver är olika beroende på dess anslutningsstatus till konfigurationsservern.
 
 ### <a name="unregister-a-process-server-that-is-in-a-connected-state"></a>Avregistrera en processerver som är i kopplat läge
@@ -19,4 +32,8 @@ Anvisningarna för att avregistrera en processerver är olika beroende på dess 
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-4. Det här meddelandet inträffar om processervern är har tagits bort: **avregistrerades servernamn > (server-IP-adress)**.
+4. Kommandot ovan får listan över processervrar (kan vara mer än en händelse av dubblettposter) seriell number(S.No), IP-adress (IP), namnet på den virtuella datorn på vilken processerver har distribuerats (namn), hjärtat beat för den virtuella datorn (pulsslag) enligt nedan.
+    ![Avregistrera cmd](media/site-recovery-vmware-unregister-process-server/Unregister-cmd.PNG)
+5. Nu kan ange serienumret för den server som processen att avregistrera.
+6. Det här information om processervern rensas från systemet och meddelandet: **avregistrerades servernamn > (server-IP-adress)**
+

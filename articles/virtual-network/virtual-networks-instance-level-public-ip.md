@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2018
+ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: 8a6256ab9c511342b536919c69faed30d40a256d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: cb8ba5169a6ebfbb11ba0acfa9b9f463b7cdf6a1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282598"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520816"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Instans offentliga IP (klassisk) översikt
 En instans på offentliga IP (ILPIP) är en offentlig IP-adress som du kan tilldela direkt till en virtuell dator eller Cloud Services-rollinstans i stället för till Molntjänsten som din instans av virtuell dator eller rollen finns i. En ILPIP äga inte rum för den virtuella IP (VIP) som är tilldelad till din molntjänst. Det är snarare ytterligare IP-adress som du kan använda för att ansluta direkt till din instans av virtuell dator eller roll.
@@ -60,10 +60,26 @@ Följande PowerShell-skript skapar en molntjänst med namnet *FTPService*, hämt
 ```powershell
 New-AzureService -ServiceName FTPService -Location "Central US"
 
-$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"} `
+$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
+
+#Set "current" storage account for the subscription. It will be used as the location of new VM disk
+
+Set-AzureSubscription -SubscriptionName <SubName> -CurrentStorageAccountName <StorageAccountName>
+
+#Create a new VM configuration object
+
 New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
 | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
 | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
+
+```
+Om du vill ange ett annat lagringskonto som platsen för den nya Virtuella disken kan du använda **MediaLocation** parameter:
+
+```powershell
+    New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
+     -MediaLocation https://management.core.windows.net/<SubscriptionID>/services/storageservices/<StorageAccountName> `
+    | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
+    | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 ```
 
 ### <a name="how-to-retrieve-ilpip-information-for-a-vm"></a>Hur du hämtar ILPIP information för en virtuell dator

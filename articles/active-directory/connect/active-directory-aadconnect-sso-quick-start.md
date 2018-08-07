@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 08/01/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 24bda501f88d4f96fb558eeb6b21e437edd6d862
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 4710e30ad38485f47c115ac2e0e914e91c96d582
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325395"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522189"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -57,9 +57,12 @@ Aktivera sömlös SSO via [Azure AD Connect](active-directory-aadconnect.md).
 
 Om du gör en ny installation av Azure AD Connect, väljer du den [anpassade installationssökväg](active-directory-aadconnect-get-started-custom.md). På den **användarinloggning** väljer den **aktivera enkel inloggning** alternativet.
 
+>[!NOTE]
+> Alternativet visas bara väljas om inloggningsmetod är **Lösenordshashsynkronisering** eller **direktautentisering**.
+
 ![Azure AD Connect: Användarinloggning](./media/active-directory-aadconnect-sso/sso8.png)
 
-Om du redan har en installation av Azure AD Connect, Välj den **ändra användarinloggning** i Azure AD Connect och välj sedan **nästa**.
+Om du redan har en installation av Azure AD Connect, Välj den **ändra användarinloggning** i Azure AD Connect och välj sedan **nästa**. Om du använder Azure AD Connect-versioner 1.1.880.0 eller senare, den **aktivera enkel inloggning** alternativet markerat som standard. Om du använder äldre versioner av Azure AD Connect, väljer du den **aktivera enkel inloggning** alternativet.
 
 ![Azure AD Connect: Ändra användarinloggning](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 

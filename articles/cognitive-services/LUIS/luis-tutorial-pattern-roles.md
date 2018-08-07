@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 80f2d482a660992011549fe8dc76a09740da6ab1
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237833"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524152"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>Självstudie: Förbättra appen med mönstret roller
 
@@ -27,7 +27,7 @@ I de här självstudierna att använda en enkel enhet med roller som kombineras 
 * Skapa mönster för uttryck med hjälp av enkel enhet med roller
 * Så här verifierar du mönstret förutsägelse förbättringar
 
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md) för att kunna redigera LUIS-programmet.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 Om du inte har personalapp från den [mönstret](luis-tutorial-pattern.md) självstudien [importera](luis-how-to-start-new-app.md#import-new-app) JSON-koden i en ny app i den [LUIS](luis-reference-regions.md#luis-website) webbplats. App att importera finns i den [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json) GitHub-lagringsplatsen.
@@ -125,23 +125,16 @@ Märkning entiteter i de här stegen kan vara enklare om entiteten fördefiniera
     Om du har tagit bort entiteten keyPhrase lägga tillbaka det i appen nu.
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
-Ny avsikt och yttranden kräver utbildning. 
 
-1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Train** (Träna).
-
-2. Träningen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
-För att få en LUIS-förutsägelse i en chattrobot eller i ett annat program måste du publicera appen. 
 
-1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Publish** (Publicera). 
-
-2. Välj platsen Production (Produktionsplats) och knappen **Publish** (Publicera).
-
-3. Publiceringen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-without-pattern"></a>Fråga slutpunkt utan mönster
-1. På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunktens URL i adressfältet. 
+
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
 2. Gå till slutet av URL:en i adressen och ange `Move Wayne Berry from Miami to Mount Vernon`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
 
@@ -388,7 +381,8 @@ Städer, som t.ex. namn på personer är svårt att de kan vara en blandning av 
 Avsiktshantering poängen är nu mycket högre och role-namn är en del av svaret för entiteten.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. Om du vill göra det, Välj ellipsen (***...*** ) till höger om appnamnet i programlistan, Välj **ta bort**. På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

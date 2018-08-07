@@ -2,24 +2,18 @@
 title: Distribuera Azure File Sync | Microsoft Docs
 description: Lär dig hur du distribuerar Azure File Sync, från början till slut.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 3f377c24a53313ff8c9243152281344200167856
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.component: files
+ms.openlocfilehash: b84de7475c54d2bc35dcc10b0bbfb0c1839c5631
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414249"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522143"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -249,7 +243,7 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 ---
 
 ## <a name="create-a-sync-group-and-a-cloud-endpoint"></a>Skapa en synkroniseringsgrupp och en slutpunkt i molnet
-En synkroniseringsgrupp definierar sync-topologi för en uppsättning filer. Slutpunkter inom en synkroniseringsgrupp hålls synkroniserade med varandra. En synkroniseringsgrupp måste innehålla minst ett moln-slutpunkt, vilket representerar en Azure-filresurs och en eller flera serverslutpunkter. En serverslutpunkt representerar en sökväg på registrerad server. En server kan ha serverslutpunkter i flera synkroniseringsgrupper. Du kan skapa så många synkroniseringsgrupper som du behöver på lämpligt sätt beskriva dina önskade sync-topologi.
+En synkroniseringsgrupp definierar sync-topologi för en uppsättning filer. Slutpunkter inom en synkroniseringsgrupp hålls synkroniserade med varandra. En synkroniseringsgrupp måste innehålla en molnslutpunkt som representerar en Azure-filresurs och en eller flera serverslutpunkter. En serverslutpunkt representerar en sökväg på registrerad server. En server kan ha serverslutpunkter i flera synkroniseringsgrupper. Du kan skapa så många synkroniseringsgrupper som du behöver på lämpligt sätt beskriva dina önskade sync-topologi.
 
 En molnslutpunkt finns en pekare till en Azure-filresurs. Alla serverslutpunkter synkroniseras med en slutpunkt, vilket gör molnslutpunkten hubben. Storage-konto för Azure-filresursen måste finnas i samma region som Storage Sync-tjänsten. Kommer att synkroniseras i sin helhet i Azure-filresursen med ett undantag: en särskild mapp jämförbara för dolda ”System Volume Information”-mapp på en NTFS-volym, kommer att tillhandahållas. Den här katalogen kallas ”. SystemShareInformation ”. Den innehåller viktiga synka metadata som inte synkroniseras till andra slutpunkter. Använd inte eller ta bort den!
 

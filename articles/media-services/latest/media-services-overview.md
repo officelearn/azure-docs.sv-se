@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 07/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: ad3b8755615332249ac00f43a2d0cc5fa13a7233
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 6c3fb7391c25628ba12526a04c022215bdbd9d40
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113292"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325939"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Vad är Azure Media Services v3?
 
@@ -117,21 +117,22 @@ private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
 
 ## <a name="how-can-i-get-started-with-v3"></a>Hur kan jag komma igång med v3?
 
-Som utvecklare kan du använda Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) eller klientbibliotek så att du kan interagera med REST API för att enkelt skapa, hantera och underhålla anpassade mediearbetsflöden. Du kan hitta exempel REST Postman [här](https://github.com/Azure-Samples/media-services-v3-rest-postman). Du kan också använda [Azure Resource Manager baserad REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates).
+Som utvecklare kan du använda Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) eller klientbibliotek så att du kan interagera med REST API för att enkelt skapa, hantera och underhålla anpassade mediearbetsflöden.  
+
+Media Services tillhandahåller [Swagger-filer](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) som du kan använda för att generera SDK:er för önskat språk/teknik.  
 
 Microsoft genererar och har stöd för följande klientbibliotek: 
 
-|Klientbibliotek|Exempel|
-|---|---|
-|[Azure CLI SDK](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)|[Azure CLI-exempel](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)|
-|[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)|[.NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)|
-|[.NET Core SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (välj fliken **.NET CLI**)|[.NET Core-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)|
-|[Java SDK](https://docs.microsoft.com/java/api/mediaservices/management?view=azure-java-stable)||
-|[Node.js SDK](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)|[Node.js-exempel](https://github.com/Azure-Samples/media-services-v3-node-tutorials)|
-|[Python SDK](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)||
-|[Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)||
-
-Media Services tillhandahåller [Swagger-filer](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) som du kan använda för att generera SDK:er för önskat språk/teknik.  
+|API-referenser|SDK:er/verktyg|Exempel|
+|---|---|---|---|
+|[REST-referens](https://aka.ms/ams-v3-rest-ref)|[REST-SDK](https://aka.ms/ams-v3-rest-sdk)|[REST-exempel för Postman](https://github.com/Azure-Samples/media-services-v3-rest-postman)<br/>[Azure Resource Manager-baserat REST-API](https://github.com/Azure-Samples/media-services-v3-arm-templates)|
+|[Azure CLI-referens](https://aka.ms/ams-v3-cli-ref)|[Azure CLI](https://aka.ms/ams-v3-cli)|[Azure CLI-exempel](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)||
+|[.NET-referens](https://aka.ms/ams-v3-dotnet-ref)|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)||
+||[.NET Core SDK](https://aka.ms/ams-v3-dotnet-sdk) (välj fliken **.NET CLI**)|[.NET Core-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)||
+|[Java-referens](https://aka.ms/ams-v3-java-ref)|[Java SDK](https://aka.ms/ams-v3-java-sdk)||
+|[Node.js-referens](https://aka.ms/ams-v3-nodejs-ref)|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk)|[Node.js-exempel](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
+|[Python-referens](https://aka.ms/ams-v3-python-ref)|[Python SDK](https://aka.ms/ams-v3-python-sdk)||
+|[Go-referens](https://aka.ms/ams-v3-go-ref)|[Go SDK](https://aka.ms/ams-v3-go-sdk)||
 
 ## <a name="next-steps"></a>Nästa steg
 

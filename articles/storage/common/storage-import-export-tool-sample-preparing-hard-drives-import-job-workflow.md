@@ -1,29 +1,23 @@
 ---
-title: Exempelarbetsflöde till Förbered dig hårddiskar för ett Azure Import/Export-importjobb | Microsoft Docs
+title: Exempelarbetsflöde för att Förbered hårddiskar för ett importjobb för Azure Import/Export | Microsoft Docs
 description: Se en genomgång för fullständig processen med att förbereda enheter för ett importjobb i tjänsten Azure Import/Export.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
-ms.openlocfilehash: 60139ff36b66432620591ceaf201e046ad30217f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: b21c378d58590e33c7b6aeffe627ce5602074fa2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873795"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524628"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Exempelarbetsflöde för att förbereda hårddiskar för ett importjobb
 
-Den här artikeln vägleder dig genom processen förbereder enheter för importen.
+Den här artikeln vägleder dig genom processen med att förbereda enheter för ett importjobb.
 
 ## <a name="sample-data"></a>Exempeldata
 
@@ -31,41 +25,41 @@ Det här exemplet importerar följande data till ett Azure storage-konto med nam
 
 |Plats|Beskrivning|Datastorlek|
 |--------------|-----------------|-----|
-|H:\Video\ |En samling videor|12 TB|
-|H:\Photo\ |En samling bilder|30 GB|
+|H:\Video\ |En samling av videor|12 TB|
+|H:\Photo\ |En samling foton|30 GB|
 |K:\Temp\FavoriteMovie.ISO|A Blu-ray™ diskavbildning|25 GB|
-|\\\bigshare\john\music\ |En samling musikfiler på en nätverksresurs|10 GB|
+|\\\bigshare\john\music\ |En samling av musik på en nätverksresurs|10 GB|
 
 ## <a name="storage-account-destinations"></a>Mål för Storage-konto
 
 Importjobbet importerar data till med följande mål i storage-konto:
 
-|Källa|Mål virtuell katalog eller blob|
+|Källa|Virtuell katalog för mål- eller blob|
 |------------|-------------------------------------------|
 |H:\Video\ |video /|
 |H:\Photo\ |foto /|
 |K:\Temp\FavoriteMovie.ISO|favorite/FavoriteMovies.ISO|
 |\\\bigshare\john\music\ |Musik|
 
-Med den här mappningen filen `H:\Video\Drama\GreatMovie.mov` ska importeras till blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
+Med den här mappningen filen `H:\Video\Drama\GreatMovie.mov` kommer att importeras till bloben `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
 
-## <a name="determine-hard-drive-requirements"></a>Ange krav för hårddisk
+## <a name="determine-hard-drive-requirements"></a>Fastställa krav för hårddisk
 
-Sedan beräkna storleken på data för att avgöra hur många hårddiskar behövs:
+Därefter för att avgöra hur många hårddiskar behövs, beräkna storleken på data:
 
 `12TB + 30GB + 25GB + 10GB = 12TB + 65GB`
 
-I det här exemplet är två 8TB-hårddiskar tillräckliga. Eftersom källkatalogen `H:\Video` har 12TB data och den enda hårddisken kapacitet är 8TB, du kommer att kunna ange detta på följande sätt i den **driveset.csv** fil:
+Två 8TB-hårddiskar bör vara tillräckliga för det här exemplet. Eftersom källkatalogen `H:\Video` har 12TB data och den enda hårddisken kapaciteten är 8TB, du kommer att kunna ange detta på följande sätt i den **driveset.csv** fil:
 
 ```
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 X,Format,SilentMode,Encrypt,
 Y,Format,SilentMode,Encrypt,
 ```
-Verktyget distribuera data på två hårddiskar på ett optimerat sätt.
+Verktyget kommer att distribuera data mellan två hårddiskar på ett optimerat sätt.
 
-## <a name="attach-drives-and-configure-the-job"></a>Koppla enheter och konfigurera jobbet
-Du ska koppla båda diskarna till datorn och skapa volymer. Sedan redigerar **dataset.csv** fil:
+## <a name="attach-drives-and-configure-the-job"></a>Anslut enheter och konfigurerar jobbet
+Du bifoga båda diskarna till datorn och skapa volymer. Sedan skapar **dataset.csv** fil:
 ```
 BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 H:\Video\,video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
@@ -74,13 +68,13 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 \\myshare\john\music\,music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
 ```
 
-Dessutom kan du ange följande metadata för alla filer:
+Du kan dessutom ange att följande metadata för alla filer:
 
-* **UploadMethod:** Windows Azure Import/Export service
+* **UploadMethod:** Windows Azure Import/Export-tjänsten
 * **DataSetName:** SampleData
 * **CreationDate:** 10/1/2013
 
-Skapa en textfil, om du vill ange metadata för de importerade filerna `c:\WAImportExport\SampleMetadata.txt`, med följande innehåll:
+Ange metadata för de importerade filerna genom att skapa en textfil, `c:\WAImportExport\SampleMetadata.txt`, med följande innehåll:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -93,11 +87,11 @@ Skapa en textfil, om du vill ange metadata för de importerade filerna `c:\WAImp
 
 Du kan också ange vissa egenskaper för den `FavoriteMovie.ISO` blob:
 
-* **Content-Type:** program/oktett-ström
-* **Content-MD5:** Q2hlY2sgSW50ZWdyaXR5IQ ==
+* **Content-Type:** application/octet-ström
+* **Innehåll MD5:** Q2hlY2sgSW50ZWdyaXR5IQ ==
 * **Cache-Control:** no-cache
 
-Att ange dessa egenskaper, skapa en textfil `c:\WAImportExport\SampleProperties.txt`:
+Skapa en textfil, om du vill ange att egenskaperna `c:\WAImportExport\SampleProperties.txt`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -118,7 +112,7 @@ Nu är du redo att köra verktyget Azure Import/Export för att förbereda två 
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-Om fler data måste du lägga till, skapar du en annan dataset-fil (samma format som Initialdataset).
+Om några mer data måste du lägga till, skapar du en annan datauppsättning fil (samma format som Initialdataset).
 
 **För den andra sessionen:**
 
@@ -126,9 +120,9 @@ Om fler data måste du lägga till, skapar du en annan dataset-fil (samma format
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
 ```
 
-När kopiera sessioner har slutfört kan du koppla de två enheterna från datorn som kopia och leverera dem till lämpliga Azure-datacentret. Du måste ladda upp två journalfiler `<FirstDriveSerialNumber>.xml` och `<SecondDriveSerialNumber>.xml`när du skapar importjobbet i Azure-portalen.
+När kopia sessioner har slutfört du koppla de två enheterna från datorn som kopia och skickar dem till lämplig Azure-datacentret. Du överföra två journalfiler `<FirstDriveSerialNumber>.xml` och `<SecondDriveSerialNumber>.xml`, när du skapar importjobbet på Azure-portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Förbereda hårddiskar för ett importjobb](../storage-import-export-tool-preparing-hard-drives-import.md)
-* [Snabbreferens för vanliga kommandon](../storage-import-export-tool-quick-reference.md)
+* [Snabbreferens för ofta använda kommandon](../storage-import-export-tool-quick-reference.md)

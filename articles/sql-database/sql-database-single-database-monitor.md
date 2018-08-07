@@ -3,19 +3,20 @@ title: Övervaka databasprestanda i Azure SQL Database | Microsoft Docs
 description: Läs mer om alternativ för att övervaka din databas med Azure-verktyg och dynamiska hanteringsvyer.
 keywords: databasövervakning, molndatabasprestanda
 services: sql-database
-author: CarlRabeler
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.author: carlrab
-ms.openlocfilehash: dc04a9334b63656719a7633a8dd7154ed6cd6993
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: 081c6210181815be079404b10e7aa4b0df8327ec
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092587"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520987"
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Övervaka databasprestanda i Azure SQL Database
 Prestandaövervakning för en SQL-databas i Azure startar med att övervaka resursutnyttjandet i förhållande till nivån på databasprestanda som du valt. Övervakning hjälper dig att avgöra om din databas har överflödig kapacitet eller har problem med eftersom resurserna är överutnyttjade ut och sedan bestämmer om det är dags att justera prestandanivån och tjänstnivåer för din databas i den [DTU-baserade inköpsmodell](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). Du kan övervaka din databas med grafiska verktyg i [Azure-portalen](https://portal.azure.com) eller med SQL [dynamiska hanteringsvyer](https://msdn.microsoft.com/library/ms188754.aspx).

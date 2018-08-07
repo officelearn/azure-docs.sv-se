@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8db3f0ffbd65f3601bc05054e53a1e8e17384866
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145326"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358954"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -88,6 +88,9 @@ Skapa först en resursgrupp som ska innehålla de resurser som behövs till att 
     Brandväggen kommer att ligga i det här undernätet, och namnet på undernätet **måste** vara AzureFirewallSubnet.
 11. I fältet **Adressintervall** skriver du **10.0.1.0/24**.
 12. Använd övriga standardinställningar och klicka på **Skapa**.
+
+> [!NOTE]
+> Den minsta storleken på undernätet AzureFirewallSubnet är /25.
 
 ### <a name="create-additional-subnets"></a>Skapa ytterligare undernät
 
@@ -172,6 +175,9 @@ Använd informationen i följande tabell och konfigurera **inställningarna** f�
 4. När distributionen är färdig öppnar du resursgruppen **Test-FW-RG** och klickar på brandväggen **Test FW01**.
 6. Skriv ned den privata IP-adressen. Du kommer att använda den senare när du skapar standardvägen.
 
+> [!NOTE]
+> Den offentliga IP-adressen måste vara Standard SKU-typen.
+
 [//]: # (Kom ihåg att skriva ned brandväggens privata IP-adress.)
 
 ## <a name="create-a-default-route"></a>skapa en standardväg
@@ -223,7 +229,7 @@ För undernätet **Workload-SN** ställer du in att den utgående standardvägen
 >- Åtkomst till lagring av hanterade diskars status.
 >- Windows-diagnostik
 >
-> Du kan åsidosätta den här inbyggda regelsamlingen för infrastrukturen genom att skapa en programregelsamling som *nekar alla* och som bearbetats sist. Den kommer alltid att bearbetas innan regelsamlingen för infrastrukturen. Allt som inte ingår i regelsamlingen för infrastrukturen nekas som standard.
+> Du kan åsidosätta den här inbyggda regelsamlingen för infrastrukturen genom att skapa en programregelsamling som *nekar alla* och som bearbetats sist. Den bearbetas alltid före regelsamlingen för infrastrukturen. Allt som inte ingår i regelsamlingen för infrastrukturen nekas som standard.
 
 ## <a name="configure-network-rules"></a>Konfigurera nätverksregler
 
@@ -233,7 +239,7 @@ För undernätet **Workload-SN** ställer du in att den utgående standardvägen
 4. I fältet **Åtgärd** väljer du **Tillåt**.
 
 6. Under **Regler**, i fältet **Namn**, skriver du **AllowDNS**.
-8. I fältet **Protokoll** väljer du **TCP**.
+8. I fältet **Protokoll** väljer du **UDP**.
 9. I fältet **Källadresser** skriver du **10.0.2.0/24**.
 10. I fältet Måladress skriver du **209.244.0.3,209.244.0.4**
 11. I fältet **Målportar** skriver du **53**.

@@ -6,17 +6,17 @@ ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 03/15/2018
+ms.date: 07/31/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: a35c46bd67a157416844c4054b75f993304298b4
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 92f4fb57e3bd1f3ee61625256d661980d6a11275
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300760"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367138"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snabbstart: Skapa och automatisera uppgifter, processer och arbetsflöden med Azure Logic Apps – Visual Studio
 
@@ -39,7 +39,8 @@ Innan du börjar bör du kontrollera att du har följande:
   * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 eller Visual Studio 2015 – Community Edition eller senare</a>. 
   I denna snabbstart används Visual Studio Community 2017 som är tillgängligt utan kostnad.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 eller senare)</a> och <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Microsoft Azure SDK för .NET (2.9.1 eller senare)</a> och <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>. 
+  Läs mer om <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK för .NET</a>.
 
   * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Azure Logic Apps Tools för Visual Studio 2017</a> eller för <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015</a>
   
@@ -107,7 +108,7 @@ När du har skapat projektet för Azure-resursgruppen kan du skapa och bygga din
 
 Lägg därefter till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts) som utlöses när ett nytt RSS-flödesobjekt kommer. Varje logikapp måste börja med en utlösare som utlöses när särskilda villkor uppfylls. Varje gång utlösaren utlöses skapar Logic Apps-motorn en logikappinstans som kör ditt arbetsflöde.
 
-1. I Logic App Designer anger du ”rss” i sökrutan. Välj den här utlösaren: **RSS – När ett flödesobjekt publiceras**
+1. I Logic App Designer anger du ”rss” i sökrutan. Välj den här utlösaren: **När ett flödesobjekt publiceras**
 
    ![Bygg din logikapp genom att lägga till en utlösare och åtgärder](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 
@@ -129,7 +130,7 @@ Innan du kan testa din logikapp måste du distribuera appen till Azure.
 
 Innan du kan köra din logikapp måste du distribuera appen från Visual Studio till Azure, vilket du gör med några få snabba steg.
 
-1. Gå till Solution Explorer, öppna projektets snabbmeny och välj **Distribuera** > **Nytt...** . Om du uppmanas logga in med ditt Azure-konto ska du göra det.
+1. Gå till Solution Explorer, öppna projektets snabbmeny och välj **Distribuera** > **Nytt**. Om du uppmanas logga in med ditt Azure-konto ska du göra det.
 
    ![Skapa en distribution av den logiska appen](./media/quickstart-create-logic-apps-with-visual-studio/create-logic-app-deployment.png)
 
@@ -166,9 +167,10 @@ Ta bort resursgruppen som innehåller logikappen och alla relaterade resurser n�
 
 1. Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a> med samma konto som användes för att skapa din logikapp. 
 
-2. På Azure-menyn väljer du **Resursgrupper**. Välj resursgrupp för din logikapp.
+2. På Azure-huvudmenyn väljer du **Resursgrupper**.
+Välj resursgrupp för din logikapp, och välj sedan **Översikt**.
 
-3. Välj **Ta bort resursgrupp**. Ange resursgruppens namn som bekräftelse och välj **Ta bort**.
+3. På sidan **Översikt** väljer du **Ta bort resursgrupp**. Ange resursgruppens namn som bekräftelse och välj **Ta bort**.
 
    ![”Resursgrupper” > ”Översikt” > ”Ta bort resursgrupp”](./media/quickstart-create-logic-apps-with-visual-studio/delete-resource-group.png)
 

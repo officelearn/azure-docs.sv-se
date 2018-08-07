@@ -1,56 +1,51 @@
 ---
-title: Utforma Azure storage-tabeller för dataändring | Microsoft Docs
-description: Skapa tabeller för dataändring i Azure table storage.
+title: Skapa Azure storage-tabeller för dataändringar | Microsoft Docs
+description: Skapa tabeller för dataändringar i Azure-tabellagring.
 services: storage
-documentationcenter: na
 author: MarkMcGeeAtAquent
-manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
-ms.openlocfilehash: 6c008175f01521ce4f96d13e58244dc72d9f6990
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: tables
+ms.openlocfilehash: 5f67a8ffde24d3c3e39065806b07bdd5cba2857a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661061"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522051"
 ---
-# <a name="design-for-data-modification"></a>Design för dataändring
-Den här artikeln fokuserar på designöverväganden för att optimera infogningar, uppdateringar, och tar bort. I vissa fall behöver du utvärdera kompromissen mellan Designer optimerar för frågor mot Designer optimerar för dataändring precis som i Designer för relationsdatabaser (även om metoder för att hantera design avvägningarna är olika i en relationsdatabas). Avsnittet [tabell designmönster](#table-design-patterns) beskriver vissa detaljerad designmönster för tabelltjänsten och beskrivs några dessa avvägningarna. Du hittar många Designer som optimerats för att fråga entiteter också fungerar bra för att ändra entiteter i praktiken.  
+# <a name="design-for-data-modification"></a>Utforma för dataändring
+Den här artikeln fokuserar på designöverväganden för att optimera infogningar, uppdateringar och borttagningar. I vissa fall behöver du utvärdera det är säkerhetsaspekten Designer som optimerar för frågor mot Designer som optimerar för dataändringar precis som i utformning för relationsdatabaser (även om teknikerna för att hantera design avvägningarna är skiljer sig i en relationsdatabas). Avsnittet [tabell designmönster](#table-design-patterns) beskriver vissa detaljerad designmönster för Table service och visar några dessa kompromisser. I praktiken märker du att många Designer som optimerats för att fråga entiteter också fungerar bra för att ändra entiteter.  
 
-## <a name="optimize-the-performance-of-insert-update-and-delete-operations"></a>Optimera prestanda för insert-, update- och delete-åtgärder
-Om du vill uppdatera eller ta bort en entitet, du måste kunna identifieras med hjälp av den **PartitionKey** och **RowKey** värden. I detta avseende valet av **PartitionKey** och **RowKey** för ändra entiteter bör följa liknande kriterier till ditt val att stödja punkt frågor eftersom du vill identifiera enheter som effektiv som möjligt. Du inte vill använda en ineffektiv partition eller tabell sökning för att hitta en enhet för att identifiera den **PartitionKey** och **RowKey** värden som du behöver uppdatera eller ta bort den.  
+## <a name="optimize-the-performance-of-insert-update-and-delete-operations"></a>Optimera prestandan för insert-, update- och delete-åtgärder
+Om du vill uppdatera eller ta bort en entitet, måste du att kunna identifiera den med hjälp av den **PartitionKey** och **RowKey** värden. I detta avseende ditt val av **PartitionKey** och **RowKey** ändra entiteter bör följa liknande kriterier för att stödja punktfrågor eftersom du vill identifiera enheter som effektivt som möjligt. Du inte vill använda en ineffektiv skanning för partitionen eller tabell för att hitta en entitet för att identifiera den **PartitionKey** och **RowKey** värden som du behöver uppdatera eller ta bort den.  
 
-Följande mönster i avsnittet [tabell designmönster](#table-design-patterns) adress optimera prestanda eller din insert, update och delete-åtgärder:  
+Följande mönster i avsnittet [tabell designmönster](#table-design-patterns) åtgärda optimera prestanda eller din infoga, uppdatera och ta bort:  
 
-* [Hög volym ta bort mönster](table-storage-design-patterns.md#high-volume-delete-pattern) -Aktivera borttagning av ett stort antal enheter genom att lagra alla entiteter för samtidiga borttagning i sina egna separata tabeller; ta bort entiteterna genom att ta bort tabellen.  
-* [Serien datamönster](table-storage-design-patterns.md#data-series-pattern) -Store fullständig dataserier i en enda enhet för att minimera antalet begäranden som du gör.  
-* [Wide entiteter mönster](table-storage-design-patterns.md#wide-entities-pattern) -använda flera fysiska enheter för att lagra logiska entiteter med mer än 252 egenskaper.  
+* [Hög volym ta bort mönstret](table-storage-design-patterns.md#high-volume-delete-pattern) -aktivera borttagningen av ett stort antal entiteter genom att lagra alla entiteter för samtidiga borttagning i sina egna separata tabeller; du ta bort entiteter genom att ta bort tabellen.  
+* [Serien datamönster](table-storage-design-patterns.md#data-series-pattern) -Store fullständig dataserier i en enda entitet att minimera antalet begäranden som du gör.  
+* [Mönster för många entiteter](table-storage-design-patterns.md#wide-entities-pattern) -använder flera fysiska enheter för att lagra logiska entiteter med mer än 252 egenskaper.  
 * [Mönster för stora entiteter](table-storage-design-patterns.md#large-entities-pattern) -använda blob storage för att lagra stora egenskapsvärden.  
 
-## <a name="ensure-consistency-in-your-stored-entities"></a>Säkerställa konsekvens i lagrade entiteter
-Den viktiga faktor som påverkar ditt val av nycklar för att optimera dataändringar är att säkerställa konsekvens med hjälp av atomiska transaktioner. Du kan bara använda en EGT ska fungera på entiteter som lagras i samma partition.  
+## <a name="ensure-consistency-in-your-stored-entities"></a>Säkerställa konsekvens i dina lagrade entiteter
+Den viktiga faktor som påverkar ditt val av nycklar för att optimera dataändringar är att säkerställa konsekvens med hjälp av atomiska transaktioner. Du kan bara använda en EGT för att arbeta med entiteter som lagras i samma partition.  
 
 Följande mönster i artikeln [tabell designmönster](table-storage-design-patterns.md) adress hantera konsekvens:  
 
-* [Intra-partition sekundärt index mönster](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) -lagra flera kopior av varje enhet med hjälp av olika **RowKey** värden (i samma partition) för att aktivera snabb och effektiv sökningar och alternativa sorteringsordningen genom att använda olika **RowKey** värden.  
-* [Mellan sekundära Partitionsindex mönster](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) – lagra flera kopior av varje entitet som använder olika RowKey värden i olika partitioner eller i separata tabeller för att aktivera snabb och effektiv sökningar och alternativa sorteringen sorterar med hjälp av olika **RowKey** värden.  
-* [Överensstämmelse transaktioner mönster](table-storage-design-patterns.md#eventually-consistent-transactions-pattern) -aktivera överensstämmelse beteende mellan partitionsgränser eller lagring system gränser med hjälp av Azure köer.
-* [Index entiteter mönster](table-storage-design-patterns.md#index-entities-pattern) -Underhåll index enheter om du vill aktivera effektiva sökningar som returnerar en lista över enheter.  
-* [Denormalization mönster](table-storage-design-patterns.md#denormalization-pattern) -kombinera relaterade data tillsammans i en enda enhet så att du kan hämta alla data som du behöver med en enda fråga.  
-* [Serien datamönster](table-storage-design-patterns.md#data-series-pattern) -Store fullständig dataserier i en enda enhet för att minimera antalet begäranden som du gör.  
+* [Intra-partition sekundärt index mönstret](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) -Store flera kopior av varje entitet med hjälp av olika **RowKey** värden (i samma partition) för att aktivera snabb och effektiv uppslag och alternativ sorteringsordningar med hjälp av olika **RowKey** värden.  
+* [Mönster för kommunikation mellan sekundära Partitionsindex](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) – Store flera kopior av varje entitet som använder olika RowKey värden i olika partitioner eller separata tabeller för att aktivera snabb och effektiv uppslag och alternativ sortera beställningar med hjälp av olika **RowKey** värden.  
+* [Konsekvent transaktioner mönstret](table-storage-design-patterns.md#eventually-consistent-transactions-pattern) -aktivera konsekvent beteenden över partitionsgränser eller gränser för storage-system med hjälp av Azure-köer.
+* [Index entiteter mönstret](table-storage-design-patterns.md#index-entities-pattern) -Underhåll index entiteter för att aktivera effektiv sökning som returnerar en lista över entiteter.  
+* [Mönster för denormalisering](table-storage-design-patterns.md#denormalization-pattern) -kombinera relaterade data tillsammans i en enda enhet så att du kan hämta alla data som du behöver med en enda fråga.  
+* [Serien datamönster](table-storage-design-patterns.md#data-series-pattern) -Store fullständig dataserier i en enda entitet att minimera antalet begäranden som du gör.  
 
-Information om entiteten grupptransaktioner finns i avsnittet [entitet gruppera transaktioner](table-storage-design.md#entity-group-transactions).  
+Information om entitetsgrupptransaktioner finns i avsnittet [entitetsgrupptransaktioner](table-storage-design.md#entity-group-transactions).  
 
-## <a name="ensure-your-design-for-efficient-modifications-facilitates-efficient-queries"></a>Kontrollera din design för effektiv ändringar underlättar effektiv frågor
-I många fall bör alltid en design för effektiva frågor ger effektiv ändringar, men du utvärdera om så är fallet för din situation. Några av mönster i artikeln [tabell designmönster](table-storage-design-patterns.md) explicit utvärdera avvägningarna mellan fråga och ändra entiteter och du bör alltid beakta numret för varje typ av åtgärd.  
+## <a name="ensure-your-design-for-efficient-modifications-facilitates-efficient-queries"></a>Kontrollera din design för effektiv ändringar underlättar effektiva frågor
+En design för effektiva frågor ger effektiv ändringar, men du bör alltid i många fall kan utvärdera om så är fallet för ditt specifika scenario. Några av mönster i artikeln [tabell designmönster](table-storage-design-patterns.md) uttryckligen utvärdera avvägningarna mellan fråga och ändra entiteter och du får alltid ha i åtanke antalet varje typ av åtgärd.  
 
-Följande mönster i artikeln [tabell designmönster](table-storage-design-patterns.md) adressen avvägningarna mellan utformning för effektiva frågor och designar för effektiv dataändring:  
+Följande mönster i artikeln [tabell designmönster](table-storage-design-patterns.md) åtgärda avvägningarna mellan designa för effektiva frågor och designar för effektiv dataändringar:  
 
-* [Sammansatt nyckel mönster](table-storage-design-patterns.md#compound-key-pattern) -Använd sammansatta **RowKey** värden att aktivera en klient att söka efter relaterade data med en enda fråga.  
-* [Loggen pilslut mönster](table-storage-design-patterns.md#log-tail-pattern) -hämta den *n* entiteter som senast lades till en partition med hjälp av en **RowKey** värde som sorterar i omvänd datum och tid ordning.  
+* [Sammansatt nyckel mönstret](table-storage-design-patterns.md#compound-key-pattern) -Använd sammansatta **RowKey** värden att aktivera en klient att söka efter relaterade data med en enda fråga.  
+* [Log tail mönstret](table-storage-design-patterns.md#log-tail-pattern) -hämta den *n* entiteter som nyligen lagt till en partition med hjälp av en **RowKey** värde som sorteras listan i omvänd datum- och tidsordning.  

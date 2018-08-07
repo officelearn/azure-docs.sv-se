@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 07/31/2018
 ms.author: aljo
-ms.openlocfilehash: cad98954c89c37e57d44abf2af54e903a1b4a740
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 780420c3ff69eb7da6e7c73b973164ed47c2c047
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504931"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525492"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Skapa ett Service Fabric-kluster med hjälp av Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -341,6 +341,9 @@ Vi har skapat en uppsättning Windows PowerShell-skript för att förenkla vissa
 .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
 
+> [!NOTE]
+> För nationella moln (Azure Government, Azure Kina Azure Tyskland), bör du också ange den `-Location` parametern.
+
 Du hittar ditt TenantId genom att köra PowerShell-kommandot `Get-AzureSubscription`. Kör det här kommandot visar TenantId för varje prenumeration.
 
 Klusternamn används som prefix i Azure AD-program som skapas av skriptet. Det behöver inte matcha det faktiska klusternamnet exakt. Det är endast avsedd att göra det enklare att mappa Azure AD-artefakter till Service Fabric-klustret som de som används med.
@@ -370,6 +373,9 @@ Skriptet skriver ut den JSON som krävs av Azure Resource Manager-mallen när du
 Det här avsnittet är för användare som vill till egna skapar ett Service Fabric-kluster resource manager-mall. När du har en mall kan du fortfarande gå tillbaka och använda PowerShell eller CLI-moduler för att distribuera den. 
 
 Exemplet Resource Manager-mallar är tillgängliga i den [Azure-exempel på GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Dessa mallar kan användas som utgångspunkt för mallen för klustret.
+
+> [!NOTE]
+> För nationella moln (Azure Government, Azure Kina Azure Tyskland), bör du också lägga till följande `fabricSettings` till din ARM-mall: `AADLoginEndpoint`, `AADTokenEndpointFormat` och `AADCertEndpointFormat`.
 
 ### <a name="create-the-resource-manager-template"></a>Skapa Resource Manager-mallen
 Den här guiden används de [säkra kluster med 5 noder] [ service-fabric-secure-cluster-5-node-1-nodetype] exempelmall och mallparametrar. Ladda ned `azuredeploy.json` och `azuredeploy.parameters.json` till din dator och öppna båda filerna i valfri textredigerare.
@@ -714,4 +720,3 @@ Nu har du ett säkert kluster med Azure Active Directory med hantering av autent
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
-

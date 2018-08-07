@@ -1,193 +1,187 @@
 ---
 title: Azure Storage-prestanda och skalbarhet Checklista | Microsoft Docs
-description: En checklista beprövade metoder för användning med Azure Storage i utvecklar performant program.
+description: En checklista med beprövade metoder för användning med Azure Storage i att utveckla högpresterande program.
 services: storage
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.openlocfilehash: 945289a172270eea56625287baf437fd4b70c7f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: HT
+ms.component: common
+ms.openlocfilehash: 32881f815a714e355adf05c07a3cf114933f3fe9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30246227"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39531854"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Prestanda och skalbarhetschecklista för Microsoft Azure Storage
 ## <a name="overview"></a>Översikt
-Microsoft har utvecklat ett antal beprövade metoder för att använda dessa tjänster på ett sätt som performant efter utgivningen av Microsoft Azure Storage-tjänster, och den här artikeln används för konsolidera viktigaste av dem till en lista med checklista-format. Syftet med den här artikeln är att kontrollera de använder beprövade metoder med Azure Storage programutvecklare och hjälper dem att identifiera andra beprövade metoder som de bör införandet. Den här artikeln försöker inte att täcka alla möjliga optimering av prestanda och skalbarhet – den utesluter som är litet i deras inverkan eller brett ej tillämpligt. Att programmets beteende kan förutsägas under design, är det bra att behålla dem i åtanke för tidigt för att undvika design som ska köras i prestandaproblem.  
+Microsoft har utvecklat ett antal beprövade metoder för att använda dessa tjänster på ett effektivt sätt sedan versionen av Microsoft Azure Storage-tjänster och den här artikeln fungerar att konsolidera den viktigaste inställningen av dem i en checklista-style-lista. Avsikten med den här artikeln är att hjälpa programutvecklare att kontrollera att de använder beprövade metoder med Azure Storage och hjälper dem att identifiera andra beprövade metoder som bör de överväga att använda. Den här artikeln använder inte att täcka alla möjliga optimering för prestanda och skalbarhet – den omfattar inte de som är små i deras inverkan eller inte bred front. I den utsträckning som går att förutse programmets beteende under design, är det bra att behålla dem i åtanke tidigt för att undvika Designer som kommer stöter på problem med prestanda.  
 
-Varje programutvecklaren med hjälp av Azure Storage bör ta tid att läsa den här artikeln och kontrollera att hans eller hennes program följer varje beprövade metoder som anges nedan.  
+Alla programutvecklare som använder Azure Storage ska ta dig tid att läsa den här artikeln och kontrollera att hans eller hennes program följer var och en av de beprövade metoder som anges nedan.  
 
 ## <a name="checklist"></a>Checklista
 Den här artikeln organiserar beprövade metoder i följande grupper. Beprövade metoder som gäller för:  
 
-* Alla Azure Storage-tjänster (blobbar, tabeller, köer och filer)
+* Alla Azure Storage-tjänster (BLOB-objekt, tabeller, köer och filer)
 * Blobar
 * Tabeller
 * Köer  
 
 | Klart | Område | Kategori | Fråga |
 | --- | --- | --- | --- |
-| &nbsp; | Alla tjänster |Skalbarhetsmål |[Är programmet som utformats för att undvika närmar sig skalbarhetsmål?](#subheading1) |
-| &nbsp; | Alla tjänster |Skalbarhetsmål |[Din namngivningskonvention utformats för att bättre belastningsutjämning?](#subheading47) |
-| &nbsp; | Alla tjänster |Nätverk |[Har sida klientenheter tillräckligt hög bandbredd och låg latens för att uppnå de prestanda som behövs?](#subheading2) |
+| &nbsp; | Alla tjänster |Skalbarhetsmål |[Är programmet som utformat för att undvika närmar sig det för skalbarhetsmål?](#subheading1) |
+| &nbsp; | Alla tjänster |Skalbarhetsmål |[Har din namngivningskonvention som utformats för att aktivera bättre belastningsutjämning?](#subheading47) |
+| &nbsp; | Alla tjänster |Nätverk |[Har sida klientenheter tillräckligt hög bandbredd och låg fördröjning för att få de prestanda som behövs?](#subheading2) |
 | &nbsp; | Alla tjänster |Nätverk |[Har sida klientenheter en tillräckligt hög kvalitet länk?](#subheading3) |
 | &nbsp; | Alla tjänster |Nätverk |[Klientprogrammet finns ”” storage-konto?](#subheading4) |
-| &nbsp; | Alla tjänster |Innehållsdistribution |[Använder du en CDN för innehållsdistribution?](#subheading5) |
-| &nbsp; | Alla tjänster |En klient direkt åtkomst |[Du använder SAS och CORS för direkt åtkomst till lagring i stället för proxy?](#subheading6) |
-| &nbsp; | Alla tjänster |Cachelagring |[Är programmet cachelagring data används flera gånger och ändringar sällan?](#subheading7) |
-| &nbsp; | Alla tjänster |Cachelagring |[Tillämpningsprogrammet är grupperade uppdateringar (cachelagring på klientsidan för dem och sedan ladda upp i större mängder)?](#subheading8) |
-| &nbsp; | Alla tjänster |.NET-konfiguration |[Har du konfigurerat din klient om du vill använda ett tillräckligt antal samtidiga anslutningar?](#subheading9) |
-| &nbsp; | Alla tjänster |.NET-konfiguration |[Har du konfigurerat .NET för att använda ett tillräckligt antal trådar?](#subheading10) |
-| &nbsp; | Alla tjänster |.NET-konfiguration |[Du använder .NET 4.5 eller senare som har förbättrats skräpinsamling?](#subheading11) |
-| &nbsp; | Alla tjänster |Parallellitet |[Har du sett till att parallellitet begränsas på lämpligt sätt så att du inte överlagra klientens kapacitet eller skalbarhetsmål?](#subheading12) |
-| &nbsp; | Alla tjänster |Verktyg |[Är du med hjälp av den senaste versionen av Microsoft tillhandahålls klientbibliotek och verktyg?](#subheading13) |
-| &nbsp; | Alla tjänster |Antal försök |[Är du med hjälp av en exponentiell backoff försök principer för begränsning av fel och tidsgränser?](#subheading14) |
-| &nbsp; | Alla tjänster |Antal försök |[Är programmet Undvik nya försök för icke-återförsökbart fel?](#subheading15) |
+| &nbsp; | Alla tjänster |Innehållsdistribution |[Använder du ett CDN för innehållsdistribution?](#subheading5) |
+| &nbsp; | Alla tjänster |Dirigera klientåtkomst |[Använder du SAS- och CORS för direkt åtkomst till lagring i stället för proxy?](#subheading6) |
+| &nbsp; | Alla tjänster |Cachelagring |[Är din cachelagring programdata som används flera gånger och ändringar sällan?](#subheading7) |
+| &nbsp; | Alla tjänster |Cachelagring |[Ditt program är grupperade uppdateringar (cachelagring på klientsidan av dem och sedan laddas upp i större sets)?](#subheading8) |
+| &nbsp; | Alla tjänster |Konfiguration av .NET |[Har du konfigurerat din klient som använder ett tillräckligt antal samtidiga anslutningar](#subheading9) |
+| &nbsp; | Alla tjänster |Konfiguration av .NET |[Har du konfigurerat .NET för att använda ett tillräckligt antal trådar?](#subheading10) |
+| &nbsp; | Alla tjänster |Konfiguration av .NET |[Du använder .NET 4.5 eller senare, vilket har förbättrat skräpinsamling?](#subheading11) |
+| &nbsp; | Alla tjänster |Parallellitet |[Har du sett att parallellitet avgränsas på lämpligt sätt så att du inte överbelasta dina klientfunktioner eller det för skalbarhetsmål?](#subheading12) |
+| &nbsp; | Alla tjänster |Verktyg |[Är du med hjälp av den senaste versionen av Microsoft tillhandahöll klientbibliotek och verktyg?](#subheading13) |
+| &nbsp; | Alla tjänster |Antal försök |[Är du med hjälp av en exponentiell backoff återförsöksprincip för begränsning av fel och tidsgränser?](#subheading14) |
+| &nbsp; | Alla tjänster |Antal försök |[Är dina program Undvik återförsök för icke-återförsöksbar fel?](#subheading15) |
 | &nbsp; | Blobar |Skalbarhetsmål |[Har du ett stort antal klienter som ansluter till ett enda objekt samtidigt?](#subheading46) |
-| &nbsp; | Blobar |Skalbarhetsmål |[Är programmet dig inom bandbredd eller åtgärder skalbarhet mål för en enda blob?](#subheading16) |
-| &nbsp; | Blobar |Kopiera BLOB |[Vill du kopiera BLOB på ett effektivt sätt?](#subheading17) |
-| &nbsp; | Blobar |Kopiera BLOB |[Använder du AzCopy för bulk kopior av blobbar?](#subheading18) |
-| &nbsp; | Blobar |Kopiera BLOB |[Använder du Azure Import/Export för att överföra stora mängder data?](#subheading19) |
-| &nbsp; | Blobar |Använda Metadata |[Lagrar du vanliga metadata om blobbar i sina metadata?](#subheading20) |
-| &nbsp; | Blobar |Snabb överföring |[När du försöker överföra en blob snabbt du överför block parallellt?](#subheading21) |
-| &nbsp; | Blobar |Snabb överföring |[När du försöker överföra många blobbar snabbt du överför blobbar parallellt?](#subheading22) |
-| &nbsp; | Blobar |Korrigera Blobbtypen |[Du använder sidblobbar eller blockblobbar när det är lämpligt?](#subheading23) |
+| &nbsp; | Blobar |Skalbarhetsmål |[Är programmet dig inom skalbarhetsmålen bandbredd eller åtgärder för en enda blob?](#subheading16) |
+| &nbsp; | Blobar |Kopiera BLOB |[Är du kopiera blobar på ett effektivt sätt?](#subheading17) |
+| &nbsp; | Blobar |Kopiera BLOB |[Använder du AzCopy för bulk-kopior av blobbar?](#subheading18) |
+| &nbsp; | Blobar |Kopiera BLOB |[Använder du Azure Import/Export för att överföra mycket stora mängder data?](#subheading19) |
+| &nbsp; | Blobar |Använda Metadata |[Lagrar du ofta använda metadata om BLOB-objekt i deras metadata?](#subheading20) |
+| &nbsp; | Blobar |Ladda upp snabbt |[När du försöker ladda upp en blob snabbt du laddar upp block parallellt?](#subheading21) |
+| &nbsp; | Blobar |Ladda upp snabbt |[När du försöker ladda upp många blobar snabbt du överför blobbar parallellt?](#subheading22) |
+| &nbsp; | Blobar |Korrigera Blobtyp |[Använder du sidblobar eller blockblob-objekt när det är lämpligt?](#subheading23) |
 | &nbsp; | Tabeller |Skalbarhetsmål |[Du närmar dig skalbarhetsmål för entiteter per sekund?](#subheading24) |
 | &nbsp; | Tabeller |Konfiguration |[Använder du JSON för tabell-begäranden?](#subheading25) |
-| &nbsp; | Tabeller |Konfiguration |[Har du inaktiverat Nagle kan förbättra prestanda för små begäran?](#subheading26) |
+| &nbsp; | Tabeller |Konfiguration |[Har du stängt Nagle av för att förbättra prestanda för små begäranden?](#subheading26) |
 | &nbsp; | Tabeller |Tabeller och partitioner |[Har du rätt partitionerat data?](#subheading27) |
-| &nbsp; | Tabeller |Varm partitioner |[Är du undvika Lägg endast och endast lägga mönster?](#subheading28) |
-| &nbsp; | Tabeller |Varm partitioner |[Infogningar/uppdateringar är fördelade på flera partitioner?](#subheading29) |
-| &nbsp; | Tabeller |Frågeomfattningen |[Har du skapat schemat för punkt frågor som ska användas i de flesta fall och tabellen frågor som ska användas sparsamt?](#subheading30) |
-| &nbsp; | Tabeller |Frågan densitet |[Gör dina frågor vanligtvis endast genomsökning och returnerar rader som ska använda för ditt program?](#subheading31) |
-| &nbsp; | Tabeller |Begränsa returnerade Data |[Du använder filtrering för att undvika att enheter som inte behövs?](#subheading32) |
+| &nbsp; | Tabeller |Heta partitioner |[Är du undvika Lägg endast och endast åtkomstgruppen mönster?](#subheading28) |
+| &nbsp; | Tabeller |Heta partitioner |[Infogningar/uppdateringar fördelade över många partitioner?](#subheading29) |
+| &nbsp; | Tabeller |Omfång |[Du är utformade för ditt schema för återställningspunkt frågor som ska användas i de flesta fall och frågor för tabeller som ska användas sparsamt?](#subheading30) |
+| &nbsp; | Tabeller |Fråga densitet |[Gör dina frågor vanligtvis endast genomsökning och returnerar rader som programmet ska använda?](#subheading31) |
+| &nbsp; | Tabeller |Begränsa returnerade Data |[Du använder filtrering för att undvika att de enheter som inte behövs?](#subheading32) |
 | &nbsp; | Tabeller |Begränsa returnerade Data |[Använder du projektion för att undvika att egenskaper som inte behövs?](#subheading33) |
-| &nbsp; | Tabeller |Denormalization |[Har du Avnormaliserade dina data så att du undviker ineffektiva frågor eller flera läsbegäranden vid försök att hämta data?](#subheading34) |
-| &nbsp; | Tabeller |Insert/Update/Delete |[Är du batchbearbetning begäranden som måste vara en transaktionskö eller kan göras samtidigt minska turer?](#subheading35) |
-| &nbsp; | Tabeller |Insert/Update/Delete |[Är du undvika att hämta en entitet bara för att avgöra om att anropa insert eller update?](#subheading36) |
-| &nbsp; | Tabeller |Insert/Update/Delete |[Har du funderat lagra serien med data som hämtas ofta tillsammans i en enda enhet som egenskaper i stället för flera enheter?](#subheading37) |
-| &nbsp; | Tabeller |Insert/Update/Delete |[För enheter som hämtas alltid tillsammans och kan skrivas i batchar (t.ex. serien tidsdata), har du funderat med blobbar i stället för tabeller?](#subheading38) |
+| &nbsp; | Tabeller |Denormalisering |[Har du Avnormaliserade data så att du undviker ineffektiva frågor eller flera läsbegäranden vid försök att hämta data?](#subheading34) |
+| &nbsp; | Tabeller |Infoga/Uppdatera/ta bort |[Är du batchbearbetning av begäranden som behöver vara transaktionella eller kan göras på samma gång för att minska turer?](#subheading35) |
+| &nbsp; | Tabeller |Infoga/Uppdatera/ta bort |[Är du undvika hämtning av en entitet bara för att avgöra om att anropa insert eller update?](#subheading36) |
+| &nbsp; | Tabeller |Infoga/Uppdatera/ta bort |[Har du tänkt lagra serien med data som hämtas ofta tillsammans i en enda entitet som egenskaper i stället för flera enheter](#subheading37) |
+| &nbsp; | Tabeller |Infoga/Uppdatera/ta bort |[För entiteter som alltid att hämtas tillsammans och kan skrivas i batchar (t.ex. time series-data), har du tänkt använda blobar i stället för tabeller](#subheading38) |
 | &nbsp; | Köer |Skalbarhetsmål |[Du närmar dig skalbarhetsmål för meddelanden per sekund?](#subheading39) |
-| &nbsp; | Köer |Konfiguration |[Har du inaktiverat Nagle kan förbättra prestanda för små begäran?](#subheading40) |
-| &nbsp; | Köer |Meddelandestorlek |[Är meddelanden-CD för att förbättra prestanda i kön?](#subheading41) |
-| &nbsp; | Köer |Hämta bulk |[Hämtar du flera meddelanden i en enda åtgärd ”hämta”?](#subheading42) |
-| &nbsp; | Köer |Avsökningsfrekvens |[Är du avsökning så ofta för att minska upplevd svarstiden för ditt program?](#subheading43) |
-| &nbsp; | Köer |Uppdatera meddelande |[Använder du UpdateMessage för att lagra förlopp i behandlar meddelanden undvika att behöva Ombearbeta hela meddelandet om ett fel inträffar?](#subheading44) |
-| &nbsp; | Köer |Arkitektur |[Använder du köer för att göra hela programmet mer skalbar genom att hålla tidskrävande arbetsbelastningar utanför den kritiska linjen och skala sedan oberoende av varandra?](#subheading45) |
+| &nbsp; | Köer |Konfiguration |[Har du stängt Nagle av för att förbättra prestanda för små begäranden?](#subheading40) |
+| &nbsp; | Köer |Meddelandestorlek |[Är dina meddelanden CD för att förbättra prestanda för kön?](#subheading41) |
+| &nbsp; | Köer |Hämta grupp |[Hämtar du flera meddelanden i en enda åtgärd ”hämta”?](#subheading42) |
+| &nbsp; | Köer |Frågefrekvens för avsökningsfrekvens |[Är du avsökning tillräckligt ofta för att minska upplevd svarstiden för programmet?](#subheading43) |
+| &nbsp; | Köer |Uppdatera meddelande |[Använder du UpdateMessage för att lagra förlopp i bearbetat meddelandena undvika att behöva bearbeta hela meddelandet om ett fel inträffar?](#subheading44) |
+| &nbsp; | Köer |Arkitektur |[Använder du köer för att göra hela programmet mer skalbart genom att lagra långsiktiga arbetsbelastningar utanför den kritiska vägen och sedan skalas oberoende av varandra?](#subheading45) |
 
 ## <a name="allservices"></a>Alla tjänster
-Det här avsnittet innehåller beprövade metoder som gäller för användning av någon av de Azure Storage-tjänsterna (blobbar, tabeller, köer eller filer).  
+Det här avsnittet innehåller några beprövade metoder som gäller för användning av Azure Storage-tjänster (BLOB-objekt, tabeller, köer eller filer).  
 
 ### <a name="subheading1"></a>Skalbarhetsmål
-Varje Azure Storage-tjänster har skalbarhetsmål för kapacitet (GB), Transaktionshastighet och bandbredd. Om ditt program närmar sig eller överskrider något av skalbarhetsmål, stöta ökad transaktion fördröjningar eller begränsning. När en lagringstjänsten begränsar ditt program, börjar tjänsten att returnera ”503 servern upptagen” eller ”tidsgräns för 500 åtgärd” felkoder för vissa lagringstransaktioner. Det här avsnittet beskrivs både det allmänna tillvägagångssättet för hantera skalbarhetsmål och skalbarhetsmål för bandbredd särskilt. Senare avsnitt som handlar om enskilda lagringstjänster beskrivs skalbarhetsmål i kontexten för den specifika tjänsten:  
+Varje Azure Storage-tjänsterna har skalbarhetsmål för kapacitet (GB), transaktioner och bandbredd. Om ditt program närmar sig eller överskrider något av det för skalbarhetsmål, kan den stöta på ökad transaktion svarstider eller begränsas. När en lagringstjänst tiden begränsar ditt program, börjar tjänsten returnerar ”503 Server upptagen” eller ”tidsgräns för 500 åtgärd” felkoder för vissa lagringstransaktioner. Det här avsnittet beskrivs både den allmänna metoden för att ta itu med skalbarhetsmål och bandbredd skalbarhetsmål särskilt. Senare avsnitt som handlar om enskilda lagringstjänster beskrivs skalbarhetsmål i kontexten för den specifika tjänsten:  
 
 * [BLOB-bandbredd och begäranden per sekund](#subheading16)
-* [Tabellentiteter per sekund](#subheading24)
+* [Tabellenheter per sekund](#subheading24)
 * [Kömeddelanden per sekund](#subheading39)  
 
-#### <a name="sub1bandwidth"></a>Bandbredd skalbarhet mål för alla tjänster
-Vid tidpunkten för skrivning är bandbredd mål i USA för ett konto med geo-redundant lagring (GRS) 10 Gigabit per sekund (Gbps) för inkommande trafik (data som skickas till lagringskontot) och 20 Gbit/s för utgående trafik (data som skickas från storage-konto). För ett lokalt redundant lagringskonto (LRS) gränserna som är högre – 20 Gbit/s för ingående och 30 Gbit/s för utgående trafik.  Internationella bandbreddsgränser kan vara lägre och finns på vår [skalbarhet mål sidan](http://msdn.microsoft.com/library/azure/dn249410.aspx).  Mer information om lagringsalternativ för redundans finns i [användbara resurser](#sub1useful) nedan.  
+#### <a name="sub1bandwidth"></a>Bandbredd Skalbarhetsmålen för alla tjänster
+Vid tidpunkten som skrivs är bandbredd mål i USA för ett konto med geo-redundant lagring (GRS) 10 Gigabit per sekund (Gbps) för ingress (data som skickas till storage-kontot) och 20 Gbit/s för utgående trafik (data som skickas från storage-konto). För ett konto med lokalt redundant lagring (LRS) gränserna är högre – 20 Gbit/s för ingångshändelser och 30 Gbit/s för utgående trafik.  Internationella bandbreddsgränser kan vara lägre och finns på vår [skalbarhet mål sidan](http://msdn.microsoft.com/library/azure/dn249410.aspx).  Mer information om redundansalternativ för lagring finns i länkarna i [användbara resurser](#sub1useful) nedan.  
 
 #### <a name="what-to-do-when-approaching-a-scalability-target"></a>Vad gör närmar sig ett mål för skalbarhet
-Om ditt program närmar sig skalbarhetsmål för ett enda lagringskonto, bör du införandet av en av följande metoder:  
+Om ditt program närmar sig det för skalbarhetsmål för ett enda lagringskonto, bör du börja använda någon av följande metoder:  
 
-* Ändra den arbetsbelastning som gör att programmet till närmar sig eller överskrider skalbarhet målet. Kan du utforma på olika sätt att använda mindre bandbredd eller kapacitet eller färre transaktioner?
-* Om ett program måste överskrider ett av målen för skalbarhet, bör du skapa flera lagringskonton och partition dina programdata mellan dessa flera lagringskonton. Om du använder det här mönstret sedan bör du utforma ditt program så att du kan lägga till flera lagringskonton i framtiden för belastningsutjämning. Varje Azure-prenumeration kan ha upp till 100 lagringskonton vid tiden för skrivning.  Storage-konton har också utan kostnad än förbrukningen termer data som lagras, transaktioner som har gjorts eller data som överförs.
-* Om ditt program träffar bandbredd mål, Överväg att komprimera data i klienten och minska den bandbredd som krävs för att skicka data till storage-tjänst.  Observera att även om detta kan spara bandbredd och förbättra nätverkets prestanda, den kan också innehålla några negativa konsekvenser.  Du bör utvärdera prestandapåverkan detta på grund av ytterligare bearbetning kraven för att komprimera och expandera data på klienten. Dessutom kan kan lagra komprimerade data göra det svårare att felsöka problem Eftersom det kan vara svårare att visa lagrade data med standardverktyg.
-* Om ditt program träffar skalbarhetsmål, kontrollera att du använder en exponentiell backoff för återförsök (se [återförsök](#subheading14)).  Det är bättre att se till att du aldrig närmar sig skalbarhetsmål (med hjälp av en av metoderna ovan), men det säkerställer att programmet inte bara att fortsätta försöka snabbt, vilket gör begränsningen värre.  
+* Ändra den arbetsbelastning som gör att ditt program till närmar sig eller överskrider skalbarhetsmålen. Kan du utforma på olika sätt att använda mindre bandbredd eller kapacitet eller färre transaktioner?
+* Om ett program måste överstiger ett av målen för skalbarhet, bör du skapa flera lagringskonton och partitionera dina programdata på dessa flera lagringskonton. Om du använder det här mönstret kan vara noga med att designa programmet så att du kan lägga till fler lagringskonton i framtiden för belastningsutjämning. Varje Azure-prenumeration kan ha upp till 100 lagringskonton vid tidpunkten för skrivning.  Storage-konton har också utan kostnad än din användning när det gäller data som lagras, transaktioner som har gjorts eller data som överförs.
+* Om ditt program når bandbredd mål, bör du du genom att komprimera data i klienten för att minska den bandbredd som krävs för att skicka data till lagringstjänsten.  Observera att även om det här kan spara bandbredd och förbättra nätverkets prestanda, det kan också ha några negativa konsekvenser.  Du ska utvärdera prestanda påverkas av detta på grund av ytterligare bearbetning-kraven för att komprimera och expandera data i klienten. Dessutom kan kan lagra komprimerade data göra det svårare att felsöka problem Eftersom det kan vara svårare att visa lagrade data med standardverktyg.
+* Om ditt program når det för skalbarhetsmål, ser du till att du använder en exponentiell backoff för återförsök (se [återförsök](#subheading14)).  Det är bättre att se till att du aldrig itu med det för skalbarhetsmål (med hjälp av någon av metoderna ovan), men det säkerställer att ditt program inte bara antalet tillåtna nedladdningsförsök snabbt, vilket gör den begränsning sämre resultat.  
 
 #### <a name="useful-resources"></a>Användbara resurser
-Följande länkar innehåller ytterligare information om skalbarhetsmål:
+Följande länkar ger ytterligare information på skalbarhetsmål:
 
-* Se [Azure Storage skalbarhets- och prestandamål](storage-scalability-targets.md) information om skalbarhetsmål.
-* Se [Azure Storage-replikering](storage-redundancy.md) och blogginlägget [Azure lagringsalternativ för redundans och Geo-Redundant lagring med läsbehörighet](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) information om lagringsalternativ för redundans.
-* Aktuell information om priser för Azure-tjänster finns [priser för Azure](https://azure.microsoft.com/pricing/overview/).  
+* Se [skalbarhet för lagring av Azure- och prestandamål](storage-scalability-targets.md) information om skalbarhetsmål.
+* Se [Azure Storage-replikering](storage-redundancy.md) och i blogginlägget [redundansalternativ för Azure Storage och Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) information om alternativ för lagringsredundans.
+* Aktuell information om priser för Azure-tjänster finns i [prissättning för Azure](https://azure.microsoft.com/pricing/overview/).  
 
-### <a name="subheading47"></a>Namngivningskonventionen för partition
-Azure Storage använder ett intervall-baserade partitioneringsschema skalning och inläsning balans i systemet. Partitionsnyckeln används för att partitionera data till intervall och dessa områden är belastningsutjämnad hela systemet. Detta innebär namngivningskonventioner, till exempel lexikala ordning (t.ex. msftpayroll, msftperformance, msftemployees osv.) eller med tidsstämplar (log20160101, log20160102, log20160102 osv.) kan låna ut sig själva partitioner som potentiellt är placerade på samma server partition, förrän en NLB åtgärden delar ut dem i mindre intervall. Alla blobbar i en behållare kan till exempel hanteras av en enskild server förrän belastningen på dessa blobbar kräver ytterligare omfördelning av partition intervall. På samma sätt kan en grupp med lågt belastade konton med namnen i lexikala ordning kan hanteras av en enskild server förrän belastningen på en eller alla dessa konton behöver dem för att delas upp på flera servrar i partitioner. Varje belastningsutjämningsregel åtgärden kan påverka svarstiden för lagring anrop under åtgärden. Systemets möjlighet att hantera en plötslig burst av trafik till en partition begränsas av skalbarhet i en enda partition server förrän åtgärden för belastningsutjämning sparkar i och balanserar partitionsnyckelintervallet.  
+### <a name="subheading47"></a>Namngivningskonventionen
+Azure Storage använder ett intervallbaserat partitioneringsschema för skalning och belastningsutjämning i systemet. Partitionsnyckeln används för att partitionera data i intervall och dessa områden är Utjämning av nätverksbelastning i systemet. Det innebär att namngivningskonventioner, till exempel lexikal ordning (t.ex. msftpayroll, msftperformance, msftemployees osv.) eller med tidsstämplar (log20160101, log20160102, log20160102 osv.) kommer lånar ut sig själv till partitioner som potentiellt är placerade på samma partition servern, tills en belastningsutjämningsåtgärd delar upp dem i mindre intervall. Alla blobbar i en behållare kan till exempel betjänas av en enskild server tills belastningen på dessa blobar kräver ytterligare ombalansering av intervallen som partitionen. På samma sätt kan en grupp med lågt belastade konton med deras namn i lexikal ordning kan betjänas av en enskild server tills belastningen på en eller alla dessa konton kräver att användaren ska delas upp på flera partitioner servrar. Varje belastningsutjämningsåtgärd kan påverka svarstiden för lagring anrop under åtgärden. Systemets förmåga att hantera en plötslig av trafik till en partition är begränsat av skalbarheten i en enda partition server förrän den belastningsutjämningsåtgärd sparkar i och balanserar partitionsnyckelintervall.  
 
-Du kan följa några metoder för att minska frekvensen av dessa åtgärder.  
+Du kan följa några Metodtips för att minska frekvensen för sådana åtgärder.  
 
-* Granska namngivningskonvention som du använder för konton, behållare, blobbar, tabeller och köer, nära. Du skapar prefix kontonamn med ett 3-siffriga hash-värde med hjälp av en hash-funktionen som bäst passar dina behov.  
-* Om du organisera dina data med tidsstämplar eller numerisk identifierare, måste du se till att du inte använder en append-only (eller endast lägga) trafikmönster. Dessa mönster lämpar sig inte för ett intervall-baserade partitionering system och kan leda till all trafik som kommer att en enskild partition och begränsa system från effektivt belastningsutjämning. Till exempel om du har dagliga åtgärder som använder ett blob-objekt med en tidsstämpel, till exempel ÅÅÅÅMMDD omdirigeras sedan all trafik för den dagliga driften till ett enda objekt som hanteras av en enda partition-servern. Titta på om den per blob gränser och partition gränser uppfyller dina behov och kan du dela den här åtgärden i flera blobbar om det behövs. På samma sätt om du sparar tid series-data i tabeller dirigeras alla trafiken kan vara till den senaste del av nyckeln namnområdet. Om du måste använda tidsstämplar eller numeriska ID, prefix prefix id med 3-siffriga hash eller tidsstämplar sekunder en del av tid som ssyyyymmdd. Visa och undersöka åtgärder utförs regelbundet, välja en hash-funktionen som begränsar antalet frågor. I annat fall kan en slumpmässig prefixet vara tillräckligt.  
-* För ytterligare information om partitioneringsschema används i Azure Storage, läsa SOSP paper [här](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
+* Granska den namngivningskonvention som du använder för konton, behållare, blobbar, tabeller och köer, nära. Du skapar prefix kontonamn med ett 3-siffriga hash-värde med hjälp av en hash-funktion som bäst passar dina behov.  
+* Om du ordnar dina data med tidsstämplar eller numerisk identifierare som du behöver se till att du inte använder en lagringsplats för endast (eller bara Lägg till åtkomstgruppen) trafikmönster. Dessa mönster lämpar sig inte för en rad-baserade partitionering system och kan leda till all trafik som kommer att en enda partition och begränsa systemet från effektivt belastningsutjämning. Till exempel om du har dagliga åtgärder som använder ett blobbobjekt med en tidsstämpel, till exempel ÅÅÅÅMMDD dirigeras sedan all trafik för den dagliga driften till ett enda objekt som hanteras av en enda partition-server. Titta på om den blob-gränser per per partition gränser uppfyller dina behov och kan du dela den här åtgärden i flera blobar om det behövs. På samma sätt om du sparar time series-data i dina tabeller, dirigeras alla trafiken kan till den senaste del av viktiga namnområdet. Om du måste använda tidsstämplar eller numeriska ID: N, prefix prefix id med en 3-siffriga hash eller när det gäller tidsstämplar sekunder en del av tiden, till exempel ssyyyymmdd. Visa och undersöka åtgärder utförs regelbundet, väljer du en hash-funktion som begränsar din antalet frågor. I annat fall kanske ett slumpmässigt prefix är tillräckligt.  
+* Mer information om partitioneringsschemat används i Azure Storage finns SOSP paper [här](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ### <a name="networking"></a>Nätverk
-När API-anrop frågan, har fysiska nätverksbegränsningar i programmet ofta en betydande inverkan på prestanda. Nedan beskrivs några begränsningar kan användarna få.  
+Även om bara innehåller anrop till API: et kan har de fysiska begränsningarna för programmet ofta en betydande inverkan på prestanda. Nedan beskrivs några av begränsningar som användarna kan stöta på.  
 
-#### <a name="client-network-capability"></a>Klienten nätverkskapacitet
+#### <a name="client-network-capability"></a>Nätverkskapacitet för klienten
 ##### <a name="subheading2"></a>Dataflöde
-Problemet är ofta funktionerna i klienten för bandbredd. Till exempel när ett enda storage-konto kan hantera 10 Gbit/s eller flera av ingång (se [bandbredd skalbarhetsmål](#sub1bandwidth)), nätverkshastigheten i en instans av ”liten” Azure-Arbetsroll kan endast cirka 100 Mbit/s. Större Azure-instanser har nätverkskort med större kapacitet, så bör du använda en större instans eller flera Virtuella datorer om du behöver högre gränser i nätverket från en enda dator. Om du ansluter till en Storage-tjänst från ett på lokala program och samma sak gäller: Förstå nätverksfunktioner på klientenheten och nätverksanslutningen till lagringsplatsen för Azure och antingen förbättra dem som behövs eller designa programmet att fungera inom deras funktioner.  
+Problemet är ofta funktionerna i klienten för bandbredd. Till exempel när ett enda lagringskonto kan hantera 10 Gbit/s eller flera av inkommande (se [bandbredd skalbarhetsmål](#sub1bandwidth)), nätverkshastigheten i en Arbetsroll ”små” Azure-instans kan bara cirka 100 Mbit/s. Större Azure-instanser har nätverkskort med större kapacitet, så du bör överväga att använda en större instans eller fler Virtuella datorer om du behöver högre gränser för nätverk från en enda dator. Om du får åtkomst till en tjänst från ett på lokala program och sedan samma sak gäller: Förstå nätverksfunktioner av klientenheten och nätverksanslutningen till Azure Storage-plats och antingen förbättra dem efter behov eller utforma din programmet att fungera inom deras funktioner.  
 
 ##### <a name="subheading3"></a>Länkkvalitet
-Precis som med alla nätverksanvändning Tänk på att nätverksförhållanden ledde till ett fel och paketförlust kommer långsamma effektiva genomflöde.  WireShark eller NetMon hjälp kan lösa problemet.  
+Precis som med alla nätverksanvändning, Tänk på att nätverkets tillstånd, vilket resulterar i fel och paketförlust kommer att bli långsammare effektiva dataflöde.  Med hjälp av WireShark eller NetMon kan hjälpa att diagnosticera problemet.  
 
 ##### <a name="useful-resources"></a>Användbara resurser
-Mer information om storlekar för virtuella datorer och allokerad bandbredd finns [Windows VM-storlekar](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) eller [Linux VM-storlekar](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
+Läs mer om storlekar för virtuella datorer och tilldelad bandbredd, [Windows VM-storlekar](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) eller [Linux VM-storlekar](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-#### <a name="subheading4"></a>Plats
-I en distribuerad miljö ger placerar klienten nära servern bästa prestanda. För att komma åt Azure Storage med den lägsta fördröjningen är den bästa platsen för din klient inom samma Azure-region. Till exempel om du har en Azure-webbplats som använder Azure Storage kan du söka efter dem båda inom en enskild region (till exempel oss Väst eller Asien/Stillahavsområdet, sydost). Detta minskar svarstiden och kostnaden – vid tidpunkten för skrivning bandbreddsanvändning inom en enskild region är ledig.  
+#### <a name="subheading4"></a>plats
+I alla distribuerade miljöer levererar placerar klienten nära servern i bästa möjliga prestanda. För att komma åt Azure Storage med kortast svarstid, är den bästa platsen för din klient inom samma Azure-region. Till exempel om du har en Azure-webbplats som använder Azure Storage kan du söka efter dem båda inom en enda region (till exempel USA, Väst eller Sydostasien). Detta minskar svarstiden och kostnaden – vid tidpunkten för skrivning bandbreddsanvändning inom en enda region är kostnadsfri.  
 
-Om klienten program inte finns i Azure (till exempel appar för mobila enheter eller lokala företagstjänster), sedan igen placerar storage-konto i en region nära de enheter som kommer åt, vanligtvis minskar latens. Om klienterna distribueras brett (till exempel, en del i Nordamerika och vissa i Europa), så bör du använda flera lagringskonton: placerad i Nordamerika region och en i en europeisk region. Detta hjälper till att minska svarstiden för användare i båda regioner. Den här metoden är vanligtvis enklare att implementera om data programmet lagrar är specifik för enskilda användare och kräver inte replikerar data mellan lagringskonton.  En CDN rekommenderas för bred innehållsdistribution – finns i nästa avsnitt för mer information.  
+Om klienten program inte ligger inom Azure (till exempel appar för mobila enheter eller tjänster på plats enterprise), sedan igen att storage-konto i en region nära de enheter som kommer åt den, kommer vanligtvis minska svarstiden. Om klienterna distribueras brett (till exempel, en del i Nordamerika och vissa i Europa), så du bör överväga att använda flera lagringskonton: en finns i Nordamerika-region och en i en europeisk region. På så sätt att svarstiden minskas för användare i båda regionerna. Den här metoden är vanligtvis enklare att implementera om programmet datalagren är specifik för enskilda användare och kräver inte replikera data mellan lagringskonton.  Ett CDN rekommenderas för bred innehållsdistribution – finns i nästa avsnitt för mer information.  
 
 ### <a name="subheading5"></a>Innehållsdistribution
-Ibland kan behöver ett program hantera samma innehåll till flera användare (t.ex. en produkt demonstrationsvideon används i startsidan för en webbplats), finns i samma eller flera regioner. I det här scenariot bör du använda en innehåll innehållsleveransnätverk (CDN), till exempel Azure CDN och CDN ska använda Azure storage startpunkt som data. Till skillnad från ett Azure Storage-konto som finns i en region och som det går inte att leverera innehåll med låg latens till andra regioner använder Azure CDN-servrar i flera Datacenter runtom i världen. Dessutom kan en CDN vanligtvis stöder mycket högre utgång gränser än ett enda storage-konto.  
+Ibland kan behöver ett program visa samma innehåll till många användare (t.ex. en produkt demonstrationsvideon används i startsidan till en webbplats), finns i samma eller flera regioner. I det här scenariot, bör du använda en Content Delivery Network (CDN), till exempel Azure CDN och CDN använder Azure storage som ursprung av data. Till skillnad från ett Azure Storage-konto som finns i en enda region och som det går inte att leverera innehåll med låg latens till andra regioner, använder Azure CDN-servrar i flera Datacenter runtom i världen. Dessutom stöder ett CDN normalt mycket högre utgående gränser än ett enda lagringskonto.  
 
-Mer information om Azure CDN finns [Azure CDN](https://azure.microsoft.com/services/cdn/).  
+Läs mer om Azure CDN [Azure CDN](https://azure.microsoft.com/services/cdn/).  
 
 ### <a name="subheading6"></a>Med hjälp av SAS och CORS
-När du vill tillåta kod exempelvis JavaScript i webbläsare för en användare eller en mobiltelefon-app för att komma åt data i Azure Storage, en metod är att använda ett program i webbroll som en proxy: användarens enhet autentiseras med webbrollen, som i sin tur autentiserar med storage-tjänst. På så sätt kan undvika du att exponera dina lagringskontonycklar på osäker enheter. Men placerar detta en stor belastning på webbrollen eftersom alla data som överförs mellan enheten och lagringstjänsten måste passera webbrollen. Du kan undvika att använda en webbroll som en proxy för lagringstjänsten med delad åtkomst signaturer (SAS), ibland tillsammans med rubriker om Cross-Origin Resource Sharing (CORS). Med SAS kan tillåta du användaren att göra förfrågningar direkt till en lagringstjänst med hjälp av en begränsad åtkomst-token. Till exempel om en användare vill överför en bild till ditt program, kan web-roll generera och skicka till användarens enhet en SAS-token som ger behörighet att skriva till en specifik blobb eller en behållare för de kommande 30 minuterna (efter vilken SAS-token upphör att gälla).
+När du behöver auktorisera koden, till exempel JavaScript i en användares webbläsare eller en mobiltelefon-app för att komma åt data i Azure Storage, en metod är att använda ett program i web-roll som en proxy: användarens enhet autentiseras med web-roll , som i sin tur auktoriserar åtkomst till lagringsresurser. På så vis undviker du exponera dina lagringskontonycklar på osäkert enheter. Men innebär detta en stor belastning på webbrollen eftersom alla data som överförs mellan användarens enhet och lagringstjänsten måste passera webbrollen. Du kan också använda en webbroll som proxy för storage-tjänsten med hjälp av signaturer för delad åtkomst (SAS), ibland tillsammans med rubriker om Cross-Origin Resource Sharing (CORS). Med SAS kan tillåta du användarens enhet att göra begäranden direkt till en lagringstjänst med hjälp av en begränsad åtkomst-token. Till exempel om en användare vill ladda upp ett foto till ditt program, kan web-roll generera och skicka till användarens enhet en SAS-token som ger behörighet att skriva till en specifik blob eller behållare för de närmsta 30 minuterna (efter vilken SAS-token upphör att gälla).
 
-En webbläsare kan normalt inte JavaScript på en sida som en webbplats på en domän att utföra specifika åtgärder som en ”PLACERA” till en annan domän som värd. Om du är värd en webbroll på ”contosomarketing.cloudapp.net”, och vill använda client side JavaScript för att ladda upp en blob storage-konto på ”contosoproducts.blob.core.windows.net”, webbläsarens exempelvis ”samma ursprung policy” kommer förbjuda den här åtgärden. CORS är en webbläsarfunktion som tillåter måldomänen (i det här fallet lagringskontot) för att kommunicera med webbläsaren att den litar på begäranden med ursprung i källdomänen (i det här fallet webbrollen).  
+Normalt tillåter en webbläsare inte JavaScript i en sida som värd för en webbplats på en domän för att utföra specifika åtgärder, till exempel en ”PLACERA” till en annan domän. Exempel: Om du vara värd för en webbroll på ”contosomarketing.cloudapp.net” och vill använda klienten sida JavaScript för att ladda upp en blob till ditt storage-konto på ”contosoproducts.blob.core.windows.net”, webbläsarens ”princip om samma ursprung” kommer förbjuda den här åtgärden. CORS är en webbläsarfunktion som gör måldomänen (i det här fallet lagringskontot) för att kommunicera med webbläsaren att den litar på förfrågningar som kommer i källdomänen (i det här fallet webbrollen).  
 
-Båda dessa tekniker kan hjälpa dig att undvika onödiga belastning (och flaskhalsar) på ditt webbprogram.  
+Båda dessa tekniker kan hjälpa dig att undvika onödig belastning (och flaskhalsar) på ditt webbprogram.  
 
 #### <a name="useful-resources"></a>Användbara resurser
-Mer information om SAS finns [signaturer för delad åtkomst, del 1: Förstå SAS-modellen](../storage-dotnet-shared-access-signature-part-1.md).  
+Mer information om SAS finns i [signaturer för delad åtkomst, del 1: Förstå SAS-modellen](../storage-dotnet-shared-access-signature-part-1.md).  
 
-Läs mer om CORS [Cross-Origin Resource Sharing (CORS) stöd för Azure Storage-tjänster](http://msdn.microsoft.com/library/azure/dn535601.aspx).  
+Läs mer om CORS [Cross-Origin Resource Sharing (CORS) Support för Azure Storage-tjänster](http://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
 ### <a name="caching"></a>Cachelagring
-#### <a name="subheading7"></a>Hämtning av Data
-I allmänhet är hämtar data från en tjänst när bättre än tas den två gånger. Studera exemplet som en MVC-webbapp körs i en webbroll som har redan hämtas en 50MB blob storage-tjänst som fungerar som innehåll till en användare. Programmet kan sedan hämta samma blobben varje gång en användare begär den eller det kan cachelagra den lokalt disken och återanvända den cachelagrade versionen för efterföljande användarförfrågningar. Dessutom, när en användare begär data, programmet kan problemet får med ett villkorat huvud för ändringstid som skulle undvika hela blobben om den inte har ändrats. Du kan använda den här samma mönster för att arbeta med tabellentiteter.  
+#### <a name="subheading7"></a>Hämta Data
+I allmänhet är hämtar data från en tjänst en gång bättre än att få den två gånger. Studera exemplet med en MVC-webbprogram som körs i en webbroll som redan har hämtat en 50MB blob från storage-tjänst som fungerar som innehåll till en användare. Programmet kan sedan hämta den samma blobben varje gång en användare begär det eller den cachelagra den lokalt till hårddisken och återanvända den cachelagrade versionen för efterföljande användarbegäranden. Dessutom när en användare begär data, programmet kan problemet komma med en villkorlig rubrik för ändring av tiden, vilket skulle undvika att få hela blobben om den inte har ändrats. Du kan använda det här samma mönster för att arbeta med tabellentiteter.  
 
-I vissa fall kan du välja att programmet kan anta att blob förblir giltigt under en kort period efter hämtning av det och att under denna tid programmet inte behöver kontrollera om blob har ändrats.
+I vissa fall kan välja du att ditt program kan anta att blobben förblir giltigt under en kort period efter hämtning det och att under denna period programmet inte behöver kontrollera om bloben har ändrats.
 
 Konfiguration, sökning och andra data som används alltid av programmet är bra kandidater för cachelagring.  
 
-Ett exempel på hur en blob-egenskaper för att identifiera senaste ändringsdatum med hjälp av .NET finns [Set och hämta egenskaper och Metadata](../blobs/storage-properties-metadata.md). Mer information om nedladdningar av villkorlig finns [villkorligt uppdatera en lokal kopia av en Blob](http://msdn.microsoft.com/library/azure/dd179371.aspx).  
+Ett exempel på hur du kan hämta en blob-egenskaper för att identifiera senaste ändringsdatum med hjälp av .NET finns i [Set och hämta egenskaper och Metadata](../blobs/storage-properties-metadata.md). Läs mer om villkorlig nedladdningar [villkorligt uppdatera en lokal kopia av en Blob](http://msdn.microsoft.com/library/azure/dd179371.aspx).  
 
 #### <a name="subheading8"></a>Ladda upp Data i batchar
-I vissa program, kan aggregera data lokalt och sedan regelbundet ladda upp den i en grupp i stället för att överföra varje datadel omedelbart. Till exempel ett webbprogram ha en loggfil över aktiviteter: programmet kan antingen ladda upp information om varje aktivitet som det sker som en tabell-enhet (som kräver många lagringsåtgärder) eller så kan spara information om datoraktivitet till en lokal loggfil och sedan överföra alla aktivitetsinformation regelbundet som en avgränsad fil till en blobb. Om varje loggpost är 1KB i storlek, kan du överföra tusentalsavgränsare i en enda transaktion för ”placera Blob” (du kan överföra en blob med upp till 64MB i storlek i en enda transaktion). Naturligtvis, om den lokala datorn kraschar före överföringen, potentiellt förlorar du vissa loggdata: programutvecklaren måste utforma möjlighet till klientenheten eller Överför fel.  Om aktivitetsdata behöver laddas ner för timespans (inte bara enkel aktivitet), bör blobbar över tabeller.
+I vissa Programscenarier du aggregera data lokalt och sedan regelbundet ladda upp den i en grupp i stället för att ladda upp varje datadel omedelbart. Till exempel ett program kan hålla en loggfil av aktiviteter: programmet kan antingen ladda upp information om varje aktivitet, när det händer som en tabell och enhet (som kräver många lagringsåtgärder) eller Aktivitetsinformation bespara till en lokal loggfil och sedan ladda upp alla aktivitetsinformation regelbundet som en avgränsad fil till en blob. Om varje loggpost är 1KB i storlek, kan du ladda upp tusentals i en enda ”placera Blob”-transaktion (du kan ladda upp en blob med upp till 64MB i storlek i en enskild transaktion). Naturligtvis om den lokala datorn går sönder före överföringen potentiellt förlorar du vissa loggdata: programutvecklaren måste utforma möjlighet till klientenheten eller ladda upp fel.  Om aktivitetsdata ska hämtas för tidsintervallen (inte bara enkel aktivitet), bör blobar över tabeller.
 
-### <a name="net-configuration"></a>.NET-konfiguration
-Om du använder .NET Framework innehåller det här avsnittet flera snabb konfigurationsinställningar som du kan använda för att göra betydande prestandaförbättringar.  Om du använder andra språk, kontrollera för att se om liknande koncept som tillämpas på ditt valda språk.  
+### <a name="net-configuration"></a>Konfiguration av .NET
+Om du använder .NET Framework, innehåller det här avsnittet flera snabbt vill konfigurera inställningar som du kan använda för att göra betydande prestandaförbättringar.  Kontrollera om liknande koncept gäller i ditt valda språk om du använder andra språk.  
 
 #### <a name="subheading9"></a>Öka Standardgränsen för anslutning
-I .NET ökas följande kod anslutning Standardgränsen (vilket är normalt 2 i en klientmiljö med eller 10 i en servermiljö) och 100. Normalt ska du ange värdet till ungefär antalet trådar som används av ditt program.  
+I .NET ökar följande kod anslutning Standardgränsen (som vanligtvis är 2 i en klientmiljö med eller 10 i en servermiljö) och 100. Normalt bör du ange värdet för ungefär hur många trådar som används av ditt program.  
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
 ```
 
-Du måste ange anslutningsgränsen innan du öppnar alla anslutningar.  
+Du måste ange anslutningsgränsen innan du öppnar några anslutningar.  
 
-Andra programmeringsspråk, finns i dokumentationen för det språket att fastställa hur du ställer in det angivna antalet.  
+Andra programmeringsspråk, finns i dokumentationen för respektive språk att fastställa hur du ställer in anslutningsgränsen.  
 
-Mer information finns i bloggposten [Web Services: samtidiga anslutningar](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
+Mer information finns i bloggposten [webbtjänster: samtidiga anslutningar](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
 
-#### <a name="subheading10"></a>Öka ThreadPool Min Threads om synkron kod med asynkrona uppgifter
-Den här koden kommer att öka tråd pool min trådar:  
+#### <a name="subheading10"></a>Öka ThreadPool Min Threads om använder synkron kod med asynkrona åtgärder
+Den här koden ökar tråd pool min trådar:  
 
 ```csharp
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
@@ -196,218 +190,218 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 Mer information finns i [ThreadPool.SetMinThreads metoden](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).  
 
 #### <a name="subheading11"></a>Dra nytta av .NET 4.5 skräpinsamling
-Använda .NET 4.5 eller senare för klientprogrammet för att dra nytta av bättre prestanda i server skräpinsamling.
+Använda .NET 4.5 eller senare för klientprogrammet för att dra nytta av prestandaförbättringar i server skräpinsamling.
 
-Mer information finns i artikeln [en översikt av prestandaförbättringarna i .NET 4.5](http://msdn.microsoft.com/magazine/hh882452.aspx).  
+Mer information finns i artikeln [en översikt av prestandaförbättringar i .NET 4.5](http://msdn.microsoft.com/magazine/hh882452.aspx).  
 
-### <a name="subheading12"></a>Unbounded parallellitet
-Parallellitet kan vara bra prestanda, vara försiktig med att använda unbounded parallellitet (ingen gräns för antalet trådar och/eller parallella begäranden) att överföra eller hämta data med flera personer att få åtkomst till flera partitioner (behållare, köer eller tabellpartitioner) i samma lagringskonto eller komma åt flera objekt i samma partition. Om parallellitet unbounded tillämpningsprogrammet kan överstiga klienten enhetsfunktioner eller storage-konto skalbarhet mål ledde till ett längre svarstider och begränsning.  
+### <a name="subheading12"></a>Obegränsade parallellitet
+Parallellitet kan vara bra för prestanda, var försiktig med obegränsade parallellitet (ingen gräns för antalet trådar och/eller parallella förfrågningar) för att överföra eller hämta data med flera arbetare för att få åtkomst till flera partitioner (behållare, köer, eller tabellpartitioner) i samma lagringskonto eller att få åtkomst till flera objekt i samma partition. Om parallellitet obundna, ditt program kan överstiga klienten enhetens funktioner eller lagringskontots skalbarhet riktar sig mot vilket resulterar i längre svarstider och begränsning.  
 
-### <a name="subheading13"></a>Verktyg och Storage-klientbibliotek
-Använd alltid senaste som Microsoft tillhandahåller klientbibliotek och verktyg. Vid tidpunkten som skrivs finns klientbibliotek för .NET, Windows Phone, Windows Runtime, Java och C++ samt preview bibliotek för andra språk. Dessutom har Microsoft släppt PowerShell-cmdlets och Azure CLI-kommandona för att arbeta med Azure Storage. Microsoft aktivt utvecklar dessa verktyg med prestanda, för att hålla dem uppdaterade med de senaste versionerna av tjänsten och garanterar de hanterar många av aktuella beprövade prestanda internt.  
+### <a name="subheading13"></a>Storage-klientbibliotek och verktyg
+Använd alltid den senaste av Microsoft tillhandahållna klientbibliotek och verktyg. Vid tidpunkten för skrivning finns klientbibliotek som är tillgängliga för .NET, Windows Phone, Windows Runtime, Java och C++ samt preview-bibliotek för andra språk. Microsoft har också publicerat PowerShell-cmdletar och Azure CLI-kommandon för att arbeta med Azure Storage. Microsoft aktivt utvecklar dessa verktyg med prestanda, håller dem uppdaterade med de senaste versionerna för tjänsten och garanterar de hanterar många av de beprövade prestanda internt.  
 
 ### <a name="retries"></a>Antal försök
-#### <a name="subheading14"></a>Throttling/ServerBusy
-I vissa fall lagringstjänsten kan begränsa tillämpningsprogrammet eller helt enkelt går inte att hantera begäran på grund av vissa övergående tillstånd och returnerar meddelandet ”503 servern upptagen” eller ”tidsgräns för 500”.  Detta kan inträffa om tillämpningsprogrammet närmar sig något skalbarhetsmål, eller om systemet är ombalansering partitionerade data för bättre genomströmning.  Klientprogrammet bör normalt gör om åtgärden som orsakar ett sådant fel: försöker samma begäran senare kan genomföras. Men göra om lagringstjänsten begränsning är ditt program eftersom det överskrider skalbarhetsmål eller om tjänsten kunde inte svara på begäran av någon anledning, aggressivt återförsök oftast problemet worse. Därför bör du använda en exponentiell undantagsläge (klienten bibliotek standard till det här beteendet). Programmet kan t.ex, försök igen efter 2 sekunder sedan 4 sekunder sedan 10 sekunder sedan 30 sekunder och ge helt. Detta resulterar i ditt program avsevärt minska belastningen på tjänsten i stället exacerbating eventuella problem.  
+#### <a name="subheading14"></a>Begränsning/ServerBusy
+I vissa fall kan tjänsten storage kan begränsa ditt program eller kan helt enkelt inte hantera begäran på grund av vissa tillfälliga villkor och returnerar ett meddelande om ”503 Server upptagen” eller ”500 löper ut”.  Detta kan inträffa om programmet närmar sig något av det för skalbarhetsmål, eller om systemet är ombalansering av dina partitionerade data för högre dataflöde.  Klientprogrammet bör vanligtvis försök som orsakar ett sådant fel: försök samma begäran senare kan lyckas. Men om lagringstjänsten begränsar ditt program eftersom det överskrider skalbarhetsmål, eller även om tjänsten kunde inte hantera begäran av någon anledning, att aggressiva återförsök vanligtvis problemet sämre. Därför bör du använda en exponentiell backoff (klienten bibliotek standard till det här beteendet). Exempelvis kan programmet försöka igen efter 2 sekunder, och sedan 4 sekunder sedan 10 sekunder sedan 30 sekunder och ger sedan upp helt. Detta resulterar i ditt program avsevärt minska belastningen på tjänsten i stället exacerbating eventuella problem.  
 
-Observera att anslutningsfel kan göras omedelbart, eftersom de inte är resultatet av begränsning och förväntas vara tillfälligt.  
+Observera att anslutningsfel kan göras direkt, eftersom de inte är resultatet av begränsning och förväntas vara tillfälligt.  
 
-#### <a name="subheading15"></a>Icke-Återförsökbart fel
-Klientbiblioteken är medveten om vilka fel kan retry och som inte är. Tänk dock på om du skriver egen kod mot storage REST-API, det finns några fel som du inte bör försöka: till exempel en 400 (felaktig begäran) svaret anger att klientprogrammet har skickat en begäran inte kunde bearbetas eftersom det inte var ett förväntat format. Skicka om begäran resulterar samma svar varje gång, så det finns ingen anledning du försöker den. Om du skriver egen kod mot storage REST API vara medveten om vad de betyder och på rätt sätt att försöka igen (eller inte) för var och en av dem.  
+#### <a name="subheading15"></a>Icke-Återförsöksbar fel
+Klientbiblioteken är medvetna om vilka fel återförsök kan och som inte är. Men om du skriver din egen kod mot storage REST API, Kom ihåg att det finns några fel som du inte kan försöka: till exempel en 400 (felaktig begäran) som svaret anger att klientprogrammet har skickat en begäran som inte kunde bearbetas eftersom det inte i en förväntad form. Skicka den här begäran resulterar samma svar varje gång, så ingen finns det försöker den. Om du skriver din egen kod mot storage REST API, känna till vad de betyder och på rätt sätt och försök igen (eller inte) för var och en av dem.  
 
 #### <a name="useful-resources"></a>Användbara resurser
-Mer information om lagring felkoder finns [Status och felkoder](http://msdn.microsoft.com/library/azure/dd179382.aspx) på webbplatsen Microsoft Azure.  
+Mer information om felkoder för lagring finns i [Status och felkoder](http://msdn.microsoft.com/library/azure/dd179382.aspx) på webbplatsen Microsoft Azure.  
 
 ## <a name="blobs"></a>Blobar
-Förutom beprövade metoder för [alla tjänster](#allservices) som beskrivs ovan, följande beprövade metoder som gäller specifikt för blob-tjänsten.  
+Förutom beprövade metoder för [alla tjänster](#allservices) som beskrivits tidigare följande metodtips som gäller specifikt för blob-tjänsten.  
 
-### <a name="blob-specific-scalability-targets"></a>BLOB-specifika skalbarhetsmål
+### <a name="blob-specific-scalability-targets"></a>Skalbarhetsmål för BLOB-specifika
 #### <a name="subheading46"></a>Flera klienter som ansluter till ett enda objekt samtidigt
-Om du har ett stort antal klienter som ansluter till ett enda objekt samtidigt behöver du överväga per objekt och lagring skalbarhetsmål för lagringskontot. Det exakta antalet klienter som kan komma åt ett objekt ska variera beroende på faktorer som hur många klienter som begär objektet samtidigt, storleken på objektet, nätverk villkor osv.
+Om du har ett stort antal klienter som ansluter till ett enda objekt samtidigt behöver du överväga per skalbarhetsmål för objektet och lagring. Det exakta antalet klienter som har åtkomst till ett enda objekt kan variera beroende på faktorer som hur många klienter som begär objektet samtidigt, storleken på objektet, nätverk villkor osv.
 
-Om objektet kan distribueras via en CDN, till exempel bilder eller videofiler hanteras från en webbplats och du bör använda en CDN. Se [här](#subheading5).
+Om objektet kan distribueras via ett nätverk för Innehållsleverans, till exempel bilder eller videofiler som hanteras från en webbplats och du bör använda ett CDN. Se [här](#subheading5).
 
-I andra scenarier, till exempel vetenskapliga simulering där data är konfidentiellt har du två alternativ. Först är att sprida ut din arbetsbelastning åtkomst så att komma åt objektet under en period om jämfört används samtidigt. Du kan också kopiera objektet tillfälligt till flera storage-konton, vilket ökar den totala IOPS per objekt och över storage-konton. Begränsad testning påträffades att cirka 25 virtuella datorer kan hämta en 100GB blob parallellt (varje virtuell dator parallelizing nedladdningen med 32 trådar) samtidigt. Om du har 100 klienter behöver komma åt objektet, först kopiera den till en andra storage-konto och har de första 50 virtuella datorer åtkomst till den första blobben och andra 50 virtuella datorer åtkomst till andra blob. Resultatet varierar beroende på din program-beteende så bör du testa under design. 
+I andra scenarier, till exempel vetenskapliga simuleringar där uppgiften är konfidentiell har du två alternativ. Först är att sprida ut din arbetsbelastning åtkomst så att komma åt objektet under en period på jämfört ifråga samtidigt. Du kan också tillfälligt kopiera objektet till flera lagringskonton, vilket ökar det totala antalet IOPS per objekt och över lagringskonton. I testet med begränsad påträffades att cirka 25 virtuella datorer samtidigt kan ladda ned en blob på 100GB parallellt (varje virtuell dator parallellisera nedladdningen med 32 trådar). Om du har 100 klienter behöver komma åt objektet, först kopiera den till ett andra storage-konto och sedan låta de första 50 virtuella datorer åt den första blobben och de andra 50 virtuella datorerna åt andra blob. Resultaten kan variera beroende på din program-beteende så bör du testa under design. 
 
 #### <a name="subheading16"></a>Bandbredd och -åtgärder per Blob
-Du kan läsa eller skriva till en enda blob på högst 60 MB per sekund (detta är ungefär 480 Mbit/s som överskrider kapaciteterna för flera nätverk för klient på klientsidan (inklusive det fysiska nätverkskortet på klientenheten). Dessutom kan stöder en enda blob upp till 500 begäranden per sekund. Om du har flera klienter som behöver läsa samma blob och du kanske överskrider gränserna, bör du använda en CDN för att distribuera blob.  
+Du kan läsa eller skriva till en enda blob på upp till 60 MB per sekund (det är ungefär 480 Mbit/s som överskrider kapaciteterna för många nätverk för klienten sida (inklusive det fysiska nätverkskortet på klientenheten). Dessutom kan en enda blob har stöd för upp till 500 begäranden per sekund. Om du har flera klienter som behöver läsa samma blob och du kan överskrida gränserna, bör du använda ett CDN för att distribuera blob.  
 
-Mer information om mål-genomströmning för BLOB finns [Azure Storage skalbarhets- och prestandamål](storage-scalability-targets.md).  
+Läs mer om måldataflöde för blobar, [skalbarhet för lagring av Azure- och prestandamål](storage-scalability-targets.md).  
 
-### <a name="copying-and-moving-blobs"></a>Kopiera och flytta Blobbar
+### <a name="copying-and-moving-blobs"></a>Kopiera och flytta Blobar
 #### <a name="subheading17"></a>Kopiera Blob
-Storage REST API version 2012-02-12 införs användbar möjligheten att kopiera BLOB mellan konton: ett klientprogram kan instruera lagringstjänsten att kopiera en blobb från en annan källa (eventuellt i ett annat lagringskonto) och därefter låta tjänsten kopiera asynkront. Detta kan avsevärt minska den bandbredd som krävs för programmet när du migrerar data från andra lagringskonton eftersom du inte behöver hämta och överföra data.  
+Storage REST-API version 2012-02-12 introducerades användbara möjligheten att kopiera BLOB-konton: ett klientprogram kan instruera tjänsten storage för att kopiera en blob från en annan källa (eventuellt i ett annat lagringskonto) och låt tjänsten utför kopian asynkront. Detta kan avsevärt minska den bandbredd som krävs för programmet när du migrerar data från andra lagringskonton eftersom du inte behöver hämta och överföra data.  
 
-En fråga, men är att, när du kopierar mellan lagringskonton finns det ingen garanti för tid för när kopieringen slutförs. Om ditt program behöver slutföra en blob-kopia snabbt under din kontroll, kan det vara bättre att kopiera blob genom att hämta den till en virtuell dator och överföra den till målet.  Se till att kopian utförs av en virtuell dator som körs i samma Azure-region, annars nätverksförhållanden kan (och troligtvis kommer) påverkar prestandan kopia för fullständig förutsägbarhet i så fall.  Dessutom kan du övervaka förloppet för en asynkron kopia programmässigt.  
+En övervägande är dock att när du kopierar mellan lagringskonton, det finns ingen tid garanti på när kopieringen slutförs. Om programmet behöver för att slutföra en blob-kopia snabbt under din kontroll, kan det vara bättre att kopiera blobben genom att hämta den till en virtuell dator och överföra den till målet.  Se till att kopian utförs av en virtuell dator som körs i samma Azure-region, annars nätverksförhållanden kan (och troligtvis kommer) påverkar din kopieringen bättre prestanda för fullständig förutsägbarhet i så fall.  Dessutom kan du övervaka förloppet för en asynkron kopia programmässigt.  
 
-Observera att kopior inom samma lagringskonto själva är vanligtvis slutförda snabbt.  
+Observera att Allmänt kopior inom samma lagringskonto själva utförs snabbt.  
 
-Mer information finns i [kopiera Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).  
+Mer information finns i [kopiering av Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).  
 
 #### <a name="subheading18"></a>Använda AzCopy
-Azure Storage-teamet har publicerat ett kommandoradsverktyg ”AzCopy” som är tänkt att hjälpa med bulk överför många BLOB till, från och mellan lagringskonton.  Det här verktyget är optimerad för det här scenariot och uppnå hög överföringshastighet.  Används rekommenderas för bulk-överföringen, hämtning och kopiera scenarier. Om du vill veta mer om den och ladda ned den finns [överföra data med kommandoradsverktyget Azcopy](storage-use-azcopy.md).  
+Azure Storage-teamet har publicerat ett kommandoradsverktyg ”AzCopy” som är avsedd för att underlätta massinläsning överföra många blobar att från och över lagringskonton.  Det här verktyget är optimerad för det här scenariot och kan uppnå hög överföringshastighet.  Användning rekommenderas för bulköverföring, ladda ned och kopiera scenarier. Om du vill lära dig mer om den och ladda ned den, se [överföra data med kommandoradsverktyget Azcopy](storage-use-azcopy.md).  
 
-#### <a name="subheading19"></a>Azure Import/Export Service
-För mycket stora mängder data (mer än 1TB) erbjuder Azure Storage Import/Export-tjänsten, som gör det möjligt att överföra och ladda ned från blob storage med leverans hårddiskar.  Du kan publicera dina data på en hårddisk och skickar informationen till Microsoft för överföring eller skicka en tom hårddisk till Microsoft för att hämta data.  Mer information finns i [använda tjänsten Microsoft Azure Import/Export för att överföra Data till Blob Storage](../storage-import-export-service.md).  Det kan vara mycket effektivare än att överföra/hämta volymen av data över nätverket.  
+#### <a name="subheading19"></a>Tjänsten Azure Import/Export
+För mycket stora mängder data (mer än 1TB) erbjuder Azure Storage Import/Export-tjänsten, som kan användas för uppladdning och nedladdning från blob storage med endash hårddiskar.  Du kan placera dina data på en hårddisk och skicka denna till Microsoft för att ladda upp eller skicka en tom hårddisk till Microsoft för att hämta data.  Mer information finns i [Använda tjänsten Microsoft Azure Import/Export för att överföra data till Blob Storage](../storage-import-export-service.md).  Detta kan vara mycket mer effektivt än att ladda upp/ned den här mängden data över nätverket.  
 
 ### <a name="subheading20"></a>Använda metadata
-Blob-tjänsten stöder head-begäranden som kan innehålla metadata om blob. Om ditt program behövs EXIF-data från ett foto, kan den hämta bilden och extrahera det. För att spara bandbredd och förbättra prestanda, kan ditt program lagra data EXIF i blobens metadata när programmet har överförts bilden: du kan hämta EXIF-data i metadata med hjälp av endast en HEAD-begäran, spara betydande bandbredd och tid som behövs för att extrahera EXIF data varje gång blob läses. Detta kan vara användbart i scenarier där du behöver bara metadata och inte det fullständiga innehållet på en blob.  Observera att endast 8 KB metadata kan lagras per blob (tjänsten inte accepterar en begäran om att lagra större än), så om data inte ryms i den storleken, kan du inte kunna använda den här metoden.  
+Blob-tjänsten stöder head-begäranden som kan innehålla metadata om bloben. Om ditt program behövs EXIF-data från ett foto, kan den hämta fotot och extrahera den. För att spara bandbredd och förbättra prestanda, kan programmet lagra EXIF-data i den blob-metadata när programmet har laddat upp fotot: du kan sedan hämta EXIF-data i metadata med hjälp av endast en HEAD-begäran, spara betydande bandbredd och Bearbetningstid som krävs för att extrahera EXIF-data varje gång blobben läses. Detta är användbart i scenarier där du behöver bara metadata och inte det fullständiga innehållet på en blob.  Observera att endast 8 KB av metadata kan lagras per blob (tjänsten inte kommer acceptera en begäran om att store mer än som), så om data inte passar i den storleken du inte kanske kan använda den här metoden.  
 
-Ett exempel på hur du hämtar en blob-metadata med hjälp av .NET finns [Set och hämta egenskaper och Metadata](../blobs/storage-properties-metadata.md).  
+Ett exempel på hur du kan hämta en blob-metadata med hjälp av .NET finns i [Set och hämta egenskaper och Metadata](../blobs/storage-properties-metadata.md).  
 
-### <a name="uploading-fast"></a>Snabb överföring
-Om du vill överföra blobbar snabb, är den första frågan besvaras: är du överföra en blob eller många?  Använd den nedan för att avgöra vilken metod som har rätt att använda beroende på ditt scenario.  
+### <a name="uploading-fast"></a>Ladda upp snabbt
+För att ladda upp blobar snabbt svara på den första frågan är: är du laddar upp en blob eller många?  Använd den nedan för att fastställa rätt metod för att använda beroende på ditt scenario.  
 
 #### <a name="subheading21"></a>Ladda upp en stor blob snabbt
-Om du vill överföra en enda stor blob snabbt klientprogrammet ladda upp dess block eller sidor parallellt (är uppmärksam på skalbarhetsmål för enskilda blobbar och lagringskontot som helhet).  Observera att de officiella Microsoft RTM lagring klientbibliotek (.NET, Java) ha möjlighet att göra detta.  För varje bibliotek använder den under angivna objektegenskaper att ställa in samtidighet:  
+Om du vill överföra en enda stor blob snabbt bör klientprogrammet ladda upp sin block eller sidor parallellt (att beakta också kolumnerna skalbarhetsmål för enskilda blobar och storage-konto som helhet).  Observera att de officiella Microsoft tillhandahåller RTM Storage-klientbibliotek (.NET, Java) har möjlighet att göra detta.  För var och en av bibliotek som använder den under angivna objektegenskap att ställa in samtidighet:  
 
-* .NET: Ange ParallelOperationThreadCount på ett BlobRequestOptions-objekt som ska användas.
-* Java/Android: Use BlobRequestOptions.setConcurrentRequestCount()
-* Node.js: Använd parallelOperationThreadCount alternativen begäran eller blob-tjänsten.
+* .NET: Set ParallelOperationThreadCount på ett BlobRequestOptions-objekt som ska användas.
+* Java/Android: Använda BlobRequestOptions.setConcurrentRequestCount()
+* Node.js: Använd parallelOperationThreadCount alternativen begäran eller blobtjänsten.
 * C++: Använda metoden blob_request_options::set_parallelism_factor.
 
-#### <a name="subheading22"></a>Överför många blobbar snabbt
-Om du vill överföra många blobbar snabbt överföra blobbar parallellt. Det här är snabbare än att överföra enda blobbar i taget med parallellt block överföringar eftersom det sprids överföringen över flera partitioner för lagringstjänsten. En enda blob stöder bara en genomströmning på 60 MB per sekund (cirka 480 Mbit/s). Ett konto i USA-baserade LRS stöder upp till 20 Gbit/s-ingång som är större än dataflöde som stöds av en enskild blob vid tidpunkten för skrivning.  [AzCopy](#subheading18) utför överföringar parallellt som standard och rekommenderas för det här scenariot.  
+#### <a name="subheading22"></a>Ladda upp många blobar snabbt
+Ladda upp blobar parallellt för att ladda upp många blobar snabbt. Det här är snabbare än att överföra enda blobar i taget med parallella block uppladdningar eftersom det sprids överföringen över flera partitioner av storage-tjänsten. En enda blob har endast stöd för ett dataflöde på 60 MB per sekund (cirka 480 Mbit/s). Vid tidpunkten som skrivs stöder upp till 20 Gbit/s ingångshändelser som är större än det dataflöde som stöds av en enskild blob i ett amerikanska LRS-konto.  [AzCopy](#subheading18) utför uppladdningar parallellt som standard och rekommenderas för det här scenariot.  
 
-### <a name="subheading23"></a>Att välja rätt typ av blob
-Azure Storage stöder två typer av blob: *sidan* blobbar och *block* blobbar. För en given användningsscenariot påverkar valet av blobbtypen prestanda och skalbarhet i lösningen. Blockblobbar är lämplig när du vill överföra stora mängder data effektivt: till exempel ett klientprogram kan behöva ladda upp bilder eller video till blob storage. Sidblobbar är lämpliga om programmet behöver utföra slumpmässiga skrivningar på data: till exempel Azure virtuella hårddiskarna lagras som sidblobar.  
+### <a name="subheading23"></a>Välja rätt typ av blob
+Azure Storage stöder två typer av blob: *sidan* blobar och *blockera* blobar. För en viss användningsscenariot påverkar ditt val av blobbtypen prestanda och skalbarhet för din lösning. Blockblobar är lämplig när du vill ladda upp stora datamängder effektivt: till exempel ett klientprogram kan behöva ladda upp foton eller video till blob storage. Sidblobar är lämpligt om programmet måste utföra slumpmässiga skrivningar på data: till exempel Azure VHD lagras som sidblobar.  
 
 Mer information finns i [förstå Blockblobbar, Tilläggsblobbar och Sidblobbar](http://msdn.microsoft.com/library/azure/ee691964.aspx).  
 
 ## <a name="tables"></a>Tabeller
-Förutom beprövade metoder för [alla tjänster](#allservices) som beskrivs ovan, följande beprövade metoder gäller särskilt för tabelltjänsten.  
+Förutom beprövade metoder för [alla tjänster](#allservices) som beskrivits tidigare följande metodtips som gäller specifikt för table service.  
 
 ### <a name="subheading24"></a>Tabell-specifika skalbarhetsmål
-Utöver bandbreddsbegränsningar för en hel lagringskonto har tabeller följande specifika skalbarhetsgränsen.  Observera att systemet ska belastningsutjämna som ökar din trafik, men om trafiken har plötslig belastning kan du kanske inte går att hämta den här volymen genomströmning omedelbart.  Om mönstret har belastning, bör du förväntar dig att se begränsning och tidsgränser under burst som lagring tjänsten automatiskt belastningen saldon i tabellen.  Långsamt vanligtvis av dig har bättre resultat som den ger systemtiden att belastningsutjämna på lämpligt sätt.  
+Tabeller har följande specifika skalbarhetsgränsen förutom bandbreddsbegränsningar för en hel storage-konto.  Observera att systemet kommer belastningsutjämna som ökar din trafik, men om trafiken har plötsliga ökningar, kan du inte att kunna få den här volymen dataflödets direkt.  Om mönstret har ökningar, bör du förväntar dig att se begränsning och/eller timeout under burst som lagring tjänsten automatiskt belastningen saldo ut din tabell.  Av dig långsamt Allmänt har bättre resultat som den får systemtid att belastningsutjämna på rätt sätt.  
 
-#### <a name="entities-per-second-account"></a>Entiteter per sekund (konto)
-Skalbarhetsgränsen för att komma åt tabeller är upp till 20 000 enheter (1KB som är varje) per sekund för ett konto.  I allmänhet varje entitet som infogas, uppdateras, tas bort eller genomsöks antal mot det här målet.  Infoga en batch som innehåller 100 entiteter skulle så räknas som 100 entiteter.  En fråga som genomsöker 1000 entiteter och returnerar 5 räknas som 1000 enheter.  
+#### <a name="entities-per-second-account"></a>Enheter per sekund (konto)
+Gräns för skalbarhet för att komma åt tabeller är upp till 20 000 entiteter (1KB som är varje) per sekund för ett konto.  I allmänhet varje entitet som har infogats kan uppdateras, tas bort eller genomsöks räknas mot det här målet.  En gruppinfogning som innehåller 100 entiteter skulle så räknas som 100 entiteter.  En fråga som söker igenom 1000 entiteter och returnerar 5 räknas som 1000 enheter.  
 
-#### <a name="entities-per-second-partition"></a>Entiteter per sekund (Partition)
-Inom en enskild partition är skalbarhet målet för att komma åt tabeller 2 000 enheter (1KB som är varje) per sekund, med samma inventering som beskrivs i föregående avsnitt.  
+#### <a name="entities-per-second-partition"></a>Enheter per sekund (Partition)
+På en enda partition är skalbarhetsmålen för att komma åt tabeller 2 000 entiteter (1KB som är varje) per sekund, med samma inventering enligt beskrivningen i föregående avsnitt.  
 
 ### <a name="configuration"></a>Konfiguration
 Det här avsnittet innehåller flera snabb konfigurationsinställningar som du kan använda för att göra betydande prestandaförbättringar i tabelltjänsten:  
 
 #### <a name="subheading25"></a>Använd JSON
-Från och med version av storage service 2013-08-15, stöder tabelltjänsten användningen av JSON i stället för XML-baserade AtomPub-format för att överföra tabelldata. Detta kan minska nyttolast storlekar som 75% och förbättrar prestandan för din app.
+Från och med storage service-version 2013-08-15, stöder table service användningen av JSON i stället för XML-baserade AtomPub-format för att överföra data från tabeller. Detta kan minska nyttolaststorlekar med så mycket som 75% och förbättrar programmets prestanda.
 
-Mer information finns i inlägg [Microsoft Azure-tabeller: introduktion till JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) och [Nyttolastformat för tabellen tjänståtgärder](http://msdn.microsoft.com/library/azure/dn535600.aspx).
+Mer information finns i inlägget [Microsoft Azure Tables: introduktion till JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) och [Nyttolastformatet för tabellen tjänståtgärder](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-#### <a name="subheading26"></a>Nagle ut
-Nagles algoritmen implementeras över TCP/IP-nätverk som används för att förbättra nätverksprestanda. Det är dock inte optimalt i samtliga fall (till exempel interaktiva miljöer). Nagles algoritm har en negativ inverkan på prestanda för begäranden till tjänsterna tabell och kön för Azure Storage, och bör du inaktivera den om möjligt.  
+#### <a name="subheading26"></a>Nagle av
+Nagles algoritmen implementeras över TCP/IP-nätverk som ett sätt att förbättra nätverkets prestanda. Det är dock inte optimal i samtliga fall (till exempel interaktiva miljöer). Nagles algoritmen har en negativ inverkan på prestanda för förfrågningar till tabell och kö-tjänster för Azure Storage, och bör du inaktivera den om möjligt.  
 
-Mer information finns i vår blogginlägget [Nagles algoritmen är inte egna gentemot små begäran](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx), som förklarar varför Nagles algoritmen dåligt samverkar med tabell- och köegenskaper begäranden och visar hur du inaktiverar det i ditt klientprogram.  
+Mer information finns i vår blogginlägget [Nagles algoritmen är inte eget för små begäranden](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx), som förklarar varför Nagles algoritmen interagerar dåligt med tabell och kö begäranden och visar hur du inaktiverar-klienten programmet.  
 
 ### <a name="schema"></a>Schema
-Hur du representera och fråga data är den största en faktor som påverkar prestanda för tabelltjänsten. Varje program är olika, beskrivs i det här avsnittet några allmänna beprövade metoder som relaterar till:  
+Hur du representerar och skicka frågor till dina data är den största enda faktor som påverkar prestanda för tabelltjänsten. Varje program är olika, beskrivs det här avsnittet vissa allmänna beprövade metoder som är relaterade till:  
 
 * Tabelldesign
 * Effektiva frågor
-* Effektiv uppdateringar  
+* Effektiv datauppdateringar  
 
 #### <a name="subheading27"></a>Tabeller och partitioner
-Tabeller är indelade i partitioner. Varje enhet som lagras i en partition delar samma partitionsnyckel och har en unik rad för att identifiera den i den aktuella partitionen. Partitioner ger fördelar, men också introducera skalbarhetsbegränsningar.  
+Tabeller är indelade i partitioner. Varje entitet som lagras i en partition delar samma partitionsnyckel och har en unik rad för att identifiera den i partitionen. Partitioner ger fördelar, men medför också skalbarhetsbegränsningar.  
 
-* Fördelar: Du kan uppdatera entiteter i samma partition i en enskild-atomic, batch-transaktion som innehåller upp till 100 separat lagringsåtgärder (högst 4MB, total storlek). Under förutsättning att samma antal enheter som ska hämtas, kan du också fråga data i en enda partition effektivare än data sträcker sig över flera partitioner (även om läsa på ytterligare rekommendationer för frågar tabelldata).
-* Skalbarhetsgränsen: åtkomst till entiteter som lagras i en partition kan inte vara belastningsutjämnad eftersom partitioner stöder atomiska Batchtransaktioner. Därför är skalbarhet mål för en enskild tabell partition lägre än för tabelltjänsten som helhet.  
+* Fördelar: Du kan uppdatera entiteter i samma partition i en enda,-atomiska, batch-transaktion som innehåller upp till 100 separat lagringsåtgärder (högst 4MB total storlek). Anta att samma antal entiteter som ska hämtas och kan du också fråga data på en enda partition mer effektivt än data från flera partitioner (dock läsa på ytterligare rekommendationer för hämtar data från tabeller).
+* Skalbarhetsgränsen: åtkomst till entiteter som lagras i en enda partition kan inte vara Utjämning av nätverksbelastning eftersom partitioner stöder Batchtransaktioner atomiska. Därför är skalbarhetsmålen för en enskild tabellpartition lägre än för tabelltjänsten som helhet.  
 
-På grund av dessa tabeller och egenskaper partitioner, bör du vidta följande designprinciperna:  
+På grund av följande egenskaper för tabeller och partitioner bör du anta följande designprinciper:  
 
-* Data som ditt klientprogram uppdateras ofta eller frågas i samma logiska arbetsenheten måste finnas i samma partition.  Det kan vara eftersom programmet är sammanställa skrivningar eller eftersom du vill dra nytta av atomiska batchåtgärder.  Dessutom kan data i en partition effektivare efterfrågas i en enskild fråga än data över partitioner.
-* Data som ditt klientprogram inte infoga/uppdatera eller fråga i samma logiska enhet arbete (enskild fråga eller gruppuppdatering) måste finnas i olika partitioner.  Ett viktigt är att det finns ingen gräns för antalet partitionsnycklar i en tabell med miljontals partitionsnycklar är inte ett problem och påverkar inte prestanda.  Till exempel om ditt program är en populär webbplats med användarinloggning, vara med hjälp av användar-Id som partitionsnyckel ett bra alternativ.  
+* Data som ditt klientprogram uppdateras ofta eller efterfrågas i samma logiska arbetsenheten måste finnas i samma partition.  Detta kan vara eftersom programmet sammanställer skrivningar eller eftersom du vill dra nytta av atomiska batchåtgärder.  Dessutom söka på en enda partition mer effektivt data i en enskild fråga än data över partitioner.
+* Data som ditt klientprogram inte infoga/uppdatera eller frågan i samma logiska enhet av arbete (enskild fråga eller batchuppdatering) måste finnas i olika partitioner.  Ett viktigt är att det finns ingen gräns för antal partitionsnycklar i en enda tabell, så har miljontals partitionsnycklar är inte ett problem och påverkar inte prestanda.  Till exempel om programmet är en populär webbplats med användarinloggning, kan med hjälp av användar-Id som partitionsnyckel vara ett bra alternativ.  
 
-#### <a name="hot-partitions"></a>Varm partitioner
-En varm partition är en som tar emot en stor andel av trafiken till ett konto och kan inte vara belastningsutjämnade eftersom det är en enskild partition.  I allmänhet skapas varm partitioner på två sätt:  
+#### <a name="hot-partitions"></a>Heta partitioner
+En frekvent partition är en som tar emot en för stor andel av trafiken till ett konto och kan inte vara belastningsutjämnade eftersom det är en enda partition.  I allmänhet skapas heta partitioner på två sätt:  
 
-##### <a name="subheading28"></a>Lägg endast till och lägga endast mönster
-Mönstret ”Lägg till bara” är en där alla (eller nästan alla) av trafik till en viss PK ökar och minskar enligt den aktuella tiden.  Ett exempel är om ditt program används det aktuella datumet som en partitionsnyckel för loggdata.  Detta resulterar i alla infogningar går till den senaste partition i tabellen och det går inte att läsa belastningsutjämna eftersom alla skrivningar kommer till slutet av tabellen.  Om mängden trafik till denna partition överskrider målet partition nivå skalbarhet, resulterar det i begränsning.  Det är bättre så att trafik som skickas till flera partitioner för att aktivera belastningsutjämning av begäranden i tabellen.  
+##### <a name="subheading28"></a>Lägg endast till och Lägg till åtkomstgruppen endast mönster
+Mönstret ”Lägg till bara” är en där alla (eller nästan alla) trafik till en viss PK ökar och minskar enligt den aktuella tiden.  Ett exempel är om ditt program används aktuellt datum som en partitionsnyckel för loggdata.  Detta resulterar i alla infogningar går till den senaste partition i tabellen och det går inte att läsa belastningsutjämna eftersom alla skrivningar kommer i slutet av din tabell.  Om mängden trafik till partitionen överskrider partition på servernivå skalbarhetsmålen, resulterar det i begränsning.  Är det bättre att se till att trafik skickas till flera partitioner, för att aktivera belastningsutjämning begäranden i din tabell.  
 
 ##### <a name="subheading29"></a>Hög trafik Data
-Om din partitioneringsschema resulterar i en enda partition som bara innehåller data som används mycket mer än andra partitioner, kan du också se begränsning som att partitionen närmar sig skalbarhet målet för en enskild partition.  Det är bättre att se till att din partitionsschema resulterar i någon enskild partition som närmar sig skalbarhetsmål.  
+Om partitioneringsschemat resulterar i en enda partition som bara innehåller data som används mycket mer än andra partitioner, kan du också se begränsning som att partitionen närmar sig skalbarhetsmålen för en enda partition.  Är det bättre att se till att din partitionsschema leder till att ingen enskild partition som närmar sig det för skalbarhetsmål.  
 
 #### <a name="querying"></a>Fråga
-Det här avsnittet beskrivs beprövade metoder för att fråga efter tabelltjänsten.  
+Det här avsnittet beskrivs några beprövade metoder för att fråga table service.  
 
-##### <a name="subheading30"></a>Frågeomfattningen
-Det finns flera sätt att ange intervallet för entiteterna som frågas.  Här följer en beskrivning av användning av varje.  
+##### <a name="subheading30"></a>Omfång
+Det finns flera sätt att ange en uppsättning entiteter för att fråga.  Här följer en beskrivning av användningen av var och en.  
 
-I allmänhet undvika genomsökningar (frågor som är större än en enda enhet), men om du måste skannar, försök att ordna data så att dina skanningar hämta de data du behöver utan genomsökning eller returnera stora mängder enheter inte behöver du.  
+I allmänhet undvika genomsökningar (frågor som är större än en enda entitet), men om du måste skannar, försök att ordna data så att dina skanningar hämta de data du behöver utan att skanna eller returnera stora mängder entiteter som du inte behöver.  
 
-###### <a name="point-queries"></a>Punkt-frågor
-En punkt-fråga hämtar exakt en enhet. Det gör du genom att ange både partitionsnyckel och radnyckel för att hämta entiteten. De här frågorna är mycket effektivt och du bör använda dem om möjligt.  
+###### <a name="point-queries"></a>Punktfrågor
+En punkt-fråga hämtar exakt en entitet. Det gör du genom att ange både partitionsnyckel och radnyckel för att hämta entiteten. Dessa frågor är ett mycket effektivt och du bör använda dem om möjligt.  
 
-###### <a name="partition-queries"></a>Partitionen frågor
-En partitionsfrågan är en fråga som hämtar en datamängd som delar en gemensam partitionsnyckel. Frågan anger vanligtvis ett intervall av nyckelvärden för raden eller ett intervall med värden för vissa entitetsegenskap förutom en partitionsnyckel. Dessa är mindre effektiva än punkt frågor och bör användas sparsamt.  
+###### <a name="partition-queries"></a>Partition frågor
+En partition fråga är en fråga som hämtar en datamängd som delar en gemensam partitionsnyckel. Frågan anger vanligtvis ett antal viktiga radvärden eller ett intervall med värden för vissa entitetsegenskap förutom en partitionsnyckel. Dessa är mindre effektivt än punktfrågor och bör användas sparsamt.  
 
-###### <a name="table-queries"></a>Tabell frågor
-En tabellfråga är en fråga som hämtar en uppsättning enheter som inte delar en gemensam partitionsnyckel. Dessa frågor är inte effektivt och du bör undvika dem om möjligt.  
+###### <a name="table-queries"></a>Tabellen frågor
+En tabellfråga är en fråga som hämtar en uppsättning entiteter som inte delar en gemensam partitionsnyckel. De här frågorna är inte effektiva och du bör undvika dem om möjligt.  
 
-##### <a name="subheading31"></a>Frågan densitet
-En annan nyckelfaktor i frågan effektivitet är antalet enheter som returneras jämfört med antal entiteter som genomsöks för att hitta den returnerade uppsättningen. Om ditt program utför en tabellfråga med ett filter för ett värde för egenskapen att bara 1% av data resurser frågan genomsöks 100 entiteter för var en entitet som returneras. Tabellen skalbarhetsmål beskrivs tidigare alla avser antalet enheter som har genomsökts och inte antal entiteter som returneras: låg frågan densitet enkelt kan orsaka tabelltjänsten att begränsa ditt program eftersom det måste söka så många entiteter för att hämta entiteten som du letar efter.  I avsnittet nedan på [denormalization](#subheading34) mer information om hur du undviker detta.  
+##### <a name="subheading31"></a>Fråga densitet
+En annan viktig faktor i frågans effektiviteten är antalet enheter som returneras jämfört med antal entiteter som genomsöks för att hitta den returnerade uppsättningen. Om ditt program utför en tabellfråga med ett filter för ett egenskapsvärde som att endast 1% av dataresurser frågan söker igenom 100 entiteter för varje en entitet som returneras. Tabellen skalbarhetsmål som beskrivs tidigare alla avser antalet enheter som har genomsökts och inte antalet enheter som returneras: densitet frågor enkelt kan orsaka tabelltjänsten att begränsa ditt program eftersom det måste genomsöka så många entiteter att Hämta det entitet som du letar efter.  Se avsnittet nedan på [denormalisering](#subheading34) för mer information om hur du undviker detta.  
 
 ##### <a name="limiting-the-amount-of-data-returned"></a>Begränsa mängden Data som returneras
 ###### <a name="subheading32"></a>Filtrering
-Överväg att använda ett filter för att minska storleken på den returnerade uppsättningen om du vet att en fråga returnerar enheter som du inte behöver i klientprogrammet. När enheterna inte returneras till klienten fortfarande räknas in skalbarhetsgränser, förbättrar programmets prestanda på grund av minskade nätverket nyttolastens storlek och minskat antal entiteter som klientprogrammet måste bearbeta.  Se över anteckning på [frågan densitet](#subheading31), men – skalbarhetsmål avser antalet enheter som genomsöks, så att en fråga som filtrerar ut många entiteter fortfarande kan resultera i begränsning, även om några enheter returneras.  
+Överväg att använda ett filter för att minska storleken på den returnerade uppsättningen där du vet att en fråga returnerar entiteter som du inte behöver i klientprogrammet. Även om de enheter som inte returneras till klienten fortfarande tillgodoräknas skalbarhetsgränserna förbättras programprestanda på grund av nyttolast minskade nätverk och minskat antal entiteter som ditt klientprogram måste bearbeta.  Se över Observera på [fråga densitet](#subheading31), men – det för skalbarhetsmål avser antalet enheter som har genomsökts så att en fråga som filtrerar bort många entiteter kan fortfarande resultera i begränsningar, även om några entiteter returneras.  
 
 ###### <a name="subheading33"></a>Projektion
-Om klientprogrammet måste begränsad uppsättning egenskaper från entiteter i tabellen, kan du använda projektion för att begränsa storleken på datamängden som returnerades. Precis som med filtrering, bidrar detta till att minska nätverksbelastningen och klienten bearbetning.  
+Om klientprogrammet behöver endast en begränsad uppsättning egenskaper från enheter i din tabell, kan du kan använda projektion för att begränsa storleken på returnerade datauppsättningen. Precis som med filtrering, detta är för att minska nätverksbelastningen och bearbetning av klienten.  
 
-##### <a name="subheading34"></a>Denormalization
-Till skillnad från arbete med relationsdatabaser leda beprövade metoder för att effektivt frågar tabelldata till denormalizing dina data. Som är dubblering av samma data i flera enheter (en för varje nyckel som du kan använda för att hitta data) att minimera antalet enheter som en fråga måste söka igenom för att söka efter data klienten måste i stället att skanna stort antal enheter för att hitta data programmet behöver.  Till exempel webbplatser för e-handel, du kanske vill hitta en order både kund-ID: t (mig kundens order) och efter datumet (mig order på ett datum).  I Table Storage är det bäst att lagra entiteten (eller en referens till den) två gånger – en gång med tabellnamn, PK och RK för att underlätta hitta av kunden ID, en gång för att underlätta söka efter datumet.  
+##### <a name="subheading34"></a>Denormalisering
+Till skillnad från arbetar med relationsdatabaser, leda beprövade metoder för att effektivt fråga tabelldata till avnormalisera data. Det vill säga duplicera samma data på flera enheter (en för varje nyckel som du kan använda för att hitta data) att minimera antalet enheter som en fråga måste genomsöka för att hitta data klienten måste du, i stället för att skanna stort antal entiteter för att hitta data din app ogrampool måste.  Till exempel webbplatser för e-handel, du kanske vill hitta en beställning båda efter kund-ID (jag den här kundens order) och efter datumet (jag order på ett datum).  I Table Storage, är det bäst att lagra entiteten (eller en referens till den) två gånger – en gång med namnet på tabellen PK och Rksskrivare för att underlätta att hitta av kund-ID: T, en gång för att underlätta att söka efter datumet.  
 
-#### <a name="insertupdatedelete"></a>Insert/Update/Delete
-Det här avsnittet beskrivs beprövade metoder för att ändra entiteter som lagras i tabelltjänsten.  
+#### <a name="insertupdatedelete"></a>Infoga/Uppdatera/ta bort
+Det här avsnittet beskrivs några beprövade metoder för att ändra entiteter som lagras i tabelltjänsten.  
 
 ##### <a name="subheading35"></a>Batchbearbetning
-Batchtransaktioner är kända som entiteten grupp transaktioner (ETG) i Azure Storage; alla åtgärder i en ETG måste finnas på en partition i en tabell. Om möjligt bör du använda ETGs för att utföra infogningar, uppdateringar och borttagningar i batchar. Detta minskar antalet sändningar från ditt klientprogram till servern, minskar antalet fakturerbar transaktioner (en ETG räknas som en enda transaktion för fakturering och kan innehålla upp till 100 lagringsåtgärder) och aktiverar atomiska uppdateringar (alla åtgärder lyckas eller misslyckas inom en ETG alla). Miljöer med hög fördröjning till exempel från mobila enheter kommer avsevärt fördelarna med att använda ETGs.  
+Batchtransaktioner är kända som entiteten grupp transaktioner (ETG) i Azure-lagring. alla åtgärder i en ETG måste finnas på en enda partition i en enda tabell. Om möjligt, kan du använda ETGs för att utföra infogningar, uppdateringar och borttagningar i batchar. Detta minskar antalet sändningar från klientprogrammet till servern, minskar antalet faktureringsbara transaktioner (en ETG räknas som en enda transaktion för fakturering och kan innehålla upp till 100 lagringsåtgärder) och aktiverar atomiska uppdateringar (alla åtgärder lyckas eller misslyckas i en ETG). Miljöer med hög fördröjning, som mobila enheter kan dra avsevärt från att använda ETGs.  
 
 ##### <a name="subheading36"></a>Upsert
-Användningstabell **Upsert** åtgärder när så är möjligt. Det finns två typer av **Upsert**, som kan vara effektivare än traditionella **infoga** och **uppdatering** åtgärder:  
+Användningstabell **Upsert** åtgärder när så är möjligt. Det finns två typer av **Upsert**, som kan vara effektivare än en traditionell **infoga** och **uppdatering** åtgärder:  
 
-* **InsertOrMerge**: Använd den här när du vill överföra en delmängd av enhetens egenskaper, men är osäker på om entiteten finns redan. Om entiteten finns det här anropet uppdateras de egenskaper som ingår i den **Upsert** åtgärd och lämnar alla befintliga egenskaper som de är, om entiteten inte finns, infogas ny entitet. Detta liknar att projektion har använts i en fråga i att du behöver bara ladda upp de egenskaper som ändrar.
-* **InsertOrReplace**: Använd den här när du vill överföra en helt ny entitet, men du är osäker på om den redan finns. Du bör endast använda den när du vet att nyligen uppladdade entiteten är helt korrekt eftersom det helt skriver över den gamla entiteten. Till exempel vill du uppdatera en entitet som lagrar användarens aktuella plats oavsett om programmet har tidigare lagrad lokaliseringsuppgifter för användaren. den nya plats entiteten är klar och du behöver inte någon information från tidigare entiteter.
+* **InsertOrMerge**: Använd det här när du vill ladda upp en delmängd av egenskaperna för den entiteten, men är osäker på om entiteten finns redan. Om entiteten finns det här anropet uppdaterar egenskaperna som ingår i den **Upsert** åtgärd, och lämnar alla befintliga egenskaper som de är, om entiteten inte finns, infogas den nya entiteten. Det här är ungefär som att använda projektion i en fråga, eftersom du behöver bara överför de egenskaper som ändrar.
+* **InsertOrReplace**: Använd det här när du vill ladda upp en helt ny entitet, men du är osäker på om den redan finns. Du bör endast använda detta när du vet att den nyligen uppladdade entiteten är helt korrekt eftersom det helt skriver över den gamla entiteten. Exempelvis kan vill du uppdatera det entitet som lagrar användarens aktuella plats, oavsett om programmet har tidigare lagrade platsdata för användaren. den nya plats-entiteten är klar och du behöver inte någon information från föregående entiteter.
 
 ##### <a name="subheading37"></a>Lagra dataserien i en enda entitet
-Ibland kan ett program lagrar en serie med data som ofta behöver hämta allt samtidigt: ett program kan till exempel Spåra processoranvändning över tid för att rita ett rullande diagram av data från de senaste 24 timmarna. En metod är att tabellen enheter per timme, med varje entitet som representerar en specifik timme och lagrar CPU-användningen för den timmen. Programmet måste hämta data från de senaste 24 timmarna för innehavare för att rita dessa data.  
+Ibland kan ett program lagrar en serie med data som ofta behöver hämta allt samtidigt: ett program kan till exempel Spåra processoranvändning över tid för att rita ett rullande diagram av data från de senaste 24 timmarna. En metod är att ha tabellen enheter per timme, med varje entitet som representerar en viss timme och lagrar CPU-användningen för den timmen. Om du vill rita ut dessa data, måste programmet hämta entiteter som innehåller data från de senaste 24 timmarna.  
 
-Du kan också programmet kan lagra CPU-användningen för varje timme som en separat av en enda entitet: för att uppdatera varje timme, programmet kan använda en enda **InsertOrMerge Upsert** anrop för att uppdatera värdet för den senaste timmen. Om du vill rita data programmet behöver bara en enda entitet i stället för 24, för ett mycket effektivt frågan att hämta (se ovan diskussion på [fråga scope](#subheading30)).
+Du kan också ditt program kan lagra CPU-användning för varje timme som en separat egenskap för en enda entitet: för att uppdatera varje timme, ditt program kan använda en enda **InsertOrMerge Upsert** anrop för att uppdatera värdet för den senaste timme. Om du vill rita data programmet endast måste hämta en enda entitet i stället för 24, vilket gör för en mycket effektivt fråga (se ovan diskussion på [fråga omfång](#subheading30)).
 
-##### <a name="subheading38"></a>Lagra strukturerade data i BLOB
-Ibland strukturerade data känns som det ska gå i tabeller, men intervallen för entiteter hämtas alltid tillsammans och kan batch infogas.  Ett bra exempel på detta är en loggfil.  I det här fallet kan du batch-flera minuters loggar, infoga dem och sedan du hämtar alltid flera minuter loggar i taget samt.  I det här fallet för prestanda är det bättre att använda blobbar i stället för tabeller, eftersom du kan avsevärt minska antalet objekt skrivs/returnerade, samt vanligtvis antalet begäranden som behöver.  
+##### <a name="subheading38"></a>Lagra strukturerade data i blobbar
+Ibland strukturerade data känns som om det ska gå i tabeller, men intervallen för entiteter hämtas alltid tillsammans och kan batch infogas.  Ett bra exempel på detta är en loggfil.  I det här fallet kan du batch flera minuters loggar, infoga dem och sedan du hämtar alltid flera minuters loggar i taget samt.  I det här fallet för prestanda är det bättre att använda blobar i stället för tabeller, eftersom du kan avsevärt minska antalet objekt som har skrivits/returneras, samt vanligtvis antalet förfrågningar som behöver.  
 
 ## <a name="queues"></a>Köer
-Förutom beprövade metoder för [alla tjänster](#allservices) som beskrivs ovan, följande beprövade metoder som gäller specifikt för kötjänsten.  
+Förutom beprövade metoder för [alla tjänster](#allservices) som beskrivits tidigare följande metodtips som gäller specifikt för kötjänsten.  
 
-### <a name="subheading39"></a>Skalbarhetsgränser
-En enskild kö kan bearbeta ungefär 2 000 meddelanden (1KB som är varje) per sekund (varje AddMessage och GetMessage DeleteMessage antal som ett meddelande här). Om detta inte är tillräckligt för ditt program bör du använda flera köer och sprids dem meddelanden.  
+### <a name="subheading39"></a>Skalbarhetsgränserna
+En enskild kö kan bearbeta ungefär 2 000 meddelanden (1KB som är varje) per sekund (som ett meddelande här AddMessage och GetMessage DeleteMessage räknas). Om det inte är tillräckligt för ditt program bör du använda flera köer och sprids dem meddelanden.  
 
-Visa den aktuella skalbarhetsmål på [Azure Storage skalbarhets- och prestandamål](storage-scalability-targets.md).  
+Visa aktuella skalbarhetsmål på [skalbarhet för lagring av Azure- och prestandamål](storage-scalability-targets.md).  
 
-### <a name="subheading40"></a>Nagle ut
-Se avsnittet om konfigurationen som beskrivs algoritmen Nagle – Nagle algoritmen är vanligtvis bra för prestanda för kön begäranden och bör du inaktivera den.  
+### <a name="subheading40"></a>Nagle av
+Se avsnittet om tabell-konfiguration som beskrivs algoritmen Nagle – Nagle-algoritmen är vanligtvis bra för prestanda för begäranden i kö och bör du inaktivera den.  
 
 ### <a name="subheading41"></a>Meddelandestorlek
-Kön prestanda och skalbarhet minskas när meddelandet storlek ökar. Du bör placera bara den information som mottagaren måste i ett meddelande.  
+Kön prestanda och skalbarhet minskar när meddelandet storlek ökar. Du bör placera bara den information som behövs för mottagaren i ett meddelande.  
 
 ### <a name="subheading42"></a>Batch-hämtning
-Du kan hämta upp till 32 meddelanden från en kö i en enda åtgärd. Detta minskar antalet turer fram och tillbaka från klientprogrammet, vilket är särskilt användbart för företagsmiljöer, t.ex mobila enheter med hög latens.  
+Du kan hämta upp till 32 meddelanden från en kö i en enda åtgärd. Detta kan minska antalet turer fram och tillbaka från klientprogrammet, vilket är särskilt användbart för miljöer, till exempel mobila enheter med lång svarstid.  
 
-### <a name="subheading43"></a>Avsökningsintervall för kön
-De flesta program att söka efter meddelanden från en kö som kan vara något av de största källorna till transaktioner för programmet. Välj din avsökningsintervallet klokt: avsökning för ofta kan orsaka tillämpningsprogrammet att närma skalbarhetsmål för kön. På 200 000 transaktioner för $0,01 (vid tidpunkten för skrivning) är en enskild processor avsökning när varje sekund för en månad skulle kosta mindre än 15 cent så kostnaden dock inte vanligtvis en faktor som påverkar ditt val av avsökningsintervallet.  
+### <a name="subheading43"></a>Avsökningsintervall för kö
+De flesta program att söka efter meddelanden från en kö som kan vara något av de största källorna för transaktioner för programmet. Välj din avsökningsintervallet motiverar: avsökningsintervall för ofta kan göra att ditt program att skalbarhetsmål för kön. På 200 000 transaktioner för $0.01 (vid tidpunkten för skrivning) är en enskild processor avsökning när varje sekund i en månad skulle kosta mindre än 15 cent så kostnad dock inte vanligtvis en faktor som påverkar ditt val av avsökningsintervall.  
 
-Uppdaterade kostnadsinformation finns [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
+Aktuell kostnadsinformation finns i [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
 
 ### <a name="subheading44"></a>UpdateMessage
-Du kan använda **UpdateMessage** att öka tidsgränsen för osynlighet eller för att uppdatera information om tillstånd för ett meddelande. Detta är kraftfulla, Kom ihåg att varje **UpdateMessage** åtgärden räknar mot mål för skalbarhet. Det kan dock vara ett mycket effektivare sätt än med ett arbetsflöde som skickar ett jobb från en kö till nästa, eftersom varje steg i jobbet har slutförts. Med hjälp av den **UpdateMessage** åtgärden tillåter programmet att spara jobbets status till meddelandet och sedan fortsätta arbeta i stället för queuing meddelandet för nästa steg i jobbet igen varje gång ett steg har slutförts.  
+Du kan använda **UpdateMessage** att öka tidsgränsen för osynlighet eller för att uppdatera information om tillstånd för ett meddelande. Detta är kraftfulla, Kom ihåg att varje **UpdateMessage** åtgärden räknas mot skalbarhetsmålen. Detta kan dock vara ett mycket effektivare sätt än med ett arbetsflöde som skickar ett jobb från en kö till nästa, eftersom varje steg i jobbet har slutförts. Med hjälp av den **UpdateMessage** åtgärden tillåter programmet att spara jobbets status till meddelandet och sedan fortsätta arbeta i stället för queuing meddelandet för nästa steg i jobbet igen varje gång ett steg har slutförts.  
 
 Mer information finns i artikeln [så här: ändra innehållet i ett meddelande i kön](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 
 ### <a name="subheading45"></a>Programarkitektur
-Du bör använda köer för att göra din programarkitektur skalbara. Här nedan listas några metoder som du kan använda köer för att göra programmet mer skalbar:  
+Du bör använda köer för att göra din programarkitektur skalbara. Här nedan listas några sätt som du kan använda köer för att göra programmet mer skalbart:  
 
-* Du kan använda köer för att skapa eftersläpningar för bearbetning och Utjämna arbetsbelastningar i ditt program. Du kan till exempel köa-begäranden från användare arbetar processor, till exempel storleksändring överförda bilder.
-* Du kan använda köer för att frikoppla delar av ditt program så att du kan skala oberoende av varandra. Till exempel placera en webbklientdel undersökningsresultat från användare i en kö för senare analys och lagring. Du kan lägga till flera worker rollinstanser för att bearbeta kön data vid behov.  
+* Du kan använda köer för att skapa kvarvarande uppgifter för bearbetning och jämna ut arbetsbelastningar i ditt program. Du kan till exempel köa begäranden från användare för att utföra processorn arbetar, till exempel storleksändring av överförda bilder.
+* Du kan använda köer för att frikoppla delar av ditt program så att du kan skala dem oberoende av varandra. Till exempel placera en webbklient undersökningsresultatet från användare till en kö för senare analys och lagring. Du kan lägga till flera worker-rollinstanser för att bearbeta kö data vid behov.  
 
 ## <a name="conclusion"></a>Sammanfattning
-Den här artikeln beskrivs några av de vanligaste, beprövade metoder för att optimera prestanda när du använder Azure Storage. Vi rekommenderar att alla programutvecklare utvärderar sina program med hjälp av ovanstående metoder, och överväger att följa rekommendationerna för att få ut mesta möjliga av de program som använder sig av Azure-lagring.
+Den här artikeln beskrivs några av de vanligaste och mest beprövade metoderna för prestandaoptimering när du använder Azure Storage. Vi rekommenderar att alla programutvecklare utvärderar sina program med hjälp av ovanstående metoder, och överväger att följa rekommendationerna för att få ut mesta möjliga av de program som använder sig av Azure-lagring.

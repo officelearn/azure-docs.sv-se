@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b37c9017d6c9a8b1d5f53141e28c170307206f3b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 2dea5686add93d93f35e82445f411035a2451e33
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225833"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525985"
 ---
 # <a name="how-to-configure-conditional-access-policies-for-access-attempts-from-untrusted-networks"></a>Så här: Konfigurera principer för villkorlig åtkomst för åtkomstförsök från ej betrodda nätverk   
 
@@ -39,7 +39,7 @@ Se:
 
 - [Vad är villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal.md) – en översikt av villkorlig åtkomst 
 
-- [Snabbstart: Kräva MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-app-based-mfa.md) – om du vill få lite erfarenhet och konfigurerar principer för villkorlig åtkomst. 
+- [Snabbstart: Kräva MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](conditional-access/app-based-mfa.md) – om du vill få lite erfarenhet och konfigurerar principer för villkorlig åtkomst. 
 
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -61,7 +61,7 @@ Med Azure AD villkorlig åtkomst, kan du lösa det här kravet med en enda princ
 
 ## <a name="considerations"></a>Överväganden
 
-Den stora utmaningen med det här scenariot är att översätta *när ett åtkomstförsök görs från en plats som inte är betrodd* till ett villkor för villkorlig åtkomst. I en princip för villkorlig åtkomst kan du konfigurera den [platser villkor](active-directory-conditional-access-locations.md) kunna hantera scenarier som är relaterade till nätverksplatser. Villkoret platser kan du välja [namngivna platser](active-directory-conditional-access-locations.md#named-locations), som representerar logiska grupperingar av IP-adressintervall, länder och regioner.  
+Den stora utmaningen med det här scenariot är att översätta *när ett åtkomstförsök görs från en plats som inte är betrodd* till ett villkor för villkorlig åtkomst. I en princip för villkorlig åtkomst kan du konfigurera den [platser villkor](conditional-access/location-condition.md) kunna hantera scenarier som är relaterade till nätverksplatser. Villkoret platser kan du välja namngivna platser, som representerar logiska grupperingar av IP-adressintervall, länder och regioner.  
 
 Normalt kan äger din organisation en eller flera adressintervall, till exempel 199.30.16.0 - 199.30.16.24.
 Du kan konfigurera en namngiven plats genom att:
@@ -85,7 +85,7 @@ I stället att definiera vilka alla platser är som inte är betrodd, kan du:
 
 ## <a name="implementation"></a>Implementering
 
-Med den metod som beskrivs i den här artikeln kan du nu konfigurera en princip för villkorlig åtkomst för ej betrodda platser. Du bör alltid testa din princip innan den distribueras ut i produktionen för att se till att den fungerar som förväntat. Vi rekommenderar bör om möjligt du göra dina inledande tester i en test-klient. Mer information finns i [hur ska du distribuera en ny princip](active-directory-conditional-access-best-practices.md#how-should-you-deploy-a-new-policy). 
+Med den metod som beskrivs i den här artikeln kan du nu konfigurera en princip för villkorlig åtkomst för ej betrodda platser. Du bör alltid testa din princip innan den distribueras ut i produktionen för att se till att den fungerar som förväntat. Vi rekommenderar bör om möjligt du göra dina inledande tester i en test-klient. Mer information finns i [hur ska du distribuera en ny princip](conditional-access/best-practices.md#how-should-you-deploy-a-new-policy). 
 
 
 

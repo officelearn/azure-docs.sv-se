@@ -4,17 +4,17 @@ description: Azure Policy är en tjänst i Azure som används för att skapa, ti
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/31/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 51fd0c625ad7e600d54999ddd86e5e49a7c4f14d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249884"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364436"
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure Policy?
 
@@ -126,11 +126,11 @@ Det finns ett maxantal för varje objekttyp för Azure Policy. En post av typen 
 | Omfång | Principdefinitioner | 250 |
 | Omfång | Initiativdefinitioner | 100 |
 | Klientorganisation | Initiativdefinitioner | 1000 |
-| Omfång | Principtilldelning | 100 |
+| Omfång | Princip-/initiativtilldelningar | 100 |
 | Principdefinition | Parametrar | 20 |
 | Initiativdefinition | Principer | 100 |
 | Initiativdefinition | Parametrar | 100 |
-| Principtilldelning | Undantag (notScopes) | 100 |
+| Princip-/initiativtilldelningar | Undantag (notScopes) | 100 |
 | Principregel | Kapslade villkor | 512 |
 
 ## <a name="recommendations-for-managing-policies"></a>Rekommendationer för principhantering

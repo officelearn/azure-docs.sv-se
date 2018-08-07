@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59db39e4d8cc68f8c7b63b347980044f06b4522a
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 98c7bd5daf3b84499e8e31c0a7a2da612834b83e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344417"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521990"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfigurationer för SAP HANA-infrastruktur och åtgärder på Azure
 Det här dokumentet innehåller anvisningar för att konfigurera Azure-infrastrukturen och använda SAP HANA-system som har distribuerats på Azures inbyggda virtuella datorer (VM). Dokumentet innehåller också konfigurationsinformation för SAP HANA skalbar för M128s VM SKU: N. Det här dokumentet är inte avsedd att ersätta standard SAP-dokumentationen, som innehåller följande innehåll:
@@ -82,13 +82,13 @@ En lista över lagringstyper och deras serviceavtal i IOPS och lagring dataflöd
 I den mån det du har köpt SAP HANA-enheterna för den lokala haft du aldrig om i/o-undersystem och dess funktioner. Eftersom leverantören av enheten som behövs för att se till att de minsta krav är uppfyllda för SAP HANA. När du bygger Azure-infrastrukturen själv kan bör du också känna till några av dessa krav. Och förstår även de konfigurationskrav som föreslås i följande avsnitt. Eller om du vill köra SAP HANA på i de fall där du konfigurerar de virtuella datorerna. Några av de egenskaper som uppmanas vilket resulterar i att behöva:
 
 - Aktivera skrivning/volym på **/hana/log** en 250 MB/sek som minimum med 1 MB i/o-storlekar
-- Aktivera Läs aktiviteten hos minst 400MB/sekund för **/hana/data** för 16 MB och 64 MB i/o-storlekar
-- Aktivera skrivningsaktiviteter minst 250MB/sek för **/hana/data** med 16 MB och 64 MB i/o-storlekar
+- Aktivera Läs aktiviteten hos minst 400 MB/sekund för **/hana/data** för 16 MB och 64 MB i/o-storlekar
+- Aktivera skrivningsaktiviteter minst 250 MB/sek för **/hana/data** med 16 MB och 64 MB i/o-storlekar
 
 Svarstiden är viktigt för DBMS system, beroende på den låga storage även när de olika DBMS som SAP HANA, behålla data i minnet. Den kritiska vägen i storage är vanligtvis runt transaction log skrivningar av DBMS system. Men även operations skriva lagringspunkter eller läser in data i minnet när kraschåterställning kan vara avgörande. Därför är det obligatoriskt att utnyttja Azure Premium-diskar för **/hana/data** och **/hana/log** volymer. För att uppnå lägsta dataflödet för **/hana/log** och **/hana/data** efter behov av SAP, du behöver för att skapa en RAID 0 med MDADM eller LVM över flera Azure Premium Storage-diskar. Och Använd RAID-volymer som **/hana/data** och **/hana/log** volymer. Eftersom stripe-storlekar för RAID 0 rekommendationen är att använda:
 
-- 64KB eller 128KB för   **/hana/data**
-- 32KB för   **/hana/log**
+- 64 KB eller 128 KB för   **/hana/data**
+- 32 KB för   **/hana/log**
 
 > [!NOTE]
 > Du behöver inte konfigurera någon redundansnivå med RAID-volymer eftersom Azure Premium och Standard-lagring att tre avbildningar av en virtuell Hårddisk. Användningen av en RAID-volym är helt och hållet att konfigurera volymer som ger tillräcklig i/o-dataflöde.
@@ -347,10 +347,112 @@ När infrastrukturen för Azure virtuella datorer har distribuerats och alla and
 - Installera SAP HANA huvudnoden enligt SAP: s dokumentationen
 - **Efter installationen kan du behöva ändra filen global.ini och lägga till parametern ”basepath_shared = Nej” till global.ini**. Den här parametern gör att SAP HANA att köra i skalbar utan ”delade” **/hana/data** och **/hana/log** volymer mellan noderna. Information som finns dokumenterade i [SAP Obs! #2080991](https://launchpad.support.sap.com/#/notes/2080991).
 - När du har ändrat parametern global.ini SAP HANA-instansen startas om
-- Lägg till ytterligare arbetsnoder. Se även <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Ange det interna nätverket för SAP HANA kommunikation mellan noder kommunikation under installationen eller efteråt använder, t.ex. lokala hdblcm. Mer dokumentation finns också [SAP Obs! #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
+- Lägg till ytterligare arbetsnoder. Se även <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Ange det interna nätverket för SAP HANA mellan nod-kommunikation under installationen eller efteråt med till exempel, lokala hdblcm. Mer dokumentation finns också [SAP Obs! #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
 
 Efter den här installationsrutinen skalbar konfigurationen som du har installerat kommer att använda icke-delade diskar för att köra **/hana/data** och **/hana/log**. Medan den **/hana/delade** volym placeras på den högtillgängliga NFS-resursens.
-  
+
+
+## <a name="sap-hana-dynamic-tiering-20-for-azure-virtual-machines"></a>SAP HANA dynamisk lagringsnivåer 2.0 för Azure-datorer
+
+Förutom certifieringar för SAP HANA på Azure virtuella datorer i M-serien, stöds även SAP HANA dynamisk lagringsnivåer 2.0 på Microsoft Azure (Se SAP HANA dynamisk lagringsnivåer dokumentation linsk längre ner). Det finns ingen skillnad i installerar produkten eller använda den, till exempel via SAP HANA Cockpit inuti en Azure-dator, men det finns några viktiga objekt, som är obligatoriska för officiella support på Azure. Dessa nyckelpunkter beskrivs nedan. I artikeln används förkortningen ”DT 2.0” i stället för det fullständiga namnet dynamisk lagringsnivåer 2.0.
+
+SAP HANA dynamisk lagringsnivåer 2.0 stöds inte av SAP BW eller S4HANA. Huvudsakliga användningsområden är just nu interna HANA-program.
+
+
+### <a name="overview"></a>Översikt
+
+Bilden nedan ger en översikt om DT 2.0 stöd på Microsoft Azure. Det finns ett antal obligatoriska krav som måste följas för att uppfylla officiell certifiering:
+
+- DT 2.0 måste installeras på en dedikerad virtuell Azure-dator. Det kan inte köras i samma virtuella dator där SAP HANA körs
+- SAP HANA och DT 2.0 virtuella datorer måste distribueras inom samma Azure Vnet
+- SAP HANA och DT 2.0 virtuella datorer måste distribueras med Azure accelererat nätverk aktiverat
+- Lagringstyp för de virtuella datorerna 2.0 DT måste vara Azure Premium Storage
+- Flera Azure-diskar måste vara kopplat till den virtuella datorn 2.0 DT
+- Det krävs för att skapa en programvaru-raid / stripe-volym (antingen via lvm eller mdadm) använda striping i alla Azure-diskar
+
+Mer information om förklaras i följande avsnitt.
+
+![Arkitekturöversikt för SAP HANA DT 2.0](media/hana-vm-operations/hana-dt-20.PNG)
+
+
+
+### <a name="dedicated-azure-vm-for-sap-hana-dt-20"></a>Reserverad Azure VM för SAP HANA DT 2.0
+
+DT 2.0 stöds endast på en dedikerad virtuell dator på Azure IaaS. Det går inte att köra DT 2.0 samma virtuella Azure-datorn där HANA-instansen körs. Initialt två typer av virtuella datorer kan användas för att köra SAP HANA DT 2.0:
+
+M64-32ms, E32sv3 
+
+Se beskrivning av virtuell dator [här](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
+
+Beroende Grundtanken med DT 2.0 som handlar om ”varma” data-avlastning för att spara kostnader är det praktiskt att använda motsvarande VM-storlekar. Det finns ingen strikt regel om angående möjliga kombinationer. Det beror på arbetsbelastningen viss kund.
+
+Rekommenderade konfigurationerna är:
+
+| SAP HANA VM-typ | DT 2.0 VM-typ |
+| --- | --- | 
+| M128ms | M64-32ms |
+| M128s | M64-32ms |
+| M64ms | E32sv3 |
+| M64s | E32sv3 |
+
+
+Alla kombinationer av SAP HANA-certifierade M-serien virtuella datorer med DT 2.0 virtuella datorer som stöds (M64 32ms, E32sv3) är möjliga.
+
+
+### <a name="azure-networking-and-sap-hana-dt-20"></a>Azure-nätverk och SAP HANA DT 2.0
+
+Installera DT 2.0 på en dedikerad virtuell dator kräver dataflöde i nätverket mellan den virtuella datorn 2.0 DT och SAP HANA VM på minst 10 Gb. Därför är det nödvändigt att placera alla virtuella datorer inom samma Azure Vnet och aktivera Azure accelererat nätverk.
+
+Visa ytterligare information om Azure accelererat nätverk [här](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)
+
+### <a name="vm-storage-for-sap-hana-dt-20"></a>VM-lagringen för SAP HANA DT 2.0
+
+Enligt DT 2.0 metodvägledning, bör disk-i/o-dataflöde vara minst 50 MB/sek per fysisk kärna. Titta på specifikationen för två Azure VM-typer som stöds för DT 2.0 en visas den maximala värdet för disken i/o-dataflödesgräns för den virtuella datorn:
+
+- E32sv3: 768 MB/sek (icke cachelagrat) vilket innebär att ett förhållande på 48 MB/sek per fysisk kärna
+- M64-32ms: 1000 MB/sek (icke cachelagrat) vilket innebär att ett förhållande på 62,5 MB/sek per fysisk kärna
+
+Det krävs för att lägga till flera Azure-diskar till den virtuella datorn 2.0 DT och skapa programvaru-raid (striping) på nivån för att uppnå maxgränsen för diskdataflöde per virtuell dator. En enskild Azure disk tillhandahålla inte dataflöde för att nå maxgränsen för virtuell dator i detta avseende. Azure Premium storage är obligatorisk för att köra DT 2.0. 
+
+- Information om tillgängliga Azure disktyper finns [här](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Information om hur du skapar programvaru-raid via mdadm hittar [här](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
+- Information om hur du konfigurerar LVM för att skapa en stripe-volym för maximal dataflödet finns [här](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)
+
+Beroende på storleken krav finns det olika alternativ för att nå det maximala dataflödet för en virtuell dator. Här följer möjliga data volym diskkonfigurationer för varje DT 2.0 VM-typ att uppnå den övre gränsen för VM-dataflöde. E32sv3 VM ska betraktas som en nivå för mindre arbetsbelastningar. Om det ska sig att det inte är snabb kan tillräckligt det vara nödvändigt att ändra storlek på den virtuella datorn till M64 32ms.
+Som M64 32ms VM har mycket minne, kanske i/o-belastning inte når gränsen särskilt för skrivskyddade beräkningsintensiva arbetsbelastningar. Därför mindre diskarna i stripe vara tillräcklig beroende på den specifika arbetsbelastningen för kunden. Men för att vara på den säkra sidan disken konfigurationerna nedan har valts för att garantera största möjliga dataflöde:
+
+
+| SKU FÖR VIRTUELL DATOR | Disk-Config 1 | Disk-Config 2 | Disk-Config 3 | Disk-Config 4 | Disk-Config 5 | 
+| ---- | ---- | ---- | ---- | ---- | ---- | 
+| M64-32ms | 4 x P50 -> 16 TB | 4 x P40 -> 8 TB | 5 x P30 -> 5 TB | 7 x P20 -> 3,5 TB | 8 x P15 -> 2 TB | 
+| E32sv3 | 3 x P50 -> 12 TB | 3 x P40 -> 6 TB | 4 x P30 -> 4 TB | 5 x P20 -> 2,5 TB | 6 x P15 -> 1,5 TB | 
+
+
+Särskilt om arbetsbelastningen är Läs-intensiv kan det öka IO-prestanda för att aktivera Azure värden ”skrivskyddad” som rekommenderas för datavolymer för databasprogram. Medan transaktionen log diskcache för Azure-värd måste vara ”none”. 
+
+Om storleken på loggvolymen är en rekommenderad startpunkt en tumregel på 15% av storleken på data. Skapandet av loggvolymen kan åstadkommas med hjälp av olika Azure disktyper beroende på kraven för kostnader och dataflöde. Även för loggen hög genomströmning är att föredra och vid M64 32ms vi rekommenderar starkt att aktivera Write Accelerator på (vilket är obligatoriskt för SAP HANA). Detta ger den diskens skrivfördröjningen för transaktionsloggen (endast tillgängligt för M-serien). Det finns vissa saker att tänka på om t.ex. det maximala antalet diskar per typ av virtuell dator. Information om WA hittar [här](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+
+
+Här följer några exempel om hur du ändrar storlek på loggvolymen:
+
+| skriver data volymens storlek och disk | loggvolymen och disk Skriv config 1 | loggvolymen och disk Skriv config 2 |
+| --- | --- | --- |
+| 4 x P50 -> 16 TB | 5 x P20 -> 2,5 TB | 3 x P30 -> 3 TB |
+| 6 x P15 -> 1,5 TB | 4 x P6 -> 256 GB | 1 x-P15 -> 256 GB |
+
+
+T.ex. för SAP HANA skalbar /hana/shared katalogen har som ska delas mellan SAP HANA VM och DT 2.0 VM. Samma arkitektur för SAP HANA med hjälp av att skala ut dedikerade virtuella datorer som fungerar som en NFS-server med hög tillgänglighet rekommenderas. Identiska designen kan användas för att tillhandahålla en delad volym för säkerhetskopiering. Men det är upp till kunden om hög tillgänglighet skulle vara nödvändigt eller om det räcker att bara använda en dedikerad virtuell dator med tillräckligt mycket lagringskapacitet för att fungera som en sekundär server.
+
+
+
+### <a name="links-to-dt-20-documentation"></a>Länkar till DT 2.0-dokumentation 
+
+- [SAP HANA dynamisk lagringsnivåer guiden för installation och uppdatering](https://help.sap.com/viewer/88f82e0d010e4da1bc8963f18346f46e/2.0.03/en-US)
+- [SAP HANA dynamisk lagringsnivåer självstudier och resurser](https://www.sap.com/developer/topics/hana-dynamic-tiering.html)
+- [SAP HANA dynamisk lagringsnivåer PoC](https://blogs.sap.com/2017/12/08/sap-hana-dynamic-tiering-delivering-on-low-tco-with-impressive-performance/)
+- [Förbättringar av SAP HANA 2.0 Service Pack 02 dynamisk lagringsnivåer](https://blogs.sap.com/2017/07/31/sap-hana-2.0-sps-02-dynamic-tiering-enhancements/)
+
+
 
 
 ## <a name="operations-for-deploying-sap-hana-on-azure-vms"></a>Åtgärder för att distribuera SAP HANA på Azure Virtual Machines

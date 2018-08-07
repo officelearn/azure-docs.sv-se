@@ -3,17 +3,17 @@ title: Azure Storage Service Encryption använder Kundhanterade nycklar i Azure 
 description: Funktionen Azure Storage Service Encryption för att kryptera Azure Blob storage och Azure Files på serversidan vid lagring av data och dekryptera det vid hämtning av data med Kundhanterade nycklar.
 services: storage
 author: lakasa
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: adca912121b4317d08481aeacffaa89b403ff7db
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.component: common
+ms.openlocfilehash: 0e1ebd8868cfe5ef69a09219ffc82092fb85a4c8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480759"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527094"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault
 Microsoft Azure är förbundet till hjälper dig att skydda och skydda dina data för att uppfylla organisationens säkerhets- och efterlevnadsbestämmelser. Ett sätt att Azure storage-plattformen skyddar dina data är via Storage Service Encryption (SSE), som krypterar dina data vid skrivning till lagring och dekrypterar data vid hämtning av den. Kryptering och dekryptering är automatisk, transparent och använder 256-bitars [AES-kryptering](https://wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste blockchiffer som finns.

@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/02/2018
-ms.openlocfilehash: 9b182b0efad16f74c21b04712143b70071943c1e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.date: 08/05/2018
+ms.openlocfilehash: ebcd145689ea1d947ca8895b37b39543b1e097ed
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412560"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525917"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrera SQL Server lokalt till Azure SQL DB med hjälp av Azure PowerShell
 I den här artikeln får du migrera den **Adventureworks2012** databasen återställs till en lokal instans av SQL Server 2016 eller senare till en Azure SQL Database med hjälp av Microsoft Azure PowerShell. Du kan migrera databaser från en lokal SQL Server-instans till Azure SQL Database med hjälp av den `AzureRM.DataMigration` modul i Microsoft Azure PowerShell.
@@ -32,7 +32,7 @@ I den här artikeln kan du se hur du:
 Du behöver följande för att slutföra dessa steg:
 
 - [SQL Server 2016 eller senare](https://www.microsoft.com/sql-server/sql-server-downloads) (alla versioner)
-- TCP/IP-protokollet är inaktiverat som standard med SQL Server Express-installationen. Aktivera det genom att följa den [anvisningarna i den här artikeln](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
+- Att aktivera TCP/IP-protokollet som är inaktiverad som standard med SQL Server Express-installationen. Aktivera TCP/IP-protokollet genom att följa den [anvisningarna i den här artikeln](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 - Så här konfigurerar du din [Windows brandvägg för databasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - En Azure SQL Database-instans. Du kan skapa en Azure SQL Database-instans genom att följa detaljerat i artikeln [skapa en Azure SQL database i Azure-portalen](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 eller senare.

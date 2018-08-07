@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
 manager: briz
-ms.openlocfilehash: 0e54c48eb63c5b70626e72f83de6d3676710d4c4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: f4254cd90d8cf3b9f4cd206b729a3d44784b377a
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860164"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343635"
 ---
 # <a name="what-is-azure-iot-hub"></a>Vad är Azure IoT Hub?
 
@@ -26,18 +26,24 @@ IoT Hubs funktioner hjälper dig att skapa skalbara kompletta IoT-lösningar, so
 
 ## <a name="scale-your-solution"></a>Skala din lösning
 
-IoT Hub kan skalas till flera miljoner samtidiga anslutna enheter och flera miljoner händelser per sekund och därigenom stödja dina IoT-arbetsbelastningar. IoT Hub erbjuder flera tjänstnivåer som underlättar dina skalbarhetsbehov. [Läs mer](https://azure.microsoft.com/pricing/details/iot-hub/).
+IoT Hub kan skalas till flera miljoner samtidiga anslutna enheter och flera miljoner händelser per sekund och därigenom stödja dina IoT-arbetsbelastningar. IoT Hub erbjuder flera tjänstnivåer som underlättar dina skalbarhetsbehov. Lär dig mer genom att läsa [prissättningssidan](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## <a name="secure-your-communications"></a>Skydda din kommunikation
 
 IoT Hub ger dig en säker kommunikationskanal genom vilken dina enheter kan skicka data.
 
 * Autentisering per enhet innebär att varje enhet kan ansluta säkert till IoT Hub och att varje enhet kan hanteras på ett säkert sätt.
+
 * Du har fullständig kontroll över enhetsåtkomst och kan kontrollera anslutningar på enhetsnivå.
+
 * [IoT Hub-enhetsetableringstjänsten](https://docs.microsoft.com/azure/iot-dps/) tillhandahåller automatiskt enheter till rätt IoT Hub när enheten först startas.
+
 * Flera autentiseringstyper stöder flera olika enhetsfunktioner:
+
   * SAS-tokenbaserad autentisering gör att du snabbt kan komma igång med din IoT-lösning.
+
   * Enskild X.509-certifikatautentisering för säker standardbaserad autentisering.
+
   * X.509-CA-autentisering för enkel, standardbaserad registrering.
 
 ## <a name="route-device-data"></a>Vägenhetsdata
@@ -45,7 +51,9 @@ IoT Hub ger dig en säker kommunikationskanal genom vilken dina enheter kan skic
 Den inbyggda funktionen för meddelandedirigering ger dig flexibla möjligheter att konfigurera automatisk regelbaserad meddelandeförgrening:
 
 * Använd meddelanderoutning när du vill kontrollera vart din hubb skickar enhetstelemetri.
+
 * Det innebär inte någon extra kostnad att skicka meddelanden till flera slutpunkter.
+
 * Icke-kodroutningsregler ersätter anpassad dispatcherkod för meddelanden.
 
 ## <a name="integrate-with-other-services"></a>Integrera med andra tjänster
@@ -65,7 +73,9 @@ Du kan integrera IoT Hub med andra Azure-tjänster att skapa kompletta slutpunkt
 Du kan hantera dina enheter som är anslutna till IoT Hub med en matris med inbyggda funktioner.
 
 * Lagra, synkronisera och skicka frågor till enhetsmetadata och tillståndsinformation för alla dina enheter.
+
 * Ställ in enhetstillstånd per enhet eller baserat på enheters gemensamma egenskaper.
+
 * Svara automatiskt på enhetsrapporterade tillståndsändringar med meddelanderoutningsintegration.
 
 ## <a name="make-your-solution-highly-available"></a>Gör din lösning mycket tillgänglig
@@ -95,6 +105,7 @@ Om lösningen inte kan använda enhetsbiblioteken kan enheterna använda MQTT v3
 Om din lösning inte kan använda något av de protokoll som stöds kan du utöka IoT Hub till att stödja anpassade protokoll:
 
 * Använd [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) för att skapa en fältgateway om du vill utföra protokollöversättningar.
+
 * Anpassa [Azure IoT-protokollgatewayen](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) så att den kan utföra protokollöversättning i molnet.
 
 ## <a name="quotas-and-limits"></a>Kvoter och begränsningar
@@ -102,6 +113,7 @@ Om din lösning inte kan använda något av de protokoll som stöds kan du utök
 Varje Azure-prenumeration har standardkvotgränser för att förhindra missbruk av tjänsten, och dessa begränsningar kan påverka IoT-lösningens omfång. Den aktuella gränsen på per prenumerationsbasis är 10 IoT-hubbar per prenumeration. Du kan begära att kvoten ska ökas genom att kontakta supporten. Mer information om kvotgränser:
 
 * [Tjänstbegränsningar för Azure-prenumeration](../azure-subscription-service-limits.md)
+
 * [IoT Hub-begränsning och du](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
 ## <a name="next-steps"></a>Nästa steg

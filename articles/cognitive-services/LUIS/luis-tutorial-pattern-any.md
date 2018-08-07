@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 58a1871774683e2af66e12a03bdaf8d6bcea831c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1587debecd82072c29d4caffc2b81629b1f52b0e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493266"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527372"
 ---
 # <a name="tutorial-improve-app-with-patternany-entity"></a>Självstudie: Förbättra app med pattern.any entitet
 
@@ -106,7 +106,9 @@ Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i
 
 4. Om du har tagit bort entiteten keyPhrase lägga tillbaka det i appen. 
 
-5. Träna appen.
+## <a name="train-the-luis-app"></a>Träna LUIS-appen
+
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Testa det nya mönstret för extrahering av data för fritt format
 1. Välj **testa** från det översta fältet för att öppna panelen test. 

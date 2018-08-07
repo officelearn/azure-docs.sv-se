@@ -2,23 +2,18 @@
 title: Designmönster för Azure storage-table | Microsoft Docs
 description: Använda mönster för Azure table service-lösningar.
 services: storage
-documentationcenter: na
 author: MarkMcGeeAtAquent
-manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
-ms.openlocfilehash: db621cdd6d38cb2f235c45c9bfcb76677ed6ba17
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.component: tables
+ms.openlocfilehash: b06f5a66566c250eef608ddccc551aaebe24ef74
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228175"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522806"
 ---
 # <a name="table-design-patterns"></a>Mönster för tabelldesign
 Den här artikeln beskrivs vissa mönster som är lämplig för användning med lösningar för Table service. Dessutom visas hur du praktiskt taget kan lösa vissa problem och kompromisser diskuteras i andra artiklar i Table storage design. Följande diagram sammanfattar relationerna mellan de olika mönster:  

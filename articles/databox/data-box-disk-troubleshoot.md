@@ -1,6 +1,6 @@
 ---
 title: Felsökning av Azure Data Box-disk | Microsoft Docs
-description: Beskriver hur du åtgärdar problem i Azure Data Box-disk.
+description: Beskriver hur du felsöker problem i Azure Data Box-disk.
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -13,20 +13,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 07/30/2018
 ms.author: alkohli
-ms.openlocfilehash: f63eadc9a6ab834e02d62be9a209b504d76d3c8e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 1ae6d3dbd01d2623fef511ed0663270ac605f257
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090783"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362668"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk-preview"></a>Felsöka problem i Azure Data Box-disk (förhandsversion)
 
 Den här artikeln gäller för Microsoft Azure Data Box som kör förhandsversionen. Den här artikeln beskriver några av de komplexa arbetsflöden och de administrativa uppgifter som kan utföras på Data Box och Data Box-disken. 
 
-Du kan hantera Data Box med hjälp av Data Box-tjänstens användargränssnitt (kallas portalens användargränssnitt) och det lokala webbgränssnittet för enheten. Data Box-disk kan bara hanteras via Azure-portalen. Den här artikeln fokuserar på de uppgifter som du kan utföra med Azure-portalen. Använd Azure-portalen för att hantera beställningar, hantera enheter och spåra beställningens status från början till slut.
+Du kan hantera Data Box Disk via Azure Portal. Den här artikeln fokuserar på de uppgifter som du kan utföra med Azure-portalen. Använd Azure-portalen för att hantera beställningar, hantera enheter och spåra beställningens status från början till slut.
 
 Den här artikeln innehåller följande självstudier:
 

@@ -1,32 +1,27 @@
 ---
-title: Azure Storage migration vanliga frågor och svar | Microsoft Docs
+title: Azure Storage-migrering vanliga frågor och svar | Microsoft Docs
 description: Svar på vanliga frågor om hur du migrerar Azure Storage
 services: storage
-documentationcenter: na
 author: genlin
-manager: timlt
-editor: tysonn
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 12172c53e8e5077f9690a2459bf5ccf3c3a05507
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.component: common
+ms.openlocfilehash: ecc5948c84f7659e950c360c3b19d1985b0ab81c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071398"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521497"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Vanliga frågor och svar om Azure Storage-migrering
 
-Den här artikeln innehåller svar på vanliga frågor om Azure Storage-migrering. 
+Den här artikeln får du svar på vanliga frågor om Azure Storage-migrering. 
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-**Hur skapar ett skript för att kopiera filer från en behållare till en annan?**
+**Hur gör jag för att skapa ett skript för att kopiera filer från en behållare till en annan?**
 
 Du kan använda AzCopy för att kopiera filer mellan behållare. Se följande exempel:
 
@@ -34,100 +29,100 @@ Du kan använda AzCopy för att kopiera filer mellan behållare. Se följande ex
     /Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
     /S
 
-AzCopy använder den [kopiera Blob API](https://docs.microsoft.com/rest/api/storageservices/copy-blob) att kopiera varje fil i behållaren.  
+AzCopy använder den [kopiera Blob API](https://docs.microsoft.com/rest/api/storageservices/copy-blob) som kopierar filer i behållaren.  
   
-Du kan använda en virtuell dator eller en lokal dator som har Internetåtkomst för att köra AzCopy. Du kan också använda ett Azure Batch-schema för att göra detta automatiskt, men den har mer komplicerade.  
+Du kan använda valfri virtuell dator eller en lokal dator som är ansluten till internet att köra AzCopy. Du kan också använda ett Azure Batch-schema för att göra detta automatiskt, men det har mer komplicerat.  
   
-Automatiseringsskriptet är utformad för Azure Resource Manager-distribution i stället för lagring innehåll manipulation. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+Automation-skriptet är utformat för Azure Resource Manager-distribution i stället för innehåll manipulering av lagring. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
-**Finns det en avgift för kopiering av data mellan två filresurser på samma lagringskonto i samma region?**
+**Finns det någon avgift för att kopiera data mellan två filresurser på samma lagringskonto i samma region?**
 
-Nej. Det är gratis för den här processen.
+Nej. Det finns ingen kostnad för den här processen.
 
-**Hur säkerhetskopierar jag mina hela storage-konto till en annan storage-konto?**
+**Hur säkerhetskopierar jag mitt hela storage-konto till ett annat lagringskonto?**
 
-Det går inte att säkerhetskopiera en hel storage-konto direkt. Men du kan flytta manuellt behållaren i det storage-kontot till ett annat konto med hjälp av AzCopy eller Lagringsutforskaren. Följande steg visar hur du använder AzCopy för att flytta behållaren:  
+Det finns inget alternativ för att säkerhetskopiera en hel storage-konto direkt. Men du kan manuellt flytta behållaren i det lagringskontot till ett annat konto med hjälp av AzCopy eller Storage Explorer. Följande steg visar hur du använder AzCopy för att flytta behållaren:  
  
 
-1.  Installera den [AzCopy](storage-use-azcopy.md) kommandoradsverktyget. Det här verktyget kan du flytta VHD-filen mellan lagringskonton.
+1.  Installera den [AzCopy](storage-use-azcopy.md) kommandoradsverktyget. Det här verktyget kan du flytta den virtuella hårddiskfilen mellan lagringskonton.
 
-2.  Efter installation av AzCopy i Windows med hjälp av installationsprogrammet, öppna ett kommandotolksfönster och bläddrar till installationsmappen för AzCopy på datorn. Som standard installeras AzCopy på **% ProgramFiles (x86) %\Microsoft SDKs\Azure\AzCopy** eller **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
+2.  När du har installerat AzCopy på Windows med hjälp av installationsprogrammet, öppna ett kommandotolksfönster och bläddrar till installationsmappen för AzCopy på datorn. Som standard installeras AzCopy på **% ProgramFiles (x86) %\Microsoft SDKs\Azure\AzCopy** eller **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
 
-3.  Kör följande kommando för att flytta behållaren. Du måste ersätta texten med verkliga värden.   
+3.  Kör följande kommando för att flytta behållaren. Du måste ersätta texten med de faktiska värdena.   
      
             AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
 
-    - `/Source`: Ange URI: N för källa storage-konto (upp till behållaren).  
-    - `/Dest`: Ange URI för mål-lagringskontot (upp till behållaren).  
-    - `/SourceKey`: Ange den primära nyckeln för lagringskontot källa. Du kan kopiera den här nyckeln från Azure portal genom att välja lagringskontot.  
-    - `/DestKey`: Ange den primära nyckeln för mål-lagringskontot. Du kan kopiera den här nyckeln från portalen genom att välja lagringskontot.
+    - `/Source`: Ange URI: N för källagringskontot (upp till behållaren).  
+    - `/Dest`: Ange URI: N för mål-lagringskontot (upp till behållaren).  
+    - `/SourceKey`: Ange den primära nyckeln för källagringskontot. Du kan kopiera den här nyckeln från Azure portal genom att välja storage-konto.  
+    - `/DestKey`: Ange den primära nyckeln för mållagringskontot. Du kan kopiera den här nyckeln från portalen genom att välja storage-konto.
 
-När du har kört kommandot flyttas behållaren filerna till mål-lagringskontot.
+När du har kört det här kommandot flyttas behållarfiler till mållagringskontot.
 
 > [!NOTE]
-> AzCopy CLI inte fungerar tillsammans med den **mönster** växeln när du kopierar från en Azure blob till en annan.
+> AzCopy CLI inte fungerar tillsammans med den **mönstret** växla när du kopierar från en Azure blob till en annan.
 >
-> Du kan direkt kopiera och redigera AzCopy-kommandot och dubbelkontrollera för att se till att **mönster** matchar källan. Kontrollera också att som **/S** jokertecken är aktiva. Mer information finns i [AzCopy parametrar](storage-use-azcopy.md).
+> Du kan direkt kopiera och redigera AzCopy-kommandot och kontrollera om du vill se till att **mönstret** matchar källan. Också kontrollera att **/S** jokertecken tillämpas. Mer information finns i [AzCopy parametrar](storage-use-azcopy.md).
 
-**Hur flyttar data från en lagringsbehållare till en annan?**
+**Hur flyttar jag data från en storage-behållare till en annan?**
 
 Följ de här stegen:
 
-1.  Skapa en behållare (mapp) i mål-blob.
+1.  Skapa behållaren (mapp) i mål-blob.
 
 2.  Använd [AzCopy](https://azure.microsoft.com/blog/azcopy-5-1-release/) att kopiera innehållet från den ursprungliga blob-behållaren till en annan blob-behållare.
 
-**Hur skapar ett PowerShell.skript för att flytta data från en Azure-filresursen till en annan i Azure Storage?**
+**Hur gör jag för att skapa ett PowerShell.skript för att flytta data från en Azure-filresurs till en annan i Azure Storage?**
 
-Använd AzCopy för att flytta data från en Azure-filresursen till en annan i Azure Storage. Mer information finns i [överföra data med AzCopy på Windows](storage-use-azcopy.md) och [överföra data med AzCopy på Linux](storage-use-azcopy-linux.md).
+Använda AzCopy för att flytta data från en Azure-filresurs till en annan i Azure Storage. Mer information finns i [överföra data med AzCopy i Windows](storage-use-azcopy.md) och [överföra data med AzCopy i Linux](storage-use-azcopy-linux.md).
 
-**Hur överför stora CSV-filer till Azure Storage?**
+**Hur jag för att överföra stora CSV-filer till Azure Storage?**
 
-Använda AzCopy för att överföra stora CSV-filer till Azure Storage. Mer information finns i [överföra data med AzCopy på Windows](storage-use-azcopy.md) och [överföra data med AzCopy på Linux](storage-use-azcopy-linux.md).
+Använda AzCopy för att överföra stora CSV-filer till Azure Storage. Mer information finns i [överföra data med AzCopy i Windows](storage-use-azcopy.md) och [överföra data med AzCopy i Linux](storage-use-azcopy-linux.md).
 
-**Jag behöver flytta loggarna från enhet D till Azure storage-konto varje dag. Hur automatisera detta?**
+**Jag behöver flytta loggarna från enhet D till mitt Azure storage-konto varje dag. Hur automatiserar jag?**
 
-Du kan använda AzCopy och skapa en uppgift i Schemaläggaren. Ladda upp filer till ett Azure storage-konto med hjälp av ett kommandoskript för AzCopy. Mer information finns i [hur du konfigurerar och kör Start-aktiviteter för en molntjänst](../../cloud-services/cloud-services-startup-tasks.md).
+Du kan använda AzCopy och skapa en uppgift i Schemaläggaren. Ladda upp filer till ett Azure storage-konto med hjälp av ett AzCopy-kommandoskript. Mer information finns i [hur du konfigurerar och köra startåtgärder för en molntjänst](../../cloud-services/cloud-services-startup-tasks.md).
 
-**Hur flytta mitt lagringskonto mellan prenumerationer?**
+**Hur flyttar jag mitt lagringskonto mellan prenumerationer?**
 
-Använda AzCopy för att flytta ditt lagringskonto mellan prenumerationer. Mer information finns i [överföra data med AzCopy på Windows](storage-use-azcopy.md) och [överföra data med AzCopy på Linux](storage-use-azcopy-linux.md).
+Använda AzCopy för att flytta ditt lagringskonto mellan prenumerationer. Mer information finns i [överföra data med AzCopy i Windows](storage-use-azcopy.md) och [överföra data med AzCopy i Linux](storage-use-azcopy-linux.md).
 
 **Hur kan jag flytta 10 TB data till lagring på en annan region?**
 
-Använd AzCopy för att flytta data. Mer information finns i [överföra data med AzCopy på Windows](storage-use-azcopy.md) och [överföra data med AzCopy på Linux](storage-use-azcopy-linux.md).
+Använda AzCopy för att flytta data. Mer information finns i [överföra data med AzCopy i Windows](storage-use-azcopy.md) och [överföra data med AzCopy i Linux](storage-use-azcopy-linux.md).
 
-**Hur kopierar data från lokala till Azure Storage?**
+**Hur kopierar data från en lokal plats till Azure Storage?**
 
-Använd AzCopy för att kopiera data. Mer information finns i [överföra data med AzCopy på Windows](storage-use-azcopy.md) och [överföra data med AzCopy på Linux](storage-use-azcopy-linux.md).
+Använda AzCopy för att kopiera data. Mer information finns i [överföra data med AzCopy i Windows](storage-use-azcopy.md) och [överföra data med AzCopy i Linux](storage-use-azcopy-linux.md).
 
-**Hur kan jag flytta data från lokala till Azure Files?**
+**Hur kan jag flytta data från en lokal plats till Azure Files?**
 
-Använd AzCopy för att flytta data. Mer information finns i [överföra data med AzCopy på Windows](storage-use-azcopy.md) och [överföra data med AzCopy på Linux](storage-use-azcopy-linux.md).
+Använda AzCopy för att flytta data. Mer information finns i [överföra data med AzCopy i Windows](storage-use-azcopy.md) och [överföra data med AzCopy i Linux](storage-use-azcopy-linux.md).
 
 **Hur jag för att mappa en behållare mapp på en virtuell dator?**
 
-Använda en Azure-filresursen.
+Använda en Azure-filresurs.
 
-**Hur säkerhetskopierar jag Azure file storage?**
+**Hur kan jag säkerhetskopiera Azure file storage?**
 
-Det finns ingen lösning för säkerhetskopiering. Azure Files stöder också asynkron kopia. Därför kan du kopiera filerna:
+Det finns ingen lösning för säkerhetskopiering. Azure Files stöder också asynkron kopia. Därför kan du kopiera filer:
 
 - Från en resurs till en annan resurs i ett lagringskonto eller till ett annat lagringskonto.
 
-- Från en resurs till en blobbbehållare i ett lagringskonto eller till ett annat lagringskonto.
+- Från en resurs till en blob-behållare i ett lagringskonto eller till ett annat lagringskonto.
 
-Mer information finns i [överföra data med AzCopy på Windows](storage-use-azcopy.md).
+Mer information finns i [överföra data med AzCopy i Windows](storage-use-azcopy.md).
 
-**Hur flytta hanterade diskar till en annan storage-konto?**
+**Hur flyttar jag hanterade diskar till ett annat lagringskonto?**
 
 Följ de här stegen:
 
-1.  Stoppa den virtuella datorn som den hantera disken är kopplad till.
+1.  Stoppa den virtuella dator som den hanterade disken är ansluten till.
 
-2.  Kopiera den hantera disken VHD från ett område till en annan genom att köra följande Azure PowerShell-skript:
+2.  Kopiera den hanterade disken virtuell Hårddisk från ett område till en annan genom att köra följande Azure PowerShell-skript:
 
     ```
     Connect-AzureRmAccount
@@ -141,7 +136,7 @@ Följ de här stegen:
     Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
     ```
 
-3.  Skapa en hanterad disk med hjälp av VHD-filen i en annan region som du kopierade den virtuella Hårddisken. Kör följande Azure PowerShell-skript för att göra detta:  
+3.  Skapa en hanterad disk med hjälp av VHD-filen i en annan region dit du kopierade den virtuella Hårddisken. Gör detta genom att köra följande Azure PowerShell-skript:  
 
     ```
     $resourceGroupName = 'MDDemo'
@@ -161,52 +156,52 @@ Följ de här stegen:
     $osDisk = New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ``` 
 
-Mer information om hur du distribuerar en virtuell dator från en hanterad disk finns [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
+Läs mer om hur du distribuerar en virtuell dator från en hanterad disk, [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
 
-**Hur kan jag hämta 1 – 2 TB data från Azure portal?**
+**Hur kan jag hämta 1 – 2 TB data från Azure-portalen?**
 
-Använda AzCopy för att hämta data. Mer information finns i [överföra data med AzCopy på Windows](storage-use-azcopy.md) och [överföra data med AzCopy på Linux](storage-use-azcopy-linux.md).
+Använda AzCopy för att hämta data. Mer information finns i [överföra data med AzCopy i Windows](storage-use-azcopy.md) och [överföra data med AzCopy i Linux](storage-use-azcopy-linux.md).
 
-**Hur ändrar den sekundära platsen till Europa region för ett lagringskonto?**
+**Hur ändrar jag den sekundära platsen till regionen Europa för ett lagringskonto?**
 
-När du skapar ett lagringskonto, väljer du den primära regionen för kontot. Valet av den sekundära regionen som är baserad på den primära regionen och kan inte ändras. Mer information finns i [Geo-redundant lagring (GRS): mellan regionala replikering för Azure Storage](storage-redundancy.md).
+När du skapar ett lagringskonto, väljer du den primära regionen för kontot. Valet av den sekundära regionen är baserad på den primära regionen och kan inte ändras. Mer information finns i [Geo-redundant lagring (GRS): tvärregional replikering för Azure Storage](storage-redundancy.md).
 
-**Var kan jag få mer information om Azure Storage Service kryptering (SSE)?**  
+**Var hittar jag mer information om Azure Storage Service Encryption (SSE)?**  
   
 Se följande artiklar:
 
 -  [Säkerhetsguide för Azure Storage](storage-security-guide.md)
 
--  [Azure Storage Service-kryptering av vilande Data](storage-service-encryption.md)
+-  [Azure Storage Service Encryption för vilande Data](storage-service-encryption.md)
 
-**Hur flytta eller hämta data från ett lagringskonto?**
+**Hur jag för att flytta eller hämta data från ett lagringskonto?**
 
-Använda AzCopy för att hämta data. Mer information finns i [överföra data med AzCopy på Windows](storage-use-azcopy.md) och [överföra data med AzCopy på Linux](storage-use-azcopy-linux.md).
+Använda AzCopy för att hämta data. Mer information finns i [överföra data med AzCopy i Windows](storage-use-azcopy.md) och [överföra data med AzCopy i Linux](storage-use-azcopy-linux.md).
 
 
 **Hur jag för att kryptera data i ett lagringskonto?**
 
-När du aktiverar kryptering i ett lagringskonto, krypteras inte befintliga data. Om du vill kryptera befintliga data måste du överföra den igen till lagringskontot.
+När du har aktiverat kryptering i ett lagringskonto, krypteras inte befintliga data. För att kryptera befintliga data, måste du överföra den igen till lagringskontot.
 
-Använd AzCopy för att kopiera data till ett annat lagringskonto och flytta tillbaka dessa data. Du kan också använda [kryptering i vila](storage-service-encryption.md).
+Använda AzCopy för att kopiera data till ett annat lagringskonto och sedan flytta data tillbaka. Du kan också använda [kryptering i vila](storage-service-encryption.md).
 
-**Hur kan jag hämta en virtuell Hårddisk till en lokal dator, andra än med hjälp av alternativet ladda ned i portalen**
+**Hur kan jag hämta en virtuell Hårddisk till en lokal dator, andra än med hjälp av alternativet ladda ned i portalen?**
 
 Du kan använda [Lagringsutforskaren](https://azure.microsoft.com/features/storage-explorer/) att ladda ned en virtuell Hårddisk.
 
-**Finns det några krav för att ändra replikering av ett lagringskonto från geo-redundant lagring till lokalt redundant lagring?**
+**Finns det några krav för att ändra replikeringen av ett lagringskonto från geo-redundant lagring till lokalt redundant lagring?**
 
 Nej. 
 
-**Hur kommer jag åt redundant lagring med Azure-filer?**
+**Hur kommer jag åt Azure Files redundant lagring?**
 
-Geo-redundant lagring med läsbehörighet krävs för att komma åt redundant lagring. Azure Files stöder dock bara lokalt redundant lagring och standard geo-redundant lagring som inte tillåter läsbehörighet. 
+Läsåtkomst till geografiskt redundant lagring krävs för att få åtkomst till redundant lagring. Azure Files stöder dock endast lokalt redundant lagring och standard geo-redundant lagring som inte tillåter läsbehörighet. 
 
-**Hur flyttar från ett premiumlagringskonto till ett standardlagringskonto?**
+**Hur flyttar jag från ett premium storage-konto till ett standardlagringskonto?**
 
 Följ de här stegen:
 
-1.  Skapa ett standardlagringskonto. (Eller använda ett befintligt lagringskonto som standard i din prenumeration.)
+1.  Skapa ett standardlagringskonto. (Eller använda ett befintligt standard storage-konto i din prenumeration.)
 
 2.  Hämta AzCopy. Kör något av följande kommandon för AzCopy.
       
@@ -216,7 +211,7 @@ Följ de här stegen:
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
         /SourceKey:key1 /DestKey:key2 /S 
 
-    Om du vill kopiera bara en disk, ange namnet på disken i **mönster**:
+    Kopiera bara en disk genom att ange namnet på disken i **mönstret**:
 
         AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
@@ -225,25 +220,25 @@ Följ de här stegen:
    
 Åtgärden kan ta flera timmar att slutföra.
 
-Granska målbehållare för storage-konto i Azure-portalen för att säkerställa att överföringen har slutförts. När diskarna kopieras till standardlagringskontot, kan du ansluta dem till den virtuella datorn som en befintlig disk. Mer information finns i [hur du kopplar en datadisk hanterade till en Windows-dator i Azure portal](../../virtual-machines/windows/attach-managed-disk-portal.md).  
+För att säkerställa att överföringen har slutförts, granska Målbehållaren för storage-konto i Azure-portalen. När diskarna har kopierats till standard storage-konto, kan du koppla dem till den virtuella datorn som en befintlig disk. Mer information finns i [hur du kopplar en hanterad datadisk till en Windows-dator i Azure portal](../../virtual-machines/windows/attach-managed-disk-portal.md).  
   
-**Hur konverterar till Azure Premium-lagring för en filresurs?**
+**Hur jag för att omvandla till Azure Premium Storage för en filresurs?**
 
-Premium-lagring är inte tillåten på en Azure-filresursen.
+Premium Storage är inte tillåtet på en Azure-filresurs.
 
-**Hur uppgraderar jag från ett standardlagringskonto till ett premium-lagringskonto? Hur jag Nedgradera från ett premiumlagringskonto till ett standardlagringskonto?**
+**Hur uppgraderar jag från ett standardlagringskonto till ett premium storage-konto? Hur jag Nedgradera från premium storage-konto till ett standardlagringskonto?**
 
-Du måste skapa lagringskontot mål, kopiera data från källplatsens konto till mål-konto och ta bort kontot källa. Du kan använda ett verktyg som AzCopy för att kopiera data.
+Du måste skapa mållagringskontot, kopiera data från kontot källa till mål-konto och ta sedan bort källkontot. Du kan använda ett verktyg som AzCopy för att kopiera data.
 
-Om du har virtuella datorer, måste du vidta ytterligare åtgärder innan du migrerar data för storage-konto. Mer information finns i [migrera till Azure Premium-lagring (ohanterade diskar)](storage-migration-to-premium-storage.md).
+Om du har virtuella datorer, måste du vidta ytterligare åtgärder innan du migrerar data för storage-konto. Mer information finns i [migrera till Azure Premium Storage (ohanterade diskar)](storage-migration-to-premium-storage.md).
 
-**Hur flyttar från ett klassiska storage-konto till en Azure Resource Manager storage-konto?**
+**Hur flyttar jag från ett klassiskt lagringskonto till ett Azure Resource Manager-lagringskonto?**
 
-Du kan använda den **flytta AzureStorageAccount** cmdlet. Denna cmdlet har flera steg (validera, förbereda, genomför). Du kan validera flyttningen innan du gör den.
+Du kan använda den **Move-AzureStorageAccount** cmdlet. Denna cmdlet har flera steg (validera, Förbered, genomför). Du kan validera flytten innan du gör den.
 
-Om du har virtuella datorer, måste du vidta ytterligare åtgärder innan du migrerar data för storage-konto. Mer information finns i [migrera IaaS-resurser från klassiska till Azure Resource Manager med hjälp av Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
+Om du har virtuella datorer, måste du vidta ytterligare åtgärder innan du migrerar data för storage-konto. Mer information finns i [migrera IaaS-resurser från klassisk till Azure Resource Manager med hjälp av Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 
-**Hur jag hämta data till en Linux-baserade dator från ett Azure storage-konto eller överföra data från en Linux-dator?**
+**Hur jag hämta data till en Linux-baserade dator från ett Azure storage-konto eller ladda upp data från en Linux-dator?**
 
 Du kan använda Azure CLI.
 
@@ -251,55 +246,55 @@ Du kan använda Azure CLI.
 
       azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
 
-- Överför en enda blob: 
+- Ladda upp en enda blob: 
 
       azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
 
 **Hur kan jag ge andra användare åtkomst till min lagringsresurser?**
 
-Ge andra användare åtkomst till lagringsresurser:
+Att ge andra användare åtkomst till lagringsresurser:
 
--   Använda en token för delad åtkomst signatur (SAS) för att ge åtkomst till en resurs. 
+-   Använd en delad åtkomst (SAS) signaturtoken för att ge åtkomst till en resurs. 
 
--   Ange en användare med den primära och sekundära nycklarna för lagringskontot. Mer information finns i [hantera ditt lagringskonto](storage-create-storage-account.md#manage-your-storage-account).
+-   Ange en användare med den primära eller sekundära nyckeln för lagringskontot. Mer information finns i [hantera ditt lagringskonto](storage-create-storage-account.md#manage-your-storage-account).
 
--   Ändra åtkomstprincipen för att tillåta anonym åtkomst. Mer information finns i [bevilja anonyma användare behörighet till behållare och blobbar](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
+-   Ändra åtkomstprincipen för att tillåta anonym åtkomst. Mer information finns i [bevilja anonyma användare till behållare och blobbar](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
-**Var installeras AzCopy?**
+**Där är AzCopy installerad?**
 
--   Om du har åtkomst till AzCopy från Microsoft Azure Storage-kommandoraden skriver **AzCopy**. Kommandoraden är installerat tillsammans med AzCopy.
+-   Om du kommer åt AzCopy från Microsoft Azure Storage-kommandoraden skriver **AzCopy**. Kommandoraden installeras tillsammans med AzCopy.
 
 -   Om du har installerat 32-bitarsversionen, är det här: **% ProgramFiles(x86) %\\Microsoft SDKs\\Azure\\AzCopy**.
 
 -   Om du har installerat 64-bitarsversionen, är det här: **% ProgramFiles %\\Microsoft SDKs\\Azure\\AzCopy**.
 
-**För en replikerad lagringskonto (till exempel zonredundant lagring, geo-redundant lagring eller geo-redundant lagring med läsbehörighet), hur kommer jag åt data som lagras i den sekundära regionen?**
+**För en replikerad lagring-konto (till exempel zonredundant lagring, geo-redundant lagring eller read-access geo-redundant lagring), hur kommer jag åt data som lagras i den sekundära regionen?**
 
--   Om du använder zonredundant lagring eller geo-redundant lagring, kan du komma åt data från den sekundära regionen såvida inte en växling vid fel. Mer information om processen för växling vid fel finns [vad som händer om det uppstår redundans lagring](storage-disaster-recovery-guidance.md#what-to-expect-if-a-storage-failover-occurs).
+-   Om du använder zonredundant lagring eller geo-redundant lagring kan du inte kommer åt data från den sekundära regionen, såvida inte en redundansväxling. Läs mer om redundansprocessen [vad som händer om det uppstår redundans storage](storage-disaster-recovery-guidance.md#what-to-expect-if-a-storage-failover-occurs).
 
--   Om du använder geo-redundant lagring med läsbehörighet kan komma åt data från den sekundära regionen när som helst. Använd någon av följande metoder:  
+-   Om du använder läsåtkomst till geografiskt redundant lagring, kan du komma åt data från den sekundära regionen när som helst. Använd någon av följande metoder:  
       
-    - **AzCopy**: Lägg till **-sekundär** till lagringskontots namn i URL: en för den sekundära slutpunkten. Exempel:  
+    - **AzCopy**: Lägg till **-sekundär** till lagringskontonamn i URL-Adressen till den sekundära slutpunkten. Exempel:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **SAS-token**: använda en SAS-token för att komma åt data från slutpunkten. Mer information finns i [använder signaturer för delad åtkomst](storage-dotnet-shared-access-signature-part-1.md).
+    - **SAS-token**: använda en SAS-token för att komma åt data från slutpunkten. Mer information finns i [använda signaturer för delad åtkomst](storage-dotnet-shared-access-signature-part-1.md).
 
-**Hur använder en anpassad domän för HTTPS med mitt lagringskonto? Till exempel hur gör jag ”https://mystorageaccountname.blob.core.windows.net/images/image.gif” visas som ”https://www.contoso.com/images/image.gif”?**
+**Hur kan jag använda en anpassad domän HTTPS med mitt lagringskonto? Till exempel hur gör jag ”https://mystorageaccountname.blob.core.windows.net/images/image.gif” visas som ”https://www.contoso.com/images/image.gif”?**
 
-SSL stöds inte på storage-konton med anpassade domäner.
-Men du kan använda icke-HTTPS anpassade domäner. Mer information finns i [konfigurera ett anpassat domännamn för din slutpunkt för Blob-lagring](../blobs/storage-custom-domain-name.md).
+SSL stöds inte för närvarande på storage-konton med anpassade domäner.
+Men du kan använda anpassade domäner för icke-HTTPS. Mer information finns i [konfigurera ett anpassat domännamn för din Blob storage-slutpunkt](../blobs/storage-custom-domain-name.md).
 
-**Hur använder jag FTP för att komma åt data som är i ett lagringskonto?**
+**Hur kan jag använda FTP för att komma åt data som är i ett lagringskonto?**
 
-Det går inte att komma åt ett storage-konto direkt med hjälp av FTP. Du kan dock konfigurera en virtuell Azure-dator och sedan installera en FTP-server på den virtuella datorn. Du kan ha FTP-servern lagrar filer på en resurs i Azure-filer eller på en datadisk som är tillgänglig för den virtuella datorn.
+Det går inte att komma åt ett storage-konto direkt med hjälp av FTP. Du kan dock konfigurera virtuella Azure-datorer och sedan installera en FTP-server på den virtuella datorn. Du kan ha FTP-servern lagrar filer på en Azure Files-resurs eller en datadisk som är tillgänglig för den virtuella datorn.
 
-Om du bara vill ladda ned data utan att använda Lagringsutforskaren eller ett liknande program, kanske du kan använda en SAS-token. Mer information finns i [använder signaturer för delad åtkomst](storage-dotnet-shared-access-signature-part-1.md).
+Om du vill att bara ladda ned data utan att använda Storage Explorer eller ett liknande program kanske du kan använda en SAS-token. Mer information finns i [använda signaturer för delad åtkomst](storage-dotnet-shared-access-signature-part-1.md).
 
-**Hur migrerar Blobbar från ett lagringskonto till en annan?**
+**Hur migrerar jag Blobar från ett lagringskonto till en annan?**
 
  Du kan göra detta med hjälp av vår [Blob migreringsskriptet](../scripts/storage-common-transfer-between-storage-accounts.md).
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 
-Om du fortfarande behöver hjälp [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) få snabbt lösa problemet.
+Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.

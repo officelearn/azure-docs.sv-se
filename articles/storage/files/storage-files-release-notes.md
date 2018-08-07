@@ -3,17 +3,17 @@ title: Viktig information för Azure File Sync-agenten | Microsoft Docs
 description: Viktig information om Azure File Sync-agenten.
 services: storage
 author: wmgries
-manager: aungoo
 ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 7422300ffe315e0a12812c38f9b823a125eaf344
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.component: files
+ms.openlocfilehash: 69cd7774c92cf1c213f8522dffeb02be6c024acb
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144796"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525145"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Viktig information för Azure File Sync-agenten
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Dina Windows Server-installationer omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.

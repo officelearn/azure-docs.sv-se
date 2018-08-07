@@ -4,16 +4,16 @@ description: Den här självstudien visar hur du använder Azure blob service so
 ms.topic: article
 ms.author: tarcher
 author: tarcher
-manager: jpconnock
 services: devops
 custom: jenkins
 ms.date: 07/31/2018
-ms.openlocfilehash: 24248b198965ddf9ed9ef8df67c34560d08d3935
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.component: common
+ms.openlocfilehash: 549150abc630cd247927b4ba7042d0bdf0e8b88a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389855"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524397"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Använda Azure Storage med en lösning för kontinuerlig integrering av Jenkins
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.custom: mvc
-ms.openlocfilehash: 6e3515cba449826389fbff35765de9631728de5d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d341b0590dce65228958572365bb2773f8f13129
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063433"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324314"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
@@ -35,15 +35,16 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="set-aside-storage-account-configuration"></a>Spara lagringskontokonfiguration
 
-I den här självstudien behöver du ha åtkomst till namnet på ditt lagringskonto samt åtkomstnyckeln. I Azure Portal väljer du **Alla tjänster** och filtrerar på *lagring*. Välj **Lagringskonton** och leta upp det konto som du skapade för den här självstudien.
-
-I **Översikt** kopierar du namnet på lagringskontot i ett textredigeringsprogram. Välj sedan **Åtkomstnycklar** och kopiera värdet för **key1** till textredigeringsprogrammet eftersom båda värdena behövs för de kommandon som kommer senare.
+> [!IMPORTANT]
+> I den här självstudien behöver du ha åtkomst till namnet på ditt lagringskonto samt åtkomstnyckeln. I Azure Portal väljer du **Alla tjänster** och filtrerar på *lagring*. Välj **Lagringskonton** och leta upp det konto som du skapade för den här självstudien.
+>
+> I **Översikt** kopierar du **namnet** på lagringskontot till ett textredigeringsprogram. Välj sedan **Åtkomstnycklar** och kopiera värdet för **key1** till textredigeringsprogrammet eftersom båda värdena behövs för de kommandon som kommer senare.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Skapa en Azure Databricks-arbetsyta
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
-1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure Portal. 
+1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure-portalen. 
 
     ![Databricks på Azure-portalen](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks på Azure-portalen")
 
@@ -57,7 +58,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     |---------|---------|
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
-    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en behållare som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../../azure-resource-manager/resource-group-overview.md). |
+    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../../azure-resource-manager/resource-group-overview.md). |
     |**Plats**     | Välj **USA, västra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
     |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
@@ -93,7 +94,7 @@ Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Da
 
 I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan och kör sedan kodfragment för att konfigurera lagringskontot.
 
-1. Gå till arbetsytan Azure Databricks som du skapat i [Azure portal](https://portal.azure.com). Välj sedan **Starta arbetsyta**.
+1. Gå till arbetsytan Azure Databricks som du skapat i [Azure-portalen](https://portal.azure.com). Välj sedan **Starta arbetsyta**.
 
 2. Välj **Arbetsyta** i det vänstra fönstret. I listrutan **Arbetsyta** väljer du **Skapa** > **Anteckningsbok**.
 
@@ -105,7 +106,7 @@ I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan
 
     Välj **Skapa**.
 
-4. Ange följande kod i den första cellen för att ersätta platshållarvärdena med ditt kontonamn, din nyckel och namnet för ditt filsystem.
+4. I följande kod ersätter du texten **ACCOUNT_NAME** och **ACCOUNT_KEY** med de värden som du bevarade i början av den här snabbstarten. Byt även ut texten **FILE_SYSTEM_NAME** med det namn som du vill att ditt filsystem ska ha. Ange sedan koden i den första cellen.
 
     ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
@@ -122,17 +123,17 @@ I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan
 
 Innan du börjar med det här avsnittet måste du slutföra följande krav:
 
-* Ladda ned **small_radio_json.json** [från Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
-* Ladda upp JSON-exempelfilen med **AzCopy version 10** till Azure Blob Storage-kontot och filsystemet du skapade:
+Ange följande kod i en cell i en arbetsbok:
 
-    ```bash
-    set ACCOUNT_NAME=<ACCOUNT_NAME>
-    set ACCOUNT_KEY=<ACCOUNT_KEY>
-    azcopy cp "<LOCAL_FILE_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/<CONTAINER_NAME> --recursive 
-    ```
+    %sh wget -P /tmp https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
-> [!NOTE]
-> AzCopy version 10 är endast tillgänglig för kunder med förhandsversionen.
+I cellen trycker du på `Shift` + `Enter` för att köra koden.
+
+I cellen nedanför denna anger du följande (ersätt **FILE_SYSTEM** och **ACCOUNT_NAME** med samma värden som du använde tidigare):
+
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfs://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+
+I cellen trycker du på `Shift` + `Enter` för att köra koden.
 
 ## <a name="run-a-spark-sql-job"></a>Köra ett Spark SQL-jobb
 
@@ -180,7 +181,7 @@ Utför följande åtgärder för att köra ett Spark SQL-jobb på data.
     - Ställ in **Värden** på **nivå**.
     - Ställ in **Sammansättning** på **COUNT** (Antal).
 
-6. Klicka på **Använd**.
+6. Klicka på **Verkställ**.
 
 7. Utdata visar den visuella representationen som visas i följande skärmbild:
 

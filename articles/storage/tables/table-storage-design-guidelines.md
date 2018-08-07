@@ -1,50 +1,45 @@
 ---
 title: Riktlinjer för Azure storage tabelldesign | Microsoft Docs
-description: Utforma din Azure table-tjänsten för att stödja läsåtgärder effektivt.
+description: Utforma din Azure-tabelltjänst för läsåtgärder effektivt.
 services: storage
-documentationcenter: na
 author: SnehaGunda
-manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
-ms.openlocfilehash: 5329d33aee1bb1a55e9982b1ba9e3e8329246980
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: tables
+ms.openlocfilehash: ef6d257aee532d4b6325bd3d2f619fd00824e06f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661043"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525426"
 ---
 # <a name="guidelines-for-table-design"></a>Riktlinjer för tabelldesign
 
-Skapar tabeller för användning med tjänsten Azure storage tabell skiljer sig mycket från beaktanden vid utformning av en relationsdatabas. Den här artikeln beskriver riktlinjer för att utforma din lösning för tabellen att läsas effektivt och skriva effektiva.
+Utforma tabeller för användning med tjänsten Azure storage-tabell skiljer sig mycket från designöverväganden för en relationsdatabas. Den här artikeln beskriver riktlinjer för att utforma din tabell tjänstlösning för att läsa effektiv och skriva effektiv.
 
-## <a name="design-your-table-service-solution-to-be-read-efficient"></a>Utforma din lösning för tabellen ska läsa effektivt
+## <a name="design-your-table-service-solution-to-be-read-efficient"></a>Utforma din tabell tjänstlösning för Läs-effektivt
 
-* ***Design för frågor i Läs-aktiverat program.*** När du utformar dina tabeller tänka frågor (särskilt svarstid känsliga de) som du ska köra innan du tycker om hur du ska uppdatera-enheterna. Detta ger vanligtvis en effektiv och performant lösning.  
-* ***Ange både PartitionKey och RowKey i dina frågor.*** *Peka frågor* som dessa är de mest effektiva tabellen service frågorna.  
-* ***Överväg att lagra dubbletter av enheter.*** Table storage är billiga så du överväga att spara samma entitet flera gånger (med olika nycklar) om du vill aktivera effektivare frågor.  
-* ***Överväg att denormalizing dina data.*** Table storage är billiga så Överväg denormalizing dina data. Lagra exempelvis sammanfattning enheter så att frågor för att samla in data bara behöver åtkomst till en enda entitet.  
-* ***Använd sammansatt nyckelvärden.*** Är bara nycklar som du har **PartitionKey** och **RowKey**. Till exempel använda sammansatta nyckelvärden för att aktivera alternativ nycklad åtkomst sökvägar till enheter.  
-* ***Använd fråga projektion.*** Du kan minska mängden data som du överför via nätverket med hjälp av frågor som väljer de fält du behöver.  
+* ***Design för frågor i Läs-aktiverat program.*** När du utformar dina tabeller, tänka frågor (särskilt svarstiden känsliga som) som du ska köra innan du tänka på hur du uppdaterar dina entiteter. Detta innebär vanligtvis en effektiv och högpresterande lösning.  
+* ***Ange både PartitionKey och RowKey i dina frågor.*** *Peka frågor* som dessa är de mest effektiva frågorna i table service.  
+* ***Överväg att lagra dubbletter av entiteter.*** Table storage är billiga så fundera över lagra samma entitet flera gånger (med olika nycklar) om du vill aktivera mer effektiva frågor.  
+* ***Överväg att avnormalisera data.*** Table storage är billiga så fundera över avnormalisera data. Till exempel lagra sammanfattning entiteter så att frågor för aggregerade data bara behöver åtkomst till en enda entitet.  
+* ***Använd sammansatt nyckelvärden.*** De enda nycklarna som du har är **PartitionKey** och **RowKey**. Till exempel använda sammansatt nyckelvärden för att aktivera alternativa knappade åtkomstsökvägar entiteter.  
+* ***Använd fråga projektion.*** Du kan minska mängden data som du överför över nätverket med hjälp av frågor som väljer enbart de fält som du behöver.  
 
-## <a name="design-your-table-service-solution-to-be-write-efficient"></a>Utforma din lösning för tabellen ska skriva effektiva  
+## <a name="design-your-table-service-solution-to-be-write-efficient"></a>Utforma din tabell tjänstlösning för att skriva effektiv  
 
-* ***Skapa inte varm partitioner.*** Välj nycklar att sprida dina begäranden över flera partitioner vid någon tidpunkt.  
-* ***Undvika toppar i trafiken.*** Utjämna trafiken över en rimlig tid och undvika toppar i trafiken.
-* ***Inte nödvändigtvis att skapa en separat tabell för varje typ av enhet.*** När du behöver atomiska transaktioner över typer av enheter kan lagra du dessa flera typer av enheter i samma partition i samma tabell.
-* ***Överväg att maximalt dataflöde du måste uppnå.*** Du måste vara medveten om skalbarhetsmål för tabelltjänsten och se till att designen inte ska orsaka du överskrida dem.  
+* ***Skapa inte heta partitioner.*** Välj nycklar som gör det möjligt att sprida dina förfrågningar över flera partitioner vid någon tidpunkt.  
+* ***Undvik trafiktoppar.*** Utjämna trafiken över en rimlig tidsperiod och undvika toppar i trafiken.
+* ***Inte nödvändigtvis att skapa en separat tabell för varje typ av entiteten.*** När du behöver atomiska transaktioner över entitetstyper kan lagra du dessa flera typer av enheter i samma partition i samma tabell.
+* ***Överväg att det maximala dataflöde som du måste uppnå.*** Du måste känna till det för skalbarhetsmål för tabelltjänsten och säkerställa att din design kommer du att överskrida dem.  
 
-När du läser handboken visas exempel placera alla dessa principer i praktiken. 
+När du läser den här handboken visas exempel som placerar alla dessa principer i praktiken. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Designmönster för tabellen](table-storage-design-patterns.md)
+- [Designmönster för tabell](table-storage-design-patterns.md)
 - [Design för frågor](table-storage-design-for-query.md)
 - [Kryptera tabelldata](table-storage-design-encrypt-data.md)
-- [Design för dataändring](table-storage-design-for-modification.md)
+- [Design för dataändringar](table-storage-design-for-modification.md)

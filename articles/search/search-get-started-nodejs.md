@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed
-ms.openlocfilehash: aeff3be89121bb93432d03f108ab5d2e5fa6f007
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 713e5304ca54039413f68ebc189dd049e77cdaa0
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099545"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527583"
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Komma igång med Azure Search i Node.js
 > [!div class="op_single_selector"]
@@ -99,9 +99,9 @@ Du kan också prova någon av dessa söktermer:
 ## <a name="next-steps"></a>Nästa steg
 Det här är den första Azure Search-självstudiekursen som baseras på Node.js och USGS-datauppsättningen. Med tiden kommer vi att utöka den här självstudiekursen och demonstrera ytterligare sökfunktioner som du kanske vill använda i dina anpassade lösningar.
 
-Om du redan har vissa bakgrunden i Azure Search kan du använda det här exemplet som en springboard för försök suggesters (typ i förväg eller automatisk komplettering frågor), filter och fasetterad navigering. Du kan även förbättra sidan med sökresultat genom att lägga till antal och batchbearbeta dokument så att användarna kan bläddra igenom resultaten.
+Om du redan har viss erfarenhet i Azure Search kan använda du det här exemplet som utgångspunkt för att du provar förslagsställare (frågeifyllningsförslag eller komplettera frågor), filter och aspektbaserad navigering. Du kan även förbättra sidan med sökresultat genom att lägga till antal och batchbearbeta dokument så att användarna kan bläddra igenom resultaten.
 
-Har du inte provat Azure Search än? Vi rekommenderar att du går andra självstudiekurser så att du ser vad du kan skapa. Vår [dokumentationssida](https://azure.microsoft.com/documentation/services/search/) innehåller fler resurser. Mer information finns också på länkarna i [listan med videoklipp och självstudiekurser](search-video-demo-tutorial-list.md).
+Har du inte provat Azure Search än? Vi rekommenderar att du går andra självstudiekurser så att du ser vad du kan skapa. Vår [dokumentationssida](https://azure.microsoft.com/documentation/services/search/) innehåller fler resurser. 
 
 <!--Image references-->
 [1]: ./media/search-get-started-Nodejs/create-search-portal-1.PNG

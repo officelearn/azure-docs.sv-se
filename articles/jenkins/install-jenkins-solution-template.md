@@ -1,27 +1,25 @@
 ---
 title: Skapa en Jenkins-server i Azure
 description: Installera Jenkins på en virtuell Azure Linux-dator från Jenkins-lösningsmappen och skapa ett Java-exempelprogram.
-author: tomarcher
-manager: rloutlaw
-ms.service: multiple
-ms.workload: web
-ms.devlang: na
-ms.topic: article
-ms.date: 03/12/2018
+ms.topic: quickstart
 ms.author: tarcher
-ms.custom: Jenkins
-ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: MT
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: af1082d9b7b350f1845d6c8e22108b9238a40f28
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635466"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390436"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Skapa en Jenkins-server på en virtuell Azure Linux-dator från Azure Portal
 
 Den här snabbstarten visar hur du installerar [Jenkins](https://jenkins.io) på en virtuell Ubuntu Linux-dator med verktygen och plugin-programmen som är konfigurerade för att fungera med Azure. När du är klar körs en Jenkins-server i Azure och skapar en Java-exempelapp från [GitHub](https://github.com).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumeration
 * Åtkomst till SSH på datorns kommandorad (som Bash-gränssnitt eller [PuTTY](http://www.putty.org/))
@@ -29,13 +27,13 @@ Den här snabbstarten visar hur du installerar [Jenkins](https://jenkins.io) på
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-jenkins-vm-from-the-solution-template"></a>Skapa den virtuella Jenkins-datorn från lösningsmallen
-Jenkins har stöd för en modell där Jenkins server ombud som arbetar för att en eller flera agenter för att en enda Jenkins-installationen som värd för ett stort antal projekt eller att tillhandahålla olika miljöer som behövs för bygger eller testar. Stegen i det här avsnittet hjälper dig att installera och konfigurera en Jenkins-server på Azure.
+Jenkins har stöd för en modell där Jenkins-servern delegerar arbete till en eller flera agenter så att en enskild Jenkins-installation kan vara värd för ett stort antal projekt eller tillhandahålla olika miljöer som behövs för byggen eller tester. Stegen i det här avsnittet hjälper dig att installera och konfigurera en Jenkins-server på Azure.
 
 [!INCLUDE [jenkins-install-from-azure-marketplace-image](../../includes/jenkins-install-from-azure-marketplace-image.md)]
 
 ## <a name="connect-to-jenkins"></a>Ansluta till Jenkins
 
-Navigera till den virtuella datorn (till exempel http://jenkins2517454.eastus.cloudapp.azure.com/) i webbläsaren. Jenkins-konsolen går inte att komma åt via osäker HTTP så det medföljer anvisningar på sidan om hur du får åtkomst till Jenkins-konsolen säkert från datorn med hjälp av en SSH-tunnel.
+Navigera till din virtuella dator (till exempel http://jenkins2517454.eastus.cloudapp.azure.com/)) i webbläsaren. Jenkins-konsolen går inte att komma åt via osäker HTTP så det medföljer anvisningar på sidan om hur du får åtkomst till Jenkins-konsolen säkert från datorn med hjälp av en SSH-tunnel.
 
 ![Låsa upp Jenkins](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 
@@ -88,6 +86,10 @@ Select **Build Now** (Skapa nu) för att kompilera koden och paketera exempelapp
 ![Gå till arbetsytan för att hämta JAR-filen från versionen](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
 
 Gå till `complete/build/libs` och kontrollera att `gs-spring-boot-0.1.0.jar` finns där och att din version har skapats. Jenkins-servern är nu klar att skapa egna projekt i Azure.
+
+## <a name="troubleshooting-the-jenkins-solution-template"></a>Felsöka Jenkins-lösningsmallen
+
+Om du stöter på buggar med Jenkins-lösningsmallen kan du rapportera problemet på [Jenkins-GitHub-lagringsplatsen](https://github.com/azure/jenkins/issues).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/14/2016
 ms.author: jjed
-ms.openlocfilehash: d95abab1d1a489deba2ebc260e1e32963aa5639e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2f52ed0ab302d1c3dad699258287f6edd7197cef
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799540"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525628"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Komma igång med Azure Search i Java
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ Alla efterföljande filändringar och körningsinstruktioner görs mot filer i d
 ## <a name="configure-the-service-url-and-api-key"></a>Konfigurera tjänstens URL och API-nyckel
 1. I **Project Explorer** dubbelklickar du på **config.properties** för att redigera konfigurationsinställningarna som innehåller servernamnet och API-nyckeln.
 2. Följ stegen ovan i den här artikeln, där du letade upp tjänstens URL och API-nyckeln på [Azure Portal](https://portal.azure.com), för att hämta de värden som du nu ska ange i **config.properties**.
-3. I **config.properties** ersätter du ”Api Key” med API-nyckeln för tjänsten. Sedan, tjänstens namn (den första komponenten i URL: en http://servicename.search.windows.net) ersätter ”Tjänstenamn” i samma fil.
+3. I **config.properties** ersätter du ”Api Key” med API-nyckeln för tjänsten. Nästa, tjänstens namn (den första delen av URL: en http://servicename.search.windows.net) ersätter ”service name” i samma fil.
    
     ![][5]
 
@@ -159,7 +159,7 @@ Det här är den första Azure Search-självstudiekursen som baseras på Java oc
 
 Om du redan har viss erfarenhet av Azure Search kan du använda det här exemplet som en utgångspunkt för ytterligare experiment och kanske utöka [söksidan](search-pagination-page-layout.md) eller implementera [aspektbaserad navigering](search-faceted-navigation.md). Du kan även förbättra sidan med sökresultat genom att lägga till antal och batchbearbeta dokument så att användarna kan bläddra igenom resultaten.
 
-Har du inte provat Azure Search än? Vi rekommenderar att du går andra självstudiekurser så att du ser vad du kan skapa. Vår [dokumentationssida](https://azure.microsoft.com/documentation/services/search/) innehåller fler resurser. Mer information finns också på länkarna i [listan med videoklipp och självstudiekurser](search-video-demo-tutorial-list.md).
+Har du inte provat Azure Search än? Vi rekommenderar att du går andra självstudiekurser så att du ser vad du kan skapa. Vår [dokumentationssida](https://azure.microsoft.com/documentation/services/search/) innehåller fler resurser. 
 
 <!--Image references-->
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG

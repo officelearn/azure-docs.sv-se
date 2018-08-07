@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dfee42f813989da2333720ac92313344343d57a7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 12c825143f48b5558ea9b1d49ed8cea59d84f6af
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214037"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522789"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Användaren logga in med Azure Active Directory-direktautentisering
 
@@ -49,7 +49,7 @@ Du kan kombinera direktautentisering med den [sömlös enkel inloggning](active-
 - *Skydda*
   - Lokala lösenord lagras aldrig i molnet i någon form.
   - Agenten gör bara utgående anslutningar från ditt nätverk. Det finns därför inga krav på att installera agenten i ett perimeternätverk, även kallat DMZ.
-  - Skyddar dina användarkonton genom att arbeta smidigt med [principer för Azure AD villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md), inklusive Multi-Factor Authentication (MFA), [blockera äldre](../active-directory-conditional-access-conditions.md) och av [ Filtrera bort råstyrkeattacker för lösenord](../authentication/howto-password-smart-lockout.md).
+  - Skyddar dina användarkonton genom att arbeta smidigt med [principer för Azure AD villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md), inklusive Multi-Factor Authentication (MFA), [blockera äldre](../conditional-access/conditions.md) och av [ Filtrera bort råstyrkeattacker för lösenord](../authentication/howto-password-smart-lockout.md).
 - *Med hög tillgänglighet*
   - Ytterligare agenter kan installeras på flera lokala servrar för att ge hög tillgänglighet för inloggningsförfrågningar.
 

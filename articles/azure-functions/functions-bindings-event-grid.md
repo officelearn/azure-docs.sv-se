@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/08/2018
 ms.author: glenga
-ms.openlocfilehash: 02c21453aca01ec0659d0b31738512525d2af51d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0875829a405cafcea755d47214903c6ccab4ff16
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444325"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521304"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Event Grid-utlösare för Azure Functions
 
@@ -432,7 +432,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
                               0       0       0.00    0.00    0.00    0.00
 ```
 
-Du använder https://{subdomain}.ngrok.io URL: en för Event Grid-prenumeration.
+Du kommer att använda den `https://{subdomain}.ngrok.io` URL: en för Event Grid-prenumeration.
 
 ### <a name="run-the-event-grid-trigger-function"></a>Kör funktionen Event Grid-utlösare
 

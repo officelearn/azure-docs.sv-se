@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/3/2018
+ms.date: 8/3/2018
 ms.author: raiye
-ms.openlocfilehash: 518e55de440daa93dc0a9a9eebc207ebcde07d57
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 2ee31e0a2d563ddf2aa63498b4ca280e4da26754
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970170"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524866"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst-OS-versioner och SDK-kompatibilitetsöversikten
 Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem släpper för molntjänster. Den här informationen hjälper dig att planera din uppgraderingsväg innan en gäst-OS är inaktiverad. Om du konfigurerar dina roller att använda *automatisk* gäst-OS uppdateras enligt beskrivningen i [Azure Guest OS uppdateringsinställningar][Azure Guest OS Update Settings], inte är det viktigt att du läser den här sidan.
@@ -43,6 +43,9 @@ Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem slä
 Osäker på om hur du uppdaterar din gäst-OS? Kontrollera [detta] [ cloud updates] ut.
 
 ## <a name="news-updates"></a>Nyheter
+
+###### <a name="august-3-2018"></a>**Den 3 augusti 2018**
+Gäst-OS juli har publicerat.
 
 ###### <a name="july-3-2018"></a>**3 juli 2018**
 Gäst-OS juni har publicerat.
@@ -90,8 +93,9 @@ Oktober Gästoperativsystem har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Förfallodatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.21_201807-02 |Den 3 augusti 2018 |Post 5.23 |TBD |
 | WA-GUEST-OS-5.20_201806-01 |3 juli 2018 |Post 5.22 |TBD |
-| WA-GUEST-OS-5.19_201805-01 |Den 1 juni 2018 |Post 5.21 |TBD |
+|~~WA-GUEST-OS-5.19_201805-01~~ |Den 1 juni 2018 |Den 3 augusti 2018 |TBD |
 |~~WA-GUEST-OS-5.18_201804-01~~ |Den 4 maj 2018 |3 juli 2018 |TBD |
 |~~WA-GUEST-OS-5.17_201803-01~~ |6 april 2018 |Den 1 juni 2018|TBD |
 |~~WA-GUEST-OS-5.16_201802-01~~ |Den 12 mars 2018 |Den 4 maj 2018 |TBD |
@@ -99,7 +103,6 @@ Oktober Gästoperativsystem har publicerat.
 |~~WA-GUEST-OS-5.14_201712-01~~ |Den 4 januari 2018 |Den 12 mars 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 december 2017 |Den 4 januari 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 november 2017 |Den 4 januari 2018 |TBD |
-|~~WA-GUEST-OS-5.11_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
 
 
 ## <a name="family-4-releases"></a>Gästoperativsystemfamilj 4 versioner
@@ -114,8 +117,9 @@ Oktober Gästoperativsystem har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Förfallodatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.56_201807-02 |Den 3 augusti 2018 |Post 4.58 |TBD |
 | WA-GUEST-OS-4.55_201806-01 |3 juli 2018 |Post 4.57 |TBD |
-| WA-GUEST-OS-4.54_201805-01 |Den 1 juni 2018 |Post med 4,56 |TBD |
+|~~WA-GUEST-OS-4.54_201805-01~~ |Den 1 juni 2018 |Den 3 augusti 2018 |TBD |
 |~~WA-GUEST-OS-4.53_201804-01~~ |Den 4 maj 2018 |3 juli 2018 |TBD |
 |~~WA-GUEST-OS-4.52_201803-01~~ |6 april 2018 |Den 1 juni 2018 |TBD |
 |~~WA-GUEST-OS-4.51_201802-01~~ |Den 12 mars 2018 |Den 4 maj 2018 |TBD |
@@ -123,8 +127,6 @@ Oktober Gästoperativsystem har publicerat.
 |~~WA-GUEST-OS-4.49_201712-01~~ |Den 4 januari 2018 |Den 12 mars 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 december 2017 |Den 4 januari 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 november 2017 |Den 4 januari 2018 |TBD |
-|~~WA-GUEST-OS-4.46_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
-
 
 
 ## <a name="family-3-releases"></a>Familj 3 versioner
@@ -139,8 +141,9 @@ Oktober Gästoperativsystem har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Förfallodatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.63_201807-02 |Den 3 augusti 2018 |Post 3.65 |TBD |
 | WA-GUEST-OS-3.62_201806-01 |3 juli 2018 |Post 3.64 |TBD |
-| WA-GUEST-OS-3.61_201805-01 |Den 1 juni 2018 |Post 3.63 |TBD |
+|~~WA-GUEST-OS-3.61_201805-01~~ |Den 1 juni 2018 |Den 3 augusti 2018 |TBD |
 |~~WA-GUEST-OS-3.60_201804-01~~ |Den 4 maj 2018 |3 juli 2018 |TBD |
 |~~WA-GUEST-OS-3.59_201803-01~~ |6 april 2018 |Den 1 juni 2018 |TBD |
 |~~WA-GUEST-OS-3.58_201802-01~~ |19 mars 2018 |Den 4 maj 2018 |TBD |
@@ -148,8 +151,6 @@ Oktober Gästoperativsystem har publicerat.
 |~~WA-GUEST-OS-3.56_201712-01~~ |Den 4 januari 2018 |19 mars 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 december 2017 |Den 29 januari 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 november 2017 |Den 4 januari 2018 |TBD |
-|~~WA-GUEST-OS-3.53_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
-|~~WA-GUEST-OS-3.52_201708-01~~ |24 augusti 2017 |14 december 2017 |TBD |
 
 
 ## <a name="family-2-releases"></a>Familj 2 versioner
@@ -164,8 +165,9 @@ Oktober Gästoperativsystem har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Förfallodatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.76_201807-02 |Den 3 augusti 2018 |Post 2.78 |TBD |
 | WA-GUEST-OS-2.75_201806-01 |3 juli 2018 |Post 2,77 |TBD |
-| WA-GUEST-OS-2.74_201805-01 |Den 1 juni 2018 |Post 2.76 |TBD |
+|~~WA-GUEST-OS-2.74_201805-01~~ |Den 1 juni 2018 |Den 3 augusti 2018|TBD |
 |~~WA-GUEST-OS-2.73_201804-01~~ |Den 4 maj 2018 |3 juli 2018 |TBD |
 |~~WA-GUEST-OS-2.72_201803-01~~ |6 april 2018 |Den 1 juni 2018 |TBD |
 |~~WA-GUEST-OS-2.71_201802-01~~ |Den 12 mars 2018 |Den 4 maj 2018 |TBD |

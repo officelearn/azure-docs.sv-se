@@ -11,14 +11,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
-ms.date: 07/13/2018
+ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 52f0e6c90aa9fa0dc439eae3801b2d4ac29387a9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6048a17bf50ecac691c7cf687f87e454c54ee9d9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429688"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521891"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profilera live-Azure-webbappar med Application Insights
 
@@ -167,9 +167,12 @@ Här följer några saker som du kan kontrollera:
 * Kontrollera att webbappen har Application Insights SDK 2.2 Beta eller senare aktiverad.
 * Se till att webbappen har den **APPINSIGHTS_INSTRUMENTATIONKEY** inställningen som konfigurerats med samma instrumenteringsnyckeln som används av Application Insights SDK.
 * Kontrollera att din webbapp körs på .NET Framework 4.6.
-* Om din webbapp är ett ASP.NET Core-program kontrollerar [de nödvändiga beroendena](#aspnetcore).
+* Om din webbapp är ett ASP.NET Core-program, måste den köra minst ASP.NET Core 2.0.
 
 När Profiler har startat, finns det en kort uppvärmningsperiod då Profiler aktivt samlar in flera prestandaspårningar. Samlar in prestandaspårningar för varje timme med två minuter efter det Profiler.
+
+> [!NOTE]
+> Det finns en bugg i profiler-agent som förhindrar att ladda upp spårningar som kommer från program som körs på ASP.NET Core 2.1. Vi arbetar på att lösa och har klar snart.
 
 ### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>Jag har använt Azure Service-profiler. Vad hände med det?
 

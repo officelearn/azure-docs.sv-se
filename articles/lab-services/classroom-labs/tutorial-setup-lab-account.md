@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: spelluru
-ms.openlocfilehash: d4bfd684792e5ec13b2a4a020fa21249f1888657
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b60c1e84eb5b62bfce0eb2ba96129deeee2fc3c3
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226364"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345316"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Självstudie: Konfigurera ett labbkonto med Azure Lab Services
 I Azure Lab Services, fungerar ett labbkonto som det centrala kontot där alla din organisations labbar hanteras. I ditt labbkonto, ger du behörighet till andra att skapa labbar och konfigurera principer som gäller för alla labbar under labbkontot. I den här självstudien, får du lära dig hur du skapar ett labbkonto som en labbadministratör. 
@@ -69,11 +69,17 @@ Ge lärarna behörighet att skapa labb åt sina klasser genom att lägga till de
     ![Lägga till en användare i rollen Labbskapare](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 ## <a name="specify-marketplace-images-available-to-lab-owners"></a>Ange Marketplace-avbildningar som är tillgängliga för labbägare
-I det här avsnittet anger du Marketplace-avbildningar som labbägare kan använda för att skapa klassrumslabb. 
+Som labbkontoägare kan du ange Marketplace-avbildningar som labbskapare kan använda för att skapa labb i labbkontot. 
 
 1. Välj **Marketplace-avbildningar** på menyn till vänster. Som standard kan se du en fullständig lista över avbildningar (både aktiverade och inaktiverade). Du kan filtrera listan för att endast se aktiverade/inaktiverade avbildningar genom att välja alternativet **Endast aktiverade**/**Endast inaktiverade** från listrutan längst upp. 
-
+    
     ![Sida för Marketplace-avbildningar](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+
+    De Marketplace-avbildningar som visas i listan är bara de filer som uppfyller följande villkor:
+        
+    - Skapar en enskild virtuell dator.
+    - Använder Azure Resource Manager för att etablera virtuella datorer
+    - Kräver inte att du köper en extra licensieringsplan
 2. För att **inaktivera** en Marketplace-avbildning som har aktiverats genomför du någon av följande åtgärder: 
     1. Välj **... (ellips)** i den sista kolumnen och välj **Inaktivera avbildning**. 
 

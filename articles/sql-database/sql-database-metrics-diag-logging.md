@@ -3,7 +3,7 @@ title: Azure SQL database-mått och diagnostikloggning | Microsoft Docs
 description: Läs mer om hur du konfigurerar Azure SQL Database för att lagra Resursanvändning, anslutningar och statistik för körning av frågan.
 services: sql-database
 documentationcenter: ''
-author: Danimir
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: c0c2e1748518b794916f1950c288ed1f4df628aa
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: ba305b66d4b7230f2706136587c4183f81c5e9c3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309069"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525509"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning 
 Azure SQL Database kan skapa mått och diagnostik loggar för lättare övervakning. Du kan konfigurera SQL-databasen för att lagra resursanvändning, personal och sessioner och anslutning till en av dessa Azure-resurser:
@@ -287,7 +287,7 @@ Lär dig hur du [hämta mått och diagnostik för loggar från Storage](../stora
 |LogicalServerName_s|Namnet på den server som databasen tillhör.|
 |ElasticPoolName_s|Namnet på den elastiska poolen som databasen tillhör, om sådana.|
 |DatabaseName_s|Namnet på databasen.|
-|Resurs-ID|Resurs-URI.|
+|ResourceId|Resurs-URI.|
 |query_hash_s|Fråga hash.|
 |query_plan_hash_s|Fråge-hash för planen.|
 |statement_sql_handle_s|Sql instruktionsreferensen.|
@@ -338,7 +338,7 @@ Läs mer om [Query Store runtime statistikdata](https://docs.microsoft.com/sql/r
 |LogicalServerName_s|Namnet på den server som databasen tillhör.|
 |ElasticPoolName_s|Namnet på den elastiska poolen som databasen tillhör, om sådana.|
 |DatabaseName_s|Namnet på databasen.|
-|Resurs-ID|Resurs-URI.|
+|ResourceId|Resurs-URI.|
 |wait_category_s|Kategori för väntan.|
 |is_parameterizable_s|Är frågan parameteriseringsbar.|
 |statement_type_s|Typ av instruktionen.|
@@ -376,7 +376,7 @@ Läs mer om [Query Store vänta statistikdata](https://docs.microsoft.com/sql/re
 |LogicalServerName_s|Namnet på den server som databasen tillhör.|
 |ElasticPoolName_s|Namnet på den elastiska poolen som databasen tillhör, om sådana.|
 |DatabaseName_s|Namnet på databasen.|
-|Resurs-ID|Resurs-URI.|
+|ResourceId|Resurs-URI.|
 |Meddelande|Felmeddelande i oformaterad text.|
 |user_defined_b|Är fel användardefinierade biten.|
 |error_number_d|Felkod.|
@@ -405,7 +405,7 @@ Läs mer om [felmeddelanden för SQL Server](https://msdn.microsoft.com/library/
 |LogicalServerName_s|Namnet på den server som databasen tillhör.|
 |ElasticPoolName_s|Namnet på den elastiska poolen som databasen tillhör, om sådana.|
 |DatabaseName_s|Namnet på databasen.|
-|Resurs-ID|Resurs-URI.|
+|ResourceId|Resurs-URI.|
 |wait_type_s|Namnet på typen vänta.|
 |start_utc_date_t [UTC]|Mätt periodens starttid.|
 |end_utc_date_t [UTC]|Mätt period sluttid.|
@@ -434,7 +434,7 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |LogicalServerName_s|Namnet på den server som databasen tillhör.|
 |ElasticPoolName_s|Namnet på den elastiska poolen som databasen tillhör, om sådana.|
 |DatabaseName_s|Namnet på databasen.|
-|Resurs-ID|Resurs-URI.|
+|ResourceId|Resurs-URI.|
 |error_state_d|Felkod för tillstånd.|
 |query_hash_s|Fråga hash, om det är tillgängligt.|
 |query_plan_hash_s|Fråga plan hash, om det är tillgängligt.|
@@ -457,7 +457,7 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |LogicalServerName_s|Namnet på den server som databasen tillhör.|
 |ElasticPoolName_s|Namnet på den elastiska poolen som databasen tillhör, om sådana.|
 |DatabaseName_s|Namnet på databasen.|
-|Resurs-ID|Resurs-URI.|
+|ResourceId|Resurs-URI.|
 |lock_mode_s|LOCK-läge som används av frågan.|
 |resource_owner_type_s|Låsägare.|
 |blocked_process_filtered_s|Blockerad processen rapporten XML.|
@@ -481,7 +481,7 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |LogicalServerName_s|Namnet på den server som databasen tillhör.|
 |ElasticPoolName_s|Namnet på den elastiska poolen som databasen tillhör, om sådana.|
 |DatabaseName_s|Namnet på databasen. |
-|Resurs-ID|Resurs-URI.|
+|ResourceId|Resurs-URI.|
 |deadlock_xml_s|Deadlock rapport XML.|
 
 ### <a name="automatic-tuning-dataset"></a>Automatisk justering datauppsättning
@@ -502,7 +502,7 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |LogicalDatabaseName_s|Namnet på databasen.|
 |ElasticPoolName_s|Namnet på den elastiska poolen som databasen tillhör, om sådana.|
 |DatabaseName_s|Namnet på databasen.|
-|Resurs-ID|Resurs-URI.|
+|ResourceId|Resurs-URI.|
 |RecommendationHash_s|Unikt hash för automatisk justering rekommendation.|
 |OptionName_s|Åtgärd för automatisk justering.|
 |Schema_s|Databasschemat.|

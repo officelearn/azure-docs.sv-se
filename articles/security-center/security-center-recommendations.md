@@ -3,7 +3,7 @@ title: Hantera säkerhetsrekommendationer i Azure Security Center | Microsoft Do
 description: Det här dokumentet vägleder dig genom hur rekommendationerna i Azure Security Center hjälpa dig att skydda dina Azure-resurser och uppfyller säkerhetsprinciper.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2018
-ms.author: terrylan
-ms.openlocfilehash: caeef52ed8eb456bbec015f1766a95aa5ceb49f8
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 0581ddc4289f604533bae3650618fada15e02bef
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367114"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522245"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Hantera säkerhetsrekommendationer i Azure Security Center
 Det här dokumentet vägleder dig genom hur du använder rekommendationer i Azure Security Center för att hjälpa dig att skydda dina Azure-resurser.
@@ -50,6 +50,8 @@ När du har angett en säkerhetsprincip analyseras säkerhetstillståndet för r
 Om du vill se information om varje rekommendation, Välj den **rekommendationer panelen** under **översikt**. **Rekommendationer** öppnas.
 
 ![Filtrera rekommendationer][2]
+
+Du kan filtrera rekommendationer. Om du vill filtrera rekommendationer, Välj **Filter** på den **rekommendationer** bladet. Den **Filter** bladet öppnas och du kan välja allvarlighetsgrad och status du vill se.
 
 Rekommendationerna visas i tabellformat där varje rad motsvarar en viss rekommendation. Kolumner i den här tabellen är:
 
@@ -124,13 +126,6 @@ Använd tabellen nedan som referens för att förstå rekommendationerna som är
 | Ta bort externa konton med ägarbehörigheter från prenumerationen | Rekommenderar att du tar bort externa konton med ägarbehörigheter från prenumerationen för att förhindra oövervakad åtkomst. |
 | Ta bort inaktuella konton från prenumerationen | Rekommenderar att du tar bort inaktuella konton från dina prenumerationer. |
 | Ta bort inaktuella konton med ägarbehörigheter från prenumerationen | Rekommenderar att du tar bort inaktuella konton med ägarbehörigheter från dina prenumerationer. |
-Du kan filtrera och stänga rekommendationer.
-
-1. Välj **Filter** på den **rekommendationer** bladet. Den **Filter** bladet öppnas och du kan välja allvarlighetsgrad och status du vill se.
-
-2. Om du har fastställt att en rekommendation inte är tillämplig, kan du ignorera rekommendationen och filtrera bort vyn den. Det finns två sätt att avvisa en rekommendation. Ett sätt är att högerklicka på ett objekt och välj sedan **Stäng**. Den andra är att hovra över ett objekt, klickar du på de tre punkterna som visas till höger och välj sedan **Stäng**. Du kan visa avvisade rekommendationer genom att klicka på **Filter**, och sedan välja **avvisat**.
-
-    ![Ignorera rekommendationen][3]
 
 ### <a name="apply-recommendations"></a>Tillämpa rekommendationer
 När du har granskat avgör alla rekommendationer vilken du bör använda först. Vi rekommenderar att du använder risknivån eftersom parametern huvudsakliga för att utvärdera vilka rekommendationer ska tillämpas först.
@@ -150,4 +145,3 @@ I det här dokumentet berättade säkerhetsrekommendationer i Security Center. I
 <!--Image references-->
 [1]: ./media/security-center-recommendations/recommendations-tile.png
 [2]: ./media/security-center-recommendations/filter-recommendations.png
-[3]: ./media/security-center-recommendations/dismiss-recommendations.png

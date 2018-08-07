@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: 98aa05d750df2021c84646ce3d9729cd4370baa6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: a47d0130cd06a936da456ec6d78bde99907072f2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502110"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526308"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformera data genom att köra en Jar-aktivitet i Azure Databricks
 
@@ -111,10 +111,11 @@ Mer information finns [dokumentation för Databricks](https://docs.azuredatabric
 
 Du kan använda för att få antingen sökvägen till biblioteket har lagts till med hjälp av Användargränssnittet kan [Databricks CLI (installation)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
 
-Vanligtvis Jar-bibliotek lagras under dbfs: / FileStore/JAR: er när du använder Användargränssnittet. Du kan lista alla via CLI: *databricks fs ls dbfs: / FileStore/JAR-filer* 
+Vanligtvis Jar-bibliotek lagras under dbfs: / FileStore/JAR: er när du använder Användargränssnittet. Du kan lista alla via CLI: *databricks fs ls dbfs: / FileStore/jobb-JAR-filer* 
 
 
 
 #### <a name="copy-library-using-databricks-clihttpsdocsazuredatabricksnetuser-guidedev-toolsdatabricks-clihtmlcopy-a-file-to-dbfs"></a>[Kopiera bibliotek med Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
+Använda Databricks CLI [(installationsstegen)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
 
-Exempel: *databricks fs cp SparkPi-sammansättningen-0.1.jar dbfs: / FileStore/JAR-filer*
+Exempel – kopiera JAR-filen till dbfs: *dbfs cp SparkPi-sammansättningen-0.1.jar dbfs:/docs/sparkpi.jar*

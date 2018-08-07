@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell skriptexempel - ta bort en säkerhetskopia för en webbapp | Microsoft Docs
-description: Azure PowerShell skriptexempel - ta bort en säkerhetskopia för en webbapp
+title: Skriptexempel för Azure PowerShell – Ta bort en säkerhetskopiering för en webbapp | Microsoft Docs
+description: Skriptexempel för Azure PowerShell – Ta bort en säkerhetskopiering för en webbapp
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -15,42 +15,42 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f4204cbb4aefe590b87d0a72675823321f280f33
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6fede6d7c8de473debea927366fca0ab52cf6e5b
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
-ms.locfileid: "23941749"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325820"
 ---
 # <a name="delete-a-backup-for-a-web-app"></a>Ta bort en säkerhetskopia för en webbapp
 
-Det här exempelskriptet skapar en webbapp i App Service med dess relaterade resurser och skapar sedan en enstaka säkerhetskopia för den. 
+Det här exempelskriptet skapar en webbapp i App Service med dess relaterade resurser, och skapar sedan en tidsbegränsad säkerhetskopia för webbappen. 
 
-Om du vill köra skriptet behöver du en befintlig säkerhetskopia för en webbapp. Om du vill skapa en finns [säkerhetskopiering konfigurera ett webbprogram](app-service-powershell-backup-onetime.md) eller [skapa en schemalagd säkerhetskopiering för en webbapp](app-service-powershell-backup-scheduled.md).
+Om du vill köra skriptet behöver du en befintlig säkerhetskopia för en webbapp. Information om hur du skapar en sådan finns i [Säkerhetskopiera en webbapp](app-service-powershell-backup-onetime.md) eller [Skapa en schemalagd säkerhetskopiering för en webbapp](app-service-powershell-backup-scheduled.md).
 
 ## <a name="sample-script"></a>Exempelskript
 
-[!code-powershell[main](../../../powershell_scripts/app-service/backup-delete/backup-delete.ps1?highlight=1-2,11 "Delete a backup for a web app")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/backup-delete/backup-delete.ps1?highlight=1-2,11 "Delete a backup for a web app")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
-Följande kommando kan användas för att ta bort resursgruppen, webbprogram och alla relaterade resurser efter skriptexempel har körts.
+När skriptet har körts kan följande kommando användas för att ta bort resursgruppen, webbappen och alla relaterade resurser.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="script-explanation"></a>Skriptet förklaring
+## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Get-AzureRmWebAppBackupList](/powershell/module/azurerm.websites/get-azurermwebappbackuplist) | Hämtar en lista över säkerhetskopior för ett webbprogram. |
-| [Ta bort AzureRmWebAppBackup](/powershell/module/azurerm.websites/remove-azurermwebappbackup) | Tar bort den angivna säkerhetskopian på en webbapp. |
+| [Get-AzureRmWebAppBackupList](/powershell/module/azurerm.websites/get-azurermwebappbackuplist) | Hämtar en lista över säkerhetskopior för en webbapp. |
+| [Remove-AzureRmWebAppBackup](/powershell/module/azurerm.websites/remove-azurermwebappbackup) | Tar bort den angivna säkerhetskopian av en webbapp. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell-modulen finns [Azure PowerShell dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
 
-Ytterligare Azure Powershell-exempel för Azure App Service Web Apps finns i den [Azure PowerShell-exempel](../app-service-powershell-samples.md).
+Fler Azure Powershell-exempel för Azure App Service Web Apps finns i [Azure PowerShell-exempel](../app-service-powershell-samples.md).

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/03/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1b5640b790b07050336a990a06b66e5f89fcf768
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 5a93a21c3884d742479bdd30417a846942cb1ed1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308617"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524098"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory-direktautentisering: Snabbstart för
 
@@ -62,6 +62,7 @@ Se till att följande krav är uppfyllda.
     | --- | --- |
     | **80** | Hämtar listor över återkallade certifikat (CRL) vid verifiering av SSL-certifikatet |
     | **443** | Hanterar all utgående kommunikation med tjänsten |
+    | **8080** (valfritt) | Autentiseringsagenter rapportera status för var tionde minut över port 8080, om port 443 är inte tillgänglig. Den här statusen visas på Azure AD-portalen. Port 8080 är _inte_ används för användarinloggningar. |
    
     Om din brandvägg tillämpar regler enligt ursprungliga användarna, kan du öppna dessa portar för trafik från Windows-tjänster som körs som en nätverkstjänst.
    - Om din brandvägg eller proxyserver kan DNS-lista över tillåtna, lista över tillåtna anslutningar till  **\*. msappproxy.net** och  **\*. servicebus.windows.net**. Om den inte tillåter åtkomst till den [Azure datacenter IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653), som uppdateras varje vecka.

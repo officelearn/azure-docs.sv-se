@@ -3,7 +3,7 @@ title: Övervaka identitet och åtkomst i Azure Security Center | Microsoft Docs
 description: Lär dig hur du använder identitets- och åtkomstfunktionerna i Azure Security Center för att övervaka användarnas åtkomstaktiviteter och identitetsrelaterade problem.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2018
-ms.author: terrylan
-ms.openlocfilehash: b2243b10c20a0c8ed0faccbcc82e24193bd4adac
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 821a88f3627b19951c26677838bd2f86d0948ab9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39460270"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526838"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Övervaka identitet och åtkomst i Azure Security Center (förhandsversion)
 Den här artikeln hjälper dig att använda Azure Security Center för att övervaka användarnas identitets- och åtkomstrelaterade aktiviteter.
@@ -38,7 +38,7 @@ Genom att övervaka identitetsaktiviteter kan du vidta proaktiva åtgärder inna
 - Ta bort externa Privilegierade konton från prenumerationen
 
 > [!NOTE]
-> Om din prenumeration har fler än 250 konton kan kan Security Center inte köra identitet rekommendationer mot din prenumeration. Rekommendationer som inte körs visas under ”ej tillgängliga utvärderingar” som beskrivs nedan.
+> Om din prenumeration har mer än 600 konton kan kan Security Center inte köra identitet rekommendationer mot din prenumeration. Rekommendationer som inte körs visas under ”ej tillgängliga utvärderingar” som beskrivs nedan.
 Security Center kan inte köra identitet rekommendationer mot en Cloud Solution Provider (CSP) partners admin agenter.
 >
 >

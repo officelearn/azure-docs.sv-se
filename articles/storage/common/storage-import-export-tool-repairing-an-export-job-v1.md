@@ -1,69 +1,63 @@
 ---
 title: Reparera ett Azure Import/Export-exportjobb - v1 | Microsoft Docs
-description: Lär dig mer om att reparera ett exportjobb som har skapats och att köras med tjänsten Azure Import/Export.
+description: Lär dig mer om att reparera ett exportjobb som har skapats och körs med hjälp av tjänsten Azure Import/Export.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 728e2a42-04ce-4be8-9375-e9e2bc6827a5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 57ab58fa1fd8371d0b6f019f94bb162bcc1e0e43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: ef5a5f81c5eb3994f62469139c6e835bd802eaa9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873879"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522731"
 ---
 # <a name="repairing-an-export-job"></a>Reparera ett exportjobb
-När ett exportjobb har slutförts kan köra du verktyget Azure Import/Export lokal till:  
+När en export-jobbet har slutförts kan köra du de Microsoft Azure Import/Export-verktyget lokalt till:  
   
-1.  Hämta alla filer som Azure Import/Export-tjänsten kunde inte exportera.  
+1.  Ladda ned alla filer som Azure Import/Export-tjänsten kunde inte exportera.  
   
-2.  Verifiera att filerna på enheten exporterats korrekt.  
+2.  Verifiera att filerna på enheten har exporterats korrekt.  
   
-Du måste ha en anslutning till Azure Storage att använda den här funktionen.  
+Du måste ha en anslutning till Azure Storage för att använda den här funktionen.  
   
 Kommandot för att reparera ett importjobb är **RepairExport**.
 
 ## <a name="repairexport-parameters"></a>RepairExport parametrar
 
-Följande parametrar kan anges med **RepairExport**:  
+Följande parametrar kan bara anges med **RepairExport**:  
   
 |Parameter|Beskrivning|  
 |---------------|-----------------|  
-|**/ r: < RepairFile\>**|Krävs. Sökvägen till filen reparation, som spårar förloppet för att reparera och gör att du kan återuppta en avbruten reparation. Varje enhet måste ha en repair-fil. När du startar en reparation för en viss enhet skickar du i sökvägen till en repair-fil som ännu inte finns. Om du vill återuppta ett avbryts reparation, överför du namnet på en befintlig fil för reparation. Reparera filen motsvarar målenheten måste alltid anges.|  
-|**/logdir: < LogDirectory\>**|Valfri. Loggkatalogen. Utförlig loggfilerna skrivs till den här katalogen. Om inga loggkatalogen anges, används den aktuella katalogen som loggkatalogen.|  
-|**/ d: < TargetDirectory\>**|Krävs. Katalogen för att kontrollera och reparera. Detta är vanligtvis rotkatalogen för export-enhet, men kan också vara en nätverksresurs som innehåller en kopia av de exporterade filerna.|  
-|**/BK: < BitLockerKey\>**|Valfri. Du bör ange BitLocker-nyckel om du vill använda verktyget för att låsa upp ett krypterat där de exporterade filerna lagras.|  
-|**/SN: < StorageAccountName\>**|Krävs. Namnet på lagringskontot för exportjobbet.|  
-|**/Sk: < StorageAccountKey\>**|**Krävs** endast om en behållare SAS inte har angetts. Kontonyckel för lagringskontot för exportjobbet.|  
-|**/csas: < ContainerSas\>**|**Krävs** om lagringskontots åtkomstnyckel inte har angetts. Behållaren SAS för att komma åt blobar som är kopplad till exportjobbet.|  
-|**/ CopyLogFile: < DriveCopyLogFile\>**|Krävs. Sökvägen till loggfilen enhet kopia. Filen har genererats av Windows Azure Import/Export-tjänsten och kan hämtas från blob storage som är associerat med jobbet. Kopiera loggfilen innehåller information om misslyckade blobbar eller filer som är repareras.|  
-|**/ ManifestFile: < DriveManifestFile\>**|Valfri. Sökvägen till enheten export manifestfilen. Den här filen skapas av tjänsten Windows Azure Import/Export och lagras på enheten för export och eventuellt i en blob i storage-konto som är associerat med jobbet.<br /><br /> Innehållet i filerna på enhetens export kontrolleras med MD5 hash-värden i den här filen. Alla filer som bedöms vara skadad ska hämtas och anges till mål-kataloger.|  
+|**/ r: < RepairFile\>**|Krävs. Sökväg till filen reparation som spårar förloppet för reparation och gör att du kan återuppta en avbruten reparation. Varje enhet måste ha en repair-fil. När du startar en reparation för en viss enhet, ska du skicka i sökvägen till en repair-fil som inte finns ännu. Om du vill återuppta en avbruten reparation, överför du namnet på en befintlig repair-fil. Reparera filen motsvarar målenheten måste alltid anges.|  
+|**/logdir: < LogDirectory\>**|Valfri. Loggkatalogen. Utförliga loggfiler ska skrivas till den här katalogen. Om inga loggkatalogen anges, används den aktuella katalogen som log-katalogen.|  
+|**/ d: < TargetDirectory\>**|Krävs. Katalogen för att verifiera och reparera. Detta är vanligtvis rotkatalogen för export-enhet, men kan också vara en nätverksansluten filresurs som innehåller en kopia av de exporterade filerna.|  
+|**/BK: < BitLockerKey\>**|Valfri. Du bör ange BitLocker-nyckel om du vill att verktyget för att låsa upp ett krypterat där de exporterade filerna lagras.|  
+|**/SN: < StorageAccountName\>**|Krävs. Namnet på lagringskontot för export-jobbet.|  
+|**/Sk: < StorageAccountKey\>**|**Krävs** endast om en SAS-behållare inte har angetts. Kontonyckel för lagringskontot för export-jobbet.|  
+|**/csas: < ContainerSas\>**|**Krävs** endast om lagringskontonyckeln inte har angetts. Behållare SAS för åtkomst till blobbarna som är associerade med export-jobbet.|  
+|**/ CopyLogFile: < DriveCopyLogFile\>**|Krävs. Sökvägen till loggfilen enhet kopia. Filen har genererats av Windows Azure Import/Export-tjänsten och kan laddas ned från blob-lagringen som är kopplade till jobbet. Kopiera loggfilen innehåller information om misslyckade blobar eller filer som kommer att repareras.|  
+|**/ ManifestFile: < DriveManifestFile\>**|Valfri. Sökvägen till export enhetens manifestfilen. Den här filen av Windows Azure Import/Export-tjänsten och lagras på enheten för export och eventuellt i en blob i lagringskontot som är associerat med jobbet.<br /><br /> Innehållet i filerna på export enheten kontrolleras med MD5-hashar i den här filen. Alla filer som bestäms är skadade ska hämtas och har skrivits till mål-kataloger.|  
   
-## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Med RepairExport läge för att korrigera misslyckade export  
-Du kan använda verktyget Azure Import/Export för att hämta filer som inte gick att exportera. Kopiera filen innehåller en lista över filer som inte gick att exportera.  
+## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Använda RepairExport läge för att korrigera misslyckade export  
+Du kan använda Azure Import/Export-verktyget för att hämta filer som inte gick att exportera. Kopiera loggfilen innehåller en lista över filer som inte gick att exportera.  
   
-Exportera orsakerna är följande möjligheter:  
+Exportera felorsakerna innefattar följande:  
   
 -   Skadade enheter  
   
--   Lagringskontonyckel som ändrats under överföringen  
+-   Lagringskontonyckeln som ändrats under överföringen  
   
-Du kan köra verktyget **RepairExport** läge, måste du först ansluta enheten som innehåller de exporterade filerna till datorn. Kör verktyget Azure Import/Export, ange sökvägen till den här enheten med den `/d` parameter. Du måste ange sökvägen till loggfilen för enhetens kopia som du hämtat. Följande kommandorad exemplet nedan körs verktyget för att reparera alla filer som kunde inte exportera:  
+Att köra verktyget **RepairExport** läge, måste du först ansluta den enhet som innehåller de exporterade filerna på din dator. Kör verktyget Azure Import/Export, ange sökvägen till den här enheten med den `/d` parametern. Du måste också ange sökvägen till loggfilen för enhetens kopia som du laddade ned. Följande kommandorad exemplet nedan kör verktyget för att reparera alla filer som inte kunde exportera:  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log  
 ```  
   
-Följande är ett exempel på en kopia loggfil som visar att ett block i blob kunde inte exportera:  
+Följande är ett exempel på en kopia loggfil som visas som ett block i blob inte kunde exportera:  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -82,12 +76,12 @@ Följande är ett exempel på en kopia loggfil som visar att ett block i blob ku
 </DriveLog>  
 ```  
   
-Kopiera filen anger att ett fel uppstod när tjänsten Windows Azure Import/Export var hämta någon av de blob-block till filen på enheten för export. Andra komponenter i filen har hämtats och fillängden angavs korrekt. Verktyget kommer i så fall öppna filen på enheten, hämta blocket från lagringskontot och skriva till filen intervallet från förskjutningen 65536 med längden 65536.  
+Kopiera loggfilen anger att ett fel inträffade när Windows Azure Import/Export-tjänsten har nedladdning av en av blobens block till filen på enheten för export. Andra komponenter i filen hämtats har och fillängden har angetts korrekt. Verktyget kommer i så fall öppna filen på enheten, hämta blocket från storage-kontot och skriva till filen intervallet med början från förskjutningen 65536 med längd 65536.  
   
-## <a name="using-repairexport-to-validate-drive-contents"></a>Med hjälp av RepairExport för att validera enhet innehållet  
-Du kan också använda Azure Import/Export med den **RepairExport** alternativet om du vill validera innehållet på enheten är korrekta. Manifestfilen på varje enhet export innehåller MD5s för innehållet på enheten.  
+## <a name="using-repairexport-to-validate-drive-contents"></a>Med hjälp av RepairExport för att verifiera enheten innehållet  
+Du kan också använda Azure Import/Export med den **RepairExport** alternativet om du vill validera innehållet på enheten är korrekta. Manifestfilen på varje enhet för export innehåller MD5s för innehållet på enheten.  
   
-Tjänsten Azure Import/Export kan också spara manifest-filer till ett lagringskonto under exporten. Manifest-filer finns tillgängliga via den [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) igen när jobbet har slutförts. Se [Import/Export service Manifest filformatet](storage-import-export-file-format-metadata-and-properties.md) för mer information om formatet för en enhet manifestfil.  
+Azure Import/Export-tjänsten kan också spara manifest-filer till ett lagringskonto under exporten. Manifest-filer finns tillgängliga via den [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) igen när jobbet har slutförts. Se [Import/Export service Manifest filformat](storage-import-export-file-format-metadata-and-properties.md) för mer information om formatet för en enhet manifestfil.  
   
 I följande exempel visas hur du kör verktyget Azure Import/Export med den **/ManifestFile** och **/CopyLogFile** parametrar:  
   
@@ -132,7 +126,7 @@ Följande är ett exempel på en manifestfil:
 </DriveManifest>  
 ``` 
   
-När reparationen är klar, kommer verktyget att läsa igenom varje fil som refereras i manifestfilen och kontrollera filintegritet med MD5 hash-värden. Det ska gå igenom följande komponenter för manifestet ovan.  
+När du har gått reparationsprocessen verktyget läst igenom varje fil som refereras i manifestfilen och verifiera filintegritet med MD5-hashar. För manifestet ovan, kommer det gå igenom följande komponenter.  
 
 ```  
 G:\pictures\city\redmond.jpg, offset 0, length 3584  
@@ -154,11 +148,11 @@ G:\pictures\wild\canyon.jpg, offset 8163, length 2721
 G:\pictures\wild\canyon.jpg.properties  
 ```
 
-Alla komponenter misslyckas verifieringen kommer hämtas av verktyget och anges till samma fil på enheten.  
+Alla komponenter som misslyckas verifieringen kommer hämtas av verktyget och har skrivits till samma fil på enheten.  
   
 ## <a name="next-steps"></a>Nästa steg
  
-* [Konfigurera verktyget Azure Import/Export](storage-import-export-tool-setup-v1.md)   
+* [Konfigurera Azure Import/Export-verktyget](storage-import-export-tool-setup-v1.md)   
 * [Förbereda hårddiskar för ett importjobb](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Granska jobbstatus med kopiera loggfiler](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Reparera ett importjobb](storage-import-export-tool-repairing-an-import-job-v1.md)   

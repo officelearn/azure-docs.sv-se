@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad4567ffb927694872d5b86dd38833466f944ca8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f220e0b6dd5abb596128ba84af89d0e725f66117
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215092"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521973"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory-direktautentisering djupgående om säkerhet
 
@@ -44,7 +44,7 @@ Dessa är viktiga säkerhetsaspekter i den här funktionen:
   - Läs den fullständiga listan med nätverkskraven [Azure Active Directory-direktautentisering: Snabbstart](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Lösenord som användare anger under inloggning krypteras i molnet innan Autentiseringsagenter lokala godkänner dem för verifiering mot Active Directory.
 - HTTPS-kanal mellan Azure AD och lokala autentiseringsagent är skyddat med hjälp av ömsesidig autentisering.
-- Skyddar dina användarkonton genom att arbeta smidigt med [principer för Azure AD villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md), inklusive Multi-Factor Authentication (MFA), [blockera äldre](../active-directory-conditional-access-conditions.md) och av [ Filtrera bort råstyrkeattacker för lösenord](../authentication/howto-password-smart-lockout.md).
+- Skyddar dina användarkonton genom att arbeta smidigt med [principer för Azure AD villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md), inklusive Multi-Factor Authentication (MFA), [blockera äldre](../conditional-access/conditions.md) och av [ Filtrera bort råstyrkeattacker för lösenord](../authentication/howto-password-smart-lockout.md).
 
 ## <a name="components-involved"></a>Komponenter som ingår
 

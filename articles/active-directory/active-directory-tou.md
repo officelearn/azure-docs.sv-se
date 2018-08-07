@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 02f681bd679baa6bfe4037dd749f64c7b81668d3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398962"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527464"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkor för Azure AD.
@@ -73,7 +73,7 @@ När du har skapat ditt dokument för användningsvillkor använder du följande
 
 5. För **Kräv att användarna expanderar användningsvillkoren** välj antingen aktivera eller inaktivera.  Om den här inställningen är aktiverad måste slutanvändarna läsa villkoren innan de godkänner dem.
 
-6. Under **Villkorlig åtkomst** kan du **Framtvinga** de uppladdade användningsvillkoren genom att välja en mall från listrutan eller en anpassad villkorlig åtkomstprincip.  Anpassade villkorliga åtkomstprinciper möjliggör detaljerade användningsvillkor för ett specifikt molnprogram eller grupp med användare.  Mer information finns i [konfigurera villkorliga åtkomstprinciper](active-directory-conditional-access-best-practices.md).
+6. Under **Villkorlig åtkomst** kan du **Framtvinga** de uppladdade användningsvillkoren genom att välja en mall från listrutan eller en anpassad villkorlig åtkomstprincip.  Anpassade villkorliga åtkomstprinciper möjliggör detaljerade användningsvillkor för ett specifikt molnprogram eller grupp med användare.  Mer information finns i [konfigurera villkorliga åtkomstprinciper](conditional-access/best-practices.md).
 
     >[!IMPORTANT]
     >Kontrollerna för principer för villkorlig åtkomst (inklusive användningsvillkoren) stöder inte tvingande för tjänstkonton.  Vi rekommenderar att du exkluderar alla tjänstkonton från principen för villkorlig åtkomst.
@@ -240,4 +240,4 @@ S: du kan [granska tidigare godkända användningsvillkor](#how-users-can-review
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md) (Metodtips för villkorlig åtkomst i Azure Active Directory)
+- [Best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md) (Metodtips för villkorlig åtkomst i Azure Active Directory)

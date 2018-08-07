@@ -1,53 +1,47 @@
 ---
 title: Förhandsgranska diskanvändning för ett Azure Import/Export-exportjobb - v1 | Microsoft Docs
-description: Lär dig mer om att förhandsgranska listan över blobbar som du har valt för ett exportjobb i tjänsten Azure Import/Export.
+description: Lär dig hur du förhandsgranskar listan över blobar som du har valt för ett exportjobb i tjänsten Azure Import/Export.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 7707d744-7ec7-4de8-ac9b-93a18608dc9a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 6ec74ae0b0931f3fed99a43f4f7e58f9d425b138
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 21c0fd9b258100e769172332713769024fb12969
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873648"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520579"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Förhandsgranska diskanvändning för ett exportjobb
-Innan du skapar ett exportjobb måste du välja en uppsättning blobbar som ska exporteras. Tjänsten Microsoft Azure Import/Export kan du använda en lista över blob-sökvägar eller blob-prefix för att representera blobbar som du har valt.  
+Innan du skapar ett exportjobb, måste du välja en uppsättning blobbar exporteras. Microsoft Azure Import/Export-tjänsten kan du använda en lista över blob-sökvägar eller blob-prefix för att representera de blobar som du har valt.  
   
-Därefter måste du bestämma hur många enheter som du måste skicka. Verktyget Import/Export ger den `PreviewExport` kommando för att förhandsgranska diskanvändning för blobbar som du har valt, baserat på storleken på enheterna som du ska använda.
+Därefter måste du bestämma hur många enheter som du behöver skicka. Import/Export-verktyget erbjuder den `PreviewExport` kommando för att förhandsgranska diskanvändning för BLOB-objekt som du har valt, baserat på storleken på enheterna som du tänker använda.
 
 ## <a name="command-line-parameters"></a>Kommandoradsparametrar
 
-Du kan använda följande parametrar när du använder den `PreviewExport` kommandot i verktyget Import/Export.
+Du kan använda följande parametrar när du använder den `PreviewExport` kommandot Import/Export-verktyget.
 
 |Kommandoradsparametern|Beskrivning|  
 |--------------------------|-----------------|  
-|**/logdir:**< LogDirectory\>|Valfri. Loggkatalogen. Utförlig loggfilerna skrivs till den här katalogen. Om inga loggkatalogen anges, används den aktuella katalogen som loggkatalogen.|  
-|**/SN:**< StorageAccountName\>|Krävs. Namnet på lagringskontot för exportjobbet.|  
-|**/Sk:**< StorageAccountKey\>|Krävs endast om en behållare SAS inte har angetts. Kontonyckel för lagringskontot för exportjobbet.|  
-|**/csas:**< ContainerSas\>|Krävs endast om en lagringskontonyckel inte har angetts. Behållare SAS för att visa en lista över blobbar som ska exporteras i exportjobbet.|  
-|**/ ExportBlobListFile:**< ExportBlobListFile\>|Krävs. Sökvägen till XML-fil som innehåller listan över blob-sökvägar eller blob sökväg prefix för blob som ska exporteras. Filformat som används i den `BlobListBlobPath` element i den [placera jobbet](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) driften av tjänsten Import/Export REST API.|  
+|**/logdir:**< LogDirectory\>|Valfri. Loggkatalogen. Utförliga loggfiler ska skrivas till den här katalogen. Om inga loggkatalogen anges, används den aktuella katalogen som log-katalogen.|  
+|**/SN:**< StorageAccountName\>|Krävs. Namnet på lagringskontot för export-jobbet.|  
+|**/Sk:**< StorageAccountKey\>|Krävs endast om en SAS-behållare inte har angetts. Kontonyckel för lagringskontot för export-jobbet.|  
+|**/csas:**< ContainerSas\>|Krävs endast om en lagringskontonyckel inte har angetts. Behållaren SAS för att lista blobbar exporteras i export-jobbet.|  
+|**/ ExportBlobListFile:**< ExportBlobListFile\>|Krävs. Sökväg till XML-Datatypen filen som innehåller listan över blob-sökvägar eller blob-prefix som sökväg för BLOB-objekt som ska exporteras. Filformatet som används i den `BlobListBlobPath` elementet i den [placera jobbet](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) driften av REST-API för Import/Export-tjänsten.|  
 |**/ DriveSize:**< DriveSize\>|Krävs. Storleken på enheter som ska användas för ett exportjobb *t.ex.*, 500 GB, 1,5 TB.|  
 
-## <a name="command-line-example"></a>Kommandoradsverktyget exempel
+## <a name="command-line-example"></a>Exempel-kommandorad
 
-I följande exempel visas den `PreviewExport` kommando:  
+Exemplet nedan visar den `PreviewExport` kommando:  
   
 ```  
 WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB    
 ```  
   
-Exportfilen blob listan kan innehålla blobbnamnen och blob-prefix, som visas här:  
+Export-blobblistfil kan innehålla blobnamn och blob-adressprefix, som visas här:  
   
 ```xml 
 <?xml version="1.0" encoding="utf-8"?>  
@@ -58,9 +52,9 @@ Exportfilen blob listan kan innehålla blobbnamnen och blob-prefix, som visas h�
 </BlobList>  
 ```
 
-Verktyget Azure Import/Export listar alla BLOB som ska exporteras och beräknar så pack dem till enheter i den angivna storleken med hänsyn till alla nödvändiga kostnader och sedan beräknar antalet enheter som behövs för blobbar och användningsinformation för enheten.  
+Azure Import/Export-verktyget visar en lista över alla blobbar exporteras och beräknar hur att bygga dem i enheter av den angivna storleken med hänsyn till eventuella nödvändiga arbetet och sedan beräknar antalet enheter som behövs för att lagra blobar och enhetsinformationen för användning.  
   
-Här är ett exempel på utdata med informativt loggar utelämnas:  
+Här är ett exempel på utdata med endast i informationssyfte loggar utelämnas:  
   
 ```  
 Number of unique blob paths/prefixes:   3  
@@ -78,4 +72,4 @@ Number of drives needed:        3
   
 ## <a name="next-steps"></a>Nästa steg
 
-* [Referens för Azure Import/Export-verktyg](../storage-import-export-tool-how-to-v1.md)
+* [Referens för Azure Import/Export-verktyget](../storage-import-export-tool-how-to-v1.md)

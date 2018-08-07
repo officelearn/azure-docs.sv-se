@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/14/2018
 ms.author: mikhegn
-ms.openlocfilehash: e7ff7ca6d4fb18121dfa282c2c47e140a4c51a84
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 180bd3709cc9ffefb17f78e337e6f6995024fdcf
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505975"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523435"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Så här: felsöka Windows-behållare i Azure Service Fabric med Visual Studio 2017
 
@@ -35,11 +35,13 @@ Du kan felsöka .NET-program i behållare med Visual Studio 2017 uppdatering 7 (
 1. Kontrollera Docker för Windows-tjänst körs innan du fortsätter med nästa steg.
 
 1. För att stödja DNS-matchning mellan behållare, måste du konfigurera klustret för lokal utveckling med namnet på datorn. De här stegen är också nödvändigt om du vill adresstjänster via omvänd proxy.
-    a. Öppna PowerShell som administratör b. Navigera till installationsmappen för SDK-kluster, vanligtvis `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup` c. Kör skriptet `DevClusterSetup.ps1` med parametern `-UseMachineName`
+    1. Öppna PowerShell som administratör
+    2. Navigera till installationsmappen för SDK-kluster, vanligtvis `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
+    3. Kör skriptet `DevClusterSetup.ps1` med parametern `-UseMachineName`
 
-    ``` PowerShell
-      C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
-    ```
+       ``` PowerShell
+         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+       ```
 
     > [!NOTE]
     > Du kan använda den `-CreateOneNodeCluster` att konfigurera ett kluster med en nod. Standard skapas ett lokala kluster med fem noder.

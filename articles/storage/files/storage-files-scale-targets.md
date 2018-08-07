@@ -2,23 +2,18 @@
 title: Skalbarhets- och prestandamål i Azure filer | Microsoft Docs
 description: Läs mer om mål för skalbarhet och prestanda för Azure Files, inklusive kapaciteten, förfrågningar och gränser för inkommande och utgående bandbredd.
 services: storage
-documentationcenter: na
 author: wmgries
-manager: aungoo
-editor: tamram
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 7/19/2018
 ms.author: wgries
-ms.openlocfilehash: 8937b0cfc620114c602278a3f8989ba1f3f60685
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.component: files
+ms.openlocfilehash: 57929b23e437e17ceb90196e3cfa59c16d518f5a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173732"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527445"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Skalbarhets- och prestandamål i Azure filer
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet som är branschstandard. Den här artikeln beskriver skalbarhets- och prestandamål för Azure Files och Azure File Sync.

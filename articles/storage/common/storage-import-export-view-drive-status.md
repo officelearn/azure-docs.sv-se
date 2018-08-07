@@ -1,28 +1,28 @@
 ---
-title: Visa status för jobb på Azure Import/Export | Microsoft Docs
+title: Visa status för Azure Import/Export-jobb | Microsoft Docs
 description: Lär dig hur du visar status för Import/Export-jobb och de enheter som används.
 author: alkohli
-manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 176cbf190b6442682a222eb4f24b6583fb87a46b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: common
+ms.openlocfilehash: 49a2c03664ba39a624871b24c0b86a968a67eddb
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661019"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521531"
 ---
-# <a name="view-the-status-of-azure-importexport-jobs"></a>Visa status för jobb på Azure Import/Export
+# <a name="view-the-status-of-azure-importexport-jobs"></a>Visa status för Azure Import/Export-jobb
 
-Den här artikeln innehåller information om hur du visar status för enheten och jobb för Azure Import/Export-jobb. Azure Import/Export-tjänsten används för att säkert överföra stora mängder data till Azure-BLOB och Azure-filer. Tjänsten används också för att exportera data från Azure Blob storage.  
+Den här artikeln innehåller information om hur du visar status för enheten och jobb för Azure Import/Export-jobb. Azure Import/Export-tjänsten används för att på ett säkert sätt överföra stora mängder data till Azure-Blobar och Azure Files. Tjänsten används också för att exportera data från Azure Blob storage.  
 
 ## <a name="view-job-and-drive-status"></a>Visa status för jobbet och enhet
-Du kan spåra statusen för din importera eller exportera jobben från Azure-portalen. Klicka på den **Import/Export** fliken. En lista över jobb visas på sidan.
+Du kan spåra statusen för din importera eller exportera jobb från Azure-portalen. Klicka på den **Import/Export** fliken. En lista över dina jobb visas på sidan.
 
-![Visa jobbets status](./media/storage-import-export-service/jobstate.png)
+![Visa jobbstatus](./media/storage-import-export-service/jobstate.png)
 
 
 ## <a name="view-job-status"></a>Visa jobbstatus
@@ -31,55 +31,55 @@ Du ser något av följande jobbstatus beroende på om enheten är i processen.
 
 | Jobbstatus | Beskrivning |
 |:--- |:--- |
-| Skapar | När ett jobb skapas, dess status är inställd på **skapa**. När jobbet är i den **skapa** tillstånd, tjänsten Import/Export förutsätter att enheterna inte har levererats till datacentret. Ett jobb kan finnas kvar i det här tillståndet för upp till två veckor, efter vilken bort automatiskt av tjänsten. |
-| Fraktas | När du levererar paketet ska du uppdatera spårningsinformation i Azure-portalen.  Detta aktiverar jobbet i **leverans** tillstånd. Jobbet finns kvar i den **leverans** tillstånd i upp till två veckor. 
-| Mottagning | När alla enheter tas emot på Datacenter jobbets status är inställd på **mottagna**. |
-| Överförs | När minst en enhet har startat bearbetning visas jobbets status är inställd på **överföra**. Mer information finns på [Enhetsstatus](#view-drive-status). |
-| Packas | När alla enheter har bearbetat jobbet placeras i **paketering** tillstånd tills enheterna som har levererats till dig. |
-| Slutfört | När alla enheter levereras till dig om jobbet har slutförts utan fel, sedan jobbet har angetts till **slutförd**. Jobbet tas automatiskt bort efter 90 dagar i den **slutförd** tillstånd. |
-| Stängd | När alla enheter levereras till dig om några fel uppstod under bearbetning av jobbet, jobbet har angetts till **stängd**. Jobbet tas automatiskt bort efter 90 dagar i den **stängd** tillstånd. |
+| Skapar | När ett jobb skapas, dess status är inställd på **skapa**. När jobbet är i den **skapa** tillstånd, Import/Export-tjänsten förutsätter att enheterna som inte har levererats till datacentret. Ett jobb kan finnas kvar i det här tillståndet för upp till två veckor, varefter den tas bort automatiskt av tjänsten. |
+| Fraktas | När du levererar ditt paket ska du uppdatera spårningsinformation i Azure-portalen.  Detta aktiverar jobbet i **leverans** tillstånd. Jobbet finns kvar i den **leverans** tillstånd i upp till två veckor. 
+| Mottaget | När alla enheter har tagits emot i datacentret, jobbets status är inställd på **mottagna**. |
+| Överförs | När minst en enhet har startat bearbetning visas jobbets status är inställd på **överföra**. Mer information går du till [Enhetsstatus](#view-drive-status). |
+| Packas | När alla enheter har bearbetat jobbet placeras i **paketering** tillstånd förrän enheterna levereras till dig. |
+| Slutfört | När alla enheter har skickats till dig om jobbet har slutförts utan fel, sedan jobbet anges till **slutförd**. Jobbet tas automatiskt bort efter 90 dagar i den **slutförd** tillstånd. |
+| Stängd | När alla enheter har skickats till dig, om det finns några fel under bearbetningen av jobbet, jobbet har tilldelats **stängd**. Jobbet tas automatiskt bort efter 90 dagar i den **stängd** tillstånd. |
 
-## <a name="view-drive-status"></a>Visa status för enhet
+## <a name="view-drive-status"></a>Visa enhetsstatus
 
-I tabellen nedan beskrivs livscykeln för en enskild enhet som den övergår till ett jobb som importeras eller exporteras. Det aktuella tillståndet för varje enhet i ett jobb visas i Azure-portalen.
+Tabellen nedan beskriver livscykeln för en enskild enhet som den övergår via ett import eller export-jobb. Det aktuella tillståndet för varje enhet i ett jobb visas i Azure-portalen.
 
-I följande tabell beskrivs varje tillstånd varje enhet i ett jobb kan passera.
+I följande tabell beskrivs varje tillstånd som varje enhet i ett jobb kan passera.
 
 | Enhetsstatus | Beskrivning |
 |:--- |:--- |
-| Angivna | Ett importjobb när jobbet har skapats från Azure-portalen ursprungligt tillstånd för en enhet är **angivna**. För ett exportjobb eftersom ingen enhet anges när jobbet skapas, är tillståndet inledande enhet **mottagna**. |
-| Mottagning | Enheten går över till den **mottagna** tillstånd när tjänsten Import/Export har bearbetat de enheter som har tagits emot från företaget leverans för importen. För ett exportjobb tillståndet första enheten är den **mottagna** tillstånd. |
-| NeverReceived | Enheten flyttas till den **NeverReceived** tillstånd när paketet för ett jobb kommer, men paketet innehåller inte enheten. En enhet flyttas till det här tillståndet även om det har två veckor eftersom tjänsten har tagit emot leveransinformation, men paketet har inte kommit på datacentret. |
+| Anges | För ett importjobb när jobbet har skapats från Azure-portalen är det ursprungliga tillståndet för en enhet **angivna**. För ett exportjobb eftersom ingen enhet anges när jobbet skapas, är den första Enhetsstatus **mottagna**. |
+| Mottaget | Enheten övergår till den **mottagna** tillstånd när Import/Export-tjänsten har bearbetat de enheter som har tagits emot från transportföretaget för ett importjobb. För ett exportjobb startenhet tillståndet är den **mottagna** tillstånd. |
+| NeverReceived | Enheten flyttas till den **NeverReceived** tillstånd när paketet för ett jobb tas emot, men paketet innehåller inte enheten. En enhet flyttar också i det här tillståndet om det har gått två veckor sedan tjänsten fick leveransadressen, men paketet har inte kommit på datacentret. |
 | Överförs | En enhet flyttas till den **överföra** tillstånd när tjänsten börjar att överföra data från enheten till Azure Storage. |
 | Slutfört | En enhet flyttas till den **slutförd** tillstånd när tjänsten har överförts alla data utan fel.
-| CompletedMoreInfo | En enhet flyttas till den **CompletedMoreInfo** tillstånd när tjänsten har uppstått några problem vid kopiering av data från eller till enheten. Informationen kan omfatta fel, varningar och informationsmeddelanden om överskrivning blobbar.
-| ShippedBack | En enhet flyttas till den **ShippedBack** tillstånd när den har levererats från datacentret till avsändaradressen. |
+| CompletedMoreInfo | En enhet flyttas till den **CompletedMoreInfo** tillstånd när tjänsten har påträffat några problem när du kopierar data från eller till enheten. Informationen kan omfatta fel, varningar och informationsmeddelanden om skriver över BLOB-objekt.
+| ShippedBack | En enhet flyttas till den **ShippedBack** tillstånd när det har skickats från datacentret till avsändaradressen. |
 
-Den här avbildningen från Azure-portalen visar tillståndet för enheten för en exempel-jobb:
+Den här avbildningen från Azure-portalen visar enheten tillståndet för en exempel-jobb:
 
-![Visa status för enhet](./media/storage-import-export-service/drivestate.png)
+![Visa Enhetsstatus](./media/storage-import-export-service/drivestate.png)
 
-I följande tabell beskrivs enhet fel tillstånd och åtgärder som vidtas för varje tillstånd.
+I följande tabell beskrivs fel Enhetsstatus och de åtgärder som vidtas för varje tillstånd.
 
 | Enhetsstatus | Händelse | Lösning / nästa steg |
 |:--- |:--- |:--- |
-| NeverReceived | En enhet som har markerats som **NeverReceived** (eftersom den inte skickades som en del av det jobbet leveransen) tas emot i en annan leveransen. | Driftteamet flyttar enheten och **mottagna**. |
-| Gäller inte | En enhet som inte är en del av jobb som når datacenter som en del av ett annat jobb. | Enheten har markerats som en extra enhet och returneras till dig när jobbet som är associerade med det ursprungliga paketet har slutförts. |
+| NeverReceived | En enhet som har markerats som **NeverReceived** (eftersom den inte skickades som en del av jobbets leverans) tas emot i en annan leveransen. | Driftsteamet flyttar enheten till **mottagna**. |
+| Gäller inte | En enhet som inte är en del av alla jobb som tas emot i datacentret som en del av ett annat jobb. | Enheten är markerad som en extra enhet och returneras till dig när jobbet som är associerade med det ursprungliga paketet har slutförts. |
 
 ## <a name="time-to-process-job"></a>Tid för att bearbeta jobb
-Hur lång tid det tar för att bearbeta en import-/ exportjobb varierar beroende på ett antal faktorer som:
+Hur lång tid det tar för att bearbeta en import/export-jobbet varierar beroende på ett antal faktorer som:
 
 -  Leveranstid
--  Läsa in på datacentret
--  Jobbtyp och storleken på data som kopieras
+-  Inläsning i datacentret
+-  Typ av utskriftsjobb och mängden data som kopieras
 -  Antal diskar i ett jobb. 
 
-Import/Export-tjänsten har inte ett SLA men tjänsten strävar efter att slutföra kopian i 7 till 10 dagar efter diskarna har tagits emot. Utöver statusen som publiceras på Azure Portal kan REST API: er användas för att följa jobbförloppet. Procent färdigt parametern i den [lista jobb]() funktionsanrop API ger procentandel kopiera pågår.
+Import/Export-tjänsten har inte något serviceavtal, men tjänsten strävar efter att utföra kopian i 7 till 10 dagar efter att diskarna tas emot. Utöver statusen på Azure Portal, kan REST API: er användas för att följa jobbförloppet. Procent färdigt parametern i den [lista jobb]() funktionsanropet API innehåller processen procent.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera verktyget WAImportExport](storage-import-export-tool-how-to.md)
 * [Överföra data med kommandoradsverktyget azcopy](storage-use-azcopy.md)
-* [Azure Import exportera REST API-exemplet](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+* [Exempel på Azure Import Export REST API](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
 

@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 124963359d0b2d4050156958de195e47b9331c92
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0eb6701a7ea08c2dd63bd8b5d7d7c805e6eb1376
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007992"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365093"
 ---
 # <a name="tutorial-use-built-in-tools-for-azure-search-indexing-and-queries"></a>Självstudier: Använda inbyggda verktyg för Azure Search-indexering och Azure Search-frågor
 
@@ -135,7 +135,7 @@ Nu bör du ha ett sökindex som du kan börja köra frågor mot med hjälp av de
 
 + Parametern **search** används för att ange en nyckelordssökning för fulltextsökning, som i det här fallet returnerar poster från King County i delstaten Washington som innehåller *Seattle* i sökbara fält i dokumentet. 
 
-+ **Sökutforskaren** returnerar resultat i JSON, vilket kan vara detaljerat och svårläst om dokumenten har en kompakt struktur. Detta är avsiktligt eftersom det är viktigt att kunna se hela dokumentet, särskilt under testning. För en bättre användarupplevelse måste du skriva kod som [hanterar sökresultaten](search-pagination-page-layout.md) så att viktiga element framhävs.
++ **Sökutforskaren** returnerar resultat i JSON, vilket kan vara detaljerat och svårläst om dokumenten har en kompakt struktur. Detta är avsiktligt eftersom det är viktigt för utvecklingssyften att kunna se hela dokumentet, särskilt under testning. För en bättre användarupplevelse måste du skriva kod som [hanterar sökresultaten](search-pagination-page-layout.md) så att viktiga element framhävs.
 
 + Dokument består av alla fält som är markerade som ”hämtningsbara” i indexet. Om du vill visa indexattribut i portalen klickar du på *realestate-us-sample* på ikonen **Index**.
 
@@ -229,7 +229,7 @@ Slutligen lärde du dig också hur du hämtar information genom att klicka på p
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Det snabbaste sättet att rensa upp efter en självstudie är att ta bort resursgruppen som innehåller Azure Search-tjänsten. Du kan ta bort resursgruppen nu så att allt innehåll i den tas bort permanent. På portalen visas resursgruppens namn på översiktssidan för varje Azure Search-tjänst.
+Det snabbaste sättet att rensa upp efter en självstudie är att ta bort resursgruppen som innehåller Azure Search-tjänsten. Du kan ta bort resursgruppen nu så att allt innehåll i den tas bort permanent. I portalen ser du resursgruppens namn på översiktssidan för Azure Search-tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 

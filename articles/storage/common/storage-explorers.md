@@ -2,29 +2,23 @@
 title: Verktyg för att arbeta med Azure Storage | Microsoft Docs
 description: En lista över verktyg som gör det möjligt att visa/interagera med dina Azure Storage-data.
 services: storage
-documentationcenter: ''
 author: dineshmurthy
-manager: jahogg
-editor: tysonn
-ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: dineshmurthy
-ms.openlocfilehash: 5c2add48b128a3e5a632c048f0feb4413fcb26cc
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.component: common
+ms.openlocfilehash: 55fa63e75768662a0f909cef0e3cc04b9c2dae41
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
-ms.locfileid: "23933391"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526206"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage-klientverktyg
-Användare av Azure Storage vill ofta kunna visa/interagera med sina data med hjälp av en Azure Storage-klientverktyg. I tabellerna nedan listas vi ett antal verktyg som gör det möjligt att göra detta. Vi försätta ett ”X” i varje block om den ger dig möjlighet att antingen räkna upp och/eller få åtkomst till data abstraction. Tabellen visar även om verktygen är ledig. ”Test” anger att det finns en kostnadsfri utvärderingsversion men den fullständiga produkten är inte ledigt. ”Ja” anger att en version är tillgängliga gratis medan en annan version är tillgänglig för inköp.
+Användare av Azure Storage vill ofta kunna visa/interagera med sina data med ett Azure Storage-klientverktyg. I tabellerna nedan listas vi ett antal verktyg som gör det möjligt att göra detta. Vi placera ett ”X” i varje block om tjänsten ger möjlighet att antingen räkna upp och/eller få åtkomst till data abstraction. Tabellen visar även om verktyg är kostnadsfria eller inte. ”Utvärderingsversion” anger att det finns en kostnadsfri utvärderingsversion, men den fullständiga produkten är inte kostnadsfri. ”J/N” anger att en version är tillgänglig kostnadsfritt, medan en annan version är tillgänglig för köp.
 
-Vi tillhandahåller bara en ögonblicksbild av de tillgängliga Azure Storage-klientverktyg. Dessa verktyg kan fortsätta att utvecklas och växer i funktioner. Om det finns ändringar eller uppdateringar, lämna en kommentar om du vill berätta för oss. Detsamma gäller om du vet verktyg som borde vara här – vi gärna lägga till dem.
+Vi tillhandahåller endast en ögonblicksbild av de tillgängliga Azure Storage-klientverktyg. Dessa verktyg kan fortsätta att utvecklas och växer i funktioner. Om det finns ändringar eller uppdateringar kan du lämna en kommentar för att berätta för oss. Detsamma gäller om du känner av verktyg som bör vara här – vi är glada över att lägga till dem.
 
 **Microsoft Azure Storage-klientverktyg**
 
@@ -33,7 +27,7 @@ Vi tillhandahåller bara en ögonblicksbild av de tillgängliga Azure Storage-kl
     <th rowspan="2">Azure Storage-klientverktyg</th>
     <th rowspan="2">Blockblob</th>
     <th rowspan="2">Sidblob</th>
-    <th rowspan="2">Lägg till Blob</th>
+    <th rowspan="2">Bifoga Blob</th>
     <th rowspan="2">Tabeller</th>
     <th rowspan="2">Köer</th>
     <th rowspan="2">Filer</th>
@@ -99,7 +93,7 @@ Vi har inte kontrollerat funktioner eller kvalitet som ägs av följande verktyg
     <th rowspan="2">Azure Storage-klientverktyg</th>
     <th rowspan="2">Blockblob</th>
     <th rowspan="2">Sidblob</th>
-    <th rowspan="2">Lägg till Blob</th>
+    <th rowspan="2">Bifoga Blob</th>
     <th rowspan="2">Tabeller</th>
     <th rowspan="2">Köer</th>
     <th rowspan="2">Filer</th>
@@ -141,7 +135,7 @@ Vi har inte kontrollerat funktioner eller kvalitet som ägs av följande verktyg
     <td></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/sebagomez/azurestorageexplorer">Azure Web Lagringsutforskaren</a></td>
+    <td><a href="https://github.com/sebagomez/azurestorageexplorer">Azure Web Storage Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -169,7 +163,7 @@ Vi har inte kontrollerat funktioner eller kvalitet som ägs av följande verktyg
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.gapotchenko.com/cloudcombine">Kombinera moln</a></td>
+    <td><a href="http://www.gapotchenko.com/cloudcombine">Kombinera för molnet</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -197,7 +191,7 @@ Vi har inte kontrollerat funktioner eller kvalitet som ägs av följande verktyg
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.gladinet.com/Azure-Storage/index.htm">Gladinet moln</a></td>
+    <td><a href="http://www.gladinet.com/Azure-Storage/index.htm">Gladinet molnet</a></td>
     <td>X</td>
     <td></td>
     <td></td>

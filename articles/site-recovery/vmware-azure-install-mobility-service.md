@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: ee954a951d3fc07709e3f27b4ced71a9ec525410
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 094c1776c0760c04d85aff6ad3d812a2ad7afa56
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492970"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527005"
 ---
 # <a name="install-the-mobility-service"></a>Installera mobilitetstjänsten 
 
@@ -26,7 +26,8 @@ Azure Site Recovery-Mobilitetstjänsten installeras på virtuella VMware-datorer
 
 
 >[!IMPORTANT]
-> Från och med version 9.7.0.0, på Windows virtuella datorer, Mobilitetstjänsten installationsprogrammet installerar även den senaste tillgängliga [Virtuella Azure-datoragenten](../virtual-machines/extensions/features-windows.md#azure-vm-agent). När en dator växlar till Azure måste uppfyller datorn agentinstallationen som är nödvändiga för att använda alla VM-tillägg.
+> Från och med version 9.7.0.0, **på virtuella Windows-datorer**, Mobilitetstjänsten installeras också de senaste tillgängliga [Virtuella Azure-datoragenten](../virtual-machines/extensions/features-windows.md#azure-vm-agent). När en dator växlar till Azure måste uppfyller datorn agentinstallationen som är nödvändiga för att använda alla VM-tillägg.
+> </br>På **virtuella Linux-datorer**, WALinuxAgent måste installeras manuellt.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Utför dessa nödvändiga steg innan du installerar Mobilitetstjänsten på servern:

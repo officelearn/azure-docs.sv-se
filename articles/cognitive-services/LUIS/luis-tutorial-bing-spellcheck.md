@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: diberry
-ms.openlocfilehash: 87882052ed7faf0a7d2a665d51afb20db7ee839c
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 19774d2a87e9c74f291f030aab09cb21fe4a931b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239159"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525230"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Rätta felstavade ord med stavningskontroll i Bing
 
@@ -64,7 +64,7 @@ Slutpunkt-frågan måste nyckeln som har skickats frågesträngparametrarna för
 
 Slutpunkten URL: en har flera värden som ska skickas på rätt sätt. Stavningskontroll i Bing v7 nyckeln är bara en av dessa. Måste du ställa in den **Stavkontroll** parametern till true och du måste ange värdet för **bing-stavningskontroll-kontroll-subscription-key** till nyckelvärdet:
 
-https://{region}.API.cognitive.microsoft.com/Luis/v2.0/Apps/{appID}?Subscription-Key={luisKey}&spellCheck=**SANT**& bing-stavningskontroll-kontroll-subscription-key =**{bingKey}**& utförlig = true & timezoneOffset = 0 & q = {uttryck}
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}`
 
 ## <a name="send-misspelled-utterance-to-luis"></a>Skicka felstavade uttryck till LUIS
 1. I en webbläsare, Kopiera föregående sträng och Ersätt den `region`, `appId`, `luisKey`, och `bingKey` med dina egna värden. Se till att använda regionen slutpunkten om den skiljer sig från din publicering [region](luis-reference-regions.md).

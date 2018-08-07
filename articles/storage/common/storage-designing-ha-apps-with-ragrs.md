@@ -1,112 +1,109 @@
 ---
-title: Designa hög tillgängliga program med hjälp av Azure Geo-Redundant lagring med läsbehörighet (RA-GRS) | Microsoft Docs
-description: Hur du använder Azure RA-GRS lagring och skapa en högtillgänglig program som är tillräckligt flexibelt för att hantera avbrott.
+title: Utforma högtillgängliga program med hjälp av Azure Read-Access Geo-Redundant lagring (RA-GRS) | Microsoft Docs
+description: Hur du använder Azure RA-GRS-lagring för att skapa ett program som är tillräckligt flexibelt för att hantera avbrott och som har med hög tillgänglighet.
 services: storage
-documentationcenter: .net
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
-ms.openlocfilehash: f7f3f2d99e5582a1bcb672cc176258dfff9c3217
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: common
+ms.openlocfilehash: afcda23faf4e9f0999442fa91d3c016e446c04db
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30322938"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524550"
 ---
-# <a name="designing-highly-available-applications-using-ra-grs"></a>Designa hög tillgängliga program med hjälp av RA-GRS
+# <a name="designing-highly-available-applications-using-ra-grs"></a>Utforma högtillgängliga program med hjälp av RA-GRS
 
-En vanlig funktion för molnbaserad infrastruktur som Azure Storage är de ger en plattform för hög tillgänglighet som värd för program. Utvecklare av molnbaserade program måste noggrant igenom hur man utnyttjar den här plattformen för att tillhandahålla hög tillgänglighet program till sina användare. Den här artikeln fokuserar på hur utvecklare kan använda Geo-Redundant lagring med läsbehörighet (RA-GRS) så som sina Azure Storage-program är hög tillgänglighet.
+En vanlig funktion för molnbaserade infrastrukturer som Azure Storage är att de tillhandahåller en högtillgänglig plattform för hantering av. Utvecklare av molnbaserade program måste noggrant igenom hur du kan använda den här plattformen för att leverera högtillgängliga program till sina användare. Den här artikeln handlar om hur utvecklare kan använda Geo-Redundant lagring med läsbehörighet (RA-GRS) så som sina Azure Storage-program med hög tillgänglighet.
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-Den här artikeln fokuserar på GRS och RA-GRS. Med GRS hålls tre kopior av dina data i den primära region som du valde när du ställer in storage-konto. Tre ytterligare kopior underhålls asynkront i en sekundär region som anges av Azure. RA-GRS är detsamma som GRS förutom att du har läsbehörighet till den alternativa kopian. Mer information om de olika alternativen för Azure Storage-redundans finns [Azure Storage-replikering](https://docs.microsoft.com/azure/storage/storage-redundancy). Replikering artikeln visar också pairings av de primära och sekundära regionerna.
+Den här artikeln fokuserar på GRS och RA-GRS. Med GRS hålls tre kopior av dina data i den primära regionen som du valde när du konfigurerar storage-konto. Tre ytterligare kopior bevaras asynkront i en sekundär region som anges av Azure. RA-GRS erbjuder geo-redundant lagring med läsbehörighet till den sekundära kopian.
 
-Det finns kodstycken som ingår i den här artikeln och en länk till ett fullständigt exempel slutet som du kan hämta och köra.
+Information om vilka primära regioner är länkat till vilka sekundära regioner finns i [företag affärskontinuitet och haveriberedskap recovery (BCDR): parade Azure-regionerna](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+Det finns kodavsnitt som ingår i den här artikeln och en länk till ett fullständigt exempel i slutet som du kan ladda ned och köra.
 
 > [!NOTE]
-> Azure Storage stöder nu zonredundant lagring (ZRS) för att skapa mycket tillgängliga program. ZRS ger en enkel lösning för många program redundans behov. ZRS ger skydd mot maskinvarufel eller oåterkalleligt katastrofer som påverkar en enstaka datacenter. Mer information finns i [zonen-redundant lagring (ZRS): hög tillgänglighet Azure Storage-program](storage-redundancy-zrs.md).
+> Azure Storage stöder nu zonredundant lagring (ZRS) för att skapa program med hög tillgänglighet. ZRS ger en enkel lösning för många program redundans behov. ZRS ger skydd mot maskinvarufel eller oåterkalleligt katastrofer som påverkar ett enda datacenter. Mer information finns i [zonen-redundant lagring (ZRS): Azure Storage-program med hög tillgänglighet](storage-redundancy-zrs.md).
 
 ## <a name="key-features-of-ra-grs"></a>Viktiga funktioner i RA-GRS
 
-Tänk på dessa viktiga punkter när du skapar ditt program för RA-GRS:
+Tänk på dessa nyckelpunkter när du utformar ditt program för RA-GRS:
 
-* Azure Storage upprätthåller en skrivskyddad kopia av data du lagrar i din primära region i en sekundär region. Som nämnts ovan anger lagringstjänsten platsen för den sekundära regionen.
+* Azure Storage har en skrivskyddad kopia av de data du lagrar i din primära region i en sekundär region. Som nämnts ovan anger lagringstjänsten platsen för den sekundära regionen.
 
-* Skrivskyddad kopia är [överensstämmelse](https://en.wikipedia.org/wiki/Eventual_consistency) med data i den primära regionen.
+* Skrivskyddad kopia är [konsekvent](https://en.wikipedia.org/wiki/Eventual_consistency) med data i den primära regionen.
 
-* För blobbar, tabeller och köer, kan du fråga den sekundära regionen för en *tid för senaste synkronisering* värde som anger när den senaste replikeringen från primär till sekundär region inträffade. (Detta stöds inte för Azure-filer som inte har RA-GRS redundans just nu.)
+* För blobbar, tabeller och köer, kan du fråga den sekundära regionen för en *senaste synkroniseringstid* värde som anger när den senaste replikeringen från primärt till den sekundära regionen inträffade. (Detta stöds inte för Azure Files, som inte har RA-GRS redundans just nu.)
 
 * Du kan använda Storage-klientbiblioteket för att interagera med data i den primära eller sekundära regionen. Du kan också omdirigera diskläsningsbegäranden automatiskt till den sekundära regionen om tidsgränsen uppnås för en läsbegäran till den primära regionen.
 
-* Om det finns ett större problem som påverkar tillgängligheten för data i den primära regionen, kan Azure-teamet utlösa en geo-redundans, då DNS-posterna pekar på den primära regionen kommer att ändras för att peka på den sekundära regionen.
+* Om det finns ett större problem som påverkar tillgängligheten för data i den primära regionen, kan Azure-teamet utlösa en geo-redundans, då DNS-poster som pekar på den primära regionen kommer att ändras för att peka på den sekundära regionen.
 
-* Om geo-redundans inträffar kommer Azure Välj en ny sekundär plats, replikerar data till platsen och sedan sekundär DNS-posterna pekar på den. Sekundär slutpunkt blir otillgänglig tills lagringskontot är klar replikeras. Mer information finns [vad du ska göra om ett Azure Storage-avbrott inträffar](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance).
+* Om det uppstår geo-redundans, kommer Azure Markera en ny sekundär plats och replikerar data till den platsen och peka de sekundära DNS-posterna till den. Den sekundära slutpunkten är inte tillgängliga förrän lagringskontot är klar replikeras. Mer information finns i [vad du gör om ett avbrott i Azure Storage inträffar](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance).
 
-## <a name="application-design-considerations-when-using-ra-grs"></a>Designöverväganden för programmet när du använder RA-GRS
+## <a name="application-design-considerations-when-using-ra-grs"></a>Designöverväganden när du använder RA-GRS
 
-Syftet med den här artikeln är att visa dig hur du utformar ett program som fortsätter att fungera (i en begränsad kapacitet) även om en större katastrof på primära datacenter. Du kan utforma ditt program för att hantera tillfälliga eller långvariga problem genom att läsa från den sekundära regionen när det är problem som stör läsning från den primära regionen. Om den primära regionen är tillgänglig igen tillbaka programmet till läsning från den primära regionen.
+Syftet med den här artikeln är att visa dig hur du utformar ett program som fortsätter att fungera (i en begränsad kapacitet) även i händelse av en större katastrof på det primära datacentralen. Du kan utforma ditt program för att hantera tillfälliga eller långvariga problem genom att läsa från den sekundära regionen när det finns ett problem som stör läsning från den primära regionen. När den primära regionen är tillgänglig igen, kan programmet tillbaka till läsning från den primära regionen.
 
-### <a name="using-eventually-consistent-data"></a>Med hjälp av överensstämmelse data
+### <a name="using-eventually-consistent-data"></a>Med hjälp av konsekvent data
 
-Föreslagen lösning förutsätter att den är godkänd för att returnera kan vara inaktuella data till det anropande programmet. Eftersom data i den sekundära regionen är överensstämmelse, är det möjligt att den primära regionen kan bli oåtkomlig innan en uppdatering till den sekundära regionen är klar replikeras.
+Föreslagen lösning förutsätter att det går att returnera potentiellt inaktuella data till det anropande programmet. Eftersom data i den sekundära regionen är konsekvent, är det möjligt den primära regionen blir otillgänglig innan en uppdatering till den sekundära regionen är klar replikeras.
 
-Anta exempelvis att kunden skickar en uppdatering har, men den primära regionen misslyckas innan uppdateringen har spridits till den sekundära regionen. När du frågar kunden att läsa data tillbaka, får han inaktuella data från den sekundära regionen i stället för den uppdaterade informationen. När du skapar ditt program, måste du bestämma om detta är acceptabelt och hur du kommer meddelandet kunden. 
+Anta exempelvis att kunden skickar en uppdatering har, men den primära regionen misslyckas innan uppdateringen sprids till den sekundära regionen. När kunden begär att läsa data tillbaka, får han inaktuella data från den sekundära regionen i stället för uppdaterade data. När ditt program måste du bestämma om det är lämpligt och i så fall, hur du kommer meddelandet kunden. 
 
-Senare i den här artikeln beskrivs hur du kontrollerar synkronisering senast för sekundära data för att kontrollera om sekundärt är uppdaterad.
+Senare i den här artikeln visar vi hur du kontrollerar den senaste synkronisering för de sekundära data för att kontrollera om sekundärt är uppdaterad.
 
-### <a name="handling-services-separately-or-all-together"></a>Hantera tjänster separat eller alla tillsammans
+### <a name="handling-services-separately-or-all-together"></a>Hantera tjänster separat eller allt på samma plats
 
-Även osannolik, är det möjligt för en tjänst som ska vara tillgänglig, medan andra tjänster som är fortfarande fungerar. Du kan hantera återförsök och skrivskyddat läge för varje service separat (BLOB, köer, tabeller) och du kan hantera försök Allmänt för storage-tjänster tillsammans.
+Men det är osannolikt, är det möjligt för en tjänst blir otillgänglig medan de andra tjänsterna är fortfarande helt funktionella. Du kan hantera återförsök och skrivskyddat läge för varje tjänst separat (blobs, köer, tabeller), eller du kan hantera återförsök med det allmänna skyddet för alla lagringstjänster tillsammans.
 
-Till exempel om du använder köer och blobbar i ditt program, kan du välja att placera i separat kod för att hantera återförsökbart fel för var och en av dessa. Sedan om du får ett nytt försök från blob-tjänsten, men kötjänsten fortfarande fungerar, att endast del av programmet hanterar BLOB påverkas. Om du vill hantera alla storage service återförsök Allmänt och ett anrop till blob-tjänsten returnerar ett återförsökbart fel, påverkas förfrågningar till både blob-tjänsten och kötjänsten.
+Om du använder köer och blobbar i ditt program, kanske du exempelvis vill placera i separat kod för att hantera återförsökbart fel för var och en av dessa. Sedan om du får ett nytt försök från blob service och kötjänsten fungerar fortfarande, kommer endast en del av ditt program som hanterar blobar att påverkas. Om du vill hantera alla storage service återförsök med allmänt skydd och ett anrop till blobtjänsten returnerar ett återförsökbart fel, påverkas förfrågningar till både blob service och kötjänsten.
 
-Slutligen beror detta på komplexiteten i ditt program. Du behöver inte hantera felen av tjänsten, men i stället för att omdirigera begäranden för storage-tjänster till den sekundära regionen och kör programmet i skrivskyddat läge när du upptäcker ett problem med storage-tjänst i den primära regionen.
+Slutligen beror detta på komplexiteten i ditt program. Du behöver inte hantera felen av tjänsten, men i stället för att omdirigera begäranden för alla lagringstjänster som till den sekundära regionen och köra programmet i skrivskyddat läge när du upptäcker ett problem med vilken lagringstjänst som i den primära regionen.
 
-### <a name="other-considerations"></a>Andra överväganden
+### <a name="other-considerations"></a>Annat att tänka på
 
-Dessa är de överväganden som diskuteras i resten av den här artikeln.
+Det här är de andra överväganden som diskuteras i resten av den här artikeln.
 
-*   Hantera återförsök för läsbegäranden mönster för strömbrytare
+*   Hanterar återförsök för läsbegäranden med hjälp av kretsbrytarmönstret
 
-*   Slutligen konsekventa data och tid för senaste synkronisering
+*   Eventuell konsekvens data och tid för senaste synkronisering
 
 *   Testning
 
 ## <a name="running-your-application-in-read-only-mode"></a>Kör ditt program i skrivskyddat läge
 
-Om du vill använda RA-GRS-lagring måste kunna hantera både misslyckade begäranden för skrivskyddade och gick inte att uppdateringsbegäranden (uppdatering i det här fallet innebörd infogningar, uppdateringar och borttagningar). Om de primära Datacenter misslyckas, kan du läsa begäranden kan omdirigeras till sekundära datacentret. Dock kan omdirigeras begäranden om att uppdatera till sekundärt eftersom sekundärt är skrivskyddad. Därför måste du utforma programmet att köras i skrivskyddat läge.
+Om du vill använda RA-GRS-lagring måste kunna hantera båda misslyckade läsbegäranden och misslyckade uppdateringsbegäranden (med uppdateringen i det här fallet innebär infogningar, uppdateringar och borttagningar). Om de primära datacentret misslyckas, kan du läsa begäranden kan omdirigeras till det sekundära datacentralen. Begäranden om att uppdatera går inte att omdirigeras till sekundärt eftersom sekundärt är skrivskyddad. Därför måste du utforma programmet att köras i skrivskyddat läge.
 
-Du kan till exempel ange en flagga som kontrolleras innan alla begäranden om att uppdatera skickas till Azure Storage. När en update-begäranden gäller, kan du hoppa över den och returnera ett lämpligt svar till kunden. Du kanske även vill inaktivera vissa funktioner helt och hållet förrän problemet har lösts och meddela användarna att dessa funktioner är inte tillgänglig för tillfället.
+Du kan till exempel ange en flagga som kontrolleras innan alla begäranden om att uppdatera skickas till Azure Storage. När en uppdatering begäran kommer kan du hoppa över den och returnera ett lämpligt svar till kunden. Du kanske även vill inaktivera vissa funktioner funktionen helt och hållet förrän problemet har åtgärdats och meddela användarna att dessa funktioner är inte tillgänglig för tillfället.
 
-Om du vill hantera fel för varje service separat behöver du också hantera möjligheten att köra programmet i skrivskyddat läge av tjänsten. Du kan till exempel ha skrivskyddad flaggor för varje tjänst som kan aktiveras och inaktiveras. Du kan sedan hantera flaggan i lämpliga platser i din kod.
+Om du vill hantera fel för varje tjänst separat, måste du också hantera möjligheten att köra ditt program i skrivskyddat läge av tjänsten. Du kan till exempel ha skrivskyddad flaggor för varje tjänst som kan aktiveras och inaktiveras. Du kan sedan hantera flaggan i lämpliga platser i din kod.
 
-Att köra programmet i skrivskyddat läge har en annan sida fördel – den ger dig möjlighet att kontrollera begränsade funktioner under en Programuppgradering för viktiga. Du kan utlösa programmet att köras i skrivskyddat läge och peka på det sekundära datacentret säkerställer att ingen kommer åt data på den primära regionen medan du gör uppgraderingar.
+Att kunna köra ditt program i skrivskyddat läge har en annan sida fördel – den ger dig möjlighet att se till att begränsade funktioner under en stor uppgradering. Du kan utlösa ditt program att köra i skrivskyddat läge och pekar på det sekundära datacentret att se till att ingen har åtkomst till data i den primära regionen medan du gör uppgraderingar.
 
-## <a name="handling-updates-when-running-in-read-only-mode"></a>Hantera uppdateringar när den körs i skrivskyddat läge
+## <a name="handling-updates-when-running-in-read-only-mode"></a>Hantering av uppdateringar när de körs i skrivskyddat läge
 
-Det finns många sätt att hantera begäranden om att uppdatera när du kör i skrivskyddat läge. Vi kommer inte täcker detta utförligt, men i allmänhet det finns ett par av mönster som du vill.
+Det finns många sätt att hantera begäranden om att uppdatera när du kör i skrivskyddat läge. Vi kommer inte upp detta ett mer omfattande sätt, men det finns ofta ett par mönster som du vill.
 
-1.  Du kan svara på din användare och berätta om du för närvarande inte accepterar uppdateringar. Ett system för hantering av kan till exempel möjligt för kunder att komma åt kontaktinformation utan att göra uppdateringar.
+1.  Du kan svara på användaren och be dem om du inte just nu tar emot uppdateringar. Ett system för hantering av kan till exempel möjligt för kunderna att komma åt kontaktinformation men inte göra några uppdateringar.
 
-2.  Du kan placera dina uppdateringar i en annan region. I så fall skulle du skrivåtgärder väntar på att uppdateras till en kö i en annan region och har ett sätt att bearbeta begäranden när den primära datacentralen är online igen. I det här scenariot bör du låta kunder vet att den begärda uppdateringen är i kö för senare bearbetning.
+2.  Du kan placera dina uppdateringar i en annan region. I det här fallet skulle du skrivförfrågningar väntande uppdatering till en kö i en annan region och har ett sätt att bearbeta dessa när det primära datacentralen är online igen. I det här scenariot, bör du låta kunden vet att uppdateringen begärt står i kö för senare bearbetning.
 
-3.  Du kan skriva dina uppdateringar till ett lagringskonto i en annan region. När den primära datacentralen är online igen kan du låta ett sätt att slå samman dessa uppdateringar till primära data, beroende på strukturen för data. Om du skapar separata filer med en stämpel för datum/tid i namnet kopiera du filerna till den primära regionen. Detta fungerar för vissa arbetsbelastningar som till exempel loggnings- och iOT-data.
+3.  Du kan skriva dina uppdateringar till ett lagringskonto i en annan region. När det primära datacentralen är online igen kan du låta ett sätt att slå samman dessa uppdateringar till den primära data, beroende på strukturen för data. Om du skapar separata filer med en datum-/ tidsstämpel i namnet kan kopiera du filerna till den primära regionen. Detta fungerar för vissa arbetsbelastningar, till exempel loggnings- och iOT-data.
 
-## <a name="handling-retries"></a>Hantera nya försök
+## <a name="handling-retries"></a>Hanterar återförsök
 
-Hur vill du veta vilka fel återförsökbart? Detta bestäms av storage-klientbiblioteket. Ett 404-fel (Det gick inte att hitta resurs) är exempelvis inte återförsökbart eftersom du försöker den inte är sannolikt att lyckas. Ett fel 500 är å andra sidan återförsökbart eftersom det är ett serverfel och det kan vara ett övergående problem. Mer information finns i [öppna källkoden för klassen ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) i storage-klientbiblioteket för .NET. (Leta efter metoden ShouldRetry).
+Hur vill du veta vilka fel är återförsökbart? Detta bestäms av storage-klientbiblioteket. Ett 404-fel (resursen hittades inte) är exempelvis inte återförsökbart eftersom försöker den inte är sannolikt att lyckas. Å andra sidan, är ett 500-fel återförsökbart eftersom det är ett serverfel och det kan vara ett övergående problem. Mer information finns i [öppna källkoden för klassen ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) i storage-klientbiblioteket för .NET. (Leta efter metoden ShouldRetry).
 
 ### <a name="read-requests"></a>Läsförfrågningar
 
-Läs begäranden kan omdirigeras till den sekundära lagringsplatsen om det finns ett problem med primära lagringsplatsen. Som beskrivs ovan i [med slutligen konsekventa Data](#using-eventually-consistent-data), måste det vara godkänd för tillämpningsprogrammet för att kunna läsa inaktuella data. Om du använder storage-klientbibliotek för åtkomst till RA-GRS data, kan du ange beteendet för en läsbegäran försök igen genom att ange ett värde för den **LocationMode** egenskapen till ett av följande:
+Läsbegäranden kan omdirigeras till sekundär lagring om det finns ett problem med primär lagring. Som beskrivs ovan i [med så småningom konsekvent Data](#using-eventually-consistent-data), det måste vara godkänd för programmet att läsa potentiellt inaktuella data. Om du använder storage-klientbiblioteket åtkomst till RA-GRS-data, kan du ange återförsöksbeteendet av en läsbegäran genom att ange ett värde för den **LocationMode** egenskap enligt en av följande:
 
 *   **PrimaryOnly** (standard)
 
@@ -116,43 +113,43 @@ Läs begäranden kan omdirigeras till den sekundära lagringsplatsen om det finn
 
 *   **SecondaryThenPrimary**
 
-När du anger den **LocationMode** till **PrimaryThenSecondary**, om den ursprungliga skrivskyddade begäranden till primära slutpunkten misslyckas med ett återförsökbart fel klienten gör automatiskt en annan läsbegäran till sekundär slutpunkten. Om felet är en tidsgräns för servern, har klienten att vänta på tidsgräns att gälla innan den får ett återförsökbart fel från tjänsten.
+När du ställer in den **LocationMode** till **PrimaryThenSecondary**, om den första skrivskyddade begäran till den primära slutpunkt fungerar inte med ett återförsökbart fel klienten gör automatiskt en annan läsbegäran till den sekundär slutpunkt. Om felet är en tidsgräns för server, har klienten att vänta tills tidsgränsen att gälla innan den får ett återförsökbart fel från tjänsten.
 
-Det finns två scenarier att tänka på när du beslutar hur man svarar på ett återförsökbart fel inträffade i princip:
+Det finns två scenarier för att tänka på när du bestämmer hur du svarar på ett återförsökbart fel i princip:
 
-*   Det här är en isolerad problem och efterföljande förfrågningar till den primära slutpunkten kommer inte att returnera ett återförsökbart fel inträffade. Ett exempel på där detta kan inträffa är när det är ett tillfälligt fel.
+*   Detta är det problem med isolerade och efterföljande förfrågningar till den primära slutpunkten returnerar inte ett återförsökbart fel. Ett exempel på där detta kan inträffa är när det finns ett tillfälligt nätverksfel.
 
-    I det här scenariot, det finns inga betydande prestandaproblem i med **LocationMode** inställd på **PrimaryThenSecondary** som det här inträffar bara sällan.
+    I det här scenariot, det finns inga betydande prestandaproblem i med **LocationMode** inställd **PrimaryThenSecondary** som det här inträffar bara sällan.
 
-*   Detta är ett problem med minst en av lagringstjänsterna i den primära regionen och alla efterföljande förfrågningar till den tjänsten i den primära regionen kommer sannolikt att returnera återförsökbart fel under en tidsperiod. Ett exempel på detta är om den primära regionen är helt tillgänglig.
+*   Detta är ett problem med minst en av lagringstjänsterna i den primära regionen och alla efterföljande förfrågningar till tjänsten i den primära regionen kommer sannolikt att returnera återförsökbart fel för en viss tidsperiod. Ett exempel på detta är om den primära regionen är helt otillgänglig.
 
-    I det här scenariot finns det en prestandaförsämring eftersom alla skrivskyddade förfrågningar kommer först försöka primära slutpunkten, vänta tills tidsgränsen ska upphöra att gälla och sedan växla till sekundär slutpunkten.
+    I det här scenariot finns det en prestandaförsämring eftersom alla läsbegäranden kommer försöka den primära slutpunkten först, vänta tills tidsgränsen på att gå ut och sedan växla till den sekundära slutpunkten.
 
-För dessa scenarier kan du identifiera att det är ett pågående problem med primära slutpunkten och skicka alla Läs begäranden direkt till den sekundära slutpunkten genom att ange den **LocationMode** egenskapen **SecondaryOnly**. För tillfället bör du också ändra programmet att köras i skrivskyddat läge. Den här metoden kallas den [strömbrytare mönster](https://msdn.microsoft.com/library/dn589784.aspx).
+I dessa scenarier bör du identifiera som det finns en pågående problem med den primära slutpunkten och skicka läser alla begäranden direkt till den sekundära slutpunkten genom att ange den **LocationMode** egenskap **SecondaryOnly** . För tillfället bör du också ändra programmet att köras i skrivskyddat läge. Den här metoden kallas den [Kretsbrytarmönstret](https://msdn.microsoft.com/library/dn589784.aspx).
 
 ### <a name="update-requests"></a>Begäranden om att uppdatera
 
-Strömbrytare mönster kan också användas för att uppdatera begäranden. Dock omdirigeras inte begäranden om att uppdatera till sekundära lagringsplatsen, vilket är skrivskyddad. För sådana begäranden, bör du lämna den **LocationMode** egenskapen **PrimaryOnly** (standard). Du kan tillämpa ett mått på begäran – till exempel 10 fel i en rad – och när din tröskelvärdet har uppnåtts växla programmet till skrivskyddat läge för att hantera dessa fel. Du kan använda samma metoder för att returnera för att uppdatera läge som de som beskrivs nedan i nästa avsnitt om strömbrytare mönstret.
+Kretsbrytarmönstret kan också användas för att uppdatera begäranden. Begäranden om att uppdatera går inte att omdirigeras till sekundär lagring som är skrivskyddad. För sådana begäranden, bör du lämna den **LocationMode** egenskapen **PrimaryOnly** (standard). För att hantera de här felen du gäller ett mått för dessa begäranden – till exempel 10 fel i en rad – och när tröskeln för ditt är uppfyllt, växlar programmet i skrivskyddat läge. Du kan använda samma metoder för att returnera för att uppdatera läge som de som beskrivs nedan i nästa avsnitt om kretsbrytarmönstret.
 
 ## <a name="circuit-breaker-pattern"></a>Strömbrytarmönstret
 
-Hur du använder mönstret strömbrytare i ditt program kan förhindra att den du försöker en åtgärd som troligen kommer att misslyckas flera gånger. Det innebär att du kan fortsätta att köras i stället för tar tid medan åtgärden försöks exponentiellt. Dessutom upptäcks när felet har korrigerats som programmet kan försöka igen.
+Med hjälp av kretsbrytarmönstret i ditt program kan förhindra att den återförsök för en åtgärd som troligen kommer att misslyckas upprepade gånger. Det kan programmet fortsätta att köras i stället för att tar upp tid medan åtgärden görs ett nytt exponentiellt. Dessutom upptäcks när felet har åtgärdats, då kan programmet försöka igen.
 
-### <a name="how-to-implement-the-circuit-breaker-pattern"></a>Hur du implementerar mönstret strömbrytare
+### <a name="how-to-implement-the-circuit-breaker-pattern"></a>Hur du implementerar kretsbrytarmönstret
 
-Du kan övervaka hur ofta klienten påträffar ett återförsökbart fel för att identifiera att det finns en pågående problem med en primär slutpunkt. Eftersom varje fall skiljer sig, ha besluta om tröskelvärdet som du vill använda för beslutet kan växla till sekundär slutpunkten och kör programmet i skrivskyddat läge. Du kan till exempel välja att utföra växeln om det finns 10 fel i en rad med ingen lyckade. Ett annat exempel är att byta 90% av begäranden i en 2-minutersperiod misslyckas.
+Du kan se att det finns ett aktuellt problem med en primär slutpunkt kan du övervaka hur ofta klienten påträffar återförsökbart fel. Eftersom varje fall är olika, måste du fatta beslut om tröskelvärdet som du vill använda för beslutet att växla till den sekundära slutpunkten och kör programmet i skrivskyddat läge. Du kan till exempel välja att genomföra växeln om det finns 10 fel i en rad med ingen lyckade. Ett annat exempel är att byta om 90% av begäranden under en 2-minutersperiod misslyckas.
 
-För det första scenariot kan du bara räkna felen och om det finns en fungerande innan det nådde maximum, ange antalet tillbaka till noll. För det andra scenariot är ett sätt att implementera den att använda MemoryCache-objekt (i .NET). För varje begäran lägga till en CacheItem cache, ange värdet till fungerande (1) eller misslyckas (0) och ange förfallotiden till 2 minuter från nu (eller vad den tid begränsningen är). När en post giltighetstid har uppnåtts, tas posten bort automatiskt. Detta ger ett rullande fönster 2 minuter. Varje gång du gör en begäran till tjänsten storage använda du först en Linq-fråga över MemoryCache-objektet för att beräkna procent lyckades genom att summera värdena och dividera med antalet. När procent lyckade hamnar under tröskelvärdet för (till exempel 10%), ange den **LocationMode** -egenskapen för Läs-begäranden till **SecondaryOnly** och växla till program i skrivskyddat läge innan du fortsätter.
+För det första scenariot kan du helt enkelt hålla en uppräkning av felen och om det finns en succé innan de når maximum, anger du antalet till noll. För det andra scenariot är ett sätt att implementera den att använda objektet minnescache (i .NET). För varje begäran, lägga till en CacheItem i cacheminnet, Ställ in värdet på klar (1) eller misslyckas (0) och ange förfallotiden till 2 minuter från nu (eller vad den tid begränsningen är). När en post förfallotid har uppnåtts kan tas posten bort automatiskt. Detta ger dig ett rullande fönster 2 minuter. Varje gång du gör en begäran till storage-tjänsten använda du först en Linq-fråga över objektet minnescache för att beräkna procent lyckade genom att summera värdena och dividera med antalet. När procent lyckade sjunker under vissa tröskelvärde (till exempel 10%), ange den **LocationMode** egenskapen för Läs förfrågningar om att **SecondaryOnly** och växla program i skrivskyddat läge innan du fortsätter.
 
-Tröskelvärde för fel som används för att avgöra när du ska göra växeln kan variera från tjänsten i ditt program, så du bör överväga att göra dem till parametrar. Det är också där du vill hantera återförsökbart fel från varje service separat eller som en, vilket beskrivs ovan.
+Tröskelvärde för fel som används för att avgöra när du ska göra växeln kan variera från tjänster i ditt program bör du tänka på att göra dem konfigurerbara parametrar. Det är också där du vill hantera återförsökbart fel från varje tjänst separat eller som en, vilket beskrivs ovan.
 
-Ett annat övervägande är hur du hanterar flera instanser av ett program och vad du ska göra när du identifiera återförsökbart fel i varje instans. Du kan till exempel ha 20 virtuella datorer som körs med samma program lästes in. Ska du hantera varje instans separat? Om en instans startar problem kan du vill begränsa svar på samma sätt som en instans eller vill du försöka att ha svara alla instanser på samma sätt som när en instans har ett problem? Hanteringen av instanserna separat är mycket enklare än om du försöker att samordna svaret över dem, men hur du gör detta beror på ditt program arkitektur.
+Ett annat övervägande är hur du hanterar flera instanser av ett program, och vad du ska göra när du upptäcker återförsökbart fel i varje instans. Du kan till exempel har 20 virtuella datorer som körs med samma program läses in. Ska du hantera varje instans separat? Om en instans startar problem, vill du begränsar svaret till precis som en instans eller vill du försöka att svara alla instanser på samma sätt som när en instans har ett problem? Hantering av instanserna separat är mycket enklare än att försöka att koordinera svaret mellan dem, men hur du gör detta beror på ditt programs arkitektur.
 
-### <a name="options-for-monitoring-the-error-frequency"></a>Alternativ för att övervaka frekvens för fel
+### <a name="options-for-monitoring-the-error-frequency"></a>Alternativ för att övervaka frekvensen för fel
 
-Det finns tre huvudsakliga alternativ för att övervaka antalet försök i den primära regionen för att avgöra när du ska växla till den sekundära regionen och ändra programmet att köras i skrivskyddat läge.
+Har du tre huvudsakliga alternativ för att övervaka frekvensen för återförsök i den primära regionen för att avgöra när du växlar över till den sekundära regionen och ändra programmet att köras i skrivskyddat läge.
 
-*   Lägger till en hanterare för den [ **försöker på nytt** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) händelsen på den [ **OperationContext** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) objekt som du skickar till ditt lagringsutrymme begär – detta är den metod som visas i den här artikeln och används i den medföljande exemplet. Dessa händelser eller när klienten försöker en begäran, så att du kan spåra hur ofta klienten påträffar ett återförsökbart fel på en primär slutpunkt.
+*   Lägger till en hanterare för den [ **försöker igen** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) händelse på den [ **OperationContext** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) objekt som du skickar till lagringen begär – det här är metoden visas i den här artikeln och används i den medföljande exemplet. Dessa händelser utlöses varje gång klienten försöker en begäran, så att du kan spåra hur ofta klienten påträffar återförsökbart fel på en primär slutpunkt.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -163,7 +160,7 @@ Det finns tre huvudsakliga alternativ för att övervaka antalet försök i den 
     };
     ```
 
-*   I den [ **Evaluate** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) metod i en egen återförsöksprincip du kan köra anpassad kod när ett nytt försök görs. Förutom registrering när ett nytt försök händer kan detta även ger dig möjlighet att ändra funktionssättet för försök igen.
+*   I den [ **Evaluate** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) -metod i en egen återförsöksprincip, du kan köra anpassad kod varje gång ett nytt försök utförs. Förutom att registrera när ett nytt försök sker, detta ger dig också en möjlighet att ändra beteende för återförsök.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -191,37 +188,37 @@ Det finns tre huvudsakliga alternativ för att övervaka antalet försök i den 
     }
     ```
 
-*   Den tredje metoden är att implementera en anpassad övervakning komponent i ditt program som pingar kontinuerligt primära lagringsplatsen slutpunkten med dummy diskläsningsbegäranden (till exempel läsa en liten blob) att fastställa dess hälsa. Detta kan ta några resurser, men inte mycket. När ett problem har identifierats som når din tröskelvärde kan du sedan utföra växla till **SecondaryOnly** och skrivskyddat läge.
+*   Den tredje metoden är att implementera en anpassad övervakningskomponent i programmet som pingar kontinuerligt din primära lagringsslutpunkt med dummy diskläsningsbegäranden (t.ex läsningen av en liten blob) till dess hälsa. Detta kan ta några resurser, men inte mycket. När ett problem har identifierats som når tröskeln för ditt kan du sedan utför övergången till **SecondaryOnly** och skrivskyddat läge.
 
-Någon gång kommer du vill växla tillbaka till med hjälp av den primära slutpunkten och tillåta uppdateringar. Om du använder en av de första två metoderna ovan kan du helt enkelt växla tillbaka till primära slutpunkt och aktivera uppdateringsläge när ett godtyckligt valda tid eller antal åtgärder har utförts. Sedan kan du låta den gå igenom logik för omprövning igen. Om problemet har korrigerats, fortsätter den att använda primära slutpunkt och tillåta uppdateringar. Om det finns fortfarande ett problem, växlar en gång tillbaka till sekundär slutpunkt och skrivskyddat läge efter misslyckade de kriterier som du har ställt in.
+Vid en viss tidpunkt kommer du vill växla tillbaka till med hjälp av den primära slutpunkten så att uppdateringar. Om du använder en av de två första metoderna ovan kan du helt enkelt gå tillbaka till den primära slutpunkten och aktivera uppdateringsläget när ett godtyckligt valda tid eller antalet åtgärder har utförts. Sedan kan du låta den går igenom omprövningslogiken igen. Om problemet har åtgärdats, fortsätter den att använda den primära slutpunkten och tillåter uppdateringar. Om det finns fortfarande ett problem, kommer det en gång till växla tillbaka till den sekundära slutpunkten och skrivskyddat läge efter de kriterier som du har ställt in.
 
-För scenariot med tredje när pinga primära lagringsplatsen slutpunkten blir lyckade igen, du kan utlösa växla tillbaka till **PrimaryOnly** och fortsätta att tillåta uppdateringar.
+I det tredje scenariot när pinga den primära lagringsslutpunkten blir lyckad igen, du kan utlösa växeln tillbaka till **PrimaryOnly** och fortsätta att tillåta uppdateringar.
 
-## <a name="handling-eventually-consistent-data"></a>Hantering av överensstämmelse data
+## <a name="handling-eventually-consistent-data"></a>Hantering av konsekvent data
 
-Med RA-GRS replikeras transaktioner från den primära regionen till den sekundära. Den här replikeringen garanterar att data i den sekundära regionen är *överensstämmelse*. Detta innebär att alla transaktioner i den primära regionen kommer slutligen att visas i den sekundära regionen, men att det kan finnas en fördröjning innan de kan visas och att det är inte säkert transaktioner ankommer i den sekundära regionen i samma ordning som som de ursprungligen tillämpades på den primära regionen. Om transaktionerna kommer till den sekundära regionen utanför måste du *kan* Överväg att dina data i den sekundära regionen är i ett inkonsekvent tillstånd förrän tjänsten fångar.
+Med RA-GRS replikeras transaktioner från den primära regionen till den sekundära. Replikeringsprocessen garanterar att data i den sekundära regionen är *konsekvent*. Det innebär att alla transaktioner i den primära regionen så småningom kommer att visas i den andra regionen, men det kan finnas en fördröjning innan de kan visas och att det finns ingen garanti transaktioner som tas emot i den sekundära regionen i samma ordning som där de tillämpades ursprungligen i den primära regionen. Om dina transaktioner kommer till den sekundära regionen fel ordning, du *kan* överväga dina data i den sekundära regionen ska vara i ett inkonsekvent tillstånd förrän tjänsten ikapp.
 
-I följande tabell visas ett exempel på vad som händer när du uppdaterar information om en anställd att göra hon medlem i den *administratörer* roll. För det här exemplet detta kräver att du uppdaterar den **medarbetare** entiteten och uppdatera en **administratörsroll** entitet med en beräkning av det totala antalet administratörer. Observera hur uppdateringarna tillämpas i ordning i den sekundära regionen.
+I följande tabell visar ett exempel på vad som händer när du uppdaterar information om en anställd att göra henne medlem i den *administratörer* roll. För det här exemplet är detta kräver att du uppdaterar den **medarbetare** entitet och uppdatera en **administratörsroll** entitet med en uppräkning av det totala antalet administratörer. Observera hur uppdateringarna tillämpas inte i den sekundära regionen.
 
-| **Tid** | **Transaktionen**                                            | **Replikering**                       | **Tid för senaste synkronisering** | **Resultat** |
+| **tid** | **Transaktionen**                                            | **Replikering**                       | **Senaste synkroniseringstid** | **Resultatet** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
-| T0       | Transaktionen A: <br> Infoga medarbetare <br> entiteten i primär |                                   |                    | Transaktionen A infogas primära,<br> replikeras inte ännu. |
-| T1       |                                                            | Transaktionen A <br> replikeras till<br> sekundär | T1 | Transaktionen A replikeras till sekundär. <br>Synkronisera senast uppdaterat.    |
-| T2       | Transaktionen B:<br>Uppdatera<br> medarbetare entitet<br> i primära  |                                | T1                 | Transaktionen skrivs till primära B<br> replikeras inte ännu.  |
-| T3       | Transaktionen C:<br> Uppdatera <br>Administratören<br>rollentiteten i<br>primär |                    | T1                 | Transaktionen skrivs till primära C<br> replikeras inte ännu.  |
-| *T4*     |                                                       | Transaktionen C <br>replikeras till<br> sekundär | T1         | Transaktionen C replikeras till sekundär.<br>LastSyncTime inte uppdateras eftersom <br>transaktionen B har ännu inte replikerats.|
-| *T5*     | Läs entiteter <br>från sekundär                           |                                  | T1                 | Inaktuella värdet för medarbetare hämtas <br> entiteten eftersom transaktionen B har inte <br> replikerade ännu. Du får det nya värdet för<br> administratören rollentiteten eftersom C har<br> replikeras. Tid för senaste synkronisering har fortfarande inte<br> har uppdaterats eftersom transaktionen B<br> har inte replikeras. Du kan se den<br>administratören rollentiteten är inkonsekvent <br>eftersom entiteten tidsvärdet efter <br>Tid för senaste synkronisering. |
-| *T6*     |                                                      | Transaktionen B<br> replikeras till<br> sekundär | T6                 | *T6* – alla transaktioner via C har <br>har replikerats tid för senaste synkronisering<br> har uppdaterats. |
+| T0       | Transaktionen A: <br> Infoga medarbetare <br> entiteten i primär |                                   |                    | Transaktionen A infogas till primär,<br> inte har replikerats än. |
+| T1       |                                                            | Transaktionen A <br> replikeras till<br> sekundär | T1 | Transaktionen A replikeras till sekundär. <br>Senaste synkronisering har uppdaterats.    |
+| T2       | Transaktionen B:<br>Uppdatering<br> Medarbetaren entitet<br> i primär  |                                | T1                 | Transaktionen B som skrivs till primär,<br> inte har replikerats än.  |
+| T3       | Transaktionen C:<br> Uppdatering <br>administratör<br>rollen entitet i<br>primär |                    | T1                 | Transaktionen skrivs till primär, C<br> inte har replikerats än.  |
+| *T4*     |                                                       | Transaktionen C <br>replikeras till<br> sekundär | T1         | Transaktionen C som replikeras till sekundär.<br>LastSyncTime inte uppdateras eftersom <br>transaktionen B har ännu inte replikerats.|
+| *T5*     | Läsa entiteter <br>från den sekundära                           |                                  | T1                 | Du får det inaktuella värdet för medarbetare <br> entiteten eftersom transaktionen B har inte <br> replikerade ännu. Du får det nya värdet för<br> administratören rollentiteten eftersom C har<br> replikeras. Senaste synkroniseringstid fortfarande inte<br> har uppdaterats eftersom transaktionen B<br> har inte replikeras. Du kan se den<br>administratören rollentiteten är inkonsekvent <br>eftersom entiteten datum/tid är efter <br>Senaste synkronisering. |
+| *T6*     |                                                      | Transaktionen B<br> replikeras till<br> sekundär | T6                 | *T6* – alla transaktioner via C <br>har replikerats, senaste synkroniseringstid<br> har uppdaterats. |
 
-I det här exemplet förutsätter att klienten växlar till läsning från den sekundära regionen på T5. Det kan läsa den **administratörsroll** entitet just nu, men enheten innehåller ett värde för antalet administratörer som inte stämmer överens med antalet **medarbetare** entiteter som är markerade som administratörer på den sekundära regionen just nu. Klienten kan bara visa det här värdet med risk för att den är inkonsekvent information. Du kan också klienten kan försöka fastställa som den **administratörsroll** är i ett eventuellt inkonsekvent tillstånd eftersom uppdateringar har hänt fel ordning och informera användaren om detta.
+I det här exemplet antar vi att klienten växlar till läsning från den sekundära regionen på T5. Det kan läsa den **administratörsroll** entiteten just nu, men entitet som innehåller ett värde för antalet administratörer som inte stämmer överens med antalet **medarbetare** entiteter som är markerad som administratörer i den sekundära regionen just nu. Klienten kan bara visa det här värdet med risk att den är inkonsekvent information. Du kan också klienten kan försöka fastställa som den **administratörsroll** är i ett eventuellt inkonsekvent tillstånd eftersom uppdateringarna vara har fel ordning och informera användaren om detta.
 
-Att identifiera att den har potentiellt inkonsekventa data, att klienten kan använda värdet för den *tid för senaste synkronisering* att du kan få när som helst genom att fråga en storage-tjänst. Detta visar den tid då data i den sekundära regionen senast konsekvent och när tjänsten har använt alla transaktioner innan den punkten i tid. I exemplet ovan, när tjänsten infogar den **medarbetare** entitet i den sekundära regionen tid för senaste synkronisering är inställd på *T1*. Det förblir *T1* förrän tjänstuppdateringar av **medarbetare** entitet i den sekundära regionen när den är inställd på *T6*. Om klienten hämtar den tid för senaste synkronisering när det läser entiteten vid *T5*, den kan jämföra med tidsstämpeln på enheten. Om tidsstämpeln på entiteten är senare än tidpunkten för senaste synkronisering sedan entiteten är i ett eventuellt inkonsekvent tillstånd och du kan ta allt är lämplig åtgärd för programmet. Det här fältet kräver att du vet när den senaste uppdateringen till primärt slutfördes.
+Att identifiera att den har potentiellt inkonsekventa data kan klienten använda värdet för den *senaste synkroniseringstid* att du kan få när som helst genom att fråga en lagringstjänst. Anger det tiden när data i den sekundära regionen senast konsekvent och när tjänsten har tillämpat alla transaktioner före den punkten i tiden. I exemplet som visas ovan, när tjänsten infogar den **medarbetare** entitet i den sekundära regionen, den senaste synkronisering är inställd på *T1*. Den ligger kvar på *T1* tills tjänstuppdateringar den **medarbetare** entitet i den sekundära regionen när den är inställd på *T6*. Om klienten hämtar den senaste synkronisering när det läser entiteten vid *T5*, det kan jämföra den med tidsstämpeln på entiteten. Om tidsstämpeln på entiteten är senare än den senaste synkronisering, sedan entiteten är i ett eventuellt inkonsekvent tillstånd du kan vidta för det som är lämplig åtgärd för ditt program. Använda det här fältet krävs att du vet när den senaste uppdateringen av primärt slutfördes.
 
 ## <a name="testing"></a>Testning
 
-Det är viktigt att testa att programmet fungerar som förväntat när återförsökbart fel påträffas. Till exempel behöver du testa att programmet växlar till sekundärt och i skrivskyddat läge när den identifierar ett problem och växlar tillbaka när den primära regionen blir tillgänglig igen. Om du vill göra detta måste behöver du ett sätt att simulera återförsökbart fel och styra hur ofta de inträffar.
+Det är viktigt att testa att ditt program fungerar som förväntat när återförsökbart fel påträffas. Till exempel behöver du testa att programmet växlar till sekundärt och i skrivskyddat läge när det upptäcker ett problem och växlar tillbaka när den primära regionen blir tillgänglig igen. Om du vill göra detta måste behöver du ett sätt att simulera återförsökbart fel och styra hur ofta de inträffar.
 
-Du kan använda [Fiddler](http://www.telerik.com/fiddler) att komma åt och ändra HTTP-svar i ett skript. Det här skriptet kan identifiera svar som kommer från din primära slutpunkt och ändra HTTP-statuskoden till ett Storage-klientbiblioteket känner igen som ett återförsökbart fel inträffade. Det här kodstycket visar ett enkelt exempel på ett Fiddler skript som fångar upp svar läsbegäranden mot den **employeedata** tabell för att returnera status 502:
+Du kan använda [Fiddler](http://www.telerik.com/fiddler) att komma åt och ändra HTTP-svar i ett skript. Det här skriptet kan identifiera svar som kommer från din primära slutpunkt och ändra HTTP-statuskoden till en Storage-klientbiblioteket känner igen som ett återförsökbart fel. Det här kodstycket visar ett enkelt exempel på ett Fiddler-skript som fångar upp svar om du vill läsa förfrågningar mot den **employeedata** tabell för att returnera statusen 502:
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
@@ -233,12 +230,12 @@ static function OnBeforeResponse(oSession: Session) {
 }
 ```
 
-Du kan utöka det här exemplet för att komma åt ett brett spektrum av begäranden och bara ändra det **responseCode** på några av dem att bättre simulera ett verkligt scenario. Mer information om hur du anpassar Fiddler skript finns [ändra en begäran eller ett svar](http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) i Fiddler-dokumentationen.
+Du kan utöka det här exemplet för att fånga upp ett bredare spektrum av begäranden och bara ändra den **responseCode** på några av dem att bättre simulera ett verkligt scenario. Mer information om hur du anpassar Fiddler skript finns i [ändra en begäran eller ett svar](http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) i Fiddler-dokumentationen.
 
-Om du har gjort tröskelvärden för växling av ditt program till skrivskyddat läge konfigurerbara, är det lättare att testa beteende med icke-produktion transaktionsvolymer.
+Om du har gjort tröskelvärdena för att växla ditt program till skrivskyddat läge kan konfigureras, är det lättare att testa beteende med icke-produktion transaktionsvolymer.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om läsbehörighet Geo-redundans, inklusive ett annat exempel på hur LastSyncTime ställs finns [Windows Azure-lagringsalternativ redundans och Geo-Redundant lagring med läsbehörighet](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+* Mer information om Read Access Geo-redundans, inklusive ett annat exempel på hur LastSyncTime ställs finns [redundansalternativ för Windows Azure Storage och Geo-Redundant lagring med läsbehörighet](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
-* Ett fullständigt exempel som visar hur du gör växla fram och tillbaka mellan de primära och sekundära slutpunkterna, se [Azure-exempel – med RA-GRS lagring strömbrytare mönstret](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).
+* Ett komplett exempel som visar hur du att växla fram och tillbaka mellan primära och sekundära slutpunkter finns i [Azure-exempel – med Kretsbrytarmönstret med RA-GRS-lagring](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).

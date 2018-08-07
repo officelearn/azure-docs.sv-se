@@ -3,7 +3,7 @@ title: Just-in-time-VM åtkomst i Azure Security Center | Microsoft Docs
 description: Det här dokumentet visar hur just-in-time-åtkomst till virtuell dator i Azure Security Center hjälper dig att styra åtkomsten till virtuella datorer i Azure.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 288524e58efd64670df098f249f3ad0b1cca464c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 18c05444c151a87048db71b039845e26796126b8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990586"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525951"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera VM-åtkomst med hjälp av just-in-time
 
@@ -168,10 +168,9 @@ Du kan ladda ned logginformation genom att välja **Klicka här för att hämta 
 
 Ändra filter och välj **tillämpa** att skapa en sökning och log.
 
-## <a name="using-just-in-time-vm-access-via-powershell"></a>Med hjälp av just-in-time-åtkomst till virtuell dator via PowerShell
+## <a name="using-just-in-time-vm-access-via-rest-apis"></a>Med hjälp av just-in-time-åtkomst till virtuell dator via REST API: er
 
-För att kunna använda den bara i Tidslösning via PowerShell kan du kontrollera att du har den [senaste](/powershell/azure/install-azurerm-ps) Azure PowerShell-version.
-När du gör det, måste du installera den [senaste](https://aka.ms/asc-psgallery) Azure Security Center från PowerShell-galleriet.
+Just i time-åtkomst till VM-funktionen kan användas via API: et för Azure Security Center. Du kan få information om konfigurerade virtuella datorer, lägga till nya, begära åtkomst till en virtuell dator och mer, via den här API: et. Se [Jit Nätverksåtkomstpolicys](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies)du vill veta mer om just tidpunkt REST API.
 
 ### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Konfigurera bara i time-princip för en virtuell dator
 

@@ -1,5 +1,5 @@
 ---
-title: Skapa och använda en intern belastningsutjämnare med en Azure App Service-miljö
+title: Skapa och använda en intern lastbalanserare med en Azure App Service-miljö
 description: Information om hur du skapar och använder en Internetisolerad Azure App Service-miljö
 services: app-service
 documentationcenter: na
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 6e09bdc336821720c970f8b8daf13f52b0a69ed0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9fdbfd0338b1c4b6ac863f07e5808ce6ccd9a6c7
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355380"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39347365"
 ---
-# <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Skapa och använda en intern belastningsutjämnare med en App Service-miljö #
+# <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Skapa och använda en intern lastbalanserare med en App Service-miljö #
 
  Azure App Service Environment är en distribution av Azure App Service i ett undernät i ett virtuellt nätverk i Azure (VNet). Det går att distribuera en App Service-miljö (ASE) på två sätt: 
 
 - Med en VIP på en extern IP-adress som ofta kallas för en extern ASE.
-- Med en VIP på en intern IP-adress, som ofta kallas ILB ASE eftersom den interna slutpunkten är en intern belastningsutjämnare (ILB). 
+- Med en VIP på en intern IP-adress, som ofta kallas ILB ASE eftersom den interna slutpunkten är en intern lastbalanserare (ILB). 
 
 Den här artikeln visar hur du kan skapa en intern belastningsutjämnare i apptjänstmiljö. En översikt över ASE finns i [Introduktion till App Service-miljöer][Intro]. Om du vill veta hur du skapar en extern ASE läser du [Create an External ASE][MakeExternalASE] (Skapa en extern ASE).
 
@@ -64,13 +64,7 @@ Så här skapar du en intern belastningsutjämnare i apptjänstmiljö:
 
 4. Välj eller skapa ett virtuellt nätverk (VNet).
 
-    * Om du väljer ett nytt virtuellt nätverk, kan du ange ett namn och en plats. För tillfället stöds endast 6 regioner för värdbaserade Linux-appar på ASE: **USA, västra; USA, östra; Europa, västra; Europa, norra; Australien, östra; Asien, sydöstra.** 
-
-5. Om du väljer ett befintligt VNet måste du skapa ett undernät för att rymma ASE. Se till att undernätets storlek är tillräckligt stort för att rymma kommande ASE-tillväxt. Vi rekommenderar en storlek på `/25`, som har 128 adresser och kan hantera en ASE med maximal storlek. Den minsta storleken du kan välja är `/28`. Beroende på infrastrukturens behov kan den här storleken bara skalas till högst 3 instanser.
-
-    * Överskrid standardmängden på högst 100 instanser i dina App Service-planer.
-
-    * Skala nära 100 men med snabbare klientdelskalning.
+5. Om du väljer ett befintligt VNet måste du skapa ett undernät för att rymma ASE. Se till att undernätets storlek är tillräckligt stort för att rymma kommande ASE-tillväxt. Vi rekommenderar en storlek på `/24`, som har 256 adresser och kan hantera en ASE med maximal storlek och olika skalningsbehov. 
 
 6. Välj **Virtuellt nätverk/plats** > **Konfiguration av virtuellt nätverk**  Ställ in **VIP-typ** på **Intern**.
 
@@ -119,7 +113,7 @@ Du skapar en app i en ILB ASE på samma sätt som du skapar en app i en ASE vanl
 
 5. Välj ditt operativsystem. 
 
-    * Du kan bara ta din egen behållare med anvisningarna här om du vill skapa en Linux-app med hjälp av en anpassad dockerbehållare. 
+    * Du kan bara ta din egen container med anvisningarna [här][linuxapp] om du vill skapa en Linux-app med hjälp av en anpassad Docker-container. 
 
 6. Välj eller skapa en App Service plan. Om du vill skapa en ny App Service plan väljer du ASE som plats. Välj den arbetarpool där du vill att din App Service plan ska skapas. När du skapar din App Service plan ska du välja din ASE som plats och arbetarpoolen. När du anger namnet på appen ersätts domänen under ditt appnamn med ASE-domänen.
 
@@ -172,7 +166,6 @@ Så här laddar du upp egna certifikat och testar åtkomst:
 
     > [!NOTE] 
     > Försök inte att skapa den här virtuella datorn i samma undernät som ASE eftersom den kommer att misslyckas eller orsaka problem.
-    >
     >
 
 6. Ange DNS för din ASE-domän. Du kan använda jokertecken med din domän i din DNS. Gör några enkla test genom att redigera värdfilerna på din virtuella dator för att ställa in namnet på webbappen till VIP IP-adressen:
@@ -258,3 +251,4 @@ Om du vill veta mer om hur du konfigurerar din interna belastningsutjämnare i a
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md
+[linuxapp]: ../containers/app-service-linux-intro.md

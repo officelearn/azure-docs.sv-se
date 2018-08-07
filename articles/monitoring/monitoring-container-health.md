@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2018
+ms.date: 08/06/2018
 ms.author: magoedte
-ms.openlocfilehash: f84452af9c2c731d69d5805961266c46351a7687
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 2ae61d672083508d49e72afd5a015191082c23e9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366104"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521939"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Övervaka hälsotillstånd för behållare i Azure Kubernetes Service (AKS) (förhandsversion)
 
@@ -356,7 +356,13 @@ Prestandadiagrammet visar fyra prestandamått:
 - **Antal noder**: ett antal noder och status från Kubernetes. Status för noderna i klustret som representeras är *alla*, *redo*, och *inte klara* och kan filtreras individuellt eller kombineras i Väljaren ovanför diagrammet. 
 - **Antal för aktiviteter pod**: antal poddar och status från Kubernetes. Statusen för poddarna representeras är *alla*, *väntande*, *kör*, och *okänd* och kan filtreras individuellt eller kombineras i den väljare ovanför diagrammet. 
 
-Om du växlar till den **noder** fliken rad hierarkin följer Kubernetes-objektmodell som börjar med en nod i klustret. Expandera noden och du kan visa en eller flera poddar som körs på noden. Om flera behållare är grupperat till en pod, visas de som den sista raden i hierarkin. Du kan också visa hur många icke-pod relaterade arbetsbelastningar körs på värden om värden har processor eller minne.
+När du växlar till **noder**, **domänkontrollanter**, och **behållare** fliken automatiskt visas till höger på sidan är egenskapsrutan.  Den visar egenskaperna för objekt som valts, inklusive etiketter som du definierar för att organisera Kubernetes-objekten.  Klicka på den **>>** länkar i fönstret till view\hide fönstret.  
+
+![Egenskapsrutan för exempel Kubernetes perspektiv](./media/monitoring-container-health/perspectives-preview-pane-01.png)
+
+När du expanderar objekt inom hierarkin egenskaper fönstret uppdateringar baserat på de objekt som valts. Från fönstret kan du också visa Kubernetes-händelser med fördefinierade loggsökningar genom att klicka på den **visa Kubernetes-händelseloggar** länken längst upp i fönstret. Mer information om hur du visar loggdata för Kubernetes finns i [söka loggarna för att analysera data](#search-logs-to-analyze-data).
+
+Växla till den **noder** fliken och raden hierarkin följer objektmodellen Kubernetes börjar med en nod i klustret. Expandera noden och du kan visa en eller flera poddar som körs på noden. Om flera behållare är grupperat till en pod, visas de som den sista raden i hierarkin. Du kan också visa hur många icke-pod relaterade arbetsbelastningar körs på värden om värden har processor eller minne.
 
 ![Exempel Kubernetes Node-hierarkin i prestandavyn](./media/monitoring-container-health/container-health-nodes-view.png)
 
@@ -481,9 +487,9 @@ Exempel på poster som samlas in av hälsotillstånd för behållare och vilka d
 ## <a name="search-logs-to-analyze-data"></a>Sök i loggar att analysera data
 Log Analytics kan hjälpa dig att söka trender, diagnostisera flaskhalsar, prognoser och korrelera data som kan hjälpa dig att avgöra om den aktuella klusterkonfigurationen presterar optimalt. Fördefinierade loggsökningar tillhandahålls för du omedelbart börja använda eller anpassa för att returnera informationen som du vill. 
 
-Du kan utföra interaktiva analyser av data på arbetsytan genom att välja den **Visa logg** alternativet är tillgängligt längst till höger när du expanderar en domänkontrollant eller behållare. Den **Loggsökning** visas ovanför Azure portal sidan som du var på.
+Du kan utföra interaktiva analyser av data på arbetsytan genom att välja den **visa Kubernetes-händelseloggar** eller **visa behållarloggarna** alternativet i förhandsgranskningsfönstret. Den **Loggsökning** visas till höger om Azure portal sidan som du var på.
 
-![Analysera data i Log Analytics](./media/monitoring-container-health/container-health-view-logs.png)   
+![Analysera data i Log Analytics](./media/monitoring-container-health/container-health-log-search-example.png)   
 
 Utdata för container-loggar som vidarebefordras till logganalys är STDOUT och STDERR. Eftersom behållare health övervakar Azure-hanterade Kubernetes (AKS), samlas Kube system inte in idag på grund av den stora mängden skapas. 
 

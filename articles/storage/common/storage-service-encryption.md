@@ -3,17 +3,17 @@ title: Azure Storage Service Encryption för data i vila | Microsoft Docs
 description: Funktionen Azure Storage Service Encryption för att kryptera Azure Managed Disks, Azure Blob storage, Azure Files, Azure Queue storage och Azure Table storage på serversidan vid lagring av data och dekryptera det vid hämtning av data.
 services: storage
 author: lakasa
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: 1a127f7e3dd57376ecd05d4ae7030becb33f1159
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.component: common
+ms.openlocfilehash: 5b676bbc764cb5689a6c80e81f597776fe80413e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480313"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520732"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service Encryption för vilande data
 Azure Storage Service Encryption för vilande data kan du skydda dina data för att uppfylla organisationens säkerhets- och efterlevnadsbestämmelser. Med den här funktionen krypterar Azure storage-plattformen automatiskt dina data före beständig Azure Managed Disks, Azure Blob storage, Azure Files eller Azure Queue storage och dekrypterar data innan hämtning. Hantering av kryptering, kryptering på rest, dekryptering och nyckelhantering på kryptering av lagringstjänst är transparent för användarna. Alla data som skrivs till Azure storage-plattformen krypteras med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste blockchiffer som finns.

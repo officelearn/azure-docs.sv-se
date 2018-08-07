@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure IoT kant runtime | Microsoft Docs
-description: Lär dig mer om Azure IoT kant-runtime och hur kan dina enheter
+title: Förstå Azure IoT Edge-körningen | Microsoft Docs
+description: Läs mer om Azure IoT Edge-körningen och hur den hjälper dina gränsenheter
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -8,119 +8,119 @@ ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: aa371ef2ebad01fba379675e8438f56dca9ce356
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 36750a4d907da1d4fa029aca0ecc503db7e82d81
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096976"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526100"
 ---
-# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Förstå Azure IoT kant-runtime och dess arkitektur
+# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Förstå Azure IoT Edge-körningen och dess arkitektur
 
-IoT-Edge runtime är en uppsättning program som måste installeras på en enhet att anses vara en IoT-enhet. Gemensamt kallade komponenter av körningsmiljön IoT kant aktivera IoT kant enheter tar emot koden för att köra i utkanten och meddela resultaten. 
+IoT Edge-körningen är en uppsättning program som måste installeras på en enhet för att den ska betraktas som en IoT Edge-enhet. Sammantaget, komponenterna i IoT Edge-körningen aktivera IoT Edge-enheter att få kod att köra kant och meddela resultaten. 
 
-IoT-Edge runtime utför följande funktioner på enheter som IoT:
+IoT Edge-körningen utför följande funktioner på IoT Edge-enheter:
 
 * Installerar och uppdaterar arbetsbelastningar på enheten.
 * Underhåller Azure IoT Edge-säkerhetsstandarder på enheten.
-* Garanterar att [IoT kant moduler][lnk-moduler] alltid körs.
+* Säkerställer att [IoT Edge-moduler][lnk-moduler] alltid körs.
 * Rapporterar modulens hälsa till molnet för fjärrövervakning.
 * Underlättar kommunikationen mellan nedströms lövenheter och IoT Edge-enheten.
 * Underlättar kommunikationen mellan moduler på IoT Edge-enheten.
 * Underlättar kommunikationen mellan IoT Edge-enheten och molnet.
 
-![IoT-Edge runtime kommunicerar insikter och modulen hälsa till IoT-hubb][1]
+![IoT Edge-körningen kommunicerar insikter och modulens hälsa till IoT Hub][1]
 
-Ansvaret för IoT kant runtime är indelade i två kategorier: modulen Hantering och kommunikation. Dessa två roller utförs av två komponenter som utgör IoT kant-körningsmiljön. IoT Edge-hubben är ansvarig för kommunikation, medan IoT kant agenten hanterar distribuera och övervaka modulerna. 
+Ansvaret för IoT Edge-körningen är indelade i två kategorier: modulhantering och kommunikation. Dessa två roller som utförs av två komponenter som utgör IoT Edge-körningen. IoT Edge hub ansvarar för kommunikation, medan IoT Edge-agenten hanterar distribution och övervakning av moduler. 
 
-Både Edge-agenten och kant-hubben är moduler, precis som en annan modul som körs på en IoT-enhet. Mer information om hur moduler fungerar finns [lnk-moduler]. 
+Både Edge-agenten och Edge hub är moduler, precis som andra moduler som körs på en IoT Edge-enhet. Mer information om hur moduler fungerar finns i [lnk-moduler]. 
 
-## <a name="iot-edge-hub"></a>Gräns för IoT-hubb
+## <a name="iot-edge-hub"></a>IoT Edge hub
 
-Edge-hubben är en av två moduler som utgör Azure IoT kant-körningsmiljön. Det fungerar som en lokal proxyserver för IoT-hubb genom att exponera samma protokollslutpunkterna som IoT-hubb. Den här konsekvenskontroll innebär att klienter (om enheter eller moduler) kan ansluta till IoT kant runtime precis som de skulle för IoT-hubb. 
-
->[!NOTE]
->Edge-hubben har stöd för klienter som ansluter med hjälp av MQTT eller AMQP. Det stöder inte klienter som använder HTTP. 
-
-Edge-hubben är inte en fullständig version av IoT-hubb som körs lokalt. Det finns vissa saker som Edge hubben tyst delegerar till IoT-hubb. Edge hubb vidarebefordrar autentiseringsbegäranden till IoT-hubb när en enhet försöker ansluta. Efter den första anslutningen har upprättats cachelagras säkerhetsinformation lokalt Edge hubb. Efterföljande anslutningar från den enheten tillåts utan att autentisera till molnet. 
+Edge hub är en av två moduler som utgör Azure IoT Edge-körningen. Den fungerar som en lokal proxy för IoT-hubb genom att exponera samma protokollslutpunkterna som IoT Hub. Detta innebär som klienter (oavsett om enheter eller moduler) kan ansluta till IoT Edge-körningen precis samma sätt som på IoT Hub. 
 
 >[!NOTE]
->Vara måste ansluten körningsmiljön varje gång den försöker autentisera en enhet.
+>Edge Hub har stöd för klienter som ansluter med hjälp av MQTT eller AMQP. Det har inte stöd för klienter som använder HTTP. 
 
-För att minska bandbredden som gräns för IoT-lösningen använder, Edge hubben optimerar hur många anslutningar görs till molnet. Edge hubb tar logiska anslutningar från klienter som moduler eller löv enheter och kombineras för en enda fysisk anslutning till molnet. Information om den här processen är transparent för resten av lösningen. Klienter tror att de har sina egna anslutningar till molnet, även om de alla skickas via samma anslutning. 
-
-![Edge-hubb som fungerar som en gateway mellan flera fysiska enheter och molnet][2]
-
-Edge-hubb kan avgöra om den är ansluten till IoT-hubb. Om anslutningen bryts, sparar Edge hubb meddelanden eller dubbla uppdateringar lokalt. När en anslutning har återupprättat synkroniserar alla data. Den plats som används för den här tillfälliga cache bestäms av en egenskap för hubben Edge modulen dubbla. Storleken på cacheminnet begränsas inte och kommer att växa så länge enheten har lagringskapacitet. 
+Edge hub är inte en fullständig version av IoT Hub som körs lokalt. Det finns några saker som Edge hub tyst delegerar till IoT Hub. Edge hub vidarebefordrar begäranden om autentisering till IoT Hub när en enhet först försöker ansluta. När den första anslutningen har upprättats kan cachelagras säkerhetsinformation lokalt Edge hub. Efterföljande anslutningar från den enheten tillåts utan att behöva autentisera till molnet. 
 
 >[!NOTE]
->Lägga till kontroll över ytterligare cachelagring parametrar läggs till produkten innan den försätts allmän tillgänglighet.
+>Vara måste ansluten körningen varje gång den försöker autentisera en enhet.
+
+För att minska bandbredden som din IoT Edge-lösning använder, Edge hub optimerar hur många faktiska anslutningar görs till molnet. Edge hub tar logiska anslutningar från klienter som moduler eller lövenheter och kombinerar dem för en enda fysisk anslutning till molnet. Information om den här processen är transparent för resten av lösningen. Klienter tror att de har sin egen anslutning till molnet, även om de är alla som skickas via samma anslutning. 
+
+![Edge hub fungerar som en gateway mellan flera fysiska enheter och molnet][2]
+
+Edge hub kan avgöra om den är ansluten till IoT Hub. Om anslutningen bryts, sparar Edge hub meddelanden eller twin uppdateringar lokalt. När en anslutningen återupprättas synkroniserar alla data. Platsen som används för den här tillfälliga cachen bestäms av en egenskap för Edge hub modultvilling. Storleken på cacheminnet är inte begränsat och kommer att växa så länge enheten har lagringskapacitet. 
+
+>[!NOTE]
+>Att lägga till kontroll över extra cachelagring parametrar läggs till produkten innan den blir allmänt tillgängligt.
 
 ### <a name="module-communication"></a>Modulen kommunikation
 
-Edge hubb underlättar modulen modulen kommunikationen. Med hjälp av Edge-hubb som förhandlare meddelandet håller moduler oberoende av varandra. Moduler behöver bara ange indata som de accepterar meddelanden och utdata som de skriva meddelanden. En för lösningsutvecklare sedan häftar samman dessa indata och utdata tillsammans så att modulerna som bearbetar data i ordningen som är specifika för lösningen. 
+Edge Hub underlättar modulen till modulen kommunikationen. Med Edge Hub som en asynkron meddelandekö behåller moduler som är oberoende av varandra. Moduler behöver bara ange indata som de godkänner meddelanden och utdata som de skriva meddelanden. En för lösningsutvecklare sedan häftar samman dessa indata och utdata tillsammans så att modulerna som bearbetar data i ordningen som är specifika för lösningen. 
 
-![Edge hubb underlättar kommunikationen för modul-modul][3]
+![Edge Hub underlättar modulen till modulen kommunikationen][3]
 
-Om du vill skicka data till hubben Edge anropar metoden SendEventAsync i en modul. Det första argumentet anger på vilka utdata att skicka meddelandet. Följande pseudocode skickar ett meddelande på output1:
+Om du vill skicka data till Edge hub, anropar metoden SendEventAsync i en modul. Det första argumentet anger på vilka utdata att skicka meddelandet. Följande pseudocode skickar ett meddelande på output1:
 
    ```csharp
-   DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+   ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(transportSettings); 
    await client.OpenAsync(); 
    await client.SendEventAsync(“output1”, message); 
    ```
 
-Registrera ett återanrop som bearbetar inkommande meddelanden på specifika indata för att ta emot ett meddelande. Följande pseudocode registrerar funktionen messageProcessor som ska användas för bearbetning av alla meddelanden som tas emot på input1:
+Registrera ett återanrop som bearbetar inkommande meddelanden på en specifik indata för att ta emot ett meddelande. Följande pseudocode registrerar funktionen messageProcessor som ska användas för att bearbeta alla meddelanden som tas emot på indata1:
 
    ```csharp
    await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
    ```
 
-Lösningsutvecklaren ansvarar för att ange regler som bestämmer hur Edge hubb skickar meddelanden mellan moduler. Regler för routning definieras i molnet och flyttas fram till Edge hubb i sin enhet dubbla. Samma syntax för IoT-hubb vägar används för att definiera vägar mellan moduler i Azure IoT kant. 
+Lösningsutvecklaren är ansvarig för att ange reglerna som bestämmer hur Edge hub skickar meddelanden mellan moduler. Routningsregler definieras i molnet och flyttas fram till Edge hub i dess enhetstvilling. Samma syntax för IoT Hub vägar används för att definiera rutter mellan moduler i Azure IoT Edge. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
-![Vägar mellan moduler][4]
+![Rutter mellan moduler][4]
 
-## <a name="iot-edge-agent"></a>IoT-Edge-agent
+## <a name="iot-edge-agent"></a>IoT Edge-agenten
 
-IoT kant-agenten är den modul som utgör Azure IoT kant-körningsmiljön. Den är ansvarig för en instans skapades av moduler, säkerställer att de fortsätter att köras och rapportera status för modulerna som tillbaka till IoT-hubb. Precis som alla andra moduler använder Edge-agenten dess modulen dubbla för att spara konfigurationsinformationen. 
+IoT Edge-agenten är den modul som utgör Azure IoT Edge-körningen. Den är ansvarig för kontrollanten moduler, se till att de fortsätter att köras och rapporterar status för moduler tillbaka till IoT Hub. Precis som andra moduler använder dess modultvilling i Edge-agenten för att spara konfigurationsinformationen. 
 
-Om du vill starta körningen av Edge-agent, kör du startkommandot azure iot-edge-runtime-ctl.py. Agenten hämtar dess modulen dubbla från IoT-hubb och kontrollerar moduler ordlistan. Moduler ordlistan är en samling av moduler som behöver startas. 
+Starta körning av Edge-agenten genom att köra startkommandot azure-iot-edge-körning-ctl.py. Agenten hämtar dess modultvilling från IoT Hub och inspekterar moduler ordlistan. Ordlista för moduler är en samling av moduler som startas. 
 
-Varje objekt i moduler ordlistan innehåller specifik information om en modul och används av Edge-agenten för att styra modulens livscykel. Vissa av egenskaperna mer intressant är: 
+Varje objekt i ordlistan moduler innehåller specifik information om en modul och används av Edge-agenten för att styra modulens livscykel. Vissa av egenskaperna mer intressant är: 
 
-* **Settings.Image** – behållaren avbildningen Edge-agenten använder för att starta modulen. Edge-agent måste konfigureras med autentiseringsuppgifter för behållaren registernyckeln om bilden skyddas av ett lösenord. Om du vill konfigurera Edge agenten att uppdatera den `config.yaml` filen. I Linux, använder du följande kommando: `sudo nano /etc/iotedge/config.yaml`
-* **settings.createOptions** – en sträng som skickas direkt till Docker-daemon när du startar en modul behållare. Lägger till Docker-alternativ i den här egenskapen kan avancerade alternativ som port vidarebefordran eller montering av volymer i en modul behållare.  
-* **status för** – tillstånd där agenten Edge placerar modulen. Det här värdet anges vanligtvis *kör* som de flesta vill Edge-agent för att starta alla moduler direkt på enheten. Du kan dock ange inledningsvis i en modul som ska stoppas och vänta en framtida tid för att ange Edge-agenten för att starta en modul. Edge agenten rapporterar status för varje modul tillbaka till molnet i rapporterade egenskaper. Skillnad mellan önskade egenskaperna och rapporterade är en indikator på en felaktigt enhet. Stöds statusar:
+* **Settings.Image** – den behållaravbildning som Edge-agenten använder för att starta modulen. Edge-agenten måste konfigureras med autentiseringsuppgifterna för behållarregistret om avbildningen skyddas av ett lösenord. Om du vill konfigurera Edge-agenten att uppdatera den `config.yaml` filen. I Linux, använder du följande kommando: `sudo nano /etc/iotedge/config.yaml`
+* **settings.createOptions** – en sträng som skickas direkt till Docker-daemon när du startar en modul behållare. Om du lägger till Docker-alternativ i den här egenskapen får för avancerade alternativ som port vidarebefordran eller montering av volymer i en modul behållare.  
+* **status för** – tillståndet som Edge-agenten placerar modulen. Det här värdet anges vanligtvis till *kör* de flesta vill Edge-agenten att starta alla moduler direkt på enheten. Du kan dock ange det ursprungliga tillståndet för en modul för att stoppas och vänta tills ett senare tillfälle som talar om att Edge-agent ska starta en modul. Edge-agenten rapporterar status för varje modul tillbaka till molnet i rapporterade egenskaper. Någon skillnad mellan önskad egenskap och rapporterad egenskap är ett tecken på en skadad enhet. Den stödda statusen är:
    * Laddas ned
    * Körs
    * Skadad
    * Misslyckad
    * Stoppad
-* **restartPolicy** – hur Edge agenten startar om en modul. Möjliga värden omfattar:
+* **restartPolicy** – hur Edge-agenten startar om en modul. Möjliga värden omfattar:
    * Edge-agenten startar aldrig – aldrig om modulen.
-   * onFailure - om modulen kraschar Edge agenten startar om den. Om modulen avslutas korrekt Edge-agenten inte starta om den.
-   * Ohälsosamma - om modulen kraschar eller bedöms ohälsosamt Edge agenten startar om den.
-   * Alltid - om modulen kraschar, anses feltillstånd eller stängs av på något sätt, startar Edge agenten den. 
+   * onFailure - om modulen kraschar, Edge-agenten startar om den. Om modulen får en ren avstängning, Edge-agenten inte starta om den.
+   * Ohälsosamma - om modulen kraschar eller som kan vara felaktiga, Edge-agenten startar om den.
+   * Alltid - om modulen kraschar, som anses vara defekt eller stängs av på något sätt, Edge-agenten startar om den. 
 
-IoT-Edge agenten skickar runtime svar till IoT-hubb. Här är en lista över möjliga svar:
+IoT Edge-agenten skickar körningssvar till IoT Hub. Här är en lista över möjliga svar:
   * 200 - OK
   * 400 - distributionskonfigurationen är skadad eller ogiltig.
   * 417 - enheten har inte en distributionskonfiguration anger.
-  * 412 - schemaversionen i distributionskonfigurationen är ogiltig.
-  * 406 - gränsenheten är offline eller inte skicka statusrapporter.
-  * 500 - ett fel inträffade i edge-körningsmiljön.
+  * 412 - schemaversion i distributionskonfigurationen är ogiltig.
+  * 406 - edge-enheten är frånkopplad eller skickar inga statusrapporter.
+  * 500 – ett fel uppstod i edge-körningen.
 
 ### <a name="security"></a>Säkerhet
 
-IoT-Edge agenten spelar en viktig roll i säkerheten för en IoT-enhet. Till exempel utför den åtgärder som verifierar en modul bilden innan du startar den. Dessa funktioner läggs vid allmän tillgänglighet. 
+IoT Edge-agenten spelar en viktig roll i säkerheten för en IoT Edge-enhet. Till exempel utförs åtgärder som att verifiera en moduls avbildning innan du startar den. Dessa funktioner läggs vid allmän tillgänglighet. 
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Förstå Azure IoT kant moduler][lnk-moduler]
+- [Förstå Azure IoT Edge-moduler][lnk-moduler]
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png

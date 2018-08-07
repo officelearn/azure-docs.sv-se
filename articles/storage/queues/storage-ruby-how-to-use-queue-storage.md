@@ -2,24 +2,20 @@
 title: Hur du använder Queue storage från Ruby | Microsoft Docs
 description: Lär dig hur du använder Azure-Kötjänsten för att skapa och ta bort köer, infoga, hämta och ta bort meddelanden. Exemplen är skrivna i Ruby.
 services: storage
-documentationcenter: ruby
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 59c2d81b-db9c-46ee-ade2-2f0caae6b1e6
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: 0d7624d47a6924a5c8dec66b47ac0887ff493879
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: queues
+ms.openlocfilehash: 7074ae21c1816b5266cbcf69d0126751ded19439
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719081"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522612"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Använda Queue Storage från Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

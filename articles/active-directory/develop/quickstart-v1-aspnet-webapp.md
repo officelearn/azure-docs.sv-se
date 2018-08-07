@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/23/2018
 ms.author: andret
-ms.openlocfilehash: 2fd41d08df5a8f425a1d59e8cd1172043286d8b7
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 5353e22d7ae77adecfe126bb589d08c808752550
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39496169"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579358"
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Lägga till logga in med Microsoft i en ASP.NET-webbapp
@@ -30,7 +30,7 @@ Den här guiden visar hur du implementerar inloggning med Microsoft med hjälp a
 I slutet av den här guiden ditt program ska ta emot inloggningar av arbets- och skolkonton konton från organisationer som har integrerat med Azure Active Directory.
 
 > [!NOTE]
-> Den här guidade konfigurationen hjälper dig att aktivera inloggningar från arbets- och skolkonton konton i din ASP.NET-program. Om du vill aktivera inloggningar för personliga konton förutom arbets-och skolkonton, du kan använda den [v2-slutpunkten](active-directory-v2-compare.md). Se [den här ASP.NET interaktiva installation för v2-slutpunkten](tutorial-v2-asp-webapp.md) samt [det här dokumentet](active-directory-v2-limitations.md) förklarar de aktuella begränsningarna för v2-slutpunkten.
+> Den här guidade konfigurationen hjälper dig att aktivera inloggningar från arbets- och skolkonton konton i din ASP.NET-program. Om du vill aktivera inloggningar för personliga konton förutom arbets-och skolkonton, du kan använda den [v2-slutpunkten](azure-ad-endpoint-comparison.md). Se [den här ASP.NET interaktiva installation för v2-slutpunkten](tutorial-v2-asp-webapp.md) samt [det här dokumentet](active-directory-v2-limitations.md) förklarar de aktuella begränsningarna för v2-slutpunkten.
 <br/><br/>
 
 <!--separator-->
@@ -218,7 +218,7 @@ Följ anvisningarna nedan om du vill godkänna inloggningar av arbets- och skolk
 2. Under `All Settings` väljer `Properties`
 3. Ändra `Multi-tenanted` egenskap `Yes` och klicka på `Save`
 
-Mer information om den här inställningen och begreppet program med flera klienter finns i [i den här artikeln](active-directory-devhowto-multi-tenant-overview.md "översikt för flera innehavare").
+Mer information om den här inställningen och begreppet program med flera klienter finns i [i den här artikeln](howto-convert-app-to-be-multi-tenant.md "översikt för flera innehavare").
 
 ### <a name="restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Hindra användare från att endast en organisations Active Directory-instans för att logga in på ditt program (en enda klient)
 

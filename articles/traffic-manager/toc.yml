@@ -7,7 +7,7 @@
 - name: Snabbstart
   items:
     - name: Skapa en Traffic Manager-profil
-      href: traffic-manager-create-profile.md
+      href: quickstart-create-traffic-manager-profile.md
 - name: Självstudier
   items:
     - name: Dirigera trafik utifrån slutpunktens geografiska plats

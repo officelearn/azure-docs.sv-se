@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 4a37ac6cdf5d13556c6a3e293c19c00ad36e4495
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 7f171fa1eb8c91b55119d0308b57fe3d3e70261b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364173"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578899"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Fråga efter exempel för vanliga mönster för Stream Analytics-användning
 
@@ -25,10 +25,9 @@ Frågans design kan snabba och enkla direkt logik för att flytta händelsedata 
 
 Den här artikeln beskrivs lösningar på flera vanliga frågemönster utifrån verkliga scenarier. Det är ett pågående arbete och fortsätter att uppdateras med nya mönster med jämna mellanrum.
 
-## <a name="work-with-complex-data-types-in-json-and-avro"></a>Arbeta med komplexa datatyper i JSON- och AVRO 
+## <a name="work-with-complex-data-types-in-json-and-avro"></a>Arbeta med komplexa datatyper i JSON och AVRO 
 Azure Stream Analytics har stöd för bearbetning av händelser i CSV, JSON och Avro dataformat.
-JSON- och Avro kan innehålla komplexa typer, till exempel kapslade objekt (poster) eller matriser. För att fungera med dessa komplexa datatyper finns i den [MSDN-sida som förklarar hur du arbetar med komplexa datatyper i JSON och AVRO sidan](
-https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics).
+JSON- och Avro kan innehålla komplexa typer, till exempel kapslade objekt (poster) eller matriser. För att arbeta med dessa komplexa datatyper måste hänvisa till den [parsa JSON-och AVRO](stream-analytics-parsing-json.md) artikeln.
 
 
 ## <a name="query-example-convert-data-types"></a>Exempel på sökfråga: konvertera-datatyper

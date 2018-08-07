@@ -16,12 +16,12 @@ ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: f06c4ad7e99c5ccdd0f63ac16877c0277fdf819c
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 0c4edb4fbf7271331affb2559018e53480aa7a85
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504268"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577170"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Konfigurerbara tokenlivslängder i Azure Active Directory (förhandsversion)
 Du kan ange livslängden för en token utfärdad av Azure Active Directory (AD Azure). Du kan ange livslängd för token för alla appar i din organisation, för ett program med flera innehavare (flera organisation) eller för en specifik huvudtjänst i organisationen.
@@ -49,7 +49,7 @@ Du kan ange livslängd för token-principer för uppdateringstoken, åtkomst-tok
 Klienter använder åtkomsttoken för att få åtkomst till en skyddad resurs. En åtkomsttoken kan användas endast för en specifik kombination av användare, klienten och resursen. Åtkomsttoken gick inte att återkalla och är giltiga till deras utgångsdatum. En skadliga aktörer som har fått en åtkomsttoken kan använda det för omfattningen av dess livslängd. Justera livslängden för en åtkomsttoken är en kompromiss mellan förbättra systemets prestanda och öka hur lång tid att klienten behåller åtkomst efter användarens konto har inaktiverats. Förbättrad prestanda uppnås genom att minska antalet gånger som en klient behöver skaffa en ny åtkomsttoken.  Standardvärdet är 1 timme - efter 1 timme klienten måste använda uppdateringstoken (vanligtvis tyst) få en ny uppdateringstoken och få åtkomst till token. 
 
 ### <a name="refresh-tokens"></a>Uppdatera token
-När en klient får en åtkomsttoken för att få åtkomst till en skyddad resurs, får klienten också en uppdateringstoken. Uppdateringstoken används för att hämta nya åtkomst/uppdatera token par när den aktuella åtkomst-token upphör att gälla. En uppdateringstoken är bunden till en kombination av användar- och klienten. En uppdateringstoken kan vara [återkallas när som helst](develop/active-directory-token-and-claims.md#token-revocation), och denna tokens giltighet kontrolleras varje gång används aktuellt token.  
+När en klient får en åtkomsttoken för att få åtkomst till en skyddad resurs, får klienten också en uppdateringstoken. Uppdateringstoken används för att hämta nya åtkomst/uppdatera token par när den aktuella åtkomst-token upphör att gälla. En uppdateringstoken är bunden till en kombination av användar- och klienten. En uppdateringstoken kan vara [återkallas när som helst](develop/v1-id-and-access-tokens.md#token-revocation), och denna tokens giltighet kontrolleras varje gång används aktuellt token.  
 
 Det är viktigt att göra skillnad mellan konfidentiella klienter och offentliga klienter, eftersom detta påverkar hur länge uppdateringstoken kan användas. Mer information om olika typer av klienter finns i [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
@@ -106,7 +106,7 @@ Du kan skapa och tilldela sedan en livslängd för token-princip till ett visst 
 * Om ingen princip har uttryckligen tilldelats till tjänstens huvudnamn eller i organisationen, tillämpas den princip som tilldelats programmet.
 * Om ingen princip har tilldelats till tjänstens huvudnamn, organisationen eller programobjektet, tillämpas standardvärdena. (Se tabellen i [konfigurerbara livslängd för uppdateringstoken egenskaper](#configurable-token-lifetime-properties).)
 
-Mer information om relationen mellan programobjekt och tjänstobjekt finns [program och tjänstobjekt i Azure Active Directory](active-directory-application-objects.md).
+Mer information om relationen mellan programobjekt och tjänstobjekt finns [program och tjänstobjekt i Azure Active Directory](develop/app-objects-and-service-principals.md).
 
 En token giltigheten utvärderas när används aktuellt token. Principen med den högsta prioriteten på det program som används börjar gälla.
 

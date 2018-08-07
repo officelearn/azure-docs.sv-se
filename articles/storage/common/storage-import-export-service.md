@@ -2,18 +2,18 @@
 title: Använda Azure Import/Export för att överföra data till och från Azure Storage | Microsoft Docs
 description: Lär dig hur du skapar importera och exportera jobb i Azure-portalen för att överföra data till och från Azure Storage.
 author: alkohli
-manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: e9fc74e6cd145cbba5b620b9db6db9635a0c4c77
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.component: common
+ms.openlocfilehash: 480d67917abf3a8aaca64aa9aae30be5acf55e11
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364533"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528564"
 ---
 # <a name="what-is-azure-importexport-service"></a>Vad är tjänsten Azure Import/Export?
 

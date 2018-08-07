@@ -17,17 +17,17 @@ ms.date: 08/03/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 9c2140d0e482089be632d9a21560349a6381968e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 8b23d99b838449681f83ff2e88bd96ee90502404
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495245"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578865"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Så här hämtar du AppSource-certifierat för Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) är ett mål för företagsanvändare att identifiera, testa och hantera line-of-business SaaS-program (fristående SaaS och tillägg till befintliga Microsoft SaaS-produkter).
 
-Om du vill visa en fristående SaaS-program på AppSource, måste programmet godkänna enkel inloggning från arbetskonton från alla företag eller organisation som har Azure Active Directory. Logga in igen måste använda den [OpenID Connect](./active-directory-protocols-openid-connect-code.md) eller [OAuth 2.0](./active-directory-protocols-oauth-code.md) protokoll. SAML-integrering är inte godkänd för AppSource-certifiering.
+Om du vill visa en fristående SaaS-program på AppSource, måste programmet godkänna enkel inloggning från arbetskonton från alla företag eller organisation som har Azure Active Directory. Logga in igen måste använda den [OpenID Connect](v1-protocols-openid-connect-code.md) eller [OAuth 2.0](v1-protocols-oauth-code.md) protokoll. SAML-integrering är inte godkänd för AppSource-certifiering.
 
 ## <a name="guides-and-code-samples"></a>Guider och kodexempel
 Om du vill lära dig om hur du integrerar ditt program med Azure Active Directory med öppna ID connect, följa våra guider och kodexempel i den [Utvecklarhandbok för Azure Active Directory](azure-ad-developers-guide.md#get-started "Kom igång med Azure AD för utvecklare").
@@ -41,7 +41,7 @@ För att aktivera flera innehavare för ditt program:
 - Uppdatera koden för att skicka begäranden till den '`common`' slutpunkt (uppdatera slutpunkten från *https://login.microsoftonline.com/{yourtenant}* till *https://login.microsoftonline.com/common*)
 - För vissa plattformar, t.ex. ASP.NET, måste du också uppdatera koden för att godkänna flera certifikatutfärdare
 
-Läs mer om flera innehavare: [så här loggar du in alla Azure Active Directory (AD)-användare med programmönstret för flera innehavare](./active-directory-devhowto-multi-tenant-overview.md).
+Läs mer om flera innehavare: [så här loggar du in alla Azure Active Directory (AD)-användare med programmönstret för flera innehavare](howto-convert-app-to-be-multi-tenant.md).
 
 ### <a name="single-tenant-applications"></a>Enda klient program
 Program som bara godkänna inloggningar från användare av en definierad Azure Active Directory-instans kallas *enda klient programmet*. Externa användare (inklusive arbete eller skola konton från andra organisationer eller personligt konto) kan logga in i en enda klient program när du lägger till varje användare som *gästkontot* till Azure Active Directory-instans som den programmet har registrerats. Du kan lägga till användare som gästkonton till en Azure Active Directory via den [ *Azure AD B2B-samarbete* ](../b2b/what-is-b2b.md) - och det kan göras [programmässigt](../b2b/code-samples.md). När du lägger till en användare som gästkontot till en Azure Active Directory, skickas ett e-postinbjudan till den användare som har att tacka ja till inbjudan genom att klicka på länken i e-postinbjudan. Inbjudningar som skickas till en ytterligare användare i en organisationen som bjuder in som också är medlem i partnerorganisationen behöver inte acceptera inbjudan för att logga in.
@@ -121,7 +121,7 @@ Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss a
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Auth-Scenarios-Browser-To-WebApp]:authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: azure-ad-developers-guide.md
-[AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
+[AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
 [AAD-QuickStart-Web-Apps]: azure-ad-developers-guide.md#get-started
 
 

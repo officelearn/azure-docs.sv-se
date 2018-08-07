@@ -15,12 +15,12 @@ ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f3511b4d9e75136fd0105785a1e033378d2ebd1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: a2b1816a7f972e698d3872e6c252c09a4d5292ef
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494029"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578736"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Konfigurera enkel inloggning till program som inte ingår i Azure Active Directory-programgalleriet
 
@@ -148,7 +148,7 @@ Tilldela en användare kan Azure AD för att utfärda en token för användaren.
 
 ### <a name="test-the-saml-application"></a>Testa SAML-program
 
-Innan du testar programmet SAML, måste du har registrerat programmet med Azure AD och tilldelade användare eller grupper till programmet. För att testa SAML-program, se [Felsök SAML-baserad enkel inloggning till program i Azure Active Directory](develop/active-directory-saml-debugging.md).
+Innan du testar programmet SAML, måste du har registrerat programmet med Azure AD och tilldelade användare eller grupper till programmet. För att testa SAML-program, se [Felsök SAML-baserad enkel inloggning till program i Azure Active Directory](develop/howto-v1-debug-saml-sso-issues.md).
 
 ## <a name="password-single-sign-on"></a>Lösenord för enkel inloggning
 

@@ -17,12 +17,12 @@ ms.date: 07/20/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, sureshja
-ms.openlocfilehash: 0783c9885ec47bdd8c33c296e975547391900139
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: a0d302e740732c5bf76ba75486b75f6f73091940
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505743"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576465"
 ---
 # <a name="azure-active-directory-application-manifest"></a>Azure Active Directorys programmanifest
 Appar som integrerar med Azure AD måste registreras med en Azure AD-klient. Den här appen kan konfigureras med hjälp av appmanifestet (under bladet Azure AD) i den [Azure-portalen](https://portal.azure.com).
@@ -35,7 +35,7 @@ Appar som integrerar med Azure AD måste registreras med en Azure AD-klient. Den
 |---------|---------|---------|---------|
 |appID     |  Strängen för meddelandealternatividentifieraren       |""|  Den unika identifieraren för det program som har tilldelats en app av Azure AD.|
 |appRoles     |    Typ av matris     |<code>[{<br>&emsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&emsp;],<br>&emsp;"description":"Read-only access to device information",<br>&emsp;"displayName":"Read Only",<br>&emsp;"id":guid,<br>&emsp;"isEnabled":true,<br>&emsp;"value":"ReadOnly"<br>}]</code>|Roller som ett program kan deklarera samling. Dessa roller kan tilldelas användare, grupper eller tjänstens huvudnamn.|
-|availableToOtherTenants|boolesk|`true`|Om det här värdet anges till SANT, programmet är tillgängligt för andra klienter. Den är registrerad i om inställt på false, appen är endast tillgänglig för innehavaren. Mer information finns i: [så här loggar du in alla Azure Active Directory (AD)-användare med programmönstret för flera innehavare](active-directory-devhowto-multi-tenant-overview.md). |
+|availableToOtherTenants|boolesk|`true`|Om det här värdet anges till SANT, programmet är tillgängligt för andra klienter. Den är registrerad i om inställt på false, appen är endast tillgänglig för innehavaren. Mer information finns i: [så här loggar du in alla Azure Active Directory (AD)-användare med programmönstret för flera innehavare](howto-convert-app-to-be-multi-tenant.md). |
 |displayName     |sträng         |`MyRegisteredApp`         |Visningsnamn för programmet. |
 |errorURL     |sträng         |`http://MyRegisteredAppError`         |URL för fel som påträffats i ett program. |
 |groupMembershipClaims     |    sträng     |    `1`     |   En bitmask som konfigurerar anspråket ”grupper” utfärdats i en användare eller OAuth 2.0-åtkomsttoken som programmet förväntas. Värdena är: 0: Ingen, 1: säkerhetsgrupper och Azure AD-roller, 2: reserverad och 4: reserverad. Ställa in bitmask 7 får alla säkerhetsgrupper, distributionsgrupper och Azure AD-katalogroller som den inloggade användaren är medlem i. |
@@ -67,7 +67,7 @@ Appar som integrerar med Azure AD måste registreras med en Azure AD-klient. Den
 Använd följande avsnitt för kommentarer för att ge feedback som hjälper dig att förfina och forma vårt innehåll.
 
 <!--article references -->
-[AAD-APP-OBJECTS]: active-directory-application-objects.md
+[AAD-APP-OBJECTS]:app-objects-and-service-principals.md
 [AAD-DEVELOPER-GLOSSARY]: active-directory-dev-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]:quickstart-v1-integrate-apps-with-azure-ad.md
@@ -77,7 +77,7 @@ Använd följande avsnitt för kommentarer för att ge feedback som hjälper dig
 [AZURE-PORTAL]: https://portal.azure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
-[IMPLICIT-GRANT]: active-directory-dev-understanding-oauth2-implicit-grant.md
+[IMPLICIT-GRANT]:v1-oauth2-implicit-grant-flow.md
 [INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365

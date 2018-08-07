@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: e63dbf8feb941aef3d3c76439f55527da0388b85
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7ed4bf8f48ce425880bcda84bc7838a26180d924
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406661"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578022"
 ---
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Felsöka HDFS med Azure HDInsight
 
-Läs mer om de vanligaste problemen och sina lösningar när du arbetar med Hadoop Distributed File System (HDFS) nyttolaster i Apache Ambari.
+Läs mer om de viktigaste problemen och sina lösningar när du arbetar med Hadoop Distributed File System (HDFS) nyttolaster i Apache Ambari.
 
 ## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Hur kommer jag åt ditt lokala HDFS från i ett kluster?
 
 ### <a name="issue"></a>Problem
 
-Åtkomst till ditt lokala HDFS från kommandoraden och programkod i stället för med hjälp av Azure Blob storage eller Azure Data Lake Store från i HDInsight-klustret.   
+Åtkomst till ditt lokala HDFS från kommandoraden och programkod i stället för med hjälp av Azure Blob storage eller Azure Data Lake Store från i HDInsight-kluster.   
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-1. I Kommandotolken, Använd `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` litteralt, som i följande kommando:
+1. I Kommandotolken, använda `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` bokstavligen, som i följande kommando:
 
     ```apache
     hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
@@ -42,9 +42,9 @@ Läs mer om de vanligaste problemen och sina lösningar när du arbetar med Hado
     drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
     ```
 
-2. Använd URI: N från källkoden `hdfs://mycluster/` litteralt, som i följande exempelprogram:
+2. Använd URI: N från källkoden `hdfs://mycluster/` bokstavligen, som i följande exempelprogrammet:
 
-    ```csharp
+    ```Java
     import java.io.IOException;
     import java.net.URI;
     import org.apache.commons.io.IOUtils;
@@ -67,7 +67,7 @@ Läs mer om de vanligaste problemen och sina lösningar när du arbetar med Hado
     }
     ```
 
-3. Köra kompilerade .jar-fil (till exempel en fil med namnet `java-unit-tests-1.0.jar`) på HDInsight-kluster med följande kommando:
+3. Kör kompilerade .jar-filen (till exempel en fil med namnet `java-unit-tests-1.0.jar`) på HDInsight-klustret med följande kommando:
 
     ```apache
     hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests
@@ -82,17 +82,17 @@ Läs mer om de vanligaste problemen och sina lösningar när du arbetar med Hado
 
 ### <a name="issue"></a>Problem
 
-Ditt lokala HDFS sitter fast i felsäkert läge i HDInsight-klustret.   
+Ditt lokala HDFS har fastnat i felsäkert läge på HDInsight-kluster.   
 
 ### <a name="detailed-description"></a>Detaljerad beskrivning
 
-Felet uppstår när du kör följande kommando för HDFS:
+Felet inträffar när du kör följande kommando för HDFS:
 
 ```apache
 hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 ```
 
-Följande fel visas när du kör kommandot:
+Du ser följande fel när du kör kommandot:
 
 ```apache
 hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
@@ -148,7 +148,7 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ### <a name="probable-cause"></a>Möjlig orsak
 
-HDInsight-klustret har minskats till ett mycket få noder. Antalet noder som är mindre än eller nära HDFS replikering faktorn.
+HDInsight-klustret har skalats ned till en mycket få noder. Antalet noder som är lägre än eller nära replikeringsfaktorn HDFS.
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar 
 
@@ -193,7 +193,7 @@ HDInsight-klustret har minskats till ett mycket få noder. Antalet noder som är
     ...
     ```
 
-2. Kontrollera integriteten i HDFS på HDInsight-kluster med hjälp av följande kommandon:
+2. Kontrollera integriteten hos HDFS på HDInsight-kluster med hjälp av följande kommandon:
 
     ```apache
     hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
@@ -226,7 +226,7 @@ HDInsight-klustret har minskats till ett mycket få noder. Antalet noder som är
     The filesystem under path '/' is HEALTHY
     ```
 
-3. Om du anser att det finns ingen saknas, skadad, eller under-replikerade block eller att dessa block kan ignoreras, kör följande kommando för att ta namn ur noden ur felsäkert läge:
+3. Om du anser att det finns ingen saknas, skadad, eller under-replikerade block eller att de block kan ignoreras, kör du följande kommando för att ta namn ur noden ur felsäkert läge:
 
     ```apache
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave

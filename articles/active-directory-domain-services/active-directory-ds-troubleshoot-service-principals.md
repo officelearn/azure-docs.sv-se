@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 407b9732574880cd64036e92fe0c7fac169b7346
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 5bc1212cc6e894cd82a60abb42f92893c0bb2d43
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503292"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579552"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Felsökning av ogiltig konfiguration för tjänstens huvudnamn för din hanterade domän
 
@@ -30,7 +30,7 @@ Den här artikeln hjälper dig att felsöka och lösa tjänstens huvudnamn-relat
 
 **Varningsmeddelande:** *ett tjänstens huvudnamn krävs för Azure AD Domain Services ska fungera korrekt har tagits bort från Azure AD-katalogen. Den här konfigurationen påverkar Microsofts förmåga att övervaka, hantera, korrigera och synkronisera din hanterade domän.*
 
-[Tjänsthuvudnamn](../active-directory/develop/active-directory-application-objects.md) program som Microsoft använder för att hantera, uppdatera och underhålla din hanterade domän. Om de tas bort bryts Microsofts förmåga att hantera din domän.
+[Tjänsthuvudnamn](../active-directory/develop/app-objects-and-service-principals.md) program som Microsoft använder för att hantera, uppdatera och underhålla din hanterade domän. Om de tas bort bryts Microsofts förmåga att hantera din domän.
 
 
 ## <a name="check-for-missing-service-principals"></a>Kontrollera om tjänstens huvudnamn som saknas

@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure IoT kant moduler | Microsoft Docs
-description: Lär dig mer om Azure IoT kant-moduler och hur de konfigureras
+title: Förstå Azure IoT Edge-moduler | Microsoft Docs
+description: Läs mer om Azure IoT Edge-moduler och hur de konfigureras
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -8,72 +8,72 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c196ec92fc7997617fa464d676dc93ca9fe84f0
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 261c26290a4a7c4b8bb22ada7f97470a6efa7a91
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029106"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576329"
 ---
-# <a name="understand-azure-iot-edge-modules"></a>Förstå Azure IoT kant-moduler
+# <a name="understand-azure-iot-edge-modules"></a>Förstå Azure IoT Edge-moduler
 
-Azure IoT-gräns kan du distribuera och hantera affärslogik på gränsen i form av *moduler*. Azure IoT kant-moduler är den minsta enheten av beräkning som hanteras av IoT kant och kan innehålla Azure-tjänster (till exempel Azure Stream Analytics) eller din egen lösning-specifik kod. För att förstå hur moduler har utvecklats, distribueras och hanteras, hjälper det för att tänka på fyra konceptuella delarna som utgör en modul:
+Azure IoT Edge kan du distribuera och hantera affärslogik på gränsen i form av *moduler*. Azure IoT Edge-moduler är den minsta beräkningsenhet hanteras av IoT Edge och kan innehålla Azure-tjänster (till exempel Azure Stream Analytics) eller din egen Lösningsspecifika kod. Att förstå hur moduler har utvecklats, distribueras och hanteras, hjälper det för att tänka på fyra konceptuella delar som utgör en modul:
 
-* En **modulen avbildningen** är ett paket som innehåller programvaran som definierar en modul.
-* En **modulinstans** är en specifik enhet beräkning körs modulen avbildningen på en IoT-enhet. Modul-instansen har startats av IoT kant-körningen.
-* En **modulen identitet** är en typ av information (inklusive säkerhetsreferenser) lagras i IoT-hubb som är kopplad till varje modulinstans.
-* En **modulen dubbla** är en JSON-dokument som lagras i IoT-hubb som innehåller tillståndsinformation om för en modulinstans, inklusive metadata, konfigurationer och villkor. 
+* En **modulen bild** är ett paket som innehåller den programvara som definierar en modul.
+* En **modulinstans** är den specifika beräkningsenhet körs modulen avbildningen på en IoT Edge-enhet. Modul-instansen har startats med IoT Edge-körningen.
+* En **modulen identitet** är en del av informationen (inklusive säkerhetsreferenser) lagras i IoT Hub som är kopplad till varje modulinstans.
+* En **modultvilling** är ett JSON-dokument som lagras i IoT Hub, som innehåller information om tillstånd för en modulinstans, inklusive metadata, konfigurationer och villkor. 
 
 ## <a name="module-images-and-instances"></a>Modulen avbildningar och instanser
 
-IoT-Edge modulen bilder innehåller program som utnyttjar hantering, säkerhet och funktioner för kommunikation av körningsmiljön IoT kant. Du kan utveckla modulen bilder eller exportera ett från en stöds Azure-tjänst, till exempel Azure Stream Analytics.
-Bilderna finns i molnet och de kan uppdateras, ändras och distribueras i olika lösningar. En modul som använder maskininlärning att förutsäga produktionen utdata finns till exempel som en separat avbildning än en modul som använder datorn vision för att styra en drone. 
+IoT Edge-modulen avbildningar innehåller program som drar nytta av hantering, säkerhet och kommunikation funktionerna i IoT Edge-körningen. Du kan utveckla dina egna avbildningar för modulen eller exportera en från en stöds Azure-tjänst, till exempel Azure Stream Analytics.
+Bilderna finns i molnet och de kan uppdateras, ändras och distribueras i olika lösningar. Exempelvis kan finns en modul som använder maskininlärning att förutsäga produktionslinje utdata som en separat bild än en modul som används för visuellt innehåll för att styra en drönare. 
 
-Varje gång en modul-avbildning distribueras till en enhet och startas av IoT kant-körningsmiljön skapas en ny instans av modulen. Två enheter i olika delar av världen kan använda samma modul bilden. varje skulle men har sina egna modulinstans när modulen har startats på enheten. 
+Varje gång en avbildning av en modul har distribuerats till en enhet och startas av IoT Edge-körningen skapas en ny instans av modulen. Två enheter i olika delar av världen kan använda samma avbildning som modulen; men skulle var och en har sina egna modulinstans när modulen har startats på enheten. 
 
-![Modulen bilder i cloud - modulen instanser på enheter][1]
+![Modulen bilder i molnet – modulen instanser på enheter][1]
 
-Moduler avbildningar finns som behållare bilder i en databas i implementering och modulen instanser är behållare på enheter. Eftersom användningsområden för Azure IoT kant växer, skapas nya typer av modulen avbildningar och instanser. Till exempel kan inte resursen begränsad enheter köra behållare så måste modulen avbildningar som finns som dynamiska länkbibliotek och instanser som är körbara filer. 
+Moduler bilder finns som behållaravbildningar i en databas i implementering och modulen instanser är behållare på enheter. Eftersom användningsfall för Azure IoT Edge växer, kommer att skapas nya typer av modulen avbildningar och instanser. Resursen begränsad enheter inte kan till exempel köra behållare så kan kräva modulen avbildningar som finns som dynamiska länkbibliotek och instanser som körbara. 
 
 ## <a name="module-identities"></a>Modulen identiteter
 
-När en ny modulinstans skapas av IoT kant körningen är instansen associerad med en motsvarande modulen identitet. Modulen identitet lagras i IoT-hubb och anställda som omfång för adressering och säkerhet för alla lokala och molnet kommunikation för modul instansen.
-Identiteten som är associerad med en modulinstans beroende på användarens identitet till enheten där instansen körs och namnet du anger för att modulen i din lösning. Till exempel om du anropar `insight` en modul som använder en Azure Stream Analytics och distribuera den på en enhet som kallas `Hannover01`, IoT kant runtime skapar en motsvarande modulen identitet som kallas `/devices/Hannover01/modules/insight`.
+När en ny modulinstans skapas av IoT Edge-körningen, är instansen associerad med en motsvarande modul-identitet. Modulen identiteten lagras i IoT Hub och används som omfång för adressering och säkerhet för alla lokala och molnet kommunikation för den specifika modul-instansen.
+Identiteten som är associerade med en modulinstans beror på identiteten för enheten på-instansen körs vilket namn som du tillhandahåller denna modul i din lösning. Till exempel om du anropar `insight` en modul som använder en Azure Stream Analytics och distribuera den på en enhet med namnet `Hannover01`, IoT Edge-körningen skapas en motsvarande modulen identitet som kallas `/devices/Hannover01/modules/insight`.
 
-Tydligt i situationer kan när du behöver distribuera en modul bild flera gånger på samma enhet, du distribuera samma avbildning flera gånger med olika namn.
+Uppenbarligen i scenarier kan när du behöver distribuera en modul bild flera gånger på samma enhet, du distribuera samma avbildning flera gånger med olika namn.
 
-![Modulen identiteter är unikt][2]
+![Modulen identiteter är unika][2]
 
-## <a name="module-twins"></a>Modulen twins
+## <a name="module-twins"></a>Modultvillingar
 
-Varje modulinstans har även en motsvarande modulen dubbla som du kan använda för att konfigurera modulinstans. Instansen och dubbla är kopplade till varandra via module-identitet. 
+Varje modulinstans har också en motsvarande modultvilling som du kan använda för att konfigurera modulinstans. Instansen och läsningen är associerade med varandra via modulen identiteten. 
 
-En modul dubbla är ett JSON-dokument som innehåller modulen och konfigurationsinformation egenskaper. Detta begrepp parallels den [enheten dubbla] [ lnk-device-twin] konceptet från IoT-hubb. Struktur för en modul dubbla är exakt detsamma som en enhet dubbla. API: er som används för att interagera med båda typerna av twins är också samma. Den enda skillnaden mellan två är det identitet som används för att skapa en instans av klient-SDK. 
+En modultvilling är ett JSON-dokument som lagrar egenskaper för information och konfiguration av modulen. Det här konceptet parallels den [enhetstvillingen] [ lnk-device-twin] konceptet från IoT Hub. Strukturen för en modultvilling är exakt samma som en enhetstvilling. API: er som används för att interagera med båda typerna av twins är också desamma. Den enda skillnaden mellan två är den identitet som används för att skapa en instans av klient-SDK. 
 
 ```csharp
-// Create a DeviceClient object. This DeviceClient will act on behalf of a 
+// Create a ModuleClient object. This ModuleClient will act on behalf of a 
 // module since it is created with a module’s connection string instead 
 // of a device connection string. 
-DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
 await client.OpenAsync(); 
  
-// Get the model twin 
+// Get the module twin 
 Twin twin = await client.GetTwinAsync(); 
 ```
 
-## <a name="offline-capabilities"></a>Offline-funktioner
+## <a name="offline-capabilities"></a>Offlinefunktionerna
 
-Azure IoT-Edge har stöd för offline-åtgärder för din IoT-gränsenheterna. Dessa funktioner är begränsade just nu och ytterligare scenarier utvecklas. 
+Azure IoT Edge stöder offline åtgärder på IoT Edge-enheter. Dessa funktioner är begränsade för tillfället och ytterligare scenarier håller på att utvecklas. 
 
-IoT-Edge moduler kan vara offline under långa perioder förutsatt att följande krav är uppfyllda: 
+IoT Edge-moduler kan vara offline under långa perioder, förutsatt att följande krav är uppfyllda: 
 
-* **Meddelandet time to live (TTL) inte har gått**. Standardvärdet för meddelande-TTL är två timmar, kan men ändras högre eller lägre i arkivet och vidarebefordra konfigurationen i kanten IoT-hubbsinställningar. 
-* **Moduler behöver inte autentiseras med kant för IoT-hubb offline**. Moduler kan bara autentisera med kant-hubbar som har en aktiv anslutning till en IoT-hubb. Moduler som behöver återautentisera om de startas om av någon anledning. Moduler kan fortfarande skicka meddelanden till hubben kant när deras SAS-token har gått ut. När anslutningen återställs Edge hubben begär en ny token från modulen och validerar den med IoT-hubben. Om detta lyckas vidarebefordrar Edge hubben modulen meddelanden lagras, även de meddelanden som skickades när modulens token har upphört att gälla. 
-* **Den modul som skickade meddelanden när offline fungerar fortfarande när anslutningen återställs**. När de återansluter till IoT-hubb Edge navet inte behöver verifiera en ny modul-token (om det tidigare har upphört att gälla) innan den kan vidarebefordra meddelanden modulen. Om modulen inte är tillgängliga för en ny token kan inte Edge-hubb fungera på modulens lagrade meddelanden. 
-* **Edge-hubben har ledigt diskutrymme för att lagra meddelanden**. Som standard lagras meddelanden i Edge-hubb behållarens filsystem. Det finns ett alternativ för att ange en monterad volym för att lagra meddelanden i stället. I båda fallen behöver det finnas utrymme att lagra meddelanden för uppskjuten leverans till IoT-hubb.  
+* **Meddelandet time to live (TTL) har inte upphört att gälla**. Standardvärdet för meddelande TTL är två timmar, kan men vara ändrade högre eller lägre i Store och vidarebefordra konfiguration i IoT Edge hub-inställningar. 
+* **Moduler som inte behöver autentiseras på nytt med IoT Edge hub när du är offline**. Moduler kan endast autentisera med Edge-hubbar som har en aktiv anslutning till en IoT-hubb. Moduler som behöver autentisera igen om de startas om av någon anledning. Moduler kan fortfarande skicka meddelanden till Edge hub när deras SAS-token har upphört att gälla. När anslutningen återställs Edge hub begär en ny token från modulen och validerar den med IoT hub. Om detta lyckas vidarebefordrar Edge hub modulen meddelanden lagras, även de meddelanden som skickades när modulens token har upphört att gälla. 
+* **Den modul som skickade meddelanden när offline fungerar fortfarande när anslutningen återställs**. Edge hub behöver verifiera en ny modul-token (om det tidigare har gått ut) innan den kan vidarebefordra meddelandena som modulen när de återansluter till IoT Hub. Om modulen inte är tillgängliga för att tillhandahålla en ny token kan inte Edge hub fungera på modulens lagrade meddelanden. 
+* **Edge hub har ledigt diskutrymme för att lagra meddelanden**. Som standard lagras meddelanden i Edge hub behållarens filsystem. Det finns ett konfigurationsalternativ för att ange en monterad volym för att lagra meddelanden i stället. I båda fallen måste det finnas utrymme att lagra meddelanden för uppskjutna leverans till IoT Hub.  
 
 ## <a name="next-steps"></a>Nästa steg
- - [Förstå Azure IoT kant-runtime och dess arkitektur][lnk-runtime]
+ - [Förstå Azure IoT Edge-körningen och dess arkitektur][lnk-runtime]
 
 <!-- Images -->
 [1]: ./media/iot-edge-modules/image_instance.png

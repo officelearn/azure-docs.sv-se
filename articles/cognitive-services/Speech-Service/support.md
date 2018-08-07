@@ -8,22 +8,27 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 2f8cbb5b436930f89ece1a18d4e1e54a88b02650
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: e24008a2208d8dcfbb7f86c66bb7de39f3c75790
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39286192"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528195"
 ---
 # <a name="support-and-help-options"></a>Alternativ för support och hjälp
 
 Har du precis börjat utforska funktionerna i Speech-tjänsten? Implementerar du en ny funktion för ditt program? Här följer tips där du kan få hjälp som utvecklare.
 
 > [!div class="checklist"]
+> * Håll dig informerad om förändringar inom *Microsoft Cognitive Services* eller hitta de senaste nyheterna som rör *taltjänst*.
 > * Sök för att kontrollera om ditt problem fråga inte har besvarats av communityn, eller om en befintlig dokumentationen för funktionen du försöker att implementera redan finns.
 > * Om du inte hittar svaret från vad du behöver kan du vilja ställa en fråga på *Stack Overflow*.
 > * Om du upptäcker ett problem med ett av de exempel som du hittar på GitHub, generera en *GitHub* problemet.
 > * Sök efter en lösning i den *User Voice-forumet*.
+
+## <a name="stay-informed"></a>Håll dig informerad
+
+Nyheter om Microsoft Cognitive Services har samlats in i den [Cognitive Services-blogg](https://azure.microsoft.com/en-us/blog/topics/cognitive-services/). Senaste information om Speech service, spåra den [Speech Service blogg](https://azure.microsoft.com/en-us/blog/tag/speech-service/).
 
 ## <a name="search"></a>Search
 

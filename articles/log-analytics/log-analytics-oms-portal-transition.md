@@ -14,14 +14,18 @@ ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 1a8ccc818cafac4867cb533c83f297af61a21836
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: b9fb32f4f014f8e0fb67b558a2806d74edaac56c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309110"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576023"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portalen som flyttar till Azure
+
+> [!NOTE]
+> Den här artikeln gäller för både offentliga Azure-molnet och government-molnet utom om inget annat anges.
+
 En typ av feedback hört upprepade gånger från Log Analytics-kunder är behovet av en enkel användarupplevelse att övervaka och hantera både lokala och Azure-arbetsbelastningar. Du vet förmodligen Azure-portalen är en hubb för alla Azure-tjänster och erbjuder en omfattande hanteringsupplevelse med funktioner som instrumentpaneler för att fästa resurser, intelligenta sökfunktioner för att hitta resurser och tagga för resurshantering. För att konsolidera och förenkla övervakning och hantering av arbetsflödet, börjar vi lägga till OMS portalfunktioner till Azure-portalen. Vi har glädjen att meddela de flesta av funktionerna i OMS-portalen är nu en del av Azure-portalen. Några av de nya funktionerna, till exempel trafikanalys är i själva verket bara tillgängliga i Azure-portalen. Det finns bara ett par luckor återstående inklusive några lösningar som är fortfarande i processen för att flyttas till Azure-portalen. Om du inte använder dessa funktioner, kommer du att kunna göra allt du gjorde i OMS-portalen med Azure-portalen och mycket mer. Om du inte redan gjort det, rekommenderar vi att du börjar använda Azure-portalen redan idag! 
 
 Vi räknar med att Stäng ner de återstående glapp mellan de två portalerna augusti 2018. Vi kommer baserat på feedback från kunder, för att informera tidslinjen för sunsetting OMS-portalen. Vi är glada över att flytta till Azure-portalen och räknar med övergången är enkelt att hantera. Men vi är medvetna om ändringarna är svåra och kan vara störande. Skicka frågor, feedback eller frågor till **LAUpgradeFeedback@microsoft.com**. Resten av den här artikeln går över viktiga scenarier och de aktuella luckorna översikt för den här ändringen. 
@@ -60,7 +64,11 @@ Det finns vissa funktioner luckor som kräver att du fortfarande använda OMS-po
 
 
 ## <a name="what-should-i-do-now"></a>Vad gör jag nu?  
-Du bör använda [vanliga frågor för övergången från OMS-portalen till Azure-portalen för Log Analytics användare](../log-analytics/log-analytics-oms-portal-faq.md) information om hur du övergår till Azure-portalen. Om den [luckor som beskrivs ovan](#current-known-gaps) gäller inte för din miljö, och sedan bör du starta med hjälp av Azure-portalen som din primära upplevelse. Skicka feedback, frågor eller funderingar till LAUpgradeFeedback@microsoft.com.
+Du bör använda [vanliga frågor för övergången från OMS-portalen till Azure-portalen för Log Analytics användare](../log-analytics/log-analytics-oms-portal-faq.md) information om hur du övergår till Azure-portalen. Om den [luckor som beskrivs ovan](#current-known-gaps) gäller inte för din miljö, och sedan bör du starta med hjälp av Azure-portalen som din primära upplevelse. Skicka feedback, frågor eller funderingar till **LAUpgradeFeedback@microsoft.com**.
+
+De flesta funktioner fortsätter att fungera utan att utföra en migrering. Undantag finns nedan.
+
+- Se [migrera dina distributioner av OMS till Azure](../automation/migrate-oms-update-deployments.md) mer information om övergång lösningen för uppdateringshantering. 
 
 ## <a name="new-workspaces"></a>Nya arbetsytor
 Startar den 29 juli, kommer du inte längre att kunna skapa nya arbetsytor med OMS-portalen. Följ riktlinjerna i [skapa en Log Analytics-arbetsyta i Azure-portalen](log-analytics-quick-create-workspace.md) att skapa en ny arbetsyta i Azure-portalen.
@@ -70,7 +78,7 @@ Startar den 29 juli, kommer du inte längre att kunna skapa nya arbetsytor med O
 ### <a name="alert-extension"></a>Varning-tillägg  
 
 > [!NOTE]
-> Aviseringar har nu utökats fullständigt till Azure-portalen. Befintliga Varningsregler kan ses i OMS-portalen, men de kan bara hanteras i Azure-portalen.
+> Aviseringar har nu utökats helt i Azure-portalen för det offentliga molnet. Befintliga Varningsregler kan ses i OMS-portalen, men de kan bara hanteras i Azure-portalen. I oktober 2018 startar utökning av aviseringar i Azure-portalen för Azure government-molnet.
 
 Aviseringar som håller på att [utökats till Azure-portalen](../monitoring-and-diagnostics/monitoring-alerts-extend.md). När processen är klar hanteringsåtgärder på aviseringar endast att vara tillgänglig i Azure portal. Befintliga aviseringar fortsätter att listas i OMS-portalen. Om du använder aviseringar programmässigt med hjälp av Log Analytics avisering REST API eller Log Analytics-avisering resursmall måste du använda åtgärdsgrupper istället för åtgärder i API-anrop, Azure Resource Manager-mallar och PowerShell-kommandon.
 

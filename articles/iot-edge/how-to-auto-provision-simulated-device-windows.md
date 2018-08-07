@@ -4,16 +4,16 @@ description: Använda en simulerad enhet på din Windows-dator för att testa au
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e149886e1ade80d7751f58eb1f77031c4e432b75
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: e558f44f9271009b92fbf4ece9aa706801e4176c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307951"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576210"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Skapa och etablera en simulerad TPM-Edge-enhet på Windows
 
@@ -58,6 +58,8 @@ När du har skapat den enskilda registreringen, spara värdet för den **registr
 
 ## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge-körningen
 
+När du har slutfört föregående avsnitt, bör du se den nya enheten visas som en IoT Edge-enhet i IoT Hub. Nu kan behöva du installera IoT Edge-körningen på din enhet. 
+
 IoT Edge-körningen distribueras på alla IoT Edge-enheter. Dess komponenter körs i behållare och gör att du kan distribuera ytterligare behållare till enheten så att du kan köra kod på gränsen. På enheter som kör Windows kan välja du att antingen använda behållare för Windows eller Linux-behållare. Välj typ av behållare som du vill använda och följ anvisningarna. Se till att konfigurera IoT Edge-körningen för automatisk och manuell och etablering. 
 
 Följ anvisningarna för att installera IoT Edge-körningen på den enhet som kör den simulerade TPM i föregående avsnitt. 
@@ -67,30 +69,9 @@ Vet DPS **ID-omfång** och **registrerings-ID** innan du påbörjar de här arti
 * [Windows-behållare](how-to-install-iot-edge-windows-with-windows.md)
 * [Linux-behållare](how-to-install-iot-edge-windows-with-linux.md)
 
-## <a name="create-a-tpm-environment-variable"></a>Skapa en TPM-miljövariabel
-
-På den dator som kör den simulerade enheten, ändra den **iotedge** service registret för att ange en miljövariabel.
-
-1. Från den **starta** menyn Öppna **regedit**. 
-2. Gå till **Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\iotedge**. 
-3. Välj **redigera** > **nya** > **Multisträngvärde**. 
-4. Ange namnet **miljö**. 
-5. Dubbelklicka på den nya variabeln och ange värdet **IOTEDGE_USE_TPM_DEVICE = ON**. 
-6. Spara ändringarna genom att klicka på **OK**. 
-
-## <a name="restart-the-iot-edge-runtime"></a>Starta om IoT Edge-körningen
-
-Starta om IoT Edge-körningen så att det använder alla konfigurationsändringar du gjort på enheten. 
-
-```powershell
-Stop-Service iotedge -NoWait
-sleep 5
-Start-Service iotedge
-```
-
 ## <a name="verify-successful-installation"></a>Verifiera installationen
 
-Om körningen har startats, kan du gå till din IoT Hub och visa att den nya enheten etablerades automatiskt och är redo att köra IoT Edge-moduler. 
+Om körningen har startats kan du gå till din IoT-hubb och börja distribuera IoT Edge-moduler till din enhet. Använd följande kommandon på din enhet för att kontrollera att körningen installerad och har startats.  
 
 Kontrollera status för IoT Edge-tjänsten.
 

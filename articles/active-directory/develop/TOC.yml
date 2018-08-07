@@ -6,7 +6,7 @@
     - name: Grundläggande om Auth
       href: authentication-scenarios.md
     - name: Typer av appar
-      href: 'active-directory-authentication-scenarios.md#application-types-and-scenarios'
+      href: 'authentication-scenarios.md#application-types-and-scenarios'
 - name: Kom igång
   items:
     - name: Mobilappar och skrivbordsappar
@@ -22,7 +22,7 @@
         - name: .NET (Xamarin)
           href: quickstart-v1-xamarin.md
         - name: OAuth 2.0
-          href: active-directory-protocols-oauth-code.md
+          href: v1-protocols-oauth-code.md
     - name: Webbappar
       items:
         - name: Översikt
@@ -38,13 +38,13 @@
         - name: NodeJS
           href: quickstart-v1-openid-connect-code.md
         - name: OpenID Connect
-          href: active-directory-protocols-openid-connect-code.md
+          href: v1-protocols-openid-connect-code.md
     - name: Appar med en sida
       items:
         - name: Översikt
           href: 'active-directory-authentication-scenarios.md#single-page-application-spa'
         - name: Angular JS
-          href: active-directory-devquickstarts-angular.md
+          href: quickstart-v1-angularjs-spa.md
         - name: Javascript
           href: 'https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi'
     - name: 'Webb-API:er'
@@ -52,35 +52,35 @@
         - name: Översikt
           href: 'active-directory-authentication-scenarios.md#web-application-to-web-api'
         - name: ASP.NET
-          href: active-directory-devquickstarts-webapi-dotnet.md
+          href: quickstart-v1-dotnet-webapi.md
         - name: NodeJS
-          href: active-directory-devquickstarts-webapi-nodejs.md
+          href: quickstart-v1-nodejs-webapi.md
     - name: Tjänst till tjänst
       items:
         - name: Översikt
           href: 'active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api'
         - name: .NET
-          href: 'active-directory-code-samples.md#server-or-daemon-application-to-web-api'
+          href: 'sample-v1-code.md#server-or-daemon-application-to-web-api'
         - name: Autentiseringsuppgifter för OAuth 2.0-klient
-          href: active-directory-protocols-oauth-service-to-service.md
+          href: v1-oauth2-client-creds-grant-flow.md
 - name: Guider
   items:
     - name: Programregistrering
       href: quickstart-v1-integrate-apps-with-azure-ad.md
     - name: Appar för flera klienter
-      href: active-directory-devhowto-multi-tenant-overview.md
+      href: howto-convert-app-to-be-multi-tenant.md
     - name: Villkorlig åtkomst
-      href: active-directory-conditional-access-developer.md
+      href: conditional-access-dev-guide.md
     - name: Behörigheter
-      href: active-directory-permissions.md
+      href: v1-permissions-and-consent.md
     - name: OAuth och OpenID Connect
       items:
         - name: OpenID Connect-protokoll
-          href: active-directory-protocols-openid-connect-code.md
+          href: v1-protocols-openid-connect-code.md
         - name: Beviljande av OAuth 2.0-auktoriseringkod
-          href: active-directory-protocols-oauth-code.md
+          href: v1-protocols-oauth-code.md
         - name: Implicit beviljande av OAuth 2.0
-          href: active-directory-dev-understanding-oauth2-implicit-grant.md
+          href: v1-oauth2-implicit-grant-flow.md
     - name: SAML 2.0
       href: active-directory-saml-protocol-reference.md
       items:
@@ -89,23 +89,23 @@
         - name: Anpassa anspråk
           href: active-directory-saml-claims-customization.md
         - name: Felsöka SAML-baserad enkel inloggning
-          href: active-directory-saml-debugging.md
+          href: howto-v1-debug-saml-sso-issues.md
         - name: SAML-protokoll för enkel inloggning
-          href: active-directory-single-sign-on-protocol-reference.md
+          href: single-sign-on-saml-protocol.md
         - name: SAML-protokoll för enkel utloggning
-          href: active-directory-single-sign-out-protocol-reference.md
+          href: single-sign-out-saml-protocol.md
     - name: Skapa en klient
       href: quickstart-create-new-tenant.md
     - name: Användningsvillkor och sekretesspolicy
-      href: active-directory-app-terms-service-privacy-statement.md
+      href: howto-add-terms-of-service-privacy-statement.md
     - name: Riktlinjer för anpassning
-      href: active-directory-branding-guidelines.md
+      href: howto-add-branding-in-azure-ad-apps.md
     - name: Enkel inloggning för mobilappar och skrivbordsappar
       items:
         - name: Aktivera enkel inloggning för Android
-          href: active-directory-sso-android.md
+          href: howto-v1-enable-sso-on-android.md
         - name: Aktivera enkel inloggning för iOS
-          href: active-directory-sso-ios.md
+          href: howto-v1-enable-sso-on-ios.md
     - name: Azure AD B2B
       href: ../active-directory-b2b-what-is-azure-ad-b2b.md
     - name: Användaretablering med SCIM
@@ -148,32 +148,32 @@
     - name: Auth-bibliotek (ADAL)
       href: active-directory-authentication-libraries.md
     - name: Kodexempel efter scenario
-      href: active-directory-code-samples.md
+      href: sample-v1-code.md
     - name: Ordlista
       href: active-directory-dev-glossary.md
     - name: Autentiseringsprotokoll
       href: active-directory-authentication-protocols.md
       items:
         - name: OpenID Connect
-          href: active-directory-protocols-openid-connect-code.md
+          href: v1-protocols-openid-connect-code.md
         - name: Oauth
-          href: active-directory-protocols-oauth-code.md
+          href: v1-protocols-oauth-code.md
         - name: Tjänst-till-tjänst-anrop
-          href: active-directory-protocols-oauth-service-to-service.md
+          href: v1-oauth2-client-creds-grant-flow.md
         - name: On-Behalf-Of-flöde
-          href: active-directory-protocols-oauth-on-behalf-of.md
+          href: v1-oauth2-on-behalf-of-flow.md
         - name: Token och anspråkstyper som stöds
-          href: active-directory-token-and-claims.md
+          href: v1-id-and-access-tokens.md
         - name: Konfigurera valfria och anpassade anspråk för programmet
           href: active-directory-optional-claims.md
         - name: Förnyelse av signeringsnyckel
           href: active-directory-signing-key-rollover.md
         - name: Federationsmetadata
-          href: active-directory-federation-metadata.md
+          href: azure-ad-federation-metadata.md
         - name: Autentiseringsuppgifter för certifikat
           href: active-directory-certificate-credentials.md
     - name: Programobjekt
-      href: active-directory-application-objects.md
+      href: app-objects-and-service-principals.md
       items:
         - name: Appar och Azure AD
           href: active-directory-how-applications-are-added.md
@@ -193,7 +193,7 @@
         - name: Begränsningar
           href: active-directory-v2-limitations.md
         - name: Jämförelse mellan v1 och v2
-          href: active-directory-v2-compare.md
+          href: azure-ad-endpoint-comparison.md
     - name: Kom igång
       items:
         - name: Mobilappar och skrivbordsappar
@@ -241,28 +241,28 @@
         - name: Autentiseringsbibliotek
           href: active-directory-v2-libraries.md
         - name: v2.0-kodexempel efter scenario
-          href: active-directory-v2-code-samples.md
+          href: sample-v2-code.md
         - name: v2.0 autentiseringsprotokoll
           href: active-directory-v2-protocols.md
           items:
             - name: OpenID Connect
-              href: active-directory-v2-protocols-oidc.md
+              href: v2-protocols-oidc.md
             - name: Beviljande av OAuth 2.0-auktoriseringskod
-              href: active-directory-v2-protocols-oauth-code.md
+              href: v2-oauth2-auth-code-flow.md
             - name: Implicit beviljande av OAuth 2.0
-              href: active-directory-v2-protocols-implicit.md
+              href: v2-oauth2-implicit-grant-flow.md
             - name: Beviljande av autentiseringsuppgifter för OAuth 2.0-klient
-              href: active-directory-v2-protocols-oauth-client-creds.md
+              href: v2-oauth2-client-creds-grant-flow.md
             - name: On-Behalf-Of-flöde för OAuth 2.0
-              href: active-directory-v2-protocols-oauth-on-behalf-of.md
+              href: v2-oauth2-on-behalf-of-flow.md
             - name: Autentiseringsuppgifter för certifikat
               href: active-directory-certificate-credentials.md
             - name: Oauth 2.0-exempelkod
               href: active-directory-protocols-oauth-get-jwt-token.md
         - name: Token
-          href: active-directory-v2-tokens.md
+          href: v2-id-and-access-tokens.md
         - name: Omfång och medgivande
-          href: active-directory-v2-scopes.md
+          href: v2-permissions-and-consent.md
 - name: Resurser
   items:
     - name: Få hjälp

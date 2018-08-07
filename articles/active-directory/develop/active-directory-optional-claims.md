@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: a4e03eac9c41c72714103a2c863a9ed6b2fd8608
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265072"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577736"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Valfria anspråk i Azure AD (förhandsversion)
 
@@ -33,7 +33,7 @@ Den här funktionen används av programutvecklare för att ange vilka anspråk s
 > [!Note]
 > Den här funktionen är för närvarande i offentlig förhandsversion. Observera att du kan behöva återställa eller ta bort eventuella ändringar. Funktionen är tillgänglig i alla Azure AD-prenumeration allmänt tillgängliga förhandsversionen. När funktionen blir allmänt tillgänglig, kan vissa aspekter av funktionen kräver en Azure AD premium-prenumeration.
 
-Lista över standard anspråk och hur de används i token, finns i den [grunderna för token som utfärdas av Azure AD](active-directory-token-and-claims.md). 
+Lista över standard anspråk och hur de används i token, finns i den [grunderna för token som utfärdas av Azure AD](v1-id-and-access-tokens.md). 
 
 Ett av målen med den [v2.0 Azure AD-slutpunkten](active-directory-appmodel-v2-overview.md) är token är mindre säkerställa optimala prestanda av klienter.  Därför kan flera anspråk som tidigare ingår i åtkomst- och ID-token finns inte längre i v2.0-token och måste be dig om särskilt på basis av per program.  
 
@@ -247,4 +247,4 @@ Det finns flera alternativ för att uppdatera egenskaperna på ett programs iden
 
 
 ## <a name="related-content"></a>Relaterat innehåll
-* Läs mer om den [standard anspråk](active-directory-token-and-claims.md) tillhandahålls av Azure AD. 
+* Läs mer om den [standard anspråk](v1-id-and-access-tokens.md) tillhandahålls av Azure AD. 

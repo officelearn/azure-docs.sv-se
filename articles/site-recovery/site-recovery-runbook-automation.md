@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: e9a1dfc6aa26246db5322a8f4491ab2a5bccfcf5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 55160f3c43d8cbfc5f8b3e6aaf26bcb911387c52
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917701"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578773"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Lägg till Azure Automation-runbooks i återställningsplaner
 I den här artikeln beskriver vi hur Azure Site Recovery kan integreras med Azure Automation kan du utöka dina återställningsplaner. Återställningsplaner kan dirigera återställning av virtuella datorer som skyddas med Site Recovery. Återställningsplaner fungerar både för replikering till en sekundär molnet och för replikering till Azure. Återställningsplaner även gör återställningen **konsekvent korrekt**, **upprepningsbara**, och **automatiserade**. Om du växlar över dina virtuella datorer till Azure utökar-integrering med Azure Automation dina återställningsplaner. Du kan använda den för att köra runbooks, som erbjuder kraftfulla automatiserade uppgifter.
@@ -196,7 +196,7 @@ Skapa oberoende variabler för varje återställningsplanen så att du kan åter
 
 Tänk dig ett scenario som du vill att ett enda skript för att aktivera en offentlig IP på specifika virtuella datorer. I ett annat scenario kanske du vill tillämpa olika NSG: er på olika virtuella datorer (inte för alla virtuella datorer). Du kan göra ett skript som är återanvändbara för någon återställningsplan. Varje återställningsplanen kan ha en variabel antalet virtuella datorer. Till exempel har en SharePoint-återställning två klientdelar. En grundläggande line-of-business (LOB)-programmet har bara en klientdel. Du kan inte skapa separata variabler för varje återställningsplan.
 
-I följande exempel vi använda en ny teknik och skapa en [komplex variabeln](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) i Azure Automation-konto tillgångar. Du kan göra detta genom att ange flera värden. Du måste använda Azure PowerShell för att slutföra följande steg:
+I följande exempel vi använda en ny teknik och skapa en [komplex variabeln](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) i Azure Automation-konto tillgångar. Du kan göra detta genom att ange flera värden. Du måste använda Azure PowerShell för att slutföra följande steg:
 
 1. Logga in på Azure-prenumerationen i PowerShell:
 

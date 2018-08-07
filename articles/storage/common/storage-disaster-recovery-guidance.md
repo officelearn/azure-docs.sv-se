@@ -2,24 +2,19 @@
 title: Vad du gör i händelse av ett avbrott i Azure Storage | Microsoft Docs
 description: Vad du gör i händelse av ett avbrott i Azure Storage
 services: storage
-documentationcenter: .net
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: tamram
-ms.openlocfilehash: 160fe756458e067125b9d696fd0cdb929774446e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.component: common
+ms.openlocfilehash: bca4b13ea2a003ea428351bcff44944630387e1b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072043"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528018"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Vad du gör om ett avbrott i Azure Storage inträffar?
 På Microsoft arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga. Ibland tvingar utöver vårt styr hur oss på ett sätt som kan leda till oplanerade driftstopp i en eller flera regioner. För att hjälpa dig att hantera dessa sällsynta förekomster, tillhandahåller vi följande övergripande riktlinjer för Azure Storage-tjänster.

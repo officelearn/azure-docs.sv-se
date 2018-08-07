@@ -1,42 +1,39 @@
 ---
-title: Översikt över serverdelar för flera klientorganisationer med Azure Application Gateway | Microsoft Docs
+title: Översikt över flera klientorganisationer som slutar med Azure Application Gateway
 description: Den här sidan beskriver hur du kan använda serverdelar för flera klientorganisationer med Application Gateway.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.topic: article
+ms.date: 8/1/2018
 ms.author: victorh
-ms.openlocfilehash: 7c00369737d05f414f9ac23d9d3e8918b908fc80
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-ms.translationtype: HT
+ms.openlocfilehash: c0084580a2e4860f24aecd37232f38da2e55ccc8
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201002"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578440"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Stöd för serverdelar för flera klientorganisationer i Application Gateway
 
-Azure Application Gateway stöder skalningsuppsättningar för virtuella datorer, nätverksgränssnitt, offentliga och privata IP-adresser och fullständigt kvalificerade domännamn (FQDN) som en del av dess serverdelspooler. Som standard ändrar inte Application Gateway den inkommande HTTP-rubriken från klienten. Rubriken skickas oförändrad till servern. Det finns många tjänster, t.ex. [Azure Web Apps](../app-service/app-service-web-overview.md), som per definition stöder flera klientorganisationer och som kräver en specifik värdrubrik eller ett specifikt SNI-tillägg för att kunna matcha mot rätt slutpunkt. Application Gateway stöder nu möjligheten för användare att skriva över den inkommande HTTP-värdrubriken baserat på HTTP-inställningarna på serverdelen. Detta gör det möjligt att använda API-hantering och Azure-webbappar med serverdelar för flera klientorganisationer. Den här funktionen är tillgänglig för både standard-SKU och WAF-SKU. Stöd för serverdelar för flera klientorganisationer fungerar även med SSL-avslutning och SSL-scenarier från slutpunkt till slutpunkt.
+Azure Application Gateway stöder skalningsuppsättningar för virtuella datorer, nätverksgränssnitt, offentliga och privata IP-adresser och fullständigt kvalificerade namn (FQDN) som en del av dess serverdelspooler. Som standard ändrar inte Application Gateway den inkommande HTTP-rubriken från klienten. Rubriken skickas oförändrad till servern. Det finns många tjänster, t.ex. [Azure Web Apps](../app-service/app-service-web-overview.md), som per definition stöder flera klientorganisationer och som kräver en specifik värdrubrik eller ett specifikt SNI-tillägg för att kunna matcha mot rätt slutpunkt. Application Gateway stöder nu möjligheten för användare att skriva över den inkommande HTTP-Värdrubriken baserat på backend-HTTP-inställningarna. Detta gör det möjligt att använda API-hantering och Azure-webbappar med serverdelar för flera klientorganisationer. Den här funktionen är tillgänglig för både standard-SKU och WAF-SKU. Stöd för flera klienter backend-fungerar även med SSL-avslutning och SSL-scenarier från slutpunkt till slutpunkt.
+
+> [!NOTE]
+> Ställa in autentisering servercertifikat krävs inte för betrodda Azure-tjänster som Azure Web Apps.
 
 ![Scenario för webbappar](./media/application-gateway-web-app-overview/scenario.png)
 
-Värdåsidosättningar kan definieras i HTTP-inställningarna och kan tillämpas på valfri serverdelspool i samband med regelgenereringen. En värdrubrik eller ett SNI-tillägg kan åsidosättas på följande två sätt på serverdelar för flera klientorganisationer.
+Möjligheten att värdåsidosättningar definieras i HTTP-inställningarna och kan tillämpas på valfri serverdelspool samband med regelgenereringen. En värdrubrik eller ett SNI-tillägg kan åsidosättas på följande två sätt på serverdelar för flera klientorganisationer.
 
-1. Värdnamnet kan anges till ett fast värde i HTTP-inställningarna. Med den här funktionen åsidosätts värdrubriken till detta värde för all trafik till serverdelspoolen som HTTP-inställningarna har tillämpats på. När du använder SSL för slutpunkt till slutpunkt används det åsidosatta värdnamnet i SNI-tillägget. Den här funktionen möjliggör scenarier där en grupp med serverdelspooler förväntar sig en värdrubrik som skiljer sig från den inkommande klientvärdrubriken.
+1. Värdnamnet kan anges till ett fast värde i HTTP-inställningarna. Den här funktionen ser till att värdhuvudet åsidosätts till det här värdet för all trafik till backend-poolen där HTTP-inställningarna tillämpas. När du använder SSL för slutpunkt till slutpunkt används det åsidosatta värdnamnet i SNI-tillägget. Den här funktionen möjliggör scenarier där en backend-poolen servergrupp förväntar sig en värdrubrik som skiljer sig från den inkommande klientvärdrubriken.
 
-2. Värdnamnet kan härledas från IP-adressen eller det fullständigt kvalificerade domännamnet (FQDN) för medlemmarna i serverdelspoolen. HTTP-inställningarna innehåller också ett alternativ för att hämta värdnamnet från det fullständigt kvalificerade domännamnet (FQDN) för en medlem i serverdelspoolen om det konfigurerats med alternativet för att härleda värdnamnet från en enskild medlem i serverdelspoolen. När SSL för slutpunkt till slutpunkt används härleds det här värdnamnet från det fullständigt kvalificerade domännamnet och används i SNI-tillägget. Den här funktionen möjliggör scenarier där en serverdelspool kan ha två eller flera PaaS-tjänster för flera klientorganisationer, t.ex. Azure Web Apps, och begärans värdrubrik för varje medlem innehåller värdnamnet som härletts från dess FQDN.
+2. Möjligheten att härleda värdnamnet från IP-Adressen eller FQDN för backend-poolmedlemmar. HTTP-inställningarna innehåller också ett alternativ för att hämta värdnamnet från medlem backend-poolen FQDN om har konfigurerats med alternativet för att härleda värdnamnet från en medlem i den enskilda backend-poolen. När SSL för slutpunkt till slutpunkt används härleds det här värdnamnet från det fullständigt kvalificerade domännamnet och används i SNI-tillägget. Den här funktionen möjliggör scenarier där en serverdelspool kan ha två eller flera flera innehavare PaaS-tjänster som Azure-webbappar och varje medlem i begäran värdhuvudet innehåller värdnamn som härletts från dess FQDN.
 
 > [!NOTE]
 > I båda fallen ovan påverkar inställningarna endast livetrafikens beteende, inte beteendet vid hälsoavsökningar. Anpassade avsökningar stöder redan möjligheten att ange en värdrubrik i avsökningskonfigurationen. Anpassade avsökningar stöder nu även möjligheten att härleda värdrubrikens beteende från de konfigurerade HTTP-inställningarna. Den här konfigurationen kan anges med hjälp av `PickHostNameFromBackendHttpSettings`-parametern i avsökningskonfigurationen. För att funktionen för slutpunkt till slutpunkt ska fungera måste både avsöknings- och HTTP-inställningarna ändras så att de återspeglar korrekt konfiguration.
 
-Med den här funktionen skapar kunderna lämplig konfiguration genom att konfigurera alternativen i HTTP-inställningarna och de anpassade avsökningarna. Den här inställningen kopplas sedan till en lyssnare och till en serverdelspool med hjälp av en regel.
+Med den här funktionen skapar kunderna lämplig konfiguration genom att konfigurera alternativen i HTTP-inställningarna och de anpassade avsökningarna. Den här inställningen kopplas sedan till en lyssnare och en backend-poolen med hjälp av en regel.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du konfigurerar en programgateway med en webbapp som en medlem i en serverdelspool finns i [Configure App Service Web Apps with Application Gateway](application-gateway-web-app-powershell.md) (Konfigurera App Service Web Apps med Application Gateway)
+Lär dig hur du konfigurerar en Programgateway med en webbapp som en medlem i serverdelspoolen genom att besöka: [konfigurera App Service web apps med Application Gateway](application-gateway-web-app-powershell.md)

@@ -1,7 +1,7 @@
 ---
-title: SSH-stöd för Azure App Service på Linux | Microsoft Docs
-description: Lär dig mer om hur du använder SSH med Azure App Service på Linux.
-keywords: Azure apptjänst, webbprogram, linux, oss
+title: SSH-stöd för Azure App Service i Linux | Microsoft Docs
+description: Lär dig mer om hur du använder SSH med Azure App Service i Linux.
+keywords: Azure apptjänst, webbapp, linux, oss
 services: app-service
 documentationcenter: ''
 author: wesmc7777
@@ -15,47 +15,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: bace90021d5a786f0b014e617bd0ae8e6043bb36
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 63fdf2cc82438fe55792b12244dd697721adda15
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060135"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579586"
 ---
-# <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-stöd för Azure App Service på Linux
+# <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-stöd för Azure App Service i Linux
 
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) används ofta för att köra administrativa kommandon från en fjärrdator från en kommandorad terminal. Apptjänst i Linux stöder SSH till appbehållare med var och en av de inbyggda Docker bilder som används för Runtime-Stack för nya webbappar. 
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) ofta används för att köra administrativa kommandon via en fjärranslutning från en kommandorad terminal. App Service i Linux stöder SSH till appbehållare med var och en av de fördefinierade Docker-avbildningar som används för Körningsstack av nya web apps. 
 
-![Runtime stackar](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
+![Körningsstackarna](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
-För anpassade Docker bilder, genom att konfigurera SSH-server i den anpassade avbildningen.
+För anpassad Docker-avbildningar, genom att konfigurera SSH-server i en anpassad avbildning.
 
-Du kan också ansluta till behållaren direkt från lokala utvecklingsdatorn med SSH- och SFTP.
+Du kan också ansluta till behållaren direkt från din lokala utvecklingsdator med hjälp av SSH- och SFTP.
 
 ## <a name="open-ssh-session-in-browser"></a>Öppna SSH-session i webbläsare
 
-Om du vill skapa en SSH-klientanslutning med din behållare, bör du köra din app.
+Om du vill göra en SSH-anslutning för klienten med din behållare, bör du köra din app.
 
-Klistra in följande URL i webbläsaren och Ersätt \<programnamn > med appnamn på din:
+Klistra in följande URL i webbläsaren och Ersätt \<app_name > med appnamnet på din:
 
 ```
 https://<app_name>.scm.azurewebsites.net/webssh/host
 ```
 
-Om du inte redan har autentiserats, krävs att autentisera med din Azure-prenumeration att ansluta. När autentiseringen är se du ett shell i webbläsaren, där du kan köra kommandon i en behållare.
+Om du inte redan har autentiserats, krävs att autentisera med Azure-prenumerationen för att ansluta. När autentiseringen är klar visas ett gränssnitt i webbläsaren, där du kan köra kommandon i di behållare.
 
 ![SSH-anslutning](./media/app-service-linux-ssh-support/app-service-linux-ssh-connection.png)
 
-## <a name="use-ssh-support-with-custom-docker-images"></a>Använda SSH-stöd med anpassade Docker-avbildningar
+## <a name="use-ssh-support-with-custom-docker-images"></a>Använda SSH-stöd med anpassad Docker-avbildningar
 
-Utför följande steg för Docker-avbildning för en anpassad Docker-avbildning att stödja SSH-kommunikation mellan behållaren och klienten i Azure-portalen.
+Utför följande steg för en Docker-avbildning för en anpassad Docker-avbildning att stödja SSH-kommunikation mellan behållaren och klienten i Azure-portalen.
 
-Stegen visas i Azure App Service-databasen som [exempel](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
+De här stegen visas i Azure App Service-databasen som [ett exempel](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
 
-1. Inkludera den `openssh-server` installationen i [ `RUN` instruktion](https://docs.docker.com/engine/reference/builder/#run) i Dockerfile för avbildning och ange lösenordet för rot-kontot till `"Docker!"`.
+1. Inkludera den `openssh-server` installationen i [ `RUN` instruktionen](https://docs.docker.com/engine/reference/builder/#run) i Dockerfile för din avbildning och ange lösenordet för rot-konto till `"Docker!"`.
 
     > [!NOTE]
-    > Den här konfigurationen tillåter inga externa anslutningar till behållaren. SSH kan endast nås via Kudu / SCM plats, vilket är autentiserad publishing autentiseringsuppgifter.
+    > Den här konfigurationen tillåter inga externa anslutningar till containern. SSH kan bara kommas åt via Kudu / SCM-webbplatsen som autentiseras med hjälp av autentiseringsuppgifterna för publicering.
 
     ```docker
     # ------------------------
@@ -66,7 +66,7 @@ Stegen visas i Azure App Service-databasen som [exempel](https://github.com/Azur
         && echo "root:Docker!" | chpasswd
     ```
 
-1. Lägg till en [ `COPY` instruktion](https://docs.docker.com/engine/reference/builder/#copy) till Dockerfile att kopiera en [sshd_config](http://man.openbsd.org/sshd_config) filen till den */etc/ssh/* directory. Konfigurationsfilen ska baseras på filen sshd_config i Azure App Service GitHub-lagret [här](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
+1. Lägg till en [ `COPY` instruktionen](https://docs.docker.com/engine/reference/builder/#copy) till Dockerfile att kopiera en [sshd_config](http://man.openbsd.org/sshd_config) filen till den */etc/ssh/* directory. Konfigurationsfilen ska baseras på sshd_config-filen i Azure Apptjänst GitHub-lagringsplatsen [här](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
 
     > [!NOTE]
     > Den *sshd_config* filen måste innehålla följande eller om anslutningen misslyckas: 
@@ -77,20 +77,20 @@ Stegen visas i Azure App Service-databasen som [exempel](https://github.com/Azur
     COPY sshd_config /etc/ssh/
     ```
 
-1. Inkludera porten 2222 i den [ `EXPOSE` instruktion](https://docs.docker.com/engine/reference/builder/#expose) för Dockerfile. Trots att rotlösenordet är känt går det inte att nå port 2222 från internet. Det är ett internt endast port tillgänglig endast av behållare i bridge nätverk i ett privat virtuellt nätverk.
+1. Inkludera port 2222 i den [ `EXPOSE` instruktionen](https://docs.docker.com/engine/reference/builder/#expose) för Dockerfile. Trots att rotlösenordet är känt går det inte att nå port 2222 från internet. Det är en intern endast port tillgänglig endast via behållare inom ett privat virtuellt nätverks nätverksbrygga.
 
     ```docker
     EXPOSE 2222 80
     ```
 
-1. Se till att starta tjänsten SSH med hjälp av ett kommandoskript (se exempel på [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
+1. Se till att starta SSH-tjänsten med ett kommandoskript (se exempel på [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
 
     ```bash
     #!/bin/bash
     service ssh start
     ```
 
-Dockerfile använder den [ `ENTRYPOINT` instruktion](https://docs.docker.com/engine/reference/builder/#entrypoint) att köra skriptet.
+Dockerfile som använder den [ `ENTRYPOINT` instruktionen](https://docs.docker.com/engine/reference/builder/#entrypoint) att köra skriptet.
 
     ```docker
     COPY startup /opt/startup
@@ -103,35 +103,35 @@ Dockerfile använder den [ `ENTRYPOINT` instruktion](https://docs.docker.com/eng
 ## <a name="open-ssh-session-from-remote-shell"></a>Öppna SSH-session från fjärrgränssnitt
 
 > [!NOTE]
-> Den här funktionen är för närvarande under förhandsgranskning.
+> Den här funktionen är för närvarande i förhandsversion.
 >
 
-Använder TCP tunneling du kan skapa en nätverksanslutning mellan din utvecklingsdator och webbprogrammet för behållare över en autentiserad WebSocket-anslutning. På så sätt kan du öppna en SSH-session med den behållare som körs i Apptjänst från klienten önskat.
+Använder TCP tunneling du kan skapa en nätverksanslutning mellan din utvecklingsdator och Web App for Containers över en autentiserad WebSocket-anslutning. Det kan du öppna en SSH-session med din behållare som körs i App Service från klient av önskat.
 
-Om du vill komma igång, måste du installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Om du vill se hur det fungerar utan att installera Azure CLI, öppna [Azure Cloud Shell](../../cloud-shell/overview.md). 
+Om du vill komma igång kan du behöva installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Om du vill se hur det fungerar utan att installera Azure CLI, öppna [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Lägga till filnamnstillägget senaste Apptjänst genom att köra [az tillägget lägger till](/cli/azure/extension?view=azure-cli-latest#az-extension-add):
+Lägg till det senaste App Service-tillägget genom att köra [az-tillägget lägger du till](/cli/azure/extension?view=azure-cli-latest#az-extension-add):
 
 ```azurecli-interactive
 az extension add --name webapp
 ```
 
-Om du redan har kört `az extension add` innan, kör [az uppdatering av webbprogramtillägg](/cli/azure/extension?view=azure-cli-latest#az-extension-update) i stället:
+Om du redan har kört `az extension add` innan, kör [az tilläggsuppdateringen](/cli/azure/extension?view=azure-cli-latest#az-extension-update) i stället:
 
 ```azurecli-interactive
 az extension update --name webapp
 ```
 
-Öppna en anslutning till din app med hjälp av den [az webapp fjärr-anslutning skapa](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) kommando. Ange  _\<grupp\_namn >_ och \_< app\_namn > _ för din app och Ersätt \<port > med ett lokalt portnummer.
+Öppna en anslutning till din app med den [az webapp fjärr-connection skapa](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) kommando. Ange  _\<prenumeration\_id >_,  _\<grupp\_namn >_ och \_< app\_namn > _ för din app och Ersätt \<port > med en lokal portnummer.
 
 ```azurecli-interactive
-az webapp remote-connection create --resource-group <group_name> -n <app_name> -p <port> &
+az webapp remote-connection create --subscription <subscription_id> --resource-group <group_name> -n <app_name> -p <port> &
 ```
 
 > [!TIP]
-> `&` i slutet av kommandot gäller bara för om du använder molntjänster Shell. Processen körs i bakgrunden så att du kan köra nästa kommando i samma-gränssnittet.
+> `&` i slutet av kommandot är du bara för att underlätta om du använder Cloud Shell. Processen körs i bakgrunden så att du kan köra nästa kommando i samma shell.
 
-Kommandoutdata ger dig den information du behöver att öppna en SSH-session.
+Utdata från kommandot ger dig den information du behöver att öppna en SSH-session.
 
 ```
 Port 21382 is open
@@ -139,20 +139,20 @@ SSH is available { username: root, password: Docker! }
 Start your favorite client and connect to port 21382
 ```
 
-Öppna en SSH-session med din behållare med klienten du själv väljer, som använder den lokala porten. I följande exempel används standardvärdet [ssh](https://ss64.com/bash/ssh.html) kommando:
+Öppna en SSH-session med din behållare med klienten föredrar, med hjälp av den lokala porten. I följande exempel används standardvärdet [ssh](https://ss64.com/bash/ssh.html) kommando:
 
 ```azurecli-interactive
 ssh root@127.0.0.1 -p <port>
 ```
 
-När du uppmanas, anger `yes` fortsätta ansluta. Du uppmanas sedan lösenordet. Använd `Docker!`, som tidigare var visas för dig.
+När kommer du att tillfrågas, skriver `yes` att fortsätta att ansluta. Du uppmanas sedan lösenordet. Använd `Docker!`, som visades för dig tidigare.
 
 ```
 Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.
 root@127.0.0.1's password:
 ```
 
-Du bör se välkomstskärmen session när du är autentiserad.
+När du är autentiserad visas på välkomstskärmen för sessionen.
 
 ```
   _____
@@ -166,9 +166,9 @@ A P P   S E R V I C E   O N   L I N U X
 0e690efa93e2:~#
 ```
 
-Du är nu ansluten till din connector. 
+Du är nu ansluten till din anslutning. 
 
-Försök med att köra den [upp](https://ss64.com/bash/top.html) kommando. Du bör kunna finns i din app i listan. I de exempel på utdata nedan är det med `PID 263`.
+Prova att köra den [upp](https://ss64.com/bash/top.html) kommando. Du bör kunna se hur din app i listan. I de exempel på utdata nedan är det med `PID 263`.
 
 ```
 Mem: 1578756K used, 127032K free, 8744K shrd, 201592K buff, 341348K cached
@@ -196,9 +196,9 @@ Load average: 0.07 0.04 0.08 4/765 45738
 
 Du kan publicera frågor och funderingar på den [Azure-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-För mer information om Web App för behållare, se:
+Mer information om Web App for Containers finns:
 
-* [Introduktion till fjärrfelsökning av Node.js-appar i Azure App Service från VS-kod](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)
+* [Introduktion till fjärrfelsökning av Node.js-appar på Azure App Service från VS Code](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)
 * [Så här använder du en anpassad Docker-avbildning för Web App for Containers](quickstart-docker-go.md)
 * [Använda .NET Core i Azure App Service i Linux](quickstart-dotnetcore.md)
 * [Använda Ruby i Azure App Service i Linux](quickstart-ruby.md)

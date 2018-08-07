@@ -1,158 +1,153 @@
 ---
-title: Klientsidans kryptering med Python för Microsoft Azure Storage | Microsoft Docs
-description: Azure Storage-klientbibliotek för Python stöder kryptering på klientsidan för maximal säkerhet för dina Azure Storage-program.
+title: Client Side Encryption med Python för Microsoft Azure Storage | Microsoft Docs
+description: Client side encryption för maximal säkerhet för dina Azure Storage-program har stöd för Azure Storage-klientbiblioteket för Python.
 services: storage
-documentationcenter: python
 author: lakasa
-manager: jahogg
-editor: tysonn
-ms.assetid: f9bf7981-9948-4f83-8931-b15679a09b8a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: c925b41d1654bd5c9b40438c4b6b9f402ec4bac2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.component: common
+ms.openlocfilehash: 6a6508393fe935b456cde815d35f2fd4447cd2d4
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29742650"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528130"
 ---
-# <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Klientsidans kryptering med Python för Microsoft Azure Storage
+# <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Client Side Encryption med Python för Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Översikt
-Den [Azure Storage-klientbibliotek för Python](https://pypi.python.org/pypi/azure-storage) har stöd för kryptering av data i klientprogram före överföringen till Azure Storage och dekryptera data under nedladdningen till klienten.
+Den [Azure Storage-klientbibliotek för Python](https://pypi.python.org/pypi/azure-storage) har stöd för kryptering av data i klientprogram före överföringen till Azure Storage och dekryptering av data under nedladdningen till klienten.
 
 > [!NOTE]
-> Azure Storage Python-bibliotek finns i förhandsgranskningen.
+> Azure Storage Python-bibliotek finns i förhandsversion.
 > 
 > 
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Kryptering och dekryptering via kuvert-teknik
-Processerna för kryptering och dekryptering Följ kuvert-teknik.
+Processer för kryptering och dekryptering Följ kuvert-teknik.
 
 ### <a name="encryption-via-the-envelope-technique"></a>Kryptering via kuvert-teknik
-Kryptering via kuvert tekniken fungerar på följande sätt:
+Kryptering via kuvert-tekniken fungerar på följande sätt:
 
-1. Azure storage-klientbiblioteket genererar en innehåll krypteringsnyckel (CEK), vilket är en gång Använd symmetrisk nyckel.
-2. Användardata krypteras med den här CEK.
-3. CEK kapslas sedan (krypterade) med hjälp av krypteringsnyckel (KEK). KEK identifieras med en nyckelidentifierare och kan vara ett asymmetriskt nyckelpar eller en symmetrisk nyckel som hanteras lokalt.
-   Storage-klientbiblioteket själva har aldrig åtkomst till KEK. Biblioteket anropar algoritmen viktiga radbrytning som tillhandahålls av KEK. Användare kan välja att använda anpassade providers för viktiga radbrytning/uppackning om så önskas.
-4. Krypterade data överförs sedan till Azure Storage-tjänsten. Nyckeln omsluten tillsammans med vissa ytterligare krypteringsmetadata lagras som metadata (på en blob) eller interpolerade med krypterade data (Kömeddelanden och tabellentiteter).
+1. Azure storage-klientbiblioteket genererar en content krypteringsnyckel (CEK), vilket är en symmetrisk nyckel för en gång användning.
+2. Användardata har krypterats med den här CEK.
+3. CEK kapslas sedan (krypterad) med klartextnyckel-nyckel (KEK). KEK identifieras med en nyckelidentifierare och kan vara ett asymmetriskt nyckelpar eller en symmetrisk nyckel som hanteras lokalt.
+   Storage-klientbiblioteket sig själv har aldrig åtkomst till KEK. Biblioteket anropar viktiga radbrytning algoritmen som tillhandahålls av KEK. Användare kan välja att använda anpassade providers för viktiga radbrytning/uppackning om så önskas.
+4. Krypterade data överförs sedan till Azure Storage-tjänsten. Den omslutna nyckeln tillsammans med vissa ytterligare krypteringsmetadata lagras som metadata (för en blob) eller interpolerade med krypterade data (Kömeddelanden och tabellenheter).
 
 ### <a name="decryption-via-the-envelope-technique"></a>Dekryptering via kuvert-teknik
-Dekryptering via kuvert tekniken fungerar på följande sätt:
+Dekryptering via kuvert-tekniken fungerar på följande sätt:
 
-1. Klientbiblioteket förutsätter att användaren kan hantera nyckelkryptering nyckel (KEK) lokalt. Användaren behöver inte veta nyckeln som används för kryptering. I stället kan en nyckel matchare som motsvarar nycklar olika nyckelidentifierare ställa in och användas.
-2. Klientbiblioteket hämtar krypterade data tillsammans med kryptering material som är lagrad på tjänsten.
-3. Omslutna innehåll krypteringsnyckeln (CEK) är okrypterad (dekrypterade) med hjälp av krypteringsnyckel nyckel (KEK). Här igen, har klientbiblioteket inte åtkomst till KEK. Den anropar bara den anpassade providern borttagning av algoritmen.
-4. Innehåll krypteringsnyckeln (CEK) används sedan för att dekryptera den krypterade informationen.
+1. Klientbiblioteket förutsätter att du kan hantera nyckelkrypteringsnyckel (KEK) lokalt. Användaren behöver inte veta nyckeln som används för kryptering. I stället kan en nyckel matchare som matchas olika nyckelidentifierare till nycklar, Ställ in och används.
+2. Klientbiblioteket laddar ned den krypterade informationen tillsammans med eventuella kryptering material som är lagrad på tjänsten.
+3. Den omslutna innehåll krypteringsnyckeln (CEK) är packats upp (dekrypterade) med hjälp av krypteringsnyckel nyckel (KEK). Här igen, har klientbiblioteket inte åtkomst till KEK. Den anropar bara den anpassade providern borttagning av algoritmen.
+4. Innehåll krypteringsnyckeln (CEK) används sedan för att dekryptera krypterade informationen.
 
 ## <a name="encryption-mechanism"></a>Krypteringsalgoritm
-Storage-klientbiblioteket använder [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) för att kryptera användardata. Mer specifikt [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) läge med AES. Varje tjänst fungerar olika, så vi upp dem här.
+Storage-klientbiblioteket använder [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) för att kryptera användardata. Mer specifikt [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) läge med AES. Var och en service fungerar på ett något annorlunda så vi upp vart och ett av dem här.
 
 ### <a name="blobs"></a>Blobar
-Klientbiblioteket stöder för närvarande kryptering av hela blobbar. Mer specifikt kryptering stöds när användare använder den **skapa*** metoder. För hämtade filer, både fullständig och intervallet nedladdningar som stöds och parallellisering för både ladda upp och hämta är tillgänglig.
+Klientbiblioteket stöder för närvarande kryptering av hela blobar. Mer specifikt kryptering stöds när användarna använder den **skapa*** metoder. För nedladdningar, både fullständig och intervallet nedladdningar som stöds och parallellisering av både överföring och hämtning är tillgänglig.
 
-Under krypteringen klientbiblioteket Generera en slumpmässig initieringen Vector (IV) av 16 byte, tillsammans med en slumpmässig innehåll krypteringsnyckel (CEK) 32 byte och utföra kuvert kryptering av blob-data med den här informationen. Omslutna CEK och vissa ytterligare krypteringsmetadata lagras sedan som blob metadata tillsammans med den kryptera blobben-tjänsten.
+Under krypteringen ska klientbiblioteket generera ett slumpmässigt initieringen vektor (IV) med 16 byte, tillsammans med en slumpmässig innehåll krypteringsnyckel (CEK) på 32 byte och utföra kuvert kryptering av blob-data med den här informationen. Den omslutna CEK och vissa ytterligare krypteringsmetadata lagras sedan som blob-metadata tillsammans med krypterade blobben på tjänsten.
 
 > [!WARNING]
-> Om du redigerar eller överföra metadata för blobben, måste du se till att dessa metadata bevaras. Om du överför nya metadata utan metadata omsluten CEK, IV och andra metadata går förlorade och blob-innehåll aldrig kommer att hämtas igen.
+> Om du redigerar eller ladda upp en egen metadata för blobben, måste du se till att dessa metadata bevaras. Om du överför nya metadata utan metadata, omslutna CEK, IV och andra metadata går förlorade och blobinnehållet inte kommer att hämtningsbar igen.
 > 
 > 
 
-Hämtar en krypterad blob omfattar hämtar innehållet i hela blob med hjälp av den **hämta*** bekvämlighet metoder. Omslutna CEK oförpackade och används tillsammans med IV (som lagras som blobbmetadata i det här fallet) för att returnera dekrypterade data till användarna.
+Ladda ned en krypterad blob innebär att du hämtar innehållet i hela bloben med den **hämta*** bekväma metoder. Den omslutna CEK oinslagna och används tillsammans med IV (som lagras som blob-metadata i det här fallet) för att returnera dekrypterade data till användarna.
 
-Hämta ett godtyckligt intervall (**hämta*** metoder med intervallet parametrar skickades) innebär att området som tillhandahålls av användare för att få en liten mängd ytterligare data som kan användas för att dekryptera har det begärda intervallet i krypterade blob.
+Ladda ned ett godtyckligt adressintervall (**hämta*** metoder med intervallet parametrar som skickats in) i krypterad blob innebär att justera de intervall som tillhandahålls av användare för att få en liten mängd ytterligare data som kan användas till att har dekryptera det begärda intervallet.
 
-Blockblobbar och sidblobbar kan bara vara krypterad/dekrypteras med hjälp av det här schemat. Det finns inget stöd för kryptering av tilläggsblobar.
+Blockblobar och sidblobar kan endast vara krypterad/dekrypteras med hjälp av det här schemat. Det finns för närvarande inget stöd för kryptering av tilläggsblobar.
 
 ### <a name="queues"></a>Köer
-Eftersom Kömeddelanden kan vara i valfritt format, definierar klientbiblioteket ett anpassat format som innehåller initieringen Vector (IV) och den krypterade innehållet krypteringsnyckeln (CEK) i meddelandetexten.
+Eftersom Kömeddelanden kan vara i valfritt format, definierar klientbiblioteket ett anpassat format som innehåller initieringen vektor (IV) och den krypterade innehåll krypteringsnyckeln (CEK) i meddelandetexten.
 
-Under krypteringen klientbiblioteket genererar en slumpmässig IV av 16 byte tillsammans med en slumpmässig CEK 32 byte och utför kuvert kryptering av meddelandetexten kön med den här informationen. Omslutna CEK och vissa ytterligare krypteringsmetadata läggs sedan till krypterade kömeddelandet. Ändrade meddelandet (se nedan) lagras på tjänsten.
+Under krypteringen klientbiblioteket genererar en slumpmässig IV med 16 byte tillsammans med en slumpmässig CEK på 32 byte och utför kuvert kryptering av meddelandetexten kön med den här informationen. Den omslutna CEK och vissa ytterligare krypteringsmetadata läggs sedan till krypterade kömeddelandet. Det här ändrade meddelandet (se nedan) lagras på tjänsten.
 
 ```
 <MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
 ```
 
-Under dekrypteringen, omslutna nyckeln extraheras från kön meddelandet och oförpackade. IV är också extraheras från kön meddelandet och används tillsammans med nyckeln packats upp för att dekryptera meddelandedata kön. Observera att krypteringsmetadata är liten (under 500 byte), så när den räknas mot 64KB-gränsen för ett kömeddelande effekten ska hanteras.
+Under dekrypteringen, är nyckeln omslutna extraheras från kömeddelandet och oinslagna. IV är också extraheras från kömeddelandet och används tillsammans med nyckeln packats upp för att dekryptera meddelandedata kö. Observera att krypteringsmetadata är liten (under 500 byte), så även om det räknas mot 64KB-gränsen för ett kömeddelande effekten ska hanteras.
 
 ### <a name="tables"></a>Tabeller
-Klientbiblioteket har stöd för kryptering av Entitetsegenskaper för insert och ersätt-åtgärder.
+Klientbiblioteket stöder kryptering av Entitetsegenskaper för insert och ersätt-åtgärder.
 
 > [!NOTE]
-> Koppling stöds inte för närvarande. Eftersom en delmängd av egenskaper kan har krypterats tidigare med hjälp av en annan nyckel leder bara sammanslagning nya egenskaper och uppdaterar metadata till dataförlust. Sammanslagning av antingen kräver extra service-anrop för att läsa den befintliga enheten från tjänsten eller med en ny nyckel för varje egenskap som lämpar sig inte av prestandaskäl.
+> Koppling stöds inte för närvarande. Eftersom en delmängd av egenskaperna kan har krypterats tidigare med hjälp av en annan nyckel leder bara sammanslagning av de nya egenskaperna och uppdatera metadata som till förlust av data. Sammanslagning av antingen kräver extra service anrop till läsa befintliga entiteten från tjänsten, eller med en ny nyckel per egenskap som lämpar sig inte av prestandaskäl.
 > 
 > 
 
-Tabell datakryptering fungerar på följande sätt:
+Tabellen kryptering fungerar på följande sätt:
 
 1. Användare ange egenskaper som ska krypteras.
-2. Klientbiblioteket genererar en slumpmässig initieringen Vector (IV) av 16 byte tillsammans med en slumpmässig innehåll krypteringsnyckel (CEK) 32 byte för varje entitet och utför kuvert kryptering på de enskilda egenskaperna som ska krypteras av härleds en ny IV per egenskap. Egenskapen krypterade lagras som binära data.
-3. Omslutna CEK och vissa ytterligare krypteringsmetadata lagras sedan som ytterligare två reserverade egenskaper. Först reserverade egenskapen (\_ClientEncryptionMetadata1) är en strängegenskap som innehåller information om IV, version och omslutna nyckel. Andra reserverade egenskapen (\_ClientEncryptionMetadata2) är en binär egenskap som innehåller information om de egenskaper som är krypterade. Informationen i den här andra egenskapen (\_ClientEncryptionMetadata2) krypteras.
-4. På grund av dessa ytterligare reserverade egenskaper som krävs för kryptering, har användare nu endast 250 anpassade egenskaper i stället för 252. Den totala storleken på enheten måste vara mindre än 1MB.
+2. Klientbiblioteket genererar en slumpmässig initieringen vektor (IV) med 16 byte tillsammans med en slumpmässig innehåll krypteringsnyckel (CEK) på 32 byte för varje entitet och utför kuvert kryptering på de enskilda egenskaperna som ska krypteras av som härleds en ny IV per egenskap. Egenskapen krypterade lagras som binära data.
+3. Den omslutna CEK och vissa ytterligare krypteringsmetadata lagras sedan som två ytterligare reserverade egenskaper. Först reserverad egenskap (\_ClientEncryptionMetadata1) är en strängegenskap som innehåller information om IV, version och omslutna nyckel. Andra reserverad egenskap (\_ClientEncryptionMetadata2) är en binär egenskap som innehåller information om de egenskaper som är krypterade. Informationen i den här andra egenskapen (\_ClientEncryptionMetadata2) krypteras.
+4. På grund av dessa ytterligare reserverade egenskaper som krävs för kryptering, kan användare nu har endast 250 anpassade egenskaper i stället för 252. Den totala storleken på entiteten måste vara mindre än 1MB.
    
-   Observera att endast egenskaperna för anslutningssträngen kan vara krypterad. Om andra typer av egenskaper som ska krypteras, måste de konverteras till strängar. Krypterade strängar lagras på tjänsten som binära egenskaper och de konverteras till strängar (rådata strängar, inte EntityProperties med typen EdmType.STRING) efter dekrypteringen.
+   Observera att endast egenskaperna för anslutningssträngen kan krypteras. Om det finns andra typer av egenskaper som ska krypteras, måste de konverteras till strängar. Krypterade strängar som är lagrade på tjänsten som binära egenskaper och de konverteras till strängar (raw strängar, inte EntityProperties med typen EdmType.STRING) efter dekryptering.
    
-   För tabeller, förutom krypteringsprincipen, måste användare ange egenskaper som ska krypteras. Detta kan göras genom att antingen lagra dessa egenskaper i TableEntity objekt typ inställt på EdmType.STRING och kryptera angetts till true eller anger encryption_resolver_function för tableservice-objektet. En kryptering lösare är en funktion som tar en partitionsnyckel, radnyckel och egenskapsnamn och returnerar ett booleskt värde som anger om egenskapen ska krypteras. Under krypteringen använder klientbiblioteket den här informationen för att avgöra om en egenskap ska krypteras vid skrivning till kabeln. Delegaten ger också möjlighet att logik runt hur egenskaperna är krypterade. (Till exempel om X, sedan kryptera egenskapen A; annars kryptera egenskaper A och b) Observera att det inte nödvändigt att ange den här informationen vid läsning eller fråga entiteter.
+   För tabeller, utöver krypteringsprincipen, måste användare ange egenskaper som ska krypteras. Detta kan göras genom att antingen lagra dessa egenskaper i TableEntity objekt med typen till EdmType.STRING och kryptera inställd på SANT eller ange encryption_resolver_function tableservice-objektet. En kryptering Konfliktlösaren är en funktion som tar en partitionsnyckel och radnyckel egenskapsnamn och returnerar ett booleskt värde som anger om egenskapen ska vara krypterad. Under krypteringen använder klientbiblioteket den här informationen för att avgöra om en egenskap ska krypteras vid skrivning till ledningen. Delegaten ger också möjlighet att logic kring hur egenskaper som är krypterade. (Till exempel om X, sedan kryptera egenskapen A; annars kryptera egenskaper A och b) Observera att det inte är nödvändigt att ange den här informationen vid läsning eller fråga entiteter.
 
 ### <a name="batch-operations"></a>Batchåtgärder
-En krypteringsprincipen gäller för alla rader i batchen. Klientbiblioteket genererar internt en ny slumpmässiga IV och slumpmässiga CEK per rad i batchen. Användare kan också välja att kryptera olika egenskaper för varje åtgärd i gruppen genom att definiera problemet i matcharen kryptering.
-Om en batch har skapats som en kontext manager via metoden tableservice batch(), tillämpas den tableservice krypteringsprincipen automatiskt i gruppen. Om en batch har skapats explicit genom att anropa konstruktorn, krypteringsprincipen skickas som en parameter och vänster oförändrade under processernas livstid i batchen.
-Observera att entiteter har krypterats som de infogas i gruppen med hjälp av den batchen krypteringsprincipen (entiteter inte är krypterad vid tiden för när en batch med hjälp av den tableservice krypteringsprincipen).
+En princip för kryptering gäller för alla rader i batchen. Klientbiblioteket genererar internt ett nytt slumpmässigt IV och slumpmässiga CEK per rad i batchen. Användare kan också välja att kryptera olika egenskaper för varje åtgärd i batchen genom att definiera det här beteendet i Konfliktlösare för kryptering.
+Om en batch skapas som en kontext manager via metoden tableservice batch() kan tillämpas automatiskt på tableservice krypteringsprincipen i gruppen. Om en batch skapas uttryckligen genom att anropa konstruktorn krypteringsprincipen skickas som en parameter och till vänster ska ändras för livslängden för batchen.
+Observera att enheter krypteras när de infogas i batch med hjälp av det batch-krypteringspolicyn (entiteter inte är krypterad vid tidpunkten för transaktionen batch med hjälp av den tableservice kryptering princip).
 
 ### <a name="queries"></a>Frågor
 > [!NOTE]
-> Eftersom enheterna är krypterade, kan du inte köra frågor som filtrerar på en krypterad egenskap.  Om du försöker, blir resultatet felaktigt, eftersom skulle tjänsten försöker jämföra krypterade data med okrypterade data.
+> Eftersom entiteterna som är krypterade, kan du inte köra frågor som filtrerar på en krypterad egenskap.  Om du försöker att resultaten vara felaktig, eftersom tjänsten skulle ha försökt att jämföra krypterade data med okrypterade data.
 > 
 >
-Om du vill utföra frågeåtgärder, måste du ange en nyckel matchare som kan matcha alla nycklar i resultatmängden. Om en entitet i frågeresultatet inte kan matchas till en provider, genereras klientbiblioteket ett fel. För en fråga som utför server side projektioner klientbiblioteket lägger till särskilda kryptering metadataegenskaper (\_ClientEncryptionMetadata1 och \_ClientEncryptionMetadata2) som standard till de markerade kolumnerna.
+Om du vill utföra frågeåtgärder, måste du ange en nyckel matchare som kan matcha alla nycklar i resultatuppsättningen. Om en entitet i frågeresultatet inte kan matchas till en leverantör, genereras klientbiblioteket ett fel. För en fråga som utför server sida projektioner klientbiblioteket lägger till särskilda kryptering metadataegenskaper (\_ClientEncryptionMetadata1 och \_ClientEncryptionMetadata2) som standard till de markerade kolumnerna.
 
 > [!IMPORTANT]
-> Tänk på dessa viktiga punkter när du använder kryptering på klientsidan:
+> Tänk på dessa viktiga punkter när du använder client side encryption:
 > 
-> * När läsning eller skrivning till en krypterad blob Använd hela blob överför kommandon och intervall/hela blob download kommandon. Undvik att skriva till en krypterad blob med hjälp av protokollåtgärder som till exempel placera Block, placera Blockeringslista, skriva sidor eller rensa sidor. Annars kan du skadad krypterade blob och att den inte kan läsas.
+> * När läsning eller skrivning till en krypterad blob, använder du hela blob ladda upp kommandon och intervallet/hela blob download kommandon. Undvik att skriva till en krypterad blob med hjälp av protokollåtgärder som till exempel placera Block, placera Blockeringslista, skriva sidor eller rensa sidor. Annars kan du skadad krypterade blobben och gör den oläslig.
 > * För tabeller finns en liknande begränsning. Var noga med att inte uppdatera krypterade egenskaper utan att uppdatera krypteringsmetadata.
-> * Om du anger metadata för den kryptera blobben kan du skriva över den krypteringsrelaterade metadata som krävs för dekryptering, eftersom inställningen metadata inte är additiva. Detta gäller även för ögonblicksbilder; Undvik att ange metadata när du skapar en ögonblicksbild av en krypterad blob. Om du måste ange metadata, måste du anropa den **get_blob_metadata** metoden först för att hämta krypteringsmetadata för den aktuella och undvika samtidiga skrivningar metadata anges.
-> * Aktivera den **require_encryption** flaggan på serviceobjektet för användare som ska fungerar bara med krypterade data. Mer information finns nedan.
+> * Om du ställer in metadata för krypterad blob kan du skriva över de krypteringsrelaterade metadata som krävs för dekryptering, eftersom inställningen metadata inte är additiva. Detta gäller även för ögonblicksbilder Undvik att ange metadata när du skapar en ögonblicksbild av en krypterad blob. Om metadata måste anges, måste du anropa den **get_blob_metadata** metoden först för att hämta den aktuella krypteringsmetadata för och undvika samtidiga skrivningar medan metadata anges.
+> * Aktivera den **require_encryption** flaggan service-objekt för användare som ska fungerar bara med krypterade data. Nedan finns mer information.
 > 
 > 
 
-Storage-klientbiblioteket förväntar angivna KEK och viktiga matchning för att implementera följande gränssnitt. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) stöd för hantering av Python KEK väntar och kommer att integreras i det här biblioteket när du är klar.
+Storage-klientbiblioteket förväntar sig den angivna KEK och viktiga Konfliktlösare för att implementera följande gränssnitt. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) stöd för Python KEK väntar och kommer att integreras i det här biblioteket när du är klar.
 
-## <a name="client-api--interface"></a>Programmeringsgränssnitt mot klienten / gränssnitt
-När ett service lagringsobjekt (d.v.s. blockblobservice) har skapats kan användaren kan tilldela värden till fälten som utgör en krypteringsprincip för: key_encryption_key key_resolver_function, och require_encryption. Användare kan ange endast en KEK endast en matchare eller båda. key_encryption_key är den grundläggande nyckeln som identifieras med en nyckelidentifierare och som innehåller logiken för radbrytning/uppackning. key_resolver_function används för att lösa en nyckel under dekrypteringsprocessen. Returnerar en giltig KEK ges en nyckelidentifierare. Detta ger användarna möjlighet att välja mellan flera nycklar som hanteras på flera platser.
+## <a name="client-api--interface"></a>API-klient / gränssnitt
+När du har skapat ett service lagringsobjekt (d.v.s. blockblobservice) du kan tilldela värden till fälten som utgör en krypteringsprincip: key_encryption_key, key_resolver_function, och require_encryption. Användare kan ange endast en KEK endast en DNS-matchare, eller båda. key_encryption_key är den grundläggande nyckeltyp som identifieras med en nyckelidentifierare och som ger logiken för radbrytning/uppackning. key_resolver_function används för att lösa en nyckel under dekrypteringen. Returnerar en giltig KEK får en nyckelidentifierare. Detta ger användarna möjlighet att välja mellan flera nycklar som hanteras på flera platser.
 
 KEK måste implementera följande metoder för att kryptera data har:
 
-* wrap_key(cek): radbryts angivna CEK (byte) med en algoritm för användarens val. Returnerar den omslutna nyckeln.
+* wrap_key(cek): omsluter den angivna CEK (byte) som använder en algoritm för användarens val. Returnerar den omslutna nyckeln.
 * get_key_wrap_algorithm(): returnerar den algoritm som används för att omsluta nycklar.
 * get_kid(): returnerar strängen nyckel-id för den här KEK.
-  KEK måste implementera följande metoder för att dekryptera data har:
-* unwrap_key (cek, algoritm): returnerar okrypterad form av den angivna CEK med angiven sträng-algoritm.
+  KEK måste implementera de följande metoderna för att dekryptera data har:
+* unwrap_key (cek, algoritmen): returnerar packats upp form av den angivna CEK med angiven sträng-algoritmen.
 * get_kid(): returnerar en sträng nyckel-id för den här KEK.
 
-Viktiga matcharen måste minst implementera en metod som, anges en nyckel-id, returnerar motsvarande KEK implementerar gränssnittet ovan. Endast den här metoden är att tilldelas till egenskapen key_resolver_function för serviceobjektet.
+Viktiga matcharen verkställer minst en metod som, givet ett nyckel-id, returnerar den motsvarande KEK som implementerar gränssnittet ovan. Endast den här metoden är att tilldelas till egenskapen key_resolver_function på objektet.
 
-* Nyckeln används alltid för kryptering, och avsaknaden av en nyckel resulterar i ett fel.
+* Nyckeln används alltid för kryptering, och om en nyckel resulterar i ett fel.
 * För dekryptering:
   
-  * Viktiga matcharen anropas om att hämta nyckeln har angetts. Om matcharen har angetts men inte har en mappning för nyckel-ID, returneras ett fel.
-  * Om DNS-matchare inte har angetts, men en nyckel har angetts, används nyckeln om dess identifierare som matchar den nödvändiga Nyckelidentifieraren. Om ID inte matchar genereras ett fel.
+  * Viktiga matcharen anropas om att hämta nyckeln har angetts. Om matcharen har angetts men inte har en mappning för nyckel-ID, inträffar ett fel.
+  * Om matchare har angetts men en nyckel har angetts, används nyckeln om dess ID: t matchar den nödvändiga Nyckelidentifieraren. Om det ID: t inte matchar genereras ett fel.
     
-    Exempel kryptering i azure.storage.samples <fix URL>demonstrera en mer detaljerad slutpunkt till slutpunkt för BLOB, köer och tabeller.
-      Exempel implementeringar av KEK och viktiga matchning finns i exempelfilerna som KeyWrapper och KeyResolver respektive.
+    Exempel för kryptering i azure.storage.samples <fix URL>visar en mer detaljerad slutpunkt till slutpunkt-scenario för blobbar, köer och tabeller.
+      Exemplet implementeringar av KEK och viktiga matchare finns i exempelfilerna som KeyWrapper och KeyResolver respektive.
 
 ### <a name="requireencryption-mode"></a>RequireEncryption läge
-Användare kan välja att ett läge där alla överföringar och hämtningsbara filer måste vara krypterad. I det här läget misslyckas försök att överföra data utan en krypteringsprincip för eller hämta data som inte är krypterad för tjänsten på klienten. Den **require_encryption** flaggan på serviceobjektet styr det här beteendet.
+Användare kan välja att ett läge där alla överföra och hämta filer måste vara krypterat. I det här läget misslyckas försök att överföra data utan en krypteringsprincip eller hämta data som inte är krypterad i tjänsten på klienten. Den **require_encryption** flaggan serviceobjektet styr detta beteende.
 
-### <a name="blob-service-encryption"></a>Kryptering för BLOB-tjänst
-Ange krypteringen principfält på blockblobservice-objektet. Allt annat hanteras av klientbiblioteket internt.
+### <a name="blob-service-encryption"></a>BLOB service-kryptering
+Ange krypteringen principfält blockblobservice-objektet. Allt annat ska hanteras av klientbiblioteket internt.
 
 ```python
 # Create the KEK used for encryption.
@@ -175,8 +170,8 @@ my_block_blob_service.create_blob_from_stream(container_name, blob_name, stream)
 blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
 ```
 
-### <a name="queue-service-encryption"></a>Kön service-kryptering
-Ange krypteringen principfält på queueservice-objektet. Allt annat hanteras av klientbiblioteket internt.
+### <a name="queue-service-encryption"></a>Kryptering av lagringstjänst för kö
+Ange krypteringen principfält queueservice-objektet. Allt annat ska hanteras av klientbiblioteket internt.
 
 ```python
 # Create the KEK used for encryption.
@@ -199,8 +194,8 @@ my_queue_service.put_message(queue_name, content)
 retrieved_message_list = my_queue_service.get_messages(queue_name)
 ```
 
-### <a name="table-service-encryption"></a>Tabellen service-kryptering
-Förutom att skapa en krypteringsprincip för och ange värdet på begäran alternativ, måste du antingen ange en **encryption_resolver_function** på den **tableservice**, eller ange attributet kryptera på EntityProperty.
+### <a name="table-service-encryption"></a>Table service-kryptering
+Förutom att skapa en krypteringsprincip för och ange den på begäran alternativen, måste du antingen ange en **encryption_resolver_function** på den **tableservice**, eller Ställ in attributet encrypt på den EntityProperty.
 
 ### <a name="using-the-resolver"></a>Med hjälp av matcharen
 
@@ -234,15 +229,15 @@ my_table_service.get_entity(table_name, entity['PartitionKey'], entity['RowKey']
 ```
 
 ### <a name="using-attributes"></a>Använda attribut
-Som nämnts ovan är kan en egenskap markeras för kryptering genom att lagra det i ett EntityProperty objekt och ange fältet kryptera.
+Som nämnts ovan är kan en egenskap markeras för kryptering genom att lagra det i ett EntityProperty-objekt och ange fältet encrypt.
 
 ```python
 encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 ```
 
 ## <a name="encryption-and-performance"></a>Kryptering och prestanda
-Observera att kryptera din lagring data resulterar i ytterligare prestanda försämras. Innehållsnyckeln och IV måste skapas själva innehållet måste krypteras och ytterligare metadata måste vara formaterad och har överförts. Det här arbetet varierar beroende på mängden data som krypteras. Vi rekommenderar att kunder alltid testa sina program för prestanda under utveckling.
+Observera att kryptera din lagring data resulterar i ytterligare prestanda försämras. Innehållsnyckeln och IV måste genereras själva innehållet måste vara krypterat och ytterligare metadata måste formateras och laddat upp. Det här arbetet varierar beroende på mängden data som krypteras. Vi rekommenderar att kunderna alltid testa sina program för prestanda under utvecklingen.
 
 ## <a name="next-steps"></a>Nästa steg
-* Hämta den [Azure Storage-klientbibliotek för Java PyPi paketet](https://pypi.python.org/pypi/azure-storage)
-* Hämta den [Azure Storage-klientbibliotek för Python källkod från GitHub](https://github.com/Azure/azure-storage-python)
+* Ladda ned den [Azure Storage-klientbibliotek för Java PyPi paket](https://pypi.python.org/pypi/azure-storage)
+* Ladda ned den [Azure Storage-klientbibliotek för Python källkod från GitHub](https://github.com/Azure/azure-storage-python)

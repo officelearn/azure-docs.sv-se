@@ -1,9 +1,9 @@
 ---
-title: Uppgradera till standardnivån om Security Center för ökad säkerhet | Microsoft Docs
+title: Uppgradera till standardnivån i Security Center för ökad säkerhet | Microsoft Docs
 description: Den här artikeln innehåller information om priser för Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
@@ -12,32 +12,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
-ms.author: terrylan
-ms.openlocfilehash: 0a8fb526602692db6737842c24649b686bea5dad
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.date: 08/06/2018
+ms.author: rkarlin
+ms.openlocfilehash: 824362c5dab9f226aff84e75b6620221d3a9147f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
-ms.locfileid: "23931921"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528485"
 ---
-# <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Uppgradera till standardnivån om Security Center för ökad säkerhet
-Azure Security Center ger enhetlig hantering och avancerade threat protection för arbetsbelastningar som körs i Azure, lokalt och i andra moln. Den ger synlighet och kontroll över hybrid cloud arbetsbelastningar, aktiva försvar som minskar din utsättas för hot och intelligent identifiering som hjälper dig att hålla jämna steg med utvecklas snabbt cyber attacker.
+# <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Uppgradera till standardnivån i Security Center för ökad säkerhet
+Azure Security Center har en enhetlig säkerhetshantering och avancerat skydd mot hot för arbetsbelastningar som körs i Azure, lokalt och i andra moln. Du får insyn och kontroll över hybridmolnarbetsbelastningar active försvar som minskar din exponering för hot och intelligent identifiering för att hålla jämna steg med snabbt växande cyberattacker.
 
 ## <a name="pricing-tiers"></a>Prisnivåer
-Security Center erbjuds i två nivåer:
+Security Center finns två nivåer:
 
-- Den **lediga** nivå aktiveras automatiskt på alla Azure-prenumerationer och ger säkerhetsprincip och kontinuerlig security assessment tillämplig säkerhetsrekommendationer som hjälper dig att skydda dina Azure-resurser.
-- Den **Standard** nivå utökar funktionerna för den kostnadsfria nivån för arbetsbelastningar som körs i privata och andra offentliga moln, tillhandahåller enhetlig hantering och hot säkerhetsskydd över hybrid cloud arbetsbelastningar. Standardnivån lägger också till advanced threat identifieringsfunktionerna, och som använder inbyggda beteendeanalys och maskininlärning att identifiera attacker och noll-dagars kryphål, åtkomst och programmet kontroller för att minska exponeringen för nätverksattacker och skadlig kod, och Mer. Standardnivån är gratis för de första 60 dagarna.
+- Den **kostnadsfri** nivå är automatiskt aktiverat på alla Azure-prenumerationer och ger säkerhetsprincip och kontinuerlig säkerhetsbedömning handlingsbara rekommendationer för att hjälpa dig att skydda dina Azure-resurser.
+- Den **Standard** nivån utökar funktionerna för den kostnadsfria nivån för arbetsbelastningar som körs i privat och andra offentliga moln, att tillhandahålla enhetlig säkerhetshantering och hotidentifiering skydd över dina hybridmolnarbetsbelastningar. Standardnivån lägger också till advanced threat funktioner, och som använder inbyggda beteendeanalys och maskininlärning att identifiera attacker och nolldagarshot, åtkomst- och programkontroller för att minska exponeringen för nätverksattacker och skadlig kod, och Mer. Standardnivån är kostnadsfri de första 60 dagarna.
 
-Mer information finns i Security Center [sida med priser](https://azure.microsoft.com/pricing/details/security-center/).
+Mer information finns i Säkerhetscenter [prissättningssidan](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="try-standard-free-for-60-days"></a>Försök Standard gratis under 60 dagar
-Standardnivån erbjuds kostnadsfritt de första 60 dagarna. I slutet av 60 dagar startar om du väljer att fortsätta använda tjänsten, vi automatiskt avgifter för användning.
+## <a name="try-standard-free-for-60-days"></a>Prova Standard kostnadsfritt under 60 dagar
+Standardnivån erbjuds kostnadsfritt de första 60 dagarna. I slutet av 60 dagar börjar om du väljer att fortsätta använda tjänsten, vi automatiskt att debitera för användningen.
 
-Du kan uppgradera en hela Azure-prenumeration till standardnivån som ärvs av alla resurser i prenumerationen, eller så kan du definiera en unik princip för att uppgradera en viss resursgrupp endast.
+Du kan uppgradera en hel Azure-prenumeration till standardnivån som ärvs av alla resurser i prenumerationen.
 
-Hämta standardnivån:
+Hämta Standard-nivån:
 
 1. Välj **säkerhetsprincip** på den **Security Center** huvudmenyn.
 2. Välj den prenumeration som du vill uppgradera till Standard.
@@ -48,23 +48,23 @@ Hämta standardnivån:
 ![Säkerhetsincident][1]
 
 > [!NOTE]
-> Om du vill aktivera alla funktioner i Security Center, måste du koppla Standardprisnivån till prenumeration eller resursgrupp som innehåller de tillämpliga virtuella datorerna. Konfigurera priser för en arbetsyta aktiverar inte just-in-time VM-åtkomst och anpassningsbar programkontroller nätverket identifieringar för Azure-resurser.
+> Om du vill aktivera alla funktioner i Security Center, måste du aktivera Standardprisnivån för den prenumeration eller resursgrupp som innehåller de tillämpliga virtuella datorerna. Konfigurera priser för en arbetsyta kan inte just-in-time-åtkomst till virtuell dator och anpassningsbara programkontroller nätverk identifieringar för Azure-resurser.
 >
 >
 
-## <a name="why-upgrade-to-standard"></a>Varför uppgradera till Standard?
-Security Center ger förbättrad säkerhet och skydd för dina hybrid cloud arbetsbelastningar, inklusive:
+## <a name="why-upgrade-to-standard"></a>Varför ska du uppgradera till Standard?
+Security Center erbjuder förbättrad säkerhet och skydd mot hot i dina hybridmolnarbetsbelastningar, inklusive:
 
-- **Hybrid säkerhet** – få en samlad bild av säkerhet för alla dina lokala och molnet arbetsbelastningar. Tillämpa säkerhetsprinciper och kontinuerligt utvärdera säkerheten för dina hybrid cloud arbetsbelastningar för efterlevnad säkerhetskrav. Samla in, sök efter och analysera säkerhetsdata från flera olika källor, till exempel brandväggar och andra partnerlösningar.
-- **Avancerade hotidentifiering** -använda avancerade analyser och Microsoft Intelligent säkerhet Graph för att hämta en kant över utvecklas cyber-attacker.  Utnyttja inbyggda beteendeanalyser och maskinlärning för att identifiera attacker och nolldagarshot. Övervaka nätverk, datorer och molntjänster för att se inkommande attacker och aktiviteter efter intrång. Effektiviseras undersökningen med interaktiva verktyg och kontextbaserad hotinformation.
-- **Åtkomst-och** -Block skadlig kod och andra oönskade program genom att använda vitlistning rekommendationer anpassade till din specifika arbetsbelastningar och drivs av machine learning. Minska nätverket risken för angrepp med just-in-time, kontrollerad åtkomst till hanteringsportar på Azure Virtual Machines, vilket drastiskt minskar risken för brute force och andra nätverksattacker.
+- **Hybridsäkerhet** – få en enhetlig vy över säkerheten i alla dina lokala och molnbaserade arbetsbelastningar. Tillämpa säkerhetsprinciper och utvärdera säkerheten för dina hybridmolnarbetsbelastningar för att säkerställa att säkerhetsstandarder kontinuerligt. Samla in, sök efter och analysera säkerhetsdata från flera olika källor, till exempel brandväggar och andra partnerlösningar.
+- **Avancerad hotidentifiering** -Använd avancerade analyser och Microsoft Intelligent Security Graph för att få en kant med utvecklas cyberattacker.  Utnyttja inbyggda beteendeanalyser och maskinlärning för att identifiera attacker och nolldagarshot. Övervaka nätverk, datorer och molntjänster för att se inkommande attacker och aktiviteter efter intrång. Effektiviseras undersökningen med interaktiva verktyg och kontextbaserad hotinformation.
+- **Åtkomst- och programkontroll** – blockera skadliga och andra oönskade program genom att tillämpa rekommendationer anpassas efter dina specifika arbetsbelastningar och drivs av maskininlärning. Minska nätverkskontakter med just-in-time och kontrollerad åtkomst till hanteringsportar på virtuella Azure-datorer drastiskt minska exponeringen för råstyrkeattacker och andra nätverksattacker.
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har introducerats du priser för Security Center. Mer information om standardnivån förbättrad säkerhet och skydd avancerade finns:
+I den här artikeln berättade priser för Security Center. Mer information om förbättrad säkerhet och Avancerat skydd på Standard-nivån finns:
 
 - [Avancerad hotidentifiering](security-center-threat-report.md)
-- [Precis i tid VM åtkomstkontroll](security-center-just-in-time.md)
+- [Just-in-time-åtkomstkontroll för virtuell dator](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

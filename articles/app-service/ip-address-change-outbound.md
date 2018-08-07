@@ -2,20 +2,20 @@
 title: Så här förbereder du för en utgående IP-adressändring - Azure
 description: Om din utgående IP-adress ska ändras, lär du dig vad du gör så att din app fortsätter att fungera efter ändringen.
 services: app-service\web
-author: tdykstra
+author: cephalin
 manager: cfowler
 editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
-ms.author: tdykstra
-ms.openlocfilehash: a68085ee571654bc1bff2ea23303a02bfb2a9b0d
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.author: cephalin
+ms.openlocfilehash: 5e17638e030ae2827b0de7dc82ecf75062504112
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343492"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39575938"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Så här förbereder du för en utgående IP-adressändring
 

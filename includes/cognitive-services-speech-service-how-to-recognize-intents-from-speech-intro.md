@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/27/2018
 ms.author: wolfma
-ms.openlocfilehash: a3cbfc3677c5b1a19b83a82da9bcd6bed3108152
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 79dc1fe9fffd8c44c97cf68a12bb90655b672577
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346250"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577981"
 ---
 <!-- N.B. no header, language-agnostic -->
 
-Den [tal SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) gör det möjligt att identifiera **avsikter från tal**, drivs med Speech-tjänsten och [tjänst för Språkförståelse (LUIS)](https://luis.ai).
+Den [tal SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) gör det möjligt att identifiera **avsikter från tal**, drivs med Speech-tjänsten och [tjänst för Språkförståelse (LUIS)](https://www.luis.ai/home).
 
 1. Skapa en tal-factory tillhandahåller en prenumerationsnyckel för Language Understanding-tjänsten och [region](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition). Prenumerationsnyckel för Language Understanding-tjänsten kallas **slutpunktsnyckeln** i tjänstdokumentationen för. Du kan inte använda tjänst för Språkförståelse redigering av nyckeln. Se även de **Obs** nedan.
 

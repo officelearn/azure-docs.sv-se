@@ -2,18 +2,18 @@
 title: Använda Azure Import/Export för att överföra data till Azure BLOB | Microsoft Docs
 description: Lär dig hur du skapar import och export-jobb i Azure portal för att överföra data till och från Azure Blobs.
 author: alkohli
-manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: eea7e2779a169fa9a64cc7a5695e91999f219277
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.component: common
+ms.openlocfilehash: 2484d01c268757ef612ba7b397b80b8ea4c4e76a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112839"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528147"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Blob Storage
 

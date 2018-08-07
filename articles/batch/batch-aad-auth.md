@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: 41cbe7a27950c4d521da613f26aa450c63961400
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 1f9a2b786db59ecfee6ede53b2b789d84651c975
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505685"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577126"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera lösningar för Batch-tjänsten med Active Directory
 
@@ -66,7 +66,7 @@ Använd den **Azure Batch resursslutpunkt** att hämta en token för att autenti
 
 Det första steget i att autentisera med hjälp av Azure AD är att registrera ditt program i en Azure AD-klient. Registrera ditt program kan du anropa Azure [Active Directory Authentication Library] [ aad_adal] (ADAL) från din kod. ADAL tillhandahåller ett API för att autentisera med Azure AD från ditt program. Registrera ditt program måste anges om du planerar att använda integrerad autentisering eller ett huvudnamn för tjänsten.
 
-När du registrerar ditt program kan ange du information om ditt program till Azure AD. Sedan Azure AD tillhandahåller ett program-ID (även kallat en *klient-ID*) att du använder för att associera ditt program med Azure AD vid körning. Läs mer om program-ID i [program och tjänstobjekt i Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+När du registrerar ditt program kan ange du information om ditt program till Azure AD. Sedan Azure AD tillhandahåller ett program-ID (även kallat en *klient-ID*) att du använder för att associera ditt program med Azure AD vid körning. Läs mer om program-ID i [program och tjänstobjekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
 Om du vill registrera ett Batch-program, följer du stegen i den [lägga till ett program](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) i avsnittet [integrera program med Azure Active Directory][aad_integrate]. Om du registrerar ditt program som ett internt program, kan du ange en giltig URI för den **omdirigerings-URI**. Det behöver inte vara en verklig slutpunkt.
 
@@ -374,7 +374,7 @@ Använd autentiseringsuppgifter för tjänstens huvudnamn för att öppna en **B
 
 * Läs mer om Azure AD i den [Azure Active Directory-dokumentationen](https://docs.microsoft.com/azure/active-directory/). Djupgående exempel som visar hur du använder ADAL finns i den [kodexempel för Azure](https://azure.microsoft.com/resources/samples/?service=active-directory) biblioteket.
 
-* Läs mer om tjänstens huvudnamn i [program och tjänstobjekt i Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). Om du vill skapa ett huvudnamn för tjänsten med Azure portal, [Använd portalen för att skapa Active Directory-program och tjänstens huvudnamn som kan komma åt resurser](../resource-group-create-service-principal-portal.md). Du kan också skapa ett huvudnamn för tjänsten med PowerShell eller Azure CLI.
+* Läs mer om tjänstens huvudnamn i [program och tjänstobjekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Om du vill skapa ett huvudnamn för tjänsten med Azure portal, [Använd portalen för att skapa Active Directory-program och tjänstens huvudnamn som kan komma åt resurser](../resource-group-create-service-principal-portal.md). Du kan också skapa ett huvudnamn för tjänsten med PowerShell eller Azure CLI.
 
 * För att autentisera Batch Management-program med hjälp av Azure AD, se [autentisera med Batch Management-lösningar med Active Directory](batch-aad-auth-management.md).
 

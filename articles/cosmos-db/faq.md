@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: b792798c64ed0a2eb12a16d868d8a17302466fea
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 053e72ce81f69b267c72ded572e8912a1a09d2e6
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215364"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579705"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB vanliga frågor och svar
 ## <a name="azure-cosmos-db-fundamentals"></a>Grunderna i Azure Cosmos DB
@@ -448,7 +448,7 @@ Azure Cosmos DB är en SLA-baserade system som ger svarstid, dataflöde, tillgä
 
 ## <a name="develop-against-the-graph-api"></a>Utveckla mot Graph API
 ### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>Hur kan jag använda funktionerna i Graph API till Azure Cosmos DB?
-Du kan använda ett tilläggsbibliotek för att använda funktionerna i Graph API. Det här biblioteket kallas Microsoft Azure-diagram och den är tillgänglig på NuGet. 
+Du kan använda ett tilläggsbibliotek för att använda funktionerna i Graph API. Det här biblioteket kallas Microsoft Azure-diagram och det är tillgängligt på [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
 
 ### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>Det verkar som du stöder genomgång av språket Gremlin graph. Planerar du att lägga till fler typer av frågan?
 Ja, vi planerar att lägga till andra mekanismer för frågan i framtiden. 

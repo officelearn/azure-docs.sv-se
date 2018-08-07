@@ -17,12 +17,12 @@ ms.date: 09/07/2017
 ms.author: barbkess
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: d5921b9b74bfa7e32cc8dc2f9fdc5f93d4027abb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: e86c7e82203e2ecd571d5ce5e450999704218e33
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366509"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579171"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Avancerade alternativ i SAML-token för gallery-appar i Azure Active Directory för Certifikatsignering
 Idag stöd för tusentals förintegrerade program i Appgalleriet för Azure Active Directory i Azure Active Directory (AD Azure). Det här värdet innefattar fler än 500 program som stöder enkel inloggning med hjälp av SAML 2.0-protokollet. När en användare autentiseras till ett program via Azure AD med hjälp av SAML skickar Azure AD en token till programmet (via en HTTP-POST). Programmet validerar och använder token för att logga in användaren i stället för att fråga om ett användarnamn och lösenord. Dessa SAML-token har signerats med det unika certifikat som genereras i Azure AD och av specifika standard algoritmer.
@@ -62,6 +62,6 @@ Azure AD stöder två Signeringsalgoritmer för att signera SAML-svar:
 ## <a name="next-steps"></a>Nästa steg
 * [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
 * [Konfigurera enkel inloggning till program som inte ingår i Azure Active Directory App-galleriet](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
-* [Felsöka SAML-baserad enkel inloggning](../develop/active-directory-saml-debugging.md)
+* [Felsöka SAML-baserad enkel inloggning](../develop/howto-v1-debug-saml-sso-issues.md)
 
 

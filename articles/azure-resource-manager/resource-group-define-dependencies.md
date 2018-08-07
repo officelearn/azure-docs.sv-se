@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 475e1f0d481678f53c191a887c7cc56c28c4b361
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 5b4d8317d565528f896bf6823ddaefd010d0a845
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887437"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528637"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definiera ordningen för att distribuera resurser i Azure Resource Manager-mallar
 För en viss resurs, kan det finnas andra resurser som måste finnas innan resursen är distribuerad. Till exempel måste en SQL-server finnas innan du distribuerar en SQL-databas. Du kan definiera den här relationen genom att markera en resurs som är beroende av andra resursen. Du definierar ett beroende med den **dependsOn** element, eller genom att använda den **referens** funktion. 
 
-Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i ordningsföljden beroende. När resurserna inte är beroende av varandra, distribuerar dem parallellt i Resource Manager. Du behöver bara definiera beroenden för resurser som distribueras i samma mall. 
+Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i beroendeordning. När resurserna inte är beroende av varandra distribuerar Resource Manager dem parallellt. Du behöver bara definiera beroenden för resurser som distribueras i samma mall. 
 
 ## <a name="dependson"></a>dependsOn
 I din mall kan dependsOn-element du definiera en resurs som beroende på en eller flera resurser. Värdet kan vara en kommaavgränsad lista över resursnamn. 
@@ -108,7 +108,7 @@ I följande exempel visas en SQLServer och SQL-databas. Observera att beroende a
 ```
 
 ## <a name="reference-and-list-functions"></a>referens och lista
-Den [refererar till funktionen](resource-group-template-functions-resource.md#reference) aktiverar ett uttryck som hämtar sitt värde från andra JSON-namn och värdepar eller runtime-resurser. Den [lista * funktioner](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) returvärden för en resurs från en lista-åtgärd.  Referens och lista uttryck deklarera implicit att en resurs beror på en annan, när den refererade resursen distribueras i samma mall och refereras till av sitt namn (inte resurs-ID). Om du skickar resurs-ID i funktionerna referens eller lista är är inte en implicit referens skapas.
+Den [refererar till funktionen](resource-group-template-functions-resource.md#reference) aktiverar ett uttryck som hämtar sitt värde från andra JSON-namn och värdepar eller runtime-resurser. Den [lista * funktioner](resource-group-template-functions-resource.md#list) returvärden för en resurs från en lista-åtgärd.  Referens och lista uttryck deklarera implicit att en resurs beror på en annan, när den refererade resursen distribueras i samma mall och refereras till av sitt namn (inte resurs-ID). Om du skickar resurs-ID i funktionerna referens eller lista är är inte en implicit referens skapas.
 
 Det allmänna formatet för funktionen referens är:
 

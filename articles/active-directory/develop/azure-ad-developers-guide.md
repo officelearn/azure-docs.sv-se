@@ -16,12 +16,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6c3148f6ca9e538d2fed3467ba5d2129e123c7fd
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 41fdf1a61538e43ef17eee2937273f56a4538b76
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502292"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577211"
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory för utvecklare
 
@@ -43,9 +43,9 @@ Med följande guidade konfigurationer får du hjälp med att skapa en app på de
 | --- | --- | --- | --- |
 | <center>![Mobilappar och skrivbordsappar](./media/azure-ad-developers-guide/NativeApp_Icon.png)<br />Mobilappar och skrivbordsappar</center> | [Översikt](authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](quickstart-v1-ios.md)<br /><br />[Android](quickstart-v1-android.md) | [.NET (WPF)](quickstart-v1-dotnet.md)<br /><br />[Xamarin](quickstart-v1-xamarin.md) |
 | <center>![Webbappar](./media/azure-ad-developers-guide/Web_app.png)<br />Webbappar</center> | [Översikt](authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](quickstart-v1-aspnet-webapp.md)<br /><br />[Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](quickstart-v1-openid-connect-code.md) |
-| <center>![Appar med en sida](./media/azure-ad-developers-guide/SPA.png)<br />Appar med en sida</center> | [Översikt](authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |
-| <center>![Webb-API:er](./media/azure-ad-developers-guide/Web_API.png)<br />Webb-API:er</center> | [Översikt](authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[Node.js](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
-| <center>![Tjänst-till-tjänst](./media/azure-ad-developers-guide/Service_App.png)<br />Tjänst-till-tjänst</center> | [Översikt](authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#daemon-applications-accessing-web-apis-with-the-applications-identity)|  |
+| <center>![Appar med en sida](./media/azure-ad-developers-guide/SPA.png)<br />Appar med en sida</center> | [Översikt](authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](quickstart-v1-angularjs-spa.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |
+| <center>![Webb-API:er](./media/azure-ad-developers-guide/Web_API.png)<br />Webb-API:er</center> | [Översikt](authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](quickstart-v1-dotnet-webapi.md)<br /><br />[Node.js](quickstart-v1-nodejs-webapi.md) | &nbsp; |
+| <center>![Tjänst-till-tjänst](./media/azure-ad-developers-guide/Service_App.png)<br />Tjänst-till-tjänst</center> | [Översikt](authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)|  |
 |  |  |  |  |  |
 
 ## <a name="how-to-guides"></a>Instruktionsguider
@@ -54,8 +54,8 @@ Guiderna nedan vägleder dig igenom några av de vanligaste uppgifterna i Azure 
 |                                                                           |  |
 |---------------------------------------------------------------------------| --- |
 |[Programregistrering](quickstart-v1-integrate-apps-with-azure-ad.md)           | Så här registrerar du ett program i Azure AD. |
-|[Program för flera innehavare](active-directory-devhowto-multi-tenant-overview.md)    | Så här loggar du in med valfritt Microsoft-arbetskonto. |
-|[OAuth och OpenID Connect-protokoll](active-directory-protocols-openid-connect-code.md)| Så här loggar du in användare och anropar webb-API:er med Microsofts autentiseringsprotokoll. |
+|[Program för flera innehavare](howto-convert-app-to-be-multi-tenant.md)    | Så här loggar du in med valfritt Microsoft-arbetskonto. |
+|[OAuth och OpenID Connect-protokoll](v1-protocols-openid-connect-code.md)| Så här loggar du in användare och anropar webb-API:er med Microsofts autentiseringsprotokoll. |
 |  |  |
 
 ## <a name="reference-topics"></a>Referensämnen
@@ -64,7 +64,7 @@ Följande artiklar innehåller detaljerad information om API:er, protokollmeddel
 |                                                                                   | |
 | ----------------------------------------------------------------------------------| --- |
 | [Autentiseringsbibliotek (ADAL)](active-directory-authentication-libraries.md)   | En översikt över de bibliotek och SDK:er som tillhandahålls av Azure AD. |
-| [Kodexempel](active-directory-code-samples.md)                                  | En lista över alla Azure AD-kodexempel. |
+| [Kodexempel](sample-v1-code.md)                                  | En lista över alla Azure AD-kodexempel. |
 | [Ordlista](active-directory-dev-glossary.md)                                      | Termer och definitioner av ord som används i den här dokumentationen. |
 |  |  |
 

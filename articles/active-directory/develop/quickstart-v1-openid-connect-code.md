@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8bba58c3493bc8adc17c5d4bca103326808d5b8b
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 91cb7df9d38432d660930c21f6a9d0d64215d6e6
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506642"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577447"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD-Node.js-webbapp, komma igång
 Här kan vi använda Passport för att:
@@ -414,6 +414,6 @@ Det färdiga exemplet (utan dina konfigurationsvärden) är tillgängligt som re
 
 Du kan nu gå vidare till mer avancerade ämnen. Du kanske vill prova:
 
-[Skydda ett webb-API med Azure AD](active-directory-devquickstarts-webapi-nodejs.md)
+[Skydda ett webb-API med Azure AD](quickstart-v1-nodejs-webapi.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

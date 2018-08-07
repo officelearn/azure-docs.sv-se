@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b97a0fffa6f21e7a8b06dc406711f249310fd73
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 30ca8fe89105584b1062c5a068e107bdfde154fc
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431597"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579528"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autentisera med ett privat Docker-behållarregister
 
@@ -36,7 +36,7 @@ När du loggar in med `az acr login`, CLI använder token skapas när du körde 
 
 ## <a name="service-principal"></a>Tjänstens huvudnamn
 
-Du kan tilldela en [tjänstens huvudnamn](../active-directory/develop/active-directory-application-objects.md) till ditt register och programmet eller tjänsten kan använda den för fjärradministrerad autentisering. Tillåt att tjänstens huvudnamn [rollbaserad åtkomst](../role-based-access-control/role-assignments-portal.md) till ett register och du kan tilldela flera tjänstens huvudnamn till ett register. Flera tjänstens huvudnamn kan du definiera olika åtkomst till olika program.
+Du kan tilldela en [tjänstens huvudnamn](../active-directory/develop/app-objects-and-service-principals.md) till ditt register och programmet eller tjänsten kan använda den för fjärradministrerad autentisering. Tillåt att tjänstens huvudnamn [rollbaserad åtkomst](../role-based-access-control/role-assignments-portal.md) till ett register och du kan tilldela flera tjänstens huvudnamn till ett register. Flera tjänstens huvudnamn kan du definiera olika åtkomst till olika program.
 
 Tillgängliga roller är:
 

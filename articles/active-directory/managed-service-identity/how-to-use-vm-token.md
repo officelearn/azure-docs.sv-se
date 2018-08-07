@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: ee4702733e775051cbbcace109bd1a7ffdf50e9c
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1c8fb3314c6ee446de08433f13ed169c6c52e3db
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325463"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578389"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Hur du använder en Azure VM hanterad tjänstidentitet (MSI) för tokenförvärv 
 
@@ -44,7 +44,7 @@ Om du planerar att använda Azure PowerShell-exempel i den här artikeln, måste
 
 ## <a name="overview"></a>Översikt
 
-Ett klientprogram kan begära en hanterad tjänstidentitet [appspecifika åtkomsttoken](../develop/active-directory-dev-glossary.md#access-token) för att komma åt en viss resurs. Token är [baserat på MSI-tjänstobjektet](overview.md#how-does-it-work). Därför finns inget behov för klienten att registrera sig för att hämta en åtkomsttoken under eget huvudnamn för tjänsten. Token är lämpliga för en ägartoken i [tjänst-till-tjänst-anrop som kräver klientautentiseringsuppgifter](../develop/active-directory-protocols-oauth-service-to-service.md).
+Ett klientprogram kan begära en hanterad tjänstidentitet [appspecifika åtkomsttoken](../develop/active-directory-dev-glossary.md#access-token) för att komma åt en viss resurs. Token är [baserat på MSI-tjänstobjektet](overview.md#how-does-it-work). Därför finns inget behov för klienten att registrera sig för att hämta en åtkomsttoken under eget huvudnamn för tjänsten. Token är lämpliga för en ägartoken i [tjänst-till-tjänst-anrop som kräver klientautentiseringsuppgifter](../develop/v1-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |

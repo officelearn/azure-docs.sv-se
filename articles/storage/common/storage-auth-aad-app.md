@@ -3,17 +3,17 @@ title: Autentisera med Azure Active Directory att komma åt data för blob och k
 description: Använda Azure Active Directory för att autentisera från inom ett program och sedan godkänna förfrågningar till Azure Storage-resurser (förhandsversion).
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: tamram
-ms.openlocfilehash: f8c798307f27c5f96b15517e1f5bfb9d1762fec2
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.component: common
+ms.openlocfilehash: d065dd6db361c5c348713c6e1ceabe3a4c42c312
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506201"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577712"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>Autentisera med Azure Active Directory från en Azure Storage-program (förhandsversion)
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du konfigurerar ditt program för autentisering med 
 
 Innan du kan autentisera ett säkerhetsobjekt från ditt Azure Storage-program, konfigurera rollbaserad inställningar för åtkomstkontroll (RBAC) för det säkerhetsobjektet. Azure Storage definierar RBAC-roller som omfattar behörigheter för behållare och köer. När RBAC-roll tilldelas till ett säkerhetsobjekt, beviljas det säkerhetsobjektet åtkomst till resursen. Mer information finns i [hantera åtkomsträttigheter till storage-data med RBAC (förhandsversion)](storage-auth-aad-rbac.md).
 
-En översikt över kod grant-flöde för OAuth 2.0, se [flöde beviljat med auktorisera åtkomst till Azure Active Directory-webbprogram med hjälp av OAuth 2.0-koden](../../active-directory/develop/active-directory-protocols-oauth-code.md).
+En översikt över kod grant-flöde för OAuth 2.0, se [flöde beviljat med auktorisera åtkomst till Azure Active Directory-webbprogram med hjälp av OAuth 2.0-koden](../../active-directory/develop/v1-protocols-oauth-code.md).
 
 > [!IMPORTANT]
 > Den här förhandsversionen är endast avsedd för icke-produktion användning. Produktion servicenivåavtal (SLA) är inte tillgängliga förrän Azure AD-integrering för Azure Storage har deklarerats allmänt tillgänglig. Om Azure AD-integrering inte stöds ännu för ditt scenario, fortsätta att använda auktorisering för delad nyckel eller SAS-token i dina program. Mer information om förhandsversionen finns [autentisera åtkomsten till Azure Storage med Azure Active Directory (förhandsversion)](storage-auth-aad.md).
@@ -34,7 +34,7 @@ En översikt över kod grant-flöde för OAuth 2.0, se [flöde beviljat med aukt
 
 Det första steget i att använda Azure AD för att bevilja åtkomst till lagringsresurser registrerar ditt klientprogram i en Azure AD-klient. Registrera ditt program kan du anropa Azure [Active Directory Authentication Library](../../active-directory/active-directory-authentication-libraries.md) (ADAL) från din kod. ADAL tillhandahåller ett API för att autentisera med Azure AD från ditt program. Registrera ditt program kan du också att auktorisera anrop från programmet till Azure Storage API: er med åtkomsttoken.
 
-När du registrerar ditt program kan ange du information om ditt program till Azure AD. Sedan Azure AD tillhandahåller ett klient-ID (även kallat en *program-ID*) att du använder för att associera ditt program med Azure AD vid körning. Läs mer om klient-ID i [program och tjänstobjekt i Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md).
+När du registrerar ditt program kan ange du information om ditt program till Azure AD. Sedan Azure AD tillhandahåller ett klient-ID (även kallat en *program-ID*) att du använder för att associera ditt program med Azure AD vid körning. Läs mer om klient-ID i [program och tjänstobjekt i Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
 Registrera ditt Azure Storage-program genom att följa stegen i den [lägga till ett program](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) i avsnittet [integrera program med Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Om du registrerar ditt program som ett internt program, kan du ange en giltig URI för den **omdirigerings-URI**. Värdet behöver inte vara en verklig slutpunkt.
 

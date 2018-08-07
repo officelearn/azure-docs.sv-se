@@ -1,62 +1,57 @@
 ---
-title: Stöd för Cross-Origin Resource delning (CORS) | Microsoft Docs
+title: Cross-Origin Resource Sharing (CORS) Support | Microsoft Docs
 description: Lär dig hur du aktiverar CORS-stöd för Microsoft Azure Storage-tjänster.
 services: storage
-documentationcenter: .net
 author: cbrooksmsft
-manager: carmonm
-editor: tysonn
-ms.assetid: a0229595-5b64-4898-b8d6-fa2625ea6887
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
-ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.component: common
+ms.openlocfilehash: fd5df50128885f6a96e68c8ad46204bc21d80264
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23873977"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39531861"
 ---
-# <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Cross-Origin Resource Sharing (CORS) stöd för Azure Storage-tjänster
-Från och med version 2013-08-15, stöd Azure-lagringstjänster för Cross-Origin Resource Sharing (CORS) för tjänster Blob, tabell, kö och fil. CORS är en HTTP-funktion som gör att ett webbprogram som körs i en domän kan komma åt resurser i en annan domän. Webbläsare som implementerar en säkerhetsbegränsningar som kallas [samma ursprung princip](http://www.w3.org/Security/wiki/Same_Origin_Policy) som förhindrar att en webbsida från anropa API: er i en annan domän. CORS ger ett säkert sätt att tillåta en domän (ursprungsdomän) att anropa API: er i en annan domän. Finns det [CORS-specifikationen](http://www.w3.org/TR/cors/) information om CORS.
+# <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Cross-Origin Resource Sharing (CORS) Support för Azure Storage-tjänster
+Från och med version 2013-08-15, stöder Azure storage-tjänster Cross-Origin Resource Sharing (CORS) för tjänsterna Blob, tabell, kö och filen. CORS är en HTTP-funktion som gör ett webbprogram som körs i en domän att komma åt resurser i en annan domän. Webbläsare implementerar en säkerhetsbegränsning som kallas [princip om samma ursprung](http://www.w3.org/Security/wiki/Same_Origin_Policy) som förhindrar att en webbsida från anropa API: er i en annan domän. CORS erbjuder ett säkert sätt att tillåta en domän (ursprungsdomänen) att anropa API: er i en annan domän. Se den [CORS-specifikationen](http://www.w3.org/TR/cors/) mer information om CORS.
 
-Du kan ange CORS-regler individuellt för varje storage-tjänster genom att anropa [ange egenskaper för Blob-tjänsten](https://msdn.microsoft.com/library/hh452235.aspx), [ange egenskaper för kön Service](https://msdn.microsoft.com/library/hh452232.aspx), och [ange tjänsten Tabellegenskaper](https://msdn.microsoft.com/library/hh452240.aspx). När du har angett CORS-regler för tjänsten kommer en korrekt autentiserad begäran mot tjänsten från en annan domän att utvärderas för att avgöra om det är tillåtet enligt de regler som du har angett.
+Du kan ange CORS-regler individuellt för var och en av storage-tjänster genom att anropa [ange egenskaper för Blob Service](https://msdn.microsoft.com/library/hh452235.aspx), [ange egenskaper för kötjänst](https://msdn.microsoft.com/library/hh452232.aspx), och [ange tabellen tjänstegenskaper](https://msdn.microsoft.com/library/hh452240.aspx). När du har angett CORS-regler för tjänsten kommer en korrekt auktoriserad begäran som görs mot tjänsten från en annan domän att utvärderas för att avgöra om den är tillåten enligt de regler som du har angett.
 
 > [!NOTE]
 > Observera att CORS inte är en autentiseringsmetod. Alla förfrågningar som görs mot en lagringsresurs när CORS är aktiverat måste antingen ha en korrekt autentisering signatur eller måste göras mot en offentlig resurs.
 > 
 > 
 
-## <a name="understanding-cors-requests"></a>Förstå CORS-begäranden
-En CORS-begäran från en ursprungsdomän kan bestå av två separata begäranden:
+## <a name="understanding-cors-requests"></a>Förstå CORS-förfrågningar
+En CORS-förfrågan från en ursprungsdomän får bestå av två separata förfrågningar:
 
-* En preflight-begäran som frågar CORS-begränsningar i tjänsten. Preflight-begäran måste anges om metoden begäran är en [enkel metod](http://www.w3.org/TR/cors/), vilket innebär att GET, HEAD eller POST.
-* Den faktiska begäran som görs mot en resurs.
+* En preflight-begäran, som frågar CORS-begränsningar i tjänsten. Preliminära begäran behövs om metoden för begäran är en [enkel metod](http://www.w3.org/TR/cors/), vilket innebär att GET, HEAD eller POST.
+* Den faktiska begäran som görs mot önskad resurs.
 
-### <a name="preflight-request"></a>Preflight-begäran
-Frågor preflight-begäran CORS-begränsningar som har upprättats för lagring av kontoägaren. Skickar en OPTIONS-begäran som innehåller begärandehuvuden, metod och ursprung domän webbläsaren (eller andra användaragent). Lagringstjänsten utvärderar operationen baserat på en förkonfigurerad uppsättning CORS-regler som anger vilka ursprungsdomäner och metodbegäranden begärandehuvuden kan anges för en faktiska begäran mot en lagringsresurs.
+### <a name="preflight-request"></a>Preliminära begäran
+Preliminära begäran frågorna CORS-begränsningarna som har upprättats för storage-tjänsten som ägare. Webbläsare (eller andra användaragent) skickar du en OPTIONS-begäran som innehåller begärandehuvuden, och det ursprungliga domän. Storage-tjänsten utvärderar åtgärden baserat på en förkonfigurerad uppsättning CORS-regler som anger vilka ursprungsdomäner och metodbegäranden begärandehuvuden kan anges för en faktiska begäran mot en lagringsresurs.
 
-Om CORS är aktiverat för tjänsten och det finns en CORS-regel som matchar begärande-preflight-tjänsten svarar med statuskod 200 (OK) och innehåller nödvändiga Access Control-huvuden i svaret.
+Om CORS har aktiverats för tjänsten och det finns en CORS-regel som matchar den preliminära begäran, tjänsten svarar med statuskod 200 (OK) och innehåller nödvändiga Access Control-huvuden i svaret.
 
-Om CORS inte har aktiverats för tjänsten eller inga CORS-regeln matchar preflight-begäran, svarar tjänsten med statuskod 403 (förbjuden).
+Om CORS inte har aktiverats för tjänsten eller inga CORS-regler matchar preflight-begäran, kommer tjänsten svara med statuskod 403 (förbjudet).
 
-Om OPTIONS-begäran inte innehåller de nödvändiga CORS huvudena (ursprung och-begäran-metoden för åtkomstkontroll rubriker), svarar tjänsten med statuskod: 400 (felaktig begäran).
+Om OPTIONS-begäran inte innehåller nödvändiga CORS-huvuden (ursprung och Access-Control-begäran-Method rubriker), kommer tjänsten svara med statuskod 400 (felaktig begäran).
 
-Observera att en preflight-begäran ska utvärderas mot tjänsten (Blob, köer och tabell) och inte mot den begärda resursen. Ägare måste ha aktiverat CORS som en del av tjänsten kontoegenskaperna för att begäran ska lyckas.
+Observera att en begäran om preliminära utvärderas mot tjänsten (Blob, Queue och Table) och inte mot den begärda resursen. Ägare måste ha aktiverat CORS som en del av tjänsten kontoegenskaperna för begäran om att lyckas.
 
 ### <a name="actual-request"></a>Faktiska begäran
-När preflight-begäran har godkänts och svaret returneras skickar webbläsaren den faktiska begäran mot storage-resursen. Webbläsaren nekar den faktiska begäran omedelbart om preflight-begäran avvisas.
+När preliminära förfrågan har godkänts och svaret returneras kan skickar webbläsaren den faktiska begäran mot till lagringsresursen. Webbläsaren kommer att neka den faktiska begäran omedelbart om preliminära begäran avvisas.
 
-Den faktiska begäranden behandlas som normal begäran mot storage-tjänst. Förekomsten av ursprung huvudet anger att begäran är en CORS-begäran och tjänsten kontrollerar matchande CORS-regler. Om en matchning hittas, Access Control-huvuden läggs till i svaret och skickas tillbaka till klienten. Om en matchning hittas returneras inte CORS-åtkomstkontroll-huvuden.
+Den faktiska begäran behandlas som normala begäran mot lagringstjänsten. Förekomst av rubriken ursprung anger att begäran är en CORS-begäran och tjänsten kontrollerar matchande CORS-regler. Om en matchning hittas, Access Control-huvuden läggs till svaret och skickas tillbaka till klienten. Om en matchning hittas returneras inte CORS Access-Control-huvuden.
 
-## <a name="enabling-cors-for-the-azure-storage-services"></a>Hur du aktiverar CORS för Azure Storage-tjänster
-CORS-regler är inställda på tjänstnivå, så du behöver aktivera eller inaktivera CORS för varje tjänst (Blob, köer och tabellen) separat. Som standard inaktiveras CORS för varje tjänst. Om du vill aktivera CORS du måste ange egenskaperna lämplig tjänst som använder version 2013-08-15 eller senare, och Lägg till CORS-regler i egenskaperna för tjänsten. Mer information om hur du aktiverar eller inaktiverar CORS för en tjänst och hur du konfigurerar CORS-regler, se [ange egenskaper för Blob-tjänsten](https://msdn.microsoft.com/library/hh452235.aspx), [ange egenskaper för kön Service](https://msdn.microsoft.com/library/hh452232.aspx), och [ange Tabelltjänsten Egenskaper för](https://msdn.microsoft.com/library/hh452240.aspx).
+## <a name="enabling-cors-for-the-azure-storage-services"></a>Aktivera CORS för Azure Storage-tjänster
+CORS-regler är inställda på tjänstnivå, så du måste aktivera eller inaktivera CORS för varje tjänst (Blob, Queue och Table) separat. Som standard inaktiveras CORS för varje tjänst. Om du vill aktivera CORS, måste du ange egenskaper för lämplig tjänst som använder version 2013-08-15 eller senare, och Lägg till CORS-regler i Tjänstegenskaperna för. Mer information om hur du aktiverar eller inaktiverar CORS för en tjänst och hur du ställer in CORS-regler, se [ange egenskaper för Blob Service](https://msdn.microsoft.com/library/hh452235.aspx), [ange egenskaper för kötjänst](https://msdn.microsoft.com/library/hh452232.aspx), och [ange Table Service Egenskaper för](https://msdn.microsoft.com/library/hh452240.aspx).
 
-Här är ett exempel på en enda CORS-regel som angetts via en åtgärden Ange egenskaper för tjänsten:
+Här är ett exempel på en enda CORS-regel som angetts via en ange egenskaper för filtjänsten:
 
 ```xml
 <Cors>    
@@ -70,39 +65,39 @@ Här är ett exempel på en enda CORS-regel som angetts via en åtgärden Ange e
 <Cors>
 ```
 
-Varje element som ingår i regeln CORS beskrivs nedan:
+Varje element som ingår i CORS-regel beskrivs nedan:
 
-* **AllowedOrigins**: ursprungsdomäner som tillåts att begära mot lagringstjänsten via CORS. Den ursprung är den domän som begäran kommer från. Observera att ursprung måste vara en exakt skiftlägeskänslig matchning med ursprung som användaren ålder skickar till tjänsten. Du kan också använda jokertecknet ' *' så att alla ursprungsdomäner att göra förfrågningar via CORS. I exemplet ovan är domänerna [ http://www.contoso.com ](http://www.contoso.com) och [ http://www.fabrikam.com ](http://www.fabrikam.com) kan göra förfrågningar till tjänsten med hjälp av CORS.
-* **AllowedMethods**: metoder (http-begäran verb) som den ursprungliga domänen kan använda för en CORS-begäran. I exemplet ovan tillåts bara PUT- och GET-begäranden.
-* **AllowedHeaders**: huvuden för begäran som den ursprungliga domänen får ange på CORS-begäran. I exemplet ovan tillåts alla metadata huvuden som börjar med x-ms-metadata, x-ms-meta-mål- och x-ms-meta-abc. Observera att jokertecknet ' *' anger att alla huvud som börjar med det angivna prefixet tillåts.
-* **ExposedHeaders**: svarshuvuden som kan skickas som svar på begäran CORS och visas av webbläsaren att utfärdaren begäran. I exemplet ovan instrueras webbläsaren att exponera en rubrik som börjar med x-ms-metadata.
-* **MaxAgeInSeconds**: den maximala tiden att webbläsaren ska cachelagrar Preflight-alternativ för begäran.
+* **AllowedOrigins**: ursprungsdomäner som tillåts att göra en begäran mot lagringstjänsten via CORS. Den ursprungliga domänen är den domän som förfrågan kommer från. Observera att ursprunget måste vara en skiftlägeskänslig matchning med ursprung som användaren ålder skickar till tjänsten. Du kan också använda jokertecknet ”*” så att alla ursprungsdomäner att göra förfrågningar via CORS. I exemplet ovan domänerna [ http://www.contoso.com ](http://www.contoso.com) och [ http://www.fabrikam.com ](http://www.fabrikam.com) kan göra förfrågningar till tjänsten med hjälp av CORS.
+* **AllowedMethods**: de metoder (HTTP-förfrågningsverb) som ursprungsdomänen kan använda för en CORS-förfrågan. I exemplet ovan tillåts endast PUT- och GET-begäranden.
+* **AllowedHeaders**: begärandehuvuden som ursprungsdomänen kan ange vid CORS-förfrågan. I exemplet ovan får alla rubriker för arbetsflödesmetadata som börjar med x-ms-metadata, x-ms-meta-mål och x-ms-meta-abc. Observera att jokertecknet ”*” anger att alla rubrik som börjar med det angivna prefixet tillåts.
+* **ExposedHeaders**: de svarshuvuden som kan skickas som svar på CORS-förfrågan och visas i webbläsaren för utfärdaren av förfrågan. I exemplet ovan instrueras webbläsaren att exponera alla rubrik som börjar med x-ms-metadata.
+* **MaxAgeInSeconds**: den längsta tid att en webbläsare får cachelagra den preliminära OPTIONS-begäran.
 
-Azure-lagringstjänster stöd för att ange prefix huvuden för både den **AllowedHeaders** och **ExposedHeaders** element. Du kan ange ett gemensamt prefix till den kategorin för att tillåta en kategori av huvuden. Ange till exempel *x-ms-meta** som ett prefix huvud upprättar en regel som matchar alla huvuden som börjar med x-ms-metadata.
+Azure storage-tjänster stöder konfiguration av återskrivningscachens sidhuvuden för både den **AllowedHeaders** och **ExposedHeaders** element. Du kan ange ett vanligt prefix till den kategorin för att tillåta en kategori med rubriker. Till exempel ange *x-ms-meta** som ett prefix huvud upprättar en regel som matchar alla rubriker som börjar med x-ms-metadata.
 
-Följande begränsningar gäller CORS-regler:
+Följande begränsningar gäller för CORS-regler:
 
-* Du kan ange upp till fem CORS-regler per lagringstjänsten (Blob, tabeller och köer).
-* Den maximala storleken för alla CORS regler inställningar på begäran, exklusive XML-taggar får inte överstiga 2 KB.
-* Längden på ett tillåtna sidhuvud, exponerade sidhuvud eller tillåtna ursprung får innehålla högst 256 tecken.
-* Tillåtna sidhuvuden och exponerade huvuden kan vara antingen:
-  * Literalen sidhuvud, där exakt huvudets namn tillhandahålls som **x-ms-meta-bearbetas**. Högst 64 literal huvuden kan anges i begäran.
-  * Prefixet sidhuvud, där prefixet huvudet tillhandahålls som ** x-ms-meta-data ***. Ange ett prefix i det här sättet kan eller visar de huvuden som börjar med det angivna prefixet. Högst två prefix huvuden kan anges i begäran.
-* Metoder (eller HTTP-verb) anges i den **AllowedMethods** element måste följa de metoder som stöds av Azure storage-tjänst API: er. Metoder som stöds är DELETE, GET, HEAD, MERGE, POST, alternativ och PUT.
+* Du kan ange upp till fem CORS-regler per lagringstjänst (Blob, tabell och kö).
+* Den maximala storleken för alla CORS-regler inställningar på begäran, exklusive XML-taggar, bör inte överskrida 2 KB.
+* Längden på en tillåtna sidhuvud, exponerade rubrik eller tillåtna ursprung får innehålla högst 256 tecken.
+* Tillåtna huvuden och exponerade rubriker kan vara antingen:
+  * Literal rubriker, där det exakta rubriknamnet anges, till exempel **x-ms-meta-bearbetas**. Högst 64 literal sidhuvuden kan anges i begäran.
+  * Prefixet rubriker, där ett prefix på rubriken anges, till exempel ** x-ms-meta-data ***. Ange ett prefix i det här sättet tillåter eller visar alla rubriker som börjar med det angivna prefixet. Högst två sidhuvuden kan anges i begäran.
+* De metoder (eller HTTP-verb) som anges i den **AllowedMethods** elementet måste uppfylla de metoder som stöds av Azure storage-tjänstens API: er. Metoder som stöds är DELETE, GET, HEAD, MERGE, POST, alternativ och PUT.
 
-## <a name="understanding-cors-rule-evaluation-logic"></a>Förstå CORS regellogik utvärdering
-När storage-tjänst tar emot en begäran preliminära eller faktiska, utvärderar begäran baserat på CORS-regler som du har skapat för tjänsten via åtgärden Ange egenskaper för tjänsten. CORS-regler utvärderas i den ordning som de har ställts in i begärandetexten för åtgärden Ange egenskaper för tjänsten.
+## <a name="understanding-cors-rule-evaluation-logic"></a>Förstå utvärderingslogiken för CORS-regel
+När en tjänst tar emot en begäran om preliminära eller verklig, utvärderas den begäran som baserat på CORS-regler som du har angett för tjänsten via åtgärden Ange egenskaper. CORS-reglerna utvärderas i den ordning som de har ställts in i begärandetexten för åtgärden Ange egenskaper för filtjänsten.
 
 CORS-regler utvärderas enligt följande:
 
-1. Först ursprungsdomän i begäran kontrolleras mot de domäner som anges för den **AllowedOrigins** element. Om ursprungsdomänen ingår i listan, eller alla domäner som är tillåtna för jokertecknet ' *', regler utvärdering fortsätter. Om den ursprungliga domänen inte finns, misslyckas denna begäran.
+1. Först ursprungsdomänen för begäran kontrolleras mot de domäner som anges för den **AllowedOrigins** element. Om den ursprungliga domänen ingår i listan eller alla domäner tillåts med jokertecknet ”*”, regler utvärdering fortsätter. Om den ursprungliga domänen inte finns, misslyckas denna begäran.
 2. Därefter metod (eller HTTP-verb) för begäran kontrolleras mot de metoder som anges i den **AllowedMethods** element. Om metoden ingår i listan, fortsätter regler utvärdering; annars misslyckas begäran.
-3. Om begäran matchar en regel i sin ursprungliga domän och dess metod, väljs regeln att bearbeta begäran och inga ytterligare regler utvärderas. Innan begäran kan lyckas men huvuden som anges i begäran kontrolleras mot de rubriker som anges i den **AllowedHeaders** element. Om huvuden som skickas inte matchar de tillåtna rubrikerna, misslyckas denna begäran.
+3. Om begäran matchar en regel i sin ursprungliga domän och dess metod, väljs den regeln att bearbeta begäran och inga ytterligare regler utvärderas. Innan begäran kan fungera, men alla rubriker som anges på begäran kontrolleras mot de rubriker som anges i den **AllowedHeaders** element. Om de rubriker som skickas inte överensstämmer med tillåtna huvuden, misslyckas denna begäran.
 
-Eftersom regler bearbetas i den ordning som de finns i frågans brödtext rekommenderar bästa praxis att du anger de mest restriktiva reglerna med avseende på ursprung först i listan så att dessa utvärderas först. Ange regler som är mindre restriktivt – till exempel en regel som tillåter alla ursprung – i slutet av listan.
+Eftersom reglerna bearbetas i den ordning som de finns i begärandetexten, rekommenderar bästa praxis att du anger de mest restriktiva reglerna med avseende på ursprung först i listan så att dessa utvärderas först. Ange regler som är mindre restriktivt – till exempel en regel som tillåter alla ursprung – i slutet av listan.
 
-### <a name="example--cors-rules-evaluation"></a>Exempel – CORS regler utvärdering
-I följande exempel visas en partiell begärantext för en åtgärd för att ange CORS-regler för storage-tjänster. Se [ange egenskaper för Blob-tjänsten](https://msdn.microsoft.com/library/hh452235.aspx), [ange egenskaper för kön Service](https://msdn.microsoft.com/library/hh452232.aspx), och [ange egenskaper för tabellen Service](https://msdn.microsoft.com/library/hh452240.aspx) information om hur du skapar begäran.
+### <a name="example--cors-rules-evaluation"></a>Exempel – CORS-regler utvärdering
+I följande exempel visas en partiell förfrågans brödtext för en åtgärd för att ange CORS-regler för storage-tjänster. Se [ange egenskaper för Blob Service](https://msdn.microsoft.com/library/hh452235.aspx), [ange egenskaper för kötjänst](https://msdn.microsoft.com/library/hh452232.aspx), och [ange tabellen tjänstegenskaper](https://msdn.microsoft.com/library/hh452240.aspx) för information om hur du skapar begäran.
 
 ```xml
 <Cors>
@@ -130,45 +125,45 @@ I följande exempel visas en partiell begärantext för en åtgärd för att ang
 </Cors>
 ```
 
-Överväg därefter följande ansökningar om CORS:
+Därefter ska du tänka på följande CORS-begäranden:
 
 | Förfrågan |  |  | Svar |  |
 | --- | --- | --- | --- | --- |
-| **Metoden** |**Origin** |**Huvuden för begäran** |**Regeln matchar** |**Resultat** |
+| **Metoden** |**Ursprung** |**Begärandehuvuden** |**Regeln matchar** |**Resultatet** |
 | **PUT** |http://www.contoso.com |x-ms-blob-content-type |Första regeln |Lyckades |
 | **GET** |http://www.contoso.com |x-ms-blob-content-type |Andra regeln |Lyckades |
 | **GET** |http://www.contoso.com |x-ms-client-request-id |Andra regeln |Fel |
 
-Den första begäranden matchar den första regeln – den ursprungliga domänen matchar tillåtna ursprung, metoden matchar tillåtna metoder och huvudet matchar tillåtna huvuden – och så lyckas.
+Den första begäran matchar den första regeln – den ursprungliga domänen matchar tillåtna ursprung, metoden matchar tillåtna metoder och rubriken matchar tillåtna huvuden – och därför lyckas.
 
-Andra begäran matchar inte den första regeln eftersom metoden inte matchar de tillåtna metoderna. Den, men matchar den andra regeln, så den lyckas.
+Andra begäran matchar inte den första regeln eftersom metoden inte matchar de tillåtna metoderna. Den, men matchar den andra regeln, så att det lyckas.
 
-Tredje begäran matchar den andra regeln i dess ursprungsdomän och metod, så inga ytterligare regler utvärderas. Men den *x-ms-client-request-id-huvudet* tillåts inte av den andra regeln, så begäran misslyckas trots semantiken för tredje regeln skulle användas till att lyckas.
+Tredje begäran matchar den andra regeln i sin ursprungliga domän och metod, så att inga ytterligare regler utvärderas. Men den *huvudet för x-ms-client-request-id* tillåts inte av den andra regeln, så att begäran misslyckas trots semantiken för tredje regeln skulle användas till att lyckas.
 
 > [!NOTE]
-> Även om det här exemplet illustrerar en mindre begränsande regel innan en mer begränsande, vanligtvis det bästa sättet är att visa de mest restriktiva reglerna först.
+> Även om det här exemplet visar en mindre begränsande regel innan en mer begränsande, i allmänhet är det bästa sättet att visa de mest restriktiva reglerna först.
 > 
 > 
 
-## <a name="understanding-how-the-vary-header-is-set"></a>Förstå hur Vary-huvud har angetts
-Den *variera* huvud är en standard HTTP/1.1-rubrik som består av en uppsättning begäran huvudfält som meddela agenten webbläsare eller användare om de kriterier som valts av servern vid bearbetning av begäran. Den *variera* huvud används huvudsakligen för cachelagring av proxyservrar, webbläsare och andra CDN-lösningar, som använder den för att fastställa hur svaret ska cachelagras. Mer information finns i specifikationen för den [Vary-huvud](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+## <a name="understanding-how-the-vary-header-is-set"></a>Förstå hur rubriken kan variera har angetts
+Den *variera* rubriken är en standard HTTP/1.1-rubrik som består av en uppsättning begäran huvudfält som rekommenderar webbläsare eller användaren agent om de kriterier som valdes av servern för att bearbeta begäran. Den *variera* huvud används främst för cachelagring av proxyservrar, webbläsare och CDN, som använder den för att fastställa hur svaret ska cachelagras. Mer information finns i specifikationen för den [variera rubrik](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
-När webbläsaren eller en annan användaragent cachelagrar svaret från en CORS-begäran, cachelagras ursprungsdomänen som tillåtna ursprung. När en domän skickar samma begäran om en lagringsresurs när cachen är aktiv, hämtar användaragenten cachelagrade ursprungliga domän. Den andra domänen matchar inte domänen cachelagrade, så misslyckas med begäran när den annars skulle lyckas. I vissa fall anger Azure Storage Vary-huvud till **ursprung** instruera användaragent skicka efterföljande CORS-begäran till tjänsten när domänen begärande skiljer sig från det cachelagrade ursprunget.
+När webbläsaren eller en annan användaragenten cachelagrar svaret från en CORS-förfrågan, cachelagras ursprungsdomänen som tillåtna ursprung. När en domän skickar samma begäran om en resurs för lagring när cachen är aktiv, hämtar användaragenten cachelagrade ursprungsdomänen. Den andra domänen matchar inte den cachelagra domänen, så misslyckas med begäran när det annars skulle lyckas. I vissa fall kan Azure Storage anger variera rubriken till **ursprung** att instruera användaragenten att skicka efterföljande CORS-begäran till tjänsten när du begär domänen skiljer sig från det cachelagrade ursprunget.
 
-Azure Storage-anger den *variera* sidhuvud till **ursprung** för faktiska GET/HEAD-begäranden i följande fall:
+Azure Storage-uppsättningar på *variera* sidhuvud till **ursprung** för faktiska GET/HEAD-begäranden i följande fall:
 
-* När begäran ursprung matchar exakt tillåtna ursprung definieras av en regel för CORS. För att vara en exakt matchning CORS regeln inte innehåller jokertecken ' * ' tecken.
-* Det finns ingen regel som matchar begäran ursprung, men CORS är aktiverat för storage-tjänst.
+* När begäran ursprunget exakt matchar den tillåtna ursprung som definieras av en CORS-regel. För att vara en exakt matchning CORS-regel inte innehåller jokertecken ' * ' tecken.
+* Det finns ingen regel som matchar begäran ursprung, men CORS är aktiverat för storage-tjänsten.
 
-I de fall där en GET/HEAD-begäran matchar en CORS-regel som tillåter alla ursprung, anger svaret att alla ursprung är tillåtna och agent användarcachen tillåter efterföljande förfrågningar från alla ursprungsdomän när cachen är aktiv.
+Svaret anger att alla ursprung är tillåtna och agenten användarcachen tillåter efterföljande förfrågningar från alla ursprungsdomänen när cachen är aktiv i fall där en GET/HEAD-begäran matchar en CORS-regel som tillåter alla ursprung.
 
-Observera att för begäranden med andra metoder än GET/HEAD, storage-tjänster kommer inte att ange Vary-huvud eftersom svar på dessa metoder inte cachelagras av användaragenter.
+Observera att för begäranden med andra metoder än GET/HEAD, lagringstjänsterna ställer inte in rubriken kan variera eftersom svar på dessa metoder inte cachelagras av användaragenter.
 
-Följande tabell visar hur Azure storage svarar på GET/HEAD-begäranden baserat på de tidigare nämnda fall:
+Följande tabell visar hur Azure storage kommer att besvara GET/HEAD-begäranden baserat på de tidigare nämnda fall:
 
-| Förfrågan | Kontoinställningen och resultat av utvärderingen av distributionsregeln |  |  | Svar |  |  |
+| Förfrågan | Kontoinställningen och resultatet av utvärderingen av distributionsregeln |  |  | Svar |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **Ursprung huvudet finns på begäran** |**CORS-regler som angetts för denna tjänst** |**Det finns matchande regel som tillåter alla origins(*)** |**Matchande regel som finns för ursprung exakt matchning** |**Svaret innehåller Vary-huvudet inställt till ursprung** |**Svaret innehåller Access Control-tillåtna-ursprung ”: *”** |**Svaret innehåller Access-Control-exponeras-rubriker** |
+| **Ursprung rubriken på begäran** |**CORS-regler som angetts för den här tjänsten** |**Det finns matchande regel som tillåter alla origins(*)** |**Matchande regel som finns för exakta ursprung matchning** |**Svaret innehåller variera rubrikuppsättning till ursprung** |**Svaret innehåller Access-Control-tillåts-ursprung ”: *”** |**Svaret innehåller Access-Control-exponeras-huvuden** |
 | Nej |Nej |Nej |Nej |Nej |Nej |Nej |
 | Nej |Ja |Nej |Nej |Ja |Nej |Nej |
 | Nej |Ja |Ja |Nej |Nej |Ja |Ja |
@@ -177,17 +172,17 @@ Följande tabell visar hur Azure storage svarar på GET/HEAD-begäranden baserat
 | Ja |Ja |Nej |Nej |Ja |Nej |Nej |
 | Ja |Ja |Ja |Nej |Nej |Ja |Ja |
 
-## <a name="billing-for-cors-requests"></a>Fakturering för CORS-begäranden
-Lyckad preflight begär debiteras om du har aktiverat CORS för lagringstjänster för ditt konto (genom att anropa [ange egenskaper för Blob-tjänsten](https://msdn.microsoft.com/library/hh452235.aspx), [ange egenskaper för kön Service](https://msdn.microsoft.com/library/hh452232.aspx), eller [Ange egenskaper för tabellen](https://msdn.microsoft.com/library/hh452240.aspx)). För att minimera kostnader, bör du ställa av **MaxAgeInSeconds** element i din CORS-regler till ett högt värde så att användaragenten cachelagrar begäran.
+## <a name="billing-for-cors-requests"></a>Faktureringen för CORS-förfrågningar
+Lyckad preflight-begäranden, faktureras om du har aktiverat CORS om storage-tjänster för ditt konto (genom att anropa [ange egenskaper för Blob Service](https://msdn.microsoft.com/library/hh452235.aspx), [ange egenskaper för kötjänst](https://msdn.microsoft.com/library/hh452232.aspx), eller [Ange egenskaper för tabellen](https://msdn.microsoft.com/library/hh452240.aspx)). Överväg att ställa in för att minimera kostnader, den **MaxAgeInSeconds** element i din CORS-regler till ett stort värde så att användaragenten cachelagrar begäran.
 
-Kommer inte att debiteras misslyckade preflight-begäranden.
+Misslyckade preliminära förfrågningar faktureras inte.
 
 ## <a name="next-steps"></a>Nästa steg
-[Ange egenskaper för Blob-tjänst](https://msdn.microsoft.com/library/hh452235.aspx)
+[Ange egenskaper för Blob Service](https://msdn.microsoft.com/library/hh452235.aspx)
 
-[Ange egenskaper för kön](https://msdn.microsoft.com/library/hh452232.aspx)
+[Ange egenskaper för kötjänst](https://msdn.microsoft.com/library/hh452232.aspx)
 
-[Ange egenskaper för tabellen](https://msdn.microsoft.com/library/hh452240.aspx)
+[Ange egenskaper för tabell](https://msdn.microsoft.com/library/hh452240.aspx)
 
 [W3C Cross-Origin Resource Sharing specifikation](http://www.w3.org/TR/cors/)
 

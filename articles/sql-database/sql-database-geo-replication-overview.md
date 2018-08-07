@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/25/2018
+ms.date: 08/06/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 07c17d248d78313f1c5f6f1025ae06a623b75944
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 3007227808fd7fc4ec185b87a8a44c4497c66597
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259355"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579511"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Översikt: Active geo-replikering och automatisk redundans-grupper
 Aktiv geo-replikering är utformad som en företagslösning för affärskontinuitet som kan utföra snabb katastrofåterställning vid avbrott på datacentret skala programmet. Om geo-replikering är aktiverad, kan programmet initiera redundans till en sekundär databas i en annan Azure-region. Upp till fyra sekundära databaser stöds i samma eller olika regioner och de sekundära databaser kan också användas för skrivskyddad åtkomst frågor. Redundansväxlingen måste initieras manuellt av programmet eller användaren. Efter redundansväxlingen har den nya primärt slutpunkt för en annan anslutning. 
@@ -123,7 +123,7 @@ För vissa program säkerhetsreglerna kräver att nätverksåtkomsten till datan
 
 ### <a name="using-failover-groups-and-virtual-network-rules"></a>Med redundansgrupper och virtuella Nätverksregler
 
-Om du använder [tjänstslutpunkter i virtuella nätverk och regler](sql-database-vnet-service-endpoint-rule-overview.md) för att begränsa åtkomst till din SQL-databas, Tänk på att varje virtuellt nätverk tjänstslutpunkt gäller för endast en Azure-region. Slutpunkten kan inte andra regioner att godta kommunikation från undernätet. Eftersom växling vid fel leder till SQL-klientsessioner som dirigeras om till servern i regionen för olika (sekundär), misslyckas sessionerna om kommer från en klient utanför den regionen. Därför kan inte automatisk redundans principen aktiveras om deltagande servrar som ingår i de virtuella nätverksreglerna. Följ dessa steg för att stödja manuell växling vid fel:
+Om du använder [tjänstslutpunkter i virtuella nätverk och regler](sql-database-vnet-service-endpoint-rule-overview.md) för att begränsa åtkomst till din SQL-databas, Tänk på att varje virtuellt nätverk tjänstslutpunkt gäller för endast en Azure-region. Slutpunkten kan inte andra regioner att godta kommunikation från undernätet. Därför kan bara de klientprogram som distribuerats i samma region ansluta till den primära databasen. Eftersom växling vid fel leder till SQL-klientsessioner som dirigeras om till servern i regionen för olika (sekundär), misslyckas sessionerna om kommer från en klient utanför den regionen. Därför kan inte automatisk redundans principen aktiveras om deltagande servrar som ingår i de virtuella nätverksreglerna. Följ dessa steg för att stödja manuell växling vid fel:
 
 1.  Etablera redundanta kopior av klientdelen komponenterna i ditt program (web service, VM etc.) i den sekundära regionen
 2.  Konfigurera den [virtuella Nätverksregler](sql-database-vnet-service-endpoint-rule-overview.md) individuellt för primära och sekundära servern

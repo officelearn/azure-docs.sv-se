@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 4fbcfe4198f2655f77b1a61c86092e3ac727ab31
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: a90c60ed6502a36b111d2ecb0f89cb34dc011253
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115729"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577634"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Ansluta Modbus TCP-enheter via en gateway för IoT Edge-enhet
 
@@ -96,7 +96,7 @@ Visa data som kommer genom modbus-modulen:
 docker logs -f modbus
 ```
 
-Du kan också visa telemetri som enheten skickar med hjälp av den [IoT Hub explorer-verktyget](https://github.com/azure/iothub-explorer) eller [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+Du kan också visa telemetri som enheten skickar med hjälp av den [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## <a name="next-steps"></a>Nästa steg
 

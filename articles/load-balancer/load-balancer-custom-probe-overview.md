@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2018
+ms.date: 08/06/2018
 ms.author: kumud
-ms.openlocfilehash: 7366273e30132daf7dc5ea15072c574180d1bc8b
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 69af189ce04d8bcfb2fe0c6842c845cc988b5380
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397300"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577921"
 ---
 # <a name="load-balancer-health-probes"></a>Läsa in Belastningsutjämnarens hälsotillståndsavsökningar
 
@@ -31,7 +31,7 @@ När en hälsoavsökning inte slutar belastningsutjämnaren att skicka nya flöd
 > [!IMPORTANT]
 > Belastningsutjämnarens hälsotillståndsavsökningar kommer från IP-adressen 168.63.129.16 och får inte vara blockerad vid avsökningar för att märka din instans.  Granska [avsökning källans IP-adress](#probesource) mer information.
 
-## <a name="health-probe-types"></a>Avsökningen hälsotyper
+## <a name="types"></a>Avsökningen hälsotyper
 
 Hälsokontroller av slutpunkter kan se alla portar på en backend-instans, inklusive den port där faktiska tjänsten tillhandahålls. Hälsoavsökningen stöder TCP-lyssnare eller HTTP-slutpunkter. 
 
@@ -43,7 +43,7 @@ Du bör inte NAT och proxy som en hälsoavsökning via den instans som tar emot 
 
 Om du vill testa en avsökning uteblivna eller skriva ned en enskild instans kan du använda en säkerhetsgrupp för explicit block hälsoavsökningen (mål eller [källa](#probesource)).
 
-### <a name="tcp-probe"></a>TCP-avsökning
+### <a name="tcpprobe"></a>TCP-avsökning
 
 TCP-avsökningar initiera en anslutning genom att utföra en 3-vägs öppna TCP-handskakningen med definierade porten.  Detta är sedan följt av en fyra sätt Stäng TCP-handskakning.
 
@@ -53,7 +53,7 @@ En TCP-avsökning misslyckas när:
 * TCP-lyssnaren på-instansen svarar inte under tidsperioden.  En avsökning har markerats baserat på antalet misslyckade avsökningen begäranden som har konfigurerats för att gå obesvarade innan du markerar avsökningen.
 * Avsökningen tar emot en TCP återställa från instansen.
 
-### <a name="http-probe"></a>HTTP-avsökning
+### <a name="httpprobe"></a>HTTP-avsökning
 
 HTTP-avsökningar upprätta en TCP-anslutning och utfärda en HTTP GET med den angivna sökvägen. HTTP-avsökningar stöder relativa sökvägar för HTTP GET. Hälsoavsökningen markeras när instansen svarar med en HTTP-statuskod 200 inom tidsgränsen.  HTTP-hälsa avsökningar försöket att kontrollera avsökningsporten konfigurerade hälsotillstånd var 15: e sekund som standard. Minsta avsökningsintervallet är 5 sekunder. Den totala varaktigheten får inte överstiga 120 sekunder. 
 
@@ -67,7 +67,7 @@ En HTTP-avsökning misslyckas när:
 * HTTP-slutpunkt för avsökning inte svarar under den en tidsgräns för 31 sekund. Beroende på timeout-värde som har angetts flera avsökningen begäranden kan gå obesvarade innan avsökningen ska markeras som inte körs (det vill säga innan SuccessFailCount avsökningar skickas).
 * HTTP-avsökning slutpunkt stänger anslutningen via en TCP-återställning.
 
-### <a name="guest-agent-probe-classic-only"></a>Gästen agenten avsökning (klassisk)
+### <a name="guestagent"></a>Gästen agenten avsökning (klassisk)
 
 Molntjänstroller (arbetarroller och webbroller) använda en gästagenten för avsökning övervakning som standard.   Du bör överväga att detta ett alternativ av sista utväg.  Du bör alltid definiera en hälsoavsökning explicit med en TCP eller HTTP-avsökning. En avsökning för gäst-agenten är inte så effektiv som uttryckligen definierade avsökningar de flesta scenarier med programmet.  
 
@@ -81,7 +81,7 @@ Om gästagenten svarar med ett 200 HTTP, skickar belastningsutjämnaren nya flö
 
 När du använder en webbroll webbplats koden vanligtvis körs i w3wp.exe som inte övervakas av Azure fabric eller gäst-agenten. Fel i w3wp.exe (till exempel HTTP 500-svar) inte har rapporterats till gästagenten. Belastningsutjämnaren tar därför inte den instansen bort från roteringen.
 
-## <a name="probe-health"></a>Avsökningen hälsotillstånd
+## <a name="probehealth"></a>Avsökningen hälsotillstånd
 
 TCP- och HTTP-hälsokontroller av slutpunkter anses vara felfria och markera rollinstans som felfri när:
 

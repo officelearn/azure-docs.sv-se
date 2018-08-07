@@ -17,12 +17,12 @@ ms.date: 07/26/2018
 ms.author: celested
 ms.reviewer: jmprieur, andret, nacanuma, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c6429a6fb762e9eb2bac59788c5c4eb0f9c031b2
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: dda0d8e9496eb310f6d2a2791977e9de0eea6503
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505492"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578532"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Autentiseringsscenarier för Azure AD
 
@@ -62,7 +62,7 @@ Nu när du har en översikt över grunderna, läser du avsnitten nedan för att 
 
 ## <a name="claims-in-azure-ad-security-tokens"></a>Anspråk i säkerhetstoken för Azure AD
 
-Säkerhetstoken (åtkomst och ID-token) utfärdat av Azure AD innehåller anspråk eller intyg för information om ämnet som har autentiserats. Dessa anspråk kan användas av programmet för flera olika uppgifter. Program kan till exempel använda anspråk för att validera token, identifiera ämnets directory-klient, Visa användarinformation, fastställa användarens tillstånd och så vidare. Anspråk som finns i alla angivna säkerhetstoken är beroende av typ av token, vilken typ av autentiseringsuppgift som används för att autentisera användaren och programkonfigurationen. En kort beskrivning av varje typ av anspråk som genereras av Azure AD finns i tabellen nedan. Mer information finns i [token och anspråkstyper som stöds](active-directory-token-and-claims.md).
+Säkerhetstoken (åtkomst och ID-token) utfärdat av Azure AD innehåller anspråk eller intyg för information om ämnet som har autentiserats. Dessa anspråk kan användas av programmet för flera olika uppgifter. Program kan till exempel använda anspråk för att validera token, identifiera ämnets directory-klient, Visa användarinformation, fastställa användarens tillstånd och så vidare. Anspråk som finns i alla angivna säkerhetstoken är beroende av typ av token, vilken typ av autentiseringsuppgift som används för att autentisera användaren och programkonfigurationen. En kort beskrivning av varje typ av anspråk som genereras av Azure AD finns i tabellen nedan. Mer information finns i [token och anspråkstyper som stöds](v1-id-and-access-tokens.md).
 
 | Begär | Beskrivning |
 | --- | --- |
@@ -113,7 +113,7 @@ Varje scenario som beskrivs i det här dokumentet innehåller ett avsnitt som be
 
 ## <a name="application-types-and-scenarios"></a>Programtyper och scenarier
 
-Var och en av de scenarier som beskrivs här kan utvecklas med hjälp av olika språk och plattformar. De backas upp av fullständig kodexempel som är tillgängliga i den [kod exempelguide](active-directory-code-samples.md), eller direkt från motsvarande [GitHub-lagringsplatser för exemplet](https://github.com/Azure-Samples?q=active-directory). Dessutom, om ditt program kräver en viss typ eller segment i ett scenario för slutpunkt till slutpunkt, kan i de flesta fall att funktionerna läggas oberoende av varandra. Till exempel om du har ett internt program som anropar ett webb-API kan du kan enkelt lägga till ett webbprogram som också anropar webb-API. Följande diagram illustrerar dessa scenarier och programtyper, och hur du kan lägga till olika komponenter:
+Var och en av de scenarier som beskrivs här kan utvecklas med hjälp av olika språk och plattformar. De backas upp av fullständig kodexempel som är tillgängliga i den [kod exempelguide](sample-v1-code.md), eller direkt från motsvarande [GitHub-lagringsplatser för exemplet](https://github.com/Azure-Samples?q=active-directory). Dessutom, om ditt program kräver en viss typ eller segment i ett scenario för slutpunkt till slutpunkt, kan i de flesta fall att funktionerna läggas oberoende av varandra. Till exempel om du har ett internt program som anropar ett webb-API kan du kan enkelt lägga till ett webbprogram som också anropar webb-API. Följande diagram illustrerar dessa scenarier och programtyper, och hur du kan lägga till olika komponenter:
 
 ![Programtyper och scenarier](./media/authentication-scenarios/application_types_and_scenarios.png)
 
@@ -142,7 +142,7 @@ Det här avsnittet beskriver ett program som autentiserar en användare i en web
 
 #### <a name="code-samples"></a>Kodexempel
 
-Se kodexempel för webbläsaren till webbprogram scenarier. Och kom tillbaka ofta – nya exempel läggs ofta. [Webbprogram](active-directory-code-samples.md#web-applications).
+Se kodexempel för webbläsaren till webbprogram scenarier. Och kom tillbaka ofta – nya exempel läggs ofta. [Webbprogram](sample-v1-code.md#web-applications).
 
 #### <a name="registering"></a>Registrera
 
@@ -155,7 +155,7 @@ Användarens session upphör att gälla när livslängd för token som utfärdas
 
 ### <a name="single-page-application-spa"></a>Ensidesapplikation (SPA)
 
-Det här avsnittet beskriver autentisering för ett enda sidan program som använder Azure AD och OAuth 2.0 implicit auktorisering bevilja för att skydda dess webb-API: et tillbaka avslutas. Den enda sidan program är vanligtvis strukturerade som en JavaScript-presentationslagret (klientdel) som körs i webbläsaren och en webb-API-serverdel som körs på en server och implementerar affärslogiken i programmet. Mer information om implicit auktoriseringsbeviljande och hjälper dig att avgöra om det är bäst för ditt program-scenario genom att se [förstå OAuth2 implicit ge flow i Azure Active Directory](active-directory-dev-understanding-oauth2-implicit-grant.md).
+Det här avsnittet beskriver autentisering för ett enda sidan program som använder Azure AD och OAuth 2.0 implicit auktorisering bevilja för att skydda dess webb-API: et tillbaka avslutas. Den enda sidan program är vanligtvis strukturerade som en JavaScript-presentationslagret (klientdel) som körs i webbläsaren och en webb-API-serverdel som körs på en server och implementerar affärslogiken i programmet. Mer information om implicit auktoriseringsbeviljande och hjälper dig att avgöra om det är bäst för ditt program-scenario genom att se [förstå OAuth2 implicit ge flow i Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
 I det här scenariot, när användaren loggar in, JavaScript klientdelens slutliga användning [Active Directory Authentication Library för JavaScript (ADAL. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) och implicit auktoriseringsbeviljande att hämta ID-token (id_token) från Azure AD. Token cachelagras och klienten kopplas till den på begäran som ägartoken när anrop till dess webb-API-serverdel som skyddas med OWIN-mellanprogrammet. 
 
@@ -176,7 +176,7 @@ I det här scenariot, när användaren loggar in, JavaScript klientdelens slutli
 
 #### <a name="code-samples"></a>Kodexempel
 
-Se kodexempel för enskild sida program (SPA)-scenarier. Se till att Kom tillbaka ofta – nya exempel läggs ofta. [Enkel Sidprogram (SPA)](active-directory-code-samples.md#single-page-applications).
+Se kodexempel för enskild sida program (SPA)-scenarier. Se till att Kom tillbaka ofta – nya exempel läggs ofta. [Enkel Sidprogram (SPA)](sample-v1-code.md#single-page-applications).
 
 #### <a name="registering"></a>Registrera
 
@@ -218,7 +218,7 @@ Om du använder AD-Autentiseringsbibliotek, hanteras de flesta av protokolldetal
 
 #### <a name="code-samples"></a>Kodexempel
 
-Se kodexempel för internt program till webb-API-scenarier. Och kom tillbaka ofta – vi lägga till nya exempel ofta. [Internt program till webb-API](active-directory-code-samples.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
+Se kodexempel för internt program till webb-API-scenarier. Och kom tillbaka ofta – vi lägga till nya exempel ofta. [Internt program till webb-API](sample-v1-code.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
 
 #### <a name="registering"></a>Registrera
 
@@ -271,7 +271,7 @@ Både program-ID och delegerad identitet användartyper diskuteras i flödet ned
 
 #### <a name="code-samples"></a>Kodexempel
 
-Se kodexempel för webbprogram till webb-API-scenarier. Och kom tillbaka ofta – nya exempel läggs ofta. Web [program till webb-API](active-directory-code-samples.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
+Se kodexempel för webbprogram till webb-API-scenarier. Och kom tillbaka ofta – nya exempel läggs ofta. Web [program till webb-API](sample-v1-code.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
 
 #### <a name="registering"></a>Registrera
 
@@ -313,7 +313,7 @@ Flödet beskrivs nedan förutsätter att en användare har autentiserats på ett
 
 #### <a name="code-samples"></a>Kodexempel
 
-Se kodexempel för Daemon eller ett program till webb-API-scenarier. Och kom tillbaka ofta – nya exempel läggs ofta. [Servern eller Daemon-programmet till webb-API](active-directory-code-samples.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+Se kodexempel för Daemon eller ett program till webb-API-scenarier. Och kom tillbaka ofta – nya exempel läggs ofta. [Servern eller Daemon-programmet till webb-API](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
 #### <a name="registering"></a>Registrera
 
@@ -328,7 +328,7 @@ När det första programmet använder dess auktoriseringskod för att hämta en 
 
 [Utvecklarhandbok för Azure Active Directory](azure-ad-developers-guide.md)
 
-[Kodexempel för Azure Active Directory](active-directory-code-samples.md)
+[Kodexempel för Azure Active Directory](sample-v1-code.md)
 
 [Viktig Information om signeringsnyckel i Azure AD](active-directory-signing-key-rollover.md)
 

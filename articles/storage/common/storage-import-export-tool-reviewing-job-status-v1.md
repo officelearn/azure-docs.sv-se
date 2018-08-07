@@ -1,28 +1,22 @@
 ---
-title: Granska jobbstatus Azure Import/Export - v1 | Microsoft Docs
-description: Lär dig hur du använder loggfilerna som skapades när importera och exportera jobbet kördes för att se status för jobbet Import/Export.
+title: Granska jobbstatus för Azure Import/Export - v1 | Microsoft Docs
+description: Lär dig hur du använder loggfilerna som skapades när import eller export-jobbet kördes för att se status för Import/Export-jobbet.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: c69d1d69-6403-4eee-9949-0185faeecfa1
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: muralikk
-ms.openlocfilehash: bdb30bc28c36ab9e969efc8be3b87b97e4027b39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 51a73a4466f3460beead0ce03ddbf011a0b9cc3b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873711"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527669"
 ---
-# <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Granska Azure Import/Export jobbstatus med copy-loggfiler
-När tjänsten Microsoft Azure Import/Export bearbetar enheter som är kopplade till ett jobb som importeras eller exporteras, skriver kopia loggfiler till storage-konto till eller från vilken du importerar eller exporterar BLOB. Loggfilen innehåller detaljerad statusinformation om varje fil som importeras eller exporteras. URL till en loggfil för varje kopia returneras när du frågar status för slutförda jobb. Se [Get Job](/rest/api/storageservices/Get-Job3) för mer information.  
+# <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Granska Azure Import/Export jobbstatus med kopiera loggfiler
+När Microsoft Azure Import/Export-tjänsten bearbetar enheter som är associerade med ett import eller export-jobb, skriver kopiera loggfiler till storage-kontot till eller från vilken du importerar eller exporterar blobar. Loggfilen innehåller detaljerad statusinformation om varje fil som importeras eller exporteras. URL: en loggfil varje kopia returneras när du frågar status för ett slutfört jobb; Se [Get Job](/rest/api/storageservices/Get-Job3) för mer information.  
 
 ## <a name="example-urls"></a>Exempel-URL: er
 
@@ -32,11 +26,11 @@ Följande är exempel URL: er för kopiera loggfiler för ett importjobb med tv�
   
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM45A6Q_20130921-042122-021_error.xml`  
   
- Se [Import/Export service loggfilsformat](../storage-import-export-file-format-log.md) för kopierar loggar och en fullständig lista över statuskoder format.  
+ Se [tjänsten Import/Export-loggfilsformat](../storage-import-export-file-format-log.md) för kopiera loggar och en fullständig lista över statuskoder.  
   
 ## <a name="next-steps"></a>Nästa steg
  
- * [Konfigurera verktyget Azure Import/Export](storage-import-export-tool-setup-v1.md)   
+ * [Konfigurera Azure Import/Export-verktyget](storage-import-export-tool-setup-v1.md)   
  * [Förbereda hårddiskar för ett importjobb](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
  * [Reparera ett importjobb](../storage-import-export-tool-repairing-an-import-job-v1.md)   
  * [Reparera ett exportjobb](../storage-import-export-tool-repairing-an-export-job-v1.md)   

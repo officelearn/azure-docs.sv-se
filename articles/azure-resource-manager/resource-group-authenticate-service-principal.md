@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 653208fd3ec952cf6ab941a4894f9a754e906a3b
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: aec79655dde48a18891776f40c51aa5a5c859ef8
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492723"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577272"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten med certifikat
 
@@ -214,5 +214,5 @@ Du kan få följande fel när du skapar ett huvudnamn för tjänsten:
 ## <a name="next-steps"></a>Nästa steg
 * Om du vill konfigurera ett huvudnamn för tjänsten med lösenord, se [Skapa tjänstens huvudnamn för Azure med Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 * För detaljerade anvisningar om hur man integrerar ett program i Azure för att hantera resurser, se [utvecklarguiden för auktorisering med Azure Resource Manager API](resource-manager-api-authentication.md).
-* En mer detaljerad förklaring av program och tjänstens huvudnamn finns i [Programobjekt och tjänstobjekt](../active-directory/active-directory-application-objects.md). 
+* En mer detaljerad förklaring av program och tjänstens huvudnamn finns i [Programobjekt och tjänstobjekt](../active-directory/develop/app-objects-and-service-principals.md). 
 * Mer information om Azure Active Directory-autentisering finns i [Autentiseringsscenarier för Azure AD](../active-directory/develop/authentication-scenarios.md).

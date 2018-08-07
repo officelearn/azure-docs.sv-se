@@ -16,12 +16,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: 48e10a48999e2dc73627f0830147b6d00fd3d8b9
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: bb1f53b2ea014bfc8e658cf840e0a22368ba9f7c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506306"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579671"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrera program med Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -30,7 +30,7 @@ Utvecklare av företagsprogram och software-as-a-service (SaaS)-providers kan ut
 
 Den här artikeln visar hur du lägger till, uppdatera eller ta bort registreringen av ett program i Azure AD. Du lär dig mer om olika typer av program som kan integreras med Azure AD, hur du konfigurerar dina program för att komma åt andra resurser, till exempel webb-API: er och mycket mer.
 
-Läs mer om de två Azure AD-objekt som representerar ett registrerat program och relationen mellan dem i [programobjekt och tjänstobjekt](active-directory-application-objects.md); mer information om riktlinjer för varumärkesanpassning bör du använda när du utvecklar program med Azure Active Directory, se [anpassning riktlinjer för integrerade appar](active-directory-branding-guidelines.md).
+Läs mer om de två Azure AD-objekt som representerar ett registrerat program och relationen mellan dem i [programobjekt och tjänstobjekt](app-objects-and-service-principals.md); mer information om riktlinjer för varumärkesanpassning bör du använda när du utvecklar program med Azure Active Directory, se [anpassning riktlinjer för integrerade appar](howto-add-branding-in-azure-ad-apps.md).
 
 ## <a name="adding-an-application"></a>Lägga till ett program
 Alla program som vill använda funktioner i Azure AD måste först registreras i en Azure AD-klient. Registreringsprocessen innebär att du ger Azure AD-information om ditt program, till exempel URL: en där den finns, URL: en att skicka svar när en användare autentiseras den URI som identifierar appen och så vidare.
@@ -73,7 +73,7 @@ Om ett webb-klientprogram behöver läsa kalenderinformation om användaren frå
 
 Ramverket för medgivande bygger på OAuth 2.0 och dess olika flöden, t.ex. bevilja kod stipendium och klientens autentiseringsuppgifter, med hjälp av offentliga eller konfidentiella klienter. Med hjälp av OAuth 2.0, går Azure AD det att skapa många olika typer av klientprogram, till exempel på en telefon, surfplatta, server eller ett webbprogram och få åtkomst till resurserna som krävs.
 
-Läs mer om hur du använder ramverket för medgivande med OAuth2.0 auktoriseringsbeviljanden [bevilja åtkomst till webbprogram med hjälp av OAuth 2.0 och Azure AD](active-directory-protocols-oauth-code.md) och [Autentiseringsscenarier för Azure AD](authentication-scenarios.md). Information om hur du får auktoriserad åtkomst till Office 365 via Microsoft Graph finns i [appautentisering med Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
+Läs mer om hur du använder ramverket för medgivande med OAuth2.0 auktoriseringsbeviljanden [bevilja åtkomst till webbprogram med hjälp av OAuth 2.0 och Azure AD](v1-protocols-oauth-code.md) och [Autentiseringsscenarier för Azure AD](authentication-scenarios.md). Information om hur du får auktoriserad åtkomst till Office 365 via Microsoft Graph finns i [appautentisering med Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
 
 #### <a name="example-of-the-consent-experience"></a>Exempel på samtycke upplevelsen
 
@@ -259,7 +259,7 @@ Webbprogrammet kan också erbjuda:
 
 Mer information om programändringar som krävs för att stödja finns åtkomst med flera innehavare och logga-i/registrering upplevelser:
 
-- [Så här loggar du in valfri Azure Active Directory (AD)-användare med programmönstret för flera klienter](active-directory-devhowto-multi-tenant-overview.md)
+- [Så här loggar du in valfri Azure Active Directory (AD)-användare med programmönstret för flera klienter](howto-convert-app-to-be-multi-tenant.md)
 - Listan över [kodexempel för flera innehavare](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant). 
 - [Snabbstart: Lägga till företagsprofilering för din inloggningssidan i Azure AD](../fundamentals/customize-branding.md)
 
@@ -267,7 +267,7 @@ Mer information om programändringar som krävs för att stödja finns åtkomst 
 
 Enskild sida programmets (SPA) är vanligtvis strukturerade med JavaScript-aktiverat klientdelen som körs i webbläsaren, som anropar programmets webb-API backend-server för att utföra affärslogik på dess. För SPA finns i Azure AD, använder du Implicit beviljande av OAuth 2.0 för att autentisera användare med Azure AD och få en token som du kan använda för att skydda anrop från programmets JavaScript-klient till dess backend-webb-API. 
 
-När användaren har gett ditt medgivande, kan det här samma autentiseringsprotokoll användas till att hämta token för att skydda anrop mellan klienten och andra webb-API-resurserna som konfigurerats för programmet. Mer information om implicit auktoriseringsbeviljande och hjälper dig att avgöra om det är bäst för ditt program-scenario genom att se [förstå OAuth2 implicit ge flow i Azure Active Directory](active-directory-dev-understanding-oauth2-implicit-grant.md).
+När användaren har gett ditt medgivande, kan det här samma autentiseringsprotokoll användas till att hämta token för att skydda anrop mellan klienten och andra webb-API-resurserna som konfigurerats för programmet. Mer information om implicit auktoriseringsbeviljande och hjälper dig att avgöra om det är bäst för ditt program-scenario genom att se [förstå OAuth2 implicit ge flow i Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
 Som standard inaktiveras implicit beviljande av OAuth 2.0 för program. Du kan aktivera Implicit beviljande av OAuth 2.0 för ditt program genom att ange den `oauth2AllowImplicitFlow` värde i dess [programmanifestet](active-directory-application-manifest.md).
 
@@ -291,7 +291,7 @@ Som standard inaktiveras implicit beviljande av OAuth 2.0 för program. Du kan a
 Det här avsnittet beskrivs hur du tar bort en programregistrering från Azure AD-klienten.
 
 ### <a name="removing-an-application-authored-by-your-organization"></a>Ta bort ett program som skapats av din organisation
-Program som din organisation har registrerats visas under den ”Mina appar”-filter på sidan för din klient huvudsakliga ”appregistreringar”. Dessa program är de som du registrerade manuellt via Azure portal eller programmässigt via PowerShell eller Graph API. Mer specifikt representeras de av både ett program och tjänstens huvudnamn objekt i din klient. Mer information finns i [programobjekt och tjänstobjekt](active-directory-application-objects.md).
+Program som din organisation har registrerats visas under den ”Mina appar”-filter på sidan för din klient huvudsakliga ”appregistreringar”. Dessa program är de som du registrerade manuellt via Azure portal eller programmässigt via PowerShell eller Graph API. Mer specifikt representeras de av både ett program och tjänstens huvudnamn objekt i din klient. Mer information finns i [programobjekt och tjänstobjekt](app-objects-and-service-principals.md).
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Ta bort en enda klient-program från din katalog
 1. Logga in på [Azure Portal](https://portal.azure.com).
@@ -309,14 +309,14 @@ Program som din organisation har registrerats visas under den ”Mina appar”-f
 6. Klicka på **Ja** i bekräftelsemeddelandet.
 
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Ta bort ett program för flera klienter som godkänts av en annan organisation
-En delmängd av de program som visas under ”alla appar”-filter (förutom i ”Mina appar” registreringar) på din klient ”appregistreringar” huvudsidan är program för flera innehavare. Tekniskt sett dessa program för flera innehavare är från en annan klient och registrerades i din klient under medgivande. Mer specifikt representeras de av endast en tjänstens huvudnamnsobjekt i din klient med ingen motsvarande programobjektet. Läs mer om skillnaderna mellan program och tjänstobjekt [program och tjänstobjekt i Azure AD](active-directory-application-objects.md).
+En delmängd av de program som visas under ”alla appar”-filter (förutom i ”Mina appar” registreringar) på din klient ”appregistreringar” huvudsidan är program för flera innehavare. Tekniskt sett dessa program för flera innehavare är från en annan klient och registrerades i din klient under medgivande. Mer specifikt representeras de av endast en tjänstens huvudnamnsobjekt i din klient med ingen motsvarande programobjektet. Läs mer om skillnaderna mellan program och tjänstobjekt [program och tjänstobjekt i Azure AD](app-objects-and-service-principals.md).
 
 Företagets administratör måste ta bort dess huvudnamn för tjänsten för att ta bort ett program med flera klienter åtkomst till din katalog (efter att ha godkänts). Administratören måste behörighet för global administratör, och kan ta bort den via Azure-portalen eller använda den [Azure AD PowerShell-Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Nästa steg
 - Mer information om hur autentisering fungerar i Azure AD finns i [Autentiseringsscenarier för Azure AD](authentication-scenarios.md).
-- Se den [anpassning riktlinjer för integrerade appar](active-directory-branding-guidelines.md) tips om visual vägledning för din app.
-- Mer information om relationen mellan program och tjänstens huvudnamn objekt i ett program finns i [programobjekt och tjänstobjekt](active-directory-application-objects.md).
+- Se den [anpassning riktlinjer för integrerade appar](howto-add-branding-in-azure-ad-apps.md) tips om visual vägledning för din app.
+- Mer information om relationen mellan program och tjänstens huvudnamn objekt i ett program finns i [programobjekt och tjänstobjekt](app-objects-and-service-principals.md).
 - Läs mer om rollen app manifest spelar i [förstå programmanifestet för Azure Active Directory](active-directory-application-manifest.md)
 - Se den [ordlista för Azure AD-utvecklare](active-directory-dev-glossary.md) för definitioner av några av de viktigaste Azure AD-begreppen för utvecklare.
 - Gå till den [utvecklarguide för Active Directory](azure-ad-developers-guide.md) en översikt över alla developer-relaterat innehåll.

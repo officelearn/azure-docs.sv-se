@@ -1,6 +1,6 @@
 ---
-title: Använda PowerShell för att skapa och konfigurera en Log Analytics-arbetsyta | Microsoft Docs
-description: Logga Analytics använder data från servrar i din lokala eller molnbaserade infrastrukturen. Du kan samla in Maskindata från Azure storage när genereras av Azure-diagnostik.
+title: Använd PowerShell för att skapa och konfigurera en Log Analytics-arbetsyta | Microsoft Docs
+description: Logga Analytics använder data från servrar i din lokala eller molnbaserade infrastruktur. Du kan samla in Maskindata från Azure storage när genereras av Azure-diagnostik.
 services: log-analytics
 documentationcenter: ''
 author: richrundmsft
@@ -15,32 +15,32 @@ ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
 ms.component: na
-ms.openlocfilehash: 375ae9a82af4a1f8a86b529b597ed479388e66dc
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 6dcf3a5b26dc3c7e69721b2abb8a7d58767866d6
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129344"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579059"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Hantera Log Analytics med PowerShell
-Du kan använda den [Log Analytics PowerShell-cmdlets](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) att utföra olika funktioner i logganalys från en kommandorad eller som en del av ett skript.  Exempel på uppgifter som du kan utföra med PowerShell:
+Du kan använda den [Log Analytics PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) att utföra olika funktioner i Log Analytics från en kommandorad eller som en del av ett skript.  Exempel på de uppgifter du kan utföra med PowerShell:
 
 * Skapa en arbetsyta
-* Lägg till eller ta bort en lösning
+* Lägga till eller ta bort en lösning
 * Importera och exportera sparade sökningar
 * Skapa en datorgrupp
 * Aktivera insamling av IIS-loggar från datorer med Windows-agenten installerad
-* Samla in prestandaräknare från Linux och Windows-datorer
+* Samla in prestandaräknare från Linux- och Windows-datorer
 * Samla in händelser från syslog på Linux-datorer 
-* Samla in händelser från händelseloggarna i Windows
+* Samla in händelser från Windows-händelseloggar
 * Samla in anpassade händelseloggar
-* Lägga till log analytics agenten till en virtuell Azure-dator
-* Konfigurera logganalys index data som samlas in med hjälp av Azure-diagnostik
+* Lägg till log analytics-agenten till en Azure-dator
+* Konfigurera log analytics för att indexera data som samlas in med Azure-diagnostik
 
-Den här artikeln innehåller två kodexempel som visar några av de funktioner som du kan utföra från PowerShell.  Du kan referera till den [Log Analytics PowerShell cmdlet-referens](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) för andra funktioner.
+Den här artikeln innehåller två kodexempel som illustrerar några av de funktioner som du kan utföra från PowerShell.  Du kan referera till den [Log Analytics PowerShell cmdlet-referens](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) för andra funktioner.
 
 > [!NOTE]
-> Logganalys kallades tidigare åtgärdsinformation, därför är det namn som används i cmdlets.
+> Log Analytics kallades tidigare för Operational Insights, vilket är anledningen till det är det namn som används i cmdlets.
 > 
 > 
 
@@ -52,16 +52,16 @@ De här exemplen fungerar med version 2.3.0 eller senare av modulen AzureRm.Oper
 Följande skriptexempel illustrerar hur du:
 
 1. Skapa en arbetsyta
-2. Visa en lista över tillgängliga lösningar
-3. Lägg till lösningar på arbetsytan
+2. Lista över tillgängliga lösningar
+3. Lägga till lösningar i arbetsytan
 4. Importera sparade sökningar
 5. Exportera sparade sökningar
 6. Skapa en datorgrupp
 7. Aktivera insamling av IIS-loggar från datorer med Windows-agenten installerad
-8. Samla in logisk Disk prestandaräknarna från Linux-datorer (% noder i procent; Ledigt utrymme i MB; Använt utrymme; i % Disköverföringar/sek; Diskläsningar/sek; Diskskrivningar/sek)
+8. Samla in prestandaräknare för logisk Disk från Linux-datorer (% noder i procent; Ledigt utrymme i MB; Använt utrymme; i % Disköverföringar/sek; Diskläsningar/sek; Diskskrivningar/sek)
 9. Samla in syslog-händelser från Linux-datorer
-10. Samla in händelser för fel- och varningsmeddelandena i programmets händelselogg från Windows-datorer
-11. Tillgängligt minne i megabyte prestandaräknaren samla in från Windows-datorer
+10. Samla in händelser för fel och varningar från programmets händelselogg från Windows-datorer
+11. Samla in prestandaräknaren för minne tillgängligt, MB från Windows-datorer
 12. Samla in en anpassad logg 
 
 ```
@@ -188,8 +188,8 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 
 ```
 
-## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Konfigurera logganalys att indexera Azure-diagnostik
-Resurser behöver ha Azure diagnostics aktiverad och konfigurerad för att skriva till logganalys-arbetsytan för övervakning utan Agent för resurser i Azure. Den här metoden skickar data direkt till Log Analytics och kräver inte data skrivs till ett lagringskonto. Resurser som stöds är:
+## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Konfigurera Log Analytics för att indexera Azure-diagnostik
+För övervakning utan Agent för Azure-resurser, måste resurserna som har Azure-diagnostik aktiverad och konfigurerad för att skriva till en Log Analytics-arbetsyta. Den här metoden skickar data direkt till Log Analytics och kräver inte data som ska skrivas till ett lagringskonto. Resurser som stöds är:
 
 | Resurstyp | Logs | Mått |
 | --- | --- | --- |
@@ -198,11 +198,11 @@ Resurser behöver ha Azure diagnostics aktiverad och konfigurerad för att skriv
 | Batch-konton          | Ja | Ja |
 | Data Lake analytics     | Ja | | 
 | Data Lake store         | Ja | |
-| Elastisk SQL-poolen        |     | Ja |
+| Elastiska SQL-Pool        |     | Ja |
 | Namnområde för händelsehubb     |     | Ja |
 | IoT-hubbar                |     | Ja |
 | Key Vault               | Ja | |
-| Belastningsutjämning          | Ja | |
+| Lastbalanserare          | Ja | |
 | Logic Apps              | Ja | Ja |
 | Nätverkssäkerhetsgrupper | Ja | |
 | Redis Cache             |     | Ja |
@@ -210,11 +210,11 @@ Resurser behöver ha Azure diagnostics aktiverad och konfigurerad för att skriv
 | Service Bus-namnområde   |     | Ja |
 | SQL (v12)               |     | Ja |
 | Webbplatser               |     | Ja |
-| Webbservergrupper        |     | Ja |
+| Server webbgrupper        |     | Ja |
 
-Mer information om tillgänglig statistik avser [stöds mått med Azure-Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+Information för tillgängliga mått i [stöds mått med Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
-Mer information om de tillgängliga loggarna avser [stöds tjänster och schemat för diagnostikloggar](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
+Information om tillgängliga loggar finns i [tjänster och -schemat stöds för diagnostikloggar](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -224,20 +224,20 @@ $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUP
 Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
-Du kan också använda cmdlet föregående för att samla in loggar från resurser som är i olika prenumerationer. Cmdlet kan fungera över prenumerationer eftersom du tillhandahåller id för både den resurs som skapar loggar och loggar som skickas till arbetsytan.
+Du kan också använda cmdleten föregående för att samla in loggar från resurser som finns i olika prenumerationer. Cmdlet: en kan fungera i alla prenumerationer, eftersom du tillhandahåller id för både den resurs som skapar loggar och arbetsytan loggarna skickas till.
 
 
-## <a name="configuring-log-analytics-to-index-azure-diagnostics-from-storage"></a>Konfigurera logganalys att indexera Azure diagnostics från lagring
-Du måste först skriva data till Azure-lagring för att samla in loggdata från en instans av en klassiska molnbaserad tjänst eller ett service fabric-kluster som körs. Logganalys konfigureras sedan för att samla in loggar från lagringskontot. Resurser som stöds är:
+## <a name="configuring-log-analytics-to-index-azure-diagnostics-from-storage"></a>Konfigurera Log Analytics för att indexera Azure Diagnostics-data från storage
+Du måste först skriva data till Azure storage för att samla in loggdata från en instans av en klassisk molntjänst eller ett service fabric-kluster som körs. Log Analytics konfigureras sedan för att samla in loggar från lagringskontot. Resurser som stöds är:
 
-* Klassiska molntjänster (webb- och arbetsroller roller)
+* Klassiska cloud services (webb- och worker-roller)
 * Service fabric-kluster
 
-Följande exempel visar hur du:
+I följande exempel visas hur du:
 
-1. Visa en lista över de befintliga lagringskonton och platser som logganalys indexerar data från
+1. Lista över befintliga lagringskonton och platser som Log Analytics indexerar data från
 2. Skapa en konfiguration för att läsa från ett lagringskonto
-3. Uppdatera konfigurationen för nyskapade att indexera data från fler platser
+3. Uppdatera nyligen skapade konfigurationen att indexera data från fler platser
 4. Ta bort den nyligen skapade konfigurationen
 
 ```
@@ -262,9 +262,9 @@ Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Re
 
 ```
 
-Du kan också använda skriptet för att samla in loggar från lagringskonton för olika prenumerationer. Skriptet kan fungera över prenumerationer eftersom du tillhandahåller lagring konto resurs-id och en motsvarande snabbtangent. När du ändrar snabbtangent som du behöver uppdatera lagring kunskaper om du vill att den nya nyckeln.
+Du kan också använda det här skriptet för att samla in loggar från lagringskonton i olika prenumerationer. Skriptet kan fungera mellan prenumerationer eftersom du får tillgång till resurs-id för storage-konto och en motsvarande åtkomstnyckel. När du ändrar att snabbtangent som du behöver uppdatera storage insight om du vill att den nya nyckeln.
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Granska Log Analytics PowerShell-cmdlets](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) för ytterligare information om hur du använder PowerShell konfigurationen för logganalys.
+* [Granska Log Analytics PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) för ytterligare information om hur du använder PowerShell för att konfigurera Log Analytics.
 

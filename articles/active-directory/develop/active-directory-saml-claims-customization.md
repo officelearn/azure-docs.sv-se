@@ -1,6 +1,6 @@
 ---
 title: Anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory | Microsoft Docs
-description: Lär dig hur du anpassar anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory
+description: Lär dig att anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,67 +17,67 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: db529bf1e8ea4363c84cb365444ca367d428b162
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 4d7c9246b694fc1b5623ecd198e4ced330e78dde
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318428"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579426"
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory
-Idag Azure Active Directory har stöd för enkel inloggning på med de flesta företagsprogram, inklusive både program redan integrerade i Azure AD app-galleriet och anpassade program. När en användare autentiseras till ett program via Azure AD med hjälp av SAML 2.0-protokollet, skickar en token i Azure AD till programmet (via en HTTP POST). Och sedan programmet validerar och använder token för att logga in användaren i stället för att fråga efter användarnamn och lösenord. Dessa SAML-token innehålla uppgifter om användaren som kallas ”anspråk”.
+Idag Azure Active Directory har stöd för enkel inloggning på med de flesta företagsprogram, inklusive båda programmen som är förintegrerade i appgalleriet för Azure AD samt anpassade program. När en användare autentiseras till ett program via Azure AD med hjälp av protokollet SAML 2.0, skickar Azure AD en token till programmet (via en HTTP-POST). Och sedan programmet validerar och använder token för att logga in användaren i stället för att fråga om ett användarnamn och lösenord. Dessa SAML-token innehåller uppgifter om den användare som kallas ”anspråk”.
 
-I identity-tala är ett ”anspråk” information som en identitetsleverantör tillstånd om en användare i den token som de utfärdar för användaren. I [SAML-token](http://en.wikipedia.org/wiki/SAML_2.0), dessa data finns vanligtvis i SAML Attribute-uttryck. Användarens unika ID: T är vanligtvis representeras i SAML-ämne som även kallas namnidentifierare.
+I identity-talar, ett ”anspråk” är information som en identitetsprovider som anger om en användare i de token som de utfärda för användaren. I [SAML-token](http://en.wikipedia.org/wiki/SAML_2.0), dessa data finns vanligtvis i instruktionen SAML-attribut. Användarens unika ID: T är vanligtvis representeras i SAML-ämne som även kallas för namnidentifierare.
 
-Azure Active Directory utfärdar en SAML-token till ditt program som innehåller ett NameIdentifier-anspråk med ett värde på användarens användarnamn (AKA användarens huvudnamn) i Azure AD som standard. Det här värdet kan identifiera användaren. SAML-token innehåller även ytterligare anspråk som innehåller användarens e-postadress, Förnamn och efternamn.
+Som standard utfärdar en SAML-token till ditt program som innehåller en NameIdentifier-anspråket, med ett värde på användarens användarnamn (AKA användarens huvudnamn) i Azure AD i Azure Active Directory. Det här värdet kan unikt identifiera användaren. SAML-token innehåller också ytterligare anspråk som innehåller användarens e-postadress, Förnamn och efternamn.
 
-Om du vill visa eller redigera anspråk som utfärdats i SAML-token till programmet genom att öppna programmet i Azure-portalen. Välj sedan den **visa och redigera andra användarattribut** kryssrutan i den **användarattribut** avsnitt i programmet.
+Om du vill visa eller redigera de anspråk som utfärdats i SAML-token till programmet genom att öppna programmet i Azure-portalen. Välj sedan den **visa och redigera alla andra användarattribut** kryssrutan i den **användarattribut** avsnittet av programmet.
 
-![Användaren attribut avsnitt][1]
+![Användaren attributavsnittet][1]
 
 Det finns två möjliga orsaker till varför du kan behöva redigera anspråk som utfärdats i SAML-token:
-* Programmet har skrivits till kräver en annan uppsättning anspråk URI: er eller anspråksvärden.
-* Programmet har distribuerats på ett sätt som kräver NameIdentifier att anspråket ska vara något annat än användarnamnet (AKA användarens huvudnamn) lagras i Azure Active Directory.
+* Programmet har skrivits för att kräva en annan uppsättning anspråk URI: er eller anspråksvärden.
+* Programmet har distribuerats på ett sätt som kräver NameIdentifier-anspråket ska vara något annat än användarnamnet (AKA användarens huvudnamn) lagras i Azure Active Directory.
 
-Du kan redigera standardvärdena för anspråk. Välj anspråk raden i tabellen för SAML-token attribut. Då öppnas den **Redigera attribut** avsnittet och du sedan kan redigera anspråkets namn, värde och namnområde som hör till anspråket.
+Du kan redigera standardvärdena för anspråk. Välj raden anspråk i SAML-tokenattribut tabellen. Då öppnas det **redigera attributet** avsnittet och sedan du kan redigera anspråkets namn, värde och namnområde som är associerade med anspråket.
 
 ![Redigera användarattribut][2]
 
-Du kan också ta bort anspråk (andra än NameIdentifier) med snabbmenyn som öppnas genom att klicka på den **...**  ikon. Du kan också lägga till nya anspråk med hjälp av den **Lägg till attributet** knappen.
+Du kan också ta bort anspråk (andra än NameIdentifier) med hjälp av snabbmenyn, vilket öppnar genom att klicka på den **...**  ikon. Du kan också lägga till nya anspråk med hjälp av den **Lägg till attribut** knappen.
 
 ![Redigera användarattribut][3]
 
-## <a name="editing-the-nameidentifier-claim"></a>Redigera NameIdentifier anspråk
-Att lösa problemet där programmet har distribuerats med hjälp av ett annat användarnamn, klicka på den **användar-ID** listrutan den **användarattribut** avsnittet. Den här åtgärden visar en dialogruta med flera olika alternativ:
+## <a name="editing-the-nameidentifier-claim"></a>Redigera NameIdentifier-anspråket
+Att lösa problem där programmet har distribuerats med hjälp av ett annat användarnamn, klicka på den **användaridentifierare** nedrullningsbar listruta den **användarattribut** avsnittet. Den här åtgärden visar en dialogruta med flera olika alternativ:
 
 ![Redigera användarattribut][4]
 
-Välj i listrutan, **user.mail** ange NameIdentifier begäran om att användarens e-postadress i katalogen. Eller välj **user.onpremisessamaccountname** till användare vars SAM-kontonamnet som har synkroniserats från lokala Azure AD.
+I listrutan, väljer **user.mail** att ställa in NameIdentifier-anspråket är användarens e-postadress i katalogen. Eller välj **user.onpremisessamaccountname** s SAM-kontonamn som har synkroniserats från den lokala Azure AD ska anges till användaren.
 
-Du kan också använda särskilda **ExtractMailPrefix()** funktion för att ta bort domänsuffix från e-postadress, SAM-kontonamn eller användarens huvudnamn. Detta extraherar bara den första delen av användarnamnet som skickas via (till exempel ”joe_smith” i stället för joe_smith@contoso.com).
+Du kan också använda särskilda **ExtractMailPrefix()** att ta bort domänsuffix från e-postadressen, SAM-kontonamn eller användarens huvudnamn. Då extraheras bara den första delen av användarnamnet som skickas via (till exempel ”joe_smith” i stället för joe_smith@contoso.com).
 
 ![Redigera användarattribut][5]
 
-Vi har nu lagt till den **join()** funktion för att ansluta till den verifierade domänen med identifierarvärde för användaren. När du väljer funktionen join() i den **användar-ID** först välja användar-ID som t.ex. e-postadress eller användaren huvudnamn och välj sedan din verifierade domän i andra listrutan. Om du markerar den e-postadressen med verifierade domän och Azure AD extraherar användarnamnet från det första värdet joe_smith från joe_smith@contoso.com och lägger till dem med contoso.onmicrosoft.com. Se följande exempel:
+Vi har nu även lagt till den **join()** funktionen för att ansluta till den verifierade domänen med användar-ID-värde. När du väljer funktionen join() i den **användaridentifierare** först välja användar-ID som t.ex. e-postadress eller användarnamn huvudnamn och välj sedan din verifierade domän i andra listrutan. Om du markerar den e-postadressen med en verifierad domän och Azure AD extraherar användarnamnet från det första värdet joe_smith från joe_smith@contoso.com och lägger till dem med contoso.onmicrosoft.com. Se följande exempel:
 
 ![Redigera användarattribut][6]
 
-## <a name="adding-claims"></a>Lägga till anspråk
-Du kan ange attributets namn (som endast inte behöver följa ett URI-mönster enligt SAML-specifikationen) när du lägger till ett anspråk. Ange värdet till valfria användarattribut som lagras i katalogen.
+## <a name="adding-claims"></a>Att lägga till anspråk
+När du lägger till ett anspråk, kan du ange attributets namn (som strikt inte behöver följer ett mönster för URI enligt SAML-specifikationen). Ange värdet till valfria användarattribut som lagras i katalogen.
 
 ![Lägg till användarattribut][7]
 
-Du måste till exempel skicka avdelningen som användaren tillhör i organisationen som ett anspråk (till exempel försäljning). Ange namnet anspråk som förväntades av programmet och välj sedan **user.department** som värde.
+Exempelvis kan behöva du skicka avdelning som användaren tillhör i deras organisation, som ett anspråk (till exempel försäljning). Ange namnet på anspråk som förväntat av programmet och välj sedan **user.department** som värde.
 
 > [!NOTE]
-> Om det finns inget värde som lagras i ett valt attribut för en viss användare, är inte det anspråket som utfärdats i token.
+> Om det finns inget värde som lagras i ett valt attribut för en viss användare, är inte det anspråket som utfärdas i token.
 
 > [!TIP]
-> Den **user.onpremisesecurityidentifier** och **user.onpremisesamaccountname** stöds endast när synkronisering av användardata från lokala Active Directory med hjälp av den [Azure AD Ansluta verktyget](../active-directory-aadconnect.md).
+> Den **user.onpremisesecurityidentifier** och **user.onpremisesamaccountname** stöds endast när synkronisering av användardata från en lokal Active Directory med hjälp av den [Azure AD Anslut verktyget](../active-directory-aadconnect.md).
 
-## <a name="restricted-claims"></a>Begränsat anspråk
+## <a name="restricted-claims"></a>Begränsad anspråk
 
-Det finns vissa begränsade anspråk i SAML. Om du lägger till dessa anspråk skickas dessa anspråk inte i Azure AD. Följande är uppsättningen SAML begränsad anspråk:
+Det finns vissa begränsade anspråk i SAML. Om du lägger till dessa anspråk skickas de här anspråken inte i Azure AD. Nedan följer SAML begränsade anspråksuppsättningen:
 
     | Anspråkstyp (URI) |
     | ------------------- |
@@ -131,7 +131,7 @@ Det finns vissa begränsade anspråk i SAML. Om du lägger till dessa anspråk s
 ## <a name="next-steps"></a>Nästa steg
 * [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
 * [Konfigurera enkel inloggning för program som inte ingår i Azure Active Directory-programgalleriet](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
-* [Felsökning av SAML-baserade enkel inloggning](active-directory-saml-debugging.md)
+* [Felsöka SAML-baserad enkel inloggning](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/user-attribute-section.png

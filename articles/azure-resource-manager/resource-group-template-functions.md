@@ -1,6 +1,6 @@
 ---
-title: Hanteraren för filserverresurser Mallfunktioner | Microsoft Docs
-description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att hämta värden, arbeta med strängar och siffror, och hämta information om distribution.
+title: Resource Manager-Mallfunktioner | Microsoft Docs
+description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att hämta värden, arbeta med strängar och siffror och hämta information om programdistribution.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/20/2018
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: fce3fd03f22c7e2d1c1524b9deb1f6935dbc3755
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: a4a86576b8f9f842c54cfa195305a3e0d0ff4724
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359500"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527627"
 ---
-# <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager Mallfunktioner
+# <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager-Mallfunktioner
 Den här artikeln beskrivs de funktioner som du kan använda i en Azure Resource Manager-mall.
 
-Du lägger till funktioner i dina mallar genom att skriva dem inom hakparenteser: `[` och `]`respektive. Uttrycket utvärderas under distributionen. Medan skrivs som en teckensträng kan resultat av utvärderingen av uttrycket vara av en annan JSON-typ, till exempel en matris, objekt eller heltal. Precis som i JavaScript-funktionsanrop som är formaterade som `functionName(arg1,arg2,arg3)`. Du kan referera egenskaper genom att använda operatorerna punkt och [index].
+Du lägger till funktioner i dina mallar genom att skriva dem inom hakparenteser: `[` och `]`respektive. Uttrycket utvärderas under distributionen. Medan skrivs som en teckensträng, kan resultatet av utvärderingen av uttrycket vara av en annan JSON-typ, till exempel en matris, objekt eller heltal. Precis som i JavaScript, funktionsanrop som är formaterade som `functionName(arg1,arg2,arg3)`. Du referera till egenskaper med hjälp av punkt och [index] operatörer.
 
 Ett malluttryck får inte överskrida 24,576 tecken.
 
-Mallfunktioner och deras parametrar är skiftlägeskänsliga. Till exempel Resource Manager matchar **variables('var1')** och **VARIABLES('VAR1')** samma. När utvärderas om funktionen ändrar uttryckligen skiftläge (till exempel toUpper eller toLower), funktionen bevarar skiftläge. Vissa typer av resurser kan ha case krav oavsett hur funktioner utvärderas.
+Mallfunktioner och deras parametrar är skiftlägeskänsliga. Exempel: Resource Manager löser **variables('var1')** och **VARIABLES('VAR1')** samma. När det granskades, såvida inte funktionen ändrar uttryckligen skiftläge (till exempel toUpper eller toLower), funktionen bevarar skiftläge. Vissa typer av resurser kan ha krav för användningsfall oavsett hur funktioner utvärderas.
 
-Om du vill skapa egna funktioner finns [användardefinierade funktioner](resource-group-authoring-templates.md#functions).
+Om du vill skapa egna funktioner [användardefinierade funktioner](resource-group-authoring-templates.md#functions).
 
 <a id="array" />
 <a id="coalesce" />
@@ -50,13 +50,13 @@ Om du vill skapa egna funktioner finns [användardefinierade funktioner](resourc
 <a id="take" />
 <a id="union" />
 
-## <a name="array-and-object-functions"></a>Array- och funktioner
-Resource Manager innehåller flera funktioner för att arbeta med matriser och -objekt.
+## <a name="array-and-object-functions"></a>Funktioner för matris och objekt
+Resource Manager tillhandahåller flera funktioner för att arbeta med matriser och -objekt.
 
-* [matris](resource-group-template-functions-array.md#array)
+* [Matris](resource-group-template-functions-array.md#array)
 * [Slå samman](resource-group-template-functions-array.md#coalesce)
 * [concat](resource-group-template-functions-array.md#concat)
-* [Innehåller](resource-group-template-functions-array.md#contains)
+* [innehåller](resource-group-template-functions-array.md#contains)
 * [createArray](resource-group-template-functions-array.md#createarray)
 * [tom](resource-group-template-functions-array.md#empty)
 * [första](resource-group-template-functions-array.md#first)
@@ -66,7 +66,7 @@ Resource Manager innehåller flera funktioner för att arbeta med matriser och -
 * [Längd](resource-group-template-functions-array.md#length)
 * [Min](resource-group-template-functions-array.md#min)
 * [max](resource-group-template-functions-array.md#max)
-* [intervallet](resource-group-template-functions-array.md#range)
+* [Adressintervall](resource-group-template-functions-array.md#range)
 * [skip](resource-group-template-functions-array.md#skip)
 * [ta](resource-group-template-functions-array.md#take)
 * [Union](resource-group-template-functions-array.md#union)
@@ -77,8 +77,8 @@ Resource Manager innehåller flera funktioner för att arbeta med matriser och -
 <a id="greater" />
 <a id="greaterorequals" />
 
-## <a name="comparison-functions"></a>Jämförelse funktioner
-Resource Manager innehåller flera funktioner för att göra jämförelser i dina mallar.
+## <a name="comparison-functions"></a>Jämförelsefunktioner
+Resource Manager tillhandahåller flera funktioner för att göra jämförelser i dina mallar.
 
 * [är lika med](resource-group-template-functions-comparison.md#equals)
 * [mindre](resource-group-template-functions-comparison.md#less)
@@ -90,12 +90,12 @@ Resource Manager innehåller flera funktioner för att göra jämförelser i din
 <a id="parameters" />
 <a id="variables" />
 
-## <a name="deployment-value-functions"></a>Funktioner för distribution av värdet
-Hanteraren för filserverresurser innehåller följande funktioner för att hämta värden från avsnitt i mallen och värden som rör distributionen:
+## <a name="deployment-value-functions"></a>Värdet distributionsfunktioner
+Resource Manager tillhandahåller följande funktioner för att hämta värden från avsnitt i mallen och värden som är relaterade till distributionen:
 
 * [Distribution](resource-group-template-functions-deployment.md#deployment)
 * [parameters](resource-group-template-functions-deployment.md#parameters)
-* [variabler](resource-group-template-functions-deployment.md#variables)
+* [Variabler](resource-group-template-functions-deployment.md#variables)
 
 <a id="and" />
 <a id="bool" />
@@ -104,13 +104,13 @@ Hanteraren för filserverresurser innehåller följande funktioner för att häm
 <a id="or" />
 
 ## <a name="logical-functions"></a>Logiska funktioner
-Hanteraren för filserverresurser innehåller följande funktioner för att arbeta med logiska villkor:
+Resource Manager tillhandahåller följande funktioner för att arbeta med logiska villkor:
 
-* [Och](resource-group-template-functions-logical.md#and)
-* [bool](resource-group-template-functions-logical.md#bool)
+* [och](resource-group-template-functions-logical.md#and)
+* [Bool](resource-group-template-functions-logical.md#bool)
 * [Om](resource-group-template-functions-logical.md#if)
 * [inte](resource-group-template-functions-logical.md#not)
-* [Eller](resource-group-template-functions-logical.md#or)
+* [eller](resource-group-template-functions-logical.md#or)
 
 <a id="add" />
 <a id="copyindex" />
@@ -124,7 +124,7 @@ Hanteraren för filserverresurser innehåller följande funktioner för att arbe
 <a id="sub" />
 
 ## <a name="numeric-functions"></a>Numeriska funktioner
-Hanteraren för filserverresurser innehåller följande funktioner för att arbeta med heltal:
+Resource Manager tillhandahåller följande funktioner för att arbeta med heltal:
 
 * [Lägg till](resource-group-template-functions-numeric.md#add)
 * [copyIndex](resource-group-template-functions-numeric.md#copyindex)
@@ -146,14 +146,15 @@ Hanteraren för filserverresurser innehåller följande funktioner för att arbe
 <a id="subscription" />
 
 ## <a name="resource-functions"></a>Resursfunktioner
-Hanteraren för filserverresurser innehåller följande funktioner för att hämta resurs värden:
+Resource Manager tillhandahåller följande funktioner för att hämta resurs-värden:
 
-* [listKeys](resource-group-template-functions-resource.md#listkeys)
+* [listAccountSas](resource-group-template-functions-resource.md#list)
+* [Listnycklar](resource-group-template-functions-resource.md#listkeys)
 * [listSecrets](resource-group-template-functions-resource.md#list)
 * [lista *](resource-group-template-functions-resource.md#list)
-* [providers](resource-group-template-functions-resource.md#providers)
+* [Providers](resource-group-template-functions-resource.md#providers)
 * [Referens](resource-group-template-functions-resource.md#reference)
-* [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
+* [ResourceGroup](resource-group-template-functions-resource.md#resourcegroup)
 * [Resurs-ID](resource-group-template-functions-resource.md#resourceid)
 * [prenumeration](resource-group-template-functions-resource.md#subscription)
 
@@ -189,13 +190,13 @@ Hanteraren för filserverresurser innehåller följande funktioner för att häm
 <a id="uricomponenttostring" />
 
 ## <a name="string-functions"></a>Strängfunktioner
-Hanteraren för filserverresurser innehåller följande funktioner för att arbeta med strängar:
+Resource Manager tillhandahåller följande funktioner för att arbeta med strängar:
 
 * [Base64](resource-group-template-functions-string.md#base64)
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
 * [base64ToString](resource-group-template-functions-string.md#base64tostring)
 * [concat](resource-group-template-functions-string.md#concat)
-* [Innehåller](resource-group-template-functions-string.md#contains)
+* [innehåller](resource-group-template-functions-string.md#contains)
 * [dataUri](resource-group-template-functions-string.md#datauri)
 * [dataUriToString](resource-group-template-functions-string.md#datauritostring)
 * [tom](resource-group-template-functions-string.md#empty)
@@ -210,20 +211,20 @@ Hanteraren för filserverresurser innehåller följande funktioner för att arbe
 * [Ersätt](resource-group-template-functions-string.md#replace)
 * [skip](resource-group-template-functions-string.md#skip)
 * [split](resource-group-template-functions-string.md#split)
-* [StartsWith](resource-group-template-functions-string.md#startswith)
-* [Sträng](resource-group-template-functions-string.md#string)
+* [startsWith](resource-group-template-functions-string.md#startswith)
+* [sträng](resource-group-template-functions-string.md#string)
 * [delsträngen](resource-group-template-functions-string.md#substring)
 * [ta](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)
 * [toUpper](resource-group-template-functions-string.md#toupper)
-* [Rensa](resource-group-template-functions-string.md#trim)
+* [trim](resource-group-template-functions-string.md#trim)
 * [uniqueString](resource-group-template-functions-string.md#uniquestring)
 * [URI: N](resource-group-template-functions-string.md#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 
 ## <a name="next-steps"></a>Nästa steg
-* En beskrivning av avsnitt i en Azure Resource Manager-mallen finns [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md)
-* Om du vill slå samman flera mallar finns [använda länkade mallar med Azure Resource Manager](resource-group-linked-templates.md)
-* Iterera ett angivet antal gånger när du skapar en typ av resurs finns [skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md)
-* Information om hur du distribuerar mallen som du har skapat finns [distribuera ett program med Azure Resource Manager-mall](resource-group-template-deploy.md)
+* En beskrivning av avsnitt i en Azure Resource Manager-mall finns i [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md)
+* Om du vill slå samman flera mallar, se [med länkade mallar med Azure Resource Manager](resource-group-linked-templates.md)
+* Iterera ett angivet antal gånger när du skapar en typ av resurs, finns i [och skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md)
+* Om du vill se hur du distribuerar mallen som du har skapat, se [distribuera ett program med Azure Resource Manager-mall](resource-group-template-deploy.md)

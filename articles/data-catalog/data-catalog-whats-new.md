@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 18673186e80b4d1784fa5b42e622d90dd4c889d4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 3d2c0d21d0cf4cc0654c8f7ee2debee4f0320461
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860011"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577070"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Vad är nytt i Azure Data Catalog
 Uppdaterar till **Azure Data Catalog** släpps regelbundet. Inte alla versionen innehåller nya funktioner för användarinriktade, eftersom vissa utgåvor av fokuserar på funktioner för backend-tjänst. Den här sidan visar nya användarinriktade funktioner som lagts till i Azure Data Catalog-tjänsten.
@@ -27,7 +27,7 @@ Uppdaterar till **Azure Data Catalog** släpps regelbundet. Inte alla versionen 
 Från och med November 2017 kan har följande funktioner lagts till Azure Data Catalog:
 
 * Stöd för att länka direkt till specifika företagstermer i Data Catalog-portalen. Användare kan kopiera länkar från en företagsordlista och bädda in dem i dokument, e-postmeddelanden, rapporter eller andra platser för att länka direkt till definition av termer i ordlistan.
-* Stöd för Azure Active Directory-tjänstobjekt. Data Catalog-administratörer kan tillåta klientprogram som använder tjänstens huvudnamn med åtkomst till katalogen och kan ge programmen specifika behörigheter precis som de kan ge behörigheter till användare och säkerhetsgrupper. Mer information finns i [program och tjänstobjekt i Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+* Stöd för Azure Active Directory-tjänstobjekt. Data Catalog-administratörer kan tillåta klientprogram som använder tjänstens huvudnamn med åtkomst till katalogen och kan ge programmen specifika behörigheter precis som de kan ge behörigheter till användare och säkerhetsgrupper. Mer information finns i [program och tjänstobjekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 * Stöd för Azure Active Directory-autentisering när du ansluter till Azure SQL Database och Azure SQL Data Warehouse-datakällor med hjälp av registreringsverktyget Data Catalog. Mer information finns i [Använd Azure Active Directory-autentisering för autentisering med SQL Database eller SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
 
 

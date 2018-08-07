@@ -17,22 +17,22 @@ ms.date: 04/17/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 82accc3fb260b0f3251fcf19f7da4c064080fff2
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: bd30776906b615262eb9f51220a0db457227e828
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503258"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579215"
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Typer av appar för Azure Active Directory v2.0-slutpunkten
+
 V2.0-slutpunkten Azure Active Directory (Azure AD) stöder autentisering för en mängd olika moderna apparkitekturer dem utifrån branschstandardprotokollen alla [OAuth 2.0 eller OpenID Connect](active-directory-v2-protocols.md). Den här artikeln beskrivs vilka typer av appar som du kan skapa med hjälp av Azure AD v2.0, oavsett dina önskade språk eller plattform. Informationen i den här artikeln är utformad för att hjälpa dig att förstå övergripande scenarierna innan du [börjar arbeta med kod](active-directory-appmodel-v2-overview.md#getting-started).
 
 > [!NOTE]
 > V2.0-slutpunkten stöder inte alla Azure Active Directory-scenarier och funktioner. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [v2.0 begränsningar](active-directory-v2-limitations.md).
-> 
-> 
 
 ## <a name="the-basics"></a>Grunderna
+
 Du måste registrera varje app som använder v2.0-slutpunkten i den [Microsoft Programregistreringsportalen](https://apps.dev.microsoft.com). Registreringsprocessen samlar in och tilldelar värdena för din app:
 
 * En **program-ID** som unikt identifierar din app
@@ -50,6 +50,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 <!-- TODO: Need a page for libraries to link to -->
 
 ## <a name="web-apps"></a>Webbappar
+
 Du kan använda för web apps (.NET, PHP, Java, Ruby, Python, Node) som användaren har åtkomst via en webbläsare, [OpenID Connect](active-directory-v2-protocols.md) för användarinloggning. Webbappen tar emot ett ID-token i OpenID Connect. Ett ID-token är en säkerhetstoken som verifierar användarens identitet och innehåller information om användaren i form av anspråk:
 
 ```
@@ -65,7 +66,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 }
 ```
 
-Du kan lära dig om alla typer av token och anspråk som är tillgängliga för en app i den [v2.0 tokens referens](active-directory-v2-tokens.md).
+Du kan lära dig om alla typer av token och anspråk som är tillgängliga för en app i den [v2.0 tokens referens](v2-id-and-access-tokens.md).
 
 I web server-appar utförs logga in autentiseringsflödet följande övergripande steg:
 
@@ -88,27 +89,27 @@ Accept: application/json
 ...
 ```
 
-Webb-API använder åtkomsttoken för att verifiera API-Anroparens identitet och extrahera information om anroparen från anspråk som kodas i åtkomsttoken. Läs om vilka typer av token och anspråk som är tillgängliga för en app i den [v2.0 tokens referens](active-directory-v2-tokens.md).
+Webb-API använder åtkomsttoken för att verifiera API-Anroparens identitet och extrahera information om anroparen från anspråk som kodas i åtkomsttoken. Läs om vilka typer av token och anspråk som är tillgängliga för en app i den [v2.0 tokens referens](v2-id-and-access-tokens.md).
 
-Ett webb-API kan ge användarna kraften att anmäla eller avanmäla dig från funktioner eller data genom att exponera behörigheter, även kallat [scope](active-directory-v2-scopes.md). För en anropande app att få behörighet att ett omfång måste användaren samtyckta till i omfånget under ett flöde. V2.0-slutpunkten frågar användaren om behörighet och registrerar sedan behörigheter i alla åtkomsttoken som tar emot webb-API. Webb-API verifierar åtkomsttoken tas emot på varje anrop och utför auktoriseringskontroller.
+Ett webb-API kan ge användarna kraften att anmäla eller avanmäla dig från funktioner eller data genom att exponera behörigheter, även kallat [scope](v2-permissions-and-consent.md). För en anropande app att få behörighet att ett omfång måste användaren samtyckta till i omfånget under ett flöde. V2.0-slutpunkten frågar användaren om behörighet och registrerar sedan behörigheter i alla åtkomsttoken som tar emot webb-API. Webb-API verifierar åtkomsttoken tas emot på varje anrop och utför auktoriseringskontroller.
 
 Ett webb-API kan ta emot åtkomsttoken från alla typer av appar, inklusive web server-appar, desktop och mobilappar, enkelsidiga appar, server-deamon och andra webb-API: er. Övergripande flödet för en webb-API som ser ut så här:
 
-![Autentiseringsflödet för webb-API](../../media/active-directory-v2-flows/convergence_scenarios_webapi.png)
+![Autentiseringsflödet för webb-API](/media/v2-protocols-oidc/convergence_scenarios_webapi.png)
 
 Om du vill lära dig att skydda ett webb-API med hjälp av OAuth2-åtkomsttoken, Kolla in webb-API-kodexempel i vår [komma igång](active-directory-appmodel-v2-overview.md#getting-started) avsnittet.
 
-I många fall webb API: er måste också göra utgående begäranden till andra underordnade webb-API: er som skyddas av Azure Active Directory. Om du vill göra det web API: er kan dra nytta av Azure Active Directorys **på uppdrag av** flödet, vilket gör att ditt webb-API att byta ut en inkommande åtkomsttoken för en annan åtkomsttoken som ska användas i utgående begäranden. V2.0 slutpunkten för flödet beskrivs i [information här](active-directory-v2-protocols-oauth-on-behalf-of.md).
+I många fall webb API: er måste också göra utgående begäranden till andra underordnade webb-API: er som skyddas av Azure Active Directory. Om du vill göra det web API: er kan dra nytta av Azure Active Directorys **på uppdrag av** flödet, vilket gör att ditt webb-API att byta ut en inkommande åtkomsttoken för en annan åtkomsttoken som ska användas i utgående begäranden. V2.0 slutpunkten för flödet beskrivs i [information här](v2-oauth2-on-behalf-of-flow.md).
 
 ## <a name="mobile-and-native-apps"></a>Mobila och interna appar
-Enhet-installerade appar, till exempel appar och program behöver ofta åtkomst till backend-tjänster eller webb-API: er som lagrar data och utför funktioner för en användares räkning. De här apparna kan lägga till inloggning och auktorisering till backend-tjänster med hjälp av den [OAuth 2.0-auktoriseringskodflödet](active-directory-v2-protocols-oauth-code.md).
+Enhet-installerade appar, till exempel appar och program behöver ofta åtkomst till backend-tjänster eller webb-API: er som lagrar data och utför funktioner för en användares räkning. De här apparna kan lägga till inloggning och auktorisering till backend-tjänster med hjälp av den [OAuth 2.0-auktoriseringskodflödet](v2-oauth2-auth-code-flow.md).
 
 I det här flödet får appen en auktoriseringskod från v2.0-slutpunkten när användaren loggar in. Auktoriseringskoden representerar appens behörighet att anropa backend-tjänster som är inloggade användarens räkning. Appen kan byta auktoriseringskod i bakgrunden för en OAuth 2.0-åtkomsttoken och en uppdateringstoken. Appen kan använda åtkomsttoken för autentisering till webb-API: er i HTTP-begäranden och använda uppdateringstoken för att hämta nya åtkomsttoken när äldre åtkomsttoken upphör att gälla.
 
 ![Autentiseringsflödet för inbyggd app](../../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
 ## <a name="single-page-apps-javascript"></a>Enkelsidiga appar (JavaScript)
-Många moderna appar innehåller en ensidesapp klientdel som främst är skriven i JavaScript. De skrivs ofta med hjälp av ett ramverk som AngularJS, Ember.js eller Durandal.js. Azure AD v2.0-slutpunkten har stöd för dessa appar med hjälp av den [OAuth 2.0 implicit flöde](active-directory-v2-protocols-implicit.md).
+Många moderna appar innehåller en ensidesapp klientdel som främst är skriven i JavaScript. De skrivs ofta med hjälp av ett ramverk som AngularJS, Ember.js eller Durandal.js. Azure AD v2.0-slutpunkten har stöd för dessa appar med hjälp av den [OAuth 2.0 implicit flöde](v2-oauth2-implicit-grant-flow.md).
 
 I det här flödet appen tar emot token direkt från v2.0 tillåta slutpunkt utan några server-till-server-utbyten. Placera helt i JavaScript-klient, utan extra sidomdirigeringar alla autentiseringslogiken och hantering av tar-session.
 
@@ -123,4 +124,4 @@ I det här flödet appen interagerar direkt med den `/token` slutpunkt för att 
 
 ![Autentiseringsflödet för Daemon-app](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
-Om du vill skapa en daemon-app, se den [klientautentiseringsuppgifter dokumentation](active-directory-v2-protocols-oauth-client-creds.md), eller försök en [.NET-exempelapp](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+Om du vill skapa en daemon-app, se den [klientautentiseringsuppgifter dokumentation](v2-oauth2-client-creds-grant-flow.md), eller försök en [.NET-exempelapp](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

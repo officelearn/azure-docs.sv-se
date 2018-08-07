@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 3303a0fb1ca4c4a8f6695c2e4338c1b0a0fc9f40
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: a6df90a1ae1dddbf7f76a7ef6c7e13d9e645dd9c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358640"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528433"
 ---
-# <a name="sign-in-with-your-phone-not-your-password"></a>Logga in med din telefon, inte ditt lösenord
+# <a name="sign-in-with-your-phone-not-your-password"></a>Logga in med telefonen, inte med ditt lösenord
 
 Microsoft Authenticator-appen inte bara kan du skydda dina konton genom att utföra tvåstegsverifiering när du ange ditt lösenord, men nu den kan ändra lösenordet för ditt Microsoft-konto helt och hållet.
 
@@ -70,7 +70,7 @@ Nya konton som är automatiskt aktiverad så att du kan omedelbart börja använ
 
 ### <a name="to-use-phone-sign-in-to-sign-in-to-your-personal-account"></a>Att använda telefoninloggning för att logga in på ditt personliga konto
 
-1.  Gå till ditt personliga Microsoft-konto på inloggningssidan och välj sedan i stället för att skriva ditt lösenord, den **använder en app i stället** länk.
+1.  Gå till ditt personliga Microsoft-konto på inloggningssidan och välj sedan i stället för att skriva ditt lösenord, den **Använd Microsoft Authenticator-appen i stället** länk.
 
     Microsoft skickar ett meddelande till din telefon. 
 

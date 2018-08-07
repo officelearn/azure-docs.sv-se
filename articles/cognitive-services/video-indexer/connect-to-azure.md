@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/05/2018
 ms.author: juliako
-ms.openlocfilehash: 456ee8f7461fdb6a4335cdb36d4a6f9182e4c63e
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2c7c74d81f6d6634312b9af3f8657c520449787a
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389287"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577342"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa en Video Indexer-konto som är ansluten till Azure
 
@@ -43,6 +43,12 @@ Den här artikeln visar hur du skapar en Video Indexer-konto som är länkad til
     *  Vara medlem i Azure-prenumerationen med en ägarrollen eller både deltagare och administratör för användaråtkomst roller. En användare kan läggas till två gånger, med 2-roller. En gång med deltagare och en gång med användaren administratör.
 
         ![Åtkomstkontroll](./media/create-account/access-control-iam.png)
+
+    * Registrera resursprovidern EventGrid med Azure portal.
+
+        I Azure-portalen går du till **prenumerationer** > [prenumeration] > **ResourceProviders** > **Microsoft.EventGrid**. Om inte i tillståndet ”Registered” klickar du på **registrera**. Det tar några minuter att registrera. 
+
+        ![EventGrid](./media/create-account/event-grid.png)
 
 ## <a name="connect-to-azure"></a>Anslut till Azure
 

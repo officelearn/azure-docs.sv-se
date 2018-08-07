@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 38e5e37111c6996fcf1342b123b5fc034b58fc0b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 446c97918a6b6287bf4cacf4711a0dd46e12f141
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431002"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578559"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Artikelindex för programhantering i Azure Active Directory
 Den här sidan innehåller en fullständig lista över alla dokument som skrivits om de olika programrelaterade funktionerna i Azure Active Directory (AD Azure).
@@ -41,7 +41,7 @@ Det här avsnittet ger snabb åtkomst till relevanta felsökningsguider. Mer inf
 
 | Funktionsområde |  |
 |:---:| --- |
-| Federerad enkel inloggning |[Felsöka SAML-baserad enkel inloggning](active-directory-saml-debugging.md) |
+| Federerad enkel inloggning |[Felsöka SAML-baserad enkel inloggning](develop/howto-v1-debug-saml-sso-issues.md) |
 | Lösenordsbaserad enkel inloggning |[Felsöka Access Panel-tillägg för Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Programproxy |[Approxy felsökningsguiden](manage-apps/application-proxy-troubleshoot.md) |
 | Enkel inloggning mellan lokala AD och Azure AD |[Felsökning av synkronisering av Lösenordshash](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Felsöka tillbakaskrivning av lösenord](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
@@ -57,7 +57,7 @@ Tillåter användare att komma åt en mängd olika appar och tjänster med endas
 | Tusentals SaaS-appar som redan är integrerade i Azure AD med förenklad konfiguration för enkel inloggning steg |[Komma igång med Azure AD-programgalleriet](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Fullständig lista över förintegrerade appar som har stöd för Federation](saas-apps/tutorial-list.md)<br /><br />[Lägg till din App i Azure AD-Appgalleri](active-directory-app-gallery-listing.md) |
 | Fler än 150 app självstudier om hur du konfigurerar enkel inloggning för appar som [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md), och många fler |[Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](saas-apps/tutorial-list.md) |
 | Hur du manuellt konfigurera och anpassa din konfiguration för enkel inloggning |[Hur du konfigurerar federerad enkel inloggning till appar som inte ingår i Azure Active Directory-Programgalleriet](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Anpassa anspråk som utfärdats i SAML-Token för förintegrerade appar](active-directory-saml-claims-customization.md) |
-| Felsökningsguide för federerade appar som använder SAML-protokoll |[Felsöka SAML-baserad enkel inloggning](active-directory-saml-debugging.md) |
+| Felsökningsguide för federerade appar som använder SAML-protokoll |[Felsöka SAML-baserad enkel inloggning](develop/howto-v1-debug-saml-sso-issues.md) |
 | Så här konfigurerar du appens certifikat upphör att gälla och förnya certifikat |[Hantera certifikat för federerad enkel inloggning i Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
 Federerad enkel inloggning är tillgänglig för alla utgåvor av Azure AD för upp till tio appar per användare. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) har stöd för ett obegränsat antal program. Om din organisation har [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) eller [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), kan du [använda grupper för att tilldela åtkomst till federerade program](#managing-access-to-applications).

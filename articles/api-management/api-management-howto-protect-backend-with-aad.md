@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 99860628197092749a5102787afd952f2a09a995
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 06350d30999cb056babbd001f98a6c3a5fdbac6c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493225"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577002"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Skydda ett API med hjälp av OAuth 2.0 med Azure Active Directory och API Management
 
@@ -193,7 +193,7 @@ Du kan använda den [verifiera JWT](api-management-access-restriction-policies.m
 
 ## <a name="build-an-application-to-call-the-api"></a>Skapa ett program för att anropa API
 
-I den här guiden du använde Utvecklarkonsolen i API Management som exempelklientprogram för att anropa den `Echo API` skyddas av OAuth 2.0. Läs mer om hur du skapar ett program och implementera OAuth 2.0 i [kodexempel för Azure Active Directory](../active-directory/develop/active-directory-code-samples.md).
+I den här guiden du använde Utvecklarkonsolen i API Management som exempelklientprogram för att anropa den `Echo API` skyddas av OAuth 2.0. Läs mer om hur du skapar ett program och implementera OAuth 2.0 i [kodexempel för Azure Active Directory](../active-directory/develop/sample-v1-code.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om [Azure Active Directory och OAuth2.0](../active-directory/develop/authentication-scenarios.md).

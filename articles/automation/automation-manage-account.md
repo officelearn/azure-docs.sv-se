@@ -9,17 +9,17 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: be1b35d2e7dc3d3e2efab825f318983e2943b0d2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5fbdccf4e14ce1201b21f0490e9c890c77c3e2f0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194367"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577763"
 ---
 # <a name="manage-azure-automation-account"></a>Hantera Azure Automation-konto
 Någon gång innan Automation-kontot går ut måste du förnya certifikatet. Om du tror att ditt Kör som-konto har komprometterats kan du ta bort och återskapa det. Det här avsnittet beskriver hur du utför dessa åtgärder.
 
-## <a name="self-signed-certificate-renewal"></a>Förnya självsignerade certifikat
+## <a name="cert-renewal"></a>Förnya självsignerade certifikat
 Det självsignerade certifikatet som du skapade för Kör som-kontot går ut ett år efter det datum då det skapades. Du kan förnya det när som helst innan det upphör att gälla. När du förnyar det behålls det aktuella giltiga certifikatet för att säkerställa att alla runbookflöden som placerats i kö eller som körs aktivt, och som autentiserar med Kör som-kontot, inte påverkas negativt. Certifikatet förblir giltigt fram till dess förfallodatum.
 
 > [!NOTE]
@@ -77,6 +77,6 @@ När du väljer Kör som-kontot visas följande felmeddelande i rutan **Egenskap
 Du kan snabbt lösa dessa problem med Kör som-kontot genom att ta bort och återskapa kontot.
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om tjänstobjekt finns i [Programobjekt och tjänstobjekt](../active-directory/active-directory-application-objects.md).
+* Mer information om tjänstobjekt finns i [Programobjekt och tjänstobjekt](../active-directory/develop/app-objects-and-service-principals.md).
 * Mer information om rollbaserad åtkomstkontroll i Azure Automation finns i [Rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md).
 * Mer information om certifikat och Azure-tjänster finns i [Översikt över certifikat för Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).

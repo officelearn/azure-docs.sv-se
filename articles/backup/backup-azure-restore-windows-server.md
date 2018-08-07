@@ -6,14 +6,14 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/25/2018
+ms.date: 8/6/2018
 ms.author: saurse
-ms.openlocfilehash: a1c9df57ddebbb1cf471f705acfbd6651c151d7b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ddde297de49edb5f6543d03dfdb972771533301b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247286"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576193"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Återställ filer till en Windows-server eller Windows-klientdator med hjälp av Resource Manager-distributionsmodellen
 
@@ -51,6 +51,8 @@ Om du av misstag har tagit bort en fil och vill återställa den till samma dato
 4. På den **Välj återställningsläge** fönstret Välj **enskilda filer och mappar** och klicka sedan på **nästa**.
 
     ![Bläddra efter filer](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+> [!IMPORTANT]
+> Alternativet för att återställa *enskilda filer och mappar* kräver .NET Framework 4.5.2 eller senare. Om du inte ser den *enskilda filer och mappar* alternativet, måste du uppgradera .NET Framework version 4.5.2 eller senare och försök igen.
 
 5. På den **Välj volym och datum** fönstret väljer du den volym som innehåller filerna och/eller mappar som du vill återställa.
 
@@ -67,7 +69,7 @@ Om du av misstag har tagit bort en fil och vill återställa den till samma dato
     ![Återställningsalternativ](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 
-8. I Windows Explorer, kopierar du filerna och/eller mapparna du vill återställa och klistrar in dem på valfri plats som är lokala för servern eller datorn. Du kan öppna eller strömma filer direkt från återställningsvolymen och verifiera att rätt versioner återställs.
+8. I Windows Explorer, kopierar du filerna och/eller mapparna du vill återställa och klistrar in dem på valfri plats som är lokala för servern eller datorn. Du kan öppna eller strömma filer direkt från återställningsvolymen och verifiera att du återställer rätt versioner.
 
     ![Kopiera och klistra in filer och mappar från monterad volym till lokal plats](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 

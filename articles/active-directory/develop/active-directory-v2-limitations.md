@@ -17,16 +17,16 @@ ms.date: 07/12/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4111174e7ce000a978a7a5280a2561897500bdb6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: aa931702975c2c6bdcc65853c3865dbeff570bf4
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505702"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578457"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Ska jag använda v2.0-slutpunkten?
 
-När du skapar program som integreras med Azure Active Directory (AD Azure), måste du bestämma om protokollen v2.0-slutpunkten och autentisering uppfyller dina behov. Azure Active Directorys ursprungliga slutpunkt stöds fortfarande fullt ut och på vissa sätt, har du fler funktioner än v2.0. Dock v2.0-slutpunkten [introducerar stora fördelar](active-directory-v2-compare.md) för utvecklare.
+När du skapar program som integreras med Azure Active Directory (AD Azure), måste du bestämma om protokollen v2.0-slutpunkten och autentisering uppfyller dina behov. Azure Active Directorys ursprungliga slutpunkt stöds fortfarande fullt ut och på vissa sätt, har du fler funktioner än v2.0. Dock v2.0-slutpunkten [introducerar stora fördelar](azure-ad-endpoint-comparison.md) för utvecklare.
 
 Här är en förenklad rekommendation för utvecklare som vid denna tidpunkt:
 

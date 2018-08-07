@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 747189c7cab2c76c6695bdb8e13f77532adc46d4
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 96f4ecb433277c747ddb1d1dc977bd609f93d5ff
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216081"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578593"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Övervaka och felsöka Site Recovery
 
@@ -88,7 +88,7 @@ Den **infrastruktur-vy** visar infrastrukturkomponenter som ingår i replikering
 - En röd linje med felikonen verlaid anger förekomsten av en eller flera fel inträffa som inverkan-anslutning.
 -  Hovra muspekaren över felikonen för att visa felet och antal berörda entiteter. Klicka på ikonen för en filtrerad lista över berörda entiteter.
 
-    ! [Site Recovery-infrastruktur-vy (valv)] RE(./Media/site-Recovery-Monitor-and-Troubleshoot/site-Recovery-Vault-Infra-View.png)
+    ![Site Recovery infrastruktur-vy (valv)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
 
 ## <a name="tips-for-monitoring-the-infrastructure"></a>Tips för övervakning av infrastrukturen
 

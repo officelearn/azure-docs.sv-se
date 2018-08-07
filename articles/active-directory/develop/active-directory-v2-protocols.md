@@ -17,12 +17,12 @@ ms.date: 04/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b50d04f843e86f5af8ccd32589a540e38e6e47df
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 5872190f811af208f5b27da330da3313e77a8665
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502941"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579310"
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0 protokoll – OAuth 2.0 och OpenID Connect
 V2.0-slutpunkten kan använda Azure AD för identitets-as-a-service med branschens standardprotokoll, OpenID Connect och OAuth 2.0. Tjänsten är standardkompatibla, kan det finnas skillnader mellan två implementeringar av dessa protokoll. Information om här är praktiskt om du väljer att skriva din kod genom att skicka direkt och hantering av HTTP-begäranden eller använda ett bibliotek med 3 part öppen källkod i stället för att använda någon av våra [öppna bibliotek källkod](active-directory-v2-libraries.md).
@@ -73,13 +73,13 @@ Välj en viss apptyp nedan för mer information om hur du interagerar med de hä
 ## <a name="tokens"></a>Token
 V2.0-implementeringen av OAuth 2.0 och OpenID Connect gör omfattande användning av ägar-token, inklusive ägar-token som JWTs. En ägartoken är en förenklad säkerhetstoken som ger ”ägar” åtkomst till en skyddad resurs. I detta avseende är ”ägar” en part som kan utgöra en token. Även om en part måste först autentisera med Azure AD för att ta emot ägartoken om steg som krävs inte vidtas för att skydda token i överföring och lagring, kan den fångas upp och används av en oavsiktlig part. Även om vissa säkerhetstoken har en inbyggd mekanism för att förhindra obehöriga personer från att använda dem, ägar-token har inte den här mekanismen och måste transporteras i en säker kanal, till exempel transport layer security (HTTPS). Om en ägartoken skickas i klartext, kan en man-modul i mitten-attack användas av en obehörig part att hämta token och använda den för en obehörig åtkomst till en skyddad resurs. Samma säkerhetsprinciper gäller när du lagrar eller cachelagring ägar-token för senare användning. Se alltid till att appen överför och lagrar ägar-token på ett säkert sätt. Mer säkerheten på ägartoken, finns [RFC 6750 avsnitt 5](http://tools.ietf.org/html/rfc6750).
 
-Ytterligare information om olika typer av token som används i v2.0-slutpunkten är tillgänglig i [tokenreferens för v2.0-slutpunkten](active-directory-v2-tokens.md).
+Ytterligare information om olika typer av token som används i v2.0-slutpunkten är tillgänglig i [tokenreferens för v2.0-slutpunkten](v2-id-and-access-tokens.md).
 
 ## <a name="protocols"></a>Protokoll
 Om du är redo att se vissa exempel begäranden, Kom igång med någon av de nedan självstudier. Var och en motsvarar ett visst autentiseringsscenario. Om du behöver hjälp med att fastställa som är rätt för dig kan du kolla [typer av appar som du kan skapa med v2.0](active-directory-v2-flows.md).
 
-* [Skapa mobila och programspecifika med OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
-* [Skapa webb-appar med öppna ID Connect](active-directory-v2-protocols-oidc.md)
-* [Skapa appar med en sida med det implicita flödet för OAuth 2.0](active-directory-v2-protocols-implicit.md)
-* [Build-Daemon eller sida serverprocesser med OAuth 2.0-klientautentiseringsuppgifter Flow](active-directory-v2-protocols-oauth-client-creds.md)
-* [Hämta token i ett webb-API med OAuth 2.0 för Flow](active-directory-v2-protocols-oauth-on-behalf-of.md)
+* [Skapa mobila och programspecifika med OAuth 2.0](v2-oauth2-auth-code-flow.md)
+* [Skapa webb-appar med öppna ID Connect](v2-protocols-oidc.md)
+* [Skapa appar med en sida med det implicita flödet för OAuth 2.0](v2-oauth2-implicit-grant-flow.md)
+* [Build-Daemon eller sida serverprocesser med OAuth 2.0-klientautentiseringsuppgifter Flow](v2-oauth2-client-creds-grant-flow.md)
+* [Hämta token i ett webb-API med OAuth 2.0 för Flow](v2-oauth2-on-behalf-of-flow.md)

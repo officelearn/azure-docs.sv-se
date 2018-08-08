@@ -1,20 +1,19 @@
 ---
-title: Optimera klusterkonfigurationer med Ambari - Azure HDInsight | Microsoft Docs
+title: Optimera klusterkonfigurationer med Ambari - Azure HDInsight
 description: Använda Ambari-webbgränssnittet för att konfigurera och optimera HDInsight-kluster.
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: 6fe7092b2038b5cf53906e537ef02e457370d0d3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b16020ec421eb077dca8318c765834e6f64f3235
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434670"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600605"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Använda Ambari och optimera klusterkonfigurationer för HDInsight
 
@@ -191,7 +190,7 @@ Som en allmän regel är viktigt att ha komprimeringsmetoden delbara, annars myc
     ![Hive exec compress mellanliggande](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
     > [!NOTE]
-    > Om du vill komprimera mellanliggande filer, väljer du en komprimerings-codec med lägre processor kostnaderna, även om codec-enheten inte har en hög komprimering utdata.
+    > Om du vill komprimera mellanliggande filer, väljer du en komprimerings-codec med lägre processor kostnaderna, även om den codec har en hög komprimering utdata.
 
 1. Ange mellanliggande komprimerings-codec genom att lägga till den anpassade egenskapen `mapred.map.output.compression.codec` till den `hive-site.xml` eller `mapred-site.xml` fil.
 
@@ -228,7 +227,7 @@ Den slutgiltiga utdata för Hive kan också komprimeras.
 
 Spekulativ körning startar ett visst antal duplicerade åtgärder för att identifiera och svartlista långsamma uppgift spåraren samtidigt förbättra den övergripande jobbkörningen genom att optimera enskilda resultat.
 
-Spekulativ körning bör inte aktiveras för långvariga MapReduce-aktiviteter med stora mängder indata.
+Spekulativ körning bör t vara aktiverad för långvariga MapReduce-aktiviteter med stora mängder indata.
 
 * Om du vill aktivera spekulativ körning, navigera till Hive **Peeringkonfigurationer** fliken och ange sedan den `hive.mapred.reduce.tasks.speculative.execution` parametern till true. Standardvärdet är FALSKT.
 

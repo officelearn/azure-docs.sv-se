@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8d8835bd97b489a730a040e86748c668963c7196
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 9c0c1ba9dd343baa453f10ad82c0cc8b8e69da7b
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187731"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596162"
 ---
 # <a name="create-a-new-simulated-device"></a>Skapa en ny simulerad enhet
 
@@ -140,6 +140,8 @@ Följande kommandon används den `az` från [Azure CLI 2.0](https://docs.microso
     ```sh
     az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
+
+    Du bör bara aktivera SSH-åtkomst under testning och utveckling. Om du aktiverar SSH, [bör du inaktivera det igen så snart som möjligt](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines)
 
 1. Om du vill ändra lösenord för virtuell dator till ett lösenord som du vet, kör du följande kommando. Använd namnet på den virtuella datorn som du antecknade tidigare och ett valfritt lösenord:
 

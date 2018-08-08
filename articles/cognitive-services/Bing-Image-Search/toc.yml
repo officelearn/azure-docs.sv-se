@@ -47,8 +47,6 @@
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search'
 - name: Instruktionsguider
   items:
-    - name: Använda och visa resultat
-      href: UseAndDisplayRequirements.md
     - name: Hämta information om bilder
       href: image-insights.md
     - name: Hämta .gif-bilder
@@ -91,5 +89,7 @@
       href: image-search-endpoint.md
     - name: Länder och marknader som stöds
       href: supported-countries-markets.md
+    - name: Använda och visa krav
+      href: UseAndDisplayRequirements.md
     - name: Analys för API för bildsökning i Bing
       href: bing-image-stats.md

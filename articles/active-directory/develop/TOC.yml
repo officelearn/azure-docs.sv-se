@@ -103,9 +103,9 @@
     - name: Enkel inloggning för mobilappar och skrivbordsappar
       items:
         - name: Aktivera enkel inloggning för Android
-          href: howto-v1-enable-sso-on-android.md
+          href: howto-v1-enable-sso-android.md
         - name: Aktivera enkel inloggning för iOS
-          href: howto-v1-enable-sso-on-ios.md
+          href: howto-v1-enable-sso-ios.md
     - name: Azure AD B2B
       href: ../active-directory-b2b-what-is-azure-ad-b2b.md
     - name: Användaretablering med SCIM
@@ -116,9 +116,9 @@
         - name: Komma igång med AAD Graph
           href: active-directory-graph-api-quickstart.md
     - name: AppSource-certifiering
-      href: active-directory-devhowto-appsource-certified.md
+      href: howto-get-appsource-certified.md
     - name: Azure AD-appgalleri
-      href: active-directory-app-gallery-listing.md
+      href: howto-app-gallery-listing.md
     - name: Office 365-instrumentpanel för försäljning
       href: 'https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard'
     - name: Arbeta med Visual Studio
@@ -150,7 +150,7 @@
     - name: Kodexempel efter scenario
       href: sample-v1-code.md
     - name: Ordlista
-      href: active-directory-dev-glossary.md
+      href: developer-glossary.md
     - name: Autentiseringsprotokoll
       href: active-directory-authentication-protocols.md
       items:
@@ -178,7 +178,7 @@
         - name: Appar och Azure AD
           href: active-directory-how-applications-are-added.md
     - name: Programmanifest
-      href: active-directory-application-manifest.md
+      href: reference-app-manifest.md
     - name: Livslängder för token
       href: ../active-directory-configurable-token-lifetimes.md
     - name: Tjänstbegränsningar
@@ -189,7 +189,7 @@
       href: active-directory-appmodel-v2-overview.md
       items:
         - name: Typer av appar
-          href: active-directory-v2-flows.md
+          href: v2-app-types.md
         - name: Begränsningar
           href: active-directory-v2-limitations.md
         - name: Jämförelse mellan v1 och v2
@@ -239,7 +239,7 @@
     - name: Referens
       items:
         - name: Autentiseringsbibliotek
-          href: active-directory-v2-libraries.md
+          href: reference-v2-libraries.md
         - name: v2.0-kodexempel efter scenario
           href: sample-v2-code.md
         - name: v2.0 autentiseringsprotokoll
@@ -266,7 +266,7 @@
 - name: Resurser
   items:
     - name: Få hjälp
-      href: active-directory-develop-help-support.md
+      href: developer-support-help-options.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: Priskalkylator
